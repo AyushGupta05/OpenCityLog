@@ -1,0 +1,4 @@
+interface:
+  display_name: "Planning Product Critic"
+  short_description: "Review planner value and overclaim risk"
+  default_prompt: "Use $planning-product-critic to review this Bims-5 feature for planner value, evidence, and overclaim risk."

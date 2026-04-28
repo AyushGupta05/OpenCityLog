@@ -1,455 +1,320 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Belfast 2016-2036 - Simulation Studio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Citylog</title>
+  <meta name="description" content="A source-backed city change atlas for exploring observed events over time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/atlas.css">
 </head>
 <body>
+  <a class="skip-link" href="#mapStage">Skip to map</a>
 
-<div class="app">
-
-  <!-- ========== LEFT SIDEBAR (Events / Activity Log) ========== -->
-  <aside class="left-sidebar">
-    <h2 id="leftSidebarTitle">Events</h2>
-    <p class="left-subtitle" id="leftSidebarSubtitle">Permits, openings,<br>and changes by year</p>
-    <select id="leftSidebarFilter" class="category-select">
-      <option value="all">All Categories</option>
-      <option value="traffic">Traffic</option>
-      <option value="jobs">Jobs</option>
-      <option value="electricity">Electricity</option>
-      <option value="buildings">Buildings</option>
-      <option value="services">Public Transit</option>
-    </select>
-    <div id="leftSidebarList" class="events-list"></div>
-  </aside>
-
-  <!-- ========== CENTER (Toolbar + Map + Timeline) ========== -->
-  <main class="center-area">
-
-    <!-- Top toolbar -->
-    <header class="toolbar">
-      <div id="lensTabs" class="right-tabs" role="tablist" aria-label="Forecast filters">
-        <button class="lens-tab active" data-lens="buildings" type="button" aria-pressed="true" title="Buildings filter" style="--lens-color:#3b82f6">Buildings</button>
-        <button class="lens-tab" data-lens="traffic" type="button" aria-pressed="false" title="Traffic filter" style="--lens-color:#fb923c">Traffic</button>
-        <button class="lens-tab" data-lens="jobs" type="button" aria-pressed="false" title="Jobs filter" style="--lens-color:#a855f7">Jobs</button>
-        <button class="lens-tab" data-lens="electricity" type="button" aria-pressed="false" title="Electricity filter" style="--lens-color:#06b6d4">Electricity</button>
-        <button class="lens-tab" data-lens="services" type="button" aria-pressed="false" title="Public Transit filter" style="--lens-color:#22c55e">Public Transit</button>
-      </div>
-
-      <div class="tools-host">
-        <div class="modify-list" id="modifyList" role="toolbar" aria-label="Edit tools">
-          <button class="tool-btn active" data-tool="select" type="button" aria-pressed="true" title="Select — click an item on the map to inspect it" aria-label="Select">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l4 10 2-5 5-2z" stroke-linejoin="round"/></svg>
-            <span>Select</span>
-          </button>
-          <button class="tool-btn" data-tool="building" type="button" aria-pressed="false" title="Buildings — click on the map to place a new building" aria-label="Buildings">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22V12h6v10"/></svg>
-            <span>Buildings</span>
-          </button>
-          <button class="tool-btn" data-tool="road" type="button" aria-pressed="false" title="Roads — search a postcode, then click two glowing junctions to plan a road" aria-label="Roads">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M2 5h4m4 0h4M2 11h4m4 0h4" stroke-linecap="round"/></svg>
-            <span>Roads</span>
-          </button>
-          <button class="tool-btn" data-tool="infrastructure" type="button" aria-pressed="false" title="Transformer — click on the map to add a grid transformer" aria-label="Transformer">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M7 6v4"/><path d="M17 6v4"/><rect x="7" y="10" width="10" height="7" rx="1.8"/><path d="M10 13h4"/><path d="M12 3v3"/><path d="M12 17v4"/><path d="M8 21h8"/><path d="M15 11l-4 5h4l-3 4"/></svg>
-            <span>Transformer</span>
-          </button>
-          <button class="tool-btn danger" data-tool="remove" type="button" aria-pressed="false" title="Remove — click an item on the map to delete it from this branch" aria-label="Remove">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
-            <span>Remove</span>
-          </button>
+  <div class="app citylog-app">
+    <aside class="left-sidebar citylog-sidebar" aria-labelledby="productName">
+      <header class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
         </div>
-        <div class="preset-section" id="presetSection" hidden>
-          <span class="preset-label" id="presetLabel">Building presets</span>
-          <div class="preset-grid" id="presetGrid"></div>
+        <div>
+          <h1 id="productName">Open Citylog</h1>
+          <p>City Change Atlas</p>
         </div>
-      </div>
+        <button class="collapse-rail" type="button" aria-label="Collapse timeline"><<</button>
+      </header>
 
-      <div class="toolbar-right">
-        <button class="icon-btn" id="exportBtn" type="button" title="Export">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Export</span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Mode banner — shows whether the timeline is in Historical or Simulation
-         range. Click to jump to the other mode. (T2.1) -->
-    <button type="button" id="modeBanner" class="mode-banner mode-historical" aria-live="polite">
-      <span class="mode-banner-dot" aria-hidden="true"></span>
-      <span class="mode-banner-label">Historical Replay · 2016–2025</span>
-      <span class="mode-banner-jump" id="modeBannerJump">Jump to Simulation →</span>
-    </button>
-
-    <!-- Map area -->
-    <div class="map-wrapper">
-      <div id="map" aria-label="Belfast map"></div>
-
-      <div class="map-overlay" id="mapOverlay" aria-hidden="true">
-        <div class="overlay-loader">
-          <div class="loader-ring"></div>
-          <span>Loading Belfast…</span>
+      <section class="timeline-panel" aria-labelledby="timelineTitle">
+        <div class="timeline-copy">
+          <h2 id="timelineTitle">Timeline</h2>
+          <p id="timelineRange">Explore 2000-2026</p>
         </div>
-      </div>
 
-      <!-- Search bar floating top-left of the map -->
-      <div class="map-search" id="mapSearch">
-        <form id="postcodeForm" autocomplete="off">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input id="postcodeInput" type="search" placeholder="Search postcode (BT1, BT7…)" maxlength="20" />
-          <button type="submit">Go</button>
-        </form>
-        <ul class="map-search-suggest" id="mapSearchSuggest" hidden></ul>
-        <!-- T3.3: Road planning stepper. Replaces the small one-line hint
-             with a 3-step workflow (search postcode → click junction A →
-             click junction B) so the user can always see where they are. -->
-        <div class="plan-road-stepper" id="planRoadHint" hidden role="status" aria-live="polite">
-          <ol class="prs-steps">
-            <li data-prs-step="1"><span class="prs-num">1</span><span class="prs-text">Search a postcode</span></li>
-            <li data-prs-step="2"><span class="prs-num">2</span><span class="prs-text">Click junction A</span></li>
-            <li data-prs-step="3"><span class="prs-num">3</span><span class="prs-text">Click junction B</span></li>
-          </ol>
-          <div class="prs-detail" id="planRoadStep">Click two glowing junctions to plan a road</div>
-          <button type="button" class="prs-cancel" id="planRoadCancel" title="Cancel road placement">Cancel</button>
+        <div class="year-range">
+          <span id="timelineStart">2000</span>
+          <span id="timelineEnd">2026</span>
         </div>
-      </div>
+        <input id="yearSlider" class="year-slider" type="range" min="2007" max="2026" value="2026" step="1" aria-label="Selected year">
 
-      <div class="map-active-tag" id="activeBranchTag">
-        <span class="tag-dot" id="tagDot"></span>
-        <span id="tagName">Baseline</span>
-        <span class="tag-year" id="tagYear">2026</span>
-      </div>
+        <label class="sidebar-search" for="eventSearch">
+          <span>Find event</span>
+          <input id="eventSearch" type="search" placeholder="Search events or places">
+        </label>
+        <div id="listMeta" class="list-meta" aria-live="polite">Loading events</div>
 
-      <div class="map-cursor-hint" id="cursorHint" hidden>
-        <span id="cursorHintText">Click on the map to place</span>
-      </div>
-
-      <div class="similar-events" id="similarEvents" hidden>
-        <div class="similar-events-head">
-          <span>Similar Past Events</span>
-          <span class="similar-events-conf" id="similarEventsConf"></span>
+        <div class="timeline-list-wrap">
+          <div class="timeline-axis" aria-hidden="true"></div>
+          <div class="event-list timeline-list" id="eventList" role="list"></div>
         </div>
-        <div class="similar-events-list" id="similarEventsList"></div>
-      </div>
 
-      <!-- T4.3: Buildability legend. Visible only while the green build-area
-           overlay is shown (Building tool active in a sim year). -->
-      <div class="buildability-legend" id="buildabilityLegend" hidden>
-        <span class="bl-swatch" id="buildabilityLegendSwatch"></span>
-        <span class="bl-text">
-          <strong id="buildabilityLegendLabel">Sites buildable for Residential</strong>
-          <span class="bl-sub">Brighter green = better fit. Switch presets to re-score.</span>
-        </span>
-      </div>
+        <button class="add-event-btn" id="impactButton" type="button">
+          <span aria-hidden="true">+</span>
+          Add local event
+        </button>
+      </section>
+    </aside>
 
-      <!-- Map controls (right side) -->
-      <div class="map-controls" id="viewToggle">
-        <button class="map-ctrl-btn active" type="button" data-view="2D" title="2D map">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg>
-        </button>
-        <button class="map-ctrl-btn" type="button" data-view="3D" title="3D view">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        </button>
-        <button class="map-ctrl-btn" id="undoBtn" type="button" title="Nothing to undo" disabled aria-label="Undo">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg>
-        </button>
-        <button class="map-ctrl-btn" id="helpBtn" type="button" title="Show product tour" aria-label="Help and tour">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </button>
-        <button class="map-ctrl-btn" id="collapseBtn" type="button" title="Collapse panels">
-          <svg id="collapseIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-      </div>
-
-      <div class="workspace-split" id="workspaceSplit" hidden>
-        <div class="workspace-split-head">
+    <main id="main" class="center-area citylog-center">
+      <header class="top-toolbar">
+        <div class="place-picker">
+          <label class="select-field" for="citySelect">
+            <span>Place</span>
+            <select id="citySelect" name="city"></select>
+          </label>
           <div>
-            <h3 id="splitTitle">Before / After</h3>
+            <h2 id="mapTitle">City changes</h2>
+            <p id="placeSubtitle">Loading source-backed records</p>
           </div>
-          <button class="workspace-split-close" id="splitCloseBtn" type="button" title="Close split view">&times;</button>
         </div>
-        <div class="workspace-split-body">
-          <section class="split-pane">
-            <div class="split-pane-head"><span id="splitYearBefore">No-build 2036</span><strong>Before</strong></div>
-            <div id="splitMapBefore" class="split-map"></div>
-          </section>
-          <section class="split-pane">
-            <div class="split-pane-head"><span id="splitYearAfter">With build 2036</span><strong>After</strong></div>
-            <div id="splitMapAfter" class="split-map"></div>
-          </section>
-        </div>
-        <div class="workspace-split-summary" id="splitSummary"></div>
-      </div>
-    </div>
 
-    <!-- Timeline (dot-based) -->
-    <div class="timeline-bar">
-      <div id="timelineYears" class="timeline-years"></div>
-      <div class="timeline-track" id="tlTrack">
-        <div class="timeline-line"></div>
-        <div class="timeline-filled" id="timelineFilled"></div>
-        <div class="timeline-progress" id="tlProgress" hidden></div>
-        <div class="timeline-thumb" id="tlThumb" hidden></div>
-        <div class="timeline-dots" id="timelineDots"></div>
-        <div class="timeline-marks" id="tlMarks" hidden></div>
-      </div>
-      <div class="timeline-labels">
-        <span class="hist-label">Historical Data (2016-2025)</span>
-        <span class="now-label" id="tlYearNow">2026</span>
-        <span class="future-label">Simulation (2026-2036)</span>
-      </div>
-      <span id="mapSubtitle" hidden></span>
-    </div>
-  </main>
+        <div class="lens-group top-lenses" id="lensGroup" role="group" aria-label="Change lenses"></div>
 
-  <!-- ========== RIGHT SIDEBAR ========== -->
-  <aside class="right-sidebar">
-    <div class="right-content">
-      <div id="modifySub" hidden></div>
-
-      <div class="section-title">
-        <span>Branching</span>
-      </div>
-      <div class="branch-picker">
-        <select id="branchSelect" class="branch-select" aria-label="Branch"></select>
-        <button class="new-branch-btn compact" id="newBranchBtn" type="button" title="New branch">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          <span>New</span>
-        </button>
-      </div>
-      <div class="viewing-label">Viewing branch <strong id="activeBranchName">Baseline</strong> - <span id="activeYearLabel">2026</span></div>
-      <div id="selectedEventSummary" class="event-summary-card" hidden></div>
-
-      <div class="section-title scenario-tree-title">
-        <span id="tlBranchName">Additions</span>
-      </div>
-      <div id="branchList" class="branch-addition-list"></div>
-
-      <!-- Impact Overview UI removed from sidebar. The stub elements below
-           keep internal rendering hooks alive without showing to the user. -->
-      <div hidden aria-hidden="true">
-        <span id="impactTitle"></span>
-        <div id="impactStack"></div>
-      </div>
-
-      <!-- Scenario Integrity (Solana commit) appears here once a simulation
-           has been run. Hidden until then so it doesn't clutter the sidebar. -->
-      <div id="scenarioIntegrityHost" class="scenario-integrity-host" hidden></div>
-
-      <div class="traffic-sim-section" id="trafficSimSection">
-        <div class="traffic-sim-head">
-          <span class="traffic-sim-title">Roads &amp; Traffic Sim</span>
-          <button class="traffic-sim-toggle" id="trafficSimToggle" type="button" aria-pressed="false">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <span id="trafficSimToggleLabel">Start</span>
+        <div class="toolbar-actions">
+          <button class="toolbar-pill" id="sourcesButton" type="button" aria-label="About Open Citylog">
+            <span class="mini-icon">i</span>
+            About Open Citylog
+          </button>
+          <button class="toolbar-pill" id="shareButton" type="button">
+            <span class="mini-icon">s</span>
+            Share
           </button>
         </div>
-        <div class="traffic-sim-controls">
-          <label class="traffic-sim-row">
-            <span>Density</span>
-            <input id="trafficSimDensity" type="range" min="0" max="220" step="10" value="80" />
-            <span class="traffic-sim-val" id="trafficSimDensityVal">80</span>
-          </label>
-          <label class="traffic-sim-row">
-            <span>Speed</span>
-            <input id="trafficSimSpeed" type="range" min="0.4" max="2.5" step="0.1" value="1.0" />
-            <span class="traffic-sim-val" id="trafficSimSpeedVal">1.0×</span>
-          </label>
-        </div>
-        <div class="traffic-sim-stats" id="trafficSimStats" hidden>
-          <div><span>Vehicles</span><b id="trafficSimVehicles">0</b></div>
-          <div><span>Avg speed</span><b id="trafficSimSpeedStat">0 m/s</b></div>
-          <div><span>Congested</span><b id="trafficSimCongested">0%</b></div>
-        </div>
-      </div>
-    </div>
+      </header>
 
-    <div class="right-footer">
-      <!-- T4.1: Run Simulation progress overlay. Sits inline above the footer
-           buttons; replaces them visually while the AI scenario is running so
-           the user sees what's happening and can cancel. -->
-      <div class="sim-progress" id="simProgress" hidden role="status" aria-live="polite">
-        <div class="sim-progress-row">
-          <span class="sim-spinner" aria-hidden="true"></span>
-          <span class="sim-progress-label" id="simProgressLabel">Calling AI planner…</span>
-          <button type="button" class="sim-progress-cancel" id="simProgressCancel">Cancel</button>
+      <section class="map-stage mode-3d" id="mapStage" aria-label="Interactive city evidence map">
+        <div class="map-viewport" id="staticMap" role="img" aria-label="Aerial-style city map with selected event overlays">
+          <div class="map-tile-layer" id="mapTileLayer" aria-hidden="true"></div>
+          <div class="satellite-texture" aria-hidden="true"></div>
+          <div class="map-block block-one" aria-hidden="true"></div>
+          <div class="map-block block-two" aria-hidden="true"></div>
+          <div class="map-block block-three" aria-hidden="true"></div>
+          <div class="map-block block-four" aria-hidden="true"></div>
+          <div class="map-block block-five" aria-hidden="true"></div>
+          <div class="map-water river-main" aria-hidden="true"></div>
+          <div class="map-water river-secondary" aria-hidden="true"></div>
+          <div class="map-water dock-basin" aria-hidden="true"></div>
+          <div class="map-park park-one" aria-hidden="true"></div>
+          <div class="map-park park-two" aria-hidden="true"></div>
+          <div class="map-park park-three" aria-hidden="true"></div>
+          <div class="map-road road-one" aria-hidden="true"></div>
+          <div class="map-road road-two" aria-hidden="true"></div>
+          <div class="map-road road-three" aria-hidden="true"></div>
+          <div class="map-road road-four" aria-hidden="true"></div>
+          <div class="map-road road-five" aria-hidden="true"></div>
+          <div class="map-rail rail-one" aria-hidden="true"></div>
+          <div class="map-rail rail-two" aria-hidden="true"></div>
+          <div class="map-outline outline-development" aria-hidden="true">Development zone</div>
+          <div class="map-outline outline-transport" aria-hidden="true">Transit corridor</div>
+          <div class="map-outline outline-evidence" aria-hidden="true">Evidence cluster</div>
+          <div class="map-label label-north">Stratford</div>
+          <div class="map-label label-core">Olympic Park</div>
+          <div class="map-label label-east">Lower Lea Valley</div>
+          <div class="focus-halo" aria-hidden="true"></div>
+          <div class="marker-layer" id="markerLayer" aria-label="Map event markers"></div>
         </div>
-        <div class="sim-progress-bar"><div class="sim-progress-fill" id="simProgressFill"></div></div>
+
+        <div class="map-empty" id="mapEmpty" hidden>No mappable events for this year and lens.</div>
+
+        <div class="view-toggle" aria-label="Map mode">
+          <button class="map-mode-btn" id="mapMode2d" type="button" aria-pressed="false">2D</button>
+          <button class="map-mode-btn active" id="mapMode3d" type="button" aria-pressed="true">3D</button>
+        </div>
+
+        <button class="layers-btn" id="fitMapButton" type="button" aria-label="Fit selected event">
+          <span aria-hidden="true"></span>
+        </button>
+
+        <div class="zoom-controls" aria-label="Map controls">
+          <button type="button" id="zoomInButton" aria-label="Zoom in">+</button>
+          <button type="button" id="zoomOutButton" aria-label="Zoom out">-</button>
+          <button type="button" id="locateButton" aria-label="Locate selected event">^</button>
+          <button type="button" id="targetButton" aria-label="Recenter map">o</button>
+        </div>
+
+        <div class="map-layer-switcher" id="mapLayerGroup" role="group" aria-label="Map evidence layer">
+          <button class="map-layer-btn active" type="button" data-map-layer="observed" aria-pressed="true">Observed</button>
+          <button class="map-layer-btn" type="button" data-map-layer="evidence" aria-pressed="false">Evidence</button>
+          <button class="map-layer-btn" type="button" data-map-layer="compare" aria-pressed="false">Before/after</button>
+        </div>
+
+        <article class="map-callout" id="mapCallout" hidden>
+          <span class="callout-kicker" id="calloutYear">Selected</span>
+          <strong id="calloutTitle">Choose an event</strong>
+          <span id="calloutMeta">Source-backed record</span>
+        </article>
+
+        <aside class="compare-card" aria-labelledby="compareTitle">
+          <div class="compare-head">
+            <h3 id="compareTitle">Compare years</h3>
+            <span aria-hidden="true">i</span>
+          </div>
+          <div class="compare-controls">
+            <label for="compareBefore">
+              <strong id="beforeMiniLabel">2004</strong>
+              <span>Before</span>
+              <select id="compareBefore" aria-label="Before year"></select>
+            </label>
+            <button class="swap-btn" id="compareSelectedEvent" type="button" aria-label="Compare around selected event">=</button>
+            <label for="compareAfter">
+              <strong id="afterMiniLabel">2026</strong>
+              <span>After</span>
+              <select id="compareAfter" aria-label="After year"></select>
+            </label>
+          </div>
+          <label class="opacity-control" for="opacitySlider">
+            <span>Opacity</span>
+            <output id="opacityValue">60%</output>
+            <input id="opacitySlider" type="range" min="0" max="100" value="60">
+          </label>
+        </aside>
+
+        <aside class="traffic-compare-card" id="trafficCompareCard" aria-label="Traffic before and after evidence" hidden>
+          <div class="traffic-compare-head">
+            <span>Traffic evidence</span>
+            <strong id="trafficCompareTitle">Before / after</strong>
+          </div>
+          <div class="traffic-compare-grid">
+            <div>
+              <span id="trafficBeforeYear">Before</span>
+              <strong id="trafficBeforeValue">-</strong>
+              <small id="trafficBeforeLabel">Baseline</small>
+            </div>
+            <div>
+              <span id="trafficAfterYear">After</span>
+              <strong id="trafficAfterValue">-</strong>
+              <small id="trafficAfterLabel">Observed</small>
+            </div>
+          </div>
+          <p id="trafficCompareNote">Select a traffic event to inspect source-backed context.</p>
+        </aside>
+
+        <div class="map-footer">
+          <span class="google-wordmark">Imagery</span>
+          <span id="mapAttribution">Esri World Imagery reference layer with source-backed event overlays</span>
+          <span class="scale-line">200 m</span>
+        </div>
+
+        <div class="evidence-banner">
+          Historical evidence map - not a prediction engine
+        </div>
+      </section>
+    </main>
+
+    <aside class="right-sidebar detail-panel" aria-labelledby="detailTitle">
+      <div class="detail-topline">
+        <span class="selected-dot"></span>
+        <span>Selected event</span>
+        <button class="close-detail" id="clearSelectionButton" type="button" aria-label="Clear selected event">x</button>
       </div>
-      <button class="view-diff-btn" id="scenarioDiffBtn" type="button">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="5" height="10" rx="1"/><rect x="9" y="3" width="5" height="10" rx="1"/><path d="M7 6h2M7 10h2" stroke-linecap="round"/></svg>
-        View Diff
+
+      <header class="detail-header">
+        <h2 id="detailTitle">Select an event</h2>
+        <p id="detailSubtitle">Choose a timeline card or map marker</p>
+      </header>
+
+      <div class="detail-tabs" id="detailTabGroup" role="tablist" aria-label="Event detail sections">
+        <button type="button" class="detail-tab active" data-detail-tab="observed" aria-pressed="true">Observed Change</button>
+        <button type="button" class="detail-tab" data-detail-tab="evidence" aria-pressed="false">Evidence</button>
+        <button type="button" class="detail-tab" data-detail-tab="details" aria-pressed="false">Details</button>
+      </div>
+
+      <div id="detailBody" class="detail-body empty-state">
+        Click an event to zoom the map and inspect observed changes, evidence, confidence, limitations, and source coverage.
+      </div>
+
+      <div class="delta-grid" id="deltaGrid" aria-label="Compare metrics"></div>
+
+      <section class="inspector-card confidence-card">
+        <div class="inspector-row">
+          <h3>Confidence</h3>
+          <strong id="detailConfidence">No event</strong>
+        </div>
+        <p id="confidenceText">Select an event to see evidence strength.</p>
+        <div class="confidence-meter" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </section>
+
+      <section class="inspector-card">
+        <div class="inspector-row">
+          <h3>Sources</h3>
+          <span id="eventCountPill">0 records</span>
+        </div>
+        <p id="sourceSummary">Source records and licences load from the city atlas data pack.</p>
+        <div class="source-chips" id="sourceChips"></div>
+      </section>
+
+      <button class="full-evidence-btn" id="openEvidenceButton" type="button">
+        View full evidence
+        <span aria-hidden="true">[]</span>
       </button>
-      <button class="view-diff-btn" id="compareBtn" type="button">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
-        Compare Branches
-      </button>
-      <button class="run-sim-btn" id="runBtn" type="button">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M4 3l9 5-9 5V3z"/></svg>
-        <span id="runBtnLabel">Run Simulation</span>
-      </button>
+    </aside>
+  </div>
+
+  <aside class="source-drawer" id="sourceDrawer" aria-labelledby="sourceDrawerTitle" aria-modal="true" role="dialog" hidden>
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <div>
+          <span class="eyebrow">Trust center</span>
+          <h2 id="sourceDrawerTitle">Sources and provenance</h2>
+        </div>
+        <button class="icon-btn" id="closeSourcesButton" type="button" aria-label="Close sources">x</button>
+      </div>
+      <div id="sourceDrawerBody" class="source-body"></div>
     </div>
   </aside>
 
-</div>
-
-<!-- ========== POPUPS / MODALS ========== -->
-
-<div id="branchMenu" class="ctx-menu" hidden>
-  <button data-act="rename">Rename</button>
-  <button data-act="duplicate">Duplicate</button>
-  <button data-act="recolor">Recolor</button>
-  <button data-act="delete" class="danger">Delete branch</button>
-</div>
-
-<div id="nodeMenu" class="ctx-menu" hidden>
-  <button data-act="inspect">Inspect</button>
-  <button data-act="goto">Go to year</button>
-  <div class="ctx-menu-separator"></div>
-  <button data-act="fork-here">Start new branch here</button>
-  <div class="ctx-menu-separator"></div>
-  <button data-act="branch-traffic">Traffic variation</button>
-  <button data-act="branch-jobs">Jobs variation</button>
-  <button data-act="branch-electricity">Electricity variation</button>
-  <button data-act="branch-services">Public Transit variation</button>
-  <div class="ctx-menu-separator"></div>
-  <button data-act="delete" class="danger">Delete item</button>
-</div>
-
-<div id="compareModal" class="modal" hidden>
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-card large">
-    <div class="modal-head">
-      <h3>Compare Branches at <span id="compareYear">2036</span></h3>
-      <button class="modal-close" data-close type="button">&times;</button>
-    </div>
-    <div class="modal-body" id="compareBody"></div>
-  </div>
-</div>
-
-<div id="diffModal" class="modal" hidden>
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-card xl">
-    <div class="modal-head">
-      <h3 id="diffTitle">Event diff</h3>
-      <button class="modal-close" data-close type="button">&times;</button>
-    </div>
-    <div class="modal-body" id="diffBody">
-      <div class="diff-meta" id="diffMeta"></div>
-      <div class="diff-maps">
-        <div class="diff-side">
-          <div class="diff-side-head"><span class="diff-side-year" id="diffYearBefore">2015</span><span>before</span></div>
-          <div id="diffMapBefore" class="diff-map"></div>
+  <section class="impact-panel" id="impactPanel" aria-labelledby="impactTitle" hidden>
+    <div class="drawer-backdrop" data-close-impact></div>
+    <div class="impact-sheet">
+      <div class="drawer-head">
+        <div>
+          <span class="eyebrow">Secondary mode</span>
+          <h2 id="impactTitle">Impact sketch</h2>
         </div>
-        <div class="diff-side">
-          <div class="diff-side-head"><span class="diff-side-year" id="diffYearAfter">2016</span><span>after</span></div>
-          <div id="diffMapAfter" class="diff-map"></div>
-        </div>
+        <button class="icon-btn" id="closeImpactButton" type="button" aria-label="Close impact sketch">x</button>
       </div>
-      <div class="diff-stats" id="diffStats"></div>
-      <div class="diff-evidence" id="diffEvidence"></div>
-    </div>
-  </div>
-</div>
-
-<div id="roadCompareModal" class="modal" hidden>
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-card xl">
-    <div class="modal-head">
-      <h3>Road Impact: <span id="roadCompareName">New Road</span></h3>
-      <button class="modal-close" data-close type="button">&times;</button>
-    </div>
-    <div class="modal-body" id="roadCompareBody">
-      <div class="rc-progress" id="roadCompareProgress">
-        <div class="rc-progress-bar"><div id="roadCompareProgressFill"></div></div>
-        <div class="rc-progress-label" id="roadCompareProgressLabel">Running baseline simulation…</div>
-      </div>
-      <div class="rc-result" id="roadCompareResult" hidden>
-        <div class="rc-maps">
-          <div class="rc-side rc-before">
-            <div class="rc-side-head"><span class="rc-side-tag">Before</span><span class="rc-side-sub">no new road</span></div>
-            <svg class="rc-mini-map" id="roadCompareMapBefore" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet"></svg>
-          </div>
-          <div class="rc-side rc-after">
-            <div class="rc-side-head"><span class="rc-side-tag">After</span><span class="rc-side-sub">with new road</span></div>
-            <svg class="rc-mini-map" id="roadCompareMapAfter" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet"></svg>
-          </div>
-        </div>
-        <div class="rc-stats">
-          <div class="rc-stat"><div class="rc-stat-label">Average speed</div><div class="rc-stat-row"><span class="rc-stat-before" id="rcSpeedBefore">—</span><span class="rc-stat-arrow" id="rcSpeedArrow">→</span><span class="rc-stat-after" id="rcSpeedAfter">—</span></div><div class="rc-stat-delta" id="rcSpeedDelta">—</div></div>
-          <div class="rc-stat"><div class="rc-stat-label">Congested time</div><div class="rc-stat-row"><span class="rc-stat-before" id="rcCongBefore">—</span><span class="rc-stat-arrow" id="rcCongArrow">→</span><span class="rc-stat-after" id="rcCongAfter">—</span></div><div class="rc-stat-delta" id="rcCongDelta">—</div></div>
-          <div class="rc-stat"><div class="rc-stat-label">Distance moved</div><div class="rc-stat-row"><span class="rc-stat-before" id="rcFlowBefore">—</span><span class="rc-stat-arrow" id="rcFlowArrow">→</span><span class="rc-stat-after" id="rcFlowAfter">—</span></div><div class="rc-stat-delta" id="rcFlowDelta">—</div></div>
-          <div class="rc-stat"><div class="rc-stat-label">Vehicles using new road</div><div class="rc-stat-row"><span class="rc-stat-after" id="rcUsage">—</span></div><div class="rc-stat-delta">over the simulated window</div></div>
-        </div>
-        <div class="rc-summary" id="roadCompareSummary"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="exportModal" class="modal" hidden>
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-card">
-    <div class="modal-head">
-      <h3>Export Scenario PDF</h3>
-      <button class="modal-close" data-close type="button">&times;</button>
-    </div>
-    <div class="modal-body">
-      <form id="exportForm" class="export-form">
-        <div class="export-mode" role="radiogroup" aria-label="Export mode">
-          <label class="export-mode-option">
-            <input type="radio" name="exportMode" value="single" checked>
-            <span>One branch</span>
-          </label>
-          <label class="export-mode-option">
-            <input type="radio" name="exportMode" value="compare">
-            <span>Two branches</span>
-          </label>
-        </div>
-        <label>
-          <span class="field-label">Branch A</span>
-          <select id="exportBranchA" class="parent-select"></select>
-        </label>
-        <label id="exportBranchBWrap">
-          <span class="field-label">Branch B</span>
-          <select id="exportBranchB" class="parent-select"></select>
-        </label>
-        <div class="export-note" id="exportStatus" hidden></div>
-        <div class="export-actions">
-          <button class="modal-btn secondary" type="button" data-close>Cancel</button>
-          <button class="modal-btn" id="exportGenerateBtn" type="submit">Create PDF</button>
-        </div>
+      <p class="panel-intro">Test a proposal against similar historical events and current local context. This is a lightweight evidence sketch, not a calibrated outcome model.</p>
+      <form class="impact-form" id="impactForm">
+        <label for="proposalCategory">Proposal type</label>
+        <select id="proposalCategory" name="category">
+          <option value="building_development">Building or development</option>
+          <option value="road_transport_change">Road or transport change</option>
+          <option value="transformer_energy_infrastructure">Energy infrastructure</option>
+          <option value="green_public_space">Green or public space</option>
+          <option value="service_civic_infrastructure">Service or civic infrastructure</option>
+        </select>
+        <label for="proposalTitle">Proposal title</label>
+        <input id="proposalTitle" name="title" type="text" value="Mixed-use change near the city centre">
+        <label for="proposalLocation">Location</label>
+        <select id="proposalLocation" name="location">
+          <option value="-0.0163,51.5386,Queen Elizabeth Olympic Park">Queen Elizabeth Olympic Park</option>
+          <option value="-0.0030,51.5410,Stratford station / Elizabeth line corridor">Stratford station / Elizabeth line corridor</option>
+          <option value="-73.9851,40.7580,Times Square">Times Square</option>
+          <option value="-74.0006,40.7539,Hudson Yards">Hudson Yards</option>
+        </select>
+        <label for="proposalScale">Scale</label>
+        <select id="proposalScale" name="scale">
+          <option value="small">Small</option>
+          <option value="medium" selected>Medium</option>
+          <option value="large">Large</option>
+          <option value="unknown">Unknown</option>
+        </select>
+        <label for="proposalDescription">Notes</label>
+        <textarea id="proposalDescription" name="description" rows="3">A rough proposal to screen against previous nearby changes and source-backed signals.</textarea>
+        <button class="primary-btn" type="submit">Sketch affected signals</button>
       </form>
+      <div class="impact-results" id="impactResults" aria-live="polite">
+        <div class="empty-state">Run an impact sketch to see affected signals, similar events, confidence, and caveats.</div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<div id="inspectModal" class="modal" hidden>
-  <div class="modal-backdrop" data-close></div>
-  <div class="modal-card">
-    <div class="modal-head">
-      <h3 id="inspectTitle">Item</h3>
-      <button class="modal-close" data-close type="button">&times;</button>
-    </div>
-    <div class="modal-body" id="inspectBody"></div>
-  </div>
-</div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-<div id="toast" class="toast" hidden></div>
-
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
-<script src="/impact-predictor.js"></script>
-<script src="/traffic-sim.js"></script>
-<script src="/transit-engine.js"></script>
-<script src="/map-ux.js"></script>
-<script src="/solana-web3.min.js"></script>
-<script src="/solana-scenario-commit.js"></script>
-<script src="/dashboard.js"></script>
+  <script src="/atlas.js" defer></script>
 </body>
 </html>

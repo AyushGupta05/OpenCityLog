@@ -1,0 +1,35 @@
+{
+  "city": "london",
+  "retrieved_at": "2026-04-28T09:52:10.257166+01:00",
+  "part": "part_1_data_discovery",
+  "status": "discovery_inventory_not_finished_ingestion",
+  "source_count": 35,
+  "event_seed_count": 25,
+  "buckets_present": [
+    "basemap_physical_features",
+    "boundaries_geography",
+    "demographics_socioeconomic",
+    "economy_business",
+    "environment_air_quality",
+    "housing_delivery",
+    "imagery_historical",
+    "planning_development",
+    "policy_governance",
+    "public_services_civic_assets",
+    "source_provenance",
+    "transport_mobility"
+  ],
+  "flagship_area": "Stratford / Olympic Park / Lower Lea Valley",
+  "minimum_package_check": {
+    "city_boundary_source": true,
+    "project_area_boundary_source": true,
+    "events_20_plus": true,
+    "sources_5_plus": true,
+    "categories_3_plus": true,
+    "planning_source": true,
+    "demographic_source": true,
+    "transport_or_environment_source": true,
+    "limitations_file": "london/limitations.md",
+    "city_manifest": "london/city_manifest.json"
+  }
+}

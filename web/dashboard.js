@@ -1,10 +1,10 @@
 /* ================================================================
-   BELFAST 2016-2036 - SIMULATION STUDIO
+   BELFAST CITY CHANGE ATLAS - PROPOSAL LENS
    Single-file dashboard engine.
    - Loads the historical metrics from /data/mode-a/summary.json
    - Loads the Mapbox manifest from /api/manifest (token + viewport)
-   - Manages branches (in localStorage), placement tools, simulation,
-     impact diff, branch timeline SVG and compare modal.
+   - Manages branches, proposal sketch tools, analogue assessment,
+     branch timeline SVG and compare modal.
    ================================================================ */
 
 (function () {
@@ -29,10 +29,10 @@
     '</svg>';
 
   const TOOL_LABELS = {
-    building: 'Click on the map to place a building',
-    road: 'Click two points on the map to place a road',
-    park: 'Click on the map to place a park',
-    infrastructure: 'Click on the map to place a transformer',
+    building: 'Click on the map to sketch a building proposal',
+    road: 'Search a postcode, then click two junctions to sketch a road proposal',
+    park: 'Click on the map to sketch a green-space proposal',
+    infrastructure: 'Click on the map to sketch a transformer proposal',
     remove: 'Click a staged item or existing city building to remove it'
   };
 
@@ -148,8 +148,8 @@
     contextLayersData: {},          // layerId -> geojson
     activeEventId: null,            // commit/event id when one is selected
     eventsForYearCache: null,       // cached events for current year+lens
-    // Predicted-impact ripple visualisation
-    impactMetric: 'buildings',      // which forecast metric the map paints; kept in lock-step with state.lens
+    // Proposal-context ripple visualisation
+    impactMetric: 'buildings',      // which signal the map paints; kept in lock-step with state.lens
     impactLayersAdded: false,
     lastPlacedItemId: null,         // for similar-events overlay focus
     predictorReady: false,
@@ -252,6 +252,7 @@
   function activeBranch() { return state.branches.find(b => b.id === state.activeBranchId) || state.branches[0]; }
 
   function activityColor(type) {
+    if (type === 'proposal') return '#0e7490';
     if (type === 'simulation') return '#22c55e';
     if (type === 'diff') return '#3b82f6';
     if (type === 'road') return '#22d3ee';
@@ -260,6 +261,7 @@
   }
 
   function activityIcon(type) {
+    if (type === 'proposal') return 'P';
     if (type === 'simulation') return 'S';
     if (type === 'diff') return 'D';
     if (type === 'road') return 'R';
@@ -461,6 +463,7 @@
       'activeBranchTag', 'tagDot', 'tagName', 'tagYear',
       'tlPrev', 'tlPlay', 'tlPlayIcon', 'tlNext', 'tlYearNow', 'tlTrack', 'tlProgress', 'tlThumb', 'tlMarks',
       'impactTitle', 'impactStack', 'scenarioIntegrityHost',
+      'proposalImpactPanel', 'proposalImpactBody',
       'newBranchBtn', 'branchSelect', 'branchList',
       'tlBranchName', 'branchTimelineSvg',
       'runBtn', 'runBtnLabel', 'compareBtn', 'activeBranchName', 'activeYearLabel', 'exportBtn',
@@ -962,7 +965,7 @@
     if (!state.activeTool) return;
     if (state.activeTool === 'remove') return; // handled by per-layer click
     if (isSimYear(state.year) === false && state.activeTool) {
-      toast('Switch to a simulation year (2026-2036) to add changes', 'warn');
+      toast('Switch to the Proposal Lens (2026+) to sketch proposals', 'warn');
       return;
     }
     const lng = e.lngLat.lng;
@@ -1093,7 +1096,7 @@
         afterChange();
       }
     });
-    toast('Staged ' + item.label + ' at ' + item.postcode + '. Click Run Simulation to calculate the forecast.');
+    toast('Staged ' + item.label + ' at ' + item.postcode + '. Click Assess Proposal to review analogues and caveats.');
   }
 
   function ensureEditableBranch() {
@@ -1131,7 +1134,7 @@
       __editableBranchPickerOpen = true;
       const created = createBranch('New Scenario', '#22c55e', activeBranch() ? activeBranch().id : 'baseline');
       __editableBranchPickerOpen = false;
-      toast('Created scenario branch "' + created.name + '" — Baseline is read-only.', 'info');
+      toast('Created proposal branch "' + created.name + '" - Baseline is read-only.', 'info');
       replayLockedEdit();
       return;
     }
@@ -1265,7 +1268,7 @@
         afterChange();
       }
     });
-    toast('Staged ' + item.label + ' at ' + branchItemDetail(item) + '. Click Run Simulation to calculate the forecast.');
+    toast('Staged ' + item.label + ' at ' + branchItemDetail(item) + '. Click Assess Proposal to review analogues and caveats.');
   }
 
   function addItemAt(type, lng, lat) {
@@ -1331,52 +1334,25 @@
   }
 
   async function runScenarioForBranch(branch, item, opts) {
-    const building = item || selectedScenarioBuilding(branch);
-    if (!building) return null;
+    const proposalItem = item || selectedProposalItem(branch);
+    if (!proposalItem) return null;
     if (branch._scenarioPending) return branch._scenarioPending;
-    const removalScenario = building.type === 'building_removal';
     const signal = opts && opts.signal ? opts.signal : undefined;
-    branch._scenarioPending = fetch('/api/scenario-studio/run', {
+    branch._scenarioPending = fetch('/api/proposal-impact', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       signal: signal,
-      body: JSON.stringify({
-        postcode: building.postcode,
-        building: {
-          id: building.id,
-          type: removalScenario ? 'building_removal' : 'building',
-          interventionType: removalScenario ? 'building_removal' : 'building',
-          removal: removalScenario,
-          postcode: building.postcode,
-          location: { lng: building.lng, lat: building.lat },
-          geometry: building.geometry,
-          existingBuildingId: building.existingBuildingId,
-          existingBuildingName: building.existingBuildingName,
-          config: building.buildingConfig || buildingConfigForPreset(building.preset),
-          year: building.year || START_YEAR,
-          startYear: building.year || START_YEAR,
-          delivery: { startYear: building.year || START_YEAR, completionYear: FINAL_YEAR }
-        },
-        branch: {
-          id: branch.id,
-          name: branch.name,
-          objective: objectiveForBranch(branch)
-        },
-        branches: removalScenario ? removalScenarioBranches(building) : undefined,
-        interventions: scenarioInterventionsForBranch(branch, building),
-        startYear: START_YEAR,
-        baselineYear: BASE_YEAR,
-        horizonYear: FINAL_YEAR
-      })
+      body: JSON.stringify(proposalPayloadForItem(branch, proposalItem))
     })
       .then(async res => {
         const json = await res.json().catch(() => ({}));
-        if (!res.ok || json.ok === false) throw new Error(json.detail || json.error || ('scenario ' + res.status));
-        branch.scenarioResult = json;
-        branch.forecastObjective = objectiveForBranch(branch);
+        if (!res.ok || json.ok === false) throw new Error(json.detail || json.error || ('proposal assessment ' + res.status));
+        branch.proposalImpact = json;
+        branch.scenarioResult = null;
         branch.scenarioStaged = false;
         branch.solana = null;
         state.lastScenarioResult = json;
+        renderProposalImpactPanel();
         renderImpact();
         renderBranches();
         updateImpactRipples();
@@ -1390,7 +1366,7 @@
         if (err && (err.name === 'AbortError' || err.code === 20)) {
           return null;
         }
-        toast('Scenario run failed: ' + err.message, 'error');
+        toast('Proposal assessment failed: ' + err.message, 'error');
         return null;
       })
       .finally(() => {
@@ -1415,6 +1391,80 @@
     const latest = buildings.find(it => it.id === state.lastPlacedItemId);
     const latestRemoval = removals.find(it => it.id === state.lastPlacedItemId);
     return latest || latestRemoval || buildings[buildings.length - 1] || removals[removals.length - 1];
+  }
+
+  function selectedProposalItem(branch) {
+    if (!branch) return null;
+    const candidates = (branch.items || []).filter(it => {
+      if (it.type === 'building' || it.type === 'building_removal' || it.type === 'infrastructure' || it.type === 'park') {
+        return Number.isFinite(Number(it.lng)) && Number.isFinite(Number(it.lat));
+      }
+      if (it.type === 'road') {
+        return (Array.isArray(it.path) && it.path.length >= 2) ||
+          (Array.isArray(it.start) && Array.isArray(it.end));
+      }
+      return false;
+    });
+    if (!candidates.length) return selectedScenarioBuilding(branch);
+    return candidates.find(it => it.id === state.lastPlacedItemId) || candidates[candidates.length - 1];
+  }
+
+  function proposalCategoryForItem(item) {
+    if (!item) return 'building_development';
+    if (item.type === 'road') return 'road_transport_change';
+    if (item.type === 'infrastructure') return 'transformer_energy_infrastructure';
+    if (item.type === 'park') return 'green_public_space';
+    if (item.type === 'building_removal') return 'building_development';
+    return 'building_development';
+  }
+
+  function proposalGeometryForItem(item) {
+    if (!item) return null;
+    if (item.type === 'road') {
+      const coords = Array.isArray(item.path) && item.path.length >= 2
+        ? item.path
+        : [item.start, item.end].filter(Array.isArray);
+      return coords.length >= 2 ? { type: 'LineString', coordinates: coords } : null;
+    }
+    if (Number.isFinite(Number(item.lng)) && Number.isFinite(Number(item.lat))) {
+      return { type: 'Point', coordinates: [Number(item.lng), Number(item.lat)] };
+    }
+    return null;
+  }
+
+  function proposalScaleForItem(item) {
+    if (!item) return 'unknown';
+    if (item.preset === 'industrial' || item.preset === 'commercial') return 'large';
+    if (item.preset === 'residential' || item.preset === 'mixed_use') return 'medium';
+    if (item.assetClass === 'primary') return 'large';
+    if (item.type === 'park') return 'small';
+    return 'unknown';
+  }
+
+  function proposalPayloadForItem(branch, item) {
+    const geometry = proposalGeometryForItem(item);
+    const loc = geometry && geometry.type === 'Point'
+      ? { lng: geometry.coordinates[0], lat: geometry.coordinates[1], label: branchItemDetail(item) }
+      : null;
+    return {
+      city_id: 'belfast',
+      title: branchItemTitle(item),
+      description: branchItemDetail(item) || 'User-sketched proposal in the Belfast atlas.',
+      category: proposalCategoryForItem(item),
+      location: loc,
+      geometry,
+      scale: proposalScaleForItem(item),
+      details: {
+        branch_id: branch && branch.id,
+        branch_name: branch && branch.name,
+        item_id: item && item.id,
+        item_type: item && item.type,
+        preset: item && item.preset,
+        building_config: item && item.buildingConfig,
+        capacity_kva: item && item.capacityKva,
+        service_radius_m: item && (item.serviceRadiusM || item.radiusM)
+      }
+    };
   }
 
   function scenarioResultForBranch(branch) {
@@ -2061,7 +2111,7 @@
     if (els.leftSidebarSubtitle) {
       els.leftSidebarSubtitle.innerHTML = hist
         ? 'Permits, openings,<br>and changes by year'
-        : 'Your scenario actions<br>and simulation runs';
+        : 'Your proposal sketches<br>and assessments';
     }
     if (els.leftSidebarFilter) els.leftSidebarFilter.style.display = hist ? '' : 'none';
     if (hist) renderLeftSidebarEvents();
@@ -2121,7 +2171,7 @@
       icon: '🌳',
       tint: '#edfaf0',
       title: 'Branch: ' + (branch.name || 'Untitled'),
-      sub: branch.trendBaseline ? 'Locked Belfast trend projection' : (branch.locked ? 'Baseline (read-only)' : 'Active scenario'),
+      sub: branch.trendBaseline ? 'Locked Belfast trend projection' : (branch.locked ? 'Baseline (read-only)' : 'Active proposal branch'),
       date: 'now',
     });
     // Year-by-year jobs evolution from committed buildings/roads/transformers.
@@ -2173,8 +2223,8 @@
     if (entries.length === 1) {
       entries.push({
         icon: '✨', tint: '#f8f9fc',
-        title: 'Nothing planned yet',
-        sub: 'Add buildings or roads on the map to fill this log.',
+        title: 'Nothing sketched yet',
+        sub: 'Add buildings, roads, parks, or transformers on the map to fill this log.',
         date: '',
       });
     }
@@ -2274,9 +2324,9 @@
     if (now - __lastModeToastAt < 3000) return;
     __lastModeToastAt = now;
     if (nextMode === 'simulation') {
-      toast('Switched to Simulation. Edits in 2026–2036 only affect this branch.', 'info');
+      toast('Switched to Proposal Lens. Sketches in 2026+ only affect this branch.', 'info');
     } else {
-      toast('Back in Historical Replay (2016–2025). Editing tools are paused.', 'info');
+      toast('Back in Historical Evidence (2016-2025). Editing tools are paused.', 'info');
     }
   }
 
@@ -2286,13 +2336,13 @@
     els.modeBanner.classList.toggle('mode-simulation', sim);
     els.modeBanner.classList.toggle('mode-historical', !sim);
     const label = els.modeBanner.querySelector('.mode-banner-label');
-    if (label) label.textContent = sim ? 'Simulation · 2026–2036' : 'Historical Replay · 2016–2025';
+    if (label) label.textContent = sim ? 'Proposal Lens - 2026+' : 'Historical Evidence - 2016-2025';
     if (els.modeBannerJump) {
-      els.modeBannerJump.textContent = sim ? '← Back to Historical' : 'Jump to Simulation →';
+      els.modeBannerJump.textContent = sim ? 'Back to Historical' : 'Jump to Proposal Lens';
     }
     els.modeBanner.title = sim
       ? 'Click to jump back to the 2025 baseline year'
-      : 'Click to jump to 2026 and start designing your scenario';
+      : 'Click to jump to 2026 and sketch a proposal';
   }
 
   function setYear(y) {
@@ -2321,6 +2371,7 @@
     renderTimelineBar();
     renderYearLists();
     renderImpact();
+    renderProposalImpactPanel();
     renderItemsOnMap();
     renderActiveInfo();
     renderMapSubtitle();
@@ -2538,6 +2589,54 @@
       els.scenarioIntegrityHost.innerHTML = show ? integrityHTML : '';
     }
     attachScenarioIntegrityEvents();
+  }
+
+  function renderProposalImpactPanel() {
+    if (!els.proposalImpactPanel || !els.proposalImpactBody) return;
+    const branch = activeBranch();
+    const result = branch && branch.proposalImpact;
+    els.proposalImpactPanel.hidden = false;
+    if (!result) {
+      els.proposalImpactBody.innerHTML =
+        '<div class="proposal-impact-empty">Sketch a proposal on the map, then assess it against historical analogues and local context.</div>';
+      return;
+    }
+    const confidence = result.confidence && result.confidence.label ? result.confidence.label : 'low';
+    const signals = (result.affected_signals || []).slice(0, 5);
+    const similar = (result.similar_events || []).slice(0, 4);
+    const caveats = (result.caveats || []).slice(0, 4);
+    const signalHtml = signals.map(signal =>
+      '<div class="proposal-signal">' +
+        '<div class="proposal-signal-head">' +
+          '<span>' + escapeHtml(signal.label || signal.signal || 'Signal') + '</span>' +
+          '<span class="proposal-pill ' + escapeHtml(signal.confidence || 'low') + '">' +
+            escapeHtml((signal.direction || 'unknown') + ' / ' + (signal.strength || 'low')) +
+          '</span>' +
+        '</div>' +
+        '<div class="proposal-signal-note">' + escapeHtml(signal.reason || signal.direction_note || '') + '</div>' +
+      '</div>'
+    ).join('');
+    const eventHtml = similar.map(event => {
+      const dist = Number.isFinite(Number(event.distance_m))
+        ? (event.distance_m < 1000 ? event.distance_m + ' m' : (event.distance_m / 1000).toFixed(1) + ' km')
+        : 'citywide';
+      return '<div class="proposal-event">' +
+        '<strong>' + escapeHtml(event.title || 'Past event') + '</strong>' +
+        '<span>' + escapeHtml(String(event.year || 'unknown year')) + ' - ' + escapeHtml(dist) + ' - ' + escapeHtml(event.confidence || 'inferred') + '</span>' +
+      '</div>';
+    }).join('');
+    const caveatHtml = caveats.map(caveat =>
+      '<div class="proposal-caveat">' + escapeHtml(caveat) + '</div>'
+    ).join('');
+    els.proposalImpactBody.innerHTML =
+      '<div class="proposal-impact-summary">' + escapeHtml(result.summary || 'Proposal assessment ready.') + '</div>' +
+      '<div class="proposal-impact-meta">' +
+        '<span class="proposal-pill ' + escapeHtml(confidence) + '">Confidence: ' + escapeHtml(confidence) + '</span>' +
+        '<span class="proposal-pill">Analogues: ' + similar.length + '</span>' +
+      '</div>' +
+      (signalHtml ? '<div class="proposal-signal-list">' + signalHtml + '</div>' : '') +
+      (eventHtml ? '<div class="proposal-event-list">' + eventHtml + '</div>' : '') +
+      (caveatHtml ? '<div class="proposal-caveat-list">' + caveatHtml + '</div>' : '');
   }
 
   function historicalToDisplay(year) {
@@ -3031,7 +3130,7 @@
         e.stopPropagation();
         // T1.2: pre-sim diff is meaningless. Direct the user to Run Simulation.
         if (el.getAttribute('aria-disabled') === 'true' || el.dataset.needsSim === 'true') {
-          toast('Run Simulation first to see the diff for this addition.', 'warn');
+          toast('Assess Proposal first to review evidence for this addition.', 'warn');
           if (els.runBtn) els.runBtn.classList.add('attention-pulse');
           setTimeout(() => els.runBtn && els.runBtn.classList.remove('attention-pulse'), 1600);
           return;
@@ -3097,6 +3196,7 @@
   }
 
   function branchItemDiffButtonHTML(item) {
+    return '';
     const label = 'View Diff';
     // The diff modal needs a scenarioResult on the active branch — show the
     // button as disabled until the user has actually run a simulation,
@@ -3105,7 +3205,7 @@
     const ready = !!scenarioResultForBranch(branch);
     const tooltip = ready
       ? label + ' for ' + branchItemTitle(item)
-      : 'Run Simulation first to compare ' + branchItemTitle(item) + ' against the no-build forecast.';
+      : 'Assess Proposal first to compare ' + branchItemTitle(item) + ' against evidence and caveats.';
     const disabledAttrs = ready ? '' : ' aria-disabled="true" data-needs-sim="true"';
     return '<button class="branch-line-diff' + (ready ? '' : ' is-disabled') + '" type="button" data-diff-item-id="' + escapeHtml(item.id) + '" title="' + escapeHtml(tooltip) + '"' + disabledAttrs + '>' +
       '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="5" height="10" rx="1"/><rect x="9" y="3" width="5" height="10" rx="1"/><path d="M7 6h2M7 10h2" stroke-linecap="round"/></svg>' +
@@ -3274,6 +3374,7 @@
     state.activeBranchId = id;
     renderBranches();
     renderImpact();
+    renderProposalImpactPanel();
     renderItemsOnMap();
     renderMapSubtitle();
     renderLeftSidebar();
@@ -4091,10 +4192,24 @@
       body: 'Three seed branches (Green Belfast Vision, Transport First, High Density Growth) start empty. Use “+ New” in the right sidebar to create your own. The Baseline is read-only.',
     },
     {
-      title: 'Place changes, then run a forecast',
-      body: 'In simulation years, use the toolbar to add buildings, roads, parks, or transformers. Click “Run Simulation” for the AI forecast — or “AI: 4 Variations” to generate planner alternatives.',
+      title: 'Sketch proposals, then assess evidence',
+      body: 'Use the toolbar to add buildings, roads, parks, or transformers. Click Assess Proposal to review analogues, local context, confidence, and caveats.',
     },
   ];
+  ONBOARDING_STEPS.splice(0, ONBOARDING_STEPS.length,
+    {
+      title: 'Welcome to the Belfast City Change Atlas',
+      body: 'Scrub the timeline to inspect documented city changes from 2016-2025, or jump to 2026+ to sketch a proposal.',
+    },
+    {
+      title: 'Branches organize proposal sketches',
+      body: 'Use the right sidebar to create a branch, then add buildings, roads, parks, or transformers without changing the historical record.',
+    },
+    {
+      title: 'Assess against evidence',
+      body: 'Click Assess Proposal to see similar past events, current local context, confidence, and caveats. This is not a calibrated outcome model.',
+    },
+  );
   function showOnboardingTour(opts) {
     opts = opts || {};
     // Don't double-show.
@@ -4247,14 +4362,14 @@
     let html = compareYearPillsHTML(target);
     if (allEstimates) {
       html += '<div class="compare-banner compare-banner--estimate">' +
-        '<strong>Showing proxy estimates.</strong> ' +
-        'Run a simulation in any branch to see real differences across columns.' +
-        '<button type="button" class="compare-banner-cta" id="compareRunSimCta">Run Simulation</button>' +
+        '<strong>Showing branch inventory metrics.</strong> ' +
+        'Use the Proposal Impact panel for evidence, analogues, confidence, and caveats.' +
+        '<button type="button" class="compare-banner-cta" id="compareRunSimCta">Assess Proposal</button>' +
       '</div>';
     } else if (branchesWithSim < branches.length) {
       html += '<div class="compare-banner">' +
-        '<strong>' + branchesWithSim + ' of ' + branches.length + ' branches have a forecast.</strong> ' +
-        'Branches without one show proxy estimates.' +
+        '<strong>' + branchesWithSim + ' of ' + branches.length + ' branches have legacy branch metrics.</strong> ' +
+        'Proposal-impact evidence is shown in the right sidebar, not this comparison grid.' +
       '</div>';
     }
 
@@ -4264,8 +4379,8 @@
     branches.forEach((b, i) => {
       const last = i === branches.length - 1 ? ' last-col' : '';
       const sourceBadge = b.scenarioResult
-        ? '<span class="compare-src compare-src--forecast" title="AI forecast">Forecast</span>'
-        : '<span class="compare-src compare-src--estimate" title="Proxy estimate (no simulation run)">Est.</span>';
+        ? '<span class="compare-src compare-src--forecast" title="Legacy branch metrics">Legacy</span>'
+        : '<span class="compare-src compare-src--estimate" title="No proposal assessment attached">Draft</span>';
       html += '<div class="head' + last + '"><span class="branch-dot" style="background:' + b.color + ';color:' + b.color + ';width:7px;height:7px"></span>' +
         escapeHtml(truncate(b.name, 22)) + sourceBadge + '</div>';
     });
@@ -4292,7 +4407,7 @@
     const tiedCount = METRICS.filter(m => winnersByMetric[m.id] === '__tie__').length;
     if (tiedCount === METRICS.length) {
       html += '<div class="compare-summary">All ' + METRICS.length + ' indicators are tied across branches at ' + target + '. ' +
-        'Add changes to a branch or run a simulation to see meaningful differences.</div>';
+        'Add proposal sketches to a branch, then use Assess Proposal for evidence-backed review.</div>';
     } else {
       const winnerCounts = {};
       Object.entries(winnersByMetric).forEach(([_, bid]) => {
@@ -4403,10 +4518,10 @@
 
   function closeCompareModal() { if (els.compareModal) els.compareModal.hidden = true; }
 
-  // ---------- RUN SIMULATION ----------
+  // ---------- ASSESS PROPOSAL ----------
 
   function defaultRunButtonLabel() {
-    return state.activeTool === 'road' ? 'Run Road Simulation' : 'Run Simulation';
+    return state.activeTool === 'road' ? 'Assess Road Proposal' : 'Assess Proposal';
   }
 
   function updateRunButtonLabel() {
@@ -4486,74 +4601,71 @@
     if (els.runBtn) els.runBtn.classList.remove('running');
     updateRunButtonLabel();
     hideSimProgress();
-    toast('Simulation cancelled.', 'warn');
+    toast('Assessment cancelled.', 'warn');
   }
 
   async function runSimulation() {
     if (state.isRunningSim) return;
     if (!isSimYear(state.year)) {
-      toast('Switch to a 2026-2036 simulation year before running a forecast.', 'warn');
+      toast('Switch to a proposal review year before assessing a proposal.', 'warn');
       updateRunButtonLabel();
       return;
     }
     const branch = activeBranch();
-    if (state.activeTool === 'road') {
-      runRoadComparison();
-      return;
-    }
-    const building = selectedScenarioBuilding(branch);
-    if (!building) {
-      toast('Add a building or select an existing city building to delete before running the forecast.', 'warn');
+    const proposalItem = selectedProposalItem(branch);
+    if (!proposalItem) {
+      toast('Sketch a building, road, transformer, park, or civic-service proposal first.', 'warn');
       return;
     }
     state.isRunningSim = true;
     if (els.runBtn) els.runBtn.classList.add('running');
-    if (els.runBtnLabel) els.runBtnLabel.textContent = 'Simulating...';
+    if (els.runBtnLabel) els.runBtnLabel.textContent = 'Assessing...';
     clearImpactVisualization({ clearTraffic: true, clearTransit: true });
     // T4.1: prepare an AbortController so Cancel can stop the in-flight
     // network call. Show the progress overlay immediately.
     __simAbortController = (typeof AbortController !== 'undefined') ? new AbortController() : null;
     if (els.simProgressCancel) els.simProgressCancel.disabled = false;
-    showSimProgress('Calling AI planner…', 8);
+    showSimProgress('Checking local context...', 12);
     // Slow indeterminate-feeling crawl while the network call is in flight.
     let crawl = 8;
     const crawlTimer = setInterval(() => {
-      crawl = Math.min(crawl + 2, 65);
+      crawl = Math.min(crawl + 6, 82);
       if (els.simProgressFill) els.simProgressFill.style.width = crawl + '%';
-    }, 350);
+    }, 220);
 
-    const scenario = await runScenarioForBranch(branch, building, {
+    const assessment = await runScenarioForBranch(branch, proposalItem, {
       signal: __simAbortController ? __simAbortController.signal : undefined
     });
     clearInterval(crawlTimer);
     // If the user cancelled, runScenarioForBranch returned null silently.
     if (!state.isRunningSim) return; // already cleaned up by cancelSimRun
-    if (!scenario) {
+    if (!assessment) {
       endSimRun(branch);
       return;
     }
-    setView('3D');
-    updateScenarioDiffButton();
-    showSimProgress('Forecast received. Playing 2026 → 2036…', 70);
-    // Animate playback through sim years
-    let i = 0;
-    setYear(START_YEAR);
-    __simPlaybackTimer = setInterval(() => {
-      i++;
-      if (i >= SIM_YEARS.length) {
-        endSimRun(branch);
-        // Stop on 2036, show outcome
-        const m = metricsForBranchYear(branch, FINAL_YEAR);
-        const popDelta = m.population - METRICS[0].baseline;
-        completeSimulationWorkspace(branch, scenario, building, m);
-        toast('Simulation complete — projected ' + (popDelta >= 0 ? '+' : '') + fmtNumber(popDelta) + ' population by 2036');
-        return;
+    showSimProgress('Preparing evidence summary...', 92);
+    branch.proposalImpact = assessment;
+    branch.scenarioStaged = false;
+    recordBranchActivity(
+      branch,
+      'proposal',
+      'Proposal assessment ready',
+      (assessment.affected_signals || []).slice(0, 3).map(signal => signal.label || signal.signal).join(', '),
+      state.year,
+      {
+        proposalId: assessment.proposal && assessment.proposal.proposal_id,
+        confidence: assessment.confidence && assessment.confidence.label
       }
-      const yr = SIM_YEARS[i];
-      setYear(yr);
-      const pct = 70 + Math.round(((i + 1) / SIM_YEARS.length) * 30);
-      showSimProgress('Playing ' + yr + ' …', pct);
-    }, 220);
+    );
+    state.activeTool = null;
+    renderModify();
+    renderProposalImpactPanel();
+    renderLeftSidebar();
+    updateScenarioDiffButton();
+    setTimeout(() => {
+      endSimRun(branch);
+      toast('Proposal assessment ready - review evidence and caveats.');
+    }, 180);
   }
 
   // ---------- TRAFFIC SIM GLUE ----------
@@ -4858,8 +4970,8 @@
     // the candidate.
     const fresh = activeBranch().items[activeBranch().items.length - 1];
     if (fresh) roadPlanner.candidateRoadItemId = fresh.id;
-    showPlanRoadHint('Road planned. Click Run Road Simulation to calculate impact.');
-    toast('Road planned. Run the simulation to calculate traffic impact.');
+    showPlanRoadHint('Road proposal sketched. Click Assess Proposal to review analogues and caveats.');
+    toast('Road proposal sketched. Assess it against local context when ready.');
   }
 
   function setRoadCompareProgress(label, frac) {
@@ -4938,9 +5050,9 @@
     // Yield to the browser so the modal paints + vehicles start moving,
     // then run the headless comparison and paint the road-link pressure view.
     setTimeout(() => {
-      setRoadCompareProgress('Simulating without the new road…', 0.25);
+      setRoadCompareProgress('Checking existing road context...', 0.25);
       setTimeout(() => {
-        setRoadCompareProgress('Simulating with the new road…', 0.55);
+        setRoadCompareProgress('Checking candidate road context...', 0.55);
         setTimeout(() => {
           const result = window.TrafficSim.runComparison({
             baseSegments: baseSegments,
@@ -5524,9 +5636,9 @@
     const sim = isSimYear(state.year);
     const branch = activeBranch();
     const text = sim
-      ? 'Simulating ' + branch.name + ' to ' + state.year
-      : 'Showing ' + state.year + (state.year === BASE_YEAR ? ' forecast baseline' : ' historical replay');
-    els.mapSubtitle.innerHTML = text + ' <span class="info-i" title="Add a building at a valid Belfast map point, then run a forecast year between 2026 and 2036.">i</span>';
+      ? 'Reviewing ' + branch.name + ' in the Proposal Lens (' + state.year + ')'
+      : 'Showing ' + state.year + (state.year === BASE_YEAR ? ' evidence baseline' : ' historical evidence');
+    els.mapSubtitle.innerHTML = text + ' <span class="info-i" title="Sketch a proposal, then assess it against historical analogues and local context.">i</span>';
   }
 
   // ---------- AFTER CHANGE PIPELINE ----------
@@ -5721,6 +5833,7 @@
     renderModify();
     renderBranches();
     renderImpact();
+    renderProposalImpactPanel();
     renderActiveInfo();
     renderCompareSection();
     renderLeftSidebar();
@@ -6584,7 +6697,7 @@
       }
     });
     toastWithAction(
-      'Staged removal of ' + (item.existingBuildingName || 'existing building') + '. Run Simulation to forecast the impact.',
+      'Staged removal of ' + (item.existingBuildingName || 'existing building') + '. Click Assess Proposal to review context and caveats.',
       'Undo',
       () => undoLast(),
       { ttlMs: 6000 }
@@ -10232,9 +10345,9 @@
       const branchPred = !yearRow && window.BelfastPredictor ? window.BelfastPredictor.predictForBranch(branch, state.year) : null;
       const conf = yearRow ? (yearRow.confidence || scenarioBranch.confidence || 'medium') : (branchPred ? branchPred.confidence : 'pending');
       els.impactLensLegend.innerHTML =
-        '<span style="color:' + def.color + '">' + def.label + ' impact</span>' +
+        '<span style="color:' + def.color + '">' + def.label + ' context</span>' +
         '<span class="impact-lens-bar" style="color:' + def.color + '"></span>' +
-        '<span class="impact-lens-confidence-dot ' + conf + '" title="Prediction confidence: ' + conf + '"></span>';
+        '<span class="impact-lens-confidence-dot ' + conf + '" title="Evidence confidence: ' + conf + '"></span>';
     }
     // Similar events overlay (driven by latest placed building, fallback to first)
     updateSimilarEventsOverlay();
@@ -10295,6 +10408,7 @@
     attachModifyEvents();
     renderBranches();
     renderImpact();
+    renderProposalImpactPanel();
     renderActiveInfo();
     renderMapSubtitle();
     attachBranchPickerEvents();

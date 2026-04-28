@@ -1,4 +1,5 @@
 /* Traffic Sim — lightweight in-page roads simulator that lives inside the
+   Legacy note: hidden from the core Proposal Lens and kept for older hooks.
    existing Belfast simulation studio. Adapts the core idea of the trafficjam
    prototype (vehicles moving over a road graph with congestion feedback)
    without dragging in the React app or microservices.

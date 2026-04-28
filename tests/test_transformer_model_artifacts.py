@@ -1,70 +1,69 @@
-import csv
 import json
-import math
+import subprocess
 import unittest
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MODE_A = REPO_ROOT / "web" / "data" / "mode-a"
-DERIVED = REPO_ROOT / "data" / "derived" / "2026"
-FORECAST_YEARS = list(range(2026, 2037))
 
 
-class TransformerModelArtifactTests(unittest.TestCase):
-    def test_transformer_artifacts_exist_and_cover_horizon(self) -> None:
-        model = json.loads((MODE_A / "transformer_impact_model.json").read_text(encoding="utf-8"))
-        capacity = json.loads((MODE_A / "transformer_capacity_forecast.json").read_text(encoding="utf-8"))
-        by_cell = json.loads((MODE_A / "transformer_capacity_by_cell.json").read_text(encoding="utf-8"))
-        assets = json.loads((DERIVED / "belfast_ni_transformers_official.geojson").read_text(encoding="utf-8"))
+class EnergyInfrastructureProposalTests(unittest.TestCase):
+    def test_transformer_proposal_is_screening_context_not_grid_approval(self) -> None:
+        script = """
+const proposalImpact = require('./lib/proposal-impact');
+const result = proposalImpact.assessProposal({
+  category: 'transformer_energy_infrastructure',
+  title: 'Secondary transformer near York Street',
+  description: 'A secondary transformer proposal for local connection needs.',
+  location: { lng: -5.9238, lat: 54.6092 },
+  scale: 'small',
+  details: { asset_class: 'secondary' }
+}, { rootDir: process.cwd() });
+console.log(JSON.stringify(result));
+"""
+        completed = subprocess.run(
+            ["node", "-e", script],
+            cwd=REPO_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        result = json.loads(completed.stdout)
 
-        self.assertEqual(model["kind"], "belfast.transformerImpactModel")
-        self.assertEqual(capacity["kind"], "belfast.transformerCapacityForecast")
-        self.assertEqual(by_cell["kind"], "belfast.transformerCapacityByCell")
-        self.assertEqual(capacity["years"], FORECAST_YEARS)
-        self.assertGreaterEqual(len(model["cellFeatures"]), 100)
-        self.assertGreaterEqual(len(by_cell["cells"]), 100)
-        self.assertGreaterEqual(len(assets["features"]), 1)
-        self.assertIn(assets["metadata"]["sourceMode"], {"official-record-api", "manual-official-drop", "osm-proxy-with-official-metadata"})
+        utilities = next(item for item in result["affected_signals"] if item["signal"] == "utilities")
+        self.assertEqual(utilities["direction"], "mixed")
+        self.assertIn(utilities["strength"], {"medium", "high"})
+        self.assertTrue(any("not an engineering approval" in caveat for caveat in utilities["caveats"]))
+        self.assertGreaterEqual(len(result["similar_events"]), 1)
+        self.assertTrue(result["evidence"]["source_ids"])
 
-    def test_transformer_values_have_sensible_units(self) -> None:
-        capacity = json.loads((MODE_A / "transformer_capacity_forecast.json").read_text(encoding="utf-8"))
-        by_cell = json.loads((MODE_A / "transformer_capacity_by_cell.json").read_text(encoding="utf-8"))
-        model = json.loads((MODE_A / "transformer_impact_model.json").read_text(encoding="utf-8"))
-
-        for year in FORECAST_YEARS:
-            row = capacity["summaryByYear"][str(year)]
-            for key in ("capacityKwProxy", "peakKwProxy", "headroomKwProxy", "meanOverloadRisk"):
-                self.assertTrue(math.isfinite(row[key]), f"{year} {key}")
-            self.assertGreaterEqual(row["capacityKwProxy"], 0)
-            self.assertGreaterEqual(row["peakKwProxy"], 0)
-            self.assertGreaterEqual(row["meanOverloadRisk"], 0)
-            self.assertLessEqual(row["meanOverloadRisk"], 1)
-
-        for cell_id, cell in list(by_cell["cells"].items())[:25]:
-            self.assertGreaterEqual(cell["availableCapacityKwProxy2026"], 0, cell_id)
-            self.assertGreaterEqual(cell["peakKwProxy2026"], 0, cell_id)
-            self.assertIn(cell["confidence"], {"low", "medium", "medium-high", "high"})
-
-        self.assertEqual(model["transformerDefaults"]["secondary"]["capacityKva"], 500)
-        self.assertEqual(model["transformerDefaults"]["primary"]["capacityKva"], 16000)
-
-    def test_transformer_grid_feature_table_shape(self) -> None:
-        path = DERIVED / "belfast_transformer_grid_features.csv"
-        with path.open(newline="", encoding="utf-8") as handle:
-            rows = list(csv.DictReader(handle))
-        self.assertGreaterEqual(len(rows), 100)
-        required = {
-            "cell_id",
-            "secondary_500m",
-            "primary_2000m",
-            "weighted_capacity_kva",
-            "available_capacity_kw_proxy",
-            "headroom_kw_proxy_2026",
-            "overload_risk_2026",
-            "confidence",
-        }
-        self.assertTrue(required.issubset(rows[0].keys()))
+    def test_category_rules_cover_all_requested_proposal_types(self) -> None:
+        script = """
+const proposalImpact = require('./lib/proposal-impact');
+console.log(JSON.stringify({
+  categories: Array.from(proposalImpact.VALID_CATEGORIES),
+  rules: Object.keys(proposalImpact.CATEGORY_RULES)
+}));
+"""
+        completed = subprocess.run(
+            ["node", "-e", script],
+            cwd=REPO_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        data = json.loads(completed.stdout)
+        self.assertEqual(set(data["categories"]), set(data["rules"]))
+        self.assertEqual(
+            set(data["categories"]),
+            {
+                "building_development",
+                "road_transport_change",
+                "transformer_energy_infrastructure",
+                "green_public_space",
+                "service_civic_infrastructure",
+            },
+        )
 
 
 if __name__ == "__main__":

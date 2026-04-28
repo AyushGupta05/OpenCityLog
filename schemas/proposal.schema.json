@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/proposal.schema.json",
+  "title": "Bims Proposal Impact Input",
+  "type": "object",
+  "required": ["category"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "proposal_id": { "type": "string" },
+    "city_id": { "type": "string", "default": "belfast" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "building_development",
+        "road_transport_change",
+        "transformer_energy_infrastructure",
+        "green_public_space",
+        "service_civic_infrastructure"
+      ]
+    },
+    "location": {
+      "type": ["object", "null"],
+      "properties": {
+        "lng": { "type": "number", "minimum": -180, "maximum": 180 },
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "label": { "type": "string" }
+      },
+      "required": ["lng", "lat"]
+    },
+    "geometry": {
+      "type": ["object", "null"],
+      "description": "GeoJSON geometry in EPSG:4326. A centroid is used for local context lookup."
+    },
+    "scale": {
+      "type": "string",
+      "enum": ["small", "medium", "large", "unknown"],
+      "default": "unknown"
+    },
+    "timeframe": {
+      "type": ["object", "null"],
+      "properties": {
+        "start_year": { "type": ["integer", "null"], "minimum": 2000 },
+        "end_year": { "type": ["integer", "null"], "minimum": 2000 }
+      }
+    },
+    "details": {
+      "type": "object",
+      "description": "Optional domain notes such as floors, capacity class, route type, or public-service type."
+    }
+  }
+}

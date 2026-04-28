@@ -117,6 +117,103 @@ button { font-family: inherit; }
 .event-sub { font-size: 11px; color: var(--text-mute); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .event-date { font-size: 11px; color: var(--text-faint); margin-top: 1px; }
 
+.proposal-impact-panel {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0 12px;
+  margin: 8px 0 10px;
+}
+.proposal-impact-title {
+  margin-top: 0;
+}
+.proposal-impact-body {
+  padding: 0 14px;
+}
+.proposal-impact-empty {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text-mute);
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+}
+.proposal-impact-summary {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text);
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+}
+.proposal-impact-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+.proposal-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.proposal-pill.low { background: #fff7ed; color: #9a3412; }
+.proposal-pill.medium { background: #ecfeff; color: #0e7490; }
+.proposal-pill.high { background: #ecfdf5; color: #047857; }
+.proposal-signal-list,
+.proposal-event-list,
+.proposal-caveat-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+.proposal-signal {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  background: #fff;
+}
+.proposal-signal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.proposal-signal-note {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-mute);
+  line-height: 1.35;
+}
+.proposal-event {
+  font-size: 11px;
+  color: var(--text-dim);
+  border-left: 3px solid var(--blue);
+  padding: 4px 0 4px 8px;
+}
+.proposal-event strong {
+  display: block;
+  color: var(--text);
+  font-size: 11.5px;
+}
+.proposal-caveat {
+  font-size: 10.8px;
+  color: var(--text-mute);
+  line-height: 1.35;
+}
+
 /* ============== CENTER AREA ============== */
 .center-area {
   display: flex;

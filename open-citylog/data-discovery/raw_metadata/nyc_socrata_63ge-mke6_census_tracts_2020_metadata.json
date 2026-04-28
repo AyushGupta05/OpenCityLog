@@ -1,0 +1,1281 @@
+{
+  "id": "63ge-mke6",
+  "name": "2020 Census Tracts",
+  "assetType": "dataset",
+  "attribution": "Department of City Planning (DCP)",
+  "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/census-tracts",
+  "averageRating": 0,
+  "category": "City Government",
+  "createdAt": 1631548820,
+  "description": "Census Tracts from the 2020 US Census for New York City clipped to the shoreline. These boundary files are derived from the US Census Bureau's TIGER project and have been geographically modified to fit the New York City base map. Because some census tracts are under water not all census tracts are contained in this file, only census tracts that are partially or totally located on land have been mapped in this file.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/census-tracts\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+  "diciBackend": false,
+  "displayType": "table",
+  "downloadCount": 5239,
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "locked": false,
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 37648946,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1631548985,
+  "publicationGroup": 18440232,
+  "publicationStage": "published",
+  "rowsUpdatedAt": 1773090265,
+  "rowsUpdatedBy": "iqqb-gm94",
+  "tableId": 18440232,
+  "totalTimesRated": 0,
+  "viewCount": 22964,
+  "viewLastModified": 1773090263,
+  "viewType": "tabular",
+  "approvals": [
+    {
+      "reviewedAt": 1632249212,
+      "reviewedAutomatically": true,
+      "state": "approved",
+      "submissionId": 4021260,
+      "submissionObject": "public_audience_request",
+      "submissionOutcome": "change_audience",
+      "submittedAt": 1632249212,
+      "targetAudience": "public",
+      "workflowId": 2285,
+      "submissionDetails": {
+        "permissionType": "READ"
+      },
+      "submissionOutcomeApplication": {
+        "endedAt": 1632249212,
+        "failureCount": 0,
+        "startedAt": 1632249212,
+        "status": "success"
+      },
+      "submitter": {
+        "id": "5fuc-pqz2",
+        "displayName": "NYC OpenData"
+      }
+    }
+  ],
+  "clientContext": {
+    "clientContextVariables": [],
+    "inheritedVariables": {}
+  },
+  "columns": [
+    {
+      "id": 548049972,
+      "name": "the_geom",
+      "dataTypeName": "multipolygon",
+      "description": "",
+      "fieldName": "the_geom",
+      "position": 1,
+      "renderTypeName": "multipolygon",
+      "tableColumnId": 139383206,
+      "format": {}
+    },
+    {
+      "id": 548049974,
+      "name": "CTLabel",
+      "dataTypeName": "text",
+      "description": "The census tract identifier for the polygon. Each 2020 census tract number is unique to its borough.",
+      "fieldName": "ctlabel",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 139383208,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "999",
+        "null": "0",
+        "top": [
+          {
+            "item": "75",
+            "count": "5"
+          },
+          {
+            "item": "247",
+            "count": "5"
+          },
+          {
+            "item": "77",
+            "count": "5"
+          },
+          {
+            "item": "279",
+            "count": "5"
+          },
+          {
+            "item": "251",
+            "count": "5"
+          },
+          {
+            "item": "39",
+            "count": "5"
+          },
+          {
+            "item": "138",
+            "count": "5"
+          },
+          {
+            "item": "96",
+            "count": "4"
+          },
+          {
+            "item": "240",
+            "count": "4"
+          },
+          {
+            "item": "110",
+            "count": "4"
+          },
+          {
+            "item": "295",
+            "count": "4"
+          },
+          {
+            "item": "134",
+            "count": "4"
+          },
+          {
+            "item": "50",
+            "count": "4"
+          },
+          {
+            "item": "198",
+            "count": "4"
+          },
+          {
+            "item": "159",
+            "count": "4"
+          },
+          {
+            "item": "164",
+            "count": "4"
+          },
+          {
+            "item": "118",
+            "count": "4"
+          },
+          {
+            "item": "157",
+            "count": "4"
+          },
+          {
+            "item": "74",
+            "count": "4"
+          },
+          {
+            "item": "37",
+            "count": "4"
+          }
+        ],
+        "smallest": "1",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049976,
+      "name": "BoroCode",
+      "dataTypeName": "text",
+      "description": "Borough of census tract.",
+      "fieldName": "borocode",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 139383210,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "5",
+        "null": "0",
+        "top": [
+          {
+            "item": "3",
+            "count": "804"
+          },
+          {
+            "item": "4",
+            "count": "724"
+          },
+          {
+            "item": "2",
+            "count": "361"
+          },
+          {
+            "item": "1",
+            "count": "310"
+          },
+          {
+            "item": "5",
+            "count": "126"
+          }
+        ],
+        "smallest": "1",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049978,
+      "name": "BoroName",
+      "dataTypeName": "text",
+      "description": "Borough Name.",
+      "fieldName": "boroname",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 139383212,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "Staten Island",
+        "null": "0",
+        "top": [
+          {
+            "item": "Brooklyn",
+            "count": "804"
+          },
+          {
+            "item": "Queens",
+            "count": "724"
+          },
+          {
+            "item": "Bronx",
+            "count": "361"
+          },
+          {
+            "item": "Manhattan",
+            "count": "310"
+          },
+          {
+            "item": "Staten Island",
+            "count": "126"
+          }
+        ],
+        "smallest": "Bronx",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049980,
+      "name": "CT2020",
+      "dataTypeName": "text",
+      "description": "String value of the 2020 census tract number.",
+      "fieldName": "ct2020",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 139383214,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "990100",
+        "null": "0",
+        "top": [
+          {
+            "item": "027900",
+            "count": "5"
+          },
+          {
+            "item": "003900",
+            "count": "5"
+          },
+          {
+            "item": "025100",
+            "count": "5"
+          },
+          {
+            "item": "007500",
+            "count": "5"
+          },
+          {
+            "item": "013800",
+            "count": "5"
+          },
+          {
+            "item": "024700",
+            "count": "5"
+          },
+          {
+            "item": "007700",
+            "count": "5"
+          },
+          {
+            "item": "029700",
+            "count": "4"
+          },
+          {
+            "item": "007400",
+            "count": "4"
+          },
+          {
+            "item": "009800",
+            "count": "4"
+          },
+          {
+            "item": "014300",
+            "count": "4"
+          },
+          {
+            "item": "015200",
+            "count": "4"
+          },
+          {
+            "item": "024900",
+            "count": "4"
+          },
+          {
+            "item": "011800",
+            "count": "4"
+          },
+          {
+            "item": "003300",
+            "count": "4"
+          },
+          {
+            "item": "024000",
+            "count": "4"
+          },
+          {
+            "item": "004700",
+            "count": "4"
+          },
+          {
+            "item": "011000",
+            "count": "4"
+          },
+          {
+            "item": "013000",
+            "count": "4"
+          },
+          {
+            "item": "028100",
+            "count": "4"
+          }
+        ],
+        "smallest": "000100",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049982,
+      "name": "BoroCT2020",
+      "dataTypeName": "text",
+      "description": "Merged string of borough code and 2020 census tract number.",
+      "fieldName": "boroct2020",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 139383216,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "5990100",
+        "null": "0",
+        "top": [
+          {
+            "item": "1012902",
+            "count": "1"
+          },
+          {
+            "item": "2007500",
+            "count": "1"
+          },
+          {
+            "item": "3118000",
+            "count": "1"
+          },
+          {
+            "item": "3056500",
+            "count": "1"
+          },
+          {
+            "item": "3120801",
+            "count": "1"
+          },
+          {
+            "item": "4045200",
+            "count": "1"
+          },
+          {
+            "item": "3003101",
+            "count": "1"
+          },
+          {
+            "item": "3042500",
+            "count": "1"
+          },
+          {
+            "item": "4120300",
+            "count": "1"
+          },
+          {
+            "item": "3074400",
+            "count": "1"
+          },
+          {
+            "item": "2028100",
+            "count": "1"
+          },
+          {
+            "item": "2051601",
+            "count": "1"
+          },
+          {
+            "item": "1011900",
+            "count": "1"
+          },
+          {
+            "item": "5013800",
+            "count": "1"
+          },
+          {
+            "item": "3039900",
+            "count": "1"
+          },
+          {
+            "item": "4056600",
+            "count": "1"
+          },
+          {
+            "item": "4040400",
+            "count": "1"
+          },
+          {
+            "item": "4103202",
+            "count": "1"
+          },
+          {
+            "item": "4032800",
+            "count": "1"
+          },
+          {
+            "item": "4086900",
+            "count": "1"
+          }
+        ],
+        "smallest": "1000100",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049984,
+      "name": "CDEligibil",
+      "dataTypeName": "text",
+      "description": "Community Development Block Grant Eligibility.",
+      "fieldName": "cdeligibil",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 139383218,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "I",
+        "null": "0",
+        "top": [
+          {
+            "item": "I",
+            "count": "1168"
+          },
+          {
+            "item": "E",
+            "count": "1157"
+          }
+        ],
+        "smallest": "E",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049985,
+      "name": "NTAName",
+      "dataTypeName": "text",
+      "description": "Community Development Block Grant Eligibility.",
+      "fieldName": "ntaname",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 139383219,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "Yankee Stadium-Macombs Dam Park",
+        "null": "0",
+        "top": [
+          {
+            "item": "Canarsie",
+            "count": "34"
+          },
+          {
+            "item": "Bensonhurst",
+            "count": "28"
+          },
+          {
+            "item": "Bay Ridge",
+            "count": "28"
+          },
+          {
+            "item": "Flatlands",
+            "count": "27"
+          },
+          {
+            "item": "South Ozone Park",
+            "count": "25"
+          },
+          {
+            "item": "Forest Hills",
+            "count": "24"
+          },
+          {
+            "item": "Elmhurst",
+            "count": "23"
+          },
+          {
+            "item": "St. Albans",
+            "count": "23"
+          },
+          {
+            "item": "Bedford-Stuyvesant (East)",
+            "count": "23"
+          },
+          {
+            "item": "Crown Heights (North)",
+            "count": "22"
+          },
+          {
+            "item": "Carroll Gardens-Cobble Hill-Gowanus-Red Hook",
+            "count": "21"
+          },
+          {
+            "item": "Borough Park",
+            "count": "21"
+          },
+          {
+            "item": "Bedford-Stuyvesant (West)",
+            "count": "21"
+          },
+          {
+            "item": "Jackson Heights",
+            "count": "20"
+          },
+          {
+            "item": "Queens Village",
+            "count": "20"
+          },
+          {
+            "item": "Williamsbridge-Olinville",
+            "count": "20"
+          },
+          {
+            "item": "Maspeth",
+            "count": "20"
+          },
+          {
+            "item": "Sheepshead Bay-Manhattan Beach-Gerritsen Beach",
+            "count": "20"
+          },
+          {
+            "item": "Baisley Park",
+            "count": "20"
+          },
+          {
+            "item": "Ridgewood",
+            "count": "19"
+          }
+        ],
+        "smallest": "Allerton",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049987,
+      "name": "NTA2020",
+      "dataTypeName": "text",
+      "description": "2020 Neighborhood Tabulation Area Code",
+      "fieldName": "nta2020",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 139383221,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "SI9593",
+        "null": "0",
+        "top": [
+          {
+            "item": "BK1803",
+            "count": "34"
+          },
+          {
+            "item": "BK1101",
+            "count": "28"
+          },
+          {
+            "item": "BK1001",
+            "count": "28"
+          },
+          {
+            "item": "BK1801",
+            "count": "27"
+          },
+          {
+            "item": "QN1001",
+            "count": "25"
+          },
+          {
+            "item": "QN0602",
+            "count": "24"
+          },
+          {
+            "item": "QN1205",
+            "count": "23"
+          },
+          {
+            "item": "QN0401",
+            "count": "23"
+          },
+          {
+            "item": "BK0302",
+            "count": "23"
+          },
+          {
+            "item": "BK0802",
+            "count": "22"
+          },
+          {
+            "item": "BK1202",
+            "count": "21"
+          },
+          {
+            "item": "BK0601",
+            "count": "21"
+          },
+          {
+            "item": "BK0301",
+            "count": "21"
+          },
+          {
+            "item": "QN1203",
+            "count": "20"
+          },
+          {
+            "item": "QN0501",
+            "count": "20"
+          },
+          {
+            "item": "QN1303",
+            "count": "20"
+          },
+          {
+            "item": "BX1201",
+            "count": "20"
+          },
+          {
+            "item": "BK1503",
+            "count": "20"
+          },
+          {
+            "item": "QN0301",
+            "count": "20"
+          },
+          {
+            "item": "BK1802",
+            "count": "19"
+          }
+        ],
+        "smallest": "BK0101",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049989,
+      "name": "CDTA2020",
+      "dataTypeName": "text",
+      "description": "2020 Community District Tabulation Area code",
+      "fieldName": "cdta2020",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 139383223,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "SI95",
+        "null": "0",
+        "top": [
+          {
+            "item": "QN12",
+            "count": "88"
+          },
+          {
+            "item": "BK18",
+            "count": "84"
+          },
+          {
+            "item": "QN13",
+            "count": "72"
+          },
+          {
+            "item": "QN05",
+            "count": "70"
+          },
+          {
+            "item": "QN07",
+            "count": "69"
+          },
+          {
+            "item": "QN01",
+            "count": "64"
+          },
+          {
+            "item": "BK05",
+            "count": "58"
+          },
+          {
+            "item": "BK12",
+            "count": "57"
+          },
+          {
+            "item": "BK11",
+            "count": "55"
+          },
+          {
+            "item": "QN09",
+            "count": "54"
+          },
+          {
+            "item": "BK01",
+            "count": "54"
+          },
+          {
+            "item": "SI01",
+            "count": "53"
+          },
+          {
+            "item": "BK15",
+            "count": "53"
+          },
+          {
+            "item": "BK17",
+            "count": "51"
+          },
+          {
+            "item": "BX12",
+            "count": "49"
+          },
+          {
+            "item": "BK10",
+            "count": "47"
+          },
+          {
+            "item": "BK14",
+            "count": "45"
+          },
+          {
+            "item": "BK03",
+            "count": "44"
+          },
+          {
+            "item": "QN02",
+            "count": "43"
+          },
+          {
+            "item": "QN08",
+            "count": "42"
+          }
+        ],
+        "smallest": "BK01",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049994,
+      "name": "CDTANAME",
+      "dataTypeName": "text",
+      "description": "2020 Community District Tabulation Area name",
+      "fieldName": "cdtaname",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 139383228,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "SI95 Great Kills Park-Fort Wadsworth (JIA 95 Approximation)",
+        "null": "0",
+        "top": [
+          {
+            "item": "QN12 Jamaica-St. Albans-Hollis (CD 12 Approximation)",
+            "count": "88"
+          },
+          {
+            "item": "BK18 Canarsie-Flatlands (CD 18 Approximation)",
+            "count": "84"
+          },
+          {
+            "item": "QN13 Queens Village-Bellerose-Rosedale (CD 13 Approximation)",
+            "count": "72"
+          },
+          {
+            "item": "QN05 Ridgewood-Maspeth-Middle Village (CD 5 Approximation)",
+            "count": "70"
+          },
+          {
+            "item": "QN07 Flushing-Murray Hill-Whitestone (CD 7 Approximation)",
+            "count": "69"
+          },
+          {
+            "item": "QN01 Astoria-Queensbridge (CD 1 Equivalent)",
+            "count": "64"
+          },
+          {
+            "item": "BK05 East New York-Cypress Hills (CD 5 Approximation)",
+            "count": "58"
+          },
+          {
+            "item": "BK12 Borough Park-Kensington (CD 12 Approximation)",
+            "count": "57"
+          },
+          {
+            "item": "BK11 Bensonhurst-Bath Beach (CD 11 Approximation)",
+            "count": "55"
+          },
+          {
+            "item": "BK01 Williamsburg-Greenpoint (CD 1 Equivalent)",
+            "count": "54"
+          },
+          {
+            "item": "QN09 Kew Gardens-Richmond Hill-Woodhaven (CD 9 Approximation)",
+            "count": "54"
+          },
+          {
+            "item": "BK15 Sheepshead Bay-Gravesend (East) (CD 15 Approximation)",
+            "count": "53"
+          },
+          {
+            "item": "SI01 North Shore (CD 1 Equivalent)",
+            "count": "53"
+          },
+          {
+            "item": "BK17 East Flatbush (CD 17 Approximation)",
+            "count": "51"
+          },
+          {
+            "item": "BX12 Wakefield-Williamsbridge-Eastchester (CD 12 Approximation)",
+            "count": "49"
+          },
+          {
+            "item": "BK10 Bay Ridge-Dyker Heights (CD 10 Approximation)",
+            "count": "47"
+          },
+          {
+            "item": "BK14 Flatbush-Midwood (CD 14 Approximation)",
+            "count": "45"
+          },
+          {
+            "item": "BK03 Bedford-Stuyvesant (CD 3 Approximation)",
+            "count": "44"
+          },
+          {
+            "item": "QN02 Long Island City-Sunnyside-Woodside (CD 2 Approximation)",
+            "count": "43"
+          },
+          {
+            "item": "QN08 Fresh Meadows-Hillcrest-Briarwood (CD 8 Approximation)",
+            "count": "42"
+          }
+        ],
+        "smallest": "BK01 Williamsburg-Greenpoint (CD 1 Equivalent)",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049997,
+      "name": "GEOID",
+      "dataTypeName": "text",
+      "description": "Full Census Tract number including the FIPS state and county code",
+      "fieldName": "geoid",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 139383231,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "36085990100",
+        "null": "0",
+        "top": [
+          {
+            "item": "36085020702",
+            "count": "1"
+          },
+          {
+            "item": "36005023000",
+            "count": "1"
+          },
+          {
+            "item": "36047085600",
+            "count": "1"
+          },
+          {
+            "item": "36085013301",
+            "count": "1"
+          },
+          {
+            "item": "36085029106",
+            "count": "1"
+          },
+          {
+            "item": "36081004401",
+            "count": "1"
+          },
+          {
+            "item": "36061011800",
+            "count": "1"
+          },
+          {
+            "item": "36047117201",
+            "count": "1"
+          },
+          {
+            "item": "36005041800",
+            "count": "1"
+          },
+          {
+            "item": "36047117601",
+            "count": "1"
+          },
+          {
+            "item": "36047072200",
+            "count": "1"
+          },
+          {
+            "item": "36047019800",
+            "count": "1"
+          },
+          {
+            "item": "36081062600",
+            "count": "1"
+          },
+          {
+            "item": "36005031400",
+            "count": "1"
+          },
+          {
+            "item": "36005006000",
+            "count": "1"
+          },
+          {
+            "item": "36047050402",
+            "count": "1"
+          },
+          {
+            "item": "36047052500",
+            "count": "1"
+          },
+          {
+            "item": "36061018800",
+            "count": "1"
+          },
+          {
+            "item": "36047043800",
+            "count": "1"
+          },
+          {
+            "item": "36081052200",
+            "count": "1"
+          }
+        ],
+        "smallest": "36005000100",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548049999,
+      "name": "Shape_Length",
+      "dataTypeName": "number",
+      "description": "Length of feature in internal units.",
+      "fieldName": "shape_leng",
+      "position": 13,
+      "renderTypeName": "number",
+      "tableColumnId": 139383233,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "148864.816762",
+        "null": "0",
+        "top": [
+          {
+            "item": "7553.38080056",
+            "count": "1"
+          },
+          {
+            "item": "10843.78682",
+            "count": "1"
+          },
+          {
+            "item": "16730.5274495",
+            "count": "1"
+          },
+          {
+            "item": "4829.5478005",
+            "count": "1"
+          },
+          {
+            "item": "10025.4692522",
+            "count": "1"
+          },
+          {
+            "item": "13923.1413017",
+            "count": "1"
+          },
+          {
+            "item": "4119.00787879",
+            "count": "1"
+          },
+          {
+            "item": "5159.57007806",
+            "count": "1"
+          },
+          {
+            "item": "7759.30822126",
+            "count": "1"
+          },
+          {
+            "item": "5315.53797638",
+            "count": "1"
+          },
+          {
+            "item": "20574.7372559",
+            "count": "1"
+          },
+          {
+            "item": "6807.4684947",
+            "count": "1"
+          },
+          {
+            "item": "5891.21566491",
+            "count": "1"
+          },
+          {
+            "item": "5509.69405853",
+            "count": "1"
+          },
+          {
+            "item": "11723.5231447",
+            "count": "1"
+          },
+          {
+            "item": "18352.1170213",
+            "count": "1"
+          },
+          {
+            "item": "6786.59344833",
+            "count": "1"
+          },
+          {
+            "item": "5691.51581119",
+            "count": "1"
+          },
+          {
+            "item": "10833.0439286",
+            "count": "1"
+          },
+          {
+            "item": "11940.6181336",
+            "count": "1"
+          }
+        ],
+        "smallest": "2569.47786511",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    },
+    {
+      "id": 548050003,
+      "name": "Shape_Area",
+      "dataTypeName": "number",
+      "description": "Area of feature in internal units squared.",
+      "fieldName": "shape_area",
+      "position": 14,
+      "renderTypeName": "number",
+      "tableColumnId": 139383237,
+      "cachedContents": {
+        "non_null": "2325",
+        "largest": "197189855.797",
+        "null": "0",
+        "top": [
+          {
+            "item": "2094112.20656",
+            "count": "1"
+          },
+          {
+            "item": "1097828.69224",
+            "count": "1"
+          },
+          {
+            "item": "2616057.41874",
+            "count": "1"
+          },
+          {
+            "item": "106213989.274",
+            "count": "1"
+          },
+          {
+            "item": "1872371.15965",
+            "count": "1"
+          },
+          {
+            "item": "7635311.96942",
+            "count": "1"
+          },
+          {
+            "item": "5721086.64953",
+            "count": "1"
+          },
+          {
+            "item": "1152098.81396",
+            "count": "1"
+          },
+          {
+            "item": "1877794.42429",
+            "count": "1"
+          },
+          {
+            "item": "8081409.27265",
+            "count": "1"
+          },
+          {
+            "item": "1790169.55168",
+            "count": "1"
+          },
+          {
+            "item": "4162642.63774",
+            "count": "1"
+          },
+          {
+            "item": "2497009.68388",
+            "count": "1"
+          },
+          {
+            "item": "5322023.22641",
+            "count": "1"
+          },
+          {
+            "item": "1951564.98028",
+            "count": "1"
+          },
+          {
+            "item": "1787978.94497",
+            "count": "1"
+          },
+          {
+            "item": "1489902.89327",
+            "count": "1"
+          },
+          {
+            "item": "1549247.99274",
+            "count": "1"
+          },
+          {
+            "item": "2277490.23672",
+            "count": "1"
+          },
+          {
+            "item": "1338496.69078",
+            "count": "1"
+          }
+        ],
+        "smallest": "400550.316304",
+        "count": "2325",
+        "cardinality": "2325"
+      },
+      "format": {}
+    }
+  ],
+  "grants": [
+    {
+      "inherited": false,
+      "type": "viewer",
+      "flags": [
+        "public"
+      ]
+    }
+  ],
+  "metadata": {
+    "attachments": [
+      {
+        "filename": "nyct2020_metadata.pdf",
+        "assetId": "35ea116d-00c5-44df-b89c-7edb8eb0993f",
+        "name": "nyct2020_metadata.pdf"
+      }
+    ],
+    "custom_fields": {
+      "Update": {
+        "Automation": "Yes",
+        "Date Made Public": "9/13/2021",
+        "Update Frequency": "Quarterly",
+        "Data Change Frequency": "Quarterly"
+      },
+      "Dataset Information": {
+        "Agency": "Department of City Planning (DCP)"
+      }
+    },
+    "rowLabel": "Census Tract",
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ]
+  },
+  "owner": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "query": {},
+  "rights": [
+    "read"
+  ],
+  "tableAuthor": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "tags": [
+    "census tract",
+    "2020",
+    "us census bureau",
+    "boundary",
+    "boundaries",
+    "districts",
+    "lion",
+    "cscl",
+    "department of city planning",
+    "dcp",
+    "new york city",
+    "nyc"
+  ],
+  "flags": [
+    "default",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ]
+}

@@ -1,109 +1,108 @@
-// Current Belfast 2016-2036 dashboard smoke.
-// Verifies the live DOM shell, timeline, tools, branch CRUD, impact panel,
-// compare modal, 3D toggle, and scenario diff affordance.
+const fs = require("fs");
+const path = require("path");
 const { chromium } = require("playwright");
 
+const rootDir = path.resolve(__dirname, "..");
+const outputDir = path.join(rootDir, "output", "playwright");
 const url = process.env.URL || "http://localhost:5173";
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+async function waitForAtlas(page) {
+  await page.waitForFunction(
+    () => Boolean(window.BimsAtlas?.state?.city && window.BimsAtlas?.filteredEvents),
+    null,
+    { timeout: 30000 }
+  );
+}
+
 (async () => {
+  fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage({ viewport: { width: 1500, height: 900 } });
   const consoleErrors = [];
-  page.on("console", (message) => {
+
+  const desktop = await browser.newPage({ viewport: { width: 1360, height: 900 }, deviceScaleFactor: 1 });
+  desktop.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
-  page.on("pageerror", (error) => consoleErrors.push("pageerror: " + error.message));
-  await page.addInitScript(() => {
-    try { localStorage.clear(); } catch (_error) {}
-  });
+  desktop.on("pageerror", (error) => consoleErrors.push("pageerror: " + error.message));
+  await desktop.goto(url, { waitUntil: "commit", timeout: 30000 });
+  await waitForAtlas(desktop);
 
-  await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
-  await page.waitForFunction(() => Boolean(window.BelfastDashboard?.state), null, { timeout: 30000 });
-  await page.waitForSelector(".mapboxgl-canvas", { timeout: 30000 });
-  await page.waitForFunction(() => window.BelfastDashboard.state.mapLoaded, null, { timeout: 30000 });
-  await page.evaluate(() => window.BelfastDashboard.setYear(2026));
-  await page.waitForFunction(() => document.querySelector("#tlYearNow")?.textContent === "2026", null, { timeout: 10000 });
-
-  const structure = await page.evaluate(() => ({
-    timelineDots: document.querySelectorAll("#timelineDots .t-dot").length,
-    tools: Array.from(document.querySelectorAll("#modifyList .tool-btn")).map((button) => button.getAttribute("data-tool")),
-    presets: document.querySelectorAll("#presetGrid .preset-btn").length,
-    lensTabs: Array.from(document.querySelectorAll(".lens-tab")).map((button) => button.getAttribute("data-lens")),
-    branchOptions: document.querySelectorAll("#branchSelect option").length,
-    impactCards: document.querySelectorAll("#impactStack .metric-card").length,
-    initialYear: document.querySelector("#tlYearNow")?.textContent?.trim()
+  const desktopState = await desktop.evaluate(() => ({
+    apiReady: Boolean(window.BimsAtlas),
+    markers: document.querySelectorAll(".map-marker").length,
+    eventCards: document.querySelectorAll(".event-card").length,
+    deltaCards: document.querySelectorAll(".delta-card").length,
+    layerButtons: document.querySelectorAll(".map-layer-btn").length,
+    mapCopy: document.querySelector(".map-footer")?.textContent || "",
+    visibleText: document.body.innerText,
+    scrollHeight: document.documentElement.scrollHeight,
+    clientHeight: document.documentElement.clientHeight,
   }));
-  assert(structure.timelineDots === 21, `expected 21 timeline dots, got ${structure.timelineDots}`);
-  for (const tool of ["select", "building", "road", "infrastructure", "remove"]) {
-    assert(structure.tools.includes(tool), `missing tool ${tool}`);
-  }
-  for (const lens of ["buildings", "traffic", "jobs", "electricity", "services"]) {
-    assert(structure.lensTabs.includes(lens), `missing lens ${lens}`);
-  }
-  assert(structure.presets >= 4, `expected building presets, got ${structure.presets}`);
-  assert(structure.branchOptions >= 4, `expected default branches, got ${structure.branchOptions}`);
-  assert(structure.impactCards >= 5, `expected impact metric cards, got ${structure.impactCards}`);
-  assert(structure.initialYear === "2026", `expected year 2026, got ${structure.initialYear}`);
+  assert(desktopState.apiReady, "BimsAtlas test API was not exposed.");
+  assert(desktopState.markers > 0, "Desktop map has no markers.");
+  assert(desktopState.eventCards > 0, "Desktop changelog has no event cards.");
+  assert(desktopState.deltaCards >= 4, "Year compare delta cards did not render.");
+  assert(desktopState.layerButtons === 3, "Map layer toggles did not render.");
+  assert(desktopState.scrollHeight <= desktopState.clientHeight + 4, `Desktop layout overflows vertically: ${desktopState.scrollHeight} > ${desktopState.clientHeight}.`);
+  assert(/Imagery|Esri World Imagery/i.test(desktopState.mapCopy), "Real imagery map footer copy is missing.");
+  assert(!/\bRun Simulation\b|\bSolana\b|\bScenario Studio\b|\bbranch workspace\b/i.test(desktopState.visibleText), "Legacy simulator language is visible.");
+  assert(/not a prediction engine/i.test(desktopState.visibleText), "Evidence-map caveat is not visible.");
 
-  await page.evaluate(() => window.BelfastDashboard.createBranch("Smoke Test Branch", "#ec4899", "baseline"));
-  await page.waitForFunction(() => window.BelfastDashboard.activeBranch().name === "Smoke Test Branch", null, { timeout: 5000 });
-  await page.evaluate(() => window.BelfastDashboard.addItemAt("building", -5.93, 54.6));
-  await page.evaluate(() => window.BelfastDashboard.addItemAt("park", -5.928, 54.601));
-  await page.evaluate(() => window.BelfastDashboard.addItemAt("infrastructure", -5.932, 54.599));
-  const branchState = await page.evaluate(() => ({
-    itemCount: window.BelfastDashboard.activeBranch().items.length,
-    itemTypes: window.BelfastDashboard.activeBranch().items.map((item) => item.type),
-    listText: document.querySelector("#branchList")?.textContent || "",
-    metrics: window.BelfastDashboard.metricsForBranchYear(window.BelfastDashboard.activeBranch(), 2036)
+  await desktop.locator(".lens-button", { hasText: "Traffic" }).click();
+  await desktop.waitForFunction(() => window.BimsAtlas.state.lens === "transport", null, { timeout: 10000 });
+  const trafficState = await desktop.evaluate(() => ({
+    count: window.BimsAtlas.filteredEvents().length,
+    text: document.querySelector("#listMeta")?.textContent || "",
   }));
-  assert(branchState.itemCount >= 3, `expected staged items, got ${branchState.itemCount}`);
-  for (const type of ["building", "park", "infrastructure"]) {
-    assert(branchState.itemTypes.includes(type), `branch is missing staged ${type} item`);
-  }
-  assert(branchState.listText.length > 0, "branch additions panel did not render");
-  assert(branchState.metrics.population > 343000, "staged building did not affect forecast population");
+  assert(trafficState.count > 0, "Traffic lens should show London transport records.");
+  assert(/records/i.test(trafficState.text), "Lens result count did not update.");
 
-  await page.evaluate(() => window.BelfastDashboard.setYear(2036));
-  await page.waitForFunction(() => document.querySelector("#tlYearNow")?.textContent === "2036", null, { timeout: 10000 });
-  await page.evaluate(() => window.BelfastDashboard.openCompareModal());
-  await page.waitForSelector("#compareModal:not([hidden])", { timeout: 5000 });
-  const compareText = await page.locator("#compareBody").textContent();
-  assert(/Smoke Test Branch|Baseline/.test(compareText || ""), "compare modal did not include branch context");
-  await page.click("#compareModal .modal-close");
-  await page.waitForFunction(() => document.querySelector("#compareModal").hasAttribute("hidden"), null, { timeout: 5000 });
+  await desktop.locator("#mapMode2d").click();
+  const mode2d = await desktop.locator("#mapStage").evaluate((node) => node.classList.contains("mode-2d"));
+  assert(mode2d, "2D map toggle did not activate.");
+  await desktop.locator("#mapMode3d").click();
+  const mode3d = await desktop.locator("#mapStage").evaluate((node) => node.classList.contains("mode-3d"));
+  assert(mode3d, "3D map toggle did not activate.");
+  await desktop.locator(".map-layer-btn", { hasText: "Evidence" }).click();
+  const evidenceLayer = await desktop.locator("#mapStage").evaluate((node) => node.classList.contains("layer-evidence"));
+  assert(evidenceLayer, "Evidence layer toggle did not activate.");
 
-  await page.evaluate(() => window.BelfastDashboard.setView("3D"));
-  await page.waitForFunction(() => window.BelfastDashboard.state.view === "3D", null, { timeout: 5000 });
-  const viewActive = await page.locator(".map-ctrl-btn[data-view='3D']").evaluate((button) => button.classList.contains("active"));
-  assert(viewActive, "3D map control did not activate");
+  await desktop.keyboard.press("Tab");
+  const focusVisible = await desktop.evaluate(() => Boolean(document.activeElement && document.activeElement !== document.body));
+  assert(focusVisible, "Keyboard focus did not move to an interactive control.");
 
-  const disabledDiff = await page.locator("#scenarioDiffBtn").isDisabled();
-  assert(!disabledDiff, "scenario diff button is disabled for a branch with staged interventions");
+  await desktop.screenshot({ path: path.join(outputDir, "atlas-desktop-smoke.png"), fullPage: true });
 
-  const itemId = await page.evaluate(() => {
-    const items = window.BelfastDashboard.activeBranch().items;
-    return items[items.length - 1]?.id;
+  const mobile = await browser.newPage({ viewport: { width: 390, height: 860 }, deviceScaleFactor: 2, isMobile: true });
+  mobile.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
   });
-  assert(itemId, "could not find a staged item to remove");
-  await page.evaluate((id) => window.BelfastDashboard.removeItem(id), itemId);
-  const afterRemove = await page.evaluate(() => window.BelfastDashboard.activeBranch().items.length);
-  assert(afterRemove === branchState.itemCount - 1, `expected one item removed, got ${branchState.itemCount} -> ${afterRemove}`);
+  mobile.on("pageerror", (error) => consoleErrors.push("mobile pageerror: " + error.message));
+  await mobile.goto(url, { waitUntil: "commit", timeout: 30000 });
+  await waitForAtlas(mobile);
 
-  await page.evaluate(() => {
-    window.confirm = () => true;
-    window.BelfastDashboard.deleteBranch(window.BelfastDashboard.activeBranch().id);
-  });
-  const finalBranch = await page.evaluate(() => window.BelfastDashboard.activeBranch().id);
-  assert(finalBranch === "baseline", `expected fallback to baseline, got ${finalBranch}`);
+  const mobileState = await mobile.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+    mapHeight: Math.round(document.querySelector(".map-stage")?.getBoundingClientRect().height || 0),
+    lensDisplay: getComputedStyle(document.querySelector(".lens-group")).display,
+    visibleText: document.body.innerText,
+  }));
+  assert(mobileState.scrollWidth <= mobileState.clientWidth + 4, `Mobile layout overflows horizontally: ${mobileState.scrollWidth} > ${mobileState.clientWidth}.`);
+  assert(mobileState.mapHeight >= 320, `Mobile map is too short: ${mobileState.mapHeight}.`);
+  assert(mobileState.lensDisplay === "flex", "Lens filters did not render as scrollable controls.");
+  assert(/Timeline|Selected event|Compare years|Open Citylog/i.test(mobileState.visibleText), "Mobile product sections are missing.");
 
-  const filteredErrors = consoleErrors.filter((error) => !/Failed to load resource.*mapbox|favicon/i.test(error));
-  assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
+  await mobile.screenshot({ path: path.join(outputDir, "atlas-mobile-smoke.png"), fullPage: true });
   await browser.close();
-  console.log("Dashboard smoke OK: current shell, tools, branch CRUD, impact panel, compare, and 3D view.");
+
+  const filteredErrors = consoleErrors.filter((error) => !/favicon/i.test(error));
+  assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
+  console.log("Atlas dashboard smoke OK: desktop/mobile layout, map fallback, lenses, compare, and legacy-copy guard.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

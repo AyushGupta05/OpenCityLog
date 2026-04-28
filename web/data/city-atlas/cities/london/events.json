@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","city_id":"london","generated_at":"2026-04-28T00:00:00Z","event_count":0,"event_years":[],"chunks":[],"migration":{"source_kind":"adapter_placeholder","source_schema_version":null,"source_path":null,"source_event_count":0,"normalized_event_count":0,"basis":[],"notes":["No local adapter has been implemented for this city yet."]}}

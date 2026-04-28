@@ -1,0 +1,440 @@
+[
+  {
+    "event_id": "lon_stratford_2005_olympic_bid_awarded",
+    "title": "London awarded the 2012 Olympic and Paralympic Games",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "policy_governance",
+    "date_start": "2005-07-06",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "IOC selected London to host the 2012 Games, triggering the Lower Lea Valley/Olympic Park delivery programme.",
+    "observed_change": "Regeneration programme trigger for Stratford/Olympic Park and Lower Lea Valley.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park",
+      "lon_london_plan_2021"
+    ],
+    "confidence": "corroborated",
+    "limitations": "Use as policy/regeneration trigger, not a planning permission."
+  },
+  {
+    "event_id": "lon_stratford_2006_olympic_act",
+    "title": "London Olympic and Paralympic Games Act receives Royal Assent",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "policy_governance",
+    "date_start": "2006-03-30",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "The Act created statutory powers and bodies needed to deliver the London 2012 Games.",
+    "observed_change": "Governance framework for Olympic delivery and later legacy planning.",
+    "source_ids": [
+      "lon_lldc_local_plan"
+    ],
+    "confidence": "documented",
+    "limitations": "Legal source should be linked in part-2 ingestion."
+  },
+  {
+    "event_id": "lon_stratford_2007_olympic_park_permissions",
+    "title": "Olympic Park planning permissions and site-preparation programme",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "planning_development",
+    "date_start": "2007-09-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic Park masterplanning and permissions moved from bid concept into delivery/site preparation.",
+    "observed_change": "Large-scale land assembly, remediation, utilities and venue construction programme.",
+    "source_ids": [
+      "lon_lldc_planning_register",
+      "lon_pld_api"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Date is month-level discovery seed; verify exact permission decision IDs in LLDC/ODA records."
+  },
+  {
+    "event_id": "lon_stratford_2008_olympic_park_construction",
+    "title": "Major Olympic Park construction phase begins",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "construction_start",
+    "date_start": "2008-05-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Main Olympic Park construction and venue delivery accelerated after land clearance/remediation.",
+    "observed_change": "Visible transformation from industrial/rail/waterway land to Games park and venues.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Month-level seed; confirm exact construction milestones from ODA/LLDC annual reports."
+  },
+  {
+    "event_id": "lon_stratford_2009_stratford_international_domestic",
+    "title": "Stratford International domestic rail services open",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "transport",
+    "date_start": "2009-11-30",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Domestic Southeastern High Speed services began serving Stratford International.",
+    "observed_change": "High-speed rail access added to Stratford/Olympic Park area.",
+    "source_ids": [
+      "lon_tfl_open_data"
+    ],
+    "confidence": "documented",
+    "limitations": "Station opening source should be Network Rail/Southeastern/Mitre in part 2; TfL layer only provides current context."
+  },
+  {
+    "event_id": "lon_stratford_2011_dlr_stratford_international",
+    "title": "DLR extension to Stratford International opens",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "transport",
+    "date_start": "2011-08-31",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "DLR service opened to Stratford International, connecting the Olympic Park area to the Docklands/light-rail network.",
+    "observed_change": "Transit access improved before London 2012.",
+    "source_ids": [
+      "lon_tfl_unified_api",
+      "lon_tfl_open_data"
+    ],
+    "confidence": "documented",
+    "limitations": "Use TfL press release/opening chronology for final evidence."
+  },
+  {
+    "event_id": "lon_stratford_2011_westfield_opening",
+    "title": "Westfield Stratford City opens",
+    "city": "london",
+    "area": "stratford",
+    "category": "economic_anchor",
+    "date_start": "2011-09-13",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Large retail and leisure centre opened adjacent to Stratford station and Olympic Park.",
+    "observed_change": "Major economic/retail anchor added to Stratford City.",
+    "source_ids": [
+      "lon_pld_api",
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Private operator source should be corroborated with planning/source records."
+  },
+  {
+    "event_id": "lon_stratford_2012_games_open",
+    "title": "London 2012 Olympic Games opening ceremony",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "regeneration",
+    "date_start": "2012-07-27",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic Park hosted the Games opening ceremony and primary Olympic venues.",
+    "observed_change": "Temporary event use of newly built park/venues; later legacy conversion followed.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Event date is Games opening, not park-public-opening date."
+  },
+  {
+    "event_id": "lon_stratford_2012_paralympics_open",
+    "title": "London 2012 Paralympic Games opening ceremony",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "regeneration",
+    "date_start": "2012-08-29",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic Park hosted Paralympic events after the Olympic Games.",
+    "observed_change": "Continued Games use before legacy conversion.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Event date is Paralympics opening."
+  },
+  {
+    "event_id": "lon_stratford_2013_east_village_first_residents",
+    "title": "East Village begins residential occupation",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "housing_completion",
+    "date_start": "2013-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Former Athletes Village transitioned into East Village homes after the Games.",
+    "observed_change": "Large housing delivery/occupation phase begins in Olympic Park area.",
+    "source_ids": [
+      "lon_pld_api",
+      "lon_lldc_planning_register"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Year-level seed; validate exact first-occupation date and unit counts from LLDC/GLA records."
+  },
+  {
+    "event_id": "lon_stratford_2013_chobham_academy",
+    "title": "Chobham Academy opens",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_service",
+    "date_start": "2013-09-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "New all-through school opened as part of East Village/legacy neighbourhood infrastructure.",
+    "observed_change": "Public service/civic asset added to support new residential community.",
+    "source_ids": [
+      "lon_dfe_schools",
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "School opening month seed; verify exact date from DfE/school record."
+  },
+  {
+    "event_id": "lon_stratford_2013_copper_box_reopens",
+    "title": "Copper Box Arena reopens for public legacy use",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_service",
+    "date_start": "2013-07-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic venue reopened as a public sports and events venue.",
+    "observed_change": "Games venue converted to civic/sport legacy asset.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Month-level seed; verify exact reopening date."
+  },
+  {
+    "event_id": "lon_stratford_2013_north_park_open",
+    "title": "Queen Elizabeth Olympic Park north park opens",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_realm",
+    "date_start": "2013-07-27",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Northern part of the Olympic Park opened to the public after legacy conversion works.",
+    "observed_change": "Public realm/park access added after Games.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Use park-management source for exact boundary/opening scope."
+  },
+  {
+    "event_id": "lon_stratford_2014_pudding_mill_lane_relocated",
+    "title": "New Pudding Mill Lane DLR station opens",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "transport",
+    "date_start": "2014-04-28",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "A relocated/larger Pudding Mill Lane DLR station opened to support Crossrail/area development.",
+    "observed_change": "Transit station geometry/capacity changed near Olympic Park.",
+    "source_ids": [
+      "lon_tfl_unified_api",
+      "lon_tfl_open_data"
+    ],
+    "confidence": "documented",
+    "limitations": "Need TfL/Crossrail source for exact station works details."
+  },
+  {
+    "event_id": "lon_stratford_2014_aquatics_public_open",
+    "title": "London Aquatics Centre opens to the public",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_service",
+    "date_start": "2014-03-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic swimming venue opened for public/community use after conversion.",
+    "observed_change": "Games venue becomes public sport/leisure asset.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Use official venue/LLDC source in final card."
+  },
+  {
+    "event_id": "lon_stratford_2014_velopark_open",
+    "title": "Lee Valley VeloPark opens",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_service",
+    "date_start": "2014-03-31",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic cycling venue opened as a public cycling facility.",
+    "observed_change": "Sports venue/cycle facility added to legacy park.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Use Lee Valley/LLDC source for exact date."
+  },
+  {
+    "event_id": "lon_stratford_2014_south_park_open",
+    "title": "Queen Elizabeth Olympic Park fully opens to the public",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_realm",
+    "date_start": "2014-04-05",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "South Park/plaza areas opened, completing the main post-Games public park opening sequence.",
+    "observed_change": "Major new public park/public realm becomes accessible.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park",
+      "lon_os_open_greenspace"
+    ],
+    "confidence": "documented",
+    "limitations": "Geometry should distinguish north/south park and venue areas."
+  },
+  {
+    "event_id": "lon_stratford_2015_lldc_local_plan",
+    "title": "LLDC Local Plan adopted",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "policy_governance",
+    "date_start": "2015-07-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "LLDC adopted a local plan for its planning authority area covering Olympic legacy development.",
+    "observed_change": "Policy framework for development management and site allocations.",
+    "source_ids": [
+      "lon_lldc_local_plan"
+    ],
+    "confidence": "documented",
+    "limitations": "Month-level date in discovery pack; final should use exact adoption date from LLDC document."
+  },
+  {
+    "event_id": "lon_stratford_2016_here_east_opening",
+    "title": "Here East innovation campus opens in former press/broadcast centres",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "economic_anchor",
+    "date_start": "2016-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Former Olympic media facilities transitioned toward Here East technology/innovation campus uses.",
+    "observed_change": "Economic anchor / employment-space reuse of Games infrastructure.",
+    "source_ids": [
+      "lon_pld_api",
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Year-level seed; validate exact opening/occupation milestones."
+  },
+  {
+    "event_id": "lon_stratford_2018_hackney_wick_station",
+    "title": "Hackney Wick station redevelopment opens",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "transport",
+    "date_start": "2018-05-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Station upgrade near the western edge of the Olympic Park improved access and interchange/public realm.",
+    "observed_change": "Transport/public realm improvement supporting Hackney Wick/Olympic Park access.",
+    "source_ids": [
+      "lon_tfl_open_data"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Month-level seed; verify exact opening from TfL/Network Rail."
+  },
+  {
+    "event_id": "lon_stratford_2019_east_wick_sweetwater_start",
+    "title": "East Wick and Sweetwater neighbourhood delivery starts",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "housing_completion",
+    "date_start": "2019-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Residential neighbourhood phases on the Olympic Park moved into delivery.",
+    "observed_change": "Housing pipeline/completion phase for Olympic legacy neighbourhoods.",
+    "source_ids": [
+      "lon_pld_api",
+      "lon_lldc_planning_register"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Use PLD/LLDC application IDs and completion records for final dates/unit counts."
+  },
+  {
+    "event_id": "lon_stratford_2020_lldc_revised_local_plan",
+    "title": "Revised LLDC Local Plan adopted",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "policy_governance",
+    "date_start": "2020-07-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "LLDC adopted/replaced its local plan for continuing legacy-area planning.",
+    "observed_change": "Updated policy framework for the Olympic legacy area.",
+    "source_ids": [
+      "lon_lldc_local_plan"
+    ],
+    "confidence": "documented",
+    "limitations": "Month-level date; final card should use exact adoption date."
+  },
+  {
+    "event_id": "lon_stratford_2021_ulez_inner_expansion",
+    "title": "ULEZ expands to the North and South Circular roads",
+    "city": "london",
+    "area": "stratford",
+    "category": "environmental_policy",
+    "date_start": "2021-10-25",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Ultra Low Emission Zone expanded from central London to the North/South Circular boundary.",
+    "observed_change": "Air-quality/traffic-emissions policy context affecting inner London travel, including areas west/south of Stratford depending boundary.",
+    "source_ids": [
+      "lon_tfl_open_data",
+      "lon_london_air_api"
+    ],
+    "confidence": "documented",
+    "limitations": "Boundary relation to specific site must be computed; do not claim local air-quality causation."
+  },
+  {
+    "event_id": "lon_stratford_2022_elizabeth_line",
+    "title": "Elizabeth line opens, with Stratford on the eastern branch",
+    "city": "london",
+    "area": "stratford",
+    "category": "transport",
+    "date_start": "2022-05-24",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Elizabeth line service launched; Stratford became part of the branded Elizabeth line network, with through-running later in 2022.",
+    "observed_change": "Major east-west rail connectivity layer added/rebranded for Stratford.",
+    "source_ids": [
+      "lon_tfl_unified_api",
+      "lon_tfl_open_data"
+    ],
+    "confidence": "documented",
+    "limitations": "Distinguish initial opening from later through-running timetable changes."
+  },
+  {
+    "event_id": "lon_stratford_2023_ulez_all_london",
+    "title": "ULEZ expands to all London boroughs",
+    "city": "london",
+    "area": "greater_london",
+    "category": "environmental_policy",
+    "date_start": "2023-08-29",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Ultra Low Emission Zone expanded London-wide.",
+    "observed_change": "Environmental transport policy applies across Greater London, including Stratford/Newham.",
+    "source_ids": [
+      "lon_tfl_open_data",
+      "lon_london_air_api"
+    ],
+    "confidence": "documented",
+    "limitations": "Policy boundary event; air-quality effects require monitor/indicator caveats."
+  }
+]
