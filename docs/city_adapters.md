@@ -49,7 +49,7 @@ Keep raw parsing separate from normalization:
 
 ## Belfast Notes
 
-The Belfast adapter uses the legacy Mode A infrastructure catalog as an input. It downgrades OSM-derived records to `inferred` confidence because an OSM edit timestamp is not the same thing as an opening, construction, or demolition date.
+The Belfast adapter uses the infrastructure event catalog as an input. It downgrades OSM-derived records to `inferred` confidence because an OSM edit timestamp is not the same thing as an opening, construction, or demolition date.
 
 Official project pages and planning statistics can be `documented`, but their caveats still travel with the event. A planning approval remains an administrative event unless a later source confirms completion.
 

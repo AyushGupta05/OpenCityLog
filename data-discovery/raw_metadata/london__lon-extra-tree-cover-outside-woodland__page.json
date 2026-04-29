@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-tree-cover-outside-woodland",
+  "city": "london",
+  "title": "Tree Cover Outside Woodland",
+  "publisher": "Forestry Commission",
+  "bucket": "trees/canopy/environment",
+  "retrieved_at": "2026-04-28T12:57:19.888415+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.gov.uk/government/statistics/tree-cover-outside-woodland-in-great-britain",
+      "retrieved_at": "2026-04-28T12:57:19.676497+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://www.gov.uk/government/statistics/tree-cover-outside-woodland-in-great-britain",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
--- Belfast historical replay spatial ETL/model contract, 2016-2026.
+-- City atlas historical replay spatial ETL/model contract.
 --
 -- Dialect target: PostgreSQL + PostGIS. Geometry columns are expressed as
 -- geometry(..., 4326), but the table contracts are still useful for SQLite or
@@ -7,7 +7,8 @@
 CREATE TABLE IF NOT EXISTS source_batches (
     source_batch_id TEXT PRIMARY KEY,
     manifest_version TEXT NOT NULL,
-    study_area TEXT NOT NULL DEFAULT 'Belfast',
+    city_id TEXT NOT NULL,
+    city_display_name TEXT,
     source_branch TEXT,
     source_commit TEXT,
     created_at TIMESTAMPTZ,
@@ -273,49 +274,6 @@ CREATE TABLE IF NOT EXISTS air_observation_events (
     unit TEXT,
     source_file_id TEXT REFERENCES source_files(source_file_id),
     provenance JSONB NOT NULL DEFAULT '{}'::jsonb
-);
-
-CREATE TABLE IF NOT EXISTS scenario_branches (
-    scenario_branch_id TEXT PRIMARY KEY,
-    parent_branch_id TEXT REFERENCES scenario_branches(scenario_branch_id),
-    branch_name TEXT NOT NULL,
-    base_replay_year INTEGER CHECK (base_replay_year BETWEEN 2016 AND 2026),
-    created_by TEXT,
-    created_at TIMESTAMPTZ,
-    description TEXT,
-    branch_state TEXT NOT NULL DEFAULT 'draft'
-);
-
-CREATE TABLE IF NOT EXISTS scenario_branch_events (
-    event_id TEXT PRIMARY KEY,
-    scenario_branch_id TEXT NOT NULL REFERENCES scenario_branches(scenario_branch_id),
-    event_year INTEGER CHECK (event_year BETWEEN 2016 AND 2026),
-    event_type TEXT NOT NULL CHECK (event_type IN ('created', 'forked', 'published', 'archived', 'rebased')),
-    event_at TIMESTAMPTZ,
-    metadata JSONB NOT NULL DEFAULT '{}'::jsonb
-);
-
-CREATE TABLE IF NOT EXISTS scenario_edits (
-    scenario_edit_id TEXT PRIMARY KEY,
-    scenario_branch_id TEXT NOT NULL REFERENCES scenario_branches(scenario_branch_id),
-    target_table TEXT NOT NULL,
-    target_id TEXT NOT NULL,
-    edit_year INTEGER CHECK (edit_year BETWEEN 2016 AND 2026),
-    edit_type TEXT NOT NULL CHECK (edit_type IN ('insert', 'update', 'delete', 'geometry_update', 'indicator_override')),
-    patch JSONB NOT NULL,
-    geom geometry(Geometry, 4326),
-    created_at TIMESTAMPTZ,
-    provenance JSONB NOT NULL DEFAULT '{}'::jsonb
-);
-
-CREATE TABLE IF NOT EXISTS scenario_edit_events (
-    event_id TEXT PRIMARY KEY,
-    scenario_edit_id TEXT NOT NULL REFERENCES scenario_edits(scenario_edit_id),
-    scenario_branch_id TEXT NOT NULL REFERENCES scenario_branches(scenario_branch_id),
-    event_year INTEGER CHECK (event_year BETWEEN 2016 AND 2026),
-    event_type TEXT NOT NULL CHECK (event_type IN ('applied', 'reverted', 'superseded', 'validated')),
-    event_at TIMESTAMPTZ,
-    metadata JSONB NOT NULL DEFAULT '{}'::jsonb
 );
 
 CREATE TABLE IF NOT EXISTS spatial_feature_deltas (

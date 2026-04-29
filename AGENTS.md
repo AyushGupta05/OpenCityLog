@@ -26,7 +26,7 @@ The durable architecture should move toward:
 - A list/map/timeline UI: map views are important, but the changelog, evidence drawer, and exportable source brief are the trust center.
 - Lightweight proposal lookup: compare proposals with historical analogues and confidence, not heavy forecasts.
 
-Legacy "Mode A" replay assets may remain during migration, but new work should pull the repo toward a changelog/atlas model.
+Retired replay assets are quarantined; new work should keep the repo on the changelog/atlas model.
 
 ## 3. What Must Not Be Overclaimed
 
@@ -115,7 +115,7 @@ Run the full legacy test command only when the affected area depends on it:
 npm test
 ```
 
-Some existing commands still cover legacy forecast/simulation artifacts. If they fail because of legacy scope that was not touched, report that clearly instead of expanding simulator code.
+Legacy forecast/simulation commands are not part of the current quality gate. Do not restore them unless a later accepted spec brings back a validated modelling product.
 
 ## 6. Testing And Verification Expectations
 
@@ -209,5 +209,4 @@ Before considering work complete, check:
 
 ## 12. Simulation Direction
 
-Heavy 10-year simulation, future-branch scenario engines, transformer-style forecasts, blockchain proof flows, generic impact scores, and traffic/electricity simulators are legacy or non-goals for the current product direction. Remove, quarantine, or downgrade them unless a later accepted product spec explicitly restores them with validation requirements.
-
+Heavy 10-year simulation, future-branch scenario engines, transformer-style forecasts, retired provenance proof flows, generic impact scores, and traffic/electricity simulators are legacy or non-goals for the current product direction. Remove, quarantine, or downgrade them unless a later accepted product spec explicitly restores them with validation requirements.

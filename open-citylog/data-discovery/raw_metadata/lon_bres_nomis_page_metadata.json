@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_bres_nomis",
+  "title": "Business Register and Employment Survey via Nomis",
+  "requested_url": "https://www.nomisweb.co.uk/sources/bres",
+  "fetched_url": "https://www.nomisweb.co.uk/sources/bres",
+  "final_url": "https://www.nomisweb.co.uk/sources/bres",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:55.201718+00:00",
+  "page_title": "",
+  "h1": "Cookie Consent",
+  "meta_description": "nomis - official labour market statistics"
+}

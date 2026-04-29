@@ -1,115 +1,96 @@
 (function () {
   "use strict";
 
-  const MAX_LIST_EVENTS = 220;
-  const MAX_MAP_MARKERS = 360;
-  const MAX_MINI_MARKERS = 120;
   const CURRENT_YEAR = 2026;
-  const DEFAULT_LENS = "all";
+  const TILE_SIZE = 256;
+  const MIN_ZOOM = 3;
+  const MAX_ZOOM = 15;
+  const DETAIL_ZOOM = 15;
+  const FOCUS_ZOOM = 14;
+  const MAX_LIST_EVENTS = 90;
+  const MAX_MARKERS = 70;
 
-  const LENSES = [
-    { id: "all", label: "All changes", hint: "Every available record", color: "#0f766e" },
-    { id: "development", label: "Development", hint: "Planning and built form", color: "#2563eb", categories: ["built_environment"] },
-    { id: "transport", label: "Transport", hint: "Road and transit context", color: "#b45309", categories: ["transport"], lenses: ["mobility", "traffic"] },
-    { id: "housing", label: "Housing", hint: "Residential signals", color: "#7c3aed", categories: ["built_environment"], keywords: ["housing", "residential", "dwelling", "apartment", "affordable", "homes", "student"] },
-    { id: "environment", label: "Environment", hint: "Green and air context", color: "#15803d", categories: ["environment"], keywords: ["green", "park", "tree", "air", "environment", "open space", "public space"] },
-    { id: "economy", label: "Economy/jobs", hint: "Employment and activity", color: "#9333ea", categories: ["economy"], lenses: ["jobs"] },
-    { id: "energy", label: "Energy/infra", hint: "Utilities and grid", color: "#0e7490", categories: ["utilities"], lenses: ["utilities", "electricity"] },
-    { id: "services", label: "Services/equity", hint: "Civic services", color: "#be123c", categories: ["civic_services"], lenses: ["services"] },
+  const TILE_PROVIDER = {
+    name: "Esri World Imagery",
+    template: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    attribution: "Esri World Imagery Wayback / World Imagery, source-backed event overlays",
+  };
+
+  const CATEGORY_CONFIG = [
+    { id: "all", label: "All layers", color: "#1268db" },
+    { id: "built_environment", label: "Planning", color: "#e9781a" },
+    { id: "transport", label: "Transport", color: "#7c5cff" },
+    { id: "environment", label: "Environment", color: "#2e9b58" },
+    { id: "civic_services", label: "Public services", color: "#0b95b7" },
+    { id: "economy", label: "Economy", color: "#b7791f" },
+    { id: "utilities", label: "Infrastructure", color: "#0f9f8f" },
   ];
 
-  const CATEGORY_LABELS = {
-    built_environment: "Development",
-    transport: "Transport",
-    utilities: "Energy/infrastructure",
-    civic_services: "Services/equity",
-    economy: "Economy/jobs",
-    environment: "Environment",
+  const CONFIDENCE_LABELS = {
+    corroborated: "Corroborated",
+    documented: "Documented",
+    inferred: "Inferred",
+    disputed: "Disputed",
   };
 
-  const SIGNAL_LABELS = {
-    buildings: "Development",
-    built_environment: "Development",
-    mobility: "Mobility",
-    traffic: "Traffic",
-    services: "Services",
-    civic_services: "Civic services",
-    utilities: "Energy/utilities",
-    electricity: "Electricity",
-    jobs: "Jobs",
-    economy: "Economy",
-    green_space: "Green/public space",
-  };
-
-  const CONFIDENCE_WEIGHT = {
+  const CONFIDENCE_SCORE = {
     corroborated: 4,
     documented: 3,
     inferred: 2,
     disputed: 1,
   };
 
-  const CITY_VIEW_CONFIG = {
-    london: {
-      defaultYear: 2022,
-      defaultLens: "transport",
-      featuredEventId: "london-2022-elizabeth-line",
-      displayPlace: "London / Stratford / Lower Lea Valley",
-      subtitle: "London, England",
-      center: [-0.0102, 51.545],
-      zoom: 14,
-      bounds: [-0.075, 51.505, 0.055, 51.575],
-      labels: ["STRATFORD", "OLYMPIC PARK", "LOWER LEA VALLEY"],
-    },
-    nyc: {
-      defaultYear: 2025,
-      defaultLens: "transport",
-      featuredEventId: "nyc-2025-congestion-pricing",
-      displayPlace: "New York City / Manhattan / Midtown",
-      subtitle: "New York City, New York",
-      center: [-73.9855, 40.754],
-      zoom: 14,
-      bounds: [-74.035, 40.705, -73.92, 40.815],
-      labels: ["HUDSON YARDS", "MIDTOWN", "EAST SIDE"],
-    },
-  };
-
-  const CITY_DEMO_EVENTS = {
-    london: [
-      demoEvent("london", "london-2011-dlr-stratford-international", 2011, "DLR extension to Stratford International opened", "transport", "mobility", [-0.0086, 51.5448], "Stratford International", ["tfl-open-data"], "https://tfl.gov.uk/info-for/media/press-releases", "Docklands Light Railway connection added transport access to the Olympic Park and Stratford International area.", ["Opening dates and service context are documented; this does not isolate a traffic-causality effect."], trafficMetrics(2010, 2011, "Pre-extension access", "Post-opening access", "DLR/rail access added to the Stratford International area; road traffic effects are contextual, not causal.")),
-      demoEvent("london", "london-2012-olympic-park", 2012, "Queen Elizabeth Olympic Park opens", "built_environment", "mobility", [-0.0163, 51.5386], "Queen Elizabeth Olympic Park", ["london-datastore"], "https://www.queenelizabetholympicpark.co.uk/our-stories/london-legacy-development-corporation-announces-opening-plans-queen-elizabeth-olympic", "The Olympic Park became a major public realm and regeneration anchor in the Lower Lea Valley.", ["Park opening and legacy delivery are documented; traffic and development signals should be read as surrounding context."], trafficMetrics(2008, 2012, "Games build-out period", "Park opening period", "Mobility demand and public-realm access changed around the Olympic Park; source evidence supports timing, not exact congestion attribution.")),
-      demoEvent("london", "london-2018-elizabeth-line-station-fitout", 2018, "Elizabeth line stations moved through final fit-out", "transport", "mobility", [-0.0033, 51.5419], "Stratford and east London corridor", ["tfl-open-data"], "https://tfl.gov.uk/corporate/publications-and-reports/elizabeth-line-delivery-group", "Public delivery records show the Elizabeth line moving toward operational readiness across the London rail corridor.", ["Delivery records are administrative evidence; passenger and road impacts require separate observed datasets."], trafficMetrics(2017, 2018, "Construction/delivery phase", "Pre-opening readiness", "Evidence supports delivery status and affected transport corridor; it is not a measured traffic outcome.")),
-      demoEvent("london", "london-2022-elizabeth-line", 2022, "Elizabeth line opened", "transport", "mobility", [-0.003, 51.541], "Stratford station and cross-London corridor", ["tfl-open-data"], "https://rms.tfl.gov.uk/info-for/media/press-releases/2022/may/elizabeth-line-to-open-on-24-may-2022", "TfL confirmed the Elizabeth line opened to passengers on 24 May 2022, changing rail access across London.", ["Opening is documented by TfL; this atlas shows access context and before/after evidence, not a claimed road-traffic reduction."], trafficMetrics(2021, 2022, "Before opening", "Passenger service opened", "TfL opening evidence supports a transport-access change. Any road traffic interpretation needs separate traffic-count evidence.")),
-    ],
-    nyc: [
-      demoEvent("nyc", "nyc-2009-high-line", 2009, "High Line opened to the public", "environment", "green_space", [-74.0048, 40.7479], "West Chelsea", ["nyc-open-data"], "https://www.thehighline.org/history/", "The High Line converted a former elevated freight rail structure into public open space on Manhattan's west side.", ["Public-space opening is documented; nearby development and traffic patterns are contextual."], trafficMetrics(2008, 2009, "Before park opening", "Public park opening", "The event records a public-realm change. Traffic effects are not inferred without separate counts.")),
-      demoEvent("nyc", "nyc-2010-times-square-plaza", 2010, "Times Square permanent plaza design process began", "transport", "traffic", [-73.9851, 40.758], "Times Square", ["nyc-open-data"], "https://www.nyc.gov/html/dot/html/pr2010/pr10_010.shtml", "NYC DOT initiated permanent plaza design after Green Light for Midtown changed street allocation in Times Square.", ["DOT source documents public-realm and street-design actions; local traffic outcomes require the referenced evaluation data."], trafficMetrics(2009, 2010, "Temporary plaza period", "Permanent design initiated", "DOT records support the before/after street-allocation change; the card avoids claiming exact congestion effects.")),
-      demoEvent("nyc", "nyc-2017-second-avenue-subway", 2017, "Second Avenue Subway Phase 1 opened", "transport", "mobility", [-73.947, 40.784], "Upper East Side", ["nyc-open-data"], "https://www.mta.info/project/second-avenue-subway-phase-1", "The first phase of the Second Avenue Subway opened new subway access on Manhattan's East Side.", ["MTA project evidence supports the infrastructure opening; mode-shift and road effects are separate analytical questions."], trafficMetrics(2016, 2017, "Before Phase 1", "Phase 1 opened", "Transit access changed on the East Side. This is evidence context, not a traffic forecast.")),
-      demoEvent("nyc", "nyc-2019-hudson-yards", 2019, "Hudson Yards opened", "built_environment", "jobs", [-74.0006, 40.7539], "Far West Side", ["nyc-dcp-mappluto"], "https://www.hudsonyardsnewyork.com/press-media/press-releases/hudson-yards-officially-opens", "Hudson Yards opened as a major mixed-use district on Manhattan's Far West Side.", ["Opening and development context are documented; exact jobs, tax and traffic effects need source-specific datasets."], trafficMetrics(2018, 2019, "Before district opening", "Public opening", "The opening affected access and demand context around 34 St-Hudson Yards; this card does not claim causality.")),
-      demoEvent("nyc", "nyc-2025-congestion-pricing", 2025, "Congestion pricing launched in Manhattan", "transport", "traffic", [-73.9857, 40.758], "Manhattan Central Business District", ["nyc-open-data"], "https://congestionreliefzone.mta.info/", "The Central Business District Tolling Program began as a traffic-management and transit-funding policy for Manhattan south of 60th Street.", ["This is a policy/event record. Before/after traffic numbers should be checked against official MTA/DOT releases for the exact measurement window."], trafficMetrics(2024, 2025, "Before tolling", "Tolling launched", "Official program evidence supports the policy change; measured traffic deltas are treated as source-dependent evidence, not a model output.")),
-    ],
+  const FEATURED_YEAR = {
+    london: 2023,
+    nyc: 2025,
+    belfast: 2024,
   };
 
   const state = {
     index: null,
-    cityId: "london",
+    cityId: "",
+    cityMeta: null,
     city: null,
-    availability: null,
-    sources: null,
+    imageryArchive: null,
+    beforeImagery: null,
+    afterImagery: null,
+    beforeMap: null,
+    afterMap: null,
+    beforeMapLoaded: false,
+    afterMapLoaded: false,
+    mapSceneReady: false,
+    mapSyncing: false,
     eventsIndex: null,
+    sources: null,
+    currentState: null,
+    evidenceCatalog: null,
+    sourceById: new Map(),
+    years: [],
     year: CURRENT_YEAR,
-    startYear: 2007,
-    endYear: CURRENT_YEAR,
-    lens: "all",
-    search: "",
+    beforeYear: CURRENT_YEAR - 1,
+    loadedEvents: new Map(),
     eventsByYear: new Map(),
+    category: "all",
+    confidence: "all",
+    source: "all",
+    search: "",
+    sort: "relevance",
     selectedEventId: null,
     selectedEvent: null,
-    compareBefore: 2025,
-    compareAfter: 2026,
-    mapMode: "3d",
-    mapLayer: "observed",
-    detailTab: "observed",
-    overlayOpacity: 60,
+    mapCenter: null,
+    mapZoom: 12,
+    cameraCenter: null,
+    cameraZoom: 12,
+    cameraFrame: null,
+    mapRenderFrame: null,
+    mapView: null,
+    mapDrag: null,
+    compareX: 50,
+    viewMode: "2d",
+    impactMode: "place",
+    replayTimer: null,
+    timeScrubTimer: null,
+    yearRequest: 0,
   };
 
   const els = {};
@@ -119,95 +100,75 @@
   async function init() {
     collectElements();
     wireEvents();
-    renderLensButtons();
-    setMapLayer(state.mapLayer);
-    state.cityId = getUrlParam("city") || state.cityId;
+    renderLayerBar();
+    renderStaticFilters();
     await loadIndex();
+    await loadImageryArchive();
+    await loadEvidenceCatalog();
     await loadCity(state.cityId);
     exposeTestApi();
   }
 
   function collectElements() {
     for (const id of [
-      "citySelect",
-      "coverageBadge",
-      "trustBadge",
-      "buildBadge",
-      "sourcesButton",
-      "impactButton",
-      "closeImpactButton",
       "eventSearch",
-      "lensGroup",
-      "eventCountPill",
+      "citySelect",
+      "categoryFilter",
+      "confidenceFilter",
+      "sourceFilter",
+      "sortSelect",
+      "clearFiltersButton",
+      "areaTitle",
       "listMeta",
       "eventList",
-      "timelineRange",
-      "timelineStart",
-      "timelineEnd",
-      "mapTitle",
-      "placeSubtitle",
+      "layerBar",
       "mapStage",
-      "mapTileLayer",
-      "mapAttribution",
+      "mapViewport",
+      "mapPlane",
+      "beforeMap",
+      "afterMap",
+      "beforeTileLayer",
+      "afterTileLayer",
+      "overlayLayer",
       "markerLayer",
-      "mapEmpty",
-      "staticMap",
       "mapCallout",
       "calloutYear",
       "calloutTitle",
       "calloutMeta",
-      "mapMode2d",
-      "mapMode3d",
-      "mapLayerGroup",
-      "opacitySlider",
-      "opacityValue",
-      "trafficCompareCard",
-      "trafficCompareTitle",
-      "trafficBeforeYear",
-      "trafficBeforeValue",
-      "trafficBeforeLabel",
-      "trafficAfterYear",
-      "trafficAfterValue",
-      "trafficAfterLabel",
-      "trafficCompareNote",
+      "mapEmpty",
+      "mapAttribution",
       "zoomInButton",
       "zoomOutButton",
-      "locateButton",
-      "targetButton",
-      "yearSlider",
-      "yearValue",
-      "timelineYears",
+      "recenterButton",
+      "view2dButton",
+      "view3dButton",
       "prevYearButton",
       "nextYearButton",
-      "fitMapButton",
-      "shareButton",
+      "yearStrip",
+      "yearSlider",
+      "timelineSummary",
+      "replayButton",
+      "compareLabel",
+      "compareNote",
+      "compareSlider",
+      "exportBriefButton",
+      "copyBriefButton",
+      "detailIndex",
       "detailTitle",
       "detailSubtitle",
-      "detailConfidence",
-      "detailBody",
-      "detailTabGroup",
-      "clearSelectionButton",
-      "confidenceText",
-      "sourceSummary",
-      "sourceChips",
-      "openEvidenceButton",
-      "compareBefore",
-      "compareAfter",
-      "compareSelectedEvent",
-      "beforeMiniLabel",
-      "afterMiniLabel",
-      "deltaGrid",
+      "observedChange",
+      "impactModeBar",
       "impactPanel",
-      "impactForm",
-      "proposalCategory",
-      "proposalTitle",
-      "proposalLocation",
-      "proposalScale",
-      "proposalDescription",
-      "impactResults",
-      "sourceDrawer",
-      "sourceDrawerBody",
-      "closeSourcesButton",
+      "evidenceFrames",
+      "confidenceDot",
+      "detailConfidence",
+      "confidenceText",
+      "limitationsList",
+      "sourceList",
+      "catalogSummary",
+      "catalogStats",
+      "catalogSourceGrid",
+      "catalogTimelineList",
       "toast",
     ]) {
       els[id] = document.getElementById(id);
@@ -218,826 +179,1287 @@
     els.citySelect.addEventListener("change", () => loadCity(els.citySelect.value));
     els.eventSearch.addEventListener("input", () => {
       state.search = els.eventSearch.value.trim().toLowerCase();
-      renderEvents();
-    });
-    els.yearSlider.addEventListener("input", () => setYear(Number(els.yearSlider.value)));
-    if (els.prevYearButton) els.prevYearButton.addEventListener("click", () => setYear(state.year - 1));
-    if (els.nextYearButton) els.nextYearButton.addEventListener("click", () => setYear(state.year + 1));
-    els.fitMapButton.addEventListener("click", () => toast("Showing all mappable records within the city bounds."));
-    if (els.zoomInButton) els.zoomInButton.addEventListener("click", () => setMapZoomed(true));
-    if (els.zoomOutButton) els.zoomOutButton.addEventListener("click", () => setMapZoomed(false));
-    if (els.locateButton) els.locateButton.addEventListener("click", () => state.selectedEvent ? focusMapOnEvent(state.selectedEvent) : toast("Select an event first."));
-    if (els.targetButton) els.targetButton.addEventListener("click", () => setMapZoomed(false));
-    if (els.mapMode2d) els.mapMode2d.addEventListener("click", () => setMapMode("2d"));
-    if (els.mapMode3d) els.mapMode3d.addEventListener("click", () => setMapMode("3d"));
-    if (els.mapLayerGroup) {
-      els.mapLayerGroup.querySelectorAll("[data-map-layer]").forEach((button) => {
-        button.addEventListener("click", () => setMapLayer(button.dataset.mapLayer));
-      });
-    }
-    if (els.opacitySlider) els.opacitySlider.addEventListener("input", () => {
-      state.overlayOpacity = Number(els.opacitySlider.value);
-      els.opacityValue.textContent = `${state.overlayOpacity}%`;
-      els.mapStage.style.setProperty("--overlay-opacity", String(state.overlayOpacity / 100));
-    });
-    els.shareButton.addEventListener("click", shareView);
-    els.sourcesButton.addEventListener("click", openSources);
-    if (els.openEvidenceButton) els.openEvidenceButton.addEventListener("click", openSources);
-    els.closeSourcesButton.addEventListener("click", closeSources);
-    if (els.clearSelectionButton) els.clearSelectionButton.addEventListener("click", clearSelection);
-    els.sourceDrawer.addEventListener("click", (event) => {
-      if (event.target.hasAttribute("data-close-drawer")) closeSources();
+      refreshFilteredView({ preferCurrentYear: true });
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !els.sourceDrawer.hidden) closeSources();
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        els.eventSearch.focus();
+      }
     });
-    els.compareBefore.addEventListener("change", () => {
-      state.compareBefore = Number(els.compareBefore.value);
-      renderCompare();
+    els.categoryFilter.addEventListener("change", () => {
+      state.category = els.categoryFilter.value;
+      renderLayerBar();
+      refreshFilteredView({ preferCurrentYear: true });
     });
-    els.compareAfter.addEventListener("change", () => {
-      state.compareAfter = Number(els.compareAfter.value);
-      renderCompare();
+    els.confidenceFilter.addEventListener("change", () => {
+      state.confidence = els.confidenceFilter.value;
+      refreshFilteredView({ preferCurrentYear: true });
     });
-    els.compareSelectedEvent.addEventListener("click", compareAroundSelectedEvent);
-    els.impactButton.addEventListener("click", () => {
-      els.impactPanel.hidden = false;
-      els.proposalTitle.focus();
+    els.sourceFilter.addEventListener("change", () => {
+      state.source = els.sourceFilter.value;
+      refreshFilteredView({ preferCurrentYear: true });
     });
-    if (els.closeImpactButton) els.closeImpactButton.addEventListener("click", closeImpact);
-    els.impactPanel.addEventListener("click", (event) => {
-      if (event.target.hasAttribute("data-close-impact")) closeImpact();
+    els.sortSelect.addEventListener("change", () => {
+      state.sort = els.sortSelect.value;
+      refreshFilteredView({ preferCurrentYear: true });
     });
-    els.impactForm.addEventListener("submit", runImpactSketch);
-    els.detailTabGroup.querySelectorAll("[data-detail-tab]").forEach((button) => {
-      button.addEventListener("click", () => {
-        state.detailTab = button.dataset.detailTab;
-        renderDetailTabs();
-        if (state.selectedEvent) renderDetail(state.selectedEvent);
+    els.clearFiltersButton.addEventListener("click", clearFilters);
+    els.yearSlider.addEventListener("input", () => setYear(Number(els.yearSlider.value)));
+    els.prevYearButton.addEventListener("click", () => stepYear(-1));
+    els.nextYearButton.addEventListener("click", () => stepYear(1));
+    els.zoomInButton.addEventListener("click", () => setZoom(state.mapZoom + 1));
+    els.zoomOutButton.addEventListener("click", () => setZoom(state.mapZoom - 1));
+    els.recenterButton.addEventListener("click", recenterMap);
+    els.view2dButton.addEventListener("click", () => setViewMode("2d"));
+    els.view3dButton.addEventListener("click", () => setViewMode("3d"));
+    els.mapViewport.addEventListener("pointerdown", startMapDrag);
+    els.mapViewport.addEventListener("pointermove", moveMapDrag);
+    els.mapViewport.addEventListener("pointerup", endMapDrag);
+    els.mapViewport.addEventListener("pointercancel", endMapDrag);
+    els.mapViewport.addEventListener("wheel", zoomMapWheel, { passive: false });
+    els.compareSlider.addEventListener("input", () => setCompareX(Number(els.compareSlider.value)));
+    if (els.impactModeBar) {
+      els.impactModeBar.querySelectorAll("[data-impact-mode]").forEach((button) => {
+        button.addEventListener("click", () => setImpactMode(button.dataset.impactMode || "place"));
       });
-    });
+    }
+    els.replayButton.addEventListener("click", replayYears);
+    els.exportBriefButton.addEventListener("click", exportBrief);
+    els.copyBriefButton.addEventListener("click", copyBrief);
+    window.addEventListener("resize", debounce(() => {
+      scheduleMapRender();
+    }, 150));
   }
 
   async function loadIndex() {
     try {
       state.index = await fetchJson("/data/city-atlas/index.json");
-      if (!CITY_VIEW_CONFIG[state.cityId]) state.cityId = "london";
+      state.cityId = getUrlParam("city") || state.index.default_city_id || state.index.cities?.[0]?.city_id || "london";
       renderCitySelect();
     } catch (error) {
-      renderFatal(`Could not load the city atlas index: ${error.message}`);
+      renderFatal(`Could not load city atlas index: ${error.message}`);
+    }
+  }
+
+  async function loadImageryArchive() {
+    try {
+      const manifest = await fetchJson("/data/wayback-imagery.json");
+      const layers = Array.isArray(manifest.layers) ? manifest.layers.slice().sort((a, b) => String(a.date).localeCompare(String(b.date))) : [];
+      state.imageryArchive = layers.length ? { ...manifest, layers } : null;
+    } catch (_error) {
+      state.imageryArchive = null;
+    }
+  }
+
+  async function loadEvidenceCatalog() {
+    try {
+      state.evidenceCatalog = await fetchJson("/data/city-atlas/evidence-catalog.json");
+    } catch (_error) {
+      state.evidenceCatalog = null;
     }
   }
 
   function renderCitySelect() {
-    const cities = selectableCities();
+    const cities = state.index?.cities || [];
     els.citySelect.innerHTML = cities.map((city) => (
-      `<option value="${escapeHtml(city.city_id)}">${escapeHtml(city.display_name)}</option>`
+      `<option value="${escapeAttr(city.city_id)}">${escapeHtml(shortCityName(city.display_name))}</option>`
     )).join("");
+    if (!cities.some((city) => city.city_id === state.cityId)) {
+      state.cityId = cities[0]?.city_id || state.cityId;
+    }
     els.citySelect.value = state.cityId;
   }
 
   async function loadCity(cityId) {
-    state.cityId = CITY_VIEW_CONFIG[cityId] ? cityId : "london";
+    state.cityId = cityId;
+    state.cityMeta = (state.index?.cities || []).find((city) => city.city_id === cityId) || state.index?.cities?.[0] || null;
+    if (!state.cityMeta) return renderFatal("No city metadata is available.");
+
+    state.loadedEvents = new Map();
+    state.eventsByYear = new Map();
+    state.currentState = null;
+    state.sourceById = new Map();
     state.selectedEventId = null;
     state.selectedEvent = null;
-    state.eventsByYear = new Map();
-    const cityMeta = selectableCities().find((city) => city.city_id === state.cityId);
-    if (!cityMeta) return renderFatal(`Unknown city: ${state.cityId}`);
+    state.category = "all";
+    state.confidence = "all";
+    state.source = "all";
+    state.search = "";
+    els.eventSearch.value = "";
+    els.categoryFilter.value = "all";
+    els.confidenceFilter.value = "all";
+    els.sourceFilter.value = "all";
+    els.sortSelect.value = "relevance";
+    setLoading();
 
-    setLoadingState(cityMeta);
     try {
-      const paths = cityMeta.artifact_paths || {};
-      const [city, availability, eventsIndex, sources] = await Promise.all([
+      const paths = state.cityMeta.artifact_paths || {};
+      const [city, eventsIndex, sources, currentState] = await Promise.all([
         fetchJson(dataPathToUrl(paths.city)),
-        fetchJson(dataPathToUrl(paths.availability)),
         fetchJson(dataPathToUrl(paths.events)),
         fetchJson(dataPathToUrl(paths.sources)),
+        paths.current_state ? fetchJson(dataPathToUrl(paths.current_state)).catch(() => null) : Promise.resolve(null),
       ]);
       state.city = city;
-      state.availability = availability;
       state.eventsIndex = eventsIndex;
       state.sources = sources;
-      const years = getAvailableYears();
-      state.startYear = years[0] || city.available_years?.demo_observed_start || 2007;
-      state.endYear = Math.min(years[years.length - 1] || city.available_years?.demo_observed_end || CURRENT_YEAR, CURRENT_YEAR);
-      const yearParam = getUrlParam("year");
-      const urlYear = Number(yearParam);
-      const hasUrlYear = yearParam !== null && Number.isFinite(urlYear);
-      const cityView = CITY_VIEW_CONFIG[state.cityId] || {};
-      const preferredYear = cityView.defaultYear || DEFAULT_DEMO_YEAR;
-      state.year = clamp(hasUrlYear ? urlYear : preferredYear, state.startYear, state.endYear);
-      state.compareBefore = clamp(state.year - 1, state.startYear, state.endYear);
-      state.compareAfter = state.year;
-      state.lens = getUrlParam("lens") || cityView.defaultLens || DEFAULT_DEMO_LENS;
-      renderChrome(cityMeta);
-      renderLensButtons();
-      renderTimeline();
-      renderCompareControls();
-      renderEmptyDetail();
-      await loadEventsForYear(state.year);
-      if (!hasUrlYear) selectInitialFeaturedEvent();
-      await renderCompare();
-    } catch (error) {
-      renderFatal(`Could not load ${cityMeta.display_name}: ${error.message}`);
-    }
-  }
-
-  function setLoadingState(cityMeta) {
-    if (els.coverageBadge) els.coverageBadge.textContent = `${cityMeta.display_name} loading`;
-    els.eventList.innerHTML = `<div class="empty-state">Loading event chunks and source records.</div>`;
-    els.detailBody.className = "detail-body empty-state";
-    els.detailBody.textContent = "Loading city detail.";
-    els.markerLayer.innerHTML = "";
-  }
-
-  function renderChrome(cityMeta) {
-    const status = state.availability?.summary?.status || cityMeta.availability_status || "unknown";
-    const count = cityEventCount(state.cityId, cityMeta);
-    if (els.coverageBadge) els.coverageBadge.textContent = `${formatNumber(count)} events - ${status.replace(/_/g, " ")}`;
-    if (els.trustBadge) els.trustBadge.textContent = `${formatNumber(cityMeta.source_count || state.sources?.source_count || 0)} source records`;
-    if (els.buildBadge) els.buildBadge.textContent = `Built ${formatDateTime(state.index?.generated_at || state.sources?.generated_at)}`;
-    const cityView = CITY_VIEW_CONFIG[state.cityId] || {};
-    els.mapTitle.textContent = cityView.displayPlace || displayPlaceName(state.city.display_name);
-    els.placeSubtitle.textContent = cityView.subtitle || state.city.display_name;
-    renderCityLabels();
-    renderImageryTiles();
-    els.sourceSummary.textContent = `${formatNumber(count)} records, ${formatNumber(cityMeta.source_count || state.sources?.source_count || 0)} source records, ${status.replace(/_/g, " ")} coverage.`;
-    els.sourceChips.innerHTML = (state.sources?.sources || []).slice(0, 5).map((source) => `<span>${escapeHtml(source.source_id || source.provider || "source")}</span>`).join("") + `<span>+${Math.max(0, (state.sources?.source_count || 0) - 5)}</span>`;
-    document.title = `${displayPlaceName(state.city.display_name)} - Open Citylog`;
-  }
-
-  function renderTimeline() {
-    const years = getAvailableYears();
-    els.yearSlider.min = String(state.startYear);
-    els.yearSlider.max = String(state.endYear);
-    els.yearSlider.value = String(state.year);
-    if (els.yearValue) els.yearValue.textContent = String(state.year);
-    if (els.timelineRange) els.timelineRange.textContent = `Explore ${state.startYear}-${state.endYear}`;
-    if (els.timelineStart) els.timelineStart.textContent = String(state.startYear);
-    if (els.timelineEnd) els.timelineEnd.textContent = String(state.endYear);
-    if (els.prevYearButton) els.prevYearButton.disabled = state.year <= state.startYear;
-    if (els.nextYearButton) els.nextYearButton.disabled = state.year >= state.endYear;
-    const shown = years.filter((year) => year === state.startYear || year === state.endYear || year % 3 === 0);
-    if (els.timelineYears) els.timelineYears.innerHTML = shown.map((year) => `<span>${year}</span>`).join("");
-  }
-
-  function renderCompareControls() {
-    const years = [];
-    for (let year = state.startYear; year <= state.endYear; year += 1) years.push(year);
-    const options = years.map((year) => `<option value="${year}">${year}</option>`).join("");
-    els.compareBefore.innerHTML = options;
-    els.compareAfter.innerHTML = options;
-    els.compareBefore.value = String(state.compareBefore);
-    els.compareAfter.value = String(state.compareAfter);
-    els.beforeMiniLabel.textContent = String(state.compareBefore);
-    els.afterMiniLabel.textContent = String(state.compareAfter);
-  }
-
-  function renderLensButtons() {
-    els.lensGroup.innerHTML = LENSES.map((lens) => `
-      <button class="lens-button" type="button" data-lens="${lens.id}" style="--lens-color:${lens.color}" aria-pressed="${lens.id === state.lens}">
-        ${escapeHtml(lens.label)}
-        <small>${escapeHtml(lens.hint)}</small>
-      </button>
-    `).join("");
-    els.lensGroup.querySelectorAll(".lens-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        state.lens = button.dataset.lens;
-        updateUrl();
-        renderLensButtons();
-        renderEvents();
-        if (state.selectedEvent) renderTrafficCompare(state.selectedEvent);
-        renderCompare();
-      });
-    });
-  }
-
-  async function setYear(year) {
-    const nextYear = clamp(Number(year), state.startYear, state.endYear);
-    if (nextYear === state.year && state.eventsByYear.has(nextYear)) return;
-    state.year = nextYear;
-    state.selectedEventId = null;
-    state.selectedEvent = null;
-    renderTimeline();
-    renderEmptyDetail();
-    updateUrl();
-    await loadEventsForYear(nextYear);
-  }
-
-  async function loadEventsForYear(year) {
-    els.listMeta.textContent = `Loading ${year} records`;
-    if (!state.eventsByYear.has(year)) {
-      const chunk = (state.eventsIndex?.chunks || []).find((item) => Number(item.year) === Number(year));
-      if (!chunk || !chunk.event_count) {
-        state.eventsByYear.set(year, demoEventsForYear(state.cityId, year));
-      } else {
-        const data = await fetchJson(dataPathToUrl(chunk.json_path));
-        state.eventsByYear.set(year, (data.events || []).concat(demoEventsForYear(state.cityId, year)));
+      state.currentState = currentState;
+      state.sourceById = new Map((sources.sources || []).map((source) => [source.source_id, source]));
+      state.years = getAvailableYears();
+      state.year = preferredYear();
+      state.beforeYear = nearestYearBefore(state.year);
+      state.mapCenter = city.default_center || [0, 0];
+      state.mapZoom = cityMapZoom(city);
+      if (state.cameraFrame) {
+        window.cancelAnimationFrame(state.cameraFrame);
+        state.cameraFrame = null;
       }
+      syncCameraToTarget();
+      resetTileCache();
+      setCompareX(72, { silent: true });
+      applyTemporalScene();
+      renderChrome();
+      renderTimeline();
+      initMapScenes();
+      setCameraTarget(state.mapCenter, state.mapZoom, { instant: true });
+      await ensureContextEvents();
+      await ensureYearLoaded(state.year);
+      renderSourceFilter();
+      renderAll();
+      scheduleMapRender();
+    } catch (error) {
+      renderFatal(`Could not load ${state.cityMeta.display_name}: ${error.message}`);
     }
-    renderEvents();
   }
 
-  function renderEvents() {
-    const allEvents = getCurrentEvents();
-    const filtered = filterEvents(allEvents);
-    const sorted = filtered.slice().sort(sortEvents);
-    const shown = sorted.slice(0, MAX_LIST_EVENTS);
-    els.eventCountPill.textContent = `${formatNumber(filtered.length)} records`;
-    els.listMeta.textContent = filtered.length
-      ? `Showing ${formatNumber(shown.length)} of ${formatNumber(filtered.length)} records for ${state.year}`
-      : `No records match this lens for ${state.year}`;
-    els.eventList.innerHTML = shown.length
-      ? shown.map(renderEventCard).join("")
-      : `<div class="empty-state">No matching events. Try another lens, year, or search term.</div>`;
-    els.eventList.querySelectorAll(".event-card").forEach((button) => {
-      button.addEventListener("click", () => selectEvent(button.dataset.eventId));
-    });
-    renderMapMarkers(sorted);
+  function setLoading() {
+    els.areaTitle.textContent = state.cityMeta?.display_name || "Loading city";
+    els.listMeta.textContent = "Loading records";
+    els.eventList.innerHTML = `<div class="empty-state">Loading source-backed city records.</div>`;
+    els.markerLayer.innerHTML = "";
+    els.overlayLayer.innerHTML = "";
+    els.mapEmpty.hidden = true;
+    renderEmptyBrief();
   }
 
-  function renderEventCard(event) {
-    const selected = state.selectedEventId === event.event_id;
-    const confidence = event.confidence || "unknown";
-    const area = event.affected_area?.label || "Mapped area";
-    const lens = lensForEvent(event);
-    return `
-      <button class="event-card" type="button" role="listitem" data-event-id="${escapeAttr(event.event_id)}" aria-selected="${selected}">
-        <span class="event-year">${escapeHtml(String(event.year || state.year))}</span>
-        <strong>${escapeHtml(event.title || "Untitled event")}</strong>
-        <span class="event-subline">${escapeHtml(area)} - ${escapeHtml(confidenceLabel(confidence))}</span>
-        <span class="event-category" style="--lens-color:${lens.color}">${escapeHtml(categoryLabel(event.category))}</span>
-        <span class="event-bookmark" aria-hidden="true"></span>
-      </button>
-    `;
+  function renderChrome() {
+    document.title = `${shortCityName(state.city?.display_name)} - CivicReplay`;
+    els.areaTitle.textContent = shortCityName(state.city?.display_name);
+    els.mapAttribution.textContent = imageryAttribution();
+    renderCitySelect();
+    renderLayerBar();
+    renderEvidenceCatalog();
+    scheduleMapRender();
   }
 
-  function renderMapMarkers(events) {
-    const mappable = events
-      .map((event) => ({ event, point: eventPoint(event) }))
-      .filter((item) => item.point)
-      .slice(0, MAX_MAP_MARKERS);
-
-    els.mapEmpty.hidden = mappable.length > 0;
-    els.markerLayer.innerHTML = mappable.map(({ event, point }, index) => {
-      const pos = project(point);
-      const confidence = event.confidence || "unknown";
-      const lens = lensForEvent(event);
-      const color = lens.color || "#0f766e";
-      const size = confidence === "documented" || confidence === "corroborated" ? 16 : 13;
-      return `
-        <button
-          class="map-marker ${escapeAttr(confidence)}"
-          style="left:${pos.x}%;top:${pos.y}%;--marker-color:${color};--marker-size:${size}px"
-          type="button"
-          data-event-id="${escapeAttr(event.event_id)}"
-          aria-label="${escapeAttr(`${event.title || "Event"} (${confidence})`)}"
-          aria-selected="${state.selectedEventId === event.event_id}"
-          title="${escapeAttr(event.title || "Event")}"
-        ></button>
-      `;
-    }).join("");
-    els.markerLayer.querySelectorAll(".map-marker").forEach((button) => {
-      button.addEventListener("click", () => selectEvent(button.dataset.eventId));
-    });
+  function renderStaticFilters() {
+    els.categoryFilter.innerHTML = CATEGORY_CONFIG.map((item) => (
+      `<option value="${escapeAttr(item.id)}">${escapeHtml(item.label)}</option>`
+    )).join("");
+    els.confidenceFilter.innerHTML = [
+      ["all", "All confidence"],
+      ["corroborated", "Corroborated"],
+      ["documented", "Documented"],
+      ["inferred", "Inferred"],
+      ["disputed", "Disputed"],
+    ].map(([value, label]) => `<option value="${value}">${label}</option>`).join("");
   }
 
-  function selectEvent(eventId) {
-    const event = getCurrentEvents().find((item) => item.event_id === eventId);
-    if (!event) return;
-    state.selectedEventId = eventId;
-    state.selectedEvent = event;
-    state.detailTab = "observed";
-    renderEvents();
-    renderDetail(event);
-    renderDetailTabs();
-    focusMapOnEvent(event);
-    renderTrafficCompare(event);
-    compareAroundSelectedEvent(true);
-  }
-
-  function selectInitialFeaturedEvent() {
-    const cityView = CITY_VIEW_CONFIG[state.cityId] || {};
-    const filtered = filterEvents(getCurrentEvents()).sort(sortEvents);
-    const featured = filtered.find((event) => event.event_id === (cityView.featuredEventId || DEFAULT_FEATURED_EVENT_ID))
-      || filtered.find((event) => event.confidence === "corroborated" || event.confidence === "documented")
-      || filtered[0];
-    if (featured) selectEvent(featured.event_id);
-  }
-
-  function renderDetail(event) {
-    els.detailTitle.textContent = event.title || "Untitled event";
-    els.detailSubtitle.textContent = categoryLabel(event.category);
-    els.detailConfidence.textContent = event.confidence || "unknown";
-    els.confidenceText.textContent = confidenceText(event);
-    renderConfidenceMeter(event.confidence);
-    const point = eventPoint(event);
-    const evidence = event.evidence || [];
-    const caveats = event.caveats || [];
-    const related = relatedEvents(event).slice(0, 4);
-    els.detailBody.className = "detail-body";
-    if (state.detailTab === "evidence") {
-      els.detailBody.innerHTML = `
-        <section class="detail-section">
-          <h3>Evidence</h3>
-          <ul class="evidence-list">${evidence.length ? evidence.map(renderEvidence).join("") : `<li>No evidence records supplied.</li>`}</ul>
-        </section>
-        <section class="detail-section">
-          <h3>Source caveats</h3>
-          <ul class="caveat-list">${caveats.length ? caveats.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : `<li>No caveats supplied for this record.</li>`}</ul>
-        </section>
-      `;
-    } else if (state.detailTab === "details") {
-      els.detailBody.innerHTML = `
-        <section class="detail-section">
-          <h3>Where and when</h3>
-          <div class="event-tags">
-            <span class="tag">${escapeHtml(event.affected_area?.label || "Mapped geometry")}</span>
-            <span class="tag">${escapeHtml(formatEventDate(event))}</span>
-            <span class="tag">${escapeHtml(event.date_precision || "unknown precision")}</span>
-            ${point ? `<span class="tag">${point.lng.toFixed(4)}, ${point.lat.toFixed(4)}</span>` : `<span class="tag">No point geometry</span>`}
-          </div>
-        </section>
-        <section class="detail-section">
-          <h3>Related or similar events</h3>
-          <ul class="related-list">${related.length ? related.map((item) => `<li><button class="toolbar-pill" type="button" data-related-id="${escapeAttr(item.event_id)}">${escapeHtml(item.title || item.event_id)}</button></li>`).join("") : `<li>No nearby related records loaded in this year.</li>`}</ul>
-        </section>
-      `;
-    } else {
-      els.detailBody.innerHTML = `
-        <section class="detail-section">
-          <h3>Observed change</h3>
-          <p>${escapeHtml(event.explanation || event.title || "No summary supplied.")}</p>
-        </section>
-        <section class="detail-section">
-          <h3>Affected signals</h3>
-          <div class="signal-grid">${signalCards(event).join("") || `<div class="signal-card"><span class="signal-icon">i</span><div><strong>No signals supplied</strong><span>Review evidence directly.</span></div></div>`}</div>
-        </section>
-      `;
+  function renderSourceFilter() {
+    const sourceIds = new Set();
+    for (const event of state.loadedEvents.values()) {
+      (event.source_ids || []).forEach((id) => sourceIds.add(id));
     }
-    els.detailBody.querySelectorAll("[data-related-id]").forEach((button) => {
-      button.addEventListener("click", () => selectEvent(button.dataset.relatedId));
-    });
+    const options = Array.from(sourceIds).sort((a, b) => sourceLabel(a).localeCompare(sourceLabel(b)));
+    els.sourceFilter.innerHTML = `<option value="all">All sources</option>` + options.map((id) => (
+      `<option value="${escapeAttr(id)}">${escapeHtml(truncate(sourceLabel(id), 34))}</option>`
+    )).join("");
+    els.sourceFilter.value = state.source;
   }
 
-  function renderEmptyDetail() {
-    els.detailTitle.textContent = "Select a record";
-    els.detailSubtitle.textContent = "Choose a timeline card or map marker";
-    els.detailConfidence.textContent = "No event";
-    els.confidenceText.textContent = "Select an event to see evidence strength.";
-    renderConfidenceMeter(null);
-    els.detailBody.className = "detail-body empty-state";
-    els.detailBody.textContent = "Click an event to zoom the map and inspect observed changes, evidence, confidence, limitations, and source coverage.";
-    els.mapStage.classList.remove("zoomed");
-    els.mapCallout.hidden = true;
-    if (els.trafficCompareCard) els.trafficCompareCard.hidden = true;
-  }
-
-  function renderEvidence(item) {
-    const label = item.label || item.source_id || item.kind || "Evidence";
-    const suffix = [item.kind, item.record_id].filter(Boolean).join(" - ");
-    const href = item.url || "";
-    const file = item.file_path || "";
-    return `
-      <li>
-        ${href ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>` : `<strong>${escapeHtml(label)}</strong>`}
-        <div class="event-meta">${escapeHtml(suffix || file || "Local source record")}</div>
-      </li>
-    `;
-  }
-
-  async function renderCompare() {
-    if (!state.eventsIndex) return;
-    const beforeYear = Number(state.compareBefore);
-    const afterYear = Number(state.compareAfter);
-    const [beforeEvents, afterEvents] = await Promise.all([
-      getEventsForCompare(beforeYear),
-      getEventsForCompare(afterYear),
-    ]);
-    const beforeFiltered = filterEvents(beforeEvents);
-    const afterFiltered = filterEvents(afterEvents);
-    els.beforeMiniLabel.textContent = String(beforeYear);
-    els.afterMiniLabel.textContent = String(afterYear);
-    renderDeltas(beforeFiltered, afterFiltered, beforeYear, afterYear);
-  }
-
-  async function getEventsForCompare(year) {
-    if (state.eventsByYear.has(year)) return state.eventsByYear.get(year);
-    const chunk = (state.eventsIndex?.chunks || []).find((item) => Number(item.year) === Number(year));
-    if (!chunk || !chunk.event_count) {
-      state.eventsByYear.set(year, []);
-      return [];
-    }
-    const data = await fetchJson(dataPathToUrl(chunk.json_path));
-    state.eventsByYear.set(year, data.events || []);
-    return data.events || [];
-  }
-
-  function renderMiniMap(container, events, labelId) {
-    const label = container.querySelector(`#${labelId}`);
-    container.innerHTML = "";
-    container.appendChild(label);
-    events
-      .map((event) => ({ event, point: eventPoint(event) }))
-      .filter((item) => item.point)
-      .slice(0, MAX_MINI_MARKERS)
-      .forEach(({ event, point }) => {
-        const dot = document.createElement("i");
-        const pos = project(point);
-        dot.className = "mini-dot";
-        dot.style.left = `${pos.x}%`;
-        dot.style.top = `${pos.y}%`;
-        dot.style.setProperty("--marker-color", lensForEvent(event).color || "#0f766e");
-        dot.title = event.title || event.event_id;
-        container.appendChild(dot);
-      });
-  }
-
-  function renderDeltas(beforeEvents, afterEvents, beforeYear, afterYear) {
-    const beforeSummary = summarizeEvents(beforeEvents);
-    const afterSummary = summarizeEvents(afterEvents);
-    const rows = [
-      ["All records", beforeSummary.total, afterSummary.total, "Records loaded for selected lens"],
-      ["Documented", beforeSummary.documented, afterSummary.documented, "Higher-trust public or official evidence"],
-      ["Inferred/mapped", beforeSummary.inferred, afterSummary.inferred, "Often OSM mapped visibility dates"],
-      ["Mappable", beforeSummary.mappable, afterSummary.mappable, "Records with geometry"],
-      ["Development", beforeSummary.categories.built_environment || 0, afterSummary.categories.built_environment || 0, "Planning or built form records"],
-      ["Traffic", beforeSummary.categories.transport || 0, afterSummary.categories.transport || 0, "Mobility and route records"],
-      ["Energy/infra", beforeSummary.categories.utilities || 0, afterSummary.categories.utilities || 0, "Utilities and grid records"],
-      ["Services/equity", beforeSummary.categories.civic_services || 0, afterSummary.categories.civic_services || 0, "Civic-service records"],
-    ];
-    els.deltaGrid.innerHTML = rows.map(([label, before, after, note]) => {
-      const delta = after - before;
-      const sign = delta > 0 ? "+" : "";
-      return `
-        <div class="delta-card">
-          <span>${escapeHtml(label)}</span>
-          <strong>${sign}${formatNumber(delta)}</strong>
-          <small>${formatNumber(before)} in ${beforeYear}; ${formatNumber(after)} in ${afterYear}. ${escapeHtml(note)}.</small>
-        </div>
-      `;
-    }).join("");
-  }
-
-  function summarizeEvents(events) {
-    return events.reduce((acc, event) => {
-      acc.total += 1;
-      acc.categories[event.category] = (acc.categories[event.category] || 0) + 1;
-      if (event.confidence === "documented" || event.confidence === "corroborated") acc.documented += 1;
-      if (event.confidence === "inferred") acc.inferred += 1;
-      if (eventPoint(event)) acc.mappable += 1;
-      return acc;
-    }, { total: 0, documented: 0, inferred: 0, mappable: 0, categories: {} });
-  }
-
-  function compareAroundSelectedEvent(silent) {
-    if (!state.selectedEvent) {
-      if (!silent) toast("Select an event first, then compare the year before and after it.");
+  function renderEvidenceCatalog() {
+    if (!els.catalogSummary || !els.catalogSourceGrid || !els.catalogTimelineList || !els.catalogStats) return;
+    const catalog = state.evidenceCatalog;
+    const cityKey = evidenceCatalogCityKey();
+    if (!catalog || !cityKey) {
+      els.catalogSummary.textContent = catalog
+        ? "The PDF catalog currently covers New York City and London; switch city to inspect its evidence-source stack."
+        : "The PDF evidence catalog could not be loaded.";
+      els.catalogStats.innerHTML = "";
+      els.catalogSourceGrid.innerHTML = "";
+      els.catalogTimelineList.innerHTML = "";
       return;
     }
-    const year = Number(state.selectedEvent.year);
-    state.compareBefore = clamp(year - 1, state.startYear, state.endYear);
-    state.compareAfter = clamp(year, state.startYear, state.endYear);
-    els.compareBefore.value = String(state.compareBefore);
-    els.compareAfter.value = String(state.compareAfter);
-    renderCompare();
-  }
 
-  function openSources() {
-    renderSources();
-    els.sourceDrawer.hidden = false;
-    els.closeSourcesButton.focus();
-  }
-
-  function closeImpact() {
-    els.impactPanel.hidden = true;
-    els.impactButton.focus();
-  }
-
-  function clearSelection() {
-    state.selectedEventId = null;
-    state.selectedEvent = null;
-    renderEvents();
-    renderEmptyDetail();
-  }
-
-  function setMapMode(mode) {
-    state.mapMode = mode;
-    els.mapStage.classList.toggle("mode-2d", mode === "2d");
-    els.mapStage.classList.toggle("mode-3d", mode === "3d");
-    els.mapMode2d.classList.toggle("active", mode === "2d");
-    els.mapMode3d.classList.toggle("active", mode === "3d");
-    els.mapMode2d.setAttribute("aria-pressed", String(mode === "2d"));
-    els.mapMode3d.setAttribute("aria-pressed", String(mode === "3d"));
-  }
-
-  function setMapLayer(layer) {
-    state.mapLayer = layer || "observed";
-    ["observed", "evidence", "compare"].forEach((name) => {
-      els.mapStage.classList.toggle(`layer-${name}`, state.mapLayer === name);
+    const citySources = (catalog.city_source_families || []).filter((source) => source.city === cityKey);
+    const foundational = catalog.foundational_sources || [];
+    const timelines = (catalog.coverage_timelines || []).filter((item) => item.city === cityKey);
+    const domainMatches = (catalog.domain_comparison || []).filter((item) => {
+      const cityText = cityKey === "new_york" ? item.new_york_priority_source : item.london_priority_source;
+      return Boolean(cityText);
     });
-    if (els.mapLayerGroup) {
-      els.mapLayerGroup.querySelectorAll("[data-map-layer]").forEach((button) => {
-        const active = button.dataset.mapLayer === state.mapLayer;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-    }
-    if (state.selectedEvent) renderTrafficCompare(state.selectedEvent);
+    const cityName = cityKey === "new_york" ? "New York City" : "London";
+    els.catalogSummary.textContent = `${cityName} catalog loaded from the PDF: ${formatNumber(citySources.length)} city source families, ${formatNumber(foundational.length)} shared foundational layers, ${formatNumber(timelines.length)} conservative coverage windows. ${catalog.executive_summary?.time_caveat || "Treat 2026 annual series as partial unless the source is live."}`;
+    els.catalogStats.innerHTML = [
+      ["Domains", domainMatches.length],
+      ["City families", citySources.length],
+      ["Global layers", foundational.length],
+      ["Timelines", timelines.length],
+    ].map(([label, value]) => `<span><strong>${formatNumber(value)}</strong>${escapeHtml(label)}</span>`).join("");
+
+    const sourceCards = [...citySources.slice(0, 5), ...foundational.slice(0, 2)];
+    els.catalogSourceGrid.innerHTML = sourceCards.map((source) => renderCatalogSourceCard(source)).join("");
+    els.catalogTimelineList.innerHTML = timelines.slice(0, 5).map((item) => `
+      <article class="catalog-timeline-item">
+        <strong>${escapeHtml(item.label)}</strong>
+        <span>${escapeHtml(item.start_date)} -> ${escapeHtml(item.end_date)}</span>
+      </article>
+    `).join("") || `<div class="empty-state">No coverage windows supplied for this city.</div>`;
   }
 
-  function setMapZoomed(zoomed) {
-    els.mapStage.classList.toggle("zoomed", zoomed);
-  }
-
-  function focusMapOnEvent(event) {
-    const point = eventPoint(event);
-    if (!point) return;
-    const pos = project(point);
-    els.mapStage.style.setProperty("--focus-x", `${pos.x}%`);
-    els.mapStage.style.setProperty("--focus-y", `${pos.y}%`);
-    els.mapStage.style.setProperty("--callout-x", `${clamp(pos.x, 18, 82)}%`);
-    els.mapStage.style.setProperty("--callout-y", `${clamp(pos.y, 18, 70)}%`);
-    els.calloutYear.textContent = `Observed ${event.year || state.year}`;
-    els.calloutTitle.textContent = event.title || "Selected event";
-    els.calloutMeta.textContent = event.affected_area?.label || categoryLabel(event.category);
-    els.mapCallout.hidden = false;
-    setMapLayer("observed");
-    setMapZoomed(true);
-  }
-
-  function renderDetailTabs() {
-    els.detailTabGroup.querySelectorAll("[data-detail-tab]").forEach((button) => {
-      const active = button.dataset.detailTab === state.detailTab;
-      button.classList.toggle("active", active);
-      button.setAttribute("aria-pressed", String(active));
-    });
-  }
-
-  function renderTrafficCompare(event) {
-    if (!els.trafficCompareCard) return;
-    const traffic = event?.traffic_metrics;
-    const shouldShow = Boolean(traffic) && (state.lens === "transport" || state.mapLayer === "compare" || event?.category === "transport");
-    els.trafficCompareCard.hidden = !shouldShow;
-    if (!shouldShow) return;
-    els.trafficCompareTitle.textContent = event.title || "Traffic event";
-    els.trafficBeforeYear.textContent = `${traffic.beforeYear} before`;
-    els.trafficAfterYear.textContent = `${traffic.afterYear} after`;
-    els.trafficBeforeValue.textContent = traffic.beforeValue;
-    els.trafficAfterValue.textContent = traffic.afterValue;
-    els.trafficBeforeLabel.textContent = traffic.beforeLabel;
-    els.trafficAfterLabel.textContent = traffic.afterLabel;
-    els.trafficCompareNote.textContent = traffic.note;
-  }
-
-  function closeSources() {
-    els.sourceDrawer.hidden = true;
-    els.sourcesButton.focus();
-  }
-
-  function renderSources() {
-    const availability = state.availability?.matrix || [];
-    const sourceById = new Map((state.sources?.sources || []).map((source) => [source.source_id, source]));
-    els.sourceDrawerBody.innerHTML = `
-      <div class="source-card">
-        <h3>${escapeHtml(state.city?.display_name || "Selected city")}</h3>
-        <p>${escapeHtml(state.availability?.summary?.summary || "No availability summary supplied.")}</p>
-        <div class="event-tags">
-          <span class="tag">Build ${escapeHtml(formatDateTime(state.sources?.generated_at || state.index?.generated_at))}</span>
-          <span class="tag">${formatNumber(state.eventsIndex?.event_count || 0)} event records</span>
-          <span class="tag">${formatNumber(state.sources?.source_count || 0)} sources</span>
-        </div>
-      </div>
-      ${availability.map((row) => renderAvailabilityRow(row, sourceById)).join("")}
-      <h3>Source registry</h3>
-      <div class="source-list">${(state.sources?.sources || []).map(renderSourceCard).join("")}</div>
-    `;
-  }
-
-  function renderAvailabilityRow(row, sourceById) {
-    const linkedSources = (row.source_ids || []).map((id) => sourceById.get(id)?.title || id).join(", ");
+  function renderCatalogSourceCard(source) {
+    const href = Array.isArray(source.direct_access) ? source.direct_access.find((url) => /^https?:\/\//.test(url)) : "";
+    const adapter = source.recommended_adapter || "Adapter pending";
+    const confidence = source.confidence ? `${source.confidence} confidence` : "confidence not supplied";
     return `
-      <section class="source-card">
-        <h3>${escapeHtml(row.label || row.family_id)}</h3>
-        <div class="event-tags">
-          <span class="tag">${escapeHtml(row.availability || "unknown")}</span>
-          <span class="tag">${formatNumber(row.event_count || 0)} events</span>
-          <span class="tag">${escapeHtml(yearRange(row.years))}</span>
+      <article class="catalog-source-card">
+        <div>
+          <strong>${escapeHtml(source.source_family || source.id || "Evidence source")}</strong>
+          <span>${escapeHtml(adapter)}</span>
         </div>
-        <p>${escapeHtml(row.notes || "No notes supplied.")}</p>
-        <p><strong>Sources:</strong> ${escapeHtml(linkedSources || "Not linked")}</p>
-      </section>
-    `;
-  }
-
-  function renderSourceCard(source) {
-    const coverage = source.coverage_years ? `${source.coverage_years.start || "?"}-${source.coverage_years.end || "?"}` : "Coverage unknown";
-    return `
-      <article class="source-card">
-        <h3>${escapeHtml(source.title || source.source_id)}</h3>
-        <div class="event-tags">
-          <span class="tag">${escapeHtml(source.provider || "Unknown provider")}</span>
-          <span class="tag">${escapeHtml(coverage)}</span>
-          <span class="tag ${escapeAttr(source.source_confidence || "")}">${escapeHtml(source.source_confidence || "unknown confidence")}</span>
-        </div>
-        <p><strong>Licence:</strong> ${escapeHtml(source.licence || "Licence not supplied")}</p>
-        <p><strong>Attribution:</strong> ${escapeHtml(source.attribution_text || "Attribution not supplied")}</p>
-        <p>${escapeHtml(source.provenance_notes || source.caveats?.[0] || "No provenance note supplied.")}</p>
-        ${source.url ? `<a href="${escapeAttr(source.url)}" target="_blank" rel="noreferrer">Open source page</a>` : ""}
+        <p>${escapeHtml(truncate(source.suggested_use_quality_notes || source.coverage_and_gaps || "Catalog source family", 180))}</p>
+        <small>${escapeHtml(confidence)} · ${escapeHtml(source.update_frequency || "cadence varies")}</small>
+        ${href ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer">Open source</a>` : ""}
       </article>
     `;
   }
 
-  async function runImpactSketch(event) {
-    event.preventDefault();
-    const [lngText, latText, label] = els.proposalLocation.value.split(",");
-    const payload = {
-      category: els.proposalCategory.value,
-      title: els.proposalTitle.value.trim(),
-      description: els.proposalDescription.value.trim(),
-      scale: els.proposalScale.value,
-      location: {
-        lng: Number(lngText),
-        lat: Number(latText),
-        label,
-      },
-    };
-    els.impactResults.innerHTML = `<div class="empty-state">Sketching affected signals from source-backed analogues.</div>`;
-    try {
-      const response = await fetch("/api/proposal-impact", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ proposal: payload }),
+  function evidenceCatalogCityKey() {
+    if (state.cityId === "nyc" || state.cityId === "new_york") return "new_york";
+    if (state.cityId === "london") return "london";
+    return "";
+  }
+
+  function renderLayerBar() {
+    const visibleLayers = CATEGORY_CONFIG.filter((item) => item.id !== "utilities");
+    els.layerBar.innerHTML = visibleLayers.map((item) => (
+      `<button class="layer-button" type="button" data-category="${escapeAttr(item.id)}" aria-pressed="${state.category === item.id}" style="--layer-color:${item.color}">
+        <span class="layer-dot" aria-hidden="true"></span>${escapeHtml(item.label)}
+      </button>`
+    )).join("");
+    els.layerBar.querySelectorAll("[data-category]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.category = button.dataset.category || "all";
+        els.categoryFilter.value = state.category;
+        renderLayerBar();
+        refreshFilteredView({ preferCurrentYear: true });
       });
-      const result = await response.json();
-      if (!response.ok || result.ok === false) throw new Error(result.error || "Impact sketch failed");
-      renderImpactResult(result);
-    } catch (error) {
-      els.impactResults.innerHTML = `<div class="empty-state">The impact sketch API is unavailable. Run with <code>npm start</code> to use proposal screening. ${escapeHtml(error.message)}</div>`;
+    });
+  }
+
+  async function ensureContextEvents() {
+    const chunks = state.eventsIndex?.chunks || [];
+    const cityId = state.cityId;
+    const maxSmallChunk = cityId === "belfast" ? 20 : 24;
+    const candidates = chunks.filter((chunk) => {
+      const year = Number(chunk.year);
+      return year === state.year
+        || year === state.beforeYear
+        || year === FEATURED_YEAR[cityId]
+        || Number(chunk.event_count || 0) <= maxSmallChunk;
+    });
+    for (const chunk of candidates) {
+      await ensureYearLoaded(Number(chunk.year), { silent: true });
     }
   }
 
-  function renderImpactResult(result) {
-    const signals = result.affected_signals || [];
-    const similar = result.similar_events || [];
-    const caveats = result.caveats || [];
-    els.impactResults.innerHTML = `
-      <div class="impact-summary">
-        <strong>${escapeHtml(result.proposal?.title || "Proposal sketch")}</strong>
-        <p>${escapeHtml(result.summary || "No summary returned.")}</p>
-        <div class="event-tags">
-          <span class="tag ${escapeAttr(result.confidence?.label || "")}">Confidence: ${escapeHtml(result.confidence?.label || "unknown")}</span>
-          <span class="tag">${escapeHtml(result.mode || "proposal sketch")}</span>
-        </div>
-      </div>
-      <section class="detail-section">
-        <h3>Affected signals</h3>
-        <ul class="impact-signal-list">
-          ${signals.map((signal) => `
-            <li class="impact-signal">
-              <strong>${escapeHtml(signal.label || signal.signal)}</strong>
-              <div class="event-tags">
-                <span class="tag">${escapeHtml(signal.direction || "unknown")}</span>
-                <span class="tag">Strength: ${escapeHtml(signal.strength || "unknown")}</span>
-                <span class="tag ${escapeAttr(signal.confidence || "")}">Confidence: ${escapeHtml(signal.confidence || "unknown")}</span>
-              </div>
-              <p>${escapeHtml(signal.reason || "")}</p>
-            </li>
-          `).join("")}
-        </ul>
-      </section>
-      <section class="detail-section">
-        <h3>Similar events</h3>
-        <ul class="impact-event-list">
-          ${similar.slice(0, 6).map((item) => `
-            <li class="impact-event">
-              <strong>${escapeHtml(item.title || item.event_id)}</strong>
-              <div class="event-meta">${escapeHtml([item.year, item.confidence, item.distance_m ? `${Math.round(item.distance_m)}m` : ""].filter(Boolean).join(" - "))}</div>
-            </li>
-          `).join("") || `<li class="impact-event">No similar events returned.</li>`}
-        </ul>
-      </section>
-      <section class="detail-section">
-        <h3>Caveats</h3>
-        <ul class="caveat-list">${caveats.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      </section>
+  async function ensureYearLoaded(year, options = {}) {
+    const numericYear = Number(year);
+    if (!Number.isFinite(numericYear)) return [];
+    if (state.eventsByYear.has(numericYear)) return state.eventsByYear.get(numericYear);
+
+    if (!options.silent) els.listMeta.textContent = `Loading ${numericYear}`;
+    const chunk = (state.eventsIndex?.chunks || []).find((item) => Number(item.year) === numericYear);
+    if (!chunk || !chunk.event_count) {
+      state.eventsByYear.set(numericYear, []);
+      return [];
+    }
+
+    const data = await fetchJson(dataPathToUrl(chunk.json_path));
+    const events = Array.isArray(data) ? data : (data.events || []);
+    state.eventsByYear.set(numericYear, events);
+    events.forEach((event) => state.loadedEvents.set(event.event_id, event));
+    return events;
+  }
+
+  function renderAll(options = {}) {
+    renderSourceFilter();
+    renderEventList();
+    renderMap();
+    renderTimeline();
+    if (!options.preserveSelection && !state.selectedEvent) selectInitialEvent();
+    if (state.selectedEvent) renderBrief(state.selectedEvent);
+  }
+
+  function refreshFilteredView(options = {}) {
+    if (state.selectedEvent && matchesFilters(state.selectedEvent)) {
+      renderAll({ preserveSelection: true });
+      return;
+    }
+    state.selectedEventId = null;
+    state.selectedEvent = null;
+    const selected = pickInitialEvent(options);
+    if (selected) {
+      selectEvent(selected.event_id);
+      return;
+    }
+    renderAll();
+  }
+
+  function renderEventList() {
+    const filtered = filteredEvents();
+    const shown = filtered.slice(0, MAX_LIST_EVENTS);
+    els.listMeta.textContent = `${formatNumber(filtered.length)} records`;
+    if (!shown.length) {
+      els.eventList.innerHTML = `<div class="empty-state">No records match these filters. Try another category, year, confidence, or source.</div>`;
+      return;
+    }
+    els.eventList.innerHTML = shown.map((event, index) => renderEventCard(event, index)).join("");
+    els.eventList.querySelectorAll("[data-event-id]").forEach((button) => {
+      button.addEventListener("click", () => selectEvent(button.dataset.eventId));
+    });
+  }
+
+  function renderEventCard(event, index) {
+    const config = categoryConfig(event.category);
+    const selected = state.selectedEventId === event.event_id;
+    return `
+      <button class="event-card" type="button" role="listitem" data-event-id="${escapeAttr(event.event_id)}" aria-selected="${selected}" style="--event-color:${config.color}">
+        ${renderEventThumb(event, index + 1)}
+        <span class="event-main">
+          <strong>${escapeHtml(cleanTitle(event.title))}</strong>
+          <time>${escapeHtml(formatEventDate(event))}</time>
+          <span class="tag-row">
+            <span class="category-pill">${escapeHtml(config.label)}</span>
+            <span class="confidence-pill">${escapeHtml(confidenceLabel(event.confidence))}</span>
+          </span>
+          <p>${escapeHtml(event.affected_area?.label || event.explanation || "Mapped city record")}</p>
+        </span>
+        <span class="chevron" aria-hidden="true"></span>
+      </button>
     `;
   }
 
-  function getCurrentEvents() {
-    return state.eventsByYear.get(state.year) || [];
+  function renderEventThumb(event, number) {
+    const point = eventPoint(event);
+    const config = categoryConfig(event.category);
+    if (!point) {
+      return `
+        <span class="event-thumb fallback" style="--thumb-bg:${fallbackGradient(config.color)}">
+          <span class="thumb-index">${number}</span>
+        </span>
+      `;
+    }
+    return `
+      <span class="event-thumb">
+        ${miniTileHtml(point, Math.max(MIN_ZOOM, Math.min(DETAIL_ZOOM, state.mapZoom + 2)), 136, 136, imageryForYear(event.year))}
+        <span class="thumb-index">${number}</span>
+      </span>
+    `;
   }
 
-  function selectableCities() {
-    return (state.index?.cities || []).filter((city) => city.city_id === "london" || city.city_id === "nyc");
+  function renderMap() {
+    const events = filteredMapEvents();
+    const mappable = events
+      .map((event) => ({ event, point: eventPoint(event) }))
+      .filter((item) => item.point)
+      .slice(0, MAX_MARKERS);
+    els.mapEmpty.hidden = mappable.length > 0;
+    renderOverlay(mappable);
+    els.markerLayer.innerHTML = mappable.map(({ event, point }, index) => {
+      const pos = project(point);
+      const config = categoryConfig(event.category);
+      const selected = state.selectedEventId === event.event_id;
+      return `
+        <button class="map-marker" type="button" data-event-id="${escapeAttr(event.event_id)}" aria-selected="${selected}" aria-label="${escapeAttr(cleanTitle(event.title))}" style="left:${pos.x}%;top:${pos.y}%;--marker-color:${config.color}">
+          <span>${index + 1}</span>
+        </button>
+      `;
+    }).join("");
+    els.markerLayer.querySelectorAll("[data-event-id]").forEach((button) => {
+      button.addEventListener("click", () => selectEvent(button.dataset.eventId));
+    });
+    if (state.selectedEvent) renderMapCallout(state.selectedEvent);
   }
 
-  function demoEventsForYear(cityId, year) {
-    return (CITY_DEMO_EVENTS[cityId] || []).filter((event) => Number(event.year) === Number(year));
+  function renderOverlay(items) {
+    const selected = state.selectedEvent ? { event: state.selectedEvent, point: eventPoint(state.selectedEvent) } : null;
+    const overlayItems = selected?.point
+      ? [selected, ...items.filter((item) => item.event.event_id !== selected.event.event_id).slice(0, 9)]
+      : items.slice(0, 10);
+    const areas = overlayItems.map(({ event, point }, index) => {
+      const pos = project(point);
+      const config = categoryConfig(event.category);
+      return `<path class="overlay-area" d="${blobPath(pos, index)}" style="--area-color:${config.color}"></path>`;
+    }).join("");
+    const lines = selected?.point
+      ? items.slice(0, 4).map(({ point }) => {
+        const a = project(selected.point);
+        const b = project(point);
+        return `<line class="overlay-line" x1="${a.x * 10}" y1="${a.y * 10}" x2="${b.x * 10}" y2="${b.y * 10}"></line>`;
+      }).join("")
+      : "";
+    els.overlayLayer.setAttribute("viewBox", "0 0 1000 1000");
+    els.overlayLayer.innerHTML = lines + areas;
   }
 
-  function cityEventCount(cityId, cityMeta) {
-    const demoCount = (CITY_DEMO_EVENTS[cityId] || []).length;
-    const indexed = cityMeta?.event_count || state.eventsIndex?.event_count || 0;
-    return Math.max(indexed, demoCount);
+  function blobPath(pos, index) {
+    const cx = pos.x * 10;
+    const cy = pos.y * 10;
+    const rx = 58 + (index % 3) * 14;
+    const ry = 42 + (index % 2) * 12;
+    const skew = (index % 4) * 6;
+    return [
+      `M ${cx - rx} ${cy - skew}`,
+      `C ${cx - rx * 0.8} ${cy - ry}, ${cx - rx * 0.15} ${cy - ry * 1.16}, ${cx + rx * 0.58} ${cy - ry * 0.74}`,
+      `C ${cx + rx * 1.04} ${cy - ry * 0.28}, ${cx + rx * 0.88} ${cy + ry * 0.72}, ${cx + rx * 0.25} ${cy + ry}`,
+      `C ${cx - rx * 0.42} ${cy + ry * 0.92}, ${cx - rx * 1.06} ${cy + ry * 0.42}, ${cx - rx} ${cy - skew}`,
+      "Z",
+    ].join(" ");
   }
 
-  function renderCityLabels() {
-    const labels = (CITY_VIEW_CONFIG[state.cityId]?.labels || ["CITY", "CHANGE", "ATLAS"]);
-    const nodes = [document.querySelector(".label-north"), document.querySelector(".label-core"), document.querySelector(".label-east")];
-    nodes.forEach((node, index) => {
-      if (node) node.textContent = labels[index] || "";
+  function renderMapCallout(event) {
+    const point = eventPoint(event);
+    if (!point) {
+      els.mapCallout.hidden = true;
+      return;
+    }
+    const pos = project(point);
+    els.mapStage.style.setProperty("--callout-x", `${clamp(pos.x, 18, 82)}%`);
+    els.mapStage.style.setProperty("--callout-y", `${clamp(pos.y - 6, 18, 76)}%`);
+    els.calloutYear.textContent = `Observed ${event.year || state.year}`;
+    els.calloutTitle.textContent = cleanTitle(event.title);
+    els.calloutMeta.textContent = event.affected_area?.label || categoryConfig(event.category).label;
+    els.mapCallout.hidden = false;
+  }
+
+  function renderTimeline() {
+    const years = timelineYears();
+    const minYear = Math.min(...years);
+    const maxYear = Math.max(...years);
+    const imageryPair = selectImageryPair(state.beforeYear, state.year);
+    state.beforeImagery = imageryPair.before;
+    state.afterImagery = imageryPair.after;
+    els.yearSlider.min = String(minYear);
+    els.yearSlider.max = String(maxYear);
+    els.yearSlider.value = String(state.year);
+    els.prevYearButton.disabled = state.year <= minYear;
+    els.nextYearButton.disabled = state.year >= maxYear;
+    const activeCount = yearEventCount(state.year);
+    const sourceCount = state.cityMeta?.source_count || state.sources?.source_count || 0;
+    const recordWord = activeCount === 1 ? "record" : "records";
+    els.timelineSummary.textContent = `${state.year}: ${formatNumber(activeCount)} observed ${recordWord}; ${formatNumber(sourceCount)} sources; satellite ${imageryLabel(state.afterImagery, state.year)}`;
+    els.compareLabel.textContent = `${state.beforeYear} -> ${state.year}`;
+    const sameImagery = state.beforeImagery?.id && state.beforeImagery.id === state.afterImagery?.id;
+    const archiveNote = sameImagery ? "same nearest archive tile" : `${imageryLabel(state.beforeImagery, state.beforeYear)} -> ${imageryLabel(state.afterImagery, state.year)}`;
+    els.compareNote.textContent = `Showing ${state.year} records against ${state.beforeYear} baseline; imagery ${archiveNote}`;
+    els.yearStrip.innerHTML = timelineTicks(years).map((year) => `<span>${year}</span>`).join("");
+    applyTemporalScene();
+    updateMapLibreImagery();
+  }
+
+  function timelineTicks(years) {
+    const min = Math.min(...years);
+    const max = Math.max(...years);
+    if (max <= min) return [min];
+    const ticks = new Set([min, max, state.beforeYear, state.year]);
+    const step = Math.max(1, Math.round((max - min) / 6));
+    for (let year = min; year <= max; year += step) ticks.add(year);
+    return Array.from(ticks).filter((year) => year >= min && year <= max).sort((a, b) => a - b).slice(0, 9);
+  }
+
+  function renderBrief(event) {
+    const filtered = filteredEvents();
+    const index = Math.max(0, filtered.findIndex((item) => item.event_id === event.event_id));
+    const config = categoryConfig(event.category);
+    els.detailIndex.textContent = String(index + 1);
+    els.detailIndex.style.background = config.color;
+    els.detailTitle.textContent = cleanTitle(event.title);
+    els.detailSubtitle.textContent = `${formatEventDate(event)} - ${config.label} - ${event.affected_area?.label || "Mapped record"}`;
+    els.observedChange.textContent = event.explanation || "This record identifies an observed city change and links it to public evidence.";
+    els.detailConfidence.textContent = confidenceLabel(event.confidence);
+    els.confidenceDot.style.background = confidenceColor(event.confidence);
+    els.confidenceText.textContent = confidenceText(event);
+    renderEvidenceFrames(event);
+    renderImpactModeControls();
+    renderImpactPanel(event);
+    renderLimitations(event);
+    renderSources(event);
+  }
+
+  function renderEmptyBrief() {
+    els.detailIndex.textContent = "1";
+    els.detailTitle.textContent = "Select a record";
+    els.detailSubtitle.textContent = "Choose a changelog item or map marker.";
+    els.observedChange.textContent = "Loading source-backed records.";
+    if (els.impactPanel) els.impactPanel.innerHTML = `<p>Select an event to inspect associated place, mobility, and component context.</p>`;
+    els.evidenceFrames.innerHTML = "";
+    els.detailConfidence.textContent = "No event";
+    els.confidenceText.textContent = "Select an event to see evidence strength.";
+    els.limitationsList.innerHTML = `<li>Coverage and licensing notes load with the selected record.</li>`;
+    els.sourceList.innerHTML = "";
+  }
+
+  function renderEvidenceFrames(event) {
+    const point = eventPoint(event);
+    const config = categoryConfig(event.category);
+    const before = event.traffic_metrics?.beforeYear || nearestYearBefore(Number(event.year) || state.year);
+    const after = event.traffic_metrics?.afterYear || Number(event.year) || state.year;
+    const zoom = Math.max(MIN_ZOOM, Math.min(DETAIL_ZOOM, state.mapZoom));
+    const beforeImagery = imageryForYear(before);
+    const afterImagery = imageryForYear(after);
+    const beforeBg = point ? tileBackground(point, zoom, beforeImagery) : fallbackGradient(config.color);
+    const afterBg = point ? tileBackground(point, zoom, afterImagery) : fallbackGradient(config.color);
+    els.evidenceFrames.innerHTML = `
+      <p class="frame-note">Imagery comparison: ${escapeHtml(imageryFrameLabel(beforeImagery, before))} before baseline to ${escapeHtml(imageryFrameLabel(afterImagery, after))} after event.</p>
+      <div class="mini-frame" style="--thumb-bg:${beforeBg};--event-color:${config.color}">
+        <em class="frame-tag">Before</em>
+        <strong>${escapeHtml(imageryFrameLabel(beforeImagery, before))}</strong>
+        <span aria-hidden="true"></span>
+      </div>
+      <div class="mini-frame" style="--thumb-bg:${afterBg};--event-color:${config.color}">
+        <em class="frame-tag">After</em>
+        <strong>${escapeHtml(imageryFrameLabel(afterImagery, after))}</strong>
+        <span aria-hidden="true"></span>
+      </div>
+    `;
+  }
+
+  function setImpactMode(mode) {
+    const allowed = ["place", "traffic", "components"];
+    state.impactMode = allowed.includes(mode) ? mode : "place";
+    renderImpactModeControls();
+    if (state.selectedEvent) renderImpactPanel(state.selectedEvent);
+    renderMap();
+  }
+
+  function renderImpactModeControls() {
+    if (!els.impactModeBar) return;
+    els.impactModeBar.querySelectorAll("[data-impact-mode]").forEach((button) => {
+      const active = button.dataset.impactMode === state.impactMode;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (els.mapStage) els.mapStage.dataset.impactView = state.impactMode;
+  }
+
+  function renderImpactPanel(event) {
+    if (!els.impactPanel) return;
+    if (!event) {
+      els.impactPanel.innerHTML = `<p>Select an event to inspect associated place, mobility, and component context.</p>`;
+      return;
+    }
+    if (state.impactMode === "traffic") {
+      els.impactPanel.innerHTML = renderTrafficImpact(event);
+      return;
+    }
+    if (state.impactMode === "components") {
+      els.impactPanel.innerHTML = renderComponentImpact(event);
+      return;
+    }
+    els.impactPanel.innerHTML = renderPlaceImpact(event);
+  }
+
+  function renderPlaceImpact(event) {
+    const point = eventPoint(event);
+    const sourceCount = Math.max((event.evidence || []).length, (event.source_ids || []).length);
+    const geometryLabel = event.geometry?.type || (point ? "Point" : "No map geometry");
+    const area = event.affected_area?.label || shortCityName(state.city?.display_name);
+    return `
+      <article class="impact-card impact-place">
+        <span class="impact-kicker">Observed place change</span>
+        <strong>${escapeHtml(area)}</strong>
+        <p>${escapeHtml(event.explanation || "This record marks an observed change at the selected place.")}</p>
+        <dl class="impact-facts">
+          <div><dt>When</dt><dd>${escapeHtml(formatEventDate(event))}</dd></div>
+          <div><dt>Geometry</dt><dd>${escapeHtml(geometryLabel)}</dd></div>
+          <div><dt>Evidence</dt><dd>${formatNumber(sourceCount)} source${sourceCount === 1 ? "" : "s"}</dd></div>
+        </dl>
+        <small>Shown on a real georeferenced map. The highlight marks the recorded place/geometry; broader effects are not causal claims.</small>
+      </article>
+    `;
+  }
+
+  function renderTrafficImpact(event) {
+    const traffic = event.traffic_metrics || null;
+    const rows = trafficDeltas(event);
+    const metric = traffic ? `
+      <article class="impact-card traffic-metric">
+        <span class="impact-kicker">Traffic context window</span>
+        <strong>${escapeHtml(traffic.beforeLabel || "Before")} -> ${escapeHtml(traffic.afterLabel || "After")}</strong>
+        <div class="impact-meter-pair">
+          ${renderMeter("Before", traffic.beforeValue, parseMetricValue(traffic.beforeValue))}
+          ${renderMeter("After", traffic.afterValue, parseMetricValue(traffic.afterValue))}
+        </div>
+        <small>${escapeHtml(traffic.note || "Traffic figures are contextual indicators, not proof of causation.")}</small>
+      </article>` : "";
+    const deltaCards = rows.map(renderDeltaCard).join("");
+    const fallback = !metric && !deltaCards ? `
+      <article class="impact-card muted">
+        <span class="impact-kicker">Traffic</span>
+        <strong>No quantified traffic context supplied</strong>
+        <p>This event is tagged ${escapeHtml(event.lens || event.category || "city change")}. Inspect the sources before making traffic claims.</p>
+        <small>Not causal: absence of a traffic metric means the UI does not invent one.</small>
+      </article>` : "";
+    return `<div class="impact-stack">${metric}${deltaCards}${fallback}<p class="impact-caveat">Associated traffic and mobility context only; this atlas does not claim the event caused the numbers.</p></div>`;
+  }
+
+  function renderComponentImpact(event) {
+    const cards = componentCards(event);
+    return `
+      <div class="component-grid">
+        ${cards.map((card) => `
+          <article class="impact-card component-card ${card.active ? "active" : ""}">
+            <span class="component-dot" style="--component-color:${escapeAttr(card.color)}"></span>
+            <strong>${escapeHtml(card.label)}</strong>
+            <span class="component-value">${escapeHtml(card.value)}</span>
+            <p>${escapeHtml(card.note)}</p>
+            <small>${card.active ? "Affected/mentioned by selected event evidence or signals." : "City context available; not directly linked to this event."}</small>
+          </article>
+        `).join("")}
+        <p class="impact-caveat">Components come from current atlas source coverage and event affected_signals. They are context layers, not modeled outcomes.</p>
+      </div>
+    `;
+  }
+
+  function trafficDeltas(event) {
+    return (event.impact_deltas || []).filter((item) => /traffic|transit|mobility|road|travel|cycle|active/i.test(item.label || ""));
+  }
+
+  function renderDeltaCard(delta) {
+    const before = Number(delta.before);
+    const after = Number(delta.after);
+    const changed = Number(delta.delta);
+    return `
+      <article class="impact-card">
+        <span class="impact-kicker">${escapeHtml(delta.unit || "index")}</span>
+        <strong>${escapeHtml(delta.label || "Context indicator")}</strong>
+        <div class="impact-meter-pair">
+          ${renderMeter("Before", String(delta.before ?? "n/a"), before)}
+          ${renderMeter("After", String(delta.after ?? "n/a"), after)}
+        </div>
+        <p class="delta-line">${Number.isFinite(changed) ? `${changed > 0 ? "+" : ""}${changed}` : "Change not quantified"}</p>
+        <small>${escapeHtml(delta.basis || "Source-backed context indicator.")}</small>
+      </article>
+    `;
+  }
+
+  function renderMeter(label, value, percent) {
+    const safePercent = Number.isFinite(percent) ? clamp(percent, 0, 100) : 0;
+    return `
+      <div class="impact-meter">
+        <span>${escapeHtml(label)} <b>${escapeHtml(value)}</b></span>
+        <i style="--meter:${safePercent}%"></i>
+      </div>
+    `;
+  }
+
+  function componentCards(event) {
+    const signals = new Set((event.affected_signals || []).map(normalizeSignal));
+    signals.add(normalizeSignal(event.category));
+    signals.add(normalizeSignal(event.lens));
+    const deltas = event.impact_deltas || [];
+    const sourceCards = Array.isArray(state.currentState?.cards) && state.currentState.cards.length
+      ? state.currentState.cards
+      : defaultComponentCards(event);
+    return sourceCards.slice(0, 6).map((card) => {
+      const haystack = normalizeSignal(`${card.id} ${card.label} ${card.note}`);
+      const delta = deltas.find((item) => haystack.split(" ").some((word) => word.length > 3 && normalizeSignal(item.label).includes(word)));
+      const active = Array.from(signals).some((signal) => signal && (haystack.includes(signal) || signal.includes(haystack))) || Boolean(delta);
+      return {
+        id: card.id,
+        label: card.label,
+        value: delta ? `${delta.before ?? "?"} -> ${delta.after ?? "?"}` : String(card.value ?? "context"),
+        note: delta?.basis || card.note || "Context layer available in the city atlas.",
+        active,
+        color: componentColor(card.id),
+      };
     });
   }
 
-  function renderImageryTiles() {
-    if (!els.mapTileLayer) return;
-    const view = CITY_VIEW_CONFIG[state.cityId] || {};
-    const [lng, lat] = view.center || state.city?.default_center || [0, 0];
-    const z = view.zoom || 13;
-    const center = lonLatToTile(lng, lat, z);
-    const tiles = [];
-    for (let dy = -2; dy <= 2; dy += 1) {
-      for (let dx = -2; dx <= 2; dx += 1) {
-        const x = center.x + dx;
-        const y = center.y + dy;
-        tiles.push(`<img alt="" src="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}" style="left:${(dx + 2) * 20}%;top:${(dy + 2) * 20}%">`);
+  function defaultComponentCards(event) {
+    const signals = event.affected_signals?.length ? event.affected_signals : [event.category || event.lens || "place"];
+    return signals.map((signal) => ({ id: signal, label: signalLabel(signal), value: "tagged", note: "Mentioned by this event record; no current-state count was supplied." }));
+  }
+
+  function normalizeSignal(value) {
+    return String(value || "").toLowerCase().replace(/[_/-]+/g, " ").replace(/[^a-z0-9 ]+/g, "").trim();
+  }
+
+  function signalLabel(value) {
+    return String(value || "Context").replace(/[_-]+/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
+  function componentColor(id) {
+    const text = normalizeSignal(id);
+    if (/traffic|transport|mobility|road|cycle/.test(text)) return "#7c5cff";
+    if (/building|planning|built/.test(text)) return "#e9781a";
+    if (/environment|green|flood|air/.test(text)) return "#2e9b58";
+    if (/service|equity|health|school|civic/.test(text)) return "#0b95b7";
+    if (/economy|jobs|business/.test(text)) return "#b7791f";
+    if (/util|infra|energy|water/.test(text)) return "#0f9f8f";
+    return "#1268db";
+  }
+
+  function parseMetricValue(value) {
+    const match = String(value || "").match(/-?\d+(?:\.\d+)?/);
+    return match ? Number(match[0]) : NaN;
+  }
+
+  function renderLimitations(event) {
+    const caveats = [
+      ...(event.caveats || []),
+      "Causal claim is not made; this is a documented change record with source limitations.",
+    ];
+    if (usesEarliestImageryFallback(event)) {
+      caveats.push(`Satellite archive begins ${state.imageryArchive.earliest_date}; earlier event years use the earliest available Wayback imagery, not a same-year image.`);
+    }
+    els.limitationsList.innerHTML = caveats.slice(0, 5).map((item) => `<li>${escapeHtml(normalizeCaveat(item))}</li>`).join("");
+  }
+
+  function renderSources(event) {
+    const evidence = event.evidence || [];
+    const sourceIds = event.source_ids || [];
+    const rows = evidence.length
+      ? evidence
+      : sourceIds.map((id) => ({ source_id: id, label: sourceLabel(id), url: state.sourceById.get(id)?.url }));
+    els.sourceList.innerHTML = rows.slice(0, 7).map((item) => {
+      const source = state.sourceById.get(item.source_id);
+      const label = item.label || source?.title || item.source_id || "Evidence source";
+      const provider = source?.provider || source?.attribution_text || item.kind || "Source record";
+      const licence = source?.licence || "Licence not supplied in event evidence";
+      const href = item.url || source?.url || "";
+      return `
+        <article class="source-item">
+          ${href ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(label)}</strong></a>` : `<strong>${escapeHtml(label)}</strong>`}
+          <span>${escapeHtml(provider)}</span>
+          <small>${escapeHtml(licence)}</small>
+        </article>
+      `;
+    }).join("") || `<div class="empty-state">No source rows were supplied for this record.</div>`;
+  }
+
+  async function setYear(year) {
+    const uiYears = timelineYears();
+    const minYear = Math.min(...uiYears);
+    const maxYear = Math.max(...uiYears);
+    const requestId = state.yearRequest + 1;
+    state.yearRequest = requestId;
+    state.year = clamp(Number(year), minYear, maxYear);
+    state.beforeYear = nearestYearBefore(state.year);
+    await Promise.all([
+      ensureYearLoaded(state.year, { silent: true }),
+      ensureYearLoaded(state.beforeYear, { silent: true }),
+    ]);
+    if (requestId !== state.yearRequest) return;
+    renderTimeline();
+    renderEventList();
+    pulseTemporalScene();
+    scheduleMapRender();
+    if (state.selectedEvent) {
+      renderBrief(state.selectedEvent);
+      renderMapCallout(state.selectedEvent);
+    }
+  }
+
+  function stepYear(direction) {
+    const years = timelineYears();
+    const sorted = years.slice().sort((a, b) => a - b);
+    const currentIndex = sorted.findIndex((year) => year >= state.year);
+    const nextIndex = clamp(currentIndex + direction, 0, sorted.length - 1);
+    setYear(sorted[nextIndex]);
+  }
+
+  function selectEvent(eventId) {
+    const event = state.loadedEvents.get(eventId);
+    if (!event) return;
+    state.selectedEventId = eventId;
+    state.selectedEvent = event;
+    if (Number.isFinite(Number(event.year))) {
+      state.year = Number(event.year);
+      state.beforeYear = nearestYearBefore(state.year);
+    }
+    const point = eventPoint(event);
+    if (point) {
+      setCameraTarget([point.lng, point.lat], Math.max(state.mapZoom, FOCUS_ZOOM));
+    }
+    renderAll({ preserveSelection: true });
+    renderBrief(event);
+    renderMapCallout(event);
+  }
+
+  function selectInitialEvent(options = {}) {
+    const selected = pickInitialEvent(options);
+    if (selected) selectEvent(selected.event_id);
+  }
+
+  function pickInitialEvent(options = {}) {
+    const mapCandidates = filteredMapEvents();
+    const candidates = options.preferCurrentYear && mapCandidates.length ? mapCandidates : filteredEvents();
+    return candidates.find((event) => event.confidence === "corroborated" || event.confidence === "documented")
+      || candidates.find((event) => eventPoint(event))
+      || candidates[0];
+  }
+
+  function clearFilters() {
+    state.category = "all";
+    state.confidence = "all";
+    state.source = "all";
+    state.search = "";
+    state.sort = "relevance";
+    els.categoryFilter.value = "all";
+    els.confidenceFilter.value = "all";
+    els.sourceFilter.value = "all";
+    els.sortSelect.value = "relevance";
+    els.eventSearch.value = "";
+    renderLayerBar();
+    refreshFilteredView({ preferCurrentYear: true });
+  }
+
+  function setZoom(zoom) {
+    setCameraTarget(state.mapCenter || state.cameraCenter || state.city?.default_center || [0, 0], zoom);
+  }
+
+  function startMapDrag(event) {
+    if (state.mapSceneReady) return;
+    if (event.button !== undefined && event.button !== 0) return;
+    if (event.target.closest("a, button, input, select, label, .timeline-dock")) return;
+    const [lng, lat] = state.cameraCenter || state.mapCenter || state.city?.default_center || [0, 0];
+    const zoom = clamp(Math.round(state.cameraZoom || state.mapZoom), MIN_ZOOM, MAX_ZOOM);
+    const now = performance.now();
+    state.mapDrag = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      lastX: event.clientX,
+      lastY: event.clientY,
+      lastTime: now,
+      velocityX: 0,
+      velocityY: 0,
+      startZoom: zoom,
+      startCenter: lonLatToWorldPixel(lng, lat, zoom),
+    };
+    els.mapViewport.classList.add("dragging");
+    els.mapViewport.setPointerCapture?.(event.pointerId);
+  }
+
+  function moveMapDrag(event) {
+    if (state.mapSceneReady) return;
+    if (!state.mapDrag || state.mapDrag.pointerId !== event.pointerId) return;
+    event.preventDefault();
+    const nextPixel = {
+      x: state.mapDrag.startCenter.x - (event.clientX - state.mapDrag.startX),
+      y: state.mapDrag.startCenter.y - (event.clientY - state.mapDrag.startY),
+    };
+    const nextCenter = worldPixelToLonLat(nextPixel.x, nextPixel.y, state.mapDrag.startZoom);
+    const now = performance.now();
+    const elapsed = Math.max(16, now - state.mapDrag.lastTime);
+    state.mapDrag.velocityX = (event.clientX - state.mapDrag.lastX) / elapsed;
+    state.mapDrag.velocityY = (event.clientY - state.mapDrag.lastY) / elapsed;
+    state.mapDrag.lastX = event.clientX;
+    state.mapDrag.lastY = event.clientY;
+    state.mapDrag.lastTime = now;
+    setSceneMotion(event.clientX - state.mapDrag.startX, event.clientY - state.mapDrag.startY);
+    setCameraTarget([nextCenter.lng, nextCenter.lat], state.mapZoom, { dragging: true, instant: true });
+  }
+
+  function endMapDrag(event) {
+    if (state.mapSceneReady) return;
+    if (!state.mapDrag || state.mapDrag.pointerId !== event.pointerId) return;
+    const drag = state.mapDrag;
+    state.mapDrag = null;
+    els.mapViewport.classList.remove("dragging");
+    els.mapViewport.releasePointerCapture?.(event.pointerId);
+    const speed = Math.hypot(drag.velocityX, drag.velocityY);
+    if (speed > 0.02 && state.mapCenter) {
+      const zoom = clamp(Math.round(state.mapZoom), MIN_ZOOM, MAX_ZOOM);
+      const pixel = lonLatToWorldPixel(state.mapCenter[0], state.mapCenter[1], zoom);
+      const fling = worldPixelToLonLat(pixel.x - drag.velocityX * 180, pixel.y - drag.velocityY * 180, zoom);
+      setCameraTarget([fling.lng, fling.lat], state.mapZoom);
+    }
+    settleSceneMotion();
+  }
+
+  function zoomMapWheel(event) {
+    if (state.mapSceneReady) return;
+    event.preventDefault();
+    if (!state.mapView) {
+      setZoom(state.mapZoom + (event.deltaY < 0 ? 1 : -1));
+      return;
+    }
+    const nextZoom = clamp(state.mapZoom + (event.deltaY < 0 ? 1 : -1), MIN_ZOOM, MAX_ZOOM);
+    if (nextZoom === state.mapZoom) return;
+    const rect = els.mapViewport.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left;
+    const offsetY = event.clientY - rect.top;
+    const worldBefore = {
+      x: state.mapView.topLeft.x + offsetX,
+      y: state.mapView.topLeft.y + offsetY,
+    };
+    const geoAtPointer = worldPixelToLonLat(worldBefore.x, worldBefore.y, state.mapView.zoom);
+    const worldAfter = lonLatToWorldPixel(geoAtPointer.lng, geoAtPointer.lat, nextZoom);
+    const centerAfter = {
+      x: worldAfter.x - offsetX + state.mapView.width / 2,
+      y: worldAfter.y - offsetY + state.mapView.height / 2,
+    };
+    const nextCenter = worldPixelToLonLat(centerAfter.x, centerAfter.y, nextZoom);
+    setCameraTarget([nextCenter.lng, nextCenter.lat], nextZoom);
+  }
+
+  function recenterMap() {
+    setCameraTarget(state.city?.default_center || state.mapCenter || [0, 0], cityMapZoom(state.city));
+    toast("Map recentered.");
+  }
+
+  function setViewMode(mode) {
+    state.viewMode = mode;
+    els.mapStage.classList.toggle("mode-3d", mode === "3d");
+    els.view2dButton.classList.toggle("active", mode === "2d");
+    els.view3dButton.classList.toggle("active", mode === "3d");
+    els.view2dButton.setAttribute("aria-pressed", String(mode === "2d"));
+    els.view3dButton.setAttribute("aria-pressed", String(mode === "3d"));
+    applyMapLibreViewMode();
+  }
+
+  function setCompareX(value, options = {}) {
+    state.compareX = clamp(Number(value), 12, 88);
+    els.mapStage.style.setProperty("--compare-x", `${state.compareX}%`);
+    els.compareSlider.value = String(state.compareX);
+    if (!options.silent) renderTimeline();
+  }
+
+  function replayYears() {
+    if (state.replayTimer) {
+      clearInterval(state.replayTimer);
+      state.replayTimer = null;
+      els.replayButton.classList.remove("active");
+      return;
+    }
+    const years = timelineYears();
+    let index = Math.max(0, years.findIndex((year) => year >= state.year));
+    els.replayButton.classList.add("active");
+    state.replayTimer = setInterval(() => {
+      index = (index + 1) % years.length;
+      setYear(years[index]);
+      if (index === years.length - 1) {
+        clearInterval(state.replayTimer);
+        state.replayTimer = null;
+        els.replayButton.classList.remove("active");
+      }
+    }, 750);
+  }
+
+  function exportBrief() {
+    const payload = briefPayload();
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${state.cityId || "city"}-${state.selectedEventId || "evidence-brief"}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+    toast("Evidence brief exported.");
+  }
+
+  function copyBrief() {
+    const text = JSON.stringify(briefPayload(), null, 2);
+    navigator.clipboard?.writeText(text)
+      .then(() => toast("Evidence brief copied."))
+      .catch(() => toast("Clipboard unavailable; use Export."));
+  }
+
+  function briefPayload() {
+    const event = state.selectedEvent;
+    return {
+      product: "CivicReplay",
+      city_id: state.cityId,
+      city_name: state.city?.display_name,
+      selected_year: state.year,
+      before_year: state.beforeYear,
+      caveat: "Historical evidence map, not a prediction engine. Causation is not claimed.",
+      imagery: {
+        provider: state.imageryArchive?.provider || TILE_PROVIDER.name,
+        source_url: state.imageryArchive?.source_url || null,
+        note: state.imageryArchive?.source_note || "Current imagery fallback; no dated archive manifest loaded.",
+        before: state.beforeImagery ? {
+          requested_year: state.beforeImagery.requested_year,
+          date: state.beforeImagery.date,
+          id: state.beforeImagery.id,
+        } : null,
+        after: state.afterImagery ? {
+          requested_year: state.afterImagery.requested_year,
+          date: state.afterImagery.date,
+          id: state.afterImagery.id,
+        } : null,
+      },
+      event: event ? {
+        event_id: event.event_id,
+        title: event.title,
+        effective_date: event.effective_date,
+        category: event.category,
+        confidence: event.confidence,
+        affected_area: event.affected_area,
+        explanation: event.explanation,
+        caveats: event.caveats || [],
+        source_ids: event.source_ids || [],
+        evidence: event.evidence || [],
+        provenance: event.provenance || null,
+      } : null,
+    };
+  }
+
+  function renderTiles() {
+    if (!state.city) return;
+    if (state.mapSceneReady && state.afterMap) {
+      updateMapViewFromMapLibre();
+      state.afterMap.resize();
+      state.beforeMap?.resize();
+      return;
+    }
+    const viewport = els.mapViewport.getBoundingClientRect();
+    const width = Math.max(640, Math.round(viewport.width || els.mapStage.clientWidth || window.innerWidth - 720 || 980));
+    const height = Math.max(520, Math.round(viewport.height || els.mapStage.clientHeight || window.innerHeight - 64 || 720));
+    const [lng, lat] = state.cameraCenter || state.mapCenter || state.city.default_center || [0, 0];
+    const zoom = clamp(Math.round(state.cameraZoom || state.mapZoom || cityMapZoom(state.city)), MIN_ZOOM, MAX_ZOOM);
+    const center = lonLatToWorldPixel(lng, lat, zoom);
+    const topLeft = {
+      x: center.x - width / 2,
+      y: center.y - height / 2,
+    };
+    state.mapView = { zoom, topLeft, width, height };
+    if (!state.beforeImagery || !state.afterImagery) {
+      const pair = selectImageryPair(state.beforeYear, state.year);
+      state.beforeImagery = pair.before;
+      state.afterImagery = pair.after;
+    }
+    const layout = tileLayout(topLeft, width, height, zoom);
+    updateTileLayer(els.beforeTileLayer, layout, state.beforeImagery);
+    updateTileLayer(els.afterTileLayer, layout, state.afterImagery);
+  }
+
+  function tileLayout(topLeft, width, height, zoom) {
+    const scale = 2 ** zoom;
+    const bufferTiles = 1;
+    const startX = Math.floor(topLeft.x / TILE_SIZE) - bufferTiles;
+    const endX = Math.floor((topLeft.x + width) / TILE_SIZE) + bufferTiles;
+    const startY = Math.floor(topLeft.y / TILE_SIZE) - bufferTiles;
+    const endY = Math.floor((topLeft.y + height) / TILE_SIZE) + bufferTiles;
+    return {
+      zoom,
+      scale,
+      startX,
+      endX,
+      startY,
+      endY,
+      topLeft,
+      originX: startX * TILE_SIZE,
+      originY: startY * TILE_SIZE,
+      key: `${zoom}:${startX}:${endX}:${startY}:${endY}`,
+    };
+  }
+
+  function updateTileLayer(layer, layout, imagery) {
+    if (!layer) return;
+    const imageryId = imagery?.id || "current";
+    const key = `${layout.key}:${imageryId}`;
+    const entries = tileEntries(layout, imagery);
+    const hasTiles = Boolean(layer.dataset.tileKey);
+    const sameImagery = layer.dataset.imageryId === imageryId;
+    const sameZoom = layer.dataset.tileZoom === String(layout.zoom);
+    if (layer.dataset.tileKey !== key) {
+      if (!hasTiles || (sameImagery && sameZoom)) {
+        commitTileLayer(layer, key, imageryId, layout.zoom, entries);
+      } else {
+        layer.dataset.pendingKey = key;
+        preloadTileImages(entries).then(() => {
+          if (layer.dataset.pendingKey === key) commitTileLayer(layer, key, imageryId, layout.zoom, entries);
+        });
+        return;
       }
     }
-    els.mapTileLayer.innerHTML = tiles.join("");
-    if (els.mapAttribution) els.mapAttribution.textContent = "Esri World Imagery reference layer; event, evidence and traffic context from public sources";
+    const x = Math.round(layout.originX - layout.topLeft.x);
+    const y = Math.round(layout.originY - layout.topLeft.y);
+    layer.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   }
 
-  function lonLatToTile(lng, lat, zoom) {
+  function commitTileLayer(layer, key, imageryId, zoom, entries) {
+    layer.innerHTML = tileHtml(entries);
+    layer.dataset.tileKey = key;
+    layer.dataset.imageryId = imageryId;
+    layer.dataset.tileZoom = String(zoom);
+    layer.dataset.pendingKey = "";
+  }
+
+  function tileEntries(layout, imagery) {
+    const tiles = [];
+    for (let y = layout.startY; y <= layout.endY; y += 1) {
+      if (y < 0 || y >= layout.scale) continue;
+      for (let x = layout.startX; x <= layout.endX; x += 1) {
+        const wrappedX = ((x % layout.scale) + layout.scale) % layout.scale;
+        const left = Math.round((x - layout.startX) * TILE_SIZE);
+        const top = Math.round((y - layout.startY) * TILE_SIZE);
+        tiles.push({
+          src: tileUrl(wrappedX, y, layout.zoom, imagery),
+          left,
+          top,
+        });
+      }
+    }
+    return tiles;
+  }
+
+  function tileHtml(entries) {
+    const tiles = entries.map((entry) => (
+      `<img alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" src="${entry.src}" style="left:${entry.left}px;top:${entry.top}px;width:${TILE_SIZE}px;height:${TILE_SIZE}px">`
+    ));
+    return tiles.join("");
+  }
+
+  function preloadTileImages(entries) {
+    const firstTiles = entries.slice(0, Math.min(14, entries.length));
+    const loads = firstTiles.map((entry) => new Promise((resolve) => {
+      const image = new Image();
+      image.onload = resolve;
+      image.onerror = resolve;
+      image.src = entry.src;
+    }));
+    return Promise.all(loads);
+  }
+
+  function miniTileHtml(point, zoom, width, height, imagery) {
+    const center = lonLatToWorldPixel(point.lng, point.lat, zoom);
     const scale = 2 ** zoom;
-    const x = Math.floor(((lng + 180) / 360) * scale);
-    const rad = lat * Math.PI / 180;
-    const y = Math.floor((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2 * scale);
-    return { x, y };
+    const radius = Math.ceil(Math.max(width, height) / 2) + TILE_SIZE;
+    const startX = Math.floor((center.x - radius) / TILE_SIZE);
+    const endX = Math.floor((center.x + radius) / TILE_SIZE);
+    const startY = Math.floor((center.y - radius) / TILE_SIZE);
+    const endY = Math.floor((center.y + radius) / TILE_SIZE);
+    const tiles = [];
+    for (let y = startY; y <= endY; y += 1) {
+      if (y < 0 || y >= scale) continue;
+      for (let x = startX; x <= endX; x += 1) {
+        const wrappedX = ((x % scale) + scale) % scale;
+        const left = Math.round(x * TILE_SIZE - center.x);
+        const top = Math.round(y * TILE_SIZE - center.y);
+        tiles.push(`<img alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" src="${tileUrl(wrappedX, y, zoom, imagery)}" style="left:calc(50% + ${left}px);top:calc(50% + ${top}px);width:${TILE_SIZE}px;height:${TILE_SIZE}px">`);
+      }
+    }
+    return tiles.join("");
   }
 
-  function filterEvents(events) {
-    const lens = LENSES.find((item) => item.id === state.lens) || LENSES[0];
-    return events.filter((event) => {
-      const matchesLens = lens.id === "all" || matchesLensDefinition(event, lens);
-      if (!matchesLens) return false;
-      if (!state.search) return true;
-      return eventSearchText(event).includes(state.search);
-    });
+  function filteredEvents() {
+    const events = Array.from(state.loadedEvents.values());
+    return events.filter(matchesFilters).sort(sortEvents);
   }
 
-  function matchesLensDefinition(event, lens) {
-    const category = event.category || "";
-    const eventLens = event.lens || "";
-    const text = eventSearchText(event);
-    const categoryMatch = (lens.categories || []).includes(category);
-    const lensMatch = (lens.lenses || []).includes(eventLens);
-    const keywordMatch = (lens.keywords || []).some((keyword) => text.includes(keyword));
-    if (lens.id === "housing" || lens.id === "environment") return keywordMatch || lensMatch;
-    return categoryMatch || lensMatch || keywordMatch;
+  function filteredMapEvents() {
+    const yearEvents = state.eventsByYear.get(Number(state.year)) || [];
+    const exact = yearEvents.filter(matchesFilters).sort(sortEvents);
+    if (exact.length) return exact;
+    return filteredEvents().filter((event) => eventPoint(event)).slice(0, MAX_MARKERS);
   }
 
-  function eventSearchText(event) {
+  function matchesFilters(event) {
+    if (state.category !== "all" && event.category !== state.category) return false;
+    if (state.confidence !== "all" && event.confidence !== state.confidence) return false;
+    if (state.source !== "all" && !(event.source_ids || []).includes(state.source)) return false;
+    if (!state.search) return true;
+    return eventText(event).includes(state.search);
+  }
+
+  function sortEvents(a, b) {
+    if (state.sort === "newest") return Number(b.year || 0) - Number(a.year || 0) || cleanTitle(a.title).localeCompare(cleanTitle(b.title));
+    if (state.sort === "oldest") return Number(a.year || 0) - Number(b.year || 0) || cleanTitle(a.title).localeCompare(cleanTitle(b.title));
+    return eventScore(b) - eventScore(a) || Number(b.year || 0) - Number(a.year || 0) || cleanTitle(a.title).localeCompare(cleanTitle(b.title));
+  }
+
+  function eventScore(event) {
+    const selectedYear = Number(state.selectedEvent?.year);
+    const anchorYear = Number.isFinite(selectedYear) ? selectedYear : FEATURED_YEAR[state.cityId];
+    let score = 0;
+    if (Number(event.year) === anchorYear) score += 60;
+    if (Number(event.year) === FEATURED_YEAR[state.cityId]) score += 16;
+    score += (CONFIDENCE_SCORE[event.confidence] || 0) * 12;
+    score += Math.min(3, (event.source_ids || []).length) * 3;
+    if (eventPoint(event)) score += 5;
+    if (isCurrentLayer(event)) score -= 12;
+    if (/official-|milestone-/i.test(event.event_id || "")) score += 8;
+    return score;
+  }
+
+  function isCurrentLayer(event) {
+    return /^current data layer:/i.test(event.title || "") || (event.caveats || []).some((item) => /current-state source marker/i.test(item));
+  }
+
+  function eventText(event) {
     return [
       event.title,
       event.category,
       event.lens,
+      event.confidence,
+      event.effective_date,
       event.affected_area?.label,
       event.explanation,
       ...(event.source_ids || []),
       ...(event.affected_signals || []),
-      ...(event.caveats || []),
     ].filter(Boolean).join(" ").toLowerCase();
   }
 
-  function sortEvents(a, b) {
-    const confDiff = (CONFIDENCE_WEIGHT[b.confidence] || 0) - (CONFIDENCE_WEIGHT[a.confidence] || 0);
-    if (confDiff) return confDiff;
-    return String(a.effective_date || a.year).localeCompare(String(b.effective_date || b.year));
+  function getAvailableYears() {
+    const years = (state.eventsIndex?.event_years || []).map(Number).filter(Number.isFinite);
+    return Array.from(new Set(years)).sort((a, b) => a - b);
   }
 
-  function relatedEvents(event) {
-    const point = eventPoint(event);
-    return getCurrentEvents()
-      .filter((item) => item.event_id !== event.event_id && item.category === event.category)
-      .map((item) => ({ ...item, _distance: point ? pointDistance(point, eventPoint(item)) : 0 }))
-      .sort((a, b) => a._distance - b._distance);
+  function timelineYears() {
+    const modern = state.years.filter((year) => year >= 2000);
+    return modern.length ? modern : (state.years.length ? state.years : [state.year]);
+  }
+
+  function yearEventCount(year) {
+    const loaded = state.eventsByYear.get(Number(year));
+    if (loaded) return loaded.length;
+    const chunk = (state.eventsIndex?.chunks || []).find((item) => Number(item.year) === Number(year));
+    return Number(chunk?.event_count || 0);
+  }
+
+  function preferredYear() {
+    const urlYear = Number(getUrlParam("year"));
+    if (Number.isFinite(urlYear) && state.years.includes(urlYear)) return urlYear;
+    const featured = FEATURED_YEAR[state.cityId];
+    if (state.years.includes(featured)) return featured;
+    return Math.min(Math.max(...state.years), CURRENT_YEAR);
+  }
+
+  function nearestYearBefore(year) {
+    const sorted = state.years.filter((item) => item < year).sort((a, b) => b - a);
+    return sorted[0] || Math.max(Math.min(...state.years), year - 1);
   }
 
   function eventPoint(event) {
-    return geometryCenter(event.geometry);
+    return geometryCenter(event?.geometry);
   }
 
   function geometryCenter(geometry) {
     if (!geometry || typeof geometry !== "object") return null;
     if (geometry.type === "Point" && Array.isArray(geometry.coordinates)) {
-      const [lng, lat] = geometry.coordinates;
+      const [lng, lat] = geometry.coordinates.map(Number);
       return Number.isFinite(lng) && Number.isFinite(lat) ? { lng, lat } : null;
     }
-    const coords = collectCoordinatePairs(geometry.coordinates);
-    if (!coords.length) return null;
-    const sum = coords.reduce((acc, point) => ({ lng: acc.lng + point[0], lat: acc.lat + point[1] }), { lng: 0, lat: 0 });
-    return { lng: sum.lng / coords.length, lat: sum.lat / coords.length };
+    const pairs = collectCoordinatePairs(geometry.coordinates);
+    if (!pairs.length) return null;
+    const sum = pairs.reduce((acc, item) => ({ lng: acc.lng + item[0], lat: acc.lat + item[1] }), { lng: 0, lat: 0 });
+    return { lng: sum.lng / pairs.length, lat: sum.lat / pairs.length };
   }
 
   function collectCoordinatePairs(value, out = []) {
@@ -1051,178 +1473,516 @@
   }
 
   function project(point) {
-    const bounds = CITY_VIEW_CONFIG[state.cityId]?.bounds || state.city?.bounds || [-6.12, 54.45, -5.74, 54.75];
-    const [minLng, minLat, maxLng, maxLat] = bounds;
-    const x = ((point.lng - minLng) / (maxLng - minLng)) * 100;
-    const y = (1 - ((point.lat - minLat) / (maxLat - minLat))) * 100;
+    const raw = projectRaw(point);
+    return { x: clamp(raw.x, 1.5, 98.5), y: clamp(raw.y, 2, 95) };
+  }
+
+  function projectRaw(point) {
+    if (state.mapSceneReady && state.afterMap && els.mapViewport) {
+      const rect = els.mapViewport.getBoundingClientRect();
+      const projected = state.afterMap.project([point.lng, point.lat]);
+      return {
+        x: (projected.x / Math.max(1, rect.width)) * 100,
+        y: (projected.y / Math.max(1, rect.height)) * 100,
+      };
+    }
+    if (state.mapView) {
+      const pixel = lonLatToWorldPixel(point.lng, point.lat, state.mapView.zoom);
+      return {
+        x: ((pixel.x - state.mapView.topLeft.x) / state.mapView.width) * 100,
+        y: ((pixel.y - state.mapView.topLeft.y) / state.mapView.height) * 100,
+      };
+    }
+    const [minLng, minLat, maxLng, maxLat] = state.city?.bounds || [-180, -80, 180, 80];
     return {
-      x: clamp(x, 2, 98),
-      y: clamp(y, 2, 98),
+      x: ((point.lng - minLng) / (maxLng - minLng)) * 100,
+      y: (1 - ((point.lat - minLat) / (maxLat - minLat))) * 100,
     };
   }
 
-  function pointDistance(a, b) {
-    if (!a || !b) return Number.POSITIVE_INFINITY;
-    return Math.hypot(a.lng - b.lng, a.lat - b.lat);
+  function lonLatToWorldPixel(lng, lat, zoom) {
+    const safeLat = clamp(Number(lat), -85.05112878, 85.05112878);
+    const scale = 2 ** zoom;
+    const x = ((Number(lng) + 180) / 360) * scale * TILE_SIZE;
+    const rad = safeLat * Math.PI / 180;
+    const y = ((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2) * scale * TILE_SIZE;
+    return { x, y };
   }
 
-  function lensForEvent(event) {
-    return LENSES.find((lens) => lens.id !== "all" && matchesLensDefinition(event, lens)) || LENSES[0];
+  function worldPixelToLonLat(x, y, zoom) {
+    const worldSize = TILE_SIZE * (2 ** zoom);
+    const lng = (Number(x) / worldSize) * 360 - 180;
+    const mercator = Math.PI - (2 * Math.PI * Number(y)) / worldSize;
+    const lat = (180 / Math.PI) * Math.atan(Math.sinh(mercator));
+    return { lng, lat: clamp(lat, -85.05112878, 85.05112878) };
   }
 
-  function signalTags(event) {
-    return (event.affected_signals || []).map((signal) => `<span class="tag">${escapeHtml(SIGNAL_LABELS[signal] || signal)}</span>`);
+  function tileUrl(x, y, z, imagery) {
+    const template = imagery?.tile_template || TILE_PROVIDER.template;
+    return template
+      .replace("{z}", encodeURIComponent(z))
+      .replace("{x}", encodeURIComponent(x))
+      .replace("{y}", encodeURIComponent(y));
   }
 
-  function signalCards(event) {
-    const signals = event.affected_signals && event.affected_signals.length ? event.affected_signals : [event.lens || event.category].filter(Boolean);
-    return signals.slice(0, 6).map((signal) => {
-      const color = signalColor(signal);
-      return `
-        <div class="signal-card" style="--signal-color:${color}">
-          <span class="signal-icon">${escapeHtml(signalIcon(signal))}</span>
-          <div>
-            <strong>${escapeHtml(SIGNAL_LABELS[signal] || categoryLabel(signal))}</strong>
-            <span>${escapeHtml(signalNote(signal))}</span>
-          </div>
-        </div>
-      `;
+  function mapLibreTileTemplate(imagery) {
+    if (imagery?.item_id) return `/api/imagery/wayback/${encodeURIComponent(imagery.item_id)}/{z}/{y}/{x}`;
+    return TILE_PROVIDER.template;
+  }
+
+  function tileBackground(point, zoom, imagery) {
+    const pixel = lonLatToWorldPixel(point.lng, point.lat, zoom);
+    const x = Math.floor(pixel.x / TILE_SIZE);
+    const y = Math.floor(pixel.y / TILE_SIZE);
+    const scale = 2 ** zoom;
+    const wrappedX = ((x % scale) + scale) % scale;
+    return `url(${tileUrl(wrappedX, y, zoom, imagery)})`;
+  }
+
+  function fallbackGradient(color) {
+    return `linear-gradient(135deg, ${color}, #475569)`;
+  }
+
+  function initMapScenes() {
+    if (!els.beforeMap || !els.afterMap || !window.maplibregl) return false;
+    const center = state.mapCenter || state.city?.default_center || [0, 0];
+    const zoom = clamp(Number(state.mapZoom || cityMapZoom(state.city)), MIN_ZOOM, MAX_ZOOM);
+
+    if (state.beforeMap && state.afterMap) {
+      state.afterMap.jumpTo({ center, zoom });
+      state.beforeMap.jumpTo({ center, zoom });
+      updateMapLibreImagery();
+      applyMapLibreViewMode();
+      state.afterMap.resize();
+      state.beforeMap.resize();
+      return true;
+    }
+
+    const options = {
+      center,
+      zoom,
+      minZoom: MIN_ZOOM,
+      maxZoom: MAX_ZOOM,
+      attributionControl: false,
+      fadeDuration: 250,
+    };
+
+    state.beforeMap = new window.maplibregl.Map({
+      ...options,
+      container: els.beforeMap,
+      style: mapLibreStyle(state.beforeImagery),
+      interactive: false,
+    });
+    state.afterMap = new window.maplibregl.Map({
+      ...options,
+      container: els.afterMap,
+      style: mapLibreStyle(state.afterImagery),
+      interactive: true,
+      dragRotate: false,
+      pitchWithRotate: false,
+    });
+
+    state.afterMap.dragRotate.disable();
+    state.afterMap.touchZoomRotate.disableRotation();
+    state.afterMap.on("move", syncFromMapLibre);
+    state.afterMap.on("zoom", syncFromMapLibre);
+    state.afterMap.on("load", () => {
+      state.afterMapLoaded = true;
+      markMapLibreReady();
+    });
+    state.beforeMap.on("load", () => {
+      state.beforeMapLoaded = true;
+      markMapLibreReady();
+    });
+    window.requestAnimationFrame(() => {
+      state.beforeMapLoaded = true;
+      state.afterMapLoaded = true;
+      markMapLibreReady();
+    });
+    return true;
+  }
+
+  function markMapLibreReady() {
+    if (!state.beforeMapLoaded || !state.afterMapLoaded) return;
+    state.mapSceneReady = true;
+    els.mapStage.classList.add("maplibre-ready");
+    const center = state.mapCenter || state.city?.default_center || [0, 0];
+    const zoom = clamp(Number(state.mapZoom || cityMapZoom(state.city)), MIN_ZOOM, MAX_ZOOM);
+    state.afterMap.jumpTo({ center, zoom });
+    state.beforeMap.jumpTo({ center, zoom });
+    updateMapViewFromMapLibre();
+    updateMapLibreImagery();
+    applyMapLibreViewMode();
+    scheduleMapRender();
+  }
+
+  function mapLibreStyle(imagery) {
+    return {
+      version: 8,
+      sources: {
+        imagery: {
+          type: "raster",
+          tiles: [mapLibreTileTemplate(imagery)],
+          tileSize: TILE_SIZE,
+          minzoom: MIN_ZOOM,
+          maxzoom: MAX_ZOOM,
+          attribution: imageryAttribution(),
+        },
+      },
+      layers: [
+        {
+          id: "imagery",
+          type: "raster",
+          source: "imagery",
+          paint: {
+            "raster-fade-duration": 320,
+          },
+        },
+      ],
+    };
+  }
+
+  function updateMapLibreImagery() {
+    if (!state.beforeMap || !state.afterMap) return;
+    setMapLibreTiles(state.beforeMap, state.beforeImagery);
+    setMapLibreTiles(state.afterMap, state.afterImagery);
+  }
+
+  function setMapLibreTiles(map, imagery) {
+    if (!map) return;
+    const template = mapLibreTileTemplate(imagery);
+    if (map.__imageryTemplate === template) return;
+    if (!map.isStyleLoaded()) {
+      map.once("styledata", () => setMapLibreTiles(map, imagery));
+      return;
+    }
+    const source = map.getSource("imagery");
+    if (source?.setTiles) {
+      source.setTiles([template]);
+      map.__imageryTemplate = template;
+      return;
+    }
+    const camera = {
+      center: map.getCenter(),
+      zoom: map.getZoom(),
+      bearing: map.getBearing(),
+      pitch: map.getPitch(),
+    };
+    map.setStyle(mapLibreStyle(imagery));
+    map.once("styledata", () => map.jumpTo(camera));
+    map.__imageryTemplate = template;
+  }
+
+  function syncFromMapLibre() {
+    if (!state.afterMap || !state.beforeMap || state.mapSyncing) return;
+    const center = state.afterMap.getCenter();
+    const zoom = state.afterMap.getZoom();
+    const camera = {
+      center,
+      zoom,
+      bearing: state.afterMap.getBearing(),
+      pitch: state.afterMap.getPitch(),
+    };
+    state.mapSyncing = true;
+    state.beforeMap.jumpTo(camera);
+    state.mapSyncing = false;
+    state.mapCenter = [center.lng, center.lat];
+    state.mapZoom = zoom;
+    state.cameraCenter = [center.lng, center.lat];
+    state.cameraZoom = zoom;
+    updateMapViewFromMapLibre();
+    requestMapOverlayRender();
+  }
+
+  function updateMapViewFromMapLibre() {
+    if (!state.afterMap || !els.mapViewport) return;
+    const rect = els.mapViewport.getBoundingClientRect();
+    const center = state.afterMap.getCenter();
+    const zoom = state.afterMap.getZoom();
+    const width = Math.max(640, Math.round(rect.width || els.mapStage.clientWidth || window.innerWidth - 720 || 980));
+    const height = Math.max(520, Math.round(rect.height || els.mapStage.clientHeight || window.innerHeight - 64 || 720));
+    const roundedZoom = clamp(Math.round(zoom), MIN_ZOOM, MAX_ZOOM);
+    const centerPixel = lonLatToWorldPixel(center.lng, center.lat, roundedZoom);
+    state.mapView = {
+      zoom: roundedZoom,
+      topLeft: {
+        x: centerPixel.x - width / 2,
+        y: centerPixel.y - height / 2,
+      },
+      width,
+      height,
+    };
+  }
+
+  function requestMapOverlayRender() {
+    if (state.mapRenderFrame) return;
+    state.mapRenderFrame = window.requestAnimationFrame(() => {
+      state.mapRenderFrame = null;
+      renderMap();
     });
   }
 
-  function signalColor(signal) {
-    if (/housing|built|building|development/i.test(signal)) return "#ff8a1f";
-    if (/transport|mobility|traffic/i.test(signal)) return "#2f7bff";
-    if (/service|civic|public/i.test(signal)) return "#14a35a";
-    if (/job|economy/i.test(signal)) return "#c47a13";
-    if (/green|environment|air/i.test(signal)) return "#31a24c";
-    if (/util|electric|energy/i.test(signal)) return "#14a4c7";
-    return "#8b5cf6";
+  function applyMapLibreViewMode() {
+    if (!state.afterMap || !state.mapSceneReady) return;
+    const camera = state.viewMode === "3d"
+      ? { pitch: 58, bearing: -14, duration: 420 }
+      : { pitch: 0, bearing: 0, duration: 320 };
+    state.afterMap.easeTo(camera);
   }
 
-  function signalIcon(signal) {
-    if (/housing|built|building|development/i.test(signal)) return "h";
-    if (/transport|mobility|traffic/i.test(signal)) return "t";
-    if (/service|civic|public/i.test(signal)) return "p";
-    if (/job|economy/i.test(signal)) return "e";
-    if (/green|environment|air/i.test(signal)) return "g";
-    if (/util|electric|energy/i.test(signal)) return "u";
-    return "i";
+  function selectImageryPair(beforeYear, afterYear) {
+    return {
+      before: imageryForYear(beforeYear),
+      after: imageryForYear(afterYear),
+    };
   }
 
-  function signalNote(signal) {
-    if (/housing|built|building|development/i.test(signal)) return "Land use or development context changed.";
-    if (/transport|mobility|traffic/i.test(signal)) return "Access or movement context changed.";
-    if (/service|civic|public/i.test(signal)) return "Public service context changed.";
-    if (/job|economy/i.test(signal)) return "Local activity or jobs context flagged.";
-    if (/green|environment|air/i.test(signal)) return "Environmental context flagged.";
-    if (/util|electric|energy/i.test(signal)) return "Infrastructure or utility context changed.";
-    return "Review evidence before interpreting.";
+  function imageryForYear(year) {
+    const layers = state.imageryArchive?.layers || [];
+    if (!layers.length) return null;
+    const numericYear = Number(year);
+    const targetYear = Number.isFinite(numericYear) ? numericYear : CURRENT_YEAR;
+    const targetDate = `${targetYear}-12-31`;
+    let candidate = layers[0];
+    for (const layer of layers) {
+      if (String(layer.date) <= targetDate) candidate = layer;
+      else break;
+    }
+    return {
+      ...candidate,
+      requested_year: targetYear,
+      is_earliest_available: targetYear < Number(layers[0].year),
+      is_latest_available: targetYear > Number(layers[layers.length - 1].year),
+    };
   }
 
-  function confidenceText(event) {
-    const confidence = event.confidence || "unknown";
-    if (confidence === "corroborated") return "Multiple independent evidence records support this change.";
-    if (confidence === "documented") return "Documentary or public source evidence supports this change.";
-    if (confidence === "inferred") return "Inferred from mapped or derived records; dates may not equal real-world completion.";
-    if (confidence === "disputed") return "Evidence is disputed or incomplete.";
-    return "Confidence criteria unavailable for this record.";
+  function imageryLabel(imagery, requestedYear) {
+    if (!imagery) return "current imagery";
+    const year = Number(requestedYear ?? imagery.requested_year);
+    if (Number.isFinite(year) && year < Number(imagery.year)) return `${imagery.date} earliest archive`;
+    if (Number.isFinite(year) && year > Number(imagery.year)) return `${imagery.date} latest archive`;
+    return imagery.date;
+  }
+
+  function imageryFrameLabel(imagery, requestedYear) {
+    if (!imagery) return String(requestedYear || "current");
+    const year = Number(requestedYear ?? imagery.requested_year);
+    if (Number.isFinite(year) && year !== Number(imagery.year)) return `${imagery.date}*`;
+    return imagery.date;
+  }
+
+  function imageryAttribution() {
+    const archive = state.imageryArchive;
+    if (!archive?.earliest_date || !archive?.latest_date) return TILE_PROVIDER.attribution;
+    return `${archive.provider} (${archive.earliest_date} to ${archive.latest_date}); source-backed event overlays`;
+  }
+
+  function usesEarliestImageryFallback(event) {
+    const earliest = Number(state.imageryArchive?.earliest_date?.slice(0, 4));
+    if (!Number.isFinite(earliest)) return false;
+    const eventYear = Number(event?.traffic_metrics?.beforeYear || event?.year);
+    return Number.isFinite(eventYear) && eventYear < earliest;
+  }
+
+  function setCameraTarget(center, zoom, options = {}) {
+    const fallback = state.cameraCenter || state.mapCenter || state.city?.default_center || [0, 0];
+    const nextCenter = Array.isArray(center) ? center : fallback;
+    const nextZoom = clamp(Number(zoom ?? state.mapZoom ?? cityMapZoom(state.city)), MIN_ZOOM, MAX_ZOOM);
+    const lng = Number(nextCenter[0]);
+    const lat = Number(nextCenter[1]);
+    state.mapCenter = [
+      Number.isFinite(lng) ? lng : fallback[0],
+      Number.isFinite(lat) ? clamp(lat, -85.05112878, 85.05112878) : fallback[1],
+    ];
+    state.mapZoom = nextZoom;
+
+    if (state.mapSceneReady && state.afterMap) {
+      const camera = { center: state.mapCenter, zoom: nextZoom };
+      if (options.instant || prefersReducedMotion()) {
+        state.afterMap.jumpTo(camera);
+      } else {
+        state.afterMap.easeTo({ ...camera, duration: 420 });
+      }
+      syncFromMapLibre();
+      return;
+    }
+
+    if (!state.cameraCenter || !Number.isFinite(Number(state.cameraZoom))) {
+      syncCameraToTarget();
+      renderTiles();
+      renderMap();
+      return;
+    }
+
+    if (options.instant || prefersReducedMotion()) {
+      syncCameraToTarget();
+      renderTiles();
+      renderMap();
+      return;
+    }
+
+    startCameraAnimation();
+  }
+
+  function syncCameraToTarget() {
+    const center = state.mapCenter || state.city?.default_center || [0, 0];
+    state.cameraCenter = [Number(center[0]) || 0, Number(center[1]) || 0];
+    state.cameraZoom = clamp(Number(state.mapZoom || cityMapZoom(state.city)), MIN_ZOOM, MAX_ZOOM);
+  }
+
+  function startCameraAnimation() {
+    if (state.cameraFrame) return;
+    state.cameraFrame = window.requestAnimationFrame(animateCamera);
+  }
+
+  function animateCamera() {
+    state.cameraFrame = null;
+    const target = state.mapCenter || state.cameraCenter || state.city?.default_center || [0, 0];
+    if (!state.cameraCenter) state.cameraCenter = [...target];
+    if (!Number.isFinite(Number(state.cameraZoom))) state.cameraZoom = state.mapZoom;
+
+    const ease = state.mapDrag ? 0.34 : 0.18;
+    const dx = Number(target[0]) - Number(state.cameraCenter[0]);
+    const dy = Number(target[1]) - Number(state.cameraCenter[1]);
+    const dz = Number(state.mapZoom) - Number(state.cameraZoom);
+    state.cameraCenter = [
+      Number(state.cameraCenter[0]) + dx * ease,
+      Number(state.cameraCenter[1]) + dy * ease,
+    ];
+    state.cameraZoom = Number(state.cameraZoom) + dz * ease;
+
+    renderTiles();
+    renderMap();
+
+    const closeEnough = Math.abs(dx) < 0.00003 && Math.abs(dy) < 0.00003 && Math.abs(dz) < 0.01;
+    if (closeEnough) {
+      syncCameraToTarget();
+      renderTiles();
+      renderMap();
+      return;
+    }
+    state.cameraFrame = window.requestAnimationFrame(animateCamera);
+  }
+
+  function setSceneMotion(deltaX, deltaY) {
+    if (state.viewMode !== "3d") return;
+    const tilt = clamp(-deltaY / 44, -3.6, 3.6);
+    const bearing = clamp(deltaX / 80, -2.8, 2.8);
+    const lift = clamp(deltaY / 20, -8, 8);
+    els.mapStage.style.setProperty("--scene-tilt", `${tilt.toFixed(2)}deg`);
+    els.mapStage.style.setProperty("--scene-bearing", `${bearing.toFixed(2)}deg`);
+    els.mapStage.style.setProperty("--scene-lift", `${lift.toFixed(1)}px`);
+    els.mapStage.style.setProperty("--scene-scale", "1.045");
+  }
+
+  function settleSceneMotion() {
+    els.mapStage.style.setProperty("--scene-tilt", "0deg");
+    els.mapStage.style.setProperty("--scene-bearing", "0deg");
+    els.mapStage.style.setProperty("--scene-lift", "0px");
+    els.mapStage.style.setProperty("--scene-scale", "1.03");
+  }
+
+  function applyTemporalScene() {
+    if (!els.mapStage) return;
+    els.mapStage.style.setProperty("--before-filter", "none");
+    els.mapStage.style.setProperty("--after-filter", "none");
+    els.mapAttribution.textContent = imageryAttribution();
+  }
+
+  function pulseTemporalScene() {
+    els.mapStage.classList.add("time-scrubbing");
+    window.clearTimeout(state.timeScrubTimer);
+    state.timeScrubTimer = window.setTimeout(() => {
+      els.mapStage.classList.remove("time-scrubbing");
+    }, 520);
+  }
+
+  function resetTileCache() {
+    for (const layer of [els.beforeTileLayer, els.afterTileLayer]) {
+      if (!layer) continue;
+      layer.dataset.tileKey = "";
+      layer.style.transform = "";
+    }
+  }
+
+  function scheduleMapRender() {
+    renderTiles();
+    renderMap();
+    window.requestAnimationFrame(() => {
+      renderTiles();
+      renderMap();
+    });
+    window.setTimeout(() => {
+      renderTiles();
+      renderMap();
+    }, 250);
+  }
+
+  function prefersReducedMotion() {
+    return Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
+  }
+
+  function cityMapZoom(city) {
+    return clamp(Math.round(city?.default_zoom || 12), MIN_ZOOM, MAX_ZOOM);
+  }
+
+  function categoryConfig(category) {
+    return CATEGORY_CONFIG.find((item) => item.id === category) || CATEGORY_CONFIG[0];
   }
 
   function confidenceLabel(confidence) {
-    if (confidence === "corroborated") return "corroborated evidence";
-    if (confidence === "documented") return "documented evidence";
-    if (confidence === "inferred") return "inferred record";
-    if (confidence === "disputed") return "disputed evidence";
-    return "confidence unknown";
+    return CONFIDENCE_LABELS[confidence] || "Unknown";
   }
 
-  function renderConfidenceMeter(confidence) {
-    const levels = { disputed: 1, inferred: 2, documented: 4, corroborated: 5 };
-    const active = levels[confidence] || 0;
-    document.querySelectorAll(".confidence-meter span").forEach((item, index) => {
-      item.classList.toggle("active", index < active);
-    });
+  function confidenceColor(confidence) {
+    if (confidence === "corroborated") return "#15803d";
+    if (confidence === "documented") return "#2e9b58";
+    if (confidence === "inferred") return "#e9781a";
+    if (confidence === "disputed") return "#d14c68";
+    return "#8a96a8";
   }
 
-  function displayPlaceName(name) {
-    if (/london/i.test(name || "")) return "Stratford / Olympic Park / Lower Lea Valley";
-    if (/new york|nyc/i.test(name || "")) return "New York City / Borough Atlas";
-    return name || "Open Citylog";
+  function confidenceText(event) {
+    if (event.confidence === "corroborated") return "Multiple independent evidence records support this observed change.";
+    if (event.confidence === "documented") return "Public documentary evidence supports this observed change.";
+    if (event.confidence === "inferred") return "Inferred from mapped or derived records; dates may be mapped-visibility dates.";
+    if (event.confidence === "disputed") return "Evidence is incomplete or disputed; treat this record as a prompt for review.";
+    return "Confidence criteria are not available for this record.";
   }
 
-  function categoryLabel(category) {
-    return CATEGORY_LABELS[category] || (category || "Uncategorised").replace(/_/g, " ");
+  function normalizeCaveat(text) {
+    return String(text || "")
+      .replace(/Impact deltas are dashboard proxies until raw traffic\/building\/environment ETL adapters are connected\./i, "Dashboard proxy fields are not treated as measured outcomes in this view.")
+      .replace(/impact deltas/ig, "dashboard proxy fields");
+  }
+
+  function sourceLabel(sourceId) {
+    const source = state.sourceById.get(sourceId);
+    return source?.title || source?.provider || sourceId || "Source";
+  }
+
+  function cleanTitle(title) {
+    return String(title || "Untitled record")
+      .replace(/^Current data layer:\s*/i, "")
+      .replace(/\s+/g, " ")
+      .trim();
   }
 
   function formatEventDate(event) {
-    if (event.effective_date_range) {
-      return `${event.effective_date_range.start || "?"} to ${event.effective_date_range.end || "?"}`;
+    if (event?.effective_date_range) {
+      const start = event.effective_date_range.start || "?";
+      const end = event.effective_date_range.end || "?";
+      return `${start} - ${end}`;
     }
-    return event.effective_date || String(event.year || "Unknown date");
+    return event?.effective_date || String(event?.year || "Unknown date");
   }
 
-  function getAvailableYears() {
-    const years = [
-      ...(state.eventsIndex?.event_years || []),
-      ...(CITY_DEMO_EVENTS[state.cityId] || []).map((event) => event.year),
-    ];
-    return Array.from(new Set(years.map(Number).filter(Number.isFinite))).sort((a, b) => a - b);
-  }
-
-  function yearRange(years = []) {
-    if (!years.length) return "Years unknown";
-    return `${Math.min(...years)}-${Math.max(...years)}`;
+  function shortCityName(name) {
+    return String(name || "City").split(",")[0];
   }
 
   function dataPathToUrl(filePath) {
-    if (!filePath) return "";
-    return "/" + String(filePath).replace(/\\/g, "/").replace(/^web\//, "").replace(/^\//, "");
-  }
-
-  function demoEvent(cityId, eventId, year, title, category, lens, coordinates, areaLabel, sourceIds, sourceUrl, explanation, caveats, traffic_metrics) {
-    return {
-      schema_version: "1.0.0",
-      city_id: cityId,
-      event_id: eventId,
-      title,
-      year,
-      effective_date: String(year),
-      date_precision: "year",
-      category,
-      lens,
-      geometry: { type: "Point", coordinates },
-      affected_area: { label: areaLabel },
-      source_ids: sourceIds,
-      evidence: sourceIds.map((sourceId) => ({
-        source_id: sourceId,
-        label: `${title} source record`,
-        kind: "source_url",
-        url: sourceUrl,
-        record_id: eventId,
-      })),
-      confidence: "documented",
-      affected_signals: lens === "traffic" ? ["traffic", "mobility"] : [lens],
-      explanation,
-      caveats,
-      traffic_metrics,
-      provenance: {
-        method: "Curated public-source demo event for London/NY city atlas pilot.",
-        accessed_at: "2026-04-28",
-      },
-    };
-  }
-
-  function trafficMetrics(beforeYear, afterYear, beforeLabel, afterLabel, note) {
-    return {
-      beforeYear,
-      afterYear,
-      beforeLabel,
-      afterLabel,
-      beforeValue: "Source context",
-      afterValue: "Observed event",
-      note,
-    };
+    return "/" + String(filePath || "").replace(/\\/g, "/").replace(/^web\//, "").replace(/^\//, "");
   }
 
   async function fetchJson(url) {
@@ -1231,26 +1991,15 @@
     return response.json();
   }
 
-  function shareView() {
-    const url = new URL(window.location.href);
-    url.searchParams.set("city", state.cityId);
-    url.searchParams.set("year", String(state.year));
-    url.searchParams.set("lens", state.lens);
-    navigator.clipboard?.writeText(url.toString())
-      .then(() => toast("Atlas view link copied."))
-      .catch(() => toast(url.toString()));
-  }
-
-  function updateUrl() {
-    const url = new URL(window.location.href);
-    url.searchParams.set("city", state.cityId);
-    url.searchParams.set("year", String(state.year));
-    url.searchParams.set("lens", state.lens);
-    window.history.replaceState({}, "", url);
-  }
-
   function getUrlParam(name) {
     return new URL(window.location.href).searchParams.get(name);
+  }
+
+  function renderFatal(message) {
+    els.eventList.innerHTML = `<div class="empty-state">${escapeHtml(message)}</div>`;
+    els.mapEmpty.textContent = message;
+    els.mapEmpty.hidden = false;
+    els.observedChange.textContent = message;
   }
 
   function toast(message) {
@@ -1259,28 +2008,28 @@
     window.clearTimeout(toast._timer);
     toast._timer = window.setTimeout(() => {
       els.toast.hidden = true;
-    }, 3600);
-  }
-
-  function renderFatal(message) {
-    els.eventList.innerHTML = `<div class="empty-state">${escapeHtml(message)}</div>`;
-    els.detailBody.className = "detail-body empty-state";
-    els.detailBody.textContent = message;
+    }, 3000);
   }
 
   function formatNumber(value) {
     return new Intl.NumberFormat("en-GB").format(Number(value) || 0);
   }
 
-  function formatDateTime(value) {
-    if (!value) return "unknown";
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return String(value);
-    return new Intl.DateTimeFormat("en-GB", { year: "numeric", month: "short", day: "numeric" }).format(date);
+  function truncate(value, length) {
+    const text = String(value || "");
+    return text.length > length ? `${text.slice(0, length - 1)}...` : text;
   }
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
+  }
+
+  function debounce(fn, delay) {
+    let timer;
+    return (...args) => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => fn(...args), delay);
+    };
   }
 
   function escapeHtml(value) {
@@ -1299,22 +2048,19 @@
   function exposeTestApi() {
     window.BimsAtlas = {
       state,
+      filteredEvents,
+      filteredMapEvents,
       setYear,
-      setLens: (lens) => {
-        state.lens = lens;
-        renderLensButtons();
-        renderEvents();
-        return renderCompare();
+      selectFirstEvent: () => selectInitialEvent({ preferCurrentYear: true }),
+      setCategory: (category) => {
+        state.category = category;
+        els.categoryFilter.value = category;
+        renderLayerBar();
+        refreshFilteredView({ preferCurrentYear: true });
       },
-      selectFirstEvent: () => {
-        const event = filterEvents(getCurrentEvents()).sort(sortEvents)[0];
-        if (event) selectEvent(event.event_id);
-        return event || null;
-      },
-      openSources,
-      runImpactSketch: () => els.impactForm.requestSubmit(),
-      setMapLayer,
-      filteredEvents: () => filterEvents(getCurrentEvents()),
+      setViewMode,
+      copyBrief,
+      exportBrief,
     };
   }
 })();

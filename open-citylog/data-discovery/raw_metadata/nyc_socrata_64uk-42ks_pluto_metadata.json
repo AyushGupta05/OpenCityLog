@@ -10,7 +10,7 @@
   "description": "Extensive land use and geographic data at the tax lot level in comma-separated values (CSV) file format. The PLUTO files contain more than seventy fields derived from data maintained by city agencies.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/mappluto-pluto-change\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 25v4",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 30784,
+  "downloadCount": 30785,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "locked": false,
@@ -26,7 +26,7 @@
   "rowsUpdatedBy": "iqqb-gm94",
   "tableId": 19081962,
   "totalTimesRated": 0,
-  "viewCount": 84010,
+  "viewCount": 84022,
   "viewLastModified": 1771615587,
   "viewType": "tabular",
   "approvals": [

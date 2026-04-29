@@ -1,0 +1,16 @@
+{
+  "source_id": "new-044-u-s-census-api-decennial-census-and-acs",
+  "city": "new_york",
+  "title": "U.S. Census API: Decennial Census and ACS",
+  "publisher": "U.S. Census Bureau",
+  "bucket": "demographics; economy",
+  "retrieved_at": "2026-04-28T12:22:05.609164+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://api.census.gov/data.html",
+      "retrieved_at": "2026-04-28T12:22:05.404169+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+    }
+  ]
+}

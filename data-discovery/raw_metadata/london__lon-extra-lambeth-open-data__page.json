@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-lambeth-open-data",
+  "city": "london",
+  "title": "Lambeth Open Data",
+  "publisher": "Lambeth Council",
+  "bucket": "borough/local assets/planning",
+  "retrieved_at": "2026-04-28T12:57:28.121021+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://open-data.lambeth.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:27.964553+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

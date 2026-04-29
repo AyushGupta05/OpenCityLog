@@ -1,0 +1,11 @@
+{
+  "city": "london",
+  "created_for": "Bims-5 civic city-change atlas",
+  "updated_at": "2026-04-28T14:32:57.950450+00:00",
+  "source_catalog": "london/source_catalog.json",
+  "events_seed": "london/events_seed.json",
+  "source_count": 112,
+  "event_seed_count": 31,
+  "raw_metadata_count": 112,
+  "warning_snapshot_count": 25
+}

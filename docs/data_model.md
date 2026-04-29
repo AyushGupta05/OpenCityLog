@@ -92,5 +92,5 @@ The migration preserves:
 - Public source URLs from official project/facility pages.
 - Caveats that distinguish OSM mapped visibility from real-world construction dates.
 
-The new artifacts are separate from `web/data/mode-a/*`. Mode A can remain as a legacy replay demo while the city atlas contract becomes the source-backed public data contract.
+The retired artifacts are separate from the active city atlas contract. The atlas contract is the source-backed public data contract; retired replay artifacts are not public endpoints.
 

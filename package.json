@@ -4,16 +4,16 @@
   "private": true,
   "description": "Static-first city atlas data foundation for source-backed urban changelog artifacts.",
   "scripts": {
-    "build:data": "node scripts/build_data.js",
+    "build:data": "node scripts/build_data.js && node scripts/run_python.js scripts/build_discovery_city_atlas.py",
     "build:events": "node scripts/build_infrastructure_events.js",
     "build:transit": "node scripts/build_translink_transit_layers.js",
-    "build:manifest": "python scripts/build_ui_manifest.py && python scripts/build_mode_a_replay.py",
+    "build:manifest": "node scripts/build_wayback_imagery_manifest.js",
     "start": "node server.js",
     "verify:data": "node scripts/verify_data.js",
     "verify:proposal": "node scripts/verify_proposal_impact.js",
-    "verify": "npm run verify:data && node scripts/verify-manifest.js && npm run verify:proposal",
+    "verify": "npm run verify:data && node scripts/verify_no_legacy_paths.js && node scripts/verify-manifest.js && npm run verify:proposal",
     "verify:browser": "node scripts/browser_smoke.js && node scripts/dashboard_smoke.js",
-    "test": "npm run build:data && npm run verify:data && npm run verify:proposal && python -m unittest discover tests"
+    "test": "npm run build:data && npm run verify:data && npm run verify:proposal && node scripts/run_python.js -m unittest discover tests"
   },
   "devDependencies": {
     "playwright": "^1.51.1"

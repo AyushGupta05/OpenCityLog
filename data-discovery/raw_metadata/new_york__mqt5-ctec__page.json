@@ -1,0 +1,572 @@
+{
+  "source_id": "mqt5-ctec",
+  "city": "new_york",
+  "title": "Vision Zero View Leading Pedestrian Interval Signals",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "traffic signals/pedestrian safety",
+  "retrieved_at": "2026-04-28T12:58:35.771213+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/mqt5-ctec",
+      "retrieved_at": "2026-04-28T12:58:33.838562+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/mqt5-ctec",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 6030,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "VZV Leading Pedestrian Interval Signals",
+      "description": "Intersections where DOT installs signals that show a walk sign for pedestrians before showing a green light to vehicle traffic. The goal of these signals is to improve street safety by giving pedestrians a chance to establish their presence in the crosswalk before vehicles make turns across that crosswalk.\r\n\r\nFor a complete list of Vision Zero maps, please follow <a href=\"https://data.cityofnewyork.us/browse?q=vzv&sortBy=last_modified&utf8=%E2%9C%93\">this link</a>",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1775039572,
+      "json_sample": {
+        "id": "mqt5-ctec",
+        "name": "VZV Leading Pedestrian Interval Signals",
+        "assetType": "map",
+        "attribution": "Department of Transportation (DOT)",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1527623036,
+        "description": "Intersections where DOT installs signals that show a walk sign for pedestrians before showing a green light to vehicle traffic. The goal of these signals is to improve street safety by giving pedestrians a chance to establish their presence in the crosswalk before vehicles make turns across that crosswalk.\r\n\r\nFor a complete list of Vision Zero maps, please follow <a href=\"https://data.cityofnewyork.us/browse?q=vzv&sortBy=last_modified&utf8=%E2%9C%93\">this link</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 492,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "modifyingViewUid": "xc4v-ntf4",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 42017729,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1774037265,
+        "publicationGroup": 19443879,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1775039572,
+        "rowsUpdatedBy": "8xiq-st2k",
+        "tableId": 20008360,
+        "totalTimesRated": 0,
+        "viewCount": 8059,
+        "viewLastModified": 1774037265,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1527777671,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 7396101,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1527777671,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.9713106494493,
+                      "lat": 40.70583838785133
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7009835279749,
+                    "searchBoundaryUpperLeftLongitude": -74.24163777092369,
+                    "searchBoundaryUpperLeftLatitude": 40.90685372336982,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.504823052332846
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "mapFlyoutTitleColumnName": "main_street",
+                      "mapType": "pointMap",
+                      "additionalFlyoutColumns": [
+                        "cross_stree",
+                        "install_da",
+                        "long",
+                        "lat",
+                        "x",
+                        "y"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "domain": "data.cityofnewyork.us",
+                      "name": "dot_VZV_Leading_Pedestrian_Intervals_20240130",
+                      "source": "dot_VZV_Leading_Pedestrian_Intervals_20240130",
+                      "type": "socrata.soql",
+                      "datasetUid": "xc4v-ntf4",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "origin": {
+                  "type": "visualization_canvas",
+                  "url": "https://data.cityofnewyork.us/d/mqt5-ctec"
+                },
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 3
+                },
+                "description": "",
+                "id": "11b5eb0e-2b7b-406b-96e9-bea911ee884b",
+                "title": ""
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Data Collection": {
+              "Data Collection": "Vision Zero View Data"
+            },
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "05/31/2018",
+              "Update Frequency": "Monthly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "pedestrian",
+          "signal",
+          "vision zero",
+          "vz",
+          "vzv",
+          "vision zero view"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/mqt5-ctec",
+      "retrieved_at": "2026-04-28T12:58:34.470943+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/mqt5-ctec",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 6030,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "VZV Leading Pedestrian Interval Signals",
+      "description": "Intersections where DOT installs signals that show a walk sign for pedestrians before showing a green light to vehicle traffic. The goal of these signals is to improve street safety by giving pedestrians a chance to establish their presence in the crosswalk before vehicles make turns across that crosswalk.\r\n\r\nFor a complete list of Vision Zero maps, please follow <a href=\"https://data.cityofnewyork.us/browse?q=vzv&sortBy=last_modified&utf8=%E2%9C%93\">this link</a>",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1775039572,
+      "json_sample": {
+        "id": "mqt5-ctec",
+        "name": "VZV Leading Pedestrian Interval Signals",
+        "assetType": "map",
+        "attribution": "Department of Transportation (DOT)",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1527623036,
+        "description": "Intersections where DOT installs signals that show a walk sign for pedestrians before showing a green light to vehicle traffic. The goal of these signals is to improve street safety by giving pedestrians a chance to establish their presence in the crosswalk before vehicles make turns across that crosswalk.\r\n\r\nFor a complete list of Vision Zero maps, please follow <a href=\"https://data.cityofnewyork.us/browse?q=vzv&sortBy=last_modified&utf8=%E2%9C%93\">this link</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 492,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "modifyingViewUid": "xc4v-ntf4",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 42017729,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1774037265,
+        "publicationGroup": 19443879,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1775039572,
+        "rowsUpdatedBy": "8xiq-st2k",
+        "tableId": 20008360,
+        "totalTimesRated": 0,
+        "viewCount": 8059,
+        "viewLastModified": 1774037265,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1527777671,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 7396101,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1527777671,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.9713106494493,
+                      "lat": 40.70583838785133
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7009835279749,
+                    "searchBoundaryUpperLeftLongitude": -74.24163777092369,
+                    "searchBoundaryUpperLeftLatitude": 40.90685372336982,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.504823052332846
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "mapFlyoutTitleColumnName": "main_street",
+                      "mapType": "pointMap",
+                      "additionalFlyoutColumns": [
+                        "cross_stree",
+                        "install_da",
+                        "long",
+                        "lat",
+                        "x",
+                        "y"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "domain": "data.cityofnewyork.us",
+                      "name": "dot_VZV_Leading_Pedestrian_Intervals_20240130",
+                      "source": "dot_VZV_Leading_Pedestrian_Intervals_20240130",
+                      "type": "socrata.soql",
+                      "datasetUid": "xc4v-ntf4",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "origin": {
+                  "type": "visualization_canvas",
+                  "url": "https://data.cityofnewyork.us/d/mqt5-ctec"
+                },
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 3
+                },
+                "description": "",
+                "id": "11b5eb0e-2b7b-406b-96e9-bea911ee884b",
+                "title": ""
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Data Collection": {
+              "Data Collection": "Vision Zero View Data"
+            },
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "05/31/2018",
+              "Update Frequency": "Monthly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "pedestrian",
+          "signal",
+          "vision zero",
+          "vz",
+          "vzv",
+          "vision zero view"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/mqt5-ctec.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:58:35.062368+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/mqt5-ctec.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Wed, 01 Apr 2026 10:32:51 GMT",
+      "etag": "W/\"anVsaWV0dC4xNjM0MF81XzcwaGoyNURuQUhRc0dRclllUWJMT1dYWWtldk44-P6i6HxTDCf4rUupfoPZS2tgbiR--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 5,
+      "json_list_count_captured": 1,
+      "sample_keys": [],
+      "json_sample": [
+        {}
+      ]
+    }
+  ]
+}

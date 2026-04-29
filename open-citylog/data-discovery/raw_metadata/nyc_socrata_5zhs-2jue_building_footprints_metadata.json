@@ -9,7 +9,7 @@
   "description": "Footprint outlines of buildings in New York City. Please see the following link for additional documentation: https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_BuildingFootprints.md\n\nFor additional resources, please refer to: https://nycmaps-nyc.hub.arcgis.com/search?tags=building&type=feature%2520service%2Cfeature%2520layer",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 6070,
+  "downloadCount": 6073,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "locked": false,
@@ -25,7 +25,7 @@
   "rowsUpdatedBy": "ft46-kupe",
   "tableId": 19907009,
   "totalTimesRated": 0,
-  "viewCount": 32726,
+  "viewCount": 32732,
   "viewLastModified": 1751979886,
   "viewType": "tabular",
   "approvals": [

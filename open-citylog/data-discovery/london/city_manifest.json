@@ -1,10 +1,10 @@
 {
   "city": "london",
-  "retrieved_at": "2026-04-28T09:52:10.257166+01:00",
+  "retrieved_at": "2026-04-28T11:46:33.066349+00:00",
   "part": "part_1_data_discovery",
   "status": "discovery_inventory_not_finished_ingestion",
-  "source_count": 35,
-  "event_seed_count": 25,
+  "source_count": 46,
+  "event_seed_count": 33,
   "buckets_present": [
     "basemap_physical_features",
     "boundaries_geography",
@@ -19,7 +19,7 @@
     "source_provenance",
     "transport_mobility"
   ],
-  "flagship_area": "Stratford / Olympic Park / Lower Lea Valley",
+  "flagship_area": "Stratford / Olympic Park / Lower Lea Valley + citywide change chronology",
   "minimum_package_check": {
     "city_boundary_source": true,
     "project_area_boundary_source": true,
@@ -31,5 +31,14 @@
     "transport_or_environment_source": true,
     "limitations_file": "london/limitations.md",
     "city_manifest": "london/city_manifest.json"
-  }
+  },
+  "raw_metadata_snapshot_count": 46,
+  "timeline_artifacts": {
+    "csv": "london/city_timeline.csv",
+    "json": "london/city_timeline.json",
+    "yearly_json": "london/timeline_by_year.json"
+  },
+  "timeline_year_start": 2003,
+  "timeline_year_end": 2023,
+  "timeline_row_count": 33
 }

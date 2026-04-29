@@ -1,14 +1,15 @@
-# Belfast Spatial Replay ETL
+# City Atlas Spatial Replay ETL
 
-This branch owns the ETL/model layer for a Belfast historical replay from 2016
-through 2026. It does not render the replay and does not depend on the future
-data-source branch being merged.
+This branch owns the ETL/model layer for historical city replay catalogs. The
+checked-in default is the Belfast corpus from 2016 through 2026, but the script
+accepts city and year arguments so future UK/US adapters can reuse the same
+contract.
 
 ## Files
 
 - `schemas/replay_spatial_model.sql` defines the relational/PostGIS-oriented
   replay model: source provenance, annual snapshots, event tables, spatial
-  deltas, indicators, public transport, bike, planning, air, and scenario edits.
+  deltas, indicators, public transport, bike, planning, and air observations.
 - `schemas/source_manifest.schema.json` defines the future handoff contract for
   source manifests produced by the data-source branch.
 - `scripts/spatial_replay_etl.py` scans available raw data and writes compact
@@ -23,6 +24,19 @@ From the repository root:
 
 ```powershell
 python scripts/spatial_replay_etl.py --input data --output build/spatial_replay --pretty
+```
+
+For another adapter, pass the city metadata and replay window explicitly:
+
+```powershell
+python scripts/spatial_replay_etl.py `
+  --city-id london `
+  --city-name "London, England" `
+  --year-start 2018 `
+  --year-end 2026 `
+  --input data `
+  --output build/spatial_replay/london `
+  --pretty
 ```
 
 Optional future source manifests can be included without changing the script:
@@ -64,14 +78,14 @@ classic TIFF header tags only; raster pixel contents are not processed.
 
 ## Merge Expectations
 
-The data-source branch should provide one or more manifest JSON files matching
-`schemas/source_manifest.schema.json`. This ETL branch expects each manifest to
-name source paths, temporal coverage, layer kinds, media types, optional
-checksums, spatial coverage, licenses, and target table hints.
+City adapter source acquisition should provide one or more manifest JSON files
+matching `schemas/source_manifest.schema.json`. This ETL expects each manifest
+to name `city_id`, source paths, temporal coverage, layer kinds, media types,
+optional checksums, spatial coverage, licenses, and target table hints.
 
 When that branch is merged, keep this boundary:
 
-- Source acquisition and raw download logic stays in the data-source branch.
+- Source acquisition and raw download logic stays with the city adapter.
 - Replay table contracts and derived catalog/timeline generation stay here.
 - New source types should first be represented as `layer_kind` values in source
   manifests, then mapped into snapshot or event tables in SQL.

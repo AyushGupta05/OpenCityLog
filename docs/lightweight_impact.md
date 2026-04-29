@@ -14,7 +14,7 @@ Inputs are validated against `schemas/proposal.schema.json`.
 
 Required:
 
-- `category`: one of `building_development`, `road_transport_change`, `transformer_energy_infrastructure`, `green_public_space`, or `service_civic_infrastructure`.
+- `category`: one of `building_development`, `road_transport_change`, `energy_infrastructure`, `green_public_space`, or `service_civic_infrastructure`.
 
 Recommended:
 
@@ -43,7 +43,7 @@ The assessment has three stages.
    - Score historical city-atlas events by category match, distance, recency, confidence, and source quality.
    - Keep source links and event caveats attached to the result.
 
-3. Impact sketch:
+3. Proposal Lens output:
    - Return affected signals with direction, strength, confidence, evidence, caveats, and follow-up investigation prompts.
    - Direction is limited to `positive`, `negative`, `mixed`, or `unknown`.
    - Strength is limited to `low`, `medium`, or `high`.
@@ -87,7 +87,7 @@ The proposal-impact result includes:
 - `confidence`: overall label and reasons.
 - `caveats`: global limitations.
 - `evidence`: source IDs, event evidence, and current-context evidence.
-- `method`: model version, weights, radius, and limitations.
+- `method`: method version, weights, radius, and limitations.
 
 ## Non-goals
 

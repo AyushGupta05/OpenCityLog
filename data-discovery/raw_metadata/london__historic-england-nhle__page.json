@@ -1,0 +1,18 @@
+{
+  "source_id": "historic-england-nhle",
+  "city": "london",
+  "title": "National Heritage List for England (NHLE) downloads",
+  "publisher": "Historic England",
+  "bucket": "buildings",
+  "retrieved_at": "2026-04-28T12:18:49.346775+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "retrieved_at": "2026-04-28T12:18:49.131577+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "content_type": "text/html; charset=UTF-8"
+    }
+  ]
+}

@@ -17,7 +17,7 @@ Generated artifacts are written to:
 web/data/city-atlas/
 ```
 
-Belfast is the current demo city. London and NYC are configured as contribution-ready placeholders.
+Belfast is the current demo city. London and NYC are configured as contribution-ready placeholders through the same city adapter contract.
 
 ## Run The Local Product
 
@@ -30,8 +30,8 @@ Open `http://localhost:5173`.
 The served frontend is the atlas-first public website in `web/index.html`,
 `web/atlas.js`, and `web/atlas.css`. It reads `web/data/city-atlas/` directly,
 draws a lightweight static geometry map, and does not require a Mapbox token for
-open-source deployment. Legacy Mode A map/simulation artifacts remain in
-`web/data/mode-a/` during migration but are not the public entry point.
+open-source deployment. Retired proof-flow, branch-simulation, forecast, and
+legacy replay-manifest runtime paths are guarded by `npm run verify`.
 
 Browser smoke coverage checks the core user path:
 
@@ -41,7 +41,7 @@ npm run verify:browser
 
 ## Proposal Lens
 
-The 2026+ workflow is now a lightweight proposal-impact screen. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, and caveats. It is not a calibrated forecast or causal model.
+The secondary workflow is now Proposal Lens. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, and caveats. It is not a calibrated forecast or causal model.
 
 ```powershell
 npm run verify:proposal

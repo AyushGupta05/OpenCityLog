@@ -55,7 +55,7 @@ function assertNoOverclaims(label, payload) {
 }
 
 const schema = readJson(path.join(rootDir, "schemas", "proposal.schema.json"));
-assert(schema.title === "Bims Proposal Impact Input", "Proposal schema title is incorrect.");
+assert(schema.title === "Bims Proposal Lens Input", "Proposal schema title is incorrect.");
 const categoryEnum = schema.properties?.category?.enum || [];
 for (const category of proposalImpact.VALID_CATEGORIES) {
   assert(categoryEnum.includes(category), `Proposal schema missing category ${category}`);
@@ -77,9 +77,9 @@ const sampleProposals = [
     scale: "small",
   },
   {
-    category: "transformer_energy_infrastructure",
-    title: "Secondary transformer",
-    description: "A secondary transformer to support local connection needs.",
+    category: "energy_infrastructure",
+    title: "Local energy infrastructure",
+    description: "An energy-infrastructure proposal to support local connection needs.",
     location: { lng: -5.923, lat: 54.609 },
     scale: "small",
   },

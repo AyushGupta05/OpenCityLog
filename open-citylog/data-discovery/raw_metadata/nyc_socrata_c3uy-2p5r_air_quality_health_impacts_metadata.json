@@ -9,7 +9,7 @@
   "description": "Dataset contains information on New York City air quality surveillance data.\n\nAir pollution is one of the most important environmental threats to urban populations and while all people are exposed, pollutant emissions, levels of exposure, and population vulnerability vary across neighborhoods. Exposures to common air pollutants have been linked to respiratory and cardiovascular diseases, cancers, and premature deaths. These indicators provide a perspective across time and NYC geographies to better characterize air quality and health in NYC. Data can also be explored online at the Environment and Health Data Portal: http://nyc.gov/health/environmentdata.\n\nReal-time air quality data can be found on the Environmental & Health Data Portal linked here: <a href=\"https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/realtime-air-quality/\">Real-Time Air Quality in NYC</a>",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 5415637,
+  "downloadCount": 5416549,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "locked": false,

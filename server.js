@@ -5,7 +5,6 @@ const proposalImpact = require("./lib/proposal-impact");
 
 const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
-const manifestPath = path.join(rootDir, "api", "replay-manifest.json");
 const port = Number(process.env.PORT || 5173);
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
@@ -77,14 +76,19 @@ async function readJsonRequest(req, limitBytes = 512_000) {
   return raw ? JSON.parse(raw) : {};
 }
 
-function safeStaticPath(baseDir, pathname) {
-  const cleanPath = pathname === "/" ? "/index.html" : pathname;
-  let decoded;
+function normalizeUrlPath(pathname) {
   try {
-    decoded = decodeURIComponent(cleanPath);
+    const decoded = decodeURIComponent(pathname).replace(/\\/g, "/");
+    return path.posix.normalize("/" + decoded.replace(/^\/+/, ""));
   } catch (_error) {
     return null;
   }
+}
+
+function safeStaticPath(baseDir, pathname) {
+  const cleanPath = pathname === "/" ? "/index.html" : pathname;
+  const decoded = normalizeUrlPath(cleanPath);
+  if (decoded === null) return null;
   const relative = decoded.replace(/^\/+/, "");
   const candidate = path.resolve(baseDir, relative);
   const base = path.resolve(baseDir);
@@ -103,6 +107,37 @@ function serveFile(res, filePath) {
     "cache-control": ext === ".html" ? "no-store" : "public, max-age=60"
   });
   fs.createReadStream(filePath).pipe(res);
+}
+
+async function handleWaybackTile(pathname, res) {
+  const match = pathname.match(/^\/api\/imagery\/wayback\/([0-9]+)\/([0-9]{1,2})\/([0-9]+)\/([0-9]+)$/);
+  if (!match) {
+    sendText(res, 404, "Not found");
+    return;
+  }
+  const [, itemId, z, y, x] = match;
+  const zoom = Number(z);
+  if (!Number.isInteger(zoom) || zoom < 0 || zoom > 18) {
+    sendText(res, 400, "Invalid tile zoom");
+    return;
+  }
+  const upstream = `https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/GoogleMapsCompatible/MapServer/tile/${itemId}/${z}/${y}/${x}`;
+  try {
+    const response = await fetch(upstream);
+    if (!response.ok) {
+      sendText(res, response.status, `Imagery tile unavailable: ${response.statusText}`);
+      return;
+    }
+    const body = Buffer.from(await response.arrayBuffer());
+    res.writeHead(200, {
+      "content-type": response.headers.get("content-type") || "image/jpeg",
+      "cache-control": "public, max-age=86400",
+      "access-control-allow-origin": "*"
+    });
+    res.end(body);
+  } catch (error) {
+    sendText(res, 502, `Imagery tile proxy failed: ${error.message}`);
+  }
 }
 
 function handleProposalImpactSchema(_req, res) {
@@ -140,15 +175,24 @@ async function handleProposalImpactPost(req, res) {
 const server = http.createServer((req, res) => {
   const requestUrl = new URL(req.url, `http://${req.headers.host || `localhost:${port}`}`);
   const pathname = requestUrl.pathname;
+  const decodedPathname = normalizeUrlPath(pathname);
+  if (decodedPathname === null) {
+    sendText(res, 400, "Invalid URL path");
+    return;
+  }
 
   if (req.method === "GET" && pathname === "/api/health") {
     sendJson(res, 200, {
       ok: true,
       product: "Open Citylog",
       mode: "city-change-atlas",
-      atlasIndex: fs.existsSync(path.join(webDir, "data", "city-atlas", "index.json")),
-      legacyReplayManifest: fs.existsSync(manifestPath)
+      atlasIndex: fs.existsSync(path.join(webDir, "data", "city-atlas", "index.json"))
     });
+    return;
+  }
+
+  if (req.method === "GET" && pathname.startsWith("/api/imagery/wayback/")) {
+    handleWaybackTile(pathname, res);
     return;
   }
 
@@ -162,8 +206,8 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (req.method === "GET" && (pathname === "/api/manifest" || pathname === "/api/replay-manifest.json")) {
-    serveFile(res, manifestPath);
+  if (decodedPathname === "/data/mode-a" || decodedPathname.startsWith("/data/mode-a/")) {
+    sendText(res, 410, "Retired Mode A replay data is not a public atlas path.");
     return;
   }
 

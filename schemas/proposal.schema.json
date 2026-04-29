@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bims.local/schemas/proposal.schema.json",
-  "title": "Bims Proposal Impact Input",
+  "title": "Bims Proposal Lens Input",
   "type": "object",
   "required": ["category"],
   "additionalProperties": true,
@@ -16,7 +16,7 @@
       "enum": [
         "building_development",
         "road_transport_change",
-        "transformer_energy_infrastructure",
+        "energy_infrastructure",
         "green_public_space",
         "service_civic_infrastructure"
       ]

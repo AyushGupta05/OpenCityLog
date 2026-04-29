@@ -1,0 +1,724 @@
+{
+  "source_id": "8n8s-np59",
+  "city": "new_york",
+  "title": "2050s Sea Level Rise Projections",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "sea level rise/climate",
+  "retrieved_at": "2026-04-28T13:00:07.826051+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/8n8s-np59",
+      "retrieved_at": "2026-04-28T13:00:05.996928+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/8n8s-np59",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5841,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "2050s Sea Level Rise Projections",
+      "description": "Sea level rise projections for New York City in the 2050s from the New York City Panel on Climate Change (2019).",
+      "attribution": "Mayor's Office of Climate and Environmental Justice (MOCEJ)",
+      "rowsUpdatedAt": 1553625837,
+      "json_sample": {
+        "id": "8n8s-np59",
+        "name": "2050s Sea Level Rise Projections",
+        "assetType": "dataset",
+        "attribution": "Mayor's Office of Climate and Environmental Justice (MOCEJ)",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1553625752,
+        "description": "Sea level rise projections for New York City in the 2050s from the New York City Panel on Climate Change (2019).",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 1087,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1554738822,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 31133177,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1553625837,
+        "publicationGroup": 16066809,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1553625837,
+        "tableId": 16066809,
+        "totalTimesRated": 0,
+        "viewCount": 2501,
+        "viewLastModified": 1776777436,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1554738815,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 6128628,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1554738815,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 400997519,
+            "name": "ORIG_FID",
+            "dataTypeName": "number",
+            "fieldName": "orig_fid",
+            "position": 1,
+            "renderTypeName": "number",
+            "tableColumnId": 78484468,
+            "cachedContents": {
+              "largest": "13602",
+              "non_null": "11903",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4773",
+                  "count": "1"
+                },
+                {
+                  "item": "10051",
+                  "count": "1"
+                },
+                {
+                  "item": "10454",
+                  "count": "1"
+                },
+                {
+                  "item": "2747",
+                  "count": "1"
+                },
+                {
+                  "item": "2482",
+                  "count": "1"
+                },
+                {
+                  "item": "8657",
+                  "count": "1"
+                },
+                {
+                  "item": "4042",
+                  "count": "1"
+                },
+                {
+                  "item": "1893",
+                  "count": "1"
+                },
+                {
+                  "item": "3635",
+                  "count": "1"
+                },
+                {
+                  "item": "11167",
+                  "count": "1"
+                },
+                {
+                  "item": "37",
+                  "count": "1"
+                },
+                {
+                  "item": "3446",
+                  "count": "1"
+                },
+                {
+                  "item": "7360",
+                  "count": "1"
+                },
+                {
+                  "item": "6061",
+                  "count": "1"
+                },
+                {
+                  "item": "5912",
+                  "count": "1"
+                },
+                {
+                  "item": "8479",
+                  "count": "1"
+                },
+                {
+                  "item": "10907",
+                  "count": "1"
+                },
+                {
+                  "item": "10861",
+                  "count": "1"
+                },
+                {
+                  "item": "8905",
+                  "count": "1"
+                },
+                {
+                  "item": "2087",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "11903",
+              "cardinality": "11903"
+            },
+            "format": {}
+          },
+          {
+            "id": 400997520,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 2,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 78484469,
+            "format": {}
+          },
+          {
+            "id": 400997521,
+            "name": "Id",
+            "dataTypeName": "number",
+            "fieldName": "id",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 78484470,
+            "cachedContents": {
+              "largest": "0",
+              "non_null": "11903",
+              "null": "0",
+              "top": [
+                {
+                  "item": "0",
+                  "count": "11903"
+                }
+              ],
+              "smallest": "0",
+              "count": "11903",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data_Dictionary_Mean_Sea_Level.XLSX",
+              "assetId": "117f86cf-1d01-4e31-bbfb-3c4e28a2c4fd",
+              "name": "Data_Dictionary_Mean_Sea_Level.XLSX"
+            },
+            {
+              "filename": "2050s Mean Sea Level.zip",
+              "assetId": "1928e5bd-cb99-45e1-9b17-1426e1f88e0a",
+              "name": "2050s Mean Sea Level.zip"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "4/8/2019",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Mayor's Office of Climate and Environmental Justice (MOCEJ)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "sea level rise",
+          "climate change",
+          "climate"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/8n8s-np59",
+      "retrieved_at": "2026-04-28T13:00:06.573712+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/8n8s-np59",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5841,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "2050s Sea Level Rise Projections",
+      "description": "Sea level rise projections for New York City in the 2050s from the New York City Panel on Climate Change (2019).",
+      "attribution": "Mayor's Office of Climate and Environmental Justice (MOCEJ)",
+      "rowsUpdatedAt": 1553625837,
+      "json_sample": {
+        "id": "8n8s-np59",
+        "name": "2050s Sea Level Rise Projections",
+        "assetType": "dataset",
+        "attribution": "Mayor's Office of Climate and Environmental Justice (MOCEJ)",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1553625752,
+        "description": "Sea level rise projections for New York City in the 2050s from the New York City Panel on Climate Change (2019).",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 1087,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1554738822,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 31133177,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1553625837,
+        "publicationGroup": 16066809,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1553625837,
+        "tableId": 16066809,
+        "totalTimesRated": 0,
+        "viewCount": 2501,
+        "viewLastModified": 1776777436,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1554738815,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 6128628,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1554738815,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 400997519,
+            "name": "ORIG_FID",
+            "dataTypeName": "number",
+            "fieldName": "orig_fid",
+            "position": 1,
+            "renderTypeName": "number",
+            "tableColumnId": 78484468,
+            "cachedContents": {
+              "largest": "13602",
+              "non_null": "11903",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4773",
+                  "count": "1"
+                },
+                {
+                  "item": "10051",
+                  "count": "1"
+                },
+                {
+                  "item": "10454",
+                  "count": "1"
+                },
+                {
+                  "item": "2747",
+                  "count": "1"
+                },
+                {
+                  "item": "2482",
+                  "count": "1"
+                },
+                {
+                  "item": "8657",
+                  "count": "1"
+                },
+                {
+                  "item": "4042",
+                  "count": "1"
+                },
+                {
+                  "item": "1893",
+                  "count": "1"
+                },
+                {
+                  "item": "3635",
+                  "count": "1"
+                },
+                {
+                  "item": "11167",
+                  "count": "1"
+                },
+                {
+                  "item": "37",
+                  "count": "1"
+                },
+                {
+                  "item": "3446",
+                  "count": "1"
+                },
+                {
+                  "item": "7360",
+                  "count": "1"
+                },
+                {
+                  "item": "6061",
+                  "count": "1"
+                },
+                {
+                  "item": "5912",
+                  "count": "1"
+                },
+                {
+                  "item": "8479",
+                  "count": "1"
+                },
+                {
+                  "item": "10907",
+                  "count": "1"
+                },
+                {
+                  "item": "10861",
+                  "count": "1"
+                },
+                {
+                  "item": "8905",
+                  "count": "1"
+                },
+                {
+                  "item": "2087",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "11903",
+              "cardinality": "11903"
+            },
+            "format": {}
+          },
+          {
+            "id": 400997520,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 2,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 78484469,
+            "format": {}
+          },
+          {
+            "id": 400997521,
+            "name": "Id",
+            "dataTypeName": "number",
+            "fieldName": "id",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 78484470,
+            "cachedContents": {
+              "largest": "0",
+              "non_null": "11903",
+              "null": "0",
+              "top": [
+                {
+                  "item": "0",
+                  "count": "11903"
+                }
+              ],
+              "smallest": "0",
+              "count": "11903",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data_Dictionary_Mean_Sea_Level.XLSX",
+              "assetId": "117f86cf-1d01-4e31-bbfb-3c4e28a2c4fd",
+              "name": "Data_Dictionary_Mean_Sea_Level.XLSX"
+            },
+            {
+              "filename": "2050s Mean Sea Level.zip",
+              "assetId": "1928e5bd-cb99-45e1-9b17-1426e1f88e0a",
+              "name": "2050s Mean Sea Level.zip"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "4/8/2019",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Mayor's Office of Climate and Environmental Justice (MOCEJ)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "sea level rise",
+          "climate change",
+          "climate"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/8n8s-np59.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:07.139724+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/8n8s-np59.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Tue, 26 Mar 2019 18:43:57 GMT",
+      "etag": "W/\"Z29sZi4zMzUyM18xXzZXajdxN1JUU2dBZ2tka0NRZUxHMTBOSmp6b3c---gzipR5P_kfI1eVC74fjAVxVmwHzfrrw--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 281,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "id",
+        "orig_fid",
+        "the_geom"
+      ],
+      "json_sample": [
+        {
+          "orig_fid": "0",
+          "the_geom": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -74.24638343916727,
+                    40.496350625135115
+                  ],
+                  [
+                    -74.24638703462213,
+                    40.49635061741476
+                  ],
+                  [
+                    -74.24638704473519,
+                    40.496353362224674
+                  ],
+                  [
+                    -74.24638344928019,
+                    40.49635336994502
+                  ],
+                  [
+                    -74.24638343916727,
+                    40.496350625135115
+                  ]
+                ]
+              ]
+            ]
+          },
+          "id": "0"
+        }
+      ]
+    }
+  ]
+}

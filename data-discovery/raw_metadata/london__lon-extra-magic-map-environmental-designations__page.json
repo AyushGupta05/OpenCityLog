@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-magic-map-environmental-designations",
+  "city": "london",
+  "title": "MAGIC Map environmental designations",
+  "publisher": "DEFRA",
+  "bucket": "environment/designations/source provenance",
+  "retrieved_at": "2026-04-28T12:57:21.840320+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://magic.defra.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:21.659529+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>"
+    }
+  ]
+}

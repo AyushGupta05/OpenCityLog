@@ -8,7 +8,7 @@
   "description": "A list of permits issued by the Department of Buildings from 1989 to 2013. This dataset was originally released to provide data from before the DOB Permit Issuance dataset began. DOB Permit Issuance has since been updated to incorporate this date range, and this historical dataset is now redundant.",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 7839,
+  "downloadCount": 7842,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "indexUpdatedAt": 1541787426,
@@ -25,7 +25,7 @@
   "rowsUpdatedAt": 1533652460,
   "tableId": 15411420,
   "totalTimesRated": 0,
-  "viewCount": 33086,
+  "viewCount": 33089,
   "viewLastModified": 1652134849,
   "viewType": "tabular",
   "approvals": [

@@ -1,0 +1,392 @@
+{
+  "source_id": "8cwr-7pqn",
+  "city": "new_york",
+  "title": "ACS 5-Year Demographic Profiles at NTA level",
+  "publisher": "NYC DCP / U.S. Census Bureau",
+  "bucket": "demographics",
+  "retrieved_at": "2026-04-28T12:22:01.152601+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/8cwr-7pqn",
+      "retrieved_at": "2026-04-28T12:21:07.215462+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/8cwr-7pqn",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 3770,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Demographic Profiles of ACS 5 Year Estimates at the Neighborhood Tabulation Area (NTA) level",
+      "description": "Four tables of ACS demographic profiles for 2012 to 2016 at the NTA level. Four profiles include demographics, economic, housing and sociological.\r\nColumn headers in this database are abbreviated. Please see the data dictionary\r\n(shown in worksheet entitled “Dictionary”) for an explanation of these abbreviated headers.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1527008042,
+      "json_sample": {
+        "id": "8cwr-7pqn",
+        "name": "Demographic Profiles of ACS 5 Year Estimates at the Neighborhood Tabulation Area (NTA) level",
+        "assetType": "file",
+        "attribution": "Department of City Planning (DCP)",
+        "averageRating": 0,
+        "blobFilename": "ACS5yrNTA.zip",
+        "blobFileSize": 5211869,
+        "blobId": "d0ab065e-418b-42f0-b054-0e84a56a28bf",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "City Government",
+        "createdAt": 1527008042,
+        "description": "Four tables of ACS demographic profiles for 2012 to 2016 at the NTA level. Four profiles include demographics, economic, housing and sociological.\r\nColumn headers in this database are abbreviated. Please see the data dictionary\r\n(shown in worksheet entitled “Dictionary”) for an explanation of these abbreviated headers.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 2021,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1534453787,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 28871814,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1527008042,
+        "publicationGroup": 15217537,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1527008042,
+        "tableId": 15217537,
+        "totalTimesRated": 0,
+        "viewCount": 8641,
+        "viewLastModified": 1583335311,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1527628365,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1075739,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1527628365,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "05/29/2018",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "blob"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "blob": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/8cwr-7pqn",
+      "retrieved_at": "2026-04-28T12:21:59.869446+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/8cwr-7pqn",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 3770,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Demographic Profiles of ACS 5 Year Estimates at the Neighborhood Tabulation Area (NTA) level",
+      "description": "Four tables of ACS demographic profiles for 2012 to 2016 at the NTA level. Four profiles include demographics, economic, housing and sociological.\r\nColumn headers in this database are abbreviated. Please see the data dictionary\r\n(shown in worksheet entitled “Dictionary”) for an explanation of these abbreviated headers.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1527008042,
+      "json_sample": {
+        "id": "8cwr-7pqn",
+        "name": "Demographic Profiles of ACS 5 Year Estimates at the Neighborhood Tabulation Area (NTA) level",
+        "assetType": "file",
+        "attribution": "Department of City Planning (DCP)",
+        "averageRating": 0,
+        "blobFilename": "ACS5yrNTA.zip",
+        "blobFileSize": 5211869,
+        "blobId": "d0ab065e-418b-42f0-b054-0e84a56a28bf",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "City Government",
+        "createdAt": 1527008042,
+        "description": "Four tables of ACS demographic profiles for 2012 to 2016 at the NTA level. Four profiles include demographics, economic, housing and sociological.\r\nColumn headers in this database are abbreviated. Please see the data dictionary\r\n(shown in worksheet entitled “Dictionary”) for an explanation of these abbreviated headers.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 2021,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1534453787,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 28871814,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1527008042,
+        "publicationGroup": 15217537,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1527008042,
+        "tableId": 15217537,
+        "totalTimesRated": 0,
+        "viewCount": 8641,
+        "viewLastModified": 1583335311,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1527628365,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1075739,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1527628365,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "05/29/2018",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "blob"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "blob": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/8cwr-7pqn.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:22:00.539931+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/8cwr-7pqn.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

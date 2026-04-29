@@ -1,0 +1,129 @@
+{
+  "source_id": "lon-round3-hackney-metropolitan-open-land",
+  "city": "london",
+  "title": "Hackney Metropolitan Open Land",
+  "publisher": "London Borough of Hackney",
+  "bucket": "greenspace/planning/open land/boundaries",
+  "retrieved_at": "2026-04-28T14:31:57.933829+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.data.gov.uk/api/3/action/package_show?id=hackney-metropolitan-open-land",
+      "retrieved_at": "2026-04-28T14:31:57.161517+00:00",
+      "final_url": "https://ckan.publishing.service.gov.uk/api/3/action/package_show?id=hackney-metropolitan-open-land",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "3213",
+      "bytes_captured": 3213,
+      "json_keys": [
+        "help",
+        "result",
+        "success"
+      ],
+      "json_sample": {
+        "help": "https://ckan.publishing.service.gov.uk/api/3/action/help_show?name=package_show",
+        "success": true,
+        "result": {
+          "contact-email": "",
+          "contact-name": "",
+          "contact-phone": "",
+          "creator_user_id": "d0803179-f02b-46e5-a96e-b38279046da0",
+          "foi-email": "",
+          "foi-name": "",
+          "foi-phone": "",
+          "foi-web": "",
+          "id": "c6e27c99-e425-45ec-a1a2-5362ae8f06f3",
+          "isopen": true,
+          "license_id": "uk-ogl",
+          "license_title": "UK Open Government Licence (OGL)",
+          "license_url": "http://reference.data.gov.uk/id/open-government-licence",
+          "metadata_created": "2018-12-13T10:05:36.664492",
+          "metadata_modified": "2020-01-07T12:31:30.277763",
+          "name": "hackney-metropolitan-open-land",
+          "notes": "Land designated Metropolitan Open Land (MOL) is afforded the same level of protection as the Metropolitan Green Belt. Designation is intended to protect areas of landscape, recreation, nature conservation and scientific interest which are strategically important. Any alterations to the boundary of MOL should be undertaken by Hackney through the LDF process, in consultation with the Mayor and adjoining authorities.  Land designated as MOL should satisfy at least one of the following criteria:\r\n- land that contributes to the physical structure of London by being clearly distinguishable from the built-up area\r\n- land that includes open air facilities, especially for leisure, recreation, sport, arts and cultural activities and tourism which serve the whole or significant parts of London\r\n- land that contains features or landscapes of historic, recreational, nature conservation or habitat interest, of value at a metropolitan or national level\r\n- land that forms part of a Green Chain and meets one of the above criteria.\r\n\r\nCreated over OS historic maps. Data has been digitised from paper maps. ",
+          "num_resources": 1,
+          "num_tags": 0,
+          "organization": {
+            "id": "d0770619-b5b3-4fe6-b265-963eeb9485fb",
+            "name": "london-borough-of-hackney",
+            "title": "London Borough of Hackney",
+            "type": "organization",
+            "description": "",
+            "image_url": "",
+            "created": "2012-06-27T14:50:36.516425",
+            "is_organization": true,
+            "approval_status": "pending",
+            "state": "active"
+          },
+          "owner_org": "d0770619-b5b3-4fe6-b265-963eeb9485fb",
+          "private": false,
+          "state": "active",
+          "theme-primary": "environment",
+          "title": "Hackney Metropolitan Open Land",
+          "type": "dataset",
+          "url": null,
+          "version": null,
+          "extras": [
+            {
+              "key": "its-dataset",
+              "value": "false"
+            },
+            {
+              "key": "register",
+              "value": "false"
+            },
+            {
+              "key": "sla",
+              "value": ""
+            }
+          ],
+          "resources": [
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2018-12-13T10:05:36.705658",
+              "datafile-date": "",
+              "description": "Hackney Portal (Environmental and Planning / LDF / Cleaner Greener Safer)",
+              "format": "KML",
+              "hash": "",
+              "id": "f32b0518-2765-4b3e-b830-e64d0e9a1530",
+              "last_modified": null,
+              "metadata_modified": "2018-12-13T10:05:36.705658",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "",
+              "package_id": "c6e27c99-e425-45ec-a1a2-5362ae8f06f3",
+              "position": 0,
+              "resource-type": "data-link",
+              "resource_type": "file",
+              "size": null,
+              "state": "active",
+              "url": "https://map.hackney.gov.uk/lbhackneymap/",
+              "url_type": null
+            }
+          ],
+          "tags": [],
+          "groups": [],
+          "relationships_as_subject": [],
+          "relationships_as_object": []
+        }
+      }
+    },
+    {
+      "requested_url": "https://www.data.gov.uk/dataset/hackney-metropolitan-open-land",
+      "retrieved_at": "2026-04-28T14:31:57.506247+00:00",
+      "final_url": "https://www.data.gov.uk/dataset/c6e27c99-e425-45ec-a1a2-5362ae8f06f3/hackney-metropolitan-open-land",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"1446f5578c8681fdf9c56e3fcf3a6f87\"",
+      "content_length_header": "20549",
+      "bytes_captured": 20549,
+      "page_title": "Hackney Metropolitan Open Land - data.gov.uk",
+      "h1": "Hackney Metropolitan Open Land",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <!--[if lt IE 9]><html class=\"lte-ie8\" lang=\"en\"><![endif]--> <!--[if gt IE 8]><!--><html lang=\"en\"><!--<![endif]--> <html class=\"govuk-template\"> <head> <script> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&';f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5WRWCH8X'); </script> <meta charset=\"utf-8\"> <title>Hackney Metropolitan Open Land - data.gov.uk</title> <meta name=\"theme-color\" content=\"#0b0c0c\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"stylesheet\" href=\"/find-assets/application-8be01d122776efe1ab21192ae12f353adc894cbac790c8ccbf82c4ddc41d8b96.css\" /> <link rel=\"stylesheet\" href=\"/find-assets/v2/application-d977cc135c982e194063c874a5b5cd03556954111607fafd59cd1aa52f786cb5.css\" /> <meta name=\"dc:title\" content=\"Hackney Metropolitan Open Land\"> <meta name=\"dc:creator\" content=\"London Borough of Hackney\"> <meta name=\"dc:date\" content=\"2020-01-07\"> <meta name=\"dc:rights\" content=\"UK Open Government Licence (OGL)\"> </head> <body class=\"govuk-template__body\"> <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script> <div id=\"global-cookie-message\" class=\"gem-c-cookie-banner govuk-clearfix\" data-module=\"cookie-banner\" role=\"region\" aria-label=\"cookie banner\" data-nosnippet> <div class=\"govuk-cookie-banner js-banner-wrapper\" role=\"region\" aria-label=\"Cookies on GOV.UK\"> <div class=\"gem-c-cookie-banner__message govuk-cookie-banner__message govuk-width-container\"> <div class=\"govuk-grid-row\"> <div class=\"govuk-grid-column-two-thirds\"> <h2 class=\"govuk-cookie-banner__heading govuk-heading-m\">Cookies on GOV.UK</h2> <div class=\"govuk-cookie-banner__content\"> <p class='govuk-body'>We use <a href=\"/cookies\" class=\"govuk-link\">cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible.</p> </div> </div> </div> <div class=\"govuk-button-group\"> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-accept-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner accepted\" data-cookie-types=\"all\">Accept additional cookies</button> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-reject-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner rejected\">Reject additional cookies</button> <a class=\"govuk-link\" href=\"/cookies\">View cookies</a> </div> </div>"
+    }
+  ]
+}

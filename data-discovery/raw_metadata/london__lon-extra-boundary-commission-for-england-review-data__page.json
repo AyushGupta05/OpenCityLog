@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-boundary-commission-for-england-review-data",
+  "city": "london",
+  "title": "Boundary Commission for England review data",
+  "publisher": "Boundary Commission for England",
+  "bucket": "boundaries/constituencies/governance",
+  "retrieved_at": "2026-04-28T12:57:27.172030+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://boundarycommissionforengland.independent.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:26.382142+00:00",
+      "final_url": "https://boundarycommissionforengland.independent.gov.uk/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 41596,
+      "page_title": "Boundary Commission for England | The Commission is required by the Parliamentary Constituencies Act 1986 to review the Parliamentary constituencies in England every five years",
+      "h1": "Homepage",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"UTF-8\" /> <title>Boundary Commission for England | The Commission is required by the Parliamentary Constituencies Act 1986 to review the Parliamentary constituencies in England every five years</title> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"profile\" href=\"http://gmpg.org/xfn/11\" /> <link rel=\"pingback\" href=\"https://boundarycommissionforengland.independent.gov.uk/xmlrpc.php\" /> <style type=\"text/css\"> body .row * { font-family: helvetica, arial, sans-serif !important; } h1, h2, h3, h4, h5, h6, .promo a:hover, .promo a:active, .promo a:hover, .promo a:active { color: #0E0278; /* color: rgb(0,178,221); */ color: rgb(0,94,165); color: rgb(125,34,72); color: #000; } h1, h2, h3, h4, h5, h6 { font-weight: bold; } a:link { color: rgb(0,109,82); } .metabox, .jumptocomments { background-color: #eee; } .metabox { background: none; padding: 0; margin: 0 1em 1.5em 0; } .leftpromo { border-color: #0E0278; } .middlepromo { border-color: #0E0278; } .rightpromo { border-color: #0E0278; } #utilitystrip .container { background: none; } p.orgname span { display: none; } #primarynavmenu { padding-top: 0; } #sidebar { border-left: none; border-top: 10px solid rgb(0,178,221); padding-top: 1em; } #sidebar div.xoxo div { padding-left: 0; } #footer { background: rgb(213,213,213) url('https://boundarycommissionforengland.independent.gov.uk/wp-content/themes/commentariatGOVUK/images/footer_bg.jpg') left top no-repeat; border-top: 10px solid rgb(0,178,221); min-height: 300px; } /* Recent posts widget */ .tw-recent-posts div { margin-bottom: 1.5em !important; } .tw-recent-posts h4 { font-size: 100% !important; } .tw-recent-posts .post-time { font-size: 1em !important; text-align: left !important; font-style: none !important; } /* Home features */ #home-features { margin: 0 auto 40px auto; } #home-features h3 { margin: 10px 0; } #home-features a { text-decoration: none; } </style> <meta name='robots' content='max-image-preview:large' /> <link rel='dns-prefetch' href='//cc.cdn.civiccomputing.com' /> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Boundary Commission for England &raquo; Feed\" href=\"https://boundarycommissionforengland.independent.gov.uk/feed/\" /> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Boundary Commission for England &raquo; Comments Feed\" href=\"https://boundarycommissionforengland.independent.gov.uk/comments/feed/\" /> <link rel=\"alternate\" title=\"oEmbed (JSON)\" type=\"application/json+oembed\" href=\"https://boundarycommissionforengland.independent.gov.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fboundarycommissionforengland.independent.gov.uk%2F\" /> <link rel=\"alternate\" title=\"oEmbed (XML)\" type=\"text/xml+oembed\" href=\"https://boundarycommissionforengland.independent.gov.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fboundarycommissionforengland.independent.go"
+    }
+  ]
+}

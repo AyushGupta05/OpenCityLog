@@ -1,0 +1,25 @@
+{
+  "source_id": "tfl-unified-api",
+  "city": "london",
+  "title": "TfL Unified API",
+  "publisher": "Transport for London",
+  "bucket": "traffic/transport",
+  "retrieved_at": "2026-04-28T12:18:50.119479+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://api.tfl.gov.uk/",
+      "retrieved_at": "2026-04-28T12:18:49.835342+00:00",
+      "final_url": "https://api.tfl.gov.uk/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7212,
+      "page_title": null,
+      "h1": "Transport for London Unified API",
+      "meta_description": "",
+      "text_sample": "<!DOCTYPE html> <html> <head> <meta charset=\"utf-8\" /> <title></title> <link href=\"/Content/Site.css\" rel=\"stylesheet\"/> <link href=\"/Content/themes/base/jquery-ui.min.css\" rel=\"stylesheet\"/> <link rel=\"icon\" type=\"image/png\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/favicon-196x196.png\" sizes=\"196x196\"> <link rel=\"icon\" type=\"image/png\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/favicon-160x160.png\" sizes=\"160x160\"> <link rel=\"icon\" type=\"image/png\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/favicon-96x96.png\" sizes=\"96x96\"> <link rel=\"icon\" type=\"image/png\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/favicon-16x16.png\" sizes=\"16x16\"> <link rel=\"icon\" type=\"image/png\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/favicon-32x32.png\" sizes=\"32x32\"> <link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/apple-touch-icon.png\" /> <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/apple-touch-icon-72.png\" /> <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/apple-touch-icon@2x.png\" /> <link rel=\"apple-touch-icon\" sizes=\"144x144\" href=\"https://tfl.gov.uk/cdn/static/assets/icons/apple-touch-icon-72@2x.png\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no\" /> <meta property=\"og:title\"/> <meta property=\"og:url\" content=\"http://api.tfl.gov.uk\"/> <meta name=\"description\" content=\"\" /> </head> <body> <header> <div class=\"site-title\"> <h1> <a href=\"/\">Transport for London Unified API</a> </h1> </div> </header> <div id=\"body\"> <div id=\"register\" class=\"section\"> <h2>Register</h2> <p>To use the Unified API, developers should <a href=\"https://api-portal.tfl.gov.uk/\">register</a> for an Application ID and Key. Append the <code>app_id</code> and <code>app_key</code> query parameters to your requests.</p> <p>The public TfL data (or 'open data') released here is for open data users to use in their own software and services. We encourage software developers to use this data to present customer travel information in innovative ways - providing they adhere to the transport data <a href=\"https://tfl.gov.uk/corporate/terms-and-conditions/transport-data-service\">terms and conditions</a>.</p> </div> <div id=\"browse\" class=\"section\"> <h2>Browse</h2> <p>You can browse and experiment with our REST API in <a href=\"/swagger/ui/index.html\">Swagger UI</a>, or build it yourself from the <a href=\"/swagger/docs/v1\">Swagger file</a>.</p> <ul class=\"endpoints\"> <li> <a class=\"endpoint\" title=\"Open /AccidentStats in Swagger UI.\" href=\"/swagger/ui/index.html?url=/swagger/docs/v1#!/AccidentStats/AccidentStats_Get\">AccidentStats</a>"
+    }
+  ]
+}

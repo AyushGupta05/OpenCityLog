@@ -1,5 +1,152 @@
 [
   {
+    "event_id": "lon_city_2003_congestion_charge_start",
+    "title": "Central London Congestion Charge begins",
+    "city": "london",
+    "area": "central_london",
+    "category": "transport_policy",
+    "date_start": "2003-02-17",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "London introduced the Congestion Charge in central London as a major traffic-management policy intervention.",
+    "observed_change": "Changed driving costs and traffic patterns in central London and created a durable policy-monitoring time series.",
+    "source_ids": [
+      "lon_congestion_charge_camera_captures",
+      "lon_dft_traffic_flows_borough"
+    ],
+    "confidence": "documented",
+    "limitations": "Use TfL policy pages for final legal/policy citation; this seed is for chronology and data linkage."
+  },
+  {
+    "event_id": "lon_city_2007_overground_launch",
+    "title": "London Overground launches",
+    "city": "london",
+    "area": "london_wide",
+    "category": "transport",
+    "date_start": "2007-11-11",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "London Overground service launches under TfL management.",
+    "observed_change": "Reshaped orbital rail connectivity and travel patterns across London.",
+    "source_ids": [
+      "lon_public_transport_journeys",
+      "lon_tfl_unified_api"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Opening chronology should be validated against TfL archives/press materials."
+  },
+  {
+    "event_id": "lon_city_2010_cycle_hire_launch",
+    "title": "Cycle Hire scheme launches",
+    "city": "london",
+    "area": "central_london",
+    "category": "transport",
+    "date_start": "2010-07-30",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "London launched the public cycle-hire scheme later branded Santander Cycles.",
+    "observed_change": "Added a new city mobility mode and generated station-level bike availability and hire time series.",
+    "source_ids": [
+      "lon_tfl_cycling_data",
+      "lon_tfl_cycle_flows_trln"
+    ],
+    "confidence": "documented",
+    "limitations": "Use TfL scheme-history source for final launch documentation."
+  },
+  {
+    "event_id": "lon_city_2012_olympics",
+    "title": "London 2012 Olympic Games begin",
+    "city": "london",
+    "area": "london_wide",
+    "category": "major_event",
+    "date_start": "2012-07-27",
+    "date_end": "2012-08-12",
+    "geometry": "city_ref",
+    "summary": "The Olympics created major transport, land-use, and visitor-pattern disruptions and investments across London.",
+    "observed_change": "Short-term network demand/traffic changes and long-run regeneration effects, especially in East London.",
+    "source_ids": [
+      "lon_public_transport_journeys",
+      "lon_pld_api",
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Citywide causal attribution should distinguish short-term event effects from long-run regeneration effects."
+  },
+  {
+    "event_id": "lon_city_2016_night_tube",
+    "title": "Night Tube starts operating",
+    "city": "london",
+    "area": "london_wide",
+    "category": "transport",
+    "date_start": "2016-08-19",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "Night Tube weekend service begins on parts of the Underground network.",
+    "observed_change": "Extended late-night mobility and shifted travel-time/access conditions for nightlife and shift-work trips.",
+    "source_ids": [
+      "lon_public_transport_journeys",
+      "lon_tfl_unified_api"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Validate exact phased launch dates by line from TfL historical releases."
+  },
+  {
+    "event_id": "lon_city_2019_ulez_start",
+    "title": "Ultra Low Emission Zone begins in central London",
+    "city": "london",
+    "area": "central_london",
+    "category": "environment_policy",
+    "date_start": "2019-04-08",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "ULEZ charging policy begins in central London.",
+    "observed_change": "Changed vehicle composition and traffic-related air-quality policy context.",
+    "source_ids": [
+      "lon_london_air_api",
+      "lon_laei",
+      "lon_congestion_charge_camera_captures"
+    ],
+    "confidence": "documented",
+    "limitations": "Need final policy documentation and boundary versioning for rigorous time-series analysis."
+  },
+  {
+    "event_id": "lon_city_2022_elizabeth_line",
+    "title": "Elizabeth line opens",
+    "city": "london",
+    "area": "london_wide",
+    "category": "transport",
+    "date_start": "2022-05-24",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "Central Elizabeth line services begin, materially changing travel times and network connectivity across London.",
+    "observed_change": "Major rail-capacity and accessibility change with strong effects on journey patterns and station catchments.",
+    "source_ids": [
+      "lon_public_transport_journeys",
+      "lon_tfl_unified_api",
+      "lon_tfl_rods"
+    ],
+    "confidence": "documented",
+    "limitations": "Use TfL/Crossrail official opening record for final citation."
+  },
+  {
+    "event_id": "lon_city_2023_ulez_expansion",
+    "title": "ULEZ expands London-wide",
+    "city": "london",
+    "area": "greater_london",
+    "category": "environment_policy",
+    "date_start": "2023-08-29",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "ULEZ expands across all London boroughs.",
+    "observed_change": "Changed citywide vehicle-policy incentives and widened the area where traffic and air-quality indicators should be monitored.",
+    "source_ids": [
+      "lon_london_air_api",
+      "lon_dft_traffic_flows_borough"
+    ],
+    "confidence": "documented",
+    "limitations": "Final build should attach exact expanded boundary geometry and pre/post analysis windows."
+  },
+  {
     "event_id": "lon_stratford_2005_olympic_bid_awarded",
     "title": "London awarded the 2012 Olympic and Paralympic Games",
     "city": "london",
@@ -157,24 +304,6 @@
     "limitations": "Event date is Paralympics opening."
   },
   {
-    "event_id": "lon_stratford_2013_east_village_first_residents",
-    "title": "East Village begins residential occupation",
-    "city": "london",
-    "area": "stratford_olympic_park",
-    "category": "housing_completion",
-    "date_start": "2013-01-01",
-    "date_end": "",
-    "geometry": "area_ref",
-    "summary": "Former Athletes Village transitioned into East Village homes after the Games.",
-    "observed_change": "Large housing delivery/occupation phase begins in Olympic Park area.",
-    "source_ids": [
-      "lon_pld_api",
-      "lon_lldc_planning_register"
-    ],
-    "confidence": "candidate_requires_row_validation",
-    "limitations": "Year-level seed; validate exact first-occupation date and unit counts from LLDC/GLA records."
-  },
-  {
     "event_id": "lon_stratford_2013_chobham_academy",
     "title": "Chobham Academy opens",
     "city": "london",
@@ -210,6 +339,24 @@
     "limitations": "Month-level seed; verify exact reopening date."
   },
   {
+    "event_id": "lon_stratford_2013_east_village_first_residents",
+    "title": "East Village begins residential occupation",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "housing_completion",
+    "date_start": "2013-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Former Athletes Village transitioned into East Village homes after the Games.",
+    "observed_change": "Large housing delivery/occupation phase begins in Olympic Park area.",
+    "source_ids": [
+      "lon_pld_api",
+      "lon_lldc_planning_register"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Year-level seed; validate exact first-occupation date and unit counts from LLDC/GLA records."
+  },
+  {
     "event_id": "lon_stratford_2013_north_park_open",
     "title": "Queen Elizabeth Olympic Park north park opens",
     "city": "london",
@@ -225,6 +372,23 @@
     ],
     "confidence": "documented",
     "limitations": "Use park-management source for exact boundary/opening scope."
+  },
+  {
+    "event_id": "lon_stratford_2014_aquatics_public_open",
+    "title": "London Aquatics Centre opens to the public",
+    "city": "london",
+    "area": "stratford_olympic_park",
+    "category": "public_service",
+    "date_start": "2014-03-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Olympic swimming venue opened for public/community use after conversion.",
+    "observed_change": "Games venue becomes public sport/leisure asset.",
+    "source_ids": [
+      "lon_queen_elizabeth_olympic_park"
+    ],
+    "confidence": "documented",
+    "limitations": "Use official venue/LLDC source in final card."
   },
   {
     "event_id": "lon_stratford_2014_pudding_mill_lane_relocated",
@@ -245,21 +409,22 @@
     "limitations": "Need TfL/Crossrail source for exact station works details."
   },
   {
-    "event_id": "lon_stratford_2014_aquatics_public_open",
-    "title": "London Aquatics Centre opens to the public",
+    "event_id": "lon_stratford_2014_south_park_open",
+    "title": "Queen Elizabeth Olympic Park fully opens to the public",
     "city": "london",
     "area": "stratford_olympic_park",
-    "category": "public_service",
-    "date_start": "2014-03-01",
+    "category": "public_realm",
+    "date_start": "2014-04-05",
     "date_end": "",
     "geometry": "area_ref",
-    "summary": "Olympic swimming venue opened for public/community use after conversion.",
-    "observed_change": "Games venue becomes public sport/leisure asset.",
+    "summary": "South Park/plaza areas opened, completing the main post-Games public park opening sequence.",
+    "observed_change": "Major new public park/public realm becomes accessible.",
     "source_ids": [
-      "lon_queen_elizabeth_olympic_park"
+      "lon_queen_elizabeth_olympic_park",
+      "lon_os_open_greenspace"
     ],
     "confidence": "documented",
-    "limitations": "Use official venue/LLDC source in final card."
+    "limitations": "Geometry should distinguish north/south park and venue areas."
   },
   {
     "event_id": "lon_stratford_2014_velopark_open",
@@ -277,24 +442,6 @@
     ],
     "confidence": "documented",
     "limitations": "Use Lee Valley/LLDC source for exact date."
-  },
-  {
-    "event_id": "lon_stratford_2014_south_park_open",
-    "title": "Queen Elizabeth Olympic Park fully opens to the public",
-    "city": "london",
-    "area": "stratford_olympic_park",
-    "category": "public_realm",
-    "date_start": "2014-04-05",
-    "date_end": "",
-    "geometry": "area_ref",
-    "summary": "South Park/plaza areas opened, completing the main post-Games public park opening sequence.",
-    "observed_change": "Major new public park/public realm becomes accessible.",
-    "source_ids": [
-      "lon_queen_elizabeth_olympic_park",
-      "lon_os_open_greenspace"
-    ],
-    "confidence": "documented",
-    "limitations": "Geometry should distinguish north/south park and venue areas."
   },
   {
     "event_id": "lon_stratford_2015_lldc_local_plan",

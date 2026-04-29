@@ -1,30 +1,13 @@
-# Belfast Replay API Contract
+# City Atlas Local API
 
-This branch exposes a static-first Mapbox 3D replay contract for the 2016-2026 Belfast historical replay.
+The local server is intentionally small: it serves the static atlas frontend, the browser-ready city-atlas data files, a health endpoint, and the optional Wayback imagery tile proxy used by the before/after map.
 
-## Endpoints
+## Active endpoints
 
-- `GET /api/manifest` returns `api/replay-manifest.json`.
-- `GET /api/layers/{year}/{layerId}` streams the source file for a layer declared in the manifest.
-- `GET /api/health` returns a tiny local server health check.
+- `GET /api/health` returns local server health and confirms the city-atlas data index exists.
+- `GET /api/imagery/wayback/{itemId}/{z}/{y}/{x}` proxies ArcGIS Wayback imagery tiles for source-backed before/after comparison.
+- `GET /...` serves static files from `web/` with path traversal protection.
 
-The included `server.js` implements those endpoints without third-party dependencies.
+## Retired endpoints
 
-## Manifest Shape
-
-Each layer should provide:
-
-- `id`: stable URL-safe layer id.
-- `year`: replay year from `2016` through `2026`.
-- `label`: display name.
-- `type`: `geojson`, `geotiff`, `csv`, or a future ETL type such as `raster-tilejson`.
-- `mode`: render mode such as `fill-extrusion` for Mapbox 3D buildings.
-- `path`: repository-relative source path.
-- `apiPath`: optional local endpoint for directly loading the layer.
-- `status`: `ready`, `pending-etl`, `source-available`, or a more specific source status.
-- `featureCount`, `byteSize`, `bbox`, `geometryTypes`: generated ETL summary fields.
-- `provenance`: source name, license, and source status.
-
-The UI is intentionally tolerant of missing years. It shows the timeline year and source status even when no renderable layer exists yet.
-
-`scripts/build_ui_manifest.py` owns the generated manifest and optimized `data/derived/2026/belfast_ni_buildings_3d_core.geojson` file. Re-run it after adding new source files.
+The old replay-manifest route and layer API are no longer public runtime paths. They should not be re-added unless a future spec restores them with tests and a clear city-atlas use case.

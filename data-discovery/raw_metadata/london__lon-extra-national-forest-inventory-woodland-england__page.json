@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-national-forest-inventory-woodland-england",
+  "city": "london",
+  "title": "National Forest Inventory Woodland England",
+  "publisher": "Forestry Commission",
+  "bucket": "trees/woodland/environment",
+  "retrieved_at": "2026-04-28T12:57:19.672837+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.data.gov.uk/dataset/ae333e5d-89f6-4578-8f4d-c64fdb2a8a2b/national-forest-inventory-woodland-england",
+      "retrieved_at": "2026-04-28T12:57:19.430876+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://www.data.gov.uk/dataset/ae333e5d-89f6-4578-8f4d-c64fdb2a8a2b/national-forest-inventory-woodland-england",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

@@ -3,7 +3,7 @@ const path = require("path");
 
 const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "disputed"]);
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
-const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]);
+const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked", "discovery_catalog_ready"]);
 const GEOMETRY_TYPES = new Set([
   "Point",
   "MultiPoint",
@@ -247,13 +247,17 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
     assert(failures, Boolean(city), `Atlas has city not present in config: ${citySummary.city_id}`);
     if (!city) continue;
 
-    const cityDir = path.join(atlasRoot, "cities", city.city_id);
+    const cityDir = path.join(atlasRoot, "cities", citySummary.city_id);
     for (const name of ["city.json", "sources.json", "events.json", "availability.json"]) {
-      assert(failures, fs.existsSync(path.join(cityDir, name)), `Missing ${city.city_id}/${name}`);
+      assert(failures, fs.existsSync(path.join(cityDir, name)), `Missing ${citySummary.city_id}/${name}`);
     }
+    const artifactCity = fs.existsSync(path.join(cityDir, "city.json")) ? readJson(path.join(cityDir, "city.json")) : city;
+    const validationCity = { ...city, ...artifactCity };
     const sourcesPayload = readJson(path.join(cityDir, "sources.json"));
+    const effectiveSourceById = new Map(sourceById);
     for (const source of sourcesPayload.sources || []) {
-      assert(failures, sourceById.has(source.source_id), `City artifact ${city.city_id} includes unknown source ${source.source_id}`);
+      effectiveSourceById.set(source.source_id, source);
+      assert(failures, Boolean(source.source_id), `City artifact ${citySummary.city_id} includes source without id`);
       assert(failures, Boolean(source.attribution_text), `City artifact source ${source.source_id} missing attribution_text`);
     }
 
@@ -263,7 +267,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       assert(failures, Boolean(row.family_id), `Availability row missing family_id for ${city.city_id}`);
       assert(failures, Array.isArray(row.source_ids), `Availability row ${row.family_id} missing source_ids`);
       for (const sourceId of row.source_ids || []) {
-        assert(failures, sourceById.has(sourceId), `Availability row ${row.family_id} references unknown source ${sourceId}`);
+        assert(failures, effectiveSourceById.has(sourceId), `Availability row ${row.family_id} references unknown source ${sourceId}`);
       }
     }
 
@@ -280,7 +284,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       assert(failures, payload.event_count === chunk.event_count, `Chunk ${chunk.json_path} event count does not match index`);
       countedEvents += payload.events.length;
       for (const event of payload.events || []) {
-        validateEvent(failures, event, city, sourceById, chunkPath);
+        validateEvent(failures, event, validationCity, effectiveSourceById, chunkPath);
       }
       if (fs.existsSync(geojsonPath)) {
         const geojson = readJson(geojsonPath);

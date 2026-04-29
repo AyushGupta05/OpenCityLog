@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bims.local/schemas/source_manifest.schema.json",
-  "title": "Belfast Replay Source Manifest",
-  "description": "Contract for future data-source branch handoff into the spatial replay ETL/model branch.",
+  "title": "City Atlas Source Manifest",
+  "description": "Contract for city adapter source handoff into the spatial replay ETL/model branch.",
   "type": "object",
   "required": [
     "manifest_version",
     "source_batch_id",
-    "study_area",
+    "city_id",
     "created_at",
     "sources"
   ],
@@ -20,9 +20,12 @@
       "type": "string",
       "minLength": 1
     },
-    "study_area": {
+    "city_id": {
       "type": "string",
-      "const": "Belfast"
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "city_display_name": {
+      "type": "string"
     },
     "source_branch": {
       "type": "string"
@@ -79,13 +82,13 @@
           "properties": {
             "start_year": {
               "type": "integer",
-              "minimum": 2016,
-              "maximum": 2026
+              "minimum": 2000,
+              "maximum": 2100
             },
             "end_year": {
               "type": "integer",
-              "minimum": 2016,
-              "maximum": 2026
+              "minimum": 2000,
+              "maximum": 2100
             },
             "observed_dates": {
               "type": "array",

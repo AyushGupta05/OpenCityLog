@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-westminster-open-data",
+  "city": "london",
+  "title": "Westminster Open Data",
+  "publisher": "Westminster City Council",
+  "bucket": "borough/planning/parking/assets",
+  "retrieved_at": "2026-04-28T12:57:27.491657+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://opendata.westminster.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:27.335483+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-national-rail-open-data",
+  "city": "london",
+  "title": "National Rail Open Data",
+  "publisher": "National Rail",
+  "bucket": "transport/rail",
+  "retrieved_at": "2026-04-28T12:57:15.256554+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://opendata.nationalrail.co.uk/",
+      "retrieved_at": "2026-04-28T12:57:15.028723+00:00",
+      "final_url": "https://opendata.nationalrail.co.uk/",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": "Tue, 17 Mar 2026 11:58:05 GMT",
+      "etag": null,
+      "content_length_header": "699",
+      "bytes_captured": 699,
+      "page_title": "National Rail Data Portal",
+      "h1": null,
+      "meta_description": null,
+      "text_sample": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <title>National Rail Data Portal</title> <base href=\"/\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"> <link rel=\"stylesheet\" href=\"styles.25508f51e73271c798b2.css\"></head> <body> <app-root></app-root> <script type=\"text/javascript\" src=\"runtime.a66f828dca56eeb90e02.js\"></script><script type=\"text/javascript\" src=\"polyfills.696fd758e03ab7208b1b.js\"></script><script type=\"text/javascript\" src=\"scripts.d8439485106281594c8c.js\"></script><script type=\"text/javascript\" src=\"main.2e79d9b460195a49318c.js\"></script></body> </html>"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "source_id": "gla-population-projections",
+  "city": "london",
+  "title": "GLA population projections",
+  "publisher": "Greater London Authority City Intelligence / London Datastore",
+  "bucket": "demographics",
+  "retrieved_at": "2026-04-28T12:18:53.711319+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.london.gov.uk/dataset/projections",
+      "retrieved_at": "2026-04-28T12:18:53.294779+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.london.gov.uk/dataset/projections/",
+      "content_type": "text/html; charset=UTF-8"
+    }
+  ]
+}

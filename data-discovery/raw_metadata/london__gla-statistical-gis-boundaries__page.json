@@ -1,0 +1,25 @@
+{
+  "source_id": "gla-statistical-gis-boundaries",
+  "city": "london",
+  "title": "Statistical GIS boundary files for London",
+  "publisher": "Greater London Authority / London Datastore",
+  "bucket": "imagery/basemaps",
+  "retrieved_at": "2026-04-28T12:18:48.099412+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.london.gov.uk/dataset/statistical-gis-boundary-files-for-london-20od9/",
+      "retrieved_at": "2026-04-28T12:18:47.744109+00:00",
+      "final_url": "https://data.london.gov.uk/dataset/statistical-gis-boundary-files-for-london-20od9/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 250000,
+      "page_title": "Statistical GIS Boundary Files for London – London Datastore",
+      "h1": "Statistical GIS Boundary Files for London",
+      "meta_description": null,
+      "text_sample": "<!doctype html> <html class=\"no-js\" lang=\"en-US\"> <head> <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5K69N4WK');</script> <!-- End Google Tag Manager --> <meta charset=\"utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"London Datastore News Feed\" href=\"https://data.london.gov.uk/feed/\"> <link rel=\"shortcut icon\" href=\"https://data.london.gov.uk/wp-content/themes/data-london-gov-uk/img/favicon/favicon.ico\" type=\"image/x-icon\" /><link rel=\"apple-touch-icon\" href=\"https://data.london.gov.uk/wp-content/themes/data-london-gov-uk/img/favicon/apple-touch-icon.png\" /> <title>Statistical GIS Boundary Files for London &#8211; London Datastore</title> <meta name='robots' content='max-image-preview:large' /> <style>img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px }</style> <link rel='dns-prefetch' href='//unpkg.com' /> <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' /> <link rel='stylesheet' id='fontawesome-css' href='https://unpkg.com/font-awesome@3.2.1/css/font-awesome.min.css' type='text/css' media='all' /> <link rel='stylesheet' id='fontawesome5-css' href='https://data.london.gov.uk/wp-content/themes/data-london-gov-uk/fonts/fontawesome-pro-5.3.1-web/css/all.min.css' type='text/css' media='all' /> <link rel='stylesheet' id='vue-app-css' href='https://data.london.gov.uk/api/static/app.css?4783f84e7e1201d5431d&#038;ver=6.8.3' type='text/css' media='all' /> <link rel='stylesheet' id='wp-block-library-css' href='https://data.london.gov.uk/wp-includes/css/dist/block-library/style.min.css?ver=6.8.3' type='text/css' media='all' /> <style id='classic-theme-styles-inline-css' type='text/css'> /*! This file is auto-generated */ .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none} </style> <style id='global-styles-inline-css' type='text/css'> :root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vi"
+    }
+  ]
+}

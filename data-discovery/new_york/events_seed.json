@@ -1,0 +1,313 @@
+{
+  "city": "New York City",
+  "chronology_milestones": [
+    {
+      "year": 1811,
+      "title": "Commissioners' Plan grid adopted",
+      "bucket": "planning/development",
+      "source_hint": "NYC DCP historical planning references; use street grid/LION/MapPLUTO for spatial validation",
+      "event_seed": "Manhattan grid creates long-run block/lot structure"
+    },
+    {
+      "year": 1898,
+      "title": "Consolidation of Greater New York",
+      "bucket": "planning/development; public services",
+      "source_hint": "NYC historical boundaries/DCP borough geographies",
+      "event_seed": "Five-borough governance and infrastructure integration"
+    },
+    {
+      "year": 1904,
+      "title": "First IRT subway opens",
+      "bucket": "traffic/transport; development",
+      "source_hint": "MTA subway history; station datasets/turnstile archives",
+      "event_seed": "Transit-led growth along early subway corridors"
+    },
+    {
+      "year": 1916,
+      "title": "First NYC Zoning Resolution",
+      "bucket": "policy; development",
+      "source_hint": "DCP zoning history and zoning district archives",
+      "event_seed": "Height/setback/use regulation begins"
+    },
+    {
+      "year": 1934,
+      "title": "Robert Moses arterial/parkway era accelerates",
+      "bucket": "traffic/transport; development",
+      "source_hint": "DOT/DCP historical street network, bridge/tunnel histories",
+      "event_seed": "Expressway/parkway construction reshapes neighborhoods"
+    },
+    {
+      "year": 1940,
+      "title": "IND Sixth Avenue subway opens; municipal subway consolidation era",
+      "bucket": "traffic/transport",
+      "source_hint": "MTA history",
+      "event_seed": "Subway network consolidation and Midtown access changes"
+    },
+    {
+      "year": 1961,
+      "title": "Comprehensive Zoning Resolution adopted",
+      "bucket": "policy; development",
+      "source_hint": "DCP zoning history; PLUTO/zoning maps",
+      "event_seed": "FAR/parking/open-space zoning framework replaces 1916 rules"
+    },
+    {
+      "year": 1964,
+      "title": "Verrazzano-Narrows Bridge opens",
+      "bucket": "traffic/transport; development",
+      "source_hint": "MTA Bridges and Tunnels history; traffic counts",
+      "event_seed": "Staten Island growth and regional highway access shift"
+    },
+    {
+      "year": 1975,
+      "title": "Fiscal crisis and capital disinvestment period",
+      "bucket": "economy; public services; development",
+      "source_hint": "NYC budget/capital data, Census, DOB permits",
+      "event_seed": "Permit slowdown, service stress, neighborhood decline/reinvestment baseline"
+    },
+    {
+      "year": 1982,
+      "title": "Loft Law adopted",
+      "bucket": "policy; development",
+      "source_hint": "NYC Loft Board/DOB/CO records",
+      "event_seed": "Industrial-to-residential legalization in manufacturing districts"
+    },
+    {
+      "year": 1990,
+      "title": "Americans with Disabilities Act era begins",
+      "bucket": "policy; transport; public services",
+      "source_hint": "MTA accessibility data, DOT pedestrian ramps",
+      "event_seed": "Accessibility retrofits in transit and streetscape"
+    },
+    {
+      "year": 2002,
+      "title": "Hudson Yards rezoning/planning approvals begin early-2000s transformation",
+      "bucket": "planning/development",
+      "source_hint": "DCP ZAP/ULURP, PLUTO, DOB permits",
+      "event_seed": "Far West Side office/residential build-out"
+    },
+    {
+      "year": 2007,
+      "title": "PlaNYC released",
+      "bucket": "policy; environment; transport",
+      "source_hint": "MOCEJ/Mayor's sustainability reports; GHG inventories",
+      "event_seed": "Sustainability targets, congestion/green infrastructure agenda"
+    },
+    {
+      "year": 2008,
+      "title": "Select Bus Service and Summer Streets era starts",
+      "bucket": "traffic/transport; public realm",
+      "source_hint": "DOT street network changes, MTA bus data",
+      "event_seed": "Bus priority and temporary car-free streets"
+    },
+    {
+      "year": 2009,
+      "title": "Times Square/Broadway pedestrian plazas installed",
+      "bucket": "traffic/transport; public realm",
+      "source_hint": "DOT street network changes; traffic speeds/crashes",
+      "event_seed": "Major Midtown street reallocation before/after"
+    },
+    {
+      "year": 2012,
+      "title": "Hurricane Sandy inundates NYC",
+      "bucket": "environment; development; public services",
+      "source_hint": "Sandy Inundation Zone, DOB permits, 311, DEP flood maps",
+      "event_seed": "Recovery permits, resiliency rezonings, flood infrastructure"
+    },
+    {
+      "year": 2013,
+      "title": "Citi Bike launches",
+      "bucket": "traffic/transport",
+      "source_hint": "Citi Bike system data, DOT bike counts/crashes",
+      "event_seed": "Bike-share mode shift and cycling infrastructure expansion"
+    },
+    {
+      "year": 2014,
+      "title": "Vision Zero adopted in NYC",
+      "bucket": "traffic/transport; public safety; policy",
+      "source_hint": "NYPD collisions, DOT street network changes, speed cameras",
+      "event_seed": "Crash/fatality trend and street redesign evaluation"
+    },
+    {
+      "year": 2016,
+      "title": "Mandatory Inclusionary Housing and Zoning for Quality and Affordability adopted",
+      "bucket": "policy; housing/development",
+      "source_hint": "DCP zoning history, HPD affordable housing, DOB permits",
+      "event_seed": "Affordable unit production tied to rezonings"
+    },
+    {
+      "year": 2019,
+      "title": "Climate Mobilization Act / Local Law 97 enacted",
+      "bucket": "policy; environment; buildings",
+      "source_hint": "NYC benchmarking/LL97 datasets, GHG inventories",
+      "event_seed": "Building emissions regulation and retrofit pipeline"
+    },
+    {
+      "year": 2020,
+      "title": "COVID-19 emergency: Open Streets/Open Restaurants, ridership collapse",
+      "bucket": "traffic/transport; economy; public services",
+      "source_hint": "DOT street events, MTA turnstiles, TLC trips, 311, restaurant inspections",
+      "event_seed": "Pandemic street reallocation and mobility/economic shock"
+    },
+    {
+      "year": 2021,
+      "title": "Gowanus Neighborhood Rezoning adopted",
+      "bucket": "planning/development; environment",
+      "source_hint": "ZAP, PLUTO, DOB permits, HPD affordable production",
+      "event_seed": "Canal-area rezoning, remediation, mixed-use development"
+    },
+    {
+      "year": 2023,
+      "title": "City of Yes zoning text amendments begin adoption sequence",
+      "bucket": "policy; development; economy",
+      "source_hint": "DCP ZAP/project data and zoning text records",
+      "event_seed": "Carbon neutrality/economic opportunity/housing opportunity policy series"
+    },
+    {
+      "year": 2025,
+      "title": "Central Business District congestion pricing begins",
+      "bucket": "traffic/transport; policy; economy",
+      "source_hint": "MTA CBDTP reports, DOT traffic speeds/counts, TLC trips, MTA ridership",
+      "event_seed": "Before/after traffic volume, speed, transit ridership, taxi/FHV shifts"
+    }
+  ],
+  "event_seed_patterns": [
+    {
+      "seed": "ULURP/ZAP application certified/adopted",
+      "sources": [
+        "hgx4-8ukb",
+        "2iga-a6mk",
+        "64uk-42ks"
+      ],
+      "fields_hint": [
+        "project status",
+        "milestone dates",
+        "BBL"
+      ],
+      "use": "planning policy chronology and affected parcel set"
+    },
+    {
+      "seed": "New building or demolition permit issued",
+      "sources": [
+        "bty7-2jhb",
+        "ipu4-2q9a",
+        "rbx6-tga4"
+      ],
+      "fields_hint": [
+        "permit_type",
+        "issuance_date",
+        "BIN/BBL"
+      ],
+      "use": "construction start proxy"
+    },
+    {
+      "seed": "Certificate of Occupancy issued",
+      "sources": [
+        "bs8b-p36w",
+        "pkdm-hqz6"
+      ],
+      "fields_hint": [
+        "CO type",
+        "issue date",
+        "BIN/BBL"
+      ],
+      "use": "completion/legal occupancy proxy"
+    },
+    {
+      "seed": "Street construction permit/closure starts",
+      "sources": [
+        "c9sj-fmsg",
+        "tqtj-sjs8",
+        "i6b5-j7bu",
+        "ezy6-djsf"
+      ],
+      "fields_hint": [
+        "on street/from/to",
+        "start/end date"
+      ],
+      "use": "street disruption event"
+    },
+    {
+      "seed": "Street direction/plaza/network change implemented",
+      "sources": [
+        "as9z-kwsh",
+        "bymk-vktx",
+        "2v4z-66xt"
+      ],
+      "fields_hint": [
+        "change type",
+        "date",
+        "street segment"
+      ],
+      "use": "transport policy event"
+    },
+    {
+      "seed": "Crash cluster or fatality trend break",
+      "sources": [
+        "h9gi-nx95"
+      ],
+      "fields_hint": [
+        "crash_date",
+        "injured/killed",
+        "location"
+      ],
+      "use": "Vision Zero and redesign triggers"
+    },
+    {
+      "seed": "Affordable housing project start/completion",
+      "sources": [
+        "hg8x-zxpr",
+        "hq68-rnsi"
+      ],
+      "fields_hint": [
+        "project start/completion",
+        "units",
+        "program"
+      ],
+      "use": "public housing investment chronology"
+    },
+    {
+      "seed": "Flood/inundation/resiliency event",
+      "sources": [
+        "5xsi-dfpx",
+        "9i7c-xyvv",
+        "5uug-f49n",
+        "erm2-nwe9"
+      ],
+      "fields_hint": [
+        "polygon",
+        "sample/event date",
+        "complaint type"
+      ],
+      "use": "climate/disaster timeline"
+    },
+    {
+      "seed": "Transit/ridership shock",
+      "sources": [
+        "MTA turnstile",
+        "TLC trip records",
+        "wgnh-qwsg"
+      ],
+      "fields_hint": [
+        "station/week",
+        "trip timestamp",
+        "mode share"
+      ],
+      "use": "mobility behavior change"
+    },
+    {
+      "seed": "Demographic/economic threshold change",
+      "sources": [
+        "Census API",
+        "8cwr-7pqn",
+        "swpk-hqdp",
+        "LODES"
+      ],
+      "fields_hint": [
+        "tract/NTA",
+        "vintage",
+        "estimate/MOE"
+      ],
+      "use": "neighborhood change baseline"
+    }
+  ]
+}

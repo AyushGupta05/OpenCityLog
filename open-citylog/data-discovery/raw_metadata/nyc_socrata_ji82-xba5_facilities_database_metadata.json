@@ -10,7 +10,7 @@
   "description": "The Department of City Planning aggregates information about 30,000+ facilities and program sites that are owned, operated, funded, licensed, or certified by a City, State, or Federal agency in the City of New York into a central database called the City Planning Facilities Database (FacDB). These facilities generally help to shape quality of life in the city's neighborhoods, and this dataset is the basis for a series of planning activities. This public data resource allows all New Yorkers to understand the breadth of government resources in their neighborhoods. The data is also complemented with a <b><a href=\"https://capitalplanning.nyc.gov/facilities\">new interactive web map</a></b> that enables users to easily filter the data for their needs. Users are strongly encouraged to read the database documentation, particularly with regard to analytical limitations.\n\nQuestions about this database can be directed to <b><a href=\"mailto:dcpopendata@planning.nyc.gov\">dcpopendata@planning.nyc.gov</a></b>.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/facilities\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 25v2",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 15076,
+  "downloadCount": 15080,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "locked": false,
@@ -26,7 +26,7 @@
   "rowsUpdatedBy": "iqqb-gm94",
   "tableId": 19568195,
   "totalTimesRated": 0,
-  "viewCount": 17035,
+  "viewCount": 17040,
   "viewLastModified": 1776692102,
   "viewType": "tabular",
   "approvals": [

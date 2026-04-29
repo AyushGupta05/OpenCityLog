@@ -261,7 +261,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
   }
   evidence.push({
     source_id: sourceId,
-    label: "Legacy Belfast Mode A event catalog",
+    label: "Belfast infrastructure event catalog",
     kind: "local_file",
     url: null,
     file_path: legacyCatalogPath,
@@ -357,7 +357,7 @@ function loadBelfastLegacyEvents(root, legacyCatalogPath) {
       normalized_event_count: events.length,
       basis: payload.basis || [],
       notes: [
-        "Legacy Mode A events are normalized into the event-first atlas schema.",
+        "Belfast infrastructure events are normalized into the event-first atlas schema.",
         "OSM-derived records remain labelled as mapped visibility, not real-world construction dates.",
       ],
     },

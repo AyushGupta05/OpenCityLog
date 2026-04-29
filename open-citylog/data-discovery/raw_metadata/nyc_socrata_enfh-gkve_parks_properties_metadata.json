@@ -9,7 +9,7 @@
   "description": "This dataset identifies property managed partially or solely by NYC Parks. This data has been produced in whole or part using secondary data. Data accuracy is limited by the scale and accuracy of the original sources. Site-specific conditions should be field-verified. \n\nRecords are added as more land is designated under NYC Parks’ jurisdiction. Each record represents an acquisition. \n\nUser Guide: https://docs.google.com/document/d/1NExNJF5YKID04oOopi0fHainRuGG3Pz_jKSrMujPsPk/edit?usp=sharing\n\nData Dictionary: https://docs.google.com/spreadsheets/d/1Q4DBWu7riNFxWvy1vnTJHoOI3r2L9oW6eCN56jCNyCw/edit?usp=sharing",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 17918,
+  "downloadCount": 17926,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "locked": false,
@@ -26,7 +26,7 @@
   "rowsUpdatedBy": "yrqv-pmyz",
   "tableId": 19710011,
   "totalTimesRated": 0,
-  "viewCount": 77741,
+  "viewCount": 77745,
   "viewLastModified": 1776520624,
   "viewType": "tabular",
   "approvals": [

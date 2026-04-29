@@ -1,0 +1,25 @@
+{
+  "source_id": "new-034-mta-subway-bus-gtfs-and-real-time-feeds",
+  "city": "new_york",
+  "title": "MTA Subway/Bus GTFS and real-time feeds",
+  "publisher": "MTA",
+  "bucket": "traffic/transport; public services",
+  "retrieved_at": "2026-04-28T12:20:44.829957+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://new.mta.info/developers",
+      "retrieved_at": "2026-04-28T12:20:44.283729+00:00",
+      "final_url": "https://www.mta.info/developers",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": "Mon, 27 Apr 2026 21:07:10 GMT",
+      "etag": "\"1777324030\"",
+      "content_length_header": null,
+      "bytes_captured": 60818,
+      "page_title": "Developer Resources",
+      "h1": "Developer resources",
+      "meta_description": "Landing page for MTA Data Feeds",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# \"> <head> <meta charset=\"utf-8\" /> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-RBMJZ3P3MQ\"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag(\"js\", new Date());gtag(\"set\", \"developer_id.dMDhkMT\", true);gtag(\"config\", \"G-RBMJZ3P3MQ\", {\"groups\":\"default\",\"page_placeholder\":\"PLACEHOLDER_page_location\"});</script> <meta name=\"description\" content=\"Landing page for MTA Data Feeds\" /> <link rel=\"canonical\" href=\"https://www.mta.info/developers\" /> <link rel=\"image_src\" href=\"https://www.mta.info/themes/custom/bootstrap_mta/images/social_image.jpg\" /> <meta property=\"og:site_name\" content=\"MTA\" /> <meta property=\"og:url\" content=\"https://www.mta.info/developers\" /> <meta property=\"og:title\" content=\"Developer resources\" /> <meta property=\"og:description\" content=\"Landing page for MTA Data Feeds\" /> <meta property=\"og:image\" content=\"https://www.mta.info/themes/custom/bootstrap_mta/images/social_image.jpg\" /> <meta name=\"twitter:card\" content=\"summary_large_image\" /> <meta name=\"twitter:description\" content=\"Landing page for MTA Data Feeds\" /> <meta name=\"twitter:site\" content=\"@mta\" /> <meta name=\"twitter:title\" content=\"Developer resources\" /> <meta name=\"twitter:url\" content=\"https://www.mta.info/developers\" /> <meta name=\"twitter:image\" content=\"https://www.mta.info/themes/custom/bootstrap_mta/images/social_image.jpg\" /> <meta name=\"facebook-domain-verification\" content=\"5c9s915wwu7ujl7t5slm5nx88b2iqm\" /> <meta name=\"google-site-verification\" content=\"Gs_a5SJXLSVsOjXZs8vA7eMIk8cWVMElHmIznlcVI8U\" /> <meta name=\"Generator\" content=\"Drupal 10 (https://www.drupal.org)\" /> <meta name=\"MobileOptimized\" content=\"width\" /> <meta name=\"HandheldFriendly\" content=\"true\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"icon\" href=\"/themes/custom/bootstrap_mta/favicon.ico\" type=\"image/vnd.microsoft.icon\" /> <link rel=\"alternate\" hreflang=\"en\" href=\"https://www.mta.info/developers\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=11\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <title>Developer Resources</title> <link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/align.module.css?te0817\" /> <link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/fieldgroup.module.css?te0817\" /> <link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/container-inline.module.css?te0817\" /> <link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/co"
+    }
+  ]
+}

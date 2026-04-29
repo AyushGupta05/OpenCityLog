@@ -1,0 +1,210 @@
+{
+  "source_id": "buis-pvji",
+  "city": "new_york",
+  "title": "Individual Landmark Sites",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "landmarks/historic districts/planning",
+  "retrieved_at": "2026-04-28T12:57:37.213618+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/buis-pvji",
+      "retrieved_at": "2026-04-28T12:57:35.748318+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/buis-pvji",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 31246,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Individual Landmark Sites",
+      "description": "This dataset contains site boundaries for all designated individual landmarks as well as administrative information such as site boundary description and designation date.",
+      "attribution": "Landmarks Preservation Commission (LPC)",
+      "rowsUpdatedAt": 1770131504,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/buis-pvji",
+      "retrieved_at": "2026-04-28T12:57:35.962105+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/buis-pvji",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 31246,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Individual Landmark Sites",
+      "description": "This dataset contains site boundaries for all designated individual landmarks as well as administrative information such as site boundary description and designation date.",
+      "attribution": "Landmarks Preservation Commission (LPC)",
+      "rowsUpdatedAt": 1770131504,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/buis-pvji.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:57:36.621846+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/buis-pvji.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Tue, 03 Feb 2026 15:11:43 GMT",
+      "etag": "W/\"aW5kaWEuMjkzNDVfMl8zMUEydXc4d1VZYnBvcXpWVWk4eThNWGpGZkR6WQ---gzihZQ5lCec3zZ-vmg9QehkrqF3-7_--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 772,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "address",
+        "bbl",
+        "block",
+        "borough",
+        "desdate",
+        "landmarkty",
+        "lot",
+        "lpc_altern",
+        "lpc_lpnumb",
+        "lpc_name",
+        "lpc_sitede",
+        "lpc_sitest",
+        "objectid",
+        "the_geom",
+        "url_report"
+      ],
+      "json_sample": [
+        {
+          "the_geom": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -74.09145318437727,
+                    40.64302777925552
+                  ],
+                  [
+                    -74.0914226952439,
+                    40.64292509393511
+                  ],
+                  [
+                    -74.09141559050897,
+                    40.64290116559641
+                  ],
+                  [
+                    -74.09193861393138,
+                    40.64281408091465
+                  ],
+                  [
+                    -74.09199788584148,
+                    40.6430137046305
+                  ],
+                  [
+                    -74.09147486211141,
+                    40.64310078777792
+                  ],
+                  [
+                    -74.09145318437727,
+                    40.64302777925552
+                  ]
+                ]
+              ]
+            ]
+          },
+          "objectid": "0",
+          "borough": "SI",
+          "block": "58",
+          "lot": "27",
+          "address": "105 Franklin Avenue",
+          "bbl": "5000580027.0",
+          "lpc_name": "105 Franklin Avenue House",
+          "lpc_lpnumb": "LP-00330",
+          "lpc_sitede": "Borough of Richmond Tax Map Block 58, Lot 27.",
+          "lpc_sitest": "Designated",
+          "lpc_altern": "also known as Hamilton Park Cottage",
+          "desdate": "1970-10-13T00:00:00.000",
+          "landmarkty": "Individual Landmark",
+          "url_report": "http://s-media.nyc.gov/agencies/lpc/lp/0330.pdf"
+        }
+      ]
+    }
+  ]
+}

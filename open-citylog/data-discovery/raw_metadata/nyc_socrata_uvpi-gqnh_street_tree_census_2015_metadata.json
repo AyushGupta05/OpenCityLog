@@ -9,7 +9,7 @@
   "description": "Street tree data from the TreesCount! 2015 Street Tree Census, conducted by volunteers and staff organized by NYC Parks & Recreation and partner organizations. Tree data collected includes tree species, diameter and perception of health. Accompanying blockface data is available indicating status of data collection and data release citywide.\n\nThe 2015 tree census was the third decadal street tree census and largest citizen science initiative in NYC Parks’ history. Data collection ran from May 2015 to October 2016 and the results of the census show that there are 666,134 trees planted along NYC's streets. The data collected as part of the census represents a snapshot in time of trees under NYC Parks' jurisdiction.\n\nThe census data formed the basis of our operational database, the Forestry Management System (ForMS) which is used daily by our foresters and other staff for inventory and asset management: https://data.cityofnewyork.us/browse?sortBy=most_accessed&utf8=%E2%9C%93&Data-Collection_Data-Collection=Forestry+Management+System+%28ForMS%29\n\nTo learn more about the data collected and managed in ForMS, please refer to this user guide:\nhttps://docs.google.com/document/d/1PVPWFi-WExkG3rvnagQDoBbqfsGzxCKNmR6n678nUeU/edit. For information on the city's current tree population, use the ForMS datasets.",
   "diciBackend": false,
   "displayType": "table",
-  "downloadCount": 55185,
+  "downloadCount": 55187,
   "hideFromCatalog": false,
   "hideFromDataJson": false,
   "indexUpdatedAt": 1536847042,
@@ -26,7 +26,7 @@
   "rowsUpdatedAt": 1507124486,
   "tableId": 14506999,
   "totalTimesRated": 0,
-  "viewCount": 132854,
+  "viewCount": 132863,
   "viewLastModified": 1731421699,
   "viewType": "tabular",
   "approvals": [

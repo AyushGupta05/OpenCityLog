@@ -1,10 +1,10 @@
 {
   "city": "new_york",
-  "retrieved_at": "2026-04-28T09:52:10.257166+01:00",
+  "retrieved_at": "2026-04-28T11:46:33.066349+00:00",
   "part": "part_1_data_discovery",
   "status": "discovery_inventory_not_finished_ingestion",
-  "source_count": 38,
-  "event_seed_count": 25,
+  "source_count": 54,
+  "event_seed_count": 33,
   "buckets_present": [
     "basemap_physical_features",
     "boundaries_geography",
@@ -19,7 +19,7 @@
     "source_provenance",
     "transport_mobility"
   ],
-  "flagship_area": "Hudson Yards / West Chelsea",
+  "flagship_area": "Hudson Yards / West Chelsea + citywide change chronology",
   "minimum_package_check": {
     "city_boundary_source": true,
     "project_area_boundary_source": true,
@@ -31,5 +31,14 @@
     "transport_or_environment_source": true,
     "limitations_file": "new_york/limitations.md",
     "city_manifest": "new_york/city_manifest.json"
-  }
+  },
+  "raw_metadata_snapshot_count": 54,
+  "timeline_artifacts": {
+    "csv": "new_york/city_timeline.csv",
+    "json": "new_york/city_timeline.json",
+    "yearly_json": "new_york/timeline_by_year.json"
+  },
+  "timeline_year_start": 2005,
+  "timeline_year_end": 2026,
+  "timeline_row_count": 33
 }

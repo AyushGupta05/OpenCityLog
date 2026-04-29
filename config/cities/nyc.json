@@ -8,7 +8,7 @@
   "timezone": "America/New_York",
   "bounds": [-74.2591, 40.4774, -73.7004, 40.9176],
   "default_center": [-73.9857, 40.7484],
-  "default_zoom": 10.25,
+  "default_zoom": 17,
   "available_years": {
     "schema_supported_start": 2000,
     "schema_supported_end": 2026,

@@ -1,0 +1,596 @@
+{
+  "source_id": "jwvp-gyiq",
+  "city": "new_york",
+  "title": "DOT Street Lights and Traffic Signals 311 Requests",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "streetlights/signals/311",
+  "retrieved_at": "2026-04-28T12:58:31.678880+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/jwvp-gyiq",
+      "retrieved_at": "2026-04-28T12:58:30.302181+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/jwvp-gyiq",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7359,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "DOT Street Lights and Traffic Signals (311 Service Requests from 2010 to Present)",
+      "description": "<b>NOTE: This data does not present a full picture of 311 calls or service requests, in part because of operational and system complexities associated with remote call taking necessitated by the unprecedented volume 311 is handling during the Covid-19 crisis. The City is working to address this issue. </b>\r\n\r\nAll 311 Service Requests from 2010 to present. This information is automatically updated daily.<br /><br />Click here to download data from 2011 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4</a><br /><br />Click here to download data from 2012 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5</a><br /><br />Click here to download data from 2013 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n</a><br /><br />Click here to download data from 2014 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562</a><br /><br />Click here to download data from 2015 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj</a>",
+      "attribution": "311",
+      "rowsUpdatedAt": 1777340905,
+      "json_sample": {
+        "id": "jwvp-gyiq",
+        "name": "DOT Street Lights and Traffic Signals (311 Service Requests from 2010 to Present)",
+        "assetType": "chart",
+        "attribution": "311",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1508963293,
+        "description": "<b>NOTE: This data does not present a full picture of 311 calls or service requests, in part because of operational and system complexities associated with remote call taking necessitated by the unprecedented volume 311 is handling during the Covid-19 crisis. The City is working to address this issue. </b>\r\n\r\nAll 311 Service Requests from 2010 to present. This information is automatically updated daily.<br /><br />Click here to download data from 2011 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4</a><br /><br />Click here to download data from 2012 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5</a><br /><br />Click here to download data from 2013 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n</a><br /><br />Click here to download data from 2014 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562</a><br /><br />Click here to download data from 2015 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_chart",
+        "downloadCount": 41,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41844072,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1722010933,
+        "publicationGroup": 244403,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1777340905,
+        "rowsUpdatedBy": "5fuc-pqz2",
+        "tableId": 20219299,
+        "totalTimesRated": 0,
+        "viewCount": 9669,
+        "viewLastModified": 1775603344,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1776716041,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7439541,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1776716012,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "cku2-7rxa",
+              "displayName": "Claudia"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1776716041,
+              "failureCount": 0,
+              "startedAt": 1776716041,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "cku2-7rxa",
+              "displayName": "Claudia"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "showOtherCategory": true,
+                  "showValueLabelsAsPercent": false,
+                  "showValueLabels": true
+                },
+                "series": [
+                  {
+                    "unit": {
+                      "other": "311 Service Requests",
+                      "one": "311 Service Request"
+                    },
+                    "color": {
+                      "secondary": "#e55100",
+                      "highlight": "#cccccc",
+                      "primary": "#3f51b5"
+                    },
+                    "showLegend": true,
+                    "type": "pieChart",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "limit": 5,
+                      "orderBy": {
+                        "parameter": "measure",
+                        "sort": "desc"
+                      },
+                      "filters": [
+                        {
+                          "dataTypeName": "text",
+                          "columns": [
+                            {
+                              "fieldName": "complaint_type",
+                              "datasetUid": "erm2-nwe9"
+                            }
+                          ],
+                          "joinOn": "OR",
+                          "function": "binaryOperator",
+                          "arguments": [
+                            {
+                              "operator": "=",
+                              "operand": "Traffic Signal Condition"
+                            },
+                            {
+                              "operator": "=",
+                              "operand": "Street Light Condition"
+                            }
+                          ],
+                          "isDrilldown": false,
+                          "isHidden": false
+                        }
+                      ],
+                      "type": "socrata.soql",
+                      "datasetUid": "erm2-nwe9",
+                      "dimension": {
+                        "columnName": "borough"
+                      }
+                    }
+                  }
+                ],
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 6
+                },
+                "description": "",
+                "id": "45a61e44-d04b-470d-9a4d-85922651e977",
+                "title": ""
+              }
+            ],
+            "filters": [
+              {
+                "dataTypeName": "text",
+                "columns": [
+                  {
+                    "fieldName": "complaint_type",
+                    "datasetUid": "erm2-nwe9"
+                  }
+                ],
+                "joinOn": "OR",
+                "function": "binaryOperator",
+                "arguments": [
+                  {
+                    "operator": "=",
+                    "operand": "Traffic Signal Condition"
+                  },
+                  {
+                    "operator": "=",
+                    "operand": "Street Light Condition"
+                  }
+                ],
+                "isDrilldown": false,
+                "isHidden": false
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "10/25/2017",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/jwvp-gyiq",
+      "retrieved_at": "2026-04-28T12:58:30.440381+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/jwvp-gyiq",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7359,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "DOT Street Lights and Traffic Signals (311 Service Requests from 2010 to Present)",
+      "description": "<b>NOTE: This data does not present a full picture of 311 calls or service requests, in part because of operational and system complexities associated with remote call taking necessitated by the unprecedented volume 311 is handling during the Covid-19 crisis. The City is working to address this issue. </b>\r\n\r\nAll 311 Service Requests from 2010 to present. This information is automatically updated daily.<br /><br />Click here to download data from 2011 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4</a><br /><br />Click here to download data from 2012 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5</a><br /><br />Click here to download data from 2013 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n</a><br /><br />Click here to download data from 2014 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562</a><br /><br />Click here to download data from 2015 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj</a>",
+      "attribution": "311",
+      "rowsUpdatedAt": 1777340905,
+      "json_sample": {
+        "id": "jwvp-gyiq",
+        "name": "DOT Street Lights and Traffic Signals (311 Service Requests from 2010 to Present)",
+        "assetType": "chart",
+        "attribution": "311",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1508963293,
+        "description": "<b>NOTE: This data does not present a full picture of 311 calls or service requests, in part because of operational and system complexities associated with remote call taking necessitated by the unprecedented volume 311 is handling during the Covid-19 crisis. The City is working to address this issue. </b>\r\n\r\nAll 311 Service Requests from 2010 to present. This information is automatically updated daily.<br /><br />Click here to download data from 2011 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2011/fpz8-jqf4</a><br /><br />Click here to download data from 2012 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2012/as38-8eb5</a><br /><br />Click here to download data from 2013 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2013/hybb-af8n</a><br /><br />Click here to download data from 2014 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2014/vtzg-7562</a><br /><br />Click here to download data from 2015 - <a href=\"https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj\" target=\"_blank\" rel=\"nofollow external\">https://data.cityofnewyork.us/dataset/311-Service-Requests-From-2015/57g5-etyj</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_chart",
+        "downloadCount": 41,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41844072,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1722010933,
+        "publicationGroup": 244403,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1777340905,
+        "rowsUpdatedBy": "5fuc-pqz2",
+        "tableId": 20219299,
+        "totalTimesRated": 0,
+        "viewCount": 9669,
+        "viewLastModified": 1775603344,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1776716041,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7439541,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1776716012,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "cku2-7rxa",
+              "displayName": "Claudia"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1776716041,
+              "failureCount": 0,
+              "startedAt": 1776716041,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "cku2-7rxa",
+              "displayName": "Claudia"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "showOtherCategory": true,
+                  "showValueLabelsAsPercent": false,
+                  "showValueLabels": true
+                },
+                "series": [
+                  {
+                    "unit": {
+                      "other": "311 Service Requests",
+                      "one": "311 Service Request"
+                    },
+                    "color": {
+                      "secondary": "#e55100",
+                      "highlight": "#cccccc",
+                      "primary": "#3f51b5"
+                    },
+                    "showLegend": true,
+                    "type": "pieChart",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "limit": 5,
+                      "orderBy": {
+                        "parameter": "measure",
+                        "sort": "desc"
+                      },
+                      "filters": [
+                        {
+                          "dataTypeName": "text",
+                          "columns": [
+                            {
+                              "fieldName": "complaint_type",
+                              "datasetUid": "erm2-nwe9"
+                            }
+                          ],
+                          "joinOn": "OR",
+                          "function": "binaryOperator",
+                          "arguments": [
+                            {
+                              "operator": "=",
+                              "operand": "Traffic Signal Condition"
+                            },
+                            {
+                              "operator": "=",
+                              "operand": "Street Light Condition"
+                            }
+                          ],
+                          "isDrilldown": false,
+                          "isHidden": false
+                        }
+                      ],
+                      "type": "socrata.soql",
+                      "datasetUid": "erm2-nwe9",
+                      "dimension": {
+                        "columnName": "borough"
+                      }
+                    }
+                  }
+                ],
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 6
+                },
+                "description": "",
+                "id": "45a61e44-d04b-470d-9a4d-85922651e977",
+                "title": ""
+              }
+            ],
+            "filters": [
+              {
+                "dataTypeName": "text",
+                "columns": [
+                  {
+                    "fieldName": "complaint_type",
+                    "datasetUid": "erm2-nwe9"
+                  }
+                ],
+                "joinOn": "OR",
+                "function": "binaryOperator",
+                "arguments": [
+                  {
+                    "operator": "=",
+                    "operand": "Traffic Signal Condition"
+                  },
+                  {
+                    "operator": "=",
+                    "operand": "Street Light Condition"
+                  }
+                ],
+                "isDrilldown": false,
+                "isHidden": false
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "10/25/2017",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/jwvp-gyiq.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:58:31.009889+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/jwvp-gyiq.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Tue, 28 Apr 2026 01:48:43 GMT",
+      "etag": "W/\"Zm94dHJvdC4xNTY1NV8xODNfMTkxNTE0TE5fb1JlOHhsSU1LLVVROXQ2c3dtbUpWWTVJ-P6i6HxTDCf4rUupfoPZS2tgbiR--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 5,
+      "json_list_count_captured": 1,
+      "sample_keys": [],
+      "json_sample": [
+        {}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source_id": "nyc_mta_static_feeds",
+  "title": "MTA developer static data feeds (GTFS)",
+  "requested_url": "https://new.mta.info/developers",
+  "fetched_url": "https://new.mta.info/developers",
+  "final_url": "https://www.mta.info/developers",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "Mon, 27 Apr 2026 21:07:10 GMT",
+  "etag": "\"1777324030\"",
+  "retrieved_at": "2026-04-28T11:05:57.247271+00:00",
+  "page_title": "Developer Resources",
+  "h1": "Developer resources",
+  "meta_description": "Landing page for MTA Data Feeds"
+}

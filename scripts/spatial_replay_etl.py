@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build compact spatial replay indexes for Belfast 2016-2026.
+"""Build compact spatial replay indexes for a configured city and year range.
 
 The script intentionally uses only the Python standard library. It scans the
 available raw data, summarizes GeoJSON feature collections without requiring
@@ -20,7 +20,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-REPLAY_YEARS = list(range(2016, 2027))
+DEFAULT_REPLAY_YEARS = list(range(2016, 2027))
 CATALOG_VERSION = "0.1.0"
 DEFAULT_HASH_MAX_BYTES = 10 * 1024 * 1024
 
@@ -33,8 +33,6 @@ EVENT_TABLES = [
     "pt_route_events",
     "pt_timetable_events",
     "air_observation_events",
-    "scenario_branch_events",
-    "scenario_edit_events",
 ]
 
 SNAPSHOT_TABLES = [
@@ -63,8 +61,16 @@ class SourceFile:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Create compact Belfast 2016-2026 spatial replay catalog and timeline manifests."
+        description="Create compact city-atlas spatial replay catalog and timeline manifests."
     )
+    parser.add_argument("--city-id", default="belfast", help="Stable city id. Default: belfast")
+    parser.add_argument(
+        "--city-name",
+        default="Belfast, Northern Ireland",
+        help="Human-readable city name. Default: Belfast, Northern Ireland",
+    )
+    parser.add_argument("--year-start", type=int, default=2016, help="First replay year. Default: 2016")
+    parser.add_argument("--year-end", type=int, default=2026, help="Final replay year. Default: 2026")
     parser.add_argument("--input", default="data", help="Raw data directory. Default: data")
     parser.add_argument(
         "--output",
@@ -92,6 +98,9 @@ def main(argv: list[str] | None = None) -> int:
         input_dir=input_dir,
         source_manifest_paths=[Path(p) for p in args.source_manifest],
         hash_max_bytes=args.hash_max_bytes,
+        city_id=args.city_id,
+        city_display_name=args.city_name,
+        replay_years=year_range(args.year_start, args.year_end),
     )
     timeline = build_timeline_manifest(catalog)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -107,16 +116,21 @@ def build_catalog(
     input_dir: Path,
     source_manifest_paths: Iterable[Path] = (),
     hash_max_bytes: int = DEFAULT_HASH_MAX_BYTES,
+    city_id: str = "belfast",
+    city_display_name: str = "Belfast, Northern Ireland",
+    replay_years: list[int] | None = None,
 ) -> dict[str, Any]:
     input_root_label = input_dir.as_posix()
     scan_root = input_dir.resolve()
     source_files = discover_source_files(scan_root)
     datasets = [summarize_source_file(item, scan_root, hash_max_bytes) for item in source_files]
 
+    years = replay_years or DEFAULT_REPLAY_YEARS
     return {
         "catalog_version": CATALOG_VERSION,
-        "study_area": "Belfast",
-        "replay_years": REPLAY_YEARS,
+        "city_id": city_id,
+        "city_display_name": city_display_name,
+        "replay_years": years,
         "input_root": input_root_label,
         "dataset_count": len(datasets),
         "datasets": datasets,
@@ -381,14 +395,15 @@ def decode_inline_tiff_value(endian: str, value_type: int, count: int, raw_value
 
 
 def build_timeline_manifest(catalog: dict[str, Any]) -> dict[str, Any]:
-    datasets_by_year: dict[int, list[dict[str, Any]]] = {year: [] for year in REPLAY_YEARS}
+    replay_years = list(catalog.get("replay_years") or DEFAULT_REPLAY_YEARS)
+    datasets_by_year: dict[int, list[dict[str, Any]]] = {year: [] for year in replay_years}
     for dataset in catalog["datasets"]:
         year = dataset.get("source_year")
         if year in datasets_by_year:
             datasets_by_year[year].append(dataset)
 
     snapshots = []
-    for year in REPLAY_YEARS:
+    for year in replay_years:
         datasets = datasets_by_year[year]
         layer_counts = Counter(dataset["layer_kind"] for dataset in datasets)
         snapshots.append(
@@ -403,12 +418,13 @@ def build_timeline_manifest(catalog: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "manifest_version": CATALOG_VERSION,
-        "study_area": catalog["study_area"],
-        "year_start": REPLAY_YEARS[0],
-        "year_end": REPLAY_YEARS[-1],
+        "city_id": catalog.get("city_id"),
+        "city_display_name": catalog.get("city_display_name"),
+        "year_start": replay_years[0],
+        "year_end": replay_years[-1],
         "annual_snapshots": snapshots,
         "event_tables": EVENT_TABLES,
-        "spatial_delta_jobs": build_delta_jobs(snapshots),
+        "spatial_delta_jobs": build_delta_jobs(snapshots, replay_years),
         "static_replay_exports": [
             {
                 "asset_id": "annual_snapshot_tiles",
@@ -433,10 +449,10 @@ def build_timeline_manifest(catalog: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_delta_jobs(snapshots: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def build_delta_jobs(snapshots: list[dict[str, Any]], replay_years: list[int]) -> list[dict[str, Any]]:
     jobs = []
     by_year = {snapshot["year"]: snapshot for snapshot in snapshots}
-    for year in REPLAY_YEARS[:-1]:
+    for year in replay_years[:-1]:
         next_year = year + 1
         current_ready = bool(by_year[year]["source_dataset_ids"])
         next_ready = bool(by_year[next_year]["source_dataset_ids"])
@@ -463,7 +479,7 @@ def summarize_source_manifest(path: Path) -> dict[str, Any]:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         return {**summary, "status": "unreadable", "error": str(exc)}
-    required = {"manifest_version", "source_batch_id", "study_area", "sources"}
+    required = {"manifest_version", "source_batch_id", "city_id", "sources"}
     missing = sorted(required - set(payload.keys())) if isinstance(payload, dict) else sorted(required)
     return {
         "path": str(path),
@@ -480,6 +496,12 @@ def infer_year(value: str) -> int | None:
         if 2000 <= year <= 2099:
             return year
     return None
+
+
+def year_range(start: int, end: int) -> list[int]:
+    if end < start:
+        raise ValueError("--year-end must be greater than or equal to --year-start")
+    return list(range(start, end + 1))
 
 
 def classify_layer(path: Path) -> str:

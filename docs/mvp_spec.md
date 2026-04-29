@@ -65,7 +65,7 @@ Internal product principle:
 | **Electricity/grid simulation** | Too narrow and distracts from the city-change atlas.                               |
 | **AI-generated impact claims**  | Too easy to overclaim causality.                                                   |
 | **Generic impact score**        | Fake precision. Replace with evidence, caveats, and confidence labels.             |
-| **Blockchain/Solana layer**     | No planning/public-user value for the MVP.                                         |
+| **Retired provenance proof layer** | No planning/public-user value for the MVP.                                         |
 | **User accounts**               | Not needed. Public, static-first, open-source is better.                           |
 | **All-six-city launch**         | Too much surface area. One deep city is more impressive than six thin cities.      |
 
@@ -792,9 +792,9 @@ CI should fail if:
 
 # 11. Architecture changes Codex should make in the repo
 
-The current repo is already close in one important way: its README describes **BelfastGit Mode A** as a 2016–2026 city changelog with a Mapbox replay map, deterministic grid metrics, city commits, evidence/confidence panels, provenance, and local OSM/raster/census/population/air-quality data. That historical replay/provenance direction is the part to keep. ([GitHub][15])
+The current repo is already close in one important way: its historical changelog direction preserves a useful 2016–2026 city evidence map with replay-style map interaction, evidence/confidence panels, provenance, and local OSM/raster/census/population/air-quality data. That historical replay/provenance direction is the part to keep. ([GitHub][15])
 
-But the package scripts also include forecast/trend-baseline/transformer-model scripts, and the dependency list includes `@solana/web3.js`, so the architecture should be cleaned around the new evidence-first product. ([GitHub][16])
+But the package scripts also include forecast/trend-baseline/transformer-model scripts, and the dependency list includes retired proof-flow dependency, so the architecture should be cleaned around the new evidence-first product. ([GitHub][16])
 
 ## New architecture
 
@@ -919,7 +919,7 @@ The repo listing currently shows a root `.env` file. Remove it from Git, keep `.
 
 ### 7. Remove irrelevant dependencies
 
-Remove `@solana/web3.js` from MVP dependencies unless there is an absolutely clear civic provenance reason, which there is not for this product. ([GitHub][16])
+Remove the retired proof-flow dependency from MVP dependencies unless there is an absolutely clear civic provenance reason, which there is not for this product. ([GitHub][16])
 
 ### 8. CI should validate trust, not just code
 
@@ -948,7 +948,7 @@ Add GitHub Actions for:
 | `verify-forecast.js`          | Remove from default verification.      |
 | `verify-transformer-model.js` | Remove from default verification.      |
 | `verify-trend-baseline.js`    | Remove from default verification.      |
-| `@solana/web3.js`             | Remove dependency.                     |
+| retired proof-flow dependency             | Remove dependency.                     |
 | Future year slider to 2036    | Remove.                                |
 | Branch futures                | Remove.                                |
 | “Run simulation” button       | Remove.                                |
