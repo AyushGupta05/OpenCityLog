@@ -231,11 +231,26 @@ def evidence_for_source(source: dict[str, Any]) -> dict[str, Any]:
 
 def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
     title = item.get("title") or item.get("event_seed") or "City change milestone"
-    date = item.get("date") or item.get("year") or 2026
+    date = item.get("date") or item.get("date_start") or item.get("year") or 2026
     year = year_from_date(date)
-    bucket = item.get("bucket") or " ".join(str(item.get(k, "")) for k in ["source_hint", "event_seed"])
+    bucket = item.get("bucket") or item.get("category") or " ".join(str(item.get(k, "")) for k in ["source_hint", "event_seed"])
     category, lens, signals = category_and_lens(bucket, title)
-    label, lng, lat = point_for(city, f"{title} {bucket} {item.get('event_seed','')}", idx)
+
+    provided_geometry = item.get("geometry") if isinstance(item.get("geometry"), dict) else None
+    if provided_geometry and provided_geometry.get("type") == "Point":
+        lng, lat = provided_geometry.get("coordinates", [None, None])[:2]
+        label = item.get("area") or item.get("location") or item.get("affected_area") or point_for(city, f"{title} {bucket}", idx)[0]
+    else:
+        lng = item.get("longitude") or item.get("lng")
+        lat = item.get("latitude") or item.get("lat")
+        if lng is not None and lat is not None:
+            lng, lat = float(lng), float(lat)
+            label = item.get("area") or item.get("location") or item.get("affected_area") or point_for(city, f"{title} {bucket}", idx)[0]
+            provided_geometry = {"type": "Point", "coordinates": [lng, lat]}
+        else:
+            label, lng, lat = point_for(city, f"{title} {bucket} {item.get('event_seed','')}", idx)
+            provided_geometry = {"type": "Point", "coordinates": [lng, lat]}
+
     raw_source_ids = item.get("source_ids") or []
     source_ids = [sid for sid in raw_source_ids if sid in source_by_id]
     if not source_ids:
@@ -247,11 +262,15 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         src = source_by_id.get(sid)
         if src:
             evidence.append(evidence_for_source(src))
-    explanation = item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package."
+    explanation = item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package."
+    caveats = [
+        item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate.",
+        "Impact deltas are dashboard proxies until raw traffic/building/environment ETL adapters are connected.",
+    ]
     return {
         "schema_version": SCHEMA,
         "city_id": city,
-        "event_id": f"{city}-milestone-{year}-{slug(title)}-{idx}",
+        "event_id": item.get("event_id") or f"{city}-milestone-{year}-{slug(title)}-{idx}",
         "title": title,
         "year": year,
         "effective_date": str(date).split("-")[0] if date_precision(date) == "range" else str(date),
@@ -259,20 +278,21 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "date_precision": date_precision(date),
         "category": category,
         "lens": lens,
-        "geometry": {"type": "Point", "coordinates": [lng, lat]},
+        "geometry": provided_geometry,
         "affected_area": {"label": label},
         "source_ids": source_ids[:8],
         "evidence": evidence[:8],
-        "confidence": "documented" if evidence else "inferred",
+        "confidence": item.get("confidence") or ("documented" if evidence else "inferred"),
         "affected_signals": signals,
         "explanation": explanation,
         "impact_deltas": impact_deltas(category, signals, year, len(source_ids) or 2),
         "traffic_metrics": traffic_metrics(category, signals, year),
-        "caveats": [
-            "Discovery milestone: use as a search/analysis anchor, not a final causal estimate.",
-            "Impact deltas are dashboard proxies until raw traffic/building/environment ETL adapters are connected.",
-        ],
-        "provenance": {"transform": "scripts/build_discovery_city_atlas.py#normalize_seed", "source_path": str(CITY_META[city]["seed_file"].relative_to(ROOT))},
+        "caveats": [c for c in caveats if c],
+        "provenance": {
+            "transform": "scripts/build_discovery_city_atlas.py#normalize_seed",
+            "source_path": str(CITY_META[city]["seed_file"].relative_to(ROOT)),
+            "source_record_id": item.get("source_record_id") or item.get("record_id"),
+        },
     }
 
 

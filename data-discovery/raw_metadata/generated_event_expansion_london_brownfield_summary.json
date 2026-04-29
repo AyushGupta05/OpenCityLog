@@ -1,0 +1,210 @@
+{
+  "retrieved_at": "2026-04-29T19:24:03.569813+00:00",
+  "source": "planning.data.gov.uk brownfield-land",
+  "lpas": [
+    {
+      "entity": 626202,
+      "name": "Barking and Dagenham",
+      "count": 126,
+      "sample_count": 126
+    },
+    {
+      "entity": 626203,
+      "name": "Barnet",
+      "count": 268,
+      "sample_count": 268
+    },
+    {
+      "entity": 626204,
+      "name": "Bexley",
+      "count": 174,
+      "sample_count": 174
+    },
+    {
+      "entity": 626205,
+      "name": "Brent",
+      "count": 287,
+      "sample_count": 287
+    },
+    {
+      "entity": 626206,
+      "name": "Bromley",
+      "count": 91,
+      "sample_count": 91
+    },
+    {
+      "entity": 626188,
+      "name": "Camden",
+      "count": 151,
+      "sample_count": 151
+    },
+    {
+      "entity": 626189,
+      "name": "City of London",
+      "count": 2,
+      "sample_count": 2
+    },
+    {
+      "entity": 626207,
+      "name": "Croydon",
+      "count": 550,
+      "sample_count": 500
+    },
+    {
+      "entity": 626208,
+      "name": "Ealing",
+      "count": 70,
+      "sample_count": 70
+    },
+    {
+      "entity": 626209,
+      "name": "Enfield",
+      "count": 27,
+      "sample_count": 27
+    },
+    {
+      "entity": 626210,
+      "name": "Greenwich",
+      "count": 95,
+      "sample_count": 95
+    },
+    {
+      "entity": 626190,
+      "name": "Hackney",
+      "count": 38,
+      "sample_count": 38
+    },
+    {
+      "entity": 626191,
+      "name": "Hammersmith and Fulham",
+      "count": 23,
+      "sample_count": 23
+    },
+    {
+      "entity": 626192,
+      "name": "Haringey",
+      "count": 200,
+      "sample_count": 200
+    },
+    {
+      "entity": 626211,
+      "name": "Harrow",
+      "count": 102,
+      "sample_count": 102
+    },
+    {
+      "entity": 626212,
+      "name": "Havering",
+      "count": 106,
+      "sample_count": 106
+    },
+    {
+      "entity": 626213,
+      "name": "Hillingdon",
+      "count": 202,
+      "sample_count": 202
+    },
+    {
+      "entity": 626214,
+      "name": "Hounslow",
+      "count": 64,
+      "sample_count": 64
+    },
+    {
+      "entity": 626193,
+      "name": "Islington",
+      "count": 135,
+      "sample_count": 135
+    },
+    {
+      "entity": 626194,
+      "name": "Kensington and Chelsea",
+      "count": 74,
+      "sample_count": 74
+    },
+    {
+      "entity": 626215,
+      "name": "Kingston upon Thames",
+      "count": 3,
+      "sample_count": 3
+    },
+    {
+      "entity": 626195,
+      "name": "Lambeth",
+      "count": 169,
+      "sample_count": 169
+    },
+    {
+      "entity": 626196,
+      "name": "Lewisham",
+      "count": 331,
+      "sample_count": 331
+    },
+    {
+      "entity": 626329,
+      "name": "London Legacy Development Corporation",
+      "count": 3,
+      "sample_count": 3
+    },
+    {
+      "entity": 626216,
+      "name": "Merton",
+      "count": 180,
+      "sample_count": 180
+    },
+    {
+      "entity": 626197,
+      "name": "Newham",
+      "count": 92,
+      "sample_count": 92
+    },
+    {
+      "entity": 626217,
+      "name": "Redbridge",
+      "count": 188,
+      "sample_count": 188
+    },
+    {
+      "entity": 626218,
+      "name": "Richmond upon Thames",
+      "count": 117,
+      "sample_count": 117
+    },
+    {
+      "entity": 626198,
+      "name": "Southwark",
+      "count": 790,
+      "sample_count": 500
+    },
+    {
+      "entity": 626219,
+      "name": "Sutton",
+      "count": 103,
+      "sample_count": 103
+    },
+    {
+      "entity": 626199,
+      "name": "Tower Hamlets",
+      "count": 27,
+      "sample_count": 27
+    },
+    {
+      "entity": 626220,
+      "name": "Waltham Forest",
+      "count": 224,
+      "sample_count": 224
+    },
+    {
+      "entity": 626200,
+      "name": "Wandsworth",
+      "count": 411,
+      "sample_count": 411
+    },
+    {
+      "entity": 626201,
+      "name": "Westminster",
+      "count": 280,
+      "sample_count": 280
+    }
+  ]
+}
