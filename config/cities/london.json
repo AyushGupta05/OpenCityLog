@@ -17,14 +17,6 @@
   },
   "source_families": [
     {
-      "family_id": "planning",
-      "label": "London-wide planning applications and development proposals",
-      "source_ids": ["planning-london-datahub"],
-      "availability": "adapter_placeholder",
-      "years": [2020, 2021, 2022, 2023, 2024, 2025, 2026],
-      "notes": "Planned adapter should start with public PLD API records and preserve borough/source references."
-    },
-    {
       "family_id": "open_data_portal",
       "label": "Greater London Authority London Datastore",
       "source_ids": ["london-datastore"],
@@ -33,12 +25,100 @@
       "notes": "Use dataset-level licence and update metadata. Do not assume all portal records share one licence."
     },
     {
-      "family_id": "transport",
-      "label": "Transport for London open data",
-      "source_ids": ["tfl-open-data"],
+      "family_id": "satellite_imagery",
+      "label": "Global Landsat and Sentinel-2 archives",
+      "source_ids": ["landsat-collection-2", "copernicus-sentinel-2"],
       "availability": "adapter_placeholder",
       "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
-      "notes": "Use feeds for observed service/network context and keep TfL terms with every derived artifact."
+      "notes": "Public-domain Landsat back to the 1970s and Copernicus Sentinel-2 from 2015 fill gaps where London lacks an open citywide ortho time series."
+    },
+    {
+      "family_id": "historical_imagery",
+      "label": "Historic England aerial archive and Environment Agency vertical aerials",
+      "source_ids": ["london-historic-aerial-imagery"],
+      "availability": "adapter_placeholder",
+      "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Historic England exposes 540,000+ digitized photos; Environment Agency vertical aerials provide official airborne mapping; OS MasterMap Imagery is licensed."
+    },
+    {
+      "family_id": "planning",
+      "label": "Planning London Datahub and APIs",
+      "source_ids": ["planning-london-datahub", "london-planning-datahub-core", "london-planning-datahub-api"],
+      "availability": "adapter_placeholder",
+      "years": [2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "PLD core platform plus the public guest API; preserve borough/source references and API connection schema version."
+    },
+    {
+      "family_id": "land_use_documents",
+      "label": "London Development Database archive and PlanApps comments",
+      "source_ids": ["london-development-database-archive"],
+      "availability": "adapter_placeholder",
+      "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "LDD archive plus PlanApps comments back to 2012; minimize personal-text display from public consultation records."
+    },
+    {
+      "family_id": "housing_delivery",
+      "label": "Residential approvals, starts, and completions dashboards",
+      "source_ids": ["london-residential-pipeline-dashboards"],
+      "availability": "adapter_placeholder",
+      "years": [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Three GLA dashboards derived from PLD; preserve borough submission caveats."
+    },
+    {
+      "family_id": "parcel_geometry",
+      "label": "OS 3D Mesh and London Building Stock Model v2",
+      "source_ids": ["london-3d-building-stock-context"],
+      "availability": "adapter_placeholder",
+      "years": [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Beta and analytical-model access only; not equivalent to NYC's open lot-level open parcel/building stack."
+    },
+    {
+      "family_id": "street_network",
+      "label": "OS Open Roads, USRN, UPRN, OpenMap Local, Open Zoomstack",
+      "source_ids": ["london-os-open-roads-uprn"],
+      "availability": "adapter_placeholder",
+      "years": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "OS OpenData products are current open national layers; pair with snapshots for historical change detection."
+    },
+    {
+      "family_id": "traffic",
+      "label": "DfT road traffic statistics for London",
+      "source_ids": ["london-dft-traffic-counts"],
+      "availability": "adapter_placeholder",
+      "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Preserve the Counted versus Estimated method flag and upweight directly counted observations."
+    },
+    {
+      "family_id": "transit",
+      "label": "Transport for London open data and cycle hire",
+      "source_ids": ["tfl-open-data", "london-tfl-network-demand-cycle"],
+      "availability": "adapter_placeholder",
+      "years": [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "TfL Unified API plus accessibility (PTAL), demand, BikePoint occupancy, and Santander Cycle hires from 30 July 2010."
+    },
+    {
+      "family_id": "economy_demographics",
+      "label": "Nomis, BRES, ONS, and GLA borough-by-sector jobs",
+      "source_ids": ["london-nomis-bres-ons"],
+      "availability": "adapter_placeholder",
+      "years": [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+      "notes": "Strong long-run labour and demography stack; treat 2025-2026 as not yet published unless verified."
+    },
+    {
+      "family_id": "property",
+      "label": "HM Land Registry Price Paid, UK HPI, and VOA private rents",
+      "source_ids": ["london-land-registry-property"],
+      "availability": "adapter_placeholder",
+      "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Best official stack for property transactions and rent/price trend context; verify Price Paid permitted-use guidance."
+    },
+    {
+      "family_id": "service_requests",
+      "label": "Talk London, Annual London Survey, and consultations",
+      "source_ids": ["london-talk-london-survey"],
+      "availability": "adapter_placeholder",
+      "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "No citywide 311-style ledger; treat as opinion and consultation evidence rather than service-request exhaust."
     },
     {
       "family_id": "osm_history",
@@ -50,7 +130,7 @@
     }
   ],
   "data_availability": {
-    "summary": "London is configured as a contribution-ready placeholder. No normalized local event artifacts are bundled yet.",
+    "summary": "London source registry populated from the Historical Urban Event Evidence Data Catalog PDF. Adapters are still placeholders; per-family data ingestion is contribution-ready.",
     "status": "placeholder"
   }
 }

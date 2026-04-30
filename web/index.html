@@ -240,8 +240,50 @@
           </div>
           <p id="catalogSummary">Loading NYC/London evidence catalog.</p>
           <div id="catalogStats" class="catalog-stats" aria-label="Catalog data counts"></div>
-          <div id="catalogSourceGrid" class="catalog-source-grid"></div>
-          <div id="catalogTimelineList" class="catalog-timeline-list"></div>
+
+          <details class="catalog-block" open>
+            <summary>MVP stack &amp; strengths</summary>
+            <div id="catalogMvpStack" class="catalog-mvp-stack"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Domain comparison <span id="catalogDomainCount" class="catalog-pill"></span></summary>
+            <div id="catalogDomainGrid" class="catalog-domain-grid"></div>
+          </details>
+
+          <details class="catalog-block" open>
+            <summary>City source families <span id="catalogSourceCount" class="catalog-pill"></span></summary>
+            <div id="catalogSourceGrid" class="catalog-source-grid"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Foundational global layers <span id="catalogFoundationalCount" class="catalog-pill"></span></summary>
+            <div id="catalogFoundationalGrid" class="catalog-source-grid"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Coverage timelines <span id="catalogTimelineCount" class="catalog-pill"></span></summary>
+            <div id="catalogTimelineList" class="catalog-timeline-list"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Adapter patterns &amp; visual products</summary>
+            <div id="catalogAdapters" class="catalog-adapters"></div>
+            <div id="catalogVisuals" class="catalog-visuals"></div>
+            <p id="catalogGraphModel" class="catalog-note"></p>
+            <p id="catalogInterpolation" class="catalog-note"></p>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Legal &amp; ethical constraints</summary>
+            <ul id="catalogLegalList" class="catalog-bullet-list"></ul>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Open questions &amp; limitations</summary>
+            <ul id="catalogOpenQuestions" class="catalog-bullet-list"></ul>
+          </details>
+
           <a class="catalog-raw-link" href="/data/city-atlas/evidence-catalog-raw.txt" target="_blank" rel="noreferrer">Open raw extracted PDF text</a>
         </section>
       </aside>

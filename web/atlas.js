@@ -167,8 +167,21 @@
       "sourceList",
       "catalogSummary",
       "catalogStats",
+      "catalogMvpStack",
+      "catalogDomainGrid",
+      "catalogDomainCount",
       "catalogSourceGrid",
+      "catalogSourceCount",
+      "catalogFoundationalGrid",
+      "catalogFoundationalCount",
       "catalogTimelineList",
+      "catalogTimelineCount",
+      "catalogAdapters",
+      "catalogVisuals",
+      "catalogGraphModel",
+      "catalogInterpolation",
+      "catalogLegalList",
+      "catalogOpenQuestions",
       "toast",
     ]) {
       els[id] = document.getElementById(id);
@@ -382,24 +395,29 @@
     if (!els.catalogSummary || !els.catalogSourceGrid || !els.catalogTimelineList || !els.catalogStats) return;
     const catalog = state.evidenceCatalog;
     const cityKey = evidenceCatalogCityKey();
-    if (!catalog || !cityKey) {
-      els.catalogSummary.textContent = catalog
-        ? "The PDF catalog currently covers New York City and London; switch city to inspect its evidence-source stack."
-        : "The PDF evidence catalog could not be loaded.";
-      els.catalogStats.innerHTML = "";
-      els.catalogSourceGrid.innerHTML = "";
-      els.catalogTimelineList.innerHTML = "";
+    if (!catalog) {
+      els.catalogSummary.textContent = "The PDF evidence catalog could not be loaded.";
+      clearCatalogSlots();
+      return;
+    }
+    if (!cityKey) {
+      const cityFamilyCount = (catalog.city_source_families || []).length;
+      const tlCount = (catalog.coverage_timelines || []).length;
+      els.catalogSummary.textContent = `Catalog covers New York City and London with ${formatNumber(cityFamilyCount)} source families and ${formatNumber(tlCount)} coverage windows. Switch city to NYC or London to load its stack.`;
+      clearCatalogSlots();
+      renderCatalogFoundational(catalog.foundational_sources || []);
+      renderCatalogAdapters(catalog);
+      renderCatalogLegal(catalog);
+      renderCatalogOpenQuestions(catalog);
       return;
     }
 
     const citySources = (catalog.city_source_families || []).filter((source) => source.city === cityKey);
     const foundational = catalog.foundational_sources || [];
     const timelines = (catalog.coverage_timelines || []).filter((item) => item.city === cityKey);
-    const domainMatches = (catalog.domain_comparison || []).filter((item) => {
-      const cityText = cityKey === "new_york" ? item.new_york_priority_source : item.london_priority_source;
-      return Boolean(cityText);
-    });
+    const domainMatches = catalog.domain_comparison || [];
     const cityName = cityKey === "new_york" ? "New York City" : "London";
+    const cityKeyName = cityKey === "new_york" ? "new_york" : "london";
     els.catalogSummary.textContent = `${cityName} catalog loaded from the PDF: ${formatNumber(citySources.length)} city source families, ${formatNumber(foundational.length)} shared foundational layers, ${formatNumber(timelines.length)} conservative coverage windows. ${catalog.executive_summary?.time_caveat || "Treat 2026 annual series as partial unless the source is live."}`;
     els.catalogStats.innerHTML = [
       ["Domains", domainMatches.length],
@@ -408,28 +426,205 @@
       ["Timelines", timelines.length],
     ].map(([label, value]) => `<span><strong>${formatNumber(value)}</strong>${escapeHtml(label)}</span>`).join("");
 
-    const sourceCards = [...citySources.slice(0, 5), ...foundational.slice(0, 2)];
-    els.catalogSourceGrid.innerHTML = sourceCards.map((source) => renderCatalogSourceCard(source)).join("");
-    els.catalogTimelineList.innerHTML = timelines.slice(0, 5).map((item) => `
-      <article class="catalog-timeline-item">
-        <strong>${escapeHtml(item.label)}</strong>
-        <span>${escapeHtml(item.start_date)} -> ${escapeHtml(item.end_date)}</span>
-      </article>
-    `).join("") || `<div class="empty-state">No coverage windows supplied for this city.</div>`;
+    renderCatalogMvpStack(catalog, cityKeyName);
+    renderCatalogDomains(domainMatches, cityKeyName);
+    renderCatalogCitySources(citySources);
+    renderCatalogFoundational(foundational);
+    renderCatalogTimelines(timelines);
+    renderCatalogAdapters(catalog);
+    renderCatalogLegal(catalog);
+    renderCatalogOpenQuestions(catalog);
+  }
+
+  function clearCatalogSlots() {
+    if (els.catalogStats) els.catalogStats.innerHTML = "";
+    if (els.catalogMvpStack) els.catalogMvpStack.innerHTML = "";
+    if (els.catalogDomainGrid) els.catalogDomainGrid.innerHTML = "";
+    if (els.catalogDomainCount) els.catalogDomainCount.textContent = "";
+    if (els.catalogSourceGrid) els.catalogSourceGrid.innerHTML = "";
+    if (els.catalogSourceCount) els.catalogSourceCount.textContent = "";
+    if (els.catalogFoundationalGrid) els.catalogFoundationalGrid.innerHTML = "";
+    if (els.catalogFoundationalCount) els.catalogFoundationalCount.textContent = "";
+    if (els.catalogTimelineList) els.catalogTimelineList.innerHTML = "";
+    if (els.catalogTimelineCount) els.catalogTimelineCount.textContent = "";
+  }
+
+  function renderCatalogMvpStack(catalog, cityKey) {
+    if (!els.catalogMvpStack) return;
+    const summary = catalog.executive_summary || {};
+    const mvp = summary.mvp_stack || {};
+    const cityList = cityKey === "new_york" ? mvp.new_york : mvp.london;
+    const otherList = cityKey === "new_york" ? mvp.london : mvp.new_york;
+    const otherName = cityKey === "new_york" ? "London peer stack" : "NYC peer stack";
+    const ownName = cityKey === "new_york" ? "NYC priority stack" : "London priority stack";
+    const strengthsKey = cityKey === "new_york" ? "nyc_strengths" : "london_strengths";
+    const strengths = summary[strengthsKey] || [];
+    const shared = summary.shared_strengths || [];
+
+    const renderChips = (items) => (items || [])
+      .map((item) => `<li>${escapeHtml(String(item))}</li>`)
+      .join("") || `<li class="muted">Not specified.</li>`;
+
+    els.catalogMvpStack.innerHTML = `
+      <div class="catalog-mvp-block">
+        <h4>${escapeHtml(ownName)}</h4>
+        <ul class="catalog-chip-list">${renderChips(cityList)}</ul>
+      </div>
+      <div class="catalog-mvp-block">
+        <h4>City strengths</h4>
+        <ul class="catalog-chip-list">${renderChips(strengths)}</ul>
+      </div>
+      <div class="catalog-mvp-block">
+        <h4>Shared global layers</h4>
+        <ul class="catalog-chip-list">${renderChips(shared)}</ul>
+      </div>
+      <div class="catalog-mvp-block">
+        <h4>${escapeHtml(otherName)}</h4>
+        <ul class="catalog-chip-list catalog-chip-list-muted">${renderChips(otherList)}</ul>
+      </div>
+    `;
+  }
+
+  function renderCatalogDomains(domains, cityKey) {
+    if (!els.catalogDomainGrid) return;
+    const items = domains || [];
+    if (els.catalogDomainCount) els.catalogDomainCount.textContent = items.length ? String(items.length) : "";
+    if (!items.length) {
+      els.catalogDomainGrid.innerHTML = `<div class="empty-state">No domain comparisons in catalog.</div>`;
+      return;
+    }
+    const ownLabel = cityKey === "new_york" ? "NYC priority" : "London priority";
+    const peerLabel = cityKey === "new_york" ? "London peer" : "NYC peer";
+    els.catalogDomainGrid.innerHTML = items.map((item) => {
+      const own = cityKey === "new_york" ? item.new_york_priority_source : item.london_priority_source;
+      const peer = cityKey === "new_york" ? item.london_priority_source : item.new_york_priority_source;
+      return `
+        <article class="catalog-domain-card">
+          <header>
+            <strong>${escapeHtml(item.domain || item.id || "Domain")}</strong>
+          </header>
+          <dl>
+            <dt>${escapeHtml(ownLabel)}</dt>
+            <dd>${escapeHtml(own || "Not listed in PDF.")}</dd>
+            <dt>${escapeHtml(peerLabel)}</dt>
+            <dd>${escapeHtml(peer || "Not listed in PDF.")}</dd>
+          </dl>
+          <p>${escapeHtml(item.assessment || "")}</p>
+        </article>
+      `;
+    }).join("");
+  }
+
+  function renderCatalogCitySources(citySources) {
+    if (!els.catalogSourceGrid) return;
+    if (els.catalogSourceCount) els.catalogSourceCount.textContent = citySources.length ? String(citySources.length) : "";
+    if (!citySources.length) {
+      els.catalogSourceGrid.innerHTML = `<div class="empty-state">No city-specific source families found in catalog.</div>`;
+      return;
+    }
+    els.catalogSourceGrid.innerHTML = citySources.map((source) => renderCatalogSourceCard(source)).join("");
+  }
+
+  function renderCatalogFoundational(foundational) {
+    if (!els.catalogFoundationalGrid) return;
+    if (els.catalogFoundationalCount) els.catalogFoundationalCount.textContent = foundational.length ? String(foundational.length) : "";
+    if (!foundational.length) {
+      els.catalogFoundationalGrid.innerHTML = `<div class="empty-state">No global foundational sources in catalog.</div>`;
+      return;
+    }
+    els.catalogFoundationalGrid.innerHTML = foundational.map((source) => renderCatalogSourceCard(source)).join("");
+  }
+
+  function renderCatalogTimelines(timelines) {
+    if (!els.catalogTimelineList) return;
+    if (els.catalogTimelineCount) els.catalogTimelineCount.textContent = timelines.length ? String(timelines.length) : "";
+    if (!timelines.length) {
+      els.catalogTimelineList.innerHTML = `<div class="empty-state">No coverage windows supplied for this city.</div>`;
+      return;
+    }
+    els.catalogTimelineList.innerHTML = timelines.map((item) => {
+      const startYear = String(item.start_date || "").slice(0, 4);
+      const endYear = String(item.end_date || "").slice(0, 4);
+      const startN = Number(startYear);
+      const endN = Number(endYear);
+      const widthPct = Number.isFinite(startN) && Number.isFinite(endN) && endN >= startN
+        ? Math.max(((endN - startN) / 26) * 100, 4)
+        : 4;
+      const offsetPct = Number.isFinite(startN)
+        ? Math.max(((startN - 2000) / 26) * 100, 0)
+        : 0;
+      return `
+        <article class="catalog-timeline-item">
+          <header>
+            <strong>${escapeHtml(item.label)}</strong>
+            <span>${escapeHtml(startYear)} – ${escapeHtml(endYear)}</span>
+          </header>
+          <div class="catalog-timeline-bar" aria-hidden="true">
+            <span style="left:${offsetPct}%; width:${widthPct}%;"></span>
+          </div>
+          <small>${escapeHtml(item.source_basis || "")}</small>
+        </article>
+      `;
+    }).join("");
+  }
+
+  function renderCatalogAdapters(catalog) {
+    const guidance = catalog.implementation_guidance || {};
+    if (els.catalogAdapters) {
+      const adapters = guidance.adapter_patterns || [];
+      els.catalogAdapters.innerHTML = adapters.length
+        ? adapters.map((adapter) => `
+            <div class="catalog-adapter-row">
+              <strong>${escapeHtml(adapter.id || "")}</strong>
+              <span>${escapeHtml(adapter.description || "")}</span>
+            </div>
+          `).join("")
+        : `<div class="empty-state">No adapter patterns recorded.</div>`;
+    }
+    if (els.catalogVisuals) {
+      const visuals = guidance.recommended_visual_products || [];
+      els.catalogVisuals.innerHTML = visuals.length
+        ? `<h4>Recommended visual products</h4><ul class="catalog-bullet-list">${visuals.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`
+        : "";
+    }
+    if (els.catalogGraphModel) {
+      els.catalogGraphModel.textContent = guidance.graph_model || "";
+    }
+    if (els.catalogInterpolation) {
+      els.catalogInterpolation.textContent = guidance.interpolation_strategy || "";
+    }
+  }
+
+  function renderCatalogLegal(catalog) {
+    if (!els.catalogLegalList) return;
+    const items = catalog.legal_ethics_constraints || [];
+    els.catalogLegalList.innerHTML = items.length
+      ? items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+      : `<li class="muted">No constraints recorded.</li>`;
+  }
+
+  function renderCatalogOpenQuestions(catalog) {
+    if (!els.catalogOpenQuestions) return;
+    const items = catalog.open_questions_limitations || [];
+    els.catalogOpenQuestions.innerHTML = items.length
+      ? items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+      : `<li class="muted">No open questions recorded.</li>`;
   }
 
   function renderCatalogSourceCard(source) {
     const href = Array.isArray(source.direct_access) ? source.direct_access.find((url) => /^https?:\/\//.test(url)) : "";
     const adapter = source.recommended_adapter || "Adapter pending";
     const confidence = source.confidence ? `${source.confidence} confidence` : "confidence not supplied";
+    const license = source.license_terms ? `<small class="catalog-source-license">${escapeHtml(truncate(source.license_terms, 140))}</small>` : "";
     return `
       <article class="catalog-source-card">
         <div>
           <strong>${escapeHtml(source.source_family || source.id || "Evidence source")}</strong>
           <span>${escapeHtml(adapter)}</span>
         </div>
-        <p>${escapeHtml(truncate(source.suggested_use_quality_notes || source.coverage_and_gaps || "Catalog source family", 180))}</p>
-        <small>${escapeHtml(confidence)} · ${escapeHtml(source.update_frequency || "cadence varies")}</small>
+        <p>${escapeHtml(truncate(source.suggested_use_quality_notes || source.coverage_and_gaps || "Catalog source family", 220))}</p>
+        <small>${escapeHtml(confidence)} · ${escapeHtml(source.update_frequency || "cadence varies")} · ${escapeHtml(source.spatial_granularity || "granularity unspecified")}</small>
+        ${license}
         ${href ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer">Open source</a>` : ""}
       </article>
     `;

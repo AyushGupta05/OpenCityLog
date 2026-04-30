@@ -1717,6 +1717,241 @@ a {
   font-weight: 800;
 }
 
+.catalog-source-license {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+.catalog-block {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel-soft);
+  padding: 0;
+  overflow: hidden;
+}
+
+.catalog-block > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f2937;
+  list-style: none;
+}
+
+.catalog-block > summary::-webkit-details-marker {
+  display: none;
+}
+
+.catalog-block > summary::after {
+  content: "+";
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.catalog-block[open] > summary::after {
+  content: "–";
+}
+
+.catalog-block > *:not(summary) {
+  padding: 0 12px 12px;
+}
+
+.catalog-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.catalog-mvp-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.catalog-mvp-block h4 {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.catalog-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.catalog-chip-list li {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: #1f2937;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.catalog-chip-list li.muted {
+  color: var(--muted);
+  background: transparent;
+  font-style: italic;
+}
+
+.catalog-chip-list-muted li {
+  background: #f1f5f9;
+  color: #475569;
+  opacity: 0.85;
+}
+
+.catalog-domain-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.catalog-domain-card {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+
+.catalog-domain-card header strong {
+  font-size: 12px;
+  color: #1f2937;
+}
+
+.catalog-domain-card dl {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 4px 8px;
+  margin: 0;
+}
+
+.catalog-domain-card dt {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.catalog-domain-card dd {
+  margin: 0;
+  font-size: 12px;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.catalog-domain-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.catalog-timeline-item header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.catalog-timeline-bar {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.catalog-timeline-bar span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+.catalog-timeline-item small {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+.catalog-adapter-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 6px 10px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 12px;
+  color: #1f2937;
+}
+
+.catalog-adapter-row:last-child {
+  border-bottom: none;
+}
+
+.catalog-adapter-row strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.catalog-visuals h4 {
+  margin: 8px 0 4px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.catalog-bullet-list {
+  margin: 0;
+  padding-left: 16px;
+  display: grid;
+  gap: 4px;
+}
+
+.catalog-bullet-list li {
+  color: #1f2937;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.catalog-bullet-list li.muted {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.catalog-note {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
 .toast {
   position: fixed;
   right: 22px;
