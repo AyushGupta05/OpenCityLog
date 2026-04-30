@@ -357,7 +357,7 @@
   }
 
   function renderChrome() {
-    document.title = `${shortCityName(state.city?.display_name)} - CivicReplay`;
+    document.title = `${shortCityName(state.city?.display_name)} - Open Citylog`;
     els.areaTitle.textContent = shortCityName(state.city?.display_name);
     els.mapAttribution.textContent = imageryAttribution();
     renderCitySelect();
@@ -1377,7 +1377,7 @@
   function briefPayload() {
     const event = state.selectedEvent;
     return {
-      product: "CivicReplay",
+      product: "Open Citylog",
       city_id: state.cityId,
       city_name: state.city?.display_name,
       selected_year: state.year,

@@ -79,9 +79,9 @@ async function waitForAtlas(page) {
   assert(desktopState.scrollHeight <= desktopState.clientHeight + 4, `Desktop layout overflows vertically: ${desktopState.scrollHeight} > ${desktopState.clientHeight}.`);
   assert(/Esri World Imagery|source-backed event overlays/i.test(desktopState.mapCopy), "Map attribution/footer copy is missing.");
   assert(!/\bRun Simulation\b|\bSolana\b|\bScenario Studio\b|\bbranch workspace\b/i.test(desktopState.visibleText), "Legacy simulator language is visible.");
-  assert(/not a prediction engine/i.test(desktopState.visibleText), "Evidence-map caveat is not visible.");
+  assert(/Observed city change with public evidence/i.test(desktopState.visibleText), "Evidence-map caveat is not visible.");
 
-  await desktop.screenshot({ path: path.join(outputDir, "civicreplay-desktop-smoke.png"), fullPage: false });
+  await desktop.screenshot({ path: path.join(outputDir, "open-citylog-desktop-smoke.png"), fullPage: false });
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 860 }, deviceScaleFactor: 2, isMobile: true });
   mobile.on("console", (message) => {
@@ -118,14 +118,14 @@ async function waitForAtlas(page) {
   assert(mobileState.eventThumbImages > 0, "Mobile event thumbnails did not render imagery tiles.");
   assert(mobileState.thumbWidth <= 92 && mobileState.thumbHeight >= 100, "Mobile event thumbnail sizing is wrong.");
   assert(mobileState.thumbBeforeText, "Mobile event thumbnail overlaps event text.");
-  assert(/Change log|Timeline|Evidence brief|Before \/ after|CivicReplay/i.test(mobileState.visibleText), "Mobile product sections are missing.");
+  assert(/Change log|Timeline|Evidence brief|Before \/ after|Open Citylog/i.test(mobileState.visibleText), "Mobile product sections are missing.");
 
-  await mobile.screenshot({ path: path.join(outputDir, "civicreplay-mobile-smoke.png"), fullPage: true });
+  await mobile.screenshot({ path: path.join(outputDir, "open-citylog-mobile-smoke.png"), fullPage: true });
   await browser.close();
 
   const filteredErrors = consoleErrors.filter((error) => !/favicon/i.test(error));
   assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
-  console.log("CivicReplay dashboard smoke OK: desktop/mobile layout, map coverage, filters, timeline, and evidence brief.");
+  console.log("Open Citylog dashboard smoke OK: desktop/mobile layout, map coverage, filters, timeline, and evidence brief.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

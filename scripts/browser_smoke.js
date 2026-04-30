@@ -85,7 +85,7 @@ async function waitForAtlas(page) {
     selectedTitle: document.querySelector("#detailTitle")?.textContent || "",
   }));
 
-  assert(initial.title.includes("CivicReplay"), "CivicReplay title did not render.");
+  assert(initial.title.includes("Open Citylog"), "Open Citylog title did not render.");
   for (const cityId of ["belfast", "london", "nyc"]) {
     assert(initial.cityOptions.includes(cityId), `Missing city selector option ${cityId}.`);
   }
@@ -132,7 +132,7 @@ async function waitForAtlas(page) {
 
   await page.locator('[data-impact-mode="place"]').click();
   await page.waitForFunction(() => window.BimsAtlas.state.impactMode === "place", null, { timeout: 5000 });
-  assert(/Historical evidence map, not a prediction engine/i.test(initial.visibleText), "Non-prediction caveat is not visible.");
+  assert(/Observed city change with public evidence/i.test(initial.visibleText), "Evidence-backed product caveat is not visible.");
   assert(!/Run Simulation|Solana|Scenario Studio|2036 Scenario|Branch Workspace/i.test(initial.visibleText), "Legacy simulator UI copy is still visible.");
 
   await page.locator("#citySelect").selectOption("nyc");
@@ -237,12 +237,12 @@ async function waitForAtlas(page) {
   assert(/Causal claim is not made|source limitations/i.test(belfastState.limitations), "Limitations do not show the causal caveat.");
   assert(belfastState.sourcesText.length > 20, "Evidence sources did not render.");
 
-  await page.screenshot({ path: path.join(outputDir, "civicreplay-browser-smoke.png"), fullPage: false });
+  await page.screenshot({ path: path.join(outputDir, "open-citylog-browser-smoke.png"), fullPage: false });
   await browser.close();
 
   const filteredErrors = consoleErrors.filter((error) => !/favicon/i.test(error));
   assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
-  console.log("CivicReplay browser smoke OK: city switching, filters, map overlay, timeline, evidence brief, and legacy-copy guard.");
+  console.log("Open Citylog browser smoke OK: city switching, filters, map overlay, timeline, evidence brief, and legacy-copy guard.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);
