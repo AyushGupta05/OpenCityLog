@@ -1,0 +1,5 @@
+
+> bims-city-atlas@0.1.0 start
+> node server.js
+
+Open Citylog atlas UI/API running at http://localhost:5174
