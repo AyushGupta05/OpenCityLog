@@ -13,7 +13,8 @@
     "verify:proposal": "node scripts/verify_proposal_impact.js",
     "verify": "npm run verify:data && node scripts/verify_no_legacy_paths.js && node scripts/verify-manifest.js && npm run verify:proposal",
     "verify:browser": "node scripts/browser_smoke.js && node scripts/dashboard_smoke.js",
-    "test": "npm run build:data && npm run verify:data && npm run verify:proposal && node scripts/run_python.js -m unittest discover tests"
+    "coverage:python": "coverage run -m unittest discover tests && coverage report --fail-under=80",
+    "test": "npm run build:data && npm run verify:data && npm run verify:proposal && npm run coverage:python"
   },
   "devDependencies": {
     "playwright": "^1.51.1"

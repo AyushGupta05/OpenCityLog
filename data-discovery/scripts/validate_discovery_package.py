@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO = ROOT.parent
 REQUIRED_BUCKETS = [
     'boundaries_geography','basemap_physical_features','planning_development',
     'housing_delivery','transport_mobility','environment_air_quality',
@@ -59,7 +60,8 @@ def validate_city(city):
     if len(ids)!=len(set(ids)): issues.append('duplicate source_id')
     for s in sources:
         rf=s.get('raw_metadata_file')
-        if not rf or not (ROOT / rf).exists(): issues.append(f"missing raw metadata: {s.get('source_id')}")
+        if not rf or not ((ROOT / rf).exists() or (REPO / rf).exists()):
+            issues.append(f"missing raw metadata: {s.get('source_id')}")
     hits=canonical_hits(sources)
     missing=[b for b,v in hits.items() if v==0]
     if missing: issues.append('missing required bucket coverage: '+', '.join(missing))

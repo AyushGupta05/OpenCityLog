@@ -3,7 +3,8 @@ const path = require("path");
 
 const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "disputed"]);
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
-const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked", "discovery_catalog_ready"]);
+const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]);
+const EVIDENCE_KINDS = new Set(["source_url", "local_file", "changeset", "source_record"]);
 const GEOMETRY_TYPES = new Set([
   "Point",
   "MultiPoint",
@@ -105,7 +106,7 @@ function validateCityConfig(failures, city) {
   const years = city.available_years || {};
   assert(failures, Number.isInteger(years.schema_supported_start), `City ${city.city_id} missing supported start year`);
   assert(failures, Number.isInteger(years.schema_supported_end), `City ${city.city_id} missing supported end year`);
-  assert(failures, years.schema_supported_start >= 2000, `City ${city.city_id} must support 2000 or later`);
+  assert(failures, years.schema_supported_start >= 1700, `City ${city.city_id} must support 1700 or later`);
   assert(
     failures,
     years.schema_supported_end >= years.schema_supported_start,
@@ -134,7 +135,7 @@ function validateSourceRegistry(root, sourceRegistryPath, cityConfigs, failures)
     assert(failures, RELIABILITY_VALUES.has(source.reliability), `Source ${source.source_id} has invalid reliability`);
     assert(failures, CONFIDENCE_VALUES.has(source.source_confidence), `Source ${source.source_id} has invalid source_confidence`);
     const years = source.coverage_years || {};
-    assert(failures, Number.isInteger(years.start) && years.start >= 2000, `Source ${source.source_id} invalid coverage start`);
+    assert(failures, Number.isInteger(years.start) && years.start >= 1700, `Source ${source.source_id} invalid coverage start`);
     assert(failures, Number.isInteger(years.end) && years.end >= years.start, `Source ${source.source_id} invalid coverage end`);
   }
 
@@ -229,7 +230,15 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
 
   for (const evidence of event.evidence || []) {
     assert(failures, event.source_ids.includes(evidence.source_id), `${prefix} evidence source ${evidence.source_id} not listed in source_ids`);
+    assert(failures, EVIDENCE_KINDS.has(evidence.kind), `${prefix} evidence ${evidence.label || evidence.kind} has invalid kind ${evidence.kind}`);
     assert(failures, hasEvidencePointer(evidence), `${prefix} evidence ${evidence.label || evidence.kind} lacks url/file/record pointer`);
+  }
+
+  for (const delta of event.impact_deltas || []) {
+    assert(failures, delta.observed === true, `${prefix} has non-observed impact delta; generated proxy metrics are not allowed`);
+  }
+  if (event.traffic_metrics) {
+    assert(failures, event.traffic_metrics.observed === true, `${prefix} has non-observed traffic metrics; generated proxy metrics are not allowed`);
   }
 }
 
@@ -259,6 +268,12 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       effectiveSourceById.set(source.source_id, source);
       assert(failures, Boolean(source.source_id), `City artifact ${citySummary.city_id} includes source without id`);
       assert(failures, Boolean(source.attribution_text), `City artifact source ${source.source_id} missing attribution_text`);
+      assert(failures, Boolean(source.source_family), `City artifact source ${source.source_id} missing source_family`);
+      assert(failures, Boolean(source.licence_url), `City artifact source ${source.source_id} missing licence_url`);
+      assert(failures, Boolean(source.update_frequency), `City artifact source ${source.source_id} missing update_frequency`);
+      assert(failures, RELIABILITY_VALUES.has(source.reliability), `City artifact source ${source.source_id} has invalid reliability ${source.reliability}`);
+      assert(failures, CONFIDENCE_VALUES.has(source.source_confidence), `City artifact source ${source.source_id} has invalid source_confidence ${source.source_confidence}`);
+      assert(failures, Array.isArray(source.caveats) && source.caveats.length > 0, `City artifact source ${source.source_id} missing caveats`);
     }
 
     const availability = readJson(path.join(cityDir, "availability.json"));

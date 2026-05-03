@@ -82,6 +82,7 @@ async function waitForAtlas(page) {
     impactModes: Array.from(document.querySelectorAll("[data-impact-mode]")).map((button) => button.textContent.trim()),
     impactCards: document.querySelectorAll(".impact-card").length,
     impactText: document.querySelector("#impactPanel")?.textContent || "",
+    causalClaimText: document.querySelector("#causalClaimText")?.textContent || "",
     selectedTitle: document.querySelector("#detailTitle")?.textContent || "",
   }));
 
@@ -89,7 +90,7 @@ async function waitForAtlas(page) {
   for (const cityId of ["belfast", "london", "nyc"]) {
     assert(initial.cityOptions.includes(cityId), `Missing city selector option ${cityId}.`);
   }
-  for (const label of ["All layers", "Planning", "Transport", "Environment", "Public services", "Economy"]) {
+  for (const label of ["All layers", "Planning", "Transport", "Environment", "Public services", "Economy", "Infrastructure"]) {
     assert(initial.layerLabels.some((text) => text.includes(label)), `Missing layer ${label}.`);
   }
   assert(initial.eventCount > 0, "Change log did not load events.");
@@ -105,6 +106,7 @@ async function waitForAtlas(page) {
   assert(initial.impactModes.some((text) => /Place change/i.test(text)) && initial.impactModes.some((text) => /Traffic/i.test(text)) && initial.impactModes.some((text) => /Components/i.test(text)), "Impact mode controls did not render.");
   assert(initial.impactCards > 0, "Impact/component cards did not render for the selected event.");
   assert(/not causal|observed place|affected/i.test(initial.impactText), "Impact panel is missing descriptive, caveated copy.");
+  assert(/do(?:es)? not establish|does not justify|causal claim/i.test(initial.causalClaimText), "Evidence brief is missing an explicit causal-claim caveat.");
   assert(initial.selectedTitle.length > 5, "Evidence brief did not select an initial event.");
 
   await page.locator('[data-impact-mode="traffic"]').click();
@@ -116,7 +118,8 @@ async function waitForAtlas(page) {
     mode: document.querySelector("#mapStage")?.dataset.impactView || "",
   }));
   assert(trafficImpact.active === "true" && trafficImpact.mode === "traffic", "Traffic impact mode did not become active.");
-  assert(/traffic|congestion|mobility|not causal/i.test(trafficImpact.text) && trafficImpact.meters > 0, "Traffic impact mode did not render traffic context and meters.");
+  assert(/traffic|mobility|not causal|no measured traffic metric/i.test(trafficImpact.text), "Traffic impact mode did not render caveated traffic context.");
+  assert(trafficImpact.meters === 0 || /observed traffic context/i.test(trafficImpact.text), "Traffic mode rendered metric bars without observed traffic context.");
 
   await page.locator('[data-impact-mode="components"]').click();
   await page.waitForFunction(() => window.BimsAtlas.state.impactMode === "components", null, { timeout: 5000 });

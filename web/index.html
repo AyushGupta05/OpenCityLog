@@ -184,7 +184,7 @@
 
         <section class="brief-section impact-section" aria-labelledby="impactLensTitle">
           <div class="impact-section-head">
-            <h3 id="impactLensTitle">Change lens</h3>
+            <h3 id="impactLensTitle">Context lens</h3>
             <div id="impactModeBar" class="impact-mode-bar" role="group" aria-label="How to inspect the selected event">
               <button type="button" data-impact-mode="place" aria-pressed="true">Place change</button>
               <button type="button" data-impact-mode="traffic" aria-pressed="false">Traffic</button>
@@ -221,6 +221,17 @@
           <ul id="limitationsList" class="plain-list">
             <li>Coverage and licensing notes load with the selected record.</li>
           </ul>
+        </section>
+
+        <section class="brief-section causal-claim" aria-labelledby="causalClaimTitle">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span id="causalClaimTitle">Causal claim</span>
+          </button>
+          <div class="causal-status">
+            <span class="status-dot neutral" aria-hidden="true"></span>
+            <strong id="causalClaimLabel">Not assessed</strong>
+          </div>
+          <p id="causalClaimText">Select an event to see whether the evidence supports a causal claim.</p>
         </section>
 
         <section class="brief-section">

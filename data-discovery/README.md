@@ -1,6 +1,6 @@
 # London + New York civic city-change data discovery package
 
-Updated: 2026-04-28T14:32:57.950450+00:00
+Updated: 2026-04-29T19:25:35.839494+00:00
 
 Reproducible source-discovery pack for Bims-5: an open-source urban changelog / city-change atlas. It covers official/open data for spatial change, transport, planning, buildings, streets/curbs, events, environment, demographics, economy, public services, historic maps/imagery and source provenance.
 
@@ -8,10 +8,12 @@ This is Part 1 discovery, not a finished ingestion, prediction, simulation, or c
 
 ## Current counts
 
-- Total sources: 247
-  - London: 112
-  - NYC: 135
-- Event seeds/patterns: 65
+- Total sources: 274
+  - London: 125
+  - NYC: 149
+- Event seed/generated-row records: 18,050
+  - London: 6,597
+  - NYC: 11,453
 - Raw metadata/page/API snapshot files: 248
 
 ## Main files

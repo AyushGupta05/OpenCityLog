@@ -18,8 +18,8 @@ The retired Scenario Studio, long-horizon forecast, traffic microsimulation, tra
 
 ## Next Build Priorities
 
-1. Curate higher-quality event records for the current Belfast pilot.
-2. Add real London and NYC adapters instead of demo-only placeholders.
+1. Replace London/NYC source-layer markers with more row-level event adapters where licences and source fields support it.
+2. Curate higher-quality flagship stories for London and NYC so the public UI has fewer generic administrative records at the top of the changelog.
 3. Improve evidence export and correction workflows.
-4. Add language validation for overclaiming terms in event/source artifacts.
+4. Keep language validation strict around overclaiming terms and generated proxy metrics.
 5. Keep browser smoke tests centered on list, map, timeline, evidence, source drawer, compare, and Proposal Lens paths.

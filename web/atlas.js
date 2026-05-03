@@ -164,6 +164,8 @@
       "detailConfidence",
       "confidenceText",
       "limitationsList",
+      "causalClaimLabel",
+      "causalClaimText",
       "sourceList",
       "catalogSummary",
       "catalogStats",
@@ -637,8 +639,7 @@
   }
 
   function renderLayerBar() {
-    const visibleLayers = CATEGORY_CONFIG.filter((item) => item.id !== "utilities");
-    els.layerBar.innerHTML = visibleLayers.map((item) => (
+    els.layerBar.innerHTML = CATEGORY_CONFIG.map((item) => (
       `<button class="layer-button" type="button" data-category="${escapeAttr(item.id)}" aria-pressed="${state.category === item.id}" style="--layer-color:${item.color}">
         <span class="layer-dot" aria-hidden="true"></span>${escapeHtml(item.label)}
       </button>`
@@ -831,7 +832,7 @@
       return;
     }
     const pos = project(point);
-    els.mapStage.style.setProperty("--callout-x", `${clamp(pos.x, 18, 82)}%`);
+    els.mapStage.style.setProperty("--callout-x", `${clamp(pos.x + 4, 6, 86)}%`);
     els.mapStage.style.setProperty("--callout-y", `${clamp(pos.y - 6, 18, 76)}%`);
     els.calloutYear.textContent = `Observed ${event.year || state.year}`;
     els.calloutTitle.textContent = cleanTitle(event.title);
@@ -890,6 +891,7 @@
     renderImpactModeControls();
     renderImpactPanel(event);
     renderLimitations(event);
+    renderCausalClaim(event);
     renderSources(event);
   }
 
@@ -903,6 +905,8 @@
     els.detailConfidence.textContent = "No event";
     els.confidenceText.textContent = "Select an event to see evidence strength.";
     els.limitationsList.innerHTML = `<li>Coverage and licensing notes load with the selected record.</li>`;
+    els.causalClaimLabel.textContent = "Not assessed";
+    els.causalClaimText.textContent = "Select an event to see whether the evidence supports a causal claim.";
     els.sourceList.innerHTML = "";
   }
 
@@ -987,11 +991,11 @@
   }
 
   function renderTrafficImpact(event) {
-    const traffic = event.traffic_metrics || null;
-    const rows = trafficDeltas(event);
+    const traffic = observedTrafficMetric(event);
+    const rows = observedTrafficDeltas(event);
     const metric = traffic ? `
       <article class="impact-card traffic-metric">
-        <span class="impact-kicker">Traffic context window</span>
+        <span class="impact-kicker">Observed traffic context</span>
         <strong>${escapeHtml(traffic.beforeLabel || "Before")} -> ${escapeHtml(traffic.afterLabel || "After")}</strong>
         <div class="impact-meter-pair">
           ${renderMeter("Before", traffic.beforeValue, parseMetricValue(traffic.beforeValue))}
@@ -1003,11 +1007,11 @@
     const fallback = !metric && !deltaCards ? `
       <article class="impact-card muted">
         <span class="impact-kicker">Traffic</span>
-        <strong>No quantified traffic context supplied</strong>
-        <p>This event is tagged ${escapeHtml(event.lens || event.category || "city change")}. Inspect the sources before making traffic claims.</p>
-        <small>Not causal: absence of a traffic metric means the UI does not invent one.</small>
+        <strong>No measured traffic metric supplied</strong>
+        <p>This record is tagged ${escapeHtml(event.lens || event.category || "city change")}. Inspect the linked sources before using it as traffic evidence.</p>
+        <small>Not causal: generated source tags are not treated as measured congestion, speed, or volume outcomes.</small>
       </article>` : "";
-    return `<div class="impact-stack">${metric}${deltaCards}${fallback}<p class="impact-caveat">Associated traffic and mobility context only; this atlas does not claim the event caused the numbers.</p></div>`;
+    return `<div class="impact-stack">${metric}${deltaCards}${fallback}<p class="impact-caveat">Traffic and mobility context only; this atlas does not infer outcomes where observed traffic measurements are absent.</p></div>`;
   }
 
   function renderComponentImpact(event) {
@@ -1028,8 +1032,16 @@
     `;
   }
 
-  function trafficDeltas(event) {
-    return (event.impact_deltas || []).filter((item) => /traffic|transit|mobility|road|travel|cycle|active/i.test(item.label || ""));
+  function observedTrafficMetric(event) {
+    const traffic = event.traffic_metrics || null;
+    if (!traffic || traffic.observed !== true) return null;
+    return traffic;
+  }
+
+  function observedTrafficDeltas(event) {
+    return (event.impact_deltas || [])
+      .filter((item) => item && item.observed === true)
+      .filter((item) => /traffic|transit|mobility|road|travel|cycle|active/i.test(item.label || ""));
   }
 
   function renderDeltaCard(delta) {
@@ -1064,7 +1076,7 @@
     const signals = new Set((event.affected_signals || []).map(normalizeSignal));
     signals.add(normalizeSignal(event.category));
     signals.add(normalizeSignal(event.lens));
-    const deltas = event.impact_deltas || [];
+    const deltas = (event.impact_deltas || []).filter((item) => item && item.observed === true);
     const sourceCards = Array.isArray(state.currentState?.cards) && state.currentState.cards.length
       ? state.currentState.cards
       : defaultComponentCards(event);
@@ -1123,26 +1135,58 @@
     els.limitationsList.innerHTML = caveats.slice(0, 5).map((item) => `<li>${escapeHtml(normalizeCaveat(item))}</li>`).join("");
   }
 
+  function renderCausalClaim(event) {
+    const sourceCount = Math.max((event.evidence || []).length, (event.source_ids || []).length);
+    const confidence = confidenceLabel(event.confidence).toLowerCase();
+    els.causalClaimLabel.textContent = "Available data does not justify a causal claim";
+    els.causalClaimText.textContent = `${formatNumber(sourceCount)} public source${sourceCount === 1 ? "" : "s"} and ${confidence} evidence document this change. They do not establish that the event caused wider outcomes.`;
+  }
+
   function renderSources(event) {
     const evidence = event.evidence || [];
     const sourceIds = event.source_ids || [];
     const rows = evidence.length
       ? evidence
       : sourceIds.map((id) => ({ source_id: id, label: sourceLabel(id), url: state.sourceById.get(id)?.url }));
-    els.sourceList.innerHTML = rows.slice(0, 7).map((item) => {
+    const sourceHeader = `
+      <div class="source-summary">
+        <strong>${formatNumber(rows.length)} linked source${rows.length === 1 ? "" : "s"}</strong>
+        <span>${escapeHtml(event.provenance?.transform || "Transformation method not supplied")}</span>
+      </div>
+    `;
+    els.sourceList.innerHTML = sourceHeader + (rows.slice(0, 7).map((item) => {
       const source = state.sourceById.get(item.source_id);
       const label = item.label || source?.title || item.source_id || "Evidence source";
       const provider = source?.provider || source?.attribution_text || item.kind || "Source record";
       const licence = source?.licence || "Licence not supplied in event evidence";
       const href = item.url || source?.url || "";
+      const coverage = source?.coverage_years ? `${source.coverage_years.start}-${source.coverage_years.end}` : "coverage not supplied";
+      const record = item.record_id || event.provenance?.source_record_id || source?.source_id || "";
+      const raw = item.file_path || source?.raw_metadata_file || "";
       return `
         <article class="source-item">
-          ${href ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(label)}</strong></a>` : `<strong>${escapeHtml(label)}</strong>`}
+          <div class="source-item-head">
+            ${href ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(label)}</strong></a>` : `<strong>${escapeHtml(label)}</strong>`}
+            <span class="source-badge">${escapeHtml(sourceBadge(source, item))}</span>
+          </div>
           <span>${escapeHtml(provider)}</span>
           <small>${escapeHtml(licence)}</small>
+          <dl class="source-meta">
+            <div><dt>Coverage</dt><dd>${escapeHtml(coverage)}</dd></div>
+            <div><dt>Record</dt><dd>${escapeHtml(record || "not supplied")}</dd></div>
+            <div><dt>Metadata</dt><dd>${escapeHtml(raw || "not supplied")}</dd></div>
+          </dl>
         </article>
       `;
-    }).join("") || `<div class="empty-state">No source rows were supplied for this record.</div>`;
+    }).join("") || `<div class="empty-state">No source rows were supplied for this record.</div>`);
+  }
+
+  function sourceBadge(source, evidence) {
+    const text = `${source?.source_confidence || ""} ${source?.provider || ""} ${evidence?.kind || ""}`.toLowerCase();
+    if (/official|authority|department|gov|nyc|gla|tfl|census|agency/.test(text)) return "Official";
+    if (/openstreetmap|osm/.test(text)) return "Community";
+    if (/catalog|discovered/.test(text)) return "Catalog";
+    return "Source";
   }
 
   async function setYear(year) {
@@ -2146,9 +2190,7 @@
   }
 
   function normalizeCaveat(text) {
-    return String(text || "")
-      .replace(/Impact deltas are dashboard proxies until raw traffic\/building\/environment ETL adapters are connected\./i, "Dashboard proxy fields are not treated as measured outcomes in this view.")
-      .replace(/impact deltas/ig, "dashboard proxy fields");
+    return String(text || "");
   }
 
   function sourceLabel(sourceId) {

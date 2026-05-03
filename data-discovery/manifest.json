@@ -1,17 +1,17 @@
 {
   "package": "Bims-5 London and NYC civic open-data discovery package",
-  "updated_at": "2026-04-28T14:32:57.950450+00:00",
+  "updated_at": "2026-04-29T19:25:35.839494+00:00",
   "cities": [
     "london",
     "new_york"
   ],
-  "source_count_total": 247,
+  "source_count_total": 274,
   "source_counts": {
-    "london": 112,
-    "new_york": 135
+    "london": 125,
+    "new_york": 149
   },
-  "event_seed_count_total": 65,
-  "raw_metadata_files": 248,
+  "event_seed_count_total": 18050,
+  "raw_metadata_files": 252,
   "files": {
     "dataset_inventory": "shared/dataset_inventory.csv",
     "coverage_matrix": "shared/coverage_matrix.csv",

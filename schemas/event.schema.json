@@ -26,7 +26,7 @@
     "city_id": {"type": "string"},
     "event_id": {"type": "string"},
     "title": {"type": "string"},
-    "year": {"type": "integer", "minimum": 2000},
+    "year": {"type": "integer", "minimum": 1700},
     "effective_date": {"type": ["string", "null"]},
     "effective_date_range": {
       "type": ["object", "null"],

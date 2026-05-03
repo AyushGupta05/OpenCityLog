@@ -40,10 +40,10 @@
       "type": "object",
       "required": ["schema_supported_start", "schema_supported_end"],
       "properties": {
-        "schema_supported_start": {"type": "integer", "minimum": 2000},
-        "schema_supported_end": {"type": "integer", "minimum": 2000},
-        "demo_observed_start": {"type": ["integer", "null"], "minimum": 2000},
-        "demo_observed_end": {"type": ["integer", "null"], "minimum": 2000}
+        "schema_supported_start": {"type": "integer", "minimum": 1700},
+        "schema_supported_end": {"type": "integer", "minimum": 1700},
+        "demo_observed_start": {"type": ["integer", "null"], "minimum": 1700},
+        "demo_observed_end": {"type": ["integer", "null"], "minimum": 1700}
       }
     },
     "source_families": {
@@ -63,7 +63,7 @@
           "type": "string",
           "enum": ["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]
         },
-        "years": {"type": "array", "items": {"type": "integer", "minimum": 2000}},
+        "years": {"type": "array", "items": {"type": "integer", "minimum": 1700}},
         "notes": {"type": "string"}
       }
     }

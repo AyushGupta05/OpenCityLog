@@ -32,9 +32,9 @@
       "type": "object",
       "required": ["start", "end"],
       "properties": {
-        "start": {"type": "integer", "minimum": 2000},
-        "end": {"type": "integer", "minimum": 2000},
-        "observed": {"type": "array", "items": {"type": "integer", "minimum": 2000}}
+        "start": {"type": "integer", "minimum": 1700},
+        "end": {"type": "integer", "minimum": 1700},
+        "observed": {"type": "array", "items": {"type": "integer", "minimum": 1700}}
       }
     },
     "update_frequency": {"type": "string"},

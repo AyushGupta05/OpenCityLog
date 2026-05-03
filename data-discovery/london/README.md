@@ -1,6 +1,6 @@
 # London historical city-change data discovery
 
-Official/open source catalog with 36 sources and 31 long-run event seeds. Prefer JSON files for ingestion.
+Official/open source catalog with 125 sources and 6,597 seed/generated-row records. Prefer JSON files for ingestion.
 
 Files:
 - source_catalog.json

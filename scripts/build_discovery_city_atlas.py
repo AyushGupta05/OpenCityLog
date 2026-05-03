@@ -2,9 +2,9 @@
 """Promote London/NYC data-discovery catalogs into dashboard-ready city-atlas artifacts.
 
 This is intentionally source-backed scaffolding: it turns the discovery package into
-searchable, mappable records and per-event before/after metric deltas for the UI.
-It does not claim causal estimates; every impact metric is labelled as a proxy from
-source family, bucket, chronology, and city-wide discovery coverage.
+searchable, mappable records for the UI. It does not fabricate before/after metric
+deltas; quantitative context must come from a source adapter that supplies observed
+measurements with provenance.
 """
 from __future__ import annotations
 
@@ -179,50 +179,12 @@ def point_for(city: str, text: str, idx: int) -> tuple[str, float, float]:
     return label, round(lng + jitter_lng, 6), round(lat + jitter_lat, 6)
 
 
-def impact_deltas(category: str, signals: list[str], year: int, source_count: int = 1) -> list[dict[str, Any]]:
-    age_factor = max(1, min(12, 2027 - max(2000, year)))
-    base = max(1, min(9, source_count))
-    rows = []
-    def add(label, before, after, unit, basis):
-        rows.append({"label": label, "before": before, "after": after, "delta": after - before, "unit": unit, "basis": basis})
-    if category == "transport" or "traffic" in signals:
-        add("Traffic / congestion pressure", 52, min(99, 52 + base * 3 + age_factor), "index", "Proxy from transport/traffic source family and event chronology")
-        add("Transit / active travel context", 38, min(99, 38 + base * 4), "index", "Proxy from transit, road-space, and mobility datasets")
-    if category == "built_environment" or "buildings" in signals or "built_environment" in signals:
-        add("Building/development intensity", 35, min(99, 35 + base * 5 + age_factor), "index", "Proxy from planning, buildings, parcels, zoning and development-source coverage")
-    if category == "environment" or "green_space" in signals:
-        add("Environmental exposure / resilience", 44, min(99, 44 + base * 4), "index", "Proxy from flood, air, noise, trees, parks and climate datasets")
-    if category == "economy" or "jobs" in signals:
-        add("Jobs / economic activity", 40, min(99, 40 + base * 4), "index", "Proxy from business, labour-market, licensing and development sources")
-    if category == "civic_services" or "services" in signals:
-        add("Civic service demand", 36, min(99, 36 + base * 4), "index", "Proxy from schools, health, safety, 311/public-service datasets")
-    if category == "utilities" or "utilities" in signals:
-        add("Infrastructure / utility load", 42, min(99, 42 + base * 4), "index", "Proxy from utility, sewer, energy, waste and capital-project data")
-    return rows[:5]
-
-
-def traffic_metrics(category: str, signals: list[str], year: int) -> dict[str, Any] | None:
-    if category != "transport" and "traffic" not in signals and "mobility" not in signals:
-        return None
-    before = max(18, min(86, 44 + (stable_hash(str(year)) % 22)))
-    after = max(10, min(96, before + 5 + (year % 9)))
-    return {
-        "beforeYear": max(1700, year - 1),
-        "afterYear": year,
-        "beforeValue": f"{before}/100",
-        "afterValue": f"{after}/100",
-        "beforeLabel": "Pre-event congestion proxy",
-        "afterLabel": "Post-event congestion proxy",
-        "note": "Proxy score derived from transport/traffic source family; replace with observed count/speed API once ETL adapters are connected.",
-    }
-
-
 def evidence_for_source(source: dict[str, Any]) -> dict[str, Any]:
     sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
     return {
         "source_id": sid,
         "label": source.get("title") or sid,
-        "kind": "discovery_catalog_source",
+        "kind": "source_record",
         "url": source.get("access_url") or source.get("url") or source.get("api_endpoint") if str(source.get("api_endpoint", "")).startswith("http") else source.get("url"),
         "file_path": source.get("raw_metadata_file"),
         "record_id": sid,
@@ -265,7 +227,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     explanation = item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package."
     caveats = [
         item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate.",
-        "Impact deltas are dashboard proxies until raw traffic/building/environment ETL adapters are connected.",
+        "No before/after outcome metric is inferred unless a source adapter supplies observed measurements.",
     ]
     return {
         "schema_version": SCHEMA,
@@ -285,8 +247,8 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "confidence": item.get("confidence") or ("documented" if evidence else "inferred"),
         "affected_signals": signals,
         "explanation": explanation,
-        "impact_deltas": impact_deltas(category, signals, year, len(source_ids) or 2),
-        "traffic_metrics": traffic_metrics(category, signals, year),
+        "impact_deltas": [],
+        "traffic_metrics": None,
         "caveats": [c for c in caveats if c],
         "provenance": {
             "transform": "scripts/build_discovery_city_atlas.py#normalize_seed",
@@ -303,7 +265,6 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
     category, lens, signals = category_and_lens(bucket, title)
     label, lng, lat = point_for(city, f"{title} {bucket} {source.get('spatial_granularity','')}", idx + 10000)
     seeds = source.get("suggested_event_seeds") or []
-    source_count = 1 + min(6, len(seeds))
     return {
         "schema_version": SCHEMA,
         "city_id": city,
@@ -322,8 +283,8 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
         "confidence": "documented",
         "affected_signals": signals,
         "explanation": f"Dashboard-ready current-state layer from {source.get('publisher') or source.get('provider') or 'official/open source'}. Spatial grain: {source.get('spatial_granularity','not specified')}. Time coverage: {source.get('time_coverage','not specified')}.",
-        "impact_deltas": impact_deltas(category, signals, 2026, source_count),
-        "traffic_metrics": traffic_metrics(category, signals, 2026),
+        "impact_deltas": [],
+        "traffic_metrics": None,
         "caveats": [source.get("limitations") or "Source-specific completeness and licensing must be reviewed before analytical ETL.", "Current-state source marker: represents a dataset/layer, not a single physical event."],
         "provenance": {"transform": "scripts/build_discovery_city_atlas.py#normalize_source_event", "source_catalog_id": sid},
     }
@@ -338,16 +299,23 @@ def load_seeds(city: str) -> list[dict[str, Any]]:
 
 def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
     sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
+    bucket = source.get("bucket") or "source"
+    caveat = source.get("limitations") or "Catalog-level source entry; check the linked publisher record for completeness, licence, and update details before formal reuse."
     return {
         "source_id": sid,
         "title": source.get("title") or sid,
         "provider": source.get("publisher") or source.get("provider") or "Official/open civic source",
+        "source_family": str(bucket).split("/")[0].strip().lower().replace(" ", "_") or "source",
         "url": source.get("access_url") or source.get("url") or "",
         "licence": source.get("licence") or "Requires source-level licence review",
+        "licence_url": source.get("licence_url") or source.get("license_url") or source.get("url") or source.get("access_url") or "",
         "coverage_years": {"start": 1700, "end": 2026},
-        "source_confidence": "discovered_official_open_source",
+        "update_frequency": source.get("update_frequency") or source.get("temporal_granularity") or source.get("time_coverage") or "Cadence varies by source; verify publisher metadata.",
+        "reliability": "usable_with_caveats",
+        "source_confidence": "documented",
         "attribution_text": source.get("publisher") or source.get("provider") or "See source page",
         "provenance_notes": f"Bucket: {source.get('bucket','uncategorised')}. Spatial granularity: {source.get('spatial_granularity','not specified')}. Temporal granularity: {source.get('temporal_granularity','not specified')}.",
+        "caveats": [caveat],
         "raw_metadata_file": source.get("raw_metadata_file"),
         "bucket": source.get("bucket"),
         "city_ids": [city],
@@ -369,7 +337,7 @@ def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]])
             "family_id": family,
             "label": family.replace("_", " ").title(),
             "source_ids": ids[:40],
-            "availability": "discovery_catalog_ready",
+            "availability": "partial_local",
             "years": list(range(1800, 2027)),
             "notes": f"{len(ids)} discovered source(s). Event count includes source-layer markers and chronology seeds.",
         })
@@ -390,6 +358,11 @@ def build_city(city: str) -> dict[str, Any]:
     events.sort(key=lambda e: (e["year"], e["event_id"]))
 
     city_dir = OUT / "cities" / city
+    city_dir.mkdir(parents=True, exist_ok=True)
+    for stale in city_dir.glob("events_*.json"):
+        stale.unlink()
+    for stale in city_dir.glob("events_*.geojson"):
+        stale.unlink()
     by_year: dict[int, list[dict[str, Any]]] = defaultdict(list)
     for e in events:
         by_year[e["year"]].append(e)
@@ -431,7 +404,7 @@ def build_city(city: str) -> dict[str, Any]:
         **{k: meta[k] for k in ["display_name","country","country_code","region","timezone","bounds","default_center","default_zoom"]},
         "available_years": {"schema_supported_start": 1700, "schema_supported_end": 2026, "demo_observed_start": min(by_year), "demo_observed_end": max(by_year)},
         "source_families": families,
-        "data_availability": {"status":"discovery_dashboard_ready", "summary": current_state["summary"]},
+        "data_availability": {"status":"partial_source_backed", "summary": current_state["summary"]},
         "artifact_paths": {
             "city": f"web/data/city-atlas/cities/{city}/city.json",
             "sources": f"web/data/city-atlas/cities/{city}/sources.json",
@@ -441,12 +414,12 @@ def build_city(city: str) -> dict[str, Any]:
         },
     }
     availability = {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "summary": city_payload["data_availability"], "matrix": [{"family_id": f["family_id"], "label": f["label"], "availability": f["availability"], "years": f["years"], "source_ids": f["source_ids"], "event_count": sum(1 for e in events if set(e.get("source_ids",[])) & set(f["source_ids"])), "notes": f["notes"]} for f in families], "event_counts_by_year": dict(Counter(str(e["year"]) for e in events)), "event_counts_by_category": counts_by_category}
-    events_index = {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "event_count": len(events), "event_years": sorted(by_year), "chunks": chunks, "migration": {"source_kind":"data-discovery civic source catalog + event seeds", "source_schema_version": None, "source_path": str(meta["catalog_file"].relative_to(ROOT)), "source_event_count": len(source_raw) + len(load_seeds(city)), "normalized_event_count": len(events), "basis":["source_catalog.json", "events_seed.json"], "notes":["Current-state source-layer records are dataset/layer markers, not physical single-site events.", "Impact deltas are proxy scores for dashboard exploration until raw ETL adapters compute observed before/after metrics."]}}
+    events_index = {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "event_count": len(events), "event_years": sorted(by_year), "chunks": chunks, "migration": {"source_kind":"data-discovery civic source catalog + event seeds", "source_schema_version": None, "source_path": str(meta["catalog_file"].relative_to(ROOT)), "source_event_count": len(source_raw) + len(load_seeds(city)), "normalized_event_count": len(events), "basis":["source_catalog.json", "events_seed.json"], "notes":["Current-state source-layer records are dataset/layer markers, not physical single-site events.", "Before/after outcome metrics are not generated unless a source adapter supplies observed measurements."]}}
     write_json(city_dir / "city.json", city_payload)
     write_json(city_dir / "sources.json", {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "source_count": len(sources), "sources": sources})
     write_json(city_dir / "events.json", events_index)
     write_json(city_dir / "availability.json", availability)
-    return {"city_id": city, "display_name": meta["display_name"], "event_count": len(events), "source_count": len(sources), "availability_status": "discovery_dashboard_ready", "artifact_paths": city_payload["artifact_paths"]}
+    return {"city_id": city, "display_name": meta["display_name"], "event_count": len(events), "source_count": len(sources), "availability_status": "partial_source_backed", "artifact_paths": city_payload["artifact_paths"]}
 
 
 def main() -> int:

@@ -17,7 +17,7 @@ Generated artifacts are written to:
 web/data/city-atlas/
 ```
 
-Belfast is the current demo city. London and NYC are configured as contribution-ready placeholders through the same city adapter contract.
+London is the default atlas city, with New York City and Belfast available through the same city selector. London and NYC currently combine broad official/open-source discovery catalogs with a partial set of row-level generated events; they are not complete histories of every urban change.
 
 ## Run The Local Product
 
