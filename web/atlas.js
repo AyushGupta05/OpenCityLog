@@ -120,6 +120,7 @@
       "clearFiltersButton",
       "areaTitle",
       "listMeta",
+      "coverageNotice",
       "eventList",
       "layerBar",
       "mapStage",
@@ -144,6 +145,7 @@
       "view3dButton",
       "prevYearButton",
       "nextYearButton",
+      "timelineDock",
       "yearStrip",
       "yearSlider",
       "timelineSummary",
@@ -156,6 +158,7 @@
       "detailIndex",
       "detailTitle",
       "detailSubtitle",
+      "briefCoverageStatus",
       "observedChange",
       "impactModeBar",
       "impactPanel",
@@ -832,12 +835,32 @@
       return;
     }
     const pos = project(point);
-    els.mapStage.style.setProperty("--callout-x", `${clamp(pos.x + 4, 6, 86)}%`);
-    els.mapStage.style.setProperty("--callout-y", `${clamp(pos.y - 6, 18, 76)}%`);
+    const calloutX = clamp(pos.x + 4, 6, 86);
+    const calloutY = clamp(pos.y - 6, 18, 76);
+    els.mapStage.style.setProperty("--callout-x", `${calloutX}%`);
+    els.mapStage.style.setProperty("--callout-y", `${calloutY}%`);
     els.calloutYear.textContent = `Observed ${event.year || state.year}`;
     els.calloutTitle.textContent = cleanTitle(event.title);
     els.calloutMeta.textContent = event.affected_area?.label || categoryConfig(event.category).label;
     els.mapCallout.hidden = false;
+    avoidTimelineCalloutOverlap(calloutY);
+  }
+
+  function avoidTimelineCalloutOverlap(initialY) {
+    if (!els.timelineDock || !els.mapCallout || els.mapCallout.hidden) return;
+    const stageRect = els.mapStage.getBoundingClientRect();
+    const timelineRect = els.timelineDock.getBoundingClientRect();
+    const calloutRect = els.mapCallout.getBoundingClientRect();
+    if (!stageRect.height || !timelineRect.height || !calloutRect.height) return;
+    const overlapsTimeline = calloutRect.left < timelineRect.right + 10
+      && calloutRect.right > timelineRect.left - 10
+      && calloutRect.top < timelineRect.bottom + 10
+      && calloutRect.bottom > timelineRect.top - 10;
+    if (!overlapsTimeline) return;
+    const maxTopPx = timelineRect.top - stageRect.top - calloutRect.height - 14;
+    const maxY = (maxTopPx / stageRect.height) * 100;
+    const nextY = clamp(Math.min(initialY, maxY), 18, 76);
+    els.mapStage.style.setProperty("--callout-y", `${nextY}%`);
   }
 
   function renderTimeline() {
@@ -1231,7 +1254,8 @@
     }
     const point = eventPoint(event);
     if (point) {
-      setCameraTarget([point.lng, point.lat], Math.max(state.mapZoom, FOCUS_ZOOM));
+      const focusZoom = Math.max(state.mapZoom, FOCUS_ZOOM);
+      setCameraTarget(focusCenterForPoint(point, focusZoom), focusZoom);
     }
     renderAll({ preserveSelection: true });
     renderBrief(event);
@@ -1737,6 +1761,26 @@
       x: ((point.lng - minLng) / (maxLng - minLng)) * 100,
       y: (1 - ((point.lat - minLat) / (maxLat - minLat))) * 100,
     };
+  }
+
+  function focusCenterForPoint(point, zoom) {
+    const viewport = els.mapViewport?.getBoundingClientRect();
+    const width = Math.max(640, Math.round(viewport?.width || els.mapStage?.clientWidth || 980));
+    const height = Math.max(520, Math.round(viewport?.height || els.mapStage?.clientHeight || 720));
+    const stageRect = els.mapStage?.getBoundingClientRect();
+    const timelineRect = els.timelineDock?.getBoundingClientRect();
+    const timelineSafeY = stageRect?.height && timelineRect?.height
+      ? ((timelineRect.top - stageRect.top - 52) / stageRect.height)
+      : 0.44;
+    const desiredX = 0.46;
+    const desiredY = clamp(Math.min(0.46, timelineSafeY), 0.34, 0.46);
+    const pixel = lonLatToWorldPixel(point.lng, point.lat, zoom);
+    const focus = worldPixelToLonLat(
+      pixel.x + width * (0.5 - desiredX),
+      pixel.y + height * (0.5 - desiredY),
+      zoom
+    );
+    return [focus.lng, focus.lat];
   }
 
   function lonLatToWorldPixel(lng, lat, zoom) {

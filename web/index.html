@@ -87,6 +87,11 @@
           <strong id="listMeta">Loading records</strong>
         </div>
 
+        <div id="coverageNotice" class="coverage-notice" role="status">
+          <strong>Coverage loading</strong>
+          <span>Source and date coverage will appear with the selected city.</span>
+        </div>
+
         <div id="eventList" class="event-list" role="list" aria-live="polite"></div>
       </aside>
 
@@ -124,7 +129,7 @@
 
           <div class="map-attribution" id="mapAttribution">Esri World Imagery, OpenStreetMap contributors, source-backed overlays</div>
 
-          <section class="timeline-dock" aria-label="Timeline">
+          <section class="timeline-dock" id="timelineDock" aria-label="Timeline">
             <div class="timeline-head">
               <button id="prevYearButton" class="round-button" type="button" aria-label="Previous year"></button>
               <div class="timeline-copy">
@@ -172,6 +177,7 @@
           <div>
             <h2 id="detailTitle">Select a record</h2>
             <p id="detailSubtitle">Choose a changelog item or map marker.</p>
+            <p id="briefCoverageStatus" class="brief-coverage-status">Coverage status loads with the city.</p>
           </div>
         </header>
 

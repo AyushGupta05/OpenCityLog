@@ -34,6 +34,51 @@ async function waitForRenderedImagery(page) {
   );
 }
 
+async function evaluateMapOverlayLayout(page) {
+  return page.evaluate(() => {
+    const toRect = (element) => {
+      const rect = element?.getBoundingClientRect();
+      if (!rect) return null;
+      return {
+        left: rect.left,
+        right: rect.right,
+        top: rect.top,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+      };
+    };
+    const overlaps = (a, b, gutter = 0) => Boolean(a && b)
+      && a.left < b.right + gutter
+      && a.right > b.left - gutter
+      && a.top < b.bottom + gutter
+      && a.bottom > b.top - gutter;
+    const layerBar = toRect(document.querySelector(".layer-bar"));
+    const clippedLayerLabels = Array.from(document.querySelectorAll(".layer-button"))
+      .filter((button) => {
+        const rect = toRect(button);
+        return !rect || !layerBar
+          || rect.left < layerBar.left - 1
+          || rect.right > layerBar.right + 1
+          || rect.top < layerBar.top - 1
+          || rect.bottom > layerBar.bottom + 1;
+      })
+      .map((button) => button.textContent.trim());
+    const timeline = toRect(document.querySelector(".timeline-dock"));
+    const callout = toRect(document.querySelector(".map-callout:not([hidden])"));
+    const selectedMarker = toRect(document.querySelector(".map-marker[aria-selected=\"true\"]"));
+    return {
+      clippedLayerLabels,
+      calloutOverlapsTimeline: overlaps(callout, timeline, 8),
+      selectedMarkerOverlapsTimeline: overlaps(selectedMarker, timeline, 6),
+      timelineWidth: Math.round(timeline?.width || 0),
+      calloutTop: Math.round(callout?.top || 0),
+      timelineTop: Math.round(timeline?.top || 0),
+      selectedMarkerBottom: Math.round(selectedMarker?.bottom || 0),
+    };
+  });
+}
+
 (async () => {
   fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -101,6 +146,21 @@ async function waitForRenderedImagery(page) {
   assertDetailedPng(desktopMapPng, assert, "Desktop map viewport");
   fs.writeFileSync(path.join(outputDir, "open-citylog-desktop-map.png"), desktopMapPng);
   await desktop.screenshot({ path: path.join(outputDir, "open-citylog-desktop-smoke.png"), fullPage: false });
+
+  const mediumDesktop = await browser.newPage({ viewport: { width: 1280, height: 640 }, deviceScaleFactor: 1 });
+  mediumDesktop.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  mediumDesktop.on("pageerror", (error) => consoleErrors.push("medium desktop pageerror: " + error.message));
+  await mediumDesktop.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await waitForAtlas(mediumDesktop);
+  await waitForRenderedImagery(mediumDesktop);
+  await mediumDesktop.waitForTimeout(600);
+  const mediumOverlayLayout = await evaluateMapOverlayLayout(mediumDesktop);
+  assert(mediumOverlayLayout.clippedLayerLabels.length === 0, `Medium desktop layer chips are clipped: ${mediumOverlayLayout.clippedLayerLabels.join(", ")}.`);
+  assert(!mediumOverlayLayout.calloutOverlapsTimeline, `Medium desktop callout overlaps timeline: calloutTop ${mediumOverlayLayout.calloutTop}, timelineTop ${mediumOverlayLayout.timelineTop}.`);
+  assert(!mediumOverlayLayout.selectedMarkerOverlapsTimeline, `Medium desktop selected marker is hidden by timeline: markerBottom ${mediumOverlayLayout.selectedMarkerBottom}, timelineTop ${mediumOverlayLayout.timelineTop}.`);
+  await mediumDesktop.screenshot({ path: path.join(outputDir, "open-citylog-medium-desktop-smoke.png"), fullPage: false });
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 860 }, deviceScaleFactor: 2, isMobile: true });
   mobile.on("console", (message) => {
