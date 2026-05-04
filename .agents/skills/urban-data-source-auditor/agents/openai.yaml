@@ -1,0 +1,4 @@
+interface:
+  display_name: "Urban Data Source Auditor"
+  short_description: "Audit city data sources before ingest"
+  default_prompt: "Use $urban-data-source-auditor to audit these city data sources for license, coverage, reliability, and ingestion risk."

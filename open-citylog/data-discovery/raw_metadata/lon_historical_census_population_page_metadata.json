@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_historical_census_population",
+  "title": "Historical Census Population",
+  "requested_url": "https://data.london.gov.uk/dataset/historical-census-population-expjm",
+  "fetched_url": "https://data.london.gov.uk/dataset/historical-census-population-expjm",
+  "final_url": "https://data.london.gov.uk/dataset/historical-census-population-expjm/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:53.061190+00:00",
+  "page_title": "Historical Census Population – London Datastore",
+  "h1": "Historical Census Population",
+  "meta_description": ""
+}

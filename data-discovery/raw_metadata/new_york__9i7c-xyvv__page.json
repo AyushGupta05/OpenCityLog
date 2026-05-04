@@ -1,0 +1,396 @@
+{
+  "source_id": "9i7c-xyvv",
+  "city": "new_york",
+  "title": "NYC Stormwater Flood Maps",
+  "publisher": "NYC DEP",
+  "bucket": "environment; policy",
+  "retrieved_at": "2026-04-28T12:21:27.084352+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/9i7c-xyvv",
+      "retrieved_at": "2026-04-28T12:21:25.230850+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/9i7c-xyvv",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4508,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYC Stormwater Flood Maps",
+      "description": "A collection of citywide Geographic Information System (GIS) layers that show areas of potential flooding scenarios under varying sea level rise conditions. Please see the New York City Stormwater Resiliency Plan for more information about the methodology applied to develop the maps. Please direct questions or comments to StormwaterResiliency@cityhall.nyc.gov.\r\n\r\n<b>This collection contains the following NYC Stormwater Flood Maps:</b>\r\n<em><ul>\r\n<li>NYC Stormwater Flood Map - Extreme Flood (3.66 inches/hr) with 2080 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with 2050 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with Current Sea Levels </li>\r\n<li>NYC Stormwater Flood Map - Limited Flood (1.77 inches/hr) with Current Sea Levels </li></ul></em>\r\n<a href=\"https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf\" target=\"_blank\">https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf</a>\r\n\r\nSource Data: <a href=\"https://experience.arcgis.com/experience/e83a49daef8a472da4a7e34dc25ac445/\" target=\"_blank\">http://nyc.gov/stormwater-map</a>",
+      "attribution": "Department of Environmental Protection (DEP)",
+      "rowsUpdatedAt": 1720040648,
+      "json_sample": {
+        "id": "9i7c-xyvv",
+        "name": "NYC Stormwater Flood Maps",
+        "assetType": "file",
+        "attribution": "Department of Environmental Protection (DEP)",
+        "attributionLink": "https://experience.arcgis.com/experience/e83a49daef8a472da4a7e34dc25ac445/",
+        "averageRating": 0,
+        "blobFilename": "NYCFloodStormwaterFloodMaps.zip",
+        "blobFileSize": 33785094,
+        "blobId": "6ce7b252-a38c-47ae-a823-680f443227e5",
+        "blobMimeType": "application/zip",
+        "category": "Environment",
+        "createdAt": 1720040648,
+        "description": "A collection of citywide Geographic Information System (GIS) layers that show areas of potential flooding scenarios under varying sea level rise conditions. Please see the New York City Stormwater Resiliency Plan for more information about the methodology applied to develop the maps. Please direct questions or comments to StormwaterResiliency@cityhall.nyc.gov.\r\n\r\n<b>This collection contains the following NYC Stormwater Flood Maps:</b>\r\n<em><ul>\r\n<li>NYC Stormwater Flood Map - Extreme Flood (3.66 inches/hr) with 2080 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with 2050 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with Current Sea Levels </li>\r\n<li>NYC Stormwater Flood Map - Limited Flood (1.77 inches/hr) with Current Sea Levels </li></ul></em>\r\n<a href=\"https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf\" target=\"_blank\">https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf</a>\r\n\r\nSource Data: <a href=\"https://experience.arcgis.com/experience/e83a49daef8a472da4a7e34dc25ac445/\" target=\"_blank\">http://nyc.gov/stormwater-map</a>",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 4113,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 40665219,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1720041664,
+        "publicationGroup": 19570889,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1720040648,
+        "tableId": 19570889,
+        "totalTimesRated": 0,
+        "viewCount": 15276,
+        "viewLastModified": 1729188613,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1725567442,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 6541447,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1725567326,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1725567442,
+              "failureCount": 0,
+              "startedAt": 1725567442,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Environmental Protection (DEP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/9i7c-xyvv",
+      "retrieved_at": "2026-04-28T12:21:25.863305+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/9i7c-xyvv",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4508,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYC Stormwater Flood Maps",
+      "description": "A collection of citywide Geographic Information System (GIS) layers that show areas of potential flooding scenarios under varying sea level rise conditions. Please see the New York City Stormwater Resiliency Plan for more information about the methodology applied to develop the maps. Please direct questions or comments to StormwaterResiliency@cityhall.nyc.gov.\r\n\r\n<b>This collection contains the following NYC Stormwater Flood Maps:</b>\r\n<em><ul>\r\n<li>NYC Stormwater Flood Map - Extreme Flood (3.66 inches/hr) with 2080 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with 2050 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with Current Sea Levels </li>\r\n<li>NYC Stormwater Flood Map - Limited Flood (1.77 inches/hr) with Current Sea Levels </li></ul></em>\r\n<a href=\"https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf\" target=\"_blank\">https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf</a>\r\n\r\nSource Data: <a href=\"https://experience.arcgis.com/experience/e83a49daef8a472da4a7e34dc25ac445/\" target=\"_blank\">http://nyc.gov/stormwater-map</a>",
+      "attribution": "Department of Environmental Protection (DEP)",
+      "rowsUpdatedAt": 1720040648,
+      "json_sample": {
+        "id": "9i7c-xyvv",
+        "name": "NYC Stormwater Flood Maps",
+        "assetType": "file",
+        "attribution": "Department of Environmental Protection (DEP)",
+        "attributionLink": "https://experience.arcgis.com/experience/e83a49daef8a472da4a7e34dc25ac445/",
+        "averageRating": 0,
+        "blobFilename": "NYCFloodStormwaterFloodMaps.zip",
+        "blobFileSize": 33785094,
+        "blobId": "6ce7b252-a38c-47ae-a823-680f443227e5",
+        "blobMimeType": "application/zip",
+        "category": "Environment",
+        "createdAt": 1720040648,
+        "description": "A collection of citywide Geographic Information System (GIS) layers that show areas of potential flooding scenarios under varying sea level rise conditions. Please see the New York City Stormwater Resiliency Plan for more information about the methodology applied to develop the maps. Please direct questions or comments to StormwaterResiliency@cityhall.nyc.gov.\r\n\r\n<b>This collection contains the following NYC Stormwater Flood Maps:</b>\r\n<em><ul>\r\n<li>NYC Stormwater Flood Map - Extreme Flood (3.66 inches/hr) with 2080 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with 2050 Sea Level Rise </li>\r\n<li>NYC Stormwater Flood Map - Moderate Flood (2.13 inches/hr) with Current Sea Levels </li>\r\n<li>NYC Stormwater Flood Map - Limited Flood (1.77 inches/hr) with Current Sea Levels </li></ul></em>\r\n<a href=\"https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf\" target=\"_blank\">https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf</a>\r\n\r\nSource Data: <a href=\"https://experience.arcgis.com/experience/e83a49daef8a472da4a7e34dc25ac445/\" target=\"_blank\">http://nyc.gov/stormwater-map</a>",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 4113,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 40665219,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1720041664,
+        "publicationGroup": 19570889,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1720040648,
+        "tableId": 19570889,
+        "totalTimesRated": 0,
+        "viewCount": 15276,
+        "viewLastModified": 1729188613,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1725567442,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 6541447,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1725567326,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1725567442,
+              "failureCount": 0,
+              "startedAt": 1725567442,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Environmental Protection (DEP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/9i7c-xyvv.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:21:26.468310+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/9i7c-xyvv.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

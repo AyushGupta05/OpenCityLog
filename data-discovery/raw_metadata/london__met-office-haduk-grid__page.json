@@ -1,0 +1,25 @@
+{
+  "source_id": "met-office-haduk-grid",
+  "city": "london",
+  "title": "HadUK-Grid climate observations",
+  "publisher": "Met Office",
+  "bucket": "environment",
+  "retrieved_at": "2026-04-28T12:18:57.278448+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.metoffice.gov.uk/research/climate/maps-and-data/data/haduk-grid/haduk-grid",
+      "retrieved_at": "2026-04-28T12:18:57.005555+00:00",
+      "final_url": "https://www.metoffice.gov.uk/research/climate/maps-and-data/data/haduk-grid/haduk-grid",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 71973,
+      "page_title": "HadUK-Grid - Met Office",
+      "h1": "HadUK-Grid",
+      "meta_description": "In-depth information about the HadUK-Grid from the Met Office",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\"> <head> <link rel=\"preconnect\" href=\"https://cc.cdn.civiccomputing.com\" crossorigin=\"anonymous\"> <link rel=\"preload\" href=\"/webfiles/1764673469274/js/common/set-body-class.js\" as=\"script\"> <meta charset=\"utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"> <meta name=\"robots\" content=\"max-image-preview:large\"> <meta name=\"viewport\" content=\"initial-scale=1.0, width=device-width, viewport-fit=cover\"> <meta name=\"eGMS.accessibility\" content=\"A\"> <meta name=\"eGMS.subject.category\" content=\"Climate and weather\"> <meta name=\"twitter:site\" content=\"@metoffice\"> <meta name=\"twitter:card\" content=\"summary\"> <meta property=\"fb:app_id\" content=\"208580322593329\"> <meta property=\"og:site_name\" content=\"Met Office\"> <meta property=\"og:type\" content=\"website\"> <meta property=\"og:url\" content=\"https://www.metoffice.gov.uk/research/climate/maps-and-data/data/haduk-grid/haduk-grid\"> <link rel=\"icon\" href=\"/favicon.png\"> <link rel=\"icon\" href=\"/favicon-dark.png\" media=\"(prefers-color-scheme:dark)\"> <link rel=\"manifest\" href=\"/manifest.json\"> <meta name=\"theme-color\" content=\"#2a2a2a\"> <meta property=\"og:image\" content=\"https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/science/hawarden.jpg\" /> <meta property=\"og:image:width\" content=\"1920\"> <meta property=\"og:image:height\" content=\"1080\"> <meta name=\"google-site-verification\" content=\"LR7Q3483mkrmLcJJZpzIbl48mNnTbBDVzjA3GqT3Q2M\"> <meta name=\"google-translate-customization\" content=\"f8c19e614cd5ee7e-37428b41ac444aca-gd1bc91f73b6940ae-14\"> <link rel=\"canonical\" href=\"https://www.metoffice.gov.uk/research/climate/maps-and-data/data/haduk-grid/haduk-grid\"> <link rel=\"preload\" as=\"font\" href=\"/static/fonts/FSEmericWeb-Regular.woff\" type=\"font/woff\" crossorigin=\"anonymous\"> <link rel=\"preload\" as=\"font\" href=\"/static/fonts/FSEmericWeb-Italic.woff\" type=\"font/woff\" crossorigin=\"anonymous\"> <link rel=\"preload\" as=\"font\" href=\"/static/fonts/FSEmericWeb-SemiBold.woff\" type=\"font/woff\" crossorigin=\"anonymous\"> <link rel=\"preload\" as=\"font\" href=\"/static/fonts/FSEmericWeb-Light.woff\" type=\"font/woff\" crossorigin=\"anonymous\"> <style> @font-face { font-family: FSEmeric; font-style: normal; font-weight: 400; src: url('/static/fonts/FSEmericWeb-Regular.eot'); src: url('/static/fonts/FSEmericWeb-Regular.woff') format('woff'); font-display: swap; } @font-face { font-family: FSEmeric; font-style: italic; font-weight: 400; src: url('/static/fonts/FSEmericWeb-Italic.eot'); src: url('/static/fonts/FSEmericWeb-Italic.woff') format('woff'); font-display: swap; } @font-face { font-family: FSEmeric; font-style: normal; font-weight: 600; src: url('/static/fonts/FSEmericWeb-SemiBold.eot'); src: url('/static/fonts/FSEmericWeb-SemiBold.woff') format('woff'); font-display: swap; } @font-face { font-family: FSEmeric; font-style: normal; font-weight: 300; src: url('/static/fonts/FSEmericWeb-Light.eot'); src: url('/static/fonts/FSEmericWeb-Li"
+    }
+  ]
+}

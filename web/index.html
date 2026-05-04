@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Citylog</title>
+  <meta name="description" content="A source-backed city change atlas for exploring observed events over time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="/atlas.css">
+</head>
+<body>
+  <a class="skip-link" href="#mapStage">Skip to map</a>
+
+  <div class="atlas-app">
+    <header class="topbar" aria-label="Open Citylog header">
+      <a class="brand" href="/" aria-label="Open Citylog home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="brand-name">Open Citylog</span>
+      </a>
+
+      <p class="product-note">Observed city change with public evidence.</p>
+
+      <label class="global-search" for="eventSearch">
+        <span aria-hidden="true" class="search-icon"></span>
+        <input id="eventSearch" type="search" autocomplete="off" placeholder="Search places, projects, neighbourhoods...">
+        <kbd>Ctrl K</kbd>
+      </label>
+
+      <label class="city-picker" for="citySelect">
+        <span class="pin-icon" aria-hidden="true"></span>
+        <select id="citySelect" name="city"></select>
+      </label>
+
+      <nav class="top-links" aria-label="Project links">
+        <a href="/data/city-atlas/index.json" target="_blank" rel="noreferrer">Data</a>
+        <a href="/api/health" target="_blank" rel="noreferrer">API</a>
+      </nav>
+    </header>
+
+    <div class="workspace">
+      <aside class="change-log" aria-labelledby="changeLogTitle">
+        <div class="rail-tabs" role="tablist" aria-label="Left panel">
+          <button class="rail-tab active" type="button" aria-selected="true">
+            <span class="list-icon" aria-hidden="true"></span>
+            Change log
+          </button>
+          <button class="rail-tab" type="button" aria-selected="false" disabled>Saved places</button>
+        </div>
+
+        <section class="filter-panel" aria-label="Change log filters">
+          <div class="panel-heading">
+            <h1 id="changeLogTitle">Change log</h1>
+            <button id="clearFiltersButton" class="text-button" type="button">Clear all</button>
+          </div>
+
+          <div class="filter-grid">
+            <label for="categoryFilter">
+              <span>Category</span>
+              <select id="categoryFilter"></select>
+            </label>
+            <label for="confidenceFilter">
+              <span>Confidence</span>
+              <select id="confidenceFilter"></select>
+            </label>
+            <label for="sourceFilter">
+              <span>Source</span>
+              <select id="sourceFilter"></select>
+            </label>
+            <label for="sortSelect">
+              <span>Sort</span>
+              <select id="sortSelect">
+                <option value="relevance">Most relevant</option>
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <div class="list-status">
+          <span id="areaTitle">Loading city</span>
+          <strong id="listMeta">Loading records</strong>
+        </div>
+
+        <div id="eventList" class="event-list" role="list" aria-live="polite"></div>
+      </aside>
+
+      <main class="map-column" id="main">
+        <div class="layer-bar" id="layerBar" role="group" aria-label="Event layers"></div>
+
+        <section class="map-stage" id="mapStage" aria-label="Evidence map">
+          <div class="map-viewport" id="mapViewport">
+            <div class="map-plane" id="mapPlane">
+              <div class="map-scene before" id="beforeMap" aria-hidden="true"></div>
+              <div class="map-scene after" id="afterMap" aria-hidden="true"></div>
+              <div class="tile-layer before" id="beforeTileLayer" aria-hidden="true"></div>
+              <div class="tile-layer after" id="afterTileLayer" aria-hidden="true"></div>
+              <svg class="overlay-layer" id="overlayLayer" aria-hidden="true"></svg>
+              <div class="marker-layer" id="markerLayer" aria-label="Mappable events"></div>
+              <article class="map-callout" id="mapCallout" hidden>
+                <span id="calloutYear">Observed</span>
+                <strong id="calloutTitle">Select a record</strong>
+                <small id="calloutMeta">Source-backed event</small>
+              </article>
+              <div class="map-empty" id="mapEmpty" hidden>No mappable records in this view.</div>
+            </div>
+          </div>
+
+          <div class="map-controls" aria-label="Map controls">
+            <button id="zoomInButton" type="button" aria-label="Zoom in">+</button>
+            <button id="zoomOutButton" type="button" aria-label="Zoom out">-</button>
+            <button id="recenterButton" type="button" aria-label="Recenter map"><span class="target-icon" aria-hidden="true"></span></button>
+          </div>
+
+          <div class="view-switch" aria-label="Map view">
+            <button id="view2dButton" class="active" type="button" aria-pressed="true">2D</button>
+            <button id="view3dButton" type="button" aria-pressed="false">3D</button>
+          </div>
+
+          <div class="map-attribution" id="mapAttribution">Esri World Imagery, OpenStreetMap contributors, source-backed overlays</div>
+
+          <section class="timeline-dock" aria-label="Timeline">
+            <div class="timeline-head">
+              <button id="prevYearButton" class="round-button" type="button" aria-label="Previous year"></button>
+              <div class="timeline-copy">
+                <h2>Timeline</h2>
+                <p id="timelineSummary">Observed records by year</p>
+              </div>
+              <button id="nextYearButton" class="round-button next" type="button" aria-label="Next year"></button>
+            </div>
+
+            <div class="year-strip" id="yearStrip" aria-hidden="true"></div>
+
+            <label class="year-control" for="yearSlider">
+              <input id="yearSlider" type="range" min="2000" max="2026" value="2026" step="1">
+            </label>
+
+            <div class="timeline-actions">
+              <button id="replayButton" class="ghost-button" type="button">
+                <span class="play-icon" aria-hidden="true"></span>
+                Replay
+              </button>
+              <strong id="compareLabel">2004 -> 2026</strong>
+              <span id="compareNote">Years compared</span>
+              <label for="compareSlider" class="compare-scrubber">
+                <span>Before</span>
+                <input id="compareSlider" type="range" min="12" max="88" value="50">
+                <span>After</span>
+              </label>
+              <button id="exportBriefButton" class="ghost-button primary" type="button">
+                <span class="download-icon" aria-hidden="true"></span>
+                Export
+              </button>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <aside class="evidence-brief" aria-labelledby="detailTitle">
+        <div class="brief-toolbar">
+          <span class="brief-label">Evidence brief</span>
+          <button id="copyBriefButton" class="icon-button" type="button" aria-label="Copy evidence brief"></button>
+        </div>
+
+        <header class="brief-header">
+          <span id="detailIndex" class="selected-pin">1</span>
+          <div>
+            <h2 id="detailTitle">Select a record</h2>
+            <p id="detailSubtitle">Choose a changelog item or map marker.</p>
+          </div>
+        </header>
+
+        <section class="brief-section">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span>Observed change</span>
+          </button>
+          <p id="observedChange">Loading source-backed records.</p>
+        </section>
+
+        <section class="brief-section impact-section" aria-labelledby="impactLensTitle">
+          <div class="impact-section-head">
+            <h3 id="impactLensTitle">Context lens</h3>
+            <div id="impactModeBar" class="impact-mode-bar" role="group" aria-label="How to inspect the selected event">
+              <button type="button" data-impact-mode="place" aria-pressed="true">Place change</button>
+              <button type="button" data-impact-mode="traffic" aria-pressed="false">Traffic</button>
+              <button type="button" data-impact-mode="components" aria-pressed="false">Components</button>
+            </div>
+          </div>
+          <div id="impactPanel" class="impact-panel" aria-live="polite">
+            <p>Select an event to inspect associated place, mobility, and component context.</p>
+          </div>
+        </section>
+
+        <section class="brief-section before-after">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span>Before / after imagery</span>
+          </button>
+          <div class="evidence-frames" id="evidenceFrames"></div>
+        </section>
+
+        <section class="brief-section">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span>Confidence</span>
+          </button>
+          <div class="confidence-line">
+            <span id="confidenceDot" class="status-dot"></span>
+            <strong id="detailConfidence">No event</strong>
+          </div>
+          <p id="confidenceText">Select an event to see evidence strength.</p>
+        </section>
+
+        <section class="brief-section">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span>Limitations</span>
+          </button>
+          <ul id="limitationsList" class="plain-list">
+            <li>Coverage and licensing notes load with the selected record.</li>
+          </ul>
+        </section>
+
+        <section class="brief-section causal-claim" aria-labelledby="causalClaimTitle">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span id="causalClaimTitle">Causal claim</span>
+          </button>
+          <div class="causal-status">
+            <span class="status-dot neutral" aria-hidden="true"></span>
+            <strong id="causalClaimLabel">Not assessed</strong>
+          </div>
+          <p id="causalClaimText">Select an event to see whether the evidence supports a causal claim.</p>
+        </section>
+
+        <section class="brief-section">
+          <button class="section-toggle" type="button" aria-expanded="true">
+            <span>Sources</span>
+          </button>
+          <div id="sourceList" class="source-list"></div>
+        </section>
+
+        <section class="brief-section catalog-section" aria-labelledby="evidenceCatalogTitle">
+          <div class="catalog-heading">
+            <div>
+              <span class="impact-kicker">PDF-integrated source atlas</span>
+              <h3 id="evidenceCatalogTitle">Historical urban evidence catalog</h3>
+            </div>
+            <a href="/data/city-atlas/evidence-catalog.json" target="_blank" rel="noreferrer">JSON</a>
+          </div>
+          <p id="catalogSummary">Loading NYC/London evidence catalog.</p>
+          <div id="catalogStats" class="catalog-stats" aria-label="Catalog data counts"></div>
+
+          <details class="catalog-block" open>
+            <summary>MVP stack &amp; strengths</summary>
+            <div id="catalogMvpStack" class="catalog-mvp-stack"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Domain comparison <span id="catalogDomainCount" class="catalog-pill"></span></summary>
+            <div id="catalogDomainGrid" class="catalog-domain-grid"></div>
+          </details>
+
+          <details class="catalog-block" open>
+            <summary>City source families <span id="catalogSourceCount" class="catalog-pill"></span></summary>
+            <div id="catalogSourceGrid" class="catalog-source-grid"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Foundational global layers <span id="catalogFoundationalCount" class="catalog-pill"></span></summary>
+            <div id="catalogFoundationalGrid" class="catalog-source-grid"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Coverage timelines <span id="catalogTimelineCount" class="catalog-pill"></span></summary>
+            <div id="catalogTimelineList" class="catalog-timeline-list"></div>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Adapter patterns &amp; visual products</summary>
+            <div id="catalogAdapters" class="catalog-adapters"></div>
+            <div id="catalogVisuals" class="catalog-visuals"></div>
+            <p id="catalogGraphModel" class="catalog-note"></p>
+            <p id="catalogInterpolation" class="catalog-note"></p>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Legal &amp; ethical constraints</summary>
+            <ul id="catalogLegalList" class="catalog-bullet-list"></ul>
+          </details>
+
+          <details class="catalog-block">
+            <summary>Open questions &amp; limitations</summary>
+            <ul id="catalogOpenQuestions" class="catalog-bullet-list"></ul>
+          </details>
+
+          <a class="catalog-raw-link" href="/data/city-atlas/evidence-catalog-raw.txt" target="_blank" rel="noreferrer">Open raw extracted PDF text</a>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
+  <script src="/atlas.js?v=maplibre-wayback-2" defer></script>
+</body>
+</html>

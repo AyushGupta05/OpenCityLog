@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-islington-open-data",
+  "city": "london",
+  "title": "Islington Open Data",
+  "publisher": "London Borough of Islington",
+  "bucket": "borough/local assets/planning/parking",
+  "retrieved_at": "2026-04-28T12:57:27.806386+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.islington.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:27.654177+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

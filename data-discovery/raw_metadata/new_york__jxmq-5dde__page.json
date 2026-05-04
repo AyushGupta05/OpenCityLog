@@ -1,0 +1,456 @@
+{
+  "source_id": "jxmq-5dde",
+  "city": "new_york",
+  "title": "NYC Orthoimagery Tile Index",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "imagery/tile index",
+  "retrieved_at": "2026-04-28T13:00:16.639008+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/jxmq-5dde",
+      "retrieved_at": "2026-04-28T13:00:15.163757+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/jxmq-5dde",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4073,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "iconUrl",
+        "id",
+        "indexUpdatedAt",
+        "license",
+        "licenseId",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYC Orthoimagery Tile Index",
+      "description": "This NYC Orthoimagery Tile Index file can be used to geo-reference the individual image tiles across the City. This tile index is used in conjunction with the Orthoimagery by individual Borough download",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1501596028,
+      "json_sample": {
+        "id": "jxmq-5dde",
+        "name": "NYC Orthoimagery Tile Index",
+        "assetType": "file",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "attributionLink": "http://www1.nyc.gov/nyc-resources/nyc-maps.page",
+        "averageRating": 0,
+        "blobFilename": "NYC_OrthoTileIndex.zip",
+        "blobFileSize": 56113,
+        "blobId": "5086adb8-f7d3-4ac8-90d3-dbaeca302bef",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "City Government",
+        "createdAt": 1501596028,
+        "description": "This NYC Orthoimagery Tile Index file can be used to geo-reference the individual image tiles across the City. This tile index is used in conjunction with the Orthoimagery by individual Borough download",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 861,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "iconUrl": "fileId:86b0d96c-97d6-4de3-b7db-65668a303243",
+        "indexUpdatedAt": 1552939826,
+        "licenseId": "CC_40_BY",
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 26500912,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1501596028,
+        "publicationGroup": 14369098,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1501596028,
+        "tableId": 14369098,
+        "totalTimesRated": 0,
+        "viewCount": 1673,
+        "viewLastModified": 1663960983,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1501623829,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067841,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1501623829,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "license": {
+          "name": "Creative Commons Attribution 4.0 International",
+          "logoUrl": "images/licenses/cc30by.png",
+          "termsLink": "http://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "2014 Orthoimagery Tile Index.xlsx",
+              "assetId": "0dc27a4b-2b14-40af-bc86-c85dcef244da",
+              "name": "2014 Orthoimagery Tile Index.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "7/7/2017",
+              "Update Frequency": "Historical data"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "blob": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "imagery",
+          "map",
+          "gis",
+          "ortho",
+          "photography",
+          "aerial",
+          "tile",
+          "index"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/jxmq-5dde",
+      "retrieved_at": "2026-04-28T13:00:15.725888+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/jxmq-5dde",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4073,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "iconUrl",
+        "id",
+        "indexUpdatedAt",
+        "license",
+        "licenseId",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYC Orthoimagery Tile Index",
+      "description": "This NYC Orthoimagery Tile Index file can be used to geo-reference the individual image tiles across the City. This tile index is used in conjunction with the Orthoimagery by individual Borough download",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1501596028,
+      "json_sample": {
+        "id": "jxmq-5dde",
+        "name": "NYC Orthoimagery Tile Index",
+        "assetType": "file",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "attributionLink": "http://www1.nyc.gov/nyc-resources/nyc-maps.page",
+        "averageRating": 0,
+        "blobFilename": "NYC_OrthoTileIndex.zip",
+        "blobFileSize": 56113,
+        "blobId": "5086adb8-f7d3-4ac8-90d3-dbaeca302bef",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "City Government",
+        "createdAt": 1501596028,
+        "description": "This NYC Orthoimagery Tile Index file can be used to geo-reference the individual image tiles across the City. This tile index is used in conjunction with the Orthoimagery by individual Borough download",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 861,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "iconUrl": "fileId:86b0d96c-97d6-4de3-b7db-65668a303243",
+        "indexUpdatedAt": 1552939826,
+        "licenseId": "CC_40_BY",
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 26500912,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1501596028,
+        "publicationGroup": 14369098,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1501596028,
+        "tableId": 14369098,
+        "totalTimesRated": 0,
+        "viewCount": 1673,
+        "viewLastModified": 1663960983,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1501623829,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067841,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1501623829,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "license": {
+          "name": "Creative Commons Attribution 4.0 International",
+          "logoUrl": "images/licenses/cc30by.png",
+          "termsLink": "http://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "2014 Orthoimagery Tile Index.xlsx",
+              "assetId": "0dc27a4b-2b14-40af-bc86-c85dcef244da",
+              "name": "2014 Orthoimagery Tile Index.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "7/7/2017",
+              "Update Frequency": "Historical data"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "blob": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "imagery",
+          "map",
+          "gis",
+          "ortho",
+          "photography",
+          "aerial",
+          "tile",
+          "index"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/jxmq-5dde.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:16.024268+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/jxmq-5dde.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

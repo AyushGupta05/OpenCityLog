@@ -1,0 +1,15 @@
+[
+  {
+    "unique_id": "878218",
+    "indicator_id": "386",
+    "name": "Ozone (O3)",
+    "measure": "Mean",
+    "measure_info": "ppb",
+    "geo_type_name": "UHF42",
+    "geo_join_id": "402",
+    "geo_place_name": "West Queens",
+    "time_period": "Summer 2023",
+    "start_date": "2023-06-01T00:00:00.000",
+    "data_value": "34.3659895"
+  }
+]

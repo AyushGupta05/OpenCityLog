@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-food-hygiene-rating-scheme-api",
+  "city": "london",
+  "title": "Food Hygiene Rating Scheme API",
+  "publisher": "Food Standards Agency",
+  "bucket": "facilities/food businesses/economy",
+  "retrieved_at": "2026-04-28T12:57:22.047212+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://api.ratings.food.gov.uk/help",
+      "retrieved_at": "2026-04-28T12:57:21.844038+00:00",
+      "final_url": "https://api.ratings.food.gov.uk/help",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "38854",
+      "bytes_captured": 38854,
+      "page_title": "Food Hygiene Rating API Help Page Menu icon FSA-Home close-icon FSA-Home",
+      "h1": "Food Hygiene Rating Scheme API (Version 2)",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html> <head> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width\" /> <title>Food Hygiene Rating API Help Page</title> <style> @import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700); @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700); </style> <link href=\"/Content/css?v=Q8j70SM-Nl1YvLkW3FRdPLYWeBvmz2mbLaeINb4M6oE1\" rel=\"stylesheet\"/> <script src=\"/bundles/fhrs?v=g4sLmbsEG13vesKkMCC8opTOcdJZWQLwab_JGtASi1k1\"></script> </head> <body> <div class=\"site js-site\"> <header class=\"layout header\" role=\"banner\" aria-label=\"Page Banner\"> <div class=\"layout__container header__container\"> <a class=\"skip-to-content-link\" href=\"#main\"> Skip to main content </a> <div class=\"layout__content header__content\"> <button class=\"header__menu-button js-menu-button-open\"> <div class=\"svg\"> <span class=\"visually-hidden\">Open mobile navigation</span> <svg role=\"presentation\" viewBox=\"0 0 20 14\"> <title>Menu icon</title> <g fill-rule=\"nonzero\" fill=\"#007C75\"> <rect width=\"15\" height=\"2\" rx=\"1\"></rect> <rect y=\"6\" width=\"20\" height=\"2\" rx=\"1\"></rect> <rect y=\"12\" width=\"15\" height=\"2\" rx=\"1\"></rect> </g> </svg> </div> </button> <a href=\"https://www.food.gov.uk\" class=\"header__logo block-link\"> <div class=\"svg\"> <svg role=\"presentation\" viewBox=\"0 0 200 79\"> <title>FSA-Home</title> <g fill=\"none\" fill-rule=\"evenodd\"> <path d=\"M171.366 57.383c.126-.482.48-.74.922-.71h1.204c.216.003.392.02.549.1a.474.474 0 0 1 .266.44c.002.16-.044.293-.126.486l-4.735 13.303-.603 1.739c-.549 1.51-1.182 2.983-1.677 3.914-.547 1.03-1.282 1.525-2.354 1.525h-.304c-.267-.002-.48-.022-.656-.165-.178-.151-.214-.371-.214-.609V76.32c0-.442.202-.86.645-.863h.257c.22-.014.27-.036.448-.34.279-.451.585-1.12.876-1.934l.625-1.72-5.442-13.632c-.114-.262-.162-.393-.162-.558a.538.538 0 0 1 .242-.47c.155-.096.337-.126.543-.128h1.577c.501-.019.886.223 1.034.67l3.859 10.228 3.226-10.187\" fill=\"#006F51\"></path> <path d=\"M19.43 63.461l-.064-39.509c0-1.58.924-2.862 2.074-2.87 1.052 0 1.914 1.063 2.066 2.451l.04 31.998c.01 1.585.942 2.866 2.082 2.866 1.108.002 2.005-1.184 2.076-2.675v-.036c0-.053.006-.107.006-.161l-.049-31.738c.05-1.51.956-2.718 2.064-2.72.948.002 1.751.885 2.002 2.085l-.014-6.607h-.026C31.667 10.33 35.537 3.109 40.98.15a38.922 38.922 0 0 0-27.673 10.71C-2.471 25.794-3.216 50.75 11.635 66.613a38.933 38.933 0 0 0 13.163 9.238c-2.773-3.148-4.34-6.925-5.151-10.354-.092-.4-.216-1.5"
+    }
+  ]
+}

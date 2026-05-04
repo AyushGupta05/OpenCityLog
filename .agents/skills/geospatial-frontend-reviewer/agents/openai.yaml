@@ -1,0 +1,4 @@
+interface:
+  display_name: "Geospatial Frontend Reviewer"
+  short_description: "Review map, timeline, and evidence UI"
+  default_prompt: "Use $geospatial-frontend-reviewer to review this map, timeline, event, and evidence UI change."

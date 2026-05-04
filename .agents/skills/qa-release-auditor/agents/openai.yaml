@@ -1,0 +1,4 @@
+interface:
+  display_name: "QA Release Auditor"
+  short_description: "Run final release readiness checks"
+  default_prompt: "Use $qa-release-auditor to audit this Bims-5 branch before merge or release."

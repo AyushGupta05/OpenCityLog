@@ -1,0 +1,25 @@
+{
+  "source_id": "environment-agency-flood-water",
+  "city": "london",
+  "title": "Environment Agency flood, river and environmental data services",
+  "publisher": "Environment Agency / DEFRA",
+  "bucket": "environment",
+  "retrieved_at": "2026-04-28T12:18:55.906316+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://environment.data.gov.uk/",
+      "retrieved_at": "2026-04-28T12:18:55.256008+00:00",
+      "final_url": "https://environment.data.gov.uk/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "\"17yz8susb7ktqb\"",
+      "content_length_header": "38534",
+      "bytes_captured": 38534,
+      "page_title": "Defra Data Services Platform Search",
+      "h1": "Find Defra data",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><title>Defra Data Services Platform</title><meta name=\"robots\" content=\"index, follow\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"next-head-count\" content=\"5\"/><link href=\"https://unpkg.com/sanitize.css\" rel=\"stylesheet\"/><link rel=\"preload\" href=\"/_next/static/css/e40d94c58cccb0f2.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/e40d94c58cccb0f2.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js\"></script><script src=\"/shared/cookieslocal.js\" type=\"module\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/shared/analytics.js\" type=\"module\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-6863bbcb2758e6b4.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-1734a259a4979b12.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-5de7dfd2e74ffa18.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-fd4cc982226a7e8b.js\" defer=\"\"></script><script src=\"/_next/static/chunks/75fc9c18-976d22b901a09a14.js\" defer=\"\"></script><script src=\"/_next/static/chunks/8764-d96b11c5157b15ec.js\" defer=\"\"></script><script src=\"/_next/static/chunks/7066-e97f5599eaf5a555.js\" defer=\"\"></script><script src=\"/_next/static/chunks/1115-4898b773ec75fb0e.js\" defer=\"\"></script><script src=\"/_next/static/chunks/7311-159043f8f9a074c9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/5672-291c316db2514f89.js\" defer=\"\"></script><script src=\"/_next/static/chunks/7261-00fcabbbe2fdfb46.js\" defer=\"\"></script><script src=\"/_next/static/chunks/6898-03363fbcebfe5a81.js\" defer=\"\"></script><script src=\"/_next/static/chunks/2816-b27249775d660c23.js\" defer=\"\"></script><script src=\"/_next/static/chunks/240-bea9ceae2716b2f8.js\" defer=\"\"></script><script src=\"/_next/static/chunks/4915-376c0650ccf3f5f8.js\" defer=\"\"></script><script src=\"/_next/static/chunks/3405-44b9999cc5885981.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-5ecf6abaeded1efd.js\" defer=\"\"></script><script src=\"/_next/static/64mg2uzXaHlhBPJTT6da1/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/64mg2uzXaHlhBPJTT6da1/_ssgManifest.js\" defer=\"\"></script><style data-styled=\"\" data-styled-version=\"5.3.6\">.hGBdAw{font-family:\"nta\",Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:16px;line-height:1.25;margin-bottom:5px;}/*!sc*/ @media print{.hGBdAw{font-size:14px;line-height:1.15;}}/*!sc*/ @media only screen and (min-width:641px){.hGBdAw{font-size:19px;line-height:1.3157894736842106;}}/*!sc*/ data-styled.g25[id=\"src__ListItem-sc-u4zf5o-0\"]{content:\"hGBdAw,\"}/*!sc*/ .cPNSK{font-family:\"nta\",Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:16px;line-he"
+    }
+  ]
+}

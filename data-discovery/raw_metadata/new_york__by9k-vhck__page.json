@@ -1,0 +1,412 @@
+{
+  "source_id": "by9k-vhck",
+  "city": "new_york",
+  "title": "Tree Canopy Change 2010-2017",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "tree canopy/climate/imagery",
+  "retrieved_at": "2026-04-28T12:59:11.921653+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/by9k-vhck",
+      "retrieved_at": "2026-04-28T12:59:10.677471+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/by9k-vhck",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4280,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Tree Canopy Change (2010 - 2017)",
+      "description": "A 6-in resolution tree canopy change (2010 - 2017) dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset represents a \"top-down\" mapping perspective and all tree polygons are classed as: (1) No Change, (2) Gain, (3) Loss. No change indicates that this portion of the canopy has undergone no modifications during the time period. Gain indicates that new tree canopy has appeared during the time period. Loss indicates that this portion of the tree canopy was removed during the time period.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_TreeCanopyChange.md",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1544209936,
+      "json_sample": {
+        "id": "by9k-vhck",
+        "name": "Tree Canopy Change (2010 - 2017)",
+        "assetType": "file",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "averageRating": 0,
+        "blobFilename": "Tree_Canopy_Change.zip",
+        "blobFileSize": 666685898,
+        "blobId": "bcbd4999-42cf-420f-9917-66419c5d8d8f",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "Environment",
+        "createdAt": 1544209936,
+        "description": "A 6-in resolution tree canopy change (2010 - 2017) dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset represents a \"top-down\" mapping perspective and all tree polygons are classed as: (1) No Change, (2) Gain, (3) Loss. No change indicates that this portion of the canopy has undergone no modifications during the time period. Gain indicates that new tree canopy has appeared during the time period. Loss indicates that this portion of the tree canopy was removed during the time period.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_TreeCanopyChange.md",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 2453,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1544637602,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 30306364,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1544210367,
+        "publicationGroup": 15747418,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1544209936,
+        "tableId": 15747418,
+        "totalTimesRated": 0,
+        "viewCount": 8981,
+        "viewLastModified": 1663960989,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1544637513,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1077996,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1544637513,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data_Dictionary_Tree_Canopy_Change.xlsx",
+              "assetId": "79d70507-614a-4300-9696-3fa7cb4581b1",
+              "name": "Data_Dictionary_Tree_Canopy_Change.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "12/12/2018",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "land cover",
+          "tree canopy",
+          "tree canopy change"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/by9k-vhck",
+      "retrieved_at": "2026-04-28T12:59:10.782343+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/by9k-vhck",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4280,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Tree Canopy Change (2010 - 2017)",
+      "description": "A 6-in resolution tree canopy change (2010 - 2017) dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset represents a \"top-down\" mapping perspective and all tree polygons are classed as: (1) No Change, (2) Gain, (3) Loss. No change indicates that this portion of the canopy has undergone no modifications during the time period. Gain indicates that new tree canopy has appeared during the time period. Loss indicates that this portion of the tree canopy was removed during the time period.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_TreeCanopyChange.md",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1544209936,
+      "json_sample": {
+        "id": "by9k-vhck",
+        "name": "Tree Canopy Change (2010 - 2017)",
+        "assetType": "file",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "averageRating": 0,
+        "blobFilename": "Tree_Canopy_Change.zip",
+        "blobFileSize": 666685898,
+        "blobId": "bcbd4999-42cf-420f-9917-66419c5d8d8f",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "Environment",
+        "createdAt": 1544209936,
+        "description": "A 6-in resolution tree canopy change (2010 - 2017) dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset represents a \"top-down\" mapping perspective and all tree polygons are classed as: (1) No Change, (2) Gain, (3) Loss. No change indicates that this portion of the canopy has undergone no modifications during the time period. Gain indicates that new tree canopy has appeared during the time period. Loss indicates that this portion of the tree canopy was removed during the time period.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_TreeCanopyChange.md",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 2453,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1544637602,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 30306364,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1544210367,
+        "publicationGroup": 15747418,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1544209936,
+        "tableId": 15747418,
+        "totalTimesRated": 0,
+        "viewCount": 8981,
+        "viewLastModified": 1663960989,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1544637513,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1077996,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1544637513,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data_Dictionary_Tree_Canopy_Change.xlsx",
+              "assetId": "79d70507-614a-4300-9696-3fa7cb4581b1",
+              "name": "Data_Dictionary_Tree_Canopy_Change.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "12/12/2018",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "land cover",
+          "tree canopy",
+          "tree canopy change"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/by9k-vhck.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:11.342373+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/by9k-vhck.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

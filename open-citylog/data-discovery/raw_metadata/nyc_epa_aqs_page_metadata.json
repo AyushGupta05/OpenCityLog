@@ -1,0 +1,16 @@
+{
+  "source_id": "nyc_epa_aqs",
+  "title": "EPA Air Quality System API",
+  "requested_url": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
+  "fetched_url": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
+  "final_url": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
+  "status": 200,
+  "content_type": "text/html",
+  "content_length": "131761",
+  "last_modified": "Mon, 11 Apr 2022 17:16:47 GMT",
+  "etag": "\"202b1-5dc641bf56a10\"",
+  "retrieved_at": "2026-04-28T11:05:59.930370+00:00",
+  "page_title": "AQS API | AirData | US EPA",
+  "h1": "US EPA",
+  "meta_description": ""
+}

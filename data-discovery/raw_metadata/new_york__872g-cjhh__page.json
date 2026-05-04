@@ -1,0 +1,1071 @@
+{
+  "source_id": "872g-cjhh",
+  "city": "new_york",
+  "title": "City Council Districts",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "boundaries/council districts",
+  "retrieved_at": "2026-04-28T13:00:25.344447+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/872g-cjhh",
+      "retrieved_at": "2026-04-28T13:00:22.788920+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/872g-cjhh",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 9432,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "City Council Districts",
+      "description": "The City Council district boundaries for New York City.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/city-council\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089463,
+      "json_sample": {
+        "id": "872g-cjhh",
+        "name": "City Council Districts",
+        "assetType": "dataset",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/city-council",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1718642408,
+        "description": "The City Council district boundaries for New York City.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/city-council\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 721,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 40623617,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1718643346,
+        "publicationGroup": 19551084,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089463,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 19551084,
+        "totalTimesRated": 0,
+        "viewCount": 1208,
+        "viewLastModified": 1773089461,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1749220618,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 6911905,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1749139890,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1749220618,
+              "failureCount": 0,
+              "startedAt": 1749220618,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "iqqb-gm94",
+              "displayName": "DCP Open Data"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 593793863,
+            "name": "CounDist",
+            "dataTypeName": "number",
+            "description": "City Council district number",
+            "fieldName": "coundist",
+            "position": 1,
+            "renderTypeName": "number",
+            "tableColumnId": 153062999,
+            "cachedContents": {
+              "non_null": "51",
+              "largest": "51",
+              "null": "0",
+              "top": [
+                {
+                  "item": "20",
+                  "count": "1"
+                },
+                {
+                  "item": "25",
+                  "count": "1"
+                },
+                {
+                  "item": "5",
+                  "count": "1"
+                },
+                {
+                  "item": "6",
+                  "count": "1"
+                },
+                {
+                  "item": "28",
+                  "count": "1"
+                },
+                {
+                  "item": "2",
+                  "count": "1"
+                },
+                {
+                  "item": "11",
+                  "count": "1"
+                },
+                {
+                  "item": "41",
+                  "count": "1"
+                },
+                {
+                  "item": "21",
+                  "count": "1"
+                },
+                {
+                  "item": "31",
+                  "count": "1"
+                },
+                {
+                  "item": "44",
+                  "count": "1"
+                },
+                {
+                  "item": "23",
+                  "count": "1"
+                },
+                {
+                  "item": "26",
+                  "count": "1"
+                },
+                {
+                  "item": "50",
+                  "count": "1"
+                },
+                {
+                  "item": "24",
+                  "count": "1"
+                },
+                {
+                  "item": "32",
+                  "count": "1"
+                },
+                {
+                  "item": "38",
+                  "count": "1"
+                },
+                {
+                  "item": "46",
+                  "count": "1"
+                },
+                {
+                  "item": "30",
+                  "count": "1"
+                },
+                {
+                  "item": "18",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "51",
+              "cardinality": "51"
+            },
+            "format": {}
+          },
+          {
+            "id": 593793864,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 2,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 153063000,
+            "format": {}
+          },
+          {
+            "id": 593793862,
+            "name": "Shape_Length",
+            "dataTypeName": "number",
+            "description": "Length of feature in internal units.",
+            "fieldName": "shape_leng",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 153062998,
+            "cachedContents": {
+              "non_null": "51",
+              "largest": "367887.446424",
+              "null": "0",
+              "top": [
+                {
+                  "item": "72283.5838559",
+                  "count": "1"
+                },
+                {
+                  "item": "328437.122626",
+                  "count": "1"
+                },
+                {
+                  "item": "344800.268816",
+                  "count": "1"
+                },
+                {
+                  "item": "50678.3711772",
+                  "count": "1"
+                },
+                {
+                  "item": "54130.6499767",
+                  "count": "1"
+                },
+                {
+                  "item": "80753.2014816",
+                  "count": "1"
+                },
+                {
+                  "item": "41619.7152933",
+                  "count": "1"
+                },
+                {
+                  "item": "185199.105694",
+                  "count": "1"
+                },
+                {
+                  "item": "179032.747485",
+                  "count": "1"
+                },
+                {
+                  "item": "179285.557444",
+                  "count": "1"
+                },
+                {
+                  "item": "51093.2789042",
+                  "count": "1"
+                },
+                {
+                  "item": "47289.0324122",
+                  "count": "1"
+                },
+                {
+                  "item": "58169.1091908",
+                  "count": "1"
+                },
+                {
+                  "item": "100202.295898",
+                  "count": "1"
+                },
+                {
+                  "item": "128723.547363",
+                  "count": "1"
+                },
+                {
+                  "item": "41266.1267556",
+                  "count": "1"
+                },
+                {
+                  "item": "58158.179181",
+                  "count": "1"
+                },
+                {
+                  "item": "85548.5142129",
+                  "count": "1"
+                },
+                {
+                  "item": "58083.630801",
+                  "count": "1"
+                },
+                {
+                  "item": "252953.405582",
+                  "count": "1"
+                }
+              ],
+              "smallest": "39108.3612981",
+              "count": "51",
+              "cardinality": "51"
+            },
+            "format": {}
+          },
+          {
+            "id": 593793861,
+            "name": "Shape_Area",
+            "dataTypeName": "number",
+            "description": "Area of feature in internal units squared.",
+            "fieldName": "shape_area",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 153062997,
+            "cachedContents": {
+              "non_null": "51",
+              "largest": "665198742.902",
+              "null": "0",
+              "top": [
+                {
+                  "item": "99194858.1299",
+                  "count": "1"
+                },
+                {
+                  "item": "665198742.902",
+                  "count": "1"
+                },
+                {
+                  "item": "106989875.914",
+                  "count": "1"
+                },
+                {
+                  "item": "109815036.183",
+                  "count": "1"
+                },
+                {
+                  "item": "277719689.762",
+                  "count": "1"
+                },
+                {
+                  "item": "105180458.579",
+                  "count": "1"
+                },
+                {
+                  "item": "37752249.1985",
+                  "count": "1"
+                },
+                {
+                  "item": "117904762.16",
+                  "count": "1"
+                },
+                {
+                  "item": "127849353.462",
+                  "count": "1"
+                },
+                {
+                  "item": "102496347.072",
+                  "count": "1"
+                },
+                {
+                  "item": "75477510.7941",
+                  "count": "1"
+                },
+                {
+                  "item": "73666488.5106",
+                  "count": "1"
+                },
+                {
+                  "item": "52585074.8021",
+                  "count": "1"
+                },
+                {
+                  "item": "201334161.93",
+                  "count": "1"
+                },
+                {
+                  "item": "168734193.246",
+                  "count": "1"
+                },
+                {
+                  "item": "131040795.784",
+                  "count": "1"
+                },
+                {
+                  "item": "76315832.3859",
+                  "count": "1"
+                },
+                {
+                  "item": "79271986.6813",
+                  "count": "1"
+                },
+                {
+                  "item": "101031674.429",
+                  "count": "1"
+                },
+                {
+                  "item": "186824790.631",
+                  "count": "1"
+                }
+              ],
+              "smallest": "37752249.1985",
+              "count": "51",
+              "cardinality": "51"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "nycc_metadata.pdf",
+              "assetId": "51ec9736-02f4-40d7-8003-b9fe4144144f",
+              "name": "nycc_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "4/18/2013",
+              "Update Frequency": "Quarterly",
+              "Data Change Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "Council district",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "city council districts",
+          "election",
+          "political",
+          "boundary",
+          "boundaries",
+          "districts",
+          "lion",
+          "cscl",
+          "department of city planning",
+          "dcp",
+          "new york city",
+          "nyc"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/872g-cjhh",
+      "retrieved_at": "2026-04-28T13:00:23.515957+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/872g-cjhh",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 9432,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "City Council Districts",
+      "description": "The City Council district boundaries for New York City.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/city-council\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089463,
+      "json_sample": {
+        "id": "872g-cjhh",
+        "name": "City Council Districts",
+        "assetType": "dataset",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/city-council",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1718642408,
+        "description": "The City Council district boundaries for New York City.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/city-council\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 721,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 40623617,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1718643346,
+        "publicationGroup": 19551084,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089463,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 19551084,
+        "totalTimesRated": 0,
+        "viewCount": 1208,
+        "viewLastModified": 1773089461,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1749220618,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 6911905,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1749139890,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1749220618,
+              "failureCount": 0,
+              "startedAt": 1749220618,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "iqqb-gm94",
+              "displayName": "DCP Open Data"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 593793863,
+            "name": "CounDist",
+            "dataTypeName": "number",
+            "description": "City Council district number",
+            "fieldName": "coundist",
+            "position": 1,
+            "renderTypeName": "number",
+            "tableColumnId": 153062999,
+            "cachedContents": {
+              "non_null": "51",
+              "largest": "51",
+              "null": "0",
+              "top": [
+                {
+                  "item": "20",
+                  "count": "1"
+                },
+                {
+                  "item": "25",
+                  "count": "1"
+                },
+                {
+                  "item": "5",
+                  "count": "1"
+                },
+                {
+                  "item": "6",
+                  "count": "1"
+                },
+                {
+                  "item": "28",
+                  "count": "1"
+                },
+                {
+                  "item": "2",
+                  "count": "1"
+                },
+                {
+                  "item": "11",
+                  "count": "1"
+                },
+                {
+                  "item": "41",
+                  "count": "1"
+                },
+                {
+                  "item": "21",
+                  "count": "1"
+                },
+                {
+                  "item": "31",
+                  "count": "1"
+                },
+                {
+                  "item": "44",
+                  "count": "1"
+                },
+                {
+                  "item": "23",
+                  "count": "1"
+                },
+                {
+                  "item": "26",
+                  "count": "1"
+                },
+                {
+                  "item": "50",
+                  "count": "1"
+                },
+                {
+                  "item": "24",
+                  "count": "1"
+                },
+                {
+                  "item": "32",
+                  "count": "1"
+                },
+                {
+                  "item": "38",
+                  "count": "1"
+                },
+                {
+                  "item": "46",
+                  "count": "1"
+                },
+                {
+                  "item": "30",
+                  "count": "1"
+                },
+                {
+                  "item": "18",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "51",
+              "cardinality": "51"
+            },
+            "format": {}
+          },
+          {
+            "id": 593793864,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 2,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 153063000,
+            "format": {}
+          },
+          {
+            "id": 593793862,
+            "name": "Shape_Length",
+            "dataTypeName": "number",
+            "description": "Length of feature in internal units.",
+            "fieldName": "shape_leng",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 153062998,
+            "cachedContents": {
+              "non_null": "51",
+              "largest": "367887.446424",
+              "null": "0",
+              "top": [
+                {
+                  "item": "72283.5838559",
+                  "count": "1"
+                },
+                {
+                  "item": "328437.122626",
+                  "count": "1"
+                },
+                {
+                  "item": "344800.268816",
+                  "count": "1"
+                },
+                {
+                  "item": "50678.3711772",
+                  "count": "1"
+                },
+                {
+                  "item": "54130.6499767",
+                  "count": "1"
+                },
+                {
+                  "item": "80753.2014816",
+                  "count": "1"
+                },
+                {
+                  "item": "41619.7152933",
+                  "count": "1"
+                },
+                {
+                  "item": "185199.105694",
+                  "count": "1"
+                },
+                {
+                  "item": "179032.747485",
+                  "count": "1"
+                },
+                {
+                  "item": "179285.557444",
+                  "count": "1"
+                },
+                {
+                  "item": "51093.2789042",
+                  "count": "1"
+                },
+                {
+                  "item": "47289.0324122",
+                  "count": "1"
+                },
+                {
+                  "item": "58169.1091908",
+                  "count": "1"
+                },
+                {
+                  "item": "100202.295898",
+                  "count": "1"
+                },
+                {
+                  "item": "128723.547363",
+                  "count": "1"
+                },
+                {
+                  "item": "41266.1267556",
+                  "count": "1"
+                },
+                {
+                  "item": "58158.179181",
+                  "count": "1"
+                },
+                {
+                  "item": "85548.5142129",
+                  "count": "1"
+                },
+                {
+                  "item": "58083.630801",
+                  "count": "1"
+                },
+                {
+                  "item": "252953.405582",
+                  "count": "1"
+                }
+              ],
+              "smallest": "39108.3612981",
+              "count": "51",
+              "cardinality": "51"
+            },
+            "format": {}
+          },
+          {
+            "id": 593793861,
+            "name": "Shape_Area",
+            "dataTypeName": "number",
+            "description": "Area of feature in internal units squared.",
+            "fieldName": "shape_area",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 153062997,
+            "cachedContents": {
+              "non_null": "51",
+              "largest": "665198742.902",
+              "null": "0",
+              "top": [
+                {
+                  "item": "99194858.1299",
+                  "count": "1"
+                },
+                {
+                  "item": "665198742.902",
+                  "count": "1"
+                },
+                {
+                  "item": "106989875.914",
+                  "count": "1"
+                },
+                {
+                  "item": "109815036.183",
+                  "count": "1"
+                },
+                {
+                  "item": "277719689.762",
+                  "count": "1"
+                },
+                {
+                  "item": "105180458.579",
+                  "count": "1"
+                },
+                {
+                  "item": "37752249.1985",
+                  "count": "1"
+                },
+                {
+                  "item": "117904762.16",
+                  "count": "1"
+                },
+                {
+                  "item": "127849353.462",
+                  "count": "1"
+                },
+                {
+                  "item": "102496347.072",
+                  "count": "1"
+                },
+                {
+                  "item": "75477510.7941",
+                  "count": "1"
+                },
+                {
+                  "item": "73666488.5106",
+                  "count": "1"
+                },
+                {
+                  "item": "52585074.8021",
+                  "count": "1"
+                },
+                {
+                  "item": "201334161.93",
+                  "count": "1"
+                },
+                {
+                  "item": "168734193.246",
+                  "count": "1"
+                },
+                {
+                  "item": "131040795.784",
+                  "count": "1"
+                },
+                {
+                  "item": "76315832.3859",
+                  "count": "1"
+                },
+                {
+                  "item": "79271986.6813",
+                  "count": "1"
+                },
+                {
+                  "item": "101031674.429",
+                  "count": "1"
+                },
+                {
+                  "item": "186824790.631",
+                  "count": "1"
+                }
+              ],
+              "smallest": "37752249.1985",
+              "count": "51",
+              "cardinality": "51"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "nycc_metadata.pdf",
+              "assetId": "51ec9736-02f4-40d7-8003-b9fe4144144f",
+              "name": "nycc_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "4/18/2013",
+              "Update Frequency": "Quarterly",
+              "Data Change Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "Council district",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "city council districts",
+          "election",
+          "political",
+          "boundary",
+          "boundaries",
+          "districts",
+          "lion",
+          "cscl",
+          "department of city planning",
+          "dcp",
+          "new york city",
+          "nyc"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/872g-cjhh.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:24.193630+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/872g-cjhh.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 09 Mar 2026 20:51:02 GMT",
+      "etag": "W/\"aW5kaWEuMzY1OTJfMV8xNVowZlRJbkdIQXN2MHNsX1FYeEhHNERkOHNFaw---gzih5BqBRaJ1HVSCauo--BpfZInYTA--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 250000,
+      "json_parse_error": "Expecting ',' delimiter: line 1 column 250001 (char 250000)",
+      "text_sample": "[{\"coundist\":\"42\",\"the_geom\":{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-73.86327471071958,40.58387684853199],[-73.86381239461966,40.58360400358883],[-73.86449245335692,40.58361493817893],[-73.86503589278045,40.583302060085835],[-73.86557925292558,40.58302680245513],[-73.86637619312673,40.5825386578677],[-73.86700232991284,40.581977080275664],[-73.8677279690368,40.581663409429005],[-73.86895097922634,40.58171354212282],[-73.86896292210412,40.58169379478879],[-73.86925758051295,40.581909640571055],[-73.86968631043715,40.58230878579207],[-73.87000313643014,40.582636614313486],[-73.87034778401309,40.58306413703542],[-73.87050597918449,40.5833419525113],[-73.87051388095954,40.584082326900806],[-73.87061497794423,40.584915351060516],[-73.87084743947639,40.5854210541286],[-73.87099791648029,40.58606179786293],[-73.87115922675432,40.586873887967435],[-73.86981356482099,40.58946092678841],[-73.86849671647208,40.59008985028975],[-73.86759275775205,40.59100579169082],[-73.86690268173965,40.59147303544156],[-73.86635052164095,40.591892676564896],[-73.86476222962091,40.591492218582914],[-73.86430826692543,40.59141474432658],[-73.86371118798193,40.59112928198329],[-73.86327273492829,40.59090807569274],[-73.86274156028767,40.59036640659758],[-73.86272348498075,40.59007451075357],[-73.86231374617194,40.58951874680811],[-73.86193216221744,40.58889894537485],[-73.8614940111164,40.58854247309958],[-73.86125299377375,40.58798808592135],[-73.86137584125044,40.58737342003309],[-73.86150824362491,40.58698481999774],[-73.86159140175843,40.5865459962743],[-73.86167447867462,40.58614479499389],[-73.86192220398824,40.585668547723145],[-73.86218624579831,40.585255022277224],[-73.86249965640846,40.58482901487674],[-73.86282948605074,40.58441556714259],[-73.86317563293608,40.584064840860584],[-73.86327471071958,40.58387684853199]]],[[[-73.86952707548932,40.59871375035464],[-73.86967070711498,40.596688563622266],[-73.87020899836229,40.596954232789535],[-73.86952707548932,40.59871375035464]]],[[[-7"
+    }
+  ]
+}

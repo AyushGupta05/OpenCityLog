@@ -1,0 +1,18 @@
+{
+  "source_id": "dfe-gias",
+  "city": "london",
+  "title": "Get Information About Schools (GIAS)",
+  "publisher": "Department for Education",
+  "bucket": "public services",
+  "retrieved_at": "2026-04-28T12:19:10.558690+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://get-information-schools.service.gov.uk/Downloads",
+      "retrieved_at": "2026-04-28T12:19:10.308046+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://get-information-schools.service.gov.uk/Downloads",
+      "content_type": "text/html"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-04-29T19:25:35.839494+00:00",
+  "london": {
+    "brownfield_events": 5360,
+    "lfb_incident_events": 1125,
+    "tfl_disruption_events": 81,
+    "total_generated_events": 6566
+  },
+  "nyc": {
+    "total_generated_events": 11419,
+    "source_event_counts": {
+      "ipu4-2q9a": 2380,
+      "bs8b-p36w": 1350,
+      "pkdm-hqz6": 0,
+      "tqtj-sjs8": 1250,
+      "c9sj-fmsg": 1980,
+      "hgx4-8ukb": 500,
+      "bkfu-528j": 2470,
+      "erm2-nwe9": 840,
+      "h9gi-nx95": 2400
+    }
+  },
+  "notes": [
+    "Official/open source rows are converted to source-backed atlas events, not causal impact claims.",
+    "Sensitive contact, owner, permittee and personal fields from permit/admin datasets are intentionally not persisted.",
+    "Records without public coordinates rely on the atlas builder's deterministic city/borough point distribution.",
+    "London brownfield rows are fetched from Planning Data England per London LPA; LFB rows are sampled from a very large London Datastore incident CSV to keep the repo lightweight."
+  ]
+}

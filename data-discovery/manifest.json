@@ -1,0 +1,25 @@
+{
+  "package": "Bims-5 London and NYC civic open-data discovery package",
+  "updated_at": "2026-04-29T19:25:35.839494+00:00",
+  "cities": [
+    "london",
+    "new_york"
+  ],
+  "source_count_total": 274,
+  "source_counts": {
+    "london": 125,
+    "new_york": 149
+  },
+  "event_seed_count_total": 18050,
+  "raw_metadata_files": 252,
+  "files": {
+    "dataset_inventory": "shared/dataset_inventory.csv",
+    "coverage_matrix": "shared/coverage_matrix.csv",
+    "round3_candidates_json": "shared/round3_catalog_candidates.json",
+    "round3_candidates_csv": "shared/round3_catalog_candidates.csv",
+    "validation_report": "validation_report.json",
+    "fetch_script": "scripts/fetch_metadata.py",
+    "fetch_missing_script": "scripts/fetch_missing_metadata.py",
+    "catalog_search_round3": "scripts/catalog_search_round3.py"
+  }
+}

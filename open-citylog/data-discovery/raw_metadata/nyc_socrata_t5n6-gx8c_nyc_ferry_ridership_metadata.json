@@ -1,0 +1,696 @@
+{
+  "id": "t5n6-gx8c",
+  "name": "NYC Ferry Ridership",
+  "assetType": "dataset",
+  "attribution": "New York City Economic Development Corporation (EDC)",
+  "averageRating": 0,
+  "category": "Transportation",
+  "createdAt": 1657135122,
+  "description": "This dataset includes information on hourly NYC Ferry boardings by date, route, direction, ferry landing, and day of week. 'Boardings' are the total number of people who boarded a vessel during the time period in question. This data forms the basis of internal NYC Ferry ridership tasks to guide service planning.",
+  "diciBackend": false,
+  "displayType": "table",
+  "downloadCount": 2684,
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "locked": false,
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 38647219,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1657135567,
+  "publicationGroup": 18770051,
+  "publicationStage": "published",
+  "rowClass": "",
+  "rowsUpdatedAt": 1771944379,
+  "rowsUpdatedBy": "d5dp-fses",
+  "tableId": 18770051,
+  "totalTimesRated": 0,
+  "viewCount": 8499,
+  "viewLastModified": 1771944373,
+  "viewType": "tabular",
+  "approvals": [
+    {
+      "reviewedAt": 1657827048,
+      "reviewedAutomatically": false,
+      "state": "approved",
+      "submissionId": 4832756,
+      "submissionObject": "public_audience_request",
+      "submissionOutcome": "change_audience",
+      "submittedAt": 1657827024,
+      "targetAudience": "public",
+      "workflowId": 2285,
+      "reviewer": {
+        "id": "d5dp-fses",
+        "displayName": "afinkel"
+      },
+      "submissionDetails": {
+        "permissionType": "read"
+      },
+      "submissionOutcomeApplication": {
+        "endedAt": 1657827048,
+        "failureCount": 0,
+        "startedAt": 1657827048,
+        "status": "success"
+      },
+      "submitter": {
+        "id": "d5dp-fses",
+        "displayName": "afinkel"
+      }
+    }
+  ],
+  "clientContext": {
+    "clientContextVariables": [],
+    "inheritedVariables": {}
+  },
+  "columns": [
+    {
+      "id": 562851454,
+      "name": "Date",
+      "dataTypeName": "calendar_date",
+      "description": "Specific day when riders boarded.",
+      "fieldName": "date",
+      "position": 1,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 142883735,
+      "cachedContents": {
+        "non_null": "2843277",
+        "largest": "2026-01-28T00:00:00.000",
+        "null": "0",
+        "top": [
+          {
+            "item": "2023-10-03T00:00:00.000",
+            "count": "1088"
+          },
+          {
+            "item": "2023-10-05T00:00:00.000",
+            "count": "1088"
+          },
+          {
+            "item": "2023-10-02T00:00:00.000",
+            "count": "1087"
+          },
+          {
+            "item": "2023-10-04T00:00:00.000",
+            "count": "1086"
+          },
+          {
+            "item": "2023-04-11T00:00:00.000",
+            "count": "1079"
+          },
+          {
+            "item": "2023-04-10T00:00:00.000",
+            "count": "1078"
+          },
+          {
+            "item": "2023-08-07T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-08-02T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-08-08T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-26T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-31T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-08-01T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-08-03T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-08-04T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-25T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-27T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-19T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-20T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-24T00:00:00.000",
+            "count": "1074"
+          },
+          {
+            "item": "2023-07-17T00:00:00.000",
+            "count": "1074"
+          }
+        ],
+        "smallest": "2017-07-01T00:00:00.000",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {
+        "view": "date"
+      }
+    },
+    {
+      "id": 562851453,
+      "name": "Hour",
+      "dataTypeName": "number",
+      "description": "Hour when riders are boarding in military time. If value is '6', this refers to all boardings between 6:00am-7:00am",
+      "fieldName": "hour",
+      "position": 2,
+      "renderTypeName": "number",
+      "tableColumnId": 142883734,
+      "cachedContents": {
+        "non_null": "2843221",
+        "largest": "23",
+        "null": "56",
+        "top": [
+          {
+            "item": "16",
+            "count": "187594"
+          },
+          {
+            "item": "17",
+            "count": "187541"
+          },
+          {
+            "item": "14",
+            "count": "187211"
+          },
+          {
+            "item": "13",
+            "count": "186837"
+          },
+          {
+            "item": "11",
+            "count": "186699"
+          },
+          {
+            "item": "15",
+            "count": "186524"
+          },
+          {
+            "item": "12",
+            "count": "186385"
+          },
+          {
+            "item": "10",
+            "count": "185255"
+          },
+          {
+            "item": "18",
+            "count": "184630"
+          },
+          {
+            "item": "9",
+            "count": "183367"
+          },
+          {
+            "item": "19",
+            "count": "182336"
+          },
+          {
+            "item": "20",
+            "count": "177898"
+          },
+          {
+            "item": "8",
+            "count": "172587"
+          },
+          {
+            "item": "7",
+            "count": "160502"
+          },
+          {
+            "item": "21",
+            "count": "135104"
+          },
+          {
+            "item": "6",
+            "count": "97850"
+          },
+          {
+            "item": "22",
+            "count": "41122"
+          },
+          {
+            "item": "5",
+            "count": "13551"
+          },
+          {
+            "item": "0",
+            "count": "223"
+          },
+          {
+            "item": "23",
+            "count": "5"
+          }
+        ],
+        "smallest": "0",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {}
+    },
+    {
+      "id": 562851452,
+      "name": "Route",
+      "dataTypeName": "text",
+      "description": "Route on which riders are boarding ",
+      "fieldName": "route",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 142883733,
+      "cachedContents": {
+        "non_null": "2843277",
+        "largest": "SV",
+        "null": "0",
+        "top": [
+          {
+            "item": "ER",
+            "count": "658208"
+          },
+          {
+            "item": "SB",
+            "count": "630254"
+          },
+          {
+            "item": "AS",
+            "count": "594294"
+          },
+          {
+            "item": "SV",
+            "count": "422499"
+          },
+          {
+            "item": "RW",
+            "count": "272605"
+          },
+          {
+            "item": "SG",
+            "count": "147807"
+          },
+          {
+            "item": "LE",
+            "count": "92459"
+          },
+          {
+            "item": "GI",
+            "count": "13094"
+          },
+          {
+            "item": "RS",
+            "count": "11110"
+          },
+          {
+            "item": "RR",
+            "count": "947"
+          }
+        ],
+        "smallest": "AS",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {}
+    },
+    {
+      "id": 562851451,
+      "name": "Direction",
+      "dataTypeName": "text",
+      "description": "The general direction (northbound or southbound) a route is going.",
+      "fieldName": "direction",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 142883732,
+      "cachedContents": {
+        "non_null": "2843277",
+        "largest": "SB",
+        "null": "0",
+        "top": [
+          {
+            "item": "SB",
+            "count": "1422606"
+          },
+          {
+            "item": "NB",
+            "count": "1420459"
+          },
+          {
+            "item": "(blank)",
+            "count": "212"
+          }
+        ],
+        "smallest": "(blank)",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {}
+    },
+    {
+      "id": 562851450,
+      "name": "Stop",
+      "dataTypeName": "text",
+      "description": "The NYC Ferry Landing where riders boarded.",
+      "fieldName": "stop",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 142883731,
+      "cachedContents": {
+        "non_null": "2843277",
+        "largest": "Wall St/Pier 11",
+        "null": "0",
+        "top": [
+          {
+            "item": "Wall St/Pier 11",
+            "count": "479122"
+          },
+          {
+            "item": "East 34th Street",
+            "count": "291131"
+          },
+          {
+            "item": "Sunset Park/BAT",
+            "count": "181954"
+          },
+          {
+            "item": "East 90th St",
+            "count": "139507"
+          },
+          {
+            "item": "Long Island City",
+            "count": "113687"
+          },
+          {
+            "item": "North Williamsburg",
+            "count": "99047"
+          },
+          {
+            "item": "South Williamsburg",
+            "count": "94271"
+          },
+          {
+            "item": "Hunters Point South",
+            "count": "94174"
+          },
+          {
+            "item": "Atlantic Ave/BBP Pier 6",
+            "count": "93271"
+          },
+          {
+            "item": "Red Hook/Atlantic Basin",
+            "count": "93169"
+          },
+          {
+            "item": "Rockaway",
+            "count": "92499"
+          },
+          {
+            "item": "Bay Ridge",
+            "count": "92224"
+          },
+          {
+            "item": "Astoria",
+            "count": "91438"
+          },
+          {
+            "item": "Roosevelt Island",
+            "count": "91089"
+          },
+          {
+            "item": "Dumbo/Fulton Ferry",
+            "count": "90377"
+          },
+          {
+            "item": "Dumbo/BBP Pier 1",
+            "count": "89039"
+          },
+          {
+            "item": "Stuyvesant Cove",
+            "count": "81101"
+          },
+          {
+            "item": "Soundview",
+            "count": "80971"
+          },
+          {
+            "item": "Greenpoint",
+            "count": "80492"
+          },
+          {
+            "item": "Corlears Hook",
+            "count": "79002"
+          }
+        ],
+        "smallest": "Astoria",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {}
+    },
+    {
+      "id": 562851449,
+      "name": "Boardings",
+      "dataTypeName": "number",
+      "description": "The number of riders who board an NYCF vessel. This number includes off-duty NYCF crew, free children, and transfers",
+      "fieldName": "boardings",
+      "position": 6,
+      "renderTypeName": "number",
+      "tableColumnId": 142883730,
+      "cachedContents": {
+        "non_null": "2843195",
+        "largest": "1334",
+        "null": "82",
+        "top": [
+          {
+            "item": "0",
+            "count": "846618"
+          },
+          {
+            "item": "1",
+            "count": "147264"
+          },
+          {
+            "item": "2",
+            "count": "136456"
+          },
+          {
+            "item": "3",
+            "count": "114614"
+          },
+          {
+            "item": "4",
+            "count": "103015"
+          },
+          {
+            "item": "5",
+            "count": "91545"
+          },
+          {
+            "item": "6",
+            "count": "83428"
+          },
+          {
+            "item": "7",
+            "count": "74703"
+          },
+          {
+            "item": "8",
+            "count": "69258"
+          },
+          {
+            "item": "9",
+            "count": "62113"
+          },
+          {
+            "item": "10",
+            "count": "58166"
+          },
+          {
+            "item": "11",
+            "count": "52553"
+          },
+          {
+            "item": "12",
+            "count": "49007"
+          },
+          {
+            "item": "13",
+            "count": "45085"
+          },
+          {
+            "item": "14",
+            "count": "41954"
+          },
+          {
+            "item": "15",
+            "count": "39266"
+          },
+          {
+            "item": "16",
+            "count": "36539"
+          },
+          {
+            "item": "17",
+            "count": "33768"
+          },
+          {
+            "item": "18",
+            "count": "31878"
+          },
+          {
+            "item": "19",
+            "count": "29748"
+          }
+        ],
+        "smallest": "0",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {}
+    },
+    {
+      "id": 562851448,
+      "name": "TypeDay",
+      "dataTypeName": "text",
+      "description": "Whether the service was operating on a weekday or weekend/modified schedule.",
+      "fieldName": "typeday",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 142883729,
+      "cachedContents": {
+        "non_null": "2843277",
+        "largest": "Weekend",
+        "null": "0",
+        "top": [
+          {
+            "item": "Weekday",
+            "count": "2090292"
+          },
+          {
+            "item": "Weekend",
+            "count": "752985"
+          }
+        ],
+        "smallest": "Weekday",
+        "count": "2843277",
+        "cardinality": "2843277"
+      },
+      "format": {}
+    }
+  ],
+  "grants": [
+    {
+      "inherited": false,
+      "type": "viewer",
+      "flags": [
+        "public"
+      ]
+    }
+  ],
+  "metadata": {
+    "rdfSubject": "0",
+    "rdfClass": "",
+    "jsonQuery": {
+      "order": [
+        {
+          "columnFieldName": "date",
+          "ascending": false
+        }
+      ]
+    },
+    "attachments": [
+      {
+        "filename": "Data_Dictionary_New_York_City_Ferry_Ridership.xlsx",
+        "assetId": "1bcb5a42-7082-4f43-8dba-b519ea8a656a",
+        "name": "Data_Dictionary_New_York_City_Ferry_Ridership.xlsx"
+      }
+    ],
+    "custom_fields": {
+      "Update": {
+        "Automation": "No",
+        "Date Made Public": "7/14/2022",
+        "Update Frequency": "Quarterly"
+      },
+      "Dataset Information": {
+        "Agency": "Economic Development Corporation (EDC)"
+      }
+    },
+    "rowLabel": "Hourly record of NYC Ferry ridership",
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ]
+  },
+  "owner": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "query": {
+    "orderBys": [
+      {
+        "ascending": false,
+        "expression": {
+          "columnId": 562851454,
+          "type": "column"
+        }
+      }
+    ]
+  },
+  "rights": [
+    "read"
+  ],
+  "tableAuthor": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "tags": [
+    "transit",
+    "nyc ferry",
+    "ridership",
+    "service data",
+    "nycedc",
+    "waterfront",
+    "citywide"
+  ],
+  "flags": [
+    "default",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ]
+}

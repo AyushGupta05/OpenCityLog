@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_opportunity_areas",
+  "title": "London Opportunity Areas",
+  "requested_url": "https://www.london.gov.uk/programmes-strategies/planning/implementing-london-plan/london-plan-guidance/opportunity-areas",
+  "fetched_url": "https://www.london.gov.uk/programmes-strategies/planning/implementing-london-plan/londons-opportunity-areas",
+  "final_url": "https://www.london.gov.uk/programmes-strategies/planning/implementing-london-plan/londons-opportunity-areas",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:09.464593+00:00",
+  "page_title": "London's Opportunity Areas | London City Hall",
+  "h1": "London's Opportunity Areas",
+  "meta_description": "Find out more about London’s 47 Opportunity Areas identified in the London Plan."
+}

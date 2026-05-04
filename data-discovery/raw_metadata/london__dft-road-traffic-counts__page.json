@@ -1,0 +1,25 @@
+{
+  "source_id": "dft-road-traffic-counts",
+  "city": "london",
+  "title": "Road traffic statistics - count points and annual average daily flow",
+  "publisher": "Department for Transport",
+  "bucket": "traffic/transport",
+  "retrieved_at": "2026-04-28T12:18:51.743344+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://roadtraffic.dft.gov.uk/downloads",
+      "retrieved_at": "2026-04-28T12:18:51.360192+00:00",
+      "final_url": "https://roadtraffic.dft.gov.uk/downloads",
+      "status": 200,
+      "content_type": null,
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 63035,
+      "page_title": "Road Traffic website - Downloads GOV.UK",
+      "h1": "Data",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" class=\"govuk-template--rebranded\"> <head> <meta charset=\"utf-8\"> <title>Road Traffic website - Downloads</title> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"> <meta name=\"theme-color\" content=\"#0b0c0c\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <link rel=\"shortcut icon\" sizes=\"16x16 32x32 48x48\" href=\"/assets/images/favicon.ico\" type=\"image/x-icon\"> <link rel=\"mask-icon\" href=\"/assets/images/govuk-mask-icon.svg\" color=\"#0b0c0c\"> <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/assets/images/govuk-apple-touch-icon-180x180.png\"> <link rel=\"apple-touch-icon\" sizes=\"167x167\" href=\"/assets/images/govuk-apple-touch-icon-167x167.png\"> <link rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"/assets/images/govuk-apple-touch-icon-152x152.png\"> <link rel=\"apple-touch-icon\" href=\"/assets/images/govuk-apple-touch-icon.png\"> <meta property=\"og:image\" content=\"/assets/images/govuk-opengraph-image.png\"> <link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/govuk-CX-vb8NT.css\" /><link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/moj-CZTtcEDs.css\" /><link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/app-CxiGKfRg.css\" /><link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/contents-C84EwViS.css\" /><link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/dashboard-table-B2fBLdNQ.css\" /><link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/chart-with-table-DyeXgIgs.css\" /><link rel=\"preload\" as=\"style\" href=\"https://roadtraffic.dft.gov.uk/build/assets/accessible-autocomplete-BkQ7GVMk.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/govuk-CX-vb8NT.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/moj-CZTtcEDs.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/app-CxiGKfRg.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/contents-C84EwViS.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/dashboard-table-B2fBLdNQ.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/chart-with-table-DyeXgIgs.css\" /><link rel=\"stylesheet\" href=\"https://roadtraffic.dft.gov.uk/build/assets/accessible-autocomplete-BkQ7GVMk.css\" /></head> <!-- Google tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-CY9F880N9N\"></script> <script nonce=\"sDdkG655C6VuSYm9lCx5aN10ZbKOZ8lH\"> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('consent', 'default', { 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied', 'analytics_storage': 'denied' }); gtag('set', { 'allow_google_signals': false }); gtag('set', { 'allow_"
+    }
+  ]
+}

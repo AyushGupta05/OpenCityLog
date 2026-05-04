@@ -1,0 +1,27 @@
+{
+  "source_id": "lon-extra-planning-data-tree-preservation-zones",
+  "city": "london",
+  "title": "Planning Data: Tree Preservation Zones",
+  "publisher": "DLUHC Planning Data",
+  "bucket": "trees/planning constraints/environment",
+  "retrieved_at": "2026-04-28T12:57:09.723237+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.planning.data.gov.uk/entity.json?dataset=tree-preservation-zone",
+      "retrieved_at": "2026-04-28T12:57:09.407128+00:00",
+      "final_url": "https://www.planning.data.gov.uk/entity.json?dataset=tree-preservation-zone",
+      "status": 200,
+      "content_type": "application/json",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "34898",
+      "bytes_captured": 34898,
+      "json_keys": [
+        "count",
+        "entities",
+        "links"
+      ],
+      "json_sample": null
+    }
+  ]
+}

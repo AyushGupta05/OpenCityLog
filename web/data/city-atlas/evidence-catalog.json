@@ -1,0 +1,873 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Historical Urban Event Evidence Data Catalog for New York City and London",
+  "integrated_at": "2026-04-29T16:09:13+01:00",
+  "catalog_cutoff": "April 2026",
+  "source_pdf": "/mnt/c/Users/ayush/Downloads/Historical Urban Event Evidence Data Catalog for New York City and London.pdf",
+  "extraction": {
+    "method": "pdf-parse@1.1.1 text extraction",
+    "pages": 25,
+    "text_characters": 42714,
+    "raw_text_path": "web/data/city-atlas/evidence-catalog-raw.txt",
+    "note": "The raw extracted text is preserved alongside this normalized catalog so no PDF content is discarded."
+  },
+  "executive_summary": {
+    "summary": "The catalog identifies the strongest official and quasi-official data sources available through April 2026 for building an open before/after urban event evidence platform for New York City and London.",
+    "nyc_strengths": [
+      "open lot-level land use",
+      "permits",
+      "certificates of occupancy",
+      "311 complaints",
+      "parcel geometry",
+      "long official orthophoto record"
+    ],
+    "london_strengths": [
+      "centralized planning approvals and progress monitoring through Planning London Datahub",
+      "borough and national statistical series",
+      "national property market data"
+    ],
+    "shared_strengths": [
+      "Landsat",
+      "Sentinel",
+      "OpenStreetMap history",
+      "national/global census and employment layers"
+    ],
+    "mvp_stack": {
+      "new_york": [
+        "NYC Open Data",
+        "Metropolitan Transportation Authority",
+        "U.S. Census Bureau",
+        "orthophotos",
+        "MapPLUTO/PLUTO",
+        "Digital Tax Map",
+        "DOB filings and permits",
+        "street geometry",
+        "traffic counts",
+        "311",
+        "LEHD/LODES",
+        "ACS",
+        "Department of Finance sales and assessment data"
+      ],
+      "london": [
+        "Greater London Authority",
+        "Transport for London",
+        "Office for National Statistics",
+        "Ordnance Survey",
+        "HM Land Registry",
+        "Historic England",
+        "Planning London Datahub",
+        "London Development Database archive",
+        "TfL APIs and demand datasets",
+        "DfT traffic counts",
+        "ONS/Nomis",
+        "Land Registry property series",
+        "Historic England aerial photo archive"
+      ]
+    },
+    "time_caveat": "2000–2026 coverage does not mean each series has complete 2026 data. Live APIs can have 2026 records, but many annual surveys and administrative rollups stop in 2024 or 2025. Model event time separately from publication time and preserve source vintage metadata."
+  },
+  "domain_comparison": [
+    {
+      "id": "historical_imagery",
+      "domain": "Historical imagery",
+      "new_york_priority_source": "NYC Map Tiles orthophotos and aerial photo history",
+      "london_priority_source": "Historic England Aerial Photo Explorer; Environment Agency vertical aerials; OS imagery where licensed",
+      "assessment": "NYC has the stronger fully open city orthophoto series for repeated urban comparison. London has strong archival imagery, but less of a single citywide open orthophoto time series and more mixed licensing."
+    },
+    {
+      "id": "satellite_imagery",
+      "domain": "Satellite imagery",
+      "new_york_priority_source": "Landsat and Sentinel",
+      "london_priority_source": "Landsat and Sentinel",
+      "assessment": "Both cities are equally well served by national and international satellite archives for coarse-grained change detection, heat, land cover, and greenness."
+    },
+    {
+      "id": "building_parcel_baseline",
+      "domain": "Building and parcel baseline",
+      "new_york_priority_source": "MapPLUTO/PLUTO, Digital Tax Map, tax lot polygons, 3D building snapshot",
+      "london_priority_source": "OS Open UPRN/USRN/Open Roads/OpenMap Local, Planning DataMap, premium OS products, London Building Stock Model v2",
+      "assessment": "NYC is stronger for openly reusable parcel and lot-level land-use linkage. London has excellent identifiers and road/network products, but open citywide parcel/building geometry is less straightforward and often depends on premium OS products or derived models."
+    },
+    {
+      "id": "planning_approvals",
+      "domain": "Planning and approvals",
+      "new_york_priority_source": "ZAP, CEQR Access, BSA records, DOB filings",
+      "london_priority_source": "Planning London Datahub, LDD archive, PlanApps, borough planning portals",
+      "assessment": "London is stronger for centralized citywide planning lifecycle data and progress tracking. NYC is stronger on construction administration after approval rather than a single unified approvals API."
+    },
+    {
+      "id": "traffic_roads",
+      "domain": "Traffic and roads",
+      "new_york_priority_source": "Centerline/LION, DOT traffic counts, vehicle classification counts",
+      "london_priority_source": "DfT road traffic statistics, OS Open Roads, TfL road and authority layers",
+      "assessment": "Both are strong. NYC has good count archives and fine street geometry; London has very strong national traffic count infrastructure and solid road identifiers."
+    },
+    {
+      "id": "transit",
+      "domain": "Transit",
+      "new_york_priority_source": "MTA developer feeds, Bus Time, turnstiles, hourly ridership, stations/entrances",
+      "london_priority_source": "TfL Unified API, station topology/facilities, PTAL, Underground performance, network demand, cycle hire",
+      "assessment": "NYC is stronger for open station ridership and faregate-based demand data. London is stronger for integrated network metadata and accessibility/topology."
+    },
+    {
+      "id": "employment_population",
+      "domain": "Employment and population",
+      "new_york_priority_source": "LEHD/LODES, decennial census, ACS, population estimates",
+      "london_priority_source": "ONS census and population estimates, Nomis BRES/APS, GLA borough-by-sector jobs",
+      "assessment": "Both are excellent, but the U.S. system is stronger for workplace-residence origin/destination at fine geography, while London is stronger for long-run local jobs series and integrated labour market statistics."
+    },
+    {
+      "id": "property_values_rents_transactions",
+      "domain": "Property values, rents, and transactions",
+      "new_york_priority_source": "DOF assessments and sales; HVS and RGB research for rent context",
+      "london_priority_source": "HM Land Registry PPD and UK HPI; VOA private rents",
+      "assessment": "London is stronger for a unified official property transactions and index stack. NYC is strong on assessment and sales, but rents are more survey/report based than a single transactional feed."
+    },
+    {
+      "id": "public_sentiment_complaints_comments",
+      "domain": "Public sentiment, complaints, and comments",
+      "new_york_priority_source": "311, CEQR/ZAP documents",
+      "london_priority_source": "PlanApps comments, planning consultations, Talk London, Annual London Survey; no direct 311 equivalent",
+      "assessment": "NYC clearly wins on structured complaint exhaust. London has useful opinion and consultation sources, but not a single all-purpose city service-request dataset equivalent to 311."
+    }
+  ],
+  "foundational_sources": [
+    {
+      "id": "global_landsat_collection_2",
+      "city": "global",
+      "source_family": "Landsat Collection 2",
+      "coverage_and_gaps": "Global archive covers the full 2000–2026 target period and well before it; ideal for long-run urban analysis.",
+      "spatial_granularity": "Raster scenes; 30 m multispectral with surface temperature products available.",
+      "update_frequency": "Ongoing releases; archive is stable.",
+      "direct_access": [
+        "https://earthexplorer.usgs.gov/",
+        "https://www.usgs.gov/landsat-missions/landsat-data-access"
+      ],
+      "format": "Raster scenes / science products",
+      "license_terms": "Public domain; acknowledgement requested.",
+      "recommended_adapter": "TILER + scene catalog keyed by path/row and acquisition date",
+      "suggested_use_quality_notes": "Best for coarse urban change, heat, vegetation, water, imperviousness, and gap-filling between city orthophoto vintages.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "global_sentinel_2",
+      "city": "global",
+      "source_family": "Copernicus Sentinel-2",
+      "coverage_and_gaps": "Higher-resolution multispectral imagery from 2015 onward; useful for post-2015 seasonal comparisons.",
+      "spatial_granularity": "Raster scenes; 10 m/20 m multispectral products.",
+      "update_frequency": "Continuous archive and releases.",
+      "direct_access": [
+        "https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2"
+      ],
+      "format": "Raster scenes",
+      "license_terms": "Copernicus/open data terms; attribution required by product terms.",
+      "recommended_adapter": "TILER + cloud-mask pipeline",
+      "suggested_use_quality_notes": "Best for more frequent optical monitoring than Landsat after 2015.",
+      "confidence": "high",
+      "notes": [
+        "The PDF text emphasizes Sentinel as a portable cross-city layer alongside Landsat."
+      ]
+    },
+    {
+      "id": "global_openstreetmap_history",
+      "city": "global",
+      "source_family": "OpenStreetMap current + full history",
+      "coverage_and_gaps": "Project started 2004; full-history dumps available from 2007 and basic data back to 2005.",
+      "spatial_granularity": "Global vector features and edits.",
+      "update_frequency": "Weekly planet snapshots; minutely diffs for current data.",
+      "direct_access": [
+        "https://planet.openstreetmap.org/",
+        "https://wiki.openstreetmap.org/wiki/Downloading_data"
+      ],
+      "format": "Vector planet/history/diffs",
+      "license_terms": "ODbL with attribution and share-alike duties.",
+      "recommended_adapter": "SNAPSHOT + diff ingest + change table",
+      "suggested_use_quality_notes": "Essential for historical network/building edits, with contributor-behaviour, survivorship, and completeness biases to label.",
+      "confidence": "high",
+      "notes": []
+    }
+  ],
+  "city_source_families": [
+    {
+      "id": "nyc_map_tiles_orthophotos",
+      "city": "new_york",
+      "source_family": "NYC Map Tiles orthophotos and aerial photo history",
+      "coverage_and_gaps": "Official NYC orthophoto / aerial-photo vintages, strongest repeated open city imagery record for before/after comparison.",
+      "spatial_granularity": "Raster tiles and imagery by capture cycle.",
+      "update_frequency": "Basemap/service updates; imagery by capture cycle.",
+      "direct_access": [
+        "https://maps.nyc.gov/tiles/",
+        "https://maps.nyc.gov/xyz/1.0.0/photo/2022/{z}/{x}/{y}.png8"
+      ],
+      "format": "TMS, XYZ, WMTS raster tiles",
+      "license_terms": "CC BY 4.0.",
+      "recommended_adapter": "TILER + capture-vintage registry",
+      "suggested_use_quality_notes": "Gold-standard visual before/after evidence and parcel-adjacent context. Recent vintages are true orthos; older vintages remain valuable context.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_planimetrics_3d_model",
+      "city": "new_york",
+      "source_family": "NYC planimetrics and 3D model",
+      "coverage_and_gaps": "Planimetric extraction begins around 2004 and is produced every other ortho capture; 3D building model is explicitly a 2014 snapshot.",
+      "spatial_granularity": "Buildings and community districts.",
+      "update_frequency": "Periodic, not continuous.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/City-Government/NYC-3D-Model-by-Community-District/u5j4-zxpn"
+      ],
+      "format": "3D model / planimetric GIS",
+      "license_terms": "NYC Open Data terms.",
+      "recommended_adapter": "SNAPSHOT + geometry vintage table",
+      "suggested_use_quality_notes": "Useful for building snapshots and morphology. Confidence high for 3D snapshot, medium for long historical footprint continuity until each vintage is checked.",
+      "confidence": "medium-high",
+      "notes": []
+    },
+    {
+      "id": "nyc_pluto_mappluto_land_use_lots",
+      "city": "new_york",
+      "source_family": "PLUTO / MapPLUTO and land-use lot files",
+      "coverage_and_gaps": "Current PLUTO documentation confirms a rich tax-lot land-use file; historical continuity is strong in practice but every pre-2010 vintage was not verified in the PDF pass.",
+      "spatial_granularity": "Tax lot.",
+      "update_frequency": "Generally annual vintage releases.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/search?query=PLUTO%20MapPLUTO",
+        "https://data.cityofnewyork.us/api/views/64uk-42ks/files/"
+      ],
+      "format": "CSV and GIS",
+      "license_terms": "NYC Open Data unrestricted reuse stated in portal FAQ; verify dataset-level metadata.",
+      "recommended_adapter": "SNAPSHOT + museum-of-vintages pattern",
+      "suggested_use_quality_notes": "Core layer for zoning, built FAR, land use, year built, units, lot area, and BBL linkage.",
+      "confidence": "medium-high",
+      "notes": []
+    },
+    {
+      "id": "nyc_digital_tax_map",
+      "city": "new_york",
+      "source_family": "Digital Tax Map / tax lot geometry",
+      "coverage_and_gaps": "Maintained Department of Finance tax map collection with lot, block, and lot-face extracts.",
+      "spatial_granularity": "Tax lot, tax block, lot face.",
+      "update_frequency": "Maintained extracts from DOF systems.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/Housing-Development/Department-of-Finance-Digital-Tax-Map/smk3-tmxj",
+        "https://data.cityofnewyork.us/City-Government/TAX_LOT_POLYGON/i38t-6if2"
+      ],
+      "format": "GIS polygons and lines",
+      "license_terms": "NYC Open Data terms.",
+      "recommended_adapter": "LINKER + parcel master table",
+      "suggested_use_quality_notes": "Essential for parcel joins, BBL linkage, and event footprints.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_dob_filings_permits",
+      "city": "new_york",
+      "source_family": "DOB construction filings and permits",
+      "coverage_and_gaps": "DOB Job Application Filings are the broad filing ledger; BIS Permit Issuance covers the older system; DOB NOW Build Approved Permits covers most current construction permits.",
+      "spatial_granularity": "Address, BIN, BBL, job, permit.",
+      "update_frequency": "Ongoing.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/Housing-Development/DOB-Job-Application-Filings/ic3t-wcy2",
+        "https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a",
+        "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4"
+      ],
+      "format": "CSV/API through Socrata",
+      "license_terms": "NYC Open Data terms.",
+      "recommended_adapter": "LEDGER + normalized event ontology across filing/issuance/approval",
+      "suggested_use_quality_notes": "Core construction-administration stream for filings, permits, and approvals.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_certificates_occupancy_housing_delivery",
+      "city": "new_york",
+      "source_family": "Certificates of occupancy and housing delivery rollups",
+      "coverage_and_gaps": "BIS CO covers 2012-07-12 to March 2021; DOB NOW CO takes over after that; DCP Housing Database aggregates approved construction/demolition jobs into housing delivery tables.",
+      "spatial_granularity": "Building, block, tract.",
+      "update_frequency": "Ongoing for CO modules; periodic housing rollups.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w",
+        "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Certificate-of-Occupancy/pkdm-hqz6",
+        "https://data.cityofnewyork.us/Housing-Development/Housing-Database/6umk-irkx"
+      ],
+      "format": "CSV/API",
+      "license_terms": "NYC Open Data terms.",
+      "recommended_adapter": "LEDGER + derived completion table",
+      "suggested_use_quality_notes": "Best proxy for “building became usable” or “housing units delivered.”",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_zap_ceqr_land_use_documents",
+      "city": "new_york",
+      "source_family": "Zoning, environmental review, and land-use documents",
+      "coverage_and_gaps": "ZAP exposes project search and public records; CEQR Access provides environmental review documents; BSA and related records add exception/variance context.",
+      "spatial_granularity": "Project, application, document.",
+      "update_frequency": "Live / portal updates.",
+      "direct_access": [
+        "https://zap.planning.nyc.gov/",
+        "https://a002-ceqraccess.nyc.gov/ceqr/"
+      ],
+      "format": "Web app and downloadable documents",
+      "license_terms": "Agency site terms; public documents should be handled carefully for personal data.",
+      "recommended_adapter": "DOCSTORE + metadata index + text extraction",
+      "suggested_use_quality_notes": "Best for public rationale, consultations, impact studies, mitigation promises, and timelines.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_street_network_geometry",
+      "city": "new_york",
+      "source_family": "Street network and roadway geometry",
+      "coverage_and_gaps": "Centerline is the road-bed representation; LION remains the historic all-purpose street database widely used in NYC contexts.",
+      "spatial_granularity": "Segment-level geometry.",
+      "update_frequency": "Maintained.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/City-Government/Centerline/inkn-q76z",
+        "https://data.cityofnewyork.us/City-Government/LION/2v4z-66xt"
+      ],
+      "format": "GIS / CSV / API",
+      "license_terms": "NYC Open Data terms.",
+      "recommended_adapter": "LINKER + segment versioning",
+      "suggested_use_quality_notes": "Backbone for geocoding road events, traffic counts, curb changes, and transit links.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_traffic_volume_vehicle_composition",
+      "city": "new_york",
+      "source_family": "Traffic volume and vehicle composition",
+      "coverage_and_gaps": "DOT traffic volume counts are historical; vehicle classification counts cover 2011–2025 in the cited dataset.",
+      "spatial_granularity": "Count location and segment.",
+      "update_frequency": "Periodic surveys, not continuous sensors.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/Transportation/Traffic-Volume-Counts-Historical-/btm5-ppia",
+        "https://data.cityofnewyork.us/Transportation/Vehicle-Classification-Counts-2011-2025-/96ay-ea4r"
+      ],
+      "format": "CSV/API",
+      "license_terms": "NYC Open Data terms.",
+      "recommended_adapter": "SNAPSHOT + station/segment lookup",
+      "suggested_use_quality_notes": "Good for before/after traffic volume and mode mix. Use repeated nearby stations; do not assume full continuity.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_transit_metadata_realtime_routes",
+      "city": "new_york",
+      "source_family": "Transit metadata and real-time routes",
+      "coverage_and_gaps": "MTA developer resources cover static feeds, Bus Time, subway/rail service data, GTFS-RT and APIs.",
+      "spatial_granularity": "Route, trip, stop, vehicle position, service alert.",
+      "update_frequency": "Static feeds plus live APIs.",
+      "direct_access": [
+        "https://api.mta.info/",
+        "https://gtfsrt.prod.obanyc.com/vehiclePositions?key=..."
+      ],
+      "format": "GTFS, GTFS-RT protobuf, SIRI JSON/XML, REST",
+      "license_terms": "MTA / Open NY terms.",
+      "recommended_adapter": "API pull + temporal cache",
+      "suggested_use_quality_notes": "Strong for route-change detection, stop inventories, service availability, and live operational overlays.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_transit_ridership_station_access",
+      "city": "new_york",
+      "source_family": "Transit ridership and station access",
+      "coverage_and_gaps": "Annual turnstile usage datasets are open for 2015–2022; hourly subway ridership covers 2020–2024 and 2025 onward in split datasets; daily system ridership covers 2020–2025; OD estimates and station/entrance datasets provide access context.",
+      "spatial_granularity": "Station complex, turnstile control area, entrance.",
+      "update_frequency": "Daily to hourly depending on feed.",
+      "direct_access": [
+        "https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-2020-2024/wujg-7c2s",
+        "https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-Beginning-2025/5wq4-mkjj",
+        "https://data.ny.gov/Transportation/MTA-Subway-Entrances-and-Exits-2024/i9wp-a4ja"
+      ],
+      "format": "CSV/API via Open NY",
+      "license_terms": "Open NY terms.",
+      "recommended_adapter": "LEDGER + station master table",
+      "suggested_use_quality_notes": "Powerful for demand deltas, but 2020-era pandemic disruption must be treated as a special context caveat.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_311_service_requests",
+      "city": "new_york",
+      "source_family": "311 complaints and service requests",
+      "coverage_and_gaps": "Structured service-request ledger from 2010–present.",
+      "spatial_granularity": "Point/address, complaint type, timestamp.",
+      "update_frequency": "Near-continuous.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/resource/erm2-nwe9.json?$limit=5"
+      ],
+      "format": "CSV/API",
+      "license_terms": "NYC Open Data has no general restrictions on reuse; privacy care required.",
+      "recommended_adapter": "LEDGER + privacy screen",
+      "suggested_use_quality_notes": "One of the best public-opinion and nuisance-change proxies available. Minimize exposure of sensitive complaint text/location combinations.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_employment_population_census",
+      "city": "new_york",
+      "source_family": "Employment, population, and census",
+      "coverage_and_gaps": "LEHD/LODES reaches 2002–2022 in published updates; ACS 1-year covers 2005–2024; ACS 5-year covers 2009–2024; decennial APIs cover 2000, 2010, 2020; annual population estimates add city context.",
+      "spatial_granularity": "Census tract/block group/place/county and workplace-residence geographies.",
+      "update_frequency": "Annual / decennial depending source.",
+      "direct_access": [
+        "https://lehd.ces.census.gov/data/",
+        "https://api.census.gov/data.html"
+      ],
+      "format": "Census APIs and downloadable files",
+      "license_terms": "U.S. Census federal data is generally public domain; preserve Census API terms and margins of error.",
+      "recommended_adapter": "CUBE/API + geography crosswalks",
+      "suggested_use_quality_notes": "Core for jobs, commuting, demographic and socioeconomic baselines.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "nyc_sales_valuations_rent_context",
+      "city": "new_york",
+      "source_family": "Sales, valuations, and rent context",
+      "coverage_and_gaps": "Annualized citywide sales updates yearly; archives cover prior sales; property valuation/assessment is annual; NYC HVS is triennial and RGB research extends to the 1990s.",
+      "spatial_granularity": "Property, borough, neighborhood, survey geography.",
+      "update_frequency": "Annual, triennial, or report-cycle.",
+      "direct_access": [
+        "https://data.cityofnewyork.us/City-Government/NYC-Citywide-Annualized-Calendar-Sales-Update/w2pb-icbu",
+        "https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data/yjxr-fw8i"
+      ],
+      "format": "CSV/Open Data and reports",
+      "license_terms": "NYC Open Data terms; survey/report products have their own usage conventions.",
+      "recommended_adapter": "LEDGER + assessment/sales/rent-context stack",
+      "suggested_use_quality_notes": "High confidence for sales/assessments; medium-high for rent outcomes because they rely on survey/report families.",
+      "confidence": "medium-high",
+      "notes": []
+    },
+    {
+      "id": "london_planning_datahub_core",
+      "city": "london",
+      "source_family": "Planning London Datahub core",
+      "coverage_and_gaps": "Live, citywide planning permissions with progress data; starts and completions are supplied annually by boroughs.",
+      "spatial_granularity": "Application, site, authority, development proposal.",
+      "update_frequency": "Live/current with annual progress items.",
+      "direct_access": [
+        "https://planninglondondatahub.london.gov.uk/"
+      ],
+      "format": "Web platform + API",
+      "license_terms": "Public portal; respect dataset-level terms.",
+      "recommended_adapter": "LEDGER + document index + application graph",
+      "suggested_use_quality_notes": "London’s single most important urban-event dataset family.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_planning_datahub_api_schema",
+      "city": "london",
+      "source_family": "Planning London Datahub API and schema",
+      "coverage_and_gaps": "Public API connection documented with JSON returns and Elasticsearch-style search endpoints.",
+      "spatial_granularity": "Application and nested-record level.",
+      "update_frequency": "Live.",
+      "direct_access": [
+        "https://planningdata.london.gov.uk/api-guest/",
+        "https://planningdata.london.gov.uk/api-guest/applications/_search"
+      ],
+      "format": "JSON API",
+      "license_terms": "Publicly documented access; header required.",
+      "recommended_adapter": "API pull + schema registry",
+      "suggested_use_quality_notes": "Supports direct search by authority, dates, and fields. Excellent for reproducible ETL.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_residential_pipeline_dashboards",
+      "city": "london",
+      "source_family": "Residential approvals, starts, completions, and pipeline dashboards",
+      "coverage_and_gaps": "Current dashboards are derived from PLD; boroughs supply starts and completions annually; dashboard notes warn that inbound data are not fully quality checked at receipt.",
+      "spatial_granularity": "Development/site/project.",
+      "update_frequency": "Ongoing dashboards and periodic downloadable resources.",
+      "direct_access": [
+        "https://data.london.gov.uk/dataset/residential-approvals-dashboard-e5now",
+        "https://data.london.gov.uk/dataset/residential-starts-dashboard-240w5",
+        "https://data.london.gov.uk/dataset/residential-completions-dashboard-e196j"
+      ],
+      "format": "Dashboard + downloadable resources",
+      "license_terms": "London Datastore package-level terms.",
+      "recommended_adapter": "CUBE + periodic extract snapshots",
+      "suggested_use_quality_notes": "Best for pipeline and housing-delivery monitoring; preserve borough submission caveats.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_ldd_planapps_archive_comments",
+      "city": "london",
+      "source_family": "London Development Database archive and planning comments",
+      "coverage_and_gaps": "LDD is no longer updated but remains a historical archive; PlanApps supports decisions back to 2012 and lets users comment on live applications; borough planning search pages are linked centrally.",
+      "spatial_granularity": "Application and document.",
+      "update_frequency": "Archived for LDD; current for PlanApps.",
+      "direct_access": [
+        "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0",
+        "https://www.london.gov.uk/programmes-strategies/planning/planning-applications-and-decisions"
+      ],
+      "format": "Downloadable resources and web docs",
+      "license_terms": "London Datastore terms; site-specific planning terms.",
+      "recommended_adapter": "DOCSTORE + historical archive layer",
+      "suggested_use_quality_notes": "Best way to bridge older strategic permissions with current mayoral applications and comments.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_datastore_platform_api",
+      "city": "london",
+      "source_family": "London Datastore platform and API",
+      "coverage_and_gaps": "Broad multi-domain catalog for GLA and partner datasets; package-level licenses vary.",
+      "spatial_granularity": "Dataset/package/resource metadata and files.",
+      "update_frequency": "Package-specific updates.",
+      "direct_access": [
+        "https://data.london.gov.uk/"
+      ],
+      "format": "Catalog, dashboards, files, APIs",
+      "license_terms": "Terms vary by package; users must check package license details.",
+      "recommended_adapter": "CATALOG sync + package harvester",
+      "suggested_use_quality_notes": "Essential platform layer for production metadata, automated refresh checks, and package discovery.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_open_roads_usrn_uprn_basemaps",
+      "city": "london",
+      "source_family": "Road network, identifiers, and open basemaps",
+      "coverage_and_gaps": "OS Open Roads, Open USRN, Open UPRN, OpenMap Local, and Open Zoomstack are current open national layers; not historical time series by themselves.",
+      "spatial_granularity": "Road, street identifier, property identifier, general mapping.",
+      "update_frequency": "Typically semiannual or product-specific refresh.",
+      "direct_access": [
+        "https://www.ordnancesurvey.co.uk/products/os-open-roads",
+        "https://www.ordnancesurvey.co.uk/products/os-open-usrn",
+        "https://www.ordnancesurvey.co.uk/products/os-open-uprn"
+      ],
+      "format": "Downloads / APIs depending product",
+      "license_terms": "OS OpenData products use OGL; premium OS products differ.",
+      "recommended_adapter": "LINKER + basemap snapshots",
+      "suggested_use_quality_notes": "Important substitute where London parcel/building openness is weaker than NYC.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_3d_building_stock_context",
+      "city": "london",
+      "source_family": "3D and building-stock context",
+      "coverage_and_gaps": "OS 3D Mesh beta launched in 2025; London Building Stock Model v2 is a GLA analytical model built over a 2017-based predecessor and updated in-house.",
+      "spatial_granularity": "Building / mesh / citywide stock model.",
+      "update_frequency": "Emerging.",
+      "direct_access": [
+        "https://www.ordnancesurvey.co.uk/products/os-3d-mesh",
+        "https://data.london.gov.uk/blog/london-building-stock-model-2/"
+      ],
+      "format": "3D tiles, derived model data/blog resources",
+      "license_terms": "OS beta access is not equivalent to unrestricted open data; verify access route.",
+      "recommended_adapter": "SNAPSHOT + 3D derivative cache",
+      "suggested_use_quality_notes": "Useful, but weaker than NYC for a clean open municipal 3D history.",
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "id": "london_historical_aerial_imagery",
+      "city": "london",
+      "source_family": "Historical aerial imagery and vertical aerials",
+      "coverage_and_gaps": "Historic England Aerial Photo Explorer gives archive access; Environment Agency vertical aerials provide official airborne mapping; OS MasterMap Imagery is authoritative but licensed, not open.",
+      "spatial_granularity": "Photo, scene, ortho.",
+      "update_frequency": "Archive + programmatic refresh depending provider.",
+      "direct_access": [
+        "https://historicengland.org.uk/images-books/archive/collections/aerial-photos/",
+        "https://environment.data.gov.uk/dataset/dae203a8-ba24-4c54-bab0-866b9faadb58"
+      ],
+      "format": "Archive site and downloadable datasets",
+      "license_terms": "Mixed. Historic England image rights vary per image; Environment Agency data are official open-government-style datasets; OS imagery is licensed.",
+      "recommended_adapter": "DOCSTORE + tile/scene registry",
+      "suggested_use_quality_notes": "High value, especially where London lacks a single openly tiled orthophoto series like NYC.",
+      "confidence": "medium-high",
+      "notes": []
+    },
+    {
+      "id": "london_dft_traffic_counts_road_flows",
+      "city": "london",
+      "source_family": "Traffic counts and road flows",
+      "coverage_and_gaps": "DfT road traffic statistics provide London count points and raw counts in CSV and JSON; quality notes distinguish “Counted” from “Estimated” methods.",
+      "spatial_granularity": "Count point, road link, local authority.",
+      "update_frequency": "Annual / periodic releases.",
+      "direct_access": [
+        "https://roadtraffic.dft.gov.uk/regions/6"
+      ],
+      "format": "CSV / JSON / web API",
+      "license_terms": "UK Open Government Licence for published statistics/data; preserve attribution and method fields.",
+      "recommended_adapter": "SNAPSHOT + count-point registry",
+      "suggested_use_quality_notes": "Always keep estimation method in the model and upweight directly counted observations.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_tfl_network_demand_cycle_hire",
+      "city": "london",
+      "source_family": "TfL routes, timetables, accessibility, demand, and cycle hire",
+      "coverage_and_gaps": "Unified API covers lines, routes, stops, BikePoint, occupancy and more; station facilities/topology and PTAL are available; cycle-hire counts run from 30 July 2010 launch through March 2026 in the cited dataset; some station/journey detail series cover 2003–2012.",
+      "spatial_granularity": "Stop, station, line, route, bike point, grid point.",
+      "update_frequency": "Live APIs plus periodic datasets.",
+      "direct_access": [
+        "https://api.tfl.gov.uk/",
+        "https://api.tfl.gov.uk/swagger/ui/index.html",
+        "https://data.london.gov.uk/dataset/number-of-bicycle-hires-2r84d",
+        "https://data.london.gov.uk/dataset/public-transport-accessibility-levels-24rz6"
+      ],
+      "format": "REST/JSON, KML, CSV, spreadsheets",
+      "license_terms": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
+      "recommended_adapter": "API pull + temporal cache + CUBE snapshots",
+      "suggested_use_quality_notes": "Strong for integrated network metadata and accessibility/topology; demand history is less consistently open at station level than NYC.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_workforce_labour_population",
+      "city": "london",
+      "source_family": "Workforce, labour market, and population",
+      "coverage_and_gaps": "Nomis is the main API/service layer for ONS labour market and census outputs; BRES is the official source of employee/employment estimates; ONS mid-year population estimates provide a 2011–2024 series with older series available; 2001 Census is available through ONS; GLA borough-by-sector jobs spans 1971–2023.",
+      "spatial_granularity": "Borough, LAD, small areas depending on source.",
+      "update_frequency": "Annual or quarterly depending on family.",
+      "direct_access": [
+        "https://www.nomisweb.co.uk/api/v01/help",
+        "https://www.ons.gov.uk/"
+      ],
+      "format": "API, CSV, spreadsheets",
+      "license_terms": "Open Government Licence with statistical disclosure controls where applicable.",
+      "recommended_adapter": "CUBE/API + geography harmonization",
+      "suggested_use_quality_notes": "Very strong for long-run labour and demography.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_property_transactions_prices_rents",
+      "city": "london",
+      "source_family": "Property transactions, price indices, and rents",
+      "coverage_and_gaps": "HM Land Registry Price Paid Data is monthly and available from 1995 with yearly files; UK HPI is monthly and linked-data enabled; VOA average private rents are updated biannually and changed cadence after 2013.",
+      "spatial_granularity": "Property transaction, local authority, region.",
+      "update_frequency": "Monthly or biannual.",
+      "direct_access": [
+        "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads",
+        "https://landregistry.data.gov.uk/app/ukhpi/",
+        "https://data.london.gov.uk/dataset/average-private-rents-borough-29j80"
+      ],
+      "format": "CSV, linked data, spreadsheets",
+      "license_terms": "Official government terms; check Price Paid permitted-use guidance.",
+      "recommended_adapter": "LEDGER + linked-data price index adapter",
+      "suggested_use_quality_notes": "Best official stack for property transactions and rent/price trend context.",
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "id": "london_public_opinion_consultation_sentiment",
+      "city": "london",
+      "source_family": "Public opinion, consultation, and local sentiment",
+      "coverage_and_gaps": "Annual London Survey toplines cover 2000–2011 with no survey in 2008; from 2014 onward the Annual London Survey is delivered by Talk London; planning consultations/comments and police dashboards are downloadable through city platforms.",
+      "spatial_granularity": "Survey, consultation, ward/borough, application.",
+      "update_frequency": "Survey-cycle / current consultations.",
+      "direct_access": [
+        "https://data.london.gov.uk/search?q=Annual%20London%20Survey",
+        "https://www.london.gov.uk/programmes-strategies/planning/planning-consultations"
+      ],
+      "format": "Datasets, dashboards, consultation pages",
+      "license_terms": "Mixed package/site terms.",
+      "recommended_adapter": "DOCSTORE + survey cube",
+      "suggested_use_quality_notes": "Useful, but there is no citywide 311-style operational complaint ledger equivalent.",
+      "confidence": "high",
+      "notes": []
+    }
+  ],
+  "coverage_timelines": [
+    {
+      "id": "n1",
+      "city": "new_york",
+      "label": "NYC 311 service requests",
+      "start_date": "2010-01-01",
+      "end_date": "2026-12-31",
+      "source_basis": "NYC Open Data 311 family"
+    },
+    {
+      "id": "n2",
+      "city": "new_york",
+      "label": "NYC Map Tiles / orthophotos",
+      "start_date": "2000-01-01",
+      "end_date": "2026-12-31",
+      "source_basis": "NYC Map Tiles and official orthophoto vintages"
+    },
+    {
+      "id": "n3",
+      "city": "new_york",
+      "label": "ACS 1-year / 5-year context",
+      "start_date": "2005-01-01",
+      "end_date": "2024-12-31",
+      "source_basis": "U.S. Census ACS releases"
+    },
+    {
+      "id": "n4",
+      "city": "new_york",
+      "label": "Decennial Census APIs",
+      "start_date": "2000-01-01",
+      "end_date": "2020-12-31",
+      "source_basis": "U.S. Census decennial APIs"
+    },
+    {
+      "id": "n5",
+      "city": "new_york",
+      "label": "LEHD LODES",
+      "start_date": "2002-01-01",
+      "end_date": "2022-12-31",
+      "source_basis": "LEHD/LODES published updates"
+    },
+    {
+      "id": "n6",
+      "city": "new_york",
+      "label": "MTA daily ridership",
+      "start_date": "2020-01-01",
+      "end_date": "2025-12-31",
+      "source_basis": "MTA daily ridership family"
+    },
+    {
+      "id": "n7",
+      "city": "new_york",
+      "label": "MTA hourly ridership",
+      "start_date": "2020-01-01",
+      "end_date": "2026-12-31",
+      "source_basis": "MTA hourly ridership 2020–2024 and beginning-2025 datasets"
+    },
+    {
+      "id": "n8",
+      "city": "new_york",
+      "label": "Standardized annual turnstiles",
+      "start_date": "2015-01-01",
+      "end_date": "2022-12-31",
+      "source_basis": "MTA annual turnstile usage datasets"
+    },
+    {
+      "id": "l1",
+      "city": "london",
+      "label": "Annual London Survey",
+      "start_date": "2000-01-01",
+      "end_date": "2011-12-31",
+      "source_basis": "GLA opinion research"
+    },
+    {
+      "id": "l2",
+      "city": "london",
+      "label": "Talk London era annual survey",
+      "start_date": "2014-01-01",
+      "end_date": "2026-12-31",
+      "source_basis": "Talk London / Annual London Survey era"
+    },
+    {
+      "id": "l3",
+      "city": "london",
+      "label": "ONS population estimates",
+      "start_date": "2001-01-01",
+      "end_date": "2024-12-31",
+      "source_basis": "ONS population releases and previous versions"
+    },
+    {
+      "id": "l4",
+      "city": "london",
+      "label": "GLA borough sector jobs",
+      "start_date": "2000-01-01",
+      "end_date": "2023-12-31",
+      "source_basis": "GLA jobs time series"
+    },
+    {
+      "id": "l5",
+      "city": "london",
+      "label": "Tube station entries/exits view",
+      "start_date": "2003-01-01",
+      "end_date": "2012-12-31",
+      "source_basis": "TfL station usage/blog datasets"
+    },
+    {
+      "id": "l6",
+      "city": "london",
+      "label": "Santander Cycle hires",
+      "start_date": "2010-07-30",
+      "end_date": "2026-03-31",
+      "source_basis": "TfL cycle-hire datasets"
+    },
+    {
+      "id": "l7",
+      "city": "london",
+      "label": "HM Land Registry Price Paid",
+      "start_date": "2000-01-01",
+      "end_date": "2026-12-31",
+      "source_basis": "HM Land Registry documentation"
+    },
+    {
+      "id": "l8",
+      "city": "london",
+      "label": "UK House Price Index",
+      "start_date": "2000-01-01",
+      "end_date": "2026-12-31",
+      "source_basis": "HM Land Registry UK HPI documentation"
+    }
+  ],
+  "implementation_guidance": {
+    "adapter_patterns": [
+      {
+        "id": "TILER",
+        "description": "Imagery and basemap tiling, including city orthophotos and satellite composites."
+      },
+      {
+        "id": "SNAPSHOT",
+        "description": "Annual or periodic full extracts such as PLUTO, PTAL, count-point snapshots, and basemap vintages."
+      },
+      {
+        "id": "LEDGER",
+        "description": "Event streams such as permits, complaints, ridership, certificates, and filings."
+      },
+      {
+        "id": "DOCSTORE",
+        "description": "Plans, consultation documents, public comments, environmental review documents, and evidence PDFs."
+      },
+      {
+        "id": "LINKER",
+        "description": "Stable identifiers such as BBL, BIN, station IDs, USRN, UPRN, count points, and road segments."
+      },
+      {
+        "id": "CUBE/API",
+        "description": "Statistical datasets, dashboard extracts, API-backed indicators, and geography harmonization."
+      }
+    ],
+    "graph_model": "Write into a unified spatiotemporal graph keyed by event location, event time, publication time, and source vintage. In NYC, natural keys are often BBL/BIN plus street segment and station complex linkages. In London, practical keys are UPRN/USRN plus LPA application IDs, NaPTAN/StopPoint IDs, or DfT count points.",
+    "recommended_visual_products": [
+      "synchronized before/after image swipe using official imagery",
+      "event timeline for filings, approvals, permits, starts, completions, and occupancy",
+      "distance-decay charts for traffic, ridership, employment, complaints, and prices",
+      "isochrone/PTAL or transit-access panels",
+      "property and rent trend panels",
+      "document evidence tab for planning documents, public comments, and environmental statements"
+    ],
+    "interpolation_strategy": "For missing years, fill imagery gaps with Landsat or Sentinel seasonal composites. For London building-level geometry change, infer windows from PLD/LDD applications, OS/OpenStreetMap baselines, and historic aerials. Treat unreleased 2026 annual series as latest official year plus provisional/live operational context, not as equivalent annual statistics."
+  },
+  "legal_ethics_constraints": [
+    "NYC Open Data broadly states there are no general restrictions on use, but complaint text, addresses, and sensitive topics still create privacy and defamation risk.",
+    "TfL data are released under transport-data terms based on the OGL with amendments; check commercial republication, branding, caching, and refresh behavior source by source.",
+    "London Datastore licenses vary by package.",
+    "OS OpenData products are OGL, but premium OS imagery and some 3D products are not equivalent to open city data.",
+    "Historic England imagery can have image-specific rights and attributions.",
+    "OpenStreetMap requires attribution and ODbL share-alike treatment for derivative databases.",
+    "Planning comments can contain personal data or allegations; minimize personal-text display and prefer aggregation, excerpting, and links over wholesale republication."
+  ],
+  "open_questions_limitations": [
+    "London does not have a clean equivalent to NYC lot-level open parcel/building stack or a universal 311-type city service-request ledger.",
+    "NYC has strong public administrative and complaint data, but official open rent series are more fragmented than London’s Land Registry plus VOA stack.",
+    "Every historical PLUTO/MapPLUTO vintage and every pre-2010 London borough planning archive was not individually verified in the PDF pass.",
+    "Start public open-source release with high-confidence official core, mark 2026 annual series as partial, keep a reproducible vintage registry, and add secondary sources only after licensing and continuity are validated."
+  ],
+  "counts": {
+    "domain_comparison": 9,
+    "foundational_sources": 3,
+    "city_source_families": 27,
+    "new_york_source_families": 14,
+    "london_source_families": 13,
+    "coverage_timelines": 16
+  }
+}

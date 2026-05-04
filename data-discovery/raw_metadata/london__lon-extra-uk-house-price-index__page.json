@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-uk-house-price-index",
+  "city": "london",
+  "title": "UK House Price Index",
+  "publisher": "HM Land Registry",
+  "bucket": "housing/property market/economy",
+  "retrieved_at": "2026-04-28T12:57:06.293151+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://landregistry.data.gov.uk/app/ukhpi",
+      "retrieved_at": "2026-04-28T12:57:05.967386+00:00",
+      "final_url": "http://landregistry.data.gov.uk/app/ukhpi/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "12705",
+      "bytes_captured": 12705,
+      "page_title": "UK House Price Index",
+      "h1": "UK House Price Index",
+      "meta_description": null,
+      "text_sample": "<html data-GA-ID=\"G-SMWBQ0LF6D\" data-rails-env=\"production\" lang=\"en\"> <head> <meta charset=\"utf-8\" httpEquiv=\"Content-Type\"> <meta content=\"width=device-width, initial-scale=1\" name=\"viewport\"> <title> UK House Price Index </title> <link href=\"/app/ukhpi/vite/assets/apple-touch-icon-nuw0swYp.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"> <link href=\"/app/ukhpi/vite/assets/favicon-32x32-DgndOdgG.png\" rel=\"icon\" sizes=\"32x3\" type=\"image/png\"> <link href=\"/app/ukhpi/vite/assets/favicon-16x16-Bv1eqAmV.png\" rel=\"icon\" sizes=\"16x1\" type=\"image/png\"> <link href=\"/app/ukhpi/vite/assets/safari-pinned-tab-DhlBkGnF.svg\" rel=\"mask-icon\"> <link href=\"/app/ukhpi/vite/assets/favicon-CT6Yo2-F.ico\" rel=\"shortcut icon\"> <meta content=\"/app/ukhpi/vite/assets/browserconfig-BYtALs6w.xml\" name=\"msapplication-config\"> <meta content=\"#ffffff\" name=\"theme-color\"> <script> document.querySelector('html').classList.add('js') window.ukhpi ||= {} window.ukhpi.environment = \"prod\" window.ukhpi.version = \"2.3.0\" window.ukhpi.locale = \"en\" window.ukhpi.root_path = \"/app/ukhpi\" </script> <script src=\"/app/ukhpi/vite/assets/cookie-B_XCHein.js\" crossorigin=\"anonymous\" type=\"module\" defer=\"defer\"></script> <meta name=\"csrf-param\" content=\"authenticity_token\" /> <meta name=\"csrf-token\" content=\"q3kQWgovOpO2089_sufT0VQuCpqzTMmaIlnVYHgGIppa-R-82Sahw0FyQpshxP4Naxe7mbrP_A2KC4aXBNQXNw\" /> <script src=\"/app/ukhpi/vite/assets/application-D_OnytQm.js\" crossorigin=\"anonymous\" type=\"module\"></script><link rel=\"modulepreload\" href=\"/app/ukhpi/vite/assets/index-CnIQJ1PA.js\" as=\"script\" crossorigin=\"anonymous\"><link rel=\"stylesheet\" href=\"/app/ukhpi/vite/assets/application-CBv11MGa.css\" media=\"screen\" /> <link rel=\"stylesheet\" href=\"/app/ukhpi/vite/assets/application-De18yh6K.css\" media=\"all\" /> <link href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3\" rel=\"license\"> <!--[if lt IE 9]> <script src=\"//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js\"></script> <script src=\"//cdn.jsdelivr.net/es5.shim/4.5.7/es5-shim.js\"></script> <script src=\"//cdn.jsdelivr.net/es5.shim/4.5.7/es5-sham.js\"></script> <script src=\"//cdn.jsdelivr.net/lodash/4.9.0/lodash.js\"></script> <script> window.isIE8 = true; </script> <![endif]--> </head> <body class=\"government website hmlr\"> <div class=\"cookie-banner\" id=\"cookie-banner\" style=\"display: none\"> <h2 class=\"cookie-banner__heading\"> This site uses cookies </h2> <p> Cookies are files stored on your computer, phone, or tablet. They help us understand how you use this site, such as which pages you visit. For more information please read our <a href=\"/privacy?lang=en\">privacy notice.</a> </p> <button class=\"cookie-banner__accept\"> Accept additional cookies </button> <button class=\"cookie-banner__reject\"> Reject additional cookies </button> </div> <nav aria-label=\"skip to main content\" class=\"c-skip-to-main\"> <a class=\"c-skip-to-main__action u-off-canvas u-off-canvas--focusable\" href=\"#main-content\"> Skip to main"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_postcodes_io",
+  "title": "Postcodes.io UK postcode lookup",
+  "requested_url": "https://api.postcodes.io/",
+  "fetched_url": "https://api.postcodes.io/",
+  "final_url": "https://api.postcodes.io/",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "content_length": "",
+  "last_modified": "Thu, 18 Dec 2025 13:07:57 GMT",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:10.550253+00:00",
+  "page_title": "",
+  "h1": "Postcode & Geolocation API for the UK",
+  "meta_description": "Search, validate and geolocate UK postcodes. Retrieve the latest administrative and geospatial information for postcodes"
+}
