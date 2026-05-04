@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
+const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
@@ -24,6 +25,20 @@ async function waitForAtlas(page) {
   );
 }
 
+async function waitForRenderedImagery(page) {
+  await page.waitForFunction(
+    () => {
+      const mapTiles = Array.from(document.querySelectorAll(".tile-layer img"));
+      const eventThumbs = Array.from(document.querySelectorAll(".event-thumb img"));
+      const loadedMapTiles = mapTiles.filter((img) => img.complete && img.naturalWidth >= 128).length;
+      const loadedThumbTiles = eventThumbs.filter((img) => img.complete && img.naturalWidth >= 128).length;
+      return mapTiles.length >= 24 && loadedMapTiles >= 12 && loadedThumbTiles >= 4;
+    },
+    null,
+    { timeout: 30000 }
+  );
+}
+
 (async () => {
   fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -37,6 +52,7 @@ async function waitForAtlas(page) {
 
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(page);
+  await waitForRenderedImagery(page);
   await page.waitForTimeout(500);
 
   const health = await (await page.request.get(`${url}/api/health`)).json();
@@ -108,6 +124,10 @@ async function waitForAtlas(page) {
   assert(/not causal|observed place|affected/i.test(initial.impactText), "Impact panel is missing descriptive, caveated copy.");
   assert(/do(?:es)? not establish|does not justify|causal claim/i.test(initial.causalClaimText), "Evidence brief is missing an explicit causal-claim caveat.");
   assert(initial.selectedTitle.length > 5, "Evidence brief did not select an initial event.");
+
+  const initialMapPng = await page.locator("#mapViewport").screenshot();
+  assertDetailedPng(initialMapPng, assert, "Initial map viewport");
+  fs.writeFileSync(path.join(outputDir, "open-citylog-browser-map.png"), initialMapPng);
 
   await page.locator('[data-impact-mode="traffic"]').click();
   await page.waitForFunction(() => window.BimsAtlas.state.impactMode === "traffic", null, { timeout: 5000 });

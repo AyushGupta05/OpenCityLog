@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
+const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
@@ -19,6 +20,20 @@ async function waitForAtlas(page) {
   await page.waitForSelector("#eventList .event-card", { timeout: 30000 });
 }
 
+async function waitForRenderedImagery(page) {
+  await page.waitForFunction(
+    () => {
+      const mapTiles = Array.from(document.querySelectorAll(".tile-layer img"));
+      const eventThumbs = Array.from(document.querySelectorAll(".event-thumb img"));
+      const loadedMapTiles = mapTiles.filter((img) => img.complete && img.naturalWidth >= 128).length;
+      const loadedThumbTiles = eventThumbs.filter((img) => img.complete && img.naturalWidth >= 128).length;
+      return mapTiles.length >= 24 && loadedMapTiles >= 12 && loadedThumbTiles >= 4;
+    },
+    null,
+    { timeout: 30000 }
+  );
+}
+
 (async () => {
   fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -31,6 +46,7 @@ async function waitForAtlas(page) {
   desktop.on("pageerror", (error) => consoleErrors.push("pageerror: " + error.message));
   await desktop.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(desktop);
+  await waitForRenderedImagery(desktop);
   await desktop.waitForTimeout(600);
 
   const desktopState = await desktop.evaluate(() => {
@@ -81,6 +97,9 @@ async function waitForAtlas(page) {
   assert(!/\bRun Simulation\b|\bSolana\b|\bScenario Studio\b|\bbranch workspace\b/i.test(desktopState.visibleText), "Legacy simulator language is visible.");
   assert(/Observed city change with public evidence/i.test(desktopState.visibleText), "Evidence-map caveat is not visible.");
 
+  const desktopMapPng = await desktop.locator("#mapViewport").screenshot();
+  assertDetailedPng(desktopMapPng, assert, "Desktop map viewport");
+  fs.writeFileSync(path.join(outputDir, "open-citylog-desktop-map.png"), desktopMapPng);
   await desktop.screenshot({ path: path.join(outputDir, "open-citylog-desktop-smoke.png"), fullPage: false });
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 860 }, deviceScaleFactor: 2, isMobile: true });
@@ -90,6 +109,7 @@ async function waitForAtlas(page) {
   mobile.on("pageerror", (error) => consoleErrors.push("mobile pageerror: " + error.message));
   await mobile.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(mobile);
+  await waitForRenderedImagery(mobile);
   await mobile.waitForTimeout(600);
 
   const mobileState = await mobile.evaluate(() => ({
@@ -120,6 +140,9 @@ async function waitForAtlas(page) {
   assert(mobileState.thumbBeforeText, "Mobile event thumbnail overlaps event text.");
   assert(/Change log|Timeline|Evidence brief|Before \/ after|Open Citylog/i.test(mobileState.visibleText), "Mobile product sections are missing.");
 
+  const mobileMapPng = await mobile.locator("#mapViewport").screenshot();
+  assertDetailedPng(mobileMapPng, assert, "Mobile map viewport");
+  fs.writeFileSync(path.join(outputDir, "open-citylog-mobile-map.png"), mobileMapPng);
   await mobile.screenshot({ path: path.join(outputDir, "open-citylog-mobile-smoke.png"), fullPage: true });
   await browser.close();
 
