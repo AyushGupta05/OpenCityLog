@@ -1,20 +1,39 @@
 {
-  "generated_at": "2026-04-29T19:25:35.839494+00:00",
+  "generated_at": "2026-05-08T19:55:22Z",
   "london": {
-    "brownfield_events": 5360,
-    "lfb_incident_events": 1125,
-    "tfl_disruption_events": 81,
-    "total_generated_events": 6566
+    "brownfield_events": 5643,
+    "planning_datahub_application_events": 9485,
+    "planning_designation_events": 16945,
+    "lfb_incident_events": 27000,
+    "dft_road_collision_events": 27000,
+    "police_street_crime_events": 27360,
+    "police_stop_search_events": 27792,
+    "tfl_disruption_events": 80,
+    "total_generated_events": 141305
   },
   "nyc": {
-    "total_generated_events": 11419,
+    "total_generated_events": 28902,
     "source_event_counts": {
       "ipu4-2q9a": 2380,
+      "w9ak-ipjd": 960,
       "bs8b-p36w": 1350,
       "pkdm-hqz6": 0,
+      "br6q-ssj3": 1764,
+      "rbx6-tga4": 1350,
       "tqtj-sjs8": 1250,
       "c9sj-fmsg": 1980,
+      "as9z-kwsh": 281,
+      "i6b5-j7bu": 180,
       "hgx4-8ukb": 500,
+      "hg8x-zxpr": 2160,
+      "n7gv-k5yt": 1400,
+      "4hcv-tc5r": 1800,
+      "enfh-gkve": 1800,
+      "uvpi-gqnh": 1800,
+      "dpm2-m9mq": 1725,
+      "buis-pvji": 1542,
+      "skyk-mpzq": 157,
+      "8m42-w767": 1980,
       "bkfu-528j": 2470,
       "erm2-nwe9": 840,
       "h9gi-nx95": 2400
@@ -24,6 +43,12 @@
     "Official/open source rows are converted to source-backed atlas events, not causal impact claims.",
     "Sensitive contact, owner, permittee and personal fields from permit/admin datasets are intentionally not persisted.",
     "Records without public coordinates rely on the atlas builder's deterministic city/borough point distribution.",
-    "London brownfield rows are fetched from Planning Data England per London LPA; LFB rows are sampled from a very large London Datastore incident CSV to keep the repo lightweight."
+    "London brownfield rows are fetched from Planning Data England per London LPA; LFB rows are sampled from a very large London Datastore incident CSV to keep the repo lightweight.",
+    "London Planning Datahub application rows are public administrative records; the London Datastore licence is labelled Not Specified, so the atlas stores only minimal public provenance fields and carries a reuse caveat.",
+    "London Planning Data designation rows include conservation/listed/heritage/local-plan, Article 4, and tree-preservation records. They are legal/planning-status evidence and should not be presented as direct physical construction events.",
+    "DfT STATS19 London collision rows are official reported personal-injury road-safety records; they are local transport-safety context, not causal evidence about street design.",
+    "Police.uk street-level crime/ASB rows are anonymized public-safety management records; they are approximate locations and should not be treated as exact incident sites or causal evidence.",
+    "Police.uk stop-and-search rows are privacy-minimized by the adapter: demographic fields and exact timestamps are intentionally omitted before writing atlas events.",
+    "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final cause or impact determinations."
   ]
 }

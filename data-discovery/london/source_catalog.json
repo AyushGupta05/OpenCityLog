@@ -15,13 +15,13 @@
       "id": "gla-planning-datahub-applications",
       "title": "Planning London Datahub - planning applications",
       "publisher": "Greater London Authority (GLA), London borough planning authorities",
-      "url": "https://planning.data.london.gov.uk/",
-      "api_endpoint": "https://planning.data.london.gov.uk/api-guest/applications",
+      "url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "api_endpoint": "https://planningdata.london.gov.uk/api-guest/applications/_search",
       "bucket": "planning/development",
       "time_coverage": "Live register; Datahub launched 2020s, with application records backfilled unevenly by borough (often 2010s-present).",
       "spatial_granularity": "Planning application point/site polygon where supplied; borough/LPA; address/UPRN where available.",
       "temporal_granularity": "Application submitted/validated/decision dates; near-real-time updates by LPA feed.",
-      "limitations": "Coverage/completeness varies by borough and by historic backfill; schemas may omit drawings/decision notices; not all legacy applications geocoded.",
+      "limitations": "Coverage/completeness varies by borough and by historic backfill; schemas may omit drawings/decision notices; not all legacy applications geocoded. London Datastore currently lists the dataset licence as Not Specified, so reuse terms must be reviewed before redistributing full rows.",
       "suggested_event_seeds": [
         "major application submitted",
         "major permission granted/refused",
@@ -31,8 +31,9 @@
       "source_id": "gla-planning-datahub-applications",
       "retrieved_at": "2026-04-28T12:18:46.277684+00:00",
       "raw_metadata_file": "raw_metadata/london__gla-planning-datahub-applications__page.json",
-      "access_url": "https://planning.data.london.gov.uk/",
-      "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms."
+      "access_url": "https://planningdata.london.gov.uk/api-guest/",
+      "licence": "Not specified on London Datastore; source-level reuse review required before redistributing full rows.",
+      "licence_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/"
     },
     {
       "id": "gla-london-development-database",
@@ -342,6 +343,29 @@
       "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms."
     },
     {
+      "id": "dft-road-safety-collisions",
+      "title": "Road Safety Open Data - STATS19 collision records",
+      "publisher": "Department for Transport",
+      "url": "https://www.gov.uk/government/statistical-data-sets/road-safety-open-data",
+      "api_endpoint": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-last-5-years.csv",
+      "bucket": "traffic/transport/road safety",
+      "time_coverage": "Record-level public road-collision files from 1979; this adapter currently ingests the latest five-year collision file plus the current provisional collision file.",
+      "spatial_granularity": "Collision point coordinates, local authority, road class/number and LSOA where supplied.",
+      "temporal_granularity": "Collision date and coded time fields.",
+      "limitations": "Covers personal-injury collisions reported to police and recorded in STATS19 only; provisional-year rows may be revised; coded fields require the DfT data guide for interpretation.",
+      "suggested_event_seeds": [
+        "reported road collision",
+        "transport safety hotspot context",
+        "pre/post street intervention safety context"
+      ],
+      "source_id": "dft-road-safety-collisions",
+      "retrieved_at": "2026-05-08T00:00:00+00:00",
+      "raw_metadata_file": "raw_metadata/generated_event_expansion_london_dft_road_collisions_summary.json",
+      "access_url": "https://www.gov.uk/government/statistical-data-sets/road-safety-open-data",
+      "licence": "Open Government Licence v3.0 unless otherwise stated on GOV.UK.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    {
       "id": "dft-naei-traffic-emissions-context",
       "title": "DfT transport statistics and road network/open data",
       "publisher": "Department for Transport",
@@ -644,10 +668,34 @@
         "night-time economy policy change"
       ],
       "source_id": "police-data-api",
-      "retrieved_at": "2026-04-28T12:18:46.277821+00:00",
-      "raw_metadata_file": "raw_metadata/london__police-data-api__page.json",
-      "access_url": "https://data.police.uk/docs/",
-      "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms."
+      "retrieved_at": "2026-05-08T00:00:00+00:00",
+      "raw_metadata_file": "raw_metadata/generated_event_expansion_london_police_street_crimes_summary.json",
+      "access_url": "https://data.police.uk/data/",
+      "licence": "Open Government Licence v3.0.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    {
+      "id": "police-data-stop-search",
+      "title": "Police.uk stop and search custom CSV downloads",
+      "publisher": "Home Office / Police.uk / police force data contributors",
+      "url": "https://data.police.uk/data/",
+      "api_endpoint": "https://data.police.uk/data/",
+      "bucket": "public services/public safety/stop and search",
+      "time_coverage": "Stop-and-search CSVs by month and police force where supplied through Police.uk.",
+      "spatial_granularity": "Approximate or supplied stop/search point; force; month. Adapter omits exact timestamp and demographic fields.",
+      "temporal_granularity": "Source rows contain timestamp; atlas adapter displays month precision for privacy minimization.",
+      "limitations": "Sensitive management-information data. The adapter intentionally omits gender, age range, ethnicity, operation name, and exact timestamp; points may be approximate and should not be used as causal evidence.",
+      "suggested_event_seeds": [
+        "stop and search public-safety context",
+        "transport hub policing context",
+        "month-level neighbourhood safety context"
+      ],
+      "source_id": "police-data-stop-search",
+      "retrieved_at": "2026-05-08T00:00:00+00:00",
+      "raw_metadata_file": "raw_metadata/generated_event_expansion_london_police_stop_searches_summary.json",
+      "access_url": "https://data.police.uk/data/",
+      "licence": "Open Government Licence v3.0.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
     },
     {
       "id": "nhs-ods-api",
@@ -698,7 +746,7 @@
       "title": "London Fire Brigade incident records",
       "publisher": "London Fire Brigade / London Datastore",
       "url": "https://data.london.gov.uk/dataset/london-fire-brigade-incident-records",
-      "api_endpoint": "Downloadable CSV resources on London Datastore",
+      "api_endpoint": "Downloadable CSV/XLSX resources on London Datastore",
       "bucket": "public services",
       "time_coverage": "Incident records from Jan 2009-present in published updates.",
       "spatial_granularity": "Incident location generally postcode/ward/borough/station ground; incident type.",
@@ -710,8 +758,8 @@
         "response-time trend shift"
       ],
       "source_id": "london-fire-brigade-incidents",
-      "retrieved_at": "2026-04-28T12:18:46.277826+00:00",
-      "raw_metadata_file": "raw_metadata/london__london-fire-brigade-incidents__page.json",
+      "retrieved_at": "2026-05-08T00:00:00+00:00",
+      "raw_metadata_file": "raw_metadata/generated_event_expansion_london_lfb_incidents_summary.json",
       "access_url": "https://data.london.gov.uk/dataset/london-fire-brigade-incident-records",
       "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms."
     },
@@ -857,7 +905,8 @@
       "limitations": "Aggregated, not parcel level. Value: borough-level house price trend baseline",
       "metadata_url": null,
       "access_url": "https://landregistry.data.gov.uk/app/ukhpi",
-      "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+      "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+      "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
       "retrieved_at": "2026-04-28T12:56:37.631412+00:00",
       "raw_metadata_file": "raw_metadata/london__lon-extra-uk-house-price-index__page.json",
       "suggested_event_seeds": []
@@ -990,7 +1039,8 @@
       "limitations": "Completeness depends on LPA publication. Value: permitted-development restrictions",
       "metadata_url": null,
       "access_url": "https://www.planning.data.gov.uk/entity.json?dataset=article-4-direction",
-      "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+      "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+      "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
       "retrieved_at": "2026-04-28T12:56:37.631412+00:00",
       "raw_metadata_file": "raw_metadata/london__lon-extra-planning-data-article-4-directions__page.json",
       "suggested_event_seeds": []
@@ -1009,7 +1059,8 @@
       "limitations": "Geometry/detail varies. Value: protected-tree constraints",
       "metadata_url": null,
       "access_url": "https://www.planning.data.gov.uk/entity.json?dataset=tree-preservation-order",
-      "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+      "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+      "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
       "retrieved_at": "2026-04-28T12:56:37.631412+00:00",
       "raw_metadata_file": "raw_metadata/london__lon-extra-planning-data-tree-preservation-orders__page.json",
       "suggested_event_seeds": []
@@ -1028,7 +1079,8 @@
       "limitations": "Incomplete by borough. Value: protected tree zone polygons",
       "metadata_url": null,
       "access_url": "https://www.planning.data.gov.uk/entity.json?dataset=tree-preservation-zone",
-      "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+      "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+      "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
       "retrieved_at": "2026-04-28T12:56:37.631412+00:00",
       "raw_metadata_file": "raw_metadata/london__lon-extra-planning-data-tree-preservation-zones__page.json",
       "suggested_event_seeds": []

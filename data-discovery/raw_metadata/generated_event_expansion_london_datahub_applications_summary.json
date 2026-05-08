@@ -1,0 +1,56 @@
+{
+  "retrieved_at": "2026-05-08T19:50:04Z",
+  "source": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+  "licence": "Not specified on London Datastore; review before redistributing full rows.",
+  "queries": {
+    "completed_major_developments": {
+      "requested_size": 700,
+      "available_total": {
+        "value": 78,
+        "relation": "eq"
+      },
+      "fetched": 78,
+      "added": 70,
+      "date_field": "actual_completion_date",
+      "stage": "completed"
+    },
+    "large_recent_applications": {
+      "requested_size": 700,
+      "available_total": {
+        "value": 525,
+        "relation": "eq"
+      },
+      "fetched": 525,
+      "added": 410,
+      "date_field": "valid_date",
+      "stage": "validated"
+    },
+    "recent_decisions_all_lpas": {
+      "requested_size": 5000,
+      "available_total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "fetched": 5000,
+      "added": 4513,
+      "date_field": "decision_date",
+      "stage": "decided"
+    },
+    "recent_validated_all_lpas": {
+      "requested_size": 5000,
+      "available_total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "fetched": 5000,
+      "added": 4492,
+      "date_field": "valid_date",
+      "stage": "validated"
+    }
+  },
+  "skipped_without_source_date": 0,
+  "skipped_without_point": 1118,
+  "skipped_future_date": 0,
+  "skipped_without_record_id": 0,
+  "event_count": 9485
+}

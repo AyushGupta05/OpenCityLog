@@ -131,7 +131,7 @@ async function evaluateMapOverlayLayout(page) {
   assert(desktopState.eventThumbImages > 0, "Desktop event thumbnails did not render imagery tiles.");
   assert(desktopState.thumbWidth >= 80 && desktopState.thumbHeight >= 90, "Desktop event thumbnails are too small.");
   assert(desktopState.thumbBeforeText, "Desktop event thumbnail overlaps event text.");
-  assert(desktopState.evidenceFrames === 2, "Desktop before/after evidence frames missing.");
+  assert(desktopState.evidenceFrames === 3, "Desktop reference evidence frame triptych missing.");
   assert(desktopState.layerButtons >= 5, "Layer controls did not render.");
   assert(desktopState.tileCount >= 24, "Imagery basemap tiles did not render.");
   assert(/World_Imagery/i.test(desktopState.tileSrc), "Basemap is not using the imagery tile service.");
@@ -140,7 +140,7 @@ async function evaluateMapOverlayLayout(page) {
   assert(desktopState.scrollHeight <= desktopState.clientHeight + 4, `Desktop layout overflows vertically: ${desktopState.scrollHeight} > ${desktopState.clientHeight}.`);
   assert(/Esri World Imagery|source-backed event overlays/i.test(desktopState.mapCopy), "Map attribution/footer copy is missing.");
   assert(!/\bRun Simulation\b|\bSolana\b|\bScenario Studio\b|\bbranch workspace\b/i.test(desktopState.visibleText), "Legacy simulator language is visible.");
-  assert(/Observed city change with public evidence/i.test(desktopState.visibleText), "Evidence-map caveat is not visible.");
+  assert(/Open-source city-change atlas|Historical evidence map/i.test(desktopState.visibleText), "Evidence-map caveat is not visible.");
 
   const desktopMapPng = await desktop.locator("#mapViewport").screenshot();
   assertDetailedPng(desktopMapPng, assert, "Desktop map viewport");
@@ -198,7 +198,7 @@ async function evaluateMapOverlayLayout(page) {
   assert(mobileState.eventThumbImages > 0, "Mobile event thumbnails did not render imagery tiles.");
   assert(mobileState.thumbWidth <= 92 && mobileState.thumbHeight >= 100, "Mobile event thumbnail sizing is wrong.");
   assert(mobileState.thumbBeforeText, "Mobile event thumbnail overlaps event text.");
-  assert(/Change log|Timeline|Evidence brief|Before \/ after|Open Citylog/i.test(mobileState.visibleText), "Mobile product sections are missing.");
+  assert(/Change log|Timeline|Evidence|Open Citylog/i.test(mobileState.visibleText), "Mobile product sections are missing.");
 
   const mobileMapPng = await mobile.locator("#mapViewport").screenshot();
   assertDetailedPng(mobileMapPng, assert, "Mobile map viewport");

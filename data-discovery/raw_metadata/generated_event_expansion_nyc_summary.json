@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-04-29T19:24:16.331745+00:00",
+  "retrieved_at": "2026-05-08T19:52:48Z",
   "sources": {
     "ipu4-2q9a": {
       "dataset": "ipu4-2q9a",
@@ -47,6 +47,44 @@
         "gis_latitude",
         "gis_longitude",
         "gis_nta_name"
+      ]
+    },
+    "w9ak-ipjd": {
+      "dataset": "w9ak-ipjd",
+      "date_field": "filing_date",
+      "per_year_limit": 120,
+      "counts_by_year": {
+        "2019": 120,
+        "2020": 120,
+        "2021": 120,
+        "2022": 120,
+        "2023": 120,
+        "2024": 120,
+        "2025": 120,
+        "2026": 120
+      },
+      "fetched": 960,
+      "sample_fields": [
+        "job_filing_number",
+        "filing_status",
+        "job_type",
+        "house_no",
+        "street_name",
+        "borough",
+        "block",
+        "lot",
+        "bin",
+        "bbl",
+        "postcode",
+        "latitude",
+        "longitude",
+        "nta",
+        "filing_date",
+        "current_status_date",
+        "first_permit_date",
+        "building_type",
+        "total_construction_floor_area",
+        "initial_cost"
       ]
     },
     "bs8b-p36w": {
@@ -111,6 +149,106 @@
       "fetched": 0,
       "sample_fields": []
     },
+    "br6q-ssj3": {
+      "dataset": "br6q-ssj3",
+      "date_field": "datefiled",
+      "per_year_limit": 110,
+      "counts_by_year": {
+        "2010": 110,
+        "2011": 110,
+        "2012": 110,
+        "2013": 110,
+        "2014": 110,
+        "2015": 110,
+        "2016": 110,
+        "2017": 110,
+        "2018": 110,
+        "2019": 110,
+        "2020": 110,
+        "2021": 110,
+        "2022": 110,
+        "2023": 110,
+        "2024": 110,
+        "2025": 110,
+        "2026": 4
+      },
+      "fetched": 1764,
+      "sample_fields": [
+        "job_number",
+        "job_type",
+        "residflag",
+        "job_status",
+        "permityear",
+        "compltyear",
+        "classainit",
+        "classaprop",
+        "classanet",
+        "units_co",
+        "boro",
+        "bin",
+        "bbl",
+        "addressnum",
+        "addressst",
+        "bldg_class",
+        "job_desc",
+        "datefiled",
+        "datepermit",
+        "datecomplt",
+        "datelstupd",
+        "landmark",
+        "floorsinit",
+        "floorsprop",
+        "ownership",
+        "latitude",
+        "longitude",
+        "geomsource",
+        "version",
+        "ntaname20",
+        "commntydst",
+        "councildst"
+      ]
+    },
+    "rbx6-tga4": {
+      "dataset": "rbx6-tga4",
+      "date_field": "issued_date",
+      "per_year_limit": 150,
+      "counts_by_year": {
+        "2018": 150,
+        "2019": 150,
+        "2020": 150,
+        "2021": 150,
+        "2022": 150,
+        "2023": 150,
+        "2024": 150,
+        "2025": 150,
+        "2026": 150
+      },
+      "fetched": 1350,
+      "sample_fields": [
+        "job_filing_number",
+        "work_permit",
+        "filing_reason",
+        "house_no",
+        "street_name",
+        "borough",
+        "work_type",
+        "approved_date",
+        "issued_date",
+        "expired_date",
+        "job_description",
+        "estimated_job_costs",
+        "permit_status",
+        "tracking_number",
+        "zip_code",
+        "latitude",
+        "longitude",
+        "community_board",
+        "council_district",
+        "bbl",
+        "bin",
+        "nta"
+      ]
+    },
     "tqtj-sjs8": {
       "dataset": "tqtj-sjs8",
       "date_field": "permitissuedate",
@@ -168,6 +306,47 @@
         "permitlocationcomments"
       ]
     },
+    "as9z-kwsh": {
+      "fetched": 281,
+      "sample_fields": [
+        "on_street",
+        "from_st",
+        "to_street",
+        "completion_date",
+        "type_of_change",
+        "new_direction",
+        "boro"
+      ]
+    },
+    "i6b5-j7bu": {
+      "dataset": "i6b5-j7bu",
+      "date_field": "work_start_date",
+      "per_year_limit": 180,
+      "counts_by_year": {
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 0,
+        "2024": 0,
+        "2025": 0,
+        "2026": 180
+      },
+      "fetched": 180,
+      "sample_fields": [
+        "uniqueid",
+        "segmentid",
+        "onstreetname",
+        "fromstreetname",
+        "tostreetname",
+        "borough_code",
+        "work_start_date",
+        "work_end_date",
+        "purpose",
+        "the_geom"
+      ]
+    },
     "hgx4-8ukb": {
       "fetched": 500,
       "sample_fields": [
@@ -176,6 +355,258 @@
         "public_status",
         "borough",
         "certified_referred"
+      ]
+    },
+    "hg8x-zxpr": {
+      "dataset": "hg8x-zxpr",
+      "date_field": "project_start_date",
+      "per_year_limit": 180,
+      "counts_by_year": {
+        "2014": 180,
+        "2015": 180,
+        "2016": 180,
+        "2017": 180,
+        "2018": 180,
+        "2019": 180,
+        "2020": 180,
+        "2021": 180,
+        "2022": 180,
+        "2023": 180,
+        "2024": 180,
+        "2025": 180,
+        "2026": 0
+      },
+      "fetched": 2160,
+      "sample_fields": [
+        "project_id",
+        "project_name",
+        "project_start_date",
+        "building_id",
+        "house_number",
+        "street_name",
+        "borough",
+        "postcode",
+        "bbl",
+        "bin",
+        "community_board",
+        "council_district",
+        "latitude",
+        "longitude",
+        "reporting_construction_type",
+        "all_counted_units",
+        "total_units",
+        "extremely_low_income_units",
+        "very_low_income_units",
+        "low_income_units",
+        "moderate_income_units",
+        "middle_income_units"
+      ]
+    },
+    "n7gv-k5yt": {
+      "fetched": 1400,
+      "sample_fields": [
+        "date_reported_as_of",
+        "pid",
+        "project_name",
+        "description",
+        "category",
+        "borough",
+        "managing_agency",
+        "client_agency",
+        "current_phase",
+        "design_start",
+        "budget_forecast",
+        "forecast_completion",
+        "total_schedule_changes"
+      ]
+    },
+    "4hcv-tc5r": {
+      "fetched": 1800,
+      "sample_fields": [
+        "trackerid",
+        "fmsid",
+        "title",
+        "summary",
+        "currentphase",
+        "designstart",
+        "designactualcompletion",
+        "procurementstart",
+        "lastupdated",
+        "totalfunding",
+        "fundingsource",
+        "name",
+        "parkid",
+        "latitude",
+        "longitude",
+        "borough"
+      ]
+    },
+    "enfh-gkve": {
+      "fetched": 1800,
+      "sample_fields": [
+        "objectid",
+        "gispropnum",
+        "signname",
+        "name311",
+        "acquisitiondate",
+        "borough",
+        "location",
+        "acres",
+        "typecategory",
+        "subcategory",
+        "waterfront",
+        "multipolygon"
+      ]
+    },
+    "uvpi-gqnh": {
+      "fetched": 1800,
+      "sample_fields": [
+        "tree_id",
+        "created_at",
+        "status",
+        "health",
+        "spc_common",
+        "address",
+        "zipcode",
+        "boroname",
+        "nta_name",
+        "latitude",
+        "longitude",
+        "tree_dbh",
+        "problems"
+      ]
+    },
+    "dpm2-m9mq": {
+      "dataset": "dpm2-m9mq",
+      "date_field": "issue_date",
+      "per_year_limit": 75,
+      "counts_by_year": {
+        "2004": 75,
+        "2005": 75,
+        "2006": 75,
+        "2007": 75,
+        "2008": 75,
+        "2009": 75,
+        "2010": 75,
+        "2011": 75,
+        "2012": 75,
+        "2013": 75,
+        "2014": 75,
+        "2015": 75,
+        "2016": 75,
+        "2017": 75,
+        "2018": 75,
+        "2019": 75,
+        "2020": 75,
+        "2021": 75,
+        "2022": 75,
+        "2023": 75,
+        "2024": 75,
+        "2025": 75,
+        "2026": 75
+      },
+      "fetched": 1725,
+      "sample_fields": [
+        "docket",
+        "address",
+        "received_date",
+        "borough",
+        "block",
+        "lot",
+        "lmnametype",
+        "communityboard",
+        "worktypes",
+        "regulation_type",
+        "issue_date",
+        "expiration_date",
+        "latitude",
+        "longitude",
+        "regulation_number",
+        "community_board"
+      ]
+    },
+    "buis-pvji": {
+      "fetched": 1542,
+      "sample_fields": [
+        "the_geom",
+        "objectid",
+        "borough",
+        "block",
+        "lot",
+        "address",
+        "bbl",
+        "lpc_name",
+        "lpc_lpnumb",
+        "lpc_sitede",
+        "lpc_sitest",
+        "lpc_altern",
+        "desdate",
+        "landmarkty",
+        "url_report"
+      ]
+    },
+    "skyk-mpzq": {
+      "fetched": 157,
+      "sample_fields": [
+        "the_geom",
+        "borough",
+        "lp_number",
+        "current_",
+        "area_name",
+        "extension",
+        "status_of_",
+        "last_actio",
+        "public_hea",
+        "desdate",
+        "shape_leng",
+        "shape_area"
+      ]
+    },
+    "8m42-w767": {
+      "dataset": "8m42-w767",
+      "date_field": "incident_datetime",
+      "per_year_limit": 90,
+      "counts_by_year": {
+        "2005": 90,
+        "2006": 90,
+        "2007": 90,
+        "2008": 90,
+        "2009": 90,
+        "2010": 90,
+        "2011": 90,
+        "2012": 90,
+        "2013": 90,
+        "2014": 90,
+        "2015": 90,
+        "2016": 90,
+        "2017": 90,
+        "2018": 90,
+        "2019": 90,
+        "2020": 90,
+        "2021": 90,
+        "2022": 90,
+        "2023": 90,
+        "2024": 90,
+        "2025": 90,
+        "2026": 90
+      },
+      "fetched": 1980,
+      "sample_fields": [
+        "starfire_incident_id",
+        "incident_datetime",
+        "incident_borough",
+        "zipcode",
+        "alarm_box_location",
+        "alarm_source_description_tx",
+        "alarm_level_index_description",
+        "highest_alarm_level",
+        "incident_classification",
+        "incident_classification_group",
+        "first_on_scene_datetime",
+        "incident_close_datetime",
+        "engines_assigned_quantity",
+        "ladders_assigned_quantity",
+        "other_units_assigned_quantity"
       ]
     },
     "bkfu-528j": {
@@ -289,5 +720,6 @@
         "vehicle_type_code2"
       ]
     }
-  }
+  },
+  "skipped_without_source_date": 0
 }

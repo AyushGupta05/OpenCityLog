@@ -19,7 +19,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DISCOVERY = ROOT / "data-discovery"
 OUT = ROOT / "web/data/city-atlas"
-GENERATED_AT = "2026-04-28T00:00:00Z"
+GENERATED_AT = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 SCHEMA = "1.0.0"
 
 CITY_META = {
@@ -85,6 +85,11 @@ KEYWORD_POINTS = {
         ("jubilee", "Jubilee line corridor", -0.0900, 51.5030),
     ],
     "nyc": [
+        ("staten island|\\(si\\)|\\(r\\)", "Staten Island", -74.1502, 40.5795),
+        ("brooklyn|\\(bk\\)|\\(k\\)", "Brooklyn", -73.9442, 40.6782),
+        ("queens|\\(qn\\)|\\(q\\)", "Queens", -73.7949, 40.7282),
+        ("bronx|\\(bx\\)|\\(b\\)", "Bronx", -73.8648, 40.8448),
+        ("manhattan|\\(mn\\)|\\(m\\)", "Manhattan", -73.9712, 40.7831),
         ("hudson yards|far west", "Hudson Yards", -74.0020, 40.7550),
         ("times square|broadway", "Times Square", -73.9855, 40.7580),
         ("sandy|flood|inundation", "Coastal flood zones", -74.0180, 40.7000),
@@ -135,13 +140,75 @@ def date_precision(value: Any) -> str:
     return "year"
 
 
+SOURCE_DATE_FIELD_HINTS = {
+    "brownfield-land": "entry-date, start-date, planning-permission-date, or end-date",
+    "gla-planning-datahub-applications": "valid_date, decision_date, actual_commencement_date, or actual_completion_date",
+    "conservation-area": "start-date, entry-date, or end-date",
+    "listed-building": "start-date, entry-date, or end-date",
+    "tree-preservation-order": "start-date, entry-date, or end-date",
+    "tree-preservation-zone": "start-date, entry-date, or end-date",
+    "article-4-direction": "start-date, entry-date, or end-date",
+    "local-plan-boundary": "start-date, entry-date, or end-date",
+    "tfl-road-disruptions": "startDateTime, currentUpdateDateTime, or lastModifiedTime",
+    "london-fire-brigade-incidents": "DateOfCall",
+    "dft-road-safety-collisions": "date",
+    "police-data-api": "Month",
+    "police-data-stop-search": "Date (month-truncated by adapter)",
+    "ipu4-2q9a": "issuance_date",
+    "w9ak-ipjd": "signoff_date, first_permit_date, current_status_date, or filing_date",
+    "bs8b-p36w": "c_o_issue_date",
+    "pkdm-hqz6": "c_of_o_issuance_date",
+    "rbx6-tga4": "issued_date",
+    "br6q-ssj3": "datecomplt, datepermit, datefiled, or datelstupd",
+    "tqtj-sjs8": "permitissuedate",
+    "c9sj-fmsg": "permitissuedate",
+    "i6b5-j7bu": "work_start_date",
+    "as9z-kwsh": "completion_date",
+    "hgx4-8ukb": "project_start_date",
+    "hgx4-8ukb": "project_start_date",
+    "n7gv-k5yt": "date_reported_as_of",
+    "4hcv-tc5r": "constructionactualcompletion, procurementactualcompletion, designactualcompletion, or lastupdated",
+    "enfh-gkve": "acquisitiondate",
+    "uvpi-gqnh": "created_at",
+    "bkfu-528j": "start_date_time",
+    "erm2-nwe9": "created_date",
+    "h9gi-nx95": "crash_date",
+    "dpm2-m9mq": "issue_date or received_date",
+    "buis-pvji": "desdate",
+    "skyk-mpzq": "desdate or caldate",
+    "8m42-w767": "incident_datetime",
+}
+
+
+def source_date_field_for(item: dict[str, Any]) -> str:
+    explicit = item.get("source_date_field") or item.get("date_field") or item.get("date_basis")
+    if explicit:
+        return str(explicit)
+    dataset = str(item.get("source_dataset_id") or "")
+    if dataset in SOURCE_DATE_FIELD_HINTS:
+        return SOURCE_DATE_FIELD_HINTS[dataset]
+    source_ids = item.get("source_ids") or []
+    for source_id in source_ids:
+        if str(source_id) in SOURCE_DATE_FIELD_HINTS:
+            return SOURCE_DATE_FIELD_HINTS[str(source_id)]
+    if item.get("date"):
+        return "date field supplied by source adapter"
+    if item.get("year"):
+        return "year supplied by curated chronology seed"
+    return "source adapter date basis not labelled"
+
+
 def category_and_lens(bucket: str, title: str = "") -> tuple[str, str, list[str]]:
     text = f"{bucket} {title}".lower()
     signals = set()
-    if any(k in text for k in ["traffic", "transport", "road", "transit", "collision", "bus", "rail", "subway", "cycle", "parking"]):
+    planning_terms = ["planning", "development", "building", "zoning", "parcel", "landmark", "brownfield", "housing", "listed", "conservation", "local plan"]
+    if any(k in text for k in planning_terms):
+        category, lens = "built_environment", "built_environment"
+        signals.add("built_environment"); signals.add("buildings")
+    elif any(k in text for k in ["traffic", "transport", "road", "transit", "collision", "bus", "rail", "subway", "cycle", "parking"]):
         category, lens = "transport", "traffic"
         signals.add("traffic"); signals.add("mobility")
-    elif any(k in text for k in ["environment", "air", "flood", "green", "tree", "noise", "climate", "park"]):
+    elif any(k in text for k in ["environment", "air", "flood", "green", "tree", "noise", "climate", "parkland", "parks property", "public realm/parks"]):
         category, lens = "environment", "green_space"
         signals.add("green_space")
     elif any(k in text for k in ["economy", "business", "jobs", "employment", "licence", "storefront"]):
@@ -156,7 +223,7 @@ def category_and_lens(bucket: str, title: str = "") -> tuple[str, str, list[str]
     else:
         category, lens = "built_environment", "built_environment"
         signals.add("built_environment"); signals.add("buildings")
-    if any(k in text for k in ["planning", "development", "building", "zoning", "parcel", "landmark", "brownfield", "housing"]):
+    if any(k in text for k in planning_terms):
         signals.add("built_environment"); signals.add("buildings")
     if any(k in text for k in ["traffic", "transport", "road", "bus", "rail", "subway"]):
         signals.add("traffic"); signals.add("mobility")
@@ -179,21 +246,36 @@ def point_for(city: str, text: str, idx: int) -> tuple[str, float, float]:
     return label, round(lng + jitter_lng, 6), round(lat + jitter_lat, 6)
 
 
-def evidence_for_source(source: dict[str, Any]) -> dict[str, Any]:
+def source_url_for(source: dict[str, Any]) -> str | None:
+    api_endpoint = source.get("api_endpoint")
+    if isinstance(api_endpoint, str) and api_endpoint.startswith("http"):
+        return api_endpoint
+    for key in ["access_url", "url", "metadata_url"]:
+        value = source.get(key)
+        if isinstance(value, str) and value.startswith("http"):
+            return value
+    return None
+
+
+def evidence_for_source(source: dict[str, Any], item: dict[str, Any] | None = None) -> dict[str, Any]:
     sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
+    row_url = item.get("source_url") if item and isinstance(item.get("source_url"), str) and item.get("source_url", "").startswith("http") else None
     return {
         "source_id": sid,
         "label": source.get("title") or sid,
         "kind": "source_record",
-        "url": source.get("access_url") or source.get("url") or source.get("api_endpoint") if str(source.get("api_endpoint", "")).startswith("http") else source.get("url"),
+        "url": row_url or source_url_for(source),
         "file_path": source.get("raw_metadata_file"),
-        "record_id": sid,
+        "record_id": item.get("source_record_id") if item and item.get("source_record_id") else sid,
+        "accessed_at": item.get("source_retrieved_at") if item and item.get("source_retrieved_at") else source.get("retrieved_at"),
     }
 
 
 def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
     title = item.get("title") or item.get("event_seed") or "City change milestone"
-    date = item.get("date") or item.get("date_start") or item.get("year") or 2026
+    date = item.get("date") or item.get("date_start") or item.get("year")
+    if not date:
+        raise ValueError(f"Seed event lacks a source date: {city} #{idx} {title!r}")
     year = year_from_date(date)
     bucket = item.get("bucket") or item.get("category") or " ".join(str(item.get(k, "")) for k in ["source_hint", "event_seed"])
     category, lens, signals = category_and_lens(bucket, title)
@@ -205,12 +287,15 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     else:
         lng = item.get("longitude") or item.get("lng")
         lat = item.get("latitude") or item.get("lat")
+        area_label = item.get("area") or item.get("location") or item.get("affected_area")
         if lng is not None and lat is not None:
             lng, lat = float(lng), float(lat)
-            label = item.get("area") or item.get("location") or item.get("affected_area") or point_for(city, f"{title} {bucket}", idx)[0]
+            label = area_label or point_for(city, f"{title} {bucket}", idx)[0]
             provided_geometry = {"type": "Point", "coordinates": [lng, lat]}
         else:
-            label, lng, lat = point_for(city, f"{title} {bucket} {item.get('event_seed','')}", idx)
+            label, lng, lat = point_for(city, f"{title} {bucket} {area_label or ''} {item.get('event_seed','')}", idx)
+            if area_label:
+                label = str(area_label)
             provided_geometry = {"type": "Point", "coordinates": [lng, lat]}
 
     raw_source_ids = item.get("source_ids") or []
@@ -223,8 +308,11 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     for sid in source_ids:
         src = source_by_id.get(sid)
         if src:
-            evidence.append(evidence_for_source(src))
+            evidence.append(evidence_for_source(src, item))
+    primary_source = source_by_id.get(source_ids[0]) if source_ids else None
+    primary_evidence = evidence[0] if evidence else {}
     explanation = item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package."
+    source_date_field = source_date_field_for(item)
     caveats = [
         item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate.",
         "No before/after outcome metric is inferred unless a source adapter supplies observed measurements.",
@@ -232,12 +320,14 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     return {
         "schema_version": SCHEMA,
         "city_id": city,
+        "record_kind": "event",
         "event_id": item.get("event_id") or f"{city}-milestone-{year}-{slug(title)}-{idx}",
         "title": title,
         "year": year,
         "effective_date": str(date).split("-")[0] if date_precision(date) == "range" else str(date),
         "effective_date_range": str(date) if date_precision(date) == "range" else None,
         "date_precision": date_precision(date),
+        "source_date_field": source_date_field,
         "category": category,
         "lens": lens,
         "geometry": provided_geometry,
@@ -253,7 +343,11 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "provenance": {
             "transform": "scripts/build_discovery_city_atlas.py#normalize_seed",
             "source_path": str(CITY_META[city]["seed_file"].relative_to(ROOT)),
-            "source_record_id": item.get("source_record_id") or item.get("record_id"),
+            "source_record_id": item.get("source_record_id") or item.get("record_id") or primary_evidence.get("record_id"),
+            "source_url": item.get("source_url") or primary_evidence.get("url"),
+            "source_retrieved_at": item.get("source_retrieved_at") or primary_evidence.get("accessed_at"),
+            "source_dataset_id": item.get("source_dataset_id") or (primary_source.get("source_id") if primary_source else None),
+            "source_date_field": source_date_field,
         },
     }
 
@@ -301,13 +395,19 @@ def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
     sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
     bucket = source.get("bucket") or "source"
     caveat = source.get("limitations") or "Catalog-level source entry; check the linked publisher record for completeness, licence, and update details before formal reuse."
+    licence = source.get("licence") or "Requires source-level licence review"
+    caveats = [caveat]
+    if not source.get("retrieved_at"):
+        caveats.append("Exact source retrieval date is not recorded in this discovered source catalog entry; review the linked publisher page before formal reuse.")
+    if re.search(r"requires source-level review|verify|terms|dataset-specific", str(licence), re.I):
+        caveats.append("Licence or terms require source-level review before redistribution or formal analytical reuse.")
     return {
         "source_id": sid,
         "title": source.get("title") or sid,
         "provider": source.get("publisher") or source.get("provider") or "Official/open civic source",
         "source_family": str(bucket).split("/")[0].strip().lower().replace(" ", "_") or "source",
         "url": source.get("access_url") or source.get("url") or "",
-        "licence": source.get("licence") or "Requires source-level licence review",
+        "licence": licence,
         "licence_url": source.get("licence_url") or source.get("license_url") or source.get("url") or source.get("access_url") or "",
         "coverage_years": {"start": 1700, "end": 2026},
         "update_frequency": source.get("update_frequency") or source.get("temporal_granularity") or source.get("time_coverage") or "Cadence varies by source; verify publisher metadata.",
@@ -315,8 +415,11 @@ def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
         "source_confidence": "documented",
         "attribution_text": source.get("publisher") or source.get("provider") or "See source page",
         "provenance_notes": f"Bucket: {source.get('bucket','uncategorised')}. Spatial granularity: {source.get('spatial_granularity','not specified')}. Temporal granularity: {source.get('temporal_granularity','not specified')}.",
-        "caveats": [caveat],
+        "caveats": caveats,
         "raw_metadata_file": source.get("raw_metadata_file"),
+        "retrieved_at": source.get("retrieved_at"),
+        "accessed_at": source.get("retrieved_at"),
+        "registry_reviewed_at": source.get("retrieved_at") or GENERATED_AT,
         "bucket": source.get("bucket"),
         "city_ids": [city],
     }
@@ -339,7 +442,7 @@ def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]])
             "source_ids": ids[:40],
             "availability": "partial_local",
             "years": list(range(1800, 2027)),
-            "notes": f"{len(ids)} discovered source(s). Event count includes source-layer markers and chronology seeds.",
+            "notes": f"{len(ids)} discovered source(s). Event count contains observed or source-backed event records; source catalog layers stay in sources.json.",
         })
     return families
 
@@ -353,8 +456,6 @@ def build_city(city: str) -> dict[str, Any]:
     events = []
     for i, item in enumerate(load_seeds(city)):
         events.append(normalize_seed(city, item, i, source_by_id))
-    for i, source in enumerate(source_raw):
-        events.append(normalize_source_event(city, source, i))
     events.sort(key=lambda e: (e["year"], e["event_id"]))
 
     city_dir = OUT / "cities" / city

@@ -1,0 +1,5 @@
+[run]
+omit =
+    # Networked row expander is covered by focused helper/artifact tests plus
+    # build/verifier/browser gates; live API branches are not unit-testable.
+    scripts/expand_london_nyc_events_from_open_sources.py

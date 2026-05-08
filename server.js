@@ -18,6 +18,7 @@ const mimeTypes = {
   ".md": "text/markdown; charset=utf-8",
   ".pdf": "application/pdf",
   ".png": "image/png",
+  ".svg": "image/svg+xml",
   ".webp": "image/webp",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",

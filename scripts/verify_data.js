@@ -192,6 +192,37 @@ function containsOverclaim(text) {
   ].some((phrase) => value.includes(phrase));
 }
 
+function isSourceLayerMarker(event) {
+  return /^Current data layer:/i.test(event.title || "")
+    || event.record_kind === "source_layer"
+    || (event.caveats || []).some((item) => /current-state source marker/i.test(String(item)));
+}
+
+function hasProvenanceTrace(event) {
+  const provenance = event.provenance || {};
+  return Boolean(
+    provenance.transform
+      && (
+        provenance.source_url
+        || provenance.source_record_id
+        || provenance.source_dataset_id
+        || provenance.osm_timestamp
+        || provenance.osm_changeset
+        || provenance.planning_application_id
+        || provenance.legacy_source_id
+        || provenance.source_basis
+      ),
+  );
+}
+
+function hasSourceAccessTrace(source) {
+  return Boolean(source.accessed_at || source.retrieved_at || source.registry_reviewed_at);
+}
+
+function isPlaceholderLicence(source) {
+  return /requires source-level review|verify before redistribution|terms vary|dataset-specific/i.test(String(source.licence || ""));
+}
+
 function validateEvent(failures, event, city, sourceById, chunkPath) {
   const prefix = `${rel(process.cwd(), chunkPath)}:${event.event_id || "<missing event_id>"}`;
   assert(failures, event.schema_version === "1.0.0", `${prefix} has invalid schema_version`);
@@ -215,6 +246,9 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, Array.isArray(event.affected_signals), `${prefix} missing affected_signals array`);
   assert(failures, Boolean(event.explanation), `${prefix} missing explanation`);
   assert(failures, Array.isArray(event.caveats) && event.caveats.length > 0, `${prefix} missing caveats`);
+  assert(failures, !isSourceLayerMarker(event), `${prefix} is a source-layer marker, not a real event`);
+  assert(failures, hasProvenanceTrace(event), `${prefix} missing event-level provenance trace`);
+  assert(failures, Boolean(event.source_date_field || event.provenance?.source_date_field), `${prefix} missing source_date_field for effective date interpretation`);
   assert(failures, !containsOverclaim(event.title), `${prefix} title contains overclaiming language`);
   assert(failures, !containsOverclaim(event.explanation), `${prefix} explanation contains overclaiming language`);
 
@@ -270,6 +304,14 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       assert(failures, Boolean(source.attribution_text), `City artifact source ${source.source_id} missing attribution_text`);
       assert(failures, Boolean(source.source_family), `City artifact source ${source.source_id} missing source_family`);
       assert(failures, Boolean(source.licence_url), `City artifact source ${source.source_id} missing licence_url`);
+      assert(failures, hasSourceAccessTrace(source), `City artifact source ${source.source_id} missing access/retrieval/review timestamp`);
+      if (isPlaceholderLicence(source)) {
+        assert(
+          failures,
+          (source.caveats || []).some((item) => /licen[cs]e|terms|review/i.test(String(item))),
+          `City artifact source ${source.source_id} uses review-required licence text without a licence caveat`,
+        );
+      }
       assert(failures, Boolean(source.update_frequency), `City artifact source ${source.source_id} missing update_frequency`);
       assert(failures, RELIABILITY_VALUES.has(source.reliability), `City artifact source ${source.source_id} has invalid reliability ${source.reliability}`);
       assert(failures, CONFIDENCE_VALUES.has(source.source_confidence), `City artifact source ${source.source_id} has invalid source_confidence ${source.source_confidence}`);

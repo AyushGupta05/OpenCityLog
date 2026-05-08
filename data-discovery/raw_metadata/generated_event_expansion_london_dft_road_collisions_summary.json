@@ -1,0 +1,37 @@
+{
+  "retrieved_at": "2026-05-08T19:51:50Z",
+  "sources": {
+    "Road Safety Data - Collisions - last 5 years": {
+      "label": "Road Safety Data - Collisions - last 5 years",
+      "url": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-last-5-years.csv",
+      "provisional": false,
+      "read_rows": 503475,
+      "london_rows_seen": 22500,
+      "added": 22500,
+      "skipped_without_point": 1,
+      "skipped_without_date": 0,
+      "skipped_future_date": 0
+    },
+    "Road Safety Data - Collisions - provisional 2025": {
+      "label": "Road Safety Data - Collisions - provisional 2025",
+      "url": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-provisional-2025.csv",
+      "provisional": true,
+      "read_rows": 48472,
+      "london_rows_seen": 4500,
+      "added": 4500,
+      "skipped_without_point": 0,
+      "skipped_without_date": 0,
+      "skipped_future_date": 0
+    }
+  },
+  "sampled_per_year": {
+    "2023": 4500,
+    "2020": 4500,
+    "2021": 4500,
+    "2022": 4500,
+    "2024": 4500,
+    "2025": 4500
+  },
+  "per_year_limit": 4500,
+  "event_count": 27000
+}

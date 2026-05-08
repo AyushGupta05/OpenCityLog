@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const DEFAULT_GENERATED_AT = "2026-04-28T00:00:00Z";
+const DEFAULT_GENERATED_AT = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 const EVENT_SCHEMA_VERSION = "1.0.0";
 const ATLAS_SCHEMA_VERSION = "1.0.0";
 
@@ -79,9 +79,26 @@ function sourceAppliesToCity(source, cityId) {
   return Array.isArray(source.city_ids) && (source.city_ids.includes("*") || source.city_ids.includes(cityId));
 }
 
-function sourceRegistryForCity(registry, cityId) {
+function normalizeSourceForArtifact(source, generatedAt) {
+  const caveats = Array.isArray(source.caveats) ? source.caveats.slice() : [];
+  if (!source.accessed_at && !source.retrieved_at) {
+    caveats.push("Exact source retrieval date is not recorded in the legacy source registry; review the linked publisher page before formal reuse.");
+  }
+  if (/requires source-level review|verify|terms|dataset-specific/i.test(String(source.licence || ""))) {
+    caveats.push("Licence or terms require source-level review before redistribution or formal analytical reuse.");
+  }
+  return {
+    ...source,
+    accessed_at: source.accessed_at || source.retrieved_at || null,
+    registry_reviewed_at: source.registry_reviewed_at || generatedAt,
+    caveats: [...new Set(caveats)],
+  };
+}
+
+function sourceRegistryForCity(registry, cityId, generatedAt) {
   return registry.sources
     .filter((source) => sourceAppliesToCity(source, cityId))
+    .map((source) => normalizeSourceForArtifact(source, generatedAt))
     .sort((a, b) => a.source_id.localeCompare(b.source_id));
 }
 
@@ -206,6 +223,7 @@ function dateFieldsForLegacyEvent(event) {
       effective_date: event.osmTimestamp.slice(0, 10),
       effective_date_range: null,
       date_precision: "day",
+      source_date_field: "osmTimestamp (mapped-visibility/edit timestamp)",
     };
   }
   if (event.planningDecisionDate && /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(String(event.planningDecisionDate))) {
@@ -214,6 +232,7 @@ function dateFieldsForLegacyEvent(event) {
       effective_date: `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`,
       effective_date_range: null,
       date_precision: "day",
+      source_date_field: "planningDecisionDate",
     };
   }
   const month = parseMonthYear(event.month);
@@ -222,12 +241,14 @@ function dateFieldsForLegacyEvent(event) {
       effective_date: month,
       effective_date_range: null,
       date_precision: "month",
+      source_date_field: "month",
     };
   }
   return {
     effective_date: String(event.year),
     effective_date_range: null,
     date_precision: "year",
+    source_date_field: "year",
   };
 }
 
@@ -306,12 +327,14 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
   return {
     schema_version: EVENT_SCHEMA_VERSION,
     city_id: "belfast",
+    record_kind: "event",
     event_id: String(event.id || event.event_id),
     title: String(event.title || "Observed city change"),
     year,
     effective_date: dates.effective_date,
     effective_date_range: dates.effective_date_range,
     date_precision: dates.date_precision,
+    source_date_field: dates.source_date_field,
     category: categoryForLegacyEvent(event),
     lens: lensForLegacyEvent(event),
     geometry: geometryForLegacyEvent(event),
@@ -329,10 +352,15 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
       legacy_catalog_path: legacyCatalogPath,
       legacy_event_id: String(event.id || event.event_id),
       legacy_source_id: event.sourceId || null,
+      source_record_id: event.sourceId || event.planningApplicationId || event.id || null,
+      source_url: event.sourceUrl || event.osmChangesetUrl || null,
+      source_retrieved_at: event.sourceAccessedAt || event.retrievedAt || null,
       source_basis: event.sourceBasis || null,
+      source_date_field: dates.source_date_field,
       osm_timestamp: event.osmTimestamp || null,
       osm_version: event.osmVersion || null,
       osm_changeset: event.osmChangeset || null,
+      osm_changeset_url: event.osmChangesetUrl || null,
       planning_application_id: event.planningApplicationId || null,
     },
   };
@@ -538,7 +566,7 @@ function buildAtlas(args) {
       root,
       outputDir,
       city,
-      sourceRegistryForCity(registry, city.city_id),
+      sourceRegistryForCity(registry, city.city_id, args.generatedAt),
       args.legacyCatalog,
       args.generatedAt,
     ),

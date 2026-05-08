@@ -1,16 +1,54 @@
 {
-  "retrieved_at": "2026-04-29T19:24:16.019331+00:00",
-  "source": "https://data.london.gov.uk/download/em8xy/73728cf4-b70e-48e2-9b97-4e4341a2110d/LFB%20Incident%20data%20from%202009%20-%202017.xlsx",
+  "retrieved_at": "2026-05-08T19:50:22Z",
+  "source": "London Datastore London Fire Brigade incident records",
   "sampled_per_year": {
-    "2009": 125,
-    "2012": 125,
-    "2014": 125,
-    "2011": 125,
-    "2016": 125,
-    "2015": 125,
-    "2017": 125,
-    "2013": 125,
-    "2010": 125
+    "2009": 1500,
+    "2014": 1500,
+    "2016": 1500,
+    "2018": 1500,
+    "2013": 1500,
+    "2020": 1500,
+    "2023": 1500,
+    "2017": 1500,
+    "2024": 1500,
+    "2015": 1500,
+    "2011": 1500,
+    "2022": 1500,
+    "2010": 1500,
+    "2026": 1500,
+    "2025": 1500,
+    "2021": 1500,
+    "2019": 1500,
+    "2012": 1500
   },
-  "event_count": 1125
+  "per_year_limit": 1500,
+  "sources": {
+    "2009-2017 CSV": {
+      "kind": "csv",
+      "url": "https://data.london.gov.uk/download/em8xy/73728cf4-b70e-48e2-9b97-4e4341a2110d/LFB%20Incident%20data%20from%202009%20-%202017.xlsx",
+      "read_rows": 887889,
+      "added": 13500,
+      "skipped_without_point_or_date": 13821,
+      "skipped_duplicate": 0
+    },
+    "2018-2023 XLSX": {
+      "kind": "xlsx",
+      "url": "https://data.london.gov.uk/download/em8xy/f5066d66-c7a3-415f-9629-026fbda61822/LFB%20Incident%20data%20from%202018%20-%202023.xlsx",
+      "read_rows": 548333,
+      "added": 9000,
+      "skipped_without_point_or_date": 11953,
+      "skipped_duplicate": 0
+    },
+    "2024 onwards XLSX": {
+      "kind": "xlsx",
+      "url": "https://data.london.gov.uk/download/em8xy/58m/LFB%20Incident%20data%20from%202024%20onwards.xlsx",
+      "read_rows": 276623,
+      "added": 4500,
+      "skipped_without_point_or_date": 8458,
+      "skipped_duplicate": 0
+    }
+  },
+  "skipped_without_point_or_date": 34232,
+  "skipped_duplicate": 0,
+  "event_count": 27000
 }

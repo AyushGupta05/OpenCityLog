@@ -22,8 +22,7 @@
     { id: "transport", label: "Transport", color: "#7c5cff" },
     { id: "environment", label: "Environment", color: "#2e9b58" },
     { id: "civic_services", label: "Public services", color: "#0b95b7" },
-    { id: "economy", label: "Economy", color: "#b7791f" },
-    { id: "utilities", label: "Infrastructure", color: "#0f9f8f" },
+    { id: "economy", label: "Economy & Demographics", color: "#b7791f" },
   ];
 
   const CONFIDENCE_LABELS = {
@@ -41,9 +40,45 @@
   };
 
   const FEATURED_YEAR = {
-    london: 2023,
+    london: 2026,
     nyc: 2025,
     belfast: 2024,
+  };
+
+  const FEATURED_CONTEXT_YEARS = {
+    london: [2007, 2008, 2012, 2014, 2020, 2022, 2026],
+    nyc: [2004, 2012, 2020, 2025, 2026],
+    belfast: [2016, 2020, 2022, 2024],
+  };
+
+  const LONDON_FOCUS_TERMS = [
+    "olympic",
+    "stratford",
+    "hackney wick",
+    "fish island",
+    "three mills",
+    "sugar house",
+    "elizabeth line",
+  ];
+
+  const PLACE_LABELS = {
+    london: [
+      { label: "Stratford", lng: -0.003, lat: 51.541 },
+      { label: "Hackney Wick", lng: -0.024, lat: 51.543 },
+      { label: "Queen Elizabeth Olympic Park", lng: -0.014, lat: 51.546 },
+      { label: "East Bank", lng: -0.009, lat: 51.548 },
+      { label: "Pudding Mill Lane", lng: -0.013, lat: 51.535 },
+    ],
+    nyc: [
+      { label: "Lower Manhattan", lng: -74.006, lat: 40.713 },
+      { label: "Brooklyn", lng: -73.95, lat: 40.68 },
+      { label: "Queens", lng: -73.87, lat: 40.73 },
+    ],
+    belfast: [
+      { label: "City Centre", lng: -5.93, lat: 54.597 },
+      { label: "Titanic Quarter", lng: -5.9, lat: 54.61 },
+      { label: "Queen's Quarter", lng: -5.936, lat: 54.584 },
+    ],
   };
 
   const state = {
@@ -62,6 +97,7 @@
     mapSyncing: false,
     eventsIndex: null,
     sources: null,
+    availability: null,
     currentState: null,
     evidenceCatalog: null,
     sourceById: new Map(),
@@ -86,11 +122,15 @@
     mapView: null,
     mapDrag: null,
     compareX: 50,
+    compareEnabled: false,
     viewMode: "2d",
     impactMode: "place",
     replayTimer: null,
     timeScrubTimer: null,
     yearRequest: 0,
+    listLimit: MAX_LIST_EVENTS,
+    allEventsLoaded: false,
+    isLoadingAllEvents: false,
   };
 
   const els = {};
@@ -118,6 +158,10 @@
       "sourceFilter",
       "sortSelect",
       "clearFiltersButton",
+      "resetFiltersButton",
+      "viewChangelogButton",
+      "changeLogTitle",
+      "changeLogSubtitle",
       "areaTitle",
       "listMeta",
       "coverageNotice",
@@ -132,6 +176,7 @@
       "afterTileLayer",
       "overlayLayer",
       "markerLayer",
+      "placeLabelLayer",
       "mapCallout",
       "calloutYear",
       "calloutTitle",
@@ -153,8 +198,12 @@
       "compareLabel",
       "compareNote",
       "compareSlider",
+      "compareButton",
+      "contextLensButton",
       "exportBriefButton",
+      "exportJsonButton",
       "copyBriefButton",
+      "closeBriefButton",
       "detailIndex",
       "detailTitle",
       "detailSubtitle",
@@ -197,6 +246,7 @@
     els.citySelect.addEventListener("change", () => loadCity(els.citySelect.value));
     els.eventSearch.addEventListener("input", () => {
       state.search = els.eventSearch.value.trim().toLowerCase();
+      state.listLimit = MAX_LIST_EVENTS;
       refreshFilteredView({ preferCurrentYear: true });
     });
     document.addEventListener("keydown", (event) => {
@@ -207,22 +257,25 @@
     });
     els.categoryFilter.addEventListener("change", () => {
       state.category = els.categoryFilter.value;
-      renderLayerBar();
-      refreshFilteredView({ preferCurrentYear: true });
+      handleFilterChange();
     });
     els.confidenceFilter.addEventListener("change", () => {
       state.confidence = els.confidenceFilter.value;
-      refreshFilteredView({ preferCurrentYear: true });
+      handleFilterChange();
     });
     els.sourceFilter.addEventListener("change", () => {
       state.source = els.sourceFilter.value;
-      refreshFilteredView({ preferCurrentYear: true });
+      handleFilterChange();
     });
     els.sortSelect.addEventListener("change", () => {
       state.sort = els.sortSelect.value;
-      refreshFilteredView({ preferCurrentYear: true });
+      handleFilterChange();
     });
-    els.clearFiltersButton.addEventListener("click", clearFilters);
+    els.clearFiltersButton.addEventListener("click", toggleFilterPanel);
+    els.resetFiltersButton?.addEventListener("click", clearFilters);
+    if (els.viewChangelogButton) {
+      els.viewChangelogButton.addEventListener("click", handleChangelogButton);
+    }
     els.yearSlider.addEventListener("input", () => setYear(Number(els.yearSlider.value)));
     els.prevYearButton.addEventListener("click", () => stepYear(-1));
     els.nextYearButton.addEventListener("click", () => stepYear(1));
@@ -236,7 +289,13 @@
     els.mapViewport.addEventListener("pointerup", endMapDrag);
     els.mapViewport.addEventListener("pointercancel", endMapDrag);
     els.mapViewport.addEventListener("wheel", zoomMapWheel, { passive: false });
+    els.mapPlane.addEventListener("wheel", zoomMapWheel, { passive: false });
     els.compareSlider.addEventListener("input", () => setCompareX(Number(els.compareSlider.value)));
+    els.compareButton?.addEventListener("click", () => toggleCompare());
+    els.contextLensButton?.addEventListener("click", () => {
+      setImpactMode("components");
+      els.impactPanel?.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    });
     if (els.impactModeBar) {
       els.impactModeBar.querySelectorAll("[data-impact-mode]").forEach((button) => {
         button.addEventListener("click", () => setImpactMode(button.dataset.impactMode || "place"));
@@ -244,7 +303,12 @@
     }
     els.replayButton.addEventListener("click", replayYears);
     els.exportBriefButton.addEventListener("click", exportBrief);
+    els.exportJsonButton?.addEventListener("click", exportBriefJson);
     els.copyBriefButton.addEventListener("click", copyBrief);
+    els.closeBriefButton?.addEventListener("click", clearSelectedBrief);
+    document.querySelectorAll(".section-toggle").forEach((button) => {
+      button.addEventListener("click", () => toggleBriefSection(button));
+    });
     window.addEventListener("resize", debounce(() => {
       scheduleMapRender();
     }, 150));
@@ -296,6 +360,7 @@
 
     state.loadedEvents = new Map();
     state.eventsByYear = new Map();
+    state.availability = null;
     state.currentState = null;
     state.sourceById = new Map();
     state.selectedEventId = null;
@@ -304,6 +369,11 @@
     state.confidence = "all";
     state.source = "all";
     state.search = "";
+    state.sort = "relevance";
+    state.listLimit = MAX_LIST_EVENTS;
+    state.allEventsLoaded = false;
+    state.isLoadingAllEvents = false;
+    state.compareEnabled = false;
     els.eventSearch.value = "";
     els.categoryFilter.value = "all";
     els.confidenceFilter.value = "all";
@@ -313,20 +383,22 @@
 
     try {
       const paths = state.cityMeta.artifact_paths || {};
-      const [city, eventsIndex, sources, currentState] = await Promise.all([
+      const [city, eventsIndex, sources, availability, currentState] = await Promise.all([
         fetchJson(dataPathToUrl(paths.city)),
         fetchJson(dataPathToUrl(paths.events)),
         fetchJson(dataPathToUrl(paths.sources)),
+        paths.availability ? fetchJson(dataPathToUrl(paths.availability)).catch(() => null) : Promise.resolve(null),
         paths.current_state ? fetchJson(dataPathToUrl(paths.current_state)).catch(() => null) : Promise.resolve(null),
       ]);
       state.city = city;
       state.eventsIndex = eventsIndex;
       state.sources = sources;
+      state.availability = availability;
       state.currentState = currentState;
       state.sourceById = new Map((sources.sources || []).map((source) => [source.source_id, source]));
       state.years = getAvailableYears();
       state.year = preferredYear();
-      state.beforeYear = nearestYearBefore(state.year);
+      state.beforeYear = preferredBeforeYear(state.year);
       state.mapCenter = city.default_center || [0, 0];
       state.mapZoom = cityMapZoom(city);
       if (state.cameraFrame) {
@@ -335,7 +407,7 @@
       }
       syncCameraToTarget();
       resetTileCache();
-      setCompareX(72, { silent: true });
+      setCompareX(50, { silent: true });
       applyTemporalScene();
       renderChrome();
       renderTimeline();
@@ -352,8 +424,10 @@
   }
 
   function setLoading() {
+    renderFocusHeading("loading");
     els.areaTitle.textContent = state.cityMeta?.display_name || "Loading city";
     els.listMeta.textContent = "Loading records";
+    els.coverageNotice.innerHTML = `<strong>Coverage loading</strong><span>Source and date coverage will appear with the selected city.</span>`;
     els.eventList.innerHTML = `<div class="empty-state">Loading source-backed city records.</div>`;
     els.markerLayer.innerHTML = "";
     els.overlayLayer.innerHTML = "";
@@ -363,12 +437,38 @@
 
   function renderChrome() {
     document.title = `${shortCityName(state.city?.display_name)} - Open Citylog`;
+    renderFocusHeading();
     els.areaTitle.textContent = shortCityName(state.city?.display_name);
     els.mapAttribution.textContent = imageryAttribution();
+    els.mapStage?.classList.toggle("is-comparing", state.compareEnabled);
+    els.compareButton?.setAttribute("aria-pressed", String(state.compareEnabled));
     renderCitySelect();
     renderLayerBar();
+    renderCoverageNotice();
     renderEvidenceCatalog();
     scheduleMapRender();
+  }
+
+  function renderFocusHeading(mode = "ready") {
+    if (!els.changeLogTitle || !els.changeLogSubtitle) return;
+    const cityName = shortCityName(state.city?.display_name || state.cityMeta?.display_name || "City atlas");
+    if (mode === "loading") {
+      els.changeLogTitle.textContent = cityName || "Loading city";
+      els.changeLogSubtitle.textContent = "Loading source-backed records and coverage notes";
+      return;
+    }
+    if (state.cityId === "london") {
+      els.changeLogTitle.textContent = "Stratford / Olympic Park / Lower Lea Valley";
+      els.changeLogSubtitle.textContent = "London focus area within the wider source-backed city atlas";
+      return;
+    }
+    if (state.cityId === "nyc") {
+      els.changeLogTitle.textContent = "New York City";
+      els.changeLogSubtitle.textContent = "Source-backed citywide atlas; use borough, date, and source filters for review";
+      return;
+    }
+    els.changeLogTitle.textContent = cityName;
+    els.changeLogSubtitle.textContent = "Source-backed pilot city atlas with public evidence and limitations";
   }
 
   function renderStaticFilters() {
@@ -394,6 +494,32 @@
       `<option value="${escapeAttr(id)}">${escapeHtml(truncate(sourceLabel(id), 34))}</option>`
     )).join("");
     els.sourceFilter.value = state.source;
+  }
+
+  function renderCoverageNotice() {
+    const summary = state.availability?.summary || state.city?.data_availability || {};
+    const families = Array.isArray(state.availability?.matrix)
+      ? state.availability.matrix
+      : (state.city?.source_families || []);
+    const status = formatAvailabilityStatus(summary.status || state.cityMeta?.availability_status || "partial_source_backed");
+    const sourceCount = state.cityMeta?.source_count || state.sources?.source_count || 0;
+    const eventCount = state.cityMeta?.event_count || state.eventsIndex?.event_count || 0;
+    const leadingFamilies = families
+      .slice()
+      .sort((a, b) => Number(b.event_count || b.source_ids?.length || 0) - Number(a.event_count || a.source_ids?.length || 0))
+      .slice(0, 3)
+      .map((family) => family.label)
+      .filter(Boolean);
+    const summaryText = summary.summary
+      || `${shortCityName(state.city?.display_name)} has ${formatNumber(eventCount)} searchable records from ${formatNumber(sourceCount)} discovered public sources.`;
+    els.coverageNotice.innerHTML = `
+      <strong>${escapeHtml(status)}</strong>
+      <span>${escapeHtml(summaryText)}</span>
+      ${leadingFamilies.length ? `<small>Strongest visible families: ${escapeHtml(leadingFamilies.join(", "))}.</small>` : ""}
+    `;
+    if (els.briefCoverageStatus) {
+      els.briefCoverageStatus.textContent = `${status}: ${formatNumber(eventCount)} records, ${formatNumber(sourceCount)} sources, ${formatNumber(families.length)} coverage families.`;
+    }
   }
 
   function renderEvidenceCatalog() {
@@ -651,8 +777,7 @@
       button.addEventListener("click", () => {
         state.category = button.dataset.category || "all";
         els.categoryFilter.value = state.category;
-        renderLayerBar();
-        refreshFilteredView({ preferCurrentYear: true });
+        handleFilterChange();
       });
     });
   }
@@ -660,17 +785,15 @@
   async function ensureContextEvents() {
     const chunks = state.eventsIndex?.chunks || [];
     const cityId = state.cityId;
-    const maxSmallChunk = cityId === "belfast" ? 20 : 24;
+    const featuredContext = new Set(FEATURED_CONTEXT_YEARS[cityId] || []);
     const candidates = chunks.filter((chunk) => {
       const year = Number(chunk.year);
       return year === state.year
         || year === state.beforeYear
         || year === FEATURED_YEAR[cityId]
-        || Number(chunk.event_count || 0) <= maxSmallChunk;
+        || featuredContext.has(year);
     });
-    for (const chunk of candidates) {
-      await ensureYearLoaded(Number(chunk.year), { silent: true });
-    }
+    await Promise.all(candidates.map((chunk) => ensureYearLoaded(Number(chunk.year), { silent: true })));
   }
 
   async function ensureYearLoaded(year, options = {}) {
@@ -701,6 +824,44 @@
     if (state.selectedEvent) renderBrief(state.selectedEvent);
   }
 
+  function handleFilterChange() {
+    state.listLimit = MAX_LIST_EVENTS;
+    renderLayerBar();
+    refreshFilteredView({ preferCurrentYear: true });
+  }
+
+  async function handleChangelogButton() {
+    if (!state.allEventsLoaded) {
+      await loadAllEventsForChangelog();
+      return;
+    }
+    state.listLimit += MAX_LIST_EVENTS;
+    renderEventList();
+    els.eventList?.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  }
+
+  async function loadAllEventsForChangelog() {
+    if (state.isLoadingAllEvents) return;
+    state.isLoadingAllEvents = true;
+    renderEventList();
+    try {
+      const chunks = state.eventsIndex?.chunks || [];
+      for (const chunk of chunks) {
+        await ensureYearLoaded(Number(chunk.year), { silent: true });
+      }
+      state.allEventsLoaded = true;
+      state.listLimit = Math.max(state.listLimit, MAX_LIST_EVENTS);
+      renderSourceFilter();
+      renderAll({ preserveSelection: true });
+      toast("Full city changelog loaded.");
+    } catch (error) {
+      toast(`Could not load full changelog: ${error.message}`);
+    } finally {
+      state.isLoadingAllEvents = false;
+      renderEventList();
+    }
+  }
+
   function refreshFilteredView(options = {}) {
     if (state.selectedEvent && matchesFilters(state.selectedEvent)) {
       renderAll({ preserveSelection: true });
@@ -718,8 +879,14 @@
 
   function renderEventList() {
     const filtered = filteredEvents();
-    const shown = filtered.slice(0, MAX_LIST_EVENTS);
-    els.listMeta.textContent = `${formatNumber(filtered.length)} records`;
+    const shown = filtered.slice(0, state.listLimit);
+    const cityTotal = Number(state.eventsIndex?.event_count || filtered.length);
+    const loadedCount = state.loadedEvents.size;
+    els.areaTitle.textContent = listScopeText();
+    els.listMeta.textContent = state.allEventsLoaded
+      ? `Showing ${formatNumber(shown.length)} of ${formatNumber(filtered.length)} matching records`
+      : `Showing ${formatNumber(shown.length)} of ${formatNumber(filtered.length)} loaded records (${formatNumber(cityTotal)} city total)`;
+    renderChangelogButton(filtered.length, shown.length, cityTotal, loadedCount);
     if (!shown.length) {
       els.eventList.innerHTML = `<div class="empty-state">No records match these filters. Try another category, year, confidence, or source.</div>`;
       return;
@@ -730,6 +897,37 @@
     });
   }
 
+  function renderChangelogButton(filteredCount, shownCount, cityTotal, loadedCount) {
+    if (!els.viewChangelogButton) return;
+    els.viewChangelogButton.disabled = state.isLoadingAllEvents;
+    if (state.isLoadingAllEvents) {
+      els.viewChangelogButton.textContent = `Loading city records (${formatNumber(loadedCount)} of ${formatNumber(cityTotal)})`;
+      return;
+    }
+    if (!state.allEventsLoaded) {
+      els.viewChangelogButton.textContent = `Load full city changelog (${formatNumber(cityTotal)} records)`;
+      return;
+    }
+    if (shownCount < filteredCount) {
+      const next = Math.min(MAX_LIST_EVENTS, filteredCount - shownCount);
+      els.viewChangelogButton.disabled = false;
+      els.viewChangelogButton.textContent = `Show ${formatNumber(next)} more matching records`;
+      return;
+    }
+    els.viewChangelogButton.disabled = true;
+    els.viewChangelogButton.textContent = "All matching records shown";
+  }
+
+  function listScopeText() {
+    const city = shortCityName(state.city?.display_name || state.cityMeta?.display_name);
+    const loadedYears = Array.from(state.eventsByYear.keys()).sort((a, b) => a - b);
+    const yearText = loadedYears.length
+      ? `${loadedYears[0]}-${loadedYears[loadedYears.length - 1]}`
+      : "loading";
+    const scope = state.allEventsLoaded ? "all years" : `loaded years ${yearText}`;
+    return `${city}: map shows ${state.year}; changelog spans ${scope}`;
+  }
+
   function renderEventCard(event, index) {
     const config = categoryConfig(event.category);
     const selected = state.selectedEventId === event.event_id;
@@ -737,7 +935,10 @@
       <button class="event-card" type="button" role="listitem" data-event-id="${escapeAttr(event.event_id)}" aria-selected="${selected}" style="--event-color:${config.color}">
         ${renderEventThumb(event, index + 1)}
         <span class="event-main">
-          <strong>${escapeHtml(cleanTitle(event.title))}</strong>
+          <span class="event-title-line">
+            <span class="event-number">${index + 1}</span>
+            <strong>${escapeHtml(cleanTitle(event.title))}</strong>
+          </span>
           <time>${escapeHtml(formatEventDate(event))}</time>
           <span class="tag-row">
             <span class="category-pill">${escapeHtml(config.label)}</span>
@@ -774,15 +975,23 @@
       .map((event) => ({ event, point: eventPoint(event) }))
       .filter((item) => item.point)
       .slice(0, MAX_MARKERS);
+    if (state.selectedEvent) {
+      const selectedPoint = eventPoint(state.selectedEvent);
+      if (selectedPoint && !mappable.some((item) => item.event.event_id === state.selectedEvent.event_id)) {
+        mappable.unshift({ event: state.selectedEvent, point: selectedPoint });
+      }
+    }
     els.mapEmpty.hidden = mappable.length > 0;
     renderOverlay(mappable);
+    renderPlaceLabels();
     els.markerLayer.innerHTML = mappable.map(({ event, point }, index) => {
       const pos = project(point);
       const config = categoryConfig(event.category);
       const selected = state.selectedEventId === event.event_id;
+      const markerIndex = selected ? 1 : index + 1;
       return `
         <button class="map-marker" type="button" data-event-id="${escapeAttr(event.event_id)}" aria-selected="${selected}" aria-label="${escapeAttr(cleanTitle(event.title))}" style="left:${pos.x}%;top:${pos.y}%;--marker-color:${config.color}">
-          <span>${index + 1}</span>
+          <span>${markerIndex}</span>
         </button>
       `;
     }).join("");
@@ -790,6 +999,16 @@
       button.addEventListener("click", () => selectEvent(button.dataset.eventId));
     });
     if (state.selectedEvent) renderMapCallout(state.selectedEvent);
+  }
+
+  function renderPlaceLabels() {
+    if (!els.placeLabelLayer) return;
+    const labels = PLACE_LABELS[state.cityId] || [];
+    els.placeLabelLayer.innerHTML = labels.map((place) => {
+      const pos = project({ lng: place.lng, lat: place.lat });
+      const hidden = pos.x <= 2 || pos.x >= 98 || pos.y <= 3 || pos.y >= 94;
+      return `<span class="place-label ${hidden ? "is-edge" : ""}" style="left:${pos.x}%;top:${pos.y}%">${escapeHtml(place.label)}</span>`;
+    }).join("");
   }
 
   function renderOverlay(items) {
@@ -878,11 +1097,12 @@
     const activeCount = yearEventCount(state.year);
     const sourceCount = state.cityMeta?.source_count || state.sources?.source_count || 0;
     const recordWord = activeCount === 1 ? "record" : "records";
-    els.timelineSummary.textContent = `${state.year}: ${formatNumber(activeCount)} observed ${recordWord}; ${formatNumber(sourceCount)} sources; satellite ${imageryLabel(state.afterImagery, state.year)}`;
+    const listScope = state.allEventsLoaded ? "full changelog loaded" : "changelog shows loaded years";
+    els.timelineSummary.textContent = `${state.year}: ${formatNumber(activeCount)} observed ${recordWord} on the map; ${formatNumber(sourceCount)} sources; ${listScope}; satellite ${imageryLabel(state.afterImagery, state.year)}`;
     els.compareLabel.textContent = `${state.beforeYear} -> ${state.year}`;
-    const sameImagery = state.beforeImagery?.id && state.beforeImagery.id === state.afterImagery?.id;
-    const archiveNote = sameImagery ? "same nearest archive tile" : `${imageryLabel(state.beforeImagery, state.beforeYear)} -> ${imageryLabel(state.afterImagery, state.year)}`;
-    els.compareNote.textContent = `Showing ${state.year} records against ${state.beforeYear} baseline; imagery ${archiveNote}`;
+    els.compareNote.textContent = state.compareEnabled
+      ? `${Math.abs(Number(state.year) - Number(state.beforeYear))} years compared`
+      : "Compare split is off";
     els.yearStrip.innerHTML = timelineTicks(years).map((year) => `<span>${year}</span>`).join("");
     applyTemporalScene();
     updateMapLibreImagery();
@@ -902,10 +1122,11 @@
     const filtered = filteredEvents();
     const index = Math.max(0, filtered.findIndex((item) => item.event_id === event.event_id));
     const config = categoryConfig(event.category);
+    renderCoverageNotice();
     els.detailIndex.textContent = String(index + 1);
     els.detailIndex.style.background = config.color;
     els.detailTitle.textContent = cleanTitle(event.title);
-    els.detailSubtitle.textContent = `${formatEventDate(event)} - ${config.label} - ${event.affected_area?.label || "Mapped record"}`;
+    els.detailSubtitle.textContent = `${formatEventDate(event)} - ${config.label}`;
     els.observedChange.textContent = event.explanation || "This record identifies an observed city change and links it to public evidence.";
     els.detailConfidence.textContent = confidenceLabel(event.confidence);
     els.confidenceDot.style.background = confidenceColor(event.confidence);
@@ -922,6 +1143,7 @@
     els.detailIndex.textContent = "1";
     els.detailTitle.textContent = "Select a record";
     els.detailSubtitle.textContent = "Choose a changelog item or map marker.";
+    if (els.briefCoverageStatus) els.briefCoverageStatus.textContent = "Coverage status loads with the city.";
     els.observedChange.textContent = "Loading source-backed records.";
     if (els.impactPanel) els.impactPanel.innerHTML = `<p>Select an event to inspect associated place, mobility, and component context.</p>`;
     els.evidenceFrames.innerHTML = "";
@@ -936,18 +1158,28 @@
   function renderEvidenceFrames(event) {
     const point = eventPoint(event);
     const config = categoryConfig(event.category);
-    const before = event.traffic_metrics?.beforeYear || nearestYearBefore(Number(event.year) || state.year);
-    const after = event.traffic_metrics?.afterYear || Number(event.year) || state.year;
+    const eventYear = Number(event.year) || state.year;
+    const before = event.traffic_metrics?.beforeYear
+      || (state.beforeYear < eventYear ? state.beforeYear : nearestYearBefore(eventYear));
+    const during = eventYear;
+    const after = event.traffic_metrics?.afterYear || state.year || eventYear;
     const zoom = Math.max(MIN_ZOOM, Math.min(DETAIL_ZOOM, state.mapZoom));
     const beforeImagery = imageryForYear(before);
+    const duringImagery = imageryForYear(during);
     const afterImagery = imageryForYear(after);
     const beforeBg = point ? tileBackground(point, zoom, beforeImagery) : fallbackGradient(config.color);
+    const duringBg = point ? tileBackground(point, zoom, duringImagery) : fallbackGradient(config.color);
     const afterBg = point ? tileBackground(point, zoom, afterImagery) : fallbackGradient(config.color);
     els.evidenceFrames.innerHTML = `
-      <p class="frame-note">Imagery comparison: ${escapeHtml(imageryFrameLabel(beforeImagery, before))} before baseline to ${escapeHtml(imageryFrameLabel(afterImagery, after))} after event.</p>
+      <p class="frame-note">Imagery comparison: ${escapeHtml(imageryFrameLabel(beforeImagery, before))} baseline, ${escapeHtml(imageryFrameLabel(duringImagery, during))} event-period context, and ${escapeHtml(imageryFrameLabel(afterImagery, after))} latest comparison.</p>
       <div class="mini-frame" style="--thumb-bg:${beforeBg};--event-color:${config.color}">
         <em class="frame-tag">Before</em>
         <strong>${escapeHtml(imageryFrameLabel(beforeImagery, before))}</strong>
+        <span aria-hidden="true"></span>
+      </div>
+      <div class="mini-frame" style="--thumb-bg:${duringBg};--event-color:${config.color}">
+        <em class="frame-tag">Event</em>
+        <strong>${escapeHtml(imageryFrameLabel(duringImagery, during))}</strong>
         <span aria-hidden="true"></span>
       </div>
       <div class="mini-frame" style="--thumb-bg:${afterBg};--event-color:${config.color}">
@@ -1174,7 +1406,8 @@
     const sourceHeader = `
       <div class="source-summary">
         <strong>${formatNumber(rows.length)} linked source${rows.length === 1 ? "" : "s"}</strong>
-        <span>${escapeHtml(event.provenance?.transform || "Transformation method not supplied")}</span>
+        <span>Use publisher links, access dates, and limitations to review the claim. Causation is not claimed.</span>
+        <small>Date basis: ${escapeHtml(event.source_date_field || event.provenance?.source_date_field || "not supplied")}</small>
       </div>
     `;
     els.sourceList.innerHTML = sourceHeader + (rows.slice(0, 7).map((item) => {
@@ -1186,6 +1419,8 @@
       const coverage = source?.coverage_years ? `${source.coverage_years.start}-${source.coverage_years.end}` : "coverage not supplied";
       const record = item.record_id || event.provenance?.source_record_id || source?.source_id || "";
       const raw = item.file_path || source?.raw_metadata_file || "";
+      const accessed = sourceAccessed(source, item, event);
+      const licenceStatus = sourceLicenceStatus(source);
       return `
         <article class="source-item">
           <div class="source-item-head">
@@ -1196,12 +1431,36 @@
           <small>${escapeHtml(licence)}</small>
           <dl class="source-meta">
             <div><dt>Coverage</dt><dd>${escapeHtml(coverage)}</dd></div>
+            <div><dt>Accessed</dt><dd>${escapeHtml(accessed)}</dd></div>
+            <div><dt>Licence</dt><dd>${escapeHtml(licenceStatus)}</dd></div>
             <div><dt>Record</dt><dd>${escapeHtml(record || "not supplied")}</dd></div>
-            <div><dt>Metadata</dt><dd>${escapeHtml(raw || "not supplied")}</dd></div>
           </dl>
+          <details class="source-technical">
+            <summary>Technical trace</summary>
+            <dl class="source-meta">
+              <div><dt>Transform</dt><dd>${escapeHtml(event.provenance?.transform || "not supplied")}</dd></div>
+              <div><dt>Metadata</dt><dd>${escapeHtml(raw || "not supplied")}</dd></div>
+            </dl>
+          </details>
         </article>
       `;
     }).join("") || `<div class="empty-state">No source rows were supplied for this record.</div>`);
+  }
+
+  function sourceAccessed(source, evidence, event) {
+    return evidence?.accessed_at
+      || source?.accessed_at
+      || source?.retrieved_at
+      || event?.provenance?.source_retrieved_at
+      || (source?.registry_reviewed_at ? `registry reviewed ${source.registry_reviewed_at}; source retrieval not recorded` : "")
+      || "not supplied";
+  }
+
+  function sourceLicenceStatus(source) {
+    const licence = String(source?.licence || "");
+    if (!licence) return "not supplied";
+    if (/requires source-level review|verify|terms|dataset-specific/i.test(licence)) return "review required";
+    return "declared in source catalog";
   }
 
   function sourceBadge(source, evidence) {
@@ -1219,7 +1478,7 @@
     const requestId = state.yearRequest + 1;
     state.yearRequest = requestId;
     state.year = clamp(Number(year), minYear, maxYear);
-    state.beforeYear = nearestYearBefore(state.year);
+    state.beforeYear = preferredBeforeYear(state.year);
     await Promise.all([
       ensureYearLoaded(state.year, { silent: true }),
       ensureYearLoaded(state.beforeYear, { silent: true }),
@@ -1243,14 +1502,14 @@
     setYear(sorted[nextIndex]);
   }
 
-  function selectEvent(eventId) {
+  function selectEvent(eventId, options = {}) {
     const event = state.loadedEvents.get(eventId);
     if (!event) return;
     state.selectedEventId = eventId;
     state.selectedEvent = event;
-    if (Number.isFinite(Number(event.year))) {
+    if (!options.keepTimeline && Number.isFinite(Number(event.year))) {
       state.year = Number(event.year);
-      state.beforeYear = nearestYearBefore(state.year);
+      state.beforeYear = preferredBeforeYear(state.year);
     }
     const point = eventPoint(event);
     if (point) {
@@ -1264,7 +1523,7 @@
 
   function selectInitialEvent(options = {}) {
     const selected = pickInitialEvent(options);
-    if (selected) selectEvent(selected.event_id);
+    if (selected) selectEvent(selected.event_id, { keepTimeline: true });
   }
 
   function pickInitialEvent(options = {}) {
@@ -1281,6 +1540,7 @@
     state.source = "all";
     state.search = "";
     state.sort = "relevance";
+    state.listLimit = MAX_LIST_EVENTS;
     els.categoryFilter.value = "all";
     els.confidenceFilter.value = "all";
     els.sourceFilter.value = "all";
@@ -1290,12 +1550,20 @@
     refreshFilteredView({ preferCurrentYear: true });
   }
 
+  function toggleFilterPanel() {
+    const rail = document.querySelector(".change-log");
+    const nextOpen = !rail?.classList.contains("filters-open");
+    rail?.classList.toggle("filters-open", nextOpen);
+    els.clearFiltersButton?.setAttribute("aria-expanded", String(nextOpen));
+    els.clearFiltersButton?.setAttribute("aria-label", nextOpen ? "Hide filters" : "Show filters");
+    document.getElementById("filterGrid")?.setAttribute("aria-hidden", String(!nextOpen));
+  }
+
   function setZoom(zoom) {
     setCameraTarget(state.mapCenter || state.cameraCenter || state.city?.default_center || [0, 0], zoom);
   }
 
   function startMapDrag(event) {
-    if (state.mapSceneReady) return;
     if (event.button !== undefined && event.button !== 0) return;
     if (event.target.closest("a, button, input, select, label, .timeline-dock")) return;
     const [lng, lat] = state.cameraCenter || state.mapCenter || state.city?.default_center || [0, 0];
@@ -1318,7 +1586,6 @@
   }
 
   function moveMapDrag(event) {
-    if (state.mapSceneReady) return;
     if (!state.mapDrag || state.mapDrag.pointerId !== event.pointerId) return;
     event.preventDefault();
     const nextPixel = {
@@ -1338,7 +1605,6 @@
   }
 
   function endMapDrag(event) {
-    if (state.mapSceneReady) return;
     if (!state.mapDrag || state.mapDrag.pointerId !== event.pointerId) return;
     const drag = state.mapDrag;
     state.mapDrag = null;
@@ -1355,7 +1621,8 @@
   }
 
   function zoomMapWheel(event) {
-    if (state.mapSceneReady) return;
+    if (event.__citylogWheelHandled) return;
+    event.__citylogWheelHandled = true;
     event.preventDefault();
     if (!state.mapView) {
       setZoom(state.mapZoom + (event.deltaY < 0 ? 1 : -1));
@@ -1402,6 +1669,33 @@
     if (!options.silent) renderTimeline();
   }
 
+  function toggleCompare(force) {
+    state.compareEnabled = typeof force === "boolean" ? force : !state.compareEnabled;
+    els.mapStage.classList.toggle("is-comparing", state.compareEnabled);
+    els.compareButton?.classList.toggle("active", state.compareEnabled);
+    els.compareButton?.setAttribute("aria-pressed", String(state.compareEnabled));
+    renderTimeline();
+    toast(state.compareEnabled ? "Before/after compare split enabled." : "Before/after compare split disabled.");
+  }
+
+  function clearSelectedBrief() {
+    state.selectedEventId = null;
+    state.selectedEvent = null;
+    els.mapCallout.hidden = true;
+    renderEmptyBrief();
+    renderEventList();
+    renderMap();
+    toast("Selection cleared.");
+  }
+
+  function toggleBriefSection(button) {
+    const section = button.closest(".brief-section");
+    if (!section) return;
+    const expanded = button.getAttribute("aria-expanded") !== "false";
+    button.setAttribute("aria-expanded", String(!expanded));
+    section.classList.toggle("is-collapsed", expanded);
+  }
+
   function replayYears() {
     if (state.replayTimer) {
       clearInterval(state.replayTimer);
@@ -1425,21 +1719,38 @@
 
   function exportBrief() {
     const payload = briefPayload();
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${state.cityId || "city"}-${state.selectedEventId || "evidence-brief"}.json`;
-    link.click();
-    URL.revokeObjectURL(url);
+    downloadText(
+      briefMarkdown(payload),
+      `${state.cityId || "city"}-${state.selectedEventId || "evidence-brief"}.md`,
+      "text/markdown",
+    );
     toast("Evidence brief exported.");
   }
 
+  function exportBriefJson() {
+    downloadText(
+      JSON.stringify(briefPayload(), null, 2),
+      `${state.cityId || "city"}-${state.selectedEventId || "evidence-brief"}.json`,
+      "application/json",
+    );
+    toast("Evidence JSON exported.");
+  }
+
   function copyBrief() {
-    const text = JSON.stringify(briefPayload(), null, 2);
+    const text = briefMarkdown(briefPayload());
     navigator.clipboard?.writeText(text)
       .then(() => toast("Evidence brief copied."))
       .catch(() => toast("Clipboard unavailable; use Export."));
+  }
+
+  function downloadText(text, filename, type) {
+    const blob = new Blob([text], { type });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
   }
 
   function briefPayload() {
@@ -1451,6 +1762,12 @@
       selected_year: state.year,
       before_year: state.beforeYear,
       caveat: "Historical evidence map, not a prediction engine. Causation is not claimed.",
+      availability: state.availability ? {
+        status: state.availability.summary?.status || state.cityMeta?.availability_status || null,
+        summary: state.availability.summary?.summary || null,
+        generated_at: state.availability.generated_at || null,
+        coverage_family_count: Array.isArray(state.availability.matrix) ? state.availability.matrix.length : 0,
+      } : null,
       imagery: {
         provider: state.imageryArchive?.provider || TILE_PROVIDER.name,
         source_url: state.imageryArchive?.source_url || null,
@@ -1470,6 +1787,7 @@
         event_id: event.event_id,
         title: event.title,
         effective_date: event.effective_date,
+        source_date_field: event.source_date_field || event.provenance?.source_date_field || null,
         category: event.category,
         confidence: event.confidence,
         affected_area: event.affected_area,
@@ -1477,9 +1795,87 @@
         caveats: event.caveats || [],
         source_ids: event.source_ids || [],
         evidence: event.evidence || [],
+        linked_sources: linkedSourcesForEvent(event),
         provenance: event.provenance || null,
       } : null,
     };
+  }
+
+  function linkedSourcesForEvent(event) {
+    if (!event) return [];
+    const evidence = event.evidence || [];
+    const sourceIds = event.source_ids || [];
+    const rows = evidence.length
+      ? evidence
+      : sourceIds.map((id) => ({ source_id: id, label: sourceLabel(id), url: state.sourceById.get(id)?.url }));
+    return rows.map((item) => {
+      const source = state.sourceById.get(item.source_id);
+      return {
+        source_id: item.source_id || source?.source_id || null,
+        title: item.label || source?.title || item.source_id || "Evidence source",
+        publisher: source?.provider || source?.attribution_text || item.kind || "Source record",
+        url: item.url || source?.url || null,
+        licence: source?.licence || null,
+        licence_status: sourceLicenceStatus(source),
+        accessed_at: sourceAccessed(source, item, event),
+        record_id: item.record_id || event.provenance?.source_record_id || source?.source_id || null,
+        transformation: event.provenance?.transform || null,
+      };
+    });
+  }
+
+  function briefMarkdown(payload) {
+    const event = payload.event;
+    const lines = [
+      `# Evidence Brief: ${event?.title || "No selected record"}`,
+      "",
+      `Product: ${payload.product}`,
+      `City: ${payload.city_name || payload.city_id || "Unknown"}`,
+      `Map year: ${payload.selected_year || "Unknown"}`,
+      `Caveat: ${payload.caveat}`,
+      "",
+    ];
+    if (!event) {
+      lines.push("No event is selected.");
+      return lines.join("\n");
+    }
+    lines.push(
+      "## Observed Change",
+      "",
+      `When: ${event.effective_date || "not supplied"}`,
+      `Date basis: ${event.source_date_field || event.provenance?.source_date_field || "not supplied"}`,
+      `Category: ${event.category || "not supplied"}`,
+      `Confidence: ${confidenceLabel(event.confidence)}`,
+      `Place: ${event.affected_area?.label || "not supplied"}`,
+      "",
+      event.explanation || "No explanation supplied.",
+      "",
+      "## Limitations",
+      "",
+    );
+    (event.caveats || []).concat(["Causation is not claimed."]).forEach((item) => {
+      lines.push(`- ${item}`);
+    });
+    lines.push("", "## Sources", "");
+    (event.linked_sources || []).forEach((source, index) => {
+      lines.push(
+        `${index + 1}. ${source.title}`,
+        `   Publisher: ${source.publisher || "not supplied"}`,
+        `   URL: ${source.url || "not supplied"}`,
+        `   Licence: ${source.licence || "not supplied"} (${source.licence_status || "not supplied"})`,
+        `   Accessed: ${source.accessed_at || "not supplied"}`,
+        `   Record: ${source.record_id || "not supplied"}`,
+        "",
+      );
+    });
+    lines.push(
+      "## Provenance",
+      "",
+      `Transform: ${event.provenance?.transform || "not supplied"}`,
+      `Source URL: ${event.provenance?.source_url || "not supplied"}`,
+      `Source retrieved: ${event.provenance?.source_retrieved_at || "not supplied"}`,
+    );
+    return lines.join("\n");
   }
 
   function renderTiles() {
@@ -1653,16 +2049,44 @@
     let score = 0;
     if (Number(event.year) === anchorYear) score += 60;
     if (Number(event.year) === FEATURED_YEAR[state.cityId]) score += 16;
+    if (isFeaturedPlaceEvent(event)) score += 84;
+    if (isPrimaryLondonFocusEvent(event)) score += 128;
+    if (isCuratedMilestone(event)) score += 150;
     score += (CONFIDENCE_SCORE[event.confidence] || 0) * 12;
     score += Math.min(3, (event.source_ids || []).length) * 3;
     if (eventPoint(event)) score += 5;
     if (isCurrentLayer(event)) score -= 12;
+    if (isGeneratedRowEvent(event)) score -= 65;
     if (/official-|milestone-/i.test(event.event_id || "")) score += 8;
     return score;
   }
 
   function isCurrentLayer(event) {
     return /^current data layer:/i.test(event.title || "") || (event.caveats || []).some((item) => /current-state source marker/i.test(item));
+  }
+
+  function isFeaturedPlaceEvent(event) {
+    if (state.cityId !== "london") return false;
+    const text = eventText(event);
+    const point = eventPoint(event);
+    const nearLowerLea = point
+      ? point.lng >= -0.08 && point.lng <= 0.04 && point.lat >= 51.51 && point.lat <= 51.57
+      : true;
+    return nearLowerLea && LONDON_FOCUS_TERMS.some((term) => text.includes(term));
+  }
+
+  function isPrimaryLondonFocusEvent(event) {
+    return state.cityId === "london"
+      && /olympic.*legacy|olympic.*paralympic|queen elizabeth olympic park/i.test(event.title || "");
+  }
+
+  function isCuratedMilestone(event) {
+    return /(?:^|-)milestone-/i.test(event.event_id || "")
+      || /official-source/i.test(event.event_id || "");
+  }
+
+  function isGeneratedRowEvent(event) {
+    return /^(lon_|nyc_|planning-)/i.test(event.event_id || "");
   }
 
   function eventText(event) {
@@ -1707,6 +2131,11 @@
   function nearestYearBefore(year) {
     const sorted = state.years.filter((item) => item < year).sort((a, b) => b - a);
     return sorted[0] || Math.max(Math.min(...state.years), year - 1);
+  }
+
+  function preferredBeforeYear(year) {
+    if (state.cityId === "london" && Number(year) >= 2026 && state.years.includes(2004)) return 2004;
+    return nearestYearBefore(year);
   }
 
   function eventPoint(event) {
@@ -2233,6 +2662,12 @@
     return "Confidence criteria are not available for this record.";
   }
 
+  function formatAvailabilityStatus(value) {
+    return String(value || "partial_source_backed")
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
   function normalizeCaveat(text) {
     return String(text || "");
   }
@@ -2245,6 +2680,9 @@
   function cleanTitle(title) {
     return String(title || "Untitled record")
       .replace(/^Current data layer:\s*/i, "")
+      .replace(/^London Olympic and Paralympic Games; Olympic Park legacy transition$/i, "Olympic Park development")
+      .replace(/^Elizabeth line opens through central London$/i, "Stratford transport upgrades")
+      .replace(/^COVID-19 lockdown and emergency Streetspace measures$/i, "Public realm and Streetspace measures")
       .replace(/\s+/g, " ")
       .trim();
   }
@@ -2340,8 +2778,11 @@
         refreshFilteredView({ preferCurrentYear: true });
       },
       setViewMode,
+      toggleCompare,
+      loadAllEventsForChangelog,
       copyBrief,
       exportBrief,
+      exportBriefJson,
     };
   }
 })();

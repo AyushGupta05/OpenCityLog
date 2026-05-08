@@ -1,0 +1,387 @@
+{
+  "retrieved_at": "2026-05-08T19:51:53Z",
+  "source": "https://data.police.uk/data/",
+  "download": {
+    "date_from": "2023-04",
+    "date_to": "2026-03",
+    "forces": [
+      "metropolitan",
+      "city-of-london"
+    ],
+    "include_crime": true,
+    "include_outcomes": false,
+    "include_stop_and_search": false,
+    "progress_url": "https://data.police.uk/data/progress/e6ce38d6-9abf-4d56-b0cc-59dc0651a8cd/",
+    "polls": 2,
+    "download_url_host": "policeuk-data.s3.amazonaws.com"
+  },
+  "per_month_force_limit": 380,
+  "files": {
+    "2023-04/2023-04-city-of-london-street.csv": {
+      "read_rows": 738,
+      "added": 380
+    },
+    "2023-04/2023-04-metropolitan-street.csv": {
+      "read_rows": 87547,
+      "added": 380
+    },
+    "2023-05/2023-05-city-of-london-street.csv": {
+      "read_rows": 774,
+      "added": 380
+    },
+    "2023-05/2023-05-metropolitan-street.csv": {
+      "read_rows": 96140,
+      "added": 380
+    },
+    "2023-06/2023-06-city-of-london-street.csv": {
+      "read_rows": 759,
+      "added": 380
+    },
+    "2023-06/2023-06-metropolitan-street.csv": {
+      "read_rows": 105947,
+      "added": 380
+    },
+    "2023-07/2023-07-city-of-london-street.csv": {
+      "read_rows": 726,
+      "added": 380
+    },
+    "2023-07/2023-07-metropolitan-street.csv": {
+      "read_rows": 99418,
+      "added": 380
+    },
+    "2023-08/2023-08-city-of-london-street.csv": {
+      "read_rows": 765,
+      "added": 380
+    },
+    "2023-08/2023-08-metropolitan-street.csv": {
+      "read_rows": 94301,
+      "added": 380
+    },
+    "2023-09/2023-09-city-of-london-street.csv": {
+      "read_rows": 784,
+      "added": 380
+    },
+    "2023-09/2023-09-metropolitan-street.csv": {
+      "read_rows": 96019,
+      "added": 380
+    },
+    "2023-10/2023-10-city-of-london-street.csv": {
+      "read_rows": 851,
+      "added": 380
+    },
+    "2023-10/2023-10-metropolitan-street.csv": {
+      "read_rows": 102375,
+      "added": 380
+    },
+    "2023-11/2023-11-city-of-london-street.csv": {
+      "read_rows": 847,
+      "added": 380
+    },
+    "2023-11/2023-11-metropolitan-street.csv": {
+      "read_rows": 96803,
+      "added": 380
+    },
+    "2023-12/2023-12-city-of-london-street.csv": {
+      "read_rows": 843,
+      "added": 380
+    },
+    "2023-12/2023-12-metropolitan-street.csv": {
+      "read_rows": 93396,
+      "added": 380
+    },
+    "2024-01/2024-01-city-of-london-street.csv": {
+      "read_rows": 734,
+      "added": 380
+    },
+    "2024-01/2024-01-metropolitan-street.csv": {
+      "read_rows": 91411,
+      "added": 380
+    },
+    "2024-02/2024-02-city-of-london-street.csv": {
+      "read_rows": 826,
+      "added": 380
+    },
+    "2024-02/2024-02-metropolitan-street.csv": {
+      "read_rows": 90775,
+      "added": 380
+    },
+    "2024-03/2024-03-city-of-london-street.csv": {
+      "read_rows": 757,
+      "added": 380
+    },
+    "2024-03/2024-03-metropolitan-street.csv": {
+      "read_rows": 91591,
+      "added": 380
+    },
+    "2024-04/2024-04-city-of-london-street.csv": {
+      "read_rows": 926,
+      "added": 380
+    },
+    "2024-04/2024-04-metropolitan-street.csv": {
+      "read_rows": 90128,
+      "added": 380
+    },
+    "2024-05/2024-05-city-of-london-street.csv": {
+      "read_rows": 944,
+      "added": 380
+    },
+    "2024-05/2024-05-metropolitan-street.csv": {
+      "read_rows": 97077,
+      "added": 380
+    },
+    "2024-06/2024-06-city-of-london-street.csv": {
+      "read_rows": 846,
+      "added": 380
+    },
+    "2024-06/2024-06-metropolitan-street.csv": {
+      "read_rows": 96735,
+      "added": 380
+    },
+    "2024-07/2024-07-city-of-london-street.csv": {
+      "read_rows": 898,
+      "added": 380
+    },
+    "2024-07/2024-07-metropolitan-street.csv": {
+      "read_rows": 100241,
+      "added": 380
+    },
+    "2024-08/2024-08-city-of-london-street.csv": {
+      "read_rows": 826,
+      "added": 380
+    },
+    "2024-08/2024-08-metropolitan-street.csv": {
+      "read_rows": 97529,
+      "added": 380
+    },
+    "2024-09/2024-09-city-of-london-street.csv": {
+      "read_rows": 747,
+      "added": 380
+    },
+    "2024-09/2024-09-metropolitan-street.csv": {
+      "read_rows": 93981,
+      "added": 380
+    },
+    "2024-10/2024-10-city-of-london-street.csv": {
+      "read_rows": 901,
+      "added": 380
+    },
+    "2024-10/2024-10-metropolitan-street.csv": {
+      "read_rows": 100785,
+      "added": 380
+    },
+    "2024-11/2024-11-city-of-london-street.csv": {
+      "read_rows": 821,
+      "added": 380
+    },
+    "2024-11/2024-11-metropolitan-street.csv": {
+      "read_rows": 98011,
+      "added": 380
+    },
+    "2024-12/2024-12-city-of-london-street.csv": {
+      "read_rows": 766,
+      "added": 380
+    },
+    "2024-12/2024-12-metropolitan-street.csv": {
+      "read_rows": 91065,
+      "added": 380
+    },
+    "2025-01/2025-01-city-of-london-street.csv": {
+      "read_rows": 629,
+      "added": 380
+    },
+    "2025-01/2025-01-metropolitan-street.csv": {
+      "read_rows": 86952,
+      "added": 380
+    },
+    "2025-02/2025-02-city-of-london-street.csv": {
+      "read_rows": 701,
+      "added": 380
+    },
+    "2025-02/2025-02-metropolitan-street.csv": {
+      "read_rows": 83660,
+      "added": 380
+    },
+    "2025-03/2025-03-city-of-london-street.csv": {
+      "read_rows": 763,
+      "added": 380
+    },
+    "2025-03/2025-03-metropolitan-street.csv": {
+      "read_rows": 93571,
+      "added": 380
+    },
+    "2025-04/2025-04-city-of-london-street.csv": {
+      "read_rows": 738,
+      "added": 380
+    },
+    "2025-04/2025-04-metropolitan-street.csv": {
+      "read_rows": 93211,
+      "added": 380
+    },
+    "2025-05/2025-05-city-of-london-street.csv": {
+      "read_rows": 778,
+      "added": 380
+    },
+    "2025-05/2025-05-metropolitan-street.csv": {
+      "read_rows": 99386,
+      "added": 380
+    },
+    "2025-06/2025-06-city-of-london-street.csv": {
+      "read_rows": 701,
+      "added": 380
+    },
+    "2025-06/2025-06-metropolitan-street.csv": {
+      "read_rows": 100914,
+      "added": 380
+    },
+    "2025-07/2025-07-city-of-london-street.csv": {
+      "read_rows": 763,
+      "added": 380
+    },
+    "2025-07/2025-07-metropolitan-street.csv": {
+      "read_rows": 106677,
+      "added": 380
+    },
+    "2025-08/2025-08-city-of-london-street.csv": {
+      "read_rows": 788,
+      "added": 380
+    },
+    "2025-08/2025-08-metropolitan-street.csv": {
+      "read_rows": 99050,
+      "added": 380
+    },
+    "2025-09/2025-09-city-of-london-street.csv": {
+      "read_rows": 689,
+      "added": 380
+    },
+    "2025-09/2025-09-metropolitan-street.csv": {
+      "read_rows": 93280,
+      "added": 380
+    },
+    "2025-10/2025-10-city-of-london-street.csv": {
+      "read_rows": 781,
+      "added": 380
+    },
+    "2025-10/2025-10-metropolitan-street.csv": {
+      "read_rows": 98545,
+      "added": 380
+    },
+    "2025-11/2025-11-city-of-london-street.csv": {
+      "read_rows": 734,
+      "added": 380
+    },
+    "2025-11/2025-11-metropolitan-street.csv": {
+      "read_rows": 94209,
+      "added": 380
+    },
+    "2025-12/2025-12-city-of-london-street.csv": {
+      "read_rows": 810,
+      "added": 380
+    },
+    "2025-12/2025-12-metropolitan-street.csv": {
+      "read_rows": 90961,
+      "added": 380
+    },
+    "2026-01/2026-01-city-of-london-street.csv": {
+      "read_rows": 710,
+      "added": 380
+    },
+    "2026-01/2026-01-metropolitan-street.csv": {
+      "read_rows": 86692,
+      "added": 380
+    },
+    "2026-02/2026-02-city-of-london-street.csv": {
+      "read_rows": 688,
+      "added": 380
+    },
+    "2026-02/2026-02-metropolitan-street.csv": {
+      "read_rows": 84636,
+      "added": 380
+    },
+    "2026-03/2026-03-city-of-london-street.csv": {
+      "read_rows": 743,
+      "added": 380
+    },
+    "2026-03/2026-03-metropolitan-street.csv": {
+      "read_rows": 92801,
+      "added": 380
+    }
+  },
+  "sampled_per_month_force": {
+    "2023-04|City of London Police": 380,
+    "2023-04|Metropolitan Police Service": 380,
+    "2023-05|City of London Police": 380,
+    "2023-05|Metropolitan Police Service": 380,
+    "2023-06|City of London Police": 380,
+    "2023-06|Metropolitan Police Service": 380,
+    "2023-07|City of London Police": 380,
+    "2023-07|Metropolitan Police Service": 380,
+    "2023-08|City of London Police": 380,
+    "2023-08|Metropolitan Police Service": 380,
+    "2023-09|City of London Police": 380,
+    "2023-09|Metropolitan Police Service": 380,
+    "2023-10|City of London Police": 380,
+    "2023-10|Metropolitan Police Service": 380,
+    "2023-11|City of London Police": 380,
+    "2023-11|Metropolitan Police Service": 380,
+    "2023-12|City of London Police": 380,
+    "2023-12|Metropolitan Police Service": 380,
+    "2024-01|City of London Police": 380,
+    "2024-01|Metropolitan Police Service": 380,
+    "2024-02|City of London Police": 380,
+    "2024-02|Metropolitan Police Service": 380,
+    "2024-03|City of London Police": 380,
+    "2024-03|Metropolitan Police Service": 380,
+    "2024-04|City of London Police": 380,
+    "2024-04|Metropolitan Police Service": 380,
+    "2024-05|City of London Police": 380,
+    "2024-05|Metropolitan Police Service": 380,
+    "2024-06|City of London Police": 380,
+    "2024-06|Metropolitan Police Service": 380,
+    "2024-07|City of London Police": 380,
+    "2024-07|Metropolitan Police Service": 380,
+    "2024-08|City of London Police": 380,
+    "2024-08|Metropolitan Police Service": 380,
+    "2024-09|City of London Police": 380,
+    "2024-09|Metropolitan Police Service": 380,
+    "2024-10|City of London Police": 380,
+    "2024-10|Metropolitan Police Service": 380,
+    "2024-11|City of London Police": 380,
+    "2024-11|Metropolitan Police Service": 380,
+    "2024-12|City of London Police": 380,
+    "2024-12|Metropolitan Police Service": 380,
+    "2025-01|City of London Police": 380,
+    "2025-01|Metropolitan Police Service": 380,
+    "2025-02|City of London Police": 380,
+    "2025-02|Metropolitan Police Service": 380,
+    "2025-03|City of London Police": 380,
+    "2025-03|Metropolitan Police Service": 380,
+    "2025-04|City of London Police": 380,
+    "2025-04|Metropolitan Police Service": 380,
+    "2025-05|City of London Police": 380,
+    "2025-05|Metropolitan Police Service": 380,
+    "2025-06|City of London Police": 380,
+    "2025-06|Metropolitan Police Service": 380,
+    "2025-07|City of London Police": 380,
+    "2025-07|Metropolitan Police Service": 380,
+    "2025-08|City of London Police": 380,
+    "2025-08|Metropolitan Police Service": 380,
+    "2025-09|City of London Police": 380,
+    "2025-09|Metropolitan Police Service": 380,
+    "2025-10|City of London Police": 380,
+    "2025-10|Metropolitan Police Service": 380,
+    "2025-11|City of London Police": 380,
+    "2025-11|Metropolitan Police Service": 380,
+    "2025-12|City of London Police": 380,
+    "2025-12|Metropolitan Police Service": 380,
+    "2026-01|City of London Police": 380,
+    "2026-01|Metropolitan Police Service": 380,
+    "2026-02|City of London Police": 380,
+    "2026-02|Metropolitan Police Service": 380,
+    "2026-03|City of London Police": 380,
+    "2026-03|Metropolitan Police Service": 380
+  },
+  "skipped_without_point": 119,
+  "skipped_without_month": 0,
+  "skipped_future_date": 0,
+  "event_count": 27360
+}

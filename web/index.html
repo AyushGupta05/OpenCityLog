@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open Citylog</title>
   <meta name="description" content="A source-backed city change atlas for exploring observed events over time.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css">
+  <link rel="stylesheet" href="/atlas.css?v=open-citylog-reference-3">
 </head>
 <body>
   <a class="skip-link" href="#mapStage">Skip to map</a>
@@ -23,7 +24,7 @@
         <span class="brand-name">Open Citylog</span>
       </a>
 
-      <p class="product-note">Observed city change with public evidence.</p>
+      <p class="product-note">Open-source city-change atlas</p>
 
       <label class="global-search" for="eventSearch">
         <span aria-hidden="true" class="search-icon"></span>
@@ -36,9 +37,14 @@
         <select id="citySelect" name="city"></select>
       </label>
 
+      <p class="trust-note">Historical evidence map, not a prediction engine.</p>
+
       <nav class="top-links" aria-label="Project links">
-        <a href="/data/city-atlas/index.json" target="_blank" rel="noreferrer">Data</a>
-        <a href="/api/health" target="_blank" rel="noreferrer">API</a>
+        <a href="/docs/product_principles.md" target="_blank" rel="noreferrer">About</a>
+        <a href="/docs/data_acquisition.md" target="_blank" rel="noreferrer">Docs</a>
+        <a class="github-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <span class="github-mark" aria-hidden="true"></span>
+        </a>
       </nav>
     </header>
 
@@ -54,11 +60,16 @@
 
         <section class="filter-panel" aria-label="Change log filters">
           <div class="panel-heading">
-            <h1 id="changeLogTitle">Change log</h1>
-            <button id="clearFiltersButton" class="text-button" type="button">Clear all</button>
+            <div>
+              <h1 id="changeLogTitle">Stratford / Olympic Park / Lower Lea Valley</h1>
+              <p id="changeLogSubtitle">Source-backed London focus area</p>
+            </div>
+            <button id="clearFiltersButton" class="filter-icon-button" type="button" aria-label="Show filters" aria-expanded="false" aria-controls="filterGrid">
+              <span aria-hidden="true"></span>
+            </button>
           </div>
 
-          <div class="filter-grid">
+          <div class="filter-grid" id="filterGrid" aria-hidden="true">
             <label for="categoryFilter">
               <span>Category</span>
               <select id="categoryFilter"></select>
@@ -79,6 +90,7 @@
                 <option value="oldest">Oldest first</option>
               </select>
             </label>
+            <button id="resetFiltersButton" class="filter-reset-button" type="button">Reset filters</button>
           </div>
         </section>
 
@@ -93,6 +105,7 @@
         </div>
 
         <div id="eventList" class="event-list" role="list" aria-live="polite"></div>
+        <button id="viewChangelogButton" class="full-changelog-button" type="button">Load full city changelog</button>
       </aside>
 
       <main class="map-column" id="main">
@@ -105,8 +118,10 @@
               <div class="map-scene after" id="afterMap" aria-hidden="true"></div>
               <div class="tile-layer before" id="beforeTileLayer" aria-hidden="true"></div>
               <div class="tile-layer after" id="afterTileLayer" aria-hidden="true"></div>
+              <div class="map-divider" aria-hidden="true"></div>
               <svg class="overlay-layer" id="overlayLayer" aria-hidden="true"></svg>
               <div class="marker-layer" id="markerLayer" aria-label="Mappable events"></div>
+              <div class="place-label-layer" id="placeLabelLayer" aria-hidden="true"></div>
               <article class="map-callout" id="mapCallout" hidden>
                 <span id="calloutYear">Observed</span>
                 <strong id="calloutTitle">Select a record</strong>
@@ -157,10 +172,8 @@
                 <input id="compareSlider" type="range" min="12" max="88" value="50">
                 <span>After</span>
               </label>
-              <button id="exportBriefButton" class="ghost-button primary" type="button">
-                <span class="download-icon" aria-hidden="true"></span>
-                Export
-              </button>
+              <button id="compareButton" class="ghost-button primary" type="button" aria-pressed="false">Compare</button>
+              <button id="contextLensButton" class="ghost-button" type="button">Context Lens</button>
             </div>
           </section>
         </section>
@@ -168,8 +181,15 @@
 
       <aside class="evidence-brief" aria-labelledby="detailTitle">
         <div class="brief-toolbar">
-          <span class="brief-label">Evidence brief</span>
-          <button id="copyBriefButton" class="icon-button" type="button" aria-label="Copy evidence brief"></button>
+          <button id="exportBriefButton" class="brief-export" type="button">
+            <span class="download-icon" aria-hidden="true"></span>
+            Export Evidence Brief
+          </button>
+          <button id="exportJsonButton" class="brief-json" type="button">JSON</button>
+          <span class="brief-toolbar-icons">
+            <button id="copyBriefButton" class="icon-button" type="button" aria-label="Copy evidence brief"></button>
+            <button id="closeBriefButton" class="icon-button close-button" type="button" aria-label="Clear selected evidence brief"></button>
+          </span>
         </div>
 
         <header class="brief-header">
@@ -188,23 +208,9 @@
           <p id="observedChange">Loading source-backed records.</p>
         </section>
 
-        <section class="brief-section impact-section" aria-labelledby="impactLensTitle">
-          <div class="impact-section-head">
-            <h3 id="impactLensTitle">Context lens</h3>
-            <div id="impactModeBar" class="impact-mode-bar" role="group" aria-label="How to inspect the selected event">
-              <button type="button" data-impact-mode="place" aria-pressed="true">Place change</button>
-              <button type="button" data-impact-mode="traffic" aria-pressed="false">Traffic</button>
-              <button type="button" data-impact-mode="components" aria-pressed="false">Components</button>
-            </div>
-          </div>
-          <div id="impactPanel" class="impact-panel" aria-live="polite">
-            <p>Select an event to inspect associated place, mobility, and component context.</p>
-          </div>
-        </section>
-
         <section class="brief-section before-after">
           <button class="section-toggle" type="button" aria-expanded="true">
-            <span>Before / after imagery</span>
+            <span>Evidence</span>
           </button>
           <div class="evidence-frames" id="evidenceFrames"></div>
         </section>
@@ -245,6 +251,20 @@
             <span>Sources</span>
           </button>
           <div id="sourceList" class="source-list"></div>
+        </section>
+
+        <section class="brief-section impact-section" aria-labelledby="impactLensTitle">
+          <div class="impact-section-head">
+            <h3 id="impactLensTitle">Context lens</h3>
+            <div id="impactModeBar" class="impact-mode-bar" role="group" aria-label="How to inspect the selected event">
+              <button type="button" data-impact-mode="place" aria-pressed="true">Place change</button>
+              <button type="button" data-impact-mode="traffic" aria-pressed="false">Traffic</button>
+              <button type="button" data-impact-mode="components" aria-pressed="false">Components</button>
+            </div>
+          </div>
+          <div id="impactPanel" class="impact-panel" aria-live="polite">
+            <p>Select an event to inspect associated place, mobility, and component context.</p>
+          </div>
         </section>
 
         <section class="brief-section catalog-section" aria-labelledby="evidenceCatalogTitle">
@@ -309,6 +329,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
-  <script src="/atlas.js?v=maplibre-wayback-2" defer></script>
+  <script src="/atlas.js?v=open-citylog-reference-3" defer></script>
 </body>
 </html>

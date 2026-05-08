@@ -100,13 +100,22 @@ async function waitForRenderedImagery(page) {
     impactText: document.querySelector("#impactPanel")?.textContent || "",
     causalClaimText: document.querySelector("#causalClaimText")?.textContent || "",
     selectedTitle: document.querySelector("#detailTitle")?.textContent || "",
+    changeLogTitle: document.querySelector("#changeLogTitle")?.textContent || "",
+    changeLogSubtitle: document.querySelector("#changeLogSubtitle")?.textContent || "",
+    filterGridDisplay: getComputedStyle(document.querySelector(".filter-grid")).display,
+    filterToggleExpanded: document.querySelector("#clearFiltersButton")?.getAttribute("aria-expanded"),
+    confidencePillDisplay: getComputedStyle(document.querySelector(".confidence-pill")).display,
+    coverageDisplay: getComputedStyle(document.querySelector("#coverageNotice")).display,
+    briefCoverageDisplay: getComputedStyle(document.querySelector("#briefCoverageStatus")).display,
+    sourceText: document.querySelector("#sourceList")?.textContent || "",
+    changelogButton: document.querySelector("#viewChangelogButton")?.textContent || "",
   }));
 
   assert(initial.title.includes("Open Citylog"), "Open Citylog title did not render.");
   for (const cityId of ["belfast", "london", "nyc"]) {
     assert(initial.cityOptions.includes(cityId), `Missing city selector option ${cityId}.`);
   }
-  for (const label of ["All layers", "Planning", "Transport", "Environment", "Public services", "Economy", "Infrastructure"]) {
+  for (const label of ["All layers", "Planning", "Transport", "Environment", "Public services", "Economy"]) {
     assert(initial.layerLabels.some((text) => text.includes(label)), `Missing layer ${label}.`);
   }
   assert(initial.eventCount > 0, "Change log did not load events.");
@@ -118,12 +127,29 @@ async function waitForRenderedImagery(page) {
   assert(/wayback\.maptiles\.arcgis\.com/.test(initial.tileSrc), "Map is not using dated Wayback imagery tiles.");
   assert(initial.eventThumbs > 0, "Change log thumbnails did not render.");
   assert(initial.eventThumbImages > 0, "Event thumbnails did not load imagery tiles.");
-  assert(initial.evidenceFrames === 2, "Before/after evidence frames did not render.");
+  assert(initial.evidenceFrames === 3, "Reference evidence frame triptych did not render.");
   assert(initial.impactModes.some((text) => /Place change/i.test(text)) && initial.impactModes.some((text) => /Traffic/i.test(text)) && initial.impactModes.some((text) => /Components/i.test(text)), "Impact mode controls did not render.");
   assert(initial.impactCards > 0, "Impact/component cards did not render for the selected event.");
   assert(/not causal|observed place|affected/i.test(initial.impactText), "Impact panel is missing descriptive, caveated copy.");
   assert(/do(?:es)? not establish|does not justify|causal claim/i.test(initial.causalClaimText), "Evidence brief is missing an explicit causal-claim caveat.");
   assert(initial.selectedTitle.length > 5, "Evidence brief did not select an initial event.");
+  assert(/Stratford|Olympic Park|Lower Lea Valley/i.test(initial.changeLogTitle), "London focus heading did not render.");
+  assert(/London focus area/i.test(initial.changeLogSubtitle), "London focus subtitle did not render.");
+  assert(initial.filterGridDisplay === "none" && initial.filterToggleExpanded === "false", "Filter panel should start collapsed behind the left-rail control.");
+  await page.locator("#clearFiltersButton").click();
+  await page.waitForFunction(() => getComputedStyle(document.querySelector(".filter-grid")).display !== "none", null, { timeout: 5000 });
+  const filterPanelState = await page.evaluate(() => ({
+    expanded: document.querySelector("#clearFiltersButton")?.getAttribute("aria-expanded"),
+    ariaHidden: document.querySelector("#filterGrid")?.getAttribute("aria-hidden"),
+    categoryVisible: getComputedStyle(document.querySelector("#categoryFilter")).display !== "none",
+  }));
+  assert(filterPanelState.expanded === "true" && filterPanelState.ariaHidden === "false" && filterPanelState.categoryVisible, "Filter panel did not open accessibly from the left-rail control.");
+  await page.locator("#clearFiltersButton").click();
+  await page.waitForFunction(() => getComputedStyle(document.querySelector(".filter-grid")).display === "none", null, { timeout: 5000 });
+  assert(initial.confidencePillDisplay !== "none", "Confidence pills are hidden from the event list.");
+  assert(initial.coverageDisplay !== "none" && initial.briefCoverageDisplay !== "none", "Coverage/trust status is hidden.");
+  assert(/Date basis|Accessed|Technical trace/i.test(initial.sourceText), "Evidence source list is missing reviewer date/access/trace fields.");
+  assert(/Load full city changelog/i.test(initial.changelogButton), "Full changelog control is missing or mislabeled.");
 
   const initialMapPng = await page.locator("#mapViewport").screenshot();
   assertDetailedPng(initialMapPng, assert, "Initial map viewport");
@@ -155,7 +181,7 @@ async function waitForRenderedImagery(page) {
 
   await page.locator('[data-impact-mode="place"]').click();
   await page.waitForFunction(() => window.BimsAtlas.state.impactMode === "place", null, { timeout: 5000 });
-  assert(/Observed city change with public evidence/i.test(initial.visibleText), "Evidence-backed product caveat is not visible.");
+  assert(/Open-source city-change atlas|Historical evidence map/i.test(initial.visibleText), "Evidence-backed product caveat is not visible.");
   assert(!/Run Simulation|Solana|Scenario Studio|2036 Scenario|Branch Workspace/i.test(initial.visibleText), "Legacy simulator UI copy is still visible.");
 
   await page.locator("#citySelect").selectOption("nyc");
@@ -168,6 +194,12 @@ async function waitForRenderedImagery(page) {
   }));
   assert(/New York City/i.test(nycState.area), "City selector did not switch to NYC.");
   assert(nycState.markers > 0, "NYC map did not render markers.");
+  const nycHeading = await page.evaluate(() => ({
+    title: document.querySelector("#changeLogTitle")?.textContent || "",
+    subtitle: document.querySelector("#changeLogSubtitle")?.textContent || "",
+  }));
+  assert(/New York City/i.test(nycHeading.title) && !/Stratford|Olympic Park|Lower Lea/i.test(nycHeading.title), "Primary heading stayed on the London focus after switching to NYC.");
+  assert(/citywide atlas|source-backed/i.test(nycHeading.subtitle), "NYC heading did not explain the current source-backed scope.");
 
   await page.locator('[data-category="transport"]').click();
   await page.waitForFunction(() => window.BimsAtlas.state.category === "transport", null, { timeout: 10000 });
@@ -180,26 +212,70 @@ async function waitForRenderedImagery(page) {
   assert(transportState.count > 0, "Transport filter should show records.");
   assert(/records/i.test(transportState.listMeta), "Filter result count did not update.");
 
+  const loadedBeforeFull = await page.evaluate(() => window.BimsAtlas.state.loadedEvents.size);
+  await page.evaluate(async () => window.BimsAtlas.loadAllEventsForChangelog());
+  await page.waitForFunction(() => window.BimsAtlas.state.allEventsLoaded === true, null, { timeout: 30000 });
+  const fullChangelogState = await page.evaluate((loadedBefore) => ({
+    loadedBefore,
+    loadedAfter: window.BimsAtlas.state.loadedEvents.size,
+    total: window.BimsAtlas.state.eventsIndex.event_count,
+    buttonText: document.querySelector("#viewChangelogButton")?.textContent || "",
+    listMeta: document.querySelector("#listMeta")?.textContent || "",
+  }), loadedBeforeFull);
+  assert(fullChangelogState.loadedAfter > fullChangelogState.loadedBefore && fullChangelogState.loadedAfter === fullChangelogState.total, "Full changelog did not load all city records.");
+  assert(/Show|All matching records shown/i.test(fullChangelogState.buttonText), "Full changelog control did not switch to paging mode.");
+  assert(/Showing/i.test(fullChangelogState.listMeta), "List metadata did not report the loaded full changelog state.");
+
+  await page.locator("#compareButton").click();
+  await page.waitForFunction(() => window.BimsAtlas.state.compareEnabled === true, null, { timeout: 5000 });
+  const compareState = await page.evaluate(() => ({
+    pressed: document.querySelector("#compareButton")?.getAttribute("aria-pressed"),
+    classed: document.querySelector("#mapStage")?.classList.contains("is-comparing"),
+    scrubberDisplay: getComputedStyle(document.querySelector(".compare-scrubber")).display,
+    note: document.querySelector("#compareNote")?.textContent || "",
+  }));
+  assert(compareState.pressed === "true" && compareState.classed, "Compare button did not enable the before/after split.");
+  assert(compareState.scrubberDisplay !== "none" && /years compared/i.test(compareState.note), "Compare scrubber/status did not become usable.");
+
   await page.locator("#view3dButton").click();
   const mode3d = await page.locator("#mapStage").evaluate((node) => node.classList.contains("mode-3d"));
   assert(mode3d, "3D view toggle did not activate.");
 
   const mapBox = await page.locator("#mapViewport").boundingBox();
   assert(mapBox && mapBox.width > 100 && mapBox.height > 100, "Map viewport bounds are unavailable.");
+  const visibleMapBox = await page.evaluate(() => {
+    const map = document.querySelector("#mapViewport")?.getBoundingClientRect();
+    const brief = document.querySelector(".evidence-brief")?.getBoundingClientRect();
+    if (!map) return null;
+    const right = brief && brief.left > map.left ? Math.min(map.right, brief.left - 24) : map.right;
+    return {
+      left: map.left,
+      top: map.top,
+      width: Math.max(120, right - map.left),
+      height: map.height,
+    };
+  });
+  assert(visibleMapBox && visibleMapBox.width > 120, "Visible map area is unavailable for drag testing.");
   const centerBeforeDrag = await page.evaluate(() => [...window.BimsAtlas.state.mapCenter]);
-  const dragStartX = mapBox.x + mapBox.width * 0.80;
-  const dragStartY = mapBox.y + mapBox.height * 0.42;
+  const dragStartX = visibleMapBox.left + visibleMapBox.width * 0.35;
+  const dragStartY = visibleMapBox.top + visibleMapBox.height * 0.28;
   await page.mouse.move(dragStartX, dragStartY);
   await page.mouse.down();
-  await page.mouse.move(mapBox.x + mapBox.width * 0.70, mapBox.y + mapBox.height * 0.54, { steps: 6 });
+  await page.mouse.move(visibleMapBox.left + visibleMapBox.width * 0.10, visibleMapBox.top + visibleMapBox.height * 0.50, { steps: 12 });
   await page.mouse.up();
+  await page.waitForFunction(
+    (center) => Math.abs(window.BimsAtlas.state.mapCenter[0] - center[0]) > 0.0001
+      || Math.abs(window.BimsAtlas.state.mapCenter[1] - center[1]) > 0.0001,
+    centerBeforeDrag,
+    { timeout: 5000 }
+  ).catch(() => {});
   const centerAfterDrag = await page.evaluate(() => [...window.BimsAtlas.state.mapCenter]);
   assert(
     Math.abs(centerAfterDrag[0] - centerBeforeDrag[0]) > 0.0001 || Math.abs(centerAfterDrag[1] - centerBeforeDrag[1]) > 0.0001,
     "Dragging the 3D map did not move the map center."
   );
   const zoomBeforeWheel = await page.evaluate(() => window.BimsAtlas.state.mapZoom);
-  await page.mouse.move(mapBox.x + mapBox.width * 0.80, mapBox.y + mapBox.height * 0.48);
+  await page.mouse.move(visibleMapBox.left + visibleMapBox.width * 0.35, visibleMapBox.top + visibleMapBox.height * 0.28);
   await page.mouse.wheel(0, -700);
   await page.waitForFunction((zoom) => window.BimsAtlas.state.mapZoom !== zoom, zoomBeforeWheel, { timeout: 5000 });
   const zoomAfterWheel = await page.evaluate(() => window.BimsAtlas.state.mapZoom);
@@ -259,6 +335,35 @@ async function waitForRenderedImagery(page) {
   assert(belfastState.records > 0, "Belfast records did not load.");
   assert(/Causal claim is not made|source limitations/i.test(belfastState.limitations), "Limitations do not show the causal caveat.");
   assert(belfastState.sourcesText.length > 20, "Evidence sources did not render.");
+
+  await page.locator(".section-toggle").first().click();
+  const collapsed = await page.locator(".brief-section").first().evaluate((node) => ({
+    expanded: node.querySelector(".section-toggle")?.getAttribute("aria-expanded"),
+    classed: node.classList.contains("is-collapsed"),
+  }));
+  assert(collapsed.expanded === "false" && collapsed.classed, "Evidence section toggle did not collapse with ARIA state.");
+  await page.locator(".section-toggle").first().click();
+
+  await page.locator("#closeBriefButton").click();
+  const closed = await page.evaluate(() => ({
+    selected: window.BimsAtlas.state.selectedEventId,
+    title: document.querySelector("#detailTitle")?.textContent || "",
+  }));
+  assert(closed.selected === null && /Select a record/i.test(closed.title), "Close evidence brief did not clear the selected record.");
+  await page.evaluate(() => window.BimsAtlas.selectFirstEvent());
+  await page.waitForFunction(() => Boolean(window.BimsAtlas.state.selectedEventId), null, { timeout: 5000 });
+
+  await page.setViewportSize({ width: 390, height: 840 });
+  await page.waitForTimeout(250);
+  const mobileTrust = await page.evaluate(() => ({
+    attributionDisplay: getComputedStyle(document.querySelector("#mapAttribution")).display,
+    attributionText: document.querySelector("#mapAttribution")?.textContent || "",
+    trustDisplay: getComputedStyle(document.querySelector(".trust-note")).display,
+    trustText: document.querySelector(".trust-note")?.textContent || "",
+  }));
+  assert(mobileTrust.attributionDisplay !== "none" && /Imagery|OpenStreetMap|source/i.test(mobileTrust.attributionText), "Mobile map attribution/trust chip is hidden.");
+  assert(mobileTrust.trustDisplay !== "none" && /not a prediction/i.test(mobileTrust.trustText), "Mobile product trust note is hidden.");
+  await page.setViewportSize({ width: 1440, height: 920 });
 
   await page.screenshot({ path: path.join(outputDir, "open-citylog-browser-smoke.png"), fullPage: false });
   await browser.close();
