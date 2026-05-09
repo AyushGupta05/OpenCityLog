@@ -8,7 +8,8 @@
   const DETAIL_ZOOM = 15;
   const FOCUS_ZOOM = 14;
   const MAX_LIST_EVENTS = 90;
-  const MAX_MARKERS = 70;
+  const MAX_MARKERS = 32;
+  const UK_PILOT_CITY_IDS = ["london", "belfast"];
 
   const TILE_PROVIDER = {
     name: "Esri World Imagery",
@@ -188,6 +189,7 @@
     compareEnabled: false,
     viewMode: "2d",
     impactMode: "place",
+    proposalName: "",
     proposalType: "housing",
     proposalScale: "site",
     proposalStage: "early",
@@ -208,6 +210,8 @@
     listLimit: MAX_LIST_EVENTS,
     allEventsLoaded: false,
     isLoadingAllEvents: false,
+    filteredEventsCacheKey: "",
+    filteredEventsCache: null,
   };
 
   const els = {};
@@ -260,6 +264,7 @@
       "calloutMeta",
       "mapEmpty",
       "mapAttribution",
+      "mapTimeBadge",
       "zoomInButton",
       "zoomOutButton",
       "recenterButton",
@@ -285,6 +290,7 @@
       "detailTitle",
       "detailSubtitle",
       "briefCoverageStatus",
+      "proposalNameInput",
       "proposalTypeSelect",
       "proposalScaleSelect",
       "proposalStageSelect",
@@ -362,6 +368,8 @@
     if (els.viewChangelogButton) {
       els.viewChangelogButton.addEventListener("click", handleChangelogButton);
     }
+    els.eventList?.addEventListener("click", handleEventListClick);
+    els.markerLayer?.addEventListener("click", handleMapMarkerClick);
     els.yearSlider.addEventListener("input", () => setYear(Number(els.yearSlider.value)));
     els.prevYearButton.addEventListener("click", () => stepYear(-1));
     els.nextYearButton.addEventListener("click", () => stepYear(1));
@@ -378,6 +386,11 @@
     els.mapPlane.addEventListener("wheel", zoomMapWheel, { passive: false });
     els.compareSlider.addEventListener("input", () => setCompareX(Number(els.compareSlider.value)));
     els.compareButton?.addEventListener("click", () => toggleCompare());
+    els.proposalNameInput?.addEventListener("input", debounce(() => {
+      state.proposalName = els.proposalNameInput.value.trim();
+      renderPlannerWorkbench(state.selectedEvent);
+      schedulePlannerAssessment(state.selectedEvent, { force: true, delay: 260 });
+    }, 180));
     els.proposalTypeSelect?.addEventListener("change", () => {
       state.proposalType = els.proposalTypeSelect.value;
       renderPlannerWorkbench(state.selectedEvent);
@@ -457,7 +470,7 @@
   }
 
   function renderCitySelect() {
-    const cities = state.index?.cities || [];
+    const cities = citySelectOptions();
     els.citySelect.innerHTML = cities.map((city) => (
       `<option value="${escapeAttr(city.city_id)}">${escapeHtml(shortCityName(city.display_name))}</option>`
     )).join("");
@@ -467,9 +480,138 @@
     els.citySelect.value = state.cityId;
   }
 
+  function citySelectOptions() {
+    const cities = state.index?.cities || [];
+    const ukMeta = virtualUkCityMeta();
+    return ukMeta ? [ukMeta, ...cities] : cities;
+  }
+
+  function virtualUkCityMeta() {
+    const cities = (state.index?.cities || []).filter((city) => UK_PILOT_CITY_IDS.includes(city.city_id));
+    if (cities.length < 2) return null;
+    return {
+      city_id: "uk",
+      display_name: "UK pilots",
+      event_count: cities.reduce((total, city) => total + Number(city.event_count || 0), 0),
+      source_count: cities.reduce((total, city) => total + Number(city.source_count || 0), 0),
+      availability_status: "partial_source_backed",
+      virtual_city_ids: cities.map((city) => city.city_id),
+    };
+  }
+
+  async function loadCityArtifacts(cityMeta) {
+    const paths = cityMeta.artifact_paths || {};
+    const [city, eventsIndex, sources, availability, currentState] = await Promise.all([
+      fetchJson(dataPathToUrl(paths.city)),
+      fetchJson(dataPathToUrl(paths.events)),
+      fetchJson(dataPathToUrl(paths.sources)),
+      paths.availability ? fetchJson(dataPathToUrl(paths.availability)).catch(() => null) : Promise.resolve(null),
+      paths.current_state ? fetchJson(dataPathToUrl(paths.current_state)).catch(() => null) : Promise.resolve(null),
+    ]);
+    return { cityMeta, city, eventsIndex, sources, availability, currentState };
+  }
+
+  async function loadUkPilotArtifacts() {
+    const metas = (state.index?.cities || []).filter((city) => UK_PILOT_CITY_IDS.includes(city.city_id));
+    const artifacts = await Promise.all(metas.map(loadCityArtifacts));
+    const sourceById = new Map();
+    const chunksByYear = new Map();
+    const years = new Set();
+    const eventCountsByCategory = {};
+    const eventCountsByYear = {};
+    const families = [];
+
+    for (const artifact of artifacts) {
+      for (const source of artifact.sources?.sources || []) sourceById.set(source.source_id, source);
+      for (const family of artifact.availability?.matrix || artifact.city?.source_families || []) {
+        families.push({
+          ...family,
+          family_id: `${artifact.city.city_id}-${family.family_id || family.label || "source-family"}`,
+          label: `${shortCityName(artifact.city.display_name)} - ${family.label || "Source family"}`,
+        });
+      }
+      for (const chunk of artifact.eventsIndex?.chunks || []) {
+        const year = Number(chunk.year);
+        if (!Number.isFinite(year)) continue;
+        years.add(year);
+        if (!chunksByYear.has(year)) {
+          chunksByYear.set(year, {
+            year,
+            event_count: 0,
+            counts_by_category: {},
+            sources: [],
+          });
+        }
+        const merged = chunksByYear.get(year);
+        merged.event_count += Number(chunk.event_count || 0);
+        merged.sources.push({
+          city_id: artifact.city.city_id,
+          json_path: chunk.json_path,
+          event_count: Number(chunk.event_count || 0),
+        });
+        for (const [category, count] of Object.entries(chunk.counts_by_category || {})) {
+          merged.counts_by_category[category] = Number(merged.counts_by_category[category] || 0) + Number(count || 0);
+          eventCountsByCategory[category] = Number(eventCountsByCategory[category] || 0) + Number(count || 0);
+        }
+      }
+    }
+
+    for (const chunk of chunksByYear.values()) eventCountsByYear[chunk.year] = chunk.event_count;
+    const eventYears = Array.from(years).sort((a, b) => a - b);
+    const eventCount = Array.from(chunksByYear.values()).reduce((total, chunk) => total + chunk.event_count, 0);
+    const sourceCount = sourceById.size;
+    return {
+      city: {
+        schema_version: "1.0.0",
+        city_id: "uk",
+        display_name: "UK pilots: London and Belfast",
+        country: "United Kingdom",
+        country_code: "GB",
+        region: "United Kingdom",
+        timezone: "Europe/London",
+        bounds: [-8.25, 50.0, 1.8, 56.35],
+        default_center: [-2.75, 53.35],
+        default_zoom: 6,
+        source_families: families,
+        data_availability: {
+          status: "partial_source_backed",
+          summary: `UK pilot view combines London and Belfast source-backed records: ${formatNumber(eventCount)} events from ${formatNumber(sourceCount)} public sources. It is not a complete national event ledger yet.`,
+        },
+      },
+      eventsIndex: {
+        schema_version: "1.0.0",
+        city_id: "uk",
+        generated_at: state.index?.generated_at || null,
+        event_count: eventCount,
+        event_years: eventYears,
+        chunks: Array.from(chunksByYear.values()).sort((a, b) => a.year - b.year),
+        event_counts_by_year: eventCountsByYear,
+        event_counts_by_category: eventCountsByCategory,
+      },
+      sources: {
+        schema_version: "1.0.0",
+        city_id: "uk",
+        source_count: sourceCount,
+        sources: Array.from(sourceById.values()).sort((a, b) => a.source_id.localeCompare(b.source_id)),
+      },
+      availability: {
+        schema_version: "1.0.0",
+        city_id: "uk",
+        summary: {
+          status: "partial_source_backed",
+          summary: `UK pilot coverage currently aggregates London and Belfast. Use the city selector for local review; adding more UK cities requires new source adapters and provenance checks.`,
+        },
+        matrix: families,
+      },
+      currentState: null,
+    };
+  }
+
   async function loadCity(cityId) {
     state.cityId = cityId;
-    state.cityMeta = (state.index?.cities || []).find((city) => city.city_id === cityId) || state.index?.cities?.[0] || null;
+    state.cityMeta = cityId === "uk"
+      ? virtualUkCityMeta()
+      : (state.index?.cities || []).find((city) => city.city_id === cityId) || state.index?.cities?.[0] || null;
     if (!state.cityMeta) return renderFatal("No city metadata is available.");
 
     state.loadedEvents = new Map();
@@ -502,12 +644,16 @@
     state.listLimit = MAX_LIST_EVENTS;
     state.allEventsLoaded = false;
     state.isLoadingAllEvents = false;
+    state.filteredEventsCacheKey = "";
+    state.filteredEventsCache = null;
     state.compareEnabled = false;
+    state.proposalName = "";
     els.eventSearch.value = "";
     els.categoryFilter.value = "all";
     els.confidenceFilter.value = "all";
     els.sourceFilter.value = "all";
     els.sortSelect.value = "relevance";
+    if (els.proposalNameInput) els.proposalNameInput.value = "";
     if (els.proposalTypeSelect) els.proposalTypeSelect.value = state.proposalType;
     if (els.proposalScaleSelect) els.proposalScaleSelect.value = state.proposalScale;
     if (els.proposalStageSelect) els.proposalStageSelect.value = state.proposalStage;
@@ -515,14 +661,8 @@
     setLoading();
 
     try {
-      const paths = state.cityMeta.artifact_paths || {};
-      const [city, eventsIndex, sources, availability, currentState] = await Promise.all([
-        fetchJson(dataPathToUrl(paths.city)),
-        fetchJson(dataPathToUrl(paths.events)),
-        fetchJson(dataPathToUrl(paths.sources)),
-        paths.availability ? fetchJson(dataPathToUrl(paths.availability)).catch(() => null) : Promise.resolve(null),
-        paths.current_state ? fetchJson(dataPathToUrl(paths.current_state)).catch(() => null) : Promise.resolve(null),
-      ]);
+      const payload = cityId === "uk" ? await loadUkPilotArtifacts() : await loadCityArtifacts(state.cityMeta);
+      const { city, eventsIndex, sources, availability, currentState } = payload;
       state.city = city;
       state.eventsIndex = eventsIndex;
       state.sources = sources;
@@ -600,6 +740,11 @@
       els.changeLogSubtitle.textContent = "Source-backed citywide atlas; use borough, date, and source filters for review";
       return;
     }
+    if (state.cityId === "uk") {
+      els.changeLogTitle.textContent = "UK pilot coverage";
+      els.changeLogSubtitle.textContent = "London and Belfast source-backed records; not a complete national event ledger";
+      return;
+    }
     els.changeLogTitle.textContent = cityName;
     els.changeLogSubtitle.textContent = "Source-backed pilot city atlas with public evidence and limitations";
   }
@@ -645,9 +790,12 @@
       .filter(Boolean);
     const summaryText = summary.summary
       || `${shortCityName(state.city?.display_name)} has ${formatNumber(eventCount)} searchable records from ${formatNumber(sourceCount)} discovered public sources.`;
+    const ukScope = state.city?.country_code === "GB"
+      ? " UK scope is pilot-level: London and Belfast have row-level records; national adapters still need source review."
+      : "";
     els.coverageNotice.innerHTML = `
       <strong>${escapeHtml(status)}</strong>
-      <span>${escapeHtml(summaryText)}</span>
+      <span>${escapeHtml(summaryText + ukScope)}</span>
       ${leadingFamilies.length ? `<small>Strongest visible families: ${escapeHtml(leadingFamilies.join(", "))}.</small>` : ""}
     `;
     if (els.briefCoverageStatus) {
@@ -968,11 +1116,25 @@
     }
 
     const loadPromise = (async () => {
-      const data = await fetchJson(dataPathToUrl(chunk.json_path));
-      const events = Array.isArray(data) ? data : (data.events || []);
+      let events;
+      if (Array.isArray(chunk.sources)) {
+        const eventGroups = await Promise.all(chunk.sources.map(async (source) => {
+          const data = await fetchJson(dataPathToUrl(source.json_path));
+          const sourceEvents = Array.isArray(data) ? data : (data.events || []);
+          return sourceEvents.map((event) => ({
+            ...event,
+            city_id: event.city_id || source.city_id,
+          }));
+        }));
+        events = eventGroups.flat();
+      } else {
+        const data = await fetchJson(dataPathToUrl(chunk.json_path));
+        events = Array.isArray(data) ? data : (data.events || []);
+      }
       if (state.cityId !== cityId) return [];
       state.eventsByYear.set(numericYear, events);
       events.forEach((event) => state.loadedEvents.set(event.event_id, event));
+      invalidateFilteredEventsCache();
       return events;
     })();
     state.pendingYearLoads.set(pendingKey, loadPromise);
@@ -1075,9 +1237,12 @@
       return;
     }
     els.eventList.innerHTML = shown.map((event, index) => renderEventCard(event, index)).join("");
-    els.eventList.querySelectorAll("[data-event-id]").forEach((button) => {
-      button.addEventListener("click", () => selectEvent(button.dataset.eventId));
-    });
+  }
+
+  function handleEventListClick(event) {
+    const button = event.target.closest("[data-event-id]");
+    if (!button || !els.eventList?.contains(button)) return;
+    selectEvent(button.dataset.eventId);
   }
 
   function renderChangelogButton(filteredCount, shownCount, cityTotal, loadedCount) {
@@ -1155,33 +1320,30 @@
   function renderMap() {
     const events = filteredMapEvents();
     const mappable = events
-      .map((event) => ({ event, point: eventPoint(event) }))
-      .filter((item) => item.point)
+      .map((event) => {
+        const point = eventPoint(event);
+        return point ? { event, point, pos: project(point) } : null;
+      })
+      .filter(Boolean)
       .slice(0, MAX_MARKERS);
     if (state.selectedEvent) {
       const selectedPoint = eventPoint(state.selectedEvent);
       if (selectedPoint && !mappable.some((item) => item.event.event_id === state.selectedEvent.event_id)) {
-        mappable.unshift({ event: state.selectedEvent, point: selectedPoint });
+        mappable.unshift({ event: state.selectedEvent, point: selectedPoint, pos: project(selectedPoint) });
       }
     }
-    els.mapEmpty.hidden = mappable.length > 0;
+    els.mapEmpty.hidden = Boolean(state.selectedEvent && eventPoint(state.selectedEvent)) || mappable.length > 0;
     renderOverlay(mappable);
     renderPlaceLabels();
-    els.markerLayer.innerHTML = mappable.map(({ event, point }, index) => {
-      const pos = project(point);
-      const config = categoryConfig(event.category);
-      const selected = state.selectedEventId === event.event_id;
-      const markerIndex = selected ? 1 : index + 1;
-      return `
-        <button class="map-marker" type="button" data-event-id="${escapeAttr(event.event_id)}" aria-selected="${selected}" aria-label="${escapeAttr(cleanTitle(event.title))}" style="left:${pos.x}%;top:${pos.y}%;--marker-color:${config.color}">
-          <span>${markerIndex}</span>
-        </button>
-      `;
-    }).join("");
-    els.markerLayer.querySelectorAll("[data-event-id]").forEach((button) => {
-      button.addEventListener("click", () => selectEvent(button.dataset.eventId));
-    });
+    els.markerLayer.innerHTML = "";
     if (state.selectedEvent) renderMapCallout(state.selectedEvent);
+    else els.mapCallout.hidden = true;
+  }
+
+  function handleMapMarkerClick(event) {
+    const button = event.target.closest("[data-event-id]");
+    if (!button || !els.markerLayer?.contains(button)) return;
+    selectEvent(button.dataset.eventId);
   }
 
   function renderPlaceLabels() {
@@ -1196,38 +1358,39 @@
 
   function renderOverlay(items) {
     const selected = state.selectedEvent ? { event: state.selectedEvent, point: eventPoint(state.selectedEvent) } : null;
-    const overlayItems = selected?.point
-      ? [selected, ...items.filter((item) => item.event.event_id !== selected.event.event_id).slice(0, 9)]
-      : items.slice(0, 10);
-    const areas = overlayItems.map(({ event, point }, index) => {
-      const pos = project(point);
-      const config = categoryConfig(event.category);
-      return `<path class="overlay-area" d="${blobPath(pos, index)}" style="--area-color:${config.color}"></path>`;
-    }).join("");
-    const lines = selected?.point
-      ? items.slice(0, 4).map(({ point }) => {
-        const a = project(selected.point);
-        const b = project(point);
-        return `<line class="overlay-line" x1="${a.x * 10}" y1="${a.y * 10}" x2="${b.x * 10}" y2="${b.y * 10}"></line>`;
-      }).join("")
+    const selectedPos = selected?.point ? project(selected.point) : null;
+    const selectedConfig = selected?.event ? categoryConfig(selected.event.category) : null;
+    const focus = selectedPos
+      ? selectionFrameSvg(selectedPos, selectedConfig?.color)
       : "";
     els.overlayLayer.setAttribute("viewBox", "0 0 1000 1000");
-    els.overlayLayer.innerHTML = lines + areas;
+    els.overlayLayer.innerHTML = focus;
   }
 
-  function blobPath(pos, index) {
+  function selectionFrameSvg(pos, color) {
     const cx = pos.x * 10;
     const cy = pos.y * 10;
-    const rx = 58 + (index % 3) * 14;
-    const ry = 42 + (index % 2) * 12;
-    const skew = (index % 4) * 6;
-    return [
-      `M ${cx - rx} ${cy - skew}`,
-      `C ${cx - rx * 0.8} ${cy - ry}, ${cx - rx * 0.15} ${cy - ry * 1.16}, ${cx + rx * 0.58} ${cy - ry * 0.74}`,
-      `C ${cx + rx * 1.04} ${cy - ry * 0.28}, ${cx + rx * 0.88} ${cy + ry * 0.72}, ${cx + rx * 0.25} ${cy + ry}`,
-      `C ${cx - rx * 0.42} ${cy + ry * 0.92}, ${cx - rx * 1.06} ${cy + ry * 0.42}, ${cx - rx} ${cy - skew}`,
-      "Z",
-    ].join(" ");
+    const size = 76;
+    const notch = 28;
+    const x1 = clamp(cx - size, 8, 992);
+    const x2 = clamp(cx + size, 8, 992);
+    const y1 = clamp(cy - size, 8, 992);
+    const y2 = clamp(cy + size, 8, 992);
+    const ix1 = clamp(cx - notch, 8, 992);
+    const ix2 = clamp(cx + notch, 8, 992);
+    const iy1 = clamp(cy - notch, 8, 992);
+    const iy2 = clamp(cy + notch, 8, 992);
+    const accent = escapeAttr(color || "#2563eb");
+    return `
+      <g class="overlay-focus" style="--overlay-color:${accent}">
+        <path d="M ${x1} ${iy1} L ${x1} ${y1} L ${ix1} ${y1}"></path>
+        <path d="M ${ix2} ${y1} L ${x2} ${y1} L ${x2} ${iy1}"></path>
+        <path d="M ${x2} ${iy2} L ${x2} ${y2} L ${ix2} ${y2}"></path>
+        <path d="M ${ix1} ${y2} L ${x1} ${y2} L ${x1} ${iy2}"></path>
+        <line x1="${cx}" y1="${clamp(cy - 18, 8, 992)}" x2="${cx}" y2="${clamp(cy + 18, 8, 992)}"></line>
+        <line x1="${clamp(cx - 18, 8, 992)}" y1="${cy}" x2="${clamp(cx + 18, 8, 992)}" y2="${cy}"></line>
+      </g>
+    `;
   }
 
   function renderMapCallout(event) {
@@ -1282,6 +1445,15 @@
     const recordWord = activeCount === 1 ? "record" : "records";
     const listScope = state.allEventsLoaded ? "full changelog loaded" : "changelog shows loaded years";
     els.timelineSummary.textContent = `${state.year}: ${formatNumber(activeCount)} observed ${recordWord} on the map; ${formatNumber(sourceCount)} sources; ${listScope}; satellite ${imageryLabel(state.afterImagery, state.year)}`;
+    if (els.mapTimeBadge) {
+      const beforeLabel = imageryFrameLabel(state.beforeImagery, state.beforeYear);
+      const afterLabel = imageryFrameLabel(state.afterImagery, state.year);
+      els.mapTimeBadge.innerHTML = `
+        <span>${escapeHtml(String(state.year))}</span>
+        <strong>${escapeHtml(formatNumber(activeCount))} ${escapeHtml(recordWord)}</strong>
+        <small>Imagery ${escapeHtml(afterLabel)}${state.compareEnabled ? ` / compare ${escapeHtml(beforeLabel)}` : ""}</small>
+      `;
+    }
     els.compareLabel.textContent = `${state.beforeYear} -> ${state.year}`;
     els.compareNote.textContent = state.compareEnabled
       ? `${Math.abs(Number(state.year) - Number(state.beforeYear))} years compared`
@@ -1327,7 +1499,7 @@
   function renderEmptyBrief() {
     els.detailIndex.textContent = "1";
     els.detailTitle.textContent = "Select a record";
-    els.detailSubtitle.textContent = "Choose a changelog item or map marker.";
+    els.detailSubtitle.textContent = "Choose a changelog item from the filtered list.";
     if (els.briefCoverageStatus) els.briefCoverageStatus.textContent = "Coverage status loads with the city.";
     els.observedChange.textContent = "Loading source-backed records.";
     if (els.impactPanel) els.impactPanel.innerHTML = `<p>Select an event to inspect associated place, mobility, and component context.</p>`;
@@ -1385,6 +1557,7 @@
     return [
       state.cityId,
       event?.event_id || "no-event",
+      normalizeSignal(state.proposalName || "untitled").slice(0, 80),
       state.proposalType,
       state.proposalScale,
       state.proposalStage,
@@ -1405,11 +1578,14 @@
     const profile = proposalProfile(state.proposalType);
     const point = eventPoint(event);
     const place = event?.affected_area?.label || shortCityName(state.city?.display_name);
+    const workingTitle = state.proposalName || `${profile.label} review using ${cleanTitle(event?.title)}`;
     return {
       schema_version: "bims5-proposal-input-v1",
       city_id: state.cityId,
-      title: `${profile.label} review using ${cleanTitle(event?.title)}`,
-      description: event?.explanation || `Evidence screen around ${place}.`,
+      title: workingTitle,
+      description: event?.explanation
+        ? `${event.explanation} Planning stage: ${signalLabel(state.proposalStage)}.`
+        : `Evidence screen around ${place}. Planning stage: ${signalLabel(state.proposalStage)}.`,
       category: profile.proposalCategory,
       location: point ? { lng: point.lng, lat: point.lat, label: place } : null,
       scale: plannerScaleForApi(),
@@ -1423,19 +1599,35 @@
   }
 
   function schedulePlannerAssessment(event, options = {}) {
-    window.clearTimeout(state.plannerAssessmentTimer);
     if (!event || !els.plannerWorkbench) return;
+    const key = plannerAssessmentKey(event);
+    if (!options.force && state.plannerAssessmentKey === key && (state.plannerAssessment || state.plannerAssessmentLoading)) return;
+    if (!options.force && state.plannerAssessmentCache.has(key)) {
+      state.plannerAssessmentKey = key;
+      state.plannerAssessment = state.plannerAssessmentCache.get(key);
+      state.plannerAssessmentError = null;
+      state.plannerAssessmentLoading = false;
+      renderPlannerWorkbench(event);
+      return;
+    }
+    window.clearTimeout(state.plannerAssessmentTimer);
+    state.plannerAssessmentTimer = null;
+    state.plannerAssessmentKey = key;
+    state.plannerAssessment = null;
+    state.plannerAssessmentError = null;
+    state.plannerAssessmentLoading = true;
+    renderPlannerWorkbench(event);
     const delay = Number.isFinite(Number(options.delay)) ? Number(options.delay) : 120;
     state.plannerAssessmentTimer = window.setTimeout(() => {
       state.plannerAssessmentTimer = null;
-      requestPlannerAssessment(event, options);
+      requestPlannerAssessment(event, { ...options, scheduled: true });
     }, prefersReducedMotion() ? 0 : delay);
   }
 
   async function requestPlannerAssessment(event, options = {}) {
     if (!event || !els.plannerWorkbench) return;
     const key = plannerAssessmentKey(event);
-    if (!options.force && state.plannerAssessmentKey === key && (state.plannerAssessment || state.plannerAssessmentLoading)) return;
+    if (!options.scheduled && !options.force && state.plannerAssessmentKey === key && (state.plannerAssessment || state.plannerAssessmentLoading)) return;
     if (!options.force && state.plannerAssessmentCache.has(key)) {
       state.plannerAssessmentKey = key;
       state.plannerAssessment = state.plannerAssessmentCache.get(key);
@@ -1524,7 +1716,7 @@
       <div class="planner-summary-strip">
         <div>
           <span class="impact-kicker">Proposal lens</span>
-          <strong>${escapeHtml(report.proposal.type_label)} at ${escapeHtml(report.selected_event?.place || shortCityName(state.city?.display_name))}</strong>
+          <strong>${escapeHtml(report.proposal.title)}</strong>
           <p>${escapeHtml(assessment?.summary || "Full-city analogue lookup is running or unavailable; local loaded evidence is shown below.")}</p>
         </div>
         ${lensStatus}
@@ -1618,7 +1810,7 @@
           </article>
         `).join("") : `<p>No close analogue is loaded yet. Load full city evidence or broaden filters before treating this as a coverage finding.</p>`}
       </div>
-      <p class="planner-caveat">This is a planning screen built from observed records. It does not forecast, simulate, or prove project effects.</p>
+      <p class="planner-caveat">This is a planning screen built from observed records. It does not estimate, simulate, or establish project effects.</p>
     `;
   }
 
@@ -1650,6 +1842,7 @@
           <div><span>Nearby records</span><strong>${formatNumber(nearbyCount)}</strong></div>
           <div><span>Source families</span><strong>${formatNumber(sourceCount)}</strong></div>
         </div>
+        ${renderProposalBrief(assessment)}
         <div class="planner-signal-grid">
           ${(assessment.affected_signals || []).slice(0, 4).map((signal) => `
             <article class="planner-signal">
@@ -1677,6 +1870,55 @@
         </div>
       </article>
     `;
+  }
+
+  function renderProposalBrief(assessment) {
+    const brief = assessment?.proposal_brief;
+    if (!brief) return "";
+    const readiness = (brief.evidence_readiness || []).slice(0, 4);
+    const patterns = (brief.historical_patterns || []).slice(0, 3);
+    const fieldwork = (brief.fieldwork_plan || []).slice(0, 3);
+    return `
+      <div class="planner-proposal-brief">
+        <div class="planner-card-head">
+          <span class="impact-kicker">Architect learning brief</span>
+          <strong>${escapeHtml(statusLabelFromRows(readiness))}</strong>
+        </div>
+        <p>${escapeHtml(brief.learning_focus || brief.framing || "Use the analogues to decide what needs evidence and fieldwork.")}</p>
+        <div class="planner-readiness-row">
+          ${readiness.map((row) => `
+            <span class="${escapeAttr(row.status || "gap")}">
+              <b>${escapeHtml(row.status_label || signalLabel(row.status))}</b>
+              ${escapeHtml(row.label || row.theme)}
+            </span>
+          `).join("")}
+        </div>
+        <div class="planner-learning-grid">
+          ${patterns.map((item) => `
+            <article>
+              <span>${escapeHtml(item.label || item.signal)}</span>
+              <strong>${escapeHtml(item.confidence || "low")} confidence</strong>
+              <small>${escapeHtml(item.what_to_learn || item.caveat || "Review source rows and caveats.")}</small>
+            </article>
+          `).join("")}
+        </div>
+        <details class="planner-fieldwork" open>
+          <summary>Fieldwork before citation</summary>
+          <ul>
+            ${fieldwork.map((item) => `<li><strong>${escapeHtml(item.method)}</strong>: ${escapeHtml(item.purpose)}</li>`).join("")}
+          </ul>
+        </details>
+      </div>
+    `;
+  }
+
+  function statusLabelFromRows(rows) {
+    if (!rows?.length) return "Evidence brief";
+    const gapCount = rows.filter((row) => row.status === "gap").length;
+    const readyCount = rows.filter((row) => row.status === "ready_to_review").length;
+    if (gapCount) return `${formatNumber(gapCount)} gaps visible`;
+    if (readyCount >= rows.length - 1) return "Ready to review";
+    return "Review with caveats";
   }
 
   function renderLocalContextSnapshot(assessment) {
@@ -2069,6 +2311,7 @@
       product: "Open Citylog",
       mode: "Architecture planning workbench",
       proposal: {
+        title: state.proposalName || `${profile.label} at ${event?.affected_area?.label || shortCityName(state.city?.display_name)}`,
         type: state.proposalType,
         type_label: profile.label,
         api_category: profile.proposalCategory,
@@ -2076,7 +2319,7 @@
         stage: state.proposalStage,
         radius_m: state.proposalRadiusM,
       },
-      caveat: "Historical evidence screen only. It does not forecast, simulate, or prove future project effects.",
+      caveat: "Historical evidence screen only. It does not estimate, simulate, or establish future project effects.",
       selected_event: event ? {
         event_id: event.event_id,
         title: cleanTitle(event.title),
@@ -2531,7 +2774,7 @@
     const sourceCount = Math.max((event.evidence || []).length, (event.source_ids || []).length);
     const confidence = confidenceLabel(event.confidence).toLowerCase();
     els.causalClaimLabel.textContent = "Available data does not justify a causal claim";
-    els.causalClaimText.textContent = `${formatNumber(sourceCount)} public source${sourceCount === 1 ? "" : "s"} and ${confidence} evidence document this change. They do not establish that the event caused wider outcomes.`;
+    els.causalClaimText.textContent = `${formatNumber(sourceCount)} public source${sourceCount === 1 ? "" : "s"} and ${confidence} evidence document this change. They do not establish wider outcomes.`;
   }
 
   function renderSources(event) {
@@ -2621,6 +2864,22 @@
       ensureYearLoaded(state.beforeYear, { silent: true }),
     ]);
     if (requestId !== state.yearRequest) return;
+    invalidateFilteredEventsCache();
+    const selectedMatchesYear = state.selectedEvent
+      && Number(state.selectedEvent.year) === Number(state.year)
+      && matchesFilters(state.selectedEvent);
+    if (!selectedMatchesYear) {
+      const nextSelection = pickInitialEvent({ preferCurrentYear: true });
+      if (nextSelection) {
+        selectEvent(nextSelection.event_id, { keepTimeline: true });
+        pulseTemporalScene();
+        scheduleMapRender();
+        return;
+      }
+      state.selectedEventId = null;
+      state.selectedEvent = null;
+      renderEmptyBrief();
+    }
     renderTimeline();
     renderEventList();
     pulseTemporalScene();
@@ -2654,8 +2913,6 @@
       setCameraTarget(focusCenterForPoint(point, focusZoom), focusZoom);
     }
     renderAll({ preserveSelection: true });
-    renderBrief(event);
-    renderMapCallout(event);
   }
 
   function selectInitialEvent(options = {}) {
@@ -2956,7 +3213,7 @@
       city_name: state.city?.display_name,
       selected_year: state.year,
       before_year: state.beforeYear,
-      caveat: "Historical evidence map, not a prediction engine. Causation is not claimed.",
+      caveat: "Historical evidence map, not an outcome engine. Causation is not claimed.",
       availability: state.availability ? {
         status: state.availability.summary?.status || state.cityMeta?.availability_status || null,
         summary: state.availability.summary?.summary || null,
@@ -3092,6 +3349,7 @@
     lines.push(
       `Product: ${report.product}`,
       `Mode: ${report.mode}`,
+      `Working proposal: ${report.proposal.title}`,
       `Proposal type: ${report.proposal.type_label}`,
       `Scale: ${report.proposal.scale}`,
       `Stage: ${report.proposal.stage}`,
@@ -3136,6 +3394,31 @@
       `Summary: ${report.proposal_lens?.summary || report.proposal_lens_error || "Full-city proposal lens was not available when this report was copied."}`,
       `Confidence: ${report.proposal_lens?.confidence?.label || "not supplied"}`,
       `Nearby historical records: ${report.proposal_lens?.local_context?.nearby_event_count ?? "not supplied"}`,
+      "",
+      "### Architect Learning Brief",
+      "",
+      `Framing: ${report.proposal_lens?.proposal_brief?.framing || "Use precedents as evidence leads, not as outcome certainty."}`,
+      `Learning focus: ${report.proposal_lens?.proposal_brief?.learning_focus || "not supplied"}`,
+      "",
+      "Evidence readiness:",
+    );
+    (report.proposal_lens?.proposal_brief?.evidence_readiness || []).forEach((row) => {
+      lines.push(`- ${row.label}: ${row.status_label}. ${row.note}`);
+    });
+    if (!(report.proposal_lens?.proposal_brief?.evidence_readiness || []).length) {
+      lines.push("- Not supplied by the proposal lens.");
+    }
+    lines.push(
+      "",
+      "Fieldwork before citation:",
+    );
+    (report.proposal_lens?.proposal_brief?.fieldwork_plan || []).forEach((row) => {
+      lines.push(`- ${row.method}: ${row.purpose}`);
+    });
+    if (!(report.proposal_lens?.proposal_brief?.fieldwork_plan || []).length) {
+      lines.push("- Not supplied by the proposal lens.");
+    }
+    lines.push(
       "",
       "### Design Review Basis",
       "",
@@ -3346,15 +3629,40 @@
   }
 
   function filteredEvents() {
+    const cacheKey = filteredEventsCacheKey();
+    if (state.filteredEventsCacheKey === cacheKey && state.filteredEventsCache) {
+      return state.filteredEventsCache;
+    }
     const events = Array.from(state.loadedEvents.values());
-    return events.filter(matchesFilters).sort(sortEvents);
+    const filtered = events.filter(matchesFilters).sort(sortEvents);
+    state.filteredEventsCacheKey = cacheKey;
+    state.filteredEventsCache = filtered;
+    return filtered;
+  }
+
+  function filteredEventsCacheKey() {
+    return [
+      state.cityId,
+      state.loadedEvents.size,
+      state.category,
+      state.confidence,
+      state.source,
+      state.search,
+      state.sort,
+      state.year,
+      state.allEventsLoaded ? "all" : "partial",
+    ].join("|");
+  }
+
+  function invalidateFilteredEventsCache() {
+    state.filteredEventsCacheKey = "";
+    state.filteredEventsCache = null;
   }
 
   function filteredMapEvents() {
     const yearEvents = state.eventsByYear.get(Number(state.year)) || [];
     const exact = yearEvents.filter(matchesFilters).sort(sortEvents);
-    if (exact.length) return exact;
-    return filteredEvents().filter((event) => eventPoint(event)).slice(0, MAX_MARKERS);
+    return exact;
   }
 
   function matchesFilters(event) {
@@ -3372,7 +3680,7 @@
   }
 
   function eventScore(event) {
-    const selectedYear = Number(state.selectedEvent?.year);
+    const selectedYear = Number(state.year);
     const anchorYear = Number.isFinite(selectedYear) ? selectedYear : FEATURED_YEAR[state.cityId];
     let score = 0;
     if (Number(event.year) === anchorYear) score += 60;
@@ -3937,6 +4245,9 @@
     if (!els.mapStage) return;
     els.mapStage.style.setProperty("--before-filter", "none");
     els.mapStage.style.setProperty("--after-filter", "none");
+    els.mapStage.dataset.year = String(state.year || "");
+    els.mapStage.dataset.beforeYear = String(state.beforeYear || "");
+    els.mapStage.dataset.imageryDate = state.afterImagery?.date || "";
     els.mapAttribution.textContent = imageryAttribution();
   }
 

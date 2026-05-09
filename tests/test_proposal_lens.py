@@ -96,6 +96,15 @@ console.log(JSON.stringify({ good, bad }));
             self.assertIsInstance(signal["caveats"], list)
         self.assertGreaterEqual(len(result["design_review_basis"]), 4)
         self.assertTrue(any(item["theme"] == "connectivity" for item in result["design_review_basis"]))
+        brief = result["proposal_brief"]
+        self.assertEqual(brief["persona"], "city_architect")
+        self.assertGreaterEqual(len(brief["evidence_readiness"]), 4)
+        self.assertGreaterEqual(len(brief["historical_patterns"]), 3)
+        self.assertGreaterEqual(len(brief["fieldwork_plan"]), 3)
+        self.assertGreaterEqual(len(brief["review_questions"]), 3)
+        self.assertGreaterEqual(len(brief["next_evidence_to_find"]), 2)
+        readiness_statuses = {item["status"] for item in brief["evidence_readiness"]}
+        self.assertTrue(readiness_statuses <= {"ready_to_review", "thin_evidence", "gap"})
 
     def test_missing_location_lowers_confidence_and_says_why(self) -> None:
         result = self.run_proposal(

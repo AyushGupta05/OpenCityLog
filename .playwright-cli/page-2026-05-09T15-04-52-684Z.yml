@@ -1,0 +1,199 @@
+- generic [ref=e1]:
+  - link "Skip to map" [ref=e2] [cursor=pointer]:
+    - /url: "#mapStage"
+  - generic [ref=e3]:
+    - banner "Open Citylog header" [ref=e4]:
+      - link "Open Citylog home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: Open Citylog
+      - paragraph [ref=e11]: Open-source city-change atlas
+      - generic [ref=e12]:
+        - searchbox "Ctrl K" [active] [ref=e14]
+        - generic [ref=e15]: Ctrl K
+      - combobox [ref=e18]:
+        - option "UK pilots" [selected]
+        - option "London"
+        - option "New York City"
+        - option "Belfast"
+      - paragraph [ref=e19]: Historical evidence map, not an outcome engine. i
+      - navigation "Project links" [ref=e20]:
+        - link "About" [ref=e21] [cursor=pointer]:
+          - /url: /docs/product_principles.md
+        - link "Docs" [ref=e22] [cursor=pointer]:
+          - /url: /docs/data_acquisition.md
+        - link "GitHub" [ref=e23] [cursor=pointer]:
+          - /url: https://github.com/AyushGupta05/OpenCityLog
+    - generic [ref=e25]:
+      - complementary "London" [ref=e3043]:
+        - tablist "Left panel" [ref=e27]:
+          - button "Change log" [ref=e28] [cursor=pointer]: Change log
+          - button "Saved places" [disabled] [ref=e30]
+        - region "Change log filters" [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - heading "London" [level=1] [ref=e3044]
+              - paragraph [ref=e35]: Loading source-backed records and coverage notes
+            - button "Show filters" [ref=e36] [cursor=pointer]
+        - generic [ref=e38]:
+          - generic [ref=e39]: UK pilots
+          - strong [ref=e40]: Loading records
+        - status [ref=e41]:
+          - strong [ref=e3045]: "Coverage loading:"
+          - text: Source and date coverage will appear with the selected city.
+        - list [ref=e43]:
+          - generic [ref=e3046]: Loading source-backed city records.
+        - button "Load full city changelog (189,177 records)" [ref=e1124] [cursor=pointer]
+      - main [ref=e1125]:
+        - group "Event layers":
+          - button "All layers" [pressed] [ref=e1126] [cursor=pointer]: All layers
+          - button "Planning" [ref=e1128] [cursor=pointer]: Planning
+          - button "Transport" [ref=e1130] [cursor=pointer]: Transport
+          - button "Environment" [ref=e1132] [cursor=pointer]: Environment
+          - button "Public services" [ref=e1134] [cursor=pointer]: Public services
+          - button "Economy & Demographics" [ref=e1136] [cursor=pointer]: Economy & Demographics
+        - region "Evidence map" [ref=e1138]:
+          - generic [ref=e1140]:
+            - generic:
+              - region
+            - region [ref=e1142]
+            - img
+            - generic "Selected evidence location"
+            - generic:
+              - generic: Stratford
+              - generic: Hackney Wick
+              - generic: Queen Elizabeth Olympic Park
+              - generic: East Bank
+              - generic: Pudding Mill Lane
+            - article:
+              - generic: Observed 2026
+              - strong: "Planning decision recorded: Stratford Fire Station, Newham"
+              - generic: Newham
+          - generic "Map controls" [ref=e1143]:
+            - button "Zoom in" [ref=e1144] [cursor=pointer]: +
+            - button "Zoom out" [ref=e1145] [cursor=pointer]: "-"
+            - button "Recenter map" [ref=e1146] [cursor=pointer]
+          - generic "Map view" [ref=e1148]:
+            - button "2D" [pressed] [ref=e1149] [cursor=pointer]
+            - button "3D" [ref=e1150] [cursor=pointer]
+          - generic [ref=e1151]: Esri World Imagery Wayback (2014-02-20 to 2026-03-25); source-backed event overlays
+          - generic:
+            - generic: "2026"
+            - strong: 19,304 records
+            - generic: Imagery 2026-03-25
+          - region "Timeline" [ref=e1152]:
+            - generic [ref=e1153]:
+              - button "Previous year" [ref=e1154] [cursor=pointer]
+              - generic [ref=e1155]:
+                - heading "Timeline" [level=2] [ref=e1156]
+                - paragraph [ref=e1157]: "2026: 19,304 observed records on the map; 127 sources; changelog shows loaded years; satellite 2026-03-25"
+              - button "Next year" [disabled] [ref=e1158]
+            - generic [ref=e1159]:
+              - generic [ref=e2792]: "2000"
+              - generic [ref=e2793]: "2004"
+              - generic [ref=e2794]: "2008"
+              - generic [ref=e2795]: "2012"
+              - generic [ref=e2796]: "2016"
+              - generic [ref=e2797]: "2020"
+              - generic [ref=e2798]: "2024"
+              - generic [ref=e2799]: "2026"
+            - slider [ref=e1170]: "2026"
+            - generic [ref=e1171]:
+              - button "Replay" [ref=e1172] [cursor=pointer]: Replay
+              - strong [ref=e1174]: 2004 -> 2026
+              - generic: Compare split is off
+              - generic [ref=e1175]:
+                - generic [ref=e1176]: Before
+                - slider "Before After" [ref=e1177]: "50"
+                - generic [ref=e1178]: After
+              - button "Compare" [ref=e1179] [cursor=pointer]
+              - button "Context Lens" [ref=e1180] [cursor=pointer]
+      - complementary "Select a record" [ref=e3047]:
+        - generic [ref=e1182]:
+          - button "Export Evidence Brief" [ref=e1183] [cursor=pointer]: Export Evidence Brief
+          - button "JSON" [ref=e1185] [cursor=pointer]
+          - generic [ref=e1186]:
+            - button "Copy evidence brief" [ref=e1187] [cursor=pointer]
+            - button "Clear selected evidence brief" [ref=e1188] [cursor=pointer]
+        - generic [ref=e1189]:
+          - generic [ref=e1190]: "1"
+          - generic [ref=e1191]:
+            - heading "Select a record" [level=2] [ref=e3048]
+            - paragraph [ref=e1193]: Choose a changelog item from the filtered list.
+            - paragraph [ref=e1194]: Coverage status loads with the city.
+        - region "Evidence screen for a proposal" [ref=e1195]:
+          - generic [ref=e1196]:
+            - generic [ref=e1197]:
+              - text: Architecture planning workbench
+              - heading "Evidence screen for a proposal" [level=3] [ref=e1198]
+            - button "Copy report" [disabled] [ref=e1199]
+          - generic [ref=e1200]:
+            - generic [ref=e1201]:
+              - generic [ref=e1202]: Working proposal
+              - textbox "Working proposal" [ref=e1203]:
+                - /placeholder: Name the planned change
+            - generic [ref=e1204]:
+              - generic [ref=e1205]: Proposal type
+              - combobox "Proposal type" [ref=e1206]:
+                - option "Housing or mixed-use" [selected]
+                - option "Street or transit change"
+                - option "Public realm"
+                - option "Civic or social infrastructure"
+                - option "Climate or resilience"
+            - generic [ref=e1207]:
+              - generic [ref=e1208]: Scale
+              - combobox "Scale" [ref=e1209]:
+                - option "Site" [selected]
+                - option "Block"
+                - option "Corridor"
+                - option "District"
+            - generic [ref=e1210]:
+              - generic [ref=e1211]: Stage
+              - combobox "Stage" [ref=e1212]:
+                - option "Early feasibility" [selected]
+                - option "Pre-application"
+                - option "Committee pack"
+                - option "Post-occupancy review"
+            - generic [ref=e1213]:
+              - generic [ref=e1214]: Evidence radius
+              - combobox "Evidence radius" [ref=e1215]:
+                - option "1 km"
+                - option "1.5 km" [selected]
+                - option "3 km"
+                - option "5 km"
+          - generic "Planning workbench actions" [ref=e1216]:
+            - button "Before/after split" [disabled] [ref=e1217]
+            - button "Traffic lens" [disabled] [ref=e1218]
+            - button "Load full city evidence" [ref=e1219] [cursor=pointer]
+          - paragraph [ref=e3049]: Select a source-backed event to build a planning report from observed precedent, imagery dates, traffic evidence, and source caveats.
+        - generic [ref=e1574]:
+          - button "Observed change" [expanded] [ref=e1575] [cursor=pointer]:
+            - generic [ref=e1576]: Observed change
+          - paragraph [ref=e1577]: Loading source-backed records.
+        - button "Evidence" [expanded] [ref=e1579] [cursor=pointer]:
+          - generic [ref=e1580]: Evidence
+        - generic [ref=e1592]:
+          - button "Confidence" [expanded] [ref=e1593] [cursor=pointer]:
+            - generic [ref=e1594]: Confidence
+          - strong [ref=e1597]: No event
+          - paragraph [ref=e1598]: Select an event to see evidence strength.
+        - generic [ref=e1599]:
+          - button "Limitations" [expanded] [ref=e1600] [cursor=pointer]:
+            - generic [ref=e1601]: Limitations
+          - list [ref=e1602]:
+            - listitem [ref=e3050]: Coverage and licensing notes load with the selected record.
+        - region "Causal claim" [ref=e1607]:
+          - button "Causal claim" [expanded] [ref=e1608] [cursor=pointer]:
+            - generic [ref=e1609]: Causal claim
+          - strong [ref=e1612]: Not assessed
+          - paragraph [ref=e1613]: Select an event to see whether the evidence supports a causal claim.
+        - button "Sources" [expanded] [ref=e1615] [cursor=pointer]:
+          - generic [ref=e1616]: Sources
+        - region "Context lens" [ref=e1688]:
+          - generic [ref=e1689]:
+            - heading "Context lens" [level=3] [ref=e1690]
+            - group "How to inspect the selected event" [ref=e1691]:
+              - button "Place change" [pressed] [ref=e1692] [cursor=pointer]
+              - button "Traffic" [ref=e1693] [cursor=pointer]
+              - button "Components" [ref=e1694] [cursor=pointer]
+          - paragraph [ref=e3051]: Select an event to inspect associated place, mobility, and component context.
+        - text: – + – + + + + +

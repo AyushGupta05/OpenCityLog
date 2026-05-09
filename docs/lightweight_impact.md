@@ -6,9 +6,9 @@ The Proposal Lens is an evidence screen for proposed city changes. It answers:
 
 > Which observed precedents, source caveats, before/after records, and traffic evidence should be reviewed before a proposal claim is made?
 
-It is not a calibrated forecast, simulator, causal model, or approval tool. It retrieves historical analogues, extracts local context, and turns those records into planner-facing questions, caveats, and evidence links.
+It is not a calibrated outcome estimator, simulator, causal model, or approval tool. It retrieves historical analogues, extracts local context, and turns those records into planner-facing questions, caveats, and evidence links.
 
-The frontend planning workbench in `web/index.html` and `web/atlas.js` applies the same rule to the selected atlas event. A user can choose a proposal type, scale, and project stage, then copy a planning report that includes:
+The frontend planning workbench in `web/index.html` and `web/atlas.js` applies the same rule to the selected atlas event as a proposed site or precedent. A user can name the working proposal, choose a proposal type, scale, and project stage, then copy a planning report that includes:
 
 - selected historical precedent and confidence
 - before/after imagery dates and archive fallback notes
@@ -19,6 +19,7 @@ The frontend planning workbench in `web/index.html` and `web/atlas.js` applies t
 - a local context snapshot that uses source-backed grid cells when available and nearby historical event density when grid cells are absent
 - an evidence matrix for planning status, mobility, services, environment, economy, and analogue strength
 - a city-architect design review basis for context/character, connectivity, public realm, environment/resilience, and everyday use value
+- an architect learning brief with evidence readiness, historical patterns, fieldwork tasks, and next evidence to find
 - a work queue that distinguishes ready evidence from gaps that need surveys, source review, or specialist assessment
 - a city-architect review brief that turns precedent into public-life fieldwork, eye-level design tests, and a non-causal impact-learning ledger
 - comparable loaded events, design review questions, data gaps, and linked sources
@@ -32,7 +33,7 @@ The browser-side report has two scopes:
 
 Both scopes are reported explicitly so users do not mistake a currently loaded map layer for complete city coverage.
 
-The city-architect review is informed by public-life practice associated with Jan Gehl and Gehl: use public-space/public-life observation, combine high-level and eye-level evidence, count people moving and staying, and treat "measure, test, refine" as a planning workflow rather than a prediction model.
+The city-architect review is informed by public-life practice associated with Jan Gehl and Gehl: use public-space/public-life observation, combine high-level and eye-level evidence, count people moving and staying, and treat "measure, test, refine" as a planning workflow rather than an outcome model.
 
 ## Proposal Input
 
@@ -114,6 +115,7 @@ The proposal-impact result includes:
 - `confidence`: overall label and reasons.
 - `caveats`: global limitations.
 - `evidence`: source IDs, event evidence, and current-context evidence.
+- `proposal_brief`: a city-architect learning brief with evidence readiness, historical patterns, fieldwork tasks, review questions, and the next evidence to find before citation.
 - `design_review_basis`: city-architect review themes, evidence counts, confidence labels, and review prompts.
 - `method`: method version, weights, radius, and limitations.
 
@@ -121,7 +123,7 @@ The proposal-impact result includes:
 
 The Proposal Lens must not:
 
-- Claim a proposal will cause an outcome.
+- Claim a proposal produces an outcome.
 - Produce single-number impact scores.
 - Treat OSM edit dates as construction dates.
 - Hide missing data.

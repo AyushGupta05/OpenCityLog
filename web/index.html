@@ -37,7 +37,7 @@
         <select id="citySelect" name="city"></select>
       </label>
 
-      <p class="trust-note">Historical evidence map, not a prediction engine.</p>
+      <p class="trust-note">Historical evidence map, not an outcome engine.</p>
 
       <nav class="top-links" aria-label="Project links">
         <a href="/docs/product_principles.md" target="_blank" rel="noreferrer">About</a>
@@ -120,14 +120,14 @@
               <div class="tile-layer after" id="afterTileLayer" aria-hidden="true"></div>
               <div class="map-divider" aria-hidden="true"></div>
               <svg class="overlay-layer" id="overlayLayer" aria-hidden="true"></svg>
-              <div class="marker-layer" id="markerLayer" aria-label="Mappable events"></div>
+              <div class="marker-layer" id="markerLayer" aria-label="Selected evidence location"></div>
               <div class="place-label-layer" id="placeLabelLayer" aria-hidden="true"></div>
               <article class="map-callout" id="mapCallout" hidden>
                 <span id="calloutYear">Observed</span>
                 <strong id="calloutTitle">Select a record</strong>
                 <small id="calloutMeta">Source-backed event</small>
               </article>
-              <div class="map-empty" id="mapEmpty" hidden>No mappable records in this view.</div>
+              <div class="map-empty" id="mapEmpty" hidden>Filter the list, then select a record.</div>
             </div>
           </div>
 
@@ -143,6 +143,7 @@
           </div>
 
           <div class="map-attribution" id="mapAttribution">Esri World Imagery, OpenStreetMap contributors, source-backed overlays</div>
+          <div class="map-time-badge" id="mapTimeBadge" aria-live="polite">Timeline view loading</div>
 
           <section class="timeline-dock" id="timelineDock" aria-label="Timeline">
             <div class="timeline-head">
@@ -196,7 +197,7 @@
           <span id="detailIndex" class="selected-pin">1</span>
           <div>
             <h2 id="detailTitle">Select a record</h2>
-            <p id="detailSubtitle">Choose a changelog item or map marker.</p>
+            <p id="detailSubtitle">Choose a changelog item from the filtered list.</p>
             <p id="briefCoverageStatus" class="brief-coverage-status">Coverage status loads with the city.</p>
           </div>
         </header>
@@ -210,6 +211,10 @@
             <button id="copyPlanningReportButton" class="planner-copy-button" type="button">Copy report</button>
           </div>
           <div class="planner-controls">
+            <label class="proposal-name-control" for="proposalNameInput">
+              <span>Working proposal</span>
+              <input id="proposalNameInput" type="text" autocomplete="off" placeholder="Name the planned change">
+            </label>
             <label for="proposalTypeSelect">
               <span>Proposal type</span>
               <select id="proposalTypeSelect">

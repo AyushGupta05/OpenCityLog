@@ -66,15 +66,15 @@ async function evaluateMapOverlayLayout(page) {
       .map((button) => button.textContent.trim());
     const timeline = toRect(document.querySelector(".timeline-dock"));
     const callout = toRect(document.querySelector(".map-callout:not([hidden])"));
-    const selectedMarker = toRect(document.querySelector(".map-marker[aria-selected=\"true\"]"));
+    const timeBadge = toRect(document.querySelector(".map-time-badge"));
     return {
       clippedLayerLabels,
       calloutOverlapsTimeline: overlaps(callout, timeline, 8),
-      selectedMarkerOverlapsTimeline: overlaps(selectedMarker, timeline, 6),
+      timeBadgeOverlapsTimeline: overlaps(timeBadge, timeline, 6),
       timelineWidth: Math.round(timeline?.width || 0),
       calloutTop: Math.round(callout?.top || 0),
       timelineTop: Math.round(timeline?.top || 0),
-      selectedMarkerBottom: Math.round(selectedMarker?.bottom || 0),
+      timeBadgeBottom: Math.round(timeBadge?.bottom || 0),
     };
   });
 }
@@ -104,6 +104,8 @@ async function evaluateMapOverlayLayout(page) {
     const main = firstCard?.querySelector(".event-main")?.getBoundingClientRect();
     return {
       markers: document.querySelectorAll(".map-marker").length,
+      selectionFramePaths: document.querySelectorAll(".overlay-focus path").length,
+      timeBadgeText: document.querySelector("#mapTimeBadge")?.textContent || "",
       eventCards: document.querySelectorAll(".event-card").length,
       eventThumbImages: document.querySelectorAll(".event-thumb img").length,
       evidenceFrames: document.querySelectorAll(".mini-frame").length,
@@ -126,7 +128,9 @@ async function evaluateMapOverlayLayout(page) {
     };
   });
 
-  assert(desktopState.markers > 0, "Desktop map has no markers.");
+  assert(desktopState.markers === 0, "Desktop map should not render event-circle markers.");
+  assert(desktopState.selectionFramePaths >= 4, "Desktop map selection frame did not render.");
+  assert(/\d{4}/.test(desktopState.timeBadgeText), "Desktop timeline badge did not render a year.");
   assert(desktopState.eventCards > 0, "Desktop changelog has no event cards.");
   assert(desktopState.eventThumbImages > 0, "Desktop event thumbnails did not render imagery tiles.");
   assert(desktopState.thumbWidth >= 80 && desktopState.thumbHeight >= 90, "Desktop event thumbnails are too small.");
@@ -159,7 +163,7 @@ async function evaluateMapOverlayLayout(page) {
   const mediumOverlayLayout = await evaluateMapOverlayLayout(mediumDesktop);
   assert(mediumOverlayLayout.clippedLayerLabels.length === 0, `Medium desktop layer chips are clipped: ${mediumOverlayLayout.clippedLayerLabels.join(", ")}.`);
   assert(!mediumOverlayLayout.calloutOverlapsTimeline, `Medium desktop callout overlaps timeline: calloutTop ${mediumOverlayLayout.calloutTop}, timelineTop ${mediumOverlayLayout.timelineTop}.`);
-  assert(!mediumOverlayLayout.selectedMarkerOverlapsTimeline, `Medium desktop selected marker is hidden by timeline: markerBottom ${mediumOverlayLayout.selectedMarkerBottom}, timelineTop ${mediumOverlayLayout.timelineTop}.`);
+  assert(!mediumOverlayLayout.timeBadgeOverlapsTimeline, `Medium desktop time badge overlaps timeline: badgeBottom ${mediumOverlayLayout.timeBadgeBottom}, timelineTop ${mediumOverlayLayout.timelineTop}.`);
   await mediumDesktop.screenshot({ path: path.join(outputDir, "open-citylog-medium-desktop-smoke.png"), fullPage: false });
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 860 }, deviceScaleFactor: 2, isMobile: true });
@@ -181,6 +185,9 @@ async function evaluateMapOverlayLayout(page) {
     cityBottom: Math.round(document.querySelector(".city-picker")?.getBoundingClientRect().bottom || 0),
     firstCardHeight: Math.round(document.querySelector(".event-card")?.getBoundingClientRect().height || 0),
     eventThumbImages: document.querySelectorAll(".event-thumb img").length,
+    markers: document.querySelectorAll(".map-marker").length,
+    selectionFramePaths: document.querySelectorAll(".overlay-focus path").length,
+    timeBadgeText: document.querySelector("#mapTimeBadge")?.textContent || "",
     thumbWidth: Math.round(document.querySelector(".event-thumb")?.getBoundingClientRect().width || 0),
     thumbHeight: Math.round(document.querySelector(".event-thumb")?.getBoundingClientRect().height || 0),
     thumbBeforeText: (() => {
@@ -196,6 +203,8 @@ async function evaluateMapOverlayLayout(page) {
   assert(mobileState.railTop > mobileState.cityBottom, "Mobile topbar overlaps the change-log tabs.");
   assert(mobileState.firstCardHeight >= 110, "Mobile event cards are too cramped.");
   assert(mobileState.eventThumbImages > 0, "Mobile event thumbnails did not render imagery tiles.");
+  assert(mobileState.markers === 0 && mobileState.selectionFramePaths >= 4, "Mobile map should use the selection frame instead of event-circle markers.");
+  assert(/\d{4}/.test(mobileState.timeBadgeText), "Mobile timeline badge did not render a year.");
   assert(mobileState.thumbWidth <= 92 && mobileState.thumbHeight >= 100, "Mobile event thumbnail sizing is wrong.");
   assert(mobileState.thumbBeforeText, "Mobile event thumbnail overlaps event text.");
   assert(/Change log|Timeline|Evidence|Open Citylog/i.test(mobileState.visibleText), "Mobile product sections are missing.");

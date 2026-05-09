@@ -44,9 +44,13 @@ async function waitForRenderedImagery(page) {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 920 }, deviceScaleFactor: 1 });
   const consoleErrors = [];
+  const notFoundUrls = [];
 
   page.on("console", (message) => {
     if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  page.on("response", (response) => {
+    if (response.status() === 404) notFoundUrls.push(response.url());
   });
   page.on("pageerror", (error) => consoleErrors.push("pageerror: " + error.message));
 
@@ -96,6 +100,7 @@ async function waitForRenderedImagery(page) {
     eventCount: window.BimsAtlas.filteredEvents().length,
     mapEventCount: window.BimsAtlas.filteredMapEvents().length,
     markers: document.querySelectorAll(".map-marker").length,
+    selectionFramePaths: document.querySelectorAll(".overlay-focus path").length,
     tiles: document.querySelectorAll(".tile-layer img").length,
     mapCanvases: document.querySelectorAll(".maplibregl-canvas").length,
     mapSceneReady: window.BimsAtlas.state.mapSceneReady,
@@ -135,7 +140,7 @@ async function waitForRenderedImagery(page) {
   }));
 
   assert(initial.title.includes("Open Citylog"), "Open Citylog title did not render.");
-  for (const cityId of ["belfast", "london", "nyc"]) {
+  for (const cityId of ["uk", "belfast", "london", "nyc"]) {
     assert(initial.cityOptions.includes(cityId), `Missing city selector option ${cityId}.`);
   }
   for (const label of ["All layers", "Planning", "Transport", "Environment", "Public services", "Economy"]) {
@@ -143,7 +148,8 @@ async function waitForRenderedImagery(page) {
   }
   assert(initial.eventCount > 0, "Change log did not load events.");
   assert(initial.mapEventCount > 0, "Timeline/map year did not expose events.");
-  assert(initial.markers > 0, "Map did not render event markers.");
+  assert(initial.markers === 0, "Map should not render event-circle markers; selection happens from filters/list.");
+  assert(initial.selectionFramePaths >= 4, "Map did not render the selected-record frame.");
   assert(initial.mapSceneReady && initial.mapCanvases >= 2, "Native MapLibre before/after map scenes did not initialize.");
   assert(initial.tiles >= 24, "Imagery basemap tiles did not render.");
   assert(/Esri World Imagery Wayback/i.test(initial.imageryProvider), "Wayback imagery manifest did not load.");
@@ -157,7 +163,7 @@ async function waitForRenderedImagery(page) {
   assert(initial.plannerStatusCards >= 4, "Planning workbench readiness cards did not render.");
   assert(initial.plannerMatrixRows >= 5 && initial.plannerTasks >= 4, "Planning workbench matrix or task queue did not render.");
   assert(initial.plannerControls.includes("proposalTypeSelect") && initial.plannerControls.includes("proposalScaleSelect") && initial.plannerControls.includes("proposalStageSelect") && initial.plannerControls.includes("proposalRadiusSelect"), "Planning workbench controls are missing.");
-  assert(/Before\/after diff|Traffic evidence|Full-city analogue lookup|Evidence matrix|does not forecast/i.test(initial.plannerText), "Planning workbench is missing before/after, traffic, full-city analogue, matrix, or no-forecast language.");
+  assert(/Before\/after diff|Traffic evidence|Full-city analogue lookup|Evidence matrix|does not estimate/i.test(initial.plannerText), "Planning workbench is missing before/after, traffic, full-city analogue, matrix, or outcome-limit language.");
   assert(initial.planningReport?.proposal?.type === "housing" && initial.planningReport?.proposal_lens?.ok === true && initial.planningReport?.traffic && initial.planningReport?.before_after, "Planning report payload did not include proposal lens, traffic, and before/after sections.");
   assert(initial.plannerApiAnalogues > 0, "Full-city proposal lens did not render analogue rows.");
   assert(initial.plannerOpenButtons > 0, "Full-city analogue rows are not openable from the workbench.");
@@ -229,9 +235,10 @@ async function waitForRenderedImagery(page) {
     area: document.querySelector("#areaTitle")?.textContent || "",
     selected: window.BimsAtlas.state.selectedEvent?.title || "",
     markers: document.querySelectorAll(".map-marker").length,
+    selectionFramePaths: document.querySelectorAll(".overlay-focus path").length,
   }));
   assert(/New York City/i.test(nycState.area), "City selector did not switch to NYC.");
-  assert(nycState.markers > 0, "NYC map did not render markers.");
+  assert(nycState.markers === 0 && nycState.selectionFramePaths >= 4, "NYC map should use list selection frame rather than event markers.");
   const nycHeading = await page.evaluate(() => ({
     title: document.querySelector("#changeLogTitle")?.textContent || "",
     subtitle: document.querySelector("#changeLogSubtitle")?.textContent || "",
@@ -322,8 +329,7 @@ async function waitForRenderedImagery(page) {
   const timelineBefore = await page.evaluate(() => ({
     selectedId: window.BimsAtlas.state.selectedEventId,
     selectedTitle: document.querySelector("#detailTitle")?.textContent || "",
-    firstMarkerTitle: document.querySelector(".map-marker")?.getAttribute("aria-label") || "",
-    markerCount: document.querySelectorAll(".map-marker").length,
+    selectedYear: Number(window.BimsAtlas.state.selectedEvent?.year || 0),
     firstCardId: document.querySelector("#eventList [data-event-id]")?.dataset.eventId || "",
     year: window.BimsAtlas.state.year,
     afterImageryId: window.BimsAtlas.state.afterImagery?.id || "",
@@ -336,20 +342,24 @@ async function waitForRenderedImagery(page) {
   });
   await page.evaluate(async (year) => window.BimsAtlas.setYear(year), timelineTarget);
   await page.waitForFunction((year) => window.BimsAtlas.state.year === year, timelineTarget, { timeout: 10000 });
+  await page.waitForFunction((year) => Number(window.BimsAtlas.state.selectedEvent?.year || 0) === year, timelineTarget, { timeout: 10000 });
   const timelineAfter = await page.evaluate(() => ({
     selectedId: window.BimsAtlas.state.selectedEventId,
     selectedTitle: document.querySelector("#detailTitle")?.textContent || "",
-    firstMarkerTitle: document.querySelector(".map-marker")?.getAttribute("aria-label") || "",
-    markerCount: document.querySelectorAll(".map-marker").length,
+    selectedYear: Number(window.BimsAtlas.state.selectedEvent?.year || 0),
+    markers: document.querySelectorAll(".map-marker").length,
+    selectionFramePaths: document.querySelectorAll(".overlay-focus path").length,
     firstCardId: document.querySelector("#eventList [data-event-id]")?.dataset.eventId || "",
     timelineText: document.querySelector("#timelineSummary")?.textContent || "",
+    timeBadgeText: document.querySelector("#mapTimeBadge")?.textContent || "",
     afterImageryId: window.BimsAtlas.state.afterImagery?.id || "",
   }));
-  assert(timelineAfter.selectedId === timelineBefore.selectedId, "Timeline scrub changed the selected event.");
-  assert(timelineAfter.selectedTitle === timelineBefore.selectedTitle, "Timeline scrub changed the evidence brief.");
-  assert(timelineAfter.firstCardId === timelineBefore.firstCardId, "Timeline scrub rerendered or reordered the changelog.");
-  assert(timelineAfter.firstMarkerTitle !== timelineBefore.firstMarkerTitle || timelineAfter.markerCount !== timelineBefore.markerCount, "Timeline scrub did not change the visible year-specific map markers.");
+  assert(timelineAfter.selectedId !== timelineBefore.selectedId || timelineAfter.selectedYear !== timelineBefore.selectedYear, "Timeline scrub did not move selection to the target year.");
+  assert(timelineAfter.selectedYear === timelineTarget, "Timeline scrub did not select a record from the target year.");
+  assert(timelineAfter.firstCardId !== timelineBefore.firstCardId || timelineAfter.selectedTitle !== timelineBefore.selectedTitle, "Timeline scrub did not update the visible record set.");
+  assert(timelineAfter.markers === 0 && timelineAfter.selectionFramePaths >= 4, "Timeline view reintroduced event-circle markers or lost the selection frame.");
   assert(new RegExp(String(timelineTarget)).test(timelineAfter.timelineText), "Timeline summary did not announce the target year.");
+  assert(new RegExp(String(timelineTarget)).test(timelineAfter.timeBadgeText), "Map time badge did not announce the target year.");
   assert(timelineAfter.afterImageryId !== timelineBefore.afterImageryId, "Timeline scrub did not switch the dated imagery layer.");
 
   await page.locator("#eventSearch").fill("congestion");
@@ -405,13 +415,19 @@ async function waitForRenderedImagery(page) {
     trustText: document.querySelector(".trust-note")?.textContent || "",
   }));
   assert(mobileTrust.attributionDisplay !== "none" && /Imagery|OpenStreetMap|source/i.test(mobileTrust.attributionText), "Mobile map attribution/trust chip is hidden.");
-  assert(mobileTrust.trustDisplay !== "none" && /not a prediction/i.test(mobileTrust.trustText), "Mobile product trust note is hidden.");
+  assert(mobileTrust.trustDisplay !== "none" && /not an outcome/i.test(mobileTrust.trustText), "Mobile product trust note is hidden.");
   await page.setViewportSize({ width: 1440, height: 920 });
 
   await page.screenshot({ path: path.join(outputDir, "open-citylog-browser-smoke.png"), fullPage: false });
   await browser.close();
 
-  const filteredErrors = consoleErrors.filter((error) => !/favicon/i.test(error));
+  const filteredErrors = consoleErrors.filter((error) => {
+    if (/favicon/i.test(error)) return false;
+    if (/Failed to load resource: the server responded with a status of 404/i.test(error)) {
+      return !notFoundUrls.some((item) => /\/api\/imagery\/wayback\/|wayback\.maptiles\.arcgis\.com|World_Imagery/i.test(item));
+    }
+    return true;
+  });
   assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
   console.log("Open Citylog browser smoke OK: city switching, filters, map overlay, timeline, evidence brief, and legacy-copy guard.");
 })().catch((error) => {
