@@ -6,6 +6,7 @@ const proposalImpact = require("./lib/proposal-impact");
 const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
 const port = Number(process.env.PORT || 5173);
+const proposalResponseCache = new Map();
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
 
@@ -47,6 +48,28 @@ function sendJson(res, status, payload) {
     "cache-control": "no-store"
   });
   res.end(JSON.stringify(payload, null, 2));
+}
+
+function stableJson(value) {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function proposalCacheKey(payload) {
+  return stableJson({
+    proposal: payload.proposal || payload,
+    radius_m: Number(payload.radius_m || payload.radiusM || proposalImpact.DEFAULT_RADIUS_M)
+  });
+}
+
+function setProposalCache(key, value) {
+  proposalResponseCache.set(key, value);
+  while (proposalResponseCache.size > 96) {
+    proposalResponseCache.delete(proposalResponseCache.keys().next().value);
+  }
 }
 
 function sendText(res, status, message) {
@@ -158,10 +181,17 @@ function handleProposalImpactSchema(_req, res) {
 async function handleProposalImpactPost(req, res) {
   try {
     const payload = await readJsonRequest(req, 700_000);
+    const cacheKey = proposalCacheKey(payload);
+    const cached = proposalResponseCache.get(cacheKey);
+    if (cached) {
+      sendJson(res, 200, cached);
+      return;
+    }
     const result = proposalImpact.assessProposal(payload.proposal || payload, {
       rootDir,
       radius_m: Number(payload.radius_m || payload.radiusM || proposalImpact.DEFAULT_RADIUS_M)
     });
+    setProposalCache(cacheKey, result);
     sendJson(res, 200, result);
   } catch (error) {
     sendJson(res, error.statusCode || 500, {

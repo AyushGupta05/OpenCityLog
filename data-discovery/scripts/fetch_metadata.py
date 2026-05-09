@@ -23,7 +23,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "raw_metadata"
-UA = "Bims-5 civic data discovery bot/0.1 (+https://github.com/); contact: local research package"
+UA = "Bims-5 civic data discovery bot/0.1 (+https://github.com/AyushGupta05/OpenCityLog); contact: local research package"
 TIMEOUT = 12
 
 class TitleParser(HTMLParser):

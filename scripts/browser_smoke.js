@@ -5,7 +5,7 @@ const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
-const url = process.env.URL || "http://localhost:5173";
+const url = process.env.URL || "http://127.0.0.1:5173";
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -53,6 +53,15 @@ async function waitForRenderedImagery(page) {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(page);
   await waitForRenderedImagery(page);
+  await page.waitForFunction(
+    () => Boolean(
+      window.BimsAtlas?.state?.selectedEvent &&
+      !window.BimsAtlas.state.plannerAssessmentLoading &&
+      document.querySelector("#plannerWorkbench .planner-matrix-row")
+    ),
+    null,
+    { timeout: 30000 }
+  );
   await page.waitForTimeout(500);
 
   const health = await (await page.request.get(`${url}/api/health`)).json();
@@ -100,6 +109,16 @@ async function waitForRenderedImagery(page) {
     impactText: document.querySelector("#impactPanel")?.textContent || "",
     plannerText: document.querySelector("#plannerWorkbench")?.textContent || "",
     plannerStatusCards: document.querySelectorAll("#plannerWorkbench .planner-status").length,
+    plannerMatrixRows: document.querySelectorAll("#plannerWorkbench .planner-matrix-row").length,
+    plannerTasks: document.querySelectorAll("#plannerWorkbench .planner-task").length,
+    plannerApiAnalogues: document.querySelectorAll("#plannerWorkbench .planner-api-analogues .planner-analogue").length,
+    plannerOpenButtons: document.querySelectorAll("#plannerWorkbench [data-planner-open-event]").length,
+    plannerFirstApiAnalogue: document.querySelector("#plannerWorkbench .planner-api-analogues .planner-analogue")?.textContent || "",
+    plannerContextCards: document.querySelectorAll("#plannerWorkbench .planner-context-grid article").length,
+    plannerDesignBasisRows: document.querySelectorAll("#plannerWorkbench .planner-design-basis article").length,
+    plannerMatchFactorRows: document.querySelectorAll("#plannerWorkbench .planner-match-factors span").length,
+    architectText: document.querySelector("#plannerWorkbench .city-architect-block")?.textContent || "",
+    architectLedgerRows: document.querySelectorAll("#plannerWorkbench .impact-learning-ledger article").length,
     plannerControls: Array.from(document.querySelectorAll(".planner-controls select")).map((select) => select.id),
     planningReport: window.BimsAtlas.planningReportPayload(window.BimsAtlas.state.selectedEvent),
     causalClaimText: document.querySelector("#causalClaimText")?.textContent || "",
@@ -136,9 +155,20 @@ async function waitForRenderedImagery(page) {
   assert(initial.impactCards > 0, "Impact/component cards did not render for the selected event.");
   assert(/not causal|observed place|affected/i.test(initial.impactText), "Impact panel is missing descriptive, caveated copy.");
   assert(initial.plannerStatusCards >= 4, "Planning workbench readiness cards did not render.");
-  assert(initial.plannerControls.includes("proposalTypeSelect") && initial.plannerControls.includes("proposalScaleSelect") && initial.plannerControls.includes("proposalStageSelect"), "Planning workbench controls are missing.");
-  assert(/Before\/after diff|Traffic evidence|Historical analogues|does not forecast/i.test(initial.plannerText), "Planning workbench is missing before/after, traffic, analogue, or no-forecast language.");
-  assert(initial.planningReport?.proposal?.type === "housing" && initial.planningReport?.traffic && initial.planningReport?.before_after, "Planning report payload did not include proposal, traffic, and before/after sections.");
+  assert(initial.plannerMatrixRows >= 5 && initial.plannerTasks >= 4, "Planning workbench matrix or task queue did not render.");
+  assert(initial.plannerControls.includes("proposalTypeSelect") && initial.plannerControls.includes("proposalScaleSelect") && initial.plannerControls.includes("proposalStageSelect") && initial.plannerControls.includes("proposalRadiusSelect"), "Planning workbench controls are missing.");
+  assert(/Before\/after diff|Traffic evidence|Full-city analogue lookup|Evidence matrix|does not forecast/i.test(initial.plannerText), "Planning workbench is missing before/after, traffic, full-city analogue, matrix, or no-forecast language.");
+  assert(initial.planningReport?.proposal?.type === "housing" && initial.planningReport?.proposal_lens?.ok === true && initial.planningReport?.traffic && initial.planningReport?.before_after, "Planning report payload did not include proposal lens, traffic, and before/after sections.");
+  assert(initial.plannerApiAnalogues > 0, "Full-city proposal lens did not render analogue rows.");
+  assert(initial.plannerOpenButtons > 0, "Full-city analogue rows are not openable from the workbench.");
+  assert(/Planning|development|housing|brownfield|Waterfront|International Quarter/i.test(initial.plannerFirstApiAnalogue), "Housing proposal analogue ranking did not prioritize planning/development records.");
+  assert(initial.plannerContextCards > 0, "Proposal lens did not render source-backed local context signals.");
+  assert(initial.plannerDesignBasisRows >= 4, "Proposal lens did not render the city-architect design review basis.");
+  assert(initial.plannerMatchFactorRows > 0, "Analogue rows did not expose why each match was returned.");
+  assert(initial.planningReport?.proposal_lens?.design_review_basis?.length >= 4, "Planning report is missing design review basis rows.");
+  assert(/nearby[_ ]historical[_ ]event[_ ]density|grid[_ ]and[_ ]nearby[_ ]historical[_ ]events|current[_ ]context/i.test(initial.planningReport?.proposal_lens?.local_context?.context_basis || ""), "Proposal lens did not report the local-context basis.");
+  assert(initial.architectLedgerRows >= 4 && /Public life baseline|Design tests|Learning aim/i.test(initial.architectText), "City architect review brief did not render useful public-life guidance.");
+  assert(initial.planningReport?.city_architect_brief?.public_life_plan?.length >= 4, "Planning report is missing the city architect public-life measurement plan.");
   assert(/do(?:es)? not establish|does not justify|causal claim/i.test(initial.causalClaimText), "Evidence brief is missing an explicit causal-claim caveat.");
   assert(initial.selectedTitle.length > 5, "Evidence brief did not select an initial event.");
   assert(/Stratford|Olympic Park|Lower Lea Valley/i.test(initial.changeLogTitle), "London focus heading did not render.");
@@ -345,12 +375,17 @@ async function waitForRenderedImagery(page) {
   assert(belfastState.sourcesText.length > 20, "Evidence sources did not render.");
 
   await page.locator(".section-toggle").first().click();
-  const collapsed = await page.locator(".brief-section").first().evaluate((node) => ({
-    expanded: node.querySelector(".section-toggle")?.getAttribute("aria-expanded"),
-    classed: node.classList.contains("is-collapsed"),
+  const collapsed = await page.locator(".section-toggle").first().evaluate((button) => ({
+    expanded: button.getAttribute("aria-expanded"),
+    classed: button.closest(".brief-section")?.classList.contains("is-collapsed"),
   }));
   assert(collapsed.expanded === "false" && collapsed.classed, "Evidence section toggle did not collapse with ARIA state.");
   await page.locator(".section-toggle").first().click();
+  const expandedAgain = await page.locator(".section-toggle").first().evaluate((button) => ({
+    expanded: button.getAttribute("aria-expanded"),
+    classed: button.closest(".brief-section")?.classList.contains("is-collapsed"),
+  }));
+  assert(expandedAgain.expanded === "true" && !expandedAgain.classed, "Evidence section toggle did not expand with ARIA state.");
 
   await page.locator("#closeBriefButton").click();
   const closed = await page.evaluate(() => ({

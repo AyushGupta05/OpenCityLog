@@ -109,8 +109,11 @@ for (const proposal of sampleProposals) {
   assert(Array.isArray(result.affected_signals) && result.affected_signals.length > 0, `${proposal.category} missing affected signals.`);
   assert(Array.isArray(result.similar_events) && result.similar_events.length > 0, `${proposal.category} missing similar events.`);
   assert(result.local_context?.current_signals?.length > 0, `${proposal.category} missing current context signals.`);
+  assert(result.local_context?.context_basis, `${proposal.category} missing local-context basis.`);
   assert(result.confidence?.label, `${proposal.category} missing confidence label.`);
+  assert(Array.isArray(result.design_review_basis) && result.design_review_basis.length >= 4, `${proposal.category} missing design review basis.`);
   assert((result.caveats || []).some((item) => /not a calibrated outcome model/i.test(item)), `${proposal.category} missing calibrated-model caveat.`);
+  assert((result.similar_events[0].match_factors || []).length > 0, `${proposal.category} similar event missing match factors.`);
   for (const signal of result.affected_signals) {
     assert(["positive", "negative", "mixed", "unknown"].includes(signal.direction), `${proposal.category} signal ${signal.signal} direction invalid.`);
     assert(["low", "medium", "high"].includes(signal.strength), `${proposal.category} signal ${signal.signal} strength invalid.`);

@@ -5,7 +5,7 @@ const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
-const url = process.env.URL || "http://localhost:5173";
+const url = process.env.URL || "http://127.0.0.1:5173";
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);

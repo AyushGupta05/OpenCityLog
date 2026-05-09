@@ -1096,5 +1096,5 @@ That is the line. Keep it on the evidence side, and the project becomes much mor
 [12]: https://opendata.bristol.gov.uk/datasets/air-quality-dashboard?utm_source=chatgpt.com "Air Quality Dashboard | Open Data Bristol"
 [13]: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html?utm_source=chatgpt.com "TIGER/Line Shapefiles"
 [14]: https://aqs.epa.gov/aqsweb/documents/data_api.html?utm_source=chatgpt.com "Air Quality System (AQS) API - U.S. EPA Web Server"
-[15]: https://github.com/M-Masood4/Bims-5 "GitHub - M-Masood4/Bims-5 · GitHub"
-[16]: https://github.com/M-Masood4/Bims-5/blob/main/package.json "Bims-5/package.json at main · M-Masood4/Bims-5 · GitHub"
+[15]: https://github.com/AyushGupta05/OpenCityLog "GitHub - AyushGupta05/OpenCityLog"
+[16]: https://github.com/AyushGupta05/OpenCityLog/blob/main/package.json "OpenCityLog package.json"

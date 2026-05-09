@@ -39,6 +39,9 @@ Browser smoke coverage checks the core user path:
 npm run verify:browser
 ```
 
+The smoke scripts default to `http://127.0.0.1:5173` and also honor `URL=...`
+for alternate local ports.
+
 ## Proposal Lens
 
 The secondary workflow is now Proposal Lens. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, and caveats. It is not a calibrated forecast or causal model.
@@ -69,9 +72,13 @@ npm test
 
 ## Key Docs
 
+- `CONTRIBUTING.md`
+- `DATA_LICENSE.md`
 - `docs/data_model.md`
 - `docs/city_adapters.md`
 - `docs/data_sources_uk_us.md`
 - `docs/provenance.md`
 - `docs/data_acquisition.md`
 - `docs/lightweight_impact.md`
+- `docs/city_architect_research.md`
+- `docs/release_notes.md`

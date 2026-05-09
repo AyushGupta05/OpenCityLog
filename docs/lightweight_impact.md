@@ -14,9 +14,25 @@ The frontend planning workbench in `web/index.html` and `web/atlas.js` applies t
 - before/after imagery dates and archive fallback notes
 - related loaded records in before/after windows
 - traffic or mobility evidence counts, clearly separated from measured traffic volumes
+- full-city proposal-lens analogues from `POST /api/proposal-impact`
+- visible analogue match factors for category, distance, recency, confidence, and source quality
+- a local context snapshot that uses source-backed grid cells when available and nearby historical event density when grid cells are absent
+- an evidence matrix for planning status, mobility, services, environment, economy, and analogue strength
+- a city-architect design review basis for context/character, connectivity, public realm, environment/resilience, and everyday use value
+- a work queue that distinguishes ready evidence from gaps that need surveys, source review, or specialist assessment
+- a city-architect review brief that turns precedent into public-life fieldwork, eye-level design tests, and a non-causal impact-learning ledger
 - comparable loaded events, design review questions, data gaps, and linked sources
 
 The workbench deliberately uses "screening", "review", "evidence", and "data gap" language. It must not say a future project will produce an outcome.
+
+The browser-side report has two scopes:
+
+- Full-city proposal lens: retrieved from the local API using the selected event geometry, proposal category, scale, and evidence radius.
+- Loaded browser scope: counts and visible analogues from the timeline years already loaded in the UI.
+
+Both scopes are reported explicitly so users do not mistake a currently loaded map layer for complete city coverage.
+
+The city-architect review is informed by public-life practice associated with Jan Gehl and Gehl: use public-space/public-life observation, combine high-level and eye-level evidence, count people moving and staying, and treat "measure, test, refine" as a planning workflow rather than a prediction model.
 
 ## Proposal Input
 
@@ -47,6 +63,7 @@ The assessment has three stages.
 1. Local context extraction:
    - Find grid cells near the proposal location.
    - Summarize normalized current signal values for built environment, mobility, utilities, civic services, green/public space, and jobs.
+   - If grid cells are unavailable, derive a labelled context snapshot from nearby historical event density, event confidence, and source quality.
    - Return nearby historical events and source confidence.
 
 2. Similar-event retrieval:
@@ -92,11 +109,12 @@ The proposal-impact result includes:
 
 - `summary`: plain English, using "may affect" language.
 - `affected_signals`: direction, strength, confidence, reason, evidence, caveats, and what to investigate next.
-- `similar_events`: historical analogues with distance, source quality, confidence, and evidence links.
-- `local_context`: nearby events, current signal values, nearest cells, source confidence, and caveats.
+- `similar_events`: historical analogues with distance, source quality, confidence, transparent match factors, and evidence links.
+- `local_context`: nearby events, current signal values or event-density context, nearest cells when present, source confidence, context basis, and caveats.
 - `confidence`: overall label and reasons.
 - `caveats`: global limitations.
 - `evidence`: source IDs, event evidence, and current-context evidence.
+- `design_review_basis`: city-architect review themes, evidence counts, confidence labels, and review prompts.
 - `method`: method version, weights, radius, and limitations.
 
 ## Non-goals

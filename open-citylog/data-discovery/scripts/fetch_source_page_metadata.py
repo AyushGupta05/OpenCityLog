@@ -33,7 +33,7 @@ OVERRIDE_URLS = {
     "nyc_west_chelsea_dcp_plan": "https://www.nyc.gov/content/planning/pages/our-work/plans/manhattan/west-chelsea",
 }
 
-UA = "OpenCitylogDiscovery/0.2 (+https://github.com/; metadata snapshot)"
+UA = "OpenCitylogDiscovery/0.2 (+https://github.com/AyushGupta05/OpenCityLog; metadata snapshot)"
 HTML_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
 H1_RE = re.compile(r"<h1[^>]*>(.*?)</h1>", re.I | re.S)
 DESC_RE = re.compile(r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', re.I | re.S)

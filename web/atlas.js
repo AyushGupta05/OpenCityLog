@@ -40,7 +40,7 @@
   };
 
   const FEATURED_YEAR = {
-    london: 2026,
+    london: 2012,
     nyc: 2025,
     belfast: 2024,
   };
@@ -84,6 +84,8 @@
   const PROPOSAL_PROFILES = {
     housing: {
       label: "Housing or mixed-use",
+      proposalCategory: "building_development",
+      primaryCategories: ["built_environment"],
       categories: ["built_environment", "transport", "civic_services", "economy"],
       signals: ["planning", "housing", "transport", "schools", "health", "retail", "jobs"],
       questions: [
@@ -94,6 +96,8 @@
     },
     transport: {
       label: "Street or transit change",
+      proposalCategory: "road_transport_change",
+      primaryCategories: ["transport"],
       categories: ["transport", "built_environment", "environment", "civic_services"],
       signals: ["traffic", "transit", "collisions", "bus", "rail", "cycle", "public realm"],
       questions: [
@@ -104,6 +108,8 @@
     },
     public_realm: {
       label: "Public realm",
+      proposalCategory: "green_public_space",
+      primaryCategories: ["environment", "built_environment", "transport"],
       categories: ["built_environment", "transport", "environment", "economy"],
       signals: ["public realm", "green space", "walking", "cycle", "retail", "heritage"],
       questions: [
@@ -114,6 +120,8 @@
     },
     civic_services: {
       label: "Civic or social infrastructure",
+      proposalCategory: "service_civic_infrastructure",
+      primaryCategories: ["civic_services"],
       categories: ["civic_services", "built_environment", "transport", "economy"],
       signals: ["schools", "health", "community", "access", "jobs", "transport"],
       questions: [
@@ -124,6 +132,8 @@
     },
     climate: {
       label: "Climate or resilience",
+      proposalCategory: "green_public_space",
+      primaryCategories: ["environment"],
       categories: ["environment", "built_environment", "transport", "civic_services"],
       signals: ["flood", "green infrastructure", "air quality", "heat", "utilities", "active travel"],
       questions: [
@@ -181,9 +191,20 @@
     proposalType: "housing",
     proposalScale: "site",
     proposalStage: "early",
+    proposalRadiusM: 1500,
+    plannerAssessment: null,
+    plannerAssessmentKey: "",
+    plannerAssessmentLoading: false,
+    plannerAssessmentError: null,
+    plannerAssessmentRequest: 0,
+    plannerAssessmentCache: new Map(),
+    plannerAssessmentAbort: null,
+    plannerAssessmentTimer: null,
+    contextLoadToken: 0,
     replayTimer: null,
     timeScrubTimer: null,
     yearRequest: 0,
+    pendingYearLoads: new Map(),
     listLimit: MAX_LIST_EVENTS,
     allEventsLoaded: false,
     isLoadingAllEvents: false,
@@ -267,6 +288,7 @@
       "proposalTypeSelect",
       "proposalScaleSelect",
       "proposalStageSelect",
+      "proposalRadiusSelect",
       "copyPlanningReportButton",
       "plannerCompareButton",
       "plannerTrafficButton",
@@ -359,14 +381,22 @@
     els.proposalTypeSelect?.addEventListener("change", () => {
       state.proposalType = els.proposalTypeSelect.value;
       renderPlannerWorkbench(state.selectedEvent);
+      schedulePlannerAssessment(state.selectedEvent, { force: true, delay: 60 });
     });
     els.proposalScaleSelect?.addEventListener("change", () => {
       state.proposalScale = els.proposalScaleSelect.value;
       renderPlannerWorkbench(state.selectedEvent);
+      schedulePlannerAssessment(state.selectedEvent, { force: true, delay: 60 });
     });
     els.proposalStageSelect?.addEventListener("change", () => {
       state.proposalStage = els.proposalStageSelect.value;
       renderPlannerWorkbench(state.selectedEvent);
+      schedulePlannerAssessment(state.selectedEvent, { force: true, delay: 60 });
+    });
+    els.proposalRadiusSelect?.addEventListener("change", () => {
+      state.proposalRadiusM = Number(els.proposalRadiusSelect.value) || 1500;
+      renderPlannerWorkbench(state.selectedEvent);
+      schedulePlannerAssessment(state.selectedEvent, { force: true, delay: 60 });
     });
     els.copyPlanningReportButton?.addEventListener("click", copyPlanningReport);
     els.plannerCompareButton?.addEventListener("click", () => toggleCompare(true));
@@ -375,6 +405,7 @@
       els.impactPanel?.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
     });
     els.loadPlannerEvidenceButton?.addEventListener("click", loadAllEventsForChangelog);
+    els.plannerWorkbench?.addEventListener("click", handlePlannerAction);
     els.contextLensButton?.addEventListener("click", () => {
       setImpactMode("components");
       els.impactPanel?.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
@@ -456,6 +487,18 @@
     state.proposalType = "housing";
     state.proposalScale = "site";
     state.proposalStage = "early";
+    state.proposalRadiusM = 1500;
+    state.plannerAssessment = null;
+    state.plannerAssessmentKey = "";
+    state.plannerAssessmentLoading = false;
+    state.plannerAssessmentError = null;
+    state.plannerAssessmentCache.clear();
+    state.plannerAssessmentAbort?.abort();
+    state.plannerAssessmentAbort = null;
+    window.clearTimeout(state.plannerAssessmentTimer);
+    state.plannerAssessmentTimer = null;
+    state.contextLoadToken += 1;
+    state.pendingYearLoads = new Map();
     state.listLimit = MAX_LIST_EVENTS;
     state.allEventsLoaded = false;
     state.isLoadingAllEvents = false;
@@ -468,6 +511,7 @@
     if (els.proposalTypeSelect) els.proposalTypeSelect.value = state.proposalType;
     if (els.proposalScaleSelect) els.proposalScaleSelect.value = state.proposalScale;
     if (els.proposalStageSelect) els.proposalStageSelect.value = state.proposalStage;
+    if (els.proposalRadiusSelect) els.proposalRadiusSelect.value = String(state.proposalRadiusM);
     setLoading();
 
     try {
@@ -502,11 +546,11 @@
       renderTimeline();
       initMapScenes();
       setCameraTarget(state.mapCenter, state.mapZoom, { instant: true });
-      await ensureContextEvents();
       await ensureYearLoaded(state.year);
       renderSourceFilter();
       renderAll();
       scheduleMapRender();
+      scheduleContextEventsLoad();
     } catch (error) {
       renderFatal(`Could not load ${state.cityMeta.display_name}: ${error.message}`);
     }
@@ -871,24 +915,50 @@
     });
   }
 
-  async function ensureContextEvents() {
+  function contextEventYears() {
     const chunks = state.eventsIndex?.chunks || [];
     const cityId = state.cityId;
     const featuredContext = new Set(FEATURED_CONTEXT_YEARS[cityId] || []);
-    const candidates = chunks.filter((chunk) => {
-      const year = Number(chunk.year);
-      return year === state.year
+    return chunks.map((chunk) => Number(chunk.year)).filter((year) => (
+      year === state.year
         || year === state.beforeYear
         || year === FEATURED_YEAR[cityId]
-        || featuredContext.has(year);
-    });
-    await Promise.all(candidates.map((chunk) => ensureYearLoaded(Number(chunk.year), { silent: true })));
+        || featuredContext.has(year)
+    ));
+  }
+
+  function scheduleContextEventsLoad() {
+    const token = state.contextLoadToken;
+    window.setTimeout(() => loadContextEventsInBackground(token), 650);
+  }
+
+  async function loadContextEventsInBackground(token) {
+    const years = Array.from(new Set(contextEventYears()))
+      .filter((year) => Number.isFinite(year) && !state.eventsByYear.has(year))
+      .sort((a, b) => yearEventCount(a) - yearEventCount(b));
+    for (const year of years) {
+      if (token !== state.contextLoadToken) return;
+      await ensureYearLoaded(year, { silent: true });
+      renderChangelogButton(
+        filteredEvents().length,
+        Math.min(state.listLimit, filteredEvents().length),
+        Number(state.eventsIndex?.event_count || state.loadedEvents.size),
+        state.loadedEvents.size,
+      );
+      await browserYield();
+    }
+    if (token !== state.contextLoadToken) return;
+    renderSourceFilter();
+    renderAll({ preserveSelection: true });
   }
 
   async function ensureYearLoaded(year, options = {}) {
     const numericYear = Number(year);
     if (!Number.isFinite(numericYear)) return [];
     if (state.eventsByYear.has(numericYear)) return state.eventsByYear.get(numericYear);
+    const cityId = state.cityId;
+    const pendingKey = `${cityId}:${numericYear}`;
+    if (state.pendingYearLoads.has(pendingKey)) return state.pendingYearLoads.get(pendingKey);
 
     if (!options.silent) els.listMeta.textContent = `Loading ${numericYear}`;
     const chunk = (state.eventsIndex?.chunks || []).find((item) => Number(item.year) === numericYear);
@@ -897,11 +967,20 @@
       return [];
     }
 
-    const data = await fetchJson(dataPathToUrl(chunk.json_path));
-    const events = Array.isArray(data) ? data : (data.events || []);
-    state.eventsByYear.set(numericYear, events);
-    events.forEach((event) => state.loadedEvents.set(event.event_id, event));
-    return events;
+    const loadPromise = (async () => {
+      const data = await fetchJson(dataPathToUrl(chunk.json_path));
+      const events = Array.isArray(data) ? data : (data.events || []);
+      if (state.cityId !== cityId) return [];
+      state.eventsByYear.set(numericYear, events);
+      events.forEach((event) => state.loadedEvents.set(event.event_id, event));
+      return events;
+    })();
+    state.pendingYearLoads.set(pendingKey, loadPromise);
+    try {
+      return await loadPromise;
+    } finally {
+      state.pendingYearLoads.delete(pendingKey);
+    }
   }
 
   function renderAll(options = {}) {
@@ -935,8 +1014,13 @@
     renderEventList();
     try {
       const chunks = state.eventsIndex?.chunks || [];
-      for (const chunk of chunks) {
+      for (let index = 0; index < chunks.length; index += 1) {
+        const chunk = chunks[index];
         await ensureYearLoaded(Number(chunk.year), { silent: true });
+        if (index % 3 === 2 || index === chunks.length - 1) {
+          renderChangelogButton(filteredEvents().length, Math.min(state.listLimit, filteredEvents().length), Number(state.eventsIndex?.event_count || state.loadedEvents.size), state.loadedEvents.size);
+          await browserYield();
+        }
       }
       state.allEventsLoaded = true;
       state.listLimit = Math.max(state.listLimit, MAX_LIST_EVENTS);
@@ -949,6 +1033,16 @@
       state.isLoadingAllEvents = false;
       renderEventList();
     }
+  }
+
+  function browserYield() {
+    return new Promise((resolve) => {
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(() => resolve(), { timeout: 120 });
+        return;
+      }
+      window.requestAnimationFrame(() => resolve());
+    });
   }
 
   function refreshFilteredView(options = {}) {
@@ -1222,6 +1316,7 @@
     els.confidenceText.textContent = confidenceText(event);
     renderEvidenceFrames(event);
     renderPlannerWorkbench(event);
+    schedulePlannerAssessment(event);
     renderImpactModeControls();
     renderImpactPanel(event);
     renderLimitations(event);
@@ -1285,6 +1380,118 @@
     return PROPOSAL_PROFILES[type] || PROPOSAL_PROFILES.housing;
   }
 
+  function plannerAssessmentKey(event) {
+    const point = eventPoint(event);
+    return [
+      state.cityId,
+      event?.event_id || "no-event",
+      state.proposalType,
+      state.proposalScale,
+      state.proposalStage,
+      state.proposalRadiusM,
+      point ? point.lng.toFixed(5) : "no-lng",
+      point ? point.lat.toFixed(5) : "no-lat",
+    ].join("|");
+  }
+
+  function plannerScaleForApi() {
+    if (state.proposalScale === "site") return "small";
+    if (state.proposalScale === "block" || state.proposalScale === "corridor") return "medium";
+    if (state.proposalScale === "district") return "large";
+    return "unknown";
+  }
+
+  function plannerProposalInput(event) {
+    const profile = proposalProfile(state.proposalType);
+    const point = eventPoint(event);
+    const place = event?.affected_area?.label || shortCityName(state.city?.display_name);
+    return {
+      schema_version: "bims5-proposal-input-v1",
+      city_id: state.cityId,
+      title: `${profile.label} review using ${cleanTitle(event?.title)}`,
+      description: event?.explanation || `Evidence screen around ${place}.`,
+      category: profile.proposalCategory,
+      location: point ? { lng: point.lng, lat: point.lat, label: place } : null,
+      scale: plannerScaleForApi(),
+      details: {
+        stage: state.proposalStage,
+        atlas_event_id: event?.event_id || null,
+        selected_event_category: event?.category || null,
+        selected_event_confidence: event?.confidence || null,
+      },
+    };
+  }
+
+  function schedulePlannerAssessment(event, options = {}) {
+    window.clearTimeout(state.plannerAssessmentTimer);
+    if (!event || !els.plannerWorkbench) return;
+    const delay = Number.isFinite(Number(options.delay)) ? Number(options.delay) : 120;
+    state.plannerAssessmentTimer = window.setTimeout(() => {
+      state.plannerAssessmentTimer = null;
+      requestPlannerAssessment(event, options);
+    }, prefersReducedMotion() ? 0 : delay);
+  }
+
+  async function requestPlannerAssessment(event, options = {}) {
+    if (!event || !els.plannerWorkbench) return;
+    const key = plannerAssessmentKey(event);
+    if (!options.force && state.plannerAssessmentKey === key && (state.plannerAssessment || state.plannerAssessmentLoading)) return;
+    if (!options.force && state.plannerAssessmentCache.has(key)) {
+      state.plannerAssessmentKey = key;
+      state.plannerAssessment = state.plannerAssessmentCache.get(key);
+      state.plannerAssessmentError = null;
+      state.plannerAssessmentLoading = false;
+      renderPlannerWorkbench(event);
+      return;
+    }
+    const requestId = state.plannerAssessmentRequest + 1;
+    state.plannerAssessmentRequest = requestId;
+    state.plannerAssessmentKey = key;
+    state.plannerAssessment = null;
+    state.plannerAssessmentError = null;
+    state.plannerAssessmentLoading = true;
+    state.plannerAssessmentAbort?.abort();
+    const abortController = new AbortController();
+    state.plannerAssessmentAbort = abortController;
+    renderPlannerWorkbench(event);
+    try {
+      const response = await fetch("/api/proposal-impact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        signal: abortController.signal,
+        body: JSON.stringify({
+          proposal: plannerProposalInput(event),
+          radius_m: state.proposalRadiusM,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok === false) throw new Error(result.detail || result.error || response.statusText);
+      if (requestId !== state.plannerAssessmentRequest) return;
+      state.plannerAssessment = result;
+      state.plannerAssessmentCache.set(key, result);
+      trimPlannerAssessmentCache();
+      state.plannerAssessmentError = null;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      if (requestId !== state.plannerAssessmentRequest) return;
+      state.plannerAssessment = null;
+      state.plannerAssessmentError = error.message || "Proposal lens unavailable";
+    } finally {
+      if (requestId !== state.plannerAssessmentRequest) return;
+      state.plannerAssessmentLoading = false;
+      if (state.plannerAssessmentAbort === abortController) state.plannerAssessmentAbort = null;
+      renderPlannerWorkbench(state.selectedEvent);
+    }
+  }
+
+  function trimPlannerAssessmentCache() {
+    const maxEntries = 24;
+    while (state.plannerAssessmentCache.size > maxEntries) {
+      const oldest = state.plannerAssessmentCache.keys().next().value;
+      state.plannerAssessmentCache.delete(oldest);
+    }
+  }
+
   function renderPlannerWorkbench(event) {
     if (!els.plannerWorkbench) return;
     if (els.copyPlanningReportButton) els.copyPlanningReportButton.disabled = !event;
@@ -1297,9 +1504,32 @@
 
     const report = planningReportPayload(event);
     const readiness = planningReadiness(report);
+    const assessment = report.proposal_lens;
+    const lensLabel = assessment?.confidence?.label ? signalLabel(assessment.confidence.label) : "Ready";
+    const lensStatus = state.plannerAssessmentLoading
+      ? `<span class="planner-pill loading">Assessing full city</span>`
+      : assessment
+        ? `<span class="planner-pill ok">${escapeHtml(lensLabel)}</span>`
+        : `<span class="planner-pill warn">Local screen only</span>`;
     const questionList = report.design_questions.slice(0, 3).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
     const gapList = report.data_gaps.slice(0, 4).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    const actionList = plannerActionQueue(report).map((item) => `
+      <article class="planner-task ${escapeAttr(item.status)}">
+        <span>${escapeHtml(item.statusLabel)}</span>
+        <strong>${escapeHtml(item.title)}</strong>
+        <small>${escapeHtml(item.detail)}</small>
+      </article>
+    `).join("");
     els.plannerWorkbench.innerHTML = `
+      <div class="planner-summary-strip">
+        <div>
+          <span class="impact-kicker">Proposal lens</span>
+          <strong>${escapeHtml(report.proposal.type_label)} at ${escapeHtml(report.selected_event?.place || shortCityName(state.city?.display_name))}</strong>
+          <p>${escapeHtml(assessment?.summary || "Full-city analogue lookup is running or unavailable; local loaded evidence is shown below.")}</p>
+        </div>
+        ${lensStatus}
+      </div>
+
       <div class="planner-status-grid">
         ${readiness.map((item) => `
           <article class="planner-status ${escapeAttr(item.status)}">
@@ -1309,6 +1539,12 @@
           </article>
         `).join("")}
       </div>
+
+      ${assessment ? renderProposalLensPanel(assessment) : renderProposalLensFallback()}
+
+      ${renderEvidenceMatrix(report)}
+
+      ${renderCityArchitectPanel(report)}
 
       <article class="planner-diff-card">
         <div class="planner-card-head">
@@ -1346,6 +1582,16 @@
       </article>
 
       <details class="planner-report-block" open>
+        <summary>Evidence work queue</summary>
+        <div class="planner-task-list">${actionList}</div>
+        <div class="planner-action-row planner-action-row-inline">
+          <button type="button" data-planner-action="show-planning">Show planning records</button>
+          <button type="button" data-planner-action="show-traffic">Show traffic evidence</button>
+          <button type="button" data-planner-action="load-full">Load full city evidence</button>
+        </div>
+      </details>
+
+      <details class="planner-report-block" open>
         <summary>Planner questions and gaps</summary>
         <div class="planner-two-col">
           <div>
@@ -1361,8 +1607,8 @@
 
       <div class="planner-analogue-list">
         <div class="planner-card-head">
-          <span class="impact-kicker">Historical analogues</span>
-          <strong>${formatNumber(report.analogues.length)} loaded precedents</strong>
+          <span class="impact-kicker">Visible loaded analogues</span>
+          <strong>${formatNumber(report.analogues.length)} precedents in current browser scope</strong>
         </div>
         ${report.analogues.length ? report.analogues.map((item) => `
           <article class="planner-analogue">
@@ -1374,6 +1620,437 @@
       </div>
       <p class="planner-caveat">This is a planning screen built from observed records. It does not forecast, simulate, or prove project effects.</p>
     `;
+  }
+
+  function renderProposalLensFallback() {
+    const error = state.plannerAssessmentError;
+    return `
+      <article class="planner-lens-card ${error ? "error" : "loading"}">
+        <div class="planner-card-head">
+          <span class="impact-kicker">Full-city analogue lookup</span>
+          <strong>${error ? "Unavailable" : "Checking full city"}</strong>
+        </div>
+        <p>${escapeHtml(error || "The proposal lens is retrieving full-city analogues, nearby historical events, and local signal context.")}</p>
+      </article>
+    `;
+  }
+
+  function renderProposalLensPanel(assessment) {
+    const similar = plannerRankedApiAnalogues(assessment, proposalProfile(state.proposalType), 4);
+    const nearbyCount = Number(assessment.local_context?.nearby_event_count || 0);
+    const sourceCount = (assessment.evidence?.source_ids || []).length;
+    return `
+      <article class="planner-lens-card">
+        <div class="planner-card-head">
+          <span class="impact-kicker">Full-city analogue lookup</span>
+          <strong>${formatNumber(similar.length)} closest precedents</strong>
+        </div>
+        <div class="planner-lens-facts">
+          <div><span>Radius</span><strong>${formatNumber(state.proposalRadiusM)} m</strong></div>
+          <div><span>Nearby records</span><strong>${formatNumber(nearbyCount)}</strong></div>
+          <div><span>Source families</span><strong>${formatNumber(sourceCount)}</strong></div>
+        </div>
+        <div class="planner-signal-grid">
+          ${(assessment.affected_signals || []).slice(0, 4).map((signal) => `
+            <article class="planner-signal">
+              <span>${escapeHtml(signal.label || signal.signal)}</span>
+              <strong>${escapeHtml(signal.direction || "unknown")} / ${escapeHtml(signal.strength || "low")}</strong>
+              <small>${escapeHtml(signal.investigate || signal.reason || "Review linked evidence and caveats.")}</small>
+            </article>
+          `).join("")}
+        </div>
+        ${renderLocalContextSnapshot(assessment)}
+        ${renderDesignReviewBasis(assessment)}
+        <div class="planner-api-analogues">
+          ${similar.map((item) => `
+            <article class="planner-analogue">
+              <span>${escapeHtml(item.distance_context || `${item.distance_m || "?"} m`)}</span>
+              <strong>${escapeHtml(cleanTitle(item.title))}</strong>
+              <small>${escapeHtml(`${item.year || "date unknown"}; ${confidenceLabel(item.confidence)}; ${item.source_quality || "source quality not supplied"}`)}</small>
+              ${renderMatchFactors(item)}
+              <div class="planner-analogue-actions">
+                <button type="button" data-planner-open-event="${escapeAttr(item.event_id)}" data-planner-open-year="${escapeAttr(item.year || "")}">Open</button>
+                ${analogueSourceUrl(item) ? `<a href="${escapeAttr(analogueSourceUrl(item))}" target="_blank" rel="noreferrer">Source</a>` : ""}
+              </div>
+            </article>
+          `).join("") || `<p>No full-city analogue was returned for this proposal screen.</p>`}
+        </div>
+      </article>
+    `;
+  }
+
+  function renderLocalContextSnapshot(assessment) {
+    const context = assessment.local_context || {};
+    const signals = (context.current_signals || [])
+      .filter((signal) => signal.level && signal.level !== "unknown")
+      .slice(0, 6);
+    const basis = context.context_basis === "nearby_historical_event_density"
+      ? "Nearby event-density context"
+      : context.context_basis === "grid_and_nearby_historical_events"
+        ? "Grid and event context"
+        : "Current context";
+    return `
+      <div class="planner-context-card">
+        <div class="planner-card-head">
+          <span class="impact-kicker">${escapeHtml(basis)}</span>
+          <strong>${signals.length ? `${formatNumber(signals.length)} signals with evidence` : "No measured signal values"}</strong>
+        </div>
+        <div class="planner-context-grid">
+          ${signals.map((signal) => `
+            <article>
+              <span>${escapeHtml(signal.label || signal.signal)}</span>
+              <strong>${escapeHtml(signal.level || "unknown")}</strong>
+              <small>${escapeHtml(contextEvidenceNote(signal))}</small>
+            </article>
+          `).join("") || `<p>Local context is sparse for this proposal point. Treat that as a data-quality finding.</p>`}
+        </div>
+        <p class="planner-caveat">${escapeHtml((context.caveats || [])[0] || "Context signals are screening evidence, not measured project effects.")}</p>
+      </div>
+    `;
+  }
+
+  function contextEvidenceNote(signal) {
+    const eventCount = Array.isArray(signal.supporting_events) ? signal.supporting_events.length : 0;
+    const evidenceCount = Array.isArray(signal.evidence) ? signal.evidence.length : 0;
+    const basis = signal.context_basis === "nearby_historical_event_density" ? "nearby events" : "source records";
+    return `${formatNumber(Math.max(eventCount, evidenceCount))} ${basis}; confidence ${signal.source_confidence || signal.confidence || "low"}`;
+  }
+
+  function renderDesignReviewBasis(assessment) {
+    const rows = (assessment.design_review_basis || []).slice(0, 5);
+    if (!rows.length) return "";
+    return `
+      <div class="planner-design-basis" role="list" aria-label="Design review basis">
+        ${rows.map((row) => `
+          <article class="${escapeAttr(row.status || "gap")}" role="listitem">
+            <span>${escapeHtml(row.status === "ready_to_review" ? "Review ready" : row.status === "thin_evidence" ? "Thin evidence" : "Gap")}</span>
+            <strong>${escapeHtml(row.label)}</strong>
+            <small>${escapeHtml(row.review_prompt || row.description)}</small>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderMatchFactors(item) {
+    const factors = (item.match_factors || []).slice(0, 5);
+    if (!factors.length) return "";
+    return `
+      <div class="planner-match-factors" aria-label="Why this analogue matched">
+        ${factors.map((factor) => `
+          <span style="--factor:${Math.round((Number(factor.value) || 0) * 100)}%">
+            <em>${escapeHtml(factor.label)}</em>
+            <b>${Math.round((Number(factor.value) || 0) * 100)}</b>
+          </span>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function analogueSourceUrl(item) {
+    const row = (item?.evidence || []).find((evidence) => evidence?.url);
+    return row?.url || "";
+  }
+
+  function plannerRankedApiAnalogues(assessment, profile, limit = 6) {
+    return (assessment?.similar_events || [])
+      .filter((item) => item?.event_id !== state.selectedEventId)
+      .map((item) => ({ item, score: plannerApiAnalogueScore(item, profile) }))
+      .sort((a, b) => b.score - a.score || Number(a.item.distance_m || Infinity) - Number(b.item.distance_m || Infinity))
+      .slice(0, limit)
+      .map((row) => row.item);
+  }
+
+  function plannerApiAnalogueScore(item, profile) {
+    const text = normalizeSignal([
+      item.title,
+      item.category,
+      item.lens,
+      ...(item.source_ids || []),
+      ...(item.affected_signals || []),
+    ].filter(Boolean).join(" "));
+    let score = 0;
+    if ((profile.primaryCategories || []).includes(item.category)) score += 100;
+    else if ((profile.categories || []).includes(item.category)) score += 34;
+    for (const term of profile.signals || []) {
+      if (text.includes(normalizeSignal(term))) score += 6;
+    }
+    if (state.proposalType === "housing" && /planning|development|housing|brownfield|application|decision|construction|zoning|heritage|listed|conservation/.test(text)) score += 42;
+    if (state.proposalType === "transport" && /traffic|collision|road|street|station|transit|bus|rail|cycle|walking|pedestrian|tfl|dft/.test(text)) score += 42;
+    if (state.proposalType === "public_realm" && /public realm|park|green|tree|streetspace|cycle|walking|heritage|conservation/.test(text)) score += 36;
+    if (state.proposalType === "climate" && /flood|tree|green|air|heat|climate|resilience|environment/.test(text)) score += 42;
+    if (state.proposalType !== "civic_services" && /food hygiene|police|crime|stop search/.test(text)) score -= 72;
+    if (/planning datahub|planning-datahub|brownfield|planning designation/.test(text)) score += 24;
+    if (item.confidence === "corroborated") score += 18;
+    if (item.confidence === "documented") score += 12;
+    if (item.source_quality === "strong") score += 10;
+    if (item.source_quality === "usable_with_caveats") score += 5;
+    const distance = Number(item.distance_m);
+    if (Number.isFinite(distance)) score += Math.max(0, 20 - distance / 120);
+    return score;
+  }
+
+  function renderEvidenceMatrix(report) {
+    const rows = plannerEvidenceMatrix(report);
+    return `
+      <details class="planner-report-block planner-matrix-block" open>
+        <summary>Evidence matrix</summary>
+        <div class="planner-matrix" role="table" aria-label="Planning evidence matrix">
+          ${rows.map((row) => `
+            <article class="planner-matrix-row ${escapeAttr(row.status)}" role="row">
+              <span role="cell">${escapeHtml(row.label)}</span>
+              <strong role="cell">${escapeHtml(row.statusLabel)}</strong>
+              <small role="cell">${escapeHtml(row.detail)}</small>
+            </article>
+          `).join("")}
+        </div>
+      </details>
+    `;
+  }
+
+  function plannerEvidenceMatrix(report) {
+    const assessment = report.proposal_lens;
+    const signalByText = new Map((assessment?.affected_signals || []).map((signal) => [normalizeSignal(`${signal.signal} ${signal.label}`), signal]));
+    const trafficRecords = report.traffic.observed_metric_count + report.traffic.before_window.count + report.traffic.after_window.count;
+    const sourceCount = report.selected_event?.source_count || 0;
+    const categories = new Map((report.evidence.categories || []).map((item) => [item.category, item.count]));
+    const rows = [
+      {
+        label: "Planning status",
+        status: sourceCount > 0 || categories.get("built_environment") ? "ok" : "gap",
+        statusLabel: sourceCount > 0 ? `${sourceCount} selected source rows` : "Needs source row",
+        detail: "Check whether records show application, decision, construction, completion, or occupancy.",
+      },
+      {
+        label: "Mobility and traffic",
+        status: trafficRecords > 0 ? "ok" : "gap",
+        statusLabel: trafficRecords > 0 ? `${trafficRecords} loaded traffic records` : "Traffic gap",
+        detail: trafficRecords > 0 ? report.traffic.note : "Add counts, collision records, transit reliability, or travel-time evidence.",
+      },
+      {
+        label: "Public services",
+        status: categories.get("civic_services") || signalByText.has("civic services civic services") ? "warn" : "gap",
+        statusLabel: categories.get("civic_services") ? `${categories.get("civic_services")} loaded records` : "Needs service context",
+        detail: "Review schools, health, community, safety, and access evidence before design claims.",
+      },
+      {
+        label: "Environment and resilience",
+        status: categories.get("environment") ? "warn" : "gap",
+        statusLabel: categories.get("environment") ? `${categories.get("environment")} loaded records` : "Needs environmental context",
+        detail: "Review trees, flood, air quality, heat, drainage, biodiversity, and maintenance evidence.",
+      },
+      {
+        label: "Local economy",
+        status: categories.get("economy") ? "warn" : "gap",
+        statusLabel: categories.get("economy") ? `${categories.get("economy")} loaded records` : "Needs economic context",
+        detail: "Check business, employment, high-street, land value, and displacement evidence where relevant.",
+      },
+      {
+        label: "Analogue strength",
+        status: assessment?.similar_events?.length >= 3 ? "ok" : "warn",
+        statusLabel: assessment ? `${assessment.similar_events.length} full-city analogues` : "Awaiting lookup",
+        detail: "Use analogues to frame questions, not as proof that this proposal will repeat past outcomes.",
+      },
+    ];
+    return rows;
+  }
+
+  function renderCityArchitectPanel(report) {
+    const brief = report.city_architect_brief;
+    return `
+      <details class="planner-report-block city-architect-block" open>
+        <summary>City architect review</summary>
+        <div class="architect-review">
+          <article>
+            <span class="impact-kicker">Learning aim</span>
+            <strong>${escapeHtml(brief.learning_aim)}</strong>
+            <p>${escapeHtml(brief.point_of_view)}</p>
+          </article>
+          <article>
+            <span class="impact-kicker">Public life baseline</span>
+            <strong>${formatNumber(brief.public_life_plan.length)} field methods</strong>
+            <ul>
+              ${brief.public_life_plan.slice(0, 4).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+          </article>
+          <article>
+            <span class="impact-kicker">Design tests</span>
+            <strong>What to test on site</strong>
+            <ul>
+              ${brief.design_tests.slice(0, 4).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+          </article>
+        </div>
+        <div class="impact-learning-ledger">
+          ${brief.impact_learning.map((item) => `
+            <article class="${escapeAttr(item.status)}">
+              <span>${escapeHtml(item.label)}</span>
+              <strong>${escapeHtml(item.value)}</strong>
+              <small>${escapeHtml(item.note)}</small>
+            </article>
+          `).join("")}
+        </div>
+      </details>
+    `;
+  }
+
+  function cityArchitectBrief(report, event) {
+    const profile = proposalProfile(state.proposalType);
+    const assessment = report.proposal_lens;
+    const analogueCount = assessment?.similar_events?.length || report.analogues.length;
+    const trafficCount = report.traffic.observed_metric_count + report.traffic.before_window.count + report.traffic.after_window.count;
+    const publicLifePlan = publicLifeMeasurementPlan(profile, report);
+    return {
+      point_of_view: "A city architect should use this as an evidence briefing: learn from observed precedents, inspect public-life consequences at eye level, and define what must be measured before and after the project.",
+      learning_aim: `Use ${formatNumber(analogueCount)} historical analogue${analogueCount === 1 ? "" : "s"} to frame design questions for ${profile.label.toLowerCase()}, not to claim future outcomes.`,
+      public_life_plan: publicLifePlan,
+      design_tests: designTestsForProfile(profile, report),
+      impact_learning: [
+        {
+          label: "Historical basis",
+          value: assessment ? `${formatNumber(assessment.similar_events?.length || 0)} full-city analogues` : `${formatNumber(report.analogues.length)} loaded analogues`,
+          status: assessment ? "ok" : "warn",
+          note: assessment ? "Retrieved from the city-atlas proposal lens using the selected geometry and radius." : "Only browser-loaded events are available in this copy of the report.",
+        },
+        {
+          label: "Mobility evidence",
+          value: trafficCount ? `${formatNumber(trafficCount)} records` : "Gap",
+          status: trafficCount ? "ok" : "gap",
+          note: trafficCount ? "Use as leads for transport review; direct volume or speed measurements must be identified separately." : "Add traffic counts, collision history, transit reliability, walking/cycling observations, or servicing surveys.",
+        },
+        {
+          label: "People data",
+          value: "Needs baseline",
+          status: "warn",
+          note: "Historical administrative records rarely show who stayed, moved, played, waited, or felt comfortable in the space.",
+        },
+        {
+          label: "Use in design",
+          value: "Questions, not proof",
+          status: "warn",
+          note: "Translate precedent into fieldwork and design tests; do not present analogue similarity as causation.",
+        },
+      ],
+      selected_event_id: event?.event_id || null,
+    };
+  }
+
+  function publicLifeMeasurementPlan(profile, report) {
+    const common = [
+      "Count people moving by mode before, during, and after the intervention at matched times.",
+      "Map stationary activity: sitting, waiting, playing, socializing, vending, and lingering.",
+      "Audit eye-level edges: active frontage, blank walls, doors, lighting, shelter, seating, shade, and crossings.",
+      "Run short intercept conversations with users who are visible and users who may be missing.",
+    ];
+    const type = report.proposal.type;
+    if (type === "transport") {
+      return [
+        ...common,
+        "Measure crossing delay, desire lines, vehicle turning conflicts, cycle comfort, bus reliability, and servicing access.",
+      ];
+    }
+    if (type === "housing") {
+      return [
+        ...common,
+        "Check ground-floor uses, thresholds, play space, servicing, refuse, access routes, and everyday trip patterns around comparable schemes.",
+      ];
+    }
+    if (type === "public_realm") {
+      return [
+        ...common,
+        "Repeat comfort observations for shade, wind, noise, seating choice, dwell time, play, and maintenance condition.",
+      ];
+    }
+    if (type === "civic_services") {
+      return [
+        ...common,
+        "Measure arrival patterns, queuing, accessibility, opening-hour demand, safety perception, and onward transit/walking routes.",
+      ];
+    }
+    return [
+      ...common,
+      "Pair environmental readings or mapped constraints with observed comfort, shade use, drainage behavior, and maintenance evidence.",
+    ];
+  }
+
+  function designTestsForProfile(profile, report) {
+    const base = [
+      "Test whether the proposal improves the everyday route from transit, homes, services, and public space.",
+      "Test whether the ground plane invites staying as well as movement.",
+      "Test whether the evidence brief separates planning approval, construction, completion, and observed use.",
+    ];
+    if (report.proposal.type === "transport") {
+      return [
+        "Test a slow-speed, safer crossing layout against observed collisions, desire lines, and bus/service needs.",
+        "Test curb, loading, cycling, walking, and transit operations as one street section rather than separate diagrams.",
+        ...base,
+      ];
+    }
+    if (report.proposal.type === "housing") {
+      return [
+        "Test active frontage, doorstep play, servicing, waste, cycle storage, and social infrastructure before massing is locked.",
+        "Test whether comparable schemes show delivery evidence or only permission evidence.",
+        ...base,
+      ];
+    }
+    if (report.proposal.type === "public_realm") {
+      return [
+        "Test shade, seating choice, maintenance, edges, microclimate, and inclusive play as observable public-life outcomes.",
+        "Test whether temporary pilots have enough before/after observation to justify permanent design decisions.",
+        ...base,
+      ];
+    }
+    if (report.proposal.type === "civic_services") {
+      return [
+        "Test access for children, older people, disabled users, staff, deliveries, and emergency services.",
+        "Test whether the facility stitches into daily routes instead of becoming an isolated destination.",
+        ...base,
+      ];
+    }
+    return [
+      "Test environmental comfort and resilience claims with observable public-life behavior and source-backed constraints.",
+      "Test maintenance and stewardship needs alongside design ambition.",
+      ...base,
+    ];
+  }
+
+  function plannerActionQueue(report) {
+    const assessment = report.proposal_lens;
+    const queue = [
+      {
+        status: report.selected_event?.source_count ? "ok" : "gap",
+        statusLabel: report.selected_event?.source_count ? "Ready" : "Missing",
+        title: "Primary precedent source",
+        detail: report.selected_event?.source_count
+          ? "Open the linked source rows and confirm date basis before citing this precedent."
+          : "Attach at least one public source row before this can support a planning report.",
+      },
+      {
+        status: assessment?.similar_events?.length ? "ok" : "warn",
+        statusLabel: assessment?.similar_events?.length ? "Ready" : "Check",
+        title: "Comparable schemes",
+        detail: assessment?.similar_events?.length
+          ? `${assessment.similar_events.length} full-city analogues returned inside ${formatNumber(state.proposalRadiusM)} m weighting.`
+          : "Run or retry the proposal lens to retrieve full-city analogues.",
+      },
+      {
+        status: report.traffic.observed_metric_count ? "ok" : "gap",
+        statusLabel: report.traffic.observed_metric_count ? "Observed" : "Gap",
+        title: "Traffic evidence",
+        detail: report.traffic.observed_metric_count
+          ? "Observed mobility metrics are attached to the selected event."
+          : "Treat loaded traffic-event counts as leads only; measured volumes or speeds still need sourcing.",
+      },
+      {
+        status: assessment?.local_context?.current_signals?.some((signal) => signal.level !== "unknown") ? "ok" : "warn",
+        statusLabel: assessment ? "Reviewed" : "Pending",
+        title: "Current site context",
+        detail: assessment?.local_context?.current_signals?.some((signal) => signal.level !== "unknown")
+          ? "Current-context signals are present; inspect source confidence before citing."
+          : "Current signal values are sparse or unavailable; note this as a limitation.",
+      },
+    ];
+    return queue;
   }
 
   function planningReportPayload(event) {
@@ -1388,14 +2065,16 @@
     const analogues = plannerAnalogueEvents(event, profile, 5);
     const sourceCount = Math.max((event?.evidence || []).length, (event?.source_ids || []).length);
     const dataGaps = plannerDataGaps(event, traffic, evidence, sourceCount);
-    return {
+    const report = {
       product: "Open Citylog",
       mode: "Architecture planning workbench",
       proposal: {
         type: state.proposalType,
         type_label: profile.label,
+        api_category: profile.proposalCategory,
         scale: state.proposalScale,
         stage: state.proposalStage,
+        radius_m: state.proposalRadiusM,
       },
       caveat: "Historical evidence screen only. It does not forecast, simulate, or prove future project effects.",
       selected_event: event ? {
@@ -1419,6 +2098,8 @@
       evidence,
       traffic,
       analogues,
+      proposal_lens: state.plannerAssessmentKey === plannerAssessmentKey(event) ? state.plannerAssessment : null,
+      proposal_lens_error: state.plannerAssessmentError,
       design_questions: profile.questions,
       data_gaps: dataGaps,
       linked_sources: event ? linkedSourcesForEvent(event) : [],
@@ -1426,6 +2107,8 @@
         ? "Full city changelog loaded in browser"
         : "Only the currently loaded timeline years are included in counts and analogues",
     };
+    report.city_architect_brief = cityArchitectBrief(report, event);
+    return report;
   }
 
   function plannerBeforeYear(event) {
@@ -2135,6 +2818,10 @@
   function clearSelectedBrief() {
     state.selectedEventId = null;
     state.selectedEvent = null;
+    state.plannerAssessment = null;
+    state.plannerAssessmentKey = "";
+    state.plannerAssessmentError = null;
+    state.plannerAssessmentLoading = false;
     els.mapCallout.hidden = true;
     renderEmptyBrief();
     renderEventList();
@@ -2148,6 +2835,49 @@
     const expanded = button.getAttribute("aria-expanded") !== "false";
     button.setAttribute("aria-expanded", String(!expanded));
     section.classList.toggle("is-collapsed", expanded);
+  }
+
+  async function handlePlannerAction(event) {
+    const openButton = event.target.closest("[data-planner-open-event]");
+    if (openButton) {
+      const eventId = openButton.dataset.plannerOpenEvent;
+      const year = Number(openButton.dataset.plannerOpenYear);
+      if (Number.isFinite(year)) await ensureYearLoaded(year, { silent: true });
+      if (state.loadedEvents.has(eventId)) {
+        selectEvent(eventId);
+        toast("Analogue opened on the map.");
+      } else {
+        toast("Could not load that analogue record.");
+      }
+      return;
+    }
+    const button = event.target.closest("[data-planner-action]");
+    if (!button) return;
+    const action = button.dataset.plannerAction;
+    if (action === "show-planning") {
+      state.category = "built_environment";
+      state.search = "";
+      els.categoryFilter.value = state.category;
+      els.eventSearch.value = "";
+      renderLayerBar();
+      refreshFilteredView({ preferCurrentYear: true });
+      toast("Showing planning records.");
+      return;
+    }
+    if (action === "show-traffic") {
+      state.category = "transport";
+      state.search = "";
+      els.categoryFilter.value = state.category;
+      els.eventSearch.value = "";
+      setImpactMode("traffic");
+      renderLayerBar();
+      refreshFilteredView({ preferCurrentYear: true });
+      toast("Showing traffic and mobility records.");
+      return;
+    }
+    if (action === "load-full") {
+      loadAllEventsForChangelog();
+    }
   }
 
   function replayYears() {
@@ -2399,10 +3129,62 @@
       `Traffic records after window: ${report.traffic.after_window.count}`,
       `Note: ${report.traffic.note}`,
       "",
+      "### Full-City Proposal Lens",
+      "",
+      `Status: ${report.proposal_lens ? "available" : "not available"}`,
+      `Radius: ${report.proposal.radius_m} m`,
+      `Summary: ${report.proposal_lens?.summary || report.proposal_lens_error || "Full-city proposal lens was not available when this report was copied."}`,
+      `Confidence: ${report.proposal_lens?.confidence?.label || "not supplied"}`,
+      `Nearby historical records: ${report.proposal_lens?.local_context?.nearby_event_count ?? "not supplied"}`,
+      "",
+      "### Design Review Basis",
+      "",
+    );
+    (report.proposal_lens?.design_review_basis || []).forEach((row) => {
+      lines.push(`- ${row.label}: ${row.status || "gap"}. ${row.review_prompt || row.description}`);
+    });
+    if (!(report.proposal_lens?.design_review_basis || []).length) {
+      lines.push("- Not supplied by the proposal lens.");
+    }
+    lines.push(
+      "",
+      "### Evidence Matrix",
+      "",
+    );
+    plannerEvidenceMatrix(report).forEach((row) => {
+      lines.push(`- ${row.label}: ${row.statusLabel}. ${row.detail}`);
+    });
+    lines.push(
+      "",
+      "### City Architect Review",
+      "",
+      `Point of view: ${report.city_architect_brief.point_of_view}`,
+      `Learning aim: ${report.city_architect_brief.learning_aim}`,
+      "",
+      "Public life measurement plan:",
+    );
+    report.city_architect_brief.public_life_plan.forEach((item) => lines.push(`- ${item}`));
+    lines.push("", "Design tests:");
+    report.city_architect_brief.design_tests.forEach((item) => lines.push(`- ${item}`));
+    lines.push("", "Impact learning ledger:");
+    report.city_architect_brief.impact_learning.forEach((item) => {
+      lines.push(`- ${item.label}: ${item.value}. ${item.note}`);
+    });
+    lines.push(
+      "",
       "### Historical Analogues",
       "",
     );
+    const rankedApiAnalogues = plannerRankedApiAnalogues(report.proposal_lens, proposalProfile(report.proposal.type), 6);
+    if (rankedApiAnalogues.length) {
+      lines.push("Full-city analogues:");
+      rankedApiAnalogues.forEach((item, index) => {
+        lines.push(`${index + 1}. ${item.title} (${item.year || "date unknown"}) - ${item.distance_context || "distance not supplied"}; ${confidenceLabel(item.confidence)}`);
+      });
+      lines.push("");
+    }
     if (report.analogues.length) {
+      lines.push("Loaded visible analogues:");
       report.analogues.forEach((item, index) => {
         lines.push(`${index + 1}. ${item.title} (${item.year || "date unknown"}) - ${item.reason}`);
       });
@@ -2635,8 +3417,13 @@
     return /^(lon_|nyc_|planning-)/i.test(event.event_id || "");
   }
 
+  const eventPointCache = new WeakMap();
+  const eventTextCache = new WeakMap();
+
   function eventText(event) {
-    return [
+    if (!event || typeof event !== "object") return "";
+    if (eventTextCache.has(event)) return eventTextCache.get(event);
+    const text = [
       event.title,
       event.category,
       event.lens,
@@ -2647,6 +3434,8 @@
       ...(event.source_ids || []),
       ...(event.affected_signals || []),
     ].filter(Boolean).join(" ").toLowerCase();
+    eventTextCache.set(event, text);
+    return text;
   }
 
   function getAvailableYears() {
@@ -2685,7 +3474,11 @@
   }
 
   function eventPoint(event) {
-    return geometryCenter(event?.geometry);
+    if (!event || typeof event !== "object") return null;
+    if (eventPointCache.has(event)) return eventPointCache.get(event);
+    const point = geometryCenter(event.geometry);
+    eventPointCache.set(event, point);
+    return point;
   }
 
   function geometryCenter(geometry) {
@@ -3250,8 +4043,8 @@
     return "/" + String(filePath || "").replace(/\\/g, "/").replace(/^web\//, "").replace(/^\//, "");
   }
 
-  async function fetchJson(url) {
-    const response = await fetch(url, { cache: "no-store" });
+  async function fetchJson(url, options = {}) {
+    const response = await fetch(url, { cache: options.cache || "default" });
     if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
     return response.json();
   }
@@ -3327,6 +4120,7 @@
       toggleCompare,
       loadAllEventsForChangelog,
       planningReportPayload,
+      requestPlannerAssessment,
       copyPlanningReport,
       copyBrief,
       exportBrief,

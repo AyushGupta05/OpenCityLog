@@ -69,6 +69,8 @@ console.log(JSON.stringify({ good, bad }));
         self.assertIn("score_breakdown", nearest)
         self.assertIn("category", nearest["score_breakdown"])
         self.assertIn("source_quality", nearest["score_breakdown"])
+        self.assertIn("match_factors", nearest)
+        self.assertTrue(any(item["factor"] == "distance" for item in nearest["match_factors"]))
 
     def test_current_context_and_signal_caveats_are_present(self) -> None:
         result = self.run_proposal(
@@ -81,6 +83,8 @@ console.log(JSON.stringify({ good, bad }));
             }
         )
         self.assertTrue(result["local_context"]["current_signals"])
+        self.assertIn(result["local_context"].get("context_basis"), {"nearby_historical_event_density", "grid_and_nearby_historical_events"})
+        self.assertTrue(result["local_context"].get("nearby_event_sample"))
         signal_ids = {item["signal"] for item in result["affected_signals"]}
         self.assertIn("mobility", signal_ids)
         self.assertIn("utilities", signal_ids)
@@ -90,6 +94,8 @@ console.log(JSON.stringify({ good, bad }));
             self.assertIn(signal["confidence"], {"low", "medium", "high"})
             self.assertTrue(signal["evidence"])
             self.assertIsInstance(signal["caveats"], list)
+        self.assertGreaterEqual(len(result["design_review_basis"]), 4)
+        self.assertTrue(any(item["theme"] == "connectivity" for item in result["design_review_basis"]))
 
     def test_missing_location_lowers_confidence_and_says_why(self) -> None:
         result = self.run_proposal(
