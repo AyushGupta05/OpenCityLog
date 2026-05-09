@@ -4,9 +4,19 @@
 
 The Proposal Lens is an evidence screen for proposed city changes. It answers:
 
-> Based on similar past events and current local context, this proposal may affect these signals.
+> Which observed precedents, source caveats, before/after records, and traffic evidence should be reviewed before a proposal claim is made?
 
 It is not a calibrated forecast, simulator, causal model, or approval tool. It retrieves historical analogues, extracts local context, and turns those records into planner-facing questions, caveats, and evidence links.
+
+The frontend planning workbench in `web/index.html` and `web/atlas.js` applies the same rule to the selected atlas event. A user can choose a proposal type, scale, and project stage, then copy a planning report that includes:
+
+- selected historical precedent and confidence
+- before/after imagery dates and archive fallback notes
+- related loaded records in before/after windows
+- traffic or mobility evidence counts, clearly separated from measured traffic volumes
+- comparable loaded events, design review questions, data gaps, and linked sources
+
+The workbench deliberately uses "screening", "review", "evidence", and "data gap" language. It must not say a future project will produce an outcome.
 
 ## Proposal Input
 

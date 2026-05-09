@@ -152,6 +152,9 @@ SOURCE_DATE_FIELD_HINTS = {
     "tfl-road-disruptions": "startDateTime, currentUpdateDateTime, or lastModifiedTime",
     "london-fire-brigade-incidents": "DateOfCall",
     "dft-road-safety-collisions": "date",
+    "lon-extra-hm-land-registry-price-paid-data": "transfer deed date",
+    "lon-extra-uk-house-price-index": "Date",
+    "lon-extra-food-hygiene-rating-scheme-api": "RatingDate",
     "police-data-api": "Month",
     "police-data-stop-search": "Date (month-truncated by adapter)",
     "ipu4-2q9a": "issuance_date",
@@ -348,6 +351,8 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             "source_retrieved_at": item.get("source_retrieved_at") or primary_evidence.get("accessed_at"),
             "source_dataset_id": item.get("source_dataset_id") or (primary_source.get("source_id") if primary_source else None),
             "source_date_field": source_date_field,
+            "geometry_source": item.get("geometry_source"),
+            "geometry_precision": item.get("geometry_precision"),
         },
     }
 

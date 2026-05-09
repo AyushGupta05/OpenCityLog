@@ -81,6 +81,59 @@
     ],
   };
 
+  const PROPOSAL_PROFILES = {
+    housing: {
+      label: "Housing or mixed-use",
+      categories: ["built_environment", "transport", "civic_services", "economy"],
+      signals: ["planning", "housing", "transport", "schools", "health", "retail", "jobs"],
+      questions: [
+        "Which planning conditions, tenure records, heritage constraints, and delivery dates need checking?",
+        "What transport, servicing, public-realm, and civic-service evidence changed around comparable records?",
+        "Which source rows distinguish permission, construction, completion, and occupancy?",
+      ],
+    },
+    transport: {
+      label: "Street or transit change",
+      categories: ["transport", "built_environment", "environment", "civic_services"],
+      signals: ["traffic", "transit", "collisions", "bus", "rail", "cycle", "public realm"],
+      questions: [
+        "Which observed traffic, collision, disruption, and mode-share sources cover the corridor?",
+        "Are construction-period disruptions separated from permanent network changes?",
+        "Which accessibility, loading, emergency access, and public-realm records should be reviewed?",
+      ],
+    },
+    public_realm: {
+      label: "Public realm",
+      categories: ["built_environment", "transport", "environment", "economy"],
+      signals: ["public realm", "green space", "walking", "cycle", "retail", "heritage"],
+      questions: [
+        "What changed in footway, open-space, tree, heritage, and frontage evidence before and after comparable schemes?",
+        "Are temporary street measures separated from permanent public-realm works?",
+        "Which maintenance, accessibility, safety, and local-business records should be added to the brief?",
+      ],
+    },
+    civic_services: {
+      label: "Civic or social infrastructure",
+      categories: ["civic_services", "built_environment", "transport", "economy"],
+      signals: ["schools", "health", "community", "access", "jobs", "transport"],
+      questions: [
+        "Which service-capacity, accessibility, equalities, and land-use records are available for the area?",
+        "Do comparable records show documented opening dates, funding milestones, or only planning approvals?",
+        "Which community consultation and statutory-consultee evidence should be attached?",
+      ],
+    },
+    climate: {
+      label: "Climate or resilience",
+      categories: ["environment", "built_environment", "transport", "civic_services"],
+      signals: ["flood", "green infrastructure", "air quality", "heat", "utilities", "active travel"],
+      questions: [
+        "Which flood, heat, air-quality, tree, drainage, and utility records are source-backed for the site?",
+        "Are environmental records direct measurements, policy designations, or inferred mapped layers?",
+        "Which monitoring gaps should be closed before design claims are made?",
+      ],
+    },
+  };
+
   const state = {
     index: null,
     cityId: "",
@@ -125,6 +178,9 @@
     compareEnabled: false,
     viewMode: "2d",
     impactMode: "place",
+    proposalType: "housing",
+    proposalScale: "site",
+    proposalStage: "early",
     replayTimer: null,
     timeScrubTimer: null,
     yearRequest: 0,
@@ -208,6 +264,14 @@
       "detailTitle",
       "detailSubtitle",
       "briefCoverageStatus",
+      "proposalTypeSelect",
+      "proposalScaleSelect",
+      "proposalStageSelect",
+      "copyPlanningReportButton",
+      "plannerCompareButton",
+      "plannerTrafficButton",
+      "loadPlannerEvidenceButton",
+      "plannerWorkbench",
       "observedChange",
       "impactModeBar",
       "impactPanel",
@@ -292,6 +356,25 @@
     els.mapPlane.addEventListener("wheel", zoomMapWheel, { passive: false });
     els.compareSlider.addEventListener("input", () => setCompareX(Number(els.compareSlider.value)));
     els.compareButton?.addEventListener("click", () => toggleCompare());
+    els.proposalTypeSelect?.addEventListener("change", () => {
+      state.proposalType = els.proposalTypeSelect.value;
+      renderPlannerWorkbench(state.selectedEvent);
+    });
+    els.proposalScaleSelect?.addEventListener("change", () => {
+      state.proposalScale = els.proposalScaleSelect.value;
+      renderPlannerWorkbench(state.selectedEvent);
+    });
+    els.proposalStageSelect?.addEventListener("change", () => {
+      state.proposalStage = els.proposalStageSelect.value;
+      renderPlannerWorkbench(state.selectedEvent);
+    });
+    els.copyPlanningReportButton?.addEventListener("click", copyPlanningReport);
+    els.plannerCompareButton?.addEventListener("click", () => toggleCompare(true));
+    els.plannerTrafficButton?.addEventListener("click", () => {
+      setImpactMode("traffic");
+      els.impactPanel?.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    });
+    els.loadPlannerEvidenceButton?.addEventListener("click", loadAllEventsForChangelog);
     els.contextLensButton?.addEventListener("click", () => {
       setImpactMode("components");
       els.impactPanel?.scrollIntoView({ block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
@@ -370,6 +453,9 @@
     state.source = "all";
     state.search = "";
     state.sort = "relevance";
+    state.proposalType = "housing";
+    state.proposalScale = "site";
+    state.proposalStage = "early";
     state.listLimit = MAX_LIST_EVENTS;
     state.allEventsLoaded = false;
     state.isLoadingAllEvents = false;
@@ -379,6 +465,9 @@
     els.confidenceFilter.value = "all";
     els.sourceFilter.value = "all";
     els.sortSelect.value = "relevance";
+    if (els.proposalTypeSelect) els.proposalTypeSelect.value = state.proposalType;
+    if (els.proposalScaleSelect) els.proposalScaleSelect.value = state.proposalScale;
+    if (els.proposalStageSelect) els.proposalStageSelect.value = state.proposalStage;
     setLoading();
 
     try {
@@ -1132,6 +1221,7 @@
     els.confidenceDot.style.background = confidenceColor(event.confidence);
     els.confidenceText.textContent = confidenceText(event);
     renderEvidenceFrames(event);
+    renderPlannerWorkbench(event);
     renderImpactModeControls();
     renderImpactPanel(event);
     renderLimitations(event);
@@ -1146,6 +1236,7 @@
     if (els.briefCoverageStatus) els.briefCoverageStatus.textContent = "Coverage status loads with the city.";
     els.observedChange.textContent = "Loading source-backed records.";
     if (els.impactPanel) els.impactPanel.innerHTML = `<p>Select an event to inspect associated place, mobility, and component context.</p>`;
+    renderPlannerWorkbench(null);
     els.evidenceFrames.innerHTML = "";
     els.detailConfidence.textContent = "No event";
     els.confidenceText.textContent = "Select an event to see evidence strength.";
@@ -1188,6 +1279,369 @@
         <span aria-hidden="true"></span>
       </div>
     `;
+  }
+
+  function proposalProfile(type) {
+    return PROPOSAL_PROFILES[type] || PROPOSAL_PROFILES.housing;
+  }
+
+  function renderPlannerWorkbench(event) {
+    if (!els.plannerWorkbench) return;
+    if (els.copyPlanningReportButton) els.copyPlanningReportButton.disabled = !event;
+    if (els.plannerCompareButton) els.plannerCompareButton.disabled = !event;
+    if (els.plannerTrafficButton) els.plannerTrafficButton.disabled = !event;
+    if (!event) {
+      els.plannerWorkbench.innerHTML = `<p>Select a source-backed event to build a planning report from observed precedent, imagery dates, traffic evidence, and source caveats.</p>`;
+      return;
+    }
+
+    const report = planningReportPayload(event);
+    const readiness = planningReadiness(report);
+    const questionList = report.design_questions.slice(0, 3).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    const gapList = report.data_gaps.slice(0, 4).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    els.plannerWorkbench.innerHTML = `
+      <div class="planner-status-grid">
+        ${readiness.map((item) => `
+          <article class="planner-status ${escapeAttr(item.status)}">
+            <span>${escapeHtml(item.label)}</span>
+            <strong>${escapeHtml(item.value)}</strong>
+            <small>${escapeHtml(item.note)}</small>
+          </article>
+        `).join("")}
+      </div>
+
+      <article class="planner-diff-card">
+        <div class="planner-card-head">
+          <span class="impact-kicker">Before/after diff</span>
+          <strong>${escapeHtml(report.selected_event?.title || "Selected precedent")}</strong>
+        </div>
+        <div class="planner-diff-grid">
+          <div>
+            <span>Before</span>
+            <strong>${escapeHtml(String(report.before_after.before_year))}</strong>
+            <small>${escapeHtml(report.before_after.before_imagery_label)}</small>
+            <em>${formatNumber(report.evidence.before_window.count)} related records loaded</em>
+          </div>
+          <div>
+            <span>After</span>
+            <strong>${escapeHtml(String(report.before_after.after_year))}</strong>
+            <small>${escapeHtml(report.before_after.after_imagery_label)}</small>
+            <em>${formatNumber(report.evidence.after_window.count)} related records loaded</em>
+          </div>
+        </div>
+        <p>${escapeHtml(report.before_after.note)}</p>
+      </article>
+
+      <article class="planner-traffic-card">
+        <div class="planner-card-head">
+          <span class="impact-kicker">Traffic evidence</span>
+          <strong>${escapeHtml(report.traffic.heading)}</strong>
+        </div>
+        <div class="planner-traffic-grid">
+          <div><span>Before window</span><strong>${formatNumber(report.traffic.before_window.count)}</strong></div>
+          <div><span>After window</span><strong>${formatNumber(report.traffic.after_window.count)}</strong></div>
+          <div><span>Observed metrics</span><strong>${formatNumber(report.traffic.observed_metric_count)}</strong></div>
+        </div>
+        <p>${escapeHtml(report.traffic.note)}</p>
+      </article>
+
+      <details class="planner-report-block" open>
+        <summary>Planner questions and gaps</summary>
+        <div class="planner-two-col">
+          <div>
+            <strong>Review questions</strong>
+            <ul>${questionList}</ul>
+          </div>
+          <div>
+            <strong>Data gaps</strong>
+            <ul>${gapList}</ul>
+          </div>
+        </div>
+      </details>
+
+      <div class="planner-analogue-list">
+        <div class="planner-card-head">
+          <span class="impact-kicker">Historical analogues</span>
+          <strong>${formatNumber(report.analogues.length)} loaded precedents</strong>
+        </div>
+        ${report.analogues.length ? report.analogues.map((item) => `
+          <article class="planner-analogue">
+            <span>${escapeHtml(item.year || "date unknown")}</span>
+            <strong>${escapeHtml(item.title)}</strong>
+            <small>${escapeHtml(item.reason)}</small>
+          </article>
+        `).join("") : `<p>No close analogue is loaded yet. Load full city evidence or broaden filters before treating this as a coverage finding.</p>`}
+      </div>
+      <p class="planner-caveat">This is a planning screen built from observed records. It does not forecast, simulate, or prove project effects.</p>
+    `;
+  }
+
+  function planningReportPayload(event) {
+    const profile = proposalProfile(state.proposalType);
+    const beforeYear = plannerBeforeYear(event);
+    const afterYear = plannerAfterYear(event, beforeYear);
+    const eventYear = plannerEventYear(event) || state.year;
+    const beforeImagery = imageryForYear(beforeYear);
+    const afterImagery = imageryForYear(afterYear);
+    const traffic = plannerTrafficSummary(event, beforeYear, afterYear);
+    const evidence = plannerEvidenceCounts(profile, beforeYear, afterYear, eventYear);
+    const analogues = plannerAnalogueEvents(event, profile, 5);
+    const sourceCount = Math.max((event?.evidence || []).length, (event?.source_ids || []).length);
+    const dataGaps = plannerDataGaps(event, traffic, evidence, sourceCount);
+    return {
+      product: "Open Citylog",
+      mode: "Architecture planning workbench",
+      proposal: {
+        type: state.proposalType,
+        type_label: profile.label,
+        scale: state.proposalScale,
+        stage: state.proposalStage,
+      },
+      caveat: "Historical evidence screen only. It does not forecast, simulate, or prove future project effects.",
+      selected_event: event ? {
+        event_id: event.event_id,
+        title: cleanTitle(event.title),
+        year: plannerEventYear(event),
+        date: formatEventDate(event),
+        category: event.category,
+        confidence: event.confidence,
+        place: event.affected_area?.label || shortCityName(state.city?.display_name),
+        source_count: sourceCount,
+      } : null,
+      before_after: {
+        before_year: beforeYear,
+        after_year: afterYear,
+        event_year: eventYear,
+        before_imagery_label: imageryFrameLabel(beforeImagery, beforeYear),
+        after_imagery_label: imageryFrameLabel(afterImagery, afterYear),
+        note: beforeAfterPlanningNote(beforeImagery, afterImagery, beforeYear, afterYear),
+      },
+      evidence,
+      traffic,
+      analogues,
+      design_questions: profile.questions,
+      data_gaps: dataGaps,
+      linked_sources: event ? linkedSourcesForEvent(event) : [],
+      loaded_scope: state.allEventsLoaded
+        ? "Full city changelog loaded in browser"
+        : "Only the currently loaded timeline years are included in counts and analogues",
+    };
+  }
+
+  function plannerBeforeYear(event) {
+    const explicit = Number(event?.traffic_metrics?.beforeYear);
+    if (Number.isFinite(explicit)) return explicit;
+    const eventYear = plannerEventYear(event);
+    if (Number.isFinite(eventYear)) return nearestYearBefore(eventYear);
+    return Number(state.beforeYear) || CURRENT_YEAR - 1;
+  }
+
+  function plannerAfterYear(event, beforeYear) {
+    const explicit = Number(event?.traffic_metrics?.afterYear);
+    const eventYear = plannerEventYear(event);
+    const fallback = Math.max(Number(state.year) || CURRENT_YEAR, Number(eventYear) || CURRENT_YEAR);
+    const candidate = Number.isFinite(explicit) ? explicit : fallback;
+    return candidate < beforeYear ? beforeYear : candidate;
+  }
+
+  function beforeAfterPlanningNote(beforeImagery, afterImagery, beforeYear, afterYear) {
+    const notes = [];
+    if (beforeImagery?.is_earliest_available) {
+      notes.push(`before imagery falls back to ${beforeImagery.date}, the earliest archive`);
+    }
+    if (afterImagery?.is_latest_available) {
+      notes.push(`after imagery falls back to ${afterImagery.date}, the latest archive`);
+    }
+    if (!notes.length) notes.push(`imagery is selected for ${beforeYear} and ${afterYear} where archive coverage exists`);
+    return `${notes.join("; ")}. Inspect linked sources before treating visual difference as proof of delivery.`;
+  }
+
+  function plannerEvidenceCounts(profile, beforeYear, afterYear, eventYear) {
+    const beforeWindow = { start: beforeYear - 2, end: beforeYear };
+    const afterWindow = { start: Math.min(eventYear, afterYear), end: afterYear };
+    const categoryCounts = new Map();
+    let relevantLoaded = 0;
+    let beforeCount = 0;
+    let afterCount = 0;
+    for (const item of state.loadedEvents.values()) {
+      if (!eventMatchesProposal(item, profile)) continue;
+      relevantLoaded += 1;
+      categoryCounts.set(item.category || "unknown", (categoryCounts.get(item.category || "unknown") || 0) + 1);
+      const year = plannerEventYear(item);
+      if (!Number.isFinite(year)) continue;
+      if (year >= beforeWindow.start && year <= beforeWindow.end) beforeCount += 1;
+      if (year >= afterWindow.start && year <= afterWindow.end) afterCount += 1;
+    }
+    const categories = Array.from(categoryCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([category, count]) => ({ category, label: categoryConfig(category).label || signalLabel(category), count }));
+    return {
+      loaded_record_count: state.loadedEvents.size,
+      full_city_loaded: state.allEventsLoaded,
+      relevant_loaded_count: relevantLoaded,
+      before_window: { ...beforeWindow, count: beforeCount },
+      after_window: { ...afterWindow, count: afterCount },
+      categories,
+    };
+  }
+
+  function plannerTrafficSummary(event, beforeYear, afterYear) {
+    const metric = observedTrafficMetric(event);
+    const deltas = observedTrafficDeltas(event);
+    const eventYear = plannerEventYear(event) || afterYear;
+    const beforeWindow = { start: beforeYear - 2, end: beforeYear, count: 0 };
+    const afterWindow = { start: Math.min(eventYear, afterYear), end: afterYear, count: 0 };
+    const examples = [];
+    for (const item of state.loadedEvents.values()) {
+      if (!isTrafficEvidence(item)) continue;
+      const year = plannerEventYear(item);
+      if (!Number.isFinite(year)) continue;
+      if (year >= beforeWindow.start && year <= beforeWindow.end) beforeWindow.count += 1;
+      if (year >= afterWindow.start && year <= afterWindow.end) afterWindow.count += 1;
+      if (examples.length < 4 && year >= beforeWindow.start && year <= afterWindow.end) {
+        examples.push({ title: cleanTitle(item.title), year: String(year), source_ids: item.source_ids || [] });
+      }
+    }
+    const observedMetricCount = (metric ? 1 : 0) + deltas.length;
+    const hasTrafficContext = observedMetricCount > 0 || beforeWindow.count > 0 || afterWindow.count > 0;
+    return {
+      heading: hasTrafficContext ? "Observed mobility context found" : "Traffic data gap",
+      observed_metric_count: observedMetricCount,
+      observed_metric: metric ? {
+        before_label: metric.beforeLabel || "Before",
+        before_value: metric.beforeValue,
+        after_label: metric.afterLabel || "After",
+        after_value: metric.afterValue,
+        note: metric.note || null,
+      } : null,
+      observed_deltas: deltas,
+      before_window: beforeWindow,
+      after_window: afterWindow,
+      examples,
+      note: hasTrafficContext
+        ? "Counts are traffic or mobility evidence records loaded for the selected windows; they are not traffic-volume measurements unless an observed metric is explicitly supplied."
+        : "No observed traffic metric or loaded traffic evidence record covers the selected before/after windows. Add transport counts, collision records, bus reliability, or travel-time sources before using this as traffic evidence.",
+    };
+  }
+
+  function plannerAnalogueEvents(event, profile, limit) {
+    if (!event) return [];
+    const anchor = eventPoint(event);
+    const scored = [];
+    for (const item of state.loadedEvents.values()) {
+      if (!item || item.event_id === event.event_id) continue;
+      if (!eventMatchesProposal(item, profile) && item.category !== event.category) continue;
+      const point = eventPoint(item);
+      const distance = anchor && point ? distanceKm(anchor, point) : null;
+      const confidence = CONFIDENCE_SCORE[item.confidence] || 0;
+      const sameCategory = item.category === event.category ? 32 : 0;
+      const distanceScore = Number.isFinite(distance) ? Math.max(0, 30 - distance) : 6;
+      const sourceScore = Math.min(4, sourceCountForEvent(item)) * 4;
+      const generatedPenalty = isGeneratedRowEvent(item) ? 10 : 0;
+      scored.push({
+        event: item,
+        distance,
+        score: sameCategory + distanceScore + confidence * 7 + sourceScore - generatedPenalty,
+      });
+    }
+    return scored
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map((item) => ({
+        event_id: item.event.event_id,
+        title: cleanTitle(item.event.title),
+        year: String(plannerEventYear(item.event) || ""),
+        confidence: item.event.confidence,
+        category: item.event.category,
+        reason: analogueReason(item.event, item.distance),
+      }));
+  }
+
+  function analogueReason(event, distance) {
+    const parts = [confidenceLabel(event.confidence), categoryConfig(event.category).label];
+    if (Number.isFinite(distance)) parts.push(`${distance.toFixed(distance < 10 ? 1 : 0)} km from selected record`);
+    parts.push(`${sourceCountForEvent(event)} source${sourceCountForEvent(event) === 1 ? "" : "s"}`);
+    return parts.join("; ");
+  }
+
+  function planningReadiness(report) {
+    const sources = report.selected_event?.source_count || 0;
+    const confidence = report.selected_event?.confidence || "";
+    const strongConfidence = confidence === "corroborated" || confidence === "documented";
+    const trafficCount = report.traffic.observed_metric_count + report.traffic.before_window.count + report.traffic.after_window.count;
+    return [
+      {
+        label: "Provenance",
+        value: `${formatNumber(sources)} source${sources === 1 ? "" : "s"}`,
+        status: sources > 0 ? "ok" : "gap",
+        note: sources > 0 ? "Linked source rows are available for review." : "No linked source rows are attached.",
+      },
+      {
+        label: "Confidence",
+        value: confidenceLabel(confidence),
+        status: strongConfidence ? "ok" : "warn",
+        note: strongConfidence ? "Good enough for precedent screening." : "Treat as a prompt for further source review.",
+      },
+      {
+        label: "Before/after",
+        value: `${report.before_after.before_year} -> ${report.before_after.after_year}`,
+        status: "ok",
+        note: "Imagery dates are shown with archive fallback notes.",
+      },
+      {
+        label: "Traffic",
+        value: `${formatNumber(trafficCount)} records`,
+        status: trafficCount > 0 ? "ok" : "gap",
+        note: trafficCount > 0 ? "Mobility evidence is present in loaded records." : "Add observed traffic sources before making a mobility claim.",
+      },
+    ];
+  }
+
+  function plannerDataGaps(event, traffic, evidence, sourceCount) {
+    const gaps = [];
+    if (!sourceCount) gaps.push("Attach at least one public source row for the selected precedent.");
+    if (!traffic.observed_metric_count) gaps.push("Observed traffic volumes, speeds, collisions, or transit performance are not directly supplied for this event.");
+    if (!state.allEventsLoaded) gaps.push("Counts and analogues use currently loaded years only; load full city evidence for a wider screen.");
+    if (event?.confidence === "inferred") gaps.push("The selected record is inferred; verify effective dates before using it in a planning report.");
+    if (!evidence.categories.length) gaps.push("No related category mix is loaded for the chosen proposal type.");
+    if (!gaps.length) gaps.push("Primary gaps depend on scheme specifics: surveys, consultation records, utilities, costs, and statutory assessment evidence are outside this atlas unless linked sources are added.");
+    return gaps;
+  }
+
+  function eventMatchesProposal(event, profile) {
+    if (!event) return false;
+    if (profile.categories.includes(event.category)) return true;
+    const text = eventText(event);
+    return profile.signals.some((term) => text.includes(term));
+  }
+
+  function isTrafficEvidence(event) {
+    if (!event) return false;
+    if (event.category === "transport") return true;
+    return /traffic|transport|transit|mobility|road|street|collision|congestion|bus|rail|station|cycle|walking|pedestrian|disruption|tfl|dft/i.test(eventText(event));
+  }
+
+  function plannerEventYear(event) {
+    const direct = Number(event?.year);
+    if (Number.isFinite(direct)) return direct;
+    const match = String(event?.effective_date || event?.effective_date_range?.start || "").match(/\b(18|19|20)\d{2}\b/);
+    return match ? Number(match[0]) : NaN;
+  }
+
+  function sourceCountForEvent(event) {
+    return Math.max((event?.evidence || []).length, (event?.source_ids || []).length);
+  }
+
+  function distanceKm(a, b) {
+    const radius = 6371;
+    const lat1 = Number(a.lat) * Math.PI / 180;
+    const lat2 = Number(b.lat) * Math.PI / 180;
+    const dLat = lat2 - lat1;
+    const dLng = (Number(b.lng) - Number(a.lng)) * Math.PI / 180;
+    const h = Math.sin(dLat / 2) ** 2
+      + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+    return radius * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
   }
 
   function setImpactMode(mode) {
@@ -1743,6 +2197,17 @@
       .catch(() => toast("Clipboard unavailable; use Export."));
   }
 
+  function copyPlanningReport() {
+    if (!state.selectedEvent) {
+      toast("Select a record before copying a planning report.");
+      return;
+    }
+    const text = plannerMarkdown(planningReportPayload(state.selectedEvent));
+    navigator.clipboard?.writeText(text)
+      .then(() => toast("Planning report copied."))
+      .catch(() => toast("Clipboard unavailable; use Export Evidence Brief."));
+  }
+
   function downloadText(text, filename, type) {
     const blob = new Blob([text], { type });
     const url = URL.createObjectURL(blob);
@@ -1798,6 +2263,7 @@
         linked_sources: linkedSourcesForEvent(event),
         provenance: event.provenance || null,
       } : null,
+      planning_report: event ? planningReportPayload(event) : null,
     };
   }
 
@@ -1875,7 +2341,87 @@
       `Source URL: ${event.provenance?.source_url || "not supplied"}`,
       `Source retrieved: ${event.provenance?.source_retrieved_at || "not supplied"}`,
     );
+    if (payload.planning_report) {
+      lines.push("", ...planningReportLines(payload.planning_report, { includeTitle: false }));
+    }
     return lines.join("\n");
+  }
+
+  function plannerMarkdown(report) {
+    return planningReportLines(report, { includeTitle: true }).join("\n");
+  }
+
+  function planningReportLines(report, options = {}) {
+    const event = report.selected_event;
+    const lines = [];
+    if (options.includeTitle !== false) {
+      lines.push(`# Planning Evidence Screen: ${event?.title || "No selected record"}`, "");
+    } else {
+      lines.push("## Planning Workbench Report", "");
+    }
+    lines.push(
+      `Product: ${report.product}`,
+      `Mode: ${report.mode}`,
+      `Proposal type: ${report.proposal.type_label}`,
+      `Scale: ${report.proposal.scale}`,
+      `Stage: ${report.proposal.stage}`,
+      `Caveat: ${report.caveat}`,
+      `Loaded scope: ${report.loaded_scope}`,
+      "",
+    );
+    if (event) {
+      lines.push(
+        "### Selected Precedent",
+        "",
+        `Event: ${event.title}`,
+        `Date: ${event.date}`,
+        `Category: ${event.category || "not supplied"}`,
+        `Confidence: ${confidenceLabel(event.confidence)}`,
+        `Place: ${event.place || "not supplied"}`,
+        `Sources: ${event.source_count}`,
+        "",
+      );
+    }
+    lines.push(
+      "### Before/After",
+      "",
+      `Before: ${report.before_after.before_year} (${report.before_after.before_imagery_label})`,
+      `After: ${report.before_after.after_year} (${report.before_after.after_imagery_label})`,
+      `Related records before window: ${report.evidence.before_window.count}`,
+      `Related records after window: ${report.evidence.after_window.count}`,
+      `Note: ${report.before_after.note}`,
+      "",
+      "### Traffic Evidence",
+      "",
+      `Status: ${report.traffic.heading}`,
+      `Observed metrics: ${report.traffic.observed_metric_count}`,
+      `Traffic records before window: ${report.traffic.before_window.count}`,
+      `Traffic records after window: ${report.traffic.after_window.count}`,
+      `Note: ${report.traffic.note}`,
+      "",
+      "### Historical Analogues",
+      "",
+    );
+    if (report.analogues.length) {
+      report.analogues.forEach((item, index) => {
+        lines.push(`${index + 1}. ${item.title} (${item.year || "date unknown"}) - ${item.reason}`);
+      });
+    } else {
+      lines.push("- No close analogue is loaded yet.");
+    }
+    lines.push("", "### Review Questions", "");
+    report.design_questions.forEach((item) => lines.push(`- ${item}`));
+    lines.push("", "### Data Gaps", "");
+    report.data_gaps.forEach((item) => lines.push(`- ${item}`));
+    lines.push("", "### Linked Sources", "");
+    if (report.linked_sources.length) {
+      report.linked_sources.slice(0, 8).forEach((source, index) => {
+        lines.push(`${index + 1}. ${source.title} - ${source.url || "not supplied"}`);
+      });
+    } else {
+      lines.push("- No linked source rows supplied.");
+    }
+    return lines;
   }
 
   function renderTiles() {
@@ -2780,6 +3326,8 @@
       setViewMode,
       toggleCompare,
       loadAllEventsForChangelog,
+      planningReportPayload,
+      copyPlanningReport,
       copyBrief,
       exportBrief,
       exportBriefJson,

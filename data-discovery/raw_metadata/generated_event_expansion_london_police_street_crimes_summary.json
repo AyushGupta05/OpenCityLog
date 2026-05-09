@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-05-08T19:51:53Z",
+  "retrieved_at": "2026-05-08T20:17:55Z",
   "source": "https://data.police.uk/data/",
   "download": {
     "date_from": "2023-04",
@@ -11,7 +11,7 @@
     "include_crime": true,
     "include_outcomes": false,
     "include_stop_and_search": false,
-    "progress_url": "https://data.police.uk/data/progress/e6ce38d6-9abf-4d56-b0cc-59dc0651a8cd/",
+    "progress_url": "https://data.police.uk/data/progress/070fd203-b805-4f69-9be6-f50398fa4d32/",
     "polls": 2,
     "download_url_host": "policeuk-data.s3.amazonaws.com"
   },

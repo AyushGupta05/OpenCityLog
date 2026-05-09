@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-05-08T19:50:07Z",
+  "retrieved_at": "2026-05-08T20:10:01Z",
   "source": "planning.data.gov.uk planning designation datasets",
   "datasets": {
     "conservation-area": {
@@ -2164,16 +2164,7 @@
         {
           "entity": 626213,
           "name": "Hillingdon",
-          "count": 0,
-          "first_page_count": 0,
-          "sample_count": 0,
-          "page_count": 1,
-          "page_limit": 500,
-          "truncated": false,
-          "first_url": "https://www.planning.data.gov.uk/entity.json?dataset=article-4-direction&geometry_entity=626213&geometry_relation=intersects&limit=500",
-          "last_url": "https://www.planning.data.gov.uk/entity.json?dataset=article-4-direction&geometry_entity=626213&geometry_relation=intersects&limit=500",
-          "added": 0,
-          "skipped_without_source_date": 0
+          "error": "failed to fetch https://www.planning.data.gov.uk/entity.json?dataset=article-4-direction&geometry_entity=626213&geometry_relation=intersects&limit=500: HTTP Error 502: Bad Gateway"
         },
         {
           "entity": 626214,

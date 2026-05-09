@@ -201,6 +201,54 @@
           </div>
         </header>
 
+        <section class="brief-section planner-section" aria-labelledby="plannerTitle">
+          <div class="planner-head">
+            <div>
+              <span class="impact-kicker">Architecture planning workbench</span>
+              <h3 id="plannerTitle">Evidence screen for a proposal</h3>
+            </div>
+            <button id="copyPlanningReportButton" class="planner-copy-button" type="button">Copy report</button>
+          </div>
+          <div class="planner-controls">
+            <label for="proposalTypeSelect">
+              <span>Proposal type</span>
+              <select id="proposalTypeSelect">
+                <option value="housing">Housing or mixed-use</option>
+                <option value="transport">Street or transit change</option>
+                <option value="public_realm">Public realm</option>
+                <option value="civic_services">Civic or social infrastructure</option>
+                <option value="climate">Climate or resilience</option>
+              </select>
+            </label>
+            <label for="proposalScaleSelect">
+              <span>Scale</span>
+              <select id="proposalScaleSelect">
+                <option value="site">Site</option>
+                <option value="block">Block</option>
+                <option value="corridor">Corridor</option>
+                <option value="district">District</option>
+              </select>
+            </label>
+            <label for="proposalStageSelect">
+              <span>Stage</span>
+              <select id="proposalStageSelect">
+                <option value="early">Early feasibility</option>
+                <option value="preapp">Pre-application</option>
+                <option value="committee">Committee pack</option>
+                <option value="postoccupancy">Post-occupancy review</option>
+              </select>
+            </label>
+          </div>
+          <div class="planner-action-row" aria-label="Planning workbench actions">
+            <button id="plannerCompareButton" type="button">Before/after split</button>
+            <button id="plannerTrafficButton" type="button">Traffic lens</button>
+            <button id="loadPlannerEvidenceButton" type="button">Load full city evidence</button>
+          </div>
+          <div id="plannerWorkbench" class="planner-workbench" aria-live="polite">
+            <p>Select a source-backed event to build a planning report from observed precedent, imagery dates, traffic evidence, and source caveats.</p>
+          </div>
+        </section>
+
         <section class="brief-section">
           <button class="section-toggle" type="button" aria-expanded="true">
             <span>Observed change</span>
@@ -329,6 +377,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
-  <script src="/atlas.js?v=open-citylog-reference-3" defer></script>
+  <script src="/atlas.js?v=open-citylog-planning-workbench-1" defer></script>
 </body>
 </html>

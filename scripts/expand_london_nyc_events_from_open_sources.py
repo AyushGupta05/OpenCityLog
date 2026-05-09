@@ -49,6 +49,9 @@ GENERATED_PREFIXES = (
     "lon_planning_designation_",
     "lon_lfb_incident_",
     "lon_dft_road_collision_",
+    "lon_hmlr_price_paid_",
+    "lon_hmlr_ukhpi_",
+    "lon_fsa_fhrs_rating_",
     "lon_police_street_crime_",
     "lon_police_stop_search_",
     "lon_tfl_disruption_",
@@ -209,6 +212,90 @@ DFT_COLLISION_SEVERITY = {
     "3": "slight",
 }
 
+HMLR_PRICE_PAID_SOURCE_ID = "lon-extra-hm-land-registry-price-paid-data"
+HMLR_PRICE_PAID_LANDING_URL = "https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads"
+HMLR_PRICE_PAID_GUIDANCE_URL = "https://www.gov.uk/guidance/about-the-price-paid-data"
+HMLR_PRICE_PAID_FILE_URLS = [
+    {"year": year, "url": f"https://price-paid-data.publicdata.landregistry.gov.uk/pp-{year}.csv"}
+    for year in range(1995, datetime.now(timezone.utc).year + 1)
+]
+UKHPI_SOURCE_ID = "lon-extra-uk-house-price-index"
+UKHPI_RELEASE_PAGE = "https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-february-2026"
+UKHPI_ABOUT_PAGE = "https://www.gov.uk/government/publications/about-the-uk-house-price-index/about-the-uk-house-price-index"
+UKHPI_FULL_FILE_URL = "https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/UK-HPI-full-file-2026-02.csv"
+UKHPI_RELEASE_MONTH = "2026-02"
+FHRS_SOURCE_ID = "lon-extra-food-hygiene-rating-scheme-api"
+FHRS_API_ROOT = "https://api.ratings.food.gov.uk"
+FHRS_HELP_URL = "https://api.ratings.food.gov.uk/help"
+FHRS_DATA_PAGE = "https://www.food.gov.uk/uk-food-hygiene-rating-data-api"
+LONDON_BOROUGH_POINTS = {
+    "Barking and Dagenham": (0.1340, 51.5450),
+    "Barnet": (-0.2002, 51.6538),
+    "Bexley": (0.1505, 51.4549),
+    "Brent": (-0.2817, 51.5588),
+    "Bromley": (0.0148, 51.4039),
+    "Camden": (-0.1426, 51.5423),
+    "City of London": (-0.0922, 51.5155),
+    "Croydon": (-0.0977, 51.3762),
+    "Ealing": (-0.3089, 51.5130),
+    "Enfield": (-0.0815, 51.6523),
+    "Greenwich": (0.0059, 51.4892),
+    "Hackney": (-0.0553, 51.5450),
+    "Hammersmith and Fulham": (-0.2195, 51.4927),
+    "Haringey": (-0.1119, 51.5906),
+    "Harrow": (-0.3414, 51.5898),
+    "Havering": (0.1837, 51.5779),
+    "Hillingdon": (-0.4506, 51.5441),
+    "Hounslow": (-0.3618, 51.4673),
+    "Islington": (-0.1022, 51.5380),
+    "Kensington and Chelsea": (-0.1936, 51.5009),
+    "Kingston upon Thames": (-0.3064, 51.4123),
+    "Lambeth": (-0.1180, 51.4607),
+    "Lewisham": (-0.0117, 51.4452),
+    "Merton": (-0.1948, 51.4109),
+    "Newham": (0.0352, 51.5255),
+    "Redbridge": (0.0741, 51.5590),
+    "Richmond upon Thames": (-0.3055, 51.4479),
+    "Southwark": (-0.0804, 51.5035),
+    "Sutton": (-0.1945, 51.3618),
+    "Tower Hamlets": (-0.0293, 51.5155),
+    "Waltham Forest": (-0.0134, 51.5908),
+    "Wandsworth": (-0.1927, 51.4571),
+    "Westminster": (-0.1372, 51.4975),
+}
+HMLR_PROPERTY_TYPES = {
+    "D": "detached",
+    "S": "semi-detached",
+    "T": "terraced",
+    "F": "flat/maisonette",
+    "O": "other property type",
+}
+HMLR_NEW_BUILD = {
+    "Y": "newly built",
+    "N": "established",
+}
+HMLR_TENURES = {
+    "F": "freehold",
+    "L": "leasehold",
+}
+HMLR_PPD_CATEGORIES = {
+    "A": "standard price paid entry",
+    "B": "additional price paid entry",
+}
+LONDON_ADMIN_NAME_BY_KEY = {
+    re.sub(r"[^A-Z0-9]+", " ", name.upper()).strip(): name
+    for name in set(LONDON_ONS_BOROUGHS.values()) | LONDON_LPA_NAMES
+}
+LONDON_ADMIN_NAME_BY_KEY.update({
+    "CITY OF LONDON CORPORATION": "City of London",
+    "CITY OF WESTMINSTER": "Westminster",
+    "WESTMINSTER CITY": "Westminster",
+    "ROYAL BOROUGH OF KENSINGTON AND CHELSEA": "Kensington and Chelsea",
+    "HAMMERSMITH FULHAM": "Hammersmith and Fulham",
+    "BARKING DAGENHAM": "Barking and Dagenham",
+    "KINGSTON UPON THAMES": "Kingston upon Thames",
+})
+
 
 def fetch_json(url: str, timeout: int = 45, attempts: int = 3) -> Any:
     last_error: Exception | None = None
@@ -245,13 +332,56 @@ def fetch_json_post(url: str, payload: dict[str, Any], headers: dict[str, str] |
     raise RuntimeError(f"failed to post {url}: {last_error}")
 
 
+def fetch_fhrs_json(url: str, timeout: int = 45, attempts: int = 3) -> Any:
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json",
+        "x-api-version": "2",
+    }
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return json.loads(response.read().decode("utf-8", "replace"))
+        except Exception as exc:  # noqa: BLE001 - source APIs can transiently fail.
+            last_error = exc
+            if attempt < attempts - 1:
+                time.sleep(1.5 * (attempt + 1))
+    raise RuntimeError(f"failed to fetch FHRS JSON {url}: {last_error}")
+
+
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    text = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
+    with tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        delete=False,
+        dir=path.parent,
+        prefix=f".{path.name}.",
+        suffix=".tmp",
+    ) as handle:
+        handle.write(text)
+        temp_path = Path(handle.name)
+    for attempt in range(5):
+        try:
+            temp_path.replace(path)
+            return
+        except PermissionError:
+            if attempt < 4:
+                time.sleep(0.5 * (attempt + 1))
+                continue
+            path.write_text(text, encoding="utf-8")
+            try:
+                temp_path.unlink()
+            except FileNotFoundError:
+                pass
+            return
 
 
 def slug(value: str, max_len: int = 80) -> str:
@@ -1137,6 +1267,565 @@ def fetch_london_lfb_incidents(max_per_year: int = 125) -> tuple[list[dict[str, 
         raw_summary["sources"][source["label"]] = summary
     raw_summary["event_count"] = len(events)
     raw_summary["sampled_per_year"] = counts
+    return events, raw_summary
+
+
+def hmlr_cell(value: Any) -> str:
+    text = clean_text(value, 180)
+    if text.startswith("="):
+        text = text[1:].strip()
+    return text.strip('"')
+
+
+def normalize_postcode(value: Any) -> str:
+    text = re.sub(r"\s+", "", hmlr_cell(value).upper())
+    if len(text) <= 3:
+        return text
+    return f"{text[:-3]} {text[-3:]}"
+
+
+def postcode_outcode(value: Any) -> str:
+    postcode = normalize_postcode(value)
+    return clean_text(postcode.split(" ", 1)[0], 12)
+
+
+def london_admin_key(value: Any) -> str:
+    return re.sub(r"[^A-Z0-9]+", " ", hmlr_cell(value).upper()).strip()
+
+
+def canonical_london_admin_name(*values: Any) -> str | None:
+    for value in values:
+        key = london_admin_key(value)
+        if not key:
+            continue
+        if key in LONDON_ADMIN_NAME_BY_KEY:
+            return LONDON_ADMIN_NAME_BY_KEY[key]
+        if key == "GREATER LONDON":
+            continue
+    return None
+
+
+def hmlr_london_candidate(row: list[str]) -> bool:
+    if len(row) < 15:
+        return False
+    district = london_admin_key(row[12])
+    county = london_admin_key(row[13])
+    town = london_admin_key(row[11])
+    return (
+        county == "GREATER LONDON"
+        or district in LONDON_ADMIN_NAME_BY_KEY
+        or town == "LONDON"
+        or district == "CITY OF LONDON"
+    )
+
+
+def hmlr_price(value: Any) -> int | None:
+    try:
+        return int(float(hmlr_cell(value).replace(",", "")))
+    except Exception:
+        return None
+
+
+def hmlr_price_band(value: Any) -> str:
+    price = hmlr_price(value)
+    if price is None:
+        return "price not parsed"
+    bands = [
+        (150_000, "under GBP 150k"),
+        (250_000, "GBP 150k-250k"),
+        (500_000, "GBP 250k-500k"),
+        (750_000, "GBP 500k-750k"),
+        (1_000_000, "GBP 750k-1m"),
+        (2_000_000, "GBP 1m-2m"),
+    ]
+    for threshold, label in bands:
+        if price < threshold:
+            return label
+    return "GBP 2m+"
+
+
+def hmlr_lookup_postcodes(postcodes: list[str]) -> dict[str, dict[str, Any]]:
+    if not postcodes:
+        return {}
+    payload = fetch_json_post(
+        "https://api.postcodes.io/postcodes",
+        {"postcodes": postcodes[:100]},
+        timeout=45,
+        attempts=3,
+    )
+    results: dict[str, dict[str, Any]] = {}
+    for item in payload.get("result") or []:
+        query = normalize_postcode(item.get("query"))
+        result = item.get("result")
+        if isinstance(result, dict):
+            results[query] = result
+    return results
+
+
+def hmlr_price_paid_candidate(row: list[str], year: int, source_url: str) -> dict[str, Any] | None:
+    if len(row) < 15 or not hmlr_london_candidate(row):
+        return None
+    record_id = hmlr_cell(row[0]).strip("{}")
+    event_date = first_date(hmlr_cell(row[2]))
+    postcode = normalize_postcode(row[3])
+    if not record_id or not event_date or not postcode:
+        return None
+    if not not_future_date(event_date):
+        return None
+    if event_date[:4] != str(year):
+        return None
+    return {
+        "record_id": record_id,
+        "date": event_date,
+        "postcode": postcode,
+        "outcode": postcode_outcode(postcode),
+        "price_band": hmlr_price_band(row[1]),
+        "property_type": HMLR_PROPERTY_TYPES.get(hmlr_cell(row[4]).upper(), hmlr_cell(row[4]) or "property"),
+        "new_build": HMLR_NEW_BUILD.get(hmlr_cell(row[5]).upper(), hmlr_cell(row[5]) or "not stated"),
+        "tenure": HMLR_TENURES.get(hmlr_cell(row[6]).upper(), hmlr_cell(row[6]) or "tenure not stated"),
+        "district": canonical_london_admin_name(row[12], row[13], row[11]) or hmlr_cell(row[12]) or "London",
+        "ppd_category": HMLR_PPD_CATEGORIES.get(hmlr_cell(row[14]).upper(), hmlr_cell(row[14]) or "not stated"),
+        "source_url": source_url,
+    }
+
+
+def make_hmlr_price_paid_event(record: dict[str, Any], geo: dict[str, Any], retrieved_at: str) -> dict[str, Any] | None:
+    lat = safe_float(geo.get("latitude"))
+    lon = safe_float(geo.get("longitude"))
+    if lat is None or lon is None or not in_bounds((lon, lat), LONDON_BOUNDS):
+        return None
+    borough = canonical_london_admin_name(geo.get("admin_district"), record.get("district")) or record.get("district") or "London"
+    outcode = clean_text(geo.get("outcode") or record.get("outcode"), 12)
+    ptype = clean_text(record.get("property_type"), 80)
+    return event_record(
+        event_id=f"lon_hmlr_price_paid_{slug(record['record_id'], 80)}",
+        title=f"HMLR property transaction: {ptype} in {borough}",
+        date=record["date"],
+        bucket="housing/property market/transaction",
+        area=borough,
+        location=clean_text(f"{borough}; postcode district {outcode}", 160),
+        latitude=lat,
+        longitude=lon,
+        source_ids=[HMLR_PRICE_PAID_SOURCE_ID],
+        source_record_id=record["record_id"],
+        source_url=record["source_url"],
+        source_retrieved_at=retrieved_at,
+        source_dataset_id=HMLR_PRICE_PAID_SOURCE_ID,
+        source_date_field="transfer deed date",
+        geometry_source="Postcodes.io postcode lookup; full postcode and address fields omitted before publication",
+        geometry_precision="postcode-derived point, not a property parcel or exact building location",
+        summary=clean_text(
+            f"HM Land Registry Price Paid row: transfer deed date {record['date']}; "
+            f"property type {ptype}; tenure {record['tenure']}; new-build status {record['new_build']}; "
+            f"price band {record['price_band']}; category {record['ppd_category']}; postcode district {outcode}.",
+            520,
+        ),
+        observed_change=clean_text(
+            f"Recorded property sale transaction in {borough}, shown as housing-market evidence rather than a claim of physical redevelopment.",
+            260,
+        ),
+        confidence="documented",
+        limitations=(
+            "Price Paid rows are transaction records, not proof of construction, displacement, affordability, or causal neighbourhood change. "
+            "The adapter omits PAON, SAON, street, locality, town/city, county, full postcode, and exact price; the point is an approximate postcode-derived location. "
+            "HMLR excludes some transfers and can amend yearly files over time."
+        ),
+    )
+
+
+def fetch_london_hmlr_price_paid(max_per_year: int = 800) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Fetch bounded HM Land Registry Price Paid rows for London from 1995 onward.
+
+    HMLR Price Paid includes address fields with extra address-data conditions, so
+    this adapter does not persist the raw address or full postcode. It uses the
+    postcode only in-memory to create an approximate point, then writes outcode,
+    borough, price band, row id, file URL, and caveats.
+    """
+    retrieved_at = utc_now_iso()
+    events: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    postcode_cache: dict[str, dict[str, Any] | None] = {}
+    raw_summary: dict[str, Any] = {
+        "retrieved_at": retrieved_at,
+        "source": "HM Land Registry Price Paid Data",
+        "landing_page": HMLR_PRICE_PAID_LANDING_URL,
+        "guidance_page": HMLR_PRICE_PAID_GUIDANCE_URL,
+        "license": "Open Government Licence v3.0; address data carries Ordnance Survey/Royal Mail third-party conditions described by HM Land Registry.",
+        "attribution": "Contains HM Land Registry data Crown copyright and database right. This data is licensed under the Open Government Licence v3.0.",
+        "geocoder": "https://api.postcodes.io/postcodes",
+        "per_year_limit": max_per_year,
+        "privacy_minimization": "Adapter omits PAON, SAON, street, locality, town/city, county, full postcode, and exact price before writing atlas events.",
+        "omitted_fields": ["Postcode", "PAON", "SAON", "Street", "Locality", "Town/City", "County", "Exact price"],
+        "files": {},
+    }
+
+    def process_pending(pending: list[dict[str, Any]], year_counts: dict[str, int], file_summary: dict[str, Any]) -> None:
+        needed = sorted({record["postcode"] for record in pending if record["postcode"] not in postcode_cache})
+        for start in range(0, len(needed), 100):
+            batch = needed[start:start + 100]
+            try:
+                lookup = hmlr_lookup_postcodes(batch)
+            except Exception as exc:  # noqa: BLE001
+                file_summary["postcode_lookup_errors"] += 1
+                file_summary.setdefault("postcode_lookup_error_samples", []).append(clean_text(exc, 180))
+                lookup = {}
+            for postcode in batch:
+                postcode_cache[postcode] = lookup.get(postcode)
+            if batch:
+                time.sleep(0.05)
+        for record in pending:
+            year = record["date"][:4]
+            if year_counts.get(year, 0) >= max_per_year:
+                continue
+            if record["record_id"] in seen:
+                file_summary["skipped_duplicate"] += 1
+                continue
+            geo = postcode_cache.get(record["postcode"])
+            if not geo:
+                file_summary["skipped_without_postcode_point"] += 1
+                continue
+            event = make_hmlr_price_paid_event(record, geo, retrieved_at)
+            if not event:
+                file_summary["skipped_outside_bounds"] += 1
+                continue
+            seen.add(record["record_id"])
+            events.append(event)
+            year_counts[year] = year_counts.get(year, 0) + 1
+            file_summary["added"] += 1
+
+    for source in HMLR_PRICE_PAID_FILE_URLS:
+        year = int(source["year"])
+        url = source["url"]
+        year_counts: dict[str, int] = {}
+        file_summary = {
+            "year": year,
+            "url": url,
+            "read_rows": 0,
+            "candidate_london_rows": 0,
+            "added": 0,
+            "skipped_short_row": 0,
+            "skipped_without_date_or_postcode": 0,
+            "skipped_duplicate": 0,
+            "skipped_without_postcode_point": 0,
+            "skipped_outside_bounds": 0,
+            "postcode_lookup_errors": 0,
+        }
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=240) as response:
+                text_stream = (line.decode("utf-8-sig", "replace") for line in response)
+                reader = csv.reader(text_stream)
+                pending: list[dict[str, Any]] = []
+                for row in reader:
+                    file_summary["read_rows"] += 1
+                    if len(row) < 15:
+                        file_summary["skipped_short_row"] += 1
+                        continue
+                    if year_counts.get(str(year), 0) >= max_per_year:
+                        break
+                    if not hmlr_london_candidate(row):
+                        continue
+                    file_summary["candidate_london_rows"] += 1
+                    record = hmlr_price_paid_candidate(row, year, url)
+                    if not record:
+                        file_summary["skipped_without_date_or_postcode"] += 1
+                        continue
+                    pending.append(record)
+                    if len(pending) >= 100:
+                        process_pending(pending, year_counts, file_summary)
+                        pending = []
+                if pending:
+                    process_pending(pending, year_counts, file_summary)
+        except Exception as exc:  # noqa: BLE001 - future/current-year files may lag publication.
+            file_summary["error"] = clean_text(exc, 240)
+        raw_summary["files"][str(year)] = file_summary
+
+    raw_summary["event_count"] = len(events)
+    raw_summary["sampled_per_year"] = {
+        year: details["added"]
+        for year, details in raw_summary["files"].items()
+    }
+    return events, raw_summary
+
+
+def metric_text(value: Any, suffix: str = "") -> str:
+    text = clean_text(value, 40)
+    if not text:
+        return "not reported"
+    try:
+        number = float(text.replace(",", ""))
+    except Exception:
+        return text
+    if suffix == "GBP":
+        return f"GBP {number:,.0f}"
+    if suffix == "%":
+        return f"{number:.1f}%"
+    if number.is_integer():
+        return f"{number:,.0f}"
+    return f"{number:,.1f}"
+
+
+def ukhpi_london_borough(row: dict[str, Any]) -> str | None:
+    area_code = clean_text(row.get("AreaCode"), 24)
+    if area_code in LONDON_ONS_BOROUGHS:
+        return LONDON_ONS_BOROUGHS[area_code]
+    return None
+
+
+def make_ukhpi_event(row: dict[str, Any], source_url: str, retrieved_at: str) -> dict[str, Any] | None:
+    borough = ukhpi_london_borough(row)
+    if not borough:
+        return None
+    event_date = first_dmy_date(row.get("Date"))
+    if not event_date or not not_future_date(event_date):
+        return None
+    lon, lat = LONDON_BOROUGH_POINTS.get(borough, (-0.1276, 51.5072))
+    area_code = clean_text(row.get("AreaCode"), 24)
+    rid = f"{area_code}|{event_date[:7]}"
+    average_price = metric_text(row.get("AveragePrice"), "GBP")
+    index_value = metric_text(row.get("Index"))
+    month_change = metric_text(row.get("1m%Change"), "%")
+    annual_change = metric_text(row.get("12m%Change"), "%")
+    sales_volume = metric_text(row.get("SalesVolume"))
+    return event_record(
+        event_id=f"lon_hmlr_ukhpi_{slug(rid, 80)}",
+        title=f"UK HPI monthly housing-market record: {borough}",
+        date=event_date,
+        bucket="housing/property market/index",
+        area=borough,
+        location=borough,
+        latitude=lat,
+        longitude=lon,
+        source_ids=[UKHPI_SOURCE_ID],
+        source_record_id=rid,
+        source_url=source_url,
+        source_retrieved_at=retrieved_at,
+        source_dataset_id=UKHPI_SOURCE_ID,
+        source_date_field="Date",
+        geometry_source="Static borough reference point used for aggregate local-authority statistic",
+        geometry_precision="borough aggregate, not a parcel or address point",
+        summary=clean_text(
+            f"UK HPI aggregate row for {borough}: average price {average_price}; index {index_value}; "
+            f"monthly change {month_change}; annual change {annual_change}; sales volume {sales_volume}.",
+            520,
+        ),
+        observed_change=clean_text(
+            f"Monthly borough-level housing-market measurement for {borough}; this is an observed aggregate statistic, not a claim about a single development or address.",
+            280,
+        ),
+        confidence="documented",
+        limitations=(
+            "UK HPI is an aggregate residential property price index based on completed sales and a statistical model. "
+            "It is nominal, not inflation-adjusted; recent periods are provisional/revised; sales-volume fields can be incomplete or suppressed. "
+            "Do not use it as proof of construction, affordability, displacement, or causal neighbourhood change."
+        ),
+    )
+
+
+def fetch_london_ukhpi_monthly(max_per_borough: int | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Fetch monthly UK HPI aggregate rows for London boroughs."""
+    retrieved_at = utc_now_iso()
+    events: list[dict[str, Any]] = []
+    counts: dict[str, int] = {}
+    raw_summary: dict[str, Any] = {
+        "retrieved_at": retrieved_at,
+        "source": "UK House Price Index full file",
+        "release_month": UKHPI_RELEASE_MONTH,
+        "release_page": UKHPI_RELEASE_PAGE,
+        "about_page": UKHPI_ABOUT_PAGE,
+        "source_url": UKHPI_FULL_FILE_URL,
+        "license": "Open Government Licence v3.0",
+        "attribution": "Contains HM Land Registry data Crown copyright and database right. This data is licensed under the Open Government Licence v3.0.",
+        "read_rows": 0,
+        "london_rows": 0,
+        "added": 0,
+        "skipped_without_date": 0,
+        "skipped_future_date": 0,
+    }
+    req = urllib.request.Request(UKHPI_FULL_FILE_URL, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=240) as response:
+        text_stream = (line.decode("utf-8-sig", "replace") for line in response)
+        reader = csv.DictReader(text_stream)
+        raw_summary["fields"] = reader.fieldnames or []
+        for row in reader:
+            raw_summary["read_rows"] += 1
+            borough = ukhpi_london_borough(row)
+            if not borough:
+                continue
+            raw_summary["london_rows"] += 1
+            if max_per_borough is not None and counts.get(borough, 0) >= max_per_borough:
+                continue
+            event_date = first_dmy_date(row.get("Date"))
+            if not event_date:
+                raw_summary["skipped_without_date"] += 1
+                continue
+            if not not_future_date(event_date):
+                raw_summary["skipped_future_date"] += 1
+                continue
+            event = make_ukhpi_event(row, UKHPI_FULL_FILE_URL, retrieved_at)
+            if not event:
+                continue
+            events.append(event)
+            counts[borough] = counts.get(borough, 0) + 1
+            raw_summary["added"] += 1
+    raw_summary["event_count"] = len(events)
+    raw_summary["sampled_per_borough"] = counts
+    raw_summary["date_range"] = [
+        min((event["date"] for event in events), default=None),
+        max((event["date"] for event in events), default=None),
+    ]
+    return events, raw_summary
+
+
+def fhrs_business_record_url(fhrsid: Any) -> str:
+    return f"https://ratings.food.gov.uk/business/{urllib.parse.quote(str(fhrsid), safe='')}"
+
+
+def fhrs_rating_text(value: Any) -> str:
+    text = clean_text(value, 80)
+    if not text:
+        return "rating not recorded"
+    if re.match(r"^\d+$", text):
+        return f"{text} out of 5"
+    return text.replace("_", " ").lower()
+
+
+def make_fhrs_event(row: dict[str, Any], authority: dict[str, Any], retrieved_at: str) -> dict[str, Any] | None:
+    rating_date = first_date(row.get("RatingDate"))
+    if not rating_date or not not_future_date(rating_date):
+        return None
+    geo = row.get("geocode") if isinstance(row.get("geocode"), dict) else {}
+    lon = safe_float(geo.get("longitude"))
+    lat = safe_float(geo.get("latitude"))
+    if lon is None or lat is None or not in_bounds((lon, lat), LONDON_BOUNDS):
+        return None
+    fhrsid = clean_text(row.get("FHRSID"), 80)
+    if not fhrsid:
+        return None
+    authority_name = canonical_london_admin_name(row.get("LocalAuthorityName"), authority.get("Name")) or clean_text(authority.get("Name") or "London", 90)
+    business_type = clean_text(row.get("BusinessType") or "food establishment", 120)
+    scores = row.get("scores") if isinstance(row.get("scores"), dict) else {}
+    rating = fhrs_rating_text(row.get("RatingValue"))
+    pending = "yes" if row.get("NewRatingPending") else "no"
+    return event_record(
+        event_id=f"lon_fsa_fhrs_rating_{slug(fhrsid, 80)}",
+        title=f"Food hygiene rating record: {business_type} in {authority_name}",
+        date=rating_date,
+        bucket="civic services/public health/food hygiene/businesses",
+        area=authority_name,
+        location=clean_text(f"{authority_name}; premises point from FHRS", 160),
+        latitude=lat,
+        longitude=lon,
+        source_ids=[FHRS_SOURCE_ID],
+        source_record_id=fhrsid,
+        source_url=fhrs_business_record_url(fhrsid),
+        source_retrieved_at=retrieved_at,
+        source_dataset_id=FHRS_SOURCE_ID,
+        source_date_field="RatingDate",
+        geometry_source="Food Standards Agency FHRS establishment geocode",
+        geometry_precision="public food-business premises point; source coordinates may be incomplete or inaccurate",
+        summary=clean_text(
+            f"FHRS record for {business_type}: rating {rating}; hygiene score {scores.get('Hygiene', 'not recorded')}; "
+            f"structural score {scores.get('Structural', 'not recorded')}; management-confidence score {scores.get('ConfidenceInManagement', 'not recorded')}; "
+            f"new rating pending: {pending}.",
+            520,
+        ),
+        observed_change=clean_text(
+            f"Food Standards Agency hygiene-rating record dated {rating_date} for a food business in {authority_name}.",
+            260,
+        ),
+        confidence="documented",
+        limitations=(
+            "FHRS records are current-snapshot public food-hygiene ratings and inspection/publication dates, not evidence of a business opening, closure, construction, or neighbourhood causation. "
+            "The adapter omits business name, address lines, postcode, phone, email, and right-to-reply text; coordinates can be incomplete or inaccurate."
+        ),
+    )
+
+
+def fetch_london_fhrs_ratings(max_per_authority: int = 300) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Fetch bounded London Food Hygiene Rating Scheme records.
+
+    FHRS rows include public business names, addresses, postcodes, phone fields and
+    right-to-reply text. This adapter uses those rows only to identify source
+    records and points, then writes a privacy-minimized event layer.
+    """
+    retrieved_at = utc_now_iso()
+    authorities_payload = fetch_fhrs_json(f"{FHRS_API_ROOT}/Authorities", timeout=90)
+    authorities = [
+        authority
+        for authority in authorities_payload.get("authorities", [])
+        if authority.get("RegionName") == "London"
+    ]
+    events: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    raw_summary: dict[str, Any] = {
+        "retrieved_at": retrieved_at,
+        "source": "Food Standards Agency Food Hygiene Rating Scheme API",
+        "help_url": FHRS_HELP_URL,
+        "data_page": FHRS_DATA_PAGE,
+        "license": "Open Government Licence v3.0",
+        "per_authority_limit": max_per_authority,
+        "authority_count": len(authorities),
+        "privacy_minimization": "Adapter omits business name, address lines, postcode, phone, email, and right-to-reply text before writing atlas events.",
+        "omitted_fields": ["BusinessName", "AddressLine1", "AddressLine2", "AddressLine3", "AddressLine4", "PostCode", "Phone", "LocalAuthorityEmailAddress", "RightToReply"],
+        "authorities": {},
+        "skipped_without_point_or_date": 0,
+        "skipped_duplicate": 0,
+    }
+    page_size = 500
+    for authority in sorted(authorities, key=lambda item: clean_text(item.get("Name"), 120)):
+        authority_id = authority.get("LocalAuthorityId")
+        authority_name = canonical_london_admin_name(authority.get("Name")) or clean_text(authority.get("Name"), 120)
+        summary = {
+            "local_authority_id": authority_id,
+            "name": authority_name,
+            "establishment_count": authority.get("EstablishmentCount"),
+            "last_published_date": authority.get("LastPublishedDate"),
+            "read_rows": 0,
+            "added": 0,
+            "skipped_without_point_or_date": 0,
+        }
+        page_number = 1
+        while summary["added"] < max_per_authority:
+            url = f"{FHRS_API_ROOT}/Establishments?" + urllib.parse.urlencode({
+                "localAuthorityId": str(authority_id),
+                "pageSize": str(page_size),
+                "pageNumber": str(page_number),
+            })
+            payload = fetch_fhrs_json(url, timeout=90)
+            rows = payload.get("establishments") or []
+            if not rows:
+                break
+            for row in rows:
+                summary["read_rows"] += 1
+                if summary["added"] >= max_per_authority:
+                    break
+                event = make_fhrs_event(row, authority, retrieved_at)
+                if not event:
+                    summary["skipped_without_point_or_date"] += 1
+                    raw_summary["skipped_without_point_or_date"] += 1
+                    continue
+                if event["event_id"] in seen:
+                    raw_summary["skipped_duplicate"] += 1
+                    continue
+                seen.add(event["event_id"])
+                events.append(event)
+                summary["added"] += 1
+            meta = payload.get("meta") or {}
+            if page_number >= int(meta.get("totalPages") or page_number):
+                break
+            page_number += 1
+            time.sleep(0.05)
+        raw_summary["authorities"][authority_name] = summary
+    raw_summary["event_count"] = len(events)
+    raw_summary["sampled_per_authority"] = {
+        name: details["added"]
+        for name, details in raw_summary["authorities"].items()
+    }
+    raw_summary["date_range"] = [
+        min((event["date"] for event in events), default=None),
+        max((event["date"] for event in events), default=None),
+    ]
     return events, raw_summary
 
 
@@ -2347,10 +3036,13 @@ def main() -> None:
     london_designations, london_designations_raw = fetch_london_planning_designations(max_events=40000)
     london_lfb, london_lfb_raw = fetch_london_lfb_incidents(max_per_year=1500)
     london_dft_collisions, london_dft_collisions_raw = fetch_london_dft_road_collisions(max_per_year=4500)
+    london_hmlr_price_paid, london_hmlr_price_paid_raw = fetch_london_hmlr_price_paid(max_per_year=800)
+    london_ukhpi, london_ukhpi_raw = fetch_london_ukhpi_monthly()
+    london_fhrs, london_fhrs_raw = fetch_london_fhrs_ratings(max_per_authority=300)
     london_police_crimes, london_police_crimes_raw = fetch_london_police_street_crimes(max_per_month_force=380)
     london_police_stop_searches, london_police_stop_searches_raw = fetch_london_police_stop_searches(max_per_month_force=320)
     london_tfl, london_tfl_raw = fetch_london_tfl_disruptions(max_events=250)
-    london_events = london_brownfield + london_datahub + london_designations + london_lfb + london_dft_collisions + london_police_crimes + london_police_stop_searches + london_tfl
+    london_events = london_brownfield + london_datahub + london_designations + london_lfb + london_dft_collisions + london_hmlr_price_paid + london_ukhpi + london_fhrs + london_police_crimes + london_police_stop_searches + london_tfl
     update_london_seed(london_events)
 
     nyc_events, nyc_raw = fetch_nyc_events()
@@ -2361,6 +3053,9 @@ def main() -> None:
     write_json(RAW / "generated_event_expansion_london_planning_designations_summary.json", london_designations_raw)
     write_json(RAW / "generated_event_expansion_london_lfb_incidents_summary.json", london_lfb_raw)
     write_json(RAW / "generated_event_expansion_london_dft_road_collisions_summary.json", london_dft_collisions_raw)
+    write_json(RAW / "generated_event_expansion_london_hmlr_price_paid_summary.json", london_hmlr_price_paid_raw)
+    write_json(RAW / "generated_event_expansion_london_ukhpi_summary.json", london_ukhpi_raw)
+    write_json(RAW / "generated_event_expansion_london_fhrs_summary.json", london_fhrs_raw)
     write_json(RAW / "generated_event_expansion_london_police_street_crimes_summary.json", london_police_crimes_raw)
     write_json(RAW / "generated_event_expansion_london_police_stop_searches_summary.json", london_police_stop_searches_raw)
     write_json(RAW / "generated_event_expansion_london_tfl_disruptions_summary.json", london_tfl_raw)
@@ -2374,6 +3069,9 @@ def main() -> None:
             "planning_designation_events": len(london_designations),
             "lfb_incident_events": len(london_lfb),
             "dft_road_collision_events": len(london_dft_collisions),
+            "hmlr_price_paid_events": len(london_hmlr_price_paid),
+            "ukhpi_monthly_events": len(london_ukhpi),
+            "fhrs_food_hygiene_rating_events": len(london_fhrs),
             "police_street_crime_events": len(london_police_crimes),
             "police_stop_search_events": len(london_police_stop_searches),
             "tfl_disruption_events": len(london_tfl),
@@ -2388,6 +3086,9 @@ def main() -> None:
             "London Planning Datahub application rows are public administrative records; the London Datastore licence is labelled Not Specified, so the atlas stores only minimal public provenance fields and carries a reuse caveat.",
             "London Planning Data designation rows include conservation/listed/heritage/local-plan, Article 4, and tree-preservation records. They are legal/planning-status evidence and should not be presented as direct physical construction events.",
             "DfT STATS19 London collision rows are official reported personal-injury road-safety records; they are local transport-safety context, not causal evidence about street design.",
+            "HM Land Registry Price Paid rows are property transaction records. The adapter omits address fields, full postcodes, and exact prices; postcode-derived points are approximate and should not be treated as exact property/building locations.",
+            "UK House Price Index rows are borough-level monthly aggregate statistics; they are nominal, revised over time, and not evidence of single-site construction, affordability, displacement, or causation.",
+            "Food Standards Agency FHRS rows are current-snapshot food-hygiene rating records. The adapter omits business names, addresses, postcodes, phone/email fields, and right-to-reply text before writing atlas events.",
             "Police.uk street-level crime/ASB rows are anonymized public-safety management records; they are approximate locations and should not be treated as exact incident sites or causal evidence.",
             "Police.uk stop-and-search rows are privacy-minimized by the adapter: demographic fields and exact timestamps are intentionally omitted before writing atlas events.",
             "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final cause or impact determinations.",
@@ -2400,6 +3101,9 @@ def main() -> None:
         "london_planning_designations": len(london_designations),
         "london_lfb_incidents": len(london_lfb),
         "london_dft_road_collisions": len(london_dft_collisions),
+        "london_hmlr_price_paid": len(london_hmlr_price_paid),
+        "london_ukhpi_monthly": len(london_ukhpi),
+        "london_fhrs_food_hygiene_ratings": len(london_fhrs),
         "london_police_street_crimes": len(london_police_crimes),
         "london_police_stop_searches": len(london_police_stop_searches),
         "london_tfl_disruptions": len(london_tfl),

@@ -1,8 +1,8 @@
 {
-  "retrieved_at": "2026-05-08T19:52:45Z",
+  "retrieved_at": "2026-05-08T20:18:34Z",
   "source": "https://api.tfl.gov.uk/Road/all/Disruption",
-  "record_count": 80,
-  "event_count": 80,
+  "record_count": 79,
+  "event_count": 79,
   "skipped_without_source_date": 0,
   "sample": [
     {

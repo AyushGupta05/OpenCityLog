@@ -98,6 +98,10 @@ async function waitForRenderedImagery(page) {
     impactModes: Array.from(document.querySelectorAll("[data-impact-mode]")).map((button) => button.textContent.trim()),
     impactCards: document.querySelectorAll(".impact-card").length,
     impactText: document.querySelector("#impactPanel")?.textContent || "",
+    plannerText: document.querySelector("#plannerWorkbench")?.textContent || "",
+    plannerStatusCards: document.querySelectorAll("#plannerWorkbench .planner-status").length,
+    plannerControls: Array.from(document.querySelectorAll(".planner-controls select")).map((select) => select.id),
+    planningReport: window.BimsAtlas.planningReportPayload(window.BimsAtlas.state.selectedEvent),
     causalClaimText: document.querySelector("#causalClaimText")?.textContent || "",
     selectedTitle: document.querySelector("#detailTitle")?.textContent || "",
     changeLogTitle: document.querySelector("#changeLogTitle")?.textContent || "",
@@ -131,6 +135,10 @@ async function waitForRenderedImagery(page) {
   assert(initial.impactModes.some((text) => /Place change/i.test(text)) && initial.impactModes.some((text) => /Traffic/i.test(text)) && initial.impactModes.some((text) => /Components/i.test(text)), "Impact mode controls did not render.");
   assert(initial.impactCards > 0, "Impact/component cards did not render for the selected event.");
   assert(/not causal|observed place|affected/i.test(initial.impactText), "Impact panel is missing descriptive, caveated copy.");
+  assert(initial.plannerStatusCards >= 4, "Planning workbench readiness cards did not render.");
+  assert(initial.plannerControls.includes("proposalTypeSelect") && initial.plannerControls.includes("proposalScaleSelect") && initial.plannerControls.includes("proposalStageSelect"), "Planning workbench controls are missing.");
+  assert(/Before\/after diff|Traffic evidence|Historical analogues|does not forecast/i.test(initial.plannerText), "Planning workbench is missing before/after, traffic, analogue, or no-forecast language.");
+  assert(initial.planningReport?.proposal?.type === "housing" && initial.planningReport?.traffic && initial.planningReport?.before_after, "Planning report payload did not include proposal, traffic, and before/after sections.");
   assert(/do(?:es)? not establish|does not justify|causal claim/i.test(initial.causalClaimText), "Evidence brief is missing an explicit causal-claim caveat.");
   assert(initial.selectedTitle.length > 5, "Evidence brief did not select an initial event.");
   assert(/Stratford|Olympic Park|Lower Lea Valley/i.test(initial.changeLogTitle), "London focus heading did not render.");

@@ -1,18 +1,21 @@
 {
-  "generated_at": "2026-05-08T19:55:22Z",
+  "generated_at": "2026-05-08T20:48:52Z",
   "london": {
     "brownfield_events": 5643,
     "planning_datahub_application_events": 9485,
     "planning_designation_events": 16945,
     "lfb_incident_events": 27000,
     "dft_road_collision_events": 27000,
+    "hmlr_price_paid_events": 25600,
     "police_street_crime_events": 27360,
     "police_stop_search_events": 27792,
-    "tfl_disruption_events": 80,
-    "total_generated_events": 141305
+    "tfl_disruption_events": 79,
+    "total_generated_events": 189146,
+    "ukhpi_monthly_events": 12342,
+    "fhrs_food_hygiene_rating_events": 9900
   },
   "nyc": {
-    "total_generated_events": 28902,
+    "total_generated_events": 28901,
     "source_event_counts": {
       "ipu4-2q9a": 2380,
       "w9ak-ipjd": 960,
@@ -47,8 +50,11 @@
     "London Planning Datahub application rows are public administrative records; the London Datastore licence is labelled Not Specified, so the atlas stores only minimal public provenance fields and carries a reuse caveat.",
     "London Planning Data designation rows include conservation/listed/heritage/local-plan, Article 4, and tree-preservation records. They are legal/planning-status evidence and should not be presented as direct physical construction events.",
     "DfT STATS19 London collision rows are official reported personal-injury road-safety records; they are local transport-safety context, not causal evidence about street design.",
+    "HM Land Registry Price Paid rows are property transaction records. The adapter omits address fields, full postcodes, and exact prices; postcode-derived points are approximate and should not be treated as exact property/building locations.",
     "Police.uk street-level crime/ASB rows are anonymized public-safety management records; they are approximate locations and should not be treated as exact incident sites or causal evidence.",
     "Police.uk stop-and-search rows are privacy-minimized by the adapter: demographic fields and exact timestamps are intentionally omitted before writing atlas events.",
-    "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final cause or impact determinations."
+    "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final cause or impact determinations.",
+    "UK House Price Index rows are borough-level monthly aggregate statistics; they are nominal, revised over time, and not evidence of single-site construction, affordability, displacement, or causation.",
+    "Food Standards Agency FHRS rows are current-snapshot food-hygiene rating records. The adapter omits business names, addresses, postcodes, phone/email fields, and right-to-reply text before writing atlas events."
   ]
 }
