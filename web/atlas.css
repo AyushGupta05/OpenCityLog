@@ -1697,30 +1697,39 @@ a {
 
 .timeline-event {
   --dot-color: rgba(255, 255, 255, 0.75);
+  --dot-size: 9px;
+  --dot-opacity: 0.72;
   position: absolute;
   z-index: 2;
-  top: 24px;
-  width: 9px;
-  height: 9px;
+  top: 30px;
+  width: var(--dot-size);
+  height: var(--dot-size);
   border: 1.5px solid rgba(255, 255, 255, 0.64);
   border-radius: 50%;
   background: rgba(21, 33, 35, 0.94);
-  transform: translateX(-50%);
+  opacity: var(--dot-opacity);
+  transform: translate(-50%, -50%);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  transition: width 260ms ease, height 260ms ease, opacity 260ms ease, background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
 }
 
 .timeline-event.has-card {
-  top: 15px;
-  width: 30px;
-  height: 30px;
   border-color: rgba(255, 255, 255, 0.75);
   background: color-mix(in srgb, var(--dot-color) 66%, rgba(22, 36, 38, 0.95));
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--dot-color) 17%, transparent), 0 10px 20px rgba(0, 0, 0, 0.28);
 }
 
+.timeline-event.is-empty {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(21, 33, 35, 0.72);
+  box-shadow: none;
+}
+
+.timeline-event.is-peak {
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--dot-color) 22%, transparent), 0 12px 24px rgba(0, 0, 0, 0.34);
+}
+
 .timeline-event.active {
-  width: 11px;
-  height: 11px;
   border-color: #fff;
   background: var(--cyan);
   box-shadow: 0 0 0 5px rgba(98, 211, 215, 0.18), 0 0 18px rgba(98, 211, 215, 0.72);

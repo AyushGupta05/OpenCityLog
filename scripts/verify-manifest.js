@@ -70,6 +70,14 @@ if (atlas) {
         assert(Number.isInteger(chunk.year), `City ${city.city_id} chunk is missing numeric year.`);
         assert(chunk.json_path && exists(chunk.json_path), `City ${city.city_id} chunk JSON is missing for ${chunk.year}.`);
         assert(chunk.geojson_path && exists(chunk.geojson_path), `City ${city.city_id} chunk GeoJSON is missing for ${chunk.year}.`);
+        assert(chunk.counts_by_confidence && typeof chunk.counts_by_confidence === "object", `City ${city.city_id} ${chunk.year} chunk is missing confidence counts for timeline filtering.`);
+        assert(chunk.counts_by_category_confidence && typeof chunk.counts_by_category_confidence === "object", `City ${city.city_id} ${chunk.year} chunk is missing category/confidence counts for timeline filtering.`);
+        const confidenceTotal = Object.values(chunk.counts_by_confidence || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+        const categoryConfidenceTotals = Object.values(chunk.counts_by_category_confidence || {})
+          .flatMap((counts) => Object.values(counts || {}))
+          .reduce((sum, value) => sum + Number(value || 0), 0);
+        assert(confidenceTotal === chunk.event_count, `City ${city.city_id} ${chunk.year} confidence counts do not sum to event_count.`);
+        assert(categoryConfidenceTotals === chunk.event_count, `City ${city.city_id} ${chunk.year} category/confidence counts do not sum to event_count.`);
         const eventChunk = chunk.json_path ? readJson(chunk.json_path) : null;
         if (eventChunk) {
           assert(Array.isArray(eventChunk.events), `City ${city.city_id} ${chunk.year} chunk must expose events[].`);

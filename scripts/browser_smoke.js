@@ -164,15 +164,35 @@ async function appState(page) {
     cards: document.querySelectorAll("#eventList .event-card").length,
     markers: document.querySelectorAll(".map-marker").length,
     selectedMeta: document.querySelector("#selectedMeta")?.textContent || "",
+    timelineLabel: document.querySelector(".timeline-event.active")?.getAttribute("aria-label") || "",
+    timelineCount: window.BimsAtlas.timelineCountForYear(window.BimsAtlas.state.year, "transport"),
+    manifestCount: Number(window.BimsAtlas.state.eventsIndex.chunks.find((chunk) => chunk.year === window.BimsAtlas.state.year)?.counts_by_category?.transport || 0),
     invalidVisible: window.BimsAtlas.filteredEvents().filter((event) => !event.displayVerified).length,
   }));
   assert(transportState.category === "transport" && transportState.cards > 0, "Transport lens did not activate.");
   assert(transportState.markers > 0, "Transport lens removed all real map markers.");
   assert(transportState.invalidVisible === 0, "Transport lens exposed an unverified record.");
   assert(/Transport/i.test(transportState.selectedMeta), "Selected metadata did not reflect the active transport lens.");
+  assert(/transport records?/i.test(transportState.timelineLabel), "Timeline did not label the active transport filter.");
+  assert(transportState.timelineCount === transportState.manifestCount, "Timeline transport count did not come from the events manifest.");
 
   await page.locator("#categoryFilter").selectOption("all");
   await page.waitForFunction(() => window.BimsAtlas.state.category === "all", null, { timeout: 5000 });
+  await page.locator("#confidenceFilter").selectOption("documented");
+  await page.waitForFunction(() => window.BimsAtlas.state.confidenceFilter === "documented", null, { timeout: 5000 });
+  const confidenceTimeline = await page.evaluate(() => {
+    const chunk = window.BimsAtlas.state.eventsIndex.chunks.find((item) => item.year === window.BimsAtlas.state.year) || {};
+    const expected = Number(chunk.counts_by_confidence?.documented || 0) + Number(chunk.counts_by_confidence?.corroborated || 0);
+    return {
+      label: document.querySelector(".timeline-event.active")?.getAttribute("aria-label") || "",
+      count: window.BimsAtlas.timelineCountForYear(window.BimsAtlas.state.year, "all"),
+      expected,
+    };
+  });
+  assert(/documented confidence/i.test(confidenceTimeline.label), "Timeline did not label the active confidence filter.");
+  assert(confidenceTimeline.count === confidenceTimeline.expected, "Timeline confidence count did not come from real manifest confidence counts.");
+  await page.locator("#confidenceFilter").selectOption("all");
+  await page.waitForFunction(() => window.BimsAtlas.state.confidenceFilter === "all", null, { timeout: 5000 });
   await page.locator(".timeline-event[data-year='2023']").click();
   await page.waitForFunction(
     () => window.BimsAtlas.state.year === 2023 && window.BimsAtlas.state.selectedEvent?.year === 2023,
@@ -191,16 +211,22 @@ async function appState(page) {
   await page.locator("#eventSearch").fill("station");
   await page.waitForFunction(() => /station/.test(window.BimsAtlas.state.search), null, { timeout: 5000 });
   await page.waitForFunction(() => window.BimsAtlas.filteredEvents().length > 0, null, { timeout: 30000 });
+  await page.waitForFunction(() => window.BimsAtlas.state.allEventsLoaded === true, null, { timeout: 30000 });
   const searchState = await page.evaluate(() => ({
     count: window.BimsAtlas.filteredEvents().length,
     text: document.querySelector("#eventList")?.textContent || "",
     markers: document.querySelectorAll(".map-marker").length,
     expectedMarkers: Math.min(window.BimsAtlas.filteredEvents().length, 90),
     searchResults: document.querySelectorAll("#searchResults button").length,
+    timelineLabel: document.querySelector(".timeline-event.active")?.getAttribute("aria-label") || "",
+    timelineCount: window.BimsAtlas.timelineCountForYear(window.BimsAtlas.state.year, "all"),
+    exactYearCount: window.BimsAtlas.state.loadedEvents.get(window.BimsAtlas.state.year).filter((event) => event.displayVerified && window.BimsAtlas.filteredEvents().some((item) => item.id === event.id)).length,
   }));
   assert(searchState.count > 0 && /station/i.test(searchState.text), "Search did not filter changelog records.");
   assert(searchState.markers > 0 && searchState.markers === searchState.expectedMarkers, "Search did not keep matching real map markers.");
   assert(searchState.searchResults > 0, "Area/project search did not show selectable suggestions.");
+  assert(/matching "station"/i.test(searchState.timelineLabel), "Timeline did not label the active search filter.");
+  assert(searchState.timelineCount === searchState.exactYearCount, "Timeline search count was not based on loaded matching records.");
 
   await page.locator("#viewDetailsButton").click();
   await page.waitForSelector("#detailsDialog[open]", { timeout: 5000 });

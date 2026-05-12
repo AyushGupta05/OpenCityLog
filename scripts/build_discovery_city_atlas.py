@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -19,7 +20,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DISCOVERY = ROOT / "data-discovery"
 OUT = ROOT / "web/data/city-atlas"
-GENERATED_AT = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+GENERATED_AT = os.environ.get("BIMS_DATA_GENERATED_AT") or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 SCHEMA = "1.0.0"
 
 CITY_META = {
@@ -108,6 +109,16 @@ def read_json(path: Path) -> dict[str, Any]:
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
+
+
+def nested_counts(items: list[dict[str, Any]], first_key: str, second_key: str) -> dict[str, dict[str, int]]:
+    counts: dict[str, Counter[str]] = defaultdict(Counter)
+    for item in items:
+        first = item.get(first_key)
+        second = item.get(second_key)
+        if first and second:
+            counts[str(first)][str(second)] += 1
+    return {key: dict(counts[key]) for key in sorted(counts)}
 
 
 def safe_public_text(value: Any) -> str:
@@ -495,7 +506,7 @@ def build_city(city: str) -> dict[str, Any]:
         geojson_path = city_dir / f"events_{year}.geojson"
         write_json(json_path, {"schema_version": SCHEMA, "city_id": city, "year": year, "event_count": len(year_events), "events": year_events})
         write_json(geojson_path, {"type": "FeatureCollection", "schema_version": SCHEMA, "city_id": city, "year": year, "features": [{"type":"Feature","id":e["event_id"],"properties":{k:e.get(k) for k in ["city_id","event_id","title","year","effective_date","date_precision","category","lens","confidence","source_ids","explanation"]},"geometry":e.get("geometry")} for e in year_events]})
-        chunks.append({"year": year, "event_count": len(year_events), "counts_by_category": dict(Counter(e["category"] for e in year_events)), "json_path": str(json_path.relative_to(ROOT)).replace("\\", "/"), "geojson_path": str(geojson_path.relative_to(ROOT)).replace("\\", "/")})
+        chunks.append({"year": year, "event_count": len(year_events), "counts_by_category": dict(Counter(e["category"] for e in year_events)), "counts_by_confidence": dict(Counter(e["confidence"] for e in year_events)), "counts_by_category_confidence": nested_counts(year_events, "category", "confidence"), "json_path": str(json_path.relative_to(ROOT)).replace("\\", "/"), "geojson_path": str(geojson_path.relative_to(ROOT)).replace("\\", "/")})
 
     families = source_families(sources, events)
     counts_by_category = dict(Counter(e["category"] for e in events))

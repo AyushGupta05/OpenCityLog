@@ -69,6 +69,7 @@
     allEventsLoaded: false,
     loadingAll: false,
     playTimer: null,
+    yearRequestId: 0,
     map: null,
     markers: new Map(),
     mapReady: false,
@@ -82,6 +83,8 @@
     activeImageryLayer: null,
     imageryYear: null,
     imageryRequestId: 0,
+    imageryTransitionTimer: null,
+    imageryTransitionToken: 0,
     imageryError: null,
     proposalResult: null,
   };
@@ -132,6 +135,7 @@
     els.eventSearch?.addEventListener("input", () => {
       state.search = els.eventSearch.value.trim().toLowerCase();
       renderEventList();
+      renderTimeline();
       renderSearchResults();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
@@ -429,6 +433,7 @@
       await Promise.all(state.years.map((year) => loadYear(year)));
       state.allEventsLoaded = true;
       renderEventList({ limit: 24 });
+      renderTimeline();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
       toast("Full city changelog loaded. Map markers stay bounded for performance.");
@@ -450,6 +455,7 @@
       if (requestId !== state.searchLoadRequestId || state.search !== text) return;
       state.allEventsLoaded = true;
       renderEventList({ limit: 24 });
+      renderTimeline();
       renderSearchResults();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
@@ -568,22 +574,114 @@
     if (!els.timelineTrack || !state.years.length) return;
     const min = earliestYear();
     const max = latestYear();
-    const highlighted = new Set([2008, 2010, 2014, 2017, 2023, 2026, state.year]);
+    const profile = timelineProfile();
     els.timelineTrack.innerHTML = state.years.map((year) => {
       const left = yearPosition(year, min, max);
-      const className = year === state.year ? "timeline-event active" : highlighted.has(year) ? "timeline-event has-card" : "timeline-event";
-      const color = dominantYearColor(year);
-      return `<button class="${className}" type="button" data-year="${year}" style="left: ${left}%; --dot-color: ${escapeAttr(color)}" aria-label="Show ${year} records"></button>`;
+      const count = profile.counts.get(year) || 0;
+      const ratio = Math.sqrt(count / Math.max(profile.maxCount, 1));
+      const size = Math.round(8 + (22 * ratio));
+      const color = timelineYearColor(year, profile.categoryId);
+      const className = [
+        "timeline-event",
+        count > 0 ? "has-card" : "is-empty",
+        count >= profile.maxCount * 0.75 && count > 0 ? "is-peak" : "",
+        year === state.year ? "active" : "",
+      ].filter(Boolean).join(" ");
+      const label = timelineYearLabel(year, count, profile);
+      return `<button class="${className}" type="button" data-year="${year}" title="${escapeAttr(label)}" style="left: ${left}%; --dot-color: ${escapeAttr(color)}; --dot-size: ${size}px; --dot-opacity: ${count > 0 ? 0.72 + (0.28 * ratio) : 0.32}" aria-label="${escapeAttr(label)}"></button>`;
     }).join("");
     els.timelineTrack.querySelectorAll("[data-year]").forEach((button) => {
       button.addEventListener("click", () => setYear(Number(button.dataset.year)));
     });
     if (els.timelineLabels) {
-      const labels = [2008, 2010, 2014, 2017, 2023, 2026].filter((year) => year >= min && year <= max);
+      const labels = timelineLabelYears(min, max);
       els.timelineLabels.innerHTML = labels.map((year) => `<span>${year}</span>`).join("");
       els.timelineLabels.style.gridTemplateColumns = `repeat(${Math.max(labels.length, 1)}, 1fr)`;
     }
     syncYearControl();
+  }
+
+  function timelineProfile() {
+    const categoryId = state.category === "all" ? "all" : state.category;
+    const counts = new Map(state.years.map((year) => [year, timelineCountForYear(year, categoryId)]));
+    return {
+      categoryId,
+      counts,
+      maxCount: Math.max(1, ...counts.values()),
+      confidenceFilter: state.confidenceFilter,
+      showInferred: state.showInferred,
+      search: state.search,
+      exactSearch: Boolean(state.search && state.allEventsLoaded),
+    };
+  }
+
+  function timelineCountForYear(year, categoryId) {
+    const exact = exactTimelineEventsForYear(year, categoryId);
+    if (state.search) return exact ? exact.length : 0;
+    if (exact) return exact.length;
+
+    const chunk = chunkForYear(year) || {};
+    if (!chunk.event_count) return 0;
+
+    const confidenceKeys = timelineConfidenceKeys();
+    const needsConfidenceCount = state.confidenceFilter !== "all" || !state.showInferred;
+    if (categoryId === "all" && !needsConfidenceCount) return Number(chunk.event_count || 0);
+    if (categoryId !== "all" && !needsConfidenceCount) return Number(chunk.counts_by_category?.[categoryId] || 0);
+
+    if (categoryId === "all") {
+      return confidenceKeys.reduce((total, key) => total + Number(chunk.counts_by_confidence?.[key] || 0), 0);
+    }
+
+    const categoryConfidence = chunk.counts_by_category_confidence?.[categoryId] || {};
+    return confidenceKeys.reduce((total, key) => total + Number(categoryConfidence[key] || 0), 0);
+  }
+
+  function exactTimelineEventsForYear(year, categoryId) {
+    if (!state.search && state.confidenceFilter === "all" && state.showInferred) return null;
+    if (!state.loadedEvents.has(year)) return null;
+    const search = state.search;
+    return (state.loadedEvents.get(year) || [])
+      .filter((event) => event.displayVerified)
+      .filter((event) => categoryId === "all" || event.category === categoryId)
+      .filter((event) => confidenceMatches(event))
+      .filter((event) => state.showInferred || event.confidence !== "inferred")
+      .filter((event) => !search || eventSearchText(event).includes(search));
+  }
+
+  function timelineConfidenceKeys() {
+    const allKeys = ["corroborated", "documented", "disputed", "inferred"];
+    if (state.confidenceFilter === "documented") return ["corroborated", "documented"];
+    if (state.confidenceFilter === "inferred") return ["inferred"];
+    if (state.confidenceFilter === "disputed") return ["disputed"];
+    return state.showInferred ? allKeys : allKeys.filter((key) => key !== "inferred");
+  }
+
+  function timelineYearColor(year, categoryId) {
+    if (categoryId !== "all") return categoryConfig(categoryId).color;
+    return dominantYearColor(year);
+  }
+
+  function timelineYearLabel(year, count, profile) {
+    const categoryLabel = profile.categoryId === "all" ? "source-backed" : categoryConfig(profile.categoryId).label.toLowerCase();
+    const confidenceText = profile.confidenceFilter === "all"
+      ? profile.showInferred ? "" : ", excluding inferred"
+      : `, ${profile.confidenceFilter} confidence`;
+    const searchText = profile.search
+      ? profile.exactSearch ? ` matching "${profile.search}"` : ` matching "${profile.search}" in loaded years`
+      : "";
+    return `${year}: ${compactNumber(count)} ${categoryLabel} record${count === 1 ? "" : "s"}${confidenceText}${searchText}`;
+  }
+
+  function timelineLabelYears(min, max) {
+    if (max <= min) return [min];
+    const labelCount = Math.min(6, Math.max(2, state.years.length));
+    const labels = new Set();
+    for (let index = 0; index < labelCount; index += 1) {
+      const target = min + ((max - min) * (index / Math.max(1, labelCount - 1)));
+      labels.add(clampToYears(target) || Math.round(target));
+    }
+    labels.add(state.year);
+    return Array.from(labels).filter((year) => year >= min && year <= max).sort((a, b) => a - b);
   }
 
   function renderMapMarkers() {
@@ -947,12 +1045,14 @@
   function setYear(year) {
     const nextYear = clampToYears(year);
     if (!nextYear) return Promise.resolve();
+    const requestId = ++state.yearRequestId;
     state.year = nextYear;
     if (state.compareActive) state.compareAfterYear = nextYear;
     syncYearControl();
     renderTimeline();
     const imageryPromise = updateMapImageryForYear(nextYear);
     return Promise.all([loadYear(nextYear), imageryPromise]).then(() => {
+      if (requestId !== state.yearRequestId || state.year !== nextYear) return;
       selectInitialEvent({ keepYear: true });
       renderAll();
       renderMapMarkers();
@@ -976,6 +1076,7 @@
     if (els.categoryFilter) els.categoryFilter.value = state.category === "utilities" ? "all" : state.category;
     renderLensList();
     renderEventList();
+    renderTimeline();
     selectFirstVisibleIfNeeded();
     renderMapMarkers();
   }
@@ -984,6 +1085,7 @@
     state.confidenceFilter = ["all", "documented", "inferred", "disputed"].includes(value) ? value : "all";
     renderLayerControls();
     renderEventList();
+    renderTimeline();
     selectFirstVisibleIfNeeded();
     renderMapMarkers();
   }
@@ -1021,6 +1123,7 @@
     if (!event) return;
     state.selectedEventId = event.id;
     state.selectedEvent = event;
+    state.yearRequestId += 1;
     state.year = event.year;
     syncYearControl();
     updateMapImageryForYear(event.year);
@@ -1423,28 +1526,94 @@
   function replaceMainImageryLayer(layer, tiles, year) {
     if (!state.map) return;
     const hadCompareLayer = Boolean(state.compareActive && state.map.getLayer("compare-before-layer"));
+    const token = ++state.imageryTransitionToken;
+    const transitionMs = motionDuration(680);
     try {
+      clearImageryTransition();
       if (hadCompareLayer) removeCompareImagery();
-      if (state.map.getLayer("imagery")) state.map.removeLayer("imagery");
-      if (state.map.getSource("imagery")) state.map.removeSource("imagery");
-      state.map.addSource("imagery", {
+      if (!state.map.getLayer("imagery") || !state.map.getSource("imagery")) {
+        addCanonicalImageryLayer(layer, tiles, year);
+        if (hadCompareLayer) updateCompareImagery();
+        return;
+      }
+
+      state.map.addSource("imagery-next", {
         type: "raster",
         tiles,
         tileSize: 256,
         attribution: imageryAttributionText(year, layer),
       });
       state.map.addLayer({
-        id: "imagery",
+        id: "imagery-next-layer",
         type: "raster",
-        source: "imagery",
-        paint: { "raster-fade-duration": 180 },
+        source: "imagery-next",
+        paint: { "raster-opacity": 0, "raster-fade-duration": 520 },
       });
-      if (hadCompareLayer) updateCompareImagery();
+      window.requestAnimationFrame(() => {
+        if (!state.map || token !== state.imageryTransitionToken) return;
+        setRasterOpacity("imagery-next-layer", 1, motionDuration(560));
+        setRasterOpacity("imagery", 0, motionDuration(560));
+      });
+      state.imageryTransitionTimer = window.setTimeout(() => {
+        if (!state.map || token !== state.imageryTransitionToken) return;
+        try {
+          removeLayerAndSource("imagery", "imagery");
+          addCanonicalImageryLayer(layer, tiles, year);
+          removeLayerAndSource("imagery-next-layer", "imagery-next");
+          if (hadCompareLayer) updateCompareImagery();
+        } catch (error) {
+          state.imageryError = error.message;
+          updateMapAttribution();
+        }
+      }, transitionMs);
     } catch (error) {
       state.imageryError = error.message;
       updateMapAttribution();
       toast("Timeline imagery could not be refreshed. Event records still changed by year.");
     }
+  }
+
+  function clearImageryTransition() {
+    if (state.imageryTransitionTimer) window.clearTimeout(state.imageryTransitionTimer);
+    state.imageryTransitionTimer = null;
+    removeLayerAndSource("imagery-next-layer", "imagery-next");
+    if (state.map?.getLayer("imagery")) setRasterOpacity("imagery", 1, 0);
+  }
+
+  function addCanonicalImageryLayer(layer, tiles, year) {
+    removeLayerAndSource("imagery", "imagery");
+    state.map.addSource("imagery", {
+      type: "raster",
+      tiles,
+      tileSize: 256,
+      attribution: imageryAttributionText(year, layer),
+    });
+    state.map.addLayer({
+      id: "imagery",
+      type: "raster",
+      source: "imagery",
+      paint: { "raster-opacity": 1, "raster-fade-duration": 520 },
+    });
+  }
+
+  function setRasterOpacity(layerId, opacity, duration) {
+    if (!state.map?.getLayer(layerId)) return;
+    try {
+      state.map.setPaintProperty(layerId, "raster-opacity-transition", { duration, delay: 0 });
+    } catch (_error) {
+      // Older MapLibre builds may ignore transition paint properties.
+    }
+    state.map.setPaintProperty(layerId, "raster-opacity", opacity);
+  }
+
+  function removeLayerAndSource(layerId, sourceId) {
+    if (!state.map) return;
+    if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
+    if (state.map.getSource(sourceId)) state.map.removeSource(sourceId);
+  }
+
+  function motionDuration(ms) {
+    return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ? 0 : ms;
   }
 
   function updateCompareImagery() {
@@ -1508,14 +1677,18 @@
       return;
     }
     els.playButton?.setAttribute("aria-label", "Pause timeline");
-    state.playTimer = window.setInterval(() => {
+    const advance = () => {
+      if (!state.playTimer) return;
       const index = state.years.indexOf(state.year);
-      setYear(state.years[(index + 1) % state.years.length]);
-    }, 1100);
+      Promise.resolve(setYear(state.years[(index + 1) % state.years.length])).finally(() => {
+        if (state.playTimer) state.playTimer = window.setTimeout(advance, 1450);
+      });
+    };
+    state.playTimer = window.setTimeout(advance, 250);
   }
 
   function stopPlay() {
-    if (state.playTimer) window.clearInterval(state.playTimer);
+    if (state.playTimer) window.clearTimeout(state.playTimer);
     state.playTimer = null;
     els.playButton?.setAttribute("aria-label", "Play timeline");
   }
@@ -1873,6 +2046,8 @@
       imageryLayerForYear,
       updateMapImageryForYear,
       recenterMap,
+      timelineProfile,
+      timelineCountForYear,
     };
   }
 })();

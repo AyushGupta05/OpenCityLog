@@ -419,6 +419,22 @@ function countBy(items, keyFn) {
   return Object.fromEntries(Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)));
 }
 
+function countByPair(items, firstKeyFn, secondKeyFn) {
+  const counts = {};
+  for (const item of items) {
+    const firstKey = firstKeyFn(item);
+    const secondKey = secondKeyFn(item);
+    if (!firstKey || !secondKey) continue;
+    counts[firstKey] = counts[firstKey] || {};
+    counts[firstKey][secondKey] = (counts[firstKey][secondKey] || 0) + 1;
+  }
+  return Object.fromEntries(
+    Object.entries(counts)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([key, nested]) => [key, Object.fromEntries(Object.entries(nested).sort(([a], [b]) => a.localeCompare(b)))]),
+  );
+}
+
 function featureForEvent(event) {
   return {
     type: "Feature",
@@ -491,6 +507,8 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
       year,
       event_count: yearEvents.length,
       counts_by_category: countBy(yearEvents, (event) => event.category),
+      counts_by_confidence: countBy(yearEvents, (event) => event.confidence),
+      counts_by_category_confidence: countByPair(yearEvents, (event) => event.category, (event) => event.confidence),
       json_path: relativeFromRoot(root, jsonPath),
       geojson_path: relativeFromRoot(root, geojsonPath),
     });
