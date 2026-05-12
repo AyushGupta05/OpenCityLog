@@ -1,0 +1,352 @@
+{
+  "source_id": "lon-round3-tree-preservation-orders-schedule-items2",
+  "city": "london",
+  "title": "Barnet Tree Preservation Orders schedule items",
+  "publisher": "London Borough of Barnet",
+  "bucket": "trees/TPO/planning constraints/environment",
+  "retrieved_at": "2026-04-28T14:31:58.977263+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.data.gov.uk/api/3/action/package_show?id=tree-preservation-orders-schedule-items2",
+      "retrieved_at": "2026-04-28T14:31:58.212181+00:00",
+      "final_url": "https://ckan.publishing.service.gov.uk/api/3/action/package_show?id=tree-preservation-orders-schedule-items2",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "9687",
+      "bytes_captured": 9687,
+      "json_keys": [
+        "help",
+        "result",
+        "success"
+      ],
+      "json_sample": {
+        "help": "https://ckan.publishing.service.gov.uk/api/3/action/help_show?name=package_show",
+        "success": true,
+        "result": {
+          "creator_user_id": "60e687bf-a6d8-43e2-a50e-efab84b27952",
+          "id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+          "isopen": false,
+          "license_id": null,
+          "license_title": null,
+          "metadata_created": "2020-03-31T01:26:10.645477",
+          "metadata_modified": "2026-04-27T22:01:10.323740",
+          "name": "tree-preservation-orders-schedule-items2",
+          "notes": "The dataset contains polygons for Tree Preservation Order Schedule Items within the London Borough of Barnet. Tree Preservation Orders are made by the local planning authority to protect specific trees, groups or areas of trees or woodlands in the interests of public amenity – and formal consent is required for pruning or removing a tree so protected. An application form and guidance notes can be downloaded from the Planning Portal or Council’s website. It is an offence to contravene an Order by damaging or carrying out work on a protected tree without getting the necessary written consent of the London Borough of Barnet (as local planning authority). Further information can be found in the ‘Tree Preservation Orders and trees in conservation areas’ category of Planning Practice Guidance on the Gov.uk website. This data is an active and changing record of Tree Preservation Orders in the London Borough of Barnet and does not include trees that are covered by the more general conservation areas provisions.\n*Footnote - Barnet is one of the Local Planning Authorities that received Government funding to improve their planning services through the Local Digital Fund. This aims to digitise Planning to make land and housing data easier to find, understand, use and trust. This data is also available on View planning and housing datasets with geographic location data on an interactive map here.\n\n  \n    Map of planning data for England | Planning Data (TPOs)\n  \n\n\nLicence\nThis dataset has been published by the London Borough of Barnet under the Open Government Licence (OGL) (v3). The licence has been applied following the Public Sector Mapping Agreement 'presumption to publish' process.\nAcknowledgements\nPlease acknowledge the Information Provider through the following attribution statement:\n© London Borough of Barnet, 2026, OGL v3.0\nContains OS data © Crown copyright and database right, 2026",
+          "num_resources": 8,
+          "num_tags": 8,
+          "organization": {
+            "id": "27322301-90d6-4837-9563-899fd280e921",
+            "name": "london-borough-of-barnet",
+            "title": "London Borough of Barnet",
+            "type": "organization",
+            "description": "",
+            "image_url": "",
+            "created": "2012-06-27T14:48:52.167987",
+            "is_organization": true,
+            "approval_status": "pending",
+            "state": "active"
+          },
+          "owner_org": "27322301-90d6-4837-9563-899fd280e921",
+          "private": false,
+          "state": "active",
+          "title": "Tree Preservation Orders schedule items",
+          "type": "dataset",
+          "url": "https://open.barnet.gov.uk/dataset/tree-preservation-orders-schedule-items-e5nge",
+          "version": null,
+          "extras": [
+            {
+              "key": "dcat_issued",
+              "value": "2017-03-01T11:17:48.000Z"
+            },
+            {
+              "key": "dcat_modified",
+              "value": "2026-04-01T07:59:18.144Z"
+            },
+            {
+              "key": "guid",
+              "value": "e5nge"
+            },
+            {
+              "key": "language",
+              "value": ""
+            },
+            {
+              "key": "harvest_object_id",
+              "value": "8c2a5771-b4d3-4b37-b272-a42be81bb6f9"
+            },
+            {
+              "key": "harvest_source_id",
+              "value": "06f2be65-b3b8-46d1-a67c-02e426c7cc03"
+            },
+            {
+              "key": "harvest_source_title",
+              "value": "Open Barnet"
+            }
+          ],
+          "resources": [
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098480",
+              "description": "Zip file containing dataset provided in .csv and .gpkg file formats, as well as .xml metadata and .pdf supporting document.",
+              "format": "",
+              "hash": "",
+              "id": "6aff2fad-fda1-4552-a07c-d93af142f43d",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018379",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "2025-08-01 - TreePreservationOrderScheduleItems.zip",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 0,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098483",
+              "description": " ",
+              "format": "",
+              "hash": "",
+              "id": "bc6b77c4-b48a-4386-aa1e-8c0d7774fc1e",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018458",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "TreePreservationOrderScheduleItems.csv",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 1,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098484",
+              "description": "",
+              "format": "",
+              "hash": "",
+              "id": "b20de736-60cf-4b40-999d-dcaeabff9fdf",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018504",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "Supporting Information",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 2,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098485",
+              "description": "dataset formatted to meet requirement of the Open Digital Planning project - https://www.planning.data.gov.uk/dataset/tree-preservation-order",
+              "format": "",
+              "hash": "",
+              "id": "f50a1063-5b26-4122-a42e-b217e1edb391",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018546",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "tree-preservation-order.csv",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 3,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098485",
+              "description": "dataset formatted to meet requirement of the Open Digital Planning project - https://www.planning.data.gov.uk/dataset/tree-preservation-order",
+              "format": "",
+              "hash": "",
+              "id": "14f113e8-e648-46e2-83ba-ad40e94c17ed",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018585",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "tree-preservation-order.csv-metadata",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 4,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098486",
+              "description": "dataset formatted to meet requirement of the Open Digital Planning project - https://www.planning.data.gov.uk/dataset/tree-preservation-zone",
+              "format": "",
+              "hash": "",
+              "id": "593e0a3e-8238-4458-be87-44f9a50fab17",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018623",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "tree-preservation-zone.gpkg",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 5,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098487",
+              "description": "dataset formatted to meet requirement of the Open Digital Planning project - https://www.planning.data.gov.uk/dataset/tree-preservation-zone",
+              "format": "",
+              "hash": "",
+              "id": "a0948e71-0677-4ccd-9a2a-b6548de79dfa",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018662",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "tree-preservation-zone.csv",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 6,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2026-04-27T22:01:11.098488",
+              "description": "dataset formatted to meet requirement of the Open Digital Planning project - https://www.planning.data.gov.uk/dataset/tree-preservation-zone",
+              "format": "",
+              "hash": "",
+              "id": "8541cdf7-6baf-4b2a-95c4-15b1d638d98d",
+              "last_modified": null,
+              "metadata_modified": "2026-04-27T22:01:11.018701",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "tree-preservation-zone.csv-metadata.json",
+              "package_id": "c2f7016b-93c0-4dc6-b9dc-6c478fee7658",
+              "position": 7,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "",
+              "url_type": null
+            }
+          ],
+          "tags": [
+            {
+              "display_name": "Conservation",
+              "id": "71f1c482-38de-41cf-9839-77373e5c7e2d",
+              "name": "Conservation",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "GIS",
+              "id": "f53cddc0-3acc-43e4-bd94-2634f44b1584",
+              "name": "GIS",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "Geospatial",
+              "id": "3495c740-0dad-4360-b8bd-1508a49621aa",
+              "name": "Geospatial",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "Maps",
+              "id": "1c29991b-e1fc-4e8d-a116-c91faa189b08",
+              "name": "Maps",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "Polygons",
+              "id": "afff6f5f-2f64-4162-ab1c-9308988eadb7",
+              "name": "Polygons",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "TPO",
+              "id": "ec832718-074a-4d77-92f3-af20291134f3",
+              "name": "TPO",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "Tree Preservation Orders",
+              "id": "c73d491f-dd0d-4902-89da-7cfce70fcc43",
+              "name": "Tree Preservation Orders",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "Trees",
+              "id": "a1d5cca8-8333-45a8-8dde-91e869b4d482",
+              "name": "Trees",
+              "state": "active",
+              "vocabulary_id": null
+            }
+          ],
+          "groups": [],
+          "relationships_as_subject": [],
+          "relationships_as_object": [],
+          "harvest": [
+            {
+              "key": "harvest_object_id",
+              "value": "8c2a5771-b4d3-4b37-b272-a42be81bb6f9"
+            },
+            {
+              "key": "harvest_source_id",
+              "value": "06f2be65-b3b8-46d1-a67c-02e426c7cc03"
+            },
+            {
+              "key": "harvest_source_title",
+              "value": "Open Barnet"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "requested_url": "https://www.data.gov.uk/dataset/tree-preservation-orders-schedule-items2",
+      "retrieved_at": "2026-04-28T14:31:58.550528+00:00",
+      "final_url": "https://www.data.gov.uk/dataset/c2f7016b-93c0-4dc6-b9dc-6c478fee7658/tree-preservation-orders-schedule-items2",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"6281245dff9dc7976fbdef8be48efa93\"",
+      "content_length_header": "27107",
+      "bytes_captured": 27107,
+      "page_title": "Tree Preservation Orders schedule items - data.gov.uk",
+      "h1": "Tree Preservation Orders schedule items",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <!--[if lt IE 9]><html class=\"lte-ie8\" lang=\"en\"><![endif]--> <!--[if gt IE 8]><!--><html lang=\"en\"><!--<![endif]--> <html class=\"govuk-template\"> <head> <script> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&';f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5WRWCH8X'); </script> <meta charset=\"utf-8\"> <title>Tree Preservation Orders schedule items - data.gov.uk</title> <meta name=\"theme-color\" content=\"#0b0c0c\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"stylesheet\" href=\"/find-assets/application-8be01d122776efe1ab21192ae12f353adc894cbac790c8ccbf82c4ddc41d8b96.css\" /> <link rel=\"stylesheet\" href=\"/find-assets/v2/application-d977cc135c982e194063c874a5b5cd03556954111607fafd59cd1aa52f786cb5.css\" /> <meta name=\"dc:title\" content=\"Tree Preservation Orders schedule items\"> <meta name=\"dc:creator\" content=\"London Borough of Barnet\"> <meta name=\"dc:date\" content=\"2026-04-27\"> </head> <body class=\"govuk-template__body\"> <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script> <div id=\"global-cookie-message\" class=\"gem-c-cookie-banner govuk-clearfix\" data-module=\"cookie-banner\" role=\"region\" aria-label=\"cookie banner\" data-nosnippet> <div class=\"govuk-cookie-banner js-banner-wrapper\" role=\"region\" aria-label=\"Cookies on GOV.UK\"> <div class=\"gem-c-cookie-banner__message govuk-cookie-banner__message govuk-width-container\"> <div class=\"govuk-grid-row\"> <div class=\"govuk-grid-column-two-thirds\"> <h2 class=\"govuk-cookie-banner__heading govuk-heading-m\">Cookies on GOV.UK</h2> <div class=\"govuk-cookie-banner__content\"> <p class='govuk-body'>We use <a href=\"/cookies\" class=\"govuk-link\">cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible.</p> </div> </div> </div> <div class=\"govuk-button-group\"> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-accept-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner accepted\" data-cookie-types=\"all\">Accept additional cookies</button> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-reject-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner rejected\">Reject additional cookies</button> <a class=\"govuk-link\" href=\"/cookies\">View cookies</a> </div> </div> </div> <div class=\"gem-c-cookie-banner__confirmat"
+    }
+  ]
+}

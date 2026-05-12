@@ -1,0 +1,161 @@
+{
+  "source_id": "lon-round3-harrow-conservation-areas",
+  "city": "london",
+  "title": "Harrow Conservation Areas",
+  "publisher": "London Borough of Harrow",
+  "bucket": "heritage/conservation/planning/boundaries",
+  "retrieved_at": "2026-04-28T14:32:03.257785+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.data.gov.uk/api/3/action/package_show?id=harrow-conservation-areas",
+      "retrieved_at": "2026-04-28T14:32:03.053525+00:00",
+      "final_url": "https://ckan.publishing.service.gov.uk/api/3/action/package_show?id=harrow-conservation-areas",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "3526",
+      "bytes_captured": 3526,
+      "json_keys": [
+        "help",
+        "result",
+        "success"
+      ],
+      "json_sample": {
+        "help": "https://ckan.publishing.service.gov.uk/api/3/action/help_show?name=package_show",
+        "success": true,
+        "result": {
+          "contact-email": "",
+          "contact-name": "",
+          "contact-phone": "",
+          "core-dataset": false,
+          "creator_user_id": "9b514088-0bfa-4a7e-bc07-1519ef71cd5f",
+          "foi-email": "harrow@icaseworkmail.com",
+          "foi-name": "",
+          "foi-phone": "",
+          "foi-web": "http://www.harrow.gov.uk/info/200031/data_protection_and_freedom_of_information_foi/650/freedom_of_information_request/2",
+          "geographic_coverage": "100000: England",
+          "id": "f4c969b2-2ec8-435d-8463-83f7a6031e00",
+          "isopen": true,
+          "license_id": "uk-ogl",
+          "license_title": "UK Open Government Licence (OGL)",
+          "license_url": "http://reference.data.gov.uk/id/open-government-licence",
+          "metadata_created": "2017-10-18T14:27:27.942906",
+          "metadata_modified": "2017-10-18T14:27:27.962797",
+          "name": "harrow-conservation-areas",
+          "notes": "The dataset was created for planning purposes to display Conservation Areas for the London Borough of Harrow.\r\n\r\nContains public sector information licensed under the Open Government Licence v3.0.\r\n\r\nPublished under the Ordnance Survey Presumption to Publish derived data expections. Contains OS data © Crown copyright and database right (2017).",
+          "num_resources": 2,
+          "num_tags": 0,
+          "organization": {
+            "id": "c6d5c14f-d34a-4b2d-a131-b06feba59c31",
+            "name": "london-borough-of-harrow",
+            "title": "London Borough of Harrow",
+            "type": "organization",
+            "description": "",
+            "image_url": "",
+            "created": "2012-06-27T14:50:49.019420",
+            "is_organization": true,
+            "approval_status": "pending",
+            "state": "active"
+          },
+          "owner_org": "c6d5c14f-d34a-4b2d-a131-b06feba59c31",
+          "private": false,
+          "state": "active",
+          "temporal_coverage-from": "2017-10-18",
+          "temporal_coverage-to": "2017-10-18",
+          "theme-primary": "towns-and-cities",
+          "theme-secondary": [
+            ""
+          ],
+          "title": "Harrow Conservation Areas",
+          "type": "dataset",
+          "unpublished": false,
+          "update_frequency": "",
+          "url": null,
+          "version": null,
+          "extras": [
+            {
+              "key": "its-dataset",
+              "value": "false"
+            },
+            {
+              "key": "mandate",
+              "value": "[\"https://www.legislation.gov.uk/ukpga/1967/69\", \"https://www.legislation.gov.uk/ukpga/1990/9/contents\"]"
+            },
+            {
+              "key": "register",
+              "value": "false"
+            },
+            {
+              "key": "sla",
+              "value": ""
+            }
+          ],
+          "resources": [
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2017-10-18T15:27:28.041424",
+              "description": "Harrow Conservation Area Additional Information",
+              "format": "PDF",
+              "hash": "",
+              "id": "7dcd5320-7f7c-4f5d-b08a-a49a41d9c708",
+              "last_modified": null,
+              "metadata_modified": "2017-10-18T15:27:28.041424",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": null,
+              "package_id": "f4c969b2-2ec8-435d-8463-83f7a6031e00",
+              "position": 0,
+              "resource_type": "documentation",
+              "size": null,
+              "state": "active",
+              "url": "http://www.harrow.gov.uk/download/downloads/id/10427/documentation_for_harrows_conservation_area",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2017-10-18T15:27:28.041448",
+              "description": "Harrow Conservation Areas Zipped Shapefile",
+              "format": "SHP",
+              "hash": "",
+              "id": "98470cfe-a5a4-4d8a-a63f-86ffe0ec8d4b",
+              "last_modified": null,
+              "metadata_modified": "2017-10-18T15:27:28.041448",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": null,
+              "package_id": "f4c969b2-2ec8-435d-8463-83f7a6031e00",
+              "position": 1,
+              "resource_type": "file",
+              "size": null,
+              "state": "active",
+              "url": "http://www.harrow.gov.uk/download/downloads/id/10425/harrow_conservation_areas",
+              "url_type": null
+            }
+          ],
+          "tags": [],
+          "groups": [],
+          "relationships_as_subject": [],
+          "relationships_as_object": []
+        }
+      }
+    },
+    {
+      "requested_url": "https://www.data.gov.uk/dataset/harrow-conservation-areas",
+      "retrieved_at": "2026-04-28T14:32:03.351768+00:00",
+      "final_url": "https://www.data.gov.uk/dataset/f4c969b2-2ec8-435d-8463-83f7a6031e00/harrow-conservation-areas",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"5e2730b1100ef13b1989461f6d888114\"",
+      "content_length_header": "20297",
+      "bytes_captured": 20297,
+      "page_title": "Harrow Conservation Areas - data.gov.uk",
+      "h1": "Harrow Conservation Areas",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <!--[if lt IE 9]><html class=\"lte-ie8\" lang=\"en\"><![endif]--> <!--[if gt IE 8]><!--><html lang=\"en\"><!--<![endif]--> <html class=\"govuk-template\"> <head> <script> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&';f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5WRWCH8X'); </script> <meta charset=\"utf-8\"> <title>Harrow Conservation Areas - data.gov.uk</title> <meta name=\"theme-color\" content=\"#0b0c0c\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"stylesheet\" href=\"/find-assets/application-8be01d122776efe1ab21192ae12f353adc894cbac790c8ccbf82c4ddc41d8b96.css\" /> <link rel=\"stylesheet\" href=\"/find-assets/v2/application-d977cc135c982e194063c874a5b5cd03556954111607fafd59cd1aa52f786cb5.css\" /> <meta name=\"dc:title\" content=\"Harrow Conservation Areas\"> <meta name=\"dc:creator\" content=\"London Borough of Harrow\"> <meta name=\"dc:date\" content=\"2017-10-18\"> <meta name=\"dc:rights\" content=\"UK Open Government Licence (OGL)\"> </head> <body class=\"govuk-template__body\"> <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script> <div id=\"global-cookie-message\" class=\"gem-c-cookie-banner govuk-clearfix\" data-module=\"cookie-banner\" role=\"region\" aria-label=\"cookie banner\" data-nosnippet> <div class=\"govuk-cookie-banner js-banner-wrapper\" role=\"region\" aria-label=\"Cookies on GOV.UK\"> <div class=\"gem-c-cookie-banner__message govuk-cookie-banner__message govuk-width-container\"> <div class=\"govuk-grid-row\"> <div class=\"govuk-grid-column-two-thirds\"> <h2 class=\"govuk-cookie-banner__heading govuk-heading-m\">Cookies on GOV.UK</h2> <div class=\"govuk-cookie-banner__content\"> <p class='govuk-body'>We use <a href=\"/cookies\" class=\"govuk-link\">cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible.</p> </div> </div> </div> <div class=\"govuk-button-group\"> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-accept-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner accepted\" data-cookie-types=\"all\">Accept additional cookies</button> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-reject-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner rejected\">Reject additional cookies</button> <a class=\"govuk-link\" href=\"/cookies\">View cookies</a> </div> </div> </div>"
+    }
+  ]
+}

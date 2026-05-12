@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_london_plan_monitoring",
+  "title": "London Plan Annual Monitoring Reports / housing monitoring",
+  "requested_url": "https://www.london.gov.uk/programmes-strategies/planning/implementing-london-plan/monitoring-london-plan",
+  "fetched_url": "https://www.london.gov.uk/programmes-strategies/planning/implementing-london-plan/monitoring-london-plan",
+  "final_url": "https://www.london.gov.uk/programmes-strategies/planning/implementing-london-plan/monitoring-london-plan",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:56.258041+00:00",
+  "page_title": "Monitoring the London Plan | London City Hall",
+  "h1": "Monitoring the London Plan",
+  "meta_description": "Annual Monitoring Reports assess the effectiveness of the London Plan. Latest report and previous versions available."
+}

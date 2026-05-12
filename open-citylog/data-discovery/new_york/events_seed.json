@@ -1,0 +1,593 @@
+[
+  {
+    "event_id": "nyc_city_2013_citibike_launch",
+    "title": "Citi Bike launches",
+    "city": "new_york",
+    "area": "nyc_core",
+    "category": "transport",
+    "date_start": "2013-05-27",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Citi Bike begins operating in New York City.",
+    "observed_change": "Added a major micromobility mode and changed cycling demand/data availability.",
+    "source_ids": [
+      "nyc_qfs9-xn8t",
+      "nyc_mzxg-pwib"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Final chronology should cite official Citi Bike/NYC DOT launch sources."
+  },
+  {
+    "event_id": "nyc_city_2013_street_permit_history_start",
+    "title": "Historical street-construction permit coverage begins in discovery package",
+    "city": "new_york",
+    "area": "nyc_wide",
+    "category": "street_work",
+    "date_start": "2013",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "DOT street construction permit datasets provide citywide historical records for roadway work and closures.",
+    "observed_change": "Enables longitudinal analysis of street work and traffic disruption across the city.",
+    "source_ids": [
+      "nyc_c9sj-fmsg",
+      "nyc_i6b5-j7bu",
+      "nyc_478a-yykk"
+    ],
+    "confidence": "documented",
+    "limitations": "This is a data-coverage milestone rather than a civic event; use it as a source-era marker."
+  },
+  {
+    "event_id": "nyc_city_2015_hudson_yards_station_open",
+    "title": "34 St-Hudson Yards subway station opens",
+    "city": "new_york",
+    "area": "manhattan_west_side",
+    "category": "transport",
+    "date_start": "2015-09-13",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "The 7 line extension opens to Hudson Yards.",
+    "observed_change": "Altered West Side accessibility and supported development intensification.",
+    "source_ids": [
+      "nyc_mta_gtfs_subway",
+      "nyc_mta_static_feeds"
+    ],
+    "confidence": "documented",
+    "limitations": "Opening date should be validated with MTA press materials during ingestion."
+  },
+  {
+    "event_id": "nyc_city_2017_nyc_ferry_launch",
+    "title": "NYC Ferry service launches",
+    "city": "new_york",
+    "area": "waterfront_corridors",
+    "category": "transport",
+    "date_start": "2017-05-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "NYC Ferry begins service and creates new route/landing-level ridership series.",
+    "observed_change": "Expanded waterfront mobility options and introduced a new mode-specific city dataset.",
+    "source_ids": [
+      "nyc_t5n6-gx8c",
+      "nyc_6eng-46dm"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Use NYC Ferry official chronology for the exact phased rollout dates by route."
+  },
+  {
+    "event_id": "nyc_city_2019_14th_street_busway",
+    "title": "14th Street busway begins",
+    "city": "new_york",
+    "area": "manhattan",
+    "category": "transport_policy",
+    "date_start": "2019-10-03",
+    "date_end": "",
+    "geometry": "corridor_ref",
+    "summary": "New priority treatment on 14th Street changes through-traffic rules and bus operations.",
+    "observed_change": "Material corridor-level change in traffic circulation and bus travel conditions.",
+    "source_ids": [
+      "nyc_i4gi-tjb9",
+      "nyc_h9gi-nx95"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Needs official DOT busway source and corridor geometry for final production use."
+  },
+  {
+    "event_id": "nyc_city_2019_hudson_yards_phase1_open",
+    "title": "Hudson Yards Phase 1 opens to the public",
+    "city": "new_york",
+    "area": "manhattan_west_side",
+    "category": "building_opening",
+    "date_start": "2019-03-15",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "The first phase of Hudson Yards opens, adding major office, retail, and public-space capacity.",
+    "observed_change": "Large built-environment addition with implications for footfall, transit demand, and local traffic.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_bs8b-p36w",
+      "nyc_pkdm-hqz6"
+    ],
+    "confidence": "documented",
+    "limitations": "Building-by-building occupancy and completion dates should be validated with certificates and project records."
+  },
+  {
+    "event_id": "nyc_city_2020_open_streets",
+    "title": "Open Streets program expands during the pandemic era",
+    "city": "new_york",
+    "area": "nyc_wide",
+    "category": "street_policy",
+    "date_start": "2020",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "Open Streets and related temporary street reallocations changed access patterns across many NYC corridors.",
+    "observed_change": "Shifted street use toward pedestrians and outdoor activity in selected areas.",
+    "source_ids": [
+      "nyc_bkfu-528j",
+      "nyc_i6b5-j7bu"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Should be linked to an official Open Streets dataset or archived city page in a future pass."
+  },
+  {
+    "event_id": "nyc_city_2022_current_street_permit_feed",
+    "title": "Current street-construction permit feed begins",
+    "city": "new_york",
+    "area": "nyc_wide",
+    "category": "street_work",
+    "date_start": "2022",
+    "date_end": "",
+    "geometry": "city_ref",
+    "summary": "Current DOT street-construction permit dataset provides present-era citywide permit coverage.",
+    "observed_change": "Improves traceability of active roadway work, closures, and probable traffic impacts.",
+    "source_ids": [
+      "nyc_tqtj-sjs8",
+      "nyc_i6b5-j7bu",
+      "nyc_478a-yykk"
+    ],
+    "confidence": "documented",
+    "limitations": "This is a source-era marker rather than a civic event; use as a data-availability anchor."
+  },
+  {
+    "event_id": "nyc_hy_2005_hudson_yards_rezoning",
+    "title": "Hudson Yards rezoning adopted",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "rezoning_policy",
+    "date_start": "2005-01-19",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "City adopted the Hudson Yards rezoning/Special Hudson Yards District framework.",
+    "observed_change": "Land-use policy shifted to support high-density mixed-use development over/around the rail yards.",
+    "source_ids": [
+      "nyc_hudson_yards_dcp_plan",
+      "nyc_fdkv-4t4z"
+    ],
+    "confidence": "documented",
+    "limitations": "Use DCP zoning text/map amendments and ULURP records for exact actions."
+  },
+  {
+    "event_id": "nyc_hy_2005_west_chelsea_rezoning",
+    "title": "West Chelsea rezoning adopted",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "rezoning_policy",
+    "date_start": "2005-06-23",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "City adopted West Chelsea zoning controls connected to High Line preservation and surrounding development.",
+    "observed_change": "Regulatory context changed for West Chelsea/High Line corridor.",
+    "source_ids": [
+      "nyc_west_chelsea_dcp_plan",
+      "nyc_fdkv-4t4z"
+    ],
+    "confidence": "documented",
+    "limitations": "Confirm exact adoption date/action numbers in DCP records."
+  },
+  {
+    "event_id": "nyc_hy_2007_7_extension_groundbreaking",
+    "title": "7 Subway Extension construction begins",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "transport",
+    "date_start": "2007-12-03",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Construction began on the extension of the 7 line toward 34 St-Hudson Yards.",
+    "observed_change": "Transit-led infrastructure commitment for Hudson Yards area.",
+    "source_ids": [
+      "nyc_mta_static_feeds",
+      "nyc_hudson_yards_dcp_plan"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Use MTA capital-program press source for final exact date."
+  },
+  {
+    "event_id": "nyc_hy_2008_mta_selects_rail_yard_developer",
+    "title": "MTA selects Related/Oxford for West Side Yard development",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "planning_development",
+    "date_start": "2008-05-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "MTA selected a development team for the rail-yard redevelopment rights.",
+    "observed_change": "Rail-yard redevelopment moved toward private mixed-use delivery.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_hudson_yards_dcp_plan"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Month-level seed; corroborate with MTA board records."
+  },
+  {
+    "event_id": "nyc_hy_2009_high_line_section_1",
+    "title": "High Line Section 1 opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2009-06-08",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "First section of the High Line opened as elevated public park space.",
+    "observed_change": "Former rail infrastructure converted to public realm, catalysing corridor visitation/development context.",
+    "source_ids": [
+      "nyc_west_chelsea_dcp_plan",
+      "nyc_enfh-gkve"
+    ],
+    "confidence": "documented",
+    "limitations": "Use Friends of the High Line/NYC Parks source for final evidence."
+  },
+  {
+    "event_id": "nyc_hy_2010_west_side_yard_lease",
+    "title": "West Side Yard development lease closes",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "planning_development",
+    "date_start": "2010-05-26",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Development lease/transaction for the Eastern Rail Yard moved Hudson Yards from plan to delivery path.",
+    "observed_change": "Site-control/development milestone for rail-yard platform and buildings.",
+    "source_ids": [
+      "nyc_hudson_yards_official"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Validate date and parties against MTA/Related official record."
+  },
+  {
+    "event_id": "nyc_hy_2011_high_line_section_2",
+    "title": "High Line Section 2 opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2011-06-08",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Second section of the High Line opened northward through West Chelsea.",
+    "observed_change": "Public realm corridor extended, changing pedestrian access and open space.",
+    "source_ids": [
+      "nyc_west_chelsea_dcp_plan",
+      "nyc_enfh-gkve"
+    ],
+    "confidence": "documented",
+    "limitations": "Final card should include geometry of section 2."
+  },
+  {
+    "event_id": "nyc_hy_2012_10_hudson_groundbreaking",
+    "title": "10 Hudson Yards breaks ground",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "construction_start",
+    "date_start": "2012-12-04",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Groundbreaking for 10 Hudson Yards marked the first tower construction milestone in the Hudson Yards development.",
+    "observed_change": "Commercial/mixed-use construction begins on flagship development.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_ipu4-2q9a"
+    ],
+    "confidence": "documented",
+    "limitations": "Use DOB permit rows and project source for evidence."
+  },
+  {
+    "event_id": "nyc_hy_2014_high_line_rail_yards",
+    "title": "High Line at the Rail Yards opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2014-09-21",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Final northern section around the rail yards opened.",
+    "observed_change": "High Line public-realm corridor reaches Hudson Yards rail-yard edge.",
+    "source_ids": [
+      "nyc_west_chelsea_dcp_plan",
+      "nyc_388s-pnvc"
+    ],
+    "confidence": "documented",
+    "limitations": "Geometry should separate this section from earlier High Line phases."
+  },
+  {
+    "event_id": "nyc_hy_2015_7_extension_opens",
+    "title": "34 St-Hudson Yards subway station opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "transport",
+    "date_start": "2015-09-13",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "MTA opened the 7 Subway Extension to 34 St-Hudson Yards.",
+    "observed_change": "New subway access added to Hudson Yards/West Side.",
+    "source_ids": [
+      "nyc_mta_gtfs_subway",
+      "nyc_mta_static_feeds"
+    ],
+    "confidence": "documented",
+    "limitations": "GTFS gives current stop data; opening date needs MTA press release evidence."
+  },
+  {
+    "event_id": "nyc_hy_2016_10_hudson_opens",
+    "title": "10 Hudson Yards opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "completion_opening",
+    "date_start": "2016-05-31",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "10 Hudson Yards opened/was occupied as an early completed tower in the district.",
+    "observed_change": "First major office tower completion/occupation in Hudson Yards.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_pkdm-hqz6"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Exact opening/occupancy date should be validated with CO/DOB and tenant records."
+  },
+  {
+    "event_id": "nyc_hy_2016_high_line_spur_transfer",
+    "title": "High Line Spur / plaza integration advances",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2016-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "High Line spur and adjacent public-realm integration advanced alongside Hudson Yards construction.",
+    "observed_change": "Public-realm interface between private development and High Line planned/constructed.",
+    "source_ids": [
+      "nyc_hgx4-8ukb",
+      "nyc_388s-pnvc"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Discovery seed from planning/project context; verify exact ZAP/DOT/Parks source."
+  },
+  {
+    "event_id": "nyc_hy_2018_55_hudson_opens",
+    "title": "55 Hudson Yards opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "completion_opening",
+    "date_start": "2018-10-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Office tower at 55 Hudson Yards opened/entered occupancy period.",
+    "observed_change": "Additional commercial floorspace delivered in Hudson Yards district.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_pkdm-hqz6"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Month-level seed; validate with certificate of occupancy and official building source."
+  },
+  {
+    "event_id": "nyc_hy_2019_15_hudson_yards_completion",
+    "title": "15 Hudson Yards residential tower opens/completes",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "housing_completion",
+    "date_start": "2019-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Residential tower at 15 Hudson Yards entered completion/occupancy period.",
+    "observed_change": "New high-density residential units delivered on Eastern Rail Yard.",
+    "source_ids": [
+      "nyc_hgx4-8ukb",
+      "nyc_pkdm-hqz6"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Year-level seed; use DOB CO/HPD/PLUTO fields for final completion/unit counts."
+  },
+  {
+    "event_id": "nyc_hy_2019_phase1_public_opening",
+    "title": "Hudson Yards Phase 1 opens to the public",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "completion_opening",
+    "date_start": "2019-03-15",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Eastern Yard public opening included shops, restaurants, public square/gardens and Vessel.",
+    "observed_change": "Major mixed-use district becomes publicly accessible.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_enfh-gkve"
+    ],
+    "confidence": "documented",
+    "limitations": "Private source needs city/planning corroboration for final evidence drawer."
+  },
+  {
+    "event_id": "nyc_hy_2019_the_shed_opens",
+    "title": "The Shed opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_service",
+    "date_start": "2019-04-05",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "The Shed arts/cultural venue opened at Hudson Yards.",
+    "observed_change": "New cultural/civic anchor added to the district.",
+    "source_ids": [
+      "nyc_hudson_yards_official",
+      "nyc_ji82-xba5"
+    ],
+    "confidence": "documented",
+    "limitations": "Final evidence should include The Shed official/source record."
+  },
+  {
+    "event_id": "nyc_hy_2019_vessel_opens",
+    "title": "Vessel opens at Hudson Yards",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2019-03-15",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "The Vessel staircase/sculpture opened with Hudson Yards public square.",
+    "observed_change": "New privately owned publicly accessible attraction/public-realm feature.",
+    "source_ids": [
+      "nyc_hudson_yards_official"
+    ],
+    "confidence": "documented",
+    "limitations": "Access has changed after safety closures; current status must be represented separately."
+  },
+  {
+    "event_id": "nyc_hy_2020_edge_opens",
+    "title": "Edge observation deck opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "economic_anchor",
+    "date_start": "2020-03-11",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Observation deck opened at 30 Hudson Yards.",
+    "observed_change": "Tourism/economic anchor added at Hudson Yards.",
+    "source_ids": [
+      "nyc_hudson_yards_official"
+    ],
+    "confidence": "documented",
+    "limitations": "Private visitor attraction; avoid implying broader economic effects without indicators."
+  },
+  {
+    "event_id": "nyc_hy_2021_little_island_opens",
+    "title": "Little Island opens at Pier 55",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2021-05-21",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "New Hudson River park pier opened south of West Chelsea/Hudson Yards.",
+    "observed_change": "Waterfront public open-space asset added in adjacent West Side corridor.",
+    "source_ids": [
+      "nyc_enfh-gkve",
+      "nyc_388s-pnvc"
+    ],
+    "confidence": "documented",
+    "limitations": "Adjacent-area event; geometry should show it is south of Hudson Yards core."
+  },
+  {
+    "event_id": "nyc_hy_2021_moynihan_train_hall",
+    "title": "Moynihan Train Hall opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "transport",
+    "date_start": "2021-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "New Penn Station/Moynihan Train Hall opened east of Hudson Yards.",
+    "observed_change": "Regional rail passenger facility/public realm improves West Side access context.",
+    "source_ids": [
+      "nyc_mta_static_feeds"
+    ],
+    "confidence": "documented",
+    "limitations": "Source should be Empire State Development/Amtrak/MTA; not solely GTFS."
+  },
+  {
+    "event_id": "nyc_hy_2021_zap_highline_connection",
+    "title": "15 Hudson Yards High Line connection certification completed",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "planning_development",
+    "date_start": "2021-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "ZAP records include a completed Chair Certification for substantial completion of the High Line connection at 15 Hudson Yards.",
+    "observed_change": "Planning/public-realm connection milestone linked to Hudson Yards and High Line.",
+    "source_ids": [
+      "nyc_hgx4-8ukb"
+    ],
+    "confidence": "documented",
+    "limitations": "Date should be pulled from ZAP fields in raw_metadata/nyc_zap_hudson_projects.json during ingestion."
+  },
+  {
+    "event_id": "nyc_hy_2022_manhattan_west_public_realm",
+    "title": "Manhattan West public-realm/opening phase",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "completion_opening",
+    "date_start": "2022-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Manhattan West buildings and public spaces reached major opening/occupation phase near Hudson Yards.",
+    "observed_change": "Adjacent mixed-use district adds offices, retail and public space west of Penn Station.",
+    "source_ids": [
+      "nyc_64uk-42ks",
+      "nyc_pkdm-hqz6"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Adjacent district; validate date/building records before production card."
+  },
+  {
+    "event_id": "nyc_hy_2023_high_line_moynihan_connector",
+    "title": "High Line-Moynihan Connector opens",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "public_realm",
+    "date_start": "2023-06-21",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Elevated pedestrian connector opened between the High Line area and Moynihan/Penn Station context.",
+    "observed_change": "Pedestrian/public-realm link improves west-side access between transit and High Line/Hudson Yards.",
+    "source_ids": [
+      "nyc_388s-pnvc",
+      "nyc_hudson_yards_dcp_plan"
+    ],
+    "confidence": "documented",
+    "limitations": "Use official ESD/NYC/Friends of High Line source for final evidence."
+  },
+  {
+    "event_id": "nyc_hy_2024_western_rail_yard_planning",
+    "title": "Western Rail Yard planning/review activity continues",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "planning_development",
+    "date_start": "2024-01-01",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "Public planning/review around the remaining Western Rail Yard phase continued.",
+    "observed_change": "Future phase remains planning/proposal context, not completed change.",
+    "source_ids": [
+      "nyc_hgx4-8ukb",
+      "nyc_hudson_yards_official"
+    ],
+    "confidence": "candidate_requires_row_validation",
+    "limitations": "Do not present as approved/built unless ZAP/ULURP status confirms."
+  },
+  {
+    "event_id": "nyc_hy_2026_pluto_current_release",
+    "title": "PLUTO 25v4 available for current tax-lot/land-use snapshot",
+    "city": "new_york",
+    "area": "hudson_yards_west_chelsea",
+    "category": "indicator_snapshot",
+    "date_start": "2026-02-20",
+    "date_end": "",
+    "geometry": "area_ref",
+    "summary": "NYC Open Data PLUTO current version 25v4 was last updated 2026-02-20 on discovery page.",
+    "observed_change": "Current tax-lot land-use/building context can be joined to Hudson Yards/West Chelsea events.",
+    "source_ids": [
+      "nyc_64uk-42ks"
+    ],
+    "confidence": "documented",
+    "limitations": "This is a data-source snapshot event, not a city-change event; use for provenance/compare state."
+  }
+]

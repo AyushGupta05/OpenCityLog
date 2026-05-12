@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Source Maintainer"
+  short_description: "Improve docs, releases, and contribution flow"
+  default_prompt: "Use $open-source-maintainer to improve these Bims-5 docs, examples, release notes, or contribution materials."

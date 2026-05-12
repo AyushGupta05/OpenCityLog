@@ -1,0 +1,586 @@
+{
+  "source_id": "iiv7-jaj9",
+  "city": "new_york",
+  "title": "Fire Companies",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "fire/facilities/public services",
+  "retrieved_at": "2026-04-28T12:59:57.819287+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/iiv7-jaj9",
+      "retrieved_at": "2026-04-28T12:59:55.944550+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/iiv7-jaj9",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5890,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "previewImageId",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Fire Companies",
+      "description": "GIS data: Boundaries of Fire Companies.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089317,
+      "json_sample": {
+        "id": "iiv7-jaj9",
+        "name": "Fire Companies",
+        "assetType": "map",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/fire-battalions-companies-divisions",
+        "averageRating": 0,
+        "category": "Public Safety",
+        "createdAt": 1359492869,
+        "description": "GIS data: Boundaries of Fire Companies.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 206485,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1568130975,
+        "locked": false,
+        "modifyingViewUid": "bst7-5464",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 15704281,
+        "previewImageId": "b0dc0340-cd09-4995-8f3b-3dcd2c3c6604",
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1468864100,
+        "publicationGroup": 13037140,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089317,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 18517072,
+        "totalTimesRated": 0,
+        "viewCount": 2985,
+        "viewLastModified": 1730492552,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1468864100,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1065995,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1468864100,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.97780021351167,
+                      "lat": 40.70583338180501
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7000090638712,
+                    "searchBoundaryUpperLeftLongitude": -74.25559136315213,
+                    "searchBoundaryUpperLeftLatitude": 40.915532775999594,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.49613398761042
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "mapFlyoutTitleColumnName": "fire_co_type",
+                      "mapType": "boundaryMap",
+                      "additionalFlyoutColumns": [
+                        "fire_co_num",
+                        "fire_bn",
+                        "fire_div",
+                        "shape_leng",
+                        "shape_area"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "domain": "data.cityofnewyork.us",
+                      "name": "nyfc",
+                      "source": "nyfc",
+                      "type": "socrata.soql",
+                      "datasetUid": "bst7-5464",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "origin": {
+                  "type": "visualization_canvas",
+                  "url": "https://data.cityofnewyork.us/d/iiv7-jaj9"
+                },
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 3
+                },
+                "description": "",
+                "id": "57aa31f6-1d0b-4a61-8902-4436ab36f1da",
+                "title": ""
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "1/31/2013",
+              "Update Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "fire companies",
+          "dcp",
+          "geographic",
+          "location",
+          "map",
+          "cartography",
+          "safety",
+          "fire",
+          "flame",
+          "boundary",
+          "fireman"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/iiv7-jaj9",
+      "retrieved_at": "2026-04-28T12:59:56.535121+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/iiv7-jaj9",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5890,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "previewImageId",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Fire Companies",
+      "description": "GIS data: Boundaries of Fire Companies.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089317,
+      "json_sample": {
+        "id": "iiv7-jaj9",
+        "name": "Fire Companies",
+        "assetType": "map",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/fire-battalions-companies-divisions",
+        "averageRating": 0,
+        "category": "Public Safety",
+        "createdAt": 1359492869,
+        "description": "GIS data: Boundaries of Fire Companies.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 206485,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1568130975,
+        "locked": false,
+        "modifyingViewUid": "bst7-5464",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 15704281,
+        "previewImageId": "b0dc0340-cd09-4995-8f3b-3dcd2c3c6604",
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1468864100,
+        "publicationGroup": 13037140,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089317,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 18517072,
+        "totalTimesRated": 0,
+        "viewCount": 2985,
+        "viewLastModified": 1730492552,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1468864100,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1065995,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1468864100,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.97780021351167,
+                      "lat": 40.70583338180501
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7000090638712,
+                    "searchBoundaryUpperLeftLongitude": -74.25559136315213,
+                    "searchBoundaryUpperLeftLatitude": 40.915532775999594,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.49613398761042
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "mapFlyoutTitleColumnName": "fire_co_type",
+                      "mapType": "boundaryMap",
+                      "additionalFlyoutColumns": [
+                        "fire_co_num",
+                        "fire_bn",
+                        "fire_div",
+                        "shape_leng",
+                        "shape_area"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "domain": "data.cityofnewyork.us",
+                      "name": "nyfc",
+                      "source": "nyfc",
+                      "type": "socrata.soql",
+                      "datasetUid": "bst7-5464",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "origin": {
+                  "type": "visualization_canvas",
+                  "url": "https://data.cityofnewyork.us/d/iiv7-jaj9"
+                },
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 3
+                },
+                "description": "",
+                "id": "57aa31f6-1d0b-4a61-8902-4436ab36f1da",
+                "title": ""
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "1/31/2013",
+              "Update Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "fire companies",
+          "dcp",
+          "geographic",
+          "location",
+          "map",
+          "cartography",
+          "safety",
+          "fire",
+          "flame",
+          "boundary",
+          "fireman"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/iiv7-jaj9.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:57.189507+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/iiv7-jaj9.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 09 Mar 2026 20:48:35 GMT",
+      "etag": "W/\"Zm94dHJvdC41Mzc2M18yMl8zODBWclNnbVZKMElMdVdaYk9vWEhNOGxXWTdoNVE--gzik_qLofFMMJ_itS6l-g9lLa2BuJE---gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 5,
+      "json_list_count_captured": 1,
+      "sample_keys": [],
+      "json_sample": [
+        {}
+      ]
+    }
+  ]
+}

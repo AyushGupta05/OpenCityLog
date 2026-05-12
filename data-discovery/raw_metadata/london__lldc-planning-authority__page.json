@@ -1,0 +1,16 @@
+{
+  "source_id": "lldc-planning-authority",
+  "city": "london",
+  "title": "LLDC Planning Authority planning register and policy",
+  "publisher": "London Legacy Development Corporation",
+  "bucket": "planning/development/policy",
+  "retrieved_at": "2026-04-28T12:19:22.561631+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.londonlegacy.co.uk/queen-elizabeth-olympic-park/planning-authority/",
+      "retrieved_at": "2026-04-28T12:19:11.811802+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error timed out>"
+    }
+  ]
+}

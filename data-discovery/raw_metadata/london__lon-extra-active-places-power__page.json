@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-active-places-power",
+  "city": "london",
+  "title": "Active Places Power",
+  "publisher": "Sport England",
+  "bucket": "sport/community facilities/public services",
+  "retrieved_at": "2026-04-28T12:57:23.162834+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.activeplacespower.com/",
+      "retrieved_at": "2026-04-28T12:57:22.280927+00:00",
+      "final_url": "https://www.activeplacespower.com/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"11b48-L49SwLLm18aHSo5Po6Ydi5Gfie0\"",
+      "content_length_header": "72520",
+      "bytes_captured": 72520,
+      "page_title": "Active Places Power",
+      "h1": null,
+      "meta_description": "Active Places Power provides access to the national sports facility database. For more information see https://www.activeplacespower.com/",
+      "text_sample": "<!DOCTYPE html><html lang=\"en\"><head> <title>Active Places Power</title><meta name=\"twitter:title\" content=\"Active Places Power\"><meta property=\"og:title\" content=\"Active Places Power\"><meta name=\"description\" content=\"Active Places Power provides access to the national sports facility database. For more information see https://www.activeplacespower.com/\"><meta name=\"twitter:description\" content=\"Active Places Power provides access to the national sports facility database. For more information see https://www.activeplacespower.com/\"><meta property=\"og:description\" content=\"Active Places Power provides access to the national sports facility database. For more information see https://www.activeplacespower.com/\"><meta name=\"twitter:image\" content=\"https://www.arcgis.com/sharing/rest/content/items/7c1ba4c75dd8471d8fe63da2c31c8177/resources/AP_SE_Combined.png\"><meta property=\"og:image\" content=\"https://www.arcgis.com/sharing/rest/content/items/7c1ba4c75dd8471d8fe63da2c31c8177/resources/AP_SE_Combined.png\"><meta name=\"twitter:card\" content=\"summary\"><meta property=\"og:url\" content=\"https://www.activeplacespower.com/\"><meta property=\"og:type\" content=\"website\"> <meta charset=\"utf-8\"> <meta name=\"google-site-verification\" content=\"V9SzvB895BKr2ff7JVvaJQM1CIgPqOL5FPooX1aqENo\"> <meta name=\"msvalidate.01\" content=\"217F0EED65C5B131219477CE2CEAAF8E\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <script> (function () { // check for unsupported browsers function isIE () { return ( (navigator.appName === 'Microsoft Internet Explorer') || ((navigator.appName === 'Netscape') && (new RegExp('Trident/.*rv:([0-9]{1,}[.0-9]{0,})').exec(navigator.userAgent) != null)) ); } function isEdge () { return navigator.userAgent.toLowerCase().includes('edge'); } if (isIE() || isEdge()) { window.location.replace('./unsupported.html'); } })(); </script> <meta name=\"activation-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22activation-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%22control-success%22%5D%2C%22controlError%22%3A%5B%22control-error%22%5D%7D%7D%7D\"> <meta name=\"community-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22community-engine%22%2C%22environment%22%3A%22production%22%7D\"> <meta name=\"content-library-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22content-library-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultCl"
+    }
+  ]
+}

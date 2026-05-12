@@ -1,0 +1,466 @@
+{
+  "source_id": "gua4-p9wg",
+  "city": "new_york",
+  "title": "Bicycle Counts for East River Bridges (Historical)",
+  "publisher": "NYC DOT",
+  "bucket": "traffic/transport",
+  "retrieved_at": "2026-04-28T12:20:41.399763+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/gua4-p9wg",
+      "retrieved_at": "2026-04-28T12:20:39.553458+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/gua4-p9wg",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4216,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Bicycle Counts for East River Bridges (Historical)",
+      "description": "Daily total of bike counts conducted monthly on the Brooklyn Bridge, Manhattan Bridge, Williamsburg Bridge, and Queensboro Bridge.\nFor additional data, please visit the Bicycle Counts: https://data.cityofnewyork.us/Transportation/Bicycle-Counts/uczf-rk3c",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1481321848,
+      "json_sample": {
+        "id": "gua4-p9wg",
+        "name": "Bicycle Counts for East River Bridges (Historical)",
+        "assetType": "file",
+        "attribution": "Department of Transportation (DOT)",
+        "averageRating": 0,
+        "blobFilename": "NYCDOT Bicycle Counts 2017- East River Bridges.zip.zip",
+        "blobFileSize": 216309,
+        "blobId": "1b20fd6a-c178-44be-b74b-6c0e99722853",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "Transportation",
+        "createdAt": 1481321848,
+        "description": "Daily total of bike counts conducted monthly on the Brooklyn Bridge, Manhattan Bridge, Williamsburg Bridge, and Queensboro Bridge.\nFor additional data, please visit the Bicycle Counts: https://data.cityofnewyork.us/Transportation/Bicycle-Counts/uczf-rk3c",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 4524,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1555618445,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 25045496,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1481321848,
+        "publicationGroup": 13942165,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1481321848,
+        "tableId": 13942165,
+        "totalTimesRated": 0,
+        "viewCount": 13789,
+        "viewLastModified": 1724858696,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1481321935,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067157,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1481321935,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Archived_NYCDOT Bicycle Counts 2016- East River Bridges.zip.zip",
+              "assetId": "794d0229-28e8-4a38-904d-b231a0dac652",
+              "name": "Archived_NYCDOT Bicycle Counts 2016- East River Bridges.zip"
+            },
+            {
+              "filename": "Data-Dictionary-Bicyclist_Counts_on_East_River_Bridge_Locations.xlsx",
+              "assetId": "3dfd8178-6c59-4b2c-b3ff-36064a2431f9",
+              "name": "Data-Dictionary-Bicyclist_Counts_on_East_River_Bridge_Locations.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "12/9/2016",
+              "Update Frequency": "Historical data"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowLabel": "Row",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "count",
+          "counts",
+          "bike",
+          "bikes",
+          "bikers",
+          "cyclist",
+          "riders",
+          "volume",
+          "bicycle",
+          "bicycles",
+          "east",
+          "river",
+          "bridge",
+          "bridges",
+          "erb",
+          "manhattan",
+          "brooklyn",
+          "queens",
+          "williamsburg",
+          "queensboro",
+          "ed",
+          "edward",
+          "koch",
+          "ridership"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/gua4-p9wg",
+      "retrieved_at": "2026-04-28T12:20:40.161951+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/gua4-p9wg",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4216,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Bicycle Counts for East River Bridges (Historical)",
+      "description": "Daily total of bike counts conducted monthly on the Brooklyn Bridge, Manhattan Bridge, Williamsburg Bridge, and Queensboro Bridge.\nFor additional data, please visit the Bicycle Counts: https://data.cityofnewyork.us/Transportation/Bicycle-Counts/uczf-rk3c",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1481321848,
+      "json_sample": {
+        "id": "gua4-p9wg",
+        "name": "Bicycle Counts for East River Bridges (Historical)",
+        "assetType": "file",
+        "attribution": "Department of Transportation (DOT)",
+        "averageRating": 0,
+        "blobFilename": "NYCDOT Bicycle Counts 2017- East River Bridges.zip.zip",
+        "blobFileSize": 216309,
+        "blobId": "1b20fd6a-c178-44be-b74b-6c0e99722853",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "Transportation",
+        "createdAt": 1481321848,
+        "description": "Daily total of bike counts conducted monthly on the Brooklyn Bridge, Manhattan Bridge, Williamsburg Bridge, and Queensboro Bridge.\nFor additional data, please visit the Bicycle Counts: https://data.cityofnewyork.us/Transportation/Bicycle-Counts/uczf-rk3c",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 4524,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1555618445,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 25045496,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1481321848,
+        "publicationGroup": 13942165,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1481321848,
+        "tableId": 13942165,
+        "totalTimesRated": 0,
+        "viewCount": 13789,
+        "viewLastModified": 1724858696,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1481321935,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067157,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1481321935,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Archived_NYCDOT Bicycle Counts 2016- East River Bridges.zip.zip",
+              "assetId": "794d0229-28e8-4a38-904d-b231a0dac652",
+              "name": "Archived_NYCDOT Bicycle Counts 2016- East River Bridges.zip"
+            },
+            {
+              "filename": "Data-Dictionary-Bicyclist_Counts_on_East_River_Bridge_Locations.xlsx",
+              "assetId": "3dfd8178-6c59-4b2c-b3ff-36064a2431f9",
+              "name": "Data-Dictionary-Bicyclist_Counts_on_East_River_Bridge_Locations.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "12/9/2016",
+              "Update Frequency": "Historical data"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowLabel": "Row",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "count",
+          "counts",
+          "bike",
+          "bikes",
+          "bikers",
+          "cyclist",
+          "riders",
+          "volume",
+          "bicycle",
+          "bicycles",
+          "east",
+          "river",
+          "bridge",
+          "bridges",
+          "erb",
+          "manhattan",
+          "brooklyn",
+          "queens",
+          "williamsburg",
+          "queensboro",
+          "ed",
+          "edward",
+          "koch",
+          "ridership"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/gua4-p9wg.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:20:40.785955+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/gua4-p9wg.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

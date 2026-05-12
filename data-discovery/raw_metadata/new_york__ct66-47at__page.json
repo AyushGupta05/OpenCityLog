@@ -1,0 +1,1710 @@
+{
+  "source_id": "ct66-47at",
+  "city": "new_york",
+  "title": "Bicycle and Pedestrian Counts",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "foot traffic/active mobility",
+  "retrieved_at": "2026-04-28T12:58:52.191856+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/ct66-47at",
+      "retrieved_at": "2026-04-28T12:58:50.669876+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/ct66-47at",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 15912,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Bicycle and Pedestrian Counts",
+      "description": "Bicycle counts conducted around New York City at key locations. For the counter locations, please refer to the <a href=\"https://data.cityofnewyork.us/Transportation/Bicycle-and-Pedestrian-Count-Sensors/6up2-gnw8\">Bicycle and Pedestrian Count Sensors</a> dataset.\n\nThe data may have lapses due to transmission issues cause by weather, connection interruptions, equipment malfunctions, vandalism, etc. The data will update as soon as it is feasible. The City makes no presentation as to the accuracy of the content and assumes no liability for omissions or errors in information contains on the website. Time is captured in EST time zone.",
+      "rowsUpdatedAt": 1777379326,
+      "json_sample": {
+        "id": "ct66-47at",
+        "name": "Bicycle and Pedestrian Counts",
+        "assetType": "dataset",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1767120412,
+        "description": "Bicycle counts conducted around New York City at key locations. For the counter locations, please refer to the <a href=\"https://data.cityofnewyork.us/Transportation/Bicycle-and-Pedestrian-Count-Sensors/6up2-gnw8\">Bicycle and Pedestrian Count Sensors</a> dataset.\n\nThe data may have lapses due to transmission issues cause by weather, connection interruptions, equipment malfunctions, vandalism, etc. The data will update as soon as it is feasible. The City makes no presentation as to the accuracy of the content and assumes no liability for omissions or errors in information contains on the website. Time is captured in EST time zone.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 240,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41855333,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1767132691,
+        "publicationGroup": 20223951,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1777379326,
+        "rowsUpdatedBy": "8xiq-st2k",
+        "tableId": 20224109,
+        "totalTimesRated": 0,
+        "viewCount": 622,
+        "viewLastModified": 1774849679,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1774965292,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7409639,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1774965195,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1774965292,
+              "failureCount": 0,
+              "startedAt": 1774965292,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 624105180,
+            "name": "sensor_id",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "sensor_id",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 164351727,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "300054793",
+              "null": "0",
+              "top": [
+                {
+                  "item": "100009428",
+                  "count": "1285672"
+                },
+                {
+                  "item": "100009427",
+                  "count": "1249530"
+                },
+                {
+                  "item": "100009426",
+                  "count": "1248930"
+                },
+                {
+                  "item": "100010017",
+                  "count": "1086452"
+                },
+                {
+                  "item": "100009425",
+                  "count": "1043836"
+                },
+                {
+                  "item": "100010019",
+                  "count": "1041020"
+                },
+                {
+                  "item": "100010018",
+                  "count": "1000200"
+                },
+                {
+                  "item": "100062893",
+                  "count": "934672"
+                },
+                {
+                  "item": "100047029",
+                  "count": "934672"
+                },
+                {
+                  "item": "300020904",
+                  "count": "865938"
+                },
+                {
+                  "item": "100010022",
+                  "count": "863626"
+                },
+                {
+                  "item": "100057316",
+                  "count": "800734"
+                },
+                {
+                  "item": "300024007",
+                  "count": "556156"
+                },
+                {
+                  "item": "300027723",
+                  "count": "515420"
+                },
+                {
+                  "item": "100057320",
+                  "count": "456366"
+                },
+                {
+                  "item": "100057319",
+                  "count": "456364"
+                },
+                {
+                  "item": "100010020",
+                  "count": "436586"
+                },
+                {
+                  "item": "300028963",
+                  "count": "428344"
+                },
+                {
+                  "item": "100051865",
+                  "count": "405570"
+                },
+                {
+                  "item": "300041240",
+                  "count": "370932"
+                }
+              ],
+              "smallest": "100005020",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {
+              "decimalSeparator": ".",
+              "groupSeparator": ","
+            }
+          },
+          {
+            "id": 624105181,
+            "name": "travelMode",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "travelmode",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 164351721,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "pedestrian",
+              "null": "0",
+              "top": [
+                {
+                  "item": "bike",
+                  "count": "18673514"
+                },
+                {
+                  "item": "pedestrian",
+                  "count": "1371204"
+                }
+              ],
+              "smallest": "bike",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105182,
+            "name": "direction",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "direction",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 164351722,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "out",
+              "null": "0",
+              "top": [
+                {
+                  "item": "in",
+                  "count": "10022359"
+                },
+                {
+                  "item": "out",
+                  "count": "10022359"
+                }
+              ],
+              "smallest": "in",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105183,
+            "name": "flowID",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "flowid",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 164351728,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "353625274",
+              "null": "0",
+              "top": [
+                {
+                  "item": "101009427",
+                  "count": "434615"
+                },
+                {
+                  "item": "102009427",
+                  "count": "434615"
+                },
+                {
+                  "item": "102009426",
+                  "count": "434446"
+                },
+                {
+                  "item": "101009426",
+                  "count": "434446"
+                },
+                {
+                  "item": "101009428",
+                  "count": "434312"
+                },
+                {
+                  "item": "102009428",
+                  "count": "434312"
+                },
+                {
+                  "item": "353290726",
+                  "count": "432969"
+                },
+                {
+                  "item": "353290723",
+                  "count": "432969"
+                },
+                {
+                  "item": "101010022",
+                  "count": "431813"
+                },
+                {
+                  "item": "102010022",
+                  "count": "431813"
+                },
+                {
+                  "item": "102010017",
+                  "count": "353111"
+                },
+                {
+                  "item": "101010017",
+                  "count": "353111"
+                },
+                {
+                  "item": "101009425",
+                  "count": "331776"
+                },
+                {
+                  "item": "102009425",
+                  "count": "331776"
+                },
+                {
+                  "item": "101010019",
+                  "count": "330367"
+                },
+                {
+                  "item": "102010019",
+                  "count": "330367"
+                },
+                {
+                  "item": "102010018",
+                  "count": "309958"
+                },
+                {
+                  "item": "101010018",
+                  "count": "309958"
+                },
+                {
+                  "item": "101047029",
+                  "count": "277238"
+                },
+                {
+                  "item": "101062893",
+                  "count": "277238"
+                }
+              ],
+              "smallest": "101005020",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {
+              "decimalSeparator": ".",
+              "groupSeparator": ","
+            }
+          },
+          {
+            "id": 624105184,
+            "name": "flowName",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "flowname",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 164351723,
+            "cachedContents": {
+              "non_null": "17126786",
+              "largest": "Willis Ave Pedestrian OUT",
+              "null": "2917932",
+              "top": [
+                {
+                  "item": "Southbound",
+                  "count": "685088"
+                },
+                {
+                  "item": "Northbound",
+                  "count": "685088"
+                },
+                {
+                  "item": "Prospect Park West Cyclist Northbound",
+                  "count": "521918"
+                },
+                {
+                  "item": "Prospect Park West Cyclist Southbound",
+                  "count": "521918"
+                },
+                {
+                  "item": "Manhattan Bridge Display Bike Counter Cyclist IN",
+                  "count": "467336"
+                },
+                {
+                  "item": "Manhattan Bridge Display Bike Counter Cyclist OUT",
+                  "count": "467336"
+                },
+                {
+                  "item": "WB - MN Bound",
+                  "count": "434615"
+                },
+                {
+                  "item": "WB - BK Bound",
+                  "count": "434615"
+                },
+                {
+                  "item": "MN(P) - MN Bound",
+                  "count": "434446"
+                },
+                {
+                  "item": "MN(P) - BK Bound",
+                  "count": "434446"
+                },
+                {
+                  "item": "QB - QN Bound",
+                  "count": "434312"
+                },
+                {
+                  "item": "QB - MN Bound",
+                  "count": "434312"
+                },
+                {
+                  "item": "BK - BK Bound",
+                  "count": "431813"
+                },
+                {
+                  "item": "BK - MN Bound",
+                  "count": "431813"
+                },
+                {
+                  "item": "Departing St. George",
+                  "count": "353111"
+                },
+                {
+                  "item": "Departing Whitehall",
+                  "count": "353111"
+                },
+                {
+                  "item": "Pulaski Bridge  Cyclists BK bound / SB",
+                  "count": "309958"
+                },
+                {
+                  "item": "Pulaski Bridge  Cyclists Q bound / NB",
+                  "count": "309958"
+                },
+                {
+                  "item": "111th St at 50th Ave  Cyclist IN",
+                  "count": "278078"
+                },
+                {
+                  "item": "111th St at 50th Ave  Cyclist OUT",
+                  "count": "278078"
+                }
+              ],
+              "smallest": "111th St at 50th Ave  Cyclist IN",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105185,
+            "name": "timestamp",
+            "dataTypeName": "calendar_date",
+            "description": "",
+            "fieldName": "timestamp",
+            "position": 7,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 164351729,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "2026-04-27T05:00:00.000",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2025-08-17T13:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-31T19:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-24T19:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-25T08:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-25T10:15:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-09T09:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-24T03:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-25T21:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-18T05:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-18T07:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-30T01:15:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-29T11:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-16T07:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-09T22:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-29T23:15:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-08T05:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-28T18:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-17T12:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-03T15:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-21T10:45:00.000",
+                  "count": "102"
+                }
+              ],
+              "smallest": "2012-08-31T00:00:00.000",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105186,
+            "name": "granularity",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "granularity",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 164351724,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "PT1H",
+              "null": "0",
+              "top": [
+                {
+                  "item": "PT15M",
+                  "count": "20044598"
+                },
+                {
+                  "item": "PT1H",
+                  "count": "120"
+                }
+              ],
+              "smallest": "PT15M",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105187,
+            "name": "counts",
+            "dataTypeName": "number",
+            "description": "",
+            "fieldName": "counts",
+            "position": 9,
+            "renderTypeName": "number",
+            "tableColumnId": 164351725,
+            "cachedContents": {
+              "non_null": "20004045",
+              "largest": "1230",
+              "null": "40673",
+              "top": [
+                {
+                  "item": "0",
+                  "count": "7054498"
+                },
+                {
+                  "item": "1",
+                  "count": "2522171"
+                },
+                {
+                  "item": "2",
+                  "count": "1511584"
+                },
+                {
+                  "item": "3",
+                  "count": "1030097"
+                },
+                {
+                  "item": "4",
+                  "count": "761217"
+                },
+                {
+                  "item": "5",
+                  "count": "596866"
+                },
+                {
+                  "item": "6",
+                  "count": "487416"
+                },
+                {
+                  "item": "7",
+                  "count": "412164"
+                },
+                {
+                  "item": "8",
+                  "count": "359064"
+                },
+                {
+                  "item": "9",
+                  "count": "319122"
+                },
+                {
+                  "item": "10",
+                  "count": "287844"
+                },
+                {
+                  "item": "11",
+                  "count": "263156"
+                },
+                {
+                  "item": "12",
+                  "count": "244488"
+                },
+                {
+                  "item": "13",
+                  "count": "226040"
+                },
+                {
+                  "item": "14",
+                  "count": "211605"
+                },
+                {
+                  "item": "15",
+                  "count": "197690"
+                },
+                {
+                  "item": "16",
+                  "count": "186710"
+                },
+                {
+                  "item": "17",
+                  "count": "174194"
+                },
+                {
+                  "item": "18",
+                  "count": "164379"
+                },
+                {
+                  "item": "19",
+                  "count": "155752"
+                }
+              ],
+              "smallest": "0",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {
+              "decimalSeparator": ".",
+              "groupSeparator": ","
+            }
+          },
+          {
+            "id": 624105188,
+            "name": "status",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "status",
+            "position": 10,
+            "renderTypeName": "text",
+            "tableColumnId": 164351726,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "raw",
+              "null": "0",
+              "top": [
+                {
+                  "item": "raw",
+                  "count": "17607494"
+                },
+                {
+                  "item": "modified",
+                  "count": "2435656"
+                },
+                {
+                  "item": "deleted",
+                  "count": "1568"
+                }
+              ],
+              "smallest": "deleted",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Bicycle and Ped Counts2026_Final.xlsx",
+              "assetId": "66bc5c61-01ef-4566-96bd-58e2f6da7ab3",
+              "name": "Data-Dictionary-Bicycle and Ped Counts.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Update Frequency": "Daily",
+              "Data Change Frequency": "Every 15 minutes"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowIdentifier": 624105179,
+          "rowLabel": "Bike or Pedestrian Counts",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "8xiq-st2k",
+          "displayName": "DOTOpenData",
+          "screenName": "DOTOpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "8xiq-st2k",
+          "displayName": "DOTOpenData",
+          "screenName": "DOTOpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "bicycle",
+          "count",
+          "eco-counter",
+          "bike",
+          "counter",
+          "counters",
+          "sensor",
+          "sensors",
+          "midtown",
+          "east river",
+          "uptown"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/ct66-47at",
+      "retrieved_at": "2026-04-28T12:58:50.831765+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/ct66-47at",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 15912,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Bicycle and Pedestrian Counts",
+      "description": "Bicycle counts conducted around New York City at key locations. For the counter locations, please refer to the <a href=\"https://data.cityofnewyork.us/Transportation/Bicycle-and-Pedestrian-Count-Sensors/6up2-gnw8\">Bicycle and Pedestrian Count Sensors</a> dataset.\n\nThe data may have lapses due to transmission issues cause by weather, connection interruptions, equipment malfunctions, vandalism, etc. The data will update as soon as it is feasible. The City makes no presentation as to the accuracy of the content and assumes no liability for omissions or errors in information contains on the website. Time is captured in EST time zone.",
+      "rowsUpdatedAt": 1777379326,
+      "json_sample": {
+        "id": "ct66-47at",
+        "name": "Bicycle and Pedestrian Counts",
+        "assetType": "dataset",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1767120412,
+        "description": "Bicycle counts conducted around New York City at key locations. For the counter locations, please refer to the <a href=\"https://data.cityofnewyork.us/Transportation/Bicycle-and-Pedestrian-Count-Sensors/6up2-gnw8\">Bicycle and Pedestrian Count Sensors</a> dataset.\n\nThe data may have lapses due to transmission issues cause by weather, connection interruptions, equipment malfunctions, vandalism, etc. The data will update as soon as it is feasible. The City makes no presentation as to the accuracy of the content and assumes no liability for omissions or errors in information contains on the website. Time is captured in EST time zone.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 240,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41855333,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1767132691,
+        "publicationGroup": 20223951,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1777379326,
+        "rowsUpdatedBy": "8xiq-st2k",
+        "tableId": 20224109,
+        "totalTimesRated": 0,
+        "viewCount": 622,
+        "viewLastModified": 1774849679,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1774965292,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7409639,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1774965195,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1774965292,
+              "failureCount": 0,
+              "startedAt": 1774965292,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 624105180,
+            "name": "sensor_id",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "sensor_id",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 164351727,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "300054793",
+              "null": "0",
+              "top": [
+                {
+                  "item": "100009428",
+                  "count": "1285672"
+                },
+                {
+                  "item": "100009427",
+                  "count": "1249530"
+                },
+                {
+                  "item": "100009426",
+                  "count": "1248930"
+                },
+                {
+                  "item": "100010017",
+                  "count": "1086452"
+                },
+                {
+                  "item": "100009425",
+                  "count": "1043836"
+                },
+                {
+                  "item": "100010019",
+                  "count": "1041020"
+                },
+                {
+                  "item": "100010018",
+                  "count": "1000200"
+                },
+                {
+                  "item": "100062893",
+                  "count": "934672"
+                },
+                {
+                  "item": "100047029",
+                  "count": "934672"
+                },
+                {
+                  "item": "300020904",
+                  "count": "865938"
+                },
+                {
+                  "item": "100010022",
+                  "count": "863626"
+                },
+                {
+                  "item": "100057316",
+                  "count": "800734"
+                },
+                {
+                  "item": "300024007",
+                  "count": "556156"
+                },
+                {
+                  "item": "300027723",
+                  "count": "515420"
+                },
+                {
+                  "item": "100057320",
+                  "count": "456366"
+                },
+                {
+                  "item": "100057319",
+                  "count": "456364"
+                },
+                {
+                  "item": "100010020",
+                  "count": "436586"
+                },
+                {
+                  "item": "300028963",
+                  "count": "428344"
+                },
+                {
+                  "item": "100051865",
+                  "count": "405570"
+                },
+                {
+                  "item": "300041240",
+                  "count": "370932"
+                }
+              ],
+              "smallest": "100005020",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {
+              "decimalSeparator": ".",
+              "groupSeparator": ","
+            }
+          },
+          {
+            "id": 624105181,
+            "name": "travelMode",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "travelmode",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 164351721,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "pedestrian",
+              "null": "0",
+              "top": [
+                {
+                  "item": "bike",
+                  "count": "18673514"
+                },
+                {
+                  "item": "pedestrian",
+                  "count": "1371204"
+                }
+              ],
+              "smallest": "bike",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105182,
+            "name": "direction",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "direction",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 164351722,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "out",
+              "null": "0",
+              "top": [
+                {
+                  "item": "in",
+                  "count": "10022359"
+                },
+                {
+                  "item": "out",
+                  "count": "10022359"
+                }
+              ],
+              "smallest": "in",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105183,
+            "name": "flowID",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "flowid",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 164351728,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "353625274",
+              "null": "0",
+              "top": [
+                {
+                  "item": "101009427",
+                  "count": "434615"
+                },
+                {
+                  "item": "102009427",
+                  "count": "434615"
+                },
+                {
+                  "item": "102009426",
+                  "count": "434446"
+                },
+                {
+                  "item": "101009426",
+                  "count": "434446"
+                },
+                {
+                  "item": "101009428",
+                  "count": "434312"
+                },
+                {
+                  "item": "102009428",
+                  "count": "434312"
+                },
+                {
+                  "item": "353290726",
+                  "count": "432969"
+                },
+                {
+                  "item": "353290723",
+                  "count": "432969"
+                },
+                {
+                  "item": "101010022",
+                  "count": "431813"
+                },
+                {
+                  "item": "102010022",
+                  "count": "431813"
+                },
+                {
+                  "item": "102010017",
+                  "count": "353111"
+                },
+                {
+                  "item": "101010017",
+                  "count": "353111"
+                },
+                {
+                  "item": "101009425",
+                  "count": "331776"
+                },
+                {
+                  "item": "102009425",
+                  "count": "331776"
+                },
+                {
+                  "item": "101010019",
+                  "count": "330367"
+                },
+                {
+                  "item": "102010019",
+                  "count": "330367"
+                },
+                {
+                  "item": "102010018",
+                  "count": "309958"
+                },
+                {
+                  "item": "101010018",
+                  "count": "309958"
+                },
+                {
+                  "item": "101047029",
+                  "count": "277238"
+                },
+                {
+                  "item": "101062893",
+                  "count": "277238"
+                }
+              ],
+              "smallest": "101005020",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {
+              "decimalSeparator": ".",
+              "groupSeparator": ","
+            }
+          },
+          {
+            "id": 624105184,
+            "name": "flowName",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "flowname",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 164351723,
+            "cachedContents": {
+              "non_null": "17126786",
+              "largest": "Willis Ave Pedestrian OUT",
+              "null": "2917932",
+              "top": [
+                {
+                  "item": "Southbound",
+                  "count": "685088"
+                },
+                {
+                  "item": "Northbound",
+                  "count": "685088"
+                },
+                {
+                  "item": "Prospect Park West Cyclist Northbound",
+                  "count": "521918"
+                },
+                {
+                  "item": "Prospect Park West Cyclist Southbound",
+                  "count": "521918"
+                },
+                {
+                  "item": "Manhattan Bridge Display Bike Counter Cyclist IN",
+                  "count": "467336"
+                },
+                {
+                  "item": "Manhattan Bridge Display Bike Counter Cyclist OUT",
+                  "count": "467336"
+                },
+                {
+                  "item": "WB - MN Bound",
+                  "count": "434615"
+                },
+                {
+                  "item": "WB - BK Bound",
+                  "count": "434615"
+                },
+                {
+                  "item": "MN(P) - MN Bound",
+                  "count": "434446"
+                },
+                {
+                  "item": "MN(P) - BK Bound",
+                  "count": "434446"
+                },
+                {
+                  "item": "QB - QN Bound",
+                  "count": "434312"
+                },
+                {
+                  "item": "QB - MN Bound",
+                  "count": "434312"
+                },
+                {
+                  "item": "BK - BK Bound",
+                  "count": "431813"
+                },
+                {
+                  "item": "BK - MN Bound",
+                  "count": "431813"
+                },
+                {
+                  "item": "Departing St. George",
+                  "count": "353111"
+                },
+                {
+                  "item": "Departing Whitehall",
+                  "count": "353111"
+                },
+                {
+                  "item": "Pulaski Bridge  Cyclists BK bound / SB",
+                  "count": "309958"
+                },
+                {
+                  "item": "Pulaski Bridge  Cyclists Q bound / NB",
+                  "count": "309958"
+                },
+                {
+                  "item": "111th St at 50th Ave  Cyclist IN",
+                  "count": "278078"
+                },
+                {
+                  "item": "111th St at 50th Ave  Cyclist OUT",
+                  "count": "278078"
+                }
+              ],
+              "smallest": "111th St at 50th Ave  Cyclist IN",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105185,
+            "name": "timestamp",
+            "dataTypeName": "calendar_date",
+            "description": "",
+            "fieldName": "timestamp",
+            "position": 7,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 164351729,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "2026-04-27T05:00:00.000",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2025-08-17T13:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-31T19:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-24T19:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-25T08:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-25T10:15:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-09T09:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-24T03:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-25T21:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-18T05:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-18T07:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-30T01:15:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-29T11:45:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-16T07:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-09T22:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-29T23:15:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-08T05:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-07-28T18:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-17T12:00:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-08-03T15:30:00.000",
+                  "count": "102"
+                },
+                {
+                  "item": "2025-09-21T10:45:00.000",
+                  "count": "102"
+                }
+              ],
+              "smallest": "2012-08-31T00:00:00.000",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105186,
+            "name": "granularity",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "granularity",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 164351724,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "PT1H",
+              "null": "0",
+              "top": [
+                {
+                  "item": "PT15M",
+                  "count": "20044598"
+                },
+                {
+                  "item": "PT1H",
+                  "count": "120"
+                }
+              ],
+              "smallest": "PT15M",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          },
+          {
+            "id": 624105187,
+            "name": "counts",
+            "dataTypeName": "number",
+            "description": "",
+            "fieldName": "counts",
+            "position": 9,
+            "renderTypeName": "number",
+            "tableColumnId": 164351725,
+            "cachedContents": {
+              "non_null": "20004045",
+              "largest": "1230",
+              "null": "40673",
+              "top": [
+                {
+                  "item": "0",
+                  "count": "7054498"
+                },
+                {
+                  "item": "1",
+                  "count": "2522171"
+                },
+                {
+                  "item": "2",
+                  "count": "1511584"
+                },
+                {
+                  "item": "3",
+                  "count": "1030097"
+                },
+                {
+                  "item": "4",
+                  "count": "761217"
+                },
+                {
+                  "item": "5",
+                  "count": "596866"
+                },
+                {
+                  "item": "6",
+                  "count": "487416"
+                },
+                {
+                  "item": "7",
+                  "count": "412164"
+                },
+                {
+                  "item": "8",
+                  "count": "359064"
+                },
+                {
+                  "item": "9",
+                  "count": "319122"
+                },
+                {
+                  "item": "10",
+                  "count": "287844"
+                },
+                {
+                  "item": "11",
+                  "count": "263156"
+                },
+                {
+                  "item": "12",
+                  "count": "244488"
+                },
+                {
+                  "item": "13",
+                  "count": "226040"
+                },
+                {
+                  "item": "14",
+                  "count": "211605"
+                },
+                {
+                  "item": "15",
+                  "count": "197690"
+                },
+                {
+                  "item": "16",
+                  "count": "186710"
+                },
+                {
+                  "item": "17",
+                  "count": "174194"
+                },
+                {
+                  "item": "18",
+                  "count": "164379"
+                },
+                {
+                  "item": "19",
+                  "count": "155752"
+                }
+              ],
+              "smallest": "0",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {
+              "decimalSeparator": ".",
+              "groupSeparator": ","
+            }
+          },
+          {
+            "id": 624105188,
+            "name": "status",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "status",
+            "position": 10,
+            "renderTypeName": "text",
+            "tableColumnId": 164351726,
+            "cachedContents": {
+              "non_null": "20044718",
+              "largest": "raw",
+              "null": "0",
+              "top": [
+                {
+                  "item": "raw",
+                  "count": "17607494"
+                },
+                {
+                  "item": "modified",
+                  "count": "2435656"
+                },
+                {
+                  "item": "deleted",
+                  "count": "1568"
+                }
+              ],
+              "smallest": "deleted",
+              "count": "20044718",
+              "cardinality": "20044718"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Bicycle and Ped Counts2026_Final.xlsx",
+              "assetId": "66bc5c61-01ef-4566-96bd-58e2f6da7ab3",
+              "name": "Data-Dictionary-Bicycle and Ped Counts.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Update Frequency": "Daily",
+              "Data Change Frequency": "Every 15 minutes"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowIdentifier": 624105179,
+          "rowLabel": "Bike or Pedestrian Counts",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "8xiq-st2k",
+          "displayName": "DOTOpenData",
+          "screenName": "DOTOpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "8xiq-st2k",
+          "displayName": "DOTOpenData",
+          "screenName": "DOTOpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "bicycle",
+          "count",
+          "eco-counter",
+          "bike",
+          "counter",
+          "counters",
+          "sensor",
+          "sensors",
+          "midtown",
+          "east river",
+          "uptown"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/ct66-47at.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:58:51.513752+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/ct66-47at.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Tue, 28 Apr 2026 12:28:39 GMT",
+      "etag": "W/\"anVsaWV0dC4xNTAyNzBfMl84MTRYTTVrREZHWFBuV09abTltNEIxQXpDLVFsVHc---gzirXn-o8ESv0liu0ksehaA8gn8IpWA--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 181,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "counts",
+        "direction",
+        "flowid",
+        "granularity",
+        "sensor_id",
+        "status",
+        "timestamp",
+        "travelmode"
+      ],
+      "json_sample": [
+        {
+          "sensor_id": "100062893",
+          "travelmode": "bike",
+          "direction": "in",
+          "flowid": "101062893",
+          "timestamp": "2018-06-04T08:45:00.000",
+          "granularity": "PT15M",
+          "counts": "135",
+          "status": "modified"
+        }
+      ]
+    }
+  ]
+}

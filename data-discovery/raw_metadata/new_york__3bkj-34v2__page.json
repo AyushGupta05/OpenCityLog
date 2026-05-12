@@ -1,0 +1,456 @@
+{
+  "source_id": "3bkj-34v2",
+  "city": "new_york",
+  "title": "NYC DOE Public School Location Information",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "schools/facilities/public services",
+  "retrieved_at": "2026-04-28T12:59:13.679976+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/3bkj-34v2",
+      "retrieved_at": "2026-04-28T12:59:11.926193+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/3bkj-34v2",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4390,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYC DOE Public School Location Information",
+      "description": "Report of all DOE School Information including Principal and Superintendent names, Cluster, Network, SATIF, addresses & phone numbers.",
+      "attribution": "Department of Education (DOE)",
+      "rowsUpdatedAt": 1363980394,
+      "json_sample": {
+        "id": "3bkj-34v2",
+        "name": "NYC DOE Public School Location Information",
+        "assetType": "href",
+        "attribution": "Department of Education (DOE)",
+        "attributionLink": "http://schools.nyc.gov/Offices/EnterpriseOperations/DIIT/OOD/default.htm",
+        "averageRating": 0,
+        "category": "Education",
+        "createdAt": 1363980394,
+        "description": "Report of all DOE School Information including Principal and Superintendent names, Cluster, Network, SATIF, addresses & phone numbers.",
+        "diciBackend": false,
+        "displayType": "href",
+        "downloadCount": 479,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1556297444,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 2920229,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1364218699,
+        "publicationGroup": 749914,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1363980394,
+        "tableId": 749914,
+        "totalTimesRated": 0,
+        "viewCount": 20063,
+        "viewLastModified": 1732662698,
+        "viewType": "href",
+        "approvals": [
+          {
+            "reviewedAt": 1364220259,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064441,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1364220259,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "LCGMS_SchoolData(additional geocoded fields added).csv",
+              "assetId": "56813139-9b9d-44fb-b81d-068553b7a9b7",
+              "name": "LCGMS_SchoolData(additional geospatial fields added).csv"
+            },
+            {
+              "filename": "LCGMS - DOE SCHOOL INFORMAITON REPORT.xlsx",
+              "assetId": "88769849-31bf-4a27-9ae1-4fb66504f08c",
+              "name": "LCGMS - DOE SCHOOL INFORMAITON REPORT.xlsx"
+            },
+            {
+              "filename": "Location Management Data Dictionary.xlsx",
+              "assetId": "c8a9b503-f83c-4329-8ea1-b05f2e1dfb2b",
+              "name": "Location Management Data Dictionary.xlsx"
+            }
+          ],
+          "additionalAccessPoints": [
+            {
+              "urls": {
+                "htm": "https://www.nycenet.edu/PublicApps/LCGMS.aspx"
+              },
+              "description": "School-based information can change throughout the year. Updates for the next school year are integrated into the report by July 15 of each year.",
+              "title": "LCGMS - DOE School Information Report"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "N/A",
+              "Date Made Public": "3/25/2013",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Education (DOE)"
+            }
+          },
+          "accessPoints": {
+            "htm": "https://www.nycenet.edu/PublicApps/LCGMS.aspx"
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "href": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "lcgms",
+          "school information",
+          "location code",
+          "doe"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/3bkj-34v2",
+      "retrieved_at": "2026-04-28T12:59:12.520110+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/3bkj-34v2",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4390,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYC DOE Public School Location Information",
+      "description": "Report of all DOE School Information including Principal and Superintendent names, Cluster, Network, SATIF, addresses & phone numbers.",
+      "attribution": "Department of Education (DOE)",
+      "rowsUpdatedAt": 1363980394,
+      "json_sample": {
+        "id": "3bkj-34v2",
+        "name": "NYC DOE Public School Location Information",
+        "assetType": "href",
+        "attribution": "Department of Education (DOE)",
+        "attributionLink": "http://schools.nyc.gov/Offices/EnterpriseOperations/DIIT/OOD/default.htm",
+        "averageRating": 0,
+        "category": "Education",
+        "createdAt": 1363980394,
+        "description": "Report of all DOE School Information including Principal and Superintendent names, Cluster, Network, SATIF, addresses & phone numbers.",
+        "diciBackend": false,
+        "displayType": "href",
+        "downloadCount": 479,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1556297444,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 2920229,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1364218699,
+        "publicationGroup": 749914,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1363980394,
+        "tableId": 749914,
+        "totalTimesRated": 0,
+        "viewCount": 20063,
+        "viewLastModified": 1732662698,
+        "viewType": "href",
+        "approvals": [
+          {
+            "reviewedAt": 1364220259,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064441,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1364220259,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "LCGMS_SchoolData(additional geocoded fields added).csv",
+              "assetId": "56813139-9b9d-44fb-b81d-068553b7a9b7",
+              "name": "LCGMS_SchoolData(additional geospatial fields added).csv"
+            },
+            {
+              "filename": "LCGMS - DOE SCHOOL INFORMAITON REPORT.xlsx",
+              "assetId": "88769849-31bf-4a27-9ae1-4fb66504f08c",
+              "name": "LCGMS - DOE SCHOOL INFORMAITON REPORT.xlsx"
+            },
+            {
+              "filename": "Location Management Data Dictionary.xlsx",
+              "assetId": "c8a9b503-f83c-4329-8ea1-b05f2e1dfb2b",
+              "name": "Location Management Data Dictionary.xlsx"
+            }
+          ],
+          "additionalAccessPoints": [
+            {
+              "urls": {
+                "htm": "https://www.nycenet.edu/PublicApps/LCGMS.aspx"
+              },
+              "description": "School-based information can change throughout the year. Updates for the next school year are integrated into the report by July 15 of each year.",
+              "title": "LCGMS - DOE School Information Report"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "N/A",
+              "Date Made Public": "3/25/2013",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Education (DOE)"
+            }
+          },
+          "accessPoints": {
+            "htm": "https://www.nycenet.edu/PublicApps/LCGMS.aspx"
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "href": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "lcgms",
+          "school information",
+          "location code",
+          "doe"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/3bkj-34v2.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:13.110488+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/3bkj-34v2.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

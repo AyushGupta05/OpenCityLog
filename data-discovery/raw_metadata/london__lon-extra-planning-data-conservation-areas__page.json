@@ -1,0 +1,27 @@
+{
+  "source_id": "lon-extra-planning-data-conservation-areas",
+  "city": "london",
+  "title": "Planning Data: Conservation Areas",
+  "publisher": "DLUHC Planning Data",
+  "bucket": "heritage/planning constraints/boundaries",
+  "retrieved_at": "2026-04-28T12:57:07.152384+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.planning.data.gov.uk/entity.json?dataset=conservation-area",
+      "retrieved_at": "2026-04-28T12:57:06.779315+00:00",
+      "final_url": "https://www.planning.data.gov.uk/entity.json?dataset=conservation-area",
+      "status": 200,
+      "content_type": "application/json",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "50754",
+      "bytes_captured": 50754,
+      "json_keys": [
+        "count",
+        "entities",
+        "links"
+      ],
+      "json_sample": null
+    }
+  ]
+}

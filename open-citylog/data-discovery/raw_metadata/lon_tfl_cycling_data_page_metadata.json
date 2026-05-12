@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_tfl_cycling_data",
+  "title": "TfL Cycling Infrastructure Database / cycling open data",
+  "requested_url": "https://cycling.data.tfl.gov.uk/",
+  "fetched_url": "https://cycling.data.tfl.gov.uk/",
+  "final_url": "https://cycling.data.tfl.gov.uk/",
+  "status": 200,
+  "content_type": "text/html",
+  "content_length": "",
+  "last_modified": "Fri, 28 Nov 2025 15:31:45 GMT",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:11.237397+00:00",
+  "page_title": "Loading…",
+  "h1": "Loading…",
+  "meta_description": ""
+}

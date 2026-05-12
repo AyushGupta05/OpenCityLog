@@ -1,0 +1,304 @@
+{
+  "source_id": "8zyi-kxay",
+  "city": "new_york",
+  "title": "Housing Database by 2020 Census Block",
+  "publisher": "NYC DCP",
+  "bucket": "planning/development; housing",
+  "retrieved_at": "2026-04-28T12:19:36.576646+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/8zyi-kxay",
+      "retrieved_at": "2026-04-28T12:19:34.277345+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/8zyi-kxay",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 50873,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Housing Database by 2020 Census Block",
+      "description": "Net change in housing units arising from new buildings, demolitions, or alterations for NYC Census Blocks since 2010. The NYC Department of City Planning's (DCP) <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-housing-database.page#housingdevelopmentproject\">Housing Database</a> provide the 2010 census count of housing units, the net change in Class A housing units since the census, and the count of units pending completion for commonly used political and statistical boundaries. These tables are aggregated from the DCP Housing Database, which is derived from Department of Buildings (DOB)-approved housing construction and demolition jobs filed or completed in NYC since January 1, 2010. Net housing unit change is calculated as the sum of all three construction job types that add or remove residential units: new buildings, major alterations, and demolitions, and can be used to determine the change in legal housing units across time and space.\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/housing-unit-change-summary\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 25q4",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773679947,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/8zyi-kxay",
+      "retrieved_at": "2026-04-28T12:19:35.082359+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/8zyi-kxay",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 50873,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Housing Database by 2020 Census Block",
+      "description": "Net change in housing units arising from new buildings, demolitions, or alterations for NYC Census Blocks since 2010. The NYC Department of City Planning's (DCP) <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-housing-database.page#housingdevelopmentproject\">Housing Database</a> provide the 2010 census count of housing units, the net change in Class A housing units since the census, and the count of units pending completion for commonly used political and statistical boundaries. These tables are aggregated from the DCP Housing Database, which is derived from Department of Buildings (DOB)-approved housing construction and demolition jobs filed or completed in NYC since January 1, 2010. Net housing unit change is calculated as the sum of all three construction job types that add or remove residential units: new buildings, major alterations, and demolitions, and can be used to determine the change in legal housing units across time and space.\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/housing-unit-change-summary\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 25q4",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773679947,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/8zyi-kxay.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:19:35.889499+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/8zyi-kxay.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 16 Mar 2026 16:52:20 GMT",
+      "etag": "W/\"Zm94dHJvdC45Mzk2N18xNl8xOTNMX1BpbzBINGhleG93akl6Q2dLZmxhMGRUNWc---gziru8pJ7-uETUea_Z2hn3SkMJprScw--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 1494,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "approved",
+        "bctcb2020",
+        "cenblock2020",
+        "cenunits20",
+        "comp2010",
+        "comp2010ap",
+        "comp2011",
+        "comp2012",
+        "comp2013",
+        "comp2014",
+        "comp2015",
+        "comp2016",
+        "comp2017",
+        "comp2018",
+        "comp2019",
+        "comp2020",
+        "comp2021",
+        "comp2022",
+        "comp2023",
+        "comp2024",
+        "filed",
+        "inactive",
+        "permitted",
+        "shape_area",
+        "shape_leng",
+        "the_geom",
+        "withdrawn"
+      ],
+      "json_sample": [
+        {
+          "the_geom": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -74.03995040788483,
+                    40.700890630140314
+                  ],
+                  [
+                    -74.03945262913307,
+                    40.70053315982394
+                  ],
+                  [
+                    -74.03938278118848,
+                    40.70057769456149
+                  ],
+                  [
+                    -74.03771124796636,
+                    40.69934404034793
+                  ],
+                  [
+                    -74.03809786214774,
+                    40.69903950524441
+                  ],
+                  [
+                    -74.03822954445391,
+                    40.6983685916979
+                  ],
+                  [
+                    -74.03900043878028,
+                    40.6983698903912
+                  ],
+                  [
+                    -74.0393403767015,
+                    40.698115514836175
+                  ],
+                  [
+                    -74.03993272132986,
+                    40.698544422793844
+                  ],
+                  [
+                    -74.04025555083275,
+                    40.698804823307505
+                  ],
+                  [
+                    -74.04124261832222,
+                    40.699536741435054
+                  ],
+                  [
+                    -74.04174768868015,
+                    40.699147863566836
+                  ],
+                  [
+                    -74.03991248872623,
+                    40.697702040398596
+                  ],
+                  [
+                    -74.04166051914841,
+                    40.69645297163992
+                  ],
+                  [
+                    -74.04367371230778,
+                    40.698020404330265
+                  ],
+                  [
+                    -74.04363686211197,
+                    40.69804823269847
+                  ],
+                  [
+                    -74.04365651062233,
+                    40.698064091088085
+                  ],
+                  [
+                    -74.04270395810723,
+                    40.69880060058688
+                  ],
+                  [
+                    -74.04296505227515,
+                    40.698999361822366
+                  ],
+                  [
+                    -74.0410986123707,
+                    40.70049294338984
+                  ],
+                  [
+                    -74.04080080646241,
+                    40.70026854992668
+                  ],
+                  [
+                    -74.04031250973529,
+                    40.70062574919241
+                  ],
+                  [
+                    -74.04028808803947,
+                    40.70064361346733
+                  ],
+                  [
+                    -74.03995040788483,
+                    40.700890630140314
+                  ]
+                ]
+              ]
+            ]
+          },
+          "cenblock2020": "360610001001000",
+          "bctcb2020": "10001001000",
+          "comp2010ap": "0.0",
+          "comp2010": "0.0",
+          "comp2011": "0.0",
+          "comp2012": "0.0",
+          "comp2013": "0.0",
+          "comp2014": "0.0",
+          "comp2015": "0.0",
+          "comp2016": "0.0",
+          "comp2017": "0.0",
+          "comp2018": "0.0",
+          "comp2019": "0.0",
+          "comp2020": "0.0",
+          "comp2021": "0.0",
+          "comp2022": "0.0",
+          "comp2023": "0.0",
+          "comp2024": "0.0",
+          "cenunits20": "0",
+          "filed": "0.0",
+          "approved": "0.0",
+          "permitted": "0.0",
+          "withdrawn": "0.0",
+          "inactive": "0.0",
+          "shape_area": "1202838.17013",
+          "shape_leng": "6437.85374521"
+        }
+      ]
+    }
+  ]
+}

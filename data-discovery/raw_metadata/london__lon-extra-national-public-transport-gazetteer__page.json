@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-national-public-transport-gazetteer",
+  "city": "london",
+  "title": "National Public Transport Gazetteer",
+  "publisher": "Department for Transport",
+  "bucket": "transport/geography",
+  "retrieved_at": "2026-04-28T12:57:14.836251+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.data.gov.uk/dataset/04497521-3043-49f4-85d4-2a98645e1d8c/national-public-transport-gazetteer-nptg",
+      "retrieved_at": "2026-04-28T12:57:14.628270+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://www.data.gov.uk/dataset/04497521-3043-49f4-85d4-2a98645e1d8c/national-public-transport-gazetteer-nptg",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

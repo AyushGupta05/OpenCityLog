@@ -1,0 +1,33 @@
+{
+  "source_id": "police-data-api",
+  "city": "london",
+  "title": "Police.uk crime and outcomes API",
+  "publisher": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+  "bucket": "public services",
+  "retrieved_at": "2026-04-28T12:19:08.574405+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.police.uk/api/",
+      "retrieved_at": "2026-04-28T12:19:08.053989+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://data.police.uk/api/",
+      "content_type": "text/html"
+    },
+    {
+      "requested_url": "https://data.police.uk/docs/",
+      "retrieved_at": "2026-04-28T12:19:08.326720+00:00",
+      "final_url": "https://data.police.uk/docs/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "9495",
+      "bytes_captured": 9495,
+      "page_title": "Police API Documentation\n\n        | data.police.uk",
+      "h1": "Police API Documentation",
+      "meta_description": "",
+      "text_sample": "<!DOCTYPE html> <!--[if lt IE 7]><html class=\"no-js lt-ie9 lt-ie8 lt-ie7\" lang=\"en\" ><![endif]--> <!--[if (IE 7)&!(IEMobile)]><html class=\"no-js lt-ie9 lt-ie8 ie7\" lang=\"en\" ><![endif]--> <!--[if (IE 8)&!(IEMobile)]><html class=\"no-js lt-ie9 ie8\" lang=\"en\" ><![endif]--> <!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"en\" > <!--<![endif]--> <head> <title> Police API Documentation | data.police.uk</title> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"> <meta name=\"mobile-web-app-capable\" content=\"yes\" /> <meta name=\"description\" content=\"\"> <!-- Google tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-VR2SY40V3F\"></script> <script id=\"gtag-config\" type=\"application/json\"> { \"ga_id\": \"G-VR2SY40V3F\" } </script> <script src=\"/static/js/gtag-init.f99633b772d8.js\"></script> <link href=\"/static/css/base.min.db2fed90ad12.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" /> <!--[if lt IE 8]> <link href=\"/static/css/ie7.min.3bd6de837d3a.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" /> <![endif]--> <script src=\"/jsi18n/\"></script> <link rel=\"shortcut icon\" href=\"/static/img/favicon.ico\" /> <link rel=\"shortcut icon\" sizes=\"196x196\" href=\"/static/img/shortcut-icon-196x196.png\" /> <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/static/img/shortcut-icon-144x144.png\" /> <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/static/img/shortcut-icon-114x114.png\" /> <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/static/shortcut-icon-72x72.png\" /> <link rel=\"apple-touch-icon-precomposed\" href=\"/static/shortcut-icon-57x57.png\" /> <link href=\"/static/css/docs.min.d0b2a21c59b9.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" /> </head> <body class=\"home\"> <a href=\"#content\" id=\"skipnav\">Skip to main content</a> <ul id=\"messages\"> <li class=\"info\" role=\"alert\"> <div class=\"inner\">data.police.uk uses cookies to make the site simpler. <a href=\"https://www.police.uk/pu/cookies/\">Find out more about cookies</a></div> </li> </ul> <header role=\"banner\"> <div class=\"inner\"> <a id=\"logo\" href=\"/\" title=\"Go to the data.police.uk home page\"> <img src=\"/static/img/logo.png\" /> </a> </div> <div id=\"content_header\"> <div class"
+    }
+  ]
+}

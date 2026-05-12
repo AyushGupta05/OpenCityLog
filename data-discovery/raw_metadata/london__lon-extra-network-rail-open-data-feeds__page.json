@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-network-rail-open-data-feeds",
+  "city": "london",
+  "title": "Network Rail Open Data feeds",
+  "publisher": "Network Rail",
+  "bucket": "transport/rail/infrastructure",
+  "retrieved_at": "2026-04-28T12:57:15.663805+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.networkrail.co.uk/who-we-are/transparency-and-ethics/transparency/open-data-feeds/",
+      "retrieved_at": "2026-04-28T12:57:15.465115+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://www.networkrail.co.uk/who-we-are/transparency-and-ethics/transparency/open-data-feeds/",
+      "content_type": "text/html; charset=UTF-8"
+    }
+  ]
+}

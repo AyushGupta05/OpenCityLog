@@ -1,0 +1,2374 @@
+{
+  "id": "388s-pnvc",
+  "name": "Waterfront Public Access Areas (WPAAs)",
+  "assetType": "dataset",
+  "attribution": "Department of City Planning (DCP)",
+  "attributionLink": "https://www.nyc.gov/site/planning/data-maps/open-data/dwn-waterfront.page",
+  "averageRating": 0,
+  "category": "Recreation",
+  "createdAt": 1698260994,
+  "description": "Waterfront Public Access Areas (WPAAs) are privately owned waterfront zoning lots where publicly accessible open space is provided to and along the shoreline for public enjoyment, as shown on the <a href=\"https://waterfrontaccess.planning.nyc.gov/\">Waterfront Access Map (WAM)</a>.",
+  "diciBackend": false,
+  "displayType": "table",
+  "downloadCount": 3052,
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "locked": false,
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 40103557,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1698867824,
+  "publicationGroup": 19338139,
+  "publicationStage": "published",
+  "rowsUpdatedAt": 1698867818,
+  "tableId": 19338139,
+  "totalTimesRated": 0,
+  "viewCount": 7487,
+  "viewLastModified": 1723140897,
+  "viewType": "tabular",
+  "approvals": [
+    {
+      "reviewedAt": 1720025547,
+      "reviewedAutomatically": false,
+      "state": "approved",
+      "submissionId": 6378270,
+      "submissionObject": "public_audience_request",
+      "submissionOutcome": "change_audience",
+      "submittedAt": 1719868376,
+      "targetAudience": "public",
+      "workflowId": 2285,
+      "reviewer": {
+        "id": "d5dp-fses",
+        "displayName": "afinkel"
+      },
+      "submissionDetails": {
+        "permissionType": "read"
+      },
+      "submissionOutcomeApplication": {
+        "endedAt": 1720025547,
+        "failureCount": 0,
+        "startedAt": 1720025547,
+        "status": "success"
+      },
+      "submitter": {
+        "id": "iqqb-gm94",
+        "displayName": "DCP Open Data"
+      }
+    }
+  ],
+  "clientContext": {
+    "clientContextVariables": [],
+    "inheritedVariables": {}
+  },
+  "columns": [
+    {
+      "id": 583875534,
+      "name": "the_geom",
+      "dataTypeName": "multipolygon",
+      "description": "Geometry type",
+      "fieldName": "the_geom",
+      "position": 1,
+      "renderTypeName": "multipolygon",
+      "tableColumnId": 149527823,
+      "format": {}
+    },
+    {
+      "id": 583875505,
+      "name": "WPAA_ID",
+      "dataTypeName": "text",
+      "description": "A unique ID for each Waterfront Public Access Area (WPAA). FKA PAWS ID - Publicly Accessible Waterfront Spaces ID.",
+      "fieldName": "wpaa_id",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 149527794,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "5030012",
+        "null": "0",
+        "top": [
+          {
+            "item": "3010007",
+            "count": "1"
+          },
+          {
+            "item": "4020004",
+            "count": "1"
+          },
+          {
+            "item": "4020001",
+            "count": "1"
+          },
+          {
+            "item": "4010006",
+            "count": "1"
+          },
+          {
+            "item": "3010018",
+            "count": "1"
+          },
+          {
+            "item": "3010014",
+            "count": "1"
+          },
+          {
+            "item": "4070005",
+            "count": "1"
+          },
+          {
+            "item": "3150008",
+            "count": "1"
+          },
+          {
+            "item": "3060008",
+            "count": "1"
+          },
+          {
+            "item": "2090001",
+            "count": "1"
+          },
+          {
+            "item": "5030001",
+            "count": "1"
+          },
+          {
+            "item": "3010010",
+            "count": "1"
+          },
+          {
+            "item": "1040008",
+            "count": "1"
+          },
+          {
+            "item": "3010013",
+            "count": "1"
+          },
+          {
+            "item": "3010019",
+            "count": "1"
+          },
+          {
+            "item": "3060014",
+            "count": "1"
+          },
+          {
+            "item": "4070014",
+            "count": "1"
+          },
+          {
+            "item": "5030009",
+            "count": "1"
+          },
+          {
+            "item": "3130005",
+            "count": "1"
+          },
+          {
+            "item": "4070001",
+            "count": "1"
+          }
+        ],
+        "smallest": "1010003",
+        "count": "78",
+        "cardinality": "78"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875533,
+      "name": "Name",
+      "dataTypeName": "text",
+      "description": "The name of the Waterfront Public Access Area (WPAA)",
+      "fieldName": "name",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 149527822,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "York Studios",
+        "null": "0",
+        "top": [
+          {
+            "item": "North 5th Street Pier and Park",
+            "count": "1"
+          },
+          {
+            "item": "1 Huron Street",
+            "count": "1"
+          },
+          {
+            "item": "Astoria Cove",
+            "count": "1"
+          },
+          {
+            "item": "Waterside Houses",
+            "count": "1"
+          },
+          {
+            "item": "Gowanus Canal CSO Facility (Owl's Head)",
+            "count": "1"
+          },
+          {
+            "item": "Bronx Point",
+            "count": "1"
+          },
+          {
+            "item": "101 Lincoln Avenue",
+            "count": "1"
+          },
+          {
+            "item": "Gowanus Canal CSO Facility (Head End)",
+            "count": "1"
+          },
+          {
+            "item": "Hunter's Point South Parcel G",
+            "count": "1"
+          },
+          {
+            "item": "Sky View Parc",
+            "count": "1"
+          },
+          {
+            "item": "The Water Club Esplanade",
+            "count": "1"
+          },
+          {
+            "item": "Brooklyn Bay Center",
+            "count": "1"
+          },
+          {
+            "item": "77 Commercial Street",
+            "count": "1"
+          },
+          {
+            "item": "Central Park East Estates",
+            "count": "1"
+          },
+          {
+            "item": "Basketball City",
+            "count": "1"
+          },
+          {
+            "item": "280 Richards Street",
+            "count": "1"
+          },
+          {
+            "item": "Hallett's North",
+            "count": "1"
+          },
+          {
+            "item": "Greenpoint Landing Parcel 5c-2",
+            "count": "1"
+          },
+          {
+            "item": "Ocean Drive",
+            "count": "1"
+          },
+          {
+            "item": "Domino Park",
+            "count": "1"
+          }
+        ],
+        "smallest": "101 Lincoln Avenue",
+        "count": "78",
+        "cardinality": "78"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875531,
+      "name": "Construction Status",
+      "dataTypeName": "text",
+      "description": "The construction status of the Waterfront Public Access Area (WPAA), it will be one of the following options: Approved (to be consutrcted), Open, Partially Open, Under Construction",
+      "fieldName": "status",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 149527820,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "Partially Open",
+        "null": "0",
+        "top": [
+          {
+            "item": "Open",
+            "count": "38"
+          },
+          {
+            "item": "Approved (to be constructed)",
+            "count": "28"
+          },
+          {
+            "item": "Approved  (to be constructed)",
+            "count": "7"
+          },
+          {
+            "item": "Partially Open",
+            "count": "4"
+          },
+          {
+            "item": "Closed",
+            "count": "1"
+          }
+        ],
+        "smallest": "Approved  (to be constructed)",
+        "count": "78",
+        "cardinality": "5"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875530,
+      "name": "Chair Certification Date",
+      "dataTypeName": "calendar_date",
+      "description": "The date of Chair Certification associated with the creation of the Waterfront Public Access Area (WPAA), if applicable.",
+      "fieldName": "chair_cert",
+      "position": 5,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 149527819,
+      "cachedContents": {
+        "non_null": "49",
+        "largest": "2023-06-20T00:00:00.000",
+        "null": "29",
+        "top": [
+          {
+            "item": "2023-01-06T00:00:00.000",
+            "count": "4"
+          },
+          {
+            "item": "2017-05-31T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2021-04-06T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1995-07-19T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2002-10-11T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2006-04-21T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1996-09-06T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2009-03-02T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2011-08-10T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2006-07-12T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2014-07-21T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2007-08-08T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2001-12-19T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2010-07-26T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2021-07-12T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2010-09-24T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2021-11-17T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2019-10-29T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2012-06-12T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2006-09-08T00:00:00.000",
+            "count": "1"
+          }
+        ],
+        "smallest": "1995-07-19T00:00:00.000",
+        "count": "78",
+        "cardinality": "46"
+      },
+      "format": {
+        "view": "date"
+      }
+    },
+    {
+      "id": 583875529,
+      "name": "CPC Approval Date",
+      "dataTypeName": "calendar_date",
+      "description": "The date of City Planning Commission (CPC) approval associated with the creation of the Waterfront Public Access Area (WPAA), if applicable.",
+      "fieldName": "cpc_approv",
+      "position": 6,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 149527818,
+      "cachedContents": {
+        "non_null": "22",
+        "largest": "2023-02-13T00:00:00.000",
+        "null": "56",
+        "top": [
+          {
+            "item": "2013-11-06T00:00:00.000",
+            "count": "2"
+          },
+          {
+            "item": "1979-08-27T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1983-02-16T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1986-06-18T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1988-02-17T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1989-11-29T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1991-09-04T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1993-11-04T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2008-10-29T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2011-02-16T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2013-02-06T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2013-03-18T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2014-03-05T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2014-09-29T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2017-09-18T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2021-04-21T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2021-05-03T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2022-03-18T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "2022-03-28T00:00:00.000",
+            "count": "1"
+          },
+          {
+            "item": "1974-07-10T00:00:00.000",
+            "count": "1"
+          }
+        ],
+        "smallest": "1974-07-10T00:00:00.000",
+        "count": "78",
+        "cardinality": "21"
+      },
+      "format": {
+        "view": "date"
+      }
+    },
+    {
+      "id": 583875525,
+      "name": "Maintained By",
+      "dataTypeName": "text",
+      "description": "The entity responsible for the maintenance of the Waterfront Public Access Area (WPAA). It is typically: Private Property Owned, but may also be: NYC DPR or NYC EDC",
+      "fieldName": "maintenanc",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 149527814,
+      "cachedContents": {
+        "non_null": "77",
+        "largest": "Private Property Owner",
+        "null": "1",
+        "top": [
+          {
+            "item": "Private Property Owner",
+            "count": "70"
+          },
+          {
+            "item": "NYC (DPR)",
+            "count": "4"
+          },
+          {
+            "item": "NYC (DEP)",
+            "count": "2"
+          },
+          {
+            "item": "NYC (EDC)",
+            "count": "1"
+          }
+        ],
+        "smallest": "NYC (DEP)",
+        "count": "78",
+        "cardinality": "4"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875520,
+      "name": "Summary of WPAA",
+      "dataTypeName": "text",
+      "description": "A general, 1-2 sentence descriptive overview of the Waterfront Public Access Area (WPAA) highlighting key features",
+      "fieldName": "summary",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 149527809,
+      "cachedContents": {
+        "non_null": "76",
+        "largest": "Waterfront walkway with landscaping and sitting areas along Pugsley Creek and the East River in conjunction with a 1,183- unit residential development.",
+        "null": "2",
+        "top": [
+          {
+            "item": "Waterfront open space with shore public walkway, supplemental public access area and street end improvement",
+            "count": "3"
+          },
+          {
+            "item": "A shore public walkway on the East River with seating, lighting, trees, and plantings.",
+            "count": "1"
+          },
+          {
+            "item": "Waterfront esplanade with a shore public walkway connecting to 2.5 miles of greenspace in conjunction with a three-tower development.",
+            "count": "1"
+          },
+          {
+            "item": "Walkway with seating, lighting and plantings on the Eastchester Bay of the Long Island Sound in conjunction with the development of a two story eating/drinking establishment pursuant to the Special City Island District zoning regulations",
+            "count": "1"
+          },
+          {
+            "item": "Waterfront walkway with landscaping and sitting areas along Pugsley Creek and the East River in conjunction with a 1,183- unit residential development.",
+            "count": "1"
+          },
+          {
+            "item": "Waterfront access including a shore public walkway with active and passive recreational activities on the East River, in conjunction with the mixed-use redevelopment of the former Domino Sugar site.",
+            "count": "1"
+          },
+          {
+            "item": "Visual corridors and public access easement in conjunction with the development of 25 one- and two-family houses at Raritan Bay.",
+            "count": "1"
+          },
+          {
+            "item": "Shore public walkway on the Flushing River with seating, lighting, trees, plantings, and upland connections in conjunction with a mixed-use residential and retail development.",
+            "count": "1"
+          },
+          {
+            "item": "Shore public walkway with seating, trees, lighting, visual corridors and upland connections on the East River in conjunction with a mixed use development in Astoria.",
+            "count": "1"
+          },
+          {
+            "item": "1.2 mile walkway with seating and lighting around the perimeter of four piers overlooking the Hudson River with viewing area, in conjunction with the development of Chelsea Piers recreation center",
+            "count": "1"
+          },
+          {
+            "item": "Public access easement to a waterfront esplanade on Lemon Creek of the Great Kills Harbor which also connects Lemon Creek Park to Wolfe's Pond Park in conjunction with the development of 118 one- and two-family houses.",
+            "count": "1"
+          },
+          {
+            "item": "A shore public walkway and landscaped public access area approved in conjunction with a mixed use residential and commercial development.",
+            "count": "1"
+          },
+          {
+            "item": "Shore public walkway with a boardwalk, seating area and a planted buffer area on the East River in conjunction with the residential development. This site is now owned by the NYC Dept. of Parks and Recreation.",
+            "count": "1"
+          },
+          {
+            "item": "Pedestrian path on the East River, visual corridors and a network of circulation paths, seating, and extenstive plantings in conjunction with a residential development.",
+            "count": "1"
+          },
+          {
+            "item": "Visual corridors and shore public walkway with trees, lighting and seating on Mill Basin in conjunction with the development of a retail store.",
+            "count": "1"
+          },
+          {
+            "item": "Shore public walkway, supplemental public access area and visual corridors, with seating, trees and lighting on Lower New York Bay in conjunction with an enlargement of an existing nursing home.",
+            "count": "1"
+          },
+          {
+            "item": "Upland connections, visual corridors, and a shore public walkway with seating, trees, lighting and an additional public open space provided on a portion of a roof overlooking the East River in conjunction with a mixed-use development.",
+            "count": "1"
+          },
+          {
+            "item": "Waterfront open space with shore public walkway and a Type 1 Upland Connection",
+            "count": "1"
+          },
+          {
+            "item": "Publicly accessible pier at the foot of India Street on the East River serving as a ferry stop with lighting and seating.",
+            "count": "1"
+          },
+          {
+            "item": "Future New York City DEP CSO facility will incorporate a community-driven waterfront public access design that will feature a variety of public amenities, open spaces, and educational uses alongside tidal restoration.",
+            "count": "1"
+          }
+        ],
+        "smallest": "1.2 mile walkway with seating and lighting around the perimeter of four piers overlooking the Hudson River with viewing area, in conjunction with the development of Chelsea Piers recreation center",
+        "count": "78",
+        "cardinality": "74"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875516,
+      "name": "Restrictive Declaration Link",
+      "dataTypeName": "text",
+      "description": "The hyperlink to or ID number of the restrictive declaration document on Dept. of Finanace's (DOF) Automated City Register Information System (ACRIS) webiste, associated with the creation of the Waterfront Public Access Area (WPAA), if applicable.",
+      "fieldName": "res_dec",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 149527805,
+      "cachedContents": {
+        "non_null": "31",
+        "largest": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=FT_4250005533025",
+        "null": "47",
+        "top": [
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2013123100717001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=FT_2020008836902",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2007010901928001",
+            "count": "1"
+          },
+          {
+            "item": "20120120002820001 (DOF ACRIS)",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2015121800752001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2014060600797001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=FT_4050004768805",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2010112201051001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=FT_2510000715851",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=FT_1210006237421",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2022111000245001",
+            "count": "1"
+          },
+          {
+            "item": "2003070300215000 (DOF ACRIS)",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2006111400238001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2009050500844004",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2008121600323001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2007050101595001",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=FT_4250005533025",
+            "count": "1"
+          },
+          {
+            "item": "2005080501370000 (DOF ACRIS)",
+            "count": "1"
+          },
+          {
+            "item": "https://acrisweb.csc.nycnet/DS/DocumentSearch/DocumentImageView?doc_id=2011070100236001",
+            "count": "1"
+          },
+          {
+            "item": "FT_2660007723566 (DOF ACRIS)",
+            "count": "1"
+          }
+        ],
+        "smallest": "2000001231281 (DOF ACRIS)",
+        "count": "78",
+        "cardinality": "31"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875528,
+      "name": "CPC Report Link",
+      "dataTypeName": "text",
+      "description": "The hyperlink to the City Planning Commission (CPC) Report associated with the creation of the Waterfront Public Access Area (WPAA), if applicable.",
+      "fieldName": "cpc_report",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 149527817,
+      "cachedContents": {
+        "non_null": "74",
+        "largest": "N/A",
+        "null": "4",
+        "top": [
+          {
+            "item": "N/A",
+            "count": "42"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/010616.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/970146.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/080207a.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/180157.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/060289.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/890367.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/870805.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/090053.pdf",
+            "count": "1"
+          },
+          {
+            "item": "http://www1.nyc.gov/assets/planning/download/pdf/about/cpc/220070.pdf",
+            "count": "1"
+          },
+          {
+            "item": "http://www1.nyc.gov/assets/planning/download/pdf/about/cpc/030450.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/150401.pdf",
+            "count": "1"
+          },
+          {
+            "item": "http://www1.nyc.gov/assets/planning/download/pdf/about/cpc/140047.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/180226.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/980319.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www.nyc.gov/assets/planning/download/pdf/about/cpc/230142.pdf",
+            "count": "1"
+          },
+          {
+            "item": "http://www1.nyc.gov/assets/planning/download/pdf/about/cpc/110059.pdf",
+            "count": "1"
+          },
+          {
+            "item": "http://www1.nyc.gov/assets/planning/download/pdf/about/cpc/210049.pdf",
+            "count": "1"
+          },
+          {
+            "item": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/860295.pdf",
+            "count": "1"
+          },
+          {
+            "item": "http://www1.nyc.gov/assets/planning/download/pdf/about/cpc/090487.pdf",
+            "count": "1"
+          }
+        ],
+        "smallest": "https://www1.nyc.gov/assets/planning/download/pdf/about/cpc/010616.pdf",
+        "count": "78",
+        "cardinality": "33"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875524,
+      "name": "Supplemental Public Access Area",
+      "dataTypeName": "number",
+      "description": "Total supplemental public access area in square feet. Supplemental public access area is a public access area required in order to fulfill the minimum percentage of Waterfront Public Access Area (WPAA)required on a waterfront zoning lot, once a shore public walkway and upland connection have been provided.",
+      "fieldName": "sup_area",
+      "position": 11,
+      "renderTypeName": "number",
+      "tableColumnId": 149527813,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "277479.0",
+        "null": "0",
+        "top": [
+          {
+            "item": "0.0",
+            "count": "61"
+          },
+          {
+            "item": "1880.0",
+            "count": "1"
+          },
+          {
+            "item": "55185.0",
+            "count": "1"
+          },
+          {
+            "item": "18623.0",
+            "count": "1"
+          },
+          {
+            "item": "8401.0",
+            "count": "1"
+          },
+          {
+            "item": "11261.0",
+            "count": "1"
+          },
+          {
+            "item": "71775.0",
+            "count": "1"
+          },
+          {
+            "item": "5622.0",
+            "count": "1"
+          },
+          {
+            "item": "13500",
+            "count": "1"
+          },
+          {
+            "item": "12696.0",
+            "count": "1"
+          },
+          {
+            "item": "13925.0",
+            "count": "1"
+          },
+          {
+            "item": "277479.0",
+            "count": "1"
+          },
+          {
+            "item": "3050.0",
+            "count": "1"
+          },
+          {
+            "item": "19599.0",
+            "count": "1"
+          },
+          {
+            "item": "10702.0",
+            "count": "1"
+          },
+          {
+            "item": "8273.0",
+            "count": "1"
+          },
+          {
+            "item": "9996.0",
+            "count": "1"
+          },
+          {
+            "item": "25453.0",
+            "count": "1"
+          }
+        ],
+        "smallest": "0.0",
+        "count": "78",
+        "cardinality": "18"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875510,
+      "name": "Total WPAA Area",
+      "dataTypeName": "number",
+      "description": "Total Waterfront Public Access Area (WPAA) in square feet. WPAA area is the portion of a waterfront zoning lot where publicly accessible open space is provided to and along the shoreline.",
+      "fieldName": "wpaa_area",
+      "position": 12,
+      "renderTypeName": "number",
+      "tableColumnId": 149527799,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "277479.0",
+        "null": "0",
+        "top": [
+          {
+            "item": "0.0",
+            "count": "33"
+          },
+          {
+            "item": "26986.0",
+            "count": "1"
+          },
+          {
+            "item": "77620.0",
+            "count": "1"
+          },
+          {
+            "item": "6539.0",
+            "count": "1"
+          },
+          {
+            "item": "75233.0",
+            "count": "1"
+          },
+          {
+            "item": "47793.0",
+            "count": "1"
+          },
+          {
+            "item": "55621.0",
+            "count": "1"
+          },
+          {
+            "item": "41604.0",
+            "count": "1"
+          },
+          {
+            "item": "94705.0",
+            "count": "1"
+          },
+          {
+            "item": "64750.0",
+            "count": "1"
+          },
+          {
+            "item": "36080.0",
+            "count": "1"
+          },
+          {
+            "item": "54088.0",
+            "count": "1"
+          },
+          {
+            "item": "22049.0",
+            "count": "1"
+          },
+          {
+            "item": "45073.0",
+            "count": "1"
+          },
+          {
+            "item": "277479.0",
+            "count": "1"
+          },
+          {
+            "item": "20000",
+            "count": "1"
+          },
+          {
+            "item": "28245.0",
+            "count": "1"
+          },
+          {
+            "item": "79601.0",
+            "count": "1"
+          },
+          {
+            "item": "21360.0",
+            "count": "1"
+          },
+          {
+            "item": "29000",
+            "count": "1"
+          }
+        ],
+        "smallest": "0.0",
+        "count": "78",
+        "cardinality": "46"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875507,
+      "name": "Zoning Application Portal (ZAP) Link",
+      "dataTypeName": "text",
+      "description": "The hyperlink to the project in the Zoning Application Portal (ZAP) associated with the Waterfront Public Access Area (WPAA), if applicable.",
+      "fieldName": "zap_link",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 149527796,
+      "cachedContents": {
+        "non_null": "76",
+        "largest": "N/A",
+        "null": "2",
+        "top": [
+          {
+            "item": "N/A",
+            "count": "5"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/2022K0437",
+            "count": "2"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2001K0349",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/2021K0237",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/2019X0249",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2009K0024",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2011K0019",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2009M0142",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P1982R0624",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2009Q0255",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2012K0231",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/2020Q0197",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2012R0355",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/2019K0238",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2013X0059",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P1993Q0219",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2006Q0416",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2012Q0311",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2012K0106",
+            "count": "1"
+          },
+          {
+            "item": "https://zap.planning.nyc.gov/projects/P2017K0093",
+            "count": "1"
+          }
+        ],
+        "smallest": "https://zap.planning.nyc.gov/projects/2018Q0491",
+        "count": "78",
+        "cardinality": "71"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875499,
+      "name": "Hours of Operation",
+      "dataTypeName": "text",
+      "description": "Public hours of operation for Waterfront Public Access Areas (WPAAs). It is often Dawn to Dusk, but some WPAAs have seasonal differences in the times they are open.",
+      "fieldName": "hours_open",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 149527788,
+      "cachedContents": {
+        "non_null": "75",
+        "largest": "N/A",
+        "null": "3",
+        "top": [
+          {
+            "item": "Dawn to Dusk",
+            "count": "30"
+          },
+          {
+            "item": "N/A",
+            "count": "13"
+          },
+          {
+            "item": "6:00 am- 10:00 pm between April 15 and October 31 and 7:00 am - 8:00 pm between November 1- April 14",
+            "count": "12"
+          },
+          {
+            "item": "Dawn to Dusk or\nbusiness\nclosing,\nwhichever is\nlater",
+            "count": "7"
+          },
+          {
+            "item": "6:00 am to 1:00 am",
+            "count": "4"
+          },
+          {
+            "item": "From 6AM To 10PM From April 15 to Oct. 31 and from 7AM To 8PM from Nov. 1 to April 14",
+            "count": "2"
+          },
+          {
+            "item": "6AM to1AM",
+            "count": "1"
+          },
+          {
+            "item": "6AM to 12 Midnight",
+            "count": "1"
+          },
+          {
+            "item": "April 15-October 31: 7am-10pm. November 1-April 14: 7am-8pm.",
+            "count": "1"
+          },
+          {
+            "item": "24 Hour Access",
+            "count": "1"
+          },
+          {
+            "item": "Dawn to Dusk or business closing, whichever is later",
+            "count": "1"
+          },
+          {
+            "item": "6AM to Midnight",
+            "count": "1"
+          },
+          {
+            "item": "Dawn to 11PM (or to dusk on days when the eating and drinking establishment is not open)",
+            "count": "1"
+          }
+        ],
+        "smallest": "24 Hour Access",
+        "count": "78",
+        "cardinality": "13"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875518,
+      "name": "Adjacent Waterway",
+      "dataTypeName": "text",
+      "description": "The name of the NYC waterbody that is adjacent to the Waterfront Public Access Area (WPAA).",
+      "fieldName": "waterway",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 149527807,
+      "cachedContents": {
+        "non_null": "75",
+        "largest": "Westchester Creek",
+        "null": "3",
+        "top": [
+          {
+            "item": "East River",
+            "count": "27"
+          },
+          {
+            "item": "Gowanus Canal",
+            "count": "10"
+          },
+          {
+            "item": "Harlem River",
+            "count": "5"
+          },
+          {
+            "item": "Hudson River",
+            "count": "3"
+          },
+          {
+            "item": "Raritan Bay",
+            "count": "2"
+          },
+          {
+            "item": "Newtown Creek",
+            "count": "2"
+          },
+          {
+            "item": "Long Island Sound",
+            "count": "1"
+          },
+          {
+            "item": "Bronx River",
+            "count": "1"
+          },
+          {
+            "item": "Steinway Creek",
+            "count": "1"
+          },
+          {
+            "item": "Lemon Creek, Great Kills Harbor",
+            "count": "1"
+          },
+          {
+            "item": "Coney Island Creek, Lower New York Bay",
+            "count": "1"
+          },
+          {
+            "item": "New York Bay",
+            "count": "1"
+          },
+          {
+            "item": "Coney Island Channel",
+            "count": "1"
+          },
+          {
+            "item": "Gravesend Bay",
+            "count": "1"
+          },
+          {
+            "item": "Flushing River",
+            "count": "1"
+          },
+          {
+            "item": "East River, Pot Cove",
+            "count": "1"
+          },
+          {
+            "item": "Westchester Creek",
+            "count": "1"
+          },
+          {
+            "item": "Upper New York Bay",
+            "count": "1"
+          },
+          {
+            "item": "Arthur Kill",
+            "count": "1"
+          },
+          {
+            "item": "Erie Basin/ Upper New York Bay",
+            "count": "1"
+          }
+        ],
+        "smallest": "Arthur Kill",
+        "count": "78",
+        "cardinality": "32"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875527,
+      "name": "Shore Public Walkway Area",
+      "dataTypeName": "number",
+      "description": "Shore Public Walkway Area",
+      "fieldName": "shore_area",
+      "position": 16,
+      "renderTypeName": "number",
+      "tableColumnId": 149527816,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "42736.0",
+        "null": "0",
+        "top": [
+          {
+            "item": "0.0",
+            "count": "45"
+          },
+          {
+            "item": "17200",
+            "count": "1"
+          },
+          {
+            "item": "19800",
+            "count": "1"
+          },
+          {
+            "item": "28747.0",
+            "count": "1"
+          },
+          {
+            "item": "9515.0",
+            "count": "1"
+          },
+          {
+            "item": "1686.0",
+            "count": "1"
+          },
+          {
+            "item": "31646.0",
+            "count": "1"
+          },
+          {
+            "item": "14197.0",
+            "count": "1"
+          },
+          {
+            "item": "16427.0",
+            "count": "1"
+          },
+          {
+            "item": "30296.0",
+            "count": "1"
+          },
+          {
+            "item": "23837.0",
+            "count": "1"
+          },
+          {
+            "item": "42736.0",
+            "count": "1"
+          },
+          {
+            "item": "1550.0",
+            "count": "1"
+          },
+          {
+            "item": "30982.0",
+            "count": "1"
+          },
+          {
+            "item": "15450.0",
+            "count": "1"
+          },
+          {
+            "item": "19844.0",
+            "count": "1"
+          },
+          {
+            "item": "7888.0",
+            "count": "1"
+          },
+          {
+            "item": "30534.0",
+            "count": "1"
+          },
+          {
+            "item": "6100",
+            "count": "1"
+          },
+          {
+            "item": "4840.0",
+            "count": "1"
+          }
+        ],
+        "smallest": "0.0",
+        "count": "78",
+        "cardinality": "34"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875511,
+      "name": "Shore Public Walkway Linear Feet",
+      "dataTypeName": "number",
+      "description": "Shore Public Walkway in linear feet",
+      "fieldName": "shore_line",
+      "position": 17,
+      "renderTypeName": "number",
+      "tableColumnId": 149527800,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "6330.0",
+        "null": "0",
+        "top": [
+          {
+            "item": "0.0",
+            "count": "60"
+          },
+          {
+            "item": "666.0",
+            "count": "1"
+          },
+          {
+            "item": "330.0",
+            "count": "1"
+          },
+          {
+            "item": "1400",
+            "count": "1"
+          },
+          {
+            "item": "6330.0",
+            "count": "1"
+          },
+          {
+            "item": "480.0",
+            "count": "1"
+          },
+          {
+            "item": "463.0",
+            "count": "1"
+          },
+          {
+            "item": "800.0",
+            "count": "1"
+          },
+          {
+            "item": "384.0",
+            "count": "1"
+          },
+          {
+            "item": "3387.0",
+            "count": "1"
+          },
+          {
+            "item": "736.0",
+            "count": "1"
+          },
+          {
+            "item": "1000",
+            "count": "1"
+          },
+          {
+            "item": "376.0",
+            "count": "1"
+          },
+          {
+            "item": "53.0",
+            "count": "1"
+          },
+          {
+            "item": "2190.0",
+            "count": "1"
+          },
+          {
+            "item": "160.0",
+            "count": "1"
+          },
+          {
+            "item": "200.0",
+            "count": "1"
+          },
+          {
+            "item": "529.0",
+            "count": "1"
+          },
+          {
+            "item": "649.0",
+            "count": "1"
+          }
+        ],
+        "smallest": "0.0",
+        "count": "78",
+        "cardinality": "19"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875523,
+      "name": "Activity Volleyball Court",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Volleyball Court, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_volleyct",
+      "position": 18,
+      "renderTypeName": "number",
+      "tableColumnId": 149527812,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "77"
+          },
+          {
+            "item": "1",
+            "count": "1"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875500,
+      "name": "Activity Basketball Court",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Basketball Court, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_basketct",
+      "position": 19,
+      "renderTypeName": "number",
+      "tableColumnId": 149527789,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "0",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "78"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "1"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875526,
+      "name": "Activity Fishing",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Fishing, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_fishing",
+      "position": 20,
+      "renderTypeName": "number",
+      "tableColumnId": 149527815,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "76"
+          },
+          {
+            "item": "1",
+            "count": "2"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875501,
+      "name": "Activity Boating/In-Water Access",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Boating/In-Water Access, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_boating",
+      "position": 21,
+      "renderTypeName": "number",
+      "tableColumnId": 149527790,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "73"
+          },
+          {
+            "item": "1",
+            "count": "5"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875506,
+      "name": "Activity Tot Playground",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Tot Playground, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_playgrnd",
+      "position": 22,
+      "renderTypeName": "number",
+      "tableColumnId": 149527795,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "75"
+          },
+          {
+            "item": "1",
+            "count": "3"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875509,
+      "name": "Activity Splash Feature",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Splash Feature, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_splash",
+      "position": 23,
+      "renderTypeName": "number",
+      "tableColumnId": 149527798,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "77"
+          },
+          {
+            "item": "1",
+            "count": "1"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875503,
+      "name": "Activity Other Recreational",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Other Recreational (Bocce, Skate Park, etc), active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_otherrec",
+      "position": 24,
+      "renderTypeName": "number",
+      "tableColumnId": 149527792,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "72"
+          },
+          {
+            "item": "1",
+            "count": "6"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875504,
+      "name": "Activity Swimming",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Swimming, active use amenity. 1=Yes, 0=No",
+      "fieldName": "a_swimming",
+      "position": 25,
+      "renderTypeName": "number",
+      "tableColumnId": 149527793,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "0",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "78"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "1"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875498,
+      "name": "Feature Promenade",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Promenade/Esplanade, site feature. 1=Yes, 0=No",
+      "fieldName": "f_promenad",
+      "position": 26,
+      "renderTypeName": "number",
+      "tableColumnId": 149527787,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "1",
+            "count": "44"
+          },
+          {
+            "item": "0",
+            "count": "34"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875517,
+      "name": "Feature Seating Lawn",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Seating Lawn, site feature. 1=Yes, 0=No",
+      "fieldName": "f_seatlawn",
+      "position": 27,
+      "renderTypeName": "number",
+      "tableColumnId": 149527806,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "66"
+          },
+          {
+            "item": "1",
+            "count": "12"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875522,
+      "name": "Feature Pier",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Pier, site feature. 1=Yes, 0=No",
+      "fieldName": "f_pier",
+      "position": 28,
+      "renderTypeName": "number",
+      "tableColumnId": 149527811,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "64"
+          },
+          {
+            "item": "1",
+            "count": "14"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875502,
+      "name": "Feature Wetland/Natural Edge",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Wetland/Natural Edge, site feature. 1=Yes, 0=No",
+      "fieldName": "f_wetland",
+      "position": 29,
+      "renderTypeName": "number",
+      "tableColumnId": 149527791,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "71"
+          },
+          {
+            "item": "1",
+            "count": "7"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875513,
+      "name": "Feature Dog Run",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Dog Run, site feature. 1=Yes, 0=No",
+      "fieldName": "f_dogrun",
+      "position": 30,
+      "renderTypeName": "number",
+      "tableColumnId": 149527802,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "76"
+          },
+          {
+            "item": "1",
+            "count": "2"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875514,
+      "name": "Feature Educational or Interpretive Signs",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians Educational or Interpretive signs, site feature. 1=Yes, 0=No",
+      "fieldName": "f_edu_intp",
+      "position": 31,
+      "renderTypeName": "number",
+      "tableColumnId": 149527803,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "76"
+          },
+          {
+            "item": "1",
+            "count": "2"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875532,
+      "name": "Feature Public Restroom",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Public Restroom, site feature. 1=Yes, 0=No",
+      "fieldName": "f_restroom",
+      "position": 32,
+      "renderTypeName": "number",
+      "tableColumnId": 149527821,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "74"
+          },
+          {
+            "item": "1",
+            "count": "4"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875512,
+      "name": "Feature Shade Structure",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Shade Structure, site feature. 1=Yes, 0=No",
+      "fieldName": "f_shade",
+      "position": 33,
+      "renderTypeName": "number",
+      "tableColumnId": 149527801,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "72"
+          },
+          {
+            "item": "1",
+            "count": "6"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875519,
+      "name": "Feature Outdoor Art",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians an Outdoor Art, site feature. 1=Yes, 0=No",
+      "fieldName": "f_art",
+      "position": 34,
+      "renderTypeName": "number",
+      "tableColumnId": 149527808,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "75"
+          },
+          {
+            "item": "1",
+            "count": "3"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875535,
+      "name": "Feature Food or Beverage Concessions",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians Food or Beverage Concessions, site feature. 1=Yes, 0=No",
+      "fieldName": "f_food_bev",
+      "position": 35,
+      "renderTypeName": "number",
+      "tableColumnId": 149527824,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "69"
+          },
+          {
+            "item": "1",
+            "count": "9"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875515,
+      "name": "Feature Group Seating",
+      "dataTypeName": "number",
+      "description": "Flag to indicate whether the Waterfront Public Access Area (WPAA) contians a Group Seating, site feature. 1=Yes, 0=No",
+      "fieldName": "f_grpseat",
+      "position": 36,
+      "renderTypeName": "number",
+      "tableColumnId": 149527804,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1",
+        "null": "0",
+        "top": [
+          {
+            "item": "0",
+            "count": "55"
+          },
+          {
+            "item": "1",
+            "count": "23"
+          }
+        ],
+        "smallest": "0",
+        "count": "78",
+        "cardinality": "2"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875508,
+      "name": "Shape_Length",
+      "dataTypeName": "number",
+      "description": "Length of feature in internal units.",
+      "fieldName": "shape_leng",
+      "position": 37,
+      "renderTypeName": "number",
+      "tableColumnId": 149527797,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "8362.17218489",
+        "null": "0",
+        "top": [
+          {
+            "item": "3420.55715186",
+            "count": "1"
+          },
+          {
+            "item": "8101.46773608",
+            "count": "1"
+          },
+          {
+            "item": "3196.23908913",
+            "count": "1"
+          },
+          {
+            "item": "1348.5945738",
+            "count": "1"
+          },
+          {
+            "item": "4074.53240397",
+            "count": "1"
+          },
+          {
+            "item": "2444.88764459",
+            "count": "1"
+          },
+          {
+            "item": "1914.22623221",
+            "count": "1"
+          },
+          {
+            "item": "3240.83679492",
+            "count": "1"
+          },
+          {
+            "item": "3303.09164322",
+            "count": "1"
+          },
+          {
+            "item": "5045.91880989",
+            "count": "1"
+          },
+          {
+            "item": "1261.62307242",
+            "count": "1"
+          },
+          {
+            "item": "1615.30893778",
+            "count": "1"
+          },
+          {
+            "item": "3993.35946185",
+            "count": "1"
+          },
+          {
+            "item": "2979.85795317",
+            "count": "1"
+          },
+          {
+            "item": "2510.72001252",
+            "count": "1"
+          },
+          {
+            "item": "1206.89440865",
+            "count": "1"
+          },
+          {
+            "item": "1791.60245479",
+            "count": "1"
+          },
+          {
+            "item": "827.295237298",
+            "count": "1"
+          },
+          {
+            "item": "1985.40615603",
+            "count": "1"
+          },
+          {
+            "item": "3700.32539669",
+            "count": "1"
+          }
+        ],
+        "smallest": "411.020316662",
+        "count": "78",
+        "cardinality": "78"
+      },
+      "format": {}
+    },
+    {
+      "id": 583875521,
+      "name": "Shape_Area",
+      "dataTypeName": "number",
+      "description": "Area of feature in internal units squared.",
+      "fieldName": "shape_area",
+      "position": 38,
+      "renderTypeName": "number",
+      "tableColumnId": 149527810,
+      "cachedContents": {
+        "non_null": "78",
+        "largest": "1489396.88764",
+        "null": "0",
+        "top": [
+          {
+            "item": "112025.807895",
+            "count": "1"
+          },
+          {
+            "item": "439086.784685",
+            "count": "1"
+          },
+          {
+            "item": "386941.419124",
+            "count": "1"
+          },
+          {
+            "item": "253631.613587",
+            "count": "1"
+          },
+          {
+            "item": "154173.845562",
+            "count": "1"
+          },
+          {
+            "item": "364537.692157",
+            "count": "1"
+          },
+          {
+            "item": "165821.367354",
+            "count": "1"
+          },
+          {
+            "item": "293977.471874",
+            "count": "1"
+          },
+          {
+            "item": "1098062.74611",
+            "count": "1"
+          },
+          {
+            "item": "6542.25831947",
+            "count": "1"
+          },
+          {
+            "item": "518886.119758",
+            "count": "1"
+          },
+          {
+            "item": "183713.373711",
+            "count": "1"
+          },
+          {
+            "item": "389614.406223",
+            "count": "1"
+          },
+          {
+            "item": "350004.80283",
+            "count": "1"
+          },
+          {
+            "item": "107805.457075",
+            "count": "1"
+          },
+          {
+            "item": "59172.8587229",
+            "count": "1"
+          },
+          {
+            "item": "227521.556034",
+            "count": "1"
+          },
+          {
+            "item": "574284.11531",
+            "count": "1"
+          },
+          {
+            "item": "47982.0703164",
+            "count": "1"
+          },
+          {
+            "item": "1016996.26649",
+            "count": "1"
+          }
+        ],
+        "smallest": "6542.25831947",
+        "count": "78",
+        "cardinality": "78"
+      },
+      "format": {}
+    }
+  ],
+  "grants": [
+    {
+      "inherited": false,
+      "type": "viewer",
+      "flags": [
+        "public"
+      ]
+    }
+  ],
+  "metadata": {
+    "attachments": [
+      {
+        "filename": "nycwpaas_202205shp.zip",
+        "assetId": "2afa37e9-2c41-4b5e-8835-ad1c2e59edf3",
+        "name": "Archived_nycwpaas_202205shp.zip"
+      },
+      {
+        "filename": "nycwpaas_202205fgdb.zip",
+        "assetId": "974591ec-7f52-4e07-b1fd-e7a9e01070dc",
+        "name": "Archived_nycwpaas_202205fgdb.zip"
+      },
+      {
+        "filename": "Waterfront Public Access Areas_Data_Dictionary.xlsx",
+        "assetId": "6ccf26fd-5cab-4229-b6c7-079b01af4934",
+        "name": "Waterfront Public Access Areas_Data_Dictionary.xlsx"
+      }
+    ],
+    "custom_fields": {
+      "Update": {
+        "Automation": "No",
+        "Date Made Public": "12/31/2019",
+        "Update Frequency": "As needed",
+        "Data Change Frequency": "Every 2 months"
+      },
+      "Dataset Information": {
+        "Agency": "Department of City Planning (DCP)"
+      }
+    },
+    "rowLabel": "A publicly accessible portion of the waterfront that is privately owned, known as a Waterfront Public Access Area (WPAAs)",
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ]
+  },
+  "owner": {
+    "id": "iqqb-gm94",
+    "displayName": "DCP Open Data",
+    "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+    "screenName": "DCP Open Data",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "query": {},
+  "rights": [
+    "read"
+  ],
+  "tableAuthor": {
+    "id": "iqqb-gm94",
+    "displayName": "DCP Open Data",
+    "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+    "screenName": "DCP Open Data",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "tags": [
+    "waterfront public access areas",
+    "wpaa",
+    "open space",
+    "parks",
+    "waterfront access map",
+    "wam",
+    "publicly accessible waterfront",
+    "shore public access",
+    "department of city planning",
+    "dcp",
+    "nyc",
+    "recreation"
+  ],
+  "flags": [
+    "default",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ]
+}

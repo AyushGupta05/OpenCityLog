@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_tfl_cycle_flows_trln",
+  "title": "Cycle Flows on the TFL Road Network",
+  "requested_url": "https://data.london.gov.uk/dataset/cycle-flows-on-the-tfl-road-network-2g1y0",
+  "fetched_url": "https://data.london.gov.uk/dataset/cycle-flows-on-the-tfl-road-network-2g1y0",
+  "final_url": "https://data.london.gov.uk/dataset/cycle-flows-on-the-tfl-road-network-2g1y0/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:54.311599+00:00",
+  "page_title": "Cycle Flows on the TFL Road Network – London Datastore",
+  "h1": "Cycle Flows on the TFL Road Network",
+  "meta_description": ""
+}

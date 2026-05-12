@@ -1,0 +1,16 @@
+{
+  "source_id": "environment-agency-lidar",
+  "city": "london",
+  "title": "National LIDAR Programme data",
+  "publisher": "Environment Agency",
+  "bucket": "imagery/basemaps",
+  "retrieved_at": "2026-04-28T12:19:08.050600+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://environment.data.gov.uk/survey",
+      "retrieved_at": "2026-04-28T12:18:57.281627+00:00",
+      "status": null,
+      "error": "NetworkError: The read operation timed out"
+    }
+  ]
+}

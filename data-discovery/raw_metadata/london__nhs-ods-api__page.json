@@ -1,0 +1,263 @@
+{
+  "source_id": "nhs-ods-api",
+  "city": "london",
+  "title": "NHS Organisation Data Service (ODS)",
+  "publisher": "NHS England",
+  "bucket": "public services",
+  "retrieved_at": "2026-04-28T12:19:10.303857+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations",
+      "retrieved_at": "2026-04-28T12:19:08.577572+00:00",
+      "final_url": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations",
+      "status": 200,
+      "content_type": "application/json",
+      "last_modified": "Tue, 28 Apr 2026 12:19:09 GMT",
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5895,
+      "json_keys": [
+        "Organisations"
+      ],
+      "json_sample": {
+        "Organisations": [
+          {
+            "Name": "CLWYD",
+            "OrgId": "001",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/001"
+          },
+          {
+            "Name": "DYFED",
+            "OrgId": "002",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/002"
+          },
+          {
+            "Name": "GWENT",
+            "OrgId": "003",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/003"
+          },
+          {
+            "Name": "GWYNEDD",
+            "OrgId": "004",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/004"
+          },
+          {
+            "Name": "MID GLAMORGAN",
+            "OrgId": "005",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/005"
+          },
+          {
+            "Name": "POWYS",
+            "OrgId": "006",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/006"
+          },
+          {
+            "Name": "SOUTH GLAMORGAN",
+            "OrgId": "007",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2013-05-08",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/007"
+          },
+          {
+            "Name": "WEST GLAMORGAN",
+            "OrgId": "008",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "",
+            "LastChangeDate": "2014-02-20",
+            "PrimaryRoleId": "RO141",
+            "PrimaryRoleDescription": "LOCAL AUTHORITY",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/008"
+          },
+          {
+            "Name": "NHS DARLINGTON CCG",
+            "OrgId": "00C",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "TS23 2LA",
+            "LastChangeDate": "2021-04-26",
+            "PrimaryRoleId": "RO98",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00C"
+          },
+          {
+            "Name": "NHS DARLINGTON CCG HQ",
+            "OrgId": "00CAA",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "TS23 2LA",
+            "LastChangeDate": "2021-04-26",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00CAA"
+          },
+          {
+            "Name": "NHS DURHAM DALES, EASINGTON AND SEDGEFIELD CCG",
+            "OrgId": "00D",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "TS21 3EE",
+            "LastChangeDate": "2023-09-21",
+            "PrimaryRoleId": "RO98",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00D"
+          },
+          {
+            "Name": "NHS DURHAM DALES, EASINGTON AND SEDGEFIELD HQ",
+            "OrgId": "00DAA",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "TS21 3EE",
+            "LastChangeDate": "2021-04-26",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00DAA"
+          },
+          {
+            "Name": "NHS GATESHEAD CCG",
+            "OrgId": "00F",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC1",
+            "PostCode": "NE15 8NY",
+            "LastChangeDate": "2021-03-10",
+            "PrimaryRoleId": "RO98",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00F"
+          },
+          {
+            "Name": "NHS GATESHEAD CCG HQ",
+            "OrgId": "00FAA",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE15 8NY",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAA"
+          },
+          {
+            "Name": "GATESHEAD CIVIC CENTRE",
+            "OrgId": "00FAC",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE8 1JN",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAC"
+          },
+          {
+            "Name": "BLAYDON PRIMARY CARE CENTRE",
+            "OrgId": "00FAD",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE21 5NW",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAD"
+          },
+          {
+            "Name": "CARR HILL CLINIC",
+            "OrgId": "00FAE",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE9 5LS",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAE"
+          },
+          {
+            "Name": "DUNSTON BANK HEALTH CENTRE",
+            "OrgId": "00FAF",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE11 9PY",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAF"
+          },
+          {
+            "Name": "GATESHEAD EQUIPMENT SERVICES",
+            "OrgId": "00FAG",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE11 0QD",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAG"
+          },
+          {
+            "Name": "GATESHEAD HEALTH CENTRE",
+            "OrgId": "00FAH",
+            "Status": "Inactive",
+            "OrgRecordClass": "RC2",
+            "PostCode": "NE8 1NB",
+            "LastChangeDate": "2022-03-16",
+            "PrimaryRoleId": "RO99",
+            "PrimaryRoleDescription": "CLINICAL COMMISSIONING GROUP SITE",
+            "OrgLink": "https://directory.spineservices.nhs.uk/ORD/2-0-0/organisations/00FAH"
+          }
+        ]
+      }
+    },
+    {
+      "requested_url": "https://digital.nhs.uk/services/organisation-data-service",
+      "retrieved_at": "2026-04-28T12:19:09.887734+00:00",
+      "final_url": "https://digital.nhs.uk/services/organisation-data-service",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 122622,
+      "page_title": "Organisation Data Service (ODS) - NHS England Digital",
+      "h1": "Organisation Data Service (ODS)",
+      "meta_description": "The Organisation Data Service (ODS) issues and manages unique identification codes and accompanying reference data for organisations across health and social care.",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" class=\"nhsd-no-js\"> <head> <!-- Google Tag Manager --> <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-W6GJCR9');</script> <!-- End Google Tag Manager --> <script id=\"Cookiebot\" src=\"https://consent.cookiebot.com/uc.js\" data-cbid=\"5f472a90-947a-46c9-974b-88076109c473\" async></script> <meta charset=\"utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"format-detection\" content=\"telephone=no\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta name=\"robots\" content=\"max-image-preview:large\"> <meta name=\"robots\" content=\"index\"/> <!-- Generic meta tags --> <title>Organisation Data Service (ODS) - NHS England Digital</title> <meta name=\"title\" content=\"Organisation Data Service (ODS) - NHS England Digital\"/> <meta name=\"description\" content=\"The Organisation Data Service (ODS) issues and manages unique identification codes and accompanying reference data for organisations across health and social care.\"/> <!-- Facebook meta tags --> <meta property=\"og:type\" content=\"website\" /> <meta property=\"og:locale\" content=\"en_GB\" /> <meta property=\"og:image:type\" content=\"image/jpeg\" /> <meta property=\"og:url\" content=\"https://digital.nhs.uk/services/organisation-data-service\" /> <meta property=\"og:title\" content=\"Organisation Data Service (ODS) - NHS England Digital\"/> <meta property=\"og:site_name\" content=\"NHS England Digital\"/> <meta property=\"og:description\" content=\"The Organisation Data Service (ODS) issues and manages unique identification codes and accompanying reference data for organisations across health and social care.\"/> <meta property=\"og:image\" content=\"https://digital.nhs.uk/webfiles/1771245467899/images/nhs-england-logo-social.jpg\"/> <!-- Twitter meta tags --> <meta name=\"twitter:card\" content=\"summary_large_image\"> <meta name=\"twitter:site\" content=\"@NHSDigital\"> <meta name=\"twitter:title\" property=\"og:title\" content=\"Organisation Data Service (ODS) - NHS England Digital\"/> <meta name=\"twitter:description\" property=\"og:description\" content=\"The Organisation Data Service (ODS) issues and manages unique identification codes and accompanying reference data for organisations across health and social care.\"/> <meta name=\"twitter:image\" property=\"og:image\" content=\"https://digital.nhs.uk/webfiles/1771245467899/images/nhs-england-logo-social.jpg\"/> <link href=\"https://design-system."
+    }
+  ]
+}

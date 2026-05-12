@@ -1,0 +1,2522 @@
+Historical Urban Event Evidence Data Catalog for
+New York City and London
+Executive summary
+This catalog identifies the strongest official and quasi-official data sources available through April 2026 for
+building an open, before/after urban event evidence platform focused on New York City and London. The
+two cities are both unusually well covered, but their strengths differ. New York City is stronger on open lot-
+level land use, permits, certificates of occupancy, 311 complaints, parcel geometry, and a long official
+orthophoto record. London is stronger on centralized planning approvals and progress monitoring through
+the Planning London Datahub, borough and national statistical series, and national property market data.
+Both cities benefit from national or global layers for satellite imagery, census and employment, and
+OpenStreetMap history.
+The highest-value MVP stack is clear. For New York City, the strongest core is NYC Open Data,
+Metropolitan Transportation Authority, and U.S. Census Bureau, especially orthophotos,
+MapPLUTO/PLUTO, Digital Tax Map layers, DOB filings and permits, street geometry, traffic counts, 311,
+LEHD/LODES, ACS, and Department of Finance sales and assessment data. For London, the core is Greater
+London Authority, Transport for London, Office for National Statistics, Ordnance Survey, HM
+Land Registry, and Historic England, especially the Planning London Datahub, London Development
+Database archive, TfL APIs and demand datasets, DfT traffic counts, ONS/Nomis, Land Registry property
+series, and Historic England’s aerial photo archive.
+A practical caveat matters: “2000–2026 coverage” does not mean each series has published complete 2026
+data. In most official annual statistical systems, 2026 is only partial or not yet released as of April 2026. Live
+APIs and continuously updated portals do have 2026 records, but annual surveys and administrative rollups
+often stop in 2024 or 2025. A production platform should therefore model event time separately from
+publication time and preserve vintage metadata for every record family.
+Comparison by domain and city
+Domain
+New York City
+priority source
+London priority source
+Assessment for before/after event
+analysis
+Historical
+imagery
+NYC Map Tiles
+orthophotos and
+aerial photo
+history
+Historic England Aerial
+Photo Explorer;
+Environment Agency
+vertical aerials; OS
+imagery where
+licensed
+NYC has the stronger fully open city
+orthophoto series for repeated
+urban comparison. London has
+strong archival imagery, but less of
+a single citywide open orthophoto
+time series and more mixed
+licensing.
+1
+2
+34
+5678
+910
+11
+12
+13
+1
+
+Domain
+New York City
+priority source
+London priority source
+Assessment for before/after event
+analysis
+Satellite
+imagery
+Landsat and
+Sentinel
+Landsat and Sentinel
+Both cities are equally well served
+by national and international
+satellite archives for coarse-grained
+change detection, heat, land cover,
+and greenness.
+Building and
+parcel baseline
+MapPLUTO/
+PLUTO, Digital Tax
+Map, tax lot
+polygons, 3D
+building snapshot
+OS Open UPRN/USRN/
+Open Roads/OpenMap
+Local, Planning
+DataMap, premium OS
+products, London
+Building Stock Model
+v2
+NYC is stronger for openly reusable
+parcel and lot-level land-use linkage.
+London has excellent identifiers and
+road/network products, but open
+citywide parcel/building geometry is
+less straightforward and often
+depends on premium OS products
+or derived models.
+Planning and
+approvals
+ZAP, CEQR Access,
+BSA records, DOB
+filings
+Planning London
+Datahub, LDD archive,
+PlanApps, borough
+planning portals
+London is stronger for centralized
+citywide planning lifecycle data and
+progress tracking. NYC is stronger
+on construction administration after
+approval rather than a single unified
+approvals API.
+Traffic and
+roads
+Centerline/LION,
+DOT traffic
+counts, vehicle
+classification
+counts
+DfT road traffic
+statistics, OS Open
+Roads, TfL road and
+authority layers
+Both are strong. NYC has good
+count archives and fine street
+geometry; London has very strong
+national traffic count infrastructure
+and solid road identifiers.
+Transit
+MTA developer
+feeds, Bus Time,
+turnstiles, hourly
+ridership,
+stations/
+entrances
+TfL Unified API, station
+topology/facilities,
+PTAL, Underground
+performance, network
+demand, cycle hire
+NYC is stronger for open station
+ridership and faregate-based
+demand data. London is stronger
+for integrated network metadata
+and accessibility/topology.
+Employment
+and population
+LEHD/LODES,
+decennial census,
+ACS, population
+estimates
+ONS census and
+population estimates,
+Nomis BRES/APS, GLA
+borough-by-sector jobs
+Both are excellent, but the U.S.
+system is stronger for workplace-
+residence origin/destination at fine
+geography, while London is
+stronger for long-run local jobs
+series and integrated labour market
+statistics.
+14
+15
+16
+17
+18
+19
+2
+
+Domain
+New York City
+priority source
+London priority source
+Assessment for before/after event
+analysis
+Property
+values, rents,
+and
+transactions
+DOF assessments
+and sales; HVS
+and RGB research
+for rent context
+HM Land Registry PPD
+and UK HPI; VOA
+private rents
+London is stronger for a unified
+official property transactions and
+index stack. NYC is strong on
+assessment and sales, but rents are
+more survey/report based than a
+single transactional feed.
+Public
+sentiment,
+complaints,
+and comments
+311, CEQR/ZAP
+documents
+PlanApps comments,
+planning
+consultations, Talk
+London, Annual
+London Survey; no
+direct 311 equivalent
+NYC clearly wins on structured
+complaint exhaust. London has
+useful opinion and consultation
+sources, but not a single all-purpose
+city service-request dataset
+equivalent to 311.
+Foundational datasets that matter in both cities
+The most portable cross-city layer set comes from U.S. Geological Survey, the Copernicus program, and
+OpenStreetMap. These sources are not city-specific, but they make the platform robust when city data is
+missing, delayed, or inconsistent. Landsat provides a long public-domain archive useful for urban heat,
+surface temperature, coarse land-cover change, water, and greenness. Sentinel-2 provides higher-resolution
+multispectral imagery from 2015 onward, free and open to global users. OpenStreetMap adds change
+history from the mid-2000s onward and is especially useful for roads, buildings, amenities, and user-
+contributed edits, provided attribution and share-alike obligations are respected.
+Source familyCoverageGeography
+Update
+cadence
+Direct access / example
+endpoint
+License / reuse
+Recommended
+adapter
+Best use and
+notes
+Landsat
+Collection 2
+Global
+archive
+covers
+the full
+target
+period
+and well
+before it;
+practically
+ideal for
+2000–
+2026
+analysis
+Raster
+scenes; 30 m
+multispectral,
+surface temp
+products
+available
+Ongoing
+releases;
+archive is
+stable
+https://
+earthexplorer.usgs.gov/
+and
+https://www.usgs.gov/
+landsat-missions/landsat-
+data-access
+Public domain;
+acknowledgement
+requested
+TILER + scene
+catalog keyed
+by path/row
+and
+acquisition
+date
+High
+confidence.
+Best for coarse
+urban change,
+heat,
+vegetation,
+water,
+imperviousness,
+and gap-filling
+between city
+orthophoto
+vintages.
+20
+21
+22
+23
+24
+25
+3
+
+Source familyCoverageGeography
+Update
+cadence
+Direct access / example
+endpoint
+License / reuse
+Recommended
+adapter
+Best use and
+notes
+Sentinel-2 via
+Copernicus
+Data Space
+2015–
+2026
+Raster
+granules; 10–
+20 m
+multispectral
+Continuous
+https://
+dataspace.copernicus.eu/
+and OData/API examples in
+Copernicus docs
+Free, full, and
+open access
+under EU rules
+TILER + cloud-
+mask pipeline
+High
+confidence.
+Best for more
+frequent optical
+monitoring
+than Landsat,
+especially
+post-2015
+seasonal
+comparisons.
+OpenStreetMap
+current + full
+history
+Project
+started
+2004; full-
+history
+dumps
+available
+from
+2007 and
+“basic
+data”
+back to
+2005
+Global vector
+features and
+edits
+Weekly
+planet
+snapshots;
+minutely
+diffs for
+current
+data
+https://
+planet.openstreetmap.org/
+and https://
+wiki.openstreetmap.org/
+wiki/Downloading_data
+ODbL with
+attribution and
+share-alike duties
+SNAPSHOT +
+diff ingest +
+change table
+High
+confidence.
+Essential for
+historical
+network/
+building edits,
+but contributor
+behavior
+changes over
+time can create
+survivorship
+and
+completeness
+biases.
+26
+27
+4
+
+New York City catalog
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+NYC historical
+aerials and
+orthophotos
+1924, 1951,
+1996, 2001–02,
+then biennial
+orthos from
+2004 through
+2022 are listed
+on the official
+tile service; the
+tile page does
+not list 2024 or
+2026 captures
+Citywide tile
+layers
+Basemap
+quarterly;
+imagery by
+capture
+cycle
+https://maps.nyc.gov/
+tiles/ and https://
+maps.nyc.gov/xyz/1.0.0/
+photo/2022/{z}/{x}/
+{y}.png8
+TMS, XYZ,
+WMTS raster
+tiles
+CC BY 4.0
+TILER +
+capture-
+vintage
+registry
+Gold-standard
+for visual
+before/after
+evidence and
+parcel-
+adjacent
+context.
+Recent
+vintages are
+true orthos;
+older vintages
+are still
+extremely
+valuable for
+context. High
+confidence.
+28
+5
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+NYC
+planimetrics
+and 3D model
+Planimetric
+extraction is
+described as
+beginning in
+2004 and
+being
+produced
+every other
+ortho capture;
+the 3D building
+model is
+explicitly a
+2014 building
+snapshot
+Buildings and
+community
+districts
+Periodic,
+not
+continuous
+https://
+data.cityofnewyork.us/
+City-Government/NYC-3D-
+Model-by-Community-
+District/u5j4-zxpn
+3D model
+files plus GIS
+layers
+NYC Open
+Data terms;
+generally
+unrestricted
+reuse
+SNAPSHOT +
+geometry
+versioning
+Strong for
+building
+massing and
+skyline
+comparisons,
+but the official
+3D model is
+not a time
+series.
+Confidence
+high for 3D
+snapshot,
+medium for
+long historical
+footprint
+continuity
+because exact
+vintage-by-
+vintage IDs
+were not
+exhaustively
+verified here.
+PLUTO /
+MapPLUTO
+and land-use
+lot files
+Current PLUTO
+documentation
+confirms a rich
+tax-lot land-
+use file;
+historical
+continuity is
+strong in
+practice, but I
+did not verify
+every pre-2010
+vintage
+separately in
+this pass
+Tax lot
+Generally
+annual
+vintage
+releases
+https://
+data.cityofnewyork.us/
+search for PLUTO /
+MapPLUTO; current readme:
+https://
+data.cityofnewyork.us/
+api/views/64uk-42ks/
+files/.../
+pluto_readme.pdf
+CSV and GIS
+NYC Open
+Data,
+unrestricted
+reuse
+stated in
+portal FAQ
+SNAPSHOT +
+museum-of-
+vintages
+pattern
+Core layer for
+zoning, built
+FAR, land use,
+year built,
+units, lot area,
+and BBL
+linkage. High
+value;
+historical-
+vintage
+verification
+confidence
+medium-high.
+29
+30
+6
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+Digital Tax
+Map and
+parcel
+geometry
+Current tax lot
+and tax block
+polygons are
+available as
+part of a
+republished
+Digital Tax Map
+collection
+Tax lot, tax
+block, lot face
+Maintained
+extracts
+from DOF
+systems
+https://
+data.cityofnewyork.us/
+Housing-Development/
+Department-of-Finance-
+Digital-Tax-Map/smk3-
+tmxj and https://
+data.cityofnewyork.us/
+City-Government/
+TAX_LOT_POLYGON/
+i38t-6if2
+GIS polygons
+and lines
+NYC Open
+Data terms
+LINKER +
+parcel master
+table
+Essential for
+parcel joins,
+BBL linkage,
+and event
+footprints.
+High
+confidence.
+DOB
+construction
+filings and
+permits
+DOB Job
+Application
+Filings are the
+broad filing
+ledger; BIS
+Permit
+Issuance
+covers the
+older system,
+while DOB
+NOW Build
+Approved
+Permits covers
+most current
+construction
+permits
+Address, BIN,
+BBL, job,
+permit
+Ongoing
+https://
+data.cityofnewyork.us/
+Housing-Development/
+DOB-Job-Application-
+Filings/ic3t-
+wcy2<br>https://
+data.cityofnewyork.us/
+Housing-Development/
+DOB-Permit-Issuance/
+ipu4-2q9a<br>https://
+data.cityofnewyork.us/
+Housing-Development/
+DOB-NOW-Build-Approved-
+Permits/rbx6-tga4
+CSV/API
+through
+Socrata
+NYC Open
+Data terms
+LEDGER +
+normalized
+event
+ontology
+across filing,
+issuance,
+approval
+Highest-value
+construction-
+event
+backbone. Use
+filing date,
+permit dates,
+work type,
+proposed
+work, and
+linkage to
+BBL/BIN. High
+confidence.
+31
+32
+7
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+Certificates of
+occupancy
+and housing
+delivery
+rollups
+BIS CO dataset
+covers
+7/12/2012 to
+March 2021;
+DOB NOW CO
+takes over
+after that; DCP
+Housing
+Database
+aggregates
+approved
+construction/
+demolition
+jobs into
+housing-
+oriented
+delivery tables
+Building,
+block, tract
+Ongoing
+for CO
+modules;
+periodic
+housing
+rollups
+https://
+data.cityofnewyork.us/
+Housing-Development/
+DOB-Certificate-Of-
+Occupancy/bs8b-
+p36w<br>https://
+data.cityofnewyork.us/
+Housing-Development/
+DOB-NOW-Certificate-of-
+Occupancy/pkdm-
+hqz6<br>https://
+data.cityofnewyork.us/
+Housing-Development/
+Housing-Database/6umk-
+irkx
+CSV/API
+NYC Open
+Data terms
+LEDGER +
+derived
+completion
+table
+Best proxy for
+“building
+became
+usable” or
+“housing units
+delivered.”
+High
+confidence.
+Zoning,
+environmental
+review, and
+land-use
+documents
+ZAP exposes
+project search
+and public
+documents;
+CEQR Access
+provides final
+environmental
+review docs
+and project
+records; CEQR
+project search
+contains
+records from
+1979 to
+present
+Project,
+application,
+geometry,
+document set
+Live/
+current
+https://
+zap.planning.nyc.gov/
+<br>https://a002-
+ceqraccess.nyc.gov/
+ceqr/
+Web app,
+downloadable
+documents
+Agency site
+terms;
+documents
+are public
+but should
+be handled
+carefully for
+personal
+data
+DOCSTORE +
+metadata
+index + text
+extraction
+Best for public
+rationale,
+consultations,
+impact
+studies,
+mitigation
+promises, and
+timelines.
+High
+confidence.
+33
+34
+8
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+Street
+network and
+roadway
+geometry
+Centerline is
+the road-bed
+representation;
+LION remains
+the historic all-
+purpose street
+database
+widely used in
+NYC contexts
+Segment-level
+geometry
+Maintained
+https://
+data.cityofnewyork.us/
+City-Government/
+Centerline/inkn-q76z
+and https://
+data.cityofnewyork.us/
+City-Government/LION/
+2v4z-66xt
+GIS / CSV /
+API
+NYC Open
+Data terms
+LINKER +
+segment
+versioning
+Use for road
+adjacency,
+frontage,
+routing
+context, traffic
+direction, and
+attaching
+counts to
+event buffers.
+High
+confidence for
+Centerline;
+medium-high
+for LION
+because the
+search snippet
+available here
+was sparse.
+Traffic counts
+and vehicle
+composition
+DOT traffic
+volume counts
+are explicitly
+“historical”;
+vehicle
+classification
+counts
+currently cover
+2011–2025
+Count location
+and segment
+Periodic
+surveys,
+not
+continuous
+sensors
+https://
+data.cityofnewyork.us/
+Transportation/Traffic-
+Volume-Counts-
+Historical-/btm5-
+ppia<br>https://
+data.cityofnewyork.us/
+Transportation/Vehicle-
+Classification-
+Counts-2011-2025-/96ay-
+ea4r
+CSV/API
+NYC Open
+Data terms
+SNAPSHOT +
+station/
+segment
+lookup
+Good for
+before/after
+traffic volume
+and mode
+mix.
+Important
+caveat: these
+are sample
+counts, so
+local trend
+interpretation
+should use
+repeated
+nearby
+stations and
+not assume
+full continuity.
+High
+confidence.
+35
+36
+9
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+Transit
+metadata and
+real-time
+routes
+MTA Developer
+Resources
+provides GTFS-
+RT for several
+MTA services;
+Bus Time
+provides SIRI
+and discovery
+APIs for
+routes, stops,
+geometry, and
+schedules
+Line, stop,
+station,
+vehicle
+Live
+https://api.mta.info/
+<br>https://
+bustime.mta.info/api/
+siri/stop-
+monitoring.json?
+key=...<br>https://
+gtfsrt.prod.obanyc.com/
+vehiclePositions?
+key=...
+GTFS-RT
+protobuf, SIRI
+JSON/XML,
+REST
+MTA / Open
+NY terms
+API pull +
+temporal
+cache
+Strong for
+route-change
+detection,
+stop
+inventories,
+service
+availability,
+and live
+operational
+overlays. High
+confidence.
+Transit
+ridership and
+station access
+Annual
+turnstile usage
+datasets are
+open for 2015–
+2022; hourly
+subway
+ridership
+covers 2020–
+2024 and 2025
+onward in split
+datasets; daily
+system
+ridership
+covers 2020–
+2025; OD
+estimate
+datasets now
+exist; stations
+and entrances
+datasets
+provide the
+static station/
+access layer
+Station
+complex,
+turnstile
+control area,
+entrance
+Daily to
+hourly
+depending
+on feed
+https://data.ny.gov/
+Transportation/MTA-
+Subway-Hourly-
+Ridership-2020-2024/
+wujg-7c2s<br>https://
+data.ny.gov/
+Transportation/MTA-
+Subway-Hourly-
+Ridership-
+Beginning-2025/5wq4-
+mkjj<br>https://
+data.ny.gov/
+Transportation/MTA-
+Subway-Entrances-and-
+Exits-2024/i9wp-a4ja
+CSV/API via
+Open NY
+Open NY
+terms
+LEDGER +
+station
+master table
+Excellent for
+station-level
+before/after
+analysis.
+Caveat: 2020
+creates a
+pandemic
+regime break;
+OMNY and
+return-swipe
+estimation
+methods
+matter for
+comparability.
+High
+confidence.
+37
+38
+10
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+311
+complaints
+and service
+requests
+2010–present
+Point/address,
+complaint
+type,
+timestamp
+Near-
+continuous
+https://
+data.cityofnewyork.us/
+resource/erm2-
+nwe9.json?$limit=5
+CSV/API
+NYC Open
+Data has no
+general
+restrictions
+on reuse
+LEDGER +
+privacy
+screen
+One of the
+single best
+public-opinion
+and nuisance-
+change
+proxies
+available
+anywhere. Use
+carefully
+around
+personally
+identifying or
+sensitive
+complaint
+text/location
+combinations.
+High
+confidence.
+Employment,
+population,
+and census
+LEHD/LODES
+currently
+reaches 2002–
+2022 in
+published
+OnTheMap/
+LODES
+updates; ACS
+1-year covers
+2005–2024 and
+ACS 5-year
+covers 2009–
+2024;
+decennial APIs
+cover 2000,
+2010, 2020;
+annual
+population
+estimates are
+published by
+the Census
+Bureau
+Block to tract
+to place
+Annual
+releases,
+with lag
+https://
+lehd.ces.census.gov/
+data/<br>https://
+api.census.gov/data/
+2024/acs/
+acs1<br>https://
+api.census.gov/data/
+2024/acs/acs5
+CSV/API
+Census API
+terms allow
+use; Census
+and
+Landsat
+public-
+domain
+norms
+apply
+broadly to
+federal data
+CUBE/API +
+geography
+crosswalks
+Core for jobs,
+commuting,
+demographic
+and
+socioeconomic
+baselines.
+High
+confidence.
+39
+40
+11
+
+Source family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested use
+case, quality
+notes,
+confidence
+Sales,
+valuations,
+and rent
+context
+Annualized
+citywide sales
+update is
+refreshed
+yearly; archive
+covers sales
+through 2015;
+property
+valuation and
+assessment is
+annual; NYC
+HVS is triennial
+and RGB
+research
+extends back
+to the 1990s
+Property,
+borough,
+neighborhood,
+survey
+geography
+Annual,
+triennial,
+or report-
+cycle
+https://
+data.cityofnewyork.us/
+City-Government/NYC-
+Citywide-Annualized-
+Calendar-Sales-Update/
+w2pb-icbu<br>https://
+data.cityofnewyork.us/
+City-Government/
+Property-Valuation-and-
+Assessment-Data/yjxr-
+fw8i
+CSV/Open
+Data plus
+PDFs
+Mostly
+reusable
+under NYC
+platform
+terms
+SNAPSHOT +
+publication-
+vintage
+tracking
+Strong for
+market
+effects, but
+rents are less
+transactional
+than in
+London’s
+official data
+stack.
+Confidence
+high for sales/
+assessments,
+medium-high
+for rent
+outcomes
+because they
+rely on survey/
+report
+families.
+London catalog
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Planning
+London
+Datahub
+core
+Live, citywide
+planning
+permissions
+with progress
+data; starts
+and
+completions
+are supplied
+annually by
+boroughs
+Application,
+site,
+authority,
+development
+proposal
+Live/current
+with annual
+progress
+items
+https://
+planninglondondatahub.london.gov.uk/
+Web platform
++ API
+Public portal;
+respect
+dataset-level
+terms
+LEDGER +
+document
+index +
+application
+graph
+London’s
+single most
+important
+urban-event
+dataset
+family. High
+confidence.
+41
+42
+12
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Planning
+London
+Datahub API
+Read-only
+guest API
+documented
+with JSON
+returns and
+Elasticsearch-
+style search
+endpoints
+Application-
+and nested-
+record level
+Live
+https://planningdata.london.gov.uk/
+api-guest/<br>https://
+planningdata.london.gov.uk/api-
+guest/applications/_search
+JSON API
+Publicly
+documented
+access;
+header
+required
+API pull +
+schema
+registry
+High
+confidence.
+Supports
+direct search
+by authority,
+dates, and
+fields.
+Excellent for
+adapters and
+reproducible
+ETL.
+Residential
+approvals,
+starts,
+completions,
+pipeline
+dashboards
+Current
+dashboards
+are derived
+from PLD;
+boroughs
+supply starts
+and
+completions
+annually; the
+dashboard
+notes
+explicitly
+warn that
+inbound data
+are not fully
+quality
+checked at
+receipt
+Development/
+site/project
+Ongoing
+https://data.london.gov.uk/dataset/
+residential-approvals-dashboard-
+e5now<br>https://
+data.london.gov.uk/dataset/
+residential-starts-
+dashboard-240w5<br>https://
+data.london.gov.uk/dataset/
+residential-completions-dashboard-
+e196j
+Dashboard +
+downloadable
+resources
+London
+Datastore
+package-
+level terms
+CUBE +
+periodic
+extract
+snapshots
+Very good
+for housing
+delivery
+evidence.
+Important
+quality
+caveat: these
+data may be
+revised after
+quality
+reviews. High
+confidence.
+43
+44
+13
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+London
+Development
+Database
+archive and
+planning
+comments
+LDD is no
+longer
+updated but
+remains a
+historical
+archive;
+PlanApps
+supports
+decisions
+back to 2012
+and lets users
+comment on
+live
+applications;
+borough
+planning
+search pages
+are linked
+centrally
+Application
+and
+document
+Archived for
+LDD; current
+for PlanApps
+https://data.london.gov.uk/dataset/
+planning-permissions-on-the-london-
+development-database-
+ldd-2jxq0<br>https://
+www.london.gov.uk/programmes-
+strategies/planning/planning-
+applications-and-decisions
+Downloadable
+resources and
+web docs
+London
+Datastore
+terms; site-
+specific
+planning
+terms
+DOCSTORE +
+historical
+archive layer
+Best way to
+bridge older
+strategic
+permissions
+with current
+mayoral
+applications
+and
+comments.
+High
+confidence.
+London
+Datastore
+platform and
+API
+Broad multi-
+domain
+datastore;
+package-level
+licensing
+varies, but
+many
+datasets are
+open and the
+site provides
+API guidance
+Dataset/
+package level
+Publisher-
+dependent
+https://data.london.gov.uk/
+<br>https://data.london.gov.uk/
+guidance/datastore-api/
+CKAN/JSON-
+style API plus
+files
+Terms vary
+by package;
+users must
+check
+package
+license
+details
+CATALOG sync
++ package
+harvester
+Essential
+platform
+layer for
+production
+metadata,
+automated
+refresh
+checks, and
+package
+discovery.
+High
+confidence.
+45
+46
+14
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Road
+network,
+identifiers,
+and open
+basemaps
+OS Open
+Roads, Open
+USRN, Open
+UPRN,
+OpenMap
+Local, and
+Open
+Zoomstack
+are current
+open national
+layers; they
+are not a
+historical
+time series
+themselves
+Road, street
+identifier,
+property
+identifier,
+general
+mapping
+Typically
+semiannual
+or product-
+specific
+refresh
+https://www.ordnancesurvey.co.uk/
+products/os-open-roads<br>https://
+www.ordnancesurvey.co.uk/products/
+os-open-usrn<br>https://
+www.ordnancesurvey.co.uk/products/
+os-open-uprn<br>https://
+www.ordnancesurvey.co.uk/products/
+os-open-map-local
+Downloadable
+vector/raster
+products
+OS
+OpenData
+under OGL
+LINKER +
+basemap
+service
+Strong open
+backbone for
+joins and
+mapping.
+High
+confidence.
+Best open
+substitute
+where
+parcel/
+building
+openness is
+weaker than
+NYC.
+3D and
+building-
+stock context
+OS 3D Mesh
+beta
+launched in
+2025 and is
+available as a
+beta product;
+London
+Building
+Stock Model
+v2 is a GLA
+analytical
+model built
+over a 2017-
+based
+predecessor
+and updated
+in-house
+Building /
+mesh /
+citywide stock
+model
+Emerging
+https://www.ordnancesurvey.co.uk/
+products/os-3d-mesh<br>https://
+data.london.gov.uk/blog/london-
+building-stock-model-2/
+3D tiles,
+derived
+model data/
+blog
+resources
+OS beta
+access is not
+equivalent to
+unrestricted
+open data;
+verify access
+route
+SNAPSHOT +
+3D derivative
+cache
+Useful, but
+weaker than
+NYC for a
+clean open
+municipal 3D
+history.
+Confidence
+medium.
+47
+48
+15
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Historical
+imagery and
+ortho/aerial
+alternatives
+Historic
+England’s
+Aerial Photo
+Explorer
+exposes over
+540,000
+digitized
+photos from
+a much larger
+archive;
+Environment
+Agency
+vertical aerial
+photography
+is available as
+an official
+airborne
+mapping
+dataset; OS
+MasterMap
+Imagery
+Layer is
+authoritative
+but licensed,
+not open
+Photo, scene,
+ortho
+Archive +
+programmatic
+refresh
+depending on
+provider
+https://historicengland.org.uk/
+images-books/archive/collections/
+aerial-photos/<br>https://
+environment.data.gov.uk/dataset/
+dae203a8-ba24-4c54-
+bab0-866b9faadb58
+Archive site
+and
+downloadable
+datasets
+Mixed.
+Historic
+England
+image rights
+can vary per
+image;
+Environment
+Agency data
+are official
+open-
+government
+style
+datasets; OS
+imagery is
+licensed
+DOCSTORE +
+tile/scene
+registry
+High value,
+especially
+where
+London lacks
+a single
+openly tiled
+orthophoto
+series like
+NYC.
+Confidence
+high for
+archive
+existence,
+medium-
+high for
+image-by-
+image rights
+complexity.
+Traffic
+counts and
+road flows
+The DfT road
+traffic
+statistics site
+provides
+London count
+points and
+raw counts in
+CSV and
+JSON; the
+quality note
+distinguishes
+“Counted”
+from
+“Estimated”
+methods
+Count point
+and road link
+National
+statistical
+refreshes
+https://roadtraffic.dft.gov.uk/
+regions/6
+CSV and JSON
+Government
+statistical/
+open-data
+terms
+CUBE + count-
+point lookup +
+quality flag
+filter
+Excellent for
+road flow
+analysis.
+Always keep
+the
+estimation
+method in
+the model
+and
+upweight
+directly
+counted
+observations.
+High
+confidence.
+49
+50
+16
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+TfL routes,
+timetables,
+accessibility,
+demand, and
+cycle hire
+Unified API
+covers lines,
+routes, stops,
+BikePoint,
+occupancy
+and more;
+station
+facilities/
+topology and
+PTAL are
+available;
+cycle hire
+counts run
+from the 30
+July 2010
+launch
+through
+March 2026
+in the cited
+dataset; some
+station/
+journey detail
+series cover
+2003–2012
+Stop, station,
+line, route,
+bike point,
+grid point
+Live APIs plus
+periodic
+datasets
+https://api.tfl.gov.uk/
+<br>https://api.tfl.gov.uk/swagger/
+ui/index.html<br>https://
+data.london.gov.uk/dataset/number-
+of-bicycle-hires-2r84d<br>https://
+data.london.gov.uk/dataset/public-
+transport-accessibility-
+levels-24rz6
+REST/JSON,
+KML, CSV,
+spreadsheets
+TfL transport
+data terms
+apply, based
+on OGL with
+amendments
+API pull +
+accessibility
+and demand
+cubes
+London’s
+best mobility
+stack.
+Caveats:
+some
+timetable
+and network
+feeds are not
+GTFS-curated
+in the same
+way many
+other
+agencies
+publish; a
+few historical
+series are
+dashboard/
+spreadsheet
+based. High
+confidence.
+51
+17
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Workforce,
+labour
+market, and
+population
+Nomis is the
+main API/
+service layer
+for ONS
+labour
+market and
+census
+outputs; BRES
+is the official
+source of
+employee
+and
+employment
+estimates by
+detailed
+geography
+and industry;
+ONS mid-year
+population
+estimates
+currently
+provide a
+detailed
+2011–2024
+series with
+older detailed
+series
+available;
+2001 Census
+is available
+through ONS;
+the GLA
+borough-by-
+sector jobs
+series spans
+1971–2023
+Borough,
+LAD, small
+areas
+depending on
+source
+Annual or
+quarterly
+depending on
+family
+https://www.nomisweb.co.uk/api/v01/
+<br>https://www.ons.gov.uk/
+peoplepopulationandcommunity/
+populationandmigration/
+populationestimates
+CSV, JSON,
+spreadsheets,
+APIs
+Official
+statistics
+terms; some
+detailed
+BRES access
+requires
+additional
+notice, but
+rounded
+public
+versions
+exist
+CUBE/API +
+geography
+harmonization
+Very strong
+for long-run
+labour and
+demography.
+High
+confidence.
+52
+18
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Property
+transactions,
+price indices,
+and rents
+Price Paid
+Data is
+monthly and
+available
+from 1995
+with yearly
+files; UK HPI
+is monthly
+and linked-
+data enabled;
+VOA average
+private rents
+are updated
+biannually
+and changed
+from
+quarterly to
+biannual after
+2013
+Property
+transaction,
+local
+authority,
+region
+Monthly or
+biannual
+https://www.gov.uk/government/
+statistical-data-sets/price-paid-
+data-downloads<br>https://
+landregistry.data.gov.uk/app/ukhpi/
+<br>https://data.london.gov.uk/
+dataset/average-private-rents-
+borough-29j80
+CSV, linked
+data,
+spreadsheets
+Official
+government
+terms; check
+Price Paid
+permitted-
+use guidance
+LEDGER +
+linked-data
+price index
+adapter
+Best official
+market stack
+in this entire
+catalog. High
+confidence.
+53
+19
+
+Source
+family
+Coverage and
+gaps
+Spatial
+granularity
+Update
+frequency
+Direct access / example linkFormat
+License /
+terms
+Recommended
+adapter
+Suggested
+use case,
+quality
+notes,
+confidence
+Public
+opinion,
+consultation,
+and local
+sentiment
+Annual
+London
+Survey
+toplines cover
+2000–2011,
+with no
+survey in
+2008; from
+2014 onward
+the Annual
+London
+Survey is
+delivered by
+Talk London,
+whose civic
+engagement
+platform
+launched in
+2012; mayoral
+planning
+consultations
+and
+application
+comments
+are public;
+police
+dashboards
+are
+downloadable
+via London
+Datastore
+Survey,
+consultation,
+ward/
+borough,
+application
+Survey-cycle /
+current
+consultations
+https://data.london.gov.uk/ search
+Annual London Survey<br>https://
+www.london.gov.uk/programmes-
+strategies/planning/planning-
+consultations
+Datasets,
+dashboards,
+consultation
+pages
+Mixed
+package/site
+terms
+DOCSTORE +
+survey cube
+Useful, but
+there is no
+citywide 311-
+style
+operational
+complaint
+ledger
+equivalent.
+Confidence
+high on the
+official
+survey and
+consultation
+families.
+Coverage timelines
+The timelines below show the major dataset families with the clearest verified coverage windows. They are
+intentionally conservative: where the exact start year of a historical series was not verified in this pass, I left
+it out rather than overstate continuity. In both charts, a bar ending before 2026 does not mean the source
+is defunct; it often means the latest fully published annual vintage stops earlier while the portal or API
+remains live.
+54
+55
+20
+
+gantt
+    dateFormat  YYYY-MM-DD
+    title Global and New York City major coverage windows
+    section Global
+    Landsat Collection 2             :g1, 2000-01-01, 2026-12-31
+    Sentinel-2                       :g2, 2015-01-01, 2026-12-31
+    OpenStreetMap project/history    :g3, 2004-01-01, 2026-12-31
+    section New York City
+    NYC historical aerials/orthos    :n1, 2001-01-01, 2022-12-31
+    NYC 311                          :n2, 2010-01-01, 2026-12-31
+    ACS 1-year                       :n3, 2005-01-01, 2024-12-31
+    ACS 5-year                       :n4, 2009-01-01, 2024-12-31
+    LEHD LODES                       :n5, 2002-01-01, 2022-12-31
+    MTA daily ridership              :n6, 2020-01-01, 2025-12-31
+    MTA hourly ridership             :n7, 2020-01-01, 2026-12-31
+    Standardized annual turnstiles   :n8, 2015-01-01, 2022-12-31
+Coverage shown above is supported by official release pages for Landsat, Sentinel, OpenStreetMap history,
+NYC Map Tiles, NYC 311, ACS, LODES, and MTA ridership families.
+gantt
+    dateFormat  YYYY-MM-DD
+    title London major coverage windows
+    section London
+    Annual London Survey             :l1, 2000-01-01, 2011-12-31
+    Talk London era annual survey    :l2, 2014-01-01, 2026-12-31
+    ONS population estimates         :l3, 2001-01-01, 2024-12-31
+    GLA borough sector jobs          :l4, 2000-01-01, 2023-12-31
+    Tube station entries/exits view  :l5, 2003-01-01, 2012-12-31
+    Santander Cycle hires            :l6, 2010-07-30, 2026-03-31
+    HM Land Registry Price Paid      :l7, 2000-01-01, 2026-12-31
+    UK House Price Index             :l8, 2000-01-01, 2026-12-31
+These London windows come from official GLA opinion research, ONS population releases and previous
+versions, GLA jobs time series, TfL blog and cycle-hire datasets, and HM Land Registry documentation.
+Implementation guidance, visualizations, and legal and ethical
+constraints
+A production-grade platform should model every source using a small set of adapter patterns. The most
+useful are TILER for imagery and basemaps, SNAPSHOT for annual or periodic full extracts such as PLUTO
+or PTAL, LEDGER for event streams such as permits, complaints, and ridership, DOCSTORE for plans,
+consultation documents, comment files, and environmental review documents, and LINKER for stable
+identifiers such as BBL, BIN, station IDs, USRN, and UPRN. These adapters should write into a unified
+56
+57
+21
+
+spatiotemporal graph keyed by event location, event time, publication time, and source vintage. In New
+York City the natural location key is usually BBL/BIN plus street segment and station complex linkages. In
+London the practical key is usually UPRN/USRN plus LPA application IDs, NaPTAN/StopPoint IDs, or DfT
+count points.
+The most effective visual products are not generic dashboards. They are tightly linked, event-centric views: a
+synchronized before/after image swipe using official imagery; an event timeline showing filings,
+approvals, permits, starts, completions, and occupancy; distance-decay charts of traffic, ridership,
+employment, complaints, and prices around the event; isochrone/PTAL or transit-access panels; property
+and rent trend panels; and a document evidence tab containing planning documents, public comments,
+and environmental statements. NYC is especially suited to complaint and transit ridership deltas. London is
+especially suited to planning lifecycle tracking, transit-access summaries, and official transaction/rent trend
+overlays.
+Interpolation strategies are necessary whenever a dataset does not span the whole 2000–2026 window. For
+imagery, fill missing years with Landsat or Sentinel seasonal composites between official aerial captures.
+For London building-level geometry change, infer change windows from PLD/LDD applications, OS/
+OpenStreetMap baselines, and historic aerials when a fully open historical building footprint series is
+missing. For 2026 statistics that are not yet published, use the latest completed annual vintage and pair it
+with live operational APIs only when those live metrics are conceptually comparable. For labour-market or
+rent series with publication lags, the safest method is to report the latest official year and show 2026 only as
+provisional or “live operational context,” not as directly equivalent annual statistics.
+The legal and ethical constraints are real. NYC Open Data broadly states that there are no general
+restrictions on use, but that does not eliminate privacy or defamation risk when combining complaint text,
+addresses, and sensitive topics. TfL data are released under transport-data terms based on the OGL but
+with specific amendments, so commercial republication, branding, caching, and refresh behavior should be
+checked source by source. London Datastore licenses vary at the package level. OS OpenData products are
+OGL and relatively easy to reuse, but premium OS imagery and some 3D products are not equivalent to
+open city data. Historic England imagery can have image-specific rights and attributions. OpenStreetMap
+requires attribution and ODbL share-alike treatment for derivative databases. Planning comments can
+contain personal data or allegations; an evidence platform should minimize personal-text display and
+privilege aggregation, excerpting, and document links over wholesale republication.
+Open questions and limitations
+This report is comprehensive on the highest-confidence official layers, but a few areas remain structurally
+weaker and should be treated as partial rather than complete. London does not have a clean equivalent to
+NYC’s lot-level open parcel-and-building stack or a universal 311-type city service-request ledger. NYC has
+strong public administrative and complaint data, but official open rent series are more fragmented than
+London’s Land Registry plus VOA stack. I also did not verify every historical PLUTO/MapPLUTO vintage
+individually or every pre-2010 London borough planning portal archive in this pass; those are better
+handled during implementation by a one-time availability crawl.
+For a public open-source release, the safest position is to start with the high-confidence official core in
+this report, mark 2026 annual series as partial, keep a reproducible vintage registry, and add secondary
+58
+59
+60
+61
+62
+22
+
+sources only after their licensing and historical continuity have been validated against this official
+backbone.
+NYC Map Tiles
+https://maps.nyc.gov/tiles/?utm_source=chatgpt.com
+Aerial Photo Explorer
+https://historicengland.org.uk/images-books/archive/collections/aerial-photos/?utm_source=chatgpt.com
+Department of Finance Digital Tax Map | NYC Open Data
+https://data.cityofnewyork.us/Housing-Development/Department-of-Finance-Digital-Tax-Map/smk3-tmxj?
+utm_source=chatgpt.com
+https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-2020-2024/wujg-7c2s
+https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-2020-2024/wujg-7c2s
+BUILDING - NYC Open Data -
+https://data.cityofnewyork.us/City-Government/BUILDING/5zhs-2jue?utm_source=chatgpt.com
+https://opendata.cityofnewyork.us/faq/
+https://opendata.cityofnewyork.us/faq/
+https://opendata.cityofnewyork.us/
+https://opendata.cityofnewyork.us/
+https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/
+populationestimates/methodologies/populationestimatesforenglandandwalesmid2022methodsguide
+https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/methodologies/
+populationestimatesforenglandandwalesmid2022methodsguide
+https://www.usgs.gov/landsat-missions/landsat-collection-2-level-2-science-products
+https://www.usgs.gov/landsat-missions/landsat-collection-2-level-2-science-products
+PLUTO README DOCUMENT April 2024 (24v1.1)
+https://data.cityofnewyork.us/api/views/64uk-42ks/files/e3a8af0e-f313-4305-89ce-3153c33d6757?
+download=true&filename=pluto_readme.pdf&utm_source=chatgpt.com
+https://www.nyc.gov/content/planning/pages/resources/datasets/zoning-application-portal
+https://www.nyc.gov/content/planning/pages/resources/datasets/zoning-application-portal
+https://data.cityofnewyork.us/City-Government/Centerline/inkn-q76z
+https://data.cityofnewyork.us/City-Government/Centerline/inkn-q76z
+https://api.mta.info/
+https://api.mta.info/
+Data - Longitudinal Employer-Household Dynamics
+https://lehd.ces.census.gov/data/?utm_source=chatgpt.com
+https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data/yjxr-fw8i
+https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data/yjxr-fw8i
+https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w
+https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w
+63
+1813282959
+249
+3463158
+538
+792139
+1061
+1163
+12
+142456
+153062
+16
+1735
+1837
+1940
+20
+2233
+23
+
+https://data.london.gov.uk/dataset/?_res_geo_limit=0&geo=Greater+London&masthead=gla-
+opinion-research&org=8ad30238-7dba-4cf7-a59f-6f00dd924530&res_geo=Other%2CWard&topics=crime-
+and-community-safety
+https://data.london.gov.uk/dataset/?_res_geo_limit=0&geo=Greater+London&masthead=gla-opinion-
+research&org=8ad30238-7dba-4cf7-a59f-6f00dd924530&res_geo=Other%2CWard&topics=crime-and-community-safety
+https://earthexplorer.usgs.gov/
+https://earthexplorer.usgs.gov/
+https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2
+https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-missions/sentinel-2
+https://www.openstreetmap.org/copyright?PHPSESSID=0ilocaf8u3sam9lmle29iq94k6
+https://www.openstreetmap.org/copyright?PHPSESSID=0ilocaf8u3sam9lmle29iq94k6
+https://data.cityofnewyork.us/Housing-Development/DOB-Job-Application-Filings/ic3t-wcy2
+https://data.cityofnewyork.us/Housing-Development/DOB-Job-Application-Filings/ic3t-wcy2
+https://zap.planning.nyc.gov/
+https://zap.planning.nyc.gov/
+https://data.cityofnewyork.us/Transportation/Traffic-Volume-Counts-Historical-/btm5-ppia
+https://data.cityofnewyork.us/Transportation/Traffic-Volume-Counts-Historical-/btm5-ppia
+https://data.cityofnewyork.us/City-Government/NYC-Citywide-Annualized-Calendar-Sales-Update/w2pb-
+icbu
+https://data.cityofnewyork.us/City-Government/NYC-Citywide-Annualized-Calendar-Sales-Update/w2pb-icbu
+The Planning London Datahub
+https://www.london.gov.uk/programmes-strategies/planning/digital-planning/planning-london-datahub?
+utm_source=chatgpt.com
+https://www.london.gov.uk/sites/default/files/
+planninglondondatahub_api_connection_technical_documentation_v1.pdf
+https://www.london.gov.uk/sites/default/files/planninglondondatahub_api_connection_technical_documentation_v1.pdf
+Residential approvals dashboard - London Datastore
+https://data.london.gov.uk/dataset/residential-approvals-dashboard-e5now?utm_source=chatgpt.com
+Planning permissions on the London Development Database ...
+https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0?
+utm_source=chatgpt.com
+London Datastore – Greater London Authority
+https://data.london.gov.uk/?utm_source=chatgpt.com
+https://www.ordnancesurvey.co.uk/products/os-open-roads
+https://www.ordnancesurvey.co.uk/products/os-open-roads
+https://www.ordnancesurvey.co.uk/products/os-3d-mesh
+https://www.ordnancesurvey.co.uk/products/os-3d-mesh
+London - Road Traffic website
+https://roadtraffic.dft.gov.uk/regions/6?utm_source=chatgpt.com
+235457
+25
+2660
+27
+32
+34
+36
+41
+42
+43
+44
+45
+46
+47
+48
+50
+24
+
+https://api.tfl.gov.uk/
+https://api.tfl.gov.uk/
+API - Nomis - Official Census and Labour Market ...
+https://www.nomisweb.co.uk/api?utm_source=chatgpt.com
+https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
+https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
+2022 LODES Data Released, OnTheMap Updated
+https://www.census.gov/programs-surveys/ces/news-and-updates/updates/11192024.html?utm_source=chatgpt.com
+51
+52
+53
+55
+25

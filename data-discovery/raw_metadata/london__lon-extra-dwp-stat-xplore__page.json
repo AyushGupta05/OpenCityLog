@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-dwp-stat-xplore",
+  "city": "london",
+  "title": "DWP Stat-Xplore",
+  "publisher": "Department for Work and Pensions",
+  "bucket": "welfare/labour market/demographics",
+  "retrieved_at": "2026-04-28T12:57:23.983803+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://stat-xplore.dwp.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:23.659856+00:00",
+      "final_url": "https://stat-xplore.dwp.gov.uk/webapi/jsf/login.xhtml",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "21245",
+      "bytes_captured": 21245,
+      "page_title": "Stat-Xplore - Log in",
+      "h1": "Contact Us Welcome to Stat-Xplore",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\"><head> <meta name=\"format-detection\" content=\"telephone=no\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /> <title>Stat-Xplore - Log in</title> <link rel=\"shortcut icon\" href=\"/webapi/favicon.ico\" type=\"image/x-icon\" /> <link href=\"/webapi/gxt-resources/css/gxt-all.css\" rel=\"stylesheet\" type=\"text/css\" /> <link type=\"text/css\" href=\"/webapi/stylesheets/smoothness/jquery-ui-1.8.24.custom.css\" rel=\"stylesheet\" /> <script> window.SW2_CONTEXT_PATH = \"\\/webapi\"; window.SW2_LOCK_URL = \"\\/webapi\\/jsf\\/login.xhtml\"; window.SW2_SEARCH_TEXT_PLACEHOLDER_TEXT = \"Search\"; window.SW2_TREE_LABELS = { icons: { expanded: \"Expanded\", collapsed: \"Collapsed\" }, labels: { loading: \"Loading...\" } }; window.SW2_CATALOGUE_TREE_LABELS = { icons: { database: \"Database\", folder: \"Private Folder\", \"folder-read\": \"Readable Folder\", \"folder-write\": \"Writable Folder\", user_table: \"User Table\", system_table: \"System Table\" } }; window.SW2_SCHEMA_TREE_LABELS = { icons: { summation_folder: \"Summation Group\", summation: \"Summation\", folder: \"Field Group\", field: \"Field\", value: \"Value\", bulk_selection: \"Bulk Selection\", mappable_field: \"Mappable Field\", mappable_value: \"Mappable Value\", mappable_bulk_selection: \"Mappable Bulk Selection\", mandatory_overlay: \"Mandatory\", meta_info: \"Meta Information for {0}\" }, labels: { unweighted: \"Unweighted\", weightedBy: \"Weighted by: ({0})\", range: \"Range\", manage: \"Manage\", bulkSelection: \"Bulk Selection\", levelSelect: \"Select all at level\", row: \"Row\", column: \"Column\", wafer: \"Wafer\", }, tableOnly: { symbol: \"\\u2020\", title: \"Temporary table recode. If removed from the table, it will also be removed from this list.\" } }; </script> <script src=\"/webapi/scripts/build/vendor.bundle.js\"></script> <script src=\"/webapi/scripts/build/common.bundle.js\"></script> <script src=\"/webapi/scripts/build/layout.bundle.js\"></script> <link href=\"/webapi/user/user.css\" rel=\"stylesheet\" type=\"text/css\" /> <link href=\"/webapi/stylesheets/login.css\" rel=\"stylesheet\" type=\"text/css\" /> <link href=\"/webapi/stylesheets/dwp.css"
+    }
+  ]
+}

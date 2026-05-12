@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-os-open-greenspace",
+  "city": "london",
+  "title": "OS Open Greenspace",
+  "publisher": "Ordnance Survey",
+  "bucket": "greenspace/public realm/basemap",
+  "retrieved_at": "2026-04-28T12:57:20.934514+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.ordnancesurvey.co.uk/products/os-open-greenspace",
+      "retrieved_at": "2026-04-28T12:57:20.648691+00:00",
+      "final_url": "https://www.ordnancesurvey.co.uk/products/os-open-greenspace",
+      "status": 200,
+      "content_type": null,
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 250000,
+      "page_title": "OS Open Greenspace | Data Products | OS",
+      "h1": null,
+      "meta_description": "OS Open Greenspace is Britain’s most comprehensive Open dataset of greenspace. Find the location of public parks, sports facilities, play areas, allotments and more.",
+      "text_sample": "<!doctype html><html itemscope itemtype=\"http://schema.org/\" lang=\"en-GB\" dir=\"ltr\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"application-name\" content=\"Ordnance Survey\"/><link rel=\"stylesheet\" href=\"/_siL0TA_205b011b-bd83-4c77-8af0-b6ecacaf60cb/static-assets/css/osweb-styles.3fcadd634b775a7cadba.css\"/><title data-react-helmet=\"true\">OS Open Greenspace | Data Products | OS</title> <meta data-react-helmet=\"true\" name=\"msapplication-TileColor\" content=\"var(--osds-colour-primary-1)\"/><meta data-react-helmet=\"true\" name=\"msapplication-config\" content=\"/_siL0TA_205b011b-bd83-4c77-8af0-b6ecacaf60cb/static-assets/browserconfig.xml\"/><meta data-react-helmet=\"true\" name=\"theme-color\" content=\"var(--osds-colour-primary-1)\"/><meta data-react-helmet=\"true\" name=\"description\" content=\"OS Open Greenspace is Britain’s most comprehensive Open dataset of greenspace. Find the location of public parks, sports facilities, play areas, allotments and more.\"/><meta data-react-helmet=\"true\" name=\"robots\" content=\"index, follow\"/><meta data-react-helmet=\"true\" property=\"og:site_name\" content=\"Ordnance Survey\"/><meta data-react-helmet=\"true\" property=\"og:url\" content=\"https://www.ordnancesurvey.co.uk/products/os-open-greenspace\"/><meta data-react-helmet=\"true\" property=\"og:title\" content=\"OS Open Greenspace | Data Products | OS\"/><meta data-react-helmet=\"true\" property=\"og:description\" content=\"OS Open Greenspace is Britain’s most comprehensive Open dataset of greenspace. Find the location of public parks, sports facilities, play areas, allotments and more.\"/><meta data-react-helmet=\"true\" property=\"og:image\" content=\"https://www.ordnancesurvey.co.uk/img-assets/products/greenspace-open-london.x5201e7a5.jpg?w=1200&amp;h=800&amp;crop=1200,675,0,63?w=1200&amp;h=630\"/><meta data-react-helmet=\"true\" property=\"og:image:alt\" content=\"Ordnance Survey\"/><meta data-react-helmet=\"true\" property=\"og:image:width\" content=\"1200\"/><meta data-react-helmet=\"true\" property=\"og:image:height\" content=\"630\"/><meta data-react-helmet=\"true\" property=\"og:type\" content=\"website\"/><meta data-react-helmet=\"true\" property=\"og:locale\" content=\"en_GB\"/><meta data-react-helmet=\"true\" name=\"twitter:card\" content=\"summary\"/><link data-react-helmet=\"true\" rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/_siL0TA_205b011b-bd83-4c77-8af0-b6ecacaf60cb/static-assets/assets/icons/apple-touch-icon.png\"/><link data-react-helmet=\"true\" rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/_siL0TA_205b011b-bd83-4c77-8af0-b6ecacaf60cb/static-assets/assets/icons/favicon-32x32.png\"/><link data-react-helmet=\"true\" rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/_siL0TA_205b011b-bd83-4c77-8af0-b6ecacaf60cb/static-assets/assets/icons/favicon-16x16.png\"/><link data-react-helmet=\"true\" rel=\"manifest\" href=\"/_siL0TA_205b011b-bd83-4c77-8af0-b6ecacaf60cb/static-assets/site.webmanifest\"/><link data-react-helmet=\"true\" rel=\"mask-icon\" href=\"/_siL0TA_205b011b-bd83-4c77-"
+    }
+  ]
+}

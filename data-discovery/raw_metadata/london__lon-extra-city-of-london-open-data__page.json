@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-city-of-london-open-data",
+  "city": "london",
+  "title": "City of London Open Data",
+  "publisher": "City of London Corporation",
+  "bucket": "borough/local assets/planning/highways",
+  "retrieved_at": "2026-04-28T12:57:27.331742+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityoflondon.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:27.175551+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

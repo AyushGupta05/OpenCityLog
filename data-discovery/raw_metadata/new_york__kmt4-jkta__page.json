@@ -1,0 +1,440 @@
+{
+  "source_id": "kmt4-jkta",
+  "city": "new_york",
+  "title": "Imagery and Map Services",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "imagery/map services/source provenance",
+  "retrieved_at": "2026-04-28T13:00:18.499278+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/kmt4-jkta",
+      "retrieved_at": "2026-04-28T13:00:16.642640+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/kmt4-jkta",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4105,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "iconUrl",
+        "id",
+        "indexUpdatedAt",
+        "license",
+        "licenseId",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Imagery and Map Services",
+      "description": "The Department of Information Technology and Telecommunications, GIS Unit, has created a series of Map Tile Services for use in public web mapping & desktop applications. The link below describes the Basemap, Labels, & Aerial Photographic map services, as well as, how to utilize them in popular JavaScript web mapping libraries and desktop GIS applications. A showcase application, NYC Then&Now (https://maps.nyc.gov/then&now/) is also included on this page.",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1498603058,
+      "json_sample": {
+        "id": "kmt4-jkta",
+        "name": "Imagery and Map Services",
+        "assetType": "href",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1498603058,
+        "description": "The Department of Information Technology and Telecommunications, GIS Unit, has created a series of Map Tile Services for use in public web mapping & desktop applications. The link below describes the Basemap, Labels, & Aerial Photographic map services, as well as, how to utilize them in popular JavaScript web mapping libraries and desktop GIS applications. A showcase application, NYC Then&Now (https://maps.nyc.gov/then&now/) is also included on this page.",
+        "diciBackend": false,
+        "displayType": "href",
+        "downloadCount": 0,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "iconUrl": "fileId:e931097d-4088-428b-99e8-8738f8943f03",
+        "indexUpdatedAt": 1536767939,
+        "licenseId": "CC_40_BY",
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 26265917,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1498603259,
+        "publicationGroup": 14292716,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1498603058,
+        "tableId": 14292716,
+        "totalTimesRated": 0,
+        "viewCount": 6630,
+        "viewLastModified": 1730298513,
+        "viewType": "href",
+        "approvals": [
+          {
+            "reviewedAt": 1499460964,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067729,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1499460964,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "license": {
+          "name": "Creative Commons Attribution 4.0 International",
+          "logoUrl": "images/licenses/cc30by.png",
+          "termsLink": "http://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "metadata": {
+          "additionalAccessPoints": [
+            {
+              "urls": {
+                "imagery and map services": "https://maps.nyc.gov/tiles/"
+              }
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "N/A",
+              "Date Made Public": "7/7/2017",
+              "Update Frequency": "Every 4 years"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "accessPoints": {
+            "imagery and map services": "https://maps.nyc.gov/tiles/"
+          },
+          "availableDisplayTypes": [
+            "href"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "href": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "imagery",
+          "map",
+          "map services",
+          "gis",
+          "ortho",
+          "photography",
+          "aerial",
+          "basemap",
+          "labels"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/kmt4-jkta",
+      "retrieved_at": "2026-04-28T13:00:17.307948+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/kmt4-jkta",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4105,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "iconUrl",
+        "id",
+        "indexUpdatedAt",
+        "license",
+        "licenseId",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Imagery and Map Services",
+      "description": "The Department of Information Technology and Telecommunications, GIS Unit, has created a series of Map Tile Services for use in public web mapping & desktop applications. The link below describes the Basemap, Labels, & Aerial Photographic map services, as well as, how to utilize them in popular JavaScript web mapping libraries and desktop GIS applications. A showcase application, NYC Then&Now (https://maps.nyc.gov/then&now/) is also included on this page.",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1498603058,
+      "json_sample": {
+        "id": "kmt4-jkta",
+        "name": "Imagery and Map Services",
+        "assetType": "href",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1498603058,
+        "description": "The Department of Information Technology and Telecommunications, GIS Unit, has created a series of Map Tile Services for use in public web mapping & desktop applications. The link below describes the Basemap, Labels, & Aerial Photographic map services, as well as, how to utilize them in popular JavaScript web mapping libraries and desktop GIS applications. A showcase application, NYC Then&Now (https://maps.nyc.gov/then&now/) is also included on this page.",
+        "diciBackend": false,
+        "displayType": "href",
+        "downloadCount": 0,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "iconUrl": "fileId:e931097d-4088-428b-99e8-8738f8943f03",
+        "indexUpdatedAt": 1536767939,
+        "licenseId": "CC_40_BY",
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 26265917,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1498603259,
+        "publicationGroup": 14292716,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1498603058,
+        "tableId": 14292716,
+        "totalTimesRated": 0,
+        "viewCount": 6630,
+        "viewLastModified": 1730298513,
+        "viewType": "href",
+        "approvals": [
+          {
+            "reviewedAt": 1499460964,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067729,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1499460964,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "license": {
+          "name": "Creative Commons Attribution 4.0 International",
+          "logoUrl": "images/licenses/cc30by.png",
+          "termsLink": "http://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "metadata": {
+          "additionalAccessPoints": [
+            {
+              "urls": {
+                "imagery and map services": "https://maps.nyc.gov/tiles/"
+              }
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "N/A",
+              "Date Made Public": "7/7/2017",
+              "Update Frequency": "Every 4 years"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "accessPoints": {
+            "imagery and map services": "https://maps.nyc.gov/tiles/"
+          },
+          "availableDisplayTypes": [
+            "href"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "href": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "imagery",
+          "map",
+          "map services",
+          "gis",
+          "ortho",
+          "photography",
+          "aerial",
+          "basemap",
+          "labels"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/kmt4-jkta.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:17.884147+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/kmt4-jkta.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

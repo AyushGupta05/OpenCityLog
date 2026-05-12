@@ -1,0 +1,787 @@
+{
+  "source_id": "epne-qv9x",
+  "city": "new_york",
+  "title": "Hurricane Evacuation Zones",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "flood/coastal resiliency",
+  "retrieved_at": "2026-04-28T13:00:00.208094+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/epne-qv9x",
+      "retrieved_at": "2026-04-28T12:59:57.823427+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/epne-qv9x",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7745,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Hurricane Evacuation Zones",
+      "description": "The New York City Hurricane Evacuation Zones represent varying threat levels of flooding resulting from storm surge. New York City's hurricane contingency plans are based on six evacuation zones.\n\nHurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs).\n\nFor more information visit NYC.gov or call 311 (TTY: 212-504-4155).\n\nThese zones were created by New York City Emergency Management (NYCEM) and are maintained by the Department of City Planning (DCP).\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/hurricane-evacuation-zones\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089287,
+      "json_sample": {
+        "id": "epne-qv9x",
+        "name": "Hurricane Evacuation Zones",
+        "assetType": "dataset",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/hurricane-evacuation-zones",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1718908029,
+        "description": "The New York City Hurricane Evacuation Zones represent varying threat levels of flooding resulting from storm surge. New York City's hurricane contingency plans are based on six evacuation zones.\n\nHurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs).\n\nFor more information visit NYC.gov or call 311 (TTY: 212-504-4155).\n\nThese zones were created by New York City Emergency Management (NYCEM) and are maintained by the Department of City Planning (DCP).\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/hurricane-evacuation-zones\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 440,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 40629709,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1718908977,
+        "publicationGroup": 19553895,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089287,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 19553895,
+        "totalTimesRated": 0,
+        "viewCount": 1305,
+        "viewLastModified": 1773089283,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1755094889,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7007253,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1753472640,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "i7wz-97dr",
+              "displayName": "AH (NYC Open Data)"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1755094889,
+              "failureCount": 0,
+              "startedAt": 1755094889,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "iqqb-gm94",
+              "displayName": "DCP Open Data"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 593951658,
+            "name": "Hurricane Evacuation Zone",
+            "dataTypeName": "text",
+            "description": "Hurricane evacuation zone.",
+            "fieldName": "hurricane_",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 153125455,
+            "cachedContents": {
+              "non_null": "8",
+              "largest": "X",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4",
+                  "count": "1"
+                },
+                {
+                  "item": "6",
+                  "count": "1"
+                },
+                {
+                  "item": "3",
+                  "count": "1"
+                },
+                {
+                  "item": "X",
+                  "count": "1"
+                },
+                {
+                  "item": "2",
+                  "count": "1"
+                },
+                {
+                  "item": "7",
+                  "count": "1"
+                },
+                {
+                  "item": "5",
+                  "count": "1"
+                },
+                {
+                  "item": "1",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "8",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 593951657,
+            "name": "Shape_Length",
+            "dataTypeName": "number",
+            "description": "Length of feature in internal units.",
+            "fieldName": "shape_leng",
+            "position": 2,
+            "renderTypeName": "number",
+            "tableColumnId": 153125454,
+            "cachedContents": {
+              "non_null": "8",
+              "largest": "2853196.29961",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2853196.29961",
+                  "count": "1"
+                },
+                {
+                  "item": "2008081.26929",
+                  "count": "1"
+                },
+                {
+                  "item": "1789053.81936",
+                  "count": "1"
+                },
+                {
+                  "item": "1830840.7247",
+                  "count": "1"
+                },
+                {
+                  "item": "1595876.64299",
+                  "count": "1"
+                },
+                {
+                  "item": "1719378.77159",
+                  "count": "1"
+                },
+                {
+                  "item": "1448987.01133",
+                  "count": "1"
+                },
+                {
+                  "item": "2538580.41202",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1448987.01133",
+              "count": "8",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 593951656,
+            "name": "Shape_Area",
+            "dataTypeName": "number",
+            "description": "Area of feature in internal units squared.",
+            "fieldName": "shape_area",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 153125453,
+            "cachedContents": {
+              "non_null": "8",
+              "largest": "4739682125.62",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4181864192.44",
+                  "count": "1"
+                },
+                {
+                  "item": "483170994.968",
+                  "count": "1"
+                },
+                {
+                  "item": "534077111.504",
+                  "count": "1"
+                },
+                {
+                  "item": "1332878751.74",
+                  "count": "1"
+                },
+                {
+                  "item": "851172396.707",
+                  "count": "1"
+                },
+                {
+                  "item": "390445766.013",
+                  "count": "1"
+                },
+                {
+                  "item": "541615025.289",
+                  "count": "1"
+                },
+                {
+                  "item": "4739682125.62",
+                  "count": "1"
+                }
+              ],
+              "smallest": "390445766.013",
+              "count": "8",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 593951659,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 4,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 153125456,
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "nyhez_metadata.pdf",
+              "assetId": "3c5d9adb-bf82-4b9c-a3ad-5244f0321988",
+              "name": "nyhez_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "7/14/2015",
+              "Update Frequency": "Quarterly",
+              "Data Change Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "Hurricane evacuation zone",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "hurricane",
+          "evacuation",
+          "zones",
+          "boundary",
+          "boundaries",
+          "districts",
+          "lion",
+          "cscl",
+          "department of city planning",
+          "dcp",
+          "emergency management",
+          "nycem",
+          "new york city",
+          "nyc"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/epne-qv9x",
+      "retrieved_at": "2026-04-28T12:59:58.387045+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/epne-qv9x",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7745,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Hurricane Evacuation Zones",
+      "description": "The New York City Hurricane Evacuation Zones represent varying threat levels of flooding resulting from storm surge. New York City's hurricane contingency plans are based on six evacuation zones.\n\nHurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs).\n\nFor more information visit NYC.gov or call 311 (TTY: 212-504-4155).\n\nThese zones were created by New York City Emergency Management (NYCEM) and are maintained by the Department of City Planning (DCP).\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/hurricane-evacuation-zones\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089287,
+      "json_sample": {
+        "id": "epne-qv9x",
+        "name": "Hurricane Evacuation Zones",
+        "assetType": "dataset",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/hurricane-evacuation-zones",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1718908029,
+        "description": "The New York City Hurricane Evacuation Zones represent varying threat levels of flooding resulting from storm surge. New York City's hurricane contingency plans are based on six evacuation zones.\n\nHurricane evacuation zones should not be confused with flood insurance risk zones, which are designated by FEMA and available in the form of Flood Insurance Rate Maps (FIRMs).\n\nFor more information visit NYC.gov or call 311 (TTY: 212-504-4155).\n\nThese zones were created by New York City Emergency Management (NYCEM) and are maintained by the Department of City Planning (DCP).\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/hurricane-evacuation-zones\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 26a",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 440,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 40629709,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1718908977,
+        "publicationGroup": 19553895,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089287,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 19553895,
+        "totalTimesRated": 0,
+        "viewCount": 1305,
+        "viewLastModified": 1773089283,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1755094889,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7007253,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1753472640,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "i7wz-97dr",
+              "displayName": "AH (NYC Open Data)"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1755094889,
+              "failureCount": 0,
+              "startedAt": 1755094889,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "iqqb-gm94",
+              "displayName": "DCP Open Data"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 593951658,
+            "name": "Hurricane Evacuation Zone",
+            "dataTypeName": "text",
+            "description": "Hurricane evacuation zone.",
+            "fieldName": "hurricane_",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 153125455,
+            "cachedContents": {
+              "non_null": "8",
+              "largest": "X",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4",
+                  "count": "1"
+                },
+                {
+                  "item": "6",
+                  "count": "1"
+                },
+                {
+                  "item": "3",
+                  "count": "1"
+                },
+                {
+                  "item": "X",
+                  "count": "1"
+                },
+                {
+                  "item": "2",
+                  "count": "1"
+                },
+                {
+                  "item": "7",
+                  "count": "1"
+                },
+                {
+                  "item": "5",
+                  "count": "1"
+                },
+                {
+                  "item": "1",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "8",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 593951657,
+            "name": "Shape_Length",
+            "dataTypeName": "number",
+            "description": "Length of feature in internal units.",
+            "fieldName": "shape_leng",
+            "position": 2,
+            "renderTypeName": "number",
+            "tableColumnId": 153125454,
+            "cachedContents": {
+              "non_null": "8",
+              "largest": "2853196.29961",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2853196.29961",
+                  "count": "1"
+                },
+                {
+                  "item": "2008081.26929",
+                  "count": "1"
+                },
+                {
+                  "item": "1789053.81936",
+                  "count": "1"
+                },
+                {
+                  "item": "1830840.7247",
+                  "count": "1"
+                },
+                {
+                  "item": "1595876.64299",
+                  "count": "1"
+                },
+                {
+                  "item": "1719378.77159",
+                  "count": "1"
+                },
+                {
+                  "item": "1448987.01133",
+                  "count": "1"
+                },
+                {
+                  "item": "2538580.41202",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1448987.01133",
+              "count": "8",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 593951656,
+            "name": "Shape_Area",
+            "dataTypeName": "number",
+            "description": "Area of feature in internal units squared.",
+            "fieldName": "shape_area",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 153125453,
+            "cachedContents": {
+              "non_null": "8",
+              "largest": "4739682125.62",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4181864192.44",
+                  "count": "1"
+                },
+                {
+                  "item": "483170994.968",
+                  "count": "1"
+                },
+                {
+                  "item": "534077111.504",
+                  "count": "1"
+                },
+                {
+                  "item": "1332878751.74",
+                  "count": "1"
+                },
+                {
+                  "item": "851172396.707",
+                  "count": "1"
+                },
+                {
+                  "item": "390445766.013",
+                  "count": "1"
+                },
+                {
+                  "item": "541615025.289",
+                  "count": "1"
+                },
+                {
+                  "item": "4739682125.62",
+                  "count": "1"
+                }
+              ],
+              "smallest": "390445766.013",
+              "count": "8",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 593951659,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 4,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 153125456,
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "nyhez_metadata.pdf",
+              "assetId": "3c5d9adb-bf82-4b9c-a3ad-5244f0321988",
+              "name": "nyhez_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "7/14/2015",
+              "Update Frequency": "Quarterly",
+              "Data Change Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "Hurricane evacuation zone",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "iqqb-gm94",
+          "displayName": "DCP Open Data",
+          "profileImageUrlLarge": "/api/users/iqqb-gm94/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/iqqb-gm94/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/iqqb-gm94/profile_images/TINY",
+          "screenName": "DCP Open Data",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "hurricane",
+          "evacuation",
+          "zones",
+          "boundary",
+          "boundaries",
+          "districts",
+          "lion",
+          "cscl",
+          "department of city planning",
+          "dcp",
+          "emergency management",
+          "nycem",
+          "new york city",
+          "nyc"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/epne-qv9x.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:58.954942+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/epne-qv9x.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 09 Mar 2026 20:48:05 GMT",
+      "etag": "W/\"anVsaWV0dC4yMjg1MV8xXzE0S01hdWhZTmtwSHlpRHlKZXBZbFVBbUdSUXhZ---gzipD3RuygHiaBWjlI26yUlUG_bsCLg--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 250000,
+      "json_parse_error": "Expecting ',' delimiter: line 1 column 250001 (char 250000)",
+      "text_sample": "[{\"hurricane_\":\"7\",\"shape_leng\":\"2538580.41202\",\"shape_area\":\"4739682125.62\",\"the_geom\":{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-73.73838360411283,40.59711740859555],[-73.73885520206308,40.59678311536697],[-73.7388930808847,40.596795191868345],[-73.73894690694327,40.5967631658374],[-73.73912307781073,40.59678452033315],[-73.7391068307275,40.59680420491188],[-73.7393327870223,40.596913183791656],[-73.73943957064036,40.59689740230443],[-73.73946370375488,40.596878420113754],[-73.73960988050226,40.596763437551125],[-73.73953153667877,40.59653523268616],[-73.73957904992983,40.5963763378909],[-73.73981229323961,40.59627456219549],[-73.73991492706647,40.59607881450861],[-73.73992793059647,40.59606158731441],[-73.74018670507012,40.59604738198011],[-73.74022232625983,40.596035136664135],[-73.74029022887521,40.59603775498315],[-73.74030143743683,40.59606612981447],[-73.74041452650542,40.59609226998839],[-73.74044371820966,40.59607014907394],[-73.74045917566374,40.5960691129609],[-73.74047930031807,40.59606776459621],[-73.74049383016859,40.59607396115505],[-73.74050176073615,40.59611342034318],[-73.74051141968665,40.59612453612895],[-73.74053082453663,40.596124579944636],[-73.74054701356383,40.59611968571908],[-73.74057620969363,40.59615415159447],[-73.74059766035191,40.59619177914582],[-73.7406107938946,40.59623156565023],[-73.74061526031473,40.59627245084972],[-73.74061094057222,40.596313345205694],[-73.7406038063212,40.59635928552786],[-73.74059043654606,40.5964044100745],[-73.74057097653116,40.59644822845159],[-73.74054563774833,40.596490264458915],[-73.74051469555877,40.59653006126535],[-73.74051052077785,40.59653284645881],[-73.74050704323267,40.596536141521504],[-73.74050436839813,40.59653984651296],[-73.74050257740329,40.59654384905954],[-73.74050172456985,40.5965480277626],[-73.74050183576453,40.59655225588055],[-73.74050290761508,40.59655640517296],[-73.74050490761203,40.59656034979033],[-73.74050777509507,40.596563970090855],[-73.74051142309204,40.596567156269465]"
+    }
+  ]
+}

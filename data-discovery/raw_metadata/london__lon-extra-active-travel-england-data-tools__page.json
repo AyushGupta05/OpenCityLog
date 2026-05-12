@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-active-travel-england-data-tools",
+  "city": "london",
+  "title": "Active Travel England data/tools",
+  "publisher": "Active Travel England",
+  "bucket": "walking/cycling/schemes",
+  "retrieved_at": "2026-04-28T12:57:18.385761+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.gov.uk/government/organisations/active-travel-england",
+      "retrieved_at": "2026-04-28T12:57:17.889893+00:00",
+      "final_url": "https://www.gov.uk/government/organisations/active-travel-england",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "70782",
+      "bytes_captured": 70782,
+      "page_title": "Active Travel England - GOV.UK GOV.UK",
+      "h1": "Active Travel England",
+      "meta_description": "Active Travel England is the government’s executive agency responsible for making walking, wheeling and cycling the preferred choice for everyone to get around in England. ATE is an executive agency, sponsored by the Department for Transport .",
+      "text_sample": "<!DOCTYPE html> <html class=\"govuk-template govuk-template--rebranded\" lang=\"en\"> <head> <meta charset=\"utf-8\"> <title>Active Travel England - GOV.UK</title> <script src=\"/assets/collections/govuk_publishing_components/vendor/lux/lux-measurer-d66192b1b665d415e1874e49a48138b7ae339548aa6cdb8687c7f9933e72b969.js\" async=\"async\"></script> <script src=\"/assets/collections/govuk_publishing_components/rum-custom-data-b9e1806d1da2fa8ef1855d01aa71ba5eb0afc010dd2c4de3672cc7c7a39b0c8c.js\" type=\"module\"></script> <script src=\"/assets/collections/govuk_publishing_components/rum-loader-a65b10e18ceeba3bd8a2eac507c7f2c513cdc82f35097df903fdea87f1dc2e33.js\" async=\"async\" data-lux-reporter-script=\"/assets/collections/govuk_publishing_components/vendor/lux/lux-reporter-16e474d53ab9842457c92448e9ea0e6faea553d7b8250f940eec8c50285b48af.js\"></script> <meta name=\"govuk:components_gem_version\" content=\"66.0.0\"> <script src=\"/assets/collections/govuk_publishing_components/load-analytics-7796c7fd51ab494d559ba9374e4fea61a2d4fbffa3d3727da6c5026dd8808a21.js\" type=\"module\"></script> <link rel=\"stylesheet\" href=\"/assets/collections/application-c0308f2844c3b53b0df3c176379d522aab090fcbb243ca4f7d6df5344c9e1e0c.css\" media=\"all\" /> <link rel=\"icon\" sizes=\"48x48\" href=\"/assets/collections/favicon-24f9fbe064118d58937932e73edafd1d50cb60f7bd84f52308382a309bc2d655.ico\"> <link rel=\"icon\" sizes=\"any\" href=\"/assets/collections/favicon-d962d21b5bb443f546c097ea21b567cde639adef7370da45be5e349ba8d62d33.svg\" type=\"image/svg+xml\"> <link rel=\"mask-icon\" href=\"/assets/collections/govuk-icon-mask-cdf4265165f8d7f9eec54aa2c1dfbb3d8b6d297c5d7919f0313e0836a5804bb6.svg\" color=\"#1d70b8\"> <link rel=\"apple-touch-icon\" href=\"/assets/collections/govuk-icon-180-d45a306f0549414cfa5085f16e4a3816a77558b139e5bc226f23162d1d0decb0.png\"> <meta name=\"theme-color\" content=\"#1d70b8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta property=\"og:image\" content=\"https://www.gov.uk/assets/collections/govuk-opengraph-image-4196a4d6333cf92aaf720047f56cfd91b3532d7635fc21ebcf0d5897df6b5f77.png\"> <link rel=\"stylesheet\" href=\"/assets/collections/views/_organisation-239870221a4cf8e614697a282bf266d308ba1d30c35012735547814c461a44b2.css\" media=\"all\" /> <script type=\"application/ld+json\"> { \"@context\": \"http://schema.org\", \"@type\": \"GovernmentOrganization\", \"mainEntityOfPage\": { \"@type\": \"WebPage\", \"@id\": \"https://www.gov.uk/government/organisations/active-travel-england\" }, \"name\": \"Active Travel England\", \"description\": \"Active Travel England is the government’s executive agency responsible for making walking, wheeling and cycling the preferred choice for everyone to get around in England. ATE is an executive agency, sponsored by the Department for Transport .\", \"logo\": \"https://www.gov.uk/assets/collections/govuk_publishing_components/govuk-logo-b8553f688131fad665e52a8c2df7633f9cd1c0fffb9f69703cc68c7"
+    }
+  ]
+}

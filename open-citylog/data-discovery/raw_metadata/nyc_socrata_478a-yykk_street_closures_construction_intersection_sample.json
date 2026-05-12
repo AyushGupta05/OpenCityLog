@@ -1,0 +1,24 @@
+[
+  {
+    "the_geom": {
+      "type": "Point",
+      "coordinates": [
+        -73.75431931248251,
+        40.685800510536644
+      ]
+    },
+    "nodeid": "38991",
+    "oft": "421420425540000000",
+    "onstreetname": "122 AVENUE",
+    "fromstreetname": "193 STREET",
+    "borough_code": "Q",
+    "work_start_date": "2026-04-02T00:00:00.000",
+    "work_end_date": "2026-06-02T00:00:00.000",
+    "uniqueid": "74a21af6c3af8cd8d7e1cb14e0baf9dd6a867494c440879ed18b7fb29658a77a",
+    "purpose": "DOT IN-HOUSE PAVING",
+    ":@computed_region_yeji_bk3q": "3",
+    ":@computed_region_sbqj_enih": "71",
+    ":@computed_region_92fq_4b7q": "6",
+    ":@computed_region_f5dn_yrer": "41"
+  }
+]

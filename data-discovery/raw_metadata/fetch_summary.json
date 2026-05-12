@@ -1,0 +1,15 @@
+{
+  "retrieved_at": "2026-04-28T12:21:34.186353+00:00",
+  "summary": {
+    "london": {
+      "sources_attempted": 36,
+      "ok": 30,
+      "warnings": 6
+    },
+    "new_york": {
+      "sources_attempted": 56,
+      "ok": 53,
+      "warnings": 3
+    }
+  }
+}

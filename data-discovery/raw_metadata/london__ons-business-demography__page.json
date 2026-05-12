@@ -1,0 +1,25 @@
+{
+  "source_id": "ons-business-demography",
+  "city": "london",
+  "title": "ONS business demography and UK Business Counts",
+  "publisher": "Office for National Statistics / Nomis",
+  "bucket": "economy",
+  "retrieved_at": "2026-04-28T12:18:54.290280+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation",
+      "retrieved_at": "2026-04-28T12:18:54.045365+00:00",
+      "final_url": "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation",
+      "status": 200,
+      "content_type": "text/html;charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 45699,
+      "page_title": "Activity, size and location - Office for National Statistics",
+      "h1": "Activity, size and location",
+      "meta_description": "UK businesses broken down by location, industry, legal status and employment, and UK enterprise levels measured by turnover.",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"> <head> <title>Activity, size and location - Office for National Statistics</title> <meta charset=\"utf-8\" /> <meta content=\"width=device-width,initial-scale=1.0,user-scalable=1\" name=\"viewport\"> <meta name=\"theme-color\" content=\"#58595B\"> <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"#58595B\"> <meta name=\"description\" content=\"UK businesses broken down by location, industry, legal status and employment, and UK enterprise levels measured by turnover.\"> <link rel=\"stylesheet\" type=\"text/css\" href=\"//cdn.ons.gov.uk/sixteens/418c927/css/main.css\"> <script> // extractValue extracts the value from an undecodeable json cookie string function extractValue(key, extractionString) { const extractionRegex = new RegExp(`'${key}':(.*?)[,}]`) const match = extractionString.match(extractionRegex) if (match) { return match[1] } return null } // getUsageCookieValue reads the ons_cookie_policy to determine the user's usage preference. // When no policy is found, the user is opted out by default. function getUsageCookieValue() { // ons_cookie_policy handler var policyCookie = document.cookie.match('(?:^|; )ons_cookie_policy=({.*?})'); if (policyCookie) { console.debug('ons_cookie_policy found'); var usageValue = extractValue(\"usage\", policyCookie[1]); console.debug('usage is', usageValue); // this needs to be the inverse - if usage is true the returned value is false and vice versa // user is stating whether they are opting out of usage cookie return (usageValue == \"true\") ? false : true } console.debug('no cookie found - opting out'); return true } // unescape html entities function htmlUnescape(str){ return str .replace(/&#x3D;/g, \"=\"); } var dataLayer = [{ contentTitle: htmlUnescape(\"Activity, size and location\"), analyticsOptOut: getUsageCookieValue(), \"gtm.whitelist\": [\"google\",\"hjtc\",\"lcl\"], \"gtm.blacklist\": [\"customScripts\",\"sp\",\"adm\",\"awct\",\"k\",\"d\",\"j\"] }]; </script> <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MBCBVQS');</script> <!-- End Google Tag Manager --> </head> <body class=\"product_page\"> <script>document.body.className = ((document.body.className) ?"
+    }
+  ]
+}

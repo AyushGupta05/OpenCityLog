@@ -1,0 +1,448 @@
+{
+  "source_id": "f888-ni5f",
+  "city": "new_york",
+  "title": "MapPLUTO",
+  "publisher": "NYC Department of City Planning (DCP)",
+  "bucket": "planning/development; basemap",
+  "retrieved_at": "2026-04-28T12:19:27.890347+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/f888-ni5f",
+      "retrieved_at": "2026-04-28T12:19:26.523212+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/f888-ni5f",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4243,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Primary Land Use Tax Lot Output - Map (MapPLUTO)",
+      "description": "Extensive land use and geographic data at the tax lot level in GIS format (ESRI Shapefile).  Contains more than seventy fields derived from data maintained by city agencies, merged with tax lot features from the Department of Finance’s Digital Tax Map, clipped to the shoreline.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1374771826,
+      "json_sample": {
+        "id": "f888-ni5f",
+        "name": "Primary Land Use Tax Lot Output - Map (MapPLUTO)",
+        "assetType": "href",
+        "attribution": "Department of City Planning (DCP)",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1374771826,
+        "description": "Extensive land use and geographic data at the tax lot level in GIS format (ESRI Shapefile).  Contains more than seventy fields derived from data maintained by city agencies, merged with tax lot features from the Department of Finance’s Digital Tax Map, clipped to the shoreline.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "href",
+        "downloadCount": 949,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1537209354,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 3,
+        "oid": 4623820,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1374771872,
+        "publicationGroup": 998707,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1374771826,
+        "tableId": 998707,
+        "totalTimesRated": 0,
+        "viewCount": 23346,
+        "viewLastModified": 1730298516,
+        "viewType": "href",
+        "approvals": [
+          {
+            "reviewedAt": 1374771872,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064810,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1374771872,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "PLUTODD22v3.pdf",
+              "assetId": "a5f455ae-002e-4e78-ae17-f3dcc59c236d",
+              "name": "PLUTODD22v3.pdf"
+            },
+            {
+              "filename": "PlutoReadme22v3.pdf",
+              "assetId": "97ca6e86-32cc-46f1-b85c-8d01e17e1602",
+              "name": "PlutoReadme22v3.pdf"
+            }
+          ],
+          "additionalAccessPoints": [
+            {
+              "urls": {
+                "web site": "http://www1.nyc.gov/site/planning/data-maps/open-data/dwn-pluto-mappluto.page"
+              }
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "N/A",
+              "Date Made Public": "7/25/2013",
+              "Update Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "accessPoints": {
+            "web site": "http://www1.nyc.gov/site/planning/data-maps/open-data/dwn-pluto-mappluto.page"
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "href": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dcp",
+          "property",
+          "city planning",
+          "zoning",
+          "land use",
+          "pluto",
+          "gis",
+          "mappluto",
+          "cartography"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/f888-ni5f",
+      "retrieved_at": "2026-04-28T12:19:27.154573+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/f888-ni5f",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4243,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Primary Land Use Tax Lot Output - Map (MapPLUTO)",
+      "description": "Extensive land use and geographic data at the tax lot level in GIS format (ESRI Shapefile).  Contains more than seventy fields derived from data maintained by city agencies, merged with tax lot features from the Department of Finance’s Digital Tax Map, clipped to the shoreline.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1374771826,
+      "json_sample": {
+        "id": "f888-ni5f",
+        "name": "Primary Land Use Tax Lot Output - Map (MapPLUTO)",
+        "assetType": "href",
+        "attribution": "Department of City Planning (DCP)",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1374771826,
+        "description": "Extensive land use and geographic data at the tax lot level in GIS format (ESRI Shapefile).  Contains more than seventy fields derived from data maintained by city agencies, merged with tax lot features from the Department of Finance’s Digital Tax Map, clipped to the shoreline.\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "href",
+        "downloadCount": 949,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1537209354,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 3,
+        "oid": 4623820,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1374771872,
+        "publicationGroup": 998707,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1374771826,
+        "tableId": 998707,
+        "totalTimesRated": 0,
+        "viewCount": 23346,
+        "viewLastModified": 1730298516,
+        "viewType": "href",
+        "approvals": [
+          {
+            "reviewedAt": 1374771872,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064810,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1374771872,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "PLUTODD22v3.pdf",
+              "assetId": "a5f455ae-002e-4e78-ae17-f3dcc59c236d",
+              "name": "PLUTODD22v3.pdf"
+            },
+            {
+              "filename": "PlutoReadme22v3.pdf",
+              "assetId": "97ca6e86-32cc-46f1-b85c-8d01e17e1602",
+              "name": "PlutoReadme22v3.pdf"
+            }
+          ],
+          "additionalAccessPoints": [
+            {
+              "urls": {
+                "web site": "http://www1.nyc.gov/site/planning/data-maps/open-data/dwn-pluto-mappluto.page"
+              }
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "N/A",
+              "Date Made Public": "7/25/2013",
+              "Update Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "accessPoints": {
+            "web site": "http://www1.nyc.gov/site/planning/data-maps/open-data/dwn-pluto-mappluto.page"
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "href": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dcp",
+          "property",
+          "city planning",
+          "zoning",
+          "land use",
+          "pluto",
+          "gis",
+          "mappluto",
+          "cartography"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/f888-ni5f.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:19:27.286288+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/f888-ni5f.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

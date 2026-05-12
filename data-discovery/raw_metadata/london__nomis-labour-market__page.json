@@ -1,0 +1,40 @@
+{
+  "source_id": "nomis-labour-market",
+  "city": "london",
+  "title": "Nomis official labour market statistics",
+  "publisher": "ONS / Nomis",
+  "bucket": "demographics/economy",
+  "retrieved_at": "2026-04-28T12:18:52.399049+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.nomisweb.co.uk/api/v01/help",
+      "retrieved_at": "2026-04-28T12:18:52.298238+00:00",
+      "final_url": "https://www.nomisweb.co.uk/api/v01/help",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 137184,
+      "page_title": "API - Nomis - Official Census and Labour Market Statistics",
+      "h1": "Cookie Consent Area reports Topic reports You're not signed in New to Nomis? Nomis API Terminology Concurrently running requests Tool to help you build a URI View a Summary of your URI Discover available datasets Discover Codelists and choose Codes \"Contenttype\" support metadata and classifications Data download",
+      "meta_description": "nomis - official labour market statistics",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"> <head> <!--[if lt IE 9]> <script> document.createElement('header'); document.createElement('nav'); document.createElement('section'); document.createElement('article'); document.createElement('aside'); document.createElement('footer'); </script> <![endif]--> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <title>API - Nomis - Official Census and Labour Market Statistics</title> <meta name=\"description\" content=\"nomis - official labour market statistics\" /> <meta name=\"keywords\" content=\"annual business inquiry\" /> <meta name=\"viewport\" content=\"initial-scale=1\" /> <meta charset=\"UTF-8\" /> <link title=\"Easy Access version\" rel=\"alternate\" href=\"/home/accesskeys.htm\" media=\"aural, braille, tty\"> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Nomis RSS News Feed\" href=\"/articles/rssArticles.asp\" /> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Nomis RSS Release Dates Feed\" href=\"/home/rssRelease_dates.asp\" /> <link rel=\"stylesheet\" href=\"/libs/font-awesome/css/font-awesome.min.css\"> <link rel=\"stylesheet\" href=\"/libs/jqueryui/jquery-ui.min.css\" /> <link rel=\"stylesheet\" href=\"/libs/jquery-simplePagination/simplePagination.min.css\" /> <link rel=\"stylesheet\" href=\"/libs/leaflet/leaflet.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/nomis.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/standard.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/nomis-ui.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/menubar.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/responsive.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/print.css\" type=\"text/css\" media=\"print\" /> <!--[if Safari]> <link rel=\"stylesheet\" href=\"/css/safari-nomis.css\" type=\"text/css\" /> <![endif]--> <script type=\"text/javascript\" src=\"/libs/modernizr/modernizr.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jquery/jquery.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jquery-cookie/jquery.cookie.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jquery-simplePagination/jquery.simplePagination.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jqueryui/jquery-ui.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jqueryui-touch-punch/jquery.ui.touch-punch.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/leaflet/leaflet.min.js\"></script> <style> .prefFntCtrl:hover, .prefFntCtrl:visited { color: #00B; } .prefFntCtrl { border: 1px solid transparent; padding: 1px; } .activeFntSz { border-color: #00b; font-weight: normal; } #nomisweb-organisation-name-title:hover { text-decoration: underline; } .fa-search { border: 0; padding: 0.7em; background: #"
+    },
+    {
+      "requested_url": "https://www.nomisweb.co.uk/",
+      "retrieved_at": "2026-04-28T12:18:52.138773+00:00",
+      "final_url": "https://www.nomisweb.co.uk/",
+      "status": 200,
+      "content_type": "text/html",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "41057",
+      "bytes_captured": 41057,
+      "page_title": "Nomis - Nomis - Official Census and Labour Market Statistics",
+      "h1": "Cookie Consent Area reports Topic reports You're not signed in New to Nomis? Welcome to Nomis Latest News Release calendar Other Official Statistics",
+      "meta_description": "nomis - official labour market statistics",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"> <head> <!--[if lt IE 9]> <script> document.createElement('header'); document.createElement('nav'); document.createElement('section'); document.createElement('article'); document.createElement('aside'); document.createElement('footer'); </script> <![endif]--> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <title>Nomis - Nomis - Official Census and Labour Market Statistics</title> <meta name=\"description\" content=\"nomis - official labour market statistics\" /> <meta name=\"keywords\" content=\"annual business inquiry\" /> <meta name=\"viewport\" content=\"initial-scale=1\" /> <meta charset=\"UTF-8\" /> <link title=\"Easy Access version\" rel=\"alternate\" href=\"/home/accesskeys.htm\" media=\"aural, braille, tty\"> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Nomis RSS News Feed\" href=\"/articles/rssArticles.asp\" /> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Nomis RSS Release Dates Feed\" href=\"/home/rssRelease_dates.asp\" /> <link rel=\"stylesheet\" href=\"/libs/font-awesome/css/font-awesome.min.css\"> <link rel=\"stylesheet\" href=\"/libs/jqueryui/jquery-ui.min.css\" /> <link rel=\"stylesheet\" href=\"/libs/jquery-simplePagination/simplePagination.min.css\" /> <link rel=\"stylesheet\" href=\"/libs/leaflet/leaflet.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/nomis.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/standard.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/nomis-ui.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/menubar.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/responsive.css\" type=\"text/css\" /> <link rel=\"stylesheet\" href=\"/css/print.css\" type=\"text/css\" media=\"print\" /> <!--[if Safari]> <link rel=\"stylesheet\" href=\"/css/safari-nomis.css\" type=\"text/css\" /> <![endif]--> <script type=\"text/javascript\" src=\"/libs/modernizr/modernizr.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jquery/jquery.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jquery-cookie/jquery.cookie.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jquery-simplePagination/jquery.simplePagination.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jqueryui/jquery-ui.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/jqueryui-touch-punch/jquery.ui.touch-punch.min.js\"></script> <script type=\"text/javascript\" src=\"/libs/leaflet/leaflet.min.js\"></script> <style> .prefFntCtrl:hover, .prefFntCtrl:visited { color: #00B; } .prefFntCtrl { border: 1px solid transparent; padding: 1px; } .activeFntSz { border-color: #00b; font-weight: normal; } #nomisweb-organisation-name-title:hover { text-decoration: underline; } .fa-search { border: 0; padding: 0.7em; background: #"
+    }
+  ]
+}
