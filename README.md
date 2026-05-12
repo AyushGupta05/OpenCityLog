@@ -1,6 +1,8 @@
-# Bims City Atlas
+# OpenCityLog
 
-Bims is becoming an open-source urban changelog and city change atlas. The MVP is static-data first: city configs, source/provenance records, normalized event chunks, and browser-ready JSON/GeoJSON in `web/data`.
+OpenCityLog is an open-source city-change atlas for exploring how real decisions, developments, infrastructure, policy, and environmental events changed cities over time, with every claim tied to public evidence.
+
+The MVP is static-data first: city configs, source/provenance records, normalized event chunks, and browser-ready JSON/GeoJSON in `web/data`.
 
 The project should show observed historical changes with evidence and caveats. It should not claim prediction, causality, or simulated impact.
 
