@@ -1,0 +1,558 @@
+{
+  "source_id": "hbw8-2bah",
+  "city": "new_york",
+  "title": "Sea Level Rise Maps, 2050s 100-Year Floodplain",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "flood/sea level rise/resiliency",
+  "retrieved_at": "2026-04-28T13:00:05.992911+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/hbw8-2bah",
+      "retrieved_at": "2026-04-28T13:00:04.406270+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/hbw8-2bah",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5890,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Sea Level Rise Maps (2050s 100-year Floodplain)",
+      "description": "This is the 100-Year Floodplain for the 2050s based on FEMA's Preliminary Work Map data and the New York Panel on Climate Change's 90th Percentile Projects for Sea-Level Rise (31 inches).  Please see the Disclaimer PDF for more information. Data Provided by the Mayor's Office of Long-Term Planning and Sustainability (OLTPS) on behalf of CUNY Institute for Sustainable Cities (CISC) and the New York Panel on Climate Change (NPCC).",
+      "attribution": "Mayor's Office of Climate and Sustainability",
+      "rowsUpdatedAt": 1374616212,
+      "json_sample": {
+        "id": "hbw8-2bah",
+        "name": "Sea Level Rise Maps (2050s 100-year Floodplain)",
+        "assetType": "map",
+        "attribution": "Mayor's Office of Climate and Sustainability",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1374616173,
+        "description": "This is the 100-Year Floodplain for the 2050s based on FEMA's Preliminary Work Map data and the New York Panel on Climate Change's 90th Percentile Projects for Sea-Level Rise (31 inches).  Please see the Disclaimer PDF for more information. Data Provided by the Mayor's Office of Long-Term Planning and Sustainability (OLTPS) on behalf of CUNY Institute for Sustainable Cities (CISC) and the New York Panel on Climate Change (NPCC).",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 2595,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "modifyingViewUid": "27ya-gqtm",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41529125,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1755523651,
+        "publicationGroup": 6261419,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1374616212,
+        "tableId": 6261419,
+        "totalTimesRated": 0,
+        "viewCount": 21820,
+        "viewLastModified": 1755523651,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1374701306,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 7036506,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1374701306,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.9906004417415,
+                      "lat": 40.707526874329616
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7167657688952,
+                    "searchBoundaryUpperLeftLongitude": -74.26443511458781,
+                    "searchBoundaryUpperLeftLatitude": 40.921890370610114,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": false,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.493163378049125
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#f98d27",
+                      "colorByQuantificationMethod": "category",
+                      "mapFlyoutTitleColumnName": "gridcode",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#f98d27",
+                      "additionalFlyoutColumns": [
+                        "join_count",
+                        "fld_zone",
+                        "static_bfe",
+                        "abfe_0_2pc",
+                        "shape_leng",
+                        "shape_area"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "2050_1p_258r_shp_selection_final_elim50k_unionFEMA",
+                      "type": "socrata.soql",
+                      "datasetUid": "27ya-gqtm",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 8
+                },
+                "description": "",
+                "id": "2f57dc39-38c5-4d4f-a778-a1d218775f04",
+                "title": "",
+                "currentMapLayerIndex": 0
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "7/24/2013",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Mayor's Office of Climate and Environmental Justice (MOCEJ)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "sea level rise maps (2025s 100-year floodplain)",
+          "oltps",
+          "ocean",
+          "flood",
+          "sea",
+          "sea level"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/hbw8-2bah",
+      "retrieved_at": "2026-04-28T13:00:04.982327+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/hbw8-2bah",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5890,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Sea Level Rise Maps (2050s 100-year Floodplain)",
+      "description": "This is the 100-Year Floodplain for the 2050s based on FEMA's Preliminary Work Map data and the New York Panel on Climate Change's 90th Percentile Projects for Sea-Level Rise (31 inches).  Please see the Disclaimer PDF for more information. Data Provided by the Mayor's Office of Long-Term Planning and Sustainability (OLTPS) on behalf of CUNY Institute for Sustainable Cities (CISC) and the New York Panel on Climate Change (NPCC).",
+      "attribution": "Mayor's Office of Climate and Sustainability",
+      "rowsUpdatedAt": 1374616212,
+      "json_sample": {
+        "id": "hbw8-2bah",
+        "name": "Sea Level Rise Maps (2050s 100-year Floodplain)",
+        "assetType": "map",
+        "attribution": "Mayor's Office of Climate and Sustainability",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1374616173,
+        "description": "This is the 100-Year Floodplain for the 2050s based on FEMA's Preliminary Work Map data and the New York Panel on Climate Change's 90th Percentile Projects for Sea-Level Rise (31 inches).  Please see the Disclaimer PDF for more information. Data Provided by the Mayor's Office of Long-Term Planning and Sustainability (OLTPS) on behalf of CUNY Institute for Sustainable Cities (CISC) and the New York Panel on Climate Change (NPCC).",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 2595,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "modifyingViewUid": "27ya-gqtm",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41529125,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1755523651,
+        "publicationGroup": 6261419,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1374616212,
+        "tableId": 6261419,
+        "totalTimesRated": 0,
+        "viewCount": 21820,
+        "viewLastModified": 1755523651,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1374701306,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 7036506,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1374701306,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.9906004417415,
+                      "lat": 40.707526874329616
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7167657688952,
+                    "searchBoundaryUpperLeftLongitude": -74.26443511458781,
+                    "searchBoundaryUpperLeftLatitude": 40.921890370610114,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": false,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.493163378049125
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#f98d27",
+                      "colorByQuantificationMethod": "category",
+                      "mapFlyoutTitleColumnName": "gridcode",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#f98d27",
+                      "additionalFlyoutColumns": [
+                        "join_count",
+                        "fld_zone",
+                        "static_bfe",
+                        "abfe_0_2pc",
+                        "shape_leng",
+                        "shape_area"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "2050_1p_258r_shp_selection_final_elim50k_unionFEMA",
+                      "type": "socrata.soql",
+                      "datasetUid": "27ya-gqtm",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 8
+                },
+                "description": "",
+                "id": "2f57dc39-38c5-4d4f-a778-a1d218775f04",
+                "title": "",
+                "currentMapLayerIndex": 0
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "7/24/2013",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Mayor's Office of Climate and Environmental Justice (MOCEJ)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "sea level rise maps (2025s 100-year floodplain)",
+          "oltps",
+          "ocean",
+          "flood",
+          "sea",
+          "sea level"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/hbw8-2bah.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:05.582825+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/hbw8-2bah.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 21 Dec 2015 21:12:46 GMT",
+      "etag": "W/\"Zm94dHJvdC40MjE0NV8xXzExbFhEbkctc0VpWU5sangtdXozZElYTThFUzJF-P6i6HxTDCf4rUupfoPZS2tgbiR--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 5,
+      "json_list_count_captured": 1,
+      "sample_keys": [],
+      "json_sample": [
+        {}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-rbkc-open-data",
+  "city": "london",
+  "title": "RBKC Open Data",
+  "publisher": "Royal Borough of Kensington and Chelsea",
+  "bucket": "borough/planning/heritage/parking",
+  "retrieved_at": "2026-04-28T12:57:28.280097+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.rbkc.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:28.124478+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

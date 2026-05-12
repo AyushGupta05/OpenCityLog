@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/event.schema.json",
+  "title": "Bims Normalized City Change Event",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "city_id",
+    "event_id",
+    "title",
+    "year",
+    "date_precision",
+    "category",
+    "lens",
+    "source_ids",
+    "evidence",
+    "confidence",
+    "affected_signals",
+    "explanation",
+    "caveats",
+    "provenance"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"type": "string"},
+    "city_id": {"type": "string"},
+    "event_id": {"type": "string"},
+    "title": {"type": "string"},
+    "year": {"type": "integer", "minimum": 1700},
+    "effective_date": {"type": ["string", "null"]},
+    "effective_date_range": {
+      "type": ["object", "null"],
+      "properties": {
+        "start": {"type": ["string", "null"]},
+        "end": {"type": ["string", "null"]}
+      }
+    },
+    "date_precision": {
+      "type": "string",
+      "enum": ["day", "month", "year", "range", "unknown"]
+    },
+    "category": {"type": "string"},
+    "lens": {"type": "string"},
+    "geometry": {
+      "type": ["object", "null"],
+      "description": "GeoJSON geometry in EPSG:4326. Null is allowed when only an affected_area label is available."
+    },
+    "affected_area": {
+      "type": "object",
+      "properties": {
+        "label": {"type": "string"},
+        "bbox": {"type": "array", "items": {"type": "number"}}
+      }
+    },
+    "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}, "minItems": 1},
+    "confidence": {
+      "type": "string",
+      "enum": ["documented", "corroborated", "inferred", "disputed"]
+    },
+    "affected_signals": {"type": "array", "items": {"type": "string"}},
+    "explanation": {"type": "string"},
+    "caveats": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "object"}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": ["source_id", "label", "kind"],
+      "properties": {
+        "source_id": {"type": "string"},
+        "label": {"type": "string"},
+        "kind": {"type": "string", "enum": ["source_url", "local_file", "changeset", "source_record"]},
+        "url": {"type": ["string", "null"]},
+        "file_path": {"type": ["string", "null"]},
+        "record_id": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "source_id": "lon_dfe_schools",
+  "title": "Get Information about Schools downloads",
+  "requested_url": "https://get-information-schools.service.gov.uk/Downloads",
+  "fetched_url": "https://get-information-schools.service.gov.uk/Downloads",
+  "retrieved_at": "2026-04-28T11:05:52.934154+00:00",
+  "error": "<HTTPError 403: 'Forbidden'>"
+}

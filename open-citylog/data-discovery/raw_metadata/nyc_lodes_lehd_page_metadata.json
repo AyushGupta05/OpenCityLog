@@ -1,0 +1,16 @@
+{
+  "source_id": "nyc_lodes_lehd",
+  "title": "LEHD Origin-Destination Employment Statistics (LODES)",
+  "requested_url": "https://lehd.ces.census.gov/data/",
+  "fetched_url": "https://lehd.ces.census.gov/data/",
+  "final_url": "https://lehd.ces.census.gov/data/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:06:00.430715+00:00",
+  "page_title": "Data - Longitudinal Employer-Household Dynamics",
+  "h1": "Longitudinal Employer-Household Dynamics",
+  "meta_description": ""
+}

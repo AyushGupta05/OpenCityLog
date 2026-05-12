@@ -1,0 +1,119 @@
+- generic [active] [ref=e1]:
+  - link "Skip to map" [ref=e2] [cursor=pointer]:
+    - /url: "#mapStage"
+  - generic [ref=e3]:
+    - banner "Open Citylog header" [ref=e4]:
+      - link "Open Citylog home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: Open Citylog
+      - generic [ref=e11]:
+        - searchbox "Ctrl K" [ref=e13]
+        - generic [ref=e14]: Ctrl K
+      - combobox [ref=e17]:
+        - option "London" [selected]
+        - option "New York City"
+        - option "Belfast"
+      - paragraph [ref=e18]: Historical evidence map, not a prediction engine. i
+    - generic [ref=e19]:
+      - complementary "London" [ref=e20]:
+        - tablist "Left panel" [ref=e21]:
+          - button "Change log" [ref=e22] [cursor=pointer]: Change log
+          - button "Saved places" [disabled] [ref=e24]
+        - region "Change log filters" [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - heading "London" [level=1] [ref=e28]
+              - paragraph [ref=e29]: Loading source-backed records and coverage notes
+            - button "Show filters" [ref=e30] [cursor=pointer]
+        - generic [ref=e32]:
+          - generic [ref=e33]: London, England
+          - strong [ref=e34]: Loading records
+        - status [ref=e35]:
+          - strong [ref=e36]: "Coverage loading:"
+          - text: Source and date coverage will appear with the selected city.
+        - list [ref=e37]:
+          - generic [ref=e38]: Loading source-backed city records.
+        - button "Load full city changelog" [ref=e39] [cursor=pointer]
+      - main [ref=e40]:
+        - group "Event layers":
+          - button "All layers" [pressed] [ref=e41] [cursor=pointer]: All layers
+          - button "Planning" [ref=e43] [cursor=pointer]: Planning
+          - button "Transport" [ref=e45] [cursor=pointer]: Transport
+          - button "Environment" [ref=e47] [cursor=pointer]: Environment
+          - button "Public services" [ref=e49] [cursor=pointer]: Public services
+          - button "Economy & Demographics" [ref=e51] [cursor=pointer]: Economy & Demographics
+        - region "Evidence map" [ref=e53]:
+          - generic [ref=e55]:
+            - img
+            - generic "Mappable events"
+          - generic "Map controls" [ref=e59]:
+            - button "Zoom in" [ref=e60] [cursor=pointer]: +
+            - button "Zoom out" [ref=e61] [cursor=pointer]: "-"
+            - button "Recenter map" [ref=e62] [cursor=pointer]
+          - generic "Map view" [ref=e64]:
+            - button "2D" [pressed] [ref=e65] [cursor=pointer]
+            - button "3D" [ref=e66] [cursor=pointer]
+          - generic [ref=e67]: Esri World Imagery, OpenStreetMap contributors, source-backed overlays
+          - region "Timeline" [ref=e68]:
+            - generic [ref=e69]:
+              - button "Previous year" [ref=e70] [cursor=pointer]
+              - generic [ref=e71]:
+                - heading "Timeline" [level=2] [ref=e72]
+                - paragraph [ref=e73]: Observed records by year
+              - button "Next year" [ref=e74] [cursor=pointer]
+            - slider [ref=e76]: "2026"
+            - generic [ref=e77]:
+              - button "Replay" [ref=e78] [cursor=pointer]: Replay
+              - strong [ref=e80]: 2004 -> 2026
+              - generic: Years compared
+              - generic [ref=e81]:
+                - generic [ref=e82]: Before
+                - slider "Before After" [ref=e83]: "50"
+                - generic [ref=e84]: After
+              - button "Compare" [ref=e85] [cursor=pointer]
+              - button "Context Lens" [ref=e86] [cursor=pointer]
+      - complementary "Select a record" [ref=e87]:
+        - generic [ref=e88]:
+          - button "Export Evidence Brief" [ref=e89] [cursor=pointer]: Export Evidence Brief
+          - button "JSON" [ref=e91] [cursor=pointer]
+          - generic [ref=e92]:
+            - button "Copy evidence brief" [ref=e93] [cursor=pointer]
+            - button "Clear selected evidence brief" [ref=e94] [cursor=pointer]
+        - generic [ref=e95]:
+          - generic [ref=e96]: "1"
+          - generic [ref=e97]:
+            - heading "Select a record" [level=2] [ref=e98]
+            - paragraph [ref=e99]: Choose a changelog item or map marker.
+            - paragraph [ref=e100]: Coverage status loads with the city.
+        - generic [ref=e101]:
+          - button "Observed change" [expanded] [ref=e102] [cursor=pointer]:
+            - generic [ref=e103]: Observed change
+          - paragraph [ref=e104]: Loading source-backed records.
+        - button "Evidence" [expanded] [ref=e106] [cursor=pointer]:
+          - generic [ref=e107]: Evidence
+        - generic [ref=e108]:
+          - button "Confidence" [expanded] [ref=e109] [cursor=pointer]:
+            - generic [ref=e110]: Confidence
+          - strong [ref=e113]: No event
+          - paragraph [ref=e114]: Select an event to see evidence strength.
+        - generic [ref=e115]:
+          - button "Limitations" [expanded] [ref=e116] [cursor=pointer]:
+            - generic [ref=e117]: Limitations
+          - list [ref=e118]:
+            - listitem [ref=e119]: Coverage and licensing notes load with the selected record.
+        - region "Causal claim" [ref=e120]:
+          - button "Causal claim" [expanded] [ref=e121] [cursor=pointer]:
+            - generic [ref=e122]: Causal claim
+          - strong [ref=e125]: Not assessed
+          - paragraph [ref=e126]: Select an event to see whether the evidence supports a causal claim.
+        - button "Sources" [expanded] [ref=e128] [cursor=pointer]:
+          - generic [ref=e129]: Sources
+        - region "Context lens" [ref=e130]:
+          - generic [ref=e131]:
+            - heading "Context lens" [level=3] [ref=e132]
+            - group "How to inspect the selected event" [ref=e133]:
+              - button "Place change" [pressed] [ref=e134] [cursor=pointer]
+              - button "Traffic" [ref=e135] [cursor=pointer]
+              - button "Components" [ref=e136] [cursor=pointer]
+          - paragraph [ref=e138]: Select an event to inspect associated place, mobility, and component context.
+        - text: – + – + + + + +

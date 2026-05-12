@@ -1,0 +1,1896 @@
+{
+  "source_id": "ag5u-vnw2",
+  "city": "new_york",
+  "title": "Digital Tax Map: Subterranean Lots",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "tax lots/infrastructure",
+  "retrieved_at": "2026-04-28T12:57:56.710602+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/ag5u-vnw2",
+      "retrieved_at": "2026-04-28T12:57:55.128522+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/ag5u-vnw2",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 19909,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locale",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Digital Tax Map: Subterranean Lots",
+      "description": "This table represents Subterranean Lots in the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Collection</a>.\n\n• <strong>Updates:</strong> Data is extracted from DOF’s internal system on the last Friday of each month and refreshed on ArcGIS Online on the 1st. The online map always shows the most recent version.\n\n• <strong>Accessing the Data:</strong>  \n  • <strong>Digital Tax Map on NYC Open Data:</strong> See the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">complete collection</a>.  \n  • <strong>Individual layers:</strong> Downloadable from the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/ArcGIS/rest/services/DTM_ETL_DAILY_view/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Feature Server</a>.  \n  • <strong>Complete source:</strong> Available through the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map service</a>, which always points to the latest monthly release.\n\n<strong>Note:</strong> To ensure reliability, the Tax Map alternates between <em>Set A</em> and <em>Set B</em> each month. If one set has issues, the previous month’s copy remains online. Both sets are kept about a month apart and are available for download:  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set A link</a>  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_B/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set B link</a>\n\n• <strong>Digital Alteration Book (DAB):</strong> The DAB is the official log of map changes—such as new lots, merges, or boundary shifts—providing a clear record of how the Tax Map evolves. It is available through the <a href=\"https://propertyinformationportal.nyc.gov/\" target=\"_blank\" rel=\"noreferrer\">Property Information Portal</a>.\n\n<b>Disclaimer:</b>  \nThis dataset reflects formal applications submitted to DOF but may not reflect the latest changes in other City systems (e.g., exemptions or buildings data). It is provided for informational purposes only and is not guaranteed to be accurate as of today’s date.",
+      "attribution": "Department of Finance (DOF)",
+      "rowsUpdatedAt": 1769023372,
+      "json_sample": {
+        "id": "ag5u-vnw2",
+        "name": "Digital Tax Map: Subterranean Lots",
+        "assetType": "dataset",
+        "attribution": "Department of Finance (DOF)",
+        "attributionLink": "https://propertyinformationportal.nyc.gov/",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1734041037,
+        "description": "This table represents Subterranean Lots in the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Collection</a>.\n\n• <strong>Updates:</strong> Data is extracted from DOF’s internal system on the last Friday of each month and refreshed on ArcGIS Online on the 1st. The online map always shows the most recent version.\n\n• <strong>Accessing the Data:</strong>  \n  • <strong>Digital Tax Map on NYC Open Data:</strong> See the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">complete collection</a>.  \n  • <strong>Individual layers:</strong> Downloadable from the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/ArcGIS/rest/services/DTM_ETL_DAILY_view/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Feature Server</a>.  \n  • <strong>Complete source:</strong> Available through the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map service</a>, which always points to the latest monthly release.\n\n<strong>Note:</strong> To ensure reliability, the Tax Map alternates between <em>Set A</em> and <em>Set B</em> each month. If one set has issues, the previous month’s copy remains online. Both sets are kept about a month apart and are available for download:  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set A link</a>  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_B/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set B link</a>\n\n• <strong>Digital Alteration Book (DAB):</strong> The DAB is the official log of map changes—such as new lots, merges, or boundary shifts—providing a clear record of how the Tax Map evolves. It is available through the <a href=\"https://propertyinformationportal.nyc.gov/\" target=\"_blank\" rel=\"noreferrer\">Property Information Portal</a>.\n\n<b>Disclaimer:</b>  \nThis dataset reflects formal applications submitted to DOF but may not reflect the latest changes in other City systems (e.g., exemptions or buildings data). It is provided for informational purposes only and is not guaranteed to be accurate as of today’s date.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 290,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locale": "en_US",
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41885069,
+        "provenance": "official",
+        "publicationAppendEnabled": true,
+        "publicationDate": 1769023383,
+        "publicationGroup": 19714684,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1769023372,
+        "rowsUpdatedBy": "5fuc-pqz2",
+        "tableId": 20240030,
+        "totalTimesRated": 0,
+        "viewCount": 1084,
+        "viewLastModified": 1777298582,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1755277079,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7311158,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1755277006,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1755277079,
+              "failureCount": 0,
+              "startedAt": 1755277079,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 625026393,
+            "name": "OBJECTID",
+            "dataTypeName": "number",
+            "description": "A unique, not null integer field used to uniquely identify rows in tables in a geodatabase",
+            "fieldName": "objectid",
+            "position": 1,
+            "renderTypeName": "number",
+            "tableColumnId": 155891718,
+            "width": 196,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "80",
+              "null": "0",
+              "top": [
+                {
+                  "item": "70",
+                  "count": "1"
+                },
+                {
+                  "item": "33",
+                  "count": "1"
+                },
+                {
+                  "item": "55",
+                  "count": "1"
+                },
+                {
+                  "item": "19",
+                  "count": "1"
+                },
+                {
+                  "item": "29",
+                  "count": "1"
+                },
+                {
+                  "item": "14",
+                  "count": "1"
+                },
+                {
+                  "item": "3",
+                  "count": "1"
+                },
+                {
+                  "item": "74",
+                  "count": "1"
+                },
+                {
+                  "item": "17",
+                  "count": "1"
+                },
+                {
+                  "item": "64",
+                  "count": "1"
+                },
+                {
+                  "item": "7",
+                  "count": "1"
+                },
+                {
+                  "item": "52",
+                  "count": "1"
+                },
+                {
+                  "item": "73",
+                  "count": "1"
+                },
+                {
+                  "item": "77",
+                  "count": "1"
+                },
+                {
+                  "item": "37",
+                  "count": "1"
+                },
+                {
+                  "item": "34",
+                  "count": "1"
+                },
+                {
+                  "item": "78",
+                  "count": "1"
+                },
+                {
+                  "item": "39",
+                  "count": "1"
+                },
+                {
+                  "item": "76",
+                  "count": "1"
+                },
+                {
+                  "item": "8",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026394,
+            "name": "PARENT_BORO",
+            "dataTypeName": "text",
+            "description": "This is a one digit number field that identifies the borough in which the associated feature exists.",
+            "fieldName": "parent_boro",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 155891719,
+            "width": 232,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "4",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1",
+                  "count": "40"
+                },
+                {
+                  "item": "3",
+                  "count": "30"
+                },
+                {
+                  "item": "4",
+                  "count": "10"
+                }
+              ],
+              "smallest": "1",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026395,
+            "name": "PARENT_BLOCK",
+            "dataTypeName": "number",
+            "description": "Block is a five digit numeric field that identifies the block on which the associated feature exists.",
+            "fieldName": "parent_block",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 155891720,
+            "width": 244,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "8720",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1480",
+                  "count": "11"
+                },
+                {
+                  "item": "5010",
+                  "count": "10"
+                },
+                {
+                  "item": "295",
+                  "count": "8"
+                },
+                {
+                  "item": "8720",
+                  "count": "5"
+                },
+                {
+                  "item": "2134",
+                  "count": "4"
+                },
+                {
+                  "item": "702",
+                  "count": "4"
+                },
+                {
+                  "item": "1120",
+                  "count": "3"
+                },
+                {
+                  "item": "1403",
+                  "count": "3"
+                },
+                {
+                  "item": "1483",
+                  "count": "2"
+                },
+                {
+                  "item": "1280",
+                  "count": "2"
+                },
+                {
+                  "item": "1265",
+                  "count": "2"
+                },
+                {
+                  "item": "1129",
+                  "count": "2"
+                },
+                {
+                  "item": "535",
+                  "count": "1"
+                },
+                {
+                  "item": "783",
+                  "count": "1"
+                },
+                {
+                  "item": "199",
+                  "count": "1"
+                },
+                {
+                  "item": "152",
+                  "count": "1"
+                },
+                {
+                  "item": "157",
+                  "count": "1"
+                },
+                {
+                  "item": "541",
+                  "count": "1"
+                },
+                {
+                  "item": "1047",
+                  "count": "1"
+                },
+                {
+                  "item": "1118",
+                  "count": "1"
+                }
+              ],
+              "smallest": "146",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026396,
+            "name": "PARENT_LOT",
+            "dataTypeName": "number",
+            "description": "Lot is a four digit numeric field that identifies a unique lot within a tax block. Although DOF has a set of defined limits for different types of lots, the fact that there are exceptions to these rules makes it impossible to use a domain for validity checking of the lot numbers.",
+            "fieldName": "parent_lot",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 155891721,
+            "width": 220,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "7501",
+              "null": "0",
+              "top": [
+                {
+                  "item": "79",
+                  "count": "10"
+                },
+                {
+                  "item": "1",
+                  "count": "6"
+                },
+                {
+                  "item": "40",
+                  "count": "4"
+                },
+                {
+                  "item": "30",
+                  "count": "3"
+                },
+                {
+                  "item": "110",
+                  "count": "3"
+                },
+                {
+                  "item": "120",
+                  "count": "2"
+                },
+                {
+                  "item": "150",
+                  "count": "2"
+                },
+                {
+                  "item": "113",
+                  "count": "2"
+                },
+                {
+                  "item": "111",
+                  "count": "2"
+                },
+                {
+                  "item": "112",
+                  "count": "2"
+                },
+                {
+                  "item": "154",
+                  "count": "2"
+                },
+                {
+                  "item": "133",
+                  "count": "2"
+                },
+                {
+                  "item": "119",
+                  "count": "1"
+                },
+                {
+                  "item": "22",
+                  "count": "1"
+                },
+                {
+                  "item": "38",
+                  "count": "1"
+                },
+                {
+                  "item": "60",
+                  "count": "1"
+                },
+                {
+                  "item": "140",
+                  "count": "1"
+                },
+                {
+                  "item": "50",
+                  "count": "1"
+                },
+                {
+                  "item": "62",
+                  "count": "1"
+                },
+                {
+                  "item": "118",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026397,
+            "name": "PARENT_BBL",
+            "dataTypeName": "text",
+            "description": "BBL is a concatenation of Boro-Block-Lot and is stored with every instance of those three fields. Although the BBL value can always be determined dynamically, this field is maintained in order to simplify indexing, searching and the use of the files by other, as yet undetermined, applications.",
+            "fieldName": "parent_bbl",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 155891722,
+            "width": 220,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "4050100079",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4050100079",
+                  "count": "10"
+                },
+                {
+                  "item": "1012800154",
+                  "count": "2"
+                },
+                {
+                  "item": "1007830034",
+                  "count": "1"
+                },
+                {
+                  "item": "3002950113",
+                  "count": "1"
+                },
+                {
+                  "item": "1014800111",
+                  "count": "1"
+                },
+                {
+                  "item": "1014800118",
+                  "count": "1"
+                },
+                {
+                  "item": "1005410001",
+                  "count": "1"
+                },
+                {
+                  "item": "1007020150",
+                  "count": "1"
+                },
+                {
+                  "item": "1010477501",
+                  "count": "1"
+                },
+                {
+                  "item": "1006300140",
+                  "count": "1"
+                },
+                {
+                  "item": "1012650040",
+                  "count": "1"
+                },
+                {
+                  "item": "3087200030",
+                  "count": "1"
+                },
+                {
+                  "item": "1014800113",
+                  "count": "1"
+                },
+                {
+                  "item": "3001990015",
+                  "count": "1"
+                },
+                {
+                  "item": "3020110060",
+                  "count": "1"
+                },
+                {
+                  "item": "3014030133",
+                  "count": "1"
+                },
+                {
+                  "item": "3011200001",
+                  "count": "1"
+                },
+                {
+                  "item": "3021340037",
+                  "count": "1"
+                },
+                {
+                  "item": "3011290030",
+                  "count": "1"
+                },
+                {
+                  "item": "1019460022",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1001520023",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026398,
+            "name": "SUB_LOT_NUMBER",
+            "dataTypeName": "number",
+            "description": "Lot is a four digit numeric field that identifies a unique lot within a tax block that the attribute is appurtenant to. Subterranean rights lot numbers must be between 8000 and 8999.",
+            "fieldName": "sub_lot_number",
+            "position": 6,
+            "renderTypeName": "number",
+            "tableColumnId": 155891723,
+            "width": 268,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "8254",
+              "null": "0",
+              "top": [
+                {
+                  "item": "8100",
+                  "count": "10"
+                },
+                {
+                  "item": "8014",
+                  "count": "8"
+                },
+                {
+                  "item": "8001",
+                  "count": "8"
+                },
+                {
+                  "item": "8005",
+                  "count": "6"
+                },
+                {
+                  "item": "8041",
+                  "count": "4"
+                },
+                {
+                  "item": "8033",
+                  "count": "3"
+                },
+                {
+                  "item": "8040",
+                  "count": "3"
+                },
+                {
+                  "item": "8004",
+                  "count": "3"
+                },
+                {
+                  "item": "8002",
+                  "count": "2"
+                },
+                {
+                  "item": "8110",
+                  "count": "2"
+                },
+                {
+                  "item": "8165",
+                  "count": "2"
+                },
+                {
+                  "item": "8030",
+                  "count": "2"
+                },
+                {
+                  "item": "8009",
+                  "count": "2"
+                },
+                {
+                  "item": "8048",
+                  "count": "2"
+                },
+                {
+                  "item": "8010",
+                  "count": "2"
+                },
+                {
+                  "item": "8003",
+                  "count": "2"
+                },
+                {
+                  "item": "8154",
+                  "count": "1"
+                },
+                {
+                  "item": "8120",
+                  "count": "1"
+                },
+                {
+                  "item": "8150",
+                  "count": "1"
+                },
+                {
+                  "item": "8020",
+                  "count": "1"
+                }
+              ],
+              "smallest": "8001",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026399,
+            "name": "SUB_LOT_BBL",
+            "dataTypeName": "text",
+            "description": "BBL is a concatenation of Boro-Block-Lot and is stored with every instance of those three fields. Although the BBL value can always be determined dynamically, this field is maintained in order to simplify indexing, searching and the use of the files by other, as yet undetermined, applications.",
+            "fieldName": "sub_lot_bbl",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 155891724,
+            "width": 232,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "4050108010",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1014808100",
+                  "count": "10"
+                },
+                {
+                  "item": "3002958014",
+                  "count": "8"
+                },
+                {
+                  "item": "3087208005",
+                  "count": "4"
+                },
+                {
+                  "item": "3021348041",
+                  "count": "4"
+                },
+                {
+                  "item": "1012658040",
+                  "count": "2"
+                },
+                {
+                  "item": "3014038033",
+                  "count": "2"
+                },
+                {
+                  "item": "3011208001",
+                  "count": "1"
+                },
+                {
+                  "item": "1019468022",
+                  "count": "1"
+                },
+                {
+                  "item": "3011298150",
+                  "count": "1"
+                },
+                {
+                  "item": "1012698165",
+                  "count": "1"
+                },
+                {
+                  "item": "1007028001",
+                  "count": "1"
+                },
+                {
+                  "item": "3023328030",
+                  "count": "1"
+                },
+                {
+                  "item": "3001468016",
+                  "count": "1"
+                },
+                {
+                  "item": "4050108009",
+                  "count": "1"
+                },
+                {
+                  "item": "1011718165",
+                  "count": "1"
+                },
+                {
+                  "item": "1005418001",
+                  "count": "1"
+                },
+                {
+                  "item": "3020118060",
+                  "count": "1"
+                },
+                {
+                  "item": "1007028002",
+                  "count": "1"
+                },
+                {
+                  "item": "1007028003",
+                  "count": "1"
+                },
+                {
+                  "item": "1010478048",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1001528023",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026400,
+            "name": "EFFECTIVE_TAX_YEAR",
+            "dataTypeName": "text",
+            "description": "Effective Tax Year",
+            "fieldName": "effective_tax_year",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 155891725,
+            "width": 316,
+            "cachedContents": {
+              "non_null": "59",
+              "largest": "2024-2025",
+              "null": "21",
+              "top": [
+                {
+                  "item": "2024-2025",
+                  "count": "24"
+                },
+                {
+                  "item": "2016-2017",
+                  "count": "13"
+                },
+                {
+                  "item": "2023-2024",
+                  "count": "5"
+                },
+                {
+                  "item": "2009-2010",
+                  "count": "3"
+                },
+                {
+                  "item": "2021-2022",
+                  "count": "3"
+                },
+                {
+                  "item": "2019-2020",
+                  "count": "3"
+                },
+                {
+                  "item": "2022-2023",
+                  "count": "2"
+                },
+                {
+                  "item": "2007-2008",
+                  "count": "1"
+                },
+                {
+                  "item": "2018-2019",
+                  "count": "1"
+                },
+                {
+                  "item": "2014-2015",
+                  "count": "1"
+                },
+                {
+                  "item": "2011-2012",
+                  "count": "1"
+                },
+                {
+                  "item": "2015-2016",
+                  "count": "1"
+                },
+                {
+                  "item": "2017-2018",
+                  "count": "1"
+                }
+              ],
+              "smallest": "2007-2008",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "DOF-DTM-Relational-Data-Dictionary.xlsx",
+              "assetId": "4b16863d-b086-4837-ad86-3c6cdd49dc44",
+              "name": "DOF-DTM-Relational-Data-Dictionary.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Data Collection": {
+              "Data Collection": "Department of Finance Digital Tax Map"
+            },
+            "Update": {
+              "Automation": "Yes",
+              "Update Frequency Details": "DOF Tax Map Unit (TMU) makes daily edits to the Tax Map that can be observed on DOF's Property Information Portal (https://propertyinformationportal.nyc.gov/).   Note: The timing of map record updates for a given Tax Map Item may not correspond to updates in related DOF/NYC data systems not maintained by DOF Tax Map Unit (e.g., Exemptions or Buildings information, respectively)",
+              "Update Frequency": "Weekly",
+              "Data Change Frequency": "Daily"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Finance (DOF)"
+            }
+          },
+          "rowLabel": "Subterranean Lot",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dtm_sub_lots",
+          "subterranean lots"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/ag5u-vnw2",
+      "retrieved_at": "2026-04-28T12:57:55.866642+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/ag5u-vnw2",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 19909,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locale",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Digital Tax Map: Subterranean Lots",
+      "description": "This table represents Subterranean Lots in the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Collection</a>.\n\n• <strong>Updates:</strong> Data is extracted from DOF’s internal system on the last Friday of each month and refreshed on ArcGIS Online on the 1st. The online map always shows the most recent version.\n\n• <strong>Accessing the Data:</strong>  \n  • <strong>Digital Tax Map on NYC Open Data:</strong> See the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">complete collection</a>.  \n  • <strong>Individual layers:</strong> Downloadable from the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/ArcGIS/rest/services/DTM_ETL_DAILY_view/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Feature Server</a>.  \n  • <strong>Complete source:</strong> Available through the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map service</a>, which always points to the latest monthly release.\n\n<strong>Note:</strong> To ensure reliability, the Tax Map alternates between <em>Set A</em> and <em>Set B</em> each month. If one set has issues, the previous month’s copy remains online. Both sets are kept about a month apart and are available for download:  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set A link</a>  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_B/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set B link</a>\n\n• <strong>Digital Alteration Book (DAB):</strong> The DAB is the official log of map changes—such as new lots, merges, or boundary shifts—providing a clear record of how the Tax Map evolves. It is available through the <a href=\"https://propertyinformationportal.nyc.gov/\" target=\"_blank\" rel=\"noreferrer\">Property Information Portal</a>.\n\n<b>Disclaimer:</b>  \nThis dataset reflects formal applications submitted to DOF but may not reflect the latest changes in other City systems (e.g., exemptions or buildings data). It is provided for informational purposes only and is not guaranteed to be accurate as of today’s date.",
+      "attribution": "Department of Finance (DOF)",
+      "rowsUpdatedAt": 1769023372,
+      "json_sample": {
+        "id": "ag5u-vnw2",
+        "name": "Digital Tax Map: Subterranean Lots",
+        "assetType": "dataset",
+        "attribution": "Department of Finance (DOF)",
+        "attributionLink": "https://propertyinformationportal.nyc.gov/",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1734041037,
+        "description": "This table represents Subterranean Lots in the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Collection</a>.\n\n• <strong>Updates:</strong> Data is extracted from DOF’s internal system on the last Friday of each month and refreshed on ArcGIS Online on the 1st. The online map always shows the most recent version.\n\n• <strong>Accessing the Data:</strong>  \n  • <strong>Digital Tax Map on NYC Open Data:</strong> See the <a href=\"https://data.cityofnewyork.us/browse?Data-Collection_Data-Collection=Department+of+Finance+Digital+Tax+Map&sortBy=relevance&page=1&pageSize=20\" target=\"_blank\" rel=\"noreferrer\">complete collection</a>.  \n  • <strong>Individual layers:</strong> Downloadable from the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/ArcGIS/rest/services/DTM_ETL_DAILY_view/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map Feature Server</a>.  \n  • <strong>Complete source:</strong> Available through the <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Digital Tax Map service</a>, which always points to the latest monthly release.\n\n<strong>Note:</strong> To ensure reliability, the Tax Map alternates between <em>Set A</em> and <em>Set B</em> each month. If one set has issues, the previous month’s copy remains online. Both sets are kept about a month apart and are available for download:  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_A/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set A link</a>  \n    &nbsp;&nbsp;&nbsp;&nbsp;• <a href=\"https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/DTM_MONTHLY_Set_B/FeatureServer\" target=\"_blank\" rel=\"noreferrer\">Set B link</a>\n\n• <strong>Digital Alteration Book (DAB):</strong> The DAB is the official log of map changes—such as new lots, merges, or boundary shifts—providing a clear record of how the Tax Map evolves. It is available through the <a href=\"https://propertyinformationportal.nyc.gov/\" target=\"_blank\" rel=\"noreferrer\">Property Information Portal</a>.\n\n<b>Disclaimer:</b>  \nThis dataset reflects formal applications submitted to DOF but may not reflect the latest changes in other City systems (e.g., exemptions or buildings data). It is provided for informational purposes only and is not guaranteed to be accurate as of today’s date.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 290,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locale": "en_US",
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41885069,
+        "provenance": "official",
+        "publicationAppendEnabled": true,
+        "publicationDate": 1769023383,
+        "publicationGroup": 19714684,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1769023372,
+        "rowsUpdatedBy": "5fuc-pqz2",
+        "tableId": 20240030,
+        "totalTimesRated": 0,
+        "viewCount": 1084,
+        "viewLastModified": 1777298582,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1755277079,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7311158,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1755277006,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1755277079,
+              "failureCount": 0,
+              "startedAt": 1755277079,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 625026393,
+            "name": "OBJECTID",
+            "dataTypeName": "number",
+            "description": "A unique, not null integer field used to uniquely identify rows in tables in a geodatabase",
+            "fieldName": "objectid",
+            "position": 1,
+            "renderTypeName": "number",
+            "tableColumnId": 155891718,
+            "width": 196,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "80",
+              "null": "0",
+              "top": [
+                {
+                  "item": "70",
+                  "count": "1"
+                },
+                {
+                  "item": "33",
+                  "count": "1"
+                },
+                {
+                  "item": "55",
+                  "count": "1"
+                },
+                {
+                  "item": "19",
+                  "count": "1"
+                },
+                {
+                  "item": "29",
+                  "count": "1"
+                },
+                {
+                  "item": "14",
+                  "count": "1"
+                },
+                {
+                  "item": "3",
+                  "count": "1"
+                },
+                {
+                  "item": "74",
+                  "count": "1"
+                },
+                {
+                  "item": "17",
+                  "count": "1"
+                },
+                {
+                  "item": "64",
+                  "count": "1"
+                },
+                {
+                  "item": "7",
+                  "count": "1"
+                },
+                {
+                  "item": "52",
+                  "count": "1"
+                },
+                {
+                  "item": "73",
+                  "count": "1"
+                },
+                {
+                  "item": "77",
+                  "count": "1"
+                },
+                {
+                  "item": "37",
+                  "count": "1"
+                },
+                {
+                  "item": "34",
+                  "count": "1"
+                },
+                {
+                  "item": "78",
+                  "count": "1"
+                },
+                {
+                  "item": "39",
+                  "count": "1"
+                },
+                {
+                  "item": "76",
+                  "count": "1"
+                },
+                {
+                  "item": "8",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026394,
+            "name": "PARENT_BORO",
+            "dataTypeName": "text",
+            "description": "This is a one digit number field that identifies the borough in which the associated feature exists.",
+            "fieldName": "parent_boro",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 155891719,
+            "width": 232,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "4",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1",
+                  "count": "40"
+                },
+                {
+                  "item": "3",
+                  "count": "30"
+                },
+                {
+                  "item": "4",
+                  "count": "10"
+                }
+              ],
+              "smallest": "1",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026395,
+            "name": "PARENT_BLOCK",
+            "dataTypeName": "number",
+            "description": "Block is a five digit numeric field that identifies the block on which the associated feature exists.",
+            "fieldName": "parent_block",
+            "position": 3,
+            "renderTypeName": "number",
+            "tableColumnId": 155891720,
+            "width": 244,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "8720",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1480",
+                  "count": "11"
+                },
+                {
+                  "item": "5010",
+                  "count": "10"
+                },
+                {
+                  "item": "295",
+                  "count": "8"
+                },
+                {
+                  "item": "8720",
+                  "count": "5"
+                },
+                {
+                  "item": "2134",
+                  "count": "4"
+                },
+                {
+                  "item": "702",
+                  "count": "4"
+                },
+                {
+                  "item": "1120",
+                  "count": "3"
+                },
+                {
+                  "item": "1403",
+                  "count": "3"
+                },
+                {
+                  "item": "1483",
+                  "count": "2"
+                },
+                {
+                  "item": "1280",
+                  "count": "2"
+                },
+                {
+                  "item": "1265",
+                  "count": "2"
+                },
+                {
+                  "item": "1129",
+                  "count": "2"
+                },
+                {
+                  "item": "535",
+                  "count": "1"
+                },
+                {
+                  "item": "783",
+                  "count": "1"
+                },
+                {
+                  "item": "199",
+                  "count": "1"
+                },
+                {
+                  "item": "152",
+                  "count": "1"
+                },
+                {
+                  "item": "157",
+                  "count": "1"
+                },
+                {
+                  "item": "541",
+                  "count": "1"
+                },
+                {
+                  "item": "1047",
+                  "count": "1"
+                },
+                {
+                  "item": "1118",
+                  "count": "1"
+                }
+              ],
+              "smallest": "146",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026396,
+            "name": "PARENT_LOT",
+            "dataTypeName": "number",
+            "description": "Lot is a four digit numeric field that identifies a unique lot within a tax block. Although DOF has a set of defined limits for different types of lots, the fact that there are exceptions to these rules makes it impossible to use a domain for validity checking of the lot numbers.",
+            "fieldName": "parent_lot",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 155891721,
+            "width": 220,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "7501",
+              "null": "0",
+              "top": [
+                {
+                  "item": "79",
+                  "count": "10"
+                },
+                {
+                  "item": "1",
+                  "count": "6"
+                },
+                {
+                  "item": "40",
+                  "count": "4"
+                },
+                {
+                  "item": "30",
+                  "count": "3"
+                },
+                {
+                  "item": "110",
+                  "count": "3"
+                },
+                {
+                  "item": "120",
+                  "count": "2"
+                },
+                {
+                  "item": "150",
+                  "count": "2"
+                },
+                {
+                  "item": "113",
+                  "count": "2"
+                },
+                {
+                  "item": "111",
+                  "count": "2"
+                },
+                {
+                  "item": "112",
+                  "count": "2"
+                },
+                {
+                  "item": "154",
+                  "count": "2"
+                },
+                {
+                  "item": "133",
+                  "count": "2"
+                },
+                {
+                  "item": "119",
+                  "count": "1"
+                },
+                {
+                  "item": "22",
+                  "count": "1"
+                },
+                {
+                  "item": "38",
+                  "count": "1"
+                },
+                {
+                  "item": "60",
+                  "count": "1"
+                },
+                {
+                  "item": "140",
+                  "count": "1"
+                },
+                {
+                  "item": "50",
+                  "count": "1"
+                },
+                {
+                  "item": "62",
+                  "count": "1"
+                },
+                {
+                  "item": "118",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026397,
+            "name": "PARENT_BBL",
+            "dataTypeName": "text",
+            "description": "BBL is a concatenation of Boro-Block-Lot and is stored with every instance of those three fields. Although the BBL value can always be determined dynamically, this field is maintained in order to simplify indexing, searching and the use of the files by other, as yet undetermined, applications.",
+            "fieldName": "parent_bbl",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 155891722,
+            "width": 220,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "4050100079",
+              "null": "0",
+              "top": [
+                {
+                  "item": "4050100079",
+                  "count": "10"
+                },
+                {
+                  "item": "1012800154",
+                  "count": "2"
+                },
+                {
+                  "item": "1007830034",
+                  "count": "1"
+                },
+                {
+                  "item": "3002950113",
+                  "count": "1"
+                },
+                {
+                  "item": "1014800111",
+                  "count": "1"
+                },
+                {
+                  "item": "1014800118",
+                  "count": "1"
+                },
+                {
+                  "item": "1005410001",
+                  "count": "1"
+                },
+                {
+                  "item": "1007020150",
+                  "count": "1"
+                },
+                {
+                  "item": "1010477501",
+                  "count": "1"
+                },
+                {
+                  "item": "1006300140",
+                  "count": "1"
+                },
+                {
+                  "item": "1012650040",
+                  "count": "1"
+                },
+                {
+                  "item": "3087200030",
+                  "count": "1"
+                },
+                {
+                  "item": "1014800113",
+                  "count": "1"
+                },
+                {
+                  "item": "3001990015",
+                  "count": "1"
+                },
+                {
+                  "item": "3020110060",
+                  "count": "1"
+                },
+                {
+                  "item": "3014030133",
+                  "count": "1"
+                },
+                {
+                  "item": "3011200001",
+                  "count": "1"
+                },
+                {
+                  "item": "3021340037",
+                  "count": "1"
+                },
+                {
+                  "item": "3011290030",
+                  "count": "1"
+                },
+                {
+                  "item": "1019460022",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1001520023",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026398,
+            "name": "SUB_LOT_NUMBER",
+            "dataTypeName": "number",
+            "description": "Lot is a four digit numeric field that identifies a unique lot within a tax block that the attribute is appurtenant to. Subterranean rights lot numbers must be between 8000 and 8999.",
+            "fieldName": "sub_lot_number",
+            "position": 6,
+            "renderTypeName": "number",
+            "tableColumnId": 155891723,
+            "width": 268,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "8254",
+              "null": "0",
+              "top": [
+                {
+                  "item": "8100",
+                  "count": "10"
+                },
+                {
+                  "item": "8014",
+                  "count": "8"
+                },
+                {
+                  "item": "8001",
+                  "count": "8"
+                },
+                {
+                  "item": "8005",
+                  "count": "6"
+                },
+                {
+                  "item": "8041",
+                  "count": "4"
+                },
+                {
+                  "item": "8033",
+                  "count": "3"
+                },
+                {
+                  "item": "8040",
+                  "count": "3"
+                },
+                {
+                  "item": "8004",
+                  "count": "3"
+                },
+                {
+                  "item": "8002",
+                  "count": "2"
+                },
+                {
+                  "item": "8110",
+                  "count": "2"
+                },
+                {
+                  "item": "8165",
+                  "count": "2"
+                },
+                {
+                  "item": "8030",
+                  "count": "2"
+                },
+                {
+                  "item": "8009",
+                  "count": "2"
+                },
+                {
+                  "item": "8048",
+                  "count": "2"
+                },
+                {
+                  "item": "8010",
+                  "count": "2"
+                },
+                {
+                  "item": "8003",
+                  "count": "2"
+                },
+                {
+                  "item": "8154",
+                  "count": "1"
+                },
+                {
+                  "item": "8120",
+                  "count": "1"
+                },
+                {
+                  "item": "8150",
+                  "count": "1"
+                },
+                {
+                  "item": "8020",
+                  "count": "1"
+                }
+              ],
+              "smallest": "8001",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026399,
+            "name": "SUB_LOT_BBL",
+            "dataTypeName": "text",
+            "description": "BBL is a concatenation of Boro-Block-Lot and is stored with every instance of those three fields. Although the BBL value can always be determined dynamically, this field is maintained in order to simplify indexing, searching and the use of the files by other, as yet undetermined, applications.",
+            "fieldName": "sub_lot_bbl",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 155891724,
+            "width": 232,
+            "cachedContents": {
+              "non_null": "80",
+              "largest": "4050108010",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1014808100",
+                  "count": "10"
+                },
+                {
+                  "item": "3002958014",
+                  "count": "8"
+                },
+                {
+                  "item": "3087208005",
+                  "count": "4"
+                },
+                {
+                  "item": "3021348041",
+                  "count": "4"
+                },
+                {
+                  "item": "1012658040",
+                  "count": "2"
+                },
+                {
+                  "item": "3014038033",
+                  "count": "2"
+                },
+                {
+                  "item": "3011208001",
+                  "count": "1"
+                },
+                {
+                  "item": "1019468022",
+                  "count": "1"
+                },
+                {
+                  "item": "3011298150",
+                  "count": "1"
+                },
+                {
+                  "item": "1012698165",
+                  "count": "1"
+                },
+                {
+                  "item": "1007028001",
+                  "count": "1"
+                },
+                {
+                  "item": "3023328030",
+                  "count": "1"
+                },
+                {
+                  "item": "3001468016",
+                  "count": "1"
+                },
+                {
+                  "item": "4050108009",
+                  "count": "1"
+                },
+                {
+                  "item": "1011718165",
+                  "count": "1"
+                },
+                {
+                  "item": "1005418001",
+                  "count": "1"
+                },
+                {
+                  "item": "3020118060",
+                  "count": "1"
+                },
+                {
+                  "item": "1007028002",
+                  "count": "1"
+                },
+                {
+                  "item": "1007028003",
+                  "count": "1"
+                },
+                {
+                  "item": "1010478048",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1001528023",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          },
+          {
+            "id": 625026400,
+            "name": "EFFECTIVE_TAX_YEAR",
+            "dataTypeName": "text",
+            "description": "Effective Tax Year",
+            "fieldName": "effective_tax_year",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 155891725,
+            "width": 316,
+            "cachedContents": {
+              "non_null": "59",
+              "largest": "2024-2025",
+              "null": "21",
+              "top": [
+                {
+                  "item": "2024-2025",
+                  "count": "24"
+                },
+                {
+                  "item": "2016-2017",
+                  "count": "13"
+                },
+                {
+                  "item": "2023-2024",
+                  "count": "5"
+                },
+                {
+                  "item": "2009-2010",
+                  "count": "3"
+                },
+                {
+                  "item": "2021-2022",
+                  "count": "3"
+                },
+                {
+                  "item": "2019-2020",
+                  "count": "3"
+                },
+                {
+                  "item": "2022-2023",
+                  "count": "2"
+                },
+                {
+                  "item": "2007-2008",
+                  "count": "1"
+                },
+                {
+                  "item": "2018-2019",
+                  "count": "1"
+                },
+                {
+                  "item": "2014-2015",
+                  "count": "1"
+                },
+                {
+                  "item": "2011-2012",
+                  "count": "1"
+                },
+                {
+                  "item": "2015-2016",
+                  "count": "1"
+                },
+                {
+                  "item": "2017-2018",
+                  "count": "1"
+                }
+              ],
+              "smallest": "2007-2008",
+              "count": "80",
+              "cardinality": "80"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "DOF-DTM-Relational-Data-Dictionary.xlsx",
+              "assetId": "4b16863d-b086-4837-ad86-3c6cdd49dc44",
+              "name": "DOF-DTM-Relational-Data-Dictionary.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Data Collection": {
+              "Data Collection": "Department of Finance Digital Tax Map"
+            },
+            "Update": {
+              "Automation": "Yes",
+              "Update Frequency Details": "DOF Tax Map Unit (TMU) makes daily edits to the Tax Map that can be observed on DOF's Property Information Portal (https://propertyinformationportal.nyc.gov/).   Note: The timing of map record updates for a given Tax Map Item may not correspond to updates in related DOF/NYC data systems not maintained by DOF Tax Map Unit (e.g., Exemptions or Buildings information, respectively)",
+              "Update Frequency": "Weekly",
+              "Data Change Frequency": "Daily"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Finance (DOF)"
+            }
+          },
+          "rowLabel": "Subterranean Lot",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dtm_sub_lots",
+          "subterranean lots"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/ag5u-vnw2.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:57:56.077675+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/ag5u-vnw2.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Wed, 21 Jan 2026 19:23:04 GMT",
+      "etag": "W/\"anVsaWV0dC41MTY3MF8yXzM0UGtxMGJLYjd4M2FLRzU5UTJNWUxtOWg2LTdV---gzipCWjoWVh1xAvSJSzI1ssMRfxSgqU--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 186,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "effective_tax_year",
+        "objectid",
+        "parent_bbl",
+        "parent_block",
+        "parent_boro",
+        "parent_lot",
+        "sub_lot_bbl",
+        "sub_lot_number"
+      ],
+      "json_sample": [
+        {
+          "objectid": "1",
+          "parent_boro": "1",
+          "parent_block": "1040",
+          "parent_lot": "1",
+          "parent_bbl": "1010400001",
+          "sub_lot_number": "8001",
+          "sub_lot_bbl": "1010408001",
+          "effective_tax_year": "2024-2025"
+        }
+      ]
+    }
+  ]
+}

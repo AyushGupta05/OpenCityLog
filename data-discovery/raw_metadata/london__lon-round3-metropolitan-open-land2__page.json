@@ -1,0 +1,317 @@
+{
+  "source_id": "lon-round3-metropolitan-open-land2",
+  "city": "london",
+  "title": "Lambeth Metropolitan Open Land",
+  "publisher": "London Borough of Lambeth",
+  "bucket": "greenspace/planning/open land/boundaries",
+  "retrieved_at": "2026-04-28T14:32:03.962930+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.data.gov.uk/api/3/action/package_show?id=metropolitan-open-land2",
+      "retrieved_at": "2026-04-28T14:32:03.261968+00:00",
+      "final_url": "https://ckan.publishing.service.gov.uk/api/3/action/package_show?id=metropolitan-open-land2",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "7304",
+      "bytes_captured": 7304,
+      "json_keys": [
+        "help",
+        "result",
+        "success"
+      ],
+      "json_sample": {
+        "help": "https://ckan.publishing.service.gov.uk/api/3/action/help_show?name=package_show",
+        "success": true,
+        "result": {
+          "creator_user_id": "60e687bf-a6d8-43e2-a50e-efab84b27952",
+          "id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+          "isopen": false,
+          "license_id": null,
+          "license_title": null,
+          "metadata_created": "2019-08-07T12:54:10.768247",
+          "metadata_modified": "2019-08-07T12:54:10.768254",
+          "name": "metropolitan-open-land2",
+          "notes": "<tr height='17'>\n  <td height='17' style='height:12.75pt;width:266pt' width='355'>showing\n  boundaries of areas where this is intended to protect areas of landscape,\n  recreation, nature conservation and scientific interest which are\n  strategically important</td>\n</tr>",
+          "num_resources": 8,
+          "num_tags": 3,
+          "organization": {
+            "id": "e2f0e3e8-ce81-41c1-a9ab-16d65c6f92c9",
+            "name": "london-borough-of-lambeth",
+            "title": "London Borough of Lambeth",
+            "type": "organization",
+            "description": "",
+            "image_url": "",
+            "created": "2012-06-27T14:50:50.690510",
+            "is_organization": true,
+            "approval_status": "approved",
+            "state": "active"
+          },
+          "owner_org": "e2f0e3e8-ce81-41c1-a9ab-16d65c6f92c9",
+          "private": false,
+          "state": "active",
+          "title": "Metropolitan Open Land",
+          "type": "dataset",
+          "url": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0",
+          "version": null,
+          "extras": [
+            {
+              "key": "dcat_issued",
+              "value": "2015-12-01T14:20:24.000Z"
+            },
+            {
+              "key": "dcat_modified",
+              "value": "2016-09-28T09:50:02.000Z"
+            },
+            {
+              "key": "guid",
+              "value": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0"
+            },
+            {
+              "key": "language",
+              "value": ""
+            },
+            {
+              "key": "harvest_object_id",
+              "value": "f978ffe8-4fa0-4f16-bee7-0892fb8c48c0"
+            },
+            {
+              "key": "harvest_source_id",
+              "value": "b730f0c1-cdb7-4378-9464-628f14dc1c25"
+            },
+            {
+              "key": "harvest_source_title",
+              "value": "Lambeth_Open_Data"
+            }
+          ],
+          "resources": [
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779244",
+              "description": "",
+              "format": "HTML",
+              "hash": "",
+              "id": "9932eb0c-5e70-46a8-88c3-b292ece6c85f",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779244",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "ArcGIS Hub Dataset",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 0,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779250",
+              "description": "",
+              "format": "Esri REST",
+              "hash": "",
+              "id": "35c56842-d921-412d-b5f4-68ddf203fe9c",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779250",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "Esri Rest API",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 1,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "https://gis.lambeth.gov.uk/arcgis/rest/services/MetropolitanOpenLand/MapServer/0",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779252",
+              "description": "",
+              "format": "GeoJSON",
+              "hash": "",
+              "id": "b4f71c1a-6fb5-4625-bf95-7121a3d8e813",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779252",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "GeoJSON",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 2,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0.geojson",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779254",
+              "description": "",
+              "format": "CSV",
+              "hash": "",
+              "id": "9dd63a4c-310a-420d-af94-1c9414be7e16",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779254",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "CSV",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 3,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0.csv",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779255",
+              "description": "",
+              "format": "OGC WFS",
+              "hash": "",
+              "id": "fb002603-a8fa-4e34-a55d-dbe7f3f31e8e",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779255",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "OGC WFS",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 4,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "https://gis.lambeth.gov.uk/arcgis/services/MetropolitanOpenLand/MapServer/WFSServer?request=GetCapabilities&service=WFS",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779257",
+              "description": "",
+              "format": "KML",
+              "hash": "",
+              "id": "02d23256-7d4c-46a2-8f08-bc75d3734624",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779257",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "KML",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 5,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0.kml",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779258",
+              "description": "",
+              "format": "ZIP",
+              "hash": "",
+              "id": "6f7eb7aa-386a-4abf-8ecd-ba96bb39a103",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779258",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "Shapefile",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 6,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "http://lambethopenmappingdata-lambethcouncil.opendata.arcgis.com/datasets/caff52b58d2444feb6ddf64db568d9e6_0.zip",
+              "url_type": null
+            },
+            {
+              "cache_last_updated": null,
+              "cache_url": null,
+              "created": "2019-08-07T12:54:10.779260",
+              "description": "",
+              "format": "OGC WMS",
+              "hash": "",
+              "id": "531f28a4-0146-4536-8dab-34fec1855c06",
+              "last_modified": null,
+              "metadata_modified": "2019-08-07T12:54:10.779260",
+              "mimetype": null,
+              "mimetype_inner": null,
+              "name": "OGC WMS",
+              "package_id": "1e61f8e2-fda2-4ede-bede-d9c5b5162fee",
+              "position": 7,
+              "resource_type": null,
+              "size": null,
+              "state": "active",
+              "url": "https://gis.lambeth.gov.uk/arcgis/services/MetropolitanOpenLand/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+              "url_type": null
+            }
+          ],
+          "tags": [
+            {
+              "display_name": "maps",
+              "id": "1c8951a7-f397-43a3-9307-297d57020995",
+              "name": "maps",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "open data",
+              "id": "1a504da1-ad7e-4eac-8da5-fd489a1cf968",
+              "name": "open data",
+              "state": "active",
+              "vocabulary_id": null
+            },
+            {
+              "display_name": "planning",
+              "id": "d5e3a552-07a7-4262-a38d-337769833bda",
+              "name": "planning",
+              "state": "active",
+              "vocabulary_id": null
+            }
+          ],
+          "groups": [],
+          "relationships_as_subject": [],
+          "relationships_as_object": [],
+          "harvest": [
+            {
+              "key": "harvest_object_id",
+              "value": "f978ffe8-4fa0-4f16-bee7-0892fb8c48c0"
+            },
+            {
+              "key": "harvest_source_id",
+              "value": "b730f0c1-cdb7-4378-9464-628f14dc1c25"
+            },
+            {
+              "key": "harvest_source_title",
+              "value": "Lambeth_Open_Data"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "requested_url": "https://www.data.gov.uk/dataset/metropolitan-open-land2",
+      "retrieved_at": "2026-04-28T14:32:03.579559+00:00",
+      "final_url": "https://www.data.gov.uk/dataset/1e61f8e2-fda2-4ede-bede-d9c5b5162fee/metropolitan-open-land2",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"a62e7d757bad9fae0740befce163d27e\"",
+      "content_length_header": "25728",
+      "bytes_captured": 25728,
+      "page_title": "Metropolitan Open Land - data.gov.uk",
+      "h1": "Metropolitan Open Land",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <!--[if lt IE 9]><html class=\"lte-ie8\" lang=\"en\"><![endif]--> <!--[if gt IE 8]><!--><html lang=\"en\"><!--<![endif]--> <html class=\"govuk-template\"> <head> <script> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&';f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5WRWCH8X'); </script> <meta charset=\"utf-8\"> <title>Metropolitan Open Land - data.gov.uk</title> <meta name=\"theme-color\" content=\"#0b0c0c\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"stylesheet\" href=\"/find-assets/application-8be01d122776efe1ab21192ae12f353adc894cbac790c8ccbf82c4ddc41d8b96.css\" /> <link rel=\"stylesheet\" href=\"/find-assets/v2/application-d977cc135c982e194063c874a5b5cd03556954111607fafd59cd1aa52f786cb5.css\" /> <meta name=\"dc:title\" content=\"Metropolitan Open Land\"> <meta name=\"dc:creator\" content=\"London Borough of Lambeth\"> <meta name=\"dc:date\" content=\"2019-08-07\"> </head> <body class=\"govuk-template__body\"> <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script> <div id=\"global-cookie-message\" class=\"gem-c-cookie-banner govuk-clearfix\" data-module=\"cookie-banner\" role=\"region\" aria-label=\"cookie banner\" data-nosnippet> <div class=\"govuk-cookie-banner js-banner-wrapper\" role=\"region\" aria-label=\"Cookies on GOV.UK\"> <div class=\"gem-c-cookie-banner__message govuk-cookie-banner__message govuk-width-container\"> <div class=\"govuk-grid-row\"> <div class=\"govuk-grid-column-two-thirds\"> <h2 class=\"govuk-cookie-banner__heading govuk-heading-m\">Cookies on GOV.UK</h2> <div class=\"govuk-cookie-banner__content\"> <p class='govuk-body'>We use <a href=\"/cookies\" class=\"govuk-link\">cookies to collect information</a> about how you use data.gov.uk. We use this information to make the website work as well as possible.</p> </div> </div> </div> <div class=\"govuk-button-group\"> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-accept-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner accepted\" data-cookie-types=\"all\">Accept additional cookies</button> <button class=\"gem-c-button govuk-button\" type=\"submit\" data-module=\"gem-track-click\" data-reject-cookies=\"true\" data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner rejected\">Reject additional cookies</button> <a class=\"govuk-link\" href=\"/cookies\">View cookies</a> </div> </div> </div> <div class=\"gem-c-cookie-banner__confirmation govuk-width-container\" tabind"
+    }
+  ]
+}

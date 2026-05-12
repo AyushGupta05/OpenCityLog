@@ -1,0 +1,498 @@
+{
+  "source_id": "e7yp-wx55",
+  "city": "new_york",
+  "title": "ParkNYC Block Faces",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "curb/parking/blockfaces",
+  "retrieved_at": "2026-04-28T12:58:27.851376+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/e7yp-wx55",
+      "retrieved_at": "2026-04-28T12:58:25.769784+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/e7yp-wx55",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 29822,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Parking Meters - ParkNYC Block Faces",
+      "description": "NYCDOT sets parking meter rates across the five boroughs to be reflective of individual neighborhood parking conditions such as land use, density, and parking demand. Individual meter rates are posted on each parking meter and are represented in this dataset by blockface segments. NYCDOT provides this map for informational purpose only. Confirm the rate at the parking meter or on the ParkNYC app before paying and observe all posted signs.",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1775039354,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/e7yp-wx55",
+      "retrieved_at": "2026-04-28T12:58:26.513888+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/e7yp-wx55",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 29822,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Parking Meters - ParkNYC Block Faces",
+      "description": "NYCDOT sets parking meter rates across the five boroughs to be reflective of individual neighborhood parking conditions such as land use, density, and parking demand. Individual meter rates are posted on each parking meter and are represented in this dataset by blockface segments. NYCDOT provides this map for informational purpose only. Confirm the rate at the parking meter or on the ParkNYC app before paying and observe all posted signs.",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1775039354,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/e7yp-wx55.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:58:27.189684+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/e7yp-wx55.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Wed, 01 Apr 2026 10:29:10 GMT",
+      "etag": "W/\"anVsaWV0dC40MTQ5Ml8xXzUwM2o5YmlZdlhLWHZ6TlBPYzNzcVN6c1RCa2Z3---gzipO-LVR-W0MyfQLv-S3ikegrG3yLI--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 3555,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "all_vehi_1",
+        "all_vehi_2",
+        "all_vehi_3",
+        "all_vehicl",
+        "borough",
+        "commerci_1",
+        "commerci_2",
+        "commerci_3",
+        "commercial",
+        "from_stree",
+        "meter_rate",
+        "on_street",
+        "pay_by_cel",
+        "shape_leng",
+        "side_of_st",
+        "the_geom",
+        "to_street",
+        "vehicle_ty"
+      ],
+      "json_sample": [
+        {
+          "the_geom": {
+            "type": "MultiLineString",
+            "coordinates": [
+              [
+                [
+                  -74.11680631313563,
+                  40.574154051705946
+                ],
+                [
+                  -74.11680606333323,
+                  40.57415302536113
+                ],
+                [
+                  -74.11680587259589,
+                  40.5741520079615
+                ],
+                [
+                  -74.11680572906653,
+                  40.574150972503425
+                ],
+                [
+                  -74.11680563279236,
+                  40.57414994600251
+                ],
+                [
+                  -74.11680558374192,
+                  40.574148910448315
+                ],
+                [
+                  -74.11680557012106,
+                  40.574147874858106
+                ],
+                [
+                  -74.11680561554954,
+                  40.5741468392079
+                ],
+                [
+                  -74.11680570821746,
+                  40.57414580350962
+                ],
+                [
+                  -74.11680584814056,
+                  40.57414477676854
+                ],
+                [
+                  -74.11680602349325,
+                  40.57414374999143
+                ],
+                [
+                  -74.11680625791101,
+                  40.574142732159515
+                ],
+                [
+                  -74.1168065395682,
+                  40.57414171427963
+                ],
+                [
+                  -74.11680685668648,
+                  40.57414071437413
+                ],
+                [
+                  -74.11680722104418,
+                  40.57413971442061
+                ],
+                [
+                  -74.11680764448269,
+                  40.574138732417524
+                ],
+                [
+                  -74.11680810336645,
+                  40.5741377593837
+                ],
+                [
+                  -74.11680859769561,
+                  40.57413679531903
+                ],
+                [
+                  -74.11680915110554,
+                  40.57413584920478
+                ],
+                [
+                  -74.11680973997655,
+                  40.574134921064974
+                ],
+                [
+                  -74.11681037610272,
+                  40.574134001882385
+                ],
+                [
+                  -74.11681104768995,
+                  40.57413310067426
+                ],
+                [
+                  -74.11681175475401,
+                  40.574132226445805
+                ],
+                [
+                  -74.11681250907323,
+                  40.57413136117451
+                ],
+                [
+                  -74.11681331067912,
+                  40.57413052287092
+                ],
+                [
+                  -74.11681413593617,
+                  40.57412970255377
+                ],
+                [
+                  -74.11681500847992,
+                  40.574128909204326
+                ],
+                [
+                  -74.11681590467487,
+                  40.57412813384128
+                ],
+                [
+                  -74.11681684815649,
+                  40.57412738544592
+                ],
+                [
+                  -74.11681781530507,
+                  40.574126664042225
+                ],
+                [
+                  -74.11681881793045,
+                  40.57412596961821
+                ],
+                [
+                  -74.11681985603258,
+                  40.57412530217386
+                ],
+                [
+                  -74.11682092961158,
+                  40.574124661709256
+                ],
+                [
+                  -74.11682201504765,
+                  40.57412404824827
+                ],
+                [
+                  -74.11682313596053,
+                  40.57412346176696
+                ],
+                [
+                  -74.11682429236598,
+                  40.57412291127056
+                ],
+                [
+                  -74.11682546062852,
+                  40.57412238777786
+                ],
+                [
+                  -74.1168266525737,
+                  40.57412190028206
+                ],
+                [
+                  -74.11682786818591,
+                  40.57412143977793
+                ],
+                [
+                  -74.11683900278342,
+                  40.574113476815796
+                ],
+                [
+                  -74.11687897637553,
+                  40.57408485348119
+                ],
+                [
+                  -74.11693009633484,
+                  40.57404827615484
+                ],
+                [
+                  -74.11698120441251,
+                  40.574011689812366
+                ],
+                [
+                  -74.11703231243418,
+                  40.57397510344704
+                ],
+                [
+                  -74.11708342041564,
+                  40.57393852606409
+                ],
+                [
+                  -74.11713452832535,
+                  40.573901939653084
+                ],
+                [
+                  -74.11718563617912,
+                  40.57386535321918
+                ],
+                [
+                  -74.11723674399263,
+                  40.57382877576766
+                ],
+                [
+                  -74.11728785173437,
+                  40.57379218928803
+                ],
+                [
+                  -74.11733650385307,
+                  40.57375610058263
+                ],
+                [
+                  -74.11738515593494,
+                  40.57372002086174
+                ],
+                [
+                  -74.11743380794847,
+                  40.57368393211492
+                ],
+                [
+                  -74.11748244809966,
+                  40.573647843359424
+                ],
+                [
+                  -74.11753110002385,
+                  40.573611763576366
+                ],
+                [
+                  -74.11757975187967,
+                  40.57357567476733
+                ],
+                [
+                  -74.11762658716897,
+                  40.573540830522546
+                ],
+                [
+                  -74.11767342239354,
+                  40.573505977253326
+                ],
+                [
+                  -74.11772025758508,
+                  40.5734711329701
+                ],
+                [
+                  -74.1177670927119,
+                  40.57343627966245
+                ],
+                [
+                  -74.11781392780573,
+                  40.57340143534087
+                ],
+                [
+                  -74.11781521385925,
+                  40.573400749622664
+                ],
+                [
+                  -74.11781653540551,
+                  40.573400099889064
+                ],
+                [
+                  -74.11781788063476,
+                  40.57339948615217
+                ],
+                [
+                  -74.11781926135671,
+                  40.57339890839991
+                ],
+                [
+                  -74.11782065396774,
+                  40.57339837566168
+                ],
+                [
+                  -74.11782208205565,
+                  40.5733978699028
+                ],
+                [
+                  -74.11782352201679,
+                  40.57339740015274
+                ],
+                [
+                  -74.11782499748655,
+                  40.573396975392534
+                ],
+                [
+                  -74.11782647301976,
+                  40.57339658665323
+                ],
+                [
+                  -74.11782797223603,
+                  40.57339623391062
+                ],
+                [
+                  -74.11782949515116,
+                  40.57339592616998
+                ],
+                [
+                  -74.11783101812982,
+                  40.57339565445024
+                ],
+                [
+                  -74.1178325648073,
+                  40.57339542773244
+                ],
+                [
+                  -74.11783411156426,
+                  40.573395246040825
+                ],
+                [
+                  -74.11783567017861,
+                  40.573395091352786
+                ],
+                [
+                  -74.11783581187947,
+                  40.57339508220218
+                ],
+                [
+                  -74.11783722888825,
+                  40.573394990696144
+                ],
+                [
+                  -74.11783879947113,
+                  40.573394926048344
+                ]
+              ]
+            ]
+          },
+          "pay_by_cel": "500110",
+          "vehicle_ty": "All Vehicles",
+          "all_vehicl": "2 Hours",
+          "all_vehi_1": "Monday-Saturday 9 AM-5 PM",
+          "all_vehi_2": "$1.50 1st Hour / $2.50 2nd Hour",
+          "all_vehi_3": "$4.00",
+          "commercial": "N/A",
+          "commerci_1": "N/A",
+          "commerci_2": "N/A",
+          "commerci_3": "N/A",
+          "on_street": "New Dorp Plaza",
+          "side_of_st": "N",
+          "from_stree": "New Dorp Lane",
+          "to_street": "Rose Avenue",
+          "borough": "Staten Island",
+          "meter_rate": "Zone 3",
+          "shape_leng": "401.031186927"
+        }
+      ]
+    }
+  ]
+}

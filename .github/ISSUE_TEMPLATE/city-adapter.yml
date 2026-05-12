@@ -1,0 +1,41 @@
+name: City adapter
+description: Propose or scope a new city adapter.
+title: "[City adapter]: "
+labels: ["city-adapter", "data-coverage"]
+body:
+  - type: input
+    id: city
+    attributes:
+      label: City
+    validations:
+      required: true
+  - type: textarea
+    id: public_sources
+    attributes:
+      label: Candidate public sources
+      description: List source URLs, publishers, licences, and coverage years where known.
+    validations:
+      required: true
+  - type: textarea
+    id: pilot_story
+    attributes:
+      label: Why this city?
+      description: Explain the civic question or place-change story the adapter would support.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Known gaps and risks
+      description: Missing licences, weak geometry, stale sources, privacy risks, or incomplete years.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This proposal starts from source-backed events, not a broad simulator.
+          required: true
+        - label: I have included at least one public source with licence or terms notes.
+          required: true

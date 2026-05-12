@@ -1,0 +1,25 @@
+{
+  "source_id": "defra-uk-air",
+  "city": "london",
+  "title": "UK-AIR air quality monitoring data",
+  "publisher": "Department for Environment, Food and Rural Affairs",
+  "bucket": "environment",
+  "retrieved_at": "2026-04-28T12:18:55.252183+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://uk-air.defra.gov.uk/data/",
+      "retrieved_at": "2026-04-28T12:18:54.915572+00:00",
+      "final_url": "https://uk-air.defra.gov.uk/data/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 31093,
+      "page_title": "Data Archive\n     \n - DEFRA UK Air - GOV.UK",
+      "h1": "Data Archive",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"> <head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <meta name=\"theme-color\" content=\"#005ea5\"> <!-- Page Metadata --> <meta name=\"DC.Title\" content=\"Data Archive- Defra, UK\" lang=\"en\" xml:lang=\"en\" /> <meta name=\"DC.Date.created\" scheme=\"W3CDTF\" content=\"\" /> <meta name=\"DC.Date.modified\" scheme=\"W3CDTF\" content=\"2025-07-10\" /> <meta name=\"eGMS.Subject.Category\" content=\"Environmental protection\" scheme=\"GCL\" lang=\"en\" xml:lang=\"en\" /> <meta name=\"DC.Subject.keyword\" content=\"\" lang=\"en\" xml:lang=\"en\" /> <meta name=\"DC.Description\" content=\"\" lang=\"en\" xml:lang=\"en\" /> <!--Generic metadata --> <meta name=\"DC.Publisher\" lang=\"en\" content=\"Department for Environment, Food and Rural Affairs (Defra), Nobel House, 17 Smith Square, London SW1P 3JR helpline@defra.gsi.gov.uk\" /> <meta name=\"DC.Creator\" lang=\"en\" content=\"Department for Environment, Food and Rural Affairs (Defra) webmaster@defra.gsi.gov.uk\" /> <meta name=\"DC.Format\" scheme=\"IMT\" content=\"text/html\" /> <meta name=\"DC.Language\" scheme=\"ISO 639-2/B\" content=\"eng\" /> <meta name=\"DC.Coverage\" lang=\"en\" content=\"UK; United Kingdom\" /> <meta name=\"DC.Rights.copyright\" lang=\"en\" content=\"Crown Copyright http://www.opsi.gov.uk/advice/index.htm\" /> <!--End of metadata --> <!-- Start of Defra PICS label --> <meta http-equiv=\"PICS-Label\" content='(pics-1.1 \"http://www.icra.org/ratingsv02.html\" comment \"ICRAonline v2.0\" l gen true for \"http://www.defra.gov.uk\" r (nz 1 vz 1 lz 1 oz 1 cz 1) \"http://www.rsac.org/ratingsv01.html\" l gen true for \"http://www.defra.gov.uk\" r (n 0 s 0 v 0 l 0))' /> <link rel=\"mask-icon\" href=\"/images/app/safari-pinned-tab.svg\" color=\"#0b0c0c\"> <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/images/app/apple-touch-icon-180x180.png\"> <link rel=\"apple-touch-icon\" sizes=\"167x167\" href=\"/images/app/apple-touch-icon-167x167.png\"> <link rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"/images/app/apple-touch-icon-152x152.png\"> <link rel=\"apple-touch-icon\" href=\"/images/app/apple-touch-icon.png\"> <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\"> <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\"> <link rel=\"manifest\" href=\"/site.webmanifest?c=250534223018402\"> <!-- Roboto font --> <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900\" rel=\"stylesheet\"> <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js\"></script> <!-- main style --> <link rel=\"stylesheet\" href=\"/build/main.css?c=e786233\" />"
+    }
+  ]
+}

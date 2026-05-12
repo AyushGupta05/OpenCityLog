@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-local-government-boundary-commission-open-data-reviews",
+  "city": "london",
+  "title": "Local Government Boundary Commission open data/reviews",
+  "publisher": "Local Government Boundary Commission for England",
+  "bucket": "boundaries/wards/governance",
+  "retrieved_at": "2026-04-28T12:57:26.378528+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.lgbce.org.uk/all-reviews",
+      "retrieved_at": "2026-04-28T12:57:24.662761+00:00",
+      "final_url": "https://www.lgbce.org.uk/all-reviews",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": "Tue, 28 Apr 2026 12:57:24 GMT",
+      "etag": "W/\"1777381044-gzip\"",
+      "content_length_header": "116729",
+      "bytes_captured": 116729,
+      "page_title": "All reviews | LGBCE",
+      "h1": "All reviews",
+      "meta_description": "Listing of all our current reviews. Local Government Boundary Commission for England. We provide electoral arrangements for English local authorities that are fair for voters.",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\"> <head> <meta charset=\"utf-8\" /> <meta name=\"description\" content=\"Listing of all our current reviews. Local Government Boundary Commission for England. We provide electoral arrangements for English local authorities that are fair for voters.\" /> <meta name=\"abstract\" content=\"Listing of all our current reviews. Local Government Boundary Commission for England. We provide electoral arrangements for English local authorities that are fair for voters.\" /> <link rel=\"canonical\" href=\"https://www.lgbce.org.uk/all-reviews\" /> <meta name=\"author\" content=\"LGBCE\" /> <link rel=\"image_src\" href=\"https://www.lgbce.org.uk/sites/default/files/styles/meta_open_graph/public/2023-02/full_district_no_labels_white_mask_0.jpg?h=d3f9ce5c&amp;itok=3v5tXClI\" /> <meta property=\"og:site_name\" content=\"LGBCE\" /> <meta property=\"og:url\" content=\"https://www.lgbce.org.uk/all-reviews\" /> <meta property=\"og:title\" content=\"All reviews\" /> <meta property=\"og:description\" content=\"Listing of all our current reviews. Local Government Boundary Commission for England. We provide electoral arrangements for English local authorities that are fair for voters.\" /> <meta property=\"og:image\" content=\"https://www.lgbce.org.uk/sites/default/files/styles/meta_open_graph/public/2023-02/full_district_no_labels_white_mask_0.jpg?h=d3f9ce5c&amp;itok=3v5tXClI\" /> <meta property=\"og:image:secure_url\" content=\"https://www.lgbce.org.uk/sites/default/files/styles/meta_open_graph/public/2023-02/full_district_no_labels_white_mask_0.jpg?h=d3f9ce5c&amp;itok=3v5tXClI\" /> <meta property=\"og:image:type\" content=\"image/jpeg\" /> <meta property=\"og:image:width\" content=\"1200\" /> <meta property=\"og:image:height\" content=\"630\" /> <meta property=\"og:image:alt\" content=\"North Tyneside, full district no labels map\" /> <meta name=\"twitter:card\" content=\"summary_large_image\" /> <meta name=\"twitter:title\" content=\"All reviews\" /> <meta name=\"twitter:description\" content=\"Listing of all our current reviews. Local Government Boundary Commission for England. We provide electoral arrangements for English local authorities that are fair for voters.\" /> <meta name=\"twitter:site\" content=\"@LGBCE\" /> <meta name=\"twitter:creator\" content=\"@LGBCE\" /> <meta name=\"twitter:image:alt\" content=\"North Tyneside, full district no labels map\" /> <meta name=\"twitter:image\" content=\"https://www.lgbce.org.uk/sites/default/files/styles/meta_twitter_card/public/2023-02/full_district_no_labels_white_mask_0.jpg?h=d3f9ce5c&amp;itok=XnKjMxOv\" /> <meta name=\"msapplication-TileColor\" content=\"#da532c\" /> <meta name=\"theme-color\" content=\"#ffffff\" /> <meta name=\"Generator\" content=\"Drupal 11 (https://www.drupal.org)\" /> <meta name=\"MobileOptimized\" content=\"width\" /> <meta name=\"HandheldFriendly\" content=\"true\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <style>div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie"
+    }
+  ]
+}

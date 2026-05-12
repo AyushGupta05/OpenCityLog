@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_public_transport_journeys",
+  "title": "Public Transport Journeys by Type of Transport",
+  "requested_url": "https://data.london.gov.uk/dataset/public-transport-journeys-by-type-of-transport-ep8ow",
+  "fetched_url": "https://data.london.gov.uk/dataset/public-transport-journeys-by-type-of-transport-ep8ow",
+  "final_url": "https://data.london.gov.uk/dataset/public-transport-journeys-by-type-of-transport-ep8ow/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:53.755528+00:00",
+  "page_title": "Public Transport Journeys by Type of Transport – London Datastore",
+  "h1": "Public Transport Journeys by Type of Transport",
+  "meta_description": ""
+}

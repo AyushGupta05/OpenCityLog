@@ -1,0 +1,1288 @@
+{
+  "source_id": "swpk-hqdp",
+  "city": "new_york",
+  "title": "New York City Population by Neighborhood Tabulation Areas",
+  "publisher": "NYC DCP / U.S. Census Bureau",
+  "bucket": "demographics",
+  "retrieved_at": "2026-04-28T12:22:03.089699+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/swpk-hqdp",
+      "retrieved_at": "2026-04-28T12:22:01.156173+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/swpk-hqdp",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 11592,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "New York City Population By Neighborhood Tabulation Areas",
+      "description": "Population Numbers By New York City Neighborhood Tabulation Areas\r\n\r\nThe data was collected from Census Bureaus' Decennial data dissemination (SF1). \r\nNeighborhood Tabulation Areas (NTAs), are aggregations of census tracts that are subsets of New York City's 55 Public Use Microdata Areas (PUMAs). Primarily due to these constraints, NTA boundaries and their associated names may not definitively represent neighborhoods. \r\nThis report shows change in population from 2000 to 2010 for each NTA.\r\nCompiled by the Population Division – New York City Department of City Planning.",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1372266975,
+      "json_sample": {
+        "id": "swpk-hqdp",
+        "name": "New York City Population By Neighborhood Tabulation Areas",
+        "assetType": "dataset",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "http://www.nyc.gov/html/dcp/html/census/demo_tables_2010.shtml",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1362329696,
+        "description": "Population Numbers By New York City Neighborhood Tabulation Areas\r\n\r\nThe data was collected from Census Bureaus' Decennial data dissemination (SF1). \r\nNeighborhood Tabulation Areas (NTAs), are aggregations of census tracts that are subsets of New York City's 55 Public Use Microdata Areas (PUMAs). Primarily due to these constraints, NTA boundaries and their associated names may not definitively represent neighborhoods. \r\nThis report shows change in population from 2000 to 2010 for each NTA.\r\nCompiled by the Population Division – New York City Department of City Planning.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 20426,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1536597092,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 4208936,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1372266978,
+        "publicationGroup": 711151,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1372266975,
+        "tableId": 942510,
+        "totalTimesRated": 0,
+        "viewCount": 68927,
+        "viewLastModified": 1581123381,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1372266978,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064776,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1372266978,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 77013871,
+            "name": "Borough",
+            "dataTypeName": "text",
+            "fieldName": "borough",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 8319043,
+            "width": 111,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "Staten Island",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Queens",
+                  "count": "116"
+                },
+                {
+                  "item": "Brooklyn",
+                  "count": "102"
+                },
+                {
+                  "item": "Bronx",
+                  "count": "76"
+                },
+                {
+                  "item": "Manhattan",
+                  "count": "58"
+                },
+                {
+                  "item": "Staten Island",
+                  "count": "38"
+                }
+              ],
+              "smallest": "Bronx",
+              "count": "390",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013872,
+            "name": "Year",
+            "dataTypeName": "text",
+            "fieldName": "year",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 8319044,
+            "width": 70,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "2010",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2010",
+                  "count": "195"
+                },
+                {
+                  "item": "2000",
+                  "count": "195"
+                }
+              ],
+              "smallest": "2000",
+              "count": "390",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013873,
+            "name": "FIPS County Code",
+            "dataTypeName": "text",
+            "fieldName": "fips_county_code",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 8319045,
+            "width": 148,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "085",
+              "null": "0",
+              "top": [
+                {
+                  "item": "081",
+                  "count": "116"
+                },
+                {
+                  "item": "047",
+                  "count": "102"
+                },
+                {
+                  "item": "005",
+                  "count": "76"
+                },
+                {
+                  "item": "061",
+                  "count": "58"
+                },
+                {
+                  "item": "085",
+                  "count": "38"
+                }
+              ],
+              "smallest": "005",
+              "count": "390",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013874,
+            "name": "NTA Code",
+            "dataTypeName": "text",
+            "fieldName": "nta_code",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 8319046,
+            "width": 97,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "SI99",
+              "null": "0",
+              "top": [
+                {
+                  "item": "MN01",
+                  "count": "2"
+                },
+                {
+                  "item": "SI28",
+                  "count": "2"
+                },
+                {
+                  "item": "QN31",
+                  "count": "2"
+                },
+                {
+                  "item": "MN14",
+                  "count": "2"
+                },
+                {
+                  "item": "BK34",
+                  "count": "2"
+                },
+                {
+                  "item": "BX52",
+                  "count": "2"
+                },
+                {
+                  "item": "QN56",
+                  "count": "2"
+                },
+                {
+                  "item": "QN48",
+                  "count": "2"
+                },
+                {
+                  "item": "BK99",
+                  "count": "2"
+                },
+                {
+                  "item": "BK28",
+                  "count": "2"
+                },
+                {
+                  "item": "SI35",
+                  "count": "2"
+                },
+                {
+                  "item": "BK26",
+                  "count": "2"
+                },
+                {
+                  "item": "BX05",
+                  "count": "2"
+                },
+                {
+                  "item": "BK78",
+                  "count": "2"
+                },
+                {
+                  "item": "BK40",
+                  "count": "2"
+                },
+                {
+                  "item": "QN22",
+                  "count": "2"
+                },
+                {
+                  "item": "QN10",
+                  "count": "2"
+                },
+                {
+                  "item": "BK45",
+                  "count": "2"
+                },
+                {
+                  "item": "MN50",
+                  "count": "2"
+                },
+                {
+                  "item": "QN54",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BK09",
+              "count": "390",
+              "cardinality": "195"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013875,
+            "name": "NTA Name",
+            "dataTypeName": "text",
+            "fieldName": "nta_name",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 8319047,
+            "width": 196,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "Yorkville",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Highbridge",
+                  "count": "2"
+                },
+                {
+                  "item": "Old Town-Dongan Hills-South Beach",
+                  "count": "2"
+                },
+                {
+                  "item": "Longwood",
+                  "count": "2"
+                },
+                {
+                  "item": "Flatlands",
+                  "count": "2"
+                },
+                {
+                  "item": "Kew Gardens Hills",
+                  "count": "2"
+                },
+                {
+                  "item": "Pelham Bay-Country Club-City Island",
+                  "count": "2"
+                },
+                {
+                  "item": "Bushwick North",
+                  "count": "2"
+                },
+                {
+                  "item": "Homecrest",
+                  "count": "2"
+                },
+                {
+                  "item": "Stuyvesant Heights",
+                  "count": "2"
+                },
+                {
+                  "item": "Grasmere-Arrochar-Ft. Wadsworth",
+                  "count": "2"
+                },
+                {
+                  "item": "park-cemetery-etc-Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "University Heights-Morris Heights",
+                  "count": "2"
+                },
+                {
+                  "item": "DUMBO-Vinegar Hill-Downtown Brklyn-Boerum Hill",
+                  "count": "2"
+                },
+                {
+                  "item": "Rugby-Remsen Village",
+                  "count": "2"
+                },
+                {
+                  "item": "Turtle Bay-East Midtown",
+                  "count": "2"
+                },
+                {
+                  "item": "Ocean Hill",
+                  "count": "2"
+                },
+                {
+                  "item": "Melrose South-Mott Haven North",
+                  "count": "2"
+                },
+                {
+                  "item": "Central Harlem South",
+                  "count": "2"
+                },
+                {
+                  "item": "Seagate-Coney Island",
+                  "count": "2"
+                },
+                {
+                  "item": "Bellerose",
+                  "count": "2"
+                }
+              ],
+              "smallest": "Airport",
+              "count": "390",
+              "cardinality": "195"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013876,
+            "name": "Population",
+            "dataTypeName": "number",
+            "fieldName": "population",
+            "position": 6,
+            "renderTypeName": "number",
+            "tableColumnId": 8319048,
+            "width": 101,
+            "cachedContents": {
+              "non_null": "390",
+              "average": "41495.92564102564",
+              "largest": "136954",
+              "null": "0",
+              "top": [
+                {
+                  "item": "0",
+                  "count": "3"
+                },
+                {
+                  "item": "32496",
+                  "count": "2"
+                },
+                {
+                  "item": "28630",
+                  "count": "1"
+                },
+                {
+                  "item": "70016",
+                  "count": "1"
+                },
+                {
+                  "item": "56033",
+                  "count": "1"
+                },
+                {
+                  "item": "30006",
+                  "count": "1"
+                },
+                {
+                  "item": "34034",
+                  "count": "1"
+                },
+                {
+                  "item": "25238",
+                  "count": "1"
+                },
+                {
+                  "item": "16784",
+                  "count": "1"
+                },
+                {
+                  "item": "31935",
+                  "count": "1"
+                },
+                {
+                  "item": "50100",
+                  "count": "1"
+                },
+                {
+                  "item": "24048",
+                  "count": "1"
+                },
+                {
+                  "item": "34542",
+                  "count": "1"
+                },
+                {
+                  "item": "80539",
+                  "count": "1"
+                },
+                {
+                  "item": "13354",
+                  "count": "1"
+                },
+                {
+                  "item": "88727",
+                  "count": "1"
+                },
+                {
+                  "item": "43383",
+                  "count": "1"
+                },
+                {
+                  "item": "20277",
+                  "count": "1"
+                },
+                {
+                  "item": "31645",
+                  "count": "1"
+                },
+                {
+                  "item": "61489",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "390",
+              "sum": "16183411",
+              "cardinality": "387"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfClass": "",
+          "rdfSubject": "0",
+          "attachments": [
+            {
+              "filename": "New_York_City_Population_By_Neighborhood_Tabulation_Areas.xlsx",
+              "assetId": "88f17212-6c85-4e35-97ee-31f55fa81286",
+              "name": "New_York_City_Population_By_Neighborhood_Tabulation_Areas.xlsx"
+            },
+            {
+              "filename": "nynta_metadata.pdf",
+              "assetId": "78a519c1-b1f1-497b-9823-4afa882480d4",
+              "name": "nynta_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "3/4/2013",
+              "Update Frequency": "Annually"
+            },
+            "Legislative Compliance": {
+              "Geo-coding Attached?": ""
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowIdentifier": "0",
+          "rowLabel": "Neighborhood Tabulation Area (NTA)"
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dcp",
+          "city",
+          "planning",
+          "population",
+          "growth",
+          "nta",
+          "neighborhood",
+          "tabulation"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/swpk-hqdp",
+      "retrieved_at": "2026-04-28T12:22:01.797614+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/swpk-hqdp",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 11592,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "New York City Population By Neighborhood Tabulation Areas",
+      "description": "Population Numbers By New York City Neighborhood Tabulation Areas\r\n\r\nThe data was collected from Census Bureaus' Decennial data dissemination (SF1). \r\nNeighborhood Tabulation Areas (NTAs), are aggregations of census tracts that are subsets of New York City's 55 Public Use Microdata Areas (PUMAs). Primarily due to these constraints, NTA boundaries and their associated names may not definitively represent neighborhoods. \r\nThis report shows change in population from 2000 to 2010 for each NTA.\r\nCompiled by the Population Division – New York City Department of City Planning.",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1372266975,
+      "json_sample": {
+        "id": "swpk-hqdp",
+        "name": "New York City Population By Neighborhood Tabulation Areas",
+        "assetType": "dataset",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "http://www.nyc.gov/html/dcp/html/census/demo_tables_2010.shtml",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1362329696,
+        "description": "Population Numbers By New York City Neighborhood Tabulation Areas\r\n\r\nThe data was collected from Census Bureaus' Decennial data dissemination (SF1). \r\nNeighborhood Tabulation Areas (NTAs), are aggregations of census tracts that are subsets of New York City's 55 Public Use Microdata Areas (PUMAs). Primarily due to these constraints, NTA boundaries and their associated names may not definitively represent neighborhoods. \r\nThis report shows change in population from 2000 to 2010 for each NTA.\r\nCompiled by the Population Division – New York City Department of City Planning.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 20426,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1536597092,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 4208936,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1372266978,
+        "publicationGroup": 711151,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1372266975,
+        "tableId": 942510,
+        "totalTimesRated": 0,
+        "viewCount": 68927,
+        "viewLastModified": 1581123381,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1372266978,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064776,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1372266978,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 77013871,
+            "name": "Borough",
+            "dataTypeName": "text",
+            "fieldName": "borough",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 8319043,
+            "width": 111,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "Staten Island",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Queens",
+                  "count": "116"
+                },
+                {
+                  "item": "Brooklyn",
+                  "count": "102"
+                },
+                {
+                  "item": "Bronx",
+                  "count": "76"
+                },
+                {
+                  "item": "Manhattan",
+                  "count": "58"
+                },
+                {
+                  "item": "Staten Island",
+                  "count": "38"
+                }
+              ],
+              "smallest": "Bronx",
+              "count": "390",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013872,
+            "name": "Year",
+            "dataTypeName": "text",
+            "fieldName": "year",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 8319044,
+            "width": 70,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "2010",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2010",
+                  "count": "195"
+                },
+                {
+                  "item": "2000",
+                  "count": "195"
+                }
+              ],
+              "smallest": "2000",
+              "count": "390",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013873,
+            "name": "FIPS County Code",
+            "dataTypeName": "text",
+            "fieldName": "fips_county_code",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 8319045,
+            "width": 148,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "085",
+              "null": "0",
+              "top": [
+                {
+                  "item": "081",
+                  "count": "116"
+                },
+                {
+                  "item": "047",
+                  "count": "102"
+                },
+                {
+                  "item": "005",
+                  "count": "76"
+                },
+                {
+                  "item": "061",
+                  "count": "58"
+                },
+                {
+                  "item": "085",
+                  "count": "38"
+                }
+              ],
+              "smallest": "005",
+              "count": "390",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013874,
+            "name": "NTA Code",
+            "dataTypeName": "text",
+            "fieldName": "nta_code",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 8319046,
+            "width": 97,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "SI99",
+              "null": "0",
+              "top": [
+                {
+                  "item": "MN01",
+                  "count": "2"
+                },
+                {
+                  "item": "SI28",
+                  "count": "2"
+                },
+                {
+                  "item": "QN31",
+                  "count": "2"
+                },
+                {
+                  "item": "MN14",
+                  "count": "2"
+                },
+                {
+                  "item": "BK34",
+                  "count": "2"
+                },
+                {
+                  "item": "BX52",
+                  "count": "2"
+                },
+                {
+                  "item": "QN56",
+                  "count": "2"
+                },
+                {
+                  "item": "QN48",
+                  "count": "2"
+                },
+                {
+                  "item": "BK99",
+                  "count": "2"
+                },
+                {
+                  "item": "BK28",
+                  "count": "2"
+                },
+                {
+                  "item": "SI35",
+                  "count": "2"
+                },
+                {
+                  "item": "BK26",
+                  "count": "2"
+                },
+                {
+                  "item": "BX05",
+                  "count": "2"
+                },
+                {
+                  "item": "BK78",
+                  "count": "2"
+                },
+                {
+                  "item": "BK40",
+                  "count": "2"
+                },
+                {
+                  "item": "QN22",
+                  "count": "2"
+                },
+                {
+                  "item": "QN10",
+                  "count": "2"
+                },
+                {
+                  "item": "BK45",
+                  "count": "2"
+                },
+                {
+                  "item": "MN50",
+                  "count": "2"
+                },
+                {
+                  "item": "QN54",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BK09",
+              "count": "390",
+              "cardinality": "195"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013875,
+            "name": "NTA Name",
+            "dataTypeName": "text",
+            "fieldName": "nta_name",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 8319047,
+            "width": 196,
+            "cachedContents": {
+              "non_null": "390",
+              "largest": "Yorkville",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Highbridge",
+                  "count": "2"
+                },
+                {
+                  "item": "Old Town-Dongan Hills-South Beach",
+                  "count": "2"
+                },
+                {
+                  "item": "Longwood",
+                  "count": "2"
+                },
+                {
+                  "item": "Flatlands",
+                  "count": "2"
+                },
+                {
+                  "item": "Kew Gardens Hills",
+                  "count": "2"
+                },
+                {
+                  "item": "Pelham Bay-Country Club-City Island",
+                  "count": "2"
+                },
+                {
+                  "item": "Bushwick North",
+                  "count": "2"
+                },
+                {
+                  "item": "Homecrest",
+                  "count": "2"
+                },
+                {
+                  "item": "Stuyvesant Heights",
+                  "count": "2"
+                },
+                {
+                  "item": "Grasmere-Arrochar-Ft. Wadsworth",
+                  "count": "2"
+                },
+                {
+                  "item": "park-cemetery-etc-Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "University Heights-Morris Heights",
+                  "count": "2"
+                },
+                {
+                  "item": "DUMBO-Vinegar Hill-Downtown Brklyn-Boerum Hill",
+                  "count": "2"
+                },
+                {
+                  "item": "Rugby-Remsen Village",
+                  "count": "2"
+                },
+                {
+                  "item": "Turtle Bay-East Midtown",
+                  "count": "2"
+                },
+                {
+                  "item": "Ocean Hill",
+                  "count": "2"
+                },
+                {
+                  "item": "Melrose South-Mott Haven North",
+                  "count": "2"
+                },
+                {
+                  "item": "Central Harlem South",
+                  "count": "2"
+                },
+                {
+                  "item": "Seagate-Coney Island",
+                  "count": "2"
+                },
+                {
+                  "item": "Bellerose",
+                  "count": "2"
+                }
+              ],
+              "smallest": "Airport",
+              "count": "390",
+              "cardinality": "195"
+            },
+            "format": {}
+          },
+          {
+            "id": 77013876,
+            "name": "Population",
+            "dataTypeName": "number",
+            "fieldName": "population",
+            "position": 6,
+            "renderTypeName": "number",
+            "tableColumnId": 8319048,
+            "width": 101,
+            "cachedContents": {
+              "non_null": "390",
+              "average": "41495.92564102564",
+              "largest": "136954",
+              "null": "0",
+              "top": [
+                {
+                  "item": "0",
+                  "count": "3"
+                },
+                {
+                  "item": "32496",
+                  "count": "2"
+                },
+                {
+                  "item": "28630",
+                  "count": "1"
+                },
+                {
+                  "item": "70016",
+                  "count": "1"
+                },
+                {
+                  "item": "56033",
+                  "count": "1"
+                },
+                {
+                  "item": "30006",
+                  "count": "1"
+                },
+                {
+                  "item": "34034",
+                  "count": "1"
+                },
+                {
+                  "item": "25238",
+                  "count": "1"
+                },
+                {
+                  "item": "16784",
+                  "count": "1"
+                },
+                {
+                  "item": "31935",
+                  "count": "1"
+                },
+                {
+                  "item": "50100",
+                  "count": "1"
+                },
+                {
+                  "item": "24048",
+                  "count": "1"
+                },
+                {
+                  "item": "34542",
+                  "count": "1"
+                },
+                {
+                  "item": "80539",
+                  "count": "1"
+                },
+                {
+                  "item": "13354",
+                  "count": "1"
+                },
+                {
+                  "item": "88727",
+                  "count": "1"
+                },
+                {
+                  "item": "43383",
+                  "count": "1"
+                },
+                {
+                  "item": "20277",
+                  "count": "1"
+                },
+                {
+                  "item": "31645",
+                  "count": "1"
+                },
+                {
+                  "item": "61489",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "390",
+              "sum": "16183411",
+              "cardinality": "387"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfClass": "",
+          "rdfSubject": "0",
+          "attachments": [
+            {
+              "filename": "New_York_City_Population_By_Neighborhood_Tabulation_Areas.xlsx",
+              "assetId": "88f17212-6c85-4e35-97ee-31f55fa81286",
+              "name": "New_York_City_Population_By_Neighborhood_Tabulation_Areas.xlsx"
+            },
+            {
+              "filename": "nynta_metadata.pdf",
+              "assetId": "78a519c1-b1f1-497b-9823-4afa882480d4",
+              "name": "nynta_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "3/4/2013",
+              "Update Frequency": "Annually"
+            },
+            "Legislative Compliance": {
+              "Geo-coding Attached?": ""
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowIdentifier": "0",
+          "rowLabel": "Neighborhood Tabulation Area (NTA)"
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dcp",
+          "city",
+          "planning",
+          "population",
+          "growth",
+          "nta",
+          "neighborhood",
+          "tabulation"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/swpk-hqdp.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:22:02.425559+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/swpk-hqdp.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Wed, 03 Jan 2018 21:34:04 GMT",
+      "etag": "W/\"Zm94dHJvdC4xNjYwMl8xXzExaWQyRk9HblRHQ0ZHVEcwWFpaU1Z6Q2U0eXQw---gziprXtG177gm-OLzfBVcUGbnBGjjD8--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 132,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "borough",
+        "fips_county_code",
+        "nta_code",
+        "nta_name",
+        "population",
+        "year"
+      ],
+      "json_sample": [
+        {
+          "borough": "Bronx",
+          "year": "2000",
+          "fips_county_code": "005",
+          "nta_code": "BX01",
+          "nta_name": "Claremont-Bathgate",
+          "population": "28149"
+        }
+      ]
+    }
+  ]
+}

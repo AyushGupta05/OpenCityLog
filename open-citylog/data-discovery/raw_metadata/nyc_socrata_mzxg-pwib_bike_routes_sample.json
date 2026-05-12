@@ -1,0 +1,39 @@
+[
+  {
+    "the_geom": {
+      "type": "MultiLineString",
+      "coordinates": [
+        [
+          [
+            -74.192429667502,
+            40.521741493622734
+          ],
+          [
+            -74.1951900846669,
+            40.519998791664904
+          ]
+        ]
+      ]
+    },
+    "segmentid": "2579.0",
+    "bikeid": "6562.0",
+    "prevbikeid": "NA",
+    "status": "Current",
+    "boro": "5",
+    "street": "HYLAN BLVD",
+    "fromstreet": "HOLTEN AV",
+    "tostreet": "LUTEN AV",
+    "onoffst": "ON",
+    "facilitycl": "II",
+    "allclasses": "II",
+    "bikedir": "2",
+    "lanecount": "2",
+    "ft_facilit": "Curbside Buffered",
+    "tf_facilit": "Curbside Buffered",
+    "instdate": "2007-10-01T00:00:00.000",
+    "grnwy": "Greenway",
+    "gwsystem": "Staten Island Waterfront",
+    "spur": "Main Alignment",
+    "gwyjuris": "NYCDOT"
+  }
+]

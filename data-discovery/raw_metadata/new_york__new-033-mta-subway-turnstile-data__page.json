@@ -1,0 +1,9 @@
+{
+  "source_id": "new-033-mta-subway-turnstile-data",
+  "city": "new_york",
+  "title": "MTA Subway Turnstile Data",
+  "publisher": "Metropolitan Transportation Authority (MTA)",
+  "bucket": "traffic/transport",
+  "retrieved_at": "2026-04-28T12:20:44.281424+00:00",
+  "snapshots": []
+}

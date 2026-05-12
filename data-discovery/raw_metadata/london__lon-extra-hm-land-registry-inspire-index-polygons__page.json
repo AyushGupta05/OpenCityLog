@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-hm-land-registry-inspire-index-polygons",
+  "city": "london",
+  "title": "HM Land Registry INSPIRE Index Polygons",
+  "publisher": "HM Land Registry",
+  "bucket": "parcels/land ownership/basemap",
+  "retrieved_at": "2026-04-28T12:57:05.687501+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://use-land-property-data.service.gov.uk/datasets/inspire",
+      "retrieved_at": "2026-04-28T12:57:05.470767+00:00",
+      "status": 302,
+      "error": "HTTPError: The HTTP server returned a redirect error that would lead to an infinite loop.\nThe last 30x error message was:\nFound",
+      "final_url": "https://use-land-property-data.service.gov.uk/datasets/inspire",
+      "content_type": "text/html"
+    }
+  ]
+}

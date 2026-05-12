@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_historical_census_tables",
+  "title": "Historical Census Tables",
+  "requested_url": "https://data.london.gov.uk/dataset/historical-census-tables-e5mlg",
+  "fetched_url": "https://data.london.gov.uk/dataset/historical-census-tables-e5mlg",
+  "final_url": "https://data.london.gov.uk/dataset/historical-census-tables-e5mlg/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:53.383403+00:00",
+  "page_title": "Historical Census Tables – London Datastore",
+  "h1": "Historical Census Tables",
+  "meta_description": ""
+}

@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_laei",
+  "title": "London Atmospheric Emissions Inventory (LAEI)",
+  "requested_url": "https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory--laei--2019",
+  "fetched_url": "https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory--laei--2019",
+  "final_url": "https://data.london.gov.uk/dataset/london-atmospheric-emissions-inventory-laei-2019-e758q/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:11.942749+00:00",
+  "page_title": "London Atmospheric Emissions Inventory (LAEI) 2019 – London Datastore",
+  "h1": "London Atmospheric Emissions Inventory (LAEI) 2019",
+  "meta_description": ""
+}

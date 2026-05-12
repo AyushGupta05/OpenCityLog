@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_tfl_unified_api",
+  "title": "TfL Unified API lines and stop points",
+  "requested_url": "https://api.tfl.gov.uk/",
+  "fetched_url": "https://api.tfl.gov.uk/",
+  "final_url": "https://api.tfl.gov.uk/",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:11.083940+00:00",
+  "page_title": "",
+  "h1": "Transport for London Unified API",
+  "meta_description": ""
+}

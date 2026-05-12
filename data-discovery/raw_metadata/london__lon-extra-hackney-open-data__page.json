@@ -1,0 +1,16 @@
+{
+  "source_id": "lon-extra-hackney-open-data",
+  "city": "london",
+  "title": "Hackney Open Data",
+  "publisher": "London Borough of Hackney",
+  "bucket": "borough/local assets/planning/housing",
+  "retrieved_at": "2026-04-28T12:57:27.645703+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.hackney.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:27.495369+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

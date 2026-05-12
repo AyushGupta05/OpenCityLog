@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-bus-open-data-service",
+  "city": "london",
+  "title": "Bus Open Data Service",
+  "publisher": "Department for Transport",
+  "bucket": "transport/bus/timetables",
+  "retrieved_at": "2026-04-28T12:57:15.024817+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.bus-data.dft.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:14.839660+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.bus-data.dft.gov.uk/",
+      "content_type": null
+    }
+  ]
+}

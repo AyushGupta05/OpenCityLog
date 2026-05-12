@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_congestion_charge_camera_captures",
+  "title": "Camera Captures and Confirmed Vehicles seen in the Congestion Charge Zone by Month",
+  "requested_url": "https://data.london.gov.uk/dataset/camera-captures-and-confirmed-vehicles-seen-in-the-congestion-ch-2r88d",
+  "fetched_url": "https://data.london.gov.uk/dataset/camera-captures-and-confirmed-vehicles-seen-in-the-congestion-ch-2r88d",
+  "final_url": "https://data.london.gov.uk/dataset/camera-captures-and-confirmed-vehicles-seen-in-the-congestion-ch-2r88d/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:51.266702+00:00",
+  "page_title": "Camera Captures and Confirmed Vehicles seen in the Congestion Charge Zone by Month – London Datastore",
+  "h1": "Camera Captures and Confirmed Vehicles seen in the Congestion Charge Zone by Month",
+  "meta_description": ""
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "license_nbr": "0002902-DCA",
+    "business_name": "GEM FINANCIAL SERVICES, INC.",
+    "dba_trade_name": "GEM PAWNBROKERS",
+    "business_unique_id": "BA-1216876-2022",
+    "business_category": "Pawnbroker",
+    "license_type": "Premises",
+    "license_status": "Ready for Renewal",
+    "license_creation_date": "2007-04-18T00:00:00.000",
+    "lic_expir_dd": "2026-04-30T00:00:00.000",
+    "contact_phone": "7182371166",
+    "address_type": "Complete Address",
+    "address_building": "608",
+    "address_street_name": "8TH AVE",
+    "address_city": "NEW YORK",
+    "address_state": "NY",
+    "address_zip": "10018",
+    "address_borough": "Manhattan",
+    "community_board": "105",
+    "council_district": "03",
+    "bin": "1014495",
+    "bbl": "1007890005",
+    "nta": "MN17",
+    "census_block_2010_": "1004",
+    "census_tract": "113",
+    "latitude": "40.755613",
+    "longitude": "-73.990962"
+  }
+]

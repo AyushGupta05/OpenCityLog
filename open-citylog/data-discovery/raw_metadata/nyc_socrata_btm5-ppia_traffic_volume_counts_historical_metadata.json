@@ -1,0 +1,3252 @@
+{
+  "id": "btm5-ppia",
+  "name": "Traffic Volume Counts (Historical)",
+  "assetType": "dataset",
+  "attribution": "Department of Transportation (DOT)",
+  "averageRating": 0,
+  "category": "Transportation",
+  "createdAt": 1653594911,
+  "description": "This is static historical dataset. New York City Department of Transportation (NYC DOT) uses Automated Traffic Recorders (ATR) to collect traffic sample volume counts at bridge crossings and roadways. These counts do not cover the entire year, and the number of days counted per location may vary from year to year.\n\nFor a current feed of Automated Traffic Volume Counts, see: https://data.cityofnewyork.us/Transportation/Automated-Traffic-Volume-Counts/7ym2-wayt",
+  "diciBackend": false,
+  "displayType": "table",
+  "downloadCount": 9196,
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "locked": false,
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 38520613,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1653595230,
+  "publicationGroup": 18712157,
+  "publicationStage": "published",
+  "rowsUpdatedAt": 1653595208,
+  "tableId": 18712157,
+  "totalTimesRated": 0,
+  "viewCount": 46805,
+  "viewLastModified": 1769801308,
+  "viewType": "tabular",
+  "approvals": [
+    {
+      "reviewedAt": 1653665682,
+      "reviewedAutomatically": true,
+      "state": "approved",
+      "submissionId": 4724650,
+      "submissionObject": "public_audience_request",
+      "submissionOutcome": "change_audience",
+      "submittedAt": 1653665682,
+      "targetAudience": "public",
+      "workflowId": 2285,
+      "submissionDetails": {
+        "permissionType": "READ"
+      },
+      "submissionOutcomeApplication": {
+        "endedAt": 1653665682,
+        "failureCount": 0,
+        "startedAt": 1653665682,
+        "status": "success"
+      },
+      "submitter": {
+        "id": "d5dp-fses",
+        "displayName": "afinkel"
+      }
+    }
+  ],
+  "clientContext": {
+    "clientContextVariables": [],
+    "inheritedVariables": {}
+  },
+  "columns": [
+    {
+      "id": 560999737,
+      "name": "ID",
+      "dataTypeName": "text",
+      "description": "Count ID",
+      "fieldName": "id",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 142315252,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "999",
+        "null": "0",
+        "top": [
+          {
+            "item": "186",
+            "count": "152"
+          },
+          {
+            "item": "15",
+            "count": "149"
+          },
+          {
+            "item": "302",
+            "count": "147"
+          },
+          {
+            "item": "59",
+            "count": "147"
+          },
+          {
+            "item": "133",
+            "count": "145"
+          },
+          {
+            "item": "9",
+            "count": "138"
+          },
+          {
+            "item": "71",
+            "count": "138"
+          },
+          {
+            "item": "62",
+            "count": "138"
+          },
+          {
+            "item": "38",
+            "count": "138"
+          },
+          {
+            "item": "176",
+            "count": "138"
+          },
+          {
+            "item": "122",
+            "count": "137"
+          },
+          {
+            "item": "361",
+            "count": "136"
+          },
+          {
+            "item": "252",
+            "count": "136"
+          },
+          {
+            "item": "280",
+            "count": "134"
+          },
+          {
+            "item": "150",
+            "count": "134"
+          },
+          {
+            "item": "209",
+            "count": "133"
+          },
+          {
+            "item": "19",
+            "count": "131"
+          },
+          {
+            "item": "322",
+            "count": "131"
+          },
+          {
+            "item": "27",
+            "count": "131"
+          },
+          {
+            "item": "306",
+            "count": "131"
+          }
+        ],
+        "smallest": "1",
+        "count": "42756",
+        "cardinality": "3393"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999736,
+      "name": "SegmentID",
+      "dataTypeName": "number",
+      "description": "LION Segment ID. Called \"GIS ID' in the 2011-12 dataset, \"Segment ID\" in the 2012-13 dataset.",
+      "fieldName": "segmentid",
+      "position": 2,
+      "renderTypeName": "number",
+      "tableColumnId": 142315251,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "9017050",
+        "null": "0",
+        "top": [
+          {
+            "item": "72026",
+            "count": "70"
+          },
+          {
+            "item": "77424",
+            "count": "70"
+          },
+          {
+            "item": "76510",
+            "count": "70"
+          },
+          {
+            "item": "107111",
+            "count": "70"
+          },
+          {
+            "item": "91529",
+            "count": "70"
+          },
+          {
+            "item": "77328",
+            "count": "70"
+          },
+          {
+            "item": "184562",
+            "count": "68"
+          },
+          {
+            "item": "63023",
+            "count": "66"
+          },
+          {
+            "item": "19874",
+            "count": "66"
+          },
+          {
+            "item": "88518",
+            "count": "66"
+          },
+          {
+            "item": "91191",
+            "count": "66"
+          },
+          {
+            "item": "84009",
+            "count": "66"
+          },
+          {
+            "item": "78877",
+            "count": "66"
+          },
+          {
+            "item": "25210",
+            "count": "65"
+          },
+          {
+            "item": "21490",
+            "count": "64"
+          },
+          {
+            "item": "78940",
+            "count": "64"
+          },
+          {
+            "item": "78760",
+            "count": "64"
+          },
+          {
+            "item": "19550",
+            "count": "64"
+          },
+          {
+            "item": "119816",
+            "count": "64"
+          },
+          {
+            "item": "36837",
+            "count": "64"
+          }
+        ],
+        "smallest": "202",
+        "count": "42756",
+        "cardinality": "1956"
+      },
+      "format": {
+        "noCommas": "true"
+      }
+    },
+    {
+      "id": 560999735,
+      "name": "Roadway Name",
+      "dataTypeName": "text",
+      "description": "Street name",
+      "fieldName": "roadway_name",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 142315250,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "ZEREGA AVENUE",
+        "null": "0",
+        "top": [
+          {
+            "item": "BROADWAY",
+            "count": "473"
+          },
+          {
+            "item": "Broadway",
+            "count": "387"
+          },
+          {
+            "item": "3 AVENUE",
+            "count": "324"
+          },
+          {
+            "item": "LINDEN BOULEVARD",
+            "count": "212"
+          },
+          {
+            "item": "5 AVENUE",
+            "count": "204"
+          },
+          {
+            "item": "3 Avenue",
+            "count": "198"
+          },
+          {
+            "item": "Southern Boulevard",
+            "count": "184"
+          },
+          {
+            "item": "NORTHERN BOULEVARD",
+            "count": "172"
+          },
+          {
+            "item": "KINGS HIGHWAY",
+            "count": "160"
+          },
+          {
+            "item": "HYLAN BOULEVARD",
+            "count": "155"
+          },
+          {
+            "item": "Riverside Drive",
+            "count": "153"
+          },
+          {
+            "item": "Kings Highway",
+            "count": "153"
+          },
+          {
+            "item": "FDR Drive",
+            "count": "153"
+          },
+          {
+            "item": "WEBSTER AVENUE",
+            "count": "148"
+          },
+          {
+            "item": "AMBOY ROAD",
+            "count": "147"
+          },
+          {
+            "item": "JEROME AVENUE",
+            "count": "146"
+          },
+          {
+            "item": "Park Avenue",
+            "count": "144"
+          },
+          {
+            "item": "ARTHUR KILL ROAD",
+            "count": "144"
+          },
+          {
+            "item": "BELT PARKWAY",
+            "count": "144"
+          },
+          {
+            "item": "EAST TREMONT AVENUE",
+            "count": "144"
+          }
+        ],
+        "smallest": "101 AVE",
+        "count": "42756",
+        "cardinality": "1276"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999734,
+      "name": "From",
+      "dataTypeName": "text",
+      "description": "Intersecting street name at one end of street",
+      "fieldName": "from",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 142315249,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "YUKON AVENUE",
+        "null": "0",
+        "top": [
+          {
+            "item": "Dead End",
+            "count": "504"
+          },
+          {
+            "item": "Grand Concourse",
+            "count": "342"
+          },
+          {
+            "item": "Northern Boulevard",
+            "count": "261"
+          },
+          {
+            "item": "GRAND CONCOURSE",
+            "count": "215"
+          },
+          {
+            "item": "5 Avenue",
+            "count": "184"
+          },
+          {
+            "item": "Broadway",
+            "count": "180"
+          },
+          {
+            "item": "Dead end",
+            "count": "162"
+          },
+          {
+            "item": "Grant Avenue",
+            "count": "151"
+          },
+          {
+            "item": "Classon Avenue",
+            "count": "144"
+          },
+          {
+            "item": "Farragut Road",
+            "count": "144"
+          },
+          {
+            "item": "Avenue S",
+            "count": "144"
+          },
+          {
+            "item": "72 STREET",
+            "count": "141"
+          },
+          {
+            "item": "Eagle Avenue",
+            "count": "135"
+          },
+          {
+            "item": "BROADWAY",
+            "count": "133"
+          },
+          {
+            "item": "Avenue J",
+            "count": "126"
+          },
+          {
+            "item": "Lenox Road",
+            "count": "126"
+          },
+          {
+            "item": "72 Street",
+            "count": "117"
+          },
+          {
+            "item": "Brooklyn Avenue",
+            "count": "108"
+          },
+          {
+            "item": "37 Avenue",
+            "count": "108"
+          },
+          {
+            "item": "18 AVENUE",
+            "count": "103"
+          }
+        ],
+        "smallest": "100 Street",
+        "count": "42756",
+        "cardinality": "1717"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999733,
+      "name": "To",
+      "dataTypeName": "text",
+      "description": "Intersecting street name at other end of street",
+      "fieldName": "to",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 142315248,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "YUKON AVENUE",
+        "null": "0",
+        "top": [
+          {
+            "item": "Dead End",
+            "count": "387"
+          },
+          {
+            "item": "Dead end",
+            "count": "225"
+          },
+          {
+            "item": "Glenwood Road",
+            "count": "153"
+          },
+          {
+            "item": "35 Avenue",
+            "count": "153"
+          },
+          {
+            "item": "Linden Boulevard",
+            "count": "153"
+          },
+          {
+            "item": "Cypress Avenue",
+            "count": "144"
+          },
+          {
+            "item": "Avenue T",
+            "count": "144"
+          },
+          {
+            "item": "Morris Avenue",
+            "count": "142"
+          },
+          {
+            "item": "73 STREET",
+            "count": "136"
+          },
+          {
+            "item": "Cauldwell Avenue",
+            "count": "135"
+          },
+          {
+            "item": "Franklin Avenue",
+            "count": "126"
+          },
+          {
+            "item": "Broadway",
+            "count": "126"
+          },
+          {
+            "item": "EAST 12 STREET",
+            "count": "119"
+          },
+          {
+            "item": "Valentine Avenue",
+            "count": "117"
+          },
+          {
+            "item": "34 Avenue",
+            "count": "117"
+          },
+          {
+            "item": "38 Avenue",
+            "count": "117"
+          },
+          {
+            "item": "6 Avenue",
+            "count": "112"
+          },
+          {
+            "item": "19 AVENUE",
+            "count": "112"
+          },
+          {
+            "item": "6th Avenue",
+            "count": "108"
+          },
+          {
+            "item": "Avenue L",
+            "count": "108"
+          }
+        ],
+        "smallest": "100 Street",
+        "count": "42756",
+        "cardinality": "1745"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999732,
+      "name": "Direction",
+      "dataTypeName": "text",
+      "description": "Compass direction",
+      "fieldName": "direction",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 142315247,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "WB-SR",
+        "null": "0",
+        "top": [
+          {
+            "item": "NB",
+            "count": "12234"
+          },
+          {
+            "item": "SB",
+            "count": "12151"
+          },
+          {
+            "item": "EB",
+            "count": "9164"
+          },
+          {
+            "item": "WB",
+            "count": "8995"
+          },
+          {
+            "item": "NB-SER",
+            "count": "36"
+          },
+          {
+            "item": "SB-MAIN",
+            "count": "36"
+          },
+          {
+            "item": "SB-SER",
+            "count": "36"
+          },
+          {
+            "item": "NB-MAIN",
+            "count": "36"
+          },
+          {
+            "item": "EB-SER",
+            "count": "16"
+          },
+          {
+            "item": "WB-MR",
+            "count": "14"
+          },
+          {
+            "item": "WB-SR",
+            "count": "14"
+          },
+          {
+            "item": "WB-SER",
+            "count": "8"
+          },
+          {
+            "item": "NB - SER",
+            "count": "8"
+          },
+          {
+            "item": "SB - SER",
+            "count": "8"
+          }
+        ],
+        "smallest": "EB",
+        "count": "42756",
+        "cardinality": "14"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999731,
+      "name": "Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date of the traffic count",
+      "fieldName": "date",
+      "position": 7,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 142315246,
+      "cachedContents": {
+        "non_null": "42756",
+        "largest": "2021-05-09T00:00:00.000",
+        "null": "0",
+        "top": [
+          {
+            "item": "2019-10-12T00:00:00.000",
+            "count": "391"
+          },
+          {
+            "item": "2019-10-13T00:00:00.000",
+            "count": "391"
+          },
+          {
+            "item": "2020-11-14T00:00:00.000",
+            "count": "314"
+          },
+          {
+            "item": "2020-11-15T00:00:00.000",
+            "count": "314"
+          },
+          {
+            "item": "2019-10-06T00:00:00.000",
+            "count": "291"
+          },
+          {
+            "item": "2019-10-05T00:00:00.000",
+            "count": "291"
+          },
+          {
+            "item": "2012-10-20T00:00:00.000",
+            "count": "284"
+          },
+          {
+            "item": "2012-10-21T00:00:00.000",
+            "count": "284"
+          },
+          {
+            "item": "2019-10-07T00:00:00.000",
+            "count": "281"
+          },
+          {
+            "item": "2019-10-09T00:00:00.000",
+            "count": "281"
+          },
+          {
+            "item": "2019-10-10T00:00:00.000",
+            "count": "281"
+          },
+          {
+            "item": "2019-10-11T00:00:00.000",
+            "count": "281"
+          },
+          {
+            "item": "2019-10-08T00:00:00.000",
+            "count": "281"
+          },
+          {
+            "item": "2020-10-11T00:00:00.000",
+            "count": "272"
+          },
+          {
+            "item": "2020-10-10T00:00:00.000",
+            "count": "272"
+          },
+          {
+            "item": "2020-11-21T00:00:00.000",
+            "count": "271"
+          },
+          {
+            "item": "2020-11-16T00:00:00.000",
+            "count": "271"
+          },
+          {
+            "item": "2020-11-22T00:00:00.000",
+            "count": "271"
+          },
+          {
+            "item": "2020-11-19T00:00:00.000",
+            "count": "271"
+          },
+          {
+            "item": "2020-11-20T00:00:00.000",
+            "count": "271"
+          }
+        ],
+        "smallest": "2012-01-08T00:00:00.000",
+        "count": "42756",
+        "cardinality": "608"
+      },
+      "format": {
+        "view": "date"
+      }
+    },
+    {
+      "id": 560999730,
+      "name": "12:00-1:00 AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_12_00_1_00_am",
+      "position": 8,
+      "renderTypeName": "number",
+      "tableColumnId": 142315245,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "4805",
+        "null": "4",
+        "top": [
+          {
+            "item": "43",
+            "count": "246"
+          },
+          {
+            "item": "67",
+            "count": "239"
+          },
+          {
+            "item": "53",
+            "count": "237"
+          },
+          {
+            "item": "68",
+            "count": "235"
+          },
+          {
+            "item": "56",
+            "count": "233"
+          },
+          {
+            "item": "61",
+            "count": "232"
+          },
+          {
+            "item": "62",
+            "count": "232"
+          },
+          {
+            "item": "46",
+            "count": "231"
+          },
+          {
+            "item": "44",
+            "count": "230"
+          },
+          {
+            "item": "40",
+            "count": "229"
+          },
+          {
+            "item": "76",
+            "count": "228"
+          },
+          {
+            "item": "59",
+            "count": "228"
+          },
+          {
+            "item": "48",
+            "count": "225"
+          },
+          {
+            "item": "38",
+            "count": "225"
+          },
+          {
+            "item": "30",
+            "count": "223"
+          },
+          {
+            "item": "71",
+            "count": "222"
+          },
+          {
+            "item": "50",
+            "count": "222"
+          },
+          {
+            "item": "49",
+            "count": "222"
+          },
+          {
+            "item": "66",
+            "count": "222"
+          },
+          {
+            "item": "72",
+            "count": "221"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "2195"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999729,
+      "name": "1:00-2:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_1_00_2_00am",
+      "position": 9,
+      "renderTypeName": "number",
+      "tableColumnId": 142315244,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "4489",
+        "null": "4",
+        "top": [
+          {
+            "item": "20",
+            "count": "353"
+          },
+          {
+            "item": "42",
+            "count": "351"
+          },
+          {
+            "item": "25",
+            "count": "349"
+          },
+          {
+            "item": "35",
+            "count": "348"
+          },
+          {
+            "item": "22",
+            "count": "348"
+          },
+          {
+            "item": "40",
+            "count": "346"
+          },
+          {
+            "item": "32",
+            "count": "345"
+          },
+          {
+            "item": "34",
+            "count": "344"
+          },
+          {
+            "item": "28",
+            "count": "341"
+          },
+          {
+            "item": "29",
+            "count": "335"
+          },
+          {
+            "item": "27",
+            "count": "333"
+          },
+          {
+            "item": "38",
+            "count": "333"
+          },
+          {
+            "item": "26",
+            "count": "331"
+          },
+          {
+            "item": "45",
+            "count": "329"
+          },
+          {
+            "item": "41",
+            "count": "327"
+          },
+          {
+            "item": "36",
+            "count": "326"
+          },
+          {
+            "item": "37",
+            "count": "321"
+          },
+          {
+            "item": "24",
+            "count": "320"
+          },
+          {
+            "item": "30",
+            "count": "318"
+          },
+          {
+            "item": "39",
+            "count": "318"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "1760"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999728,
+      "name": "2:00-3:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_2_00_3_00am",
+      "position": 10,
+      "renderTypeName": "number",
+      "tableColumnId": 142315243,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "4818",
+        "null": "4",
+        "top": [
+          {
+            "item": "22",
+            "count": "488"
+          },
+          {
+            "item": "24",
+            "count": "480"
+          },
+          {
+            "item": "20",
+            "count": "479"
+          },
+          {
+            "item": "15",
+            "count": "469"
+          },
+          {
+            "item": "23",
+            "count": "469"
+          },
+          {
+            "item": "21",
+            "count": "464"
+          },
+          {
+            "item": "19",
+            "count": "463"
+          },
+          {
+            "item": "26",
+            "count": "459"
+          },
+          {
+            "item": "18",
+            "count": "456"
+          },
+          {
+            "item": "16",
+            "count": "456"
+          },
+          {
+            "item": "14",
+            "count": "450"
+          },
+          {
+            "item": "28",
+            "count": "449"
+          },
+          {
+            "item": "30",
+            "count": "449"
+          },
+          {
+            "item": "29",
+            "count": "449"
+          },
+          {
+            "item": "17",
+            "count": "448"
+          },
+          {
+            "item": "27",
+            "count": "442"
+          },
+          {
+            "item": "34",
+            "count": "441"
+          },
+          {
+            "item": "12",
+            "count": "440"
+          },
+          {
+            "item": "25",
+            "count": "440"
+          },
+          {
+            "item": "13",
+            "count": "429"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "1489"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999727,
+      "name": "3:00-4:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_3_00_4_00am",
+      "position": 11,
+      "renderTypeName": "number",
+      "tableColumnId": 142315242,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "4323",
+        "null": "4",
+        "top": [
+          {
+            "item": "21",
+            "count": "570"
+          },
+          {
+            "item": "18",
+            "count": "562"
+          },
+          {
+            "item": "22",
+            "count": "553"
+          },
+          {
+            "item": "23",
+            "count": "553"
+          },
+          {
+            "item": "17",
+            "count": "552"
+          },
+          {
+            "item": "24",
+            "count": "543"
+          },
+          {
+            "item": "13",
+            "count": "538"
+          },
+          {
+            "item": "14",
+            "count": "529"
+          },
+          {
+            "item": "19",
+            "count": "529"
+          },
+          {
+            "item": "20",
+            "count": "527"
+          },
+          {
+            "item": "12",
+            "count": "526"
+          },
+          {
+            "item": "26",
+            "count": "520"
+          },
+          {
+            "item": "16",
+            "count": "513"
+          },
+          {
+            "item": "10",
+            "count": "513"
+          },
+          {
+            "item": "11",
+            "count": "511"
+          },
+          {
+            "item": "25",
+            "count": "511"
+          },
+          {
+            "item": "27",
+            "count": "510"
+          },
+          {
+            "item": "15",
+            "count": "509"
+          },
+          {
+            "item": "28",
+            "count": "495"
+          },
+          {
+            "item": "9",
+            "count": "482"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "1371"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999726,
+      "name": "4:00-5:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_4_00_5_00am",
+      "position": 12,
+      "renderTypeName": "number",
+      "tableColumnId": 142315241,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "4469",
+        "null": "4",
+        "top": [
+          {
+            "item": "29",
+            "count": "500"
+          },
+          {
+            "item": "26",
+            "count": "476"
+          },
+          {
+            "item": "21",
+            "count": "468"
+          },
+          {
+            "item": "32",
+            "count": "460"
+          },
+          {
+            "item": "28",
+            "count": "460"
+          },
+          {
+            "item": "27",
+            "count": "458"
+          },
+          {
+            "item": "22",
+            "count": "455"
+          },
+          {
+            "item": "24",
+            "count": "455"
+          },
+          {
+            "item": "20",
+            "count": "452"
+          },
+          {
+            "item": "35",
+            "count": "449"
+          },
+          {
+            "item": "25",
+            "count": "446"
+          },
+          {
+            "item": "18",
+            "count": "443"
+          },
+          {
+            "item": "19",
+            "count": "442"
+          },
+          {
+            "item": "14",
+            "count": "438"
+          },
+          {
+            "item": "15",
+            "count": "438"
+          },
+          {
+            "item": "23",
+            "count": "437"
+          },
+          {
+            "item": "17",
+            "count": "436"
+          },
+          {
+            "item": "30",
+            "count": "428"
+          },
+          {
+            "item": "37",
+            "count": "423"
+          },
+          {
+            "item": "31",
+            "count": "422"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "1526"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999725,
+      "name": "5:00-6:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_5_00_6_00am",
+      "position": 13,
+      "renderTypeName": "number",
+      "tableColumnId": 142315240,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "6456",
+        "null": "4",
+        "top": [
+          {
+            "item": "33",
+            "count": "351"
+          },
+          {
+            "item": "39",
+            "count": "337"
+          },
+          {
+            "item": "30",
+            "count": "331"
+          },
+          {
+            "item": "32",
+            "count": "326"
+          },
+          {
+            "item": "28",
+            "count": "325"
+          },
+          {
+            "item": "40",
+            "count": "315"
+          },
+          {
+            "item": "49",
+            "count": "310"
+          },
+          {
+            "item": "44",
+            "count": "310"
+          },
+          {
+            "item": "36",
+            "count": "309"
+          },
+          {
+            "item": "42",
+            "count": "309"
+          },
+          {
+            "item": "45",
+            "count": "308"
+          },
+          {
+            "item": "34",
+            "count": "306"
+          },
+          {
+            "item": "24",
+            "count": "305"
+          },
+          {
+            "item": "35",
+            "count": "304"
+          },
+          {
+            "item": "38",
+            "count": "302"
+          },
+          {
+            "item": "37",
+            "count": "300"
+          },
+          {
+            "item": "46",
+            "count": "298"
+          },
+          {
+            "item": "31",
+            "count": "298"
+          },
+          {
+            "item": "56",
+            "count": "297"
+          },
+          {
+            "item": "47",
+            "count": "296"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "2074"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999724,
+      "name": "6:00-7:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_6_00_7_00am",
+      "position": 14,
+      "renderTypeName": "number",
+      "tableColumnId": 142315239,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "7513",
+        "null": "4",
+        "top": [
+          {
+            "item": "46",
+            "count": "192"
+          },
+          {
+            "item": "67",
+            "count": "190"
+          },
+          {
+            "item": "74",
+            "count": "189"
+          },
+          {
+            "item": "68",
+            "count": "188"
+          },
+          {
+            "item": "94",
+            "count": "186"
+          },
+          {
+            "item": "82",
+            "count": "181"
+          },
+          {
+            "item": "54",
+            "count": "180"
+          },
+          {
+            "item": "65",
+            "count": "179"
+          },
+          {
+            "item": "80",
+            "count": "179"
+          },
+          {
+            "item": "73",
+            "count": "176"
+          },
+          {
+            "item": "43",
+            "count": "175"
+          },
+          {
+            "item": "72",
+            "count": "174"
+          },
+          {
+            "item": "45",
+            "count": "174"
+          },
+          {
+            "item": "64",
+            "count": "174"
+          },
+          {
+            "item": "77",
+            "count": "172"
+          },
+          {
+            "item": "79",
+            "count": "171"
+          },
+          {
+            "item": "41",
+            "count": "171"
+          },
+          {
+            "item": "44",
+            "count": "171"
+          },
+          {
+            "item": "57",
+            "count": "170"
+          },
+          {
+            "item": "49",
+            "count": "170"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "2811"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999723,
+      "name": "7:00-8:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_7_00_8_00am",
+      "position": 15,
+      "renderTypeName": "number",
+      "tableColumnId": 142315238,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "9226.33",
+        "null": "4",
+        "top": [
+          {
+            "item": "0",
+            "count": "139"
+          },
+          {
+            "item": "104",
+            "count": "117"
+          },
+          {
+            "item": "96",
+            "count": "113"
+          },
+          {
+            "item": "60",
+            "count": "112"
+          },
+          {
+            "item": "66",
+            "count": "111"
+          },
+          {
+            "item": "57",
+            "count": "109"
+          },
+          {
+            "item": "130",
+            "count": "109"
+          },
+          {
+            "item": "94",
+            "count": "108"
+          },
+          {
+            "item": "99",
+            "count": "108"
+          },
+          {
+            "item": "136",
+            "count": "108"
+          },
+          {
+            "item": "65",
+            "count": "107"
+          },
+          {
+            "item": "120",
+            "count": "107"
+          },
+          {
+            "item": "107",
+            "count": "107"
+          },
+          {
+            "item": "70",
+            "count": "106"
+          },
+          {
+            "item": "55",
+            "count": "106"
+          },
+          {
+            "item": "121",
+            "count": "106"
+          },
+          {
+            "item": "108",
+            "count": "106"
+          },
+          {
+            "item": "87",
+            "count": "106"
+          },
+          {
+            "item": "113",
+            "count": "105"
+          },
+          {
+            "item": "117",
+            "count": "105"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3214"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999722,
+      "name": "8:00-9:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_8_00_9_00am",
+      "position": 16,
+      "renderTypeName": "number",
+      "tableColumnId": 142315237,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "7899",
+        "null": "4",
+        "top": [
+          {
+            "item": "0",
+            "count": "144"
+          },
+          {
+            "item": "140",
+            "count": "108"
+          },
+          {
+            "item": "161",
+            "count": "101"
+          },
+          {
+            "item": "151",
+            "count": "101"
+          },
+          {
+            "item": "190",
+            "count": "97"
+          },
+          {
+            "item": "204",
+            "count": "96"
+          },
+          {
+            "item": "171",
+            "count": "95"
+          },
+          {
+            "item": "229",
+            "count": "95"
+          },
+          {
+            "item": "153",
+            "count": "94"
+          },
+          {
+            "item": "166",
+            "count": "94"
+          },
+          {
+            "item": "174",
+            "count": "93"
+          },
+          {
+            "item": "235",
+            "count": "93"
+          },
+          {
+            "item": "142",
+            "count": "92"
+          },
+          {
+            "item": "200",
+            "count": "91"
+          },
+          {
+            "item": "233",
+            "count": "91"
+          },
+          {
+            "item": "206",
+            "count": "91"
+          },
+          {
+            "item": "177",
+            "count": "91"
+          },
+          {
+            "item": "193",
+            "count": "91"
+          },
+          {
+            "item": "228",
+            "count": "90"
+          },
+          {
+            "item": "239",
+            "count": "90"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3282"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999721,
+      "name": "9:00-10:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_9_00_10_00am",
+      "position": 17,
+      "renderTypeName": "number",
+      "tableColumnId": 142315236,
+      "cachedContents": {
+        "non_null": "42752",
+        "largest": "6766",
+        "null": "4",
+        "top": [
+          {
+            "item": "0",
+            "count": "184"
+          },
+          {
+            "item": "218",
+            "count": "108"
+          },
+          {
+            "item": "186",
+            "count": "103"
+          },
+          {
+            "item": "220",
+            "count": "99"
+          },
+          {
+            "item": "228",
+            "count": "98"
+          },
+          {
+            "item": "229",
+            "count": "98"
+          },
+          {
+            "item": "175",
+            "count": "98"
+          },
+          {
+            "item": "211",
+            "count": "97"
+          },
+          {
+            "item": "224",
+            "count": "97"
+          },
+          {
+            "item": "184",
+            "count": "97"
+          },
+          {
+            "item": "210",
+            "count": "97"
+          },
+          {
+            "item": "208",
+            "count": "96"
+          },
+          {
+            "item": "214",
+            "count": "96"
+          },
+          {
+            "item": "200",
+            "count": "96"
+          },
+          {
+            "item": "255",
+            "count": "96"
+          },
+          {
+            "item": "172",
+            "count": "95"
+          },
+          {
+            "item": "269",
+            "count": "94"
+          },
+          {
+            "item": "212",
+            "count": "94"
+          },
+          {
+            "item": "144",
+            "count": "94"
+          },
+          {
+            "item": "188",
+            "count": "94"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3215"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999720,
+      "name": "10:00-11:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_10_00_11_00am",
+      "position": 18,
+      "renderTypeName": "number",
+      "tableColumnId": 142315235,
+      "cachedContents": {
+        "non_null": "42753",
+        "largest": "6430",
+        "null": "3",
+        "top": [
+          {
+            "item": "0",
+            "count": "295"
+          },
+          {
+            "item": "197",
+            "count": "108"
+          },
+          {
+            "item": "213",
+            "count": "105"
+          },
+          {
+            "item": "237",
+            "count": "105"
+          },
+          {
+            "item": "281",
+            "count": "104"
+          },
+          {
+            "item": "232",
+            "count": "103"
+          },
+          {
+            "item": "263",
+            "count": "102"
+          },
+          {
+            "item": "208",
+            "count": "102"
+          },
+          {
+            "item": "210",
+            "count": "101"
+          },
+          {
+            "item": "215",
+            "count": "100"
+          },
+          {
+            "item": "206",
+            "count": "99"
+          },
+          {
+            "item": "307",
+            "count": "98"
+          },
+          {
+            "item": "255",
+            "count": "98"
+          },
+          {
+            "item": "247",
+            "count": "97"
+          },
+          {
+            "item": "310",
+            "count": "95"
+          },
+          {
+            "item": "211",
+            "count": "95"
+          },
+          {
+            "item": "222",
+            "count": "95"
+          },
+          {
+            "item": "188",
+            "count": "94"
+          },
+          {
+            "item": "256",
+            "count": "94"
+          },
+          {
+            "item": "219",
+            "count": "94"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3182"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999719,
+      "name": "11:00-12:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_11_00_12_00pm",
+      "position": 19,
+      "renderTypeName": "number",
+      "tableColumnId": 142315234,
+      "cachedContents": {
+        "non_null": "42755",
+        "largest": "6307",
+        "null": "1",
+        "top": [
+          {
+            "item": "0",
+            "count": "383"
+          },
+          {
+            "item": "238",
+            "count": "107"
+          },
+          {
+            "item": "275",
+            "count": "102"
+          },
+          {
+            "item": "260",
+            "count": "101"
+          },
+          {
+            "item": "208",
+            "count": "99"
+          },
+          {
+            "item": "256",
+            "count": "97"
+          },
+          {
+            "item": "226",
+            "count": "96"
+          },
+          {
+            "item": "301",
+            "count": "95"
+          },
+          {
+            "item": "264",
+            "count": "94"
+          },
+          {
+            "item": "257",
+            "count": "94"
+          },
+          {
+            "item": "284",
+            "count": "93"
+          },
+          {
+            "item": "207",
+            "count": "93"
+          },
+          {
+            "item": "187",
+            "count": "93"
+          },
+          {
+            "item": "249",
+            "count": "93"
+          },
+          {
+            "item": "326",
+            "count": "92"
+          },
+          {
+            "item": "243",
+            "count": "92"
+          },
+          {
+            "item": "239",
+            "count": "92"
+          },
+          {
+            "item": "287",
+            "count": "91"
+          },
+          {
+            "item": "205",
+            "count": "91"
+          },
+          {
+            "item": "223",
+            "count": "91"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3222"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999718,
+      "name": "12:00-1:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_12_00_1_00pm",
+      "position": 20,
+      "renderTypeName": "number",
+      "tableColumnId": 142315233,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "6330",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "301"
+          },
+          {
+            "item": "233",
+            "count": "98"
+          },
+          {
+            "item": "234",
+            "count": "97"
+          },
+          {
+            "item": "254",
+            "count": "94"
+          },
+          {
+            "item": "245",
+            "count": "94"
+          },
+          {
+            "item": "287",
+            "count": "93"
+          },
+          {
+            "item": "294",
+            "count": "93"
+          },
+          {
+            "item": "206",
+            "count": "92"
+          },
+          {
+            "item": "242",
+            "count": "92"
+          },
+          {
+            "item": "268",
+            "count": "90"
+          },
+          {
+            "item": "286",
+            "count": "89"
+          },
+          {
+            "item": "241",
+            "count": "89"
+          },
+          {
+            "item": "282",
+            "count": "88"
+          },
+          {
+            "item": "225",
+            "count": "88"
+          },
+          {
+            "item": "280",
+            "count": "88"
+          },
+          {
+            "item": "256",
+            "count": "87"
+          },
+          {
+            "item": "240",
+            "count": "87"
+          },
+          {
+            "item": "220",
+            "count": "87"
+          },
+          {
+            "item": "339",
+            "count": "87"
+          },
+          {
+            "item": "309",
+            "count": "86"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3287"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999717,
+      "name": "1:00-2:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_1_00_2_00pm",
+      "position": 21,
+      "renderTypeName": "number",
+      "tableColumnId": 142315232,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "6119",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "346"
+          },
+          {
+            "item": "274",
+            "count": "96"
+          },
+          {
+            "item": "239",
+            "count": "96"
+          },
+          {
+            "item": "268",
+            "count": "95"
+          },
+          {
+            "item": "229",
+            "count": "94"
+          },
+          {
+            "item": "288",
+            "count": "91"
+          },
+          {
+            "item": "290",
+            "count": "91"
+          },
+          {
+            "item": "270",
+            "count": "90"
+          },
+          {
+            "item": "296",
+            "count": "90"
+          },
+          {
+            "item": "287",
+            "count": "89"
+          },
+          {
+            "item": "280",
+            "count": "88"
+          },
+          {
+            "item": "293",
+            "count": "87"
+          },
+          {
+            "item": "246",
+            "count": "86"
+          },
+          {
+            "item": "301",
+            "count": "86"
+          },
+          {
+            "item": "241",
+            "count": "86"
+          },
+          {
+            "item": "255",
+            "count": "86"
+          },
+          {
+            "item": "222",
+            "count": "86"
+          },
+          {
+            "item": "242",
+            "count": "86"
+          },
+          {
+            "item": "247",
+            "count": "86"
+          },
+          {
+            "item": "304",
+            "count": "85"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3363"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999716,
+      "name": "2:00-3:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_2_00_3_00pm",
+      "position": 22,
+      "renderTypeName": "number",
+      "tableColumnId": 142315231,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "6996",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "367"
+          },
+          {
+            "item": "294",
+            "count": "96"
+          },
+          {
+            "item": "316",
+            "count": "86"
+          },
+          {
+            "item": "272",
+            "count": "85"
+          },
+          {
+            "item": "321",
+            "count": "83"
+          },
+          {
+            "item": "303",
+            "count": "82"
+          },
+          {
+            "item": "379",
+            "count": "81"
+          },
+          {
+            "item": "292",
+            "count": "81"
+          },
+          {
+            "item": "210",
+            "count": "80"
+          },
+          {
+            "item": "295",
+            "count": "80"
+          },
+          {
+            "item": "302",
+            "count": "80"
+          },
+          {
+            "item": "330",
+            "count": "80"
+          },
+          {
+            "item": "289",
+            "count": "79"
+          },
+          {
+            "item": "198",
+            "count": "79"
+          },
+          {
+            "item": "301",
+            "count": "79"
+          },
+          {
+            "item": "265",
+            "count": "79"
+          },
+          {
+            "item": "313",
+            "count": "79"
+          },
+          {
+            "item": "282",
+            "count": "79"
+          },
+          {
+            "item": "298",
+            "count": "78"
+          },
+          {
+            "item": "331",
+            "count": "78"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3477"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999715,
+      "name": "3:00-4:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_3_00_4_00pm",
+      "position": 23,
+      "renderTypeName": "number",
+      "tableColumnId": 142315230,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "7524",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "385"
+          },
+          {
+            "item": "267",
+            "count": "89"
+          },
+          {
+            "item": "303",
+            "count": "85"
+          },
+          {
+            "item": "246",
+            "count": "83"
+          },
+          {
+            "item": "230",
+            "count": "82"
+          },
+          {
+            "item": "263",
+            "count": "81"
+          },
+          {
+            "item": "359",
+            "count": "80"
+          },
+          {
+            "item": "277",
+            "count": "80"
+          },
+          {
+            "item": "272",
+            "count": "80"
+          },
+          {
+            "item": "233",
+            "count": "79"
+          },
+          {
+            "item": "393",
+            "count": "79"
+          },
+          {
+            "item": "327",
+            "count": "79"
+          },
+          {
+            "item": "274",
+            "count": "79"
+          },
+          {
+            "item": "276",
+            "count": "78"
+          },
+          {
+            "item": "284",
+            "count": "78"
+          },
+          {
+            "item": "275",
+            "count": "78"
+          },
+          {
+            "item": "305",
+            "count": "78"
+          },
+          {
+            "item": "244",
+            "count": "77"
+          },
+          {
+            "item": "293",
+            "count": "77"
+          },
+          {
+            "item": "362",
+            "count": "77"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3542"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999714,
+      "name": "4:00-5:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_4_00_5_00pm",
+      "position": 24,
+      "renderTypeName": "number",
+      "tableColumnId": 142315229,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "8683",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "400"
+          },
+          {
+            "item": "251",
+            "count": "91"
+          },
+          {
+            "item": "329",
+            "count": "89"
+          },
+          {
+            "item": "354",
+            "count": "86"
+          },
+          {
+            "item": "302",
+            "count": "85"
+          },
+          {
+            "item": "293",
+            "count": "83"
+          },
+          {
+            "item": "281",
+            "count": "81"
+          },
+          {
+            "item": "223",
+            "count": "79"
+          },
+          {
+            "item": "381",
+            "count": "78"
+          },
+          {
+            "item": "394",
+            "count": "78"
+          },
+          {
+            "item": "324",
+            "count": "78"
+          },
+          {
+            "item": "269",
+            "count": "78"
+          },
+          {
+            "item": "261",
+            "count": "77"
+          },
+          {
+            "item": "253",
+            "count": "77"
+          },
+          {
+            "item": "276",
+            "count": "77"
+          },
+          {
+            "item": "255",
+            "count": "76"
+          },
+          {
+            "item": "266",
+            "count": "76"
+          },
+          {
+            "item": "373",
+            "count": "75"
+          },
+          {
+            "item": "272",
+            "count": "75"
+          },
+          {
+            "item": "274",
+            "count": "75"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3584"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999713,
+      "name": "5:00-6:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_5_00_6_00pm",
+      "position": 25,
+      "renderTypeName": "number",
+      "tableColumnId": 142315228,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "9762",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "405"
+          },
+          {
+            "item": "347",
+            "count": "82"
+          },
+          {
+            "item": "295",
+            "count": "82"
+          },
+          {
+            "item": "309",
+            "count": "82"
+          },
+          {
+            "item": "244",
+            "count": "80"
+          },
+          {
+            "item": "401",
+            "count": "80"
+          },
+          {
+            "item": "266",
+            "count": "80"
+          },
+          {
+            "item": "257",
+            "count": "79"
+          },
+          {
+            "item": "280",
+            "count": "78"
+          },
+          {
+            "item": "253",
+            "count": "78"
+          },
+          {
+            "item": "316",
+            "count": "78"
+          },
+          {
+            "item": "308",
+            "count": "78"
+          },
+          {
+            "item": "269",
+            "count": "77"
+          },
+          {
+            "item": "273",
+            "count": "77"
+          },
+          {
+            "item": "270",
+            "count": "77"
+          },
+          {
+            "item": "346",
+            "count": "76"
+          },
+          {
+            "item": "311",
+            "count": "76"
+          },
+          {
+            "item": "275",
+            "count": "76"
+          },
+          {
+            "item": "260",
+            "count": "76"
+          },
+          {
+            "item": "210",
+            "count": "76"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3537"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999712,
+      "name": "6:00-7:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_6_00_7_00pm",
+      "position": 26,
+      "renderTypeName": "number",
+      "tableColumnId": 142315227,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "9879",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "411"
+          },
+          {
+            "item": "287",
+            "count": "89"
+          },
+          {
+            "item": "251",
+            "count": "87"
+          },
+          {
+            "item": "278",
+            "count": "87"
+          },
+          {
+            "item": "293",
+            "count": "86"
+          },
+          {
+            "item": "255",
+            "count": "85"
+          },
+          {
+            "item": "230",
+            "count": "85"
+          },
+          {
+            "item": "275",
+            "count": "85"
+          },
+          {
+            "item": "335",
+            "count": "84"
+          },
+          {
+            "item": "234",
+            "count": "83"
+          },
+          {
+            "item": "219",
+            "count": "83"
+          },
+          {
+            "item": "316",
+            "count": "83"
+          },
+          {
+            "item": "247",
+            "count": "82"
+          },
+          {
+            "item": "315",
+            "count": "82"
+          },
+          {
+            "item": "241",
+            "count": "81"
+          },
+          {
+            "item": "222",
+            "count": "81"
+          },
+          {
+            "item": "297",
+            "count": "81"
+          },
+          {
+            "item": "256",
+            "count": "81"
+          },
+          {
+            "item": "279",
+            "count": "81"
+          },
+          {
+            "item": "259",
+            "count": "81"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3547"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999711,
+      "name": "7:00-8:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_7_00_8_00pm",
+      "position": 27,
+      "renderTypeName": "number",
+      "tableColumnId": 142315226,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "10532",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "422"
+          },
+          {
+            "item": "182",
+            "count": "104"
+          },
+          {
+            "item": "214",
+            "count": "103"
+          },
+          {
+            "item": "258",
+            "count": "99"
+          },
+          {
+            "item": "285",
+            "count": "99"
+          },
+          {
+            "item": "183",
+            "count": "98"
+          },
+          {
+            "item": "200",
+            "count": "97"
+          },
+          {
+            "item": "188",
+            "count": "97"
+          },
+          {
+            "item": "252",
+            "count": "96"
+          },
+          {
+            "item": "224",
+            "count": "96"
+          },
+          {
+            "item": "253",
+            "count": "94"
+          },
+          {
+            "item": "209",
+            "count": "93"
+          },
+          {
+            "item": "205",
+            "count": "91"
+          },
+          {
+            "item": "317",
+            "count": "91"
+          },
+          {
+            "item": "315",
+            "count": "91"
+          },
+          {
+            "item": "215",
+            "count": "91"
+          },
+          {
+            "item": "191",
+            "count": "91"
+          },
+          {
+            "item": "292",
+            "count": "91"
+          },
+          {
+            "item": "194",
+            "count": "90"
+          },
+          {
+            "item": "273",
+            "count": "89"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3377"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999710,
+      "name": "8:00-9:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_8_00_9_00pm",
+      "position": 28,
+      "renderTypeName": "number",
+      "tableColumnId": 142315225,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "6659",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "425"
+          },
+          {
+            "item": "215",
+            "count": "115"
+          },
+          {
+            "item": "159",
+            "count": "113"
+          },
+          {
+            "item": "157",
+            "count": "110"
+          },
+          {
+            "item": "169",
+            "count": "110"
+          },
+          {
+            "item": "184",
+            "count": "110"
+          },
+          {
+            "item": "176",
+            "count": "109"
+          },
+          {
+            "item": "239",
+            "count": "109"
+          },
+          {
+            "item": "129",
+            "count": "107"
+          },
+          {
+            "item": "212",
+            "count": "106"
+          },
+          {
+            "item": "171",
+            "count": "106"
+          },
+          {
+            "item": "216",
+            "count": "106"
+          },
+          {
+            "item": "152",
+            "count": "106"
+          },
+          {
+            "item": "147",
+            "count": "105"
+          },
+          {
+            "item": "167",
+            "count": "105"
+          },
+          {
+            "item": "194",
+            "count": "104"
+          },
+          {
+            "item": "175",
+            "count": "103"
+          },
+          {
+            "item": "223",
+            "count": "103"
+          },
+          {
+            "item": "192",
+            "count": "103"
+          },
+          {
+            "item": "133",
+            "count": "102"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "3194"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999709,
+      "name": "9:00-10:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_9_00_10_00pm",
+      "position": 29,
+      "renderTypeName": "number",
+      "tableColumnId": 142315224,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "5698",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "451"
+          },
+          {
+            "item": "119",
+            "count": "143"
+          },
+          {
+            "item": "132",
+            "count": "134"
+          },
+          {
+            "item": "148",
+            "count": "134"
+          },
+          {
+            "item": "136",
+            "count": "133"
+          },
+          {
+            "item": "127",
+            "count": "131"
+          },
+          {
+            "item": "112",
+            "count": "130"
+          },
+          {
+            "item": "135",
+            "count": "129"
+          },
+          {
+            "item": "152",
+            "count": "128"
+          },
+          {
+            "item": "114",
+            "count": "127"
+          },
+          {
+            "item": "182",
+            "count": "127"
+          },
+          {
+            "item": "190",
+            "count": "127"
+          },
+          {
+            "item": "156",
+            "count": "125"
+          },
+          {
+            "item": "117",
+            "count": "125"
+          },
+          {
+            "item": "163",
+            "count": "125"
+          },
+          {
+            "item": "124",
+            "count": "125"
+          },
+          {
+            "item": "196",
+            "count": "124"
+          },
+          {
+            "item": "202",
+            "count": "124"
+          },
+          {
+            "item": "158",
+            "count": "122"
+          },
+          {
+            "item": "134",
+            "count": "121"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "2956"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999708,
+      "name": "10:00-11:00PM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_10_00_11_00pm",
+      "position": 30,
+      "renderTypeName": "number",
+      "tableColumnId": 142315223,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "5460",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "462"
+          },
+          {
+            "item": "128",
+            "count": "162"
+          },
+          {
+            "item": "130",
+            "count": "155"
+          },
+          {
+            "item": "116",
+            "count": "153"
+          },
+          {
+            "item": "124",
+            "count": "152"
+          },
+          {
+            "item": "97",
+            "count": "146"
+          },
+          {
+            "item": "127",
+            "count": "145"
+          },
+          {
+            "item": "109",
+            "count": "144"
+          },
+          {
+            "item": "77",
+            "count": "144"
+          },
+          {
+            "item": "99",
+            "count": "144"
+          },
+          {
+            "item": "134",
+            "count": "143"
+          },
+          {
+            "item": "83",
+            "count": "143"
+          },
+          {
+            "item": "110",
+            "count": "142"
+          },
+          {
+            "item": "102",
+            "count": "141"
+          },
+          {
+            "item": "98",
+            "count": "141"
+          },
+          {
+            "item": "147",
+            "count": "141"
+          },
+          {
+            "item": "123",
+            "count": "140"
+          },
+          {
+            "item": "107",
+            "count": "140"
+          },
+          {
+            "item": "121",
+            "count": "139"
+          },
+          {
+            "item": "118",
+            "count": "139"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "2819"
+      },
+      "format": {}
+    },
+    {
+      "id": 560999707,
+      "name": "11:00-12:00AM",
+      "dataTypeName": "number",
+      "description": "Count for the clock hour",
+      "fieldName": "_11_00_12_00am",
+      "position": 31,
+      "renderTypeName": "number",
+      "tableColumnId": 142315222,
+      "cachedContents": {
+        "non_null": "42503",
+        "largest": "5027",
+        "null": "253",
+        "top": [
+          {
+            "item": "0",
+            "count": "483"
+          },
+          {
+            "item": "86",
+            "count": "198"
+          },
+          {
+            "item": "103",
+            "count": "190"
+          },
+          {
+            "item": "68",
+            "count": "182"
+          },
+          {
+            "item": "75",
+            "count": "182"
+          },
+          {
+            "item": "90",
+            "count": "179"
+          },
+          {
+            "item": "62",
+            "count": "178"
+          },
+          {
+            "item": "85",
+            "count": "175"
+          },
+          {
+            "item": "70",
+            "count": "174"
+          },
+          {
+            "item": "108",
+            "count": "174"
+          },
+          {
+            "item": "91",
+            "count": "173"
+          },
+          {
+            "item": "58",
+            "count": "173"
+          },
+          {
+            "item": "54",
+            "count": "172"
+          },
+          {
+            "item": "79",
+            "count": "172"
+          },
+          {
+            "item": "55",
+            "count": "172"
+          },
+          {
+            "item": "83",
+            "count": "170"
+          },
+          {
+            "item": "73",
+            "count": "170"
+          },
+          {
+            "item": "88",
+            "count": "169"
+          },
+          {
+            "item": "61",
+            "count": "169"
+          },
+          {
+            "item": "71",
+            "count": "169"
+          }
+        ],
+        "smallest": "0",
+        "count": "42756",
+        "cardinality": "2566"
+      },
+      "format": {}
+    }
+  ],
+  "grants": [
+    {
+      "inherited": false,
+      "type": "viewer",
+      "flags": [
+        "public"
+      ]
+    }
+  ],
+  "metadata": {
+    "attachments": [
+      {
+        "filename": "Data Dictionary-Traffic Volume Counts.xlsx",
+        "assetId": "b7d7e32e-b8c1-4461-be7f-a5d6c6a45dd7",
+        "name": "Data Dictionary-Traffic Volume Counts.xlsx"
+      }
+    ],
+    "custom_fields": {
+      "Update": {
+        "Automation": "No",
+        "Date Made Public": "5/26/2022",
+        "Update Frequency": "Historical data"
+      },
+      "Dataset Information": {
+        "Agency": "Department of Transportation (DOT)"
+      }
+    },
+    "rowLabel": "Traffic Volume Count",
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ]
+  },
+  "owner": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "query": {},
+  "rights": [
+    "read"
+  ],
+  "tableAuthor": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "tags": [
+    "traffic",
+    "volume",
+    "bridge",
+    "roadway",
+    "street",
+    "crossing",
+    "counts"
+  ],
+  "flags": [
+    "default",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ]
+}

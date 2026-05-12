@@ -1,0 +1,11 @@
+{
+  "city": "new_york",
+  "created_for": "Bims-5 civic city-change atlas",
+  "updated_at": "2026-04-29T19:25:35.839494+00:00",
+  "source_catalog": "new_york/source_catalog.json",
+  "events_seed": "new_york/events_seed.json",
+  "source_count": 149,
+  "event_seed_count": 11453,
+  "raw_metadata_count": 135,
+  "warning_snapshot_count": 3
+}

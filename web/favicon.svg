@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Open Citylog">
+  <rect width="64" height="64" rx="14" fill="#f8fbff"/>
+  <path d="M14 18 41 6l9 5-27 12-9-5Z" fill="#1268db"/>
+  <path d="M14 30 41 18l9 5-27 12-9-5Z" fill="#2f86f6"/>
+  <path d="M14 42 41 30l9 5-27 12-9-5Z" fill="#75c8ff"/>
+</svg>

@@ -1,0 +1,424 @@
+{
+  "source_id": "mxbm-493w",
+  "city": "new_york",
+  "title": "Georeferenced NYC Zoning Maps",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "zoning GIS/historic maps",
+  "retrieved_at": "2026-04-28T12:57:46.579082+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/mxbm-493w",
+      "retrieved_at": "2026-04-28T12:57:45.294924+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/mxbm-493w",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4321,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Georeferenced NYC Zoning Maps",
+      "description": "The Georeferenced NYC Zoning Maps raster dataset is intended to be a spatial representation of the entire zoning map catalog for the City of New York as one seamless citywide raster zoning map sans title blocks. These maps are normally maintained as 126 individual quarter sections and printed periodically for inclusion in Vol III of the City's 2019 Zoning Resolution. This dataset encompasses recent changes to mapped zoning districts or zoning text amendments as they are adopted by the City Council as well as filed City Map changes.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1473708416,
+      "json_sample": {
+        "id": "mxbm-493w",
+        "name": "Georeferenced NYC Zoning Maps",
+        "assetType": "file",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features",
+        "averageRating": 0,
+        "blobFilename": "georeferencedzoningmaps.zip",
+        "blobFileSize": 1001484140,
+        "blobId": "838bb42f-0c7d-481a-b911-6e0db1107b0a",
+        "blobMimeType": "application/zip",
+        "category": "City Government",
+        "createdAt": 1473708416,
+        "description": "The Georeferenced NYC Zoning Maps raster dataset is intended to be a spatial representation of the entire zoning map catalog for the City of New York as one seamless citywide raster zoning map sans title blocks. These maps are normally maintained as 126 individual quarter sections and printed periodically for inclusion in Vol III of the City's 2019 Zoning Resolution. This dataset encompasses recent changes to mapped zoning districts or zoning text amendments as they are adopted by the City Council as well as filed City Map changes.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 3122,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1573854694,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 23751210,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1473708416,
+        "publicationGroup": 13033668,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1473708416,
+        "tableId": 13033668,
+        "totalTimesRated": 0,
+        "viewCount": 6935,
+        "viewLastModified": 1774973602,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1473716578,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1066791,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1473716578,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "georeferencedzoningmaps_metadata.pdf",
+              "assetId": "faa8f712-c75c-4390-b489-3cbf36373464",
+              "name": "georeferencedzoningmaps_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "9/13/2021",
+              "Update Frequency": "Monthly",
+              "Data Change Frequency": "Monthly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "Row",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "zoning",
+          "raster",
+          "city planning",
+          "dcp",
+          "maps"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/mxbm-493w",
+      "retrieved_at": "2026-04-28T12:57:45.863919+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/mxbm-493w",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4321,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Georeferenced NYC Zoning Maps",
+      "description": "The Georeferenced NYC Zoning Maps raster dataset is intended to be a spatial representation of the entire zoning map catalog for the City of New York as one seamless citywide raster zoning map sans title blocks. These maps are normally maintained as 126 individual quarter sections and printed periodically for inclusion in Vol III of the City's 2019 Zoning Resolution. This dataset encompasses recent changes to mapped zoning districts or zoning text amendments as they are adopted by the City Council as well as filed City Map changes.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1473708416,
+      "json_sample": {
+        "id": "mxbm-493w",
+        "name": "Georeferenced NYC Zoning Maps",
+        "assetType": "file",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features",
+        "averageRating": 0,
+        "blobFilename": "georeferencedzoningmaps.zip",
+        "blobFileSize": 1001484140,
+        "blobId": "838bb42f-0c7d-481a-b911-6e0db1107b0a",
+        "blobMimeType": "application/zip",
+        "category": "City Government",
+        "createdAt": 1473708416,
+        "description": "The Georeferenced NYC Zoning Maps raster dataset is intended to be a spatial representation of the entire zoning map catalog for the City of New York as one seamless citywide raster zoning map sans title blocks. These maps are normally maintained as 126 individual quarter sections and printed periodically for inclusion in Vol III of the City's 2019 Zoning Resolution. This dataset encompasses recent changes to mapped zoning districts or zoning text amendments as they are adopted by the City Council as well as filed City Map changes.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 3122,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1573854694,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 23751210,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1473708416,
+        "publicationGroup": 13033668,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1473708416,
+        "tableId": 13033668,
+        "totalTimesRated": 0,
+        "viewCount": 6935,
+        "viewLastModified": 1774973602,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1473716578,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1066791,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1473716578,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "georeferencedzoningmaps_metadata.pdf",
+              "assetId": "faa8f712-c75c-4390-b489-3cbf36373464",
+              "name": "georeferencedzoningmaps_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "9/13/2021",
+              "Update Frequency": "Monthly",
+              "Data Change Frequency": "Monthly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "Row",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "zoning",
+          "raster",
+          "city planning",
+          "dcp",
+          "maps"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/mxbm-493w.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:57:45.968878+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/mxbm-493w.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

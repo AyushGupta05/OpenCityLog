@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_road_casualties_severity",
+  "title": "Road Casualties by Severity",
+  "requested_url": "https://data.london.gov.uk/dataset/road-casualties-by-severity-e1z1j",
+  "fetched_url": "https://data.london.gov.uk/dataset/road-casualties-by-severity-e1z1j",
+  "final_url": "https://data.london.gov.uk/dataset/road-casualties-by-severity-e1z1j/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:54.132002+00:00",
+  "page_title": "Road Casualties by Severity – London Datastore",
+  "h1": "Road Casualties by Severity",
+  "meta_description": ""
+}

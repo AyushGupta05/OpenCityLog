@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/city.schema.json",
+  "title": "Bims City Adapter Config",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "city_id",
+    "display_name",
+    "bounds",
+    "default_center",
+    "default_zoom",
+    "available_years",
+    "source_families",
+    "data_availability"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"type": "string"},
+    "city_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"},
+    "display_name": {"type": "string", "minLength": 1},
+    "country": {"type": "string"},
+    "country_code": {"type": "string"},
+    "region": {"type": "string"},
+    "timezone": {"type": "string"},
+    "bounds": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}, {"type": "number"}, {"type": "number"}],
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "default_center": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "default_zoom": {"type": "number"},
+    "available_years": {
+      "type": "object",
+      "required": ["schema_supported_start", "schema_supported_end"],
+      "properties": {
+        "schema_supported_start": {"type": "integer", "minimum": 1700},
+        "schema_supported_end": {"type": "integer", "minimum": 1700},
+        "demo_observed_start": {"type": ["integer", "null"], "minimum": 1700},
+        "demo_observed_end": {"type": ["integer", "null"], "minimum": 1700}
+      }
+    },
+    "source_families": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source_family"}
+    }
+  },
+  "$defs": {
+    "source_family": {
+      "type": "object",
+      "required": ["family_id", "label", "source_ids", "availability", "years", "notes"],
+      "properties": {
+        "family_id": {"type": "string"},
+        "label": {"type": "string"},
+        "source_ids": {"type": "array", "items": {"type": "string"}},
+        "availability": {
+          "type": "string",
+          "enum": ["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]
+        },
+        "years": {"type": "array", "items": {"type": "integer", "minimum": 1700}},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

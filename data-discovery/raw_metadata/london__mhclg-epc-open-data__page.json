@@ -1,0 +1,33 @@
+{
+  "source_id": "mhclg-epc-open-data",
+  "city": "london",
+  "title": "Energy Performance Certificate open data",
+  "publisher": "Ministry of Housing, Communities and Local Government / OpenDataCommunities",
+  "bucket": "buildings/environment",
+  "retrieved_at": "2026-04-28T12:18:49.832066+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://epc.opendatacommunities.org/api/v1/",
+      "retrieved_at": "2026-04-28T12:18:49.349716+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://epc.opendatacommunities.org/api/v1/",
+      "content_type": "text/html;charset=utf-8"
+    },
+    {
+      "requested_url": "https://epc.opendatacommunities.org/",
+      "retrieved_at": "2026-04-28T12:18:49.599893+00:00",
+      "final_url": "https://epc.opendatacommunities.org/",
+      "status": 200,
+      "content_type": "text/html;charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "11572",
+      "bytes_captured": 11572,
+      "page_title": "Energy Performance of Buildings Data England and Wales",
+      "h1": "Energy Performance of Buildings Data: England and Wales",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <!--[if lt IE 9 ]> <html lang=\"en\" class=\"no-js out_of_spec\"> <![endif]--> <!--[if IE 9 ]> <html lang=\"en\" class=\"no-js ie9\"> <![endif]--> <!--[if (gt IE 9)|!(IE)]><!--> <html lang=\"en\" class=\"no-js\"> <!--<![endif]--> <head> <meta charset=\"utf-8\"> <title>Energy Performance of Buildings Data England and Wales</title> <!-- METADATA --> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <!-- FONTS come before stylesheets --> <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> <!-- STYLESHEETS --> <link rel=\"stylesheet\" href=\"/css/main.css\"> <!-- MODERNIZR HERE, any other JS at close of BODY --> <script src=\"/javascripts/modernizr-custom.min.js\"></script> <script src=\"https://www.google.com/recaptcha/enterprise.js\" async defer></script> <script> function enableSubmitLogin() { document.getElementById('recaptcha-submit-btn-login').disabled = false; } function enableSubmitRegister() { document.getElementById('recaptcha-submit-btn-register').disabled = false; } </script> </head> <body class='home'> <main> <aside class=\"error visible_on_out_of_spec\"> <div> <div> You are using an <strong>unsupported browser</strong>. Please upgrade to use this site. </div> </div> </aside> <aside class=\"warning visible_on_ie9\"> <div> <div> You are using an <strong>old browser</strong>. Please upgrade to improve your experience. </div> </div> </aside> <aside class=\"warning hidden_when_javascript_available\"> <div> <div> <strong>JavaScript</strong> is disabled, so you're missing out on some features. </div> </div> </aside> <aside class=\"warning\"> <div> <div> The Energy Performance Certificates dataset was updated on <strong>27 Mar 2026</strong> and includes certificates issued up to and including <strong>28 Feb 2026</strong>. </div> </div> </aside> <div class=\"container\"> <div class=\"column content\"> <!-- de-indent to be kind to PRE tags in content --> <!-- for CLOJURE --> <div class=\"swirrl_row\"> <div> <div class=\"logo\"> <div class=\"dclg\">Ministry of Housing, Communities and Local Government</div> </div> </div> </div> <div class=\"swirrl_row\"> <div> <aside class=\"retirement-notice\"> <header> Important </header> <div> <p> This website is being retired and has been replaced by the <a href=\"https://get-energy-performance-data.communities.gov.uk\"> Get energy performance of buildings data</a> service. </p> <p> From 30 May 2026 you will no longer be"
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "retrieved_at": "2026-05-08T20:48:37Z",
+  "source": "Food Standards Agency Food Hygiene Rating Scheme API",
+  "help_url": "https://api.ratings.food.gov.uk/help",
+  "data_page": "https://www.food.gov.uk/uk-food-hygiene-rating-data-api",
+  "license": "Open Government Licence v3.0",
+  "per_authority_limit": 300,
+  "authority_count": 33,
+  "privacy_minimization": "Adapter omits business name, address lines, postcode, phone, email, and right-to-reply text before writing atlas events.",
+  "omitted_fields": [
+    "BusinessName",
+    "AddressLine1",
+    "AddressLine2",
+    "AddressLine3",
+    "AddressLine4",
+    "PostCode",
+    "Phone",
+    "LocalAuthorityEmailAddress",
+    "RightToReply"
+  ],
+  "authorities": {
+    "Barking and Dagenham": {
+      "local_authority_id": 88,
+      "name": "Barking and Dagenham",
+      "establishment_count": 1423,
+      "last_published_date": "2026-05-05T00:31:11.157",
+      "read_rows": 386,
+      "added": 300,
+      "skipped_without_point_or_date": 85
+    },
+    "Barnet": {
+      "local_authority_id": 89,
+      "name": "Barnet",
+      "establishment_count": 2821,
+      "last_published_date": "2026-05-08T00:31:23.667",
+      "read_rows": 393,
+      "added": 300,
+      "skipped_without_point_or_date": 92
+    },
+    "Bexley": {
+      "local_authority_id": 90,
+      "name": "Bexley",
+      "establishment_count": 1759,
+      "last_published_date": "2026-05-08T00:31:31.113",
+      "read_rows": 407,
+      "added": 300,
+      "skipped_without_point_or_date": 106
+    },
+    "Brent": {
+      "local_authority_id": 91,
+      "name": "Brent",
+      "establishment_count": 2466,
+      "last_published_date": "2026-05-08T00:31:34.323",
+      "read_rows": 332,
+      "added": 300,
+      "skipped_without_point_or_date": 31
+    },
+    "Bromley": {
+      "local_authority_id": 92,
+      "name": "Bromley",
+      "establishment_count": 2419,
+      "last_published_date": "2026-05-06T00:31:49.11",
+      "read_rows": 437,
+      "added": 300,
+      "skipped_without_point_or_date": 136
+    },
+    "Camden": {
+      "local_authority_id": 93,
+      "name": "Camden",
+      "establishment_count": 4304,
+      "last_published_date": "2026-05-08T00:31:39.84",
+      "read_rows": 335,
+      "added": 300,
+      "skipped_without_point_or_date": 34
+    },
+    "City of London": {
+      "local_authority_id": 95,
+      "name": "City of London",
+      "establishment_count": 1798,
+      "last_published_date": "2026-05-07T00:32:02.617",
+      "read_rows": 304,
+      "added": 300,
+      "skipped_without_point_or_date": 3
+    },
+    "Croydon": {
+      "local_authority_id": 94,
+      "name": "Croydon",
+      "establishment_count": 3097,
+      "last_published_date": "2026-05-06T00:31:59.04",
+      "read_rows": 394,
+      "added": 300,
+      "skipped_without_point_or_date": 93
+    },
+    "Ealing": {
+      "local_authority_id": 96,
+      "name": "Ealing",
+      "establishment_count": 3602,
+      "last_published_date": "2026-05-07T00:32:13.323",
+      "read_rows": 383,
+      "added": 300,
+      "skipped_without_point_or_date": 82
+    },
+    "Enfield": {
+      "local_authority_id": 97,
+      "name": "Enfield",
+      "establishment_count": 2284,
+      "last_published_date": "2026-05-08T00:31:42.647",
+      "read_rows": 347,
+      "added": 300,
+      "skipped_without_point_or_date": 46
+    },
+    "Greenwich": {
+      "local_authority_id": 98,
+      "name": "Greenwich",
+      "establishment_count": 2329,
+      "last_published_date": "2026-05-03T00:30:54.45",
+      "read_rows": 396,
+      "added": 300,
+      "skipped_without_point_or_date": 95
+    },
+    "Hackney": {
+      "local_authority_id": 99,
+      "name": "Hackney",
+      "establishment_count": 2630,
+      "last_published_date": "2026-05-07T00:32:23.567",
+      "read_rows": 388,
+      "added": 300,
+      "skipped_without_point_or_date": 87
+    },
+    "Hammersmith and Fulham": {
+      "local_authority_id": 100,
+      "name": "Hammersmith and Fulham",
+      "establishment_count": 1967,
+      "last_published_date": "2026-05-08T00:31:44.817",
+      "read_rows": 336,
+      "added": 300,
+      "skipped_without_point_or_date": 35
+    },
+    "Haringey": {
+      "local_authority_id": 101,
+      "name": "Haringey",
+      "establishment_count": 2000,
+      "last_published_date": "2026-05-06T00:32:23.007",
+      "read_rows": 369,
+      "added": 300,
+      "skipped_without_point_or_date": 68
+    },
+    "Harrow": {
+      "local_authority_id": 102,
+      "name": "Harrow",
+      "establishment_count": 1855,
+      "last_published_date": "2026-05-07T00:32:27.17",
+      "read_rows": 407,
+      "added": 300,
+      "skipped_without_point_or_date": 106
+    },
+    "Havering": {
+      "local_authority_id": 103,
+      "name": "Havering",
+      "establishment_count": 2039,
+      "last_published_date": "2026-04-09T00:36:12.823",
+      "read_rows": 413,
+      "added": 300,
+      "skipped_without_point_or_date": 112
+    },
+    "Hillingdon": {
+      "local_authority_id": 104,
+      "name": "Hillingdon",
+      "establishment_count": 2197,
+      "last_published_date": "2026-05-07T00:32:31.51",
+      "read_rows": 355,
+      "added": 300,
+      "skipped_without_point_or_date": 54
+    },
+    "Hounslow": {
+      "local_authority_id": 105,
+      "name": "Hounslow",
+      "establishment_count": 2246,
+      "last_published_date": "2026-05-07T00:32:34.94",
+      "read_rows": 360,
+      "added": 300,
+      "skipped_without_point_or_date": 59
+    },
+    "Islington": {
+      "local_authority_id": 106,
+      "name": "Islington",
+      "establishment_count": 2557,
+      "last_published_date": "2026-05-06T00:32:30.623",
+      "read_rows": 392,
+      "added": 300,
+      "skipped_without_point_or_date": 91
+    },
+    "Kensington and Chelsea": {
+      "local_authority_id": 107,
+      "name": "Kensington and Chelsea",
+      "establishment_count": 1952,
+      "last_published_date": "2026-05-08T00:31:47.05",
+      "read_rows": 320,
+      "added": 300,
+      "skipped_without_point_or_date": 19
+    },
+    "Kingston upon Thames": {
+      "local_authority_id": 108,
+      "name": "Kingston upon Thames",
+      "establishment_count": 1415,
+      "last_published_date": "2026-05-06T00:32:32.2",
+      "read_rows": 347,
+      "added": 300,
+      "skipped_without_point_or_date": 46
+    },
+    "Lambeth": {
+      "local_authority_id": 109,
+      "name": "Lambeth",
+      "establishment_count": 2610,
+      "last_published_date": "2026-05-08T00:31:49.773",
+      "read_rows": 361,
+      "added": 300,
+      "skipped_without_point_or_date": 60
+    },
+    "Lewisham": {
+      "local_authority_id": 110,
+      "name": "Lewisham",
+      "establishment_count": 2407,
+      "last_published_date": "2026-05-06T00:32:38.527",
+      "read_rows": 430,
+      "added": 300,
+      "skipped_without_point_or_date": 129
+    },
+    "Merton": {
+      "local_authority_id": 111,
+      "name": "Merton",
+      "establishment_count": 1503,
+      "last_published_date": "2026-05-08T00:31:51.33",
+      "read_rows": 411,
+      "added": 300,
+      "skipped_without_point_or_date": 110
+    },
+    "Newham": {
+      "local_authority_id": 112,
+      "name": "Newham",
+      "establishment_count": 2621,
+      "last_published_date": "2026-05-08T00:31:53.987",
+      "read_rows": 371,
+      "added": 300,
+      "skipped_without_point_or_date": 70
+    },
+    "Redbridge": {
+      "local_authority_id": 113,
+      "name": "Redbridge",
+      "establishment_count": 2101,
+      "last_published_date": "2026-05-07T00:32:41.993",
+      "read_rows": 372,
+      "added": 300,
+      "skipped_without_point_or_date": 71
+    },
+    "Richmond upon Thames": {
+      "local_authority_id": 114,
+      "name": "Richmond upon Thames",
+      "establishment_count": 1573,
+      "last_published_date": "2026-04-25T00:35:18.447",
+      "read_rows": 455,
+      "added": 300,
+      "skipped_without_point_or_date": 154
+    },
+    "Southwark": {
+      "local_authority_id": 115,
+      "name": "Southwark",
+      "establishment_count": 3223,
+      "last_published_date": "2026-05-07T00:32:46.903",
+      "read_rows": 325,
+      "added": 300,
+      "skipped_without_point_or_date": 24
+    },
+    "Sutton": {
+      "local_authority_id": 116,
+      "name": "Sutton",
+      "establishment_count": 1298,
+      "last_published_date": "2026-05-08T00:31:55.453",
+      "read_rows": 341,
+      "added": 300,
+      "skipped_without_point_or_date": 40
+    },
+    "Tower Hamlets": {
+      "local_authority_id": 117,
+      "name": "Tower Hamlets",
+      "establishment_count": 3145,
+      "last_published_date": "2026-05-08T00:31:59.94",
+      "read_rows": 340,
+      "added": 300,
+      "skipped_without_point_or_date": 39
+    },
+    "Waltham Forest": {
+      "local_authority_id": 118,
+      "name": "Waltham Forest",
+      "establishment_count": 1976,
+      "last_published_date": "2026-05-08T00:32:03.083",
+      "read_rows": 381,
+      "added": 300,
+      "skipped_without_point_or_date": 80
+    },
+    "Wandsworth": {
+      "local_authority_id": 119,
+      "name": "Wandsworth",
+      "establishment_count": 2850,
+      "last_published_date": "2026-05-07T00:33:01.44",
+      "read_rows": 361,
+      "added": 300,
+      "skipped_without_point_or_date": 60
+    },
+    "Westminster": {
+      "local_authority_id": 120,
+      "name": "Westminster",
+      "establishment_count": 5606,
+      "last_published_date": "2026-05-08T00:32:15.713",
+      "read_rows": 330,
+      "added": 300,
+      "skipped_without_point_or_date": 29
+    }
+  },
+  "skipped_without_point_or_date": 2346,
+  "skipped_duplicate": 0,
+  "event_count": 9900,
+  "sampled_per_authority": {
+    "Barking and Dagenham": 300,
+    "Barnet": 300,
+    "Bexley": 300,
+    "Brent": 300,
+    "Bromley": 300,
+    "Camden": 300,
+    "City of London": 300,
+    "Croydon": 300,
+    "Ealing": 300,
+    "Enfield": 300,
+    "Greenwich": 300,
+    "Hackney": 300,
+    "Hammersmith and Fulham": 300,
+    "Haringey": 300,
+    "Harrow": 300,
+    "Havering": 300,
+    "Hillingdon": 300,
+    "Hounslow": 300,
+    "Islington": 300,
+    "Kensington and Chelsea": 300,
+    "Kingston upon Thames": 300,
+    "Lambeth": 300,
+    "Lewisham": 300,
+    "Merton": 300,
+    "Newham": 300,
+    "Redbridge": 300,
+    "Richmond upon Thames": 300,
+    "Southwark": 300,
+    "Sutton": 300,
+    "Tower Hamlets": 300,
+    "Waltham Forest": 300,
+    "Wandsworth": 300,
+    "Westminster": 300
+  },
+  "date_range": [
+    "2004-04-27",
+    "2026-05-05"
+  ]
+}

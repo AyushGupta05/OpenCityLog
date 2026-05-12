@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-ancient-woodland-inventory-england",
+  "city": "london",
+  "title": "Ancient Woodland Inventory England",
+  "publisher": "Natural England",
+  "bucket": "woodland/habitat/environment",
+  "retrieved_at": "2026-04-28T12:57:21.655915+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::ancient-woodland-england",
+      "retrieved_at": "2026-04-28T12:57:20.938014+00:00",
+      "final_url": "https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::ancient-woodland-england",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"f55f-AB5aTY1HkJZouI64BUCJxv1Ycls\"",
+      "content_length_header": "62815",
+      "bytes_captured": 62815,
+      "page_title": "Ancient Woodland (England)",
+      "h1": null,
+      "meta_description": "This is a spatial dataset that describes the geographic extent and location of ancient woodland habitat in England (excluding the Isles of Scilly).  Ancient woodland is land that has had a continuous woodland cover since at least 1600 AD.",
+      "text_sample": "<!DOCTYPE html><html lang=\"en-gb\"><head> <title>Ancient Woodland (England)</title><meta name=\"twitter:title\" content=\"Ancient Woodland (England)\"><meta property=\"og:title\" content=\"Ancient Woodland (England)\"><meta name=\"description\" content=\"This is a spatial dataset that describes the geographic extent and location of ancient woodland habitat in England (excluding the Isles of Scilly). Ancient woodland is land that has had a continuous woodland cover since at least 1600 AD.\"><meta name=\"twitter:description\" content=\"This is a spatial dataset that describes the geographic extent and location of ancient woodland habitat in England (excluding the Isles of Scilly). Ancient woodland is land that has had a continuous woodland cover since at least 1600 AD.\"><meta property=\"og:description\" content=\"This is a spatial dataset that describes the geographic extent and location of ancient woodland habitat in England (excluding the Isles of Scilly). Ancient woodland is land that has had a continuous woodland cover since at least 1600 AD.\"><meta name=\"twitter:image\" content=\"https://www.arcgis.com/sharing/rest/content/items/a14064ca50e242c4a92d020764a6d9df_0/info/thumbnail/Ancient_Woodland_600_400.jpg?w=500\"><meta property=\"og:image\" content=\"https://www.arcgis.com/sharing/rest/content/items/a14064ca50e242c4a92d020764a6d9df_0/info/thumbnail/Ancient_Woodland_600_400.jpg?w=500\"><meta name=\"twitter:card\" content=\"summary\"><meta property=\"og:url\" content=\"https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::ancient-woodland-england\"><meta property=\"og:type\" content=\"website\"> <meta charset=\"utf-8\"> <meta name=\"google-site-verification\" content=\"V9SzvB895BKr2ff7JVvaJQM1CIgPqOL5FPooX1aqENo\"> <meta name=\"msvalidate.01\" content=\"217F0EED65C5B131219477CE2CEAAF8E\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <script> (function () { // check for unsupported browsers function isIE () { return ( (navigator.appName === 'Microsoft Internet Explorer') || ((navigator.appName === 'Netscape') && (new RegExp('Trident/.*rv:([0-9]{1,}[.0-9]{0,})').exec(navigator.userAgent) != null)) ); } function isEdge () { return navigator.userAgent.toLowerCase().includes('edge'); } if (isIE() || isEdge()) { window.location.replace('./unsupported.html'); } })(); </script> <meta name=\"activation-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22activation-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%2"
+    }
+  ]
+}

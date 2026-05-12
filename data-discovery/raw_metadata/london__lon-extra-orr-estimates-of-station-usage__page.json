@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-orr-estimates-of-station-usage",
+  "city": "london",
+  "title": "ORR Estimates of Station Usage",
+  "publisher": "Office of Rail and Road",
+  "bucket": "transport/rail demand/economy",
+  "retrieved_at": "2026-04-28T12:57:15.499572+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://dataportal.orr.gov.uk/statistics/usage/estimates-of-station-usage",
+      "retrieved_at": "2026-04-28T12:57:15.671341+00:00",
+      "final_url": "https://dataportal.orr.gov.uk/statistics/usage/estimates-of-station-usage",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 44770,
+      "page_title": "Estimates of station usage | ORR Data Portal",
+      "h1": "Estimates of station usage",
+      "meta_description": null,
+      "text_sample": "<!doctype html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"> <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N86R56J'); </script> <link rel=\"stylesheet\" href=\"/compiled/css/site.css\" /> <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css\" /> <script src=\"/vendor/jquery/dist/jquery.min.js\"></script> <script src=\"/vendor/popper.js/dist/umd/popper.min.js\"></script> <script src=\"/vendor/bootstrap/dist/js/bootstrap.min.js\"></script> <script src=\"/vendor/js-cookie/src/js.cookie.js\"></script> <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js\"></script> <script src=\"/compiled/js/helpers.js\"></script> <script src=\"/compiled/js/reports.js\"></script> <script src=\"/compiled/js/site-search.js\"></script> <script src=\"/compiled/js/load-status.js\"></script> <script src=\"/compiled/js/cookie-banner.js\"></script> <title> Estimates of station usage | ORR Data Portal </title> <!-- Google Analytics - Global site tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-21748677-2\"></script> <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-21748677-2'); </script> <script type=\"text/javascript\">!function(T,l,y){var S=T.location,k=\"script\",D=\"instrumentationKey\",C=\"ingestionendpoint\",I=\"disableExceptionTracking\",E=\"ai.device.\",b=\"toLowerCase\",w=\"crossOrigin\",N=\"POST\",e=\"appInsightsSDK\",t=y.name||\"appInsights\";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:\"5\",version:2,config:d};function v(e,t){var n={},a=\"Browser\";return n[E+\"id\"]=a[b](),n[E+\"type\"]=a,n[\"ai.operation.name\"]=S&&S.pathname||\"_unknown_\",n[\"ai.internal.sdkVersion\"]=\"javascript:snippet_\"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=\"\"+e;return 1===t.length&&(t=\"0\"+t),t}return e.getUTCFullYear()+\"-\"+t(1+e.getUTCMonth())+\"-\"+t(e.getUTCDate())+\"T\"+t(e.getUTCHours())+\":\"+t(e.getUTCMinutes())+\":\"+t(e.getUTCSeconds())+\".\"+((e.getUTCMilliseconds()/1e3).toFixed(3)+\"\").slice(2,5)+\"Z\"}(),iKey:e,name:\"Microsoft.ApplicationInsights.\"+e.replace(/-"
+    }
+  ]
+}

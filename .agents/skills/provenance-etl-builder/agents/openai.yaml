@@ -1,0 +1,4 @@
+interface:
+  display_name: "Provenance ETL Builder"
+  short_description: "Build provenance-first ETL contracts"
+  default_prompt: "Use $provenance-etl-builder to design or review this ETL for event, source, and provenance artifacts."
