@@ -147,7 +147,7 @@ class OpenSourceExpansionHelpersTest(unittest.TestCase):
         self.assertEqual(event["source_date_field"], "Date")
         self.assertIn("borough-level", event["observed_change"])
         self.assertIn("not a parcel or address point", event["geometry_precision"])
-        self.assertIn("Do not use it as proof", event["limitations"])
+        self.assertIn("Do not use it as evidence", event["limitations"])
 
     def test_fhrs_event_omits_establishment_identity_fields(self):
         event = make_fhrs_event(

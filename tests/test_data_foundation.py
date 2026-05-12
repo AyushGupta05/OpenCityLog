@@ -62,6 +62,21 @@ class DataFoundationTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("references unknown source missing-source", completed.stderr)
 
+    def test_verify_rejects_overclaiming_event_caveat(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["caveats"] = ["This source caused a measurable local outcome."]
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("caveats contain overclaiming language", completed.stderr)
+
 
 def run_node(root: Path, script: str, check: bool = True) -> subprocess.CompletedProcess[str]:
     return subprocess.run(

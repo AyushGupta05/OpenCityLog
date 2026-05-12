@@ -7,6 +7,8 @@ const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
 const port = Number(process.env.PORT || 5173);
 const proposalResponseCache = new Map();
+const waybackTileCache = new Map();
+const MAX_WAYBACK_TILE_CACHE_ITEMS = 512;
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
 
@@ -72,6 +74,13 @@ function setProposalCache(key, value) {
   }
 }
 
+function setWaybackTileCache(key, value) {
+  waybackTileCache.set(key, value);
+  while (waybackTileCache.size > MAX_WAYBACK_TILE_CACHE_ITEMS) {
+    waybackTileCache.delete(waybackTileCache.keys().next().value);
+  }
+}
+
 function sendText(res, status, message) {
   res.writeHead(status, {
     "content-type": "text/plain; charset=utf-8",
@@ -133,7 +142,7 @@ function serveFile(res, filePath) {
   fs.createReadStream(filePath).pipe(res);
 }
 
-async function handleWaybackTile(pathname, res) {
+async function handleWaybackTile(req, pathname, res) {
   const match = pathname.match(/^\/api\/imagery\/wayback\/([0-9]+)\/([0-9]{1,2})\/([0-9]+)\/([0-9]+)$/);
   if (!match) {
     sendText(res, 404, "Not found");
@@ -145,21 +154,40 @@ async function handleWaybackTile(pathname, res) {
     sendText(res, 400, "Invalid tile zoom");
     return;
   }
+  const cacheKey = `${itemId}/${z}/${y}/${x}`;
+  const cached = waybackTileCache.get(cacheKey);
+  if (cached) {
+    res.writeHead(200, {
+      "content-type": cached.contentType,
+      "cache-control": "public, max-age=86400",
+      "access-control-allow-origin": "*"
+    });
+    res.end(cached.body);
+    return;
+  }
   const upstream = `https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/GoogleMapsCompatible/MapServer/tile/${itemId}/${z}/${y}/${x}`;
+  const controller = new AbortController();
+  req.on("close", () => {
+    if (!res.writableEnded) controller.abort();
+  });
   try {
-    const response = await fetch(upstream);
+    const response = await fetch(upstream, { signal: controller.signal });
     if (!response.ok) {
       sendText(res, response.status, `Imagery tile unavailable: ${response.statusText}`);
       return;
     }
     const body = Buffer.from(await response.arrayBuffer());
+    const contentType = response.headers.get("content-type") || "image/jpeg";
+    setWaybackTileCache(cacheKey, { body, contentType });
+    if (res.writableEnded) return;
     res.writeHead(200, {
-      "content-type": response.headers.get("content-type") || "image/jpeg",
+      "content-type": contentType,
       "cache-control": "public, max-age=86400",
       "access-control-allow-origin": "*"
     });
     res.end(body);
   } catch (error) {
+    if (error.name === "AbortError" || res.writableEnded) return;
     sendText(res, 502, `Imagery tile proxy failed: ${error.message}`);
   }
 }
@@ -223,7 +251,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET" && pathname.startsWith("/api/imagery/wayback/")) {
-    handleWaybackTile(pathname, res);
+    handleWaybackTile(req, pathname, res);
     return;
   }
 

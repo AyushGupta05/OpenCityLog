@@ -53,7 +53,7 @@
       "source_confidence": "documented",
       "attribution_text": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0, where applicable.",
       "provenance_notes": "Use application id, decision date, category, status, source file, and retrieval date. Records show planning decisions, not construction completions.",
-      "caveats": ["Planning approval is not proof that a development was built."]
+      "caveats": ["Planning approval is not evidence that a development was built."]
     },
     {
       "source_id": "belfast-city-council-open-data",
@@ -305,7 +305,7 @@
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data dataset metadata.",
       "provenance_notes": "Record job/application id, permit id, filing date, status, address/BBL, dataset id, and retrieval timestamp.",
-      "caveats": ["A filing or permit is an administrative event, not proof of construction completion."]
+      "caveats": ["A filing or permit is an administrative event, not evidence of construction completion."]
     },
     {
       "source_id": "nyc-dcp-mappluto",

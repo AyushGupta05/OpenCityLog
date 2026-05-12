@@ -3,9 +3,9 @@
   "provider": "Esri World Imagery Wayback",
   "source_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/WMTS/1.0.0/WMTSCapabilities.xml",
   "source_note": "Wayback layers are dated World Imagery basemap publication versions. Publication date can differ from underlying image acquisition date.",
-  "generated_at": "2026-04-28T19:06:22.560Z",
+  "generated_at": "2026-05-12T00:14:27.602Z",
   "earliest_date": "2014-02-20",
-  "latest_date": "2026-03-25",
+  "latest_date": "2026-04-30",
   "layers": [
     {
       "id": "WB_2014_R01",
@@ -1350,6 +1350,13 @@
       "year": 2026,
       "item_id": "22869",
       "tile_template": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/GoogleMapsCompatible/MapServer/tile/22869/{z}/{y}/{x}"
+    },
+    {
+      "id": "WB_2026_R04",
+      "date": "2026-04-30",
+      "year": 2026,
+      "item_id": "49059",
+      "tile_template": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/GoogleMapsCompatible/MapServer/tile/49059/{z}/{y}/{x}"
     }
   ]
 }

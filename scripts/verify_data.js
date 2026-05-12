@@ -132,6 +132,7 @@ function validateSourceRegistry(root, sourceRegistryPath, cityConfigs, failures)
     assert(failures, Boolean(source.licence), `Source ${source.source_id} missing licence`);
     assert(failures, Boolean(source.licence_url), `Source ${source.source_id} missing licence_url`);
     assert(failures, Boolean(source.attribution_text), `Source ${source.source_id} missing attribution_text`);
+    assert(failures, !containsOverclaim((source.caveats || []).join(" ")), `Source ${source.source_id} caveats contain overclaiming language`);
     assert(failures, RELIABILITY_VALUES.has(source.reliability), `Source ${source.source_id} has invalid reliability`);
     assert(failures, CONFIDENCE_VALUES.has(source.source_confidence), `Source ${source.source_id} has invalid source_confidence`);
     const years = source.coverage_years || {};
@@ -180,16 +181,20 @@ function hasEvidencePointer(item) {
 }
 
 function containsOverclaim(text) {
-  const value = String(text || "").toLowerCase();
+  const value = String(text || "");
   return [
-    "caused an increase",
-    "caused a decrease",
-    "will increase",
-    "will decrease",
-    "predicts",
-    "forecasted impact",
-    "proves that",
-  ].some((phrase) => value.includes(phrase));
+    /\bwill\s+(increase|decrease|reduce|improve|worsen|cause)\b/i,
+    /\bcaused?\b/i,
+    /\bpredicts?\b/i,
+    /\bprediction\b/i,
+    /\bforecast(ed|s|ing)?\b/i,
+    /\bsimulation result\b/i,
+    /\bimpact score\b/i,
+    /\bproof\s+(of|that)\b/i,
+    /\bas\s+proof\b/i,
+    /\bnot\s+proof\b/i,
+    /\bproves?\s+that\b/i,
+  ].some((pattern) => pattern.test(value));
 }
 
 function isSourceLayerMarker(event) {
@@ -251,6 +256,7 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, Boolean(event.source_date_field || event.provenance?.source_date_field), `${prefix} missing source_date_field for effective date interpretation`);
   assert(failures, !containsOverclaim(event.title), `${prefix} title contains overclaiming language`);
   assert(failures, !containsOverclaim(event.explanation), `${prefix} explanation contains overclaiming language`);
+  assert(failures, !containsOverclaim((event.caveats || []).join(" ")), `${prefix} caveats contain overclaiming language`);
 
   for (const sourceId of event.source_ids || []) {
     const source = sourceById.get(sourceId);
@@ -302,6 +308,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       effectiveSourceById.set(source.source_id, source);
       assert(failures, Boolean(source.source_id), `City artifact ${citySummary.city_id} includes source without id`);
       assert(failures, Boolean(source.attribution_text), `City artifact source ${source.source_id} missing attribution_text`);
+      assert(failures, !containsOverclaim((source.caveats || []).join(" ")), `City artifact source ${source.source_id} caveats contain overclaiming language`);
       assert(failures, Boolean(source.source_family), `City artifact source ${source.source_id} missing source_family`);
       assert(failures, Boolean(source.licence_url), `City artifact source ${source.source_id} missing licence_url`);
       assert(failures, hasSourceAccessTrace(source), `City artifact source ${source.source_id} missing access/retrieval/review timestamp`);

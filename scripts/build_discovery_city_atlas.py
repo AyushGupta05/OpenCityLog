@@ -110,6 +110,22 @@ def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
+def safe_public_text(value: Any) -> str:
+    text = str(value or "")
+    replacements = [
+        (r"\bforecast and budget fields\b", "projected schedule and budget fields"),
+        (r"\bdoes not treat forecasts as completed outcomes\b", "does not treat projected schedule fields as completed outcomes"),
+        (r"\bnot proof of\b", "not evidence of"),
+        (r"\bas proof of\b", "as evidence of"),
+        (r"\bnot final cause/outcome\b", "not final incident-origin/outcome"),
+        (r"\bnot final cause or impact determinations\b", "not final incident-origin or impact determinations"),
+        (r"\bnot final cause determinations\b", "not final incident-origin determinations"),
+    ]
+    for pattern, replacement in replacements:
+        text = re.sub(pattern, replacement, text, flags=re.I)
+    return text
+
+
 def slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:96] or "record"
 
@@ -314,10 +330,10 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             evidence.append(evidence_for_source(src, item))
     primary_source = source_by_id.get(source_ids[0]) if source_ids else None
     primary_evidence = evidence[0] if evidence else {}
-    explanation = item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package."
+    explanation = safe_public_text(item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package.")
     source_date_field = source_date_field_for(item)
     caveats = [
-        item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate.",
+        safe_public_text(item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate."),
         "No before/after outcome metric is inferred unless a source adapter supplies observed measurements.",
     ]
     return {
@@ -399,7 +415,7 @@ def load_seeds(city: str) -> list[dict[str, Any]]:
 def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
     sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
     bucket = source.get("bucket") or "source"
-    caveat = source.get("limitations") or "Catalog-level source entry; check the linked publisher record for completeness, licence, and update details before formal reuse."
+    caveat = safe_public_text(source.get("limitations") or "Catalog-level source entry; check the linked publisher record for completeness, licence, and update details before formal reuse.")
     licence = source.get("licence") or "Requires source-level licence review"
     caveats = [caveat]
     if not source.get("retrieved_at"):
@@ -535,8 +551,8 @@ def main() -> int:
     summaries = {c["city_id"]: c for c in old_index.get("cities", []) if c.get("city_id") == "belfast"}
     for city in ["london", "nyc"]:
         summaries[city] = build_city(city)
-    ordered = [summaries[c] for c in ["london", "nyc", "belfast"] if c in summaries]
-    index = {"schema_version": SCHEMA, "generated_at": GENERATED_AT, "default_city_id": "london", "city_count": len(ordered), "cities": ordered, "contracts": old_index.get("contracts", {"city_schema":"schemas/city.schema.json","source_schema":"schemas/source.schema.json","event_schema":"schemas/event.schema.json","availability_schema":"schemas/availability.schema.json"})}
+    ordered = [summaries[c] for c in ["belfast", "london", "nyc"] if c in summaries]
+    index = {"schema_version": SCHEMA, "generated_at": GENERATED_AT, "default_city_id": "belfast", "city_count": len(ordered), "cities": ordered, "contracts": old_index.get("contracts", {"city_schema":"schemas/city.schema.json","source_schema":"schemas/source.schema.json","event_schema":"schemas/event.schema.json","availability_schema":"schemas/availability.schema.json"})}
     write_json(index_path, index)
     print(f"Discovery atlas ready: " + ", ".join(f"{c['city_id']}={c['event_count']} events/{c['source_count']} sources" for c in ordered))
     return 0

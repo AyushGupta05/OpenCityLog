@@ -22,7 +22,7 @@
       "source_ids": ["ni-planning-statistics"],
       "availability": "partial_local",
       "years": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
-      "notes": "Local CSV extracts support decision records. They are evidence of planning decisions, not proof of completed construction."
+      "notes": "Local CSV extracts support decision records. They are evidence of planning decisions, not evidence of completed construction."
     },
     {
       "family_id": "osm_history",

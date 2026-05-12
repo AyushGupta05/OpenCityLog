@@ -9,3 +9,6 @@ build/
 output/
 .env.local
 node_modules
+.playwright-cli/
+.playwright-mcp/
+open-citylog-*.png

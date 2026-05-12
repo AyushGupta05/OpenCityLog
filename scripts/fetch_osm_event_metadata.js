@@ -88,7 +88,7 @@ async function fetchBySourceIds(category) {
       source: endpoint,
       bbox,
       fetchedAt: new Date().toISOString(),
-      note: "OSM metadata timestamp/version/changeset is used as a public mapped-event record, not as proof of construction or opening date."
+      note: "OSM metadata timestamp/version/changeset is used as a public mapped-event record, not as evidence of construction or opening date."
     };
     fs.writeFileSync(outputPath, JSON.stringify(payload, null, 2));
     console.log(`${category.id}: wrote ${payload.elements?.length || 0} element(s)`);

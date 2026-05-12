@@ -1426,7 +1426,7 @@ def make_hmlr_price_paid_event(record: dict[str, Any], geo: dict[str, Any], retr
         ),
         confidence="documented",
         limitations=(
-            "Price Paid rows are transaction records, not proof of construction, displacement, affordability, or causal neighbourhood change. "
+            "Price Paid rows are transaction records, not evidence of construction, displacement, affordability, or causal neighbourhood change. "
             "The adapter omits PAON, SAON, street, locality, town/city, county, full postcode, and exact price; the point is an approximate postcode-derived location. "
             "HMLR excludes some transfers and can amend yearly files over time."
         ),
@@ -1617,7 +1617,7 @@ def make_ukhpi_event(row: dict[str, Any], source_url: str, retrieved_at: str) ->
         limitations=(
             "UK HPI is an aggregate residential property price index based on completed sales and a statistical model. "
             "It is nominal, not inflation-adjusted; recent periods are provisional/revised; sales-volume fields can be incomplete or suppressed. "
-            "Do not use it as proof of construction, affordability, displacement, or causal neighbourhood change."
+            "Do not use it as evidence of construction, affordability, displacement, or causal neighbourhood change."
         ),
     )
 
@@ -2702,7 +2702,7 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             summary=clean_text(f"Capital project status row: {phase}; category {row.get('category') or 'not specified'}; managing agency {row.get('managing_agency') or 'not specified'}; project description: {row.get('description') or 'not provided'}.", 420),
             observed_change=clean_text(f"Observed capital-project status record in phase {phase}.", 220),
             confidence="documented",
-            limitations="Capital project status rows include forecast and budget fields; this atlas record uses the source reporting date and does not treat forecasts as completed outcomes.",
+            limitations="Capital project status rows include projected schedule and budget fields; this atlas record uses the source reporting date and does not treat projected schedule fields as completed outcomes.",
         ))
 
     tracker_rows = socrata("data.cityofnewyork.us", "4hcv-tc5r", {
@@ -2925,7 +2925,7 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             summary=clean_text(f"FDNY Starfire dispatch row {rid}; classification {classification}; alarm level {row.get('highest_alarm_level') or row.get('alarm_level_index_description') or 'not stated'}; engines {row.get('engines_assigned_quantity') or 'not stated'}, ladders {row.get('ladders_assigned_quantity') or 'not stated'}.", 420),
             observed_change=clean_text(f"Observed FDNY dispatch incident record for {classification} in {borough}.", 220),
             confidence="documented",
-            limitations="FDNY dispatch rows are operational emergency-response records. They are not final cause determinations and do not imply built-form change or impact.",
+            limitations="FDNY dispatch rows are operational emergency-response records. They are not final incident-origin determinations and do not imply built-form change or impact.",
         ))
 
     permit_event_rows, permit_event_meta = socrata_year_sample(
@@ -3091,7 +3091,7 @@ def main() -> None:
             "Food Standards Agency FHRS rows are current-snapshot food-hygiene rating records. The adapter omits business names, addresses, postcodes, phone/email fields, and right-to-reply text before writing atlas events.",
             "Police.uk street-level crime/ASB rows are anonymized public-safety management records; they are approximate locations and should not be treated as exact incident sites or causal evidence.",
             "Police.uk stop-and-search rows are privacy-minimized by the adapter: demographic fields and exact timestamps are intentionally omitted before writing atlas events.",
-            "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final cause or impact determinations.",
+            "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final incident-origin or impact determinations.",
         ],
     })
     print(json.dumps({

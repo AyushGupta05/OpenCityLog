@@ -308,7 +308,7 @@ function caveatsForLegacyEvent(event, sourceId) {
     caveats.push("OSM timestamps are edit or mapped-visibility dates and can differ from real-world effective dates.");
     caveats.push("Mapper activity and source availability can affect when a feature appears in OSM history.");
   } else if (sourceId === "ni-planning-statistics") {
-    caveats.push("Planning approval does not prove that construction started or completed.");
+    caveats.push("Planning approval is not evidence that construction started or completed.");
     caveats.push("Coordinates may be approximate where source records use grid references or site addresses.");
   } else {
     caveats.push("Public project pages can change; keep source URL and access date with citation records.");
