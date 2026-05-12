@@ -46,7 +46,7 @@ for alternate local ports.
 
 ## Proposal Lens
 
-The secondary workflow is now Proposal Lens. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, and caveats. It is not a calibrated forecast or causal model.
+The secondary workflow is now Proposal Lens. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, caveats, and a proposal pathway. For building/development ideas, the pathway shows site checks, evidence gaps, and review years for source collection. It does not confirm buildability, permission, or causal outcomes.
 
 ```powershell
 npm run verify:proposal

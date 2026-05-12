@@ -105,6 +105,12 @@ console.log(JSON.stringify({ good, bad }));
         self.assertGreaterEqual(len(brief["next_evidence_to_find"]), 2)
         readiness_statuses = {item["status"] for item in brief["evidence_readiness"]}
         self.assertTrue(readiness_statuses <= {"ready_to_review", "thin_evidence", "gap"})
+        pathway = result["proposal_pathway"]
+        self.assertEqual(pathway["mode"], "evidence_backed_proposal_pathway")
+        self.assertEqual(pathway["site_screening"]["buildability_label"], "Not determined")
+        self.assertGreaterEqual(len(pathway["site_screening"]["checks"]), 6)
+        self.assertGreaterEqual(len(pathway["review_years"]), 4)
+        self.assertTrue(any("not a planning permission" in item for item in pathway["limits"]))
 
     def test_missing_location_lowers_confidence_and_says_why(self) -> None:
         result = self.run_proposal(
@@ -118,6 +124,7 @@ console.log(JSON.stringify({ good, bad }));
         self.assertTrue(any("No usable location" in item for item in result["warnings"]))
         self.assertTrue(any("Missing location" in item for item in result["caveats"]))
         self.assertEqual(result["local_context"]["current_signals"], [])
+        self.assertEqual(result["proposal_pathway"]["status"], "evidence_gap")
 
     def test_public_output_avoids_overclaiming_language(self) -> None:
         result = self.run_proposal(
