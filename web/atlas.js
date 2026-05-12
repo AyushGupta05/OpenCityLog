@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   "use strict";
 
   const DEFAULT_CITY = "belfast";
@@ -9,9 +9,8 @@
   const CONTEXT_YEAR_WINDOW = 2;
   const MAX_NEARBY_CONTEXT = 8;
   const TILE_PROVIDER = {
-    attribution: "Esri World Imagery, OpenStreetMap contributors, source-backed event markers",
-    waybackAttribution: "Esri World Imagery Wayback, OpenStreetMap contributors, source-backed event markers",
-    template: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    attribution: "OpenStreetMap contributors, CARTO basemap, source-backed event markers",
+    template: "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
   };
 
   const CATEGORY_CONFIG = [
@@ -1340,7 +1339,7 @@
     if (els.comparePanel) els.comparePanel.hidden = false;
     renderCompareYearOptions();
     updateComparePanel();
-    toast("Compare shows record counts and imagery publication dates; it does not claim physical change from imagery alone.");
+      toast("Compare shows source-backed record counts on the stable reference map; it does not claim physical change from imagery alone.");
   }
 
   function closeCompare() {
@@ -1387,7 +1386,7 @@
     state.compareAfterYear = afterYear;
     renderComparePanel();
     try {
-      await Promise.all([loadYear(beforeYear), loadYear(afterYear), loadImageryManifest()]);
+      await Promise.all([loadYear(beforeYear), loadYear(afterYear)]);
       renderComparePanel();
       updateCompareImagery();
     } catch (error) {
@@ -1437,12 +1436,7 @@
         </div>
       `;
     }
-    const beforeImagery = imageryLayerForYear(beforeYear);
-    const afterImagery = imageryLayerForYear(afterYear);
-    const imageryNote = beforeImagery || afterImagery
-      ? `Wayback imagery publications: ${beforeImagery ? `${beforeYear} uses ${beforeImagery.date}` : `${beforeYear} unavailable`} and ${afterImagery ? `${afterYear} uses ${afterImagery.date}` : `${afterYear} unavailable`}. Publication dates can differ from capture dates.`
-      : "Wayback imagery metadata is loading. Publication dates can differ from capture dates.";
-    setText(els.compareNote, `${imageryNote} Event counts are logged records, not proof of net physical additions or removals.`);
+    setText(els.compareNote, "The map stays as a stable OpenStreetMap/CARTO reference surface. Event counts are logged records, not proof of net physical additions or removals.");
     setText(els.compareBeforeMapLabel, `${beforeYear}`);
     setText(els.compareAfterMapLabel, `${afterYear}`);
   }
@@ -1461,33 +1455,17 @@
   }
 
   function imageryLayerForYear(year) {
-    const layers = state.imageryManifest?.layers || [];
-    if (!layers.length) return null;
-    const numericYear = Number(year);
-    if (!Number.isFinite(numericYear)) return layers[0] || null;
-    return layers
-      .filter((layer) => Number(layer.year) <= numericYear)
-      .sort((a, b) => String(b.date).localeCompare(String(a.date)))[0]
-      || layers[0];
+    return null;
   }
 
   function imageryTilesForLayer(layer) {
-    return layer?.item_id
-      ? [`/api/imagery/wayback/${encodeURIComponent(layer.item_id)}/{z}/{y}/{x}`]
-      : [TILE_PROVIDER.template];
+    return [TILE_PROVIDER.template];
   }
 
   function imageryAttributionText(year = state.year, layer = state.activeImageryLayer) {
-    if (state.imageryError) {
-      return `Current Esri World Imagery shown; Wayback metadata unavailable. ${TILE_PROVIDER.attribution}`;
-    }
-    if (!layer?.item_id) return TILE_PROVIDER.attribution;
     const requestedYear = Number(year);
-    const layerYear = Number(layer.year);
-    const yearText = Number.isFinite(requestedYear) && layerYear !== requestedYear
-      ? `nearest available publication for ${requestedYear}: ${layer.date}`
-      : `${Number.isFinite(requestedYear) ? requestedYear : layerYear} publication: ${layer.date}`;
-    return `Esri World Imagery Wayback (${yearText}); publication date can differ from image capture date. OpenStreetMap contributors, source-backed event markers.`;
+    const yearText = Number.isFinite(requestedYear) ? `Timeline year ${requestedYear}.` : "";
+    return `${TILE_PROVIDER.attribution}. ${yearText} Stable reference map; not before/after evidence.`;
   }
 
   function updateMapAttribution() {
@@ -1496,24 +1474,15 @@
 
   async function updateMapImageryForYear(year, options = {}) {
     const requestId = ++state.imageryRequestId;
-    try {
-      await loadImageryManifest();
-      state.imageryError = null;
-    } catch (error) {
-      state.imageryError = error.message;
-      updateMapAttribution();
-      return null;
-    }
-
     if (requestId !== state.imageryRequestId && !options.force) return state.activeImageryLayer;
 
     const numericYear = Number(year);
-    const layer = imageryLayerForYear(numericYear);
+    const layer = null;
     state.activeImageryLayer = layer;
     state.imageryYear = Number.isFinite(numericYear) ? numericYear : state.year;
     updateMapAttribution();
 
-    if (!state.mapReady || !state.map || !layer?.item_id) return layer;
+    if (!state.mapReady || !state.map) return layer;
 
     const tiles = imageryTilesForLayer(layer);
     const currentTiles = state.map.getStyle()?.sources?.imagery?.tiles || [];
@@ -1617,22 +1586,7 @@
   }
 
   function updateCompareImagery() {
-    if (!state.mapReady || !state.map || !state.compareActive) return;
-    const beforeLayer = imageryLayerForYear(state.compareBeforeYear);
-    if (!beforeLayer?.item_id) return;
-    const tiles = [`/api/imagery/wayback/${beforeLayer.item_id}/{z}/{y}/{x}`];
-    try {
-      removeCompareImagery();
-      state.map.addSource("compare-before", { type: "raster", tiles, tileSize: 256, attribution: "Esri World Imagery Wayback" });
-      state.map.addLayer({
-        id: "compare-before-layer",
-        type: "raster",
-        source: "compare-before",
-        paint: { "raster-opacity": 0.42, "raster-saturation": -0.2 },
-      });
-    } catch (error) {
-      setText(els.compareNote, `Compare imagery layer could not be shown: ${error.message}`);
-    }
+    removeCompareImagery();
   }
 
   function removeCompareImagery() {

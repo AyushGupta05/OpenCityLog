@@ -116,6 +116,11 @@ for (const proposal of sampleProposals) {
   assert(Array.isArray(result.proposal_brief?.fieldwork_plan) && result.proposal_brief.fieldwork_plan.length >= 3, `${proposal.category} missing fieldwork plan.`);
   assert(Array.isArray(result.proposal_brief?.review_questions) && result.proposal_brief.review_questions.length >= 3, `${proposal.category} missing review questions.`);
   assert(Array.isArray(result.proposal_brief?.next_evidence_to_find) && result.proposal_brief.next_evidence_to_find.length >= 2, `${proposal.category} missing evidence-to-find list.`);
+  assert(result.proposal_pathway?.mode === "evidence_backed_proposal_pathway", `${proposal.category} missing proposal pathway.`);
+  assert(result.proposal_pathway?.site_screening?.buildability_label === "Not determined", `${proposal.category} pathway should not decide buildability.`);
+  assert(Array.isArray(result.proposal_pathway?.site_screening?.checks) && result.proposal_pathway.site_screening.checks.length >= 6, `${proposal.category} pathway missing site checks.`);
+  assert(Array.isArray(result.proposal_pathway?.review_years) && result.proposal_pathway.review_years.length >= 4, `${proposal.category} pathway missing review years.`);
+  assert((result.proposal_pathway.limits || []).some((item) => /not a planning permission/i.test(item)), `${proposal.category} pathway missing permission caveat.`);
   assert(Array.isArray(result.design_review_basis) && result.design_review_basis.length >= 4, `${proposal.category} missing design review basis.`);
   assert((result.caveats || []).some((item) => /not a calibrated outcome model/i.test(item)), `${proposal.category} missing calibrated-model caveat.`);
   assert((result.similar_events[0].match_factors || []).length > 0, `${proposal.category} similar event missing match factors.`);

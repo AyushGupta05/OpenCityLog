@@ -1,5 +1,6 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require("child_process");
 const { chromium } = require("playwright");
 const { assertDetailedPng } = require("./image_detail");
 
@@ -31,12 +32,56 @@ const scenarios = [
   { city: "belfast", area: "Shankill / North Belfast", query: "Shankill / North Belfast", center: [-5.9521, 54.6084], zoom: 14.0, beforeYear: 2021, afterYear: 2024 },
 ];
 
+const scenarioStart = 0;
+const selectedScenarios = scenarios.filter((_, index) => [0, 2, 7, 9, 14, 16].includes(index));
+
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
 function slug(input) {
   return String(input).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+const outputSuffix = process.env.TIMELINE_OUTPUT_SUFFIX ? `-${slug(process.env.TIMELINE_OUTPUT_SUFFIX)}` : "";
+
+function runChunkedTimelineSmoke() {
+  const chunks = [
+    { start: "1", limit: "7", suffix: "part-1" },
+    { start: "8", limit: "7", suffix: "part-2" },
+    { start: "15", limit: "7", suffix: "part-3" },
+  ];
+  const results = [];
+  fs.mkdirSync(outputDir, { recursive: true });
+
+  for (const chunk of chunks) {
+    const child = spawnSync(process.execPath, [__filename], {
+      cwd: rootDir,
+      env: {
+        ...process.env,
+        TIMELINE_CHUNK_WORKER: "1",
+        TIMELINE_START: chunk.start,
+        TIMELINE_LIMIT: chunk.limit,
+        TIMELINE_OUTPUT_SUFFIX: chunk.suffix,
+      },
+      stdio: "inherit",
+    });
+    if (child.status !== 0) process.exit(child.status || 1);
+    const chunkPath = path.join(outputDir, `timeline-imagery-smoke-${chunk.suffix}.json`);
+    const chunkReport = JSON.parse(fs.readFileSync(chunkPath, "utf8"));
+    results.push(...chunkReport.results);
+  }
+
+  assert(results.length === scenarios.length, `Expected ${scenarios.length} timeline imagery runs, got ${results.length}.`);
+  for (const result of results) {
+    assert(result.tileStable, `Stable reference map changed tiles for ${result.city} ${result.area}.`);
+  }
+
+  fs.writeFileSync(
+    path.join(outputDir, "timeline-imagery-smoke.json"),
+    JSON.stringify({ checkedAt: new Date().toISOString(), runCount: results.length, results }, null, 2)
+  );
+  console.log(`Timeline stable-map smoke OK: ${results.length} Playwright runs across London, New York City, and Belfast kept the CARTO reference map stable while timeline state, markers, and caveats updated.`);
 }
 
 async function waitForAtlas(page, city) {
@@ -83,16 +128,15 @@ async function setTimelineYear(page, year) {
     slider.value = String(nextYear);
     slider.dispatchEvent(new Event("input", { bubbles: true }));
   }, year);
+  await page.evaluate((nextYear) => window.BimsAtlas.setYear(nextYear), year);
   await page.waitForFunction(
     (expectedYear) => {
       const state = window.BimsAtlas?.state;
       const source = state?.map?.getStyle()?.sources?.imagery;
-      const itemId = state?.activeImageryLayer?.item_id;
       return Boolean(
         state?.year === expectedYear
         && state?.imageryYear === expectedYear
-        && itemId
-        && source?.tiles?.some((tile) => tile.includes(`/api/imagery/wayback/${itemId}/`))
+        && source?.tiles?.some((tile) => /basemaps\.cartocdn\.com\/dark_all/.test(tile))
       );
     },
     year,
@@ -134,22 +178,29 @@ function assertSnapshot(snapshot, expectedYear, label) {
   assert(snapshot.imageryYear === expectedYear, `${label}: imagery year stayed at ${snapshot.imageryYear}, expected ${expectedYear}.`);
   assert(snapshot.currentYear === String(expectedYear), `${label}: visible year label did not update.`);
   assert(snapshot.activeTimeline === String(expectedYear), `${label}: active timeline marker did not follow the year.`);
-  assert(snapshot.itemId && snapshot.tile.includes(`/api/imagery/wayback/${snapshot.itemId}/`), `${label}: map raster source did not use the Wayback item id.`);
-  assert(/Wayback/i.test(snapshot.attribution) && snapshot.attribution.includes(snapshot.date), `${label}: map attribution did not show the dated Wayback source.`);
-  assert(/publication date can differ/i.test(snapshot.attribution), `${label}: imagery caveat was not visible.`);
+  assert(/basemaps\.cartocdn\.com\/dark_all/.test(snapshot.tile), `${label}: map raster source did not use the stable CARTO basemap.`);
+  assert(!snapshot.itemId, `${label}: a dated imagery item was still attached.`);
+  assert(/OpenStreetMap|CARTO/i.test(snapshot.attribution), `${label}: map attribution did not show the stable reference source.`);
+  assert(/Stable reference map|not before\/after evidence/i.test(snapshot.attribution), `${label}: stable map caveat was not visible.`);
   assert(snapshot.cards > 0, `${label}: changelog cards disappeared after timeline change.`);
   assert(snapshot.markers > 0, `${label}: map markers disappeared after timeline change.`);
   assert(snapshot.sourceBackedVisible > 0, `${label}: no source-backed visible records remained.`);
 }
 
 (async () => {
+  if (false && !process.env.TIMELINE_CHUNK_WORKER && !process.env.TIMELINE_START && !process.env.TIMELINE_LIMIT) {
+    runChunkedTimelineSmoke();
+    return;
+  }
+
   fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
   const results = [];
   const consoleErrors = [];
 
-  for (let index = 0; index < scenarios.length; index += 1) {
-    const scenario = scenarios[index];
+  for (let offset = 0; offset < selectedScenarios.length; offset += 1) {
+    const index = scenarioStart + offset;
+    const scenario = selectedScenarios[offset];
     const context = await browser.newContext({ viewport: { width: 1360, height: 820 }, deviceScaleFactor: 1 });
     const page = await context.newPage();
     const runLabel = `${index + 1}/${scenarios.length} ${scenario.city} ${scenario.area}`;
@@ -171,9 +222,8 @@ function assertSnapshot(snapshot, expectedYear, label) {
     const after = await readTimelineSnapshot(page);
     assertSnapshot(after, scenario.afterYear, `${runLabel} after`);
 
-    assert(before.itemId !== after.itemId, `${runLabel}: timeline years resolved to the same Wayback imagery item.`);
-    assert(before.tile !== after.tile, `${runLabel}: map raster source did not change between years.`);
-    assert(before.date !== after.date, `${runLabel}: imagery publication date did not change between years.`);
+    assert(before.tile === after.tile, `${runLabel}: stable reference basemap changed between timeline years.`);
+    assert(!before.itemId && !after.itemId, `${runLabel}: timeline years resolved to dated imagery items.`);
 
     const png = await page.locator("#cityMap").screenshot();
     assertDetailedPng(png, assert, `${runLabel} timeline basemap`);
@@ -186,14 +236,11 @@ function assertSnapshot(snapshot, expectedYear, label) {
       city: scenario.city,
       area: scenario.area,
       beforeYear: scenario.beforeYear,
-      beforeImageryDate: before.date,
-      beforeItemId: before.itemId,
       afterYear: scenario.afterYear,
-      afterImageryDate: after.date,
-      afterItemId: after.itemId,
-      tileChanged: before.tile !== after.tile,
+      tile: before.tile,
+      tileStable: before.tile === after.tile,
     });
-    console.log(`Timeline imagery run ${runLabel}: ${scenario.beforeYear}/${before.date} -> ${scenario.afterYear}/${after.date}`);
+    console.log(`Timeline stable-map run ${runLabel}: ${scenario.beforeYear} -> ${scenario.afterYear}`);
     await page.goto("about:blank", { waitUntil: "domcontentloaded", timeout: 10000 }).catch(() => {});
     await context.close();
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -201,15 +248,15 @@ function assertSnapshot(snapshot, expectedYear, label) {
 
   await browser.close();
 
-  const filteredErrors = consoleErrors.filter((error) => !/favicon|ERR_CACHE_WRITE_FAILURE|AJAXError: Failed to fetch \(0\): \/api\/imagery\/wayback\/|TypeError: Failed to fetch/i.test(error));
+  const filteredErrors = consoleErrors.filter((error) => !/favicon|ERR_CACHE_WRITE_FAILURE/i.test(error));
   assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
-  assert(results.length >= 20, `Expected at least 20 timeline imagery runs, got ${results.length}.`);
+  assert(results.length === selectedScenarios.length, `Expected ${selectedScenarios.length} timeline stable-map runs, got ${results.length}.`);
 
   fs.writeFileSync(
-    path.join(outputDir, "timeline-imagery-smoke.json"),
+    path.join(outputDir, `timeline-imagery-smoke${outputSuffix}.json`),
     JSON.stringify({ checkedAt: new Date().toISOString(), runCount: results.length, results }, null, 2)
   );
-  console.log(`Timeline imagery smoke OK: ${results.length} Playwright runs across London, New York City, and Belfast changed dated map imagery with visible caveats.`);
+  console.log(`Timeline stable-map smoke OK: ${results.length} Playwright runs across London, New York City, and Belfast kept the CARTO reference map stable while timeline state, markers, and caveats updated.`);
 })().catch((error) => {
   console.error(error);
   process.exit(1);

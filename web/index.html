@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css?v=timeline-imagery-1">
+  <link rel="stylesheet" href="/atlas.css?v=timeline-clarity-11">
 </head>
 <body>
   <a class="skip-link" href="#changePanel">Skip to changelog</a>
@@ -25,8 +25,6 @@
       </div>
       <div class="scene-vignette" aria-hidden="true"></div>
       <div class="app-status" id="appStatus" role="status" aria-live="polite">Loading source-backed city atlas...</div>
-      <div class="map-attribution" id="mapAttribution">Esri World Imagery, OpenStreetMap contributors, source-backed event markers</div>
-
     </section>
 
     <header class="topbar" aria-label="OpenCityLog header">
@@ -146,7 +144,7 @@
         </label>
       </div>
       <div class="compare-stats" id="compareStats"></div>
-      <p class="compare-note" id="compareNote">Select two years to compare source-backed records and available imagery publication dates.</p>
+      <p class="compare-note" id="compareNote">Select two years to compare source-backed record counts on the stable reference map.</p>
     </section>
 
     <aside class="change-panel glass-panel" id="changePanel" aria-labelledby="changeTitle">
@@ -186,7 +184,7 @@
       <output class="current-year" id="currentYear" for="yearSlider">2024</output>
       <button class="today-button" id="todayButton" type="button">
         <span class="calendar-icon" aria-hidden="true"></span>
-        Today
+        Latest
       </button>
     </section>
 
@@ -201,8 +199,10 @@
         <button id="zoomInButton" type="button" aria-label="Zoom in">+</button>
         <button id="zoomOutButton" type="button" aria-label="Zoom out">-</button>
       </div>
-      <button class="three-d-button active" id="view3dButton" type="button" aria-pressed="true">3D</button>
+      <button class="three-d-button" id="view3dButton" type="button" aria-pressed="false">2D</button>
     </div>
+
+    <div class="map-attribution" id="mapAttribution">OpenStreetMap contributors, CARTO basemap, source-backed event markers. Stable reference map; not before/after evidence.</div>
 
     <dialog class="details-dialog glass-panel" id="detailsDialog" aria-labelledby="detailsTitle">
       <div class="details-head">
@@ -288,6 +288,18 @@
               <option value="3000">3 km</option>
             </select>
           </label>
+          <label for="proposalStartYear">
+            <span>Review start</span>
+            <input id="proposalStartYear" type="number" min="2000" max="2100" step="1" inputmode="numeric">
+          </label>
+          <label for="proposalSiteBasis">
+            <span>Site basis</span>
+            <select id="proposalSiteBasis">
+              <option value="selected_event">Selected atlas place</option>
+              <option value="typed_point">Typed or mapped point</option>
+              <option value="boundary_needed">Boundary still needed</option>
+            </select>
+          </label>
           <label class="proposal-wide" for="proposalDescription">
             <span>Description</span>
             <textarea id="proposalDescription" rows="3"></textarea>
@@ -303,6 +315,6 @@
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
-  <script src="/atlas.js?v=timeline-imagery-1" defer></script>
+  <script src="/atlas.js?v=timeline-clarity-11" defer></script>
 </body>
 </html>

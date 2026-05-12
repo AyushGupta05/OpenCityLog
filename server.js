@@ -135,9 +135,10 @@ function serveFile(res, filePath) {
     return;
   }
   const ext = path.extname(filePath).toLowerCase();
+  const localAssetCache = ext === ".html" || ext === ".js" || ext === ".css" ? "no-store" : "public, max-age=60";
   res.writeHead(200, {
     "content-type": mimeTypes[ext] || "application/octet-stream",
-    "cache-control": ext === ".html" ? "no-store" : "public, max-age=60"
+    "cache-control": localAssetCache
   });
   fs.createReadStream(filePath).pipe(res);
 }
@@ -166,6 +167,14 @@ async function handleWaybackTile(req, pathname, res) {
     return;
   }
   const upstream = `https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/GoogleMapsCompatible/MapServer/tile/${itemId}/${z}/${y}/${x}`;
+  res.writeHead(302, {
+    location: upstream,
+    "cache-control": "public, max-age=86400",
+    "access-control-allow-origin": "*"
+  });
+  res.end();
+  return;
+
   const controller = new AbortController();
   req.on("close", () => {
     if (!res.writableEnded) controller.abort();
@@ -251,7 +260,9 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET" && pathname.startsWith("/api/imagery/wayback/")) {
-    handleWaybackTile(req, pathname, res);
+    handleWaybackTile(req, pathname, res).catch((error) => {
+      if (!res.writableEnded) sendText(res, 502, `Imagery tile proxy failed: ${error.message}`);
+    });
     return;
   }
 
