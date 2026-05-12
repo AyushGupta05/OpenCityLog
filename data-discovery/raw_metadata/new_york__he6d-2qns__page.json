@@ -1,0 +1,430 @@
+{
+  "source_id": "he6d-2qns",
+  "city": "new_york",
+  "title": "Land Cover Raster Data 2017, 6-inch Resolution",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "land cover/imagery/environment",
+  "retrieved_at": "2026-04-28T12:59:10.672915+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/he6d-2qns",
+      "retrieved_at": "2026-04-28T12:59:08.913212+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/he6d-2qns",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5385,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Land Cover Raster Data (2017) – 6in Resolution",
+      "description": "A 6-in resolution 8-class land cover dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset was developed as part of an updated urban tree canopy assessment and therefore represents a ''top-down\" mapping perspective in which tree canopy overhanging features is assigned to the tree canopy class. The eight land cover classes mapped were: (1) Tree Canopy, (2) Grass\\Shrubs, (3) Bare Soil, (4) Water, (5) Buildings, (6) Roads, (7) Other Impervious, and (8) Railroads. The primary sources used to derive this land cover layer were 2017 LiDAR (1-ft post spacing) and 2016 4-band orthoimagery (0.5-ft resolution). Object based image analysis was used to automate land-cover features using LiDAR point clouds and derivatives, orthoimagery, and vector GIS datasets -- \n City Boundary (2017, NYC DoITT)\n Buildings (2017, NYC DoITT)\n Hydrography (2014, NYC DoITT)\n LiDAR Hydro Breaklines (2017, NYC DoITT)\n Transportation Structures (2014, NYC DoITT)\n Roadbed (2014, NYC DoITT)\n Road Centerlines (2014, NYC DoITT)\n Railroads (2014, NYC DoITT)\n Green Roofs (date unknown, NYC Parks)\n Parking Lots (2014, NYC DoITT)\n Parks (2016, NYC Parks)\n Sidewalks (2014, NYC DoITT)\n Synthetic Turf (2018, NYC Parks)\n Wetlands (2014, NYC Parks)\n Shoreline (2014, NYC DoITT)\n Plazas (2014, NYC DoITT)\n Utility Poles (2014, ConEdison via NYCEM)\n Athletic Facilities (2017, NYC Parks)\n\nFor the purposes of classification, only vegetation > 8 ft were classed as Tree Canopy. Vegetation below 8 ft was classed as Grass/Shrub.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_LandCover.md",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1544208320,
+      "json_sample": {
+        "id": "he6d-2qns",
+        "name": "Land Cover Raster Data (2017) – 6in Resolution",
+        "assetType": "file",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "averageRating": 0,
+        "blobFilename": "Land_Cover.zip",
+        "blobFileSize": 1334211225,
+        "blobId": "64c49dc7-c17f-43db-a4e3-669a28f73234",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "Environment",
+        "createdAt": 1544208320,
+        "description": "A 6-in resolution 8-class land cover dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset was developed as part of an updated urban tree canopy assessment and therefore represents a ''top-down\" mapping perspective in which tree canopy overhanging features is assigned to the tree canopy class. The eight land cover classes mapped were: (1) Tree Canopy, (2) Grass\\Shrubs, (3) Bare Soil, (4) Water, (5) Buildings, (6) Roads, (7) Other Impervious, and (8) Railroads. The primary sources used to derive this land cover layer were 2017 LiDAR (1-ft post spacing) and 2016 4-band orthoimagery (0.5-ft resolution). Object based image analysis was used to automate land-cover features using LiDAR point clouds and derivatives, orthoimagery, and vector GIS datasets -- \n City Boundary (2017, NYC DoITT)\n Buildings (2017, NYC DoITT)\n Hydrography (2014, NYC DoITT)\n LiDAR Hydro Breaklines (2017, NYC DoITT)\n Transportation Structures (2014, NYC DoITT)\n Roadbed (2014, NYC DoITT)\n Road Centerlines (2014, NYC DoITT)\n Railroads (2014, NYC DoITT)\n Green Roofs (date unknown, NYC Parks)\n Parking Lots (2014, NYC DoITT)\n Parks (2016, NYC Parks)\n Sidewalks (2014, NYC DoITT)\n Synthetic Turf (2018, NYC Parks)\n Wetlands (2014, NYC Parks)\n Shoreline (2014, NYC DoITT)\n Plazas (2014, NYC DoITT)\n Utility Poles (2014, ConEdison via NYCEM)\n Athletic Facilities (2017, NYC Parks)\n\nFor the purposes of classification, only vegetation > 8 ft were classed as Tree Canopy. Vegetation below 8 ft was classed as Grass/Shrub.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_LandCover.md",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 6743,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1544637399,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 30306212,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1544209213,
+        "publicationGroup": 15747344,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1544208320,
+        "tableId": 15747344,
+        "totalTimesRated": 0,
+        "viewCount": 19801,
+        "viewLastModified": 1663960983,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1544637397,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1077995,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1544637397,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data_Dictionary_Land_Cover.xlsx",
+              "assetId": "dde118cd-b908-42fd-8621-aea5558c7912",
+              "name": "Data_Dictionary_Land_Cover.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "12/12/2018",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "lidar",
+          "land cover",
+          "tree canopy",
+          "grass",
+          "shrub",
+          "bare soil",
+          "water",
+          "buildings",
+          "roads",
+          "impervious",
+          "railroad",
+          "new york city"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/he6d-2qns",
+      "retrieved_at": "2026-04-28T12:59:09.509690+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/he6d-2qns",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5385,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Land Cover Raster Data (2017) – 6in Resolution",
+      "description": "A 6-in resolution 8-class land cover dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset was developed as part of an updated urban tree canopy assessment and therefore represents a ''top-down\" mapping perspective in which tree canopy overhanging features is assigned to the tree canopy class. The eight land cover classes mapped were: (1) Tree Canopy, (2) Grass\\Shrubs, (3) Bare Soil, (4) Water, (5) Buildings, (6) Roads, (7) Other Impervious, and (8) Railroads. The primary sources used to derive this land cover layer were 2017 LiDAR (1-ft post spacing) and 2016 4-band orthoimagery (0.5-ft resolution). Object based image analysis was used to automate land-cover features using LiDAR point clouds and derivatives, orthoimagery, and vector GIS datasets -- \n City Boundary (2017, NYC DoITT)\n Buildings (2017, NYC DoITT)\n Hydrography (2014, NYC DoITT)\n LiDAR Hydro Breaklines (2017, NYC DoITT)\n Transportation Structures (2014, NYC DoITT)\n Roadbed (2014, NYC DoITT)\n Road Centerlines (2014, NYC DoITT)\n Railroads (2014, NYC DoITT)\n Green Roofs (date unknown, NYC Parks)\n Parking Lots (2014, NYC DoITT)\n Parks (2016, NYC Parks)\n Sidewalks (2014, NYC DoITT)\n Synthetic Turf (2018, NYC Parks)\n Wetlands (2014, NYC Parks)\n Shoreline (2014, NYC DoITT)\n Plazas (2014, NYC DoITT)\n Utility Poles (2014, ConEdison via NYCEM)\n Athletic Facilities (2017, NYC Parks)\n\nFor the purposes of classification, only vegetation > 8 ft were classed as Tree Canopy. Vegetation below 8 ft was classed as Grass/Shrub.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_LandCover.md",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1544208320,
+      "json_sample": {
+        "id": "he6d-2qns",
+        "name": "Land Cover Raster Data (2017) – 6in Resolution",
+        "assetType": "file",
+        "attribution": "Office of Technology and Innovation (OTI)",
+        "averageRating": 0,
+        "blobFilename": "Land_Cover.zip",
+        "blobFileSize": 1334211225,
+        "blobId": "64c49dc7-c17f-43db-a4e3-669a28f73234",
+        "blobMimeType": "application/zip; charset=binary",
+        "category": "Environment",
+        "createdAt": 1544208320,
+        "description": "A 6-in resolution 8-class land cover dataset derived from the 2017 Light Detection and Ranging (LiDAR) data capture. This dataset was developed as part of an updated urban tree canopy assessment and therefore represents a ''top-down\" mapping perspective in which tree canopy overhanging features is assigned to the tree canopy class. The eight land cover classes mapped were: (1) Tree Canopy, (2) Grass\\Shrubs, (3) Bare Soil, (4) Water, (5) Buildings, (6) Roads, (7) Other Impervious, and (8) Railroads. The primary sources used to derive this land cover layer were 2017 LiDAR (1-ft post spacing) and 2016 4-band orthoimagery (0.5-ft resolution). Object based image analysis was used to automate land-cover features using LiDAR point clouds and derivatives, orthoimagery, and vector GIS datasets -- \n City Boundary (2017, NYC DoITT)\n Buildings (2017, NYC DoITT)\n Hydrography (2014, NYC DoITT)\n LiDAR Hydro Breaklines (2017, NYC DoITT)\n Transportation Structures (2014, NYC DoITT)\n Roadbed (2014, NYC DoITT)\n Road Centerlines (2014, NYC DoITT)\n Railroads (2014, NYC DoITT)\n Green Roofs (date unknown, NYC Parks)\n Parking Lots (2014, NYC DoITT)\n Parks (2016, NYC Parks)\n Sidewalks (2014, NYC DoITT)\n Synthetic Turf (2018, NYC Parks)\n Wetlands (2014, NYC Parks)\n Shoreline (2014, NYC DoITT)\n Plazas (2014, NYC DoITT)\n Utility Poles (2014, ConEdison via NYCEM)\n Athletic Facilities (2017, NYC Parks)\n\nFor the purposes of classification, only vegetation > 8 ft were classed as Tree Canopy. Vegetation below 8 ft was classed as Grass/Shrub.\n\nTo learn more about this dataset, visit the interactive \"Understanding the 2017 New York City LiDAR Capture\" Story Map -- https://maps.nyc.gov/lidar/2017/\nPlease see the following link for additional documentation on this dataset -- https://github.com/CityOfNewYork/nyc-geo-metadata/blob/master/Metadata/Metadata_LandCover.md",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 6743,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1544637399,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 30306212,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1544209213,
+        "publicationGroup": 15747344,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1544208320,
+        "tableId": 15747344,
+        "totalTimesRated": 0,
+        "viewCount": 19801,
+        "viewLastModified": 1663960983,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1544637397,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1077995,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1544637397,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data_Dictionary_Land_Cover.xlsx",
+              "assetId": "dde118cd-b908-42fd-8621-aea5558c7912",
+              "name": "Data_Dictionary_Land_Cover.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "12/12/2018",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Office of Technology and Innovation (OTI)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "lidar",
+          "land cover",
+          "tree canopy",
+          "grass",
+          "shrub",
+          "bare soil",
+          "water",
+          "buildings",
+          "roads",
+          "impervious",
+          "railroad",
+          "new york city"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/he6d-2qns.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:10.095966+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/he6d-2qns.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

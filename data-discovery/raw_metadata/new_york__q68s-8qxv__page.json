@@ -1,0 +1,434 @@
+{
+  "source_id": "q68s-8qxv",
+  "city": "new_york",
+  "title": "NYCCAS Air Pollution Rasters",
+  "publisher": "NYC DOHMH",
+  "bucket": "environment; imagery/basemaps",
+  "retrieved_at": "2026-04-28T12:22:13.431767+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/q68s-8qxv",
+      "retrieved_at": "2026-04-28T12:22:11.498848+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/q68s-8qxv",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4569,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYCCAS Air Pollution Rasters",
+      "description": "Citywide raster files of annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2).\r\n\r\n\r\nDescription:  Annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2). File type is ESRI grid raster files at 300 m resolution, NAD83 New York Long Island State Plane FIPS, feet projection. Prediction surface generated from Land Use Regression modeling of December 2008- December 2019 (years 1-11) New York Community Air Survey monitoring data.As these are estimated annual average levels produced by a statistical model, they are not comparable to short term localized monitoring or monitoring done for regulatory purposes. For description of NYCCAS design and Land Use Regression Modeling process see: nyc-ehs.net/nyccas",
+      "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+      "rowsUpdatedAt": 1494528946,
+      "json_sample": {
+        "id": "q68s-8qxv",
+        "name": "NYCCAS Air Pollution Rasters",
+        "assetType": "file",
+        "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+        "averageRating": 0,
+        "blobFilename": "AnnAvg_1_16_300m.zip",
+        "blobFileSize": 8362692,
+        "blobId": "6a525137-8d0e-4af3-a58b-fc7d9df060d0",
+        "blobMimeType": "application/x-zip-compressed",
+        "category": "Environment",
+        "createdAt": 1494528946,
+        "description": "Citywide raster files of annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2).\r\n\r\n\r\nDescription:  Annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2). File type is ESRI grid raster files at 300 m resolution, NAD83 New York Long Island State Plane FIPS, feet projection. Prediction surface generated from Land Use Regression modeling of December 2008- December 2019 (years 1-11) New York Community Air Survey monitoring data.As these are estimated annual average levels produced by a statistical model, they are not comparable to short term localized monitoring or monitoring done for regulatory purposes. For description of NYCCAS design and Land Use Regression Modeling process see: nyc-ehs.net/nyccas",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 11608,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1557930968,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 25973649,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1494528946,
+        "publicationGroup": 14203820,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1494528946,
+        "tableId": 14203820,
+        "totalTimesRated": 0,
+        "viewCount": 32595,
+        "viewLastModified": 1776777564,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1494610055,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067632,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1494610055,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data-Dictionary_NYCCAS_March_2026.xlsx",
+              "assetId": "2cd388bd-c4c1-45e8-8a2b-e7f9afdf3c89",
+              "name": "Data-Dictionary_NYCCAS_March_2026.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "5/12/2017",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Health and Mental Hygiene (DOHMH)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "blob": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "air pollution",
+          "nyccas",
+          "air quality",
+          "pm2.5",
+          "no2",
+          "so2",
+          "ozone",
+          "black carbon",
+          "climate"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/q68s-8qxv",
+      "retrieved_at": "2026-04-28T12:22:12.141907+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/q68s-8qxv",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4569,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "NYCCAS Air Pollution Rasters",
+      "description": "Citywide raster files of annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2).\r\n\r\n\r\nDescription:  Annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2). File type is ESRI grid raster files at 300 m resolution, NAD83 New York Long Island State Plane FIPS, feet projection. Prediction surface generated from Land Use Regression modeling of December 2008- December 2019 (years 1-11) New York Community Air Survey monitoring data.As these are estimated annual average levels produced by a statistical model, they are not comparable to short term localized monitoring or monitoring done for regulatory purposes. For description of NYCCAS design and Land Use Regression Modeling process see: nyc-ehs.net/nyccas",
+      "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+      "rowsUpdatedAt": 1494528946,
+      "json_sample": {
+        "id": "q68s-8qxv",
+        "name": "NYCCAS Air Pollution Rasters",
+        "assetType": "file",
+        "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+        "averageRating": 0,
+        "blobFilename": "AnnAvg_1_16_300m.zip",
+        "blobFileSize": 8362692,
+        "blobId": "6a525137-8d0e-4af3-a58b-fc7d9df060d0",
+        "blobMimeType": "application/x-zip-compressed",
+        "category": "Environment",
+        "createdAt": 1494528946,
+        "description": "Citywide raster files of annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2).\r\n\r\n\r\nDescription:  Annual average predicted surface for nitrogen dioxide (NO2), fine particulate matter (PM2.5), black carbon (BC), and nitric oxide (NO); summer average for ozone (O3) and winter average for sulfure dioxide (SO2). File type is ESRI grid raster files at 300 m resolution, NAD83 New York Long Island State Plane FIPS, feet projection. Prediction surface generated from Land Use Regression modeling of December 2008- December 2019 (years 1-11) New York Community Air Survey monitoring data.As these are estimated annual average levels produced by a statistical model, they are not comparable to short term localized monitoring or monitoring done for regulatory purposes. For description of NYCCAS design and Land Use Regression Modeling process see: nyc-ehs.net/nyccas",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 11608,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1557930968,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 25973649,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1494528946,
+        "publicationGroup": 14203820,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1494528946,
+        "tableId": 14203820,
+        "totalTimesRated": 0,
+        "viewCount": 32595,
+        "viewLastModified": 1776777564,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1494610055,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1067632,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1494610055,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data-Dictionary_NYCCAS_March_2026.xlsx",
+              "assetId": "2cd388bd-c4c1-45e8-8a2b-e7f9afdf3c89",
+              "name": "Data-Dictionary_NYCCAS_March_2026.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "5/12/2017",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Health and Mental Hygiene (DOHMH)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "blob": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "air pollution",
+          "nyccas",
+          "air quality",
+          "pm2.5",
+          "no2",
+          "so2",
+          "ozone",
+          "black carbon",
+          "climate"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/q68s-8qxv.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:22:12.806097+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/q68s-8qxv.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

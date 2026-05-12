@@ -1,0 +1,22 @@
+{
+  "source_id": "gla-planning-datahub-applications",
+  "city": "london",
+  "title": "Planning London Datahub - planning applications",
+  "publisher": "Greater London Authority (GLA), London borough planning authorities",
+  "bucket": "planning/development",
+  "retrieved_at": "2026-04-28T12:18:46.668261+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://planning.data.london.gov.uk/api-guest/applications",
+      "retrieved_at": "2026-04-28T12:18:46.280869+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "requested_url": "https://planning.data.london.gov.uk/",
+      "retrieved_at": "2026-04-28T12:18:46.486532+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -2] Name or service not known>"
+    }
+  ]
+}

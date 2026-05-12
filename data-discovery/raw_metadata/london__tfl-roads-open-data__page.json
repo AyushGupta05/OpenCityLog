@@ -1,0 +1,25 @@
+{
+  "source_id": "tfl-roads-open-data",
+  "city": "london",
+  "title": "TfL Roads open data file service",
+  "publisher": "Transport for London",
+  "bucket": "traffic/transport",
+  "retrieved_at": "2026-04-28T12:18:50.461629+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://roads.data.tfl.gov.uk/",
+      "retrieved_at": "2026-04-28T12:18:50.124754+00:00",
+      "final_url": "https://roads.data.tfl.gov.uk/",
+      "status": 200,
+      "content_type": "text/html",
+      "last_modified": "Fri, 28 Nov 2025 15:57:02 GMT",
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 8139,
+      "page_title": "Loading…",
+      "h1": "Loading…",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <!-- TfL S3 bucket browser Version 2.0.3 (2025-07-14) Author: LB --> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <script> const BUCKET_NAME = window.location.hostname; const S3_HOSTNAME = \"s3-eu-west-1.amazonaws.com\"; window.addEventListener(\"load\", () => { document.title = BUCKET_NAME; document.getElementById(\"h1-title\").innerText = BUCKET_NAME; window.addEventListener(\"hashchange\", () => loadFolder(getPrefixFromHash())); loadFolder(getPrefixFromHash()); }); function getPrefixFromHash() { return window.location.hash.startsWith(\"#!\") ? decodeURIComponent(window.location.hash.slice(2)) : \"\"; } async function loadFolder(prefix = \"\") { const folderContents = document.getElementById(\"folderContents\"); folderContents.innerHTML = \"<tr><td>Loading&hellip;</td></tr>\"; let allContents = []; let allCommonPrefixes = []; let continuationToken = null; // Fetch paginated results async function fetchPage(token = null) { let url = `https://${S3_HOSTNAME}/${BUCKET_NAME}/?list-type=2&delimiter=/&prefix=${encodeURIComponent(prefix)}`; if (token) { url += `&continuation-token=${encodeURIComponent(token)}`; } const response = await fetch(url); const xml = await response.text(); const doc = new DOMParser().parseFromString(xml, \"text/xml\"); // Collect files allContents.push(...doc.querySelectorAll(\"Contents\")); // Collect subfolders allCommonPrefixes.push(...doc.querySelectorAll(\"CommonPrefixes\")); // If the response is truncated, recursively fetch the next page if (doc.querySelector(\"IsTruncated\")?.textContent === \"true\") { await fetchPage(doc.querySelector(\"NextContinuationToken\").textContent); } } // Fetch all pages await fetchPage(); // Clear the file list folderContents.replaceChildren(); // Add \"Parent folder\" link if not in root directory if (prefix !== \"\") { const parentPrefix = prefix.slice(0, prefix.lastIndexOf(\"/\", prefix.length - 2) + 1); folderContents.insertAdjacentHTML(\"beforeend\", ` <tr> <td>↩️ <a href=\"#!${encodeURIComponent(parentPrefix)}\">Parent folder</a></td> <td></td><td></td> </tr> `); } // Process subfolders allCommonPrefixes.forEach(commonPrefix => { const filePrefix = commonPrefix.querySelector(\"Prefix\").textContent;"
+    }
+  ]
+}

@@ -1,0 +1,1037 @@
+{
+  "source_id": "uk9f-6y9n",
+  "city": "new_york",
+  "title": "Hurricane Inundation by Evacuation Zone",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "flood/coastal resiliency",
+  "retrieved_at": "2026-04-28T13:00:04.402251+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/uk9f-6y9n",
+      "retrieved_at": "2026-04-28T13:00:00.212039+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/uk9f-6y9n",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 9784,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Hurricane Inundation by Evacuation Zone",
+      "description": "These inundation areas are based on the National Hurricane Center’s 2020 SLOSH (Sea Lake and Overland Surge from Hurricanes) Model for the NE1 basin post-processed to a 10 meter resolution. The data used assumes that the storm surge will occur at high tide. The Storm surge inundation data then used  to develop New York City’s Hurricane Evacuation Zones.",
+      "attribution": "NYC Emergency Management (NYCEM)",
+      "rowsUpdatedAt": 1666643381,
+      "json_sample": {
+        "id": "uk9f-6y9n",
+        "name": "Hurricane Inundation by Evacuation Zone",
+        "assetType": "dataset",
+        "attribution": "NYC Emergency Management (NYCEM)",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1666643119,
+        "description": "These inundation areas are based on the National Hurricane Center’s 2020 SLOSH (Sea Lake and Overland Surge from Hurricanes) Model for the NE1 basin post-processed to a 10 meter resolution. The data used assumes that the storm surge will occur at high tide. The Storm surge inundation data then used  to develop New York City’s Hurricane Evacuation Zones.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 1128,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 38968851,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1666643400,
+        "publicationGroup": 18923033,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1666643381,
+        "tableId": 18923033,
+        "totalTimesRated": 0,
+        "viewCount": 3954,
+        "viewLastModified": 1671121572,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1671121840,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 5167048,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1671121819,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1671121841,
+              "failureCount": 0,
+              "startedAt": 1671121840,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 567012433,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "description": "Geometry column",
+            "fieldName": "the_geom",
+            "position": 1,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 144354695,
+            "format": {}
+          },
+          {
+            "id": 567012434,
+            "name": "BOROCODE",
+            "dataTypeName": "text",
+            "description": "Borough Code",
+            "fieldName": "borocode",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 144354696,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "5",
+              "null": "0",
+              "top": [
+                {
+                  "item": "5",
+                  "count": "6"
+                },
+                {
+                  "item": "2",
+                  "count": "6"
+                },
+                {
+                  "item": "1",
+                  "count": "6"
+                },
+                {
+                  "item": "4",
+                  "count": "6"
+                },
+                {
+                  "item": "3",
+                  "count": "6"
+                }
+              ],
+              "smallest": "1",
+              "count": "30",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 567012435,
+            "name": "Evac_Zone",
+            "dataTypeName": "text",
+            "description": "Hurricane Evacuation Zone",
+            "fieldName": "evac_zone",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 144354697,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "6",
+              "null": "0",
+              "top": [
+                {
+                  "item": "5",
+                  "count": "5"
+                },
+                {
+                  "item": "6",
+                  "count": "5"
+                },
+                {
+                  "item": "2",
+                  "count": "5"
+                },
+                {
+                  "item": "1",
+                  "count": "5"
+                },
+                {
+                  "item": "4",
+                  "count": "5"
+                },
+                {
+                  "item": "3",
+                  "count": "5"
+                }
+              ],
+              "smallest": "1",
+              "count": "30",
+              "cardinality": "6"
+            },
+            "format": {}
+          },
+          {
+            "id": 567012432,
+            "name": "Shape_Leng",
+            "dataTypeName": "number",
+            "description": "Unit: feet",
+            "fieldName": "shape_leng",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 144354694,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "2724855.88033",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1843285.97497",
+                  "count": "1"
+                },
+                {
+                  "item": "2275261.62577",
+                  "count": "1"
+                },
+                {
+                  "item": "942480.73543",
+                  "count": "1"
+                },
+                {
+                  "item": "2622971.44792",
+                  "count": "1"
+                },
+                {
+                  "item": "907615.564121",
+                  "count": "1"
+                },
+                {
+                  "item": "798710.023455",
+                  "count": "1"
+                },
+                {
+                  "item": "1501918.28204",
+                  "count": "1"
+                },
+                {
+                  "item": "2711822.98236",
+                  "count": "1"
+                },
+                {
+                  "item": "1409989.31364",
+                  "count": "1"
+                },
+                {
+                  "item": "1664669.61677",
+                  "count": "1"
+                },
+                {
+                  "item": "935357.859706",
+                  "count": "1"
+                },
+                {
+                  "item": "1616650.92911",
+                  "count": "1"
+                },
+                {
+                  "item": "2385200.6751",
+                  "count": "1"
+                },
+                {
+                  "item": "2050121.70527",
+                  "count": "1"
+                },
+                {
+                  "item": "1549777.09407",
+                  "count": "1"
+                },
+                {
+                  "item": "1560117.26966",
+                  "count": "1"
+                },
+                {
+                  "item": "1653519.61516",
+                  "count": "1"
+                },
+                {
+                  "item": "1056031.28191",
+                  "count": "1"
+                },
+                {
+                  "item": "1284430.91654",
+                  "count": "1"
+                },
+                {
+                  "item": "881038.066686",
+                  "count": "1"
+                }
+              ],
+              "smallest": "691165.395975",
+              "count": "30",
+              "cardinality": "30"
+            },
+            "format": {
+              "noCommas": "true"
+            }
+          },
+          {
+            "id": 567012431,
+            "name": "Shape_Area",
+            "dataTypeName": "number",
+            "description": "Unit: square feet",
+            "fieldName": "shape_area",
+            "position": 5,
+            "renderTypeName": "number",
+            "tableColumnId": 144354693,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "1205272607.83",
+              "null": "0",
+              "top": [
+                {
+                  "item": "330838118.055",
+                  "count": "1"
+                },
+                {
+                  "item": "1081696412.68",
+                  "count": "1"
+                },
+                {
+                  "item": "221718082.006",
+                  "count": "1"
+                },
+                {
+                  "item": "924271634.265",
+                  "count": "1"
+                },
+                {
+                  "item": "1050511609.08",
+                  "count": "1"
+                },
+                {
+                  "item": "89191866.1679",
+                  "count": "1"
+                },
+                {
+                  "item": "279933902.113",
+                  "count": "1"
+                },
+                {
+                  "item": "595510641.388",
+                  "count": "1"
+                },
+                {
+                  "item": "504665372.551",
+                  "count": "1"
+                },
+                {
+                  "item": "433684867.954",
+                  "count": "1"
+                },
+                {
+                  "item": "372242146.214",
+                  "count": "1"
+                },
+                {
+                  "item": "174155880.358",
+                  "count": "1"
+                },
+                {
+                  "item": "143195701.424",
+                  "count": "1"
+                },
+                {
+                  "item": "123217445.917",
+                  "count": "1"
+                },
+                {
+                  "item": "753440692.422",
+                  "count": "1"
+                },
+                {
+                  "item": "738661122.525",
+                  "count": "1"
+                },
+                {
+                  "item": "225000695.153",
+                  "count": "1"
+                },
+                {
+                  "item": "311262628.727",
+                  "count": "1"
+                },
+                {
+                  "item": "409168116.834",
+                  "count": "1"
+                },
+                {
+                  "item": "1205272607.83",
+                  "count": "1"
+                }
+              ],
+              "smallest": "32784007.7693",
+              "count": "30",
+              "cardinality": "30"
+            },
+            "format": {
+              "noCommas": "true"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "NYC_Hazard_Mitigation_Actions_Database_Data_Dictionary.xlsx",
+              "assetId": "3ca11747-b6dc-49b6-93bc-2c4ae402640e",
+              "name": "NYC_Hazard_Mitigation_Actions_Database_Data_Dictionary.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency Details": "The underlying SLOSH data that supports the preparation of and update to the hurricane inundation and evacuation zone data is updated by NHC generally every 5 years",
+              "Date Made Public": "12/15/2022",
+              "Update Frequency": "As needed",
+              "Data Change Frequency": "Every 5  - 10 years"
+            },
+            "Dataset Information": {
+              "Agency": "NYC Emergency Management (NYCEM)"
+            }
+          },
+          "rowLabel": "Identifies the assigned evacuation zone for the specific location and the associated Borough coupled with the coverage extent (area in square feet) and perimeter (length in feet)",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "storm surge",
+          "hurricane evacuation zones",
+          "natural hazards",
+          "slosh"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/uk9f-6y9n",
+      "retrieved_at": "2026-04-28T13:00:00.811058+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/uk9f-6y9n",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 9784,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Hurricane Inundation by Evacuation Zone",
+      "description": "These inundation areas are based on the National Hurricane Center’s 2020 SLOSH (Sea Lake and Overland Surge from Hurricanes) Model for the NE1 basin post-processed to a 10 meter resolution. The data used assumes that the storm surge will occur at high tide. The Storm surge inundation data then used  to develop New York City’s Hurricane Evacuation Zones.",
+      "attribution": "NYC Emergency Management (NYCEM)",
+      "rowsUpdatedAt": 1666643381,
+      "json_sample": {
+        "id": "uk9f-6y9n",
+        "name": "Hurricane Inundation by Evacuation Zone",
+        "assetType": "dataset",
+        "attribution": "NYC Emergency Management (NYCEM)",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1666643119,
+        "description": "These inundation areas are based on the National Hurricane Center’s 2020 SLOSH (Sea Lake and Overland Surge from Hurricanes) Model for the NE1 basin post-processed to a 10 meter resolution. The data used assumes that the storm surge will occur at high tide. The Storm surge inundation data then used  to develop New York City’s Hurricane Evacuation Zones.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 1128,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 38968851,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1666643400,
+        "publicationGroup": 18923033,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1666643381,
+        "tableId": 18923033,
+        "totalTimesRated": 0,
+        "viewCount": 3954,
+        "viewLastModified": 1671121572,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1671121840,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 5167048,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1671121819,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1671121841,
+              "failureCount": 0,
+              "startedAt": 1671121840,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 567012433,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "description": "Geometry column",
+            "fieldName": "the_geom",
+            "position": 1,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 144354695,
+            "format": {}
+          },
+          {
+            "id": 567012434,
+            "name": "BOROCODE",
+            "dataTypeName": "text",
+            "description": "Borough Code",
+            "fieldName": "borocode",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 144354696,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "5",
+              "null": "0",
+              "top": [
+                {
+                  "item": "5",
+                  "count": "6"
+                },
+                {
+                  "item": "2",
+                  "count": "6"
+                },
+                {
+                  "item": "1",
+                  "count": "6"
+                },
+                {
+                  "item": "4",
+                  "count": "6"
+                },
+                {
+                  "item": "3",
+                  "count": "6"
+                }
+              ],
+              "smallest": "1",
+              "count": "30",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 567012435,
+            "name": "Evac_Zone",
+            "dataTypeName": "text",
+            "description": "Hurricane Evacuation Zone",
+            "fieldName": "evac_zone",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 144354697,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "6",
+              "null": "0",
+              "top": [
+                {
+                  "item": "5",
+                  "count": "5"
+                },
+                {
+                  "item": "6",
+                  "count": "5"
+                },
+                {
+                  "item": "2",
+                  "count": "5"
+                },
+                {
+                  "item": "1",
+                  "count": "5"
+                },
+                {
+                  "item": "4",
+                  "count": "5"
+                },
+                {
+                  "item": "3",
+                  "count": "5"
+                }
+              ],
+              "smallest": "1",
+              "count": "30",
+              "cardinality": "6"
+            },
+            "format": {}
+          },
+          {
+            "id": 567012432,
+            "name": "Shape_Leng",
+            "dataTypeName": "number",
+            "description": "Unit: feet",
+            "fieldName": "shape_leng",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 144354694,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "2724855.88033",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1843285.97497",
+                  "count": "1"
+                },
+                {
+                  "item": "2275261.62577",
+                  "count": "1"
+                },
+                {
+                  "item": "942480.73543",
+                  "count": "1"
+                },
+                {
+                  "item": "2622971.44792",
+                  "count": "1"
+                },
+                {
+                  "item": "907615.564121",
+                  "count": "1"
+                },
+                {
+                  "item": "798710.023455",
+                  "count": "1"
+                },
+                {
+                  "item": "1501918.28204",
+                  "count": "1"
+                },
+                {
+                  "item": "2711822.98236",
+                  "count": "1"
+                },
+                {
+                  "item": "1409989.31364",
+                  "count": "1"
+                },
+                {
+                  "item": "1664669.61677",
+                  "count": "1"
+                },
+                {
+                  "item": "935357.859706",
+                  "count": "1"
+                },
+                {
+                  "item": "1616650.92911",
+                  "count": "1"
+                },
+                {
+                  "item": "2385200.6751",
+                  "count": "1"
+                },
+                {
+                  "item": "2050121.70527",
+                  "count": "1"
+                },
+                {
+                  "item": "1549777.09407",
+                  "count": "1"
+                },
+                {
+                  "item": "1560117.26966",
+                  "count": "1"
+                },
+                {
+                  "item": "1653519.61516",
+                  "count": "1"
+                },
+                {
+                  "item": "1056031.28191",
+                  "count": "1"
+                },
+                {
+                  "item": "1284430.91654",
+                  "count": "1"
+                },
+                {
+                  "item": "881038.066686",
+                  "count": "1"
+                }
+              ],
+              "smallest": "691165.395975",
+              "count": "30",
+              "cardinality": "30"
+            },
+            "format": {
+              "noCommas": "true"
+            }
+          },
+          {
+            "id": 567012431,
+            "name": "Shape_Area",
+            "dataTypeName": "number",
+            "description": "Unit: square feet",
+            "fieldName": "shape_area",
+            "position": 5,
+            "renderTypeName": "number",
+            "tableColumnId": 144354693,
+            "cachedContents": {
+              "non_null": "30",
+              "largest": "1205272607.83",
+              "null": "0",
+              "top": [
+                {
+                  "item": "330838118.055",
+                  "count": "1"
+                },
+                {
+                  "item": "1081696412.68",
+                  "count": "1"
+                },
+                {
+                  "item": "221718082.006",
+                  "count": "1"
+                },
+                {
+                  "item": "924271634.265",
+                  "count": "1"
+                },
+                {
+                  "item": "1050511609.08",
+                  "count": "1"
+                },
+                {
+                  "item": "89191866.1679",
+                  "count": "1"
+                },
+                {
+                  "item": "279933902.113",
+                  "count": "1"
+                },
+                {
+                  "item": "595510641.388",
+                  "count": "1"
+                },
+                {
+                  "item": "504665372.551",
+                  "count": "1"
+                },
+                {
+                  "item": "433684867.954",
+                  "count": "1"
+                },
+                {
+                  "item": "372242146.214",
+                  "count": "1"
+                },
+                {
+                  "item": "174155880.358",
+                  "count": "1"
+                },
+                {
+                  "item": "143195701.424",
+                  "count": "1"
+                },
+                {
+                  "item": "123217445.917",
+                  "count": "1"
+                },
+                {
+                  "item": "753440692.422",
+                  "count": "1"
+                },
+                {
+                  "item": "738661122.525",
+                  "count": "1"
+                },
+                {
+                  "item": "225000695.153",
+                  "count": "1"
+                },
+                {
+                  "item": "311262628.727",
+                  "count": "1"
+                },
+                {
+                  "item": "409168116.834",
+                  "count": "1"
+                },
+                {
+                  "item": "1205272607.83",
+                  "count": "1"
+                }
+              ],
+              "smallest": "32784007.7693",
+              "count": "30",
+              "cardinality": "30"
+            },
+            "format": {
+              "noCommas": "true"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "NYC_Hazard_Mitigation_Actions_Database_Data_Dictionary.xlsx",
+              "assetId": "3ca11747-b6dc-49b6-93bc-2c4ae402640e",
+              "name": "NYC_Hazard_Mitigation_Actions_Database_Data_Dictionary.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency Details": "The underlying SLOSH data that supports the preparation of and update to the hurricane inundation and evacuation zone data is updated by NHC generally every 5 years",
+              "Date Made Public": "12/15/2022",
+              "Update Frequency": "As needed",
+              "Data Change Frequency": "Every 5  - 10 years"
+            },
+            "Dataset Information": {
+              "Agency": "NYC Emergency Management (NYCEM)"
+            }
+          },
+          "rowLabel": "Identifies the assigned evacuation zone for the specific location and the associated Borough coupled with the coverage extent (area in square feet) and perimeter (length in feet)",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "storm surge",
+          "hurricane evacuation zones",
+          "natural hazards",
+          "slosh"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/uk9f-6y9n.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:00.979874+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/uk9f-6y9n.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 24 Oct 2022 20:30:00 GMT",
+      "etag": "W/\"aW5kaWEuMTM3MTRfMV85c2NoODRrTC1WbHFmTkRVUG11LWhLY2I1Nkdz---gzip6j8ztlz0p73HzZnkM4oAPiz0CkQ--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 250000,
+      "json_parse_error": "Expecting value: line 1 column 250000 (char 249999)",
+      "text_sample": "[{\"the_geom\":{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-74.01824186955774,40.6803530079959],[-74.01826335757146,40.68034015784989],[-74.01826335872495,40.680353008189094],[-74.01824186955774,40.6803530079959]]],[[[-74.01745628493617,40.68062250250441],[-74.01746928858931,40.68061473179414],[-74.01749118560441,40.68062250260745],[-74.01745628493617,40.68062250250441]]],[[[-74.01730595089403,40.68071233350308],[-74.01736504284617,40.6806770235399],[-74.01736504257777,40.68071233360549],[-74.01730595089403,40.68071233350308]]],[[[-74.0171556164471,40.680802165204845],[-74.01718538012622,40.680784380109074],[-74.01718537997799,40.68080216526596],[-74.0171556164471,40.680802165204845]]],[[[-74.01700528159519,40.68089199670923],[-74.01700571682804,40.68089173729681],[-74.01700571689418,40.680891996644874],[-74.01700528159519,40.68089199670923]]],[[[-74.0168549475213,40.68098182891654],[-74.01691588496203,40.680945415784926],[-74.01691588473534,40.680981828078735],[-74.0168549475213,40.68098182891654]]],[[[-74.01670594378325,40.68107165983271],[-74.01673622213607,40.68105339840698],[-74.01673622198761,40.681071659935256],[-74.01670594378325,40.68107165983271]]],[[[-74.01640805102593,40.6812513228677],[-74.01646672753651,40.68121593418236],[-74.01646672799491,40.68125132349064],[-74.01640805102593,40.6812513228677]]],[[[-74.0162591052284,40.6813411549949],[-74.0162870645291,40.681324291613706],[-74.01628706509894,40.681341154642716],[-74.0162591052284,40.6813411549949]]],[[[-74.01596121242939,40.68152081776735],[-74.01601757010623,40.68148682813241],[-74.01601756999014,40.68152081804057],[-74.01596121242939,40.68152081776735]]],[[[-74.01581226661094,40.68161064931299],[-74.01583790682201,40.681595184858715],[-74.01583790694615,40.68161064938867],[-74.01581226661094,40.68161064931299]]],[[[-74.0155143737704,40.68179031272337],[-74.01556841257573,40.68175772122024],[-74.01556841190421,40.68179031262879],[-74.0155143737704,40.68179031272337]]],[[[-74.01536542793097,40.681880143"
+    }
+  ]
+}

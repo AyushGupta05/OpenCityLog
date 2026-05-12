@@ -1,0 +1,53 @@
+name: New source
+description: Suggest a public dataset, register, document set, or API for a city adapter.
+title: "[Source]: "
+labels: ["new-source", "licence-review"]
+body:
+  - type: input
+    id: city
+    attributes:
+      label: City or geography
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Source URL
+    validations:
+      required: true
+  - type: input
+    id: publisher
+    attributes:
+      label: Publisher
+    validations:
+      required: true
+  - type: input
+    id: licence
+    attributes:
+      label: Licence or terms URL
+      description: Use "unknown" if the licence is not clear.
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Coverage and update notes
+      description: Years, geography, update frequency, row ids, and known gaps.
+    validations:
+      required: true
+  - type: textarea
+    id: event_use
+    attributes:
+      label: How should Bims use it?
+      description: Explain whether this supports events, current context, source discovery, or methodology.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I understand unclear licences should block redistribution until reviewed.
+          required: true
+        - label: I am not proposing private or sensitive non-public data.
+          required: true

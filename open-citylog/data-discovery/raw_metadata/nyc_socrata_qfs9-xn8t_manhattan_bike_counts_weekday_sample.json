@@ -1,0 +1,30 @@
+[
+  {
+    "locationid": "1",
+    "locationtype": "On-Street",
+    "typeoftime": "Weekday",
+    "location": "Second Avenue at E7 St.",
+    "location_lat": "40.727963000000003",
+    "location_long": "-73.988133000000005",
+    "year": "2005",
+    "totalusers": "1061",
+    "noncyc_otheruser": "34",
+    "cyclistvolume": "1027",
+    "cycbikelane": "586",
+    "cycadjacentlane": "15",
+    "cyclotherlane": "247",
+    "cyccounterflowinlane": "99",
+    "cycsidewalk": "51",
+    "cyccnterflowoutoflane": "29",
+    "femalecyc_total": "193",
+    "malecyc_total": "834",
+    "female_cyc_helmet": "42",
+    "male_cyc_helmet": "154",
+    "cycl_helmet_all": "196",
+    "cyc_under16": "36",
+    "citibike_male": "0",
+    "citibike_female": "0",
+    "citibike_all": "0",
+    "non_citibikecyc": "1027"
+  }
+]

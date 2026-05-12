@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-london-lorry-control-scheme",
+  "city": "london",
+  "title": "London Lorry Control Scheme",
+  "publisher": "London Councils",
+  "bucket": "freight/traffic/restricted roads",
+  "retrieved_at": "2026-04-28T12:57:17.406703+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.londoncouncils.gov.uk/services/london-lorry-control",
+      "retrieved_at": "2026-04-28T12:57:16.931379+00:00",
+      "final_url": "https://www.londoncouncils.gov.uk/services/london-lorry-control-llcs",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": "Tue, 28 Apr 2026 12:53:43 GMT",
+      "etag": "\"1777380823\"",
+      "content_length_header": "43584",
+      "bytes_captured": 43584,
+      "page_title": "London Lorry Control (LLCS) | London Councils",
+      "h1": "London Lorry Control (LLCS)",
+      "meta_description": "Heavy Goods Vehicles over 18 tonnes are restricted from residential roads at certain times to improve the wellbeing of London. Find out more about the control scheme and how it affects you.Silvertown Tunnel opened.",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# \"> <head> <meta charset=\"utf-8\" /> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-TPNPCGW'); </script> <meta name=\"description\" content=\"Heavy Goods Vehicles over 18 tonnes are restricted from residential roads at certain times to improve the wellbeing of London. Find out more about the control scheme and how it affects you.Silvertown Tunnel opened.\" /> <link rel=\"canonical\" href=\"https://www.londoncouncils.gov.uk/services/london-lorry-control-llcs\" /> <meta name=\"Generator\" content=\"Drupal 10 (LocalGov Drupal | https://localgovdrupal.org)\" /> <meta name=\"MobileOptimized\" content=\"width\" /> <meta name=\"HandheldFriendly\" content=\"true\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <style>div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie-withdraw-tab {background: #0779bf} div#sliding-popup.eu-cookie-withdraw-wrapper { background: transparent; } #sliding-popup h1, #sliding-popup h2, #sliding-popup h3, #sliding-popup p, #sliding-popup label, #sliding-popup div, .eu-cookie-compliance-more-button, .eu-cookie-compliance-secondary-button, .eu-cookie-withdraw-tab { color: #ffffff;} .eu-cookie-withdraw-tab { border-color: #ffffff;} .disagree-button.eu-cookie-compliance-more-button:focus, .eu-cookie-compliance-agree-button:focus, .eu-cookie-compliance-default-button:focus, .eu-cookie-compliance-hide-button:focus, .eu-cookie-compliance-more-button-thank-you:focus, .eu-cookie-withdraw-button:focus, .eu-cookie-compliance-save-preferences-button:focus { outline: 3px solid #f00; }</style> <link rel=\"icon\" href=\"/themes/custom/bbd_localgov/favicon.ico\" type=\"image/vnd.microsoft.icon\" /> <script src=\"/sites/default/files/eu_cookie_compliance/eu_cookie_compliance.script.js?tdsucb\" defer></script> <script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};</script> <title>London Lorry Control (LLCS) | London Councils</title> <link rel=\"stylesheet\" media=\"all\" href=\"/sites/default/files/css/css_1AN1E_3vlwOpm9-7IBEOF-1e8PMLPI9tbGbitQ9VeGM.css?delta=0&amp;language=en&amp;theme=bbd_localgov&amp;include=eJx1UFuOwyAMvBAJH3sgZMCl3hiMwHTb2y_R5qNKthLyY2ZkM4YYVaC8LBzFemtS1HgIm1OZr9q32lGQYgJUDXeYREeDwwWRjXCmXJmg"
+    }
+  ]
+}

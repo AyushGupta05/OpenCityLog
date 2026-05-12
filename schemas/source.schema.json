@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/source.schema.json",
+  "title": "Bims Source and Provenance Registry Entry",
+  "type": "object",
+  "required": [
+    "source_id",
+    "title",
+    "provider",
+    "source_family",
+    "city_ids",
+    "licence",
+    "licence_url",
+    "coverage_years",
+    "update_frequency",
+    "reliability",
+    "source_confidence",
+    "attribution_text",
+    "provenance_notes",
+    "caveats"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"},
+    "title": {"type": "string"},
+    "provider": {"type": "string"},
+    "source_family": {"type": "string"},
+    "city_ids": {"type": "array", "items": {"type": "string"}},
+    "licence": {"type": "string"},
+    "licence_url": {"type": "string"},
+    "coverage_years": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "integer", "minimum": 1700},
+        "end": {"type": "integer", "minimum": 1700},
+        "observed": {"type": "array", "items": {"type": "integer", "minimum": 1700}}
+      }
+    },
+    "update_frequency": {"type": "string"},
+    "url": {"type": "string"},
+    "local_paths": {"type": "array", "items": {"type": "string"}},
+    "reliability": {
+      "type": "string",
+      "enum": ["strong", "usable_with_caveats", "risky", "reject"]
+    },
+    "source_confidence": {
+      "type": "string",
+      "enum": ["documented", "corroborated", "inferred", "disputed"]
+    },
+    "attribution_text": {"type": "string", "minLength": 1},
+    "provenance_notes": {"type": "string"},
+    "caveats": {"type": "array", "items": {"type": "string"}}
+  }
+}

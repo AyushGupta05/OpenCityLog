@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_historic_england_aerial",
+  "title": "Historic England Aerial Photo Explorer / Archive",
+  "requested_url": "https://historicengland.org.uk/images-books/archive/collections/aerial-photos/",
+  "fetched_url": "https://historicengland.org.uk/images-books/archive/collections/aerial-photos/",
+  "final_url": "https://historicengland.org.uk/images-books/archive/collections/aerial-photos/",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:56.376847+00:00",
+  "page_title": "Aerial Photo Explorer – Over 400,000 aerial photos in Historic England's digitised collections | Historic England",
+  "h1": "Aerial Photo Explorer",
+  "meta_description": "Explore England's changing landscapes through historic aerial photography, showcasing the growth and transformations of urban and rural areas."
+}

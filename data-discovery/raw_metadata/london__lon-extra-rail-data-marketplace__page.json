@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-rail-data-marketplace",
+  "city": "london",
+  "title": "Rail Data Marketplace",
+  "publisher": "Rail Delivery Group / rail industry",
+  "bucket": "transport/rail/source provenance",
+  "retrieved_at": "2026-04-28T12:57:15.461551+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://raildata.org.uk/",
+      "retrieved_at": "2026-04-28T12:57:15.260199+00:00",
+      "final_url": "https://raildata.org.uk/",
+      "status": 200,
+      "content_type": null,
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "513",
+      "bytes_captured": 513,
+      "page_title": null,
+      "h1": null,
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"UTF-8 \"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <!-- <title>Rail Data Marketplace</title> --> <script type=\"module\" crossorigin src=\"/index-839c7f95.js\"></script> <link rel=\"modulepreload\" crossorigin href=\"/vendor-ddd0a8b7.js\"> <link rel=\"stylesheet\" href=\"/vendor-c3143748.css\"> <link rel=\"stylesheet\" href=\"/index-a4ccb0d8.css\"> </head> <body> <div id=\"root\"></div> </body> </html>"
+    }
+  ]
+}

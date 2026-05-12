@@ -1,0 +1,31 @@
+[
+  {
+    "permitnumber": "M012025198A73",
+    "applicationtrackingid": "2025071500971540",
+    "sequencenumber": "0001",
+    "applicationtypeshortdesc": "New",
+    "permitstatusid": "020",
+    "permitstatusshortdesc": "EXPIRED UNDER GUARANTEE",
+    "permitseriesid": "01",
+    "permitseriesshortdesc": "STREET OPENING PERMIT",
+    "permittypeid": "0173",
+    "permittypedesc": "REGRADE HARDWARE",
+    "permitnumberofzones": "1",
+    "permitlinearfeet": "300",
+    "specificstipulations": "RECORD PURPOSES ONLY",
+    "permitissuedate": "2025-07-17T15:54:39.000",
+    "issuedworkstartdate": "2025-07-17T15:54:39.000",
+    "issuedworkenddate": "2025-07-18T23:59:59.000",
+    "boroughname": "MANHATTAN",
+    "onstreetname": "OLD SLIP",
+    "fromstreetname": "FRONT STREET",
+    "tostreetname": "WATER STREET",
+    "permitteename": "CONSOLIDATED EDISON",
+    "permitpurposecomments": "RPO 4TH OF JULY",
+    "permitlocationcomments": "RPO 4TH OF JULY",
+    "pavementshortdesc": "ASPHALT",
+    "sidewalkshortdesc": "CONCRETE",
+    "createdon": "2025-07-17T15:54:36.000",
+    "modifiedon": "2025-07-19T00:05:45.000"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-historic-england-aerial-photo-explorer-archive",
+  "city": "london",
+  "title": "Historic England Aerial Photo Explorer / Archive",
+  "publisher": "Historic England",
+  "bucket": "historic imagery/heritage",
+  "retrieved_at": "2026-04-28T12:57:29.543984+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://historicengland.org.uk/images-books/archive/collections/aerial-photos/",
+      "retrieved_at": "2026-04-28T12:57:29.345287+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://historicengland.org.uk/images-books/archive/collections/aerial-photos/",
+      "content_type": "text/html; charset=UTF-8"
+    }
+  ]
+}

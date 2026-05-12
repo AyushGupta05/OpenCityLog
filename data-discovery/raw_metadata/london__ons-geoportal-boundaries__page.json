@@ -1,0 +1,25 @@
+{
+  "source_id": "ons-geoportal-boundaries",
+  "city": "london",
+  "title": "ONS Open Geography Portal boundary downloads",
+  "publisher": "Office for National Statistics Geography",
+  "bucket": "imagery/basemaps",
+  "retrieved_at": "2026-04-28T12:18:53.291451+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://geoportal.statistics.gov.uk/",
+      "retrieved_at": "2026-04-28T12:18:52.402634+00:00",
+      "final_url": "https://geoportal.statistics.gov.uk/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"5bc52-aze6sJacO+pkX5MrIMFuTDD3F3g\"",
+      "content_length_header": "375890",
+      "bytes_captured": 250000,
+      "page_title": "Open Geography Portal",
+      "h1": null,
+      "meta_description": "The UK's official Office for National Statistics Open Data Geography Site",
+      "text_sample": "<!DOCTYPE html><html lang=\"en\"><head> <title>Open Geography Portal</title><meta name=\"twitter:title\" content=\"Open Geography Portal\"><meta property=\"og:title\" content=\"Open Geography Portal\"><meta name=\"description\" content=\"The UK's official Office for National Statistics Open Data Geography Site\"><meta name=\"twitter:description\" content=\"The UK's official Office for National Statistics Open Data Geography Site\"><meta property=\"og:description\" content=\"The UK's official Office for National Statistics Open Data Geography Site\"><meta name=\"twitter:image\" content=\"https://www.arcgis.com/sharing/rest/content/items/e2d91cb940234693bf2c78e5e2d7a504/info/thumbnail/e2d91cb940234693bf2c78e5e2d7a504.png?w=500\"><meta property=\"og:image\" content=\"https://www.arcgis.com/sharing/rest/content/items/e2d91cb940234693bf2c78e5e2d7a504/info/thumbnail/e2d91cb940234693bf2c78e5e2d7a504.png?w=500\"><meta name=\"twitter:card\" content=\"summary\"><meta property=\"og:url\" content=\"https://geoportal.statistics.gov.uk/\"><meta property=\"og:type\" content=\"website\"> <meta charset=\"utf-8\"> <meta name=\"google-site-verification\" content=\"V9SzvB895BKr2ff7JVvaJQM1CIgPqOL5FPooX1aqENo\"> <meta name=\"msvalidate.01\" content=\"217F0EED65C5B131219477CE2CEAAF8E\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <script> (function () { // check for unsupported browsers function isIE () { return ( (navigator.appName === 'Microsoft Internet Explorer') || ((navigator.appName === 'Netscape') && (new RegExp('Trident/.*rv:([0-9]{1,}[.0-9]{0,})').exec(navigator.userAgent) != null)) ); } function isEdge () { return navigator.userAgent.toLowerCase().includes('edge'); } if (isIE() || isEdge()) { window.location.replace('./unsupported.html'); } })(); </script> <meta name=\"activation-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22activation-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%22control-success%22%5D%2C%22controlError%22%3A%5B%22control-error%22%5D%7D%7D%7D\"> <meta name=\"community-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22community-engine%22%2C%22environment%22%3A%22production%22%7D\"> <meta name=\"content-library-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22content-library-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22fee"
+    }
+  ]
+}

@@ -1,0 +1,565 @@
+{
+  "retrieved_at": "2026-05-08T20:18:25Z",
+  "source": "https://data.police.uk/data/",
+  "download": {
+    "date_from": "2023-04",
+    "date_to": "2026-03",
+    "forces": [
+      "metropolitan",
+      "city-of-london",
+      "btp"
+    ],
+    "include_crime": false,
+    "include_outcomes": false,
+    "include_stop_and_search": true,
+    "progress_url": "https://data.police.uk/data/progress/7bfc2a1f-ae19-4917-8b69-1c6d14919799/",
+    "polls": 2,
+    "download_url_host": "policeuk-data.s3.amazonaws.com"
+  },
+  "per_month_force_limit": 320,
+  "files": {
+    "2023-04/2023-04-btp-stop-and-search.csv": {
+      "read_rows": 1248,
+      "added": 320
+    },
+    "2023-04/2023-04-city-of-london-stop-and-search.csv": {
+      "read_rows": 210,
+      "added": 163
+    },
+    "2023-04/2023-04-metropolitan-stop-and-search.csv": {
+      "read_rows": 12146,
+      "added": 346
+    },
+    "2023-05/2023-05-btp-stop-and-search.csv": {
+      "read_rows": 1344,
+      "added": 320
+    },
+    "2023-05/2023-05-city-of-london-stop-and-search.csv": {
+      "read_rows": 217,
+      "added": 172
+    },
+    "2023-05/2023-05-metropolitan-stop-and-search.csv": {
+      "read_rows": 12423,
+      "added": 320
+    },
+    "2023-06/2023-06-btp-stop-and-search.csv": {
+      "read_rows": 992,
+      "added": 320
+    },
+    "2023-06/2023-06-city-of-london-stop-and-search.csv": {
+      "read_rows": 169,
+      "added": 131
+    },
+    "2023-06/2023-06-metropolitan-stop-and-search.csv": {
+      "read_rows": 11595,
+      "added": 320
+    },
+    "2023-07/2023-07-btp-stop-and-search.csv": {
+      "read_rows": 1279,
+      "added": 320
+    },
+    "2023-07/2023-07-city-of-london-stop-and-search.csv": {
+      "read_rows": 213,
+      "added": 175
+    },
+    "2023-07/2023-07-metropolitan-stop-and-search.csv": {
+      "read_rows": 13073,
+      "added": 320
+    },
+    "2023-08/2023-08-btp-stop-and-search.csv": {
+      "read_rows": 1308,
+      "added": 320
+    },
+    "2023-08/2023-08-city-of-london-stop-and-search.csv": {
+      "read_rows": 272,
+      "added": 185
+    },
+    "2023-08/2023-08-metropolitan-stop-and-search.csv": {
+      "read_rows": 14073,
+      "added": 320
+    },
+    "2023-09/2023-09-btp-stop-and-search.csv": {
+      "read_rows": 1023,
+      "added": 320
+    },
+    "2023-09/2023-09-city-of-london-stop-and-search.csv": {
+      "read_rows": 197,
+      "added": 152
+    },
+    "2023-09/2023-09-metropolitan-stop-and-search.csv": {
+      "read_rows": 12033,
+      "added": 320
+    },
+    "2023-10/2023-10-btp-stop-and-search.csv": {
+      "read_rows": 1455,
+      "added": 320
+    },
+    "2023-10/2023-10-city-of-london-stop-and-search.csv": {
+      "read_rows": 223,
+      "added": 181
+    },
+    "2023-10/2023-10-metropolitan-stop-and-search.csv": {
+      "read_rows": 11740,
+      "added": 320
+    },
+    "2023-11/2023-11-btp-stop-and-search.csv": {
+      "read_rows": 1353,
+      "added": 320
+    },
+    "2023-11/2023-11-city-of-london-stop-and-search.csv": {
+      "read_rows": 173,
+      "added": 152
+    },
+    "2023-11/2023-11-metropolitan-stop-and-search.csv": {
+      "read_rows": 9130,
+      "added": 320
+    },
+    "2023-12/2023-12-btp-stop-and-search.csv": {
+      "read_rows": 1270,
+      "added": 320
+    },
+    "2023-12/2023-12-city-of-london-stop-and-search.csv": {
+      "read_rows": 180,
+      "added": 147
+    },
+    "2023-12/2023-12-metropolitan-stop-and-search.csv": {
+      "read_rows": 9086,
+      "added": 320
+    },
+    "2024-01/2024-01-btp-stop-and-search.csv": {
+      "read_rows": 1366,
+      "added": 320
+    },
+    "2024-01/2024-01-city-of-london-stop-and-search.csv": {
+      "read_rows": 192,
+      "added": 161
+    },
+    "2024-01/2024-01-metropolitan-stop-and-search.csv": {
+      "read_rows": 9689,
+      "added": 320
+    },
+    "2024-02/2024-02-btp-stop-and-search.csv": {
+      "read_rows": 1399,
+      "added": 320
+    },
+    "2024-02/2024-02-city-of-london-stop-and-search.csv": {
+      "read_rows": 153,
+      "added": 119
+    },
+    "2024-02/2024-02-metropolitan-stop-and-search.csv": {
+      "read_rows": 9179,
+      "added": 320
+    },
+    "2024-03/2024-03-btp-stop-and-search.csv": {
+      "read_rows": 1954,
+      "added": 320
+    },
+    "2024-03/2024-03-city-of-london-stop-and-search.csv": {
+      "read_rows": 226,
+      "added": 165
+    },
+    "2024-03/2024-03-metropolitan-stop-and-search.csv": {
+      "read_rows": 10681,
+      "added": 320
+    },
+    "2024-04/2024-04-btp-stop-and-search.csv": {
+      "read_rows": 1508,
+      "added": 320
+    },
+    "2024-04/2024-04-city-of-london-stop-and-search.csv": {
+      "read_rows": 233,
+      "added": 182
+    },
+    "2024-04/2024-04-metropolitan-stop-and-search.csv": {
+      "read_rows": 9002,
+      "added": 320
+    },
+    "2024-05/2024-05-btp-stop-and-search.csv": {
+      "read_rows": 1547,
+      "added": 320
+    },
+    "2024-05/2024-05-city-of-london-stop-and-search.csv": {
+      "read_rows": 247,
+      "added": 195
+    },
+    "2024-05/2024-05-metropolitan-stop-and-search.csv": {
+      "read_rows": 9130,
+      "added": 320
+    },
+    "2024-06/2024-06-btp-stop-and-search.csv": {
+      "read_rows": 1057,
+      "added": 320
+    },
+    "2024-06/2024-06-city-of-london-stop-and-search.csv": {
+      "read_rows": 199,
+      "added": 153
+    },
+    "2024-06/2024-06-metropolitan-stop-and-search.csv": {
+      "read_rows": 8720,
+      "added": 320
+    },
+    "2024-07/2024-07-btp-stop-and-search.csv": {
+      "read_rows": 1182,
+      "added": 320
+    },
+    "2024-07/2024-07-city-of-london-stop-and-search.csv": {
+      "read_rows": 211,
+      "added": 169
+    },
+    "2024-07/2024-07-metropolitan-stop-and-search.csv": {
+      "read_rows": 8824,
+      "added": 320
+    },
+    "2024-08/2024-08-btp-stop-and-search.csv": {
+      "read_rows": 1120,
+      "added": 320
+    },
+    "2024-08/2024-08-city-of-london-stop-and-search.csv": {
+      "read_rows": 274,
+      "added": 195
+    },
+    "2024-08/2024-08-metropolitan-stop-and-search.csv": {
+      "read_rows": 10638,
+      "added": 320
+    },
+    "2024-09/2024-09-btp-stop-and-search.csv": {
+      "read_rows": 1151,
+      "added": 320
+    },
+    "2024-09/2024-09-city-of-london-stop-and-search.csv": {
+      "read_rows": 184,
+      "added": 140
+    },
+    "2024-09/2024-09-metropolitan-stop-and-search.csv": {
+      "read_rows": 10111,
+      "added": 320
+    },
+    "2024-10/2024-10-btp-stop-and-search.csv": {
+      "read_rows": 1345,
+      "added": 320
+    },
+    "2024-10/2024-10-city-of-london-stop-and-search.csv": {
+      "read_rows": 150,
+      "added": 108
+    },
+    "2024-10/2024-10-metropolitan-stop-and-search.csv": {
+      "read_rows": 11002,
+      "added": 320
+    },
+    "2024-11/2024-11-btp-stop-and-search.csv": {
+      "read_rows": 1356,
+      "added": 320
+    },
+    "2024-11/2024-11-city-of-london-stop-and-search.csv": {
+      "read_rows": 204,
+      "added": 164
+    },
+    "2024-11/2024-11-metropolitan-stop-and-search.csv": {
+      "read_rows": 11091,
+      "added": 320
+    },
+    "2024-12/2024-12-btp-stop-and-search.csv": {
+      "read_rows": 975,
+      "added": 320
+    },
+    "2024-12/2024-12-city-of-london-stop-and-search.csv": {
+      "read_rows": 118,
+      "added": 93
+    },
+    "2024-12/2024-12-metropolitan-stop-and-search.csv": {
+      "read_rows": 9291,
+      "added": 320
+    },
+    "2025-01/2025-01-btp-stop-and-search.csv": {
+      "read_rows": 1345,
+      "added": 320
+    },
+    "2025-01/2025-01-city-of-london-stop-and-search.csv": {
+      "read_rows": 154,
+      "added": 116
+    },
+    "2025-01/2025-01-metropolitan-stop-and-search.csv": {
+      "read_rows": 11634,
+      "added": 320
+    },
+    "2025-02/2025-02-btp-stop-and-search.csv": {
+      "read_rows": 1233,
+      "added": 320
+    },
+    "2025-02/2025-02-city-of-london-stop-and-search.csv": {
+      "read_rows": 125,
+      "added": 93
+    },
+    "2025-02/2025-02-metropolitan-stop-and-search.csv": {
+      "read_rows": 10489,
+      "added": 320
+    },
+    "2025-03/2025-03-btp-stop-and-search.csv": {
+      "read_rows": 1368,
+      "added": 320
+    },
+    "2025-03/2025-03-city-of-london-stop-and-search.csv": {
+      "read_rows": 141,
+      "added": 120
+    },
+    "2025-03/2025-03-metropolitan-stop-and-search.csv": {
+      "read_rows": 11116,
+      "added": 320
+    },
+    "2025-04/2025-04-btp-stop-and-search.csv": {
+      "read_rows": 1026,
+      "added": 320
+    },
+    "2025-04/2025-04-city-of-london-stop-and-search.csv": {
+      "read_rows": 155,
+      "added": 116
+    },
+    "2025-04/2025-04-metropolitan-stop-and-search.csv": {
+      "read_rows": 10779,
+      "added": 320
+    },
+    "2025-05/2025-05-btp-stop-and-search.csv": {
+      "read_rows": 983,
+      "added": 320
+    },
+    "2025-05/2025-05-city-of-london-stop-and-search.csv": {
+      "read_rows": 150,
+      "added": 113
+    },
+    "2025-05/2025-05-metropolitan-stop-and-search.csv": {
+      "read_rows": 10688,
+      "added": 320
+    },
+    "2025-06/2025-06-btp-stop-and-search.csv": {
+      "read_rows": 1002,
+      "added": 320
+    },
+    "2025-06/2025-06-city-of-london-stop-and-search.csv": {
+      "read_rows": 147,
+      "added": 122
+    },
+    "2025-06/2025-06-metropolitan-stop-and-search.csv": {
+      "read_rows": 10663,
+      "added": 320
+    },
+    "2025-07/2025-07-btp-stop-and-search.csv": {
+      "read_rows": 889,
+      "added": 320
+    },
+    "2025-07/2025-07-city-of-london-stop-and-search.csv": {
+      "read_rows": 122,
+      "added": 106
+    },
+    "2025-07/2025-07-metropolitan-stop-and-search.csv": {
+      "read_rows": 11254,
+      "added": 320
+    },
+    "2025-08/2025-08-btp-stop-and-search.csv": {
+      "read_rows": 1074,
+      "added": 320
+    },
+    "2025-08/2025-08-city-of-london-stop-and-search.csv": {
+      "read_rows": 362,
+      "added": 293
+    },
+    "2025-08/2025-08-metropolitan-stop-and-search.csv": {
+      "read_rows": 14899,
+      "added": 320
+    },
+    "2025-09/2025-09-btp-stop-and-search.csv": {
+      "read_rows": 745,
+      "added": 305
+    },
+    "2025-09/2025-09-city-of-london-stop-and-search.csv": {
+      "read_rows": 111,
+      "added": 89
+    },
+    "2025-09/2025-09-metropolitan-stop-and-search.csv": {
+      "read_rows": 11151,
+      "added": 320
+    },
+    "2025-10/2025-10-btp-stop-and-search.csv": {
+      "read_rows": 991,
+      "added": 320
+    },
+    "2025-10/2025-10-city-of-london-stop-and-search.csv": {
+      "read_rows": 111,
+      "added": 95
+    },
+    "2025-10/2025-10-metropolitan-stop-and-search.csv": {
+      "read_rows": 11749,
+      "added": 320
+    },
+    "2025-11/2025-11-btp-stop-and-search.csv": {
+      "read_rows": 1070,
+      "added": 320
+    },
+    "2025-11/2025-11-city-of-london-stop-and-search.csv": {
+      "read_rows": 113,
+      "added": 97
+    },
+    "2025-11/2025-11-metropolitan-stop-and-search.csv": {
+      "read_rows": 12355,
+      "added": 320
+    },
+    "2025-12/2025-12-btp-stop-and-search.csv": {
+      "read_rows": 994,
+      "added": 320
+    },
+    "2025-12/2025-12-city-of-london-stop-and-search.csv": {
+      "read_rows": 98,
+      "added": 86
+    },
+    "2025-12/2025-12-metropolitan-stop-and-search.csv": {
+      "read_rows": 11861,
+      "added": 320
+    },
+    "2026-01/2026-01-btp-stop-and-search.csv": {
+      "read_rows": 1024,
+      "added": 320
+    },
+    "2026-01/2026-01-city-of-london-stop-and-search.csv": {
+      "read_rows": 111,
+      "added": 94
+    },
+    "2026-01/2026-01-metropolitan-stop-and-search.csv": {
+      "read_rows": 12295,
+      "added": 320
+    },
+    "2026-02/2026-02-btp-stop-and-search.csv": {
+      "read_rows": 939,
+      "added": 320
+    },
+    "2026-02/2026-02-city-of-london-stop-and-search.csv": {
+      "read_rows": 111,
+      "added": 91
+    },
+    "2026-02/2026-02-metropolitan-stop-and-search.csv": {
+      "read_rows": 11734,
+      "added": 320
+    },
+    "2026-03/2026-03-btp-stop-and-search.csv": {
+      "read_rows": 1103,
+      "added": 320
+    },
+    "2026-03/2026-03-city-of-london-stop-and-search.csv": {
+      "read_rows": 167,
+      "added": 128
+    }
+  },
+  "sampled_per_month_force": {
+    "2023-04|British Transport Police": 320,
+    "2023-04|City of London Police": 163,
+    "2023-03|Metropolitan Police Service": 26,
+    "2023-04|Metropolitan Police Service": 320,
+    "2023-05|British Transport Police": 320,
+    "2023-05|City of London Police": 175,
+    "2023-05|Metropolitan Police Service": 320,
+    "2023-06|British Transport Police": 320,
+    "2023-06|City of London Police": 128,
+    "2023-06|Metropolitan Police Service": 320,
+    "2023-07|British Transport Police": 320,
+    "2023-07|City of London Police": 175,
+    "2023-07|Metropolitan Police Service": 320,
+    "2023-08|British Transport Police": 320,
+    "2023-08|City of London Police": 185,
+    "2023-08|Metropolitan Police Service": 320,
+    "2023-09|British Transport Police": 320,
+    "2023-09|City of London Police": 152,
+    "2023-09|Metropolitan Police Service": 320,
+    "2023-10|British Transport Police": 320,
+    "2023-10|City of London Police": 181,
+    "2023-10|Metropolitan Police Service": 320,
+    "2023-11|British Transport Police": 320,
+    "2023-11|City of London Police": 152,
+    "2023-11|Metropolitan Police Service": 320,
+    "2023-12|British Transport Police": 320,
+    "2023-12|City of London Police": 147,
+    "2023-12|Metropolitan Police Service": 320,
+    "2024-01|British Transport Police": 320,
+    "2024-01|City of London Police": 161,
+    "2024-01|Metropolitan Police Service": 320,
+    "2024-02|British Transport Police": 320,
+    "2024-02|City of London Police": 119,
+    "2024-02|Metropolitan Police Service": 320,
+    "2024-03|British Transport Police": 320,
+    "2024-03|City of London Police": 166,
+    "2024-03|Metropolitan Police Service": 320,
+    "2024-04|British Transport Police": 320,
+    "2024-04|City of London Police": 181,
+    "2024-04|Metropolitan Police Service": 320,
+    "2024-05|British Transport Police": 320,
+    "2024-05|City of London Police": 195,
+    "2024-05|Metropolitan Police Service": 320,
+    "2024-06|British Transport Police": 320,
+    "2024-06|City of London Police": 153,
+    "2024-06|Metropolitan Police Service": 320,
+    "2024-07|British Transport Police": 320,
+    "2024-07|City of London Police": 169,
+    "2024-07|Metropolitan Police Service": 320,
+    "2024-08|British Transport Police": 320,
+    "2024-08|City of London Police": 195,
+    "2024-08|Metropolitan Police Service": 320,
+    "2024-09|British Transport Police": 320,
+    "2024-09|City of London Police": 140,
+    "2024-09|Metropolitan Police Service": 320,
+    "2024-10|British Transport Police": 320,
+    "2024-10|City of London Police": 108,
+    "2024-10|Metropolitan Police Service": 320,
+    "2024-11|British Transport Police": 320,
+    "2024-11|City of London Police": 164,
+    "2024-11|Metropolitan Police Service": 320,
+    "2024-12|British Transport Police": 320,
+    "2024-12|City of London Police": 93,
+    "2024-12|Metropolitan Police Service": 320,
+    "2025-01|British Transport Police": 320,
+    "2025-01|City of London Police": 116,
+    "2025-01|Metropolitan Police Service": 320,
+    "2025-02|British Transport Police": 320,
+    "2025-02|City of London Police": 93,
+    "2025-02|Metropolitan Police Service": 320,
+    "2025-03|British Transport Police": 320,
+    "2025-03|City of London Police": 121,
+    "2025-03|Metropolitan Police Service": 320,
+    "2025-04|British Transport Police": 320,
+    "2025-04|City of London Police": 115,
+    "2025-04|Metropolitan Police Service": 320,
+    "2025-05|British Transport Police": 320,
+    "2025-05|City of London Police": 113,
+    "2025-05|Metropolitan Police Service": 320,
+    "2025-06|British Transport Police": 320,
+    "2025-06|City of London Police": 123,
+    "2025-06|Metropolitan Police Service": 320,
+    "2025-07|British Transport Police": 320,
+    "2025-07|City of London Police": 105,
+    "2025-07|Metropolitan Police Service": 320,
+    "2025-08|British Transport Police": 320,
+    "2025-08|City of London Police": 293,
+    "2025-08|Metropolitan Police Service": 320,
+    "2025-09|British Transport Police": 305,
+    "2025-09|City of London Police": 89,
+    "2025-09|Metropolitan Police Service": 320,
+    "2025-10|British Transport Police": 320,
+    "2025-10|City of London Police": 95,
+    "2025-10|Metropolitan Police Service": 320,
+    "2025-11|British Transport Police": 320,
+    "2025-11|City of London Police": 97,
+    "2025-11|Metropolitan Police Service": 320,
+    "2025-12|British Transport Police": 320,
+    "2025-12|City of London Police": 86,
+    "2025-12|Metropolitan Police Service": 320,
+    "2026-01|British Transport Police": 320,
+    "2026-01|City of London Police": 94,
+    "2026-01|Metropolitan Police Service": 320,
+    "2026-02|British Transport Police": 320,
+    "2026-02|City of London Police": 91,
+    "2026-02|Metropolitan Police Service": 320,
+    "2026-03|British Transport Police": 320,
+    "2026-03|City of London Police": 128
+  },
+  "privacy_minimization": "Adapter does not persist gender, age range, self-defined ethnicity, officer-defined ethnicity, operation name, or exact timestamp.",
+  "skipped_without_point": 14885,
+  "skipped_without_date": 0,
+  "skipped_future_date": 0,
+  "event_count": 27792
+}

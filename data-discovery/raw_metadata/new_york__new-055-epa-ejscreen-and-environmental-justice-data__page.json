@@ -1,0 +1,16 @@
+{
+  "source_id": "new-055-epa-ejscreen-and-environmental-justice-data",
+  "city": "new_york",
+  "title": "EPA EJScreen and environmental justice data",
+  "publisher": "U.S. Environmental Protection Agency",
+  "bucket": "environment; demographics",
+  "retrieved_at": "2026-04-28T12:21:32.662161+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.epa.gov/ejscreen/download-ejscreen-data",
+      "retrieved_at": "2026-04-28T12:21:32.455293+00:00",
+      "status": null,
+      "error": "NetworkError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+    }
+  ]
+}

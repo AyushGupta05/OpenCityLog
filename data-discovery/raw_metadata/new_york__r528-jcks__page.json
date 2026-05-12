@@ -1,0 +1,1174 @@
+{
+  "source_id": "r528-jcks",
+  "city": "new_york",
+  "title": "Sidewalk Weekly Construction Schedule",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "sidewalk/public realm/construction",
+  "retrieved_at": "2026-04-28T12:58:15.926102+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/r528-jcks",
+      "retrieved_at": "2026-04-28T12:58:14.521865+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/r528-jcks",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 10690,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Sidewalk Weekly Construction Schedule",
+      "description": "Sidewalk schedule to install, maintain and repair sidewalks, curbs and pedestrian ramps.\nhttps://www.nyc.gov/html/dot/html/motorist/resurfintro.shtml",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1509544667,
+      "json_sample": {
+        "id": "r528-jcks",
+        "name": "Sidewalk Weekly Construction Schedule",
+        "assetType": "dataset",
+        "attribution": "Department of Transportation (DOT)",
+        "attributionLink": "http://www.nyc.gov/html/dot/html/motorist/resurfintro.shtml",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1414006935,
+        "description": "Sidewalk schedule to install, maintain and repair sidewalks, curbs and pedestrian ramps.\nhttps://www.nyc.gov/html/dot/html/motorist/resurfintro.shtml",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 3216,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1542213871,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 27147790,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1509544842,
+        "publicationGroup": 1823276,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1509544667,
+        "tableId": 14583129,
+        "totalTimesRated": 0,
+        "viewCount": 3875,
+        "viewLastModified": 1772553881,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1509544842,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1069059,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1509544842,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 327919802,
+            "name": "Borough",
+            "dataTypeName": "text",
+            "description": "Borough\n",
+            "fieldName": "borough",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 22524768,
+            "width": 171,
+            "cachedContents": {
+              "largest": "Staten Island",
+              "non_null": "22",
+              "null": "53",
+              "top": [
+                {
+                  "item": "Manhattan",
+                  "count": "3"
+                },
+                {
+                  "item": "Staten Island",
+                  "count": "3"
+                },
+                {
+                  "item": "Queens",
+                  "count": "2"
+                },
+                {
+                  "item": "Manhattan/Bronx",
+                  "count": "2"
+                },
+                {
+                  "item": "\"",
+                  "count": "2"
+                },
+                {
+                  "item": "Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Bronx",
+                  "count": "2"
+                },
+                {
+                  "item": "Citywide",
+                  "count": "1"
+                },
+                {
+                  "item": "Sidewalk Contracts:",
+                  "count": "1"
+                },
+                {
+                  "item": "Bus Pad",
+                  "count": "1"
+                },
+                {
+                  "item": "Curb - Citywide",
+                  "count": "1"
+                },
+                {
+                  "item": "Pedestrian Ramp Upgrade Contracts:",
+                  "count": "1"
+                },
+                {
+                  "item": "Pedestrian Ramp New Installation Contracts:",
+                  "count": "1"
+                }
+              ],
+              "smallest": "\"",
+              "count": "75",
+              "cardinality": "13"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 327919803,
+            "name": "Contract No",
+            "dataTypeName": "text",
+            "description": "The City contract for the work\n",
+            "fieldName": "cb",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 22524769,
+            "width": 124,
+            "cachedContents": {
+              "largest": "Simple Complex HWP15RSC",
+              "non_null": "29",
+              "null": "46",
+              "top": [
+                {
+                  "item": "HWS2016R2",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2017Q1",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14MTA",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016Q1",
+                  "count": "1"
+                },
+                {
+                  "item": "Landmark HWP2013LM",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR17CW",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP15QTA",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016XM",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14MLM",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016R1",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14QTA",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016M",
+                  "count": "1"
+                },
+                {
+                  "item": "Simple Complex HWP15RSC",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR16M",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14RTA",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP16KC",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP2013MX",
+                  "count": "1"
+                },
+                {
+                  "item": "Landmark HWP14RLM",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP16MTAL",
+                  "count": "1"
+                },
+                {
+                  "item": "Landmark HWP15XMCL",
+                  "count": "1"
+                }
+              ],
+              "smallest": "Complex HWP14MLM",
+              "count": "75",
+              "cardinality": "29"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 327919804,
+            "name": "CB",
+            "dataTypeName": "text",
+            "description": "Community District\n",
+            "fieldName": "contract_no",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 22524770,
+            "width": 163,
+            "cachedContents": {
+              "largest": "9",
+              "non_null": "54",
+              "null": "21",
+              "top": [
+                {
+                  "item": "2",
+                  "count": "15"
+                },
+                {
+                  "item": "7(X)",
+                  "count": "7"
+                },
+                {
+                  "item": "1",
+                  "count": "6"
+                },
+                {
+                  "item": "7",
+                  "count": "5"
+                },
+                {
+                  "item": "8",
+                  "count": "4"
+                },
+                {
+                  "item": "9",
+                  "count": "4"
+                },
+                {
+                  "item": "3",
+                  "count": "3"
+                },
+                {
+                  "item": "6(M)",
+                  "count": "2"
+                },
+                {
+                  "item": "6",
+                  "count": "2"
+                },
+                {
+                  "item": "11",
+                  "count": "2"
+                },
+                {
+                  "item": "12",
+                  "count": "1"
+                },
+                {
+                  "item": "3,6,7,8,9",
+                  "count": "1"
+                },
+                {
+                  "item": "7(M)",
+                  "count": "1"
+                },
+                {
+                  "item": "13",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "75",
+              "cardinality": "14"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 327919805,
+            "name": "Location",
+            "dataTypeName": "text",
+            "description": "Description of the work location\n",
+            "fieldName": "location",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 22524771,
+            "width": 288,
+            "cachedContents": {
+              "largest": "Visitation Pl and Richards St",
+              "non_null": "72",
+              "null": "3",
+              "top": [
+                {
+                  "item": "Construction has not yet started",
+                  "count": "6"
+                },
+                {
+                  "item": "No Contract",
+                  "count": "4"
+                },
+                {
+                  "item": "Contract has not yet started",
+                  "count": "4"
+                },
+                {
+                  "item": "No Work Scheduled",
+                  "count": "2"
+                },
+                {
+                  "item": "Jamaica Ave and 126th St",
+                  "count": "1"
+                },
+                {
+                  "item": "SEC E. 30 St & 2 Ave",
+                  "count": "1"
+                },
+                {
+                  "item": "SWC, NWC, SEC of Christopher St and Waverly Pl",
+                  "count": "1"
+                },
+                {
+                  "item": "1-3 Family Properties",
+                  "count": "1"
+                },
+                {
+                  "item": "NYCHA Construction - Housing Development \"Wycoff Houses\"",
+                  "count": "1"
+                },
+                {
+                  "item": "NWC E. Gun Hill Rd & Putnam Pl",
+                  "count": "1"
+                },
+                {
+                  "item": "NEC of North Borden Ave & 30 St",
+                  "count": "1"
+                },
+                {
+                  "item": "NEC, SEC,  NWC of Bedford St and Morton St",
+                  "count": "1"
+                },
+                {
+                  "item": "SEC E 73 St and Lexington Ave",
+                  "count": "1"
+                },
+                {
+                  "item": "1 - 3 family houses",
+                  "count": "1"
+                },
+                {
+                  "item": "Jamaica Ave and 95th St",
+                  "count": "1"
+                },
+                {
+                  "item": "Bond St and Pacific St",
+                  "count": "1"
+                },
+                {
+                  "item": "NWC of Shiloh Ave & Little Neck Pkwy",
+                  "count": "1"
+                },
+                {
+                  "item": "NYCHA Construction - Housing Development \"Smith Houses\"",
+                  "count": "1"
+                },
+                {
+                  "item": "Columbia St and W 9th St",
+                  "count": "1"
+                },
+                {
+                  "item": "SEC of Westervelt Ave and, Richmond Terr",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1 - 3 family houses",
+              "count": "75",
+              "cardinality": "60"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Sidewalk_Weekly_Construction_Schedule.xlsx",
+              "assetId": "1437eb59-6441-4209-8a19-ed04427f9888",
+              "name": "Data-Dictionary-Sidewalk_Weekly_Construction_Schedule.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "10/22/2014",
+              "Update Frequency": "Other"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowLabel": "Sidewalk Weekly Contruction Schedule",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "table": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "sidewalk; curb; pedestrian; ramp; pedramp",
+          "2018od4a-video"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/r528-jcks",
+      "retrieved_at": "2026-04-28T12:58:15.101029+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/r528-jcks",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 10690,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Sidewalk Weekly Construction Schedule",
+      "description": "Sidewalk schedule to install, maintain and repair sidewalks, curbs and pedestrian ramps.\nhttps://www.nyc.gov/html/dot/html/motorist/resurfintro.shtml",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1509544667,
+      "json_sample": {
+        "id": "r528-jcks",
+        "name": "Sidewalk Weekly Construction Schedule",
+        "assetType": "dataset",
+        "attribution": "Department of Transportation (DOT)",
+        "attributionLink": "http://www.nyc.gov/html/dot/html/motorist/resurfintro.shtml",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1414006935,
+        "description": "Sidewalk schedule to install, maintain and repair sidewalks, curbs and pedestrian ramps.\nhttps://www.nyc.gov/html/dot/html/motorist/resurfintro.shtml",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 3216,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1542213871,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 27147790,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1509544842,
+        "publicationGroup": 1823276,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1509544667,
+        "tableId": 14583129,
+        "totalTimesRated": 0,
+        "viewCount": 3875,
+        "viewLastModified": 1772553881,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1509544842,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1069059,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1509544842,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 327919802,
+            "name": "Borough",
+            "dataTypeName": "text",
+            "description": "Borough\n",
+            "fieldName": "borough",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 22524768,
+            "width": 171,
+            "cachedContents": {
+              "largest": "Staten Island",
+              "non_null": "22",
+              "null": "53",
+              "top": [
+                {
+                  "item": "Manhattan",
+                  "count": "3"
+                },
+                {
+                  "item": "Staten Island",
+                  "count": "3"
+                },
+                {
+                  "item": "Queens",
+                  "count": "2"
+                },
+                {
+                  "item": "Manhattan/Bronx",
+                  "count": "2"
+                },
+                {
+                  "item": "\"",
+                  "count": "2"
+                },
+                {
+                  "item": "Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Bronx",
+                  "count": "2"
+                },
+                {
+                  "item": "Citywide",
+                  "count": "1"
+                },
+                {
+                  "item": "Sidewalk Contracts:",
+                  "count": "1"
+                },
+                {
+                  "item": "Bus Pad",
+                  "count": "1"
+                },
+                {
+                  "item": "Curb - Citywide",
+                  "count": "1"
+                },
+                {
+                  "item": "Pedestrian Ramp Upgrade Contracts:",
+                  "count": "1"
+                },
+                {
+                  "item": "Pedestrian Ramp New Installation Contracts:",
+                  "count": "1"
+                }
+              ],
+              "smallest": "\"",
+              "count": "75",
+              "cardinality": "13"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 327919803,
+            "name": "Contract No",
+            "dataTypeName": "text",
+            "description": "The City contract for the work\n",
+            "fieldName": "cb",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 22524769,
+            "width": 124,
+            "cachedContents": {
+              "largest": "Simple Complex HWP15RSC",
+              "non_null": "29",
+              "null": "46",
+              "top": [
+                {
+                  "item": "HWS2016R2",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2017Q1",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14MTA",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016Q1",
+                  "count": "1"
+                },
+                {
+                  "item": "Landmark HWP2013LM",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR17CW",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP15QTA",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016XM",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14MLM",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016R1",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14QTA",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016M",
+                  "count": "1"
+                },
+                {
+                  "item": "Simple Complex HWP15RSC",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR16M",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP14RTA",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP16KC",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP2013MX",
+                  "count": "1"
+                },
+                {
+                  "item": "Landmark HWP14RLM",
+                  "count": "1"
+                },
+                {
+                  "item": "Complex HWP16MTAL",
+                  "count": "1"
+                },
+                {
+                  "item": "Landmark HWP15XMCL",
+                  "count": "1"
+                }
+              ],
+              "smallest": "Complex HWP14MLM",
+              "count": "75",
+              "cardinality": "29"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 327919804,
+            "name": "CB",
+            "dataTypeName": "text",
+            "description": "Community District\n",
+            "fieldName": "contract_no",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 22524770,
+            "width": 163,
+            "cachedContents": {
+              "largest": "9",
+              "non_null": "54",
+              "null": "21",
+              "top": [
+                {
+                  "item": "2",
+                  "count": "15"
+                },
+                {
+                  "item": "7(X)",
+                  "count": "7"
+                },
+                {
+                  "item": "1",
+                  "count": "6"
+                },
+                {
+                  "item": "7",
+                  "count": "5"
+                },
+                {
+                  "item": "8",
+                  "count": "4"
+                },
+                {
+                  "item": "9",
+                  "count": "4"
+                },
+                {
+                  "item": "3",
+                  "count": "3"
+                },
+                {
+                  "item": "6(M)",
+                  "count": "2"
+                },
+                {
+                  "item": "6",
+                  "count": "2"
+                },
+                {
+                  "item": "11",
+                  "count": "2"
+                },
+                {
+                  "item": "12",
+                  "count": "1"
+                },
+                {
+                  "item": "3,6,7,8,9",
+                  "count": "1"
+                },
+                {
+                  "item": "7(M)",
+                  "count": "1"
+                },
+                {
+                  "item": "13",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1",
+              "count": "75",
+              "cardinality": "14"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 327919805,
+            "name": "Location",
+            "dataTypeName": "text",
+            "description": "Description of the work location\n",
+            "fieldName": "location",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 22524771,
+            "width": 288,
+            "cachedContents": {
+              "largest": "Visitation Pl and Richards St",
+              "non_null": "72",
+              "null": "3",
+              "top": [
+                {
+                  "item": "Construction has not yet started",
+                  "count": "6"
+                },
+                {
+                  "item": "No Contract",
+                  "count": "4"
+                },
+                {
+                  "item": "Contract has not yet started",
+                  "count": "4"
+                },
+                {
+                  "item": "No Work Scheduled",
+                  "count": "2"
+                },
+                {
+                  "item": "Jamaica Ave and 126th St",
+                  "count": "1"
+                },
+                {
+                  "item": "SEC E. 30 St & 2 Ave",
+                  "count": "1"
+                },
+                {
+                  "item": "SWC, NWC, SEC of Christopher St and Waverly Pl",
+                  "count": "1"
+                },
+                {
+                  "item": "1-3 Family Properties",
+                  "count": "1"
+                },
+                {
+                  "item": "NYCHA Construction - Housing Development \"Wycoff Houses\"",
+                  "count": "1"
+                },
+                {
+                  "item": "NWC E. Gun Hill Rd & Putnam Pl",
+                  "count": "1"
+                },
+                {
+                  "item": "NEC of North Borden Ave & 30 St",
+                  "count": "1"
+                },
+                {
+                  "item": "NEC, SEC,  NWC of Bedford St and Morton St",
+                  "count": "1"
+                },
+                {
+                  "item": "SEC E 73 St and Lexington Ave",
+                  "count": "1"
+                },
+                {
+                  "item": "1 - 3 family houses",
+                  "count": "1"
+                },
+                {
+                  "item": "Jamaica Ave and 95th St",
+                  "count": "1"
+                },
+                {
+                  "item": "Bond St and Pacific St",
+                  "count": "1"
+                },
+                {
+                  "item": "NWC of Shiloh Ave & Little Neck Pkwy",
+                  "count": "1"
+                },
+                {
+                  "item": "NYCHA Construction - Housing Development \"Smith Houses\"",
+                  "count": "1"
+                },
+                {
+                  "item": "Columbia St and W 9th St",
+                  "count": "1"
+                },
+                {
+                  "item": "SEC of Westervelt Ave and, Richmond Terr",
+                  "count": "1"
+                }
+              ],
+              "smallest": "1 - 3 family houses",
+              "count": "75",
+              "cardinality": "60"
+            },
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Sidewalk_Weekly_Construction_Schedule.xlsx",
+              "assetId": "1437eb59-6441-4209-8a19-ed04427f9888",
+              "name": "Data-Dictionary-Sidewalk_Weekly_Construction_Schedule.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "10/22/2014",
+              "Update Frequency": "Other"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "rowLabel": "Sidewalk Weekly Contruction Schedule",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ],
+          "renderTypeConfig": {
+            "visible": {
+              "table": true
+            }
+          }
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "sidewalk; curb; pedestrian; ramp; pedramp",
+          "2018od4a-video"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/r528-jcks.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:58:15.643331+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/r528-jcks.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Wed, 14 Nov 2018 17:42:55 GMT",
+      "etag": "W/\"Zm94dHJvdC4xNTgzMF8xXzE2VTBBLWt6TjNYSGxZV1pqQlduUVJhclRHQk5N--gziog4WIQdLeKYCiEAjq4Rl-hKUmKD---gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 49,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "borough",
+        "location"
+      ],
+      "json_sample": [
+        {
+          "borough": "Bus Pad",
+          "location": "No Contract"
+        }
+      ]
+    }
+  ]
+}

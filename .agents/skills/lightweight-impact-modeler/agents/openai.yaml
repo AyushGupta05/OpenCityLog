@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lightweight Impact Modeler"
+  short_description: "Design analogue-based impact lookup"
+  default_prompt: "Use $lightweight-impact-modeler to turn this proposal-impact idea into analogue lookup with confidence and caveats."

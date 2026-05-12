@@ -1,0 +1,52 @@
+{
+  "status": "pass",
+  "cities": [
+    {
+      "city": "london",
+      "source_count": 125,
+      "event_seed_count": 6597,
+      "bucket_hits": {
+        "boundaries_geography": 22,
+        "basemap_physical_features": 9,
+        "planning_development": 48,
+        "housing_delivery": 6,
+        "transport_mobility": 26,
+        "environment_air_quality": 29,
+        "demographics_socioeconomic": 6,
+        "economy_business": 11,
+        "public_services_civic_assets": 9,
+        "policy_governance": 49,
+        "imagery_historical": 22,
+        "source_provenance": 47
+      },
+      "issues": []
+    },
+    {
+      "city": "new_york",
+      "source_count": 149,
+      "event_seed_count": 11453,
+      "bucket_hits": {
+        "boundaries_geography": 10,
+        "basemap_physical_features": 22,
+        "planning_development": 44,
+        "housing_delivery": 11,
+        "transport_mobility": 32,
+        "environment_air_quality": 36,
+        "demographics_socioeconomic": 10,
+        "economy_business": 11,
+        "public_services_civic_assets": 24,
+        "policy_governance": 28,
+        "imagery_historical": 34,
+        "source_provenance": 98
+      },
+      "issues": []
+    }
+  ],
+  "raw_metadata_files": 252,
+  "fetch_scripts": [
+    "scripts\\fetch_london_metadata.py",
+    "scripts\\fetch_metadata.py",
+    "scripts\\fetch_missing_metadata.py",
+    "scripts\\fetch_new_york_metadata.py"
+  ]
+}

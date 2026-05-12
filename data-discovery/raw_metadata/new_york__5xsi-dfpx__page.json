@@ -1,0 +1,773 @@
+{
+  "source_id": "5xsi-dfpx",
+  "city": "new_york",
+  "title": "Sandy Inundation Zone",
+  "publisher": "NYC SBS / NYC Open Data",
+  "bucket": "environment; disaster",
+  "retrieved_at": "2026-04-28T12:21:28.680062+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/5xsi-dfpx",
+      "retrieved_at": "2026-04-28T12:21:27.092025+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/5xsi-dfpx",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7471,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Sandy Inundation Zone",
+      "description": "Areas of New York City that were flooded as a result of Hurricane Sandy.",
+      "attribution": "Department of Small Business Services (SBS)",
+      "rowsUpdatedAt": 1447111284,
+      "json_sample": {
+        "id": "5xsi-dfpx",
+        "name": "Sandy Inundation Zone",
+        "assetType": "dataset",
+        "attribution": "Department of Small Business Services (SBS)",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1447111284,
+        "description": "Areas of New York City that were flooded as a result of Hurricane Sandy.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 2441,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1536600146,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 14645219,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationGroup": 5404588,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1447111284,
+        "tableId": 5404588,
+        "totalTimesRated": 0,
+        "viewCount": 1788,
+        "viewLastModified": 1754514390,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1447353894,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 6177565,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1447353894,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 229247172,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 1,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 32532478,
+            "format": {}
+          },
+          {
+            "id": 229247173,
+            "name": "comments",
+            "dataTypeName": "text",
+            "fieldName": "comments",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 32532479,
+            "cachedContents": {
+              "largest": "Surge extent clipped to 1000ft HSIP buffer",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Surge extent clipped to 1000ft HSIP buffer",
+                  "count": "492"
+                }
+              ],
+              "smallest": "Surge extent clipped to 1000ft HSIP buffer",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247174,
+            "name": "state",
+            "dataTypeName": "text",
+            "fieldName": "state",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 32532480,
+            "cachedContents": {
+              "largest": "New York",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "New York",
+                  "count": "492"
+                }
+              ],
+              "smallest": "New York",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247175,
+            "name": "demsource",
+            "dataTypeName": "text",
+            "fieldName": "demsource",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 32532481,
+            "cachedContents": {
+              "largest": "New York City OEM 1-meter",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "New York City OEM 1-meter",
+                  "count": "492"
+                }
+              ],
+              "smallest": "New York City OEM 1-meter",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247176,
+            "name": "id",
+            "dataTypeName": "number",
+            "fieldName": "id",
+            "position": 5,
+            "renderTypeName": "number",
+            "tableColumnId": 32532482,
+            "cachedContents": {
+              "largest": "0.0",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "0.0",
+                  "count": "492"
+                }
+              ],
+              "smallest": "0.0",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247177,
+            "name": "status",
+            "dataTypeName": "text",
+            "fieldName": "status",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 32532483,
+            "cachedContents": {
+              "largest": "Final Field-Verified High Resolution",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Final Field-Verified High Resolution",
+                  "count": "492"
+                }
+              ],
+              "smallest": "Final Field-Verified High Resolution",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247178,
+            "name": "sourcedata",
+            "dataTypeName": "text",
+            "fieldName": "sourcedata",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 32532484,
+            "cachedContents": {
+              "largest": "USGS Mission Assignment/HWM/Surge Sensor Data thru February 14, 2013",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "USGS Mission Assignment/HWM/Surge Sensor Data thru February 14, 2013",
+                  "count": "492"
+                }
+              ],
+              "smallest": "USGS Mission Assignment/HWM/Surge Sensor Data thru February 14, 2013",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247179,
+            "name": "verified",
+            "dataTypeName": "text",
+            "fieldName": "verified",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 32532485,
+            "cachedContents": {
+              "largest": "Yes",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Yes",
+                  "count": "492"
+                }
+              ],
+              "smallest": "Yes",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Sandy_Inundation_Zone.xlsx",
+              "assetId": "aae94d3c-719a-4e4c-9be9-4eb7cd79f1b8",
+              "name": "Sandy_Inundation_Zone.xlsx"
+            },
+            {
+              "filename": "NYC large polygon split up.zip",
+              "assetId": "m5GBuh7hGdUrZ3krdS75f14RSmjdd54t7R5ygYgzb58",
+              "name": "NYC large polygon split up.zip"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "11/12/2015",
+              "Update Frequency": "Historical data"
+            },
+            "Legislative Compliance": {
+              "Geo-coding Attached?": ""
+            },
+            "Dataset Information": {
+              "Agency": "Department of Small Business Services (SBS)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/5xsi-dfpx",
+      "retrieved_at": "2026-04-28T12:21:27.195459+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/5xsi-dfpx",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7471,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Sandy Inundation Zone",
+      "description": "Areas of New York City that were flooded as a result of Hurricane Sandy.",
+      "attribution": "Department of Small Business Services (SBS)",
+      "rowsUpdatedAt": 1447111284,
+      "json_sample": {
+        "id": "5xsi-dfpx",
+        "name": "Sandy Inundation Zone",
+        "assetType": "dataset",
+        "attribution": "Department of Small Business Services (SBS)",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1447111284,
+        "description": "Areas of New York City that were flooded as a result of Hurricane Sandy.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 2441,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1536600146,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 14645219,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationGroup": 5404588,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1447111284,
+        "tableId": 5404588,
+        "totalTimesRated": 0,
+        "viewCount": 1788,
+        "viewLastModified": 1754514390,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1447353894,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 6177565,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1447353894,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 229247172,
+            "name": "the_geom",
+            "dataTypeName": "multipolygon",
+            "fieldName": "the_geom",
+            "position": 1,
+            "renderTypeName": "multipolygon",
+            "tableColumnId": 32532478,
+            "format": {}
+          },
+          {
+            "id": 229247173,
+            "name": "comments",
+            "dataTypeName": "text",
+            "fieldName": "comments",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 32532479,
+            "cachedContents": {
+              "largest": "Surge extent clipped to 1000ft HSIP buffer",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Surge extent clipped to 1000ft HSIP buffer",
+                  "count": "492"
+                }
+              ],
+              "smallest": "Surge extent clipped to 1000ft HSIP buffer",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247174,
+            "name": "state",
+            "dataTypeName": "text",
+            "fieldName": "state",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 32532480,
+            "cachedContents": {
+              "largest": "New York",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "New York",
+                  "count": "492"
+                }
+              ],
+              "smallest": "New York",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247175,
+            "name": "demsource",
+            "dataTypeName": "text",
+            "fieldName": "demsource",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 32532481,
+            "cachedContents": {
+              "largest": "New York City OEM 1-meter",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "New York City OEM 1-meter",
+                  "count": "492"
+                }
+              ],
+              "smallest": "New York City OEM 1-meter",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247176,
+            "name": "id",
+            "dataTypeName": "number",
+            "fieldName": "id",
+            "position": 5,
+            "renderTypeName": "number",
+            "tableColumnId": 32532482,
+            "cachedContents": {
+              "largest": "0.0",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "0.0",
+                  "count": "492"
+                }
+              ],
+              "smallest": "0.0",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247177,
+            "name": "status",
+            "dataTypeName": "text",
+            "fieldName": "status",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 32532483,
+            "cachedContents": {
+              "largest": "Final Field-Verified High Resolution",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Final Field-Verified High Resolution",
+                  "count": "492"
+                }
+              ],
+              "smallest": "Final Field-Verified High Resolution",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247178,
+            "name": "sourcedata",
+            "dataTypeName": "text",
+            "fieldName": "sourcedata",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 32532484,
+            "cachedContents": {
+              "largest": "USGS Mission Assignment/HWM/Surge Sensor Data thru February 14, 2013",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "USGS Mission Assignment/HWM/Surge Sensor Data thru February 14, 2013",
+                  "count": "492"
+                }
+              ],
+              "smallest": "USGS Mission Assignment/HWM/Surge Sensor Data thru February 14, 2013",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          },
+          {
+            "id": 229247179,
+            "name": "verified",
+            "dataTypeName": "text",
+            "fieldName": "verified",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 32532485,
+            "cachedContents": {
+              "largest": "Yes",
+              "non_null": "492",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Yes",
+                  "count": "492"
+                }
+              ],
+              "smallest": "Yes",
+              "count": "492",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Sandy_Inundation_Zone.xlsx",
+              "assetId": "aae94d3c-719a-4e4c-9be9-4eb7cd79f1b8",
+              "name": "Sandy_Inundation_Zone.xlsx"
+            },
+            {
+              "filename": "NYC large polygon split up.zip",
+              "assetId": "m5GBuh7hGdUrZ3krdS75f14RSmjdd54t7R5ygYgzb58",
+              "name": "NYC large polygon split up.zip"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "11/12/2015",
+              "Update Frequency": "Historical data"
+            },
+            "Legislative Compliance": {
+              "Geo-coding Attached?": ""
+            },
+            "Dataset Information": {
+              "Agency": "Department of Small Business Services (SBS)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/5xsi-dfpx.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:21:27.805898+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/5xsi-dfpx.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 09 Nov 2015 23:21:44 GMT",
+      "etag": "W/\"Zm94dHJvdC4zOTM0OV8xXzExbnJRN0s3aXpsS0JHeHBWRlZiLWlhN0dZNnE4---gzipXDi7NZjZJP1YJUyKSrbo_LO_bHM--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 57532,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "comments",
+        "demsource",
+        "id",
+        "sourcedata",
+        "state",
+        "status",
+        "the_geom",
+        "verified"
+      ],
+      "json_sample": null
+    }
+  ]
+}

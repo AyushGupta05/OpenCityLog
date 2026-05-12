@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_nomis",
+  "title": "Nomis official labour market and Census datasets",
+  "requested_url": "https://www.nomisweb.co.uk/api/v01/help",
+  "fetched_url": "https://www.nomisweb.co.uk/api/v01/help",
+  "final_url": "https://www.nomisweb.co.uk/api/v01/help",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:10.490269+00:00",
+  "page_title": "API - Nomis - Official Census and Labour Market Statistics",
+  "h1": "Cookie Consent",
+  "meta_description": "nomis - official labour market statistics"
+}

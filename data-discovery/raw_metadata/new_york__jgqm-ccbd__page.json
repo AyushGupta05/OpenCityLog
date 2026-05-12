@@ -1,0 +1,566 @@
+{
+  "source_id": "jgqm-ccbd",
+  "city": "new_york",
+  "title": "City Council Districts, Water Areas Included",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "boundaries/council districts/water",
+  "retrieved_at": "2026-04-28T13:00:26.895984+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/jgqm-ccbd",
+      "retrieved_at": "2026-04-28T13:00:25.352519+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/jgqm-ccbd",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5838,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "previewImageId",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "City Council Districts (water areas included)",
+      "description": "GIS data: Boundaries of City Council Districts (water areas included).\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089459,
+      "json_sample": {
+        "id": "jgqm-ccbd",
+        "name": "City Council Districts (water areas included)",
+        "assetType": "map",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/city-council",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1366309604,
+        "description": "GIS data: Boundaries of City Council Districts (water areas included).\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 691,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1568130448,
+        "locked": false,
+        "modifyingViewUid": "mkqi-d8x3",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 15699808,
+        "previewImageId": "854d1fac-e90b-4e6c-9b43-184055103d34",
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1468863789,
+        "publicationGroup": 13037105,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089459,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 19173286,
+        "totalTimesRated": 0,
+        "viewCount": 2969,
+        "viewLastModified": 1730492555,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1468863789,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1065644,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1468863789,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.97937826185733,
+                      "lat": 40.69751752655921
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7000090638712,
+                    "searchBoundaryUpperLeftLongitude": -74.25874745984346,
+                    "searchBoundaryUpperLeftLatitude": 40.917661808859364,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.47737324425906
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "mapFlyoutTitleColumnName": "coun_dist",
+                      "mapType": "boundaryMap",
+                      "additionalFlyoutColumns": [
+                        "shape_leng",
+                        "shape_area"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "domain": "data.cityofnewyork.us",
+                      "name": "nyccwi",
+                      "source": "nyccwi",
+                      "type": "socrata.soql",
+                      "datasetUid": "mkqi-d8x3",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "origin": {
+                  "type": "visualization_canvas",
+                  "url": "https://data.cityofnewyork.us/d/jgqm-ccbd"
+                },
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 3
+                },
+                "description": "",
+                "id": "1b9a73be-a1ad-4631-b5a9-7a06cff59b13",
+                "title": ""
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "4/18/2013",
+              "Update Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "city council districts (water areas included)",
+          "dcp",
+          "gis",
+          "map"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/jgqm-ccbd",
+      "retrieved_at": "2026-04-28T13:00:25.648021+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/jgqm-ccbd",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 5838,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "previewImageId",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "City Council Districts (water areas included)",
+      "description": "GIS data: Boundaries of City Council Districts (water areas included).\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1773089459,
+      "json_sample": {
+        "id": "jgqm-ccbd",
+        "name": "City Council Districts (water areas included)",
+        "assetType": "map",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/city-council",
+        "averageRating": 0,
+        "category": "City Government",
+        "createdAt": 1366309604,
+        "description": "GIS data: Boundaries of City Council Districts (water areas included).\r\n\r\nAll previously released versions of this data are available at <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/bytes-archive.page?sorts[year]=0\">BYTES of the BIG APPLE- Archive</a>",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 691,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1568130448,
+        "locked": false,
+        "modifyingViewUid": "mkqi-d8x3",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 15699808,
+        "previewImageId": "854d1fac-e90b-4e6c-9b43-184055103d34",
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1468863789,
+        "publicationGroup": 13037105,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1773089459,
+        "rowsUpdatedBy": "iqqb-gm94",
+        "tableId": 19173286,
+        "totalTimesRated": 0,
+        "viewCount": 2969,
+        "viewLastModified": 1730492555,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1468863789,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1065644,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1468863789,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -73.97937826185733,
+                      "lat": 40.69751752655921
+                    },
+                    "zoom": 8
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.7000090638712,
+                    "searchBoundaryUpperLeftLongitude": -74.25874745984346,
+                    "searchBoundaryUpperLeftLatitude": 40.917661808859364,
+                    "navigationControl": true,
+                    "basemapStyle": "mapbox://styles/mapbox/basic-v9",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.47737324425906
+                  },
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "panAndZoom": true,
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "mapFlyoutTitleColumnName": "coun_dist",
+                      "mapType": "boundaryMap",
+                      "additionalFlyoutColumns": [
+                        "shape_leng",
+                        "shape_area"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "domain": "data.cityofnewyork.us",
+                      "name": "nyccwi",
+                      "source": "nyccwi",
+                      "type": "socrata.soql",
+                      "datasetUid": "mkqi-d8x3",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "origin": {
+                  "type": "visualization_canvas",
+                  "url": "https://data.cityofnewyork.us/d/jgqm-ccbd"
+                },
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 3
+                },
+                "description": "",
+                "id": "1b9a73be-a1ad-4631-b5a9-7a06cff59b13",
+                "title": ""
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "4/18/2013",
+              "Update Frequency": "Quarterly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "city council districts (water areas included)",
+          "dcp",
+          "gis",
+          "map"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/jgqm-ccbd.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:26.234753+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/jgqm-ccbd.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 09 Mar 2026 20:50:59 GMT",
+      "etag": "W/\"Zm94dHJvdC41Mzc1N18yNF8yNjdiSENhNHJfOGVNN1FPdDItcUppakN5N3VwNDA--gzik_qLofFMMJ_itS6l-g9lLa2BuJE---gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 5,
+      "json_list_count_captured": 1,
+      "sample_keys": [],
+      "json_sample": [
+        {}
+      ]
+    }
+  ]
+}

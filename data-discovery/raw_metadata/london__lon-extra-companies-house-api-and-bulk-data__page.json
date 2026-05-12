@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-companies-house-api-and-bulk-data",
+  "city": "london",
+  "title": "Companies House API and bulk data",
+  "publisher": "Companies House",
+  "bucket": "economy/businesses",
+  "retrieved_at": "2026-04-28T12:57:24.251680+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://developer.company-information.service.gov.uk/",
+      "retrieved_at": "2026-04-28T12:57:23.987699+00:00",
+      "final_url": "https://developer.company-information.service.gov.uk/",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 18732,
+      "page_title": "Developer Hub Home GOV.UK",
+      "h1": "Companies House API overview",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html class=\"govuk-template govuk-template__rebranded\" lang=\"en\"> <head> <meta charset=\"UTF-8\"> <meta content=\"width=device-width, initial-scale=1, viewport-fit=cover\" name=\"viewport\"/> <title>Developer Hub Home</title> <!--[if lte IE 8]> <link href=\"@{{cdnUrl}/stylesheets/govuk-frontend/v5.14.0/govuk-frontend-ie8-5.14.0.min.css(cdnUrl=${@environment.getProperty('cdn.url')})}\" rel=\"stylesheet\" type=\"text/css\"/> <![endif]--> <link media=\"all\" rel=\"stylesheet\" href=\"//dnk4keyu32uiq.cloudfront.net/stylesheets/govuk-frontend/v5.14.0/govuk-frontend-5.14.0.min.css\" type=\"text/css\"/> <link rel=\"stylesheet\" href=\"/css/application.css\" type=\"text/css\"/> <link rel=\"icon\" href=\"//dnk4keyu32uiq.cloudfront.net/images/govuk-frontend/v5.14.0/rebrand/favicon.ico?5.14.0\" type=\"image/png\"/> <link rel=\"icon\" href=\"//dnk4keyu32uiq.cloudfront.net/images/royal-coat-of-arms-white.png\" type=\"image/png\"/> <script> window.SERVICE_NAME = 'developer-hub' window.PIWIK_URL = \"https:\\/\\/matomo.companieshouse.gov.uk\"; window.PIWIK_SITE_ID = \"15\"; </script> </head> <body class=\"govuk-frontend-supported govuk-template__body js-enabled\"> <div hidden id=\"templateName\" data-id=\"dev-hub/home\"></div> <div id=\"skiplink-container\"> <a class=\"govuk-skip-link\" href=\"#main-content\">Skip to main content</a> </div> <div> <div id=\"cookie-banner\" class=\"govuk-cookie-banner\" role=\"region\" aria-label=\"Cookies on Companies House services\" hidden> <div id=\"accept-or-reject-message\" class=\"govuk-cookie-banner__message govuk-width-container\" hidden> <div class=\"govuk-grid-row\"> <div class=\"govuk-grid-column-two-thirds\"> <h2 class=\"govuk-cookie-banner__heading govuk-heading-m\">Cookies on Companies House services</h2> <div class=\"govuk-cookie-banner__content\"> <p class=\"govuk-body\">We use some essential cookies to make our services work.</p> <p class=\"govuk-body\">We'd also like to use analytics cookies so we can understand how you use our services and to make improvements.</p> </div> </div> </div> <div class=\"govuk-button-group\"> <button id=\"accept-cookies-button\" type=\"button\" class=\"govuk-button\" data-event-id=\"accept-analytics-cookies\" data-module=\"govuk-button\"> Accept analytics cookies </button> <button id=\"reject-cookies-button\" type=\"button\" class=\"govuk-button\" data-event-id=\"reject-analytics-cookies\" data-module=\"govuk-button\"> Reject analytics cookies </button> <a class=\"govuk-link\" data-event-id=\"view-cookies\" href=\"https://find-and-update.company-information.service.gov.uk/help/cookies\">View cookies</a> </div> </div> <div id=\"accepted-cookies-message\" class=\"govuk-cookie-banner__message govuk-width-container\" role=\"aler"
+    }
+  ]
+}

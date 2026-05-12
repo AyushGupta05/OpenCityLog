@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-real-time-flood-monitoring-api",
+  "city": "london",
+  "title": "Real Time flood-monitoring API",
+  "publisher": "Environment Agency",
+  "bucket": "flood/hydrology/environment",
+  "retrieved_at": "2026-04-28T12:57:20.727499+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://environment.data.gov.uk/flood-monitoring/doc/reference",
+      "retrieved_at": "2026-04-28T12:57:20.388380+00:00",
+      "final_url": "https://environment.data.gov.uk/flood-monitoring/doc/reference",
+      "status": 200,
+      "content_type": "text/html",
+      "last_modified": "Tue, 28 Apr 2026 12:48:23 GMT",
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 154617,
+      "page_title": "Real-time API reference",
+      "h1": "Environment Agency Real Time flood-monitoring API",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <!-- Google likes this to be in the head. It shouldn't block the page as its set to async. --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-12JL3WT6ZY\"></script> <link rel=\"stylesheet\" media=\"all\" href=\"/flood-monitoring/assets/css/ea-common.css\"/> <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --> <!-- WARNING: Respond.js doesn't work if you view the page via file:// --> <!--[if lt IE 9]> <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script> <script src=\"https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js\"></script> <![endif]--> <title> Real-time API reference </title> <link type=\"text/css\" rel=\"stylesheet\" href=\"/flood-monitoring/assets/css/highlight-default.css\"/> <link href=\"/flood-monitoring/assets/font-awesome/css/font-awesome.css\" rel=\"stylesheet\"> <link href=\"/flood-monitoring/assets/css/api.css\" rel=\"stylesheet\"> <script type=\"text/javascript\" src=\"/flood-monitoring/assets/js/jquery-1.10.2.min.js\"></script> <script src=\"/flood-monitoring/assets/js/bootstrap.min.js\"></script> <script src=\"/flood-monitoring/assets/js/ie10-viewport-bug-workaround.js\"></script> <script type=\"text/javascript\" src=\"/flood-monitoring/assets/js/highlight.pack.js\"></script> </head> <body> <script>document.documentElement.className = \"js\"</script> <a href=\"#main\" class=\"skip-link sr-only sr-only-focusable\">Skip to main content</a> <div id=\"cookie-banner\" role=\"region\" aria-label=\"cookie banner\" class=\"cookie-banner\" style=\"display:none\"> <div class=\"container\"> <div class=\"row\"> <div class=\"col\"> <h2>Tell us whether you accept cookies</h2> <p>We use essential cookies to give you the best online experience. Without them, this service will not work.<br> We also use non-essential cookies to analyse site usage to continually improve the services we provide you with.<br> Full details of cookies collected, and the functionality to change your cookie preference at any time can be accessed on our <a href=\"/cookies\">Cookie Policy Page</a>. </p> <div class=\"row cookie-banner-button-row\"> <div class=\"col-12 col-sm-5 col-lg-4\"> <button id=\"accept-all-cookies\" class=\"btn btn-primary\">Accept all cookies</button> </div> <div class=\"col-12 col-sm-5 col-lg-4\"> <a role=\"button\" class=\"btn btn-primary\" href=\"/cookies\">Set cookie preferences</a> </div> </d"
+    }
+  ]
+}

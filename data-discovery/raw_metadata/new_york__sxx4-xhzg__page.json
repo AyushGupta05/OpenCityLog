@@ -1,0 +1,1622 @@
+{
+  "source_id": "sxx4-xhzg",
+  "city": "new_york",
+  "title": "Public Recycling Bins",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "sanitation/public realm/assets",
+  "retrieved_at": "2026-04-28T12:59:02.475394+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/sxx4-xhzg",
+      "retrieved_at": "2026-04-28T12:59:00.479562+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/sxx4-xhzg",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 14941,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Public Recycling Bins",
+      "description": "Locations of public recycling bins throughout NYC. For information on what to recycle in NYC, see: https://www1.nyc.gov/assets/dsny/site/services/recycling.",
+      "attribution": "Department of Sanitation (DSNY)",
+      "rowsUpdatedAt": 1694723259,
+      "json_sample": {
+        "id": "sxx4-xhzg",
+        "name": "Public Recycling Bins",
+        "assetType": "dataset",
+        "attribution": "Department of Sanitation (DSNY)",
+        "attributionLink": "https://www1.nyc.gov/assets/dsny/site/services/recycling",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1341003072,
+        "description": "Locations of public recycling bins throughout NYC. For information on what to recycle in NYC, see: https://www1.nyc.gov/assets/dsny/site/services/recycling.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 8462,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 6,
+        "oid": 38915922,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1664915718,
+        "publicationGroup": 370782,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1694723259,
+        "tableId": 18896677,
+        "totalTimesRated": 0,
+        "viewCount": 28870,
+        "viewLastModified": 1694723258,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1371843757,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 5016662,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1371843757,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 566206156,
+            "name": "DSNY Zone",
+            "dataTypeName": "text",
+            "description": "DSNY Zones which are Brooklyn North (BKN), Brooklyn South (BKS),  Bronx (BX), Manhattan (MAN), Queens East (QE), Queens West (QW), and Staten Island (SI).",
+            "fieldName": "dsny_zone",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 3319537,
+            "width": 184,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "SI",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BKN",
+                  "count": "42"
+                },
+                {
+                  "item": "MAN",
+                  "count": "24"
+                },
+                {
+                  "item": "SI",
+                  "count": "21"
+                },
+                {
+                  "item": "BX",
+                  "count": "16"
+                },
+                {
+                  "item": "QE",
+                  "count": "14"
+                },
+                {
+                  "item": "QW",
+                  "count": "8"
+                },
+                {
+                  "item": "BKS",
+                  "count": "1"
+                }
+              ],
+              "smallest": "BKN",
+              "count": "126",
+              "cardinality": "7"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206158,
+            "name": "DSNY District",
+            "dataTypeName": "text",
+            "description": "DSNY District which contains DSNY Zone Abbreviation (BKN, BKS, BX, M, QE, QW, SI) followed by DSNY District Number. DSNY Districts are coterminous with NYC Community Districts and are written as 2 digit numbers; range is 01 to 18. ",
+            "fieldName": "dsny_district",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 143898869,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "SI03",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BKN02",
+                  "count": "39"
+                },
+                {
+                  "item": "SI02",
+                  "count": "10"
+                },
+                {
+                  "item": "SI01",
+                  "count": "8"
+                },
+                {
+                  "item": "M02",
+                  "count": "7"
+                },
+                {
+                  "item": "QW04",
+                  "count": "7"
+                },
+                {
+                  "item": "M10",
+                  "count": "5"
+                },
+                {
+                  "item": "BX06",
+                  "count": "5"
+                },
+                {
+                  "item": "QE14",
+                  "count": "5"
+                },
+                {
+                  "item": "BX08",
+                  "count": "4"
+                },
+                {
+                  "item": "BX10",
+                  "count": "4"
+                },
+                {
+                  "item": "SI03",
+                  "count": "3"
+                },
+                {
+                  "item": "M01",
+                  "count": "3"
+                },
+                {
+                  "item": "M04",
+                  "count": "3"
+                },
+                {
+                  "item": "QE12",
+                  "count": "3"
+                },
+                {
+                  "item": "M12",
+                  "count": "3"
+                },
+                {
+                  "item": "M11",
+                  "count": "3"
+                },
+                {
+                  "item": "QE13",
+                  "count": "2"
+                },
+                {
+                  "item": "BKN09",
+                  "count": "2"
+                },
+                {
+                  "item": "QE08",
+                  "count": "2"
+                },
+                {
+                  "item": "BX02",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BKN02",
+              "count": "126",
+              "cardinality": "26"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206157,
+            "name": "Site type",
+            "dataTypeName": "text",
+            "description": "Type of site where public recycling bins are located. Options include: BID, City Agency, District, Non-Profit, Park, School, Sports Arena, Zoo.",
+            "fieldName": "site_type",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 3319538,
+            "width": 208,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "ZOO",
+              "null": "0",
+              "top": [
+                {
+                  "item": "PARK",
+                  "count": "71"
+                },
+                {
+                  "item": "BID",
+                  "count": "26"
+                },
+                {
+                  "item": "CITY AGENCY",
+                  "count": "7"
+                },
+                {
+                  "item": "SCHOOL",
+                  "count": "6"
+                },
+                {
+                  "item": "NON-PROFIT",
+                  "count": "5"
+                },
+                {
+                  "item": "ZOO",
+                  "count": "5"
+                },
+                {
+                  "item": "DISTRICT",
+                  "count": "4"
+                },
+                {
+                  "item": "SPORTS ARENA",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BID",
+              "count": "126",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206159,
+            "name": "Site Location",
+            "dataTypeName": "text",
+            "description": "Site name, address, corner, or intersection where public recycling bins are located.",
+            "fieldName": "site_location",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 143898865,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "W/S OF MORNINGSIDE AVE & WEST 114TH ST",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BRONX ZOO",
+                  "count": "3"
+                },
+                {
+                  "item": "RANDALLS ISLAND",
+                  "count": "2"
+                },
+                {
+                  "item": "PEARL ST TRIANGLE",
+                  "count": "2"
+                },
+                {
+                  "item": "BROOKLYN BRIDGE PARK - PIER 1",
+                  "count": "2"
+                },
+                {
+                  "item": "B13TH ST/BEACH - ROCKAWAY BEACH",
+                  "count": "1"
+                },
+                {
+                  "item": "N/E MONTAGUE ST & CLINTON  ST",
+                  "count": "1"
+                },
+                {
+                  "item": "625 FATHER CAPODANNO BLVD - OCEAN BREEZE COMPLEX",
+                  "count": "1"
+                },
+                {
+                  "item": "PASSERELLE CIRCLE - FLUSHING MEADOW PARK",
+                  "count": "1"
+                },
+                {
+                  "item": "765 MANIDA ST - HUNTS POINT RECREATION CENTER",
+                  "count": "1"
+                },
+                {
+                  "item": "6301 RIVERDALE AVE - FRONT ENTRANCE",
+                  "count": "1"
+                },
+                {
+                  "item": "B92ND ST/BEACH - ROCKAWAY BEACH",
+                  "count": "1"
+                },
+                {
+                  "item": "120 SCHERMERHORN ST - INSIDE BUILDING",
+                  "count": "1"
+                },
+                {
+                  "item": "N/E MONTAGUE ST & HENRY ST",
+                  "count": "1"
+                },
+                {
+                  "item": "133-39 GUY BREWER BLVD - VIC HANSEN RECREATION CENTER",
+                  "count": "1"
+                },
+                {
+                  "item": "FRANKLIN D. ROOSEVELT BOARDWALK",
+                  "count": "1"
+                },
+                {
+                  "item": "CLOVE RD & CHESHIRE PL",
+                  "count": "1"
+                },
+                {
+                  "item": "106-16 173RD ST - DETECTIVE KEITH WILLIAMS RECREATION CENTER",
+                  "count": "1"
+                },
+                {
+                  "item": "5521 MOSHOLU AVE",
+                  "count": "1"
+                },
+                {
+                  "item": "210 JORALEMON ST - INSIDE BUILDING",
+                  "count": "1"
+                },
+                {
+                  "item": "SNUG HARBOR CULTURAL CENTER",
+                  "count": "1"
+                }
+              ],
+              "smallest": "106-16 173RD ST - DETECTIVE KEITH WILLIAMS RECREATION CENTER",
+              "count": "126",
+              "cardinality": "121"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206160,
+            "name": "Partner",
+            "dataTypeName": "text",
+            "description": "Name of partner organization that maintains the public space bins. ",
+            "fieldName": "partner",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 143898866,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "TRUST FOR GOVERNORS ISLAND",
+              "null": "0",
+              "top": [
+                {
+                  "item": "HUDSON RIVER PARK TRUST",
+                  "count": "10"
+                },
+                {
+                  "item": "BID - MONTAGUE ST",
+                  "count": "8"
+                },
+                {
+                  "item": "BID - MYRTLE AVE BID",
+                  "count": "7"
+                },
+                {
+                  "item": "NYC PARKS - FLUSHING MEADOW PARK",
+                  "count": "7"
+                },
+                {
+                  "item": "DCAS",
+                  "count": "6"
+                },
+                {
+                  "item": "BID - FAB",
+                  "count": "6"
+                },
+                {
+                  "item": "NYC PARKS - ROCKAWAY BEACH",
+                  "count": "5"
+                },
+                {
+                  "item": "N/A",
+                  "count": "4"
+                },
+                {
+                  "item": "NYC PARKS - CLOVE LAKES PARK",
+                  "count": "4"
+                },
+                {
+                  "item": "BROOKLYN BRIDGE PARK",
+                  "count": "4"
+                },
+                {
+                  "item": "NYC PARKS - ORCHARD BEACH",
+                  "count": "3"
+                },
+                {
+                  "item": "DUMBO IMPROVEMENT DISTRICT",
+                  "count": "3"
+                },
+                {
+                  "item": "NYC PARKS - MORNINGSIDE PARK",
+                  "count": "3"
+                },
+                {
+                  "item": "BRONX ZOO",
+                  "count": "3"
+                },
+                {
+                  "item": "NYC PARKS - RANDALLS ISLAND",
+                  "count": "3"
+                },
+                {
+                  "item": "CUNY - QUEENS COLLEGE",
+                  "count": "2"
+                },
+                {
+                  "item": "BID - DUMBO BROOKLYN HEIGHTS",
+                  "count": "2"
+                },
+                {
+                  "item": "NYC PARKS - FORT TRYON PARK",
+                  "count": "2"
+                },
+                {
+                  "item": "COLLEGE OF MT ST VINCENT",
+                  "count": "2"
+                },
+                {
+                  "item": "BARCLAY CENTER",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BARCLAY CENTER",
+              "count": "126",
+              "cardinality": "60"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206161,
+            "name": "Paper Bins",
+            "dataTypeName": "text",
+            "description": "Number of public recycling bins for recyclable paper.",
+            "fieldName": "paper_bins",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 143898868,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "9",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1",
+                  "count": "81"
+                },
+                {
+                  "item": "2",
+                  "count": "11"
+                },
+                {
+                  "item": "0",
+                  "count": "10"
+                },
+                {
+                  "item": "4",
+                  "count": "3"
+                },
+                {
+                  "item": "6",
+                  "count": "3"
+                },
+                {
+                  "item": "5",
+                  "count": "3"
+                },
+                {
+                  "item": "3",
+                  "count": "2"
+                },
+                {
+                  "item": "10",
+                  "count": "2"
+                },
+                {
+                  "item": "7",
+                  "count": "2"
+                },
+                {
+                  "item": "24",
+                  "count": "2"
+                },
+                {
+                  "item": "12",
+                  "count": "1"
+                },
+                {
+                  "item": "46",
+                  "count": "1"
+                },
+                {
+                  "item": "42",
+                  "count": "1"
+                },
+                {
+                  "item": "36",
+                  "count": "1"
+                },
+                {
+                  "item": "9",
+                  "count": "1"
+                },
+                {
+                  "item": "8",
+                  "count": "1"
+                },
+                {
+                  "item": "40",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "126",
+              "cardinality": "17"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206162,
+            "name": "MGP Bins",
+            "dataTypeName": "text",
+            "description": "Number of public recycling bins for recyclable metal, glass, and plastic.",
+            "fieldName": "mgp_bins",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 143898867,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "9",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1",
+                  "count": "87"
+                },
+                {
+                  "item": "2",
+                  "count": "11"
+                },
+                {
+                  "item": "6",
+                  "count": "4"
+                },
+                {
+                  "item": "3",
+                  "count": "3"
+                },
+                {
+                  "item": "4",
+                  "count": "3"
+                },
+                {
+                  "item": "24",
+                  "count": "3"
+                },
+                {
+                  "item": "5",
+                  "count": "2"
+                },
+                {
+                  "item": "0",
+                  "count": "2"
+                },
+                {
+                  "item": "8",
+                  "count": "2"
+                },
+                {
+                  "item": "10",
+                  "count": "2"
+                },
+                {
+                  "item": "7",
+                  "count": "1"
+                },
+                {
+                  "item": "42",
+                  "count": "1"
+                },
+                {
+                  "item": "9",
+                  "count": "1"
+                },
+                {
+                  "item": "46",
+                  "count": "1"
+                },
+                {
+                  "item": "40",
+                  "count": "1"
+                },
+                {
+                  "item": "12",
+                  "count": "1"
+                },
+                {
+                  "item": "36",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "126",
+              "cardinality": "17"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Public-Recycling-Bins-2022-10-04.xlsx",
+              "assetId": "2af25198-529a-4492-90e2-0cead7d4dc3d",
+              "name": "Data-Dictionary-Public-Recycling-Bins-2022-10-04.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "6/29/2012",
+              "Update Frequency": "Annually"
+            },
+            "Legislative Compliance": {
+              "Geo-coding Attached?": ""
+            },
+            "Dataset Information": {
+              "Agency": "Department of Sanitation (DSNY)"
+            }
+          },
+          "rowLabel": "Description of a public recycling bin location. ",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "public recycling bins",
+          "environmental sustainability",
+          "garbage",
+          "sanitation",
+          "dsny",
+          "bins",
+          "recycle",
+          "dispose"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/sxx4-xhzg",
+      "retrieved_at": "2026-04-28T12:59:01.127059+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/sxx4-xhzg",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 14941,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Public Recycling Bins",
+      "description": "Locations of public recycling bins throughout NYC. For information on what to recycle in NYC, see: https://www1.nyc.gov/assets/dsny/site/services/recycling.",
+      "attribution": "Department of Sanitation (DSNY)",
+      "rowsUpdatedAt": 1694723259,
+      "json_sample": {
+        "id": "sxx4-xhzg",
+        "name": "Public Recycling Bins",
+        "assetType": "dataset",
+        "attribution": "Department of Sanitation (DSNY)",
+        "attributionLink": "https://www1.nyc.gov/assets/dsny/site/services/recycling",
+        "averageRating": 0,
+        "category": "Environment",
+        "createdAt": 1341003072,
+        "description": "Locations of public recycling bins throughout NYC. For information on what to recycle in NYC, see: https://www1.nyc.gov/assets/dsny/site/services/recycling.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 8462,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 6,
+        "oid": 38915922,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1664915718,
+        "publicationGroup": 370782,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1694723259,
+        "tableId": 18896677,
+        "totalTimesRated": 0,
+        "viewCount": 28870,
+        "viewLastModified": 1694723258,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1371843757,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 5016662,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1371843757,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 566206156,
+            "name": "DSNY Zone",
+            "dataTypeName": "text",
+            "description": "DSNY Zones which are Brooklyn North (BKN), Brooklyn South (BKS),  Bronx (BX), Manhattan (MAN), Queens East (QE), Queens West (QW), and Staten Island (SI).",
+            "fieldName": "dsny_zone",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 3319537,
+            "width": 184,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "SI",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BKN",
+                  "count": "42"
+                },
+                {
+                  "item": "MAN",
+                  "count": "24"
+                },
+                {
+                  "item": "SI",
+                  "count": "21"
+                },
+                {
+                  "item": "BX",
+                  "count": "16"
+                },
+                {
+                  "item": "QE",
+                  "count": "14"
+                },
+                {
+                  "item": "QW",
+                  "count": "8"
+                },
+                {
+                  "item": "BKS",
+                  "count": "1"
+                }
+              ],
+              "smallest": "BKN",
+              "count": "126",
+              "cardinality": "7"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206158,
+            "name": "DSNY District",
+            "dataTypeName": "text",
+            "description": "DSNY District which contains DSNY Zone Abbreviation (BKN, BKS, BX, M, QE, QW, SI) followed by DSNY District Number. DSNY Districts are coterminous with NYC Community Districts and are written as 2 digit numbers; range is 01 to 18. ",
+            "fieldName": "dsny_district",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 143898869,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "SI03",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BKN02",
+                  "count": "39"
+                },
+                {
+                  "item": "SI02",
+                  "count": "10"
+                },
+                {
+                  "item": "SI01",
+                  "count": "8"
+                },
+                {
+                  "item": "M02",
+                  "count": "7"
+                },
+                {
+                  "item": "QW04",
+                  "count": "7"
+                },
+                {
+                  "item": "M10",
+                  "count": "5"
+                },
+                {
+                  "item": "BX06",
+                  "count": "5"
+                },
+                {
+                  "item": "QE14",
+                  "count": "5"
+                },
+                {
+                  "item": "BX08",
+                  "count": "4"
+                },
+                {
+                  "item": "BX10",
+                  "count": "4"
+                },
+                {
+                  "item": "SI03",
+                  "count": "3"
+                },
+                {
+                  "item": "M01",
+                  "count": "3"
+                },
+                {
+                  "item": "M04",
+                  "count": "3"
+                },
+                {
+                  "item": "QE12",
+                  "count": "3"
+                },
+                {
+                  "item": "M12",
+                  "count": "3"
+                },
+                {
+                  "item": "M11",
+                  "count": "3"
+                },
+                {
+                  "item": "QE13",
+                  "count": "2"
+                },
+                {
+                  "item": "BKN09",
+                  "count": "2"
+                },
+                {
+                  "item": "QE08",
+                  "count": "2"
+                },
+                {
+                  "item": "BX02",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BKN02",
+              "count": "126",
+              "cardinality": "26"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206157,
+            "name": "Site type",
+            "dataTypeName": "text",
+            "description": "Type of site where public recycling bins are located. Options include: BID, City Agency, District, Non-Profit, Park, School, Sports Arena, Zoo.",
+            "fieldName": "site_type",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 3319538,
+            "width": 208,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "ZOO",
+              "null": "0",
+              "top": [
+                {
+                  "item": "PARK",
+                  "count": "71"
+                },
+                {
+                  "item": "BID",
+                  "count": "26"
+                },
+                {
+                  "item": "CITY AGENCY",
+                  "count": "7"
+                },
+                {
+                  "item": "SCHOOL",
+                  "count": "6"
+                },
+                {
+                  "item": "NON-PROFIT",
+                  "count": "5"
+                },
+                {
+                  "item": "ZOO",
+                  "count": "5"
+                },
+                {
+                  "item": "DISTRICT",
+                  "count": "4"
+                },
+                {
+                  "item": "SPORTS ARENA",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BID",
+              "count": "126",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206159,
+            "name": "Site Location",
+            "dataTypeName": "text",
+            "description": "Site name, address, corner, or intersection where public recycling bins are located.",
+            "fieldName": "site_location",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 143898865,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "W/S OF MORNINGSIDE AVE & WEST 114TH ST",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BRONX ZOO",
+                  "count": "3"
+                },
+                {
+                  "item": "RANDALLS ISLAND",
+                  "count": "2"
+                },
+                {
+                  "item": "PEARL ST TRIANGLE",
+                  "count": "2"
+                },
+                {
+                  "item": "BROOKLYN BRIDGE PARK - PIER 1",
+                  "count": "2"
+                },
+                {
+                  "item": "B13TH ST/BEACH - ROCKAWAY BEACH",
+                  "count": "1"
+                },
+                {
+                  "item": "N/E MONTAGUE ST & CLINTON  ST",
+                  "count": "1"
+                },
+                {
+                  "item": "625 FATHER CAPODANNO BLVD - OCEAN BREEZE COMPLEX",
+                  "count": "1"
+                },
+                {
+                  "item": "PASSERELLE CIRCLE - FLUSHING MEADOW PARK",
+                  "count": "1"
+                },
+                {
+                  "item": "765 MANIDA ST - HUNTS POINT RECREATION CENTER",
+                  "count": "1"
+                },
+                {
+                  "item": "6301 RIVERDALE AVE - FRONT ENTRANCE",
+                  "count": "1"
+                },
+                {
+                  "item": "B92ND ST/BEACH - ROCKAWAY BEACH",
+                  "count": "1"
+                },
+                {
+                  "item": "120 SCHERMERHORN ST - INSIDE BUILDING",
+                  "count": "1"
+                },
+                {
+                  "item": "N/E MONTAGUE ST & HENRY ST",
+                  "count": "1"
+                },
+                {
+                  "item": "133-39 GUY BREWER BLVD - VIC HANSEN RECREATION CENTER",
+                  "count": "1"
+                },
+                {
+                  "item": "FRANKLIN D. ROOSEVELT BOARDWALK",
+                  "count": "1"
+                },
+                {
+                  "item": "CLOVE RD & CHESHIRE PL",
+                  "count": "1"
+                },
+                {
+                  "item": "106-16 173RD ST - DETECTIVE KEITH WILLIAMS RECREATION CENTER",
+                  "count": "1"
+                },
+                {
+                  "item": "5521 MOSHOLU AVE",
+                  "count": "1"
+                },
+                {
+                  "item": "210 JORALEMON ST - INSIDE BUILDING",
+                  "count": "1"
+                },
+                {
+                  "item": "SNUG HARBOR CULTURAL CENTER",
+                  "count": "1"
+                }
+              ],
+              "smallest": "106-16 173RD ST - DETECTIVE KEITH WILLIAMS RECREATION CENTER",
+              "count": "126",
+              "cardinality": "121"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206160,
+            "name": "Partner",
+            "dataTypeName": "text",
+            "description": "Name of partner organization that maintains the public space bins. ",
+            "fieldName": "partner",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 143898866,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "TRUST FOR GOVERNORS ISLAND",
+              "null": "0",
+              "top": [
+                {
+                  "item": "HUDSON RIVER PARK TRUST",
+                  "count": "10"
+                },
+                {
+                  "item": "BID - MONTAGUE ST",
+                  "count": "8"
+                },
+                {
+                  "item": "BID - MYRTLE AVE BID",
+                  "count": "7"
+                },
+                {
+                  "item": "NYC PARKS - FLUSHING MEADOW PARK",
+                  "count": "7"
+                },
+                {
+                  "item": "DCAS",
+                  "count": "6"
+                },
+                {
+                  "item": "BID - FAB",
+                  "count": "6"
+                },
+                {
+                  "item": "NYC PARKS - ROCKAWAY BEACH",
+                  "count": "5"
+                },
+                {
+                  "item": "N/A",
+                  "count": "4"
+                },
+                {
+                  "item": "NYC PARKS - CLOVE LAKES PARK",
+                  "count": "4"
+                },
+                {
+                  "item": "BROOKLYN BRIDGE PARK",
+                  "count": "4"
+                },
+                {
+                  "item": "NYC PARKS - ORCHARD BEACH",
+                  "count": "3"
+                },
+                {
+                  "item": "DUMBO IMPROVEMENT DISTRICT",
+                  "count": "3"
+                },
+                {
+                  "item": "NYC PARKS - MORNINGSIDE PARK",
+                  "count": "3"
+                },
+                {
+                  "item": "BRONX ZOO",
+                  "count": "3"
+                },
+                {
+                  "item": "NYC PARKS - RANDALLS ISLAND",
+                  "count": "3"
+                },
+                {
+                  "item": "CUNY - QUEENS COLLEGE",
+                  "count": "2"
+                },
+                {
+                  "item": "BID - DUMBO BROOKLYN HEIGHTS",
+                  "count": "2"
+                },
+                {
+                  "item": "NYC PARKS - FORT TRYON PARK",
+                  "count": "2"
+                },
+                {
+                  "item": "COLLEGE OF MT ST VINCENT",
+                  "count": "2"
+                },
+                {
+                  "item": "BARCLAY CENTER",
+                  "count": "2"
+                }
+              ],
+              "smallest": "BARCLAY CENTER",
+              "count": "126",
+              "cardinality": "60"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206161,
+            "name": "Paper Bins",
+            "dataTypeName": "text",
+            "description": "Number of public recycling bins for recyclable paper.",
+            "fieldName": "paper_bins",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 143898868,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "9",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1",
+                  "count": "81"
+                },
+                {
+                  "item": "2",
+                  "count": "11"
+                },
+                {
+                  "item": "0",
+                  "count": "10"
+                },
+                {
+                  "item": "4",
+                  "count": "3"
+                },
+                {
+                  "item": "6",
+                  "count": "3"
+                },
+                {
+                  "item": "5",
+                  "count": "3"
+                },
+                {
+                  "item": "3",
+                  "count": "2"
+                },
+                {
+                  "item": "10",
+                  "count": "2"
+                },
+                {
+                  "item": "7",
+                  "count": "2"
+                },
+                {
+                  "item": "24",
+                  "count": "2"
+                },
+                {
+                  "item": "12",
+                  "count": "1"
+                },
+                {
+                  "item": "46",
+                  "count": "1"
+                },
+                {
+                  "item": "42",
+                  "count": "1"
+                },
+                {
+                  "item": "36",
+                  "count": "1"
+                },
+                {
+                  "item": "9",
+                  "count": "1"
+                },
+                {
+                  "item": "8",
+                  "count": "1"
+                },
+                {
+                  "item": "40",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "126",
+              "cardinality": "17"
+            },
+            "format": {}
+          },
+          {
+            "id": 566206162,
+            "name": "MGP Bins",
+            "dataTypeName": "text",
+            "description": "Number of public recycling bins for recyclable metal, glass, and plastic.",
+            "fieldName": "mgp_bins",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 143898867,
+            "cachedContents": {
+              "non_null": "126",
+              "largest": "9",
+              "null": "0",
+              "top": [
+                {
+                  "item": "1",
+                  "count": "87"
+                },
+                {
+                  "item": "2",
+                  "count": "11"
+                },
+                {
+                  "item": "6",
+                  "count": "4"
+                },
+                {
+                  "item": "3",
+                  "count": "3"
+                },
+                {
+                  "item": "4",
+                  "count": "3"
+                },
+                {
+                  "item": "24",
+                  "count": "3"
+                },
+                {
+                  "item": "5",
+                  "count": "2"
+                },
+                {
+                  "item": "0",
+                  "count": "2"
+                },
+                {
+                  "item": "8",
+                  "count": "2"
+                },
+                {
+                  "item": "10",
+                  "count": "2"
+                },
+                {
+                  "item": "7",
+                  "count": "1"
+                },
+                {
+                  "item": "42",
+                  "count": "1"
+                },
+                {
+                  "item": "9",
+                  "count": "1"
+                },
+                {
+                  "item": "46",
+                  "count": "1"
+                },
+                {
+                  "item": "40",
+                  "count": "1"
+                },
+                {
+                  "item": "12",
+                  "count": "1"
+                },
+                {
+                  "item": "36",
+                  "count": "1"
+                }
+              ],
+              "smallest": "0",
+              "count": "126",
+              "cardinality": "17"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Public-Recycling-Bins-2022-10-04.xlsx",
+              "assetId": "2af25198-529a-4492-90e2-0cead7d4dc3d",
+              "name": "Data-Dictionary-Public-Recycling-Bins-2022-10-04.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "6/29/2012",
+              "Update Frequency": "Annually"
+            },
+            "Legislative Compliance": {
+              "Geo-coding Attached?": ""
+            },
+            "Dataset Information": {
+              "Agency": "Department of Sanitation (DSNY)"
+            }
+          },
+          "rowLabel": "Description of a public recycling bin location. ",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "public recycling bins",
+          "environmental sustainability",
+          "garbage",
+          "sanitation",
+          "dsny",
+          "bins",
+          "recycle",
+          "dispose"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/sxx4-xhzg.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:01.762340+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/sxx4-xhzg.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Thu, 14 Sep 2023 20:27:39 GMT",
+      "etag": "W/\"Zm94dHJvdC4xNjEyOV8zXzMwUHE2elVxMTBfOXBQWWo0RVlpNGVodnNLOGNn---gzipVHB4-1bQfRGQ3gqTdMnvI24gjQQ--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 177,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "dsny_district",
+        "dsny_zone",
+        "mgp_bins",
+        "paper_bins",
+        "partner",
+        "site_location",
+        "site_type"
+      ],
+      "json_sample": [
+        {
+          "dsny_zone": "BKN",
+          "dsny_district": "BKN02",
+          "site_type": "CITY AGENCY",
+          "site_location": "120 SCHERMERHORN ST - INSIDE BUILDING",
+          "partner": "DCAS",
+          "paper_bins": "1",
+          "mgp_bins": "1"
+        }
+      ]
+    }
+  ]
+}

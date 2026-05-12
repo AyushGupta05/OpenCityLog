@@ -1,0 +1,40 @@
+{
+  "city": "london",
+  "generated_at": "2026-04-28T11:54:26.627146+00:00",
+  "timeline_row_count": 33,
+  "year_start": 2003,
+  "year_end": 2023,
+  "citywide_event_count": 9,
+  "category_counts": {
+    "construction_start": 1,
+    "economic_anchor": 2,
+    "environment_policy": 2,
+    "environmental_policy": 2,
+    "housing_completion": 2,
+    "major_event": 1,
+    "planning_development": 1,
+    "policy_governance": 4,
+    "public_realm": 2,
+    "public_service": 4,
+    "regeneration": 2,
+    "transport": 9,
+    "transport_policy": 1
+  },
+  "confidence_counts": {
+    "candidate_requires_row_validation": 10,
+    "corroborated": 1,
+    "documented": 22
+  },
+  "source_bucket_counts": {
+    "environment_air_quality": 5,
+    "planning_development": 6,
+    "policy_governance": 4,
+    "public_services_civic_assets": 13,
+    "transport_mobility": 15
+  },
+  "files": {
+    "csv": "london/city_timeline.csv",
+    "json": "london/city_timeline.json",
+    "yearly_json": "london/timeline_by_year.json"
+  }
+}

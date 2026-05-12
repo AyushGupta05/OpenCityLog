@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-traffic-regulation-orders-data-service",
+  "city": "london",
+  "title": "Traffic Regulation Orders data service",
+  "publisher": "Department for Transport",
+  "bucket": "traffic/parking/restrictions/policy",
+  "retrieved_at": "2026-04-28T12:57:16.927441+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.gov.uk/government/collections/traffic-regulation-orders",
+      "retrieved_at": "2026-04-28T12:57:16.678668+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://www.gov.uk/government/collections/traffic-regulation-orders",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

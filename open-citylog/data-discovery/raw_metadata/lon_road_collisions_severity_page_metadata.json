@@ -1,0 +1,16 @@
+{
+  "source_id": "lon_road_collisions_severity",
+  "title": "Road Collisions by Severity",
+  "requested_url": "https://data.london.gov.uk/dataset/road-collisions-by-severity-vq8ln",
+  "fetched_url": "https://data.london.gov.uk/dataset/road-collisions-by-severity-vq8ln",
+  "final_url": "https://data.london.gov.uk/dataset/road-collisions-by-severity-vq8ln/",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:44:53.992444+00:00",
+  "page_title": "Road Collisions by Severity – London Datastore",
+  "h1": "Road Collisions by Severity",
+  "meta_description": ""
+}

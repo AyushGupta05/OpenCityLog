@@ -1,0 +1,25 @@
+{
+  "source_id": "camden-open-data-planning-licensing",
+  "city": "london",
+  "title": "Camden Open Data (borough exemplar for planning/licensing/highways/local assets)",
+  "publisher": "London Borough of Camden",
+  "bucket": "borough/local services",
+  "retrieved_at": "2026-04-28T12:19:11.809045+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://opendata.camden.gov.uk/",
+      "retrieved_at": "2026-04-28T12:19:11.147638+00:00",
+      "final_url": "https://opendata.camden.gov.uk/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"9dbacfe63cb2c4f95926a37ab08a316e\"",
+      "content_length_header": null,
+      "bytes_captured": 250000,
+      "page_title": null,
+      "h1": null,
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\" xmlns:og=\"http://opengraphprotocol.org/schema/\"> <!-- Powered by Socrata http://www.socrata.com --> <head> <meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" /> <meta name=\"csrf-param\" content=\"authenticity_token\" /> <meta name=\"csrf-token\" content=\"HLremDS5dtU0EYILU7G9vgjHVmD8HgCwX_T7kDVaGw5Ms8D7gqAFJEyxpQfYifZDYsWdGPQFH01Wt0N5DJerVQ\" /> <script> //<![CDATA[ var socrata = {\"currentUser\":null,\"domain\":\"opendata.camden.gov.uk\",\"domain_id\":\"30\",\"environment\":\"production\",\"featureFlags\":{\"use_vif_dataset_uid_for_vizcan_filters\":true,\"enable_valid_rows_export_button\":false,\"enable_usds_global_header\":false,\"log_observations\":false,\"selective_federation\":false,\"tyler_privacy_policy\":true,\"enable_metadata_templates\":true,\"enable_core_optimized_configuration_caching\":true,\"ignore_hiding_columns_unhidden_on_derived_views\":true,\"feature_map_default_extent\":\"'{\\\"southwest\\\":[51.50660558430045, -0.248565673828125],\\\"northwest\\\":[51.59200241147291, -0.042572021484375]}'\",\"show_site_analytics_referrers_dataset\":true,\"enable_region_code_transform\":false,\"browse_embed_404\":false,\"enable_pendo_help\":true,\"retire_get_nbe_migrations_info\":false,\"hide_legacy_email_notifications_settings\":false,\"soda3_viz_2\":true,\"enable_custom_global_banner\":true,\"enable_lookup_log\":false,\"enable_table_advanced_totaling_for_exports\":false,\"record_browse_performance_wall_time\":false,\"domain_locale\":\"en_US\",\"use_data_lens_choropleth_custom_boundary\":false,\"disable_grid_view_access\":true,\"debug_data_lens\":false,\"enable_dataset_landing_page_foundry_links\":true,\"enable_standard_story_themes_and_content_widths\":true,\"sort_dataset_on_export\":false,\"enable_core_request_audit\":false,\"enable_exploration_canvas_console_logs\":false,\"use_program_analytics\":true,\"enable_ai_reporting\":false,\"disable_saving_derived_views_with_hidden_columns\":false,\"enable_view_batch_operations\":true,\"site_appearance_visible\":true,\"wait_for_feedback_compute_on_import\":true,\"enable_use_images_in_stories\":true,\"enable_batch_running_filters\":false,\"strict_permissions\":false,\"enable_soql_json_datatype\":false,\"selective_rapid_deploy_use_sequencing\":true,\"accessible_browse_filters\":false,\"use_custom_header_on_stories\":false,\"use_secrets_manager_for_maintenance_banner\":false,\"disable_readiness_checker_login_blast\":false,\"enable_alert_notifications_for_all_users\":false,\"authentication_on_behalf_of_credentials\":false,\"enable_tyler_endorsed_metadata\":false,\"enable_alert_notifications_for_role_users\":false,\"soda3_notifications_and_alerts\":true,\"enable_view_creation_throttling\":false,\"enable_core_audit_log_export\":false,\"nexus_api_poc\":false,\"show_header_bar_in_report_embeds\":false,\"upsert_response_v2_1\":1,\"ignore_unhiding_hidden_columns_"
+    }
+  ]
+}

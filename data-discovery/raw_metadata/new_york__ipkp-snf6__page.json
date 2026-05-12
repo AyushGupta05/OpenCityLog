@@ -1,0 +1,212 @@
+{
+  "source_id": "ipkp-snf6",
+  "city": "new_york",
+  "title": "Building Footprints Historic / BUILDING_HISTORIC",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "building footprints/historical",
+  "retrieved_at": "2026-04-28T12:57:33.577700+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/ipkp-snf6",
+      "retrieved_at": "2026-04-28T12:57:31.141097+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/ipkp-snf6",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 29662,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "BUILDING_HISTORIC",
+      "description": "Historical footprint outlines of buildings in New York City. Please see the following link for additional documentation: https://github.com/CityOfNewYork/nyc-geo-metadata/blob/main/Metadata/Metadata_BuildingHistoric.md.\n\nFor additional resources, please refer to https://nycmaps-nyc.hub.arcgis.com/search?tags=building&type=feature%2520service%2Cfeature%2520layer",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1777217626,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/ipkp-snf6",
+      "retrieved_at": "2026-04-28T12:57:31.869719+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/ipkp-snf6",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 29662,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "BUILDING_HISTORIC",
+      "description": "Historical footprint outlines of buildings in New York City. Please see the following link for additional documentation: https://github.com/CityOfNewYork/nyc-geo-metadata/blob/main/Metadata/Metadata_BuildingHistoric.md.\n\nFor additional resources, please refer to https://nycmaps-nyc.hub.arcgis.com/search?tags=building&type=feature%2520service%2Cfeature%2520layer",
+      "attribution": "Office of Technology and Innovation (OTI)",
+      "rowsUpdatedAt": 1777217626,
+      "json_sample": null
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/ipkp-snf6.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:57:32.651118+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/ipkp-snf6.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Sun, 26 Apr 2026 15:33:44 GMT",
+      "etag": "W/\"aG90ZWwuNjU3MDRfM18yNTRsV3FBaTcySHlkSHNxRllSME5ScHA5cUhzbjQ---gzioI4_XMs2npkNXM1duotkF_zXw8sQ--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 672,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "base_bbl",
+        "bin",
+        "construction_year",
+        "demolition_year",
+        "doitt_id",
+        "geom_source",
+        "last_edited_date",
+        "last_status_type",
+        "objectid",
+        "shape_area",
+        "shape_length",
+        "the_geom"
+      ],
+      "json_sample": [
+        {
+          "the_geom": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -73.813401912796,
+                    40.782791074511
+                  ],
+                  [
+                    -73.813504946732,
+                    40.782799085765
+                  ],
+                  [
+                    -73.813490789364,
+                    40.782904384057
+                  ],
+                  [
+                    -73.813458691401,
+                    40.782901883796
+                  ],
+                  [
+                    -73.813454712077,
+                    40.782931548006
+                  ],
+                  [
+                    -73.813403768998,
+                    40.782927595448
+                  ],
+                  [
+                    -73.813415566643,
+                    40.78283973343
+                  ],
+                  [
+                    -73.813395573543,
+                    40.782838188706
+                  ],
+                  [
+                    -73.813401912796,
+                    40.782791074511
+                  ]
+                ]
+              ]
+            ]
+          },
+          "bin": "4106391",
+          "doitt_id": "0",
+          "shape_area": "185.16796875",
+          "base_bbl": "4046860009",
+          "objectid": "4023",
+          "construction_year": "1925",
+          "demolition_year": "2004",
+          "geom_source": "Photogrammetric",
+          "last_edited_date": "2004-08-16T00:00:00.000Z",
+          "last_status_type": "Demolition",
+          "shape_length": "62.950159437834515"
+        }
+      ]
+    }
+  ]
+}
