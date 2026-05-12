@@ -48,7 +48,17 @@
     },
     "details": {
       "type": "object",
-      "description": "Optional domain notes such as floors, capacity class, route type, or public-service type."
+      "description": "Optional domain notes such as floors, capacity class, route type, public-service type, or site-basis notes.",
+      "properties": {
+        "site_basis": {
+          "type": "string",
+          "enum": ["selected_event", "typed_point", "boundary_needed"]
+        },
+        "requested_path": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
     }
   }
 }

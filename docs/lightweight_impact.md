@@ -22,6 +22,7 @@ The frontend planning workbench in `web/index.html` and `web/atlas.js` applies t
 - an architect learning brief with evidence readiness, historical patterns, fieldwork tasks, and next evidence to find
 - a work queue that distinguishes ready evidence from gaps that need surveys, source review, or specialist assessment
 - a city-architect review brief that turns precedent into public-life fieldwork, eye-level design tests, and a non-causal impact-learning ledger
+- a proposal pathway for building/development ideas that shows site evidence checks, missing permission/buildability evidence, and review years for collecting source-backed observations
 - comparable loaded events, design review questions, data gaps, and linked sources
 
 The workbench deliberately uses "screening", "review", "evidence", and "data gap" language. It must not say a future project will produce an outcome.
@@ -49,6 +50,7 @@ Recommended:
 - `location` with `lng` and `lat`, or a GeoJSON `geometry`
 - `scale`: `small`, `medium`, `large`, or `unknown`
 - `details`: optional domain notes such as route type, service type, floors, or capacity class
+- `details.site_basis`: optional note describing whether the site came from a selected atlas event, typed point, or still needs a boundary
 
 Missing location or unknown scale does not block assessment, but it lowers confidence and adds caveats.
 
@@ -116,6 +118,7 @@ The proposal-impact result includes:
 - `caveats`: global limitations.
 - `evidence`: source IDs, event evidence, and current-context evidence.
 - `proposal_brief`: a city-architect learning brief with evidence readiness, historical patterns, fieldwork tasks, review questions, and the next evidence to find before citation.
+- `proposal_pathway`: site-screening checks, buildability/permission caveats, transparent review years, analogue-basis counts, and limits. Review years are source-collection milestones, not outcome estimates.
 - `design_review_basis`: city-architect review themes, evidence counts, confidence labels, and review prompts.
 - `method`: method version, weights, radius, and limitations.
 
