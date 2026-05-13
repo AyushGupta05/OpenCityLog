@@ -2,12 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const rootDir = path.resolve(__dirname, "..");
-const cityDir = path.join(rootDir, "web", "data", "city-atlas", "cities", "belfast");
-const eventsIndexPath = path.join(cityDir, "events.json");
-const detailLayersPath = path.join(cityDir, "detail_layers.geojson");
-const cityConfigPath = path.join(cityDir, "city.json");
-const indexPath = path.join(rootDir, "web", "data", "city-atlas", "index.json");
-const outputPath = path.join(cityDir, "lens_overlays.geojson");
+const atlasIndexPath = path.join(rootDir, "web", "data", "city-atlas", "index.json");
 
 const CATEGORY_COLORS = {
   built_environment: "#d8a64e",
@@ -26,9 +21,10 @@ const LENS_CATEGORIES = new Set([
   "economy",
 ]);
 
-const TRAFFIC_EVENT_RADIUS_KM = 0.58;
+const HOTSPOT_CELL_DEG = 0.01;
+const ROAD_INDEX_CELL_DEG = 0.018;
+const TRAFFIC_EVENT_RADIUS_KM = 0.85;
 const TRAFFIC_WINDOW_YEARS = 2;
-const SPATIAL_CELL_DEG = 0.006;
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -121,23 +117,23 @@ function lineRepresentativePoint(geometry) {
   return pointOrCentroid({ type: "LineString", coordinates: bestLine });
 }
 
-function spatialKey(coord) {
-  return `${Math.floor(Number(coord[0]) / SPATIAL_CELL_DEG)}|${Math.floor(Number(coord[1]) / SPATIAL_CELL_DEG)}`;
+function cellKey(coord, size) {
+  return `${Math.floor(Number(coord[0]) / size)}|${Math.floor(Number(coord[1]) / size)}`;
 }
 
-function nearbyCells(coord) {
-  const x = Math.floor(Number(coord[0]) / SPATIAL_CELL_DEG);
-  const y = Math.floor(Number(coord[1]) / SPATIAL_CELL_DEG);
+function nearbyCellKeys(coord, size, radius = 2) {
+  const x = Math.floor(Number(coord[0]) / size);
+  const y = Math.floor(Number(coord[1]) / size);
   const cells = [];
-  for (let dx = -2; dx <= 2; dx += 1) {
-    for (let dy = -2; dy <= 2; dy += 1) {
+  for (let dx = -radius; dx <= radius; dx += 1) {
+    for (let dy = -radius; dy <= radius; dy += 1) {
       cells.push(`${x + dx}|${y + dy}`);
     }
   }
   return cells;
 }
 
-function loadEvents(eventsIndex) {
+function loadEvents(city, eventsIndex) {
   const out = [];
   for (const chunk of eventsIndex.chunks || []) {
     if (!chunk.json_path) continue;
@@ -153,7 +149,7 @@ function loadEvents(eventsIndex) {
       const confidence = String(event.confidence || "documented").toLowerCase();
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
       out.push({
-        id: event.event_id || event.id || `${category}-${year}-${out.length}`,
+        id: event.event_id || event.id || `${city.city_id}-${category}-${year}-${out.length}`,
         title: event.title || "Source-backed city record",
         year,
         category,
@@ -169,180 +165,324 @@ function loadEvents(eventsIndex) {
   return out;
 }
 
-function eventOverlayFeature(event) {
-  return {
-    type: "Feature",
-    properties: {
-      id: `lens-event-${event.id}`,
-      layer: "lens_event",
-      category: event.category,
-      category_color: CATEGORY_COLORS[event.category] || CATEGORY_COLORS.built_environment,
-      year: event.year,
-      title: event.title,
-      confidence: event.confidence,
-      heat_weight: event.weight,
-      source_count: event.sourceIds.length,
-      source_ids: event.sourceIds.join(","),
-      representation: "source-backed event heatmap point",
-      timing_note: "Filtered by event effective year; administrative and OSM-mapped dates are evidence dates, not guaranteed physical completion dates.",
-    },
-    geometry: { type: "Point", coordinates: event.coord },
-  };
+function buildHotspotFeatures(cityId, events) {
+  const buckets = new Map();
+  for (const event of events) {
+    const key = `${event.year}|${event.category}|${cellKey(event.coord, HOTSPOT_CELL_DEG)}`;
+    let bucket = buckets.get(key);
+    if (!bucket) {
+      bucket = {
+        year: event.year,
+        category: event.category,
+        sx: 0,
+        sy: 0,
+        weight: 0,
+        confidenceWeight: 0,
+        count: 0,
+        sourceIds: new Set(),
+        confidenceCounts: {},
+      };
+      buckets.set(key, bucket);
+    }
+    bucket.sx += event.coord[0] * event.weight;
+    bucket.sy += event.coord[1] * event.weight;
+    bucket.weight += event.weight;
+    bucket.confidenceWeight += event.weight;
+    bucket.count += 1;
+    bucket.confidenceCounts[event.confidence] = (bucket.confidenceCounts[event.confidence] || 0) + 1;
+    for (const id of event.sourceIds) {
+      if (bucket.sourceIds.size < 8) bucket.sourceIds.add(id);
+    }
+  }
+
+  return Array.from(buckets.values())
+    .sort((a, b) => a.year - b.year || a.category.localeCompare(b.category) || b.count - a.count)
+    .map((bucket, index) => {
+      const coord = bucket.weight > 0
+        ? [bucket.sx / bucket.weight, bucket.sy / bucket.weight]
+        : [bucket.sx / Math.max(1, bucket.count), bucket.sy / Math.max(1, bucket.count)];
+      const confidence = Object.entries(bucket.confidenceCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "documented";
+      return {
+        type: "Feature",
+        properties: {
+          id: `lens-hotspot-${cityId}-${bucket.year}-${bucket.category}-${index}`,
+          layer: "lens_event",
+          category: bucket.category,
+          category_color: CATEGORY_COLORS[bucket.category] || CATEGORY_COLORS.built_environment,
+          year: bucket.year,
+          title: `${bucket.count} source-backed ${bucket.category.replace(/_/g, " ")} record${bucket.count === 1 ? "" : "s"}`,
+          confidence,
+          heat_weight: round(clamp(Math.log1p(bucket.count) * 0.85 + (bucket.confidenceWeight / Math.max(1, bucket.count)) * 0.55, 0.4, 8)),
+          event_count: bucket.count,
+          source_count: bucket.sourceIds.size,
+          source_ids: Array.from(bucket.sourceIds).join(","),
+          representation: "source-backed hotspot cell",
+          timing_note: "Filtered by event effective year; administrative and OSM-mapped dates are evidence dates, not guaranteed physical completion dates.",
+        },
+        geometry: { type: "Point", coordinates: coord },
+      };
+    });
 }
 
-function buildTransportIndex(events) {
+function roadSourcePath(city, paths) {
+  if (city.city_id === "belfast" && paths.detail_layers) return path.join(rootDir, paths.detail_layers);
+  const majorRoadsPath = path.join(rootDir, "data", "raw", "overpass", `${city.city_id}_major_roads_osm_2026.geojson`);
+  return fs.existsSync(majorRoadsPath) ? majorRoadsPath : null;
+}
+
+function loadRoadFeatures(city, paths) {
+  const sourcePath = roadSourcePath(city, paths);
+  if (!sourcePath || !fs.existsSync(sourcePath)) return [];
+  const payload = readJson(sourcePath);
+  return (payload.features || [])
+    .filter((feature) => feature.geometry && (feature.geometry.type === "LineString" || feature.geometry.type === "MultiLineString"))
+    .filter((feature) => city.city_id !== "belfast" || feature.properties?.layer === "road")
+    .map((feature, index) => ({ feature, index, coord: lineRepresentativePoint(feature.geometry) }))
+    .filter((item) => item.coord);
+}
+
+function buildRoadIndex(roads) {
   const index = new Map();
-  for (const event of events) {
-    if (event.category !== "transport" && !event.signals.includes("traffic") && !event.signals.includes("mobility")) continue;
-    const key = spatialKey(event.coord);
+  for (const road of roads) {
+    const key = cellKey(road.coord, ROAD_INDEX_CELL_DEG);
     const bucket = index.get(key) || [];
-    bucket.push(event);
+    bucket.push(road);
     index.set(key, bucket);
   }
   return index;
 }
 
-function nearbyTransportEvents(index, coord) {
+function nearbyRoads(index, coord) {
   const out = [];
-  for (const key of nearbyCells(coord)) {
+  for (const key of nearbyCellKeys(coord, ROAD_INDEX_CELL_DEG, 3)) {
     const bucket = index.get(key);
     if (bucket) out.push(...bucket);
   }
   return out;
 }
 
-function roadActivityForYear(roadCoord, nearbyEvents, year, visibleYear, rank) {
-  let raw = 0;
-  let count = 0;
-  const roadAge = year - visibleYear;
-  if (roadAge >= 0 && roadAge <= TRAFFIC_WINDOW_YEARS) {
-    const rankWeight = clamp(Number(rank || 1) / 4, 0.25, 1);
-    raw += rankWeight * (roadAge === 0 ? 0.72 : roadAge === 1 ? 0.38 : 0.2);
-    count += 1;
-  }
-  for (const event of nearbyEvents) {
-    if (event.year > year || event.year < year - TRAFFIC_WINDOW_YEARS) continue;
-    const km = distanceKm(roadCoord, event.coord);
-    if (km > TRAFFIC_EVENT_RADIUS_KM) continue;
-    const age = year - event.year;
-    const ageWeight = age === 0 ? 1 : age === 1 ? 0.58 : 0.34;
-    const distanceWeight = 1 - (km / TRAFFIC_EVENT_RADIUS_KM);
-    raw += event.weight * ageWeight * distanceWeight;
-    count += 1;
-  }
-  return { raw, count };
+function transportEvents(events) {
+  return events.filter((event) => event.category === "transport" || event.signals.includes("traffic") || event.signals.includes("mobility"));
 }
 
-function buildTrafficRoadFeatures(detailLayers, events, years) {
-  const roadFeatures = (detailLayers.features || []).filter((feature) => feature.properties?.layer === "road");
-  const index = buildTransportIndex(events);
-  const yearlyMax = Object.fromEntries(years.map((year) => [year, 0]));
-  const staged = [];
+function accumulateRoadScores(city, roads, events, years) {
+  const yearSet = new Set(years);
+  const scoresByYear = new Map(years.map((year) => [year, new Map()]));
+  const roadIndex = buildRoadIndex(roads);
+  const transport = transportEvents(events);
 
-  for (const feature of roadFeatures) {
-    const coord = lineRepresentativePoint(feature.geometry);
-    if (!coord) continue;
-    const props = feature.properties || {};
-    const visibleYear = Number(props.visible_year || years[0]);
-    const nearby = nearbyTransportEvents(index, coord);
-    const rawByYear = {};
-    const countsByYear = {};
-    for (const year of years) {
-      if (visibleYear > year) {
-        rawByYear[year] = 0;
-        countsByYear[year] = 0;
-        continue;
+  for (const event of transport) {
+    const candidates = nearbyRoads(roadIndex, event.coord);
+    for (const road of candidates) {
+      const km = distanceKm(event.coord, road.coord);
+      if (km > TRAFFIC_EVENT_RADIUS_KM) continue;
+      const distanceWeight = 1 - (km / TRAFFIC_EVENT_RADIUS_KM);
+      for (let offset = 0; offset <= TRAFFIC_WINDOW_YEARS; offset += 1) {
+        const year = event.year + offset;
+        if (!yearSet.has(year)) continue;
+        const ageWeight = offset === 0 ? 1 : offset === 1 ? 0.58 : 0.34;
+        const yearScores = scoresByYear.get(year);
+        const current = yearScores.get(road.index) || { raw: 0, count: 0 };
+        current.raw += event.weight * ageWeight * distanceWeight;
+        current.count += 1;
+        yearScores.set(road.index, current);
       }
-      const activity = roadActivityForYear(coord, nearby, year, visibleYear, props.rank);
-      rawByYear[year] = activity.raw;
-      countsByYear[year] = activity.count;
-      yearlyMax[year] = Math.max(yearlyMax[year], activity.raw);
     }
-    staged.push({ feature, rawByYear, countsByYear, index: staged.length });
   }
 
-  return staged.map(({ feature, rawByYear, countsByYear, index }) => {
-    const props = feature.properties || {};
-    const stableRoadId = props.source_id || props.id || props.name || `road-${index}`;
-    const nextProps = {
-      id: `lens-traffic-road-${stableRoadId}`,
+  if (city.city_id === "belfast") {
+    for (const road of roads) {
+      const props = road.feature.properties || {};
+      const visibleYear = Number(props.visible_year || years[0]);
+      for (let offset = 0; offset <= TRAFFIC_WINDOW_YEARS; offset += 1) {
+        const year = visibleYear + offset;
+        if (!yearSet.has(year)) continue;
+        const rankWeight = clamp(Number(props.rank || 1) / 4, 0.25, 1);
+        const yearScores = scoresByYear.get(year);
+        const current = yearScores.get(road.index) || { raw: 0, count: 0 };
+        current.raw += rankWeight * (offset === 0 ? 0.72 : offset === 1 ? 0.38 : 0.2);
+        current.count += 1;
+        yearScores.set(road.index, current);
+      }
+    }
+  }
+
+  return scoresByYear;
+}
+
+function roadOutputFeature(city, road, score, maxRaw, year) {
+  const props = road.feature.properties || {};
+  const stableRoadId = props.source_id || props.id || props.name || `road-${road.index}`;
+  const activity = maxRaw > 0 ? clamp(score.raw / maxRaw, 0, 1) : 0;
+  return {
+    type: "Feature",
+    properties: {
+      id: `lens-traffic-road-${city.city_id}-${stableRoadId}`,
       layer: "traffic_road",
       category: "transport",
-      visible_year: Number(props.visible_year || years[0]),
+      year,
+      visible_year: Number(props.visible_year || year),
       rank: Number(props.rank || 1),
       name: props.name || props.ref || "mapped road segment",
-      source_id: props.source_id || props.id || "",
+      source_id: stableRoadId,
       source_url: props.source_url || "",
       license: props.license || "ODbL",
-      representation: "transport change activity near mapped road",
-      timing_note: "Road color is a three-year mapped road-change and transport-event activity surface, not measured traffic volume or congestion.",
-    };
-    for (const year of years) {
-      const max = yearlyMax[year] || 1;
-      nextProps[`transport_raw_${year}`] = round(rawByYear[year]);
-      nextProps[`transport_count_${year}`] = countsByYear[year];
-      nextProps[`transport_activity_${year}`] = round(clamp(rawByYear[year] / max, 0, 1));
-    }
-    return {
-      type: "Feature",
-      properties: nextProps,
-      geometry: feature.geometry,
-    };
-  });
+      transport_raw: round(score.raw),
+      transport_count: score.count,
+      transport_activity: round(activity),
+      representation: city.city_id === "belfast" ? "mapped road-change and transport-event activity" : "major-road transport-event activity",
+      timing_note: city.city_id === "belfast"
+        ? "Road color is a three-year mapped road-change and transport-event activity surface, not measured traffic volume or congestion."
+        : "Road color is a three-year transport-event activity surface on current OSM major road geometry, not measured traffic volume or congestion.",
+    },
+    geometry: road.feature.geometry,
+  };
 }
 
-function updateArtifactPath(filePath, relativePath) {
+function roadBaseOutputFeature(city, road) {
+  const props = road.feature.properties || {};
+  const stableRoadId = props.source_id || props.id || props.name || `road-${road.index}`;
+  return {
+    type: "Feature",
+    properties: {
+      id: `lens-traffic-road-base-${city.city_id}-${stableRoadId}`,
+      layer: "traffic_road_base",
+      category: "transport",
+      rank: Number(props.rank || 1),
+      highway: props.highway || "",
+      name: props.name || props.ref || "mapped road segment",
+      source_id: stableRoadId,
+      source_url: props.source_url || "",
+      license: props.license || "ODbL",
+      representation: city.city_id === "belfast" ? "current OSM road geometry from the Belfast detail layer" : "current OSM major road geometry",
+      timing_note: "Base roads are always-on current OSM geometry for citywide orientation; they are not measured traffic volume, congestion, or guaranteed construction timing.",
+    },
+    geometry: road.feature.geometry,
+  };
+}
+
+function writeTransportRoadBase(city, roads, outDir) {
+  const base = `web/data/city-atlas/cities/${city.city_id}/transport_roads_base.geojson`;
+  const features = roads
+    .map((road) => roadBaseOutputFeature(city, road))
+    .sort((a, b) => Number(b.properties.rank) - Number(a.properties.rank) || String(a.properties.id).localeCompare(String(b.properties.id)));
+  writeJson(path.join(outDir, "transport_roads_base.geojson"), {
+    type: "FeatureCollection",
+    name: `${city.city_id}_transport_roads_base`,
+    metadata: {
+      schema_version: "1.0.0",
+      city_id: city.city_id,
+      road_source: city.city_id === "belfast" ? "web/data/city-atlas/cities/belfast/detail_layers.geojson" : `data/raw/overpass/${city.city_id}_major_roads_osm_2026.geojson`,
+      method: "Current OSM road geometry is loaded citywide as a required base layer; selected-year activity files color the subset near source-backed transport records.",
+      caveat: "Base road lines are citywide OSM context and are not measured traffic counts, live congestion, or historical construction proof.",
+    },
+    features,
+  });
+  return base;
+}
+
+function writeTransportRoadYears(city, paths, events, years, outDir) {
+  const roads = loadRoadFeatures(city, paths);
+  const template = `web/data/city-atlas/cities/${city.city_id}/transport_roads_{year}.geojson`;
+  if (!roads.length) {
+    throw new Error(`${city.city_id}: missing required OSM road source for transport overlays; run npm run fetch:city-roads for non-Belfast cities.`);
+  }
+
+  const base = writeTransportRoadBase(city, roads, outDir);
+  const scoresByYear = accumulateRoadScores(city, roads, events, years);
+  const roadByIndex = new Map(roads.map((road) => [road.index, road]));
+
+  for (const year of years) {
+    const scores = scoresByYear.get(year) || new Map();
+    const maxRaw = Math.max(0, ...Array.from(scores.values()).map((score) => score.raw));
+    const features = Array.from(scores.entries())
+      .filter(([, score]) => score.raw > 0)
+      .map(([roadIndex, score]) => roadOutputFeature(city, roadByIndex.get(roadIndex), score, maxRaw, year))
+      .sort((a, b) => Number(b.properties.transport_activity) - Number(a.properties.transport_activity) || String(a.properties.id).localeCompare(String(b.properties.id)));
+    writeJson(path.join(outDir, `transport_roads_${year}.geojson`), {
+      type: "FeatureCollection",
+      name: `${city.city_id}_transport_roads_${year}`,
+      metadata: {
+        schema_version: "1.0.0",
+        city_id: city.city_id,
+        year,
+        road_source: city.city_id === "belfast" ? "detail_layers.geojson" : `data/raw/overpass/${city.city_id}_major_roads_osm_2026.geojson`,
+        method: "Road features are colored from nearby source-backed transport records in a rolling three-year window.",
+        caveat: "Transport road colors are activity hotspots, not measured traffic counts or live congestion.",
+      },
+      features,
+    });
+  }
+
+  return { base, template, roadCount: roads.length };
+}
+
+function updateArtifactPath(filePath, cityId, additions) {
   const json = readJson(filePath);
   if (Array.isArray(json.cities)) {
     for (const city of json.cities) {
-      if (city.city_id !== "belfast") continue;
-      city.artifact_paths = Object.assign({}, city.artifact_paths, { lens_overlays: relativePath });
+      if (city.city_id !== cityId) continue;
+      city.artifact_paths = Object.assign({}, city.artifact_paths, additions);
     }
   } else {
-    json.artifact_paths = Object.assign({}, json.artifact_paths, { lens_overlays: relativePath });
+    json.artifact_paths = Object.assign({}, json.artifact_paths, additions);
   }
   writeJson(filePath, json);
 }
 
-function main() {
-  const eventsIndex = readJson(eventsIndexPath);
-  const detailLayers = readJson(detailLayersPath);
+function buildCity(city) {
+  const paths = city.artifact_paths || {};
+  const cityDir = path.dirname(path.join(rootDir, paths.city));
+  const cityConfigPath = path.join(rootDir, paths.city);
+  const eventsIndex = readJson(path.join(rootDir, paths.events));
   const years = (eventsIndex.event_years || (eventsIndex.chunks || []).map((chunk) => Number(chunk.year)))
     .map(Number)
     .filter(Number.isFinite)
     .sort((a, b) => a - b);
-  const events = loadEvents(eventsIndex);
-  const eventFeatures = events.map(eventOverlayFeature);
-  const roadFeatures = buildTrafficRoadFeatures(detailLayers, events, years);
-  const payload = {
+  const events = loadEvents(city, eventsIndex);
+  const hotspotFeatures = buildHotspotFeatures(city.city_id, events);
+  const overlayRelativePath = `web/data/city-atlas/cities/${city.city_id}/lens_overlays.geojson`;
+  writeJson(path.join(cityDir, "lens_overlays.geojson"), {
     type: "FeatureCollection",
-    name: "belfast_source_backed_lens_overlays",
+    name: `${city.city_id}_source_backed_lens_overlays`,
     metadata: {
       schema_version: "1.0.0",
-      city_id: "belfast",
+      city_id: city.city_id,
       generated_at: new Date().toISOString(),
       years,
       categories: Array.from(LENS_CATEGORIES),
       source_paths: [
-        "web/data/city-atlas/cities/belfast/events.json",
-        "web/data/city-atlas/cities/belfast/events_{year}.json",
-        "web/data/city-atlas/cities/belfast/detail_layers.geojson",
+        `web/data/city-atlas/cities/${city.city_id}/events.json`,
+        `web/data/city-atlas/cities/${city.city_id}/events_{year}.json`,
       ],
-      license: "Mixed public source records; OSM-derived road geometry is ODbL.",
-      method: "Lens heatmaps use source-backed event points filtered by effective year. Transport road colors use mapped road visibility/edit years plus nearby transport/mobility event density in a rolling three-year window around OSM road centerlines.",
+      method: "Lens heatmaps aggregate source-backed event points into citywide hotspot cells by category and effective year.",
       caveats: [
-        "Transport road colors are hotspots of mapped road changes and documented transport-change records, not measured traffic counts or live congestion.",
-        "Planning records are administrative evidence and do not prove construction completion.",
+        "Hotspots are event-density surfaces, not causal outcome measurements.",
+        "Transport road colors are hotspots of mapped or documented transport-change records, not measured traffic counts or live congestion.",
         "OSM edit or mapped-visibility dates can differ from real-world change dates.",
       ],
     },
-    features: [...eventFeatures, ...roadFeatures],
+    features: hotspotFeatures,
+  });
+
+  const transportRoads = writeTransportRoadYears(city, paths, events, years, cityDir);
+  const additions = {
+    lens_overlays: overlayRelativePath,
+    transport_roads_base: transportRoads.base,
+    transport_roads_template: transportRoads.template,
   };
-  writeJson(outputPath, payload);
-  const relativeOutput = "web/data/city-atlas/cities/belfast/lens_overlays.geojson";
-  updateArtifactPath(cityConfigPath, relativeOutput);
-  updateArtifactPath(indexPath, relativeOutput);
-  console.log(`Wrote ${path.relative(rootDir, outputPath)} with ${eventFeatures.length} event heat points and ${roadFeatures.length} transport road activity features.`);
+  updateArtifactPath(cityConfigPath, city.city_id, additions);
+  updateArtifactPath(atlasIndexPath, city.city_id, additions);
+  console.log(`${city.city_id}: wrote ${hotspotFeatures.length} hotspot features, ${transportRoads.roadCount} road source features, ${years.length} transport-road year files.`);
+}
+
+function main() {
+  const atlas = readJson(atlasIndexPath);
+  const only = new Set(String(process.env.ONLY || "").split(",").map((item) => item.trim()).filter(Boolean));
+  for (const city of atlas.cities || []) {
+    if (only.size && !only.has(city.city_id)) continue;
+    buildCity(city);
+  }
 }
 
 main();
