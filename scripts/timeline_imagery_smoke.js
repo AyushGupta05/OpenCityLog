@@ -41,20 +41,24 @@ async function waitForAtlas(page, city) {
     null,
     { timeout: 45000 }
   );
-  if (city === "belfast") {
-    await page.waitForFunction(
-      () => Boolean(
-        window.BimsAtlas?.state?.detailLayerLoaded
-        && window.BimsAtlas?.state?.lensOverlayLoaded
-        && window.BimsAtlas.state.map?.getLayer("detail-roads-visible")
-        && window.BimsAtlas.state.map?.getLayer("detail-buildings-fill")
-        && window.BimsAtlas.state.map?.getLayer("lens-heatmap")
-        && window.BimsAtlas.state.map?.getLayer("lens-transport-roads")
-      ),
-      null,
-      { timeout: 60000 }
-    );
-  }
+  await page.waitForFunction(
+    (cityId) => Boolean(
+      window.BimsAtlas?.state?.lensOverlayLoaded
+      && window.BimsAtlas.state.map?.getLayer("lens-heatmap")
+      && window.BimsAtlas.state.map?.getLayer("lens-transport-base")
+      && window.BimsAtlas.state.map?.getLayer("lens-transport-roads")
+      && (
+        cityId !== "belfast"
+        || (
+          window.BimsAtlas.state.detailLayerLoaded
+          && window.BimsAtlas.state.map?.getLayer("detail-roads-visible")
+          && window.BimsAtlas.state.map?.getLayer("detail-buildings-fill")
+        )
+      )
+    ),
+    city,
+    { timeout: 60000 }
+  );
 }
 
 async function useAreaSearch(page, scenario) {
@@ -87,6 +91,8 @@ async function setTimelineYear(page, year) {
       return Boolean(
         state?.year === expectedYear
         && state?.basemapYear === expectedYear
+        && state?.transportRoadYearLoaded === expectedYear
+        && String(state?.transportRoadYearPathLoaded || "").includes(`transport_roads_${expectedYear}.geojson`)
         && sources.basemap?.tiles?.some((tile) => /tile\.openstreetmap\.org/.test(tile))
         && !sources.imagery
         && !sources["compare-before"]
@@ -100,6 +106,17 @@ async function setTimelineYear(page, year) {
     null,
     { timeout: 8000 }
   ).catch(() => {});
+  await page.waitForFunction(
+    (expectedYear) => {
+      const state = window.BimsAtlas?.state;
+      const map = state?.map;
+      if (!map || state.category !== "transport" || !map.getLayer("lens-transport-roads")) return true;
+      const features = map.queryRenderedFeatures({ layers: ["lens-transport-roads"] });
+      return features.length > 0 && features.every((feature) => Number(feature.properties.year) === expectedYear);
+    },
+    year,
+    { timeout: 30000 }
+  );
   await page.waitForTimeout(350);
 }
 
@@ -120,7 +137,13 @@ async function readTimelineSnapshot(page) {
       detailRoadLayer: Boolean(state.map.getLayer("detail-roads-visible")),
       detailBuildingLayer: Boolean(state.map.getLayer("detail-buildings-fill")),
       lensHeatmapLayer: Boolean(state.map.getLayer("lens-heatmap")),
+      lensTransportBaseLayer: Boolean(state.map.getLayer("lens-transport-base")),
       lensTransportRoadLayer: Boolean(state.map.getLayer("lens-transport-roads")),
+      lensTransportBaseRendered: state.map.queryRenderedFeatures({ layers: ["lens-transport-base"] }).length,
+      lensTransportRoadRendered: state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length,
+      roadActivitySum: state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] })
+        .reduce((total, feature) => total + Number(feature.properties.transport_activity || 0), 0),
+      roadYearSource: String(state.transportRoadYearPathLoaded || sources["lens-transport-road-year"]?.data || ""),
       attribution,
       cards: document.querySelectorAll("#eventList .event-card").length,
       markers: document.querySelectorAll(".map-marker").length,
@@ -141,8 +164,11 @@ function assertSnapshot(snapshot, expectedYear, label) {
   assert(!snapshot.compareTile, `${label}: legacy compare imagery source is still attached.`);
   if (snapshot.city === "belfast") {
     assert(snapshot.detailLayerLoaded && snapshot.detailRoadLayer && snapshot.detailBuildingLayer, `${label}: detailed Belfast road/building layers are missing.`);
-    assert(snapshot.lensOverlayLoaded && snapshot.lensHeatmapLayer && snapshot.lensTransportRoadLayer, `${label}: Belfast lens heatmap/transport road overlays are missing.`);
   }
+  assert(snapshot.lensOverlayLoaded && snapshot.lensHeatmapLayer && snapshot.lensTransportBaseLayer && snapshot.lensTransportRoadLayer, `${label}: lens heatmap/transport road overlays are missing.`);
+  assert(snapshot.lensTransportBaseRendered > 0, `${label}: citywide transport base roads did not render.`);
+  assert(snapshot.lensTransportRoadRendered > 0 && snapshot.roadActivitySum > 0, `${label}: selected-year transport road activity did not render.`);
+  assert(snapshot.roadYearSource.includes(`transport_roads_${expectedYear}.geojson`), `${label}: selected-year transport road source did not follow the timeline.`);
   assert(/OpenStreetMap contributors/i.test(snapshot.attribution), `${label}: map attribution did not show OpenStreetMap contributors.`);
   assert(/orientation context|not event timing evidence/i.test(snapshot.attribution), `${label}: OSM basemap caveat was not visible.`);
   assert(snapshot.cards > 0, `${label}: changelog cards disappeared after timeline change.`);
@@ -170,6 +196,8 @@ function assertSnapshot(snapshot, expectedYear, label) {
     await page.goto(`${url}/?city=${encodeURIComponent(scenario.city)}`, { waitUntil: "domcontentloaded", timeout: 30000 });
     await waitForAtlas(page, scenario.city);
     await useAreaSearch(page, scenario);
+    await page.evaluate(() => window.BimsAtlas.setCategory("transport"));
+    await page.waitForFunction(() => window.BimsAtlas.state.category === "transport", null, { timeout: 5000 });
 
     await setTimelineYear(page, scenario.beforeYear);
     const before = await readTimelineSnapshot(page);
@@ -180,6 +208,7 @@ function assertSnapshot(snapshot, expectedYear, label) {
     assertSnapshot(after, scenario.afterYear, `${runLabel} after`);
 
     assert(before.basemapTile === after.basemapTile, `${runLabel}: OSM basemap tile template changed between timeline years.`);
+    assert(Math.abs(before.roadActivitySum - after.roadActivitySum) > 0.1, `${runLabel}: transport road activity did not visually change between ${scenario.beforeYear} and ${scenario.afterYear}.`);
 
     const png = await page.locator("#cityMap").screenshot();
     assertDetailedPng(png, assert, `${runLabel} OSM basemap`);

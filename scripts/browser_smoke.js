@@ -35,6 +35,7 @@ async function waitForAtlas(page) {
       && window.BimsAtlas.state.map?.getLayer("detail-buildings-fill")
       && window.BimsAtlas.state.map?.getLayer("detail-buildings-extrusion")
       && window.BimsAtlas.state.map?.getLayer("lens-heatmap")
+      && window.BimsAtlas.state.map?.getLayer("lens-transport-base")
       && window.BimsAtlas.state.map?.getLayer("lens-transport-roads")
     ),
     null,
@@ -50,6 +51,8 @@ async function appState(page) {
     const styleSources = state.map?.getStyle()?.sources || {};
     const detailData = styleSources["osm-detail"]?.data;
     const lensData = styleSources["lens-overlays"]?.data;
+    const lensRoadBaseData = styleSources["lens-transport-road-base"]?.data;
+    const lensRoadYearData = styleSources["lens-transport-road-year"]?.data;
     const staleSelectors = [".scene-image", ".territory-layer", ".map-pin", ".place-label", ".cloud"];
     return {
       title: document.title,
@@ -73,6 +76,8 @@ async function appState(page) {
       legacyImageryTile: styleSources.imagery?.tiles?.[0] || "",
       detailLayerData: typeof detailData === "string" ? detailData : detailData?.name || "",
       lensOverlayData: typeof lensData === "string" ? lensData : lensData?.name || "",
+      lensRoadBaseData: typeof lensRoadBaseData === "string" ? lensRoadBaseData : lensRoadBaseData?.name || "",
+      lensRoadYearData: typeof lensRoadYearData === "string" ? lensRoadYearData : lensRoadYearData?.name || "",
       detailLayerLoaded: Boolean(state.detailLayerLoaded),
       lensOverlayLoaded: Boolean(state.lensOverlayLoaded),
       detailLayers: [
@@ -87,6 +92,8 @@ async function appState(page) {
         "lens-heatmap",
         "lens-current-points-glow",
         "lens-current-points",
+        "lens-transport-base-case",
+        "lens-transport-base",
         "lens-transport-roads-case",
         "lens-transport-roads",
         "lens-transport-hotspots",
@@ -143,8 +150,10 @@ async function appState(page) {
   assert(!initial.legacyImageryTile, "Legacy imagery source is still attached to the map.");
   assert(initial.detailLayerLoaded && initial.detailLayers === 6, "Detailed OSM road/building layers did not load.");
   assert(/detail_layers\.geojson|belfast_osm_detail_layers/.test(String(initial.detailLayerData)), "Detailed OSM layer source is not the generated detail_layers GeoJSON.");
-  assert(initial.lensOverlayLoaded && initial.lensOverlayLayers === 6, "Lens heatmap/road activity layers did not load.");
+  assert(initial.lensOverlayLoaded && initial.lensOverlayLayers === 8, "Lens heatmap/road activity layers did not load.");
   assert(/lens_overlays\.geojson|belfast_source_backed_lens_overlays/.test(String(initial.lensOverlayData)), "Lens overlay source is not the generated lens_overlays GeoJSON.");
+  assert(/transport_roads_base\.geojson|transport_roads_base/.test(String(initial.lensRoadBaseData)), "Transport base road source is not the generated citywide road GeoJSON.");
+  assert(/transport_roads_2024\.geojson|transport_roads/.test(String(initial.lensRoadYearData)), "Transport selected-year road source is not the generated per-year road GeoJSON.");
   assert(/source ids and map geometry/i.test(initial.coverage), "Coverage copy is missing the source-backed geometry rule.");
   assert(/Detailed OSM road\/building layers|mapped-visibility/i.test(initial.coverage), "Coverage copy is missing detailed OSM layer caveat.");
   assert(/Lens overlays repaint by year|not measured traffic volume/i.test(initial.coverage), "Coverage copy is missing lens overlay/traffic caveat.");
@@ -227,7 +236,8 @@ async function appState(page) {
     window.BimsAtlas.state.map.jumpTo({ center: [-5.9301, 54.5973], zoom: 13.8, pitch: 48, bearing: -12 });
   });
   await page.waitForFunction(
-    () => window.BimsAtlas.state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length > 0,
+    () => window.BimsAtlas.state.map.queryRenderedFeatures({ layers: ["lens-transport-base"] }).length > 0
+      && window.BimsAtlas.state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length > 0,
     null,
     { timeout: 20000 }
   );
@@ -235,17 +245,20 @@ async function appState(page) {
     const map = window.BimsAtlas.state.map;
     const year = window.BimsAtlas.state.year;
     const features = map.queryRenderedFeatures({ layers: ["lens-transport-roads"] });
-    const prop = `transport_activity_${year}`;
+    const baseFeatures = map.queryRenderedFeatures({ layers: ["lens-transport-base"] });
     return {
       year,
       visible: features.length,
-      sum: features.reduce((total, feature) => total + Number(feature.properties[prop] || 0), 0),
+      baseVisible: baseFeatures.length,
+      sum: features.reduce((total, feature) => total + Number(feature.properties.transport_activity || 0), 0),
       layerVisibility: map.getLayoutProperty("lens-transport-roads", "visibility"),
+      baseVisibility: map.getLayoutProperty("lens-transport-base", "visibility"),
     };
   });
-  assert(transportRoad2024.visible > 0 && transportRoad2024.sum > 0 && transportRoad2024.layerVisibility === "visible", `Transport road activity overlay did not render: ${JSON.stringify(transportRoad2024)}.`);
+  assert(transportRoad2024.baseVisible > 0 && transportRoad2024.visible > 0 && transportRoad2024.sum > 0 && transportRoad2024.layerVisibility === "visible" && transportRoad2024.baseVisibility === "visible", `Transport road activity overlay did not render: ${JSON.stringify(transportRoad2024)}.`);
   await page.evaluate(() => window.BimsAtlas.setYear(2018));
   await page.waitForFunction(() => window.BimsAtlas.state.year === 2018, null, { timeout: 10000 });
+  await page.waitForFunction(() => window.BimsAtlas.state.transportRoadYearLoaded === 2018, null, { timeout: 10000 });
   await page.waitForFunction(
     () => window.BimsAtlas.state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length > 0,
     null,
@@ -257,10 +270,11 @@ async function appState(page) {
     return {
       year: window.BimsAtlas.state.year,
       visible: features.length,
-      sum: features.reduce((total, feature) => total + Number(feature.properties.transport_activity_2018 || 0), 0),
+      baseVisible: map.queryRenderedFeatures({ layers: ["lens-transport-base"] }).length,
+      sum: features.reduce((total, feature) => total + Number(feature.properties.transport_activity || 0), 0),
     };
   });
-  assert(transportRoad2018.visible > 0 && Math.abs(transportRoad2024.sum - transportRoad2018.sum) > 0.1, `Transport road colors did not change with the timeline: ${JSON.stringify({ transportRoad2018, transportRoad2024 })}.`);
+  assert(transportRoad2018.baseVisible > 0 && transportRoad2018.visible > 0 && Math.abs(transportRoad2024.sum - transportRoad2018.sum) > 0.1, `Transport road colors did not change with the timeline: ${JSON.stringify({ transportRoad2018, transportRoad2024 })}.`);
   await page.evaluate(() => window.BimsAtlas.setYear(2024));
   await page.waitForFunction(() => window.BimsAtlas.state.year === 2024, null, { timeout: 10000 });
 
