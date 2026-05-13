@@ -50,6 +50,13 @@ if (atlas) {
     const currentState = paths.current_state ? readJson(paths.current_state) : null;
     const detailLayers = paths.detail_layers ? readJson(paths.detail_layers) : null;
     const lensOverlays = paths.lens_overlays ? readJson(paths.lens_overlays) : null;
+    const transportRoadBase = paths.transport_roads_base ? readJson(paths.transport_roads_base) : null;
+
+    for (const key of ["lens_overlays", "transport_roads_base", "transport_roads_template"]) {
+      assert(paths[key], `City ${city.city_id} is missing required artifact_paths.${key}.`);
+    }
+    if (paths.lens_overlays) assert(exists(paths.lens_overlays), `City ${city.city_id} lens overlay artifact is missing: ${paths.lens_overlays}`);
+    if (paths.transport_roads_base) assert(exists(paths.transport_roads_base), `City ${city.city_id} transport base road artifact is missing: ${paths.transport_roads_base}`);
 
     if (cityMeta) {
       assert(Array.isArray(cityMeta.default_center) && cityMeta.default_center.length === 2, `City ${city.city_id} must define a [lng, lat] default_center.`);
@@ -87,6 +94,21 @@ if (atlas) {
           assert(eventChunk.events.every((event) => event.event_id && event.title && event.year && event.geometry), `City ${city.city_id} ${chunk.year} events need id/title/year/geometry.`);
         }
       }
+
+      if (paths.transport_roads_template) {
+        assert(paths.transport_roads_template.includes("{year}"), `City ${city.city_id} transport_roads_template must include {year}.`);
+        for (const year of eventsManifest.event_years || (eventsManifest.chunks || []).map((chunk) => chunk.year)) {
+          const roadPath = paths.transport_roads_template.replace("{year}", String(year));
+          assert(exists(roadPath), `City ${city.city_id} required transport road artifact is missing for ${year}: ${roadPath}`);
+          const roadYear = exists(roadPath) ? readJson(roadPath) : null;
+          if (roadYear) {
+            assert(roadYear.type === "FeatureCollection", `City ${city.city_id} transport_roads_${year} must be a GeoJSON FeatureCollection.`);
+            assert(Number(roadYear.metadata?.year) === Number(year), `City ${city.city_id} transport_roads_${year} metadata year mismatch.`);
+            assert(/not measured traffic/i.test(String(roadYear.metadata?.caveat || "")), `City ${city.city_id} transport_roads_${year} must caveat traffic intensity.`);
+            assert((roadYear.features || []).every((feature) => feature.properties?.layer === "traffic_road" && Number.isFinite(Number(feature.properties?.transport_activity))), `City ${city.city_id} transport_roads_${year} features need traffic_road layer and numeric transport_activity.`);
+          }
+        }
+      }
     }
 
     if (availability) {
@@ -110,8 +132,14 @@ if (atlas) {
       assert(lensOverlays.type === "FeatureCollection", `City ${city.city_id} lens_overlays must be a GeoJSON FeatureCollection.`);
       assert(/not measured traffic/i.test((lensOverlays.metadata?.caveats || []).join(" ")), `City ${city.city_id} lens_overlays must caveat traffic/road intensity.`);
       assert((lensOverlays.features || []).some((feature) => feature.properties?.layer === "lens_event"), `City ${city.city_id} lens_overlays must include event heatmap points.`);
-      assert((lensOverlays.features || []).some((feature) => feature.properties?.layer === "traffic_road"), `City ${city.city_id} lens_overlays must include transport road activity features.`);
       assert((lensOverlays.features || []).filter((feature) => feature.properties?.layer === "lens_event").every((feature) => feature.properties?.category && Number.isInteger(Number(feature.properties?.year))), `City ${city.city_id} lens event overlays need category and year.`);
+    }
+
+    if (transportRoadBase) {
+      assert(transportRoadBase.type === "FeatureCollection", `City ${city.city_id} transport_roads_base must be a GeoJSON FeatureCollection.`);
+      assert(/not measured traffic/i.test(String(transportRoadBase.metadata?.caveat || "")), `City ${city.city_id} transport_roads_base must caveat traffic intensity.`);
+      assert((transportRoadBase.features || []).length > 0, `City ${city.city_id} transport_roads_base must include citywide road features.`);
+      assert((transportRoadBase.features || []).every((feature) => feature.properties?.layer === "traffic_road_base" && feature.geometry), `City ${city.city_id} transport_roads_base features need traffic_road_base layer and geometry.`);
     }
   }
 }

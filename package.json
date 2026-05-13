@@ -9,6 +9,7 @@
     "build:transit": "node scripts/build_translink_transit_layers.js",
     "build:detail-layers": "node scripts/build_osm_detail_layers.js",
     "build:lens-overlays": "node scripts/build_lens_overlays.js",
+    "fetch:city-roads": "node scripts/fetch_city_osm_roads.js",
     "build": "npm run build:data && npm run build:events && npm run build:transit && npm run build:detail-layers && npm run build:lens-overlays && npm run verify",
     "start": "node server.js",
     "verify:data": "node scripts/verify_data.js",

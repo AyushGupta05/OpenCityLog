@@ -19,10 +19,14 @@
     "detail-buildings-year-outline",
   ];
   const LENS_SOURCE_ID = "lens-overlays";
+  const LENS_ROAD_BASE_SOURCE_ID = "lens-transport-road-base";
+  const LENS_ROAD_SOURCE_ID = "lens-transport-road-year";
   const LENS_LAYER_IDS = [
     "lens-heatmap",
     "lens-current-points-glow",
     "lens-current-points",
+    "lens-transport-base-case",
+    "lens-transport-base",
     "lens-transport-roads-case",
     "lens-transport-roads",
     "lens-transport-hotspots",
@@ -104,6 +108,10 @@
     detailLayerError: null,
     lensOverlayLoaded: false,
     lensOverlayError: null,
+    lensOverlayPathLoaded: null,
+    transportRoadBasePathLoaded: null,
+    transportRoadYearPathLoaded: null,
+    transportRoadYearLoaded: null,
     proposalResult: null,
   };
 
@@ -300,6 +308,10 @@
     state.detailLayerError = null;
     state.lensOverlayLoaded = false;
     state.lensOverlayError = null;
+    state.lensOverlayPathLoaded = null;
+    state.transportRoadBasePathLoaded = null;
+    state.transportRoadYearPathLoaded = null;
+    state.transportRoadYearLoaded = null;
     state.proposalResult = null;
 
     if (els.eventSearch) els.eventSearch.value = "";
@@ -1575,8 +1587,7 @@
 
   function detailLayerPath() {
     const configured = state.cityMeta?.artifact_paths?.detail_layers || state.city?.artifact_paths?.detail_layers;
-    if (configured) return dataPathToUrl(configured);
-    return state.cityId === "belfast" ? "/data/city-atlas/cities/belfast/detail_layers.geojson" : "";
+    return configured ? dataPathToUrl(configured) : "";
   }
 
   function ensureDetailLayers() {
@@ -1728,24 +1739,64 @@
 
   function lensOverlayPath() {
     const configured = state.cityMeta?.artifact_paths?.lens_overlays || state.city?.artifact_paths?.lens_overlays;
-    if (configured) return dataPathToUrl(configured);
-    return state.cityId === "belfast" ? "/data/city-atlas/cities/belfast/lens_overlays.geojson" : "";
+    return configured ? dataPathToUrl(configured) : "";
+  }
+
+  function transportRoadBasePath() {
+    const configured = state.cityMeta?.artifact_paths?.transport_roads_base || state.city?.artifact_paths?.transport_roads_base;
+    return configured ? dataPathToUrl(configured) : "";
+  }
+
+  function transportRoadYearPath(year = state.year) {
+    const template = state.cityMeta?.artifact_paths?.transport_roads_template || state.city?.artifact_paths?.transport_roads_template;
+    const numericYear = Number(year || latestYear());
+    return template ? dataPathToUrl(String(template).replace("{year}", String(numericYear))) : "";
   }
 
   function ensureLensOverlays() {
     if (!state.map || !state.mapReady) return;
     const path = lensOverlayPath();
-    if (!path) {
+    const basePath = transportRoadBasePath();
+    const yearPath = transportRoadYearPath(state.year);
+    const missing = [
+      ["lens overlays", path],
+      ["transport base roads", basePath],
+      ["transport year roads", yearPath],
+    ].filter(([, value]) => !value).map(([label]) => label);
+    if (missing.length) {
+      state.lensOverlayError = `Missing required generated artifact(s): ${missing.join(", ")}`;
       removeLensOverlays();
+      updateMapAttribution();
       return;
     }
-    if (state.map.getSource(LENS_SOURCE_ID)) {
-      updateLensOverlayFilters();
-      return;
-    }
+
     try {
-      state.map.addSource(LENS_SOURCE_ID, { type: "geojson", data: path, generateId: true });
-      addLensOverlayLayers();
+      const lensSource = state.map.getSource(LENS_SOURCE_ID);
+      if (lensSource?.setData) {
+        if (state.lensOverlayPathLoaded !== path) lensSource.setData(path);
+      } else {
+        state.map.addSource(LENS_SOURCE_ID, { type: "geojson", data: path, generateId: true });
+      }
+      state.lensOverlayPathLoaded = path;
+
+      const baseSource = state.map.getSource(LENS_ROAD_BASE_SOURCE_ID);
+      if (baseSource?.setData) {
+        if (state.transportRoadBasePathLoaded !== basePath) baseSource.setData(basePath);
+      } else {
+        state.map.addSource(LENS_ROAD_BASE_SOURCE_ID, { type: "geojson", data: basePath, generateId: true });
+      }
+      state.transportRoadBasePathLoaded = basePath;
+
+      const roadSource = state.map.getSource(LENS_ROAD_SOURCE_ID);
+      if (roadSource?.setData) {
+        if (state.transportRoadYearPathLoaded !== yearPath) roadSource.setData(yearPath);
+      } else {
+        state.map.addSource(LENS_ROAD_SOURCE_ID, { type: "geojson", data: yearPath, generateId: true });
+      }
+      state.transportRoadYearPathLoaded = yearPath;
+      state.transportRoadYearLoaded = Number(state.year || latestYear());
+
+      if (!state.map.getLayer("lens-heatmap")) addLensOverlayLayers();
       state.lensOverlayLoaded = true;
       state.lensOverlayError = null;
       updateLensOverlayFilters();
@@ -1754,6 +1805,18 @@
       state.lensOverlayLoaded = false;
       state.lensOverlayError = error.message;
       updateMapAttribution();
+    }
+  }
+
+  function updateTransportRoadYearSource() {
+    if (!state.map?.getSource(LENS_ROAD_SOURCE_ID)) return;
+    const path = transportRoadYearPath(state.year);
+    if (!path || state.transportRoadYearPathLoaded === path) return;
+    const source = state.map.getSource(LENS_ROAD_SOURCE_ID);
+    if (source?.setData) {
+      source.setData(path);
+      state.transportRoadYearPathLoaded = path;
+      state.transportRoadYearLoaded = Number(state.year || latestYear());
     }
   }
 
@@ -1798,9 +1861,44 @@
       },
     });
     state.map.addLayer({
+      id: "lens-transport-base-case",
+      type: "line",
+      source: LENS_ROAD_BASE_SOURCE_ID,
+      filter: transportBaseRoadFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#0b1b1e",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.08, 12, 0.16, 16, 0.28],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          8, ["*", ["to-number", ["get", "rank"], 1], 0.32],
+          12, ["*", ["to-number", ["get", "rank"], 1], 0.62],
+          16, ["*", ["to-number", ["get", "rank"], 1], 1.15],
+        ],
+        "line-blur": 0.25,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-transport-base",
+      type: "line",
+      source: LENS_ROAD_BASE_SOURCE_ID,
+      filter: transportBaseRoadFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#58d3c8",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.06, 12, 0.18, 16, 0.36],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          8, ["*", ["to-number", ["get", "rank"], 1], 0.16],
+          12, ["*", ["to-number", ["get", "rank"], 1], 0.34],
+          16, ["*", ["to-number", ["get", "rank"], 1], 0.78],
+        ],
+      },
+    });
+    state.map.addLayer({
       id: "lens-transport-roads-case",
       type: "line",
-      source: LENS_SOURCE_ID,
+      source: LENS_ROAD_SOURCE_ID,
       filter: transportRoadFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -1813,7 +1911,7 @@
     state.map.addLayer({
       id: "lens-transport-roads",
       type: "line",
-      source: LENS_SOURCE_ID,
+      source: LENS_ROAD_SOURCE_ID,
       filter: transportRoadFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: transportRoadPaint(),
@@ -1821,7 +1919,7 @@
     state.map.addLayer({
       id: "lens-transport-hotspots",
       type: "line",
-      source: LENS_SOURCE_ID,
+      source: LENS_ROAD_SOURCE_ID,
       filter: transportRoadFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -1838,12 +1936,20 @@
     for (const layerId of LENS_LAYER_IDS) {
       if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
     }
-    if (state.map.getSource(LENS_SOURCE_ID)) state.map.removeSource(LENS_SOURCE_ID);
+    for (const sourceId of [LENS_ROAD_SOURCE_ID, LENS_ROAD_BASE_SOURCE_ID, LENS_SOURCE_ID]) {
+      if (state.map.getSource(sourceId)) state.map.removeSource(sourceId);
+    }
     state.lensOverlayLoaded = false;
+    state.lensOverlayPathLoaded = null;
+    state.transportRoadBasePathLoaded = null;
+    state.transportRoadYearPathLoaded = null;
+    state.transportRoadYearLoaded = null;
   }
 
   function updateLensOverlayFilters() {
-    if (!state.map?.getSource(LENS_SOURCE_ID)) return;
+    if (!state.map) return;
+    updateTransportRoadYearSource();
+    if (!state.map.getSource(LENS_SOURCE_ID)) return;
     if (state.map.getLayer("lens-heatmap")) {
       state.map.setFilter("lens-heatmap", lensEventFilter(false));
       state.map.setPaintProperty("lens-heatmap", "heatmap-color", lensHeatmapColor());
@@ -1856,6 +1962,11 @@
       }
     }
     const showTransportRoads = state.category === "transport";
+    for (const layerId of ["lens-transport-base-case", "lens-transport-base"]) {
+      if (!state.map.getLayer(layerId)) continue;
+      state.map.setFilter(layerId, transportBaseRoadFilter());
+      state.map.setLayoutProperty(layerId, "visibility", showTransportRoads ? "visible" : "none");
+    }
     for (const layerId of ["lens-transport-roads-case", "lens-transport-roads", "lens-transport-hotspots"]) {
       if (!state.map.getLayer(layerId)) continue;
       state.map.setFilter(layerId, transportRoadFilter());
@@ -1889,17 +2000,20 @@
     return ["all", ...conditions];
   }
 
+  function transportBaseRoadFilter() {
+    return ["==", ["get", "layer"], "traffic_road_base"];
+  }
+
   function transportRoadFilter() {
     return [
       "all",
       ["==", ["get", "layer"], "traffic_road"],
-      ["<=", ["to-number", ["get", "visible_year"], 9999], Number(state.year || latestYear())],
       [">", transportActivityExpression(), 0],
     ];
   }
 
   function transportActivityExpression() {
-    return ["to-number", ["get", `transport_activity_${Number(state.year || latestYear())}`], 0];
+    return ["to-number", ["get", "transport_activity"], 0];
   }
 
   function transportRoadPaint() {
