@@ -15,4 +15,4 @@ Future HF-hosted data can still be added through the normal source workflow:
 1. Add the dataset repo ID and licence to `config/source_inventory.json`.
 2. Download or export only the needed Belfast subset into `data/manual_drops/hugging_face/<year>/` or a purpose-named `data/<year>/` folder.
 3. Run `python .\scripts\index_sources.py --output .\manifests\provenance_manifest.json`.
-4. Run `npm run build:manifest` to refresh the active imagery manifest when needed.
+4. Run `npm run build:data` to refresh browser-ready atlas artifacts when needed.

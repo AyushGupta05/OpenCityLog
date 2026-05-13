@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css?v=timeline-clarity-11">
+  <link rel="stylesheet" href="/atlas.css?v=osm-lens-1">
 </head>
 <body>
   <a class="skip-link" href="#changePanel">Skip to changelog</a>
@@ -144,7 +144,7 @@
         </label>
       </div>
       <div class="compare-stats" id="compareStats"></div>
-      <p class="compare-note" id="compareNote">Select two years to compare source-backed record counts on the stable reference map.</p>
+      <p class="compare-note" id="compareNote">Select two years to compare source-backed record counts on the current OpenStreetMap basemap.</p>
     </section>
 
     <aside class="change-panel glass-panel" id="changePanel" aria-labelledby="changeTitle">
@@ -202,7 +202,7 @@
       <button class="three-d-button" id="view3dButton" type="button" aria-pressed="false">2D</button>
     </div>
 
-    <div class="map-attribution" id="mapAttribution">OpenStreetMap contributors, CARTO basemap, source-backed event markers. Stable reference map; not before/after evidence.</div>
+    <div class="map-attribution" id="mapAttribution">OpenStreetMap contributors, source-backed event markers. Current OSM basemap is orientation context, not event timing evidence. Detailed roads/buildings and lens overlays use source-backed derived geometry.</div>
 
     <dialog class="details-dialog glass-panel" id="detailsDialog" aria-labelledby="detailsTitle">
       <div class="details-head">
@@ -315,6 +315,6 @@
   </div>
 
   <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
-  <script src="/atlas.js?v=timeline-clarity-11" defer></script>
+  <script src="/atlas.js?v=osm-lens-1" defer></script>
 </body>
 </html>

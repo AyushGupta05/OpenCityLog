@@ -83,12 +83,6 @@ Run the local product:
 npm start
 ```
 
-Build current manifests:
-
-```powershell
-npm run build:manifest
-```
-
 Run source/event builders when touching those areas:
 
 ```powershell

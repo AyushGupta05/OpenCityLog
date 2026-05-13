@@ -48,6 +48,8 @@ if (atlas) {
     const eventsManifest = paths.events ? readJson(paths.events) : null;
     const availability = paths.availability ? readJson(paths.availability) : null;
     const currentState = paths.current_state ? readJson(paths.current_state) : null;
+    const detailLayers = paths.detail_layers ? readJson(paths.detail_layers) : null;
+    const lensOverlays = paths.lens_overlays ? readJson(paths.lens_overlays) : null;
 
     if (cityMeta) {
       assert(Array.isArray(cityMeta.default_center) && cityMeta.default_center.length === 2, `City ${city.city_id} must define a [lng, lat] default_center.`);
@@ -95,14 +97,23 @@ if (atlas) {
       assert(currentState.city_id === city.city_id, `City ${city.city_id} current_state city_id mismatch.`);
       assert(Array.isArray(currentState.layers) || Array.isArray(currentState.signals) || Array.isArray(currentState.cards), `City ${city.city_id} current_state needs layers[], signals[], or cards[].`);
     }
-  }
-}
 
-const imagery = readJson("web/data/wayback-imagery.json");
-if (imagery) {
-  assert(imagery.provider && /Wayback/i.test(imagery.provider), "Wayback imagery manifest must name its provider.");
-  assert(Array.isArray(imagery.layers) && imagery.layers.length > 0, "Wayback imagery manifest must include dated layers.");
-  assert(imagery.layers.every((layer) => layer.year && layer.date && layer.item_id), "Wayback imagery layers need year/date/item_id.");
+    if (detailLayers) {
+      assert(detailLayers.type === "FeatureCollection", `City ${city.city_id} detail_layers must be a GeoJSON FeatureCollection.`);
+      assert(detailLayers.metadata?.license === "ODbL", `City ${city.city_id} detail_layers must retain ODbL licence metadata.`);
+      assert((detailLayers.features || []).some((feature) => feature.properties?.layer === "road"), `City ${city.city_id} detail_layers must include road features.`);
+      assert((detailLayers.features || []).some((feature) => feature.properties?.layer === "building"), `City ${city.city_id} detail_layers must include building features.`);
+      assert((detailLayers.features || []).every((feature) => Number.isInteger(Number(feature.properties?.visible_year))), `City ${city.city_id} detail layer features need visible_year.`);
+    }
+
+    if (lensOverlays) {
+      assert(lensOverlays.type === "FeatureCollection", `City ${city.city_id} lens_overlays must be a GeoJSON FeatureCollection.`);
+      assert(/not measured traffic/i.test((lensOverlays.metadata?.caveats || []).join(" ")), `City ${city.city_id} lens_overlays must caveat traffic/road intensity.`);
+      assert((lensOverlays.features || []).some((feature) => feature.properties?.layer === "lens_event"), `City ${city.city_id} lens_overlays must include event heatmap points.`);
+      assert((lensOverlays.features || []).some((feature) => feature.properties?.layer === "traffic_road"), `City ${city.city_id} lens_overlays must include transport road activity features.`);
+      assert((lensOverlays.features || []).filter((feature) => feature.properties?.layer === "lens_event").every((feature) => feature.properties?.category && Number.isInteger(Number(feature.properties?.year))), `City ${city.city_id} lens event overlays need category and year.`);
+    }
+  }
 }
 
 if (failures.length) {
@@ -111,4 +122,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`City atlas manifest verification OK: ${atlas.cities.length} cities, ${atlas.cities.reduce((sum, city) => sum + city.event_count, 0)} events, source-backed imagery manifest present.`);
+console.log(`City atlas manifest verification OK: ${atlas.cities.length} cities, ${atlas.cities.reduce((sum, city) => sum + city.event_count, 0)} source-backed events.`);

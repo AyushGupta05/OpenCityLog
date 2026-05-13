@@ -1,11 +1,12 @@
 # City Atlas Local API
 
-The local server is intentionally small: it serves the static atlas frontend, the browser-ready city-atlas data files, a health endpoint, and the optional Wayback imagery tile proxy used by the before/after map.
+The local server is intentionally small: it serves the static atlas frontend, the browser-ready city-atlas data files, and the health/proposal endpoints. The frontend uses OpenStreetMap raster tiles directly for current basemap context.
 
 ## Active endpoints
 
 - `GET /api/health` returns local server health and confirms the city-atlas data index exists.
-- `GET /api/imagery/wayback/{itemId}/{z}/{y}/{x}` proxies ArcGIS Wayback imagery tiles for source-backed before/after comparison.
+- `GET /api/proposal-impact/schema` exposes the proposal input contract.
+- `POST /api/proposal-impact` runs the lightweight source-backed proposal screen.
 - `GET /...` serves static files from `web/` with path traversal protection.
 
 ## Retired endpoints
