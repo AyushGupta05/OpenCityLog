@@ -1762,8 +1762,19 @@ a {
 .timeline-labels span {
   position: absolute;
   top: 0;
+  width: 48px;
   text-align: center;
   transform: translateX(-50%);
+}
+
+.timeline-labels span:first-child {
+  text-align: left;
+  transform: none;
+}
+
+.timeline-labels span:last-child {
+  text-align: right;
+  transform: translateX(-100%);
 }
 
 .current-year {
