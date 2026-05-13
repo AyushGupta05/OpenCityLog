@@ -31,9 +31,25 @@ Open `http://localhost:5173`.
 
 The served frontend is the atlas-first public website in `web/index.html`,
 `web/atlas.js`, and `web/atlas.css`. It reads `web/data/city-atlas/` directly,
-draws a lightweight static geometry map, and does not require a Mapbox token for
-open-source deployment. Retired proof-flow, branch-simulation, forecast, and
-legacy replay-manifest runtime paths are guarded by `npm run verify`.
+draws source-backed markers over OpenStreetMap raster tiles, and does not require
+a Mapbox token for open-source deployment. Retired proof-flow,
+branch-simulation, forecast, and legacy replay-manifest runtime paths are
+guarded by `npm run verify`.
+
+Belfast also has a generated detail layer at
+`web/data/city-atlas/cities/belfast/detail_layers.geojson`. It renders exact
+OSM-derived road centerlines and building footprints over the timeline. Road
+years come from OSM edit metadata, and building years are generated
+first-visible proxies, so they are mapped-visibility evidence rather than
+certified construction dates.
+
+The timeline also loads
+`web/data/city-atlas/cities/belfast/lens_overlays.geojson` for source-backed
+visual change surfaces. Planning, public-service, economy, and transport lenses
+draw event-density heatmaps for the selected year window. The transport lens
+adds green-to-red OSM road coloring based on mapped road-change activity and
+nearby documented transport records; it is a hotspot/context overlay, not a
+measured traffic-volume or congestion model.
 
 Browser smoke coverage checks the core user path:
 

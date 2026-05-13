@@ -27,6 +27,18 @@ async function waitForAtlas(page) {
     null,
     { timeout: 45000 }
   );
+  await page.waitForFunction(
+    () => Boolean(
+      window.BimsAtlas?.state?.detailLayerLoaded
+      && window.BimsAtlas?.state?.lensOverlayLoaded
+      && window.BimsAtlas.state.map?.getLayer("detail-roads-visible")
+      && window.BimsAtlas.state.map?.getLayer("detail-buildings-extrusion")
+      && window.BimsAtlas.state.map?.getLayer("lens-heatmap")
+      && window.BimsAtlas.state.map?.getLayer("lens-transport-roads")
+    ),
+    null,
+    { timeout: 60000 }
+  );
 }
 
 async function layoutState(page) {
@@ -71,6 +83,12 @@ async function layoutState(page) {
       lensRows: document.querySelectorAll(".lens-row").length,
       markers: document.querySelectorAll(".map-marker").length,
       mapCanvas: document.querySelectorAll(".maplibregl-canvas").length,
+      detailLayerLoaded: Boolean(window.BimsAtlas.state.detailLayerLoaded),
+      lensOverlayLoaded: Boolean(window.BimsAtlas.state.lensOverlayLoaded),
+      detailRoadLayer: Boolean(window.BimsAtlas.state.map?.getLayer("detail-roads-visible")),
+      detailBuildingLayer: Boolean(window.BimsAtlas.state.map?.getLayer("detail-buildings-extrusion")),
+      lensHeatmapLayer: Boolean(window.BimsAtlas.state.map?.getLayer("lens-heatmap")),
+      lensTransportRoadLayer: Boolean(window.BimsAtlas.state.map?.getLayer("lens-transport-roads")),
       staleVisuals: document.querySelectorAll(".scene-image, .territory-layer, .map-pin, .place-label, .cloud").length,
       bodyText: document.body.innerText,
       invalidVisible: invalidVisible.map((event) => event.id),
@@ -101,6 +119,8 @@ async function layoutState(page) {
   assert(desktopState.mapStage.width >= 1500 && desktopState.mapStage.height >= 860, "Desktop map stage is not full bleed.");
   assert(desktopState.cityMap.width >= 1500 && desktopState.cityMap.height >= 860, "Desktop real map is not full bleed.");
   assert(desktopState.mapCanvas === 1 && desktopState.markers > 0, "Desktop real map canvas or markers are missing.");
+  assert(desktopState.detailLayerLoaded && desktopState.detailRoadLayer && desktopState.detailBuildingLayer, "Desktop detailed road/building layers are missing.");
+  assert(desktopState.lensOverlayLoaded && desktopState.lensHeatmapLayer && desktopState.lensTransportRoadLayer, "Desktop lens heatmap/transport road layers are missing.");
   assert(desktopState.staleVisuals === 0, "Desktop still contains stale fake map visuals.");
   assert(desktopState.lensRows === 5 && desktopState.eventCards === 3, "Desktop panels did not render the expected dense atlas layout.");
   assert(desktopState.invalidVisible.length === 0, `Desktop visible records without sourced geometry: ${desktopState.invalidVisible.join(", ")}`);
@@ -126,6 +146,8 @@ async function layoutState(page) {
   const mediumState = await layoutState(medium);
   assert(mediumState.scrollWidth <= mediumState.clientWidth + 4, "Medium desktop overflows horizontally.");
   assert(mediumState.mapCanvas === 1 && mediumState.markers > 0, "Medium real map canvas or markers are missing.");
+  assert(mediumState.detailLayerLoaded && mediumState.detailRoadLayer && mediumState.detailBuildingLayer, "Medium detailed road/building layers are missing.");
+  assert(mediumState.lensOverlayLoaded && mediumState.lensHeatmapLayer && mediumState.lensTransportRoadLayer, "Medium lens heatmap/transport road layers are missing.");
   assert(mediumState.staleVisuals === 0, "Medium still contains stale fake map visuals.");
   assert(mediumState.invalidVisible.length === 0, `Medium visible records without sourced geometry: ${mediumState.invalidVisible.join(", ")}`);
   assert(!mediumState.timelineOverlapsPanels, "Medium desktop timeline overlaps panels.");
@@ -146,6 +168,8 @@ async function layoutState(page) {
   assert(mobileState.topbar.height > 150, "Mobile topbar did not collapse into stacked controls.");
   assert(mobileState.mapStage.height >= 860 && mobileState.cityMap.height >= 860, "Mobile real-map background is too short.");
   assert(mobileState.mapCanvas === 1 && mobileState.markers > 0, "Mobile real map canvas or markers are missing.");
+  assert(mobileState.detailLayerLoaded && mobileState.detailRoadLayer && mobileState.detailBuildingLayer, "Mobile detailed road/building layers are missing.");
+  assert(mobileState.lensOverlayLoaded && mobileState.lensHeatmapLayer && mobileState.lensTransportRoadLayer, "Mobile lens heatmap/transport road layers are missing.");
   assert(mobileState.staleVisuals === 0, "Mobile still contains stale fake map visuals.");
   assert(mobileState.invalidVisible.length === 0, `Mobile visible records without sourced geometry: ${mobileState.invalidVisible.join(", ")}`);
   assert(/OpenCityLog|Changelog|Lenses|View details/i.test(mobileState.bodyText), "Mobile key UI regions are missing.");

@@ -8,15 +8,35 @@
   const CONTEXT_RADIUS_KM = 1.5;
   const CONTEXT_YEAR_WINDOW = 2;
   const MAX_NEARBY_CONTEXT = 8;
+  const DETAIL_SOURCE_ID = "osm-detail";
+  const DETAIL_LAYER_IDS = [
+    "detail-roads-current",
+    "detail-buildings-fill",
+    "detail-buildings-extrusion",
+    "detail-buildings-outline",
+    "detail-roads-visible",
+    "detail-roads-year",
+    "detail-buildings-year-outline",
+  ];
+  const LENS_SOURCE_ID = "lens-overlays";
+  const LENS_LAYER_IDS = [
+    "lens-heatmap",
+    "lens-current-points-glow",
+    "lens-current-points",
+    "lens-transport-roads-case",
+    "lens-transport-roads",
+    "lens-transport-hotspots",
+  ];
   const TILE_PROVIDER = {
-    attribution: "OpenStreetMap contributors, CARTO basemap, source-backed event markers",
-    template: "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+    name: "OpenStreetMap Standard",
+    attribution: "OpenStreetMap contributors, source-backed event markers",
+    template: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
   };
 
   const CATEGORY_CONFIG = [
     { id: "all", label: "All types", lensLabel: "All changes", desc: "Observed, source-backed records", color: "#62d3d7", icon: "stack" },
     { id: "built_environment", label: "Planning", lensLabel: "Planning", desc: "Zoning, land use, projects", color: "#d8a64e", icon: "building" },
-    { id: "transport", label: "Transport", lensLabel: "Transport", desc: "Transit, roads, mobility", color: "#62d3d7", icon: "train" },
+    { id: "transport", label: "Transport", lensLabel: "Transport", desc: "Road activity, transit, mobility", color: "#62d3d7", icon: "train" },
     { id: "environment", label: "Environment", lensLabel: "Environment", desc: "Air, water, green space", color: "#75c69b", icon: "leaf" },
     { id: "civic_services", label: "Public services", lensLabel: "Public Services", desc: "Schools, health, safety", color: "#74bddb", icon: "civic" },
     { id: "economy", label: "Economy", lensLabel: "Economy", desc: "Business, jobs, investment", color: "#a58bd4", icon: "economy" },
@@ -78,13 +98,12 @@
     compareActive: false,
     compareBeforeYear: null,
     compareAfterYear: null,
-    imageryManifest: null,
-    activeImageryLayer: null,
-    imageryYear: null,
-    imageryRequestId: 0,
-    imageryTransitionTimer: null,
-    imageryTransitionToken: 0,
-    imageryError: null,
+    basemapYear: null,
+    basemapError: null,
+    detailLayerLoaded: false,
+    detailLayerError: null,
+    lensOverlayLoaded: false,
+    lensOverlayError: null,
     proposalResult: null,
   };
 
@@ -169,6 +188,7 @@
       renderAll();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
+      updateLensOverlayFilters();
     });
     els.searchResults?.addEventListener("click", (event) => {
       const button = event.target.closest("[data-search-index]");
@@ -274,9 +294,12 @@
     state.loadingAll = false;
     state.compareBeforeYear = compareDefaultBeforeYear();
     state.compareAfterYear = state.year;
-    state.activeImageryLayer = null;
-    state.imageryYear = null;
-    state.imageryError = null;
+    state.basemapYear = null;
+    state.basemapError = null;
+    state.detailLayerLoaded = false;
+    state.detailLayerError = null;
+    state.lensOverlayLoaded = false;
+    state.lensOverlayError = null;
     state.proposalResult = null;
 
     if (els.eventSearch) els.eventSearch.value = "";
@@ -292,14 +315,10 @@
     renderTimeline();
     syncYearControl();
     renderCompareYearOptions();
-    await loadImageryManifest().catch((error) => {
-      state.imageryError = error.message;
-      return null;
-    });
     renderCoverageNote();
     await loadYear(state.year);
     initOrUpdateMap();
-    await updateMapImageryForYear(state.year, { force: true });
+    updateMapBasemapForYear(state.year, { force: true });
     selectInitialEvent();
     renderAll();
     renderMapMarkers();
@@ -314,29 +333,27 @@
     if (state.map) {
       state.map.jumpTo({ center, zoom, pitch: mapPitch(), bearing: mapBearing() });
       window.setTimeout(() => state.map.resize(), 60);
-      updateMapImageryForYear(state.year, { force: true });
+      updateMapBasemapForYear(state.year, { force: true });
+      ensureDetailLayers();
+      ensureLensOverlays();
       return;
     }
 
-    const initialImageryLayer = state.activeImageryLayer || imageryLayerForYear(state.year);
-    if (initialImageryLayer) {
-      state.activeImageryLayer = initialImageryLayer;
-      state.imageryYear = state.year;
-    }
+    state.basemapYear = state.year;
 
     state.map = new window.maplibregl.Map({
       container: els.cityMap,
       style: {
         version: 8,
         sources: {
-          imagery: {
+          basemap: {
             type: "raster",
-            tiles: imageryTilesForLayer(initialImageryLayer),
+            tiles: basemapTiles(),
             tileSize: 256,
-            attribution: imageryAttributionText(state.year, initialImageryLayer),
+            attribution: basemapAttributionText(),
           },
         },
-        layers: [{ id: "imagery", type: "raster", source: "imagery", paint: { "raster-fade-duration": 180 } }],
+        layers: [{ id: "basemap", type: "raster", source: "basemap", paint: { "raster-fade-duration": 180 } }],
       },
       center,
       zoom,
@@ -352,7 +369,9 @@
     state.map.on("load", () => {
       state.mapReady = true;
       state.map.resize();
-      updateMapImageryForYear(state.year, { force: true });
+      updateMapBasemapForYear(state.year, { force: true });
+      ensureDetailLayers();
+      ensureLensOverlays();
       renderMapMarkers();
       if (state.compareActive) updateComparePanel();
     });
@@ -405,7 +424,13 @@
 
   function renderCoverageNote() {
     const note = state.city?.data_availability?.summary || "Coverage is partial and source-backed. Markers are shown only for records with source ids and usable geometry.";
-    setText(els.coverageNote, truncate(`Visible markers require source ids and map geometry. ${note}`, 215));
+    const detailNote = detailLayerPath()
+      ? " Detailed OSM road/building layers are mapped-visibility evidence, not certified construction history."
+      : "";
+    const lensNote = lensOverlayPath()
+      ? " Lens overlays repaint by year from source-backed event density; transport road colors are mapped road-change/transport hotspots, not measured traffic volume."
+      : "";
+    setText(els.coverageNote, truncate(`Visible markers require source ids and map geometry.${detailNote}${lensNote} ${note}`, 300));
     updateMapAttribution();
   }
 
@@ -578,7 +603,7 @@
       const left = yearPosition(year, min, max);
       const count = profile.counts.get(year) || 0;
       const ratio = Math.sqrt(count / Math.max(profile.maxCount, 1));
-      const size = Math.round(8 + (22 * ratio));
+      const size = Math.round(7 + (14 * ratio));
       const color = timelineYearColor(year, profile.categoryId);
       const className = [
         "timeline-event",
@@ -594,9 +619,11 @@
     });
     if (els.timelineLabels) {
       const labels = timelineLabelYears(min, max);
-      els.timelineLabels.innerHTML = labels.map((year) => `<span>${year}</span>`).join("");
-      els.timelineLabels.style.gridTemplateColumns = `repeat(${Math.max(labels.length, 1)}, 1fr)`;
+      els.timelineLabels.innerHTML = labels
+        .map((year) => `<span style="left: ${yearPosition(year, min, max)}%">${year}</span>`)
+        .join("");
     }
+    els.timelineTrack.style.setProperty("--timeline-progress", `${yearPosition(state.year, min, max)}%`);
     syncYearControl();
   }
 
@@ -685,6 +712,10 @@
 
   function renderMapMarkers() {
     if (!state.map || !state.mapReady) return;
+    ensureDetailLayers();
+    updateDetailLayerFilters();
+    ensureLensOverlays();
+    updateLensOverlayFilters();
     const markerEvents = filteredEvents().filter((event) => event.lngLat).slice(0, MAX_MARKERS);
     const nextIds = new Set(markerEvents.map((event) => event.id));
 
@@ -1049,8 +1080,8 @@
     if (state.compareActive) state.compareAfterYear = nextYear;
     syncYearControl();
     renderTimeline();
-    const imageryPromise = updateMapImageryForYear(nextYear);
-    return Promise.all([loadYear(nextYear), imageryPromise]).then(() => {
+    updateMapBasemapForYear(nextYear);
+    return loadYear(nextYear).then(() => {
       if (requestId !== state.yearRequestId || state.year !== nextYear) return;
       selectInitialEvent({ keepYear: true });
       renderAll();
@@ -1076,6 +1107,7 @@
     renderLensList();
     renderEventList();
     renderTimeline();
+    updateLensOverlayFilters();
     selectFirstVisibleIfNeeded();
     renderMapMarkers();
   }
@@ -1085,6 +1117,7 @@
     renderLayerControls();
     renderEventList();
     renderTimeline();
+    updateLensOverlayFilters();
     selectFirstVisibleIfNeeded();
     renderMapMarkers();
   }
@@ -1125,7 +1158,7 @@
     state.yearRequestId += 1;
     state.year = event.year;
     syncYearControl();
-    updateMapImageryForYear(event.year);
+    updateMapBasemapForYear(event.year);
     renderEventList();
     renderSelected();
     renderTimeline();
@@ -1339,7 +1372,7 @@
     if (els.comparePanel) els.comparePanel.hidden = false;
     renderCompareYearOptions();
     updateComparePanel();
-      toast("Compare shows source-backed record counts on the stable reference map; it does not claim physical change from imagery alone.");
+    toast("Compare shows source-backed record counts on the current OpenStreetMap basemap; it does not claim causation or measured physical change from map tiles alone.");
   }
 
   function closeCompare() {
@@ -1436,7 +1469,7 @@
         </div>
       `;
     }
-    setText(els.compareNote, "The map stays as a stable OpenStreetMap/CARTO reference surface. Event counts are logged records, not proof of net physical additions or removals.");
+    setText(els.compareNote, "OpenStreetMap provides current orientation context only. Event counts are logged source-backed records, not proof of net physical additions, removals, congestion, or causation.");
     setText(els.compareBeforeMapLabel, `${beforeYear}`);
     setText(els.compareAfterMapLabel, `${afterYear}`);
   }
@@ -1448,137 +1481,500 @@
     }, {});
   }
 
-  async function loadImageryManifest() {
-    if (state.imageryManifest) return state.imageryManifest;
-    state.imageryManifest = await fetchJson("/data/wayback-imagery.json");
-    return state.imageryManifest;
-  }
-
-  function imageryLayerForYear(year) {
-    return null;
-  }
-
-  function imageryTilesForLayer(layer) {
+  function basemapTiles() {
     return [TILE_PROVIDER.template];
   }
 
-  function imageryAttributionText(year = state.year, layer = state.activeImageryLayer) {
-    const requestedYear = Number(year);
-    const yearText = Number.isFinite(requestedYear) ? `Timeline year ${requestedYear}.` : "";
-    return `${TILE_PROVIDER.attribution}. ${yearText} Stable reference map; not before/after evidence.`;
+  function basemapAttributionText() {
+    const caveat = "Current OSM basemap is orientation context, not event timing evidence.";
+    const detail = detailLayerPath()
+      ? " Detailed roads/buildings use OSM-derived geometry; timeline visibility uses OSM edit metadata or proxy first-visible years."
+      : "";
+    const lensDetail = lensOverlayPath()
+      ? " Lens heatmaps and road colors are source-backed change-intensity overlays, not measured outcome models."
+      : "";
+    const detailStatus = state.detailLayerError ? ` Detail layer status: ${state.detailLayerError}.` : "";
+    const lensStatus = state.lensOverlayError ? ` Lens overlay status: ${state.lensOverlayError}.` : "";
+    if (state.basemapError) return `${TILE_PROVIDER.attribution}. ${caveat}${detail}${lensDetail}${detailStatus}${lensStatus} Basemap status: ${state.basemapError}.`;
+    return `${TILE_PROVIDER.attribution}. ${caveat}${detail}${lensDetail}${detailStatus}${lensStatus}`;
+  }
+
+  function imageryLayerForYear(year) {
+    const numericYear = Number(year);
+    return {
+      provider: TILE_PROVIDER.name,
+      year: Number.isFinite(numericYear) ? numericYear : state.year,
+      tile_template: TILE_PROVIDER.template,
+    };
   }
 
   function updateMapAttribution() {
-    setText(els.mapAttribution, imageryAttributionText(state.imageryYear || state.year, state.activeImageryLayer));
+    setText(els.mapAttribution, basemapAttributionText());
   }
 
-  async function updateMapImageryForYear(year, options = {}) {
-    const requestId = ++state.imageryRequestId;
-    if (requestId !== state.imageryRequestId && !options.force) return state.activeImageryLayer;
-
+  function updateMapBasemapForYear(year, options = {}) {
     const numericYear = Number(year);
-    const layer = null;
-    state.activeImageryLayer = layer;
-    state.imageryYear = Number.isFinite(numericYear) ? numericYear : state.year;
+    state.basemapYear = Number.isFinite(numericYear) ? numericYear : state.year;
+    state.basemapError = null;
     updateMapAttribution();
 
-    if (!state.mapReady || !state.map) return layer;
+    if (!state.mapReady || !state.map) return imageryLayerForYear(state.basemapYear);
 
-    const tiles = imageryTilesForLayer(layer);
-    const currentTiles = state.map.getStyle()?.sources?.imagery?.tiles || [];
-    if (!options.force && currentTiles[0] === tiles[0]) return layer;
-
-    replaceMainImageryLayer(layer, tiles, state.imageryYear);
-    return layer;
+    const tiles = basemapTiles();
+    const currentTiles = state.map.getStyle()?.sources?.basemap?.tiles || [];
+    if (options.force || currentTiles[0] !== tiles[0] || !state.map.getLayer("basemap")) {
+      replaceMainBasemapLayer(tiles);
+    }
+    ensureDetailLayers();
+    updateDetailLayerFilters();
+    ensureLensOverlays();
+    updateLensOverlayFilters();
+    if (state.compareActive) updateCompareImagery();
+    return imageryLayerForYear(state.basemapYear);
   }
 
-  function replaceMainImageryLayer(layer, tiles, year) {
-    if (!state.map) return;
-    const hadCompareLayer = Boolean(state.compareActive && state.map.getLayer("compare-before-layer"));
-    const token = ++state.imageryTransitionToken;
-    const transitionMs = motionDuration(680);
-    try {
-      clearImageryTransition();
-      if (hadCompareLayer) removeCompareImagery();
-      if (!state.map.getLayer("imagery") || !state.map.getSource("imagery")) {
-        addCanonicalImageryLayer(layer, tiles, year);
-        if (hadCompareLayer) updateCompareImagery();
-        return;
-      }
+  function updateMapImageryForYear(year, options = {}) {
+    return Promise.resolve(updateMapBasemapForYear(year, options));
+  }
 
-      state.map.addSource("imagery-next", {
-        type: "raster",
-        tiles,
-        tileSize: 256,
-        attribution: imageryAttributionText(year, layer),
-      });
-      state.map.addLayer({
-        id: "imagery-next-layer",
-        type: "raster",
-        source: "imagery-next",
-        paint: { "raster-opacity": 0, "raster-fade-duration": 520 },
-      });
-      window.requestAnimationFrame(() => {
-        if (!state.map || token !== state.imageryTransitionToken) return;
-        setRasterOpacity("imagery-next-layer", 1, motionDuration(560));
-        setRasterOpacity("imagery", 0, motionDuration(560));
-      });
-      state.imageryTransitionTimer = window.setTimeout(() => {
-        if (!state.map || token !== state.imageryTransitionToken) return;
-        try {
-          removeLayerAndSource("imagery", "imagery");
-          addCanonicalImageryLayer(layer, tiles, year);
-          removeLayerAndSource("imagery-next-layer", "imagery-next");
-          if (hadCompareLayer) updateCompareImagery();
-        } catch (error) {
-          state.imageryError = error.message;
-          updateMapAttribution();
-        }
-      }, transitionMs);
+  function replaceMainBasemapLayer(tiles) {
+    if (!state.map) return;
+    try {
+      removeCompareImagery();
+      addCanonicalBasemapLayer(tiles);
+      if (state.compareActive) updateCompareImagery();
     } catch (error) {
-      state.imageryError = error.message;
+      state.basemapError = error.message;
       updateMapAttribution();
-      toast("Timeline imagery could not be refreshed. Event records still changed by year.");
+      toast("OpenStreetMap basemap could not be refreshed. Event records still changed by year.");
     }
   }
 
-  function clearImageryTransition() {
-    if (state.imageryTransitionTimer) window.clearTimeout(state.imageryTransitionTimer);
-    state.imageryTransitionTimer = null;
-    removeLayerAndSource("imagery-next-layer", "imagery-next");
-    if (state.map?.getLayer("imagery")) setRasterOpacity("imagery", 1, 0);
-  }
-
-  function addCanonicalImageryLayer(layer, tiles, year) {
-    removeLayerAndSource("imagery", "imagery");
-    state.map.addSource("imagery", {
+  function addCanonicalBasemapLayer(tiles) {
+    removeLayerAndSource("basemap", "basemap");
+    state.map.addSource("basemap", {
       type: "raster",
       tiles,
       tileSize: 256,
-      attribution: imageryAttributionText(year, layer),
+      attribution: basemapAttributionText(),
     });
+    const beforeLayer = state.map.getStyle()?.layers?.find((layer) => layer.id !== "basemap")?.id;
     state.map.addLayer({
-      id: "imagery",
+      id: "basemap",
       type: "raster",
-      source: "imagery",
-      paint: { "raster-opacity": 1, "raster-fade-duration": 520 },
-    });
-  }
-
-  function setRasterOpacity(layerId, opacity, duration) {
-    if (!state.map?.getLayer(layerId)) return;
-    try {
-      state.map.setPaintProperty(layerId, "raster-opacity-transition", { duration, delay: 0 });
-    } catch (_error) {
-      // Older MapLibre builds may ignore transition paint properties.
-    }
-    state.map.setPaintProperty(layerId, "raster-opacity", opacity);
+      source: "basemap",
+      paint: { "raster-opacity": 1, "raster-fade-duration": 180 },
+    }, beforeLayer);
   }
 
   function removeLayerAndSource(layerId, sourceId) {
     if (!state.map) return;
     if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
     if (state.map.getSource(sourceId)) state.map.removeSource(sourceId);
+  }
+
+  function detailLayerPath() {
+    const configured = state.cityMeta?.artifact_paths?.detail_layers || state.city?.artifact_paths?.detail_layers;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId === "belfast" ? "/data/city-atlas/cities/belfast/detail_layers.geojson" : "";
+  }
+
+  function ensureDetailLayers() {
+    if (!state.map || !state.mapReady) return;
+    const path = detailLayerPath();
+    if (!path) {
+      removeDetailLayers();
+      return;
+    }
+    if (state.map.getSource(DETAIL_SOURCE_ID)) {
+      updateDetailLayerFilters();
+      return;
+    }
+    try {
+      state.map.addSource(DETAIL_SOURCE_ID, { type: "geojson", data: path, generateId: true });
+      addDetailLayers();
+      state.detailLayerLoaded = true;
+      state.detailLayerError = null;
+      updateDetailLayerFilters();
+      updateMapAttribution();
+    } catch (error) {
+      state.detailLayerLoaded = false;
+      state.detailLayerError = error.message;
+      updateMapAttribution();
+    }
+  }
+
+  function addDetailLayers() {
+    state.map.addLayer({
+      id: "detail-roads-current",
+      type: "line",
+      source: DETAIL_SOURCE_ID,
+      filter: ["==", ["get", "layer"], "road"],
+      paint: {
+        "line-color": "#e8f2ec",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.08, 14, 0.18, 17, 0.25],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.35, 14, 1.1, 17, 2.6],
+      },
+    });
+    state.map.addLayer({
+      id: "detail-buildings-fill",
+      type: "fill",
+      source: DETAIL_SOURCE_ID,
+      minzoom: 10,
+      filter: detailVisibilityFilter("building"),
+      paint: {
+        "fill-color": ["case", ["==", ["to-number", ["get", "visible_year"], 0], state.year], "#f0c45c", "#7fb799"],
+        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.16, 14, 0.28, 17, 0.38],
+      },
+    });
+    state.map.addLayer({
+      id: "detail-buildings-extrusion",
+      type: "fill-extrusion",
+      source: DETAIL_SOURCE_ID,
+      minzoom: 13,
+      filter: detailVisibilityFilter("building"),
+      paint: {
+        "fill-extrusion-color": ["case", ["==", ["to-number", ["get", "visible_year"], 0], state.year], "#f5c85d", "#8ab59b"],
+        "fill-extrusion-height": ["interpolate", ["linear"], ["zoom"], 13, 0, 15, ["to-number", ["get", "height_m"], 8]],
+        "fill-extrusion-opacity": 0.5,
+      },
+    });
+    state.map.addLayer({
+      id: "detail-buildings-outline",
+      type: "line",
+      source: DETAIL_SOURCE_ID,
+      minzoom: 12,
+      filter: detailVisibilityFilter("building"),
+      paint: {
+        "line-color": "#e7f6e9",
+        "line-opacity": 0.32,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 12, 0.35, 16, 1],
+      },
+    });
+    state.map.addLayer({
+      id: "detail-roads-visible",
+      type: "line",
+      source: DETAIL_SOURCE_ID,
+      filter: detailVisibilityFilter("road"),
+      paint: {
+        "line-color": ["case", [">=", ["to-number", ["get", "rank"], 1], 3], "#f0c45c", "#68d6df"],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.24, 14, 0.46, 17, 0.62],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          10, ["*", ["to-number", ["get", "rank"], 1], 0.28],
+          14, ["*", ["to-number", ["get", "rank"], 1], 0.72],
+          17, ["*", ["to-number", ["get", "rank"], 1], 1.25],
+        ],
+      },
+    });
+    state.map.addLayer({
+      id: "detail-roads-year",
+      type: "line",
+      source: DETAIL_SOURCE_ID,
+      filter: detailYearFilter("road"),
+      paint: {
+        "line-color": "#f7df7a",
+        "line-opacity": 0.8,
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          10, ["*", ["to-number", ["get", "rank"], 1], 0.5],
+          14, ["*", ["to-number", ["get", "rank"], 1], 1.1],
+          17, ["*", ["to-number", ["get", "rank"], 1], 1.8],
+        ],
+      },
+    });
+    state.map.addLayer({
+      id: "detail-buildings-year-outline",
+      type: "line",
+      source: DETAIL_SOURCE_ID,
+      minzoom: 11,
+      filter: detailYearFilter("building"),
+      paint: {
+        "line-color": "#ffe48b",
+        "line-opacity": 0.85,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.8, 16, 1.8],
+      },
+    });
+  }
+
+  function removeDetailLayers() {
+    if (!state.map) return;
+    for (const layerId of DETAIL_LAYER_IDS) {
+      if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
+    }
+    if (state.map.getSource(DETAIL_SOURCE_ID)) state.map.removeSource(DETAIL_SOURCE_ID);
+    state.detailLayerLoaded = false;
+  }
+
+  function updateDetailLayerFilters() {
+    if (!state.map?.getSource(DETAIL_SOURCE_ID)) return;
+    for (const layerId of ["detail-buildings-fill", "detail-buildings-extrusion", "detail-buildings-outline"]) {
+      if (state.map.getLayer(layerId)) state.map.setFilter(layerId, detailVisibilityFilter("building"));
+    }
+    for (const layerId of ["detail-roads-visible"]) {
+      if (state.map.getLayer(layerId)) state.map.setFilter(layerId, detailVisibilityFilter("road"));
+    }
+    if (state.map.getLayer("detail-roads-year")) state.map.setFilter("detail-roads-year", detailYearFilter("road"));
+    if (state.map.getLayer("detail-buildings-year-outline")) state.map.setFilter("detail-buildings-year-outline", detailYearFilter("building"));
+  }
+
+  function detailVisibilityFilter(layer) {
+    return ["all", ["==", ["get", "layer"], layer], ["<=", ["to-number", ["get", "visible_year"], 9999], Number(state.year || latestYear())]];
+  }
+
+  function detailYearFilter(layer) {
+    return ["all", ["==", ["get", "layer"], layer], ["==", ["to-number", ["get", "visible_year"], 0], Number(state.year || latestYear())]];
+  }
+
+  function lensOverlayPath() {
+    const configured = state.cityMeta?.artifact_paths?.lens_overlays || state.city?.artifact_paths?.lens_overlays;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId === "belfast" ? "/data/city-atlas/cities/belfast/lens_overlays.geojson" : "";
+  }
+
+  function ensureLensOverlays() {
+    if (!state.map || !state.mapReady) return;
+    const path = lensOverlayPath();
+    if (!path) {
+      removeLensOverlays();
+      return;
+    }
+    if (state.map.getSource(LENS_SOURCE_ID)) {
+      updateLensOverlayFilters();
+      return;
+    }
+    try {
+      state.map.addSource(LENS_SOURCE_ID, { type: "geojson", data: path, generateId: true });
+      addLensOverlayLayers();
+      state.lensOverlayLoaded = true;
+      state.lensOverlayError = null;
+      updateLensOverlayFilters();
+      updateMapAttribution();
+    } catch (error) {
+      state.lensOverlayLoaded = false;
+      state.lensOverlayError = error.message;
+      updateMapAttribution();
+    }
+  }
+
+  function addLensOverlayLayers() {
+    state.map.addLayer({
+      id: "lens-heatmap",
+      type: "heatmap",
+      source: LENS_SOURCE_ID,
+      filter: lensEventFilter(false),
+      paint: {
+        "heatmap-weight": ["to-number", ["get", "heat_weight"], 1],
+        "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 9, 0.48, 12, 0.85, 15, 1.25, 17, 1.65],
+        "heatmap-radius": ["interpolate", ["linear"], ["zoom"], 9, 14, 12, 28, 15, 58, 17, 92],
+        "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 12, 0.72, 16, 0.86],
+        "heatmap-color": lensHeatmapColor(),
+      },
+    });
+    state.map.addLayer({
+      id: "lens-current-points-glow",
+      type: "circle",
+      source: LENS_SOURCE_ID,
+      filter: lensEventFilter(true),
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 12, 13, 22, 16, 38],
+        "circle-color": ["get", "category_color"],
+        "circle-opacity": 0.18,
+        "circle-blur": 0.72,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-current-points",
+      type: "circle",
+      source: LENS_SOURCE_ID,
+      filter: lensEventFilter(true),
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 3, 13, 5.4, 16, 8],
+        "circle-color": ["get", "category_color"],
+        "circle-opacity": 0.82,
+        "circle-stroke-color": "#101f26",
+        "circle-stroke-opacity": 0.82,
+        "circle-stroke-width": 1,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-transport-roads-case",
+      type: "line",
+      source: LENS_SOURCE_ID,
+      filter: transportRoadFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#102024",
+        "line-opacity": 0.42,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 1.3, 13, 3.2, 16, 7.5],
+        "line-blur": 0.4,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-transport-roads",
+      type: "line",
+      source: LENS_SOURCE_ID,
+      filter: transportRoadFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: transportRoadPaint(),
+    });
+    state.map.addLayer({
+      id: "lens-transport-hotspots",
+      type: "line",
+      source: LENS_SOURCE_ID,
+      filter: transportRoadFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#ef4444",
+        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.16, 1, 0.42],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 4, 13, 11, 16, 22],
+        "line-blur": 3,
+      },
+    });
+  }
+
+  function removeLensOverlays() {
+    if (!state.map) return;
+    for (const layerId of LENS_LAYER_IDS) {
+      if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
+    }
+    if (state.map.getSource(LENS_SOURCE_ID)) state.map.removeSource(LENS_SOURCE_ID);
+    state.lensOverlayLoaded = false;
+  }
+
+  function updateLensOverlayFilters() {
+    if (!state.map?.getSource(LENS_SOURCE_ID)) return;
+    if (state.map.getLayer("lens-heatmap")) {
+      state.map.setFilter("lens-heatmap", lensEventFilter(false));
+      state.map.setPaintProperty("lens-heatmap", "heatmap-color", lensHeatmapColor());
+      state.map.setLayoutProperty("lens-heatmap", "visibility", "visible");
+    }
+    for (const layerId of ["lens-current-points-glow", "lens-current-points"]) {
+      if (state.map.getLayer(layerId)) {
+        state.map.setFilter(layerId, lensEventFilter(true));
+        state.map.setLayoutProperty(layerId, "visibility", "visible");
+      }
+    }
+    const showTransportRoads = state.category === "transport";
+    for (const layerId of ["lens-transport-roads-case", "lens-transport-roads", "lens-transport-hotspots"]) {
+      if (!state.map.getLayer(layerId)) continue;
+      state.map.setFilter(layerId, transportRoadFilter());
+      state.map.setLayoutProperty(layerId, "visibility", showTransportRoads ? "visible" : "none");
+    }
+    if (state.map.getLayer("lens-transport-roads")) {
+      const paint = transportRoadPaint();
+      Object.entries(paint).forEach(([key, value]) => state.map.setPaintProperty("lens-transport-roads", key, value));
+    }
+    if (state.map.getLayer("lens-transport-hotspots")) {
+      state.map.setPaintProperty("lens-transport-hotspots", "line-opacity", ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.16, 1, 0.42]);
+    }
+  }
+
+  function lensEventFilter(exactYear) {
+    const year = Number(state.year || latestYear());
+    const fromYear = Math.max(earliestYear(), year - 2);
+    const conditions = [
+      ["==", ["get", "layer"], "lens_event"],
+      exactYear
+        ? ["==", ["to-number", ["get", "year"], 0], year]
+        : ["all", [">=", ["to-number", ["get", "year"], 0], fromYear], ["<=", ["to-number", ["get", "year"], 0], year]],
+    ];
+    if (state.category !== "all") conditions.push(["==", ["get", "category"], state.category]);
+    if (!state.showInferred) conditions.push(["!=", ["get", "confidence"], "inferred"]);
+    if (state.confidenceFilter === "documented") {
+      conditions.push(["match", ["get", "confidence"], ["documented", "corroborated"], true, false]);
+    } else if (state.confidenceFilter !== "all") {
+      conditions.push(["==", ["get", "confidence"], state.confidenceFilter]);
+    }
+    return ["all", ...conditions];
+  }
+
+  function transportRoadFilter() {
+    return [
+      "all",
+      ["==", ["get", "layer"], "traffic_road"],
+      ["<=", ["to-number", ["get", "visible_year"], 9999], Number(state.year || latestYear())],
+      [">", transportActivityExpression(), 0],
+    ];
+  }
+
+  function transportActivityExpression() {
+    return ["to-number", ["get", `transport_activity_${Number(state.year || latestYear())}`], 0];
+  }
+
+  function transportRoadPaint() {
+    const activity = transportActivityExpression();
+    return {
+      "line-color": [
+        "interpolate", ["linear"], activity,
+        0, "#2f9e44",
+        0.2, "#84cc16",
+        0.42, "#facc15",
+        0.68, "#f97316",
+        1, "#ef4444",
+      ],
+      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.12, 0.2, 0.45, 1, 0.92],
+      "line-width": [
+        "interpolate", ["linear"], ["zoom"],
+        9, ["*", ["+", 0.35, ["*", activity, 2.2]], ["to-number", ["get", "rank"], 1]],
+        13, ["*", ["+", 0.7, ["*", activity, 3.2]], ["to-number", ["get", "rank"], 1]],
+        16, ["*", ["+", 1.2, ["*", activity, 5.2]], ["to-number", ["get", "rank"], 1]],
+      ],
+    };
+  }
+
+  function lensHeatmapColor() {
+    const ramps = {
+      built_environment: [
+        "interpolate", ["linear"], ["heatmap-density"],
+        0, "rgba(0,0,0,0)",
+        0.08, "rgba(216,166,78,0.30)",
+        0.35, "rgba(245,196,92,0.62)",
+        0.68, "rgba(249,115,22,0.82)",
+        1, "rgba(239,68,68,0.94)",
+      ],
+      transport: [
+        "interpolate", ["linear"], ["heatmap-density"],
+        0, "rgba(0,0,0,0)",
+        0.08, "rgba(47,158,68,0.36)",
+        0.35, "rgba(250,204,21,0.68)",
+        0.68, "rgba(249,115,22,0.86)",
+        1, "rgba(239,68,68,0.96)",
+      ],
+      environment: [
+        "interpolate", ["linear"], ["heatmap-density"],
+        0, "rgba(0,0,0,0)",
+        0.12, "rgba(117,198,155,0.36)",
+        0.45, "rgba(34,197,94,0.72)",
+        0.78, "rgba(132,204,22,0.86)",
+        1, "rgba(250,204,21,0.95)",
+      ],
+      civic_services: [
+        "interpolate", ["linear"], ["heatmap-density"],
+        0, "rgba(0,0,0,0)",
+        0.12, "rgba(116,189,219,0.34)",
+        0.45, "rgba(56,189,248,0.70)",
+        0.78, "rgba(45,212,191,0.86)",
+        1, "rgba(250,204,21,0.94)",
+      ],
+      economy: [
+        "interpolate", ["linear"], ["heatmap-density"],
+        0, "rgba(0,0,0,0)",
+        0.12, "rgba(165,139,212,0.34)",
+        0.45, "rgba(168,85,247,0.72)",
+        0.78, "rgba(217,70,239,0.86)",
+        1, "rgba(250,204,21,0.94)",
+      ],
+      all: [
+        "interpolate", ["linear"], ["heatmap-density"],
+        0, "rgba(0,0,0,0)",
+        0.08, "rgba(98,211,215,0.30)",
+        0.35, "rgba(245,196,92,0.62)",
+        0.68, "rgba(249,115,22,0.82)",
+        1, "rgba(239,68,68,0.94)",
+      ],
+    };
+    return ramps[state.category] || ramps.all;
   }
 
   function motionDuration(ms) {

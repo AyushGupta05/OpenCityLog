@@ -27,6 +27,19 @@ async function waitForAtlas(page) {
     null,
     { timeout: 45000 }
   );
+  await page.waitForFunction(
+    () => Boolean(
+      window.BimsAtlas?.state?.detailLayerLoaded
+      && window.BimsAtlas?.state?.lensOverlayLoaded
+      && window.BimsAtlas.state.map?.getLayer("detail-roads-visible")
+      && window.BimsAtlas.state.map?.getLayer("detail-buildings-fill")
+      && window.BimsAtlas.state.map?.getLayer("detail-buildings-extrusion")
+      && window.BimsAtlas.state.map?.getLayer("lens-heatmap")
+      && window.BimsAtlas.state.map?.getLayer("lens-transport-roads")
+    ),
+    null,
+    { timeout: 60000 }
+  );
 }
 
 async function appState(page) {
@@ -34,6 +47,9 @@ async function appState(page) {
     const events = window.BimsAtlas.filteredEvents();
     const displayEvents = window.BimsAtlas.displayEvents();
     const state = window.BimsAtlas.state;
+    const styleSources = state.map?.getStyle()?.sources || {};
+    const detailData = styleSources["osm-detail"]?.data;
+    const lensData = styleSources["lens-overlays"]?.data;
     const staleSelectors = [".scene-image", ".territory-layer", ".map-pin", ".place-label", ".cloud"];
     return {
       title: document.title,
@@ -53,6 +69,28 @@ async function appState(page) {
       overviewChanges: document.querySelector("#changeCount")?.textContent || "",
       coverage: document.querySelector("#coverageNote")?.textContent || "",
       attribution: document.querySelector("#mapAttribution")?.textContent || "",
+      basemapTile: styleSources.basemap?.tiles?.[0] || "",
+      legacyImageryTile: styleSources.imagery?.tiles?.[0] || "",
+      detailLayerData: typeof detailData === "string" ? detailData : detailData?.name || "",
+      lensOverlayData: typeof lensData === "string" ? lensData : lensData?.name || "",
+      detailLayerLoaded: Boolean(state.detailLayerLoaded),
+      lensOverlayLoaded: Boolean(state.lensOverlayLoaded),
+      detailLayers: [
+        "detail-roads-current",
+        "detail-roads-visible",
+        "detail-roads-year",
+        "detail-buildings-fill",
+        "detail-buildings-extrusion",
+        "detail-buildings-year-outline",
+      ].filter((id) => state.map?.getLayer(id)).length,
+      lensOverlayLayers: [
+        "lens-heatmap",
+        "lens-current-points-glow",
+        "lens-current-points",
+        "lens-transport-roads-case",
+        "lens-transport-roads",
+        "lens-transport-hotspots",
+      ].filter((id) => state.map?.getLayer(id)).length,
       bodyText: document.body.innerText,
       visibleRecords: events.length,
       displayRecords: displayEvents.length,
@@ -99,8 +137,17 @@ async function appState(page) {
   assert(initial.timelineDots >= 10, "Timeline dots did not render.");
   assert(initial.invalidVisible.length === 0, `Visible records without source-backed geometry: ${initial.invalidVisible.join(", ")}`);
   assert(initial.markerIds.every((id) => id), "A map marker is missing its event id.");
-  assert(/Esri World Imagery|OpenStreetMap|source-backed/i.test(initial.attribution), "Basemap/source attribution is missing.");
+  assert(/OpenStreetMap contributors|source-backed/i.test(initial.attribution), "OSM/source attribution is missing.");
+  assert(/orientation context|not event timing evidence/i.test(initial.attribution), "OSM basemap caveat is missing from attribution.");
+  assert(/tile\.openstreetmap\.org/.test(initial.basemapTile), "Map raster source did not use OpenStreetMap tiles.");
+  assert(!initial.legacyImageryTile, "Legacy imagery source is still attached to the map.");
+  assert(initial.detailLayerLoaded && initial.detailLayers === 6, "Detailed OSM road/building layers did not load.");
+  assert(/detail_layers\.geojson|belfast_osm_detail_layers/.test(String(initial.detailLayerData)), "Detailed OSM layer source is not the generated detail_layers GeoJSON.");
+  assert(initial.lensOverlayLoaded && initial.lensOverlayLayers === 6, "Lens heatmap/road activity layers did not load.");
+  assert(/lens_overlays\.geojson|belfast_source_backed_lens_overlays/.test(String(initial.lensOverlayData)), "Lens overlay source is not the generated lens_overlays GeoJSON.");
   assert(/source ids and map geometry/i.test(initial.coverage), "Coverage copy is missing the source-backed geometry rule.");
+  assert(/Detailed OSM road\/building layers|mapped-visibility/i.test(initial.coverage), "Coverage copy is missing detailed OSM layer caveat.");
+  assert(/Lens overlays repaint by year|not measured traffic volume/i.test(initial.coverage), "Coverage copy is missing lens overlay/traffic caveat.");
   assert(/belfast|station|opened|mapped|planning/i.test(initial.selectedTitle + initial.selectedSummary), "Selected card did not render source-backed city content.");
   assert(/Looks|Traffic|Evidence/i.test(initial.selectedScan), "Selected evidence scan did not render.");
   assert(/\d/.test(initial.overviewProjects) && /\d|k/i.test(initial.overviewChanges), "City overview counts did not render.");
@@ -175,6 +222,47 @@ async function appState(page) {
   assert(/Transport/i.test(transportState.selectedMeta), "Selected metadata did not reflect the active transport lens.");
   assert(/transport records?/i.test(transportState.timelineLabel), "Timeline did not label the active transport filter.");
   assert(transportState.timelineCount === transportState.manifestCount, "Timeline transport count did not come from the events manifest.");
+
+  await page.evaluate(() => {
+    window.BimsAtlas.state.map.jumpTo({ center: [-5.9301, 54.5973], zoom: 13.8, pitch: 48, bearing: -12 });
+  });
+  await page.waitForFunction(
+    () => window.BimsAtlas.state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length > 0,
+    null,
+    { timeout: 20000 }
+  );
+  const transportRoad2024 = await page.evaluate(() => {
+    const map = window.BimsAtlas.state.map;
+    const year = window.BimsAtlas.state.year;
+    const features = map.queryRenderedFeatures({ layers: ["lens-transport-roads"] });
+    const prop = `transport_activity_${year}`;
+    return {
+      year,
+      visible: features.length,
+      sum: features.reduce((total, feature) => total + Number(feature.properties[prop] || 0), 0),
+      layerVisibility: map.getLayoutProperty("lens-transport-roads", "visibility"),
+    };
+  });
+  assert(transportRoad2024.visible > 0 && transportRoad2024.sum > 0 && transportRoad2024.layerVisibility === "visible", `Transport road activity overlay did not render: ${JSON.stringify(transportRoad2024)}.`);
+  await page.evaluate(() => window.BimsAtlas.setYear(2018));
+  await page.waitForFunction(() => window.BimsAtlas.state.year === 2018, null, { timeout: 10000 });
+  await page.waitForFunction(
+    () => window.BimsAtlas.state.map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length > 0,
+    null,
+    { timeout: 20000 }
+  );
+  const transportRoad2018 = await page.evaluate(() => {
+    const map = window.BimsAtlas.state.map;
+    const features = map.queryRenderedFeatures({ layers: ["lens-transport-roads"] });
+    return {
+      year: window.BimsAtlas.state.year,
+      visible: features.length,
+      sum: features.reduce((total, feature) => total + Number(feature.properties.transport_activity_2018 || 0), 0),
+    };
+  });
+  assert(transportRoad2018.visible > 0 && Math.abs(transportRoad2024.sum - transportRoad2018.sum) > 0.1, `Transport road colors did not change with the timeline: ${JSON.stringify({ transportRoad2018, transportRoad2024 })}.`);
+  await page.evaluate(() => window.BimsAtlas.setYear(2024));
+  await page.waitForFunction(() => window.BimsAtlas.state.year === 2024, null, { timeout: 10000 });
 
   await page.locator("#categoryFilter").selectOption("all");
   await page.waitForFunction(() => window.BimsAtlas.state.category === "all", null, { timeout: 5000 });
@@ -294,11 +382,15 @@ async function appState(page) {
     deltas: document.querySelectorAll("#compareStats .compare-deltas span").length,
     note: document.querySelector("#compareNote")?.textContent || "",
     band: document.querySelector("#compareMapBand") && getComputedStyle(document.querySelector("#compareMapBand")).display !== "none",
+    compareBeforeSource: window.BimsAtlas.state.map.getStyle()?.sources?.["compare-before"]?.tiles?.[0] || "",
+    basemapSource: window.BimsAtlas.state.map.getStyle()?.sources?.basemap?.tiles?.[0] || "",
   }));
   assert(!/simulation|forecast|scenario|impact score/i.test(compareToast || ""), "Compare toast contains stale simulation/forecast copy.");
   assert(compareState.stats === 3 && compareState.deltas > 0, "Compare panel did not render before/after counts and category deltas.");
-  assert(/Publication dates|Event counts/i.test(compareState.note), "Compare panel does not explain imagery/count limitations.");
+  assert(/OpenStreetMap|Event counts/i.test(compareState.note), "Compare panel does not explain basemap/count limitations.");
   assert(compareState.band, "Compare map band did not become visible.");
+  assert(!compareState.compareBeforeSource, "Compare mode still attached a before-year imagery overlay.");
+  assert(/tile\.openstreetmap\.org/.test(compareState.basemapSource), "Compare mode did not keep the OpenStreetMap basemap.");
 
   await page.locator("#zoomInButton").click();
   await page.locator("#zoomOutButton").click();
@@ -320,6 +412,30 @@ async function appState(page) {
   assert(fullState.displayRecords >= initial.displayRecords, "Full changelog lost display-verified records.");
   assert(fullState.invalidVisible.length === 0, `Full changelog exposed unverified records: ${fullState.invalidVisible.join(", ")}`);
   assert(fullState.cards >= 6, "Full changelog did not load expanded records.");
+
+  await page.evaluate(() => {
+    window.BimsAtlas.state.map.jumpTo({ center: [-5.9301, 54.5973], zoom: 15.2, pitch: 58, bearing: -18 });
+  });
+  await page.waitForFunction(
+    () => {
+      const map = window.BimsAtlas.state.map;
+      return map.queryRenderedFeatures({ layers: ["detail-roads-visible", "detail-buildings-fill"] }).length > 40;
+    },
+    null,
+    { timeout: 15000 }
+  );
+  const detailRender = await page.evaluate(() => {
+    const map = window.BimsAtlas.state.map;
+    return {
+      roads: map.queryRenderedFeatures({ layers: ["detail-roads-visible", "detail-roads-year"] }).filter((feature) => feature.properties.layer === "road").length,
+      buildings: map.queryRenderedFeatures({ layers: ["detail-buildings-fill", "detail-buildings-extrusion", "detail-buildings-year-outline"] }).filter((feature) => feature.properties.layer === "building").length,
+      year: window.BimsAtlas.state.year,
+    };
+  });
+  assert(detailRender.roads > 10 && detailRender.buildings > 10, `Detailed OSM render missing roads/buildings: ${JSON.stringify(detailRender)}.`);
+  const detailPng = await page.locator("#cityMap").screenshot();
+  assertDetailedPng(detailPng, assert, "Detailed OSM road and building render");
+  fs.writeFileSync(path.join(outputDir, "open-citylog-detailed-osm-layers.png"), detailPng);
 
   const cityMapPng = await page.locator("#cityMap").screenshot();
   assertDetailedPng(cityMapPng, assert, "Real city basemap");
