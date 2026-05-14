@@ -2074,6 +2074,38 @@ a {
   gap: 8px;
 }
 
+.event-fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.event-fact-grid div {
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid rgba(231, 242, 241, 0.1);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.event-fact-grid dt {
+  margin: 0 0 5px;
+  color: color-mix(in srgb, var(--event-color, var(--cyan)) 76%, white);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.event-fact-grid dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .proposal-grid {
   display: grid;
   grid-template-columns: 310px minmax(0, 1fr);
@@ -2169,6 +2201,18 @@ a {
   font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.proposal-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.proposal-badge.muted {
+  border: 1px solid rgba(231, 242, 241, 0.16);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .proposal-pathway {
@@ -2314,6 +2358,52 @@ a {
 .analogue-list {
   display: grid;
   gap: 7px;
+}
+
+.pattern-list {
+  display: grid;
+  gap: 8px;
+}
+
+.pattern-list article {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid rgba(231, 242, 241, 0.1);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pattern-list strong,
+.pattern-list span,
+.pattern-list p,
+.pattern-list small {
+  display: block;
+}
+
+.pattern-list strong {
+  overflow-wrap: anywhere;
+  color: #fff;
+  font-size: 12px;
+}
+
+.pattern-list span {
+  margin-top: 6px;
+  color: var(--cyan);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.pattern-list p {
+  margin: 7px 0 0;
+  font-size: 11px;
+}
+
+.pattern-list small {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.4;
 }
 
 .analogue-list button {
@@ -2500,9 +2590,22 @@ a {
   overflow-wrap: anywhere;
 }
 
+.source-row .source-label {
+  color: color-mix(in srgb, var(--cyan) 78%, white);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
 .source-row span {
   color: var(--muted);
   font-size: 12px;
+}
+
+.source-row span.source-label {
+  color: color-mix(in srgb, var(--cyan) 78%, white);
+  font-size: inherit;
+  font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .toast {
@@ -2713,6 +2816,7 @@ a {
   .details-head,
   .details-grid,
   .proposal-grid,
+  .event-fact-grid,
   .place-scan-grid,
   .nearby-context,
   .signal-grid,
