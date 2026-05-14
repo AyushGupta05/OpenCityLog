@@ -8,6 +8,7 @@ Run:
 
 ```powershell
 npm run build:data
+npm run verify:schema
 npm run verify:data
 ```
 
@@ -21,9 +22,13 @@ web/data/city-atlas/cities/<city_id>/availability.json
 web/data/city-atlas/cities/<city_id>/events.json
 web/data/city-atlas/cities/<city_id>/events_<year>.json
 web/data/city-atlas/cities/<city_id>/events_<year>.geojson
+web/data/city-atlas/coverage-report.json
+docs/data_coverage_report.md
 ```
 
 `events.json` is an index. Browser clients should load a single `events_<year>.json` or `events_<year>.geojson` chunk for the active city/year rather than loading the whole catalog at once.
+
+`coverage-report.json` is the compact audit artifact for emitted coverage. Its rows are keyed by `city_id`, `source_id`, `year`, and `layer`, and the companion Markdown report is intended for quick public review. The report counts what the pipeline actually emitted; it does not fill source gaps with synthetic events.
 
 ## City Config
 
@@ -68,7 +73,8 @@ Required fields:
 - `city_id`
 - `event_id`
 - `title`
-- `year`, plus `effective_date` or a date precision
+- `year`, `effective_date`, and `date_precision`
+- `source_date_field`: the exact source field or adapter rule used to interpret the event date
 - `category` and `lens`
 - `geometry` or `affected_area`
 - `source_ids`
@@ -77,9 +83,13 @@ Required fields:
 - `affected_signals`
 - `explanation`
 - `caveats`
-- `provenance`
+- `provenance`, including `transform`, source row/path/URL identifiers where available, `source_date_field`, `geometry_source`, and `geometry_precision`
+
+`geometry_source` and `geometry_precision` are required even for approximate markers. If the source only supports an area/city reference point, the event must say that explicitly so the UI can avoid presenting an exact-location claim.
 
 Events describe observed public records. They do not claim that a change caused an outcome. Preferred language is "observed", "associated with", "near", and "evidence suggests".
+
+`npm run verify:data` also rejects duplicate `event_id` values within a city, unknown source references, missing evidence pointers, missing date-basis labels, missing spatial provenance, non-observed generated metrics, source-layer markers posing as events, and unsupported causal or predictive language.
 
 ## Belfast Migration
 
@@ -93,4 +103,3 @@ The migration preserves:
 - Caveats that distinguish OSM mapped visibility from real-world construction dates.
 
 The retired artifacts are separate from the active city atlas contract. The atlas contract is the source-backed public data contract; retired replay artifacts are not public endpoints.
-

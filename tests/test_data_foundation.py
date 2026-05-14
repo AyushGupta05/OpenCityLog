@@ -15,6 +15,10 @@ class DataFoundationTests(unittest.TestCase):
             write_fixture_project(root)
 
             run_node(root, "scripts/build_data.js")
+            coverage = run_node(root, "scripts/build_city_coverage_report.js")
+            self.assertIn("Coverage report ready", coverage.stdout)
+            schema = run_node(root, "scripts/validate_city_atlas_schema.js")
+            self.assertIn("Schema validation OK", schema.stdout)
             completed = run_node(root, "scripts/verify_data.js")
             self.assertIn("Data verification OK", completed.stdout)
 
@@ -36,11 +40,30 @@ class DataFoundationTests(unittest.TestCase):
             self.assertEqual(geojson["type"], "FeatureCollection")
             self.assertEqual(geojson["features"][0]["properties"]["event_id"], event["event_id"])
 
+            coverage_report = read_json(root / "web" / "data" / "city-atlas" / "coverage-report.json")
+            self.assertEqual(coverage_report["summary"]["total_events"], 2)
+            self.assertEqual(coverage_report["summary"]["source_year_layer_row_count"], 2)
+            self.assertTrue(
+                any(
+                    row["city_id"] == "belfast"
+                    and row["source_id"] == "osm-overpass"
+                    and row["year"] == 2024
+                    and row["layer"] == "transport"
+                    and row["event_count"] == 1
+                    for row in coverage_report["coverage_rows"]
+                )
+            )
+            self.assertEqual(coverage_report["cities"][0]["target_coverage_gap"]["gap_events"], 99998)
+            self.assertTrue((root / "docs" / "data_coverage_report.md").exists())
+            atlas_index = read_json(root / "web" / "data" / "city-atlas" / "index.json")
+            self.assertEqual(atlas_index["coverage_report_path"], "web/data/city-atlas/coverage-report.json")
+
     def test_verify_rejects_missing_source_attribution(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             write_fixture_project(root, missing_attribution=True)
             run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
 
             completed = run_node(root, "scripts/verify_data.js", check=False)
             self.assertNotEqual(completed.returncode, 0)
@@ -51,6 +74,7 @@ class DataFoundationTests(unittest.TestCase):
             root = Path(tmp)
             write_fixture_project(root)
             run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
 
             chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
             payload = read_json(chunk_path)
@@ -67,6 +91,7 @@ class DataFoundationTests(unittest.TestCase):
             root = Path(tmp)
             write_fixture_project(root)
             run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
 
             chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
             payload = read_json(chunk_path)
@@ -76,6 +101,72 @@ class DataFoundationTests(unittest.TestCase):
             completed = run_node(root, "scripts/verify_data.js", check=False)
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("caveats contain overclaiming language", completed.stderr)
+
+    def test_verify_rejects_missing_geometry_provenance(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["provenance"].pop("geometry_source", None)
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("missing provenance.geometry_source", completed.stderr)
+
+    def test_verify_rejects_duplicate_event_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["event_id"] = "official-2021-test-service"
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("Duplicate event id in belfast", completed.stderr)
+
+    def test_verify_rejects_advertised_overlay_without_limitations(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            overlay_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "lens_overlays.geojson"
+            write_json(
+                overlay_path,
+                {
+                    "type": "FeatureCollection",
+                    "metadata": {
+                        "schema_version": "1.0.0",
+                        "city_id": "belfast",
+                        "method": "Fixture source-backed aggregation.",
+                    },
+                    "features": [],
+                },
+            )
+            relative_overlay = "web/data/city-atlas/cities/belfast/lens_overlays.geojson"
+            city_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "city.json"
+            city = read_json(city_path)
+            city["artifact_paths"]["lens_overlays"] = relative_overlay
+            write_json(city_path, city)
+            index_path = root / "web" / "data" / "city-atlas" / "index.json"
+            index = read_json(index_path)
+            index["cities"][0]["artifact_paths"]["lens_overlays"] = relative_overlay
+            write_json(index_path, index)
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("belfast lens_overlays missing coverage/caveat metadata", completed.stderr)
 
 
 def run_node(root: Path, script: str, check: bool = True) -> subprocess.CompletedProcess[str]:

@@ -5,6 +5,8 @@ const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "di
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
 const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]);
 const EVIDENCE_KINDS = new Set(["source_url", "local_file", "changeset", "source_record"]);
+const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "transport_roads_base", "transport_roads_template"];
+const BELFAST_REQUIRED_OVERLAY_ARTIFACTS = ["detail_layers", ...REQUIRED_OVERLAY_ARTIFACTS];
 const GEOMETRY_TYPES = new Set([
   "Point",
   "MultiPoint",
@@ -228,6 +230,63 @@ function isPlaceholderLicence(source) {
   return /requires source-level review|verify before redistribution|terms vary|dataset-specific/i.test(String(source.licence || ""));
 }
 
+function metadataHasMethod(meta) {
+  return Boolean(meta && (meta.method || meta.source || meta.road_source || (Array.isArray(meta.source_paths) && meta.source_paths.length > 0)));
+}
+
+function metadataHasLimitations(meta) {
+  return Boolean(meta && (meta.coverage_note || meta.caveat || (Array.isArray(meta.caveats) && meta.caveats.length > 0)));
+}
+
+function validateGeoJsonArtifact(failures, root, artifactPath, label, expectedCityId = null) {
+  const filePath = resolve(root, artifactPath);
+  assert(failures, fs.existsSync(filePath), `${label} missing generated artifact ${artifactPath}`);
+  if (!fs.existsSync(filePath)) return null;
+  const payload = readJson(filePath);
+  assert(failures, payload.type === "FeatureCollection", `${label} must be a FeatureCollection`);
+  assert(failures, Array.isArray(payload.features), `${label} missing features array`);
+  const metadata = payload.metadata || {};
+  if (expectedCityId) assert(failures, metadata.city_id === expectedCityId, `${label} metadata.city_id must be ${expectedCityId}`);
+  assert(failures, metadataHasMethod(metadata), `${label} missing source/method metadata`);
+  assert(failures, metadataHasLimitations(metadata), `${label} missing coverage/caveat metadata`);
+  for (const feature of (payload.features || []).slice(0, 25)) {
+    assert(failures, geometryIsValid(feature.geometry), `${label} has invalid sample feature geometry`);
+  }
+  return payload;
+}
+
+function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex) {
+  const cityId = citySummary.city_id;
+  const summaryPaths = citySummary.artifact_paths || {};
+  const cityPaths = artifactCity.artifact_paths || {};
+  const required = cityId === "belfast" ? BELFAST_REQUIRED_OVERLAY_ARTIFACTS : REQUIRED_OVERLAY_ARTIFACTS;
+  const advertisedKeys = required.filter((key) => summaryPaths[key] || cityPaths[key]);
+  if (!advertisedKeys.length) return;
+  for (const key of advertisedKeys) {
+    assert(failures, Boolean(summaryPaths[key]), `Atlas index ${cityId} missing artifact_paths.${key}`);
+    assert(failures, Boolean(cityPaths[key]), `City artifact ${cityId} missing artifact_paths.${key}`);
+    if (summaryPaths[key] && cityPaths[key]) {
+      assert(failures, summaryPaths[key] === cityPaths[key], `${cityId} artifact_paths.${key} differs between index and city artifact`);
+    }
+  }
+  for (const key of advertisedKeys.filter((item) => item !== "transport_roads_template")) {
+    const artifactPath = summaryPaths[key] || cityPaths[key];
+    if (artifactPath) validateGeoJsonArtifact(failures, root, artifactPath, `${cityId} ${key}`, cityId);
+  }
+  const template = summaryPaths.transport_roads_template || cityPaths.transport_roads_template;
+  if (template) {
+    const years = (eventsIndex.event_years || []).map(Number).filter(Number.isInteger);
+    for (const year of years) {
+      const artifactPath = template.replace("{year}", String(year));
+      assert(failures, fs.existsSync(resolve(root, artifactPath)), `${cityId} missing transport road overlay for ${year}: ${artifactPath}`);
+    }
+    const sampleYears = [...new Set([years[0], years[Math.floor(years.length / 2)], years[years.length - 1]].filter(Number.isInteger))];
+    for (const year of sampleYears) {
+      validateGeoJsonArtifact(failures, root, template.replace("{year}", String(year)), `${cityId} transport_roads_${year}`, cityId);
+    }
+  }
+}
+
 function validateEvent(failures, event, city, sourceById, chunkPath) {
   const prefix = `${rel(process.cwd(), chunkPath)}:${event.event_id || "<missing event_id>"}`;
   assert(failures, event.schema_version === "1.0.0", `${prefix} has invalid schema_version`);
@@ -254,6 +313,8 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, !isSourceLayerMarker(event), `${prefix} is a source-layer marker, not a real event`);
   assert(failures, hasProvenanceTrace(event), `${prefix} missing event-level provenance trace`);
   assert(failures, Boolean(event.source_date_field || event.provenance?.source_date_field), `${prefix} missing source_date_field for effective date interpretation`);
+  assert(failures, Boolean(event.provenance?.geometry_source), `${prefix} missing provenance.geometry_source for spatial interpretation`);
+  assert(failures, Boolean(event.provenance?.geometry_precision), `${prefix} missing provenance.geometry_precision for spatial precision/caveats`);
   assert(failures, !containsOverclaim(event.title), `${prefix} title contains overclaiming language`);
   assert(failures, !containsOverclaim(event.explanation), `${prefix} explanation contains overclaiming language`);
   assert(failures, !containsOverclaim((event.caveats || []).join(" ")), `${prefix} caveats contain overclaiming language`);
@@ -336,7 +397,9 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
     }
 
     const eventsIndex = readJson(path.join(cityDir, "events.json"));
+    validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex);
     let countedEvents = 0;
+    const seenEventIds = new Set();
     for (const chunk of eventsIndex.chunks || []) {
       const chunkPath = resolve(root, chunk.json_path);
       const geojsonPath = resolve(root, chunk.geojson_path);
@@ -348,6 +411,8 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       assert(failures, payload.event_count === chunk.event_count, `Chunk ${chunk.json_path} event count does not match index`);
       countedEvents += payload.events.length;
       for (const event of payload.events || []) {
+        assert(failures, !seenEventIds.has(event.event_id), `Duplicate event id in ${city.city_id}: ${event.event_id}`);
+        seenEventIds.add(event.event_id);
         validateEvent(failures, event, validationCity, effectiveSourceById, chunkPath);
       }
       if (fs.existsSync(geojsonPath)) {
@@ -362,6 +427,44 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
     }
     assert(failures, countedEvents === eventsIndex.event_count, `${city.city_id} events index count mismatch`);
   }
+  validateCoverageReport(root, atlasRoot, index, failures);
+}
+
+function validateCoverageReport(root, atlasRoot, index, failures) {
+  const reportPath = resolve(root, index.coverage_report_path || path.join("web/data/city-atlas", "coverage-report.json"));
+  assert(failures, fs.existsSync(reportPath), `Coverage report missing: ${rel(root, reportPath)}`);
+  if (!fs.existsSync(reportPath)) return;
+  const report = readJson(reportPath);
+  assert(failures, report.artifact_kind === "city_atlas_coverage_report", "Coverage report has unexpected artifact_kind");
+  assert(failures, Array.isArray(report.coverage_rows), "Coverage report missing coverage_rows");
+  assert(failures, Array.isArray(report.cities), "Coverage report missing cities");
+  const citySummaries = new Map((index.cities || []).map((city) => [city.city_id, city]));
+  const seenRows = new Set();
+  let eventTotal = 0;
+  for (const city of report.cities || []) {
+    const indexCity = citySummaries.get(city.city_id);
+    assert(failures, Boolean(indexCity), `Coverage report has unknown city ${city.city_id}`);
+    if (indexCity) {
+      assert(failures, city.event_count === indexCity.event_count, `Coverage report count mismatch for ${city.city_id}`);
+    }
+    assert(failures, city.duplicate_event_id_count === 0, `Coverage report found duplicate event ids for ${city.city_id}`);
+    assert(failures, Array.isArray(city.source_year_layer_rows), `Coverage report city ${city.city_id} missing source_year_layer_rows`);
+    assert(failures, Array.isArray(city.sources), `Coverage report city ${city.city_id} missing source summaries`);
+    assert(failures, city.target_coverage_gap?.note, `Coverage report city ${city.city_id} missing target coverage caveat`);
+    eventTotal += Number(city.event_count || 0);
+    for (const row of city.source_year_layer_rows || []) {
+      assert(failures, row.city_id === city.city_id, `Coverage report row city mismatch for ${city.city_id}`);
+      assert(failures, Boolean(row.source_id), `Coverage report row missing source_id for ${city.city_id}`);
+      assert(failures, Number.isInteger(row.year), `Coverage report row missing integer year for ${city.city_id}`);
+      assert(failures, Boolean(row.layer), `Coverage report row missing layer for ${city.city_id}`);
+      assert(failures, Number.isInteger(row.event_count) && row.event_count > 0, `Coverage report row has invalid event_count for ${city.city_id}`);
+      const key = `${row.city_id}\u0000${row.source_id}\u0000${row.year}\u0000${row.layer}`;
+      assert(failures, !seenRows.has(key), `Duplicate coverage row for ${row.city_id}/${row.source_id}/${row.year}/${row.layer}`);
+      seenRows.add(key);
+    }
+  }
+  assert(failures, report.summary?.total_events === eventTotal, "Coverage report total event count mismatch");
+  assert(failures, report.coverage_rows.length === seenRows.size, "Coverage report flattened row count mismatch");
 }
 
 function verify(args) {

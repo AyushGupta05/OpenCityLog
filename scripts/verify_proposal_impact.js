@@ -37,7 +37,8 @@ function assertNoOverclaims(label, payload) {
     .join("\n")
     .toLowerCase()
     .replace(/\bdoes not prove\b/g, "does not establish")
-    .replace(/\bnot proof\b/g, "not evidence");
+    .replace(/\bnot proof\b/g, "not evidence")
+    .replace(/\bnot a forecast\b/g, "not a future estimate");
   const banned = [
     /\bwill\s+(increase|decrease|reduce|improve|worsen|cause)\b/,
     /\bcaused?\b/,
@@ -104,10 +105,13 @@ for (const proposal of sampleProposals) {
   assert(validation.ok, `${proposal.category} should validate: ${validation.errors.join("; ")}`);
   const result = proposalImpact.assessProposal(proposal, { rootDir });
   assert(result.ok === true, `${proposal.category} result not ok.`);
-  assert(result.mode === "proposal_impact_sketch", `${proposal.category} has wrong mode.`);
-  assert(/may affect/i.test(result.summary), `${proposal.category} summary should use may affect.`);
+  assert(result.mode === "proposal_analogue_lens", `${proposal.category} has wrong mode.`);
+  assert(result.framing?.label === "Historical analogue lens", `${proposal.category} missing safe framing label.`);
+  assert(result.framing?.not_a_forecast === true, `${proposal.category} should mark the lens as not a forecast.`);
+  assert(/historical analogue|evidence strength|not a forecast/i.test(result.summary), `${proposal.category} summary should use analogue/evidence framing.`);
   assert(Array.isArray(result.affected_signals) && result.affected_signals.length > 0, `${proposal.category} missing affected signals.`);
   assert(Array.isArray(result.similar_events) && result.similar_events.length > 0, `${proposal.category} missing similar events.`);
+  assert(Array.isArray(result.observed_patterns) && result.observed_patterns.length > 0, `${proposal.category} missing observed before/after patterns.`);
   assert(result.local_context?.current_signals?.length > 0, `${proposal.category} missing current context signals.`);
   assert(result.local_context?.context_basis, `${proposal.category} missing local-context basis.`);
   assert(result.confidence?.label, `${proposal.category} missing confidence label.`);
@@ -124,6 +128,12 @@ for (const proposal of sampleProposals) {
   assert(Array.isArray(result.design_review_basis) && result.design_review_basis.length >= 4, `${proposal.category} missing design review basis.`);
   assert((result.caveats || []).some((item) => /not a calibrated outcome model/i.test(item)), `${proposal.category} missing calibrated-model caveat.`);
   assert((result.similar_events[0].match_factors || []).length > 0, `${proposal.category} similar event missing match factors.`);
+  assert(result.similar_events[0].score_breakdown?.semantic_relevance !== undefined, `${proposal.category} missing semantic relevance score.`);
+  for (const pattern of result.observed_patterns.slice(0, 3)) {
+    assert(pattern.before_window && pattern.after_window, `${proposal.category} observed pattern missing before/after windows.`);
+    assert(pattern.evidence_strength_label, `${proposal.category} observed pattern missing evidence strength label.`);
+    assert(/do not show|coverage gap/i.test(pattern.caveat), `${proposal.category} observed pattern missing caveat.`);
+  }
   for (const row of result.proposal_brief.evidence_readiness) {
     assert(["ready_to_review", "thin_evidence", "gap"].includes(row.status), `${proposal.category} readiness ${row.theme} status invalid.`);
     assert(row.status_label, `${proposal.category} readiness ${row.theme} missing label.`);
@@ -149,9 +159,9 @@ assert((missingLocation.caveats || []).some((item) => /Missing location/i.test(i
 assertNoOverclaims("missing-location", missingLocation);
 
 if (failures.length) {
-  console.error("Proposal impact verification failed:");
+  console.error("Proposal analogue verification failed:");
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log(`Proposal impact OK: ${sampleProposals.length} categories, ${proposalImpact.MODEL_VERSION}.`);
+console.log(`Proposal analogue OK: ${sampleProposals.length} categories, ${proposalImpact.MODEL_VERSION}.`);

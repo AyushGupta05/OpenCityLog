@@ -9,9 +9,12 @@
     "event_id",
     "title",
     "year",
+    "effective_date",
     "date_precision",
+    "source_date_field",
     "category",
     "lens",
+    "affected_area",
     "source_ids",
     "evidence",
     "confidence",
@@ -39,6 +42,7 @@
       "type": "string",
       "enum": ["day", "month", "year", "range", "unknown"]
     },
+    "source_date_field": {"type": "string", "minLength": 1},
     "category": {"type": "string"},
     "lens": {"type": "string"},
     "geometry": {
@@ -61,7 +65,7 @@
     "affected_signals": {"type": "array", "items": {"type": "string"}},
     "explanation": {"type": "string"},
     "caveats": {"type": "array", "items": {"type": "string"}},
-    "provenance": {"type": "object"}
+    "provenance": {"$ref": "#/$defs/provenance"}
   },
   "$defs": {
     "evidence": {
@@ -74,6 +78,22 @@
         "url": {"type": ["string", "null"]},
         "file_path": {"type": ["string", "null"]},
         "record_id": {"type": ["string", "null"]}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["transform", "source_date_field", "geometry_source", "geometry_precision"],
+      "properties": {
+        "transform": {"type": "string", "minLength": 1},
+        "source_path": {"type": ["string", "null"]},
+        "source_record_id": {"type": ["string", "number", "null"]},
+        "source_url": {"type": ["string", "null"]},
+        "source_retrieved_at": {"type": ["string", "null"]},
+        "source_dataset_id": {"type": ["string", "null"]},
+        "source_basis": {"type": ["string", "null"]},
+        "source_date_field": {"type": "string", "minLength": 1},
+        "geometry_source": {"type": "string", "minLength": 1},
+        "geometry_precision": {"type": "string", "minLength": 1}
       }
     }
   }

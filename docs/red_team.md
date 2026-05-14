@@ -44,7 +44,7 @@ Replace these with observed event records, before/after imagery, source drawers,
 3. Inferred records must be visually distinct and labelled inline.
 4. OSM-derived events must distinguish mapped/edit visibility from real-world effective date.
 5. Every number should trace back to source rows or generated manifests.
-6. Proposal and impact copy must say “may affect”, “associated with”, or “observed during the same period”; never “caused” or “will”.
+6. Proposal copy must say "historical analogue", "observed change", "not a forecast", "evidence strength", or "observed during the same period"; never "caused" or "will".
 
 ## Architecture direction
 

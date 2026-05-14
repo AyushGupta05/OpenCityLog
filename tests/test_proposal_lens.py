@@ -60,7 +60,9 @@ console.log(JSON.stringify({ good, bad }));
                 "scale": "small",
             }
         )
-        self.assertEqual(result["mode"], "proposal_impact_sketch")
+        self.assertEqual(result["mode"], "proposal_analogue_lens")
+        self.assertEqual(result["framing"]["label"], "Historical analogue lens")
+        self.assertTrue(result["framing"]["not_a_forecast"])
         self.assertGreaterEqual(len(result["similar_events"]), 1)
         nearest = result["similar_events"][0]
         self.assertIn("distance_m", nearest)
@@ -69,6 +71,7 @@ console.log(JSON.stringify({ good, bad }));
         self.assertIn("score_breakdown", nearest)
         self.assertIn("category", nearest["score_breakdown"])
         self.assertIn("source_quality", nearest["score_breakdown"])
+        self.assertIn("semantic_relevance", nearest["score_breakdown"])
         self.assertIn("match_factors", nearest)
         self.assertTrue(any(item["factor"] == "distance" for item in nearest["match_factors"]))
 
@@ -83,6 +86,14 @@ console.log(JSON.stringify({ good, bad }));
             }
         )
         self.assertTrue(result["local_context"]["current_signals"])
+        self.assertGreaterEqual(len(result["observed_patterns"]), 1)
+        self.assertIn("before_window", result["observed_patterns"][0])
+        self.assertIn("after_window", result["observed_patterns"][0])
+        self.assertIn(result["observed_patterns"][0]["evidence_strength"], {"ready_to_review", "thin_evidence", "gap"})
+        self.assertTrue(result["observed_patterns"][0]["caveat"])
+        top_titles = " ".join(item["title"].lower() for item in result["similar_events"][:3])
+        self.assertRegex(top_titles, r"mixed|residential|dwelling|development|office|commercial")
+        self.assertNotRegex(result["similar_events"][0]["title"].lower(), r"\b(sign|signage|totem|hoarding|advertising)\b")
         self.assertIn(result["local_context"].get("context_basis"), {"nearby_historical_event_density", "grid_and_nearby_historical_events"})
         self.assertTrue(result["local_context"].get("nearby_event_sample"))
         signal_ids = {item["signal"] for item in result["affected_signals"]}
@@ -100,6 +111,7 @@ console.log(JSON.stringify({ good, bad }));
         self.assertEqual(brief["persona"], "city_architect")
         self.assertGreaterEqual(len(brief["evidence_readiness"]), 4)
         self.assertGreaterEqual(len(brief["historical_patterns"]), 3)
+        self.assertGreaterEqual(len(brief["observed_patterns"]), 1)
         self.assertGreaterEqual(len(brief["fieldwork_plan"]), 3)
         self.assertGreaterEqual(len(brief["review_questions"]), 3)
         self.assertGreaterEqual(len(brief["next_evidence_to_find"]), 2)
@@ -139,6 +151,7 @@ console.log(JSON.stringify({ good, bad }));
         text = json.dumps(result).lower()
         text = text.replace("does not prove", "does not establish")
         text = text.replace("not proof", "not evidence")
+        text = text.replace("not a forecast", "not a future estimate")
         banned = [
             r"\bwill\s+(increase|decrease|reduce|improve|worsen|cause)\b",
             r"\bcaused?\b",
@@ -150,7 +163,8 @@ console.log(JSON.stringify({ good, bad }));
         ]
         for pattern in banned:
             self.assertIsNone(re.search(pattern, text), pattern)
-        self.assertIn("may affect", result["summary"])
+        self.assertIn("not a forecast", result["summary"])
+        self.assertIn("evidence strength", result["summary"].lower())
         self.assertTrue(any("not a calibrated outcome model" in item for item in result["caveats"]))
 
 

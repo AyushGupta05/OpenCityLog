@@ -18,7 +18,12 @@ The inventory covers current repo rasters and vectors plus the recommended futur
 London and New York City are built from `data-discovery/<city>/source_catalog.json` and `events_seed.json`. The row-level expansion script fetches selected official sources and rewrites those seed files with bounded, source-backed event records:
 
 ```powershell
-python .\scripts\expand_london_nyc_events_from_open_sources.py
+npm run ingest:open-sources
+```
+
+That command runs `scripts/expand_london_nyc_events_from_open_sources.py` and then `npm run build:data`. If you only need to rebuild from already-generated seeds without network/API refresh, run:
+
+```powershell
 npm run build:data
 ```
 
@@ -27,6 +32,8 @@ Current expansion families include London Planning Data brownfield/designation r
 These rows are administrative or observed source records, not predictions and not proof of causal impact. Permit, planning, capital-project, and designation dates must be labelled by the source field that supports them. Forecast/projected fields may be retained in summaries only when the event date is the source reporting date or a recorded actual date.
 
 The expansion follows Planning Data `links.next` pagination for London LPA queries and records page counts in `data-discovery/raw_metadata/generated_event_expansion_london_*_summary.json`. Planning London Datahub application rows are fetched through the documented guest API and stored only as minimal public provenance fields because the London Datastore licence field is currently "Not Specified". London Fire Brigade incident rows are sampled by year from the official 2009-2017 CSV and later 2018-2023/2024-onward XLSX files; DfT STATS19 road-collision rows are sampled by year from large official files. Both keep the repo usable while preserving source IDs, row IDs, retrieval time, and caveats. HM Land Registry Price Paid rows are sampled from yearly CSV files from 1995 onward and treated as property-transaction evidence; because the source address fields carry additional address-data conditions, the adapter omits PAON, SAON, street, locality, town/city, county, full postcode, and exact price before writing atlas events. UK House Price Index rows are aggregate borough-month records from the official full-file CSV; they carry average price, index, percentage change, and sales-volume fields as observed context, not as causal or site-specific evidence. Food Standards Agency FHRS rows are current-snapshot hygiene-rating records; the adapter omits business name, address lines, postcode, phone, email, and right-to-reply text before writing atlas events. Police.uk street-level rows are generated through the public custom-download flow for London police forces and kept as anonymized public-safety context, not exact incident-site evidence. Police.uk stop-and-search rows are also pulled through the public custom-download flow, but the adapter intentionally omits demographic fields, operation names, and exact timestamps before writing atlas events. Rows without a usable source date are skipped and counted instead of being assigned the current year. Generated row events carry `source_url`, `source_record_id`, `source_dataset_id`, and `source_retrieved_at` into the UI-facing provenance.
+
+Run `npm run build:coverage` whenever generated atlas artifacts change. It writes `web/data/city-atlas/coverage-report.json` and `docs/data_coverage_report.md`; rows are keyed by city, source, year, and layer, and catalog-only sources remain visible instead of being backfilled with synthetic events.
 
 ## Manifest Script
 

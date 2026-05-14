@@ -65,6 +65,26 @@ function relativeFromRoot(root, filePath) {
   return toPosix(path.relative(root, filePath));
 }
 
+function generatedArtifactPaths(root, cityOutputDir) {
+  const artifactPaths = {};
+  const knownFiles = {
+    detail_layers: "detail_layers.geojson",
+    lens_overlays: "lens_overlays.geojson",
+    transport_roads_base: "transport_roads_base.geojson",
+  };
+  for (const [key, filename] of Object.entries(knownFiles)) {
+    const filePath = path.join(cityOutputDir, filename);
+    if (fs.existsSync(filePath)) artifactPaths[key] = relativeFromRoot(root, filePath);
+  }
+  if (fs.existsSync(cityOutputDir)) {
+    const hasTransportRoadYears = fs.readdirSync(cityOutputDir).some((name) => /^transport_roads_\d{4}\.geojson$/.test(name));
+    if (hasTransportRoadYears) {
+      artifactPaths.transport_roads_template = toPosix(path.join(relativeFromRoot(root, cityOutputDir), "transport_roads_{year}.geojson"));
+    }
+  }
+  return artifactPaths;
+}
+
 function loadCityConfigs(root, configDir) {
   const dir = resolve(root, configDir);
   return fs
@@ -181,6 +201,31 @@ function geometryForLegacyEvent(event) {
         coordinates: [Number(event.coordinates[0].toFixed(6)), Number(event.coordinates[1].toFixed(6))],
       }
     : null;
+}
+
+function geometryProvenanceForLegacyEvent(event, sourceId) {
+  if (!validPoint(event.coordinates)) {
+    return {
+      geometry_source: "No row-level point geometry was available in the source catalog; the event is located by affected_area label only.",
+      geometry_precision: "No map point; use the affected-area label and source link for spatial interpretation.",
+    };
+  }
+  if (sourceId === "osm-overpass") {
+    return {
+      geometry_source: "OpenStreetMap/Overpass element coordinates or derived point stored in the Belfast infrastructure event catalog.",
+      geometry_precision: "OSM mapped feature point/centroid; edit timestamp is mapped visibility and not a confirmed construction/opening date.",
+    };
+  }
+  if (sourceId === "ni-planning-statistics") {
+    return {
+      geometry_source: "Planning statistics source location normalized into the Belfast infrastructure event catalog.",
+      geometry_precision: "Approximate site/address or grid-reference point; planning decision location is not evidence of completed works.",
+    };
+  }
+  return {
+    geometry_source: "Curated public-source point stored in the Belfast infrastructure event catalog.",
+    geometry_precision: "Approximate public project/facility point for map navigation; inspect the cited source for exact boundaries.",
+  };
 }
 
 function parseMonthYear(value) {
@@ -324,6 +369,7 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
   const sourceId = sourceIdForLegacyEvent(event);
   const dates = dateFieldsForLegacyEvent(event);
   const year = normalizedYearForLegacyEvent(event, dates);
+  const geometryProvenance = geometryProvenanceForLegacyEvent(event, sourceId);
   return {
     schema_version: EVENT_SCHEMA_VERSION,
     city_id: "belfast",
@@ -357,6 +403,8 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
       source_retrieved_at: event.sourceAccessedAt || event.retrievedAt || null,
       source_basis: event.sourceBasis || null,
       source_date_field: dates.source_date_field,
+      geometry_source: geometryProvenance.geometry_source,
+      geometry_precision: geometryProvenance.geometry_precision,
       osm_timestamp: event.osmTimestamp || null,
       osm_version: event.osmVersion || null,
       osm_changeset: event.osmChangeset || null,
@@ -554,6 +602,7 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
       sources: relativeFromRoot(root, sourcesPath),
       events: relativeFromRoot(root, eventsPath),
       availability: relativeFromRoot(root, availabilityPath),
+      ...generatedArtifactPaths(root, cityOutputDir),
     },
   };
 

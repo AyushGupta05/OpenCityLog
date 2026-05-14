@@ -31,7 +31,19 @@ function readJson(filePath) {
 }
 
 function writeJson(filePath, value) {
-  fs.writeFileSync(filePath, `${JSON.stringify(value)}\n`);
+  const text = `${JSON.stringify(value)}\n`;
+  let lastError = null;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    try {
+      fs.writeFileSync(filePath, text);
+      return;
+    } catch (error) {
+      lastError = error;
+      if (!["EBUSY", "EPERM", "UNKNOWN"].includes(error.code)) break;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 250 * (attempt + 1));
+    }
+  }
+  throw lastError;
 }
 
 function round(value, digits = 3) {
@@ -472,17 +484,26 @@ function buildCity(city) {
     transport_roads_template: transportRoads.template,
   };
   updateArtifactPath(cityConfigPath, city.city_id, additions);
-  updateArtifactPath(atlasIndexPath, city.city_id, additions);
   console.log(`${city.city_id}: wrote ${hotspotFeatures.length} hotspot features, ${transportRoads.roadCount} road source features, ${years.length} transport-road year files.`);
+  return { city_id: city.city_id, additions };
 }
 
 function main() {
   const atlas = readJson(atlasIndexPath);
   const only = new Set(String(process.env.ONLY || "").split(",").map((item) => item.trim()).filter(Boolean));
+  const additionsByCity = [];
   for (const city of atlas.cities || []) {
     if (only.size && !only.has(city.city_id)) continue;
-    buildCity(city);
+    additionsByCity.push(buildCity(city));
   }
+  const latestIndex = readJson(atlasIndexPath);
+  for (const item of additionsByCity) {
+    for (const city of latestIndex.cities || []) {
+      if (city.city_id !== item.city_id) continue;
+      city.artifact_paths = Object.assign({}, city.artifact_paths, item.additions);
+    }
+  }
+  writeJson(atlasIndexPath, latestIndex);
 }
 
 main();

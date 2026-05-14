@@ -3,7 +3,7 @@
 
   const DEFAULT_CITY = "belfast";
   const DEFAULT_YEAR = 2024;
-  const MAX_PANEL_EVENTS = 3;
+  const MAX_PANEL_EVENTS = 10;
   const MAX_MARKERS = 90;
   const CONTEXT_RADIUS_KM = 1.5;
   const CONTEXT_YEAR_WINDOW = 2;
@@ -87,8 +87,39 @@
     showInferred: true,
     search: "",
     loadedEvents: new Map(),
+    loadingYears: new Map(),
+    loadedEventList: [],
+    eventById: new Map(),
     selectedEventId: null,
     selectedEvent: null,
+    selectedCity: null,
+    selectedYearRange: { start: DEFAULT_YEAR, end: DEFAULT_YEAR },
+    overlayYearRange: { start: DEFAULT_YEAR, end: DEFAULT_YEAR },
+    eventFilters: {
+      category: "all",
+      confidence: "all",
+      showInferred: true,
+      search: "",
+    },
+    activeLayers: {
+      detail: false,
+      lensHeatmap: false,
+      lensPoints: false,
+      transportRoads: false,
+    },
+    visibleOverlays: {
+      detailRoads: false,
+      detailBuildings: false,
+      heatmap: false,
+      lensPoints: false,
+      transportBase: false,
+      transportRoads: false,
+    },
+    visibleEventIds: [],
+    visibleMarkerIds: [],
+    visibleEventCount: 0,
+    visibleMarkerCount: 0,
+    selectedEventState: null,
     allEventsLoaded: false,
     loadingAll: false,
     playTimer: null,
@@ -143,15 +174,15 @@
       "selectedMeta", "selectedSummary", "selectedScan", "viewDetailsButton", "timelineTrack", "timelineLabels",
       "yearSlider", "currentYear", "playButton", "todayButton", "viewAllButton", "compareButton",
       "shareButton", "proposalButton", "insightsButton", "detailsDialog", "detailsTitle",
-      "detailsObserved", "detailsConfidence", "detailsLimitations", "detailsSources",
+      "detailsFacts", "detailsObserved", "detailsConfidence", "detailsLimitations", "detailsSources",
       "placeScan", "nearbyContext", "nearbyContextNote", "detailsReviewerNotes", "copyBriefButton",
       "closeDialogButton", "toast", "cityMap", "mapStage", "mapAttribution", "zoomInButton",
       "zoomOutButton", "recenterButton", "view3dButton", "filterButton", "confidenceFilter",
       "showInferredToggle", "searchResults", "appStatus", "comparePanel", "compareStats",
       "compareNote", "compareBeforeMapLabel", "compareAfterMapLabel", "beforeYearSelect",
       "afterYearSelect", "closeCompareButton", "proposalDialog", "proposalForm", "proposalName",
-      "proposalCategory", "proposalScale", "proposalRadius", "proposalDescription",
-      "proposalOutput", "runProposalButton", "closeProposalButton",
+      "proposalCategory", "proposalScale", "proposalRadius", "proposalStartYear", "proposalSiteBasis",
+      "proposalDescription", "proposalOutput", "runProposalButton", "closeProposalButton",
     ]) {
       els[id] = document.getElementById(id);
     }
@@ -160,6 +191,8 @@
   function wireEvents() {
     els.eventSearch?.addEventListener("input", () => {
       state.search = els.eventSearch.value.trim().toLowerCase();
+      syncStateModel();
+      renderOverview();
       renderEventList();
       renderTimeline();
       renderSearchResults();
@@ -193,6 +226,7 @@
     els.confidenceFilter?.addEventListener("change", () => setConfidenceFilter(els.confidenceFilter.value));
     els.showInferredToggle?.addEventListener("change", () => {
       state.showInferred = Boolean(els.showInferredToggle.checked);
+      syncStateModel();
       renderAll();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
@@ -209,7 +243,7 @@
     });
     els.eventList?.addEventListener("click", (event) => {
       const button = event.target.closest("[data-event-id]");
-      if (button) selectEvent(button.dataset.eventId);
+      if (button) selectEvent(button.dataset.eventId, { openDetails: true });
     });
     els.yearSlider?.addEventListener("input", () => setYear(Number(els.yearSlider.value)));
     els.todayButton?.addEventListener("click", () => setYear(latestYear()));
@@ -220,7 +254,7 @@
     els.copyBriefButton?.addEventListener("click", copyBrief);
     els.nearbyContext?.addEventListener("click", (event) => {
       const button = event.target.closest("[data-nearby-event-id]");
-      if (button) selectEvent(button.dataset.nearbyEventId);
+      if (button) selectEvent(button.dataset.nearbyEventId, { openDetails: true });
     });
     els.compareButton?.addEventListener("click", toggleCompare);
     els.shareButton?.addEventListener("click", shareView);
@@ -251,11 +285,20 @@
       event.preventDefault();
       runProposal();
     });
-    els.proposalOutput?.addEventListener("click", (event) => {
+    els.proposalOutput?.addEventListener("click", async (event) => {
       const button = event.target.closest("[data-proposal-event-id]");
       if (!button) return;
-      selectEvent(button.dataset.proposalEventId);
+      const year = Number(button.dataset.proposalYear);
+      if (Number.isFinite(year) && !state.loadedEvents.has(year)) {
+        try {
+          await loadYear(year);
+        } catch (error) {
+          toast(`Analogue evidence year could not load: ${error.message}`);
+          return;
+        }
+      }
       closeProposal();
+      selectEvent(button.dataset.proposalEventId, { openDetails: true });
     });
   }
 
@@ -296,6 +339,9 @@
     state.showInferred = true;
     state.search = "";
     state.loadedEvents.clear();
+    state.loadingYears.clear();
+    state.loadedEventList = [];
+    state.eventById.clear();
     state.selectedEventId = null;
     state.selectedEvent = null;
     state.allEventsLoaded = false;
@@ -313,6 +359,7 @@
     state.transportRoadYearPathLoaded = null;
     state.transportRoadYearLoaded = null;
     state.proposalResult = null;
+    syncStateModel();
 
     if (els.eventSearch) els.eventSearch.value = "";
     if (els.citySelect) els.citySelect.value = cityId;
@@ -331,6 +378,7 @@
     await loadYear(state.year);
     initOrUpdateMap();
     updateMapBasemapForYear(state.year, { force: true });
+    updateTimeDependentMapState();
     selectInitialEvent();
     renderAll();
     renderMapMarkers();
@@ -423,15 +471,16 @@
   }
 
   function renderOverview() {
-    const chunks = state.eventsIndex?.chunks || [];
-    const sourcedRecords = chunks.reduce((total, chunk) => total + Number(chunk.event_count || 0), 0);
-    const majorProjects = chunks.reduce((total, chunk) => {
-      const counts = chunk.counts_by_category || {};
-      return total + Number(counts.transport || 0) + Number(counts.built_environment || 0) + Number(counts.civic_services || 0);
-    }, 0);
+    const events = filteredEvents();
+    const sourcedRecords = events.length;
+    const majorCategories = new Set(["transport", "built_environment", "civic_services"]);
+    const majorProjects = events.filter((event) => majorCategories.has(event.category)).length;
     setText(els.projectCount, compactNumber(Math.max(majorProjects, 0)));
-    setText(els.changeCount, compactNumber(sourcedRecords || state.cityMeta?.event_count || 0));
+    setText(els.changeCount, compactNumber(sourcedRecords));
     setText(els.yearCount, String(state.years.length || 0));
+    state.visibleEventCount = sourcedRecords;
+    state.visibleEventIds = events.map((event) => event.id);
+    syncStateModel(events);
   }
 
   function renderCoverageNote() {
@@ -450,15 +499,30 @@
     const numericYear = Number(year);
     if (!Number.isFinite(numericYear)) return [];
     if (state.loadedEvents.has(numericYear)) return state.loadedEvents.get(numericYear);
+    if (state.loadingYears.has(numericYear)) return state.loadingYears.get(numericYear);
     const chunk = chunkForYear(numericYear);
     if (!chunk?.json_path) {
       state.loadedEvents.set(numericYear, []);
       return [];
     }
-    const payload = await fetchJson(dataPathToUrl(chunk.json_path));
-    const events = extractEvents(payload).map((event, index) => normalizeEvent(event, numericYear, index));
-    state.loadedEvents.set(numericYear, events);
-    return events;
+    const promise = fetchJson(dataPathToUrl(chunk.json_path)).then((payload) => {
+      const events = extractEvents(payload).map((event, index) => normalizeEvent(event, numericYear, index));
+      state.loadedEvents.set(numericYear, events);
+      indexLoadedEvents(events);
+      return events;
+    }).finally(() => {
+      state.loadingYears.delete(numericYear);
+    });
+    state.loadingYears.set(numericYear, promise);
+    return promise;
+  }
+
+  function indexLoadedEvents(events) {
+    for (const event of events) {
+      if (!event?.id || state.eventById.has(event.id)) continue;
+      state.eventById.set(event.id, event);
+      state.loadedEventList.push(event);
+    }
   }
 
   async function loadAllEventsForChangelog() {
@@ -468,11 +532,12 @@
     try {
       await Promise.all(state.years.map((year) => loadYear(year)));
       state.allEventsLoaded = true;
+      renderOverview();
       renderEventList({ limit: 24 });
       renderTimeline();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
-      toast("Full city changelog loaded. Map markers stay bounded for performance.");
+      toast("Full city index loaded. Visible markers remain scoped to the selected year.");
     } finally {
       state.loadingAll = false;
       renderViewAllButton();
@@ -490,12 +555,13 @@
       await Promise.all(state.years.map((year) => loadYear(year)));
       if (requestId !== state.searchLoadRequestId || state.search !== text) return;
       state.allEventsLoaded = true;
+      renderOverview();
       renderEventList({ limit: 24 });
       renderTimeline();
       renderSearchResults();
       selectFirstVisibleIfNeeded();
       renderMapMarkers();
-      toast("Full city search loaded.");
+      toast("Full city search loaded. Results stay scoped to the selected year.");
     } catch (error) {
       if (requestId === state.searchLoadRequestId) toast(`Full city search could not load: ${error.message}`);
     } finally {
@@ -541,18 +607,24 @@
   }
 
   function renderAll() {
+    syncStateModel();
     renderLensList();
     renderLayerControls();
+    renderOverview();
     renderEventList();
     renderSelected();
     renderTimeline();
     renderViewAllButton();
     renderComparePanel();
+    syncStateModel();
   }
 
   function renderEventList(options = {}) {
     if (!els.eventList) return;
     const events = filteredEvents();
+    state.visibleEventCount = events.length;
+    state.visibleEventIds = events.map((event) => event.id);
+    syncStateModel(events);
     const limit = options.limit || (state.allEventsLoaded ? 12 : MAX_PANEL_EVENTS);
     const visible = events.slice(0, limit);
     if (!visible.length) {
@@ -728,7 +800,8 @@
     updateDetailLayerFilters();
     ensureLensOverlays();
     updateLensOverlayFilters();
-    const markerEvents = filteredEvents().filter((event) => event.lngLat).slice(0, MAX_MARKERS);
+    const visibleEvents = filteredEvents();
+    const markerEvents = visibleEvents.filter((event) => event.lngLat).slice(0, MAX_MARKERS);
     const nextIds = new Set(markerEvents.map((event) => event.id));
 
     for (const [id, marker] of state.markers) {
@@ -750,13 +823,18 @@
       element.innerHTML = `<span class="pin-icon ${category.icon}" aria-hidden="true"></span>`;
       element.addEventListener("click", (clickEvent) => {
         clickEvent.stopPropagation();
-        selectEvent(event.id);
+        selectEvent(event.id, { openDetails: true });
       });
       const marker = new window.maplibregl.Marker({ element, anchor: "bottom" })
         .setLngLat(event.lngLat)
         .addTo(state.map);
       state.markers.set(event.id, marker);
     }
+    state.visibleMarkerCount = markerEvents.length;
+    state.visibleMarkerIds = markerEvents.map((event) => event.id);
+    state.visibleEventCount = visibleEvents.length;
+    state.visibleEventIds = visibleEvents.map((event) => event.id);
+    syncStateModel();
     updateMarkerState();
   }
 
@@ -769,15 +847,17 @@
   function renderViewAllButton() {
     if (!els.viewAllButton) return;
     const span = els.viewAllButton.querySelector("span");
-    if (span) span.textContent = state.allEventsLoaded ? "All loaded changes" : "View all changes";
+    if (span) span.textContent = state.allEventsLoaded ? "City index loaded" : "View all changes";
     els.viewAllButton.disabled = state.loadingAll;
   }
 
   function renderDetails(event) {
     if (!event) return;
     const context = buildEventContext(event);
+    const rows = sourceRows(event, context.sources);
     setText(els.detailsTitle, event.title);
-    setText(els.detailsObserved, `${event.summary} Effective date basis: ${formatEventDate(event)} (${event.datePrecision || "date precision not stated"}). Marker coordinates come from the event geometry in the atlas record.`);
+    renderDetailsFacts(event, context);
+    setText(els.detailsObserved, `${event.summary} Effective date/range: ${formatEventDate(event)} (${event.datePrecision || "date precision not stated"}). Marker coordinates come from the event geometry in the atlas record.`);
     setText(els.detailsConfidence, `${confidenceStatus(event)}. ${confidenceExplanation(event)} Source coverage: ${context.sources.length} registry source${context.sources.length === 1 ? "" : "s"}, ${event.evidence.length} event evidence row${event.evidence.length === 1 ? "" : "s"}.`);
     renderPlaceScan(event, context);
     renderNearbyContext(event, context);
@@ -794,10 +874,29 @@
     }
     renderReviewerNotes(event, context);
     if (els.detailsSources) {
-      els.detailsSources.innerHTML = sourceRows(event, context.sources).length
-        ? sourceRows(event, context.sources).join("")
+      els.detailsSources.innerHTML = rows.length
+        ? rows.join("")
         : `<article class="source-row"><span>Source id was present in the event but not found in the city source registry.</span></article>`;
     }
+  }
+
+  function renderDetailsFacts(event, context) {
+    if (!els.detailsFacts) return;
+    const category = categoryConfig(event.category);
+    const facts = [
+      ["City", shortCityName(state.city?.display_name || state.cityMeta?.display_name || state.cityId)],
+      ["Date/range", `${formatEventDate(event)} (${event.datePrecision || "precision not stated"})`],
+      ["Category/layer", `${category.label} / ${event.lens || event.category}`],
+      ["Area", event.area || "Area not stated"],
+      ["Primary source", primarySourceLabel(event, context.sources)],
+      ["Method", methodText(event)],
+    ];
+    els.detailsFacts.innerHTML = facts.map(([label, value]) => `
+      <div>
+        <dt>${escapeHtml(label)}</dt>
+        <dd>${escapeHtml(value)}</dd>
+      </div>
+    `).join("");
   }
 
   function renderSelectedScan(event) {
@@ -951,23 +1050,33 @@
   function sourceRows(event, sources) {
     const evidenceRows = event.evidence.map((item) => {
       const href = item.url || "";
-      const target = href ? ` href="${escapeAttr(href)}" target="_blank" rel="noreferrer"` : "";
       const pathText = item.file_path ? ` file: ${item.file_path}` : "";
+      const label = item.label || item.source_id || "Event evidence row";
       return `
-        <article class="source-row evidence-row">
-          <a${target}>${escapeHtml(item.label || item.source_id || "Event evidence row")}</a>
+        <article class="source-row evidence-row" data-source-link-state="${href ? "linked" : "unlinked"}">
+          ${linkedSourceLabel(label, href)}
           <span>${escapeHtml(item.kind || "source_record")} - record ${escapeHtml(item.record_id || "not stated")}${escapeHtml(pathText)}</span>
         </article>
       `;
     });
-    const registryRows = sources.map((source) => `
-      <article class="source-row">
-        <a href="${escapeAttr(source.url || source.licence_url || "#")}" target="_blank" rel="noreferrer">${escapeHtml(source.title || source.source_id)}</a>
-        <span>${escapeHtml(source.provider || "Public source")} - ${escapeHtml(source.licence || "Licence requires review")}</span>
-        <small>${escapeHtml(truncate(source.attribution_text || source.provenance_notes || "No attribution note in registry.", 170))}</small>
-      </article>
-    `);
+    const registryRows = sources.map((source) => {
+      const href = source.url || source.licence_url || "";
+      const label = source.title || source.source_id;
+      return `
+        <article class="source-row" data-source-link-state="${href ? "linked" : "unlinked"}">
+          ${linkedSourceLabel(label, href)}
+          <span>${escapeHtml(source.provider || "Public source")} - ${escapeHtml(source.licence || "Licence requires review")}</span>
+          <small>${escapeHtml(truncate(source.attribution_text || source.provenance_notes || "No attribution note in registry.", 170))}</small>
+        </article>
+      `;
+    });
     return [...evidenceRows, ...registryRows];
+  }
+
+  function linkedSourceLabel(label, href) {
+    return href
+      ? `<a href="${escapeAttr(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`
+      : `<span class="source-label">${escapeHtml(label)}</span>`;
   }
 
   function renderSearchResults() {
@@ -1073,7 +1182,7 @@
     hideSearchResults();
     renderEventList();
     if (candidate.kind === "event" && candidate.eventId) {
-      selectEvent(candidate.eventId);
+      selectEvent(candidate.eventId, { openDetails: true });
       return;
     }
     if (candidate.lngLat && state.map) {
@@ -1090,15 +1199,18 @@
     const requestId = ++state.yearRequestId;
     state.year = nextYear;
     if (state.compareActive) state.compareAfterYear = nextYear;
+    syncStateModel();
     syncYearControl();
     renderTimeline();
     updateMapBasemapForYear(nextYear);
+    updateTimeDependentMapState();
     return loadYear(nextYear).then(() => {
       if (requestId !== state.yearRequestId || state.year !== nextYear) return;
       selectInitialEvent({ keepYear: true });
       renderAll();
       renderMapMarkers();
       if (state.compareActive) updateComparePanel();
+      syncStateModel();
     });
   }
 
@@ -1116,7 +1228,9 @@
   function setCategory(categoryId) {
     state.category = categoryConfig(categoryId).id;
     if (els.categoryFilter) els.categoryFilter.value = state.category === "utilities" ? "all" : state.category;
+    syncStateModel();
     renderLensList();
+    renderOverview();
     renderEventList();
     renderTimeline();
     updateLensOverlayFilters();
@@ -1126,7 +1240,9 @@
 
   function setConfidenceFilter(value) {
     state.confidenceFilter = ["all", "documented", "inferred", "disputed"].includes(value) ? value : "all";
+    syncStateModel();
     renderLayerControls();
+    renderOverview();
     renderEventList();
     renderTimeline();
     updateLensOverlayFilters();
@@ -1163,22 +1279,30 @@
   }
 
   function selectEvent(eventId, options = {}) {
-    const event = allLoadedEvents().find((item) => item.id === eventId);
+    const event = state.eventById.get(eventId) || allLoadedEvents().find((item) => item.id === eventId);
     if (!event) return;
+    const yearChanged = state.year !== event.year;
     state.selectedEventId = event.id;
     state.selectedEvent = event;
     state.yearRequestId += 1;
     state.year = event.year;
+    if (state.compareActive) state.compareAfterYear = event.year;
+    syncStateModel();
     syncYearControl();
     updateMapBasemapForYear(event.year);
+    if (yearChanged) updateTimeDependentMapState();
+    if (!state.loadedEvents.has(event.year)) loadYear(event.year).catch((error) => toast(`Event year could not load: ${error.message}`));
+    renderOverview();
     renderEventList();
     renderSelected();
     renderTimeline();
+    if (yearChanged) renderMapMarkers();
     updateMarkerState();
     if (event.lngLat && state.map && !options.keepCamera) {
       state.map.easeTo({ center: event.lngLat, zoom: Math.max(state.map.getZoom(), 13.5), pitch: mapPitch(), bearing: mapBearing(), duration: 520 });
     }
     if (!options.quiet) toast(`${event.year}: ${event.title}`);
+    if (options.openDetails) openDetails();
   }
 
   function filteredEvents() {
@@ -1192,19 +1316,72 @@
   }
 
   function displayEvents() {
-    return (state.allEventsLoaded ? allLoadedEvents() : yearEvents()).filter((event) => event.displayVerified);
+    return selectedTimeEvents().filter((event) => event.displayVerified);
   }
 
   function yearEvents() {
     return state.loadedEvents.get(state.year) || [];
   }
 
+  function selectedTimeEvents() {
+    return selectedYears().flatMap((year) => state.loadedEvents.get(year) || []);
+  }
+
+  function selectedYears() {
+    const range = selectedTimeRange();
+    return state.years.filter((year) => year >= range.start && year <= range.end);
+  }
+
+  function selectedTimeRange() {
+    const year = Number(state.year || latestYear());
+    return { start: year, end: year };
+  }
+
   function allLoadedEvents() {
-    return Array.from(state.loadedEvents.values()).flat();
+    return state.loadedEventList;
   }
 
   function eventSearchText(event) {
-    return `${event.title} ${event.summary} ${event.area} ${event.category} ${event.lens} ${event.confidence} ${event.sourceIds.join(" ")}`.toLowerCase();
+    const sources = event.sourceIds.map((id) => state.sourceById.get(id)).filter(Boolean);
+    const sourceText = sources.map((source) => [
+      source.source_id,
+      source.title,
+      source.provider,
+      source.source_family,
+      source.licence,
+      source.attribution_text,
+    ].filter(Boolean).join(" ")).join(" ");
+    const evidenceText = event.evidence.map((item) => [item.source_id, item.label, item.kind, item.url, item.file_path, item.record_id].filter(Boolean).join(" ")).join(" ");
+    const provenance = event.provenance || {};
+    const provenanceText = [
+      provenance.source_record_id,
+      provenance.source_url,
+      provenance.source_dataset_id,
+      provenance.source_date_field,
+      provenance.geometry_source,
+      provenance.geometry_precision,
+      provenance.transform,
+    ].filter(Boolean).join(" ");
+    return [
+      state.cityId,
+      state.city?.display_name,
+      state.city?.country,
+      event.title,
+      event.summary,
+      event.area,
+      event.category,
+      categoryConfig(event.category).label,
+      event.lens,
+      event.confidence,
+      event.year,
+      event.effectiveDate,
+      formatEventDate(event),
+      event.sourceDateField,
+      event.sourceIds.join(" "),
+      sourceText,
+      evidenceText,
+      provenanceText,
+    ].filter(Boolean).join(" ").toLowerCase();
   }
 
   function confidenceMatches(event) {
@@ -1231,6 +1408,7 @@
   function openDetails() {
     if (!state.selectedEvent) return;
     renderDetails(state.selectedEvent);
+    if (els.detailsDialog?.open) return;
     if (els.detailsDialog?.showModal) els.detailsDialog.showModal();
     else els.detailsDialog?.setAttribute("open", "");
   }
@@ -1257,6 +1435,8 @@
     if (els.proposalName) els.proposalName.value = event ? `Review near ${event.title}` : `${shortCityName(state.city?.display_name)} proposal`;
     if (els.proposalCategory) els.proposalCategory.value = proposalCategoryForEvent(event);
     if (els.proposalScale) els.proposalScale.value = "medium";
+    if (els.proposalStartYear) els.proposalStartYear.value = String(state.year || latestYear());
+    if (els.proposalSiteBasis) els.proposalSiteBasis.value = event ? "selected_event" : "typed_point";
     if (els.proposalDescription) {
       els.proposalDescription.value = event
         ? `Use ${event.title} as the selected precedent/site context. Screen nearby historical analogues, source caveats, and evidence gaps.`
@@ -1287,10 +1467,16 @@
         category: els.proposalCategory?.value || "building_development",
         scale: els.proposalScale?.value || "unknown",
         location,
+        timeframe: proposalTimeframe(),
+        details: {
+          site_basis: els.proposalSiteBasis?.value || (event ? "selected_event" : "typed_point"),
+          selected_event_id: event?.id || null,
+          selected_event_title: event?.title || null,
+        },
       },
       radius_m: Number(els.proposalRadius?.value || 1500),
     };
-    els.proposalOutput.innerHTML = `<div class="loading-state">Screening source-backed analogues and local context...</div>`;
+    els.proposalOutput.innerHTML = `<div class="loading-state">Finding source-backed historical analogues, observed record windows, and local caveats...</div>`;
     try {
       const result = await fetchJsonPost("/api/proposal-impact", payload);
       state.proposalResult = result;
@@ -1302,25 +1488,35 @@
     }
   }
 
+  function proposalTimeframe() {
+    const startYear = Number(els.proposalStartYear?.value || "");
+    return Number.isInteger(startYear) ? { start_year: startYear } : null;
+  }
+
   function renderProposalOutput() {
     if (!els.proposalOutput) return;
     const result = state.proposalResult;
     if (!result) {
-      els.proposalOutput.innerHTML = `<div class="empty-state">Choose a selected event or enter a proposal, then run an analogue screen. Results are descriptive and source-backed; they do not estimate outcomes.</div>`;
+      els.proposalOutput.innerHTML = `<div class="empty-state">Choose a selected event or enter a proposal, then find historical analogues. Results are descriptive and source-backed; they are not a forecast.</div>`;
       return;
     }
     const signals = (result.affected_signals || []).slice(0, 5);
     const analogues = (result.similar_events || []).slice(0, 5);
+    const observedPatterns = (result.observed_patterns || []).slice(0, 3);
     const readiness = result.proposal_brief?.evidence_readiness || [];
     const design = result.design_review_basis || [];
     els.proposalOutput.innerHTML = `
       <section class="proposal-summary">
-        <span class="proposal-badge">${escapeHtml(result.confidence?.label || "unknown")} confidence</span>
+        <div class="proposal-badge-row">
+          <span class="proposal-badge">${escapeHtml(result.framing?.label || "Historical analogue")}</span>
+          <span class="proposal-badge muted">Not a forecast</span>
+          <span class="proposal-badge">${escapeHtml(result.confidence?.label || "unknown")} evidence strength</span>
+        </div>
         <p>${escapeHtml(result.summary || "No summary returned.")}</p>
         <small>${escapeHtml(result.method?.method || "Deterministic historical analogue lookup.")}</small>
       </section>
       <section>
-        <h3>Signals to review</h3>
+        <h3>Evidence themes to review</h3>
         <div class="signal-grid">
           ${signals.map((signal) => `
             <article>
@@ -1332,13 +1528,26 @@
         </div>
       </section>
       <section>
+        <h3>Observed before/after records</h3>
+        <div class="pattern-list">
+          ${observedPatterns.map((pattern) => `
+            <article>
+              <strong>${escapeHtml(pattern.title || "Historical analogue")}</strong>
+              <span>${escapeHtml(pattern.evidence_strength_label || "Evidence strength not stated")}</span>
+              <p>${escapeHtml(pattern.observed_pattern || "No observed record window returned.")}</p>
+              <small>${escapeHtml(pattern.caveat || "Causation is not claimed.")}</small>
+            </article>
+          `).join("") || `<div class="empty-state">No before/after record windows returned.</div>`}
+        </div>
+      </section>
+      <section>
         <h3>Closest analogues</h3>
         <div class="analogue-list">
           ${analogues.map((item) => `
-            <button type="button" data-proposal-event-id="${escapeAttr(item.event_id)}">
+            <button type="button" data-proposal-event-id="${escapeAttr(item.event_id)}" data-proposal-year="${escapeAttr(item.year || "")}" aria-label="Open evidence for ${escapeAttr(item.title || item.event_id)}">
               <span>${escapeHtml(String(item.year || ""))}</span>
               <strong>${escapeHtml(item.title || item.event_id)}</strong>
-              <small>${escapeHtml(analogueDetail(item))}</small>
+              <small>${escapeHtml(analogueDetail(item))} - open evidence</small>
             </button>
           `).join("") || `<div class="empty-state">No analogues returned for this proposal.</div>`}
         </div>
@@ -1727,6 +1936,74 @@
     }
     if (state.map.getLayer("detail-roads-year")) state.map.setFilter("detail-roads-year", detailYearFilter("road"));
     if (state.map.getLayer("detail-buildings-year-outline")) state.map.setFilter("detail-buildings-year-outline", detailYearFilter("building"));
+    syncStateModel();
+  }
+
+  function updateTimeDependentMapState() {
+    updateDetailLayerFilters();
+    updateLensOverlayFilters();
+    updateMapAttribution();
+    syncStateModel();
+  }
+
+  function syncStateModel(visibleEvents = null) {
+    const range = selectedTimeRange();
+    const overlayRange = overlayTimeRange();
+    const events = visibleEvents || null;
+    state.selectedCity = {
+      id: state.cityId,
+      name: shortCityName(state.city?.display_name || state.cityMeta?.display_name || state.cityId),
+    };
+    state.selectedYearRange = range;
+    state.overlayYearRange = overlayRange;
+    state.eventFilters = {
+      category: state.category,
+      confidence: state.confidenceFilter,
+      showInferred: state.showInferred,
+      search: state.search,
+    };
+    state.activeLayers = {
+      detail: Boolean(detailLayerPath()),
+      lensHeatmap: Boolean(lensOverlayPath()),
+      lensPoints: Boolean(lensOverlayPath()),
+      transportRoads: state.category === "transport" && Boolean(transportRoadYearPath()),
+    };
+    state.visibleOverlays = {
+      detailRoads: isLayerVisible("detail-roads-visible") || isLayerVisible("detail-roads-year"),
+      detailBuildings: isLayerVisible("detail-buildings-fill") || isLayerVisible("detail-buildings-extrusion"),
+      heatmap: isLayerVisible("lens-heatmap"),
+      lensPoints: isLayerVisible("lens-current-points"),
+      transportBase: isLayerVisible("lens-transport-base"),
+      transportRoads: isLayerVisible("lens-transport-roads"),
+    };
+    if (events) {
+      state.visibleEventCount = events.length;
+      state.visibleEventIds = events.map((event) => event.id);
+    }
+    state.selectedEventState = state.selectedEvent
+      ? {
+          id: state.selectedEvent.id,
+          year: state.selectedEvent.year,
+          visibleInSelectedTime: eventInSelectedTime(state.selectedEvent),
+          visibleInCurrentFilter: Boolean((events || filteredEvents()).some((event) => event.id === state.selectedEventId)),
+        }
+      : null;
+  }
+
+  function isLayerVisible(layerId) {
+    if (!state.map?.getLayer(layerId)) return false;
+    return state.map.getLayoutProperty(layerId, "visibility") !== "none";
+  }
+
+  function overlayTimeRange() {
+    const year = Number(state.year || latestYear());
+    return { start: Math.max(earliestYear(), year - 2), end: year };
+  }
+
+  function eventInSelectedTime(event) {
+    if (!event) return false;
+    const range = selectedTimeRange();
+    return Number(event.year) >= range.start && Number(event.year) <= range.end;
   }
 
   function detailVisibilityFilter(layer) {
@@ -1979,11 +2256,12 @@
     if (state.map.getLayer("lens-transport-hotspots")) {
       state.map.setPaintProperty("lens-transport-hotspots", "line-opacity", ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.16, 1, 0.42]);
     }
+    syncStateModel();
   }
 
   function lensEventFilter(exactYear) {
     const year = Number(state.year || latestYear());
-    const fromYear = Math.max(earliestYear(), year - 2);
+    const fromYear = overlayTimeRange().start;
     const conditions = [
       ["==", ["get", "layer"], "lens_event"],
       exactYear
@@ -2224,6 +2502,25 @@
     const evidence = event.evidence.map((item) => `- ${item.label || item.source_id || "Evidence row"} (${item.kind || "source"}): ${item.url || item.file_path || item.record_id || "no link"}`);
     const registry = sources.map((source) => `- ${source.title || source.source_id}: ${source.provider || "Public source"}; licence: ${source.licence || "requires review"}`);
     return [...evidence, ...registry];
+  }
+
+  function primarySourceLabel(event, sources = []) {
+    const source = sources[0] || primarySource(event);
+    if (source) {
+      return `${source.provider || source.title || "Public source"} (${source.source_id || event.sourceIds[0] || "source id not stated"})`;
+    }
+    return event.sourceIds.length ? event.sourceIds.join(", ") : "Source id not stated";
+  }
+
+  function methodText(event) {
+    const provenance = event.provenance || {};
+    const basis = provenance.source_basis || provenance.source_dataset_id || provenance.source_record_id || "";
+    const dateField = event.sourceDateField || provenance.source_date_field || "";
+    return [
+      provenance.transform || "atlas event normalization",
+      basis ? `basis: ${basis}` : "",
+      dateField ? `date field: ${dateField}` : "",
+    ].filter(Boolean).join(" | ");
   }
 
   function appearanceStatus(event) {
@@ -2512,6 +2809,10 @@
       recenterMap,
       timelineProfile,
       timelineCountForYear,
+      selectedTimeRange,
+      selectedTimeEvents,
+      eventInSelectedTime,
+      syncStateModel,
     };
   }
 })();
