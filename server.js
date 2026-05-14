@@ -166,7 +166,7 @@ async function handleProposalImpactPost(req, res) {
   } catch (error) {
     sendJson(res, error.statusCode || 500, {
       ok: false,
-      error: "Could not assess proposal impact",
+      error: "Could not assess proposal analogues",
       detail: error.message,
       validation: error.validation || null
     });

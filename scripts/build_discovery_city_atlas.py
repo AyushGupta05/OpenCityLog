@@ -111,6 +111,21 @@ def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
 
 
+def generated_artifact_paths(city: str, city_dir: Path) -> dict[str, str]:
+    artifacts: dict[str, str] = {}
+    known_files = {
+        "detail_layers": "detail_layers.geojson",
+        "lens_overlays": "lens_overlays.geojson",
+        "transport_roads_base": "transport_roads_base.geojson",
+    }
+    for key, filename in known_files.items():
+        if (city_dir / filename).exists():
+            artifacts[key] = f"web/data/city-atlas/cities/{city}/{filename}"
+    if city_dir.exists() and any(re.fullmatch(r"transport_roads_\d{4}\.geojson", item.name) for item in city_dir.iterdir()):
+        artifacts["transport_roads_template"] = f"web/data/city-atlas/cities/{city}/transport_roads_{{year}}.geojson"
+    return artifacts
+
+
 def nested_counts(items: list[dict[str, Any]], first_key: str, second_key: str) -> dict[str, dict[str, int]]:
     counts: dict[str, Counter[str]] = defaultdict(Counter)
     for item in items:
@@ -311,9 +326,14 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     category, lens, signals = category_and_lens(bucket, title)
 
     provided_geometry = item.get("geometry") if isinstance(item.get("geometry"), dict) else None
+    geometry_source = item.get("geometry_source")
+    geometry_precision = item.get("geometry_precision")
+    used_atlas_reference_point = False
     if provided_geometry and provided_geometry.get("type") == "Point":
         lng, lat = provided_geometry.get("coordinates", [None, None])[:2]
         label = item.get("area") or item.get("location") or item.get("affected_area") or point_for(city, f"{title} {bucket}", idx)[0]
+        geometry_source = geometry_source or "Source adapter supplied GeoJSON point geometry."
+        geometry_precision = geometry_precision or "Point geometry supplied by the source adapter; inspect source row caveats before treating it as an exact site."
     else:
         lng = item.get("longitude") or item.get("lng")
         lat = item.get("latitude") or item.get("lat")
@@ -322,11 +342,16 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             lng, lat = float(lng), float(lat)
             label = area_label or point_for(city, f"{title} {bucket}", idx)[0]
             provided_geometry = {"type": "Point", "coordinates": [lng, lat]}
+            geometry_source = geometry_source or "Source adapter supplied latitude/longitude fields or a documented geocode."
+            geometry_precision = geometry_precision or "Row-level point from the adapter; source geocoding precision varies and may be approximate."
         else:
             label, lng, lat = point_for(city, f"{title} {bucket} {area_label or ''} {item.get('event_seed','')}", idx)
             if area_label:
                 label = str(area_label)
             provided_geometry = {"type": "Point", "coordinates": [lng, lat]}
+            used_atlas_reference_point = True
+            geometry_source = geometry_source or "Atlas reference point selected from city/area keywords because the source seed lacks row-level coordinates."
+            geometry_precision = geometry_precision or "Approximate area/city reference marker for map navigation, not an exact event geometry."
 
     raw_source_ids = item.get("source_ids") or []
     source_ids = [sid for sid in raw_source_ids if sid in source_by_id]
@@ -347,6 +372,8 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         safe_public_text(item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate."),
         "No before/after outcome metric is inferred unless a source adapter supplies observed measurements.",
     ]
+    if used_atlas_reference_point:
+        caveats.append("Map marker is an atlas reference point because the source record did not provide row-level coordinates.")
     return {
         "schema_version": SCHEMA,
         "city_id": city,
@@ -378,8 +405,8 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             "source_retrieved_at": item.get("source_retrieved_at") or primary_evidence.get("accessed_at"),
             "source_dataset_id": item.get("source_dataset_id") or (primary_source.get("source_id") if primary_source else None),
             "source_date_field": source_date_field,
-            "geometry_source": item.get("geometry_source"),
-            "geometry_precision": item.get("geometry_precision"),
+            "geometry_source": geometry_source,
+            "geometry_precision": geometry_precision,
         },
     }
 
@@ -544,6 +571,7 @@ def build_city(city: str) -> dict[str, Any]:
             "events": f"web/data/city-atlas/cities/{city}/events.json",
             "availability": f"web/data/city-atlas/cities/{city}/availability.json",
             "current_state": f"web/data/city-atlas/cities/{city}/current_state.json",
+            **generated_artifact_paths(city, city_dir),
         },
     }
     availability = {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "summary": city_payload["data_availability"], "matrix": [{"family_id": f["family_id"], "label": f["label"], "availability": f["availability"], "years": f["years"], "source_ids": f["source_ids"], "event_count": sum(1 for e in events if set(e.get("source_ids",[])) & set(f["source_ids"])), "notes": f["notes"]} for f in families], "event_counts_by_year": dict(Counter(str(e["year"]) for e in events)), "event_counts_by_category": counts_by_category}

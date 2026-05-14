@@ -214,6 +214,10 @@
         <button class="close-dialog" id="closeDialogButton" type="button" aria-label="Close evidence brief"></button>
       </div>
       <div class="details-grid">
+        <section class="details-wide">
+          <h3>Event facts</h3>
+          <dl class="event-fact-grid" id="detailsFacts"></dl>
+        </section>
         <section>
           <h3>Observed change</h3>
           <p id="detailsObserved">Select a changelog item to inspect evidence.</p>
@@ -249,10 +253,10 @@
     <dialog class="proposal-dialog glass-panel" id="proposalDialog" aria-labelledby="proposalTitle">
       <div class="details-head">
         <div>
-          <p>Analogue lens</p>
-          <h2 id="proposalTitle">Proposal evidence screen</h2>
+          <p>Not a forecast</p>
+          <h2 id="proposalTitle">Historical analogue lens</h2>
         </div>
-        <button class="copy-brief-button" id="runProposalButton" type="button">Run screen</button>
+        <button class="copy-brief-button" id="runProposalButton" type="button">Find analogues</button>
         <button class="close-dialog" id="closeProposalButton" type="button" aria-label="Close proposal lens"></button>
       </div>
       <div class="proposal-grid">
@@ -306,7 +310,7 @@
           </label>
         </form>
         <section class="proposal-output" id="proposalOutput" aria-live="polite">
-          <div class="empty-state">Choose a selected event or enter a proposal, then run an analogue screen. Results are descriptive and source-backed; they do not estimate outcomes.</div>
+          <div class="empty-state">Choose a selected event or enter a proposal, then find historical analogues. Results are descriptive and source-backed; they are not a forecast.</div>
         </section>
       </div>
     </dialog>

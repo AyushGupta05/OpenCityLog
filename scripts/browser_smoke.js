@@ -101,6 +101,11 @@ async function appState(page) {
       bodyText: document.body.innerText,
       visibleRecords: events.length,
       displayRecords: displayEvents.length,
+      allEventsLoaded: Boolean(state.allEventsLoaded),
+      loadedEventCount: state.loadedEventList.length,
+      selectedRange: state.selectedYearRange,
+      visibleEventCount: state.visibleEventCount,
+      displayYears: [...new Set(displayEvents.map((event) => event.year))],
       invalidVisible: events.filter((event) => !(
         event.displayVerified
         && Array.isArray(event.lngLat)
@@ -111,16 +116,123 @@ async function appState(page) {
   });
 }
 
+async function waitForEventSurface(page, cityId) {
+  try {
+    await page.waitForFunction(
+      (expectedCity) => Boolean(
+        window.BimsAtlas?.state?.cityId === expectedCity
+        && window.BimsAtlas?.filteredEvents
+        && window.BimsAtlas.state.mapReady
+        && document.querySelector(".maplibregl-canvas")
+        && document.querySelectorAll("#eventList .event-card").length >= 10
+        && document.querySelectorAll(".map-marker").length >= 10
+      ),
+      cityId,
+      { timeout: 60000 }
+    );
+  } catch (error) {
+    const surface = await page.evaluate(() => ({
+      cityId: window.BimsAtlas?.state?.cityId || "",
+      mapReady: Boolean(window.BimsAtlas?.state?.mapReady),
+      canvas: Boolean(document.querySelector(".maplibregl-canvas")),
+      cards: document.querySelectorAll("#eventList .event-card").length,
+      markers: document.querySelectorAll(".map-marker").length,
+      year: window.BimsAtlas?.state?.year,
+      category: window.BimsAtlas?.state?.category,
+      search: window.BimsAtlas?.state?.search || "",
+      visibleEvents: window.BimsAtlas?.state?.visibleEventCount || 0,
+      visibleMarkers: window.BimsAtlas?.state?.visibleMarkerCount || 0,
+    }));
+    throw new Error(`${cityId}: event surface did not become ready: ${JSON.stringify(surface)}`, { cause: error });
+  }
+}
+
+async function assertEvidencePanel(page, expectedId, label) {
+  await page.waitForFunction(
+    (id) => Boolean(
+      window.BimsAtlas?.state?.selectedEventId === id
+      && document.querySelector("#detailsDialog")?.open
+      && document.querySelector("#detailsFacts")?.textContent
+      && document.querySelector("#detailsSources")?.textContent
+    ),
+    expectedId,
+    { timeout: 10000 }
+  );
+  const detail = await page.evaluate(() => ({
+    id: window.BimsAtlas.state.selectedEventId,
+    title: document.querySelector("#detailsTitle")?.textContent || "",
+    facts: document.querySelector("#detailsFacts")?.textContent || "",
+    observed: document.querySelector("#detailsObserved")?.textContent || "",
+    confidence: document.querySelector("#detailsConfidence")?.textContent || "",
+    limitations: document.querySelector("#detailsLimitations")?.textContent || "",
+    reviewerNotes: document.querySelector("#detailsReviewerNotes")?.textContent || "",
+    sources: document.querySelector("#detailsSources")?.textContent || "",
+    sourceLinks: document.querySelectorAll("#detailsSources a[href]").length,
+    evidenceRows: document.querySelectorAll("#detailsSources .evidence-row").length,
+    nearbyRows: document.querySelectorAll("#nearbyContext [data-nearby-event-id]").length,
+    nearbyNote: document.querySelector("#nearbyContextNote")?.textContent || "",
+    activeCard: document.querySelector(".event-card[aria-selected='true']")?.dataset.eventId || "",
+    activeMarker: document.querySelector(".map-marker.active")?.dataset.eventId || "",
+    staleCopy: /simulation|forecast|scenario|impact score/i.test(document.querySelector("#detailsDialog")?.innerText || ""),
+    genericCopy: /Selected change|Loading\.|Select a changelog item/i.test(document.querySelector("#detailsDialog")?.innerText || ""),
+  }));
+  assert(detail.id === expectedId, `${label}: selected event id changed while opening evidence.`);
+  assert(detail.title.length > 4, `${label}: evidence title is empty.`);
+  assert(/City/i.test(detail.facts) && /Date\/range/i.test(detail.facts) && /Category\/layer/i.test(detail.facts), `${label}: fact grid is missing city, date/range, or category/layer.`);
+  assert(/Primary source/i.test(detail.facts) && /Method/i.test(detail.facts), `${label}: fact grid is missing source or method.`);
+  assert(detail.observed.length > 40 && /Effective date\/range/i.test(detail.observed), `${label}: observed summary/date text is incomplete.`);
+  assert(/Documented|Corroborated|Inferred|Disputed/i.test(detail.confidence), `${label}: confidence text is missing.`);
+  assert(/causation is not claimed|OSM edit dates|Coverage is partial|Public source pages/i.test(detail.limitations), `${label}: limitations are missing.`);
+  assert(/Geometry|Source retrieved|Transform/i.test(detail.reviewerNotes), `${label}: reviewer method notes are missing.`);
+  assert(detail.sources.length > 20 && detail.sourceLinks > 0 && detail.evidenceRows > 0, `${label}: source links/evidence rows are missing.`);
+  assert(/source-backed records|No source-backed nearby records|Checking source-backed records|Nearby context could not be loaded/i.test(detail.nearbyNote), `${label}: related-event state is unclear.`);
+  assert(!detail.staleCopy && !detail.genericCopy, `${label}: evidence panel contains stale or generic copy.`);
+  return detail;
+}
+
+async function clickThroughRepresentativeEvents(page) {
+  const cityIds = ["belfast", "london", "nyc"];
+  const results = [];
+  for (const cityId of cityIds) {
+    console.log(`Checking representative events for ${cityId}...`);
+    await page.goto(`${url}/?city=${encodeURIComponent(cityId)}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await waitForEventSurface(page, cityId);
+    const eventIds = await page.locator("#eventList .event-card").evaluateAll((cards) => (
+      cards.slice(0, 10).map((card) => card.dataset.eventId).filter(Boolean)
+    ));
+    assert(eventIds.length === 10, `${cityId}: expected ten representative visible event cards, got ${eventIds.length}.`);
+    for (const eventId of eventIds) {
+      const label = `${cityId} ${eventId}`;
+      await page.locator(`#eventList .event-card[data-event-id="${eventId}"]`).click();
+      const detail = await assertEvidencePanel(page, eventId, label);
+      assert(detail.activeCard === eventId, `${label}: event rail selection did not stay active.`);
+      assert(detail.activeMarker === eventId, `${label}: map marker selection did not stay in sync.`);
+      results.push({ cityId, eventId, title: detail.title, sourceLinks: detail.sourceLinks, nearbyRows: detail.nearbyRows });
+      await page.locator("#closeDialogButton").click();
+      await page.waitForFunction(() => !document.querySelector("#detailsDialog")?.open, null, { timeout: 5000 });
+    }
+  }
+  return results;
+}
+
 (async () => {
   fs.mkdirSync(outputDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1 });
   const consoleErrors = [];
 
-  page.on("console", (message) => {
-    if (message.type() === "error") consoleErrors.push(message.text());
-  });
-  page.on("pageerror", (error) => consoleErrors.push("pageerror: " + error.message));
+  const attachConsoleCapture = (targetPage) => {
+    targetPage.on("console", (message) => {
+      if (message.type() === "error") {
+        const location = message.location();
+        const suffix = location.url ? ` @ ${location.url}:${location.lineNumber}` : "";
+        consoleErrors.push(`${message.text()}${suffix}`);
+      }
+    });
+    targetPage.on("pageerror", (error) => consoleErrors.push("pageerror: " + error.message));
+  };
+
+  const page = await browser.newPage({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1 });
+  attachConsoleCapture(page);
 
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(page);
@@ -135,7 +247,7 @@ async function appState(page) {
   assert(initial.title === "OpenCityLog", "Document title did not update to OpenCityLog.");
   assert(initial.city === "belfast", "Default city should be the Belfast pilot.");
   assert(initial.year === 2024 && initial.currentYear === "2024", "Default timeline year should be 2024.");
-  assert(initial.cards === 3, "Changelog should show three primary cards.");
+  assert(initial.cards >= 10, "Changelog should show a useful rail of primary cards.");
   assert(initial.lenses === 5, "Lens rail should show the five visible lenses.");
   assert(initial.mapCanvas === 1, "Real MapLibre map canvas did not render.");
   assert(initial.markers > 0, "Source-backed map markers did not render.");
@@ -186,7 +298,9 @@ async function appState(page) {
   const firstCardId = await page.locator("#eventList .event-card").first().getAttribute("data-event-id");
   await page.locator("#eventList .event-card").first().click();
   await page.waitForFunction(
-    (id) => window.BimsAtlas.state.selectedEventId === id && document.querySelector(".event-card[aria-selected='true']")?.dataset.eventId === id,
+    (id) => window.BimsAtlas.state.selectedEventId === id
+      && document.querySelector(".event-card[aria-selected='true']")?.dataset.eventId === id
+      && document.querySelector("#detailsDialog")?.open,
     firstCardId,
     { timeout: 5000 }
   );
@@ -196,11 +310,13 @@ async function appState(page) {
     selectedTitle: document.querySelector("#selectedTitle")?.textContent || "",
   }));
   assert(listSelection.selectedId === firstCardId && listSelection.activeMarker === firstCardId && listSelection.selectedTitle.length > 4, "List selection did not sync card, marker, and selected inspector.");
+  await page.locator("#closeDialogButton").click();
+  await page.waitForFunction(() => !document.querySelector("#detailsDialog")?.open, null, { timeout: 5000 });
 
   const firstMarkerId = await page.locator(".map-marker").first().getAttribute("data-event-id");
   await page.locator(".map-marker").first().click();
   await page.waitForFunction(
-    (id) => window.BimsAtlas.state.selectedEventId === id,
+    (id) => window.BimsAtlas.state.selectedEventId === id && document.querySelector("#detailsDialog")?.open,
     firstMarkerId,
     { timeout: 5000 }
   );
@@ -212,6 +328,8 @@ async function appState(page) {
   }));
   assert(markerSelection.selectedId === firstMarkerId && markerSelection.activeMarker === firstMarkerId, "Clicking a real map marker did not select it.");
   assert(markerSelection.selectedHasSources && markerSelection.selectedHasGeometry, "Selected marker record is not source-backed with geometry.");
+  await page.locator("#closeDialogButton").click();
+  await page.waitForFunction(() => !document.querySelector("#detailsDialog")?.open, null, { timeout: 5000 });
 
   await page.locator('[data-lens="transport"]').click();
   await page.waitForFunction(() => window.BimsAtlas.state.category === "transport", null, { timeout: 5000 });
@@ -344,11 +462,13 @@ async function appState(page) {
     sources: document.querySelector("#detailsSources")?.textContent || "",
     sourceLinks: document.querySelectorAll("#detailsSources a[href]").length,
     evidenceRows: document.querySelectorAll("#detailsSources .evidence-row").length,
+    facts: document.querySelector("#detailsFacts")?.textContent || "",
     fallback: /not found in the city source registry/i.test(document.querySelector("#detailsSources")?.textContent || ""),
     staleCopy: /simulation|forecast|scenario|impact score/i.test(document.querySelector("#detailsDialog")?.innerText || ""),
   }));
   assert(details.title.length > 4, "Evidence dialog title is empty.");
-  assert(/Effective date basis/i.test(details.observed), "Evidence dialog is missing date-basis copy.");
+  assert(/City/i.test(details.facts) && /Date\/range/i.test(details.facts) && /Category\/layer/i.test(details.facts) && /Primary source/i.test(details.facts) && /Method/i.test(details.facts), "Evidence dialog is missing the event fact grid.");
+  assert(/Effective date\/range/i.test(details.observed), "Evidence dialog is missing date/range copy.");
   assert(/Appearance|Traffic and movement|Evidence quality/i.test(details.scan), "Evidence dialog is missing place/movement scan.");
   assert(/source-backed records|No source-backed nearby records/i.test(details.nearbyNote), "Evidence dialog is missing nearby context note.");
   assert(/causation is not claimed|OSM edit dates|Coverage is partial/i.test(details.limitations), "Evidence dialog is missing limitations.");
@@ -367,14 +487,26 @@ async function appState(page) {
   const proposal = await page.evaluate(() => ({
     summary: document.querySelector("#proposalOutput .proposal-summary")?.textContent || "",
     analogues: document.querySelectorAll("#proposalOutput [data-proposal-event-id]").length,
+    patterns: document.querySelectorAll("#proposalOutput .pattern-list article").length,
     readiness: document.querySelectorAll("#proposalOutput .readiness-list span").length,
-    staleCopy: /will (increase|decrease|reduce|improve|worsen|cause)|forecast|simulation result|impact score/i.test(document.querySelector("#proposalOutput")?.innerText || ""),
+    staleCopy: /will (increase|decrease|reduce|improve|worsen|cause)|forecast|simulation result|impact score/i.test((document.querySelector("#proposalOutput")?.innerText || "").replace(/not a forecast/ig, "not a future estimate")),
   }));
-  assert(/may affect|confidence|analogue/i.test(proposal.summary), "Proposal analogue lens did not render a descriptive summary.");
+  assert(/historical analogue|not a forecast|evidence strength/i.test(proposal.summary), "Proposal analogue lens did not render safe descriptive framing.");
   assert(proposal.analogues > 0, "Proposal analogue lens did not render historical analogues.");
+  assert(proposal.patterns > 0, "Proposal analogue lens did not render observed before/after patterns.");
   assert(proposal.readiness >= 3, "Proposal analogue lens did not render evidence readiness.");
   assert(!proposal.staleCopy, "Proposal analogue lens contains overclaiming copy.");
-  await page.locator("#closeProposalButton").click();
+  await page.locator("#proposalOutput [data-proposal-event-id]").first().click();
+  await page.waitForSelector("#detailsDialog[open]", { timeout: 10000 });
+  const analogueDetails = await page.evaluate(() => ({
+    title: document.querySelector("#detailsTitle")?.textContent || "",
+    sources: document.querySelectorAll("#detailsSources .source-row").length,
+    limitations: document.querySelector("#detailsLimitations")?.textContent || "",
+  }));
+  assert(analogueDetails.title.length > 4, "Proposal analogue did not open a historical event evidence drawer.");
+  assert(analogueDetails.sources > 0, "Proposal analogue evidence drawer has no source rows.");
+  assert(/causation is not claimed|Coverage is partial|Public source/i.test(analogueDetails.limitations), "Proposal analogue evidence drawer is missing caveats.");
+  await page.locator("#closeDialogButton").click();
 
   await page.locator("#eventSearch").fill("zzzz-no-source-backed-match");
   await page.waitForFunction(() => window.BimsAtlas.filteredEvents().length === 0, null, { timeout: 5000 });
@@ -423,7 +555,9 @@ async function appState(page) {
   });
   await page.waitForFunction(() => window.BimsAtlas.state.allEventsLoaded === true, null, { timeout: 30000 });
   const fullState = await appState(page);
-  assert(fullState.displayRecords >= initial.displayRecords, "Full changelog lost display-verified records.");
+  assert(fullState.allEventsLoaded && fullState.loadedEventCount > fullState.displayRecords, "Full city index did not load separately from selected-year rendering.");
+  assert(fullState.displayYears.length === 1 && fullState.displayYears[0] === fullState.year, "Full city index made off-year records visible.");
+  assert(fullState.visibleEventCount === fullState.visibleRecords, "Explicit visible count diverged from filtered event state.");
   assert(fullState.invalidVisible.length === 0, `Full changelog exposed unverified records: ${fullState.invalidVisible.join(", ")}`);
   assert(fullState.cards >= 6, "Full changelog did not load expanded records.");
 
@@ -458,11 +592,23 @@ async function appState(page) {
   assertDetailedPng(mapStagePng, assert, "OpenCityLog real map stage");
   fs.writeFileSync(path.join(outputDir, "open-citylog-real-map-stage.png"), mapStagePng);
   await page.screenshot({ path: path.join(outputDir, "open-citylog-real-map-smoke.png"), fullPage: false });
+
+  await page.close();
+
+  const representativePage = await browser.newPage({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1 });
+  attachConsoleCapture(representativePage);
+  const representativeEvents = await clickThroughRepresentativeEvents(representativePage);
+  await representativePage.close();
+  assert(representativeEvents.length >= 30, `Expected at least 30 representative click-throughs, got ${representativeEvents.length}.`);
   await browser.close();
 
-  const filteredErrors = consoleErrors.filter((error) => !/favicon|ERR_CACHE_WRITE_FAILURE/i.test(error));
+  const filteredErrors = consoleErrors.filter((error) => !(
+    /favicon|ERR_CACHE_WRITE_FAILURE/i.test(error)
+    || /AJAXError: Failed to fetch \(0\): https:\/\/tile\.openstreetmap\.org\//i.test(error)
+    || /Failed to fetch.*https:\/\/unpkg\.com\/maplibre-gl@/i.test(error)
+  ));
   assert(filteredErrors.length === 0, `Browser console errors:\n${filteredErrors.join("\n")}`);
-  console.log("OpenCityLog real-map browser smoke OK: source-backed markers, changelog, timeline, evidence dialog, and stale-visual guards.");
+  console.log(`OpenCityLog real-map browser smoke OK: source-backed markers, changelog, timeline, evidence dialog, stale-visual guards, and ${representativeEvents.length} representative event click-throughs.`);
 })().catch((error) => {
   console.error(error);
   process.exit(1);

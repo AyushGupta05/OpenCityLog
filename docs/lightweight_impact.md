@@ -1,10 +1,10 @@
-# Lightweight Proposal Impact
+# Lightweight Proposal Analogue Lens
 
 ## Summary
 
 The Proposal Lens is an evidence screen for proposed city changes. It answers:
 
-> Which observed precedents, source caveats, before/after records, and traffic evidence should be reviewed before a proposal claim is made?
+> Which observed precedents, source caveats, before/after records, and mobility evidence should be reviewed before a proposal claim is made?
 
 It is not a calibrated outcome estimator, simulator, causal model, or approval tool. It retrieves historical analogues, extracts local context, and turns those records into planner-facing questions, caveats, and evidence links.
 
@@ -16,6 +16,8 @@ The frontend planning workbench in `web/index.html` and `web/atlas.js` applies t
 - traffic or mobility evidence counts, clearly separated from measured traffic volumes
 - full-city proposal-lens analogues from `POST /api/proposal-impact`
 - visible analogue match factors for category, distance, recency, confidence, and source quality
+- semantic relevance between proposal text and historical event text, so minor administrative rows do not outrank closer topical precedents
+- observed before/after record windows around each returned analogue, clearly labelled as nearby source-backed records rather than causal effects
 - a local context snapshot that uses source-backed grid cells when available and nearby historical event density when grid cells are absent
 - an evidence matrix for planning status, mobility, services, environment, economy, and analogue strength
 - a city-architect design review basis for context/character, connectivity, public realm, environment/resilience, and everyday use value
@@ -75,6 +77,7 @@ The assessment has three stages.
 
 3. Proposal Lens output:
    - Return affected signals with direction, strength, confidence, evidence, caveats, and follow-up investigation prompts.
+   - Return observed before/after record windows around the closest historical analogues.
    - Direction is limited to `positive`, `negative`, `mixed`, or `unknown`.
    - Strength is limited to `low`, `medium`, or `high`.
 
@@ -82,11 +85,12 @@ Similarity weights are transparent heuristics:
 
 | Factor | Weight |
 | --- | ---: |
-| Category | 0.34 |
-| Distance | 0.24 |
-| Recency | 0.18 |
-| Event confidence | 0.16 |
+| Category | 0.26 |
+| Distance | 0.18 |
+| Recency | 0.14 |
+| Event confidence | 0.14 |
 | Source quality | 0.08 |
+| Proposal text relevance | 0.20 |
 
 ## Confidence
 
@@ -108,11 +112,13 @@ Confidence falls when:
 
 ## Output Contract
 
-The proposal-impact result includes:
+The proposal-analogue result includes:
 
-- `summary`: plain English, using "may affect" language.
+- `framing`: safe labels including "historical analogue", "observed change", "not a forecast", and "evidence strength".
+- `summary`: plain English, using analogue and evidence-strength language rather than outcome language.
 - `affected_signals`: direction, strength, confidence, reason, evidence, caveats, and what to investigate next.
 - `similar_events`: historical analogues with distance, source quality, confidence, transparent match factors, and evidence links.
+- `observed_patterns`: before/after source-backed record windows around analogues, with evidence strength and caveats.
 - `local_context`: nearby events, current signal values or event-density context, nearest cells when present, source confidence, context basis, and caveats.
 - `confidence`: overall label and reasons.
 - `caveats`: global limitations.
@@ -132,7 +138,7 @@ The Proposal Lens must not:
 - Hide missing data.
 - Replace transport modelling, utility engineering review, environmental assessment, planning judgement, or community consultation.
 
-The correct use is screening: what to investigate, what precedent exists, which signals might be affected, and which sources support or weaken the claim.
+The correct use is screening: what to investigate, what precedent exists, which observed records followed historical analogues, and which sources support or weaken the claim.
 
 ## Verification
 
