@@ -47,10 +47,32 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+function sleep(ms) {
+  const signal = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(signal, 0, 0, ms);
+}
+
 function writeJson(filePath, payload, options = {}) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const body = options.pretty ? JSON.stringify(payload, null, 2) : JSON.stringify(payload);
-  fs.writeFileSync(filePath, `${body}\n`, "utf8");
+  const tmpPath = `${filePath}.tmp`;
+  let lastError = null;
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      fs.writeFileSync(tmpPath, `${body}\n`, "utf8");
+      fs.renameSync(tmpPath, filePath);
+      return;
+    } catch (error) {
+      lastError = error;
+      try {
+        if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
+      } catch (_) {
+        // Best-effort cleanup before retrying a generated artifact write.
+      }
+      sleep(150 * (attempt + 1));
+    }
+  }
+  throw lastError;
 }
 
 function resolve(root, value) {
@@ -128,6 +150,7 @@ function yearRange(start, end) {
 }
 
 function sourceIdForLegacyEvent(event) {
+  if (event.sourceRegistryId) return String(event.sourceRegistryId);
   const sourceName = String(event.sourceName || "");
   const sourceBasis = String(event.sourceBasis || "");
   if (/openstreetmap|overpass/i.test(sourceName) || /osm/i.test(sourceBasis)) return "osm-overpass";
@@ -222,6 +245,12 @@ function geometryProvenanceForLegacyEvent(event, sourceId) {
       geometry_precision: "Approximate site/address or grid-reference point; planning decision location is not evidence of completed works.",
     };
   }
+  if (event.geometrySource || event.geometryPrecision) {
+    return {
+      geometry_source: event.geometrySource || "Curated public-source point stored in the Belfast infrastructure event catalog.",
+      geometry_precision: event.geometryPrecision || "Approximate point for map navigation; inspect the cited source for exact boundaries.",
+    };
+  }
   return {
     geometry_source: "Curated public-source point stored in the Belfast infrastructure event catalog.",
     geometry_precision: "Approximate public project/facility point for map navigation; inspect the cited source for exact boundaries.",
@@ -263,6 +292,31 @@ function parseMonthYear(value) {
 }
 
 function dateFieldsForLegacyEvent(event) {
+  const effective = String(event.effectiveDate || event.date || "").trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(effective)) {
+    return {
+      effective_date: effective.slice(0, 10),
+      effective_date_range: null,
+      date_precision: "day",
+      source_date_field: event.sourceDateField || "effectiveDate",
+    };
+  }
+  if (/^\d{4}-\d{2}$/.test(effective)) {
+    return {
+      effective_date: effective,
+      effective_date_range: null,
+      date_precision: "month",
+      source_date_field: event.sourceDateField || "effectiveDate",
+    };
+  }
+  if (/^\d{4}$/.test(effective)) {
+    return {
+      effective_date: effective,
+      effective_date_range: null,
+      date_precision: "year",
+      source_date_field: event.sourceDateField || "effectiveDate",
+    };
+  }
   if (event.osmTimestamp && /^\d{4}-\d{2}-\d{2}/.test(event.osmTimestamp)) {
     return {
       effective_date: event.osmTimestamp.slice(0, 10),
@@ -362,6 +416,9 @@ function caveatsForLegacyEvent(event, sourceId) {
   if (event.subtitle && /not a confirmed construction|not construction/i.test(event.subtitle)) {
     caveats.push(event.subtitle);
   }
+  if (event.limitations) {
+    caveats.push(String(event.limitations));
+  }
   return [...new Set(caveats)];
 }
 
@@ -370,6 +427,7 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
   const dates = dateFieldsForLegacyEvent(event);
   const year = normalizedYearForLegacyEvent(event, dates);
   const geometryProvenance = geometryProvenanceForLegacyEvent(event, sourceId);
+  const sourceDatasetId = event.sourceDatasetId || event.sourceRegistryId || null;
   return {
     schema_version: EVENT_SCHEMA_VERSION,
     city_id: "belfast",
@@ -401,6 +459,7 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
       source_record_id: event.sourceId || event.planningApplicationId || event.id || null,
       source_url: event.sourceUrl || event.osmChangesetUrl || null,
       source_retrieved_at: event.sourceAccessedAt || event.retrievedAt || null,
+      ...(sourceDatasetId ? { source_dataset_id: sourceDatasetId } : {}),
       source_basis: event.sourceBasis || null,
       source_date_field: dates.source_date_field,
       geometry_source: geometryProvenance.geometry_source,

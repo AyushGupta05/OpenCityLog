@@ -8,6 +8,7 @@
   const DEFAULT_CITY = "belfast";
   const DEFAULT_YEAR = 2024;
   const MAX_MARKERS = 90;
+  const EVENT_LIST_BATCH_SIZE = 24;
   const PLAY_RATE_YEARS_PER_SECOND = 1.4;
 
   const TILE_PROVIDER = {
@@ -201,6 +202,7 @@
     confidenceFilter: "all",
     showInferred: true,
     search: "",
+    eventListLimit: EVENT_LIST_BATCH_SIZE,
     loadedEvents: new Map(),           // year -> array of events
     loadingYears: new Map(),
     eventById: new Map(),
@@ -212,6 +214,11 @@
     mapReady: false,
     markers: new Map(),                // eventId -> maplibregl.Marker
     theme: "light",
+    changelogOpen: true,
+    compareOpen: false,
+    compareBeforeYear: null,
+    compareAfterYear: null,
+    mapTilted: false,
     lensOpen: false,
     methodOpen: false,
     welcomeOpen: true,
@@ -227,7 +234,11 @@
   document.addEventListener("DOMContentLoaded", init);
 
   async function init() {
+    if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) {
+      state.changelogOpen = false;
+    }
     collectElements();
+    setChangelogOpen(state.changelogOpen);
     wireEvents();
     renderLayers();
     renderProposalLensList();
@@ -250,6 +261,9 @@
       "map", "appStatus", "toast", "toastText",
       "cityToggle", "cityNameLabel", "cityMenu",
       "searchInput", "searchResults",
+      "changelogToggle", "changelogPanel", "eventList", "eventListCount", "eventListMeta", "eventListMore",
+      "compareBtn", "comparePanel", "compareClose", "compareBeforeYear", "compareAfterYear", "compareStats", "compareNote",
+      "recenterBtn", "tiltBtn",
       "methodBtn", "shareBtn", "themeBtn",
       "layersPanel", "layersList", "layersCount",
       "confidenceFilter", "showInferredToggle",
@@ -280,6 +294,8 @@
     els.searchInput?.addEventListener("input", () => {
       state.search = els.searchInput.value.trim();
       renderSearchResults();
+      resetEventListLimit();
+      renderEventList();
     });
     els.searchInput?.addEventListener("focus", () => renderSearchResults());
     els.searchInput?.addEventListener("blur", () => {
@@ -290,11 +306,13 @@
     // Layers panel: confidence + inferred toggle
     els.confidenceFilter?.addEventListener("change", () => {
       state.confidenceFilter = els.confidenceFilter.value;
+      resetEventListLimit();
       renderAll();
       renderMarkers();
     });
     els.showInferredToggle?.addEventListener("change", () => {
       state.showInferred = !!els.showInferredToggle.checked;
+      resetEventListLimit();
       renderAll();
       renderMarkers();
     });
@@ -302,6 +320,25 @@
     // Methodology
     els.methodBtn?.addEventListener("click", () => setMethodOpen(true));
     els.methodClose?.addEventListener("click", () => setMethodOpen(false));
+
+    // Restored atlas controls
+    els.changelogToggle?.addEventListener("click", () => setChangelogOpen(!state.changelogOpen));
+    els.eventListMore?.addEventListener("click", () => {
+      state.eventListLimit += EVENT_LIST_BATCH_SIZE;
+      renderEventList();
+    });
+    els.compareBtn?.addEventListener("click", () => setCompareOpen(!state.compareOpen));
+    els.compareClose?.addEventListener("click", () => setCompareOpen(false));
+    els.compareBeforeYear?.addEventListener("change", () => {
+      state.compareBeforeYear = Number(els.compareBeforeYear.value);
+      renderComparePanel();
+    });
+    els.compareAfterYear?.addEventListener("change", () => {
+      state.compareAfterYear = Number(els.compareAfterYear.value);
+      renderComparePanel();
+    });
+    els.recenterBtn?.addEventListener("click", recenterMap);
+    els.tiltBtn?.addEventListener("click", toggleMapTilt);
 
     // Share
     els.shareBtn?.addEventListener("click", () => {
@@ -367,6 +404,7 @@
       else if (e.key === "Escape") {
         if (state.lensOpen) setLensOpen(false);
         else if (state.methodOpen) setMethodOpen(false);
+        else if (state.compareOpen) setCompareOpen(false);
         else if (state.welcomeOpen) setWelcomeOpen(false);
         else if (state.selectedEventId) clearSelection();
       }
@@ -425,6 +463,11 @@
     state.selectedEventId = null;
     state.selectedEvent = null;
     state.search = "";
+    state.eventListLimit = EVENT_LIST_BATCH_SIZE;
+    state.compareOpen = false;
+    state.compareBeforeYear = compareDefaultBeforeYear();
+    state.compareAfterYear = state.year;
+    state.mapTilted = false;
     if (els.searchInput) els.searchInput.value = "";
 
     setText(els.cityNameLabel, shortCityName(state.city.display_name));
@@ -528,8 +571,9 @@
     const zoom = Number(state.city?.default_zoom || 11.5);
 
     if (state.map) {
-      state.map.jumpTo({ center, zoom });
+      state.map.jumpTo({ center, zoom, pitch: state.mapTilted ? 48 : 0, bearing: state.mapTilted ? -10 : 0 });
       setTimeout(() => state.map.resize(), 60);
+      updateMapToolState();
       return;
     }
 
@@ -549,10 +593,20 @@
       },
       center,
       zoom,
+      pitch: state.mapTilted ? 48 : 0,
+      bearing: state.mapTilted ? -10 : 0,
       minZoom: 3,
       maxZoom: 18,
       attributionControl: false,
     });
+    state.map.addControl(new window.maplibregl.NavigationControl({
+      showCompass: true,
+      showZoom: true,
+      visualizePitch: true,
+    }), "bottom-right");
+    state.map.addControl(new window.maplibregl.AttributionControl({
+      compact: true,
+    }), "bottom-left");
 
     const onReady = () => {
       if (state.mapReady) return;
@@ -588,12 +642,13 @@
       const existing = state.markers.get(event.id);
       if (existing) {
         const el = existing.getElement();
+        el.className = "pin-wrap";
         el.querySelector(".pin")?.setAttribute("data-active", String(event.id === state.selectedEventId));
         continue;
       }
       const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
       const el = document.createElement("div");
-      el.style.position = "relative";
+      el.className = "pin-wrap";
       el.innerHTML = `
         <div class="pin" data-active="${event.id === state.selectedEventId}" style="--accent:${layer.color}">
           <div class="pin-label">${escapeHtml(truncate(event.title, 60))} · ${event.year}</div>
@@ -640,6 +695,8 @@
     renderTimeline();
     renderDetail();
     renderSearchResults();
+    renderEventList();
+    renderComparePanel();
     syncTopline();
   }
 
@@ -667,6 +724,7 @@
         const id = row.getAttribute("data-layer");
         if (state.activeLayers.has(id)) state.activeLayers.delete(id);
         else state.activeLayers.add(id);
+        resetEventListLimit();
         renderAll();
         renderMarkers();
       });
@@ -782,13 +840,7 @@
         ${sources.length ? `
           <div class="detail-section">
             <h4>Sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> · ${sources.length}</span></h4>
-            ${sources.map((s) => `
-              <div class="source-row">
-                <div class="source-kind">${escapeHtml(s.kind)}</div>
-                <div class="source-title">${escapeHtml(s.title)}</div>
-                <div class="source-year">${escapeHtml(s.year)}</div>
-              </div>
-            `).join("")}
+            ${sources.map(renderSourceRow).join("")}
           </div>
         ` : ""}
 
@@ -833,19 +885,83 @@
         const source = state.sourceById.get(ev.source_id);
         const title = ev.label || source?.display_name || source?.title || ev.url || "Evidence";
         const year = ev.year ? String(ev.year) : (event.effectiveDate ? event.effectiveDate.slice(0, 4) : String(event.year));
-        rows.push({ kind, title, year });
+        const url = ev.url || source?.url || "";
+        rows.push({ kind, title, year, url });
       }
     }
     if (!rows.length && Array.isArray(event.sourceIds)) {
       for (const sid of event.sourceIds) {
         const source = state.sourceById.get(sid);
         if (!source) continue;
-        rows.push({ kind: source.kind || "Source", title: source.display_name || source.title || sid, year: String(event.year) });
+        rows.push({ kind: source.kind || "Source", title: source.display_name || source.title || sid, year: String(event.year), url: source.url || "" });
       }
     }
     return rows.slice(0, 6);
   }
 
+  function renderSourceRow(source) {
+    const body = `
+      <div class="source-kind">${escapeHtml(source.kind)}</div>
+      <div class="source-title">${escapeHtml(source.title)}</div>
+      <div class="source-year">${escapeHtml(source.year)}</div>`;
+    if (!source.url) return `<div class="source-row">${body}</div>`;
+    return `<a class="source-row" href="${escapeAttr(source.url)}" target="_blank" rel="noopener noreferrer">${body}</a>`;
+  }
+  function renderEventList() {
+    if (!els.eventList) return;
+    const events = filteredEvents();
+    const selectedIndex = state.selectedEventId ? events.findIndex((event) => event.id === state.selectedEventId) : -1;
+    const limit = Math.min(events.length, Math.max(EVENT_LIST_BATCH_SIZE, state.eventListLimit, selectedIndex + 1));
+    const visible = events.slice(0, limit);
+
+    setText(els.eventListCount, `${events.length} visible`);
+    const city = shortCityName(state.city?.display_name);
+    const searchNote = state.search ? ` Search: "${state.search}".` : "";
+    setText(els.eventListMeta, `${city} records in ${state.year}. Timeline, layer, confidence, and inferred filters apply.${searchNote}`);
+
+    if (els.eventListMore) {
+      els.eventListMore.hidden = limit >= events.length;
+      els.eventListMore.textContent = `Show ${Math.min(EVENT_LIST_BATCH_SIZE, Math.max(0, events.length - limit))} more records`;
+    }
+
+    if (!visible.length) {
+      els.eventList.innerHTML = `<div class="event-empty">No source-backed records match the current timeline and filters.</div>`;
+      return;
+    }
+
+    els.eventList.innerHTML = visible.map((event) => {
+      const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
+      const sourceCount = eventSourceCount(event);
+      const confidence = event.confidence === "documented" ? "Documented" : titleCase(event.confidence || "unknown");
+      return `
+        <button class="event-row" type="button" role="listitem" data-event-id="${escapeAttr(event.id)}" data-active="${event.id === state.selectedEventId}" style="--accent:${layer.color}">
+          <span class="event-dot" aria-hidden="true"></span>
+          <span class="event-main">
+            <span class="event-title">${escapeHtml(event.title)}</span>
+            <span class="event-meta">${escapeHtml(event.area || "Unknown area")} / ${escapeHtml(layer.label)} / ${escapeHtml(confidence)} / ${sourceCount} source${sourceCount === 1 ? "" : "s"}</span>
+          </span>
+          <span class="event-year">${event.year}</span>
+        </button>`;
+    }).join("");
+
+    els.eventList.querySelectorAll(".event-row").forEach((row) => {
+      row.addEventListener("click", () => {
+        const id = row.getAttribute("data-event-id");
+        if (id) selectEvent(id);
+        if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) setChangelogOpen(false);
+      });
+    });
+  }
+
+  function eventSourceCount(event) {
+    const evidence = Array.isArray(event.evidence) ? event.evidence.length : 0;
+    const sources = Array.isArray(event.sourceIds) ? event.sourceIds.length : 0;
+    return Math.max(evidence, sources, 1);
+  }
+
+  function resetEventListLimit() {
+    state.eventListLimit = EVENT_LIST_BATCH_SIZE;
+  }
   function renderSearchResults() {
     if (!els.searchResults || !els.searchInput) return;
     const q = state.search.trim();
@@ -943,6 +1059,8 @@
       return;
     }
     state.year = next;
+    resetEventListLimit();
+    if (state.compareOpen) state.compareAfterYear = next;
     setText(els.tlYear, String(next));
     // de-select if the selected event isn't in the new year
     if (state.selectedEvent && state.selectedEvent.year !== next) {
@@ -979,6 +1097,7 @@
       await setYear(event.year);
     }
     renderDetail();
+    renderEventList();
     renderMarkers();
     if (event.lngLat && state.map && state.mapReady) {
       state.map.flyTo({ center: event.lngLat, zoom: Math.max(state.map.getZoom(), 13.2), duration: 720 });
@@ -989,6 +1108,7 @@
     state.selectedEventId = null;
     state.selectedEvent = null;
     renderDetail();
+    renderEventList();
     renderMarkers();
   }
 
@@ -1054,6 +1174,117 @@
     els.welcome?.setAttribute("data-open", String(open));
   }
 
+  function setChangelogOpen(open) {
+    state.changelogOpen = !!open;
+    els.changelogPanel?.setAttribute("data-open", String(state.changelogOpen));
+    els.changelogToggle?.setAttribute("aria-pressed", String(state.changelogOpen));
+    if (state.changelogOpen) renderEventList();
+  }
+
+  function setCompareOpen(open) {
+    state.compareOpen = !!open;
+    if (state.compareOpen) {
+      state.compareBeforeYear = state.compareBeforeYear || compareDefaultBeforeYear();
+      state.compareAfterYear = state.compareAfterYear || state.year;
+      renderCompareYearOptions();
+    }
+    renderComparePanel();
+  }
+
+  function renderCompareYearOptions() {
+    if (!els.compareBeforeYear || !els.compareAfterYear) return;
+    const options = state.years.map((year) => `<option value="${year}">${year}</option>`).join("");
+    if (els.compareBeforeYear.innerHTML !== options) els.compareBeforeYear.innerHTML = options;
+    if (els.compareAfterYear.innerHTML !== options) els.compareAfterYear.innerHTML = options;
+    els.compareBeforeYear.value = String(state.compareBeforeYear || compareDefaultBeforeYear());
+    els.compareAfterYear.value = String(state.compareAfterYear || state.year);
+  }
+
+  function renderComparePanel() {
+    if (!els.comparePanel) return;
+    els.comparePanel.setAttribute("data-open", String(state.compareOpen));
+    els.compareBtn?.setAttribute("aria-pressed", String(state.compareOpen));
+    if (!state.compareOpen) return;
+
+    renderCompareYearOptions();
+    const beforeYear = state.compareBeforeYear || compareDefaultBeforeYear();
+    const afterYear = state.compareAfterYear || state.year;
+    const beforeCount = compareCountForYear(beforeYear);
+    const afterCount = compareCountForYear(afterYear);
+    const delta = afterCount - beforeCount;
+    const rows = compareCategoryRows(beforeYear, afterYear);
+
+    if (els.compareStats) {
+      els.compareStats.innerHTML = `
+        <article><span>${beforeYear}</span><strong>${compactNumber(beforeCount)}</strong><small>records logged</small></article>
+        <article><span>${afterYear}</span><strong>${compactNumber(afterCount)}</strong><small>records logged</small></article>
+        <article><span>Delta</span><strong>${delta >= 0 ? "+" : ""}${compactNumber(delta)}</strong><small>record count difference</small></article>
+        <div class="compare-deltas">
+          ${rows.map((row) => `
+            <span style="--accent:${row.layer.color}">
+              <b>${escapeHtml(row.layer.label)}</b>
+              <i>${row.delta >= 0 ? "+" : ""}${compactNumber(row.delta)}</i>
+            </span>
+          `).join("")}
+        </div>`;
+    }
+    setText(els.compareNote, "Layer filters apply to this count comparison. OpenStreetMap remains the current orientation basemap; record deltas are not proof of construction volume, congestion, value change, or causation.");
+  }
+
+  function compareDefaultBeforeYear() {
+    if (!state.years.length) return DEFAULT_YEAR;
+    const target = (state.year || DEFAULT_YEAR) - 5;
+    let candidate = state.years[0];
+    for (const year of state.years) {
+      if (year <= target) candidate = year;
+      else break;
+    }
+    return candidate;
+  }
+
+  function compareCountForYear(year) {
+    const chunk = state.chunks.get(Number(year));
+    const counts = chunk?.counts_by_category || {};
+    return LAYERS.reduce((sum, layer) => sum + (state.activeLayers.has(layer.id) ? Number(counts[layer.id] || 0) : 0), 0);
+  }
+
+  function compareCategoryRows(beforeYear, afterYear) {
+    const before = state.chunks.get(Number(beforeYear))?.counts_by_category || {};
+    const after = state.chunks.get(Number(afterYear))?.counts_by_category || {};
+    return LAYERS
+      .filter((layer) => state.activeLayers.has(layer.id))
+      .map((layer) => ({
+        layer,
+        before: Number(before[layer.id] || 0),
+        after: Number(after[layer.id] || 0),
+        delta: Number(after[layer.id] || 0) - Number(before[layer.id] || 0),
+      }))
+      .filter((row) => row.before || row.after)
+      .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
+      .slice(0, 6);
+  }
+
+  function recenterMap() {
+    if (!state.map) return;
+    state.map.easeTo({
+      center: mapCenter(),
+      zoom: Number(state.city?.default_zoom || 11.5),
+      pitch: state.mapTilted ? 48 : 0,
+      bearing: state.mapTilted ? -10 : 0,
+      duration: 520,
+    });
+  }
+
+  function toggleMapTilt() {
+    state.mapTilted = !state.mapTilted;
+    updateMapToolState();
+    if (!state.map) return;
+    state.map.easeTo({ pitch: state.mapTilted ? 48 : 0, bearing: state.mapTilted ? -10 : 0, duration: 420 });
+  }
+
+  function updateMapToolState() {
+    els.tiltBtn?.setAttribute("aria-pressed", String(state.mapTilted));
+  }
   function currentProposal() {
     return PROPOSALS.find((p) => p.id === state.currentProposalId) || PROPOSALS[0];
   }
@@ -1208,6 +1439,12 @@
     s = String(s || "");
     return s.length > n ? s.slice(0, n - 1).trimEnd() + "…" : s;
   }
+  function compactNumber(n) {
+    const value = Number(n) || 0;
+    if (Math.abs(value) >= 1000000) return `${(value / 1000000).toFixed(1).replace(/\.0$/, "")}m`;
+    if (Math.abs(value) >= 1000) return `${(value / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+    return String(value);
+  }
   function titleCase(s) {
     return String(s || "").replace(/(^|\s)\S/g, (ch) => ch.toUpperCase());
   }
@@ -1217,4 +1454,15 @@
     }[ch]));
   }
   function escapeAttr(s) { return escapeHtml(s); }
+
+  window.BimsAtlas = {
+    state,
+    filteredEvents,
+    setYear,
+    selectEvent,
+    clearSelection,
+    setChangelogOpen,
+    setCompareOpen,
+    recenterMap,
+  };
 })();
