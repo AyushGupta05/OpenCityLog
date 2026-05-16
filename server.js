@@ -110,7 +110,9 @@ function normalizeUrlPath(pathname) {
 }
 
 function safeStaticPath(baseDir, pathname) {
-  const cleanPath = pathname === "/" ? "/index.html" : pathname;
+  if (pathname === "/") return path.resolve(baseDir, "index.html");
+  if (pathname === "/atlas") return path.resolve(baseDir, "atlas.html");
+  const cleanPath = pathname;
   const decoded = normalizeUrlPath(cleanPath);
   if (decoded === null) return null;
   const relative = decoded.replace(/^\/+/, "");

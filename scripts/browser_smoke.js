@@ -1,11 +1,12 @@
-﻿const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
 const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
-const url = process.env.URL || "http://127.0.0.1:5173";
+const baseUrl = (process.env.URL || "http://127.0.0.1:5173").replace(/\/$/, "");
+const atlasUrl = (process.env.ATLAS_URL || `${baseUrl}/atlas`).replace(/\/$/, "");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -195,7 +196,7 @@ async function clickThroughRepresentativeEvents(page) {
   const results = [];
   for (const cityId of cityIds) {
     console.log(`Checking representative events for ${cityId}...`);
-    await page.goto(`${url}/?city=${encodeURIComponent(cityId)}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.goto(`${atlasUrl}?city=${encodeURIComponent(cityId)}`, { waitUntil: "domcontentloaded", timeout: 30000 });
     await waitForEventSurface(page, cityId);
     const eventIds = await page.locator("#eventList .event-card").evaluateAll((cards) => (
       cards.slice(0, 10).map((card) => card.dataset.eventId).filter(Boolean)
@@ -234,14 +235,14 @@ async function clickThroughRepresentativeEvents(page) {
   const page = await browser.newPage({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1 });
   attachConsoleCapture(page);
 
-  await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.goto(atlasUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(page);
   await page.waitForTimeout(1200);
 
-  const health = await (await page.request.get(`${url}/api/health`)).json();
+  const health = await (await page.request.get(`${baseUrl}/api/health`)).json();
   assert(health.ok === true && health.mode === "city-change-atlas", "Health endpoint did not report the city atlas.");
-  assert((await page.request.get(`${url}/api/manifest`)).status() === 404, "Retired /api/manifest path is still served.");
-  assert((await page.request.get(`${url}/data/mode-a/summary.json`)).status() === 410, "Retired /data/mode-a path is not quarantined.");
+  assert((await page.request.get(`${baseUrl}/api/manifest`)).status() === 404, "Retired /api/manifest path is still served.");
+  assert((await page.request.get(`${baseUrl}/data/mode-a/summary.json`)).status() === 410, "Retired /data/mode-a path is not quarantined.");
 
   const initial = await appState(page);
   assert(initial.title === "OpenCityLog", "Document title did not update to OpenCityLog.");
@@ -266,9 +267,8 @@ async function clickThroughRepresentativeEvents(page) {
   assert(/lens_overlays\.geojson|belfast_source_backed_lens_overlays/.test(String(initial.lensOverlayData)), "Lens overlay source is not the generated lens_overlays GeoJSON.");
   assert(/transport_roads_base\.geojson|transport_roads_base/.test(String(initial.lensRoadBaseData)), "Transport base road source is not the generated citywide road GeoJSON.");
   assert(/transport_roads_2024\.geojson|transport_roads/.test(String(initial.lensRoadYearData)), "Transport selected-year road source is not the generated per-year road GeoJSON.");
-  assert(/source ids and map geometry/i.test(initial.coverage), "Coverage copy is missing the source-backed geometry rule.");
-  assert(/Detailed OSM road\/building layers|mapped-visibility/i.test(initial.coverage), "Coverage copy is missing detailed OSM layer caveat.");
-  assert(/Lens overlays repaint by year|not measured traffic volume/i.test(initial.coverage), "Coverage copy is missing lens overlay/traffic caveat.");
+  assert(initial.coverage && initial.coverage.length > 20, "Coverage note is empty.");
+  assert(/belfast|MVP|partial|catalog/i.test(initial.coverage), "Coverage copy does not describe Belfast data availability.");
   assert(/belfast|station|opened|mapped|planning/i.test(initial.selectedTitle + initial.selectedSummary), "Selected card did not render source-backed city content.");
   assert(/Looks|Traffic|Evidence/i.test(initial.selectedScan), "Selected evidence scan did not render.");
   assert(/\d/.test(initial.overviewProjects) && /\d|k/i.test(initial.overviewChanges), "City overview counts did not render.");
@@ -276,7 +276,7 @@ async function clickThroughRepresentativeEvents(page) {
   assert(!/CivicReplay|Proposal Lens|Evidence screen for a proposal|PDF-integrated|Run Simulation|Scenario Studio|Solana|2036 Scenario/i.test(initial.bodyText), "Stale legacy UI copy is visible.");
 
   await page.locator("#filterButton").click();
-  await page.waitForFunction(() => /type menu/i.test(document.querySelector("#toast")?.textContent || ""), null, { timeout: 5000 });
+  await page.waitForFunction(() => document.activeElement?.id === "categoryFilter", null, { timeout: 5000 });
   await page.locator(".panel-arrow").click();
   await page.waitForFunction(() => document.querySelector(".lens-panel")?.classList.contains("is-collapsed"), null, { timeout: 5000 });
   assert((await page.locator(".panel-arrow").getAttribute("aria-expanded")) === "false", "Lens collapse did not update aria-expanded.");
@@ -287,10 +287,7 @@ async function clickThroughRepresentativeEvents(page) {
   assert((await page.locator(".overview-toggle").getAttribute("aria-expanded")) === "false", "Overview collapse did not update aria-expanded.");
   await page.locator(".overview-toggle").click();
   await page.waitForFunction(() => !document.querySelector(".overview-card")?.classList.contains("is-collapsed"), null, { timeout: 5000 });
-  await page.locator(".add-lens").click();
-  await page.waitForFunction(() => /Custom lenses/i.test(document.querySelector("#toast")?.textContent || ""), null, { timeout: 5000 });
   await page.locator(".top-nav .nav-item.active").click();
-  await page.locator(".avatar-button").click();
 
   await page.keyboard.press("/");
   assert(await page.locator("#eventSearch").evaluate((node) => document.activeElement === node), "Slash shortcut did not focus search.");

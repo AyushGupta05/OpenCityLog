@@ -1,6 +1,7 @@
 const { chromium } = require("playwright");
 
-const url = process.env.URL || "http://127.0.0.1:5173";
+const baseUrl = (process.env.URL || "http://127.0.0.1:5173").replace(/\/$/, "");
+const atlasUrl = (process.env.ATLAS_URL || `${baseUrl}/atlas`).replace(/\/$/, "");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -112,7 +113,7 @@ function assertYearScoped(snapshot, expectedYear, label) {
   });
   page.on("pageerror", (error) => consoleErrors.push(`pageerror: ${error.message}`));
 
-  await page.goto(`${url}/?city=belfast`, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.goto(`${atlasUrl}?city=belfast`, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(page);
 
   const initial = await stateSnapshot(page);

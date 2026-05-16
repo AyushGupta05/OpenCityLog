@@ -5,7 +5,8 @@ const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
-const url = process.env.URL || "http://127.0.0.1:5173";
+const baseUrl = (process.env.URL || "http://127.0.0.1:5173").replace(/\/$/, "");
+const atlasUrl = (process.env.ATLAS_URL || `${baseUrl}/atlas`).replace(/\/$/, "");
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -111,7 +112,7 @@ async function layoutState(page) {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   desktop.on("pageerror", (error) => consoleErrors.push("desktop pageerror: " + error.message));
-  await desktop.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await desktop.goto(atlasUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(desktop);
   await desktop.waitForTimeout(1200);
 
@@ -142,7 +143,7 @@ async function layoutState(page) {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   medium.on("pageerror", (error) => consoleErrors.push("medium pageerror: " + error.message));
-  await medium.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await medium.goto(atlasUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(medium);
   await medium.waitForTimeout(1200);
   const mediumState = await layoutState(medium);
@@ -160,7 +161,7 @@ async function layoutState(page) {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   mobile.on("pageerror", (error) => consoleErrors.push("mobile pageerror: " + error.message));
-  await mobile.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await mobile.goto(atlasUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
   await waitForAtlas(mobile);
   await mobile.waitForTimeout(1200);
 

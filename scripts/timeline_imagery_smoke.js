@@ -5,7 +5,8 @@ const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.join(rootDir, "output", "playwright");
-const url = process.env.URL || "http://127.0.0.1:5173";
+const baseUrl = (process.env.URL || "http://127.0.0.1:5173").replace(/\/$/, "");
+const atlasUrl = (process.env.ATLAS_URL || `${baseUrl}/atlas`).replace(/\/$/, "");
 
 const scenarios = [
   { city: "belfast", area: "City Centre", query: "City Centre", center: [-5.9301, 54.5973], zoom: 14.2, beforeYear: 2016, afterYear: 2026 },
@@ -228,7 +229,7 @@ function assertTransportSnapshot(snapshot, expectedYear, label) {
     });
     page.on("pageerror", (error) => consoleErrors.push(`${runLabel}: pageerror: ${error.message}`));
 
-    await page.goto(`${url}/?city=${encodeURIComponent(scenario.city)}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.goto(`${atlasUrl}?city=${encodeURIComponent(scenario.city)}`, { waitUntil: "domcontentloaded", timeout: 30000 });
     await waitForAtlas(page, scenario.city);
     await useAreaSearch(page, scenario);
     await page.evaluate(() => window.BimsAtlas.setCategory("all"));

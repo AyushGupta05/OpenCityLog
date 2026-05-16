@@ -4,6 +4,8 @@
   const DEFAULT_CITY = "belfast";
   const DEFAULT_YEAR = 2024;
   const MAX_PANEL_EVENTS = 10;
+  const EVENT_LIST_BATCH_SIZE = 24;
+  const EVENT_LIST_SCROLL_THRESHOLD = 180;
   const MAX_MARKERS = 90;
   const CONTEXT_RADIUS_KM = 1.5;
   const CONTEXT_YEAR_WINDOW = 2;
@@ -33,7 +35,7 @@
   ];
   const TILE_PROVIDER = {
     name: "OpenStreetMap Standard",
-    attribution: "OpenStreetMap contributors, source-backed event markers",
+    attribution: "OpenStreetMap contributors",
     template: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
   };
 
@@ -119,6 +121,9 @@
     visibleMarkerIds: [],
     visibleEventCount: 0,
     visibleMarkerCount: 0,
+    eventListRenderLimit: MAX_PANEL_EVENTS,
+    eventListRenderedCount: 0,
+    eventListObserver: null,
     selectedEventState: null,
     allEventsLoaded: false,
     loadingAll: false,
@@ -191,6 +196,7 @@
   function wireEvents() {
     els.eventSearch?.addEventListener("input", () => {
       state.search = els.eventSearch.value.trim().toLowerCase();
+      resetEventListRenderLimit();
       syncStateModel();
       renderOverview();
       renderEventList();
@@ -226,6 +232,7 @@
     els.confidenceFilter?.addEventListener("change", () => setConfidenceFilter(els.confidenceFilter.value));
     els.showInferredToggle?.addEventListener("change", () => {
       state.showInferred = Boolean(els.showInferredToggle.checked);
+      resetEventListRenderLimit();
       syncStateModel();
       renderAll();
       selectFirstVisibleIfNeeded();
@@ -245,6 +252,7 @@
       const button = event.target.closest("[data-event-id]");
       if (button) selectEvent(button.dataset.eventId, { openDetails: true });
     });
+    els.eventList?.addEventListener("scroll", maybeExpandEventList);
     els.yearSlider?.addEventListener("input", () => setYear(Number(els.yearSlider.value)));
     els.todayButton?.addEventListener("click", () => setYear(latestYear()));
     els.playButton?.addEventListener("click", togglePlay);
@@ -262,16 +270,12 @@
     els.insightsButton?.addEventListener("click", openDetails);
     els.filterButton?.addEventListener("click", () => {
       els.categoryFilter?.focus();
-      toast("Use the type menu to filter source-backed changelog records.");
     });
     document.querySelector(".panel-arrow")?.addEventListener("click", toggleLensPanel);
     document.querySelector(".overview-toggle")?.addEventListener("click", toggleOverview);
-    document.querySelector(".add-lens")?.addEventListener("click", () => toast("Custom lenses must be backed by source categories before they appear here."));
     document.querySelector(".top-nav .nav-item.active")?.addEventListener("click", () => {
       recenterMap();
-      toast("Explore view recentred on the real city map.");
     });
-    document.querySelector(".avatar-button")?.addEventListener("click", () => toast("Local reviewer profile. No account data is loaded."));
     els.zoomInButton?.addEventListener("click", () => state.map?.zoomIn({ duration: 220 }));
     els.zoomOutButton?.addEventListener("click", () => state.map?.zoomOut({ duration: 220 }));
     els.recenterButton?.addEventListener("click", () => recenterMap());
@@ -346,6 +350,8 @@
     state.selectedEvent = null;
     state.allEventsLoaded = false;
     state.loadingAll = false;
+    resetEventListRenderLimit();
+    disconnectEventListObserver();
     state.compareBeforeYear = compareDefaultBeforeYear();
     state.compareAfterYear = state.year;
     state.basemapYear = null;
@@ -426,7 +432,8 @@
       pitchWithRotate: true,
     });
 
-    state.map.on("load", () => {
+    const handleMapReady = () => {
+      if (state.mapReady) return;
       state.mapReady = true;
       state.map.resize();
       updateMapBasemapForYear(state.year, { force: true });
@@ -434,8 +441,15 @@
       ensureLensOverlays();
       renderMapMarkers();
       if (state.compareActive) updateComparePanel();
-    });
-    state.map.on("click", () => toast("Click a marker or changelog item to inspect source evidence."));
+    };
+    state.map.on("load", handleMapReady);
+    state.map.once("idle", handleMapReady);
+    // Suppress every-map-click toasts — markers and changelog items are clearly clickable, and
+    // a repeated guidance toast becomes noise.
+    // MapLibre v5 needs a render to be forced before `load`/`idle` fire reliably in some
+    // browsers (notably when the basemap raster source resolves synchronously). A single
+    // triggerRepaint kicks the render loop so the readiness handler fires on first mount.
+    try { state.map.triggerRepaint(); } catch (_error) { /* MapLibre not yet attached */ }
   }
 
   function renderCitySelect() {
@@ -484,14 +498,10 @@
   }
 
   function renderCoverageNote() {
-    const note = state.city?.data_availability?.summary || "Coverage is partial and source-backed. Markers are shown only for records with source ids and usable geometry.";
-    const detailNote = detailLayerPath()
-      ? " Detailed OSM road/building layers are mapped-visibility evidence, not certified construction history."
-      : "";
-    const lensNote = lensOverlayPath()
-      ? " Lens overlays repaint by year from source-backed event density; transport road colors are mapped road-change/transport hotspots, not measured traffic volume."
-      : "";
-    setText(els.coverageNote, truncate(`Visible markers require source ids and map geometry.${detailNote}${lensNote} ${note}`, 300));
+    const raw = state.city?.data_availability?.summary || "Coverage is partial and source-backed. Per-event evidence is in the details drawer.";
+    // Keep the first sentence so the note doesn't end mid-word at a hard truncation.
+    const firstSentence = raw.split(/(?<=[.!?])\s+/, 1)[0] || raw;
+    setText(els.coverageNote, truncate(firstSentence, 220));
     updateMapAttribution();
   }
 
@@ -591,7 +601,7 @@
       category: properties.category || properties.lens || "built_environment",
       lens: properties.lens || properties.category || "built_environment",
       confidence: properties.confidence || "documented",
-      summary: properties.explanation || properties.summary || "Public source material documents this observed change. Related records are context, not causal proof.",
+      summary: cleanSummary(properties.explanation || properties.summary),
       area: properties.affected_area?.label || properties.affected_area_label || shortCityName(state.city?.display_name),
       sourceIds: Array.isArray(sourceIds) ? sourceIds.filter(Boolean) : [sourceIds].filter(Boolean),
       evidence: Array.isArray(properties.evidence) ? properties.evidence : [],
@@ -625,13 +635,71 @@
     state.visibleEventCount = events.length;
     state.visibleEventIds = events.map((event) => event.id);
     syncStateModel(events);
-    const limit = options.limit || (state.allEventsLoaded ? 12 : MAX_PANEL_EVENTS);
+    const previousScrollTop = options.preserveScroll ? els.eventList.scrollTop : 0;
+    const requestedLimit = Number(options.limit || state.eventListRenderLimit || MAX_PANEL_EVENTS);
+    const selectedIndex = state.selectedEventId ? events.findIndex((event) => event.id === state.selectedEventId) : -1;
+    const limit = Math.min(
+      events.length,
+      Math.max(MAX_PANEL_EVENTS, requestedLimit, selectedIndex >= 0 ? selectedIndex + 1 : 0)
+    );
+    state.eventListRenderLimit = limit || MAX_PANEL_EVENTS;
     const visible = events.slice(0, limit);
+    state.eventListRenderedCount = visible.length;
     if (!visible.length) {
       els.eventList.innerHTML = `<div class="empty-state">No source-backed records with usable map geometry match the current lens and search.</div>`;
+      disconnectEventListObserver();
       return;
     }
-    els.eventList.innerHTML = visible.map((event) => renderEventCard(event)).join("");
+    const moreCount = Math.max(0, events.length - visible.length);
+    const more = moreCount
+      ? `<div class="event-list-more" data-event-list-more role="status">Showing ${visible.length} of ${events.length} records. Keep scrolling for ${moreCount} more.</div>`
+      : "";
+    els.eventList.innerHTML = `${visible.map((event) => renderEventCard(event)).join("")}${more}`;
+    if (options.preserveScroll) els.eventList.scrollTop = previousScrollTop;
+    observeEventListContinuation();
+  }
+
+  function maybeExpandEventList() {
+    if (!els.eventList) return;
+    const remaining = els.eventList.scrollHeight - els.eventList.scrollTop - els.eventList.clientHeight;
+    if (remaining > EVENT_LIST_SCROLL_THRESHOLD) return;
+    expandEventListPage();
+  }
+
+  function expandEventListPage() {
+    const events = filteredEvents();
+    const currentLimit = Number(state.eventListRenderLimit || MAX_PANEL_EVENTS);
+    if (currentLimit >= events.length) return;
+    state.eventListRenderLimit = Math.min(events.length, currentLimit + EVENT_LIST_BATCH_SIZE);
+    renderEventList({ preserveScroll: true });
+  }
+
+  function observeEventListContinuation() {
+    disconnectEventListObserver();
+    const marker = els.eventList?.querySelector("[data-event-list-more]");
+    if (!marker || !("IntersectionObserver" in window)) return;
+    const root = eventListUsesOwnScroll() ? els.eventList : null;
+    state.eventListObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) expandEventListPage();
+    }, { root, rootMargin: `${EVENT_LIST_SCROLL_THRESHOLD}px` });
+    state.eventListObserver.observe(marker);
+  }
+
+  function eventListUsesOwnScroll() {
+    if (!els.eventList) return false;
+    const style = window.getComputedStyle(els.eventList);
+    return /(auto|scroll)/.test(style.overflowY) && els.eventList.scrollHeight > els.eventList.clientHeight + 4;
+  }
+
+  function disconnectEventListObserver() {
+    if (!state.eventListObserver) return;
+    state.eventListObserver.disconnect();
+    state.eventListObserver = null;
+  }
+
+  function resetEventListRenderLimit() {
+    state.eventListRenderLimit = MAX_PANEL_EVENTS;
+    state.eventListRenderedCount = 0;
   }
 
   function renderEventCard(event) {
@@ -658,10 +726,10 @@
   function renderSelected() {
     const event = state.selectedEvent;
     if (!event) {
-      setText(els.selectedTitle, "Select a mapped change");
+      setText(els.selectedTitle, "Select a change");
       setText(els.selectedYear, String(state.year || ""));
-      setText(els.selectedMeta, "Source-backed record with geometry");
-      setText(els.selectedSummary, "Choose a marker or changelog item to inspect public evidence and limitations.");
+      setText(els.selectedMeta, "");
+      setText(els.selectedSummary, "Choose a marker or changelog item to inspect the cited evidence.");
       renderSelectedScan(null);
       return;
     }
@@ -795,13 +863,24 @@
   }
 
   function renderMapMarkers() {
-    if (!state.map || !state.mapReady) return;
+    if (!state.map) return;
+    // DOM markers can be attached as soon as the map container exists.
+    // Style-dependent overlays (detail roads/buildings, lens heatmap) are only added once
+    // the raster style has finished loading — `ensureDetailLayers`/`ensureLensOverlays`
+    // check `state.mapReady` internally and no-op until then.
     ensureDetailLayers();
     updateDetailLayerFilters();
     ensureLensOverlays();
     updateLensOverlayFilters();
     const visibleEvents = filteredEvents();
-    const markerEvents = visibleEvents.filter((event) => event.lngLat).slice(0, MAX_MARKERS);
+    const mappableEvents = visibleEvents.filter((event) => event.lngLat);
+    const markerEvents = mappableEvents.slice(0, MAX_MARKERS);
+    const selectedMarkerEvent = state.selectedEventId
+      ? mappableEvents.find((event) => event.id === state.selectedEventId)
+      : null;
+    if (selectedMarkerEvent && !markerEvents.some((event) => event.id === selectedMarkerEvent.id)) {
+      markerEvents.push(selectedMarkerEvent);
+    }
     const nextIds = new Set(markerEvents.map((event) => event.id));
 
     for (const [id, marker] of state.markers) {
@@ -902,16 +981,18 @@
   function renderSelectedScan(event) {
     if (!els.selectedScan) return;
     if (!event) {
-      els.selectedScan.innerHTML = scanPill("Looks", "No record", "Select a change")
-        + scanPill("Traffic", "No record", "Select a change")
-        + scanPill("Evidence", "No record", "Select a change");
+      els.selectedScan.innerHTML = "";
       return;
     }
-    const context = buildEventContext(event);
+    const sourceCount = event.sourceIds.length;
+    const dateLabel = formatEventDate(event);
+    const datePrecision = event.datePrecision ? event.datePrecision.replace(/_/g, " ") : "precision not stated";
+    const source = primarySource(event);
+    const sourceLabel = source?.provider || source?.title || (event.sourceIds[0] || "Source");
     els.selectedScan.innerHTML = [
-      scanPill("Looks", appearanceStatus(event), appearanceShortText(event, context)),
-      scanPill("Traffic", mobilityStatus(event, context), mobilityShortText(event, context)),
-      scanPill("Evidence", confidenceStatus(event), `${context.sources.length || event.sourceIds.length} source${(context.sources.length || event.sourceIds.length) === 1 ? "" : "s"}`),
+      scanPill("Evidence", confidenceStatus(event), `${sourceCount} source${sourceCount === 1 ? "" : "s"}`),
+      scanPill("Date", dateLabel, datePrecision),
+      scanPill("Source", sourceLabel, source?.source_family || "Public record"),
     ].join("");
   }
 
@@ -1198,6 +1279,7 @@
     if (!nextYear) return Promise.resolve();
     const requestId = ++state.yearRequestId;
     state.year = nextYear;
+    resetEventListRenderLimit();
     if (state.compareActive) state.compareAfterYear = nextYear;
     syncStateModel();
     syncYearControl();
@@ -1228,6 +1310,7 @@
   function setCategory(categoryId) {
     state.category = categoryConfig(categoryId).id;
     if (els.categoryFilter) els.categoryFilter.value = state.category === "utilities" ? "all" : state.category;
+    resetEventListRenderLimit();
     syncStateModel();
     renderLensList();
     renderOverview();
@@ -1240,6 +1323,7 @@
 
   function setConfidenceFilter(value) {
     state.confidenceFilter = ["all", "documented", "inferred", "disputed"].includes(value) ? value : "all";
+    resetEventListRenderLimit();
     syncStateModel();
     renderLayerControls();
     renderOverview();
@@ -1296,13 +1380,137 @@
     renderEventList();
     renderSelected();
     renderTimeline();
-    if (yearChanged) renderMapMarkers();
+    renderMapMarkers();
     updateMarkerState();
     if (event.lngLat && state.map && !options.keepCamera) {
-      state.map.easeTo({ center: event.lngLat, zoom: Math.max(state.map.getZoom(), 13.5), pitch: mapPitch(), bearing: mapBearing(), duration: 520 });
+      focusMapOnEvent(event, { duration: options.cameraDuration || 560 });
     }
     if (!options.quiet) toast(`${event.year}: ${event.title}`);
     if (options.openDetails) openDetails();
+  }
+
+  function focusMapOnEvent(event, options = {}) {
+    if (!event?.lngLat || !state.map) return;
+    const padding = eventFocusPadding();
+    const bounds = eventGeometryBounds(event);
+    const duration = Number(options.duration || 560);
+
+    if (bounds && !isPointBounds(bounds)) {
+      state.map.fitBounds(
+        [[bounds.west, bounds.south], [bounds.east, bounds.north]],
+        {
+          padding,
+          maxZoom: 15.2,
+          duration,
+        }
+      );
+      return;
+    }
+
+    state.map.easeTo({
+      center: event.lngLat,
+      zoom: eventPointFocusZoom(),
+      padding,
+      pitch: mapPitch(),
+      bearing: mapBearing(),
+      duration,
+    });
+  }
+
+  function eventPointFocusZoom() {
+    const currentZoom = Number(state.map?.getZoom?.() || 0);
+    if (!Number.isFinite(currentZoom) || currentZoom < 14.2) return 14.2;
+    return Math.min(currentZoom, 15.6);
+  }
+
+  function eventFocusPadding() {
+    const width = Math.max(0, window.innerWidth || 0);
+    const height = Math.max(0, window.innerHeight || 0);
+    if (width <= 980) {
+      return normalizePadding({
+        top: 90,
+        right: 28,
+        bottom: Math.max(120, Math.min(190, height * 0.24)),
+        left: 28,
+      }, width, height);
+    }
+
+    const changePanelWidth = document.querySelector(".change-panel")?.getBoundingClientRect().width || 342;
+    const lensPanelWidth = document.querySelector(".lens-panel")?.getBoundingClientRect().width || 286;
+    const timelineHeight = document.querySelector(".timeline-dock")?.getBoundingClientRect().height || 78;
+
+    return normalizePadding({
+      top: 108,
+      right: Math.max(84, changePanelWidth + 48),
+      bottom: Math.max(150, timelineHeight + 112),
+      left: Math.max(84, lensPanelWidth + 48),
+    }, width, height);
+  }
+
+  function normalizePadding(padding, width, height) {
+    const result = {
+      top: Math.max(0, Number(padding.top) || 0),
+      right: Math.max(0, Number(padding.right) || 0),
+      bottom: Math.max(0, Number(padding.bottom) || 0),
+      left: Math.max(0, Number(padding.left) || 0),
+    };
+    const maxHorizontal = Math.max(80, width - 160);
+    const horizontal = result.left + result.right;
+    if (horizontal > maxHorizontal) {
+      const scale = maxHorizontal / horizontal;
+      result.left *= scale;
+      result.right *= scale;
+    }
+    const maxVertical = Math.max(80, height - 160);
+    const vertical = result.top + result.bottom;
+    if (vertical > maxVertical) {
+      const scale = maxVertical / vertical;
+      result.top *= scale;
+      result.bottom *= scale;
+    }
+    return {
+      top: Math.round(result.top),
+      right: Math.round(result.right),
+      bottom: Math.round(result.bottom),
+      left: Math.round(result.left),
+    };
+  }
+
+  function eventGeometryBounds(event) {
+    const pairs = [];
+    collectCoordinatePairs(event.geometry?.coordinates, pairs);
+    if (!pairs.length && event.lngLat) pairs.push(event.lngLat);
+
+    let west = Infinity;
+    let south = Infinity;
+    let east = -Infinity;
+    let north = -Infinity;
+    for (const pair of pairs) {
+      const lng = Number(pair?.[0]);
+      const lat = Number(pair?.[1]);
+      if (!Number.isFinite(lng) || !Number.isFinite(lat) || Math.abs(lng) > 180 || Math.abs(lat) > 90) continue;
+      west = Math.min(west, lng);
+      south = Math.min(south, lat);
+      east = Math.max(east, lng);
+      north = Math.max(north, lat);
+    }
+
+    if (![west, south, east, north].every(Number.isFinite)) return null;
+    return { west, south, east, north };
+  }
+
+  function collectCoordinatePairs(value, pairs) {
+    if (!Array.isArray(value)) return;
+    if (value.length >= 2 && Number.isFinite(Number(value[0])) && Number.isFinite(Number(value[1]))) {
+      pairs.push([Number(value[0]), Number(value[1])]);
+      return;
+    }
+    value.forEach((item) => collectCoordinatePairs(item, pairs));
+  }
+
+  function isPointBounds(bounds) {
+    if (!bounds) return true;
+    return Math.abs(bounds.east - bounds.west) < 0.00015 && Math.abs(bounds.north - bounds.south) < 0.00015;
   }
 
   function filteredEvents() {
@@ -1481,7 +1689,6 @@
       const result = await fetchJsonPost("/api/proposal-impact", payload);
       state.proposalResult = result;
       renderProposalOutput();
-      toast("Proposal analogue screen ready.");
     } catch (error) {
       state.proposalResult = null;
       els.proposalOutput.innerHTML = `<div class="empty-state">Proposal screen could not run: ${escapeHtml(error.message)}</div>`;
@@ -1593,7 +1800,6 @@
     if (els.comparePanel) els.comparePanel.hidden = false;
     renderCompareYearOptions();
     updateComparePanel();
-    toast("Compare shows source-backed record counts on the current OpenStreetMap basemap; it does not claim causation or measured physical change from map tiles alone.");
   }
 
   function closeCompare() {
@@ -1603,7 +1809,6 @@
     document.querySelector(".atlas-app")?.classList.remove("is-comparing");
     if (els.comparePanel) els.comparePanel.hidden = true;
     removeCompareImagery();
-    toast("Compare mode off.");
   }
 
   function compareDefaultBeforeYear() {
@@ -1707,17 +1912,11 @@
   }
 
   function basemapAttributionText() {
-    const caveat = "Current OSM basemap is orientation context, not event timing evidence.";
-    const detail = detailLayerPath()
-      ? " Detailed roads/buildings use OSM-derived geometry; timeline visibility uses OSM edit metadata or proxy first-visible years."
-      : "";
-    const lensDetail = lensOverlayPath()
-      ? " Lens heatmaps and road colors are source-backed change-intensity overlays, not measured outcome models."
-      : "";
-    const detailStatus = state.detailLayerError ? ` Detail layer status: ${state.detailLayerError}.` : "";
-    const lensStatus = state.lensOverlayError ? ` Lens overlay status: ${state.lensOverlayError}.` : "";
-    if (state.basemapError) return `${TILE_PROVIDER.attribution}. ${caveat}${detail}${lensDetail}${detailStatus}${lensStatus} Basemap status: ${state.basemapError}.`;
-    return `${TILE_PROVIDER.attribution}. ${caveat}${detail}${lensDetail}${detailStatus}${lensStatus}`;
+    const base = `${TILE_PROVIDER.attribution}. Basemap is orientation context; event timing comes from cited sources.`;
+    const detailStatus = state.detailLayerError ? ` Detail layer: ${state.detailLayerError}.` : "";
+    const lensStatus = state.lensOverlayError ? ` Lens overlay: ${state.lensOverlayError}.` : "";
+    const basemapStatus = state.basemapError ? ` Basemap: ${state.basemapError}.` : "";
+    return `${base}${detailStatus}${lensStatus}${basemapStatus}`;
   }
 
   function imageryLayerForYear(year) {
@@ -2437,9 +2636,13 @@
 
   function recenterMap() {
     const event = state.selectedEvent;
+    if (event?.lngLat) {
+      focusMapOnEvent(event, { duration: 480 });
+      return;
+    }
     state.map?.easeTo({
-      center: event?.lngLat || mapCenter(),
-      zoom: event?.lngLat ? Math.max(state.map.getZoom(), 13.2) : Number(state.city?.default_zoom || 11.5),
+      center: mapCenter(),
+      zoom: Number(state.city?.default_zoom || 11.5),
       pitch: mapPitch(),
       bearing: mapBearing(),
       duration: 480,
@@ -2737,8 +2940,80 @@
     return String(name || "City").split(",")[0];
   }
 
+  // Titles arrive from upstream catalogs with redundant prefixes that repeat the category
+  // (e.g. "311 service request: <type>", "Change of Use planning approval: <description>").
+  // Strip those prefixes — the category chip and source provider already convey that context —
+  // and cap the remaining text so cards stay scannable.
+  const TITLE_PREFIX_PATTERNS = [
+    /^Current data layer:\s*/i,
+    // Belfast NI Planning record families
+    /^(Residential|Other|Change of Use|Mixed Use|Civic|Commercial|Industrial|Agricultural) planning approval:\s*/i,
+    // London Open Data record families
+    /^Police\.uk (stop-and-search|street-level) record:\s*/i,
+    /^London Fire Brigade incident:\s*/i,
+    /^Planning (application validated|decision recorded):\s*/i,
+    /^HMLR property transaction:\s*/i,
+    /^Listed building outline:\s*/i,
+    /^UK HPI monthly housing-market record:\s*/i,
+    /^Brownfield development site:\s*/i,
+    /^Heritage at risk record:\s*/i,
+    /^Tree preservation zone:\s*/i,
+    /^Historic district designated:\s*/i,
+    /^Conservation area record:\s*/i,
+    /^Planning\/development evidence record:\s*/i,
+    /^Food hygiene rating record:\s*/i,
+    // NYC Open Data record families
+    /^311 service request:\s*/i,
+    /^Capital project (tracker|status):\s*/i,
+    /^Street construction permit:\s*/i,
+    /^Motor vehicle collision:\s*/i,
+    /^HPD affordable housing building:\s*/i,
+    /^DOB NOW (job filing|permit issued):\s*/i,
+    /^DOB permit issued:\s*/i,
+    /^Housing database project:\s*/i,
+    /^Certificate of occupancy issued:\s*/i,
+    /^FDNY dispatch incident:\s*/i,
+    /^LPC permit issued:\s*/i,
+    /^Construction street closure:\s*/i,
+    /^Permitted civic event:\s*/i,
+    /^Street network change:\s*/i,
+    /^Individual landmark designated:\s*/i,
+    /^Parks property acquisition:\s*/i,
+  ];
+  const TITLE_MAX_LENGTH = 92;
+
   function cleanTitle(title) {
-    return String(title || "Untitled change").replace(/^Current data layer:\s*/i, "").replace(/\s+/g, " ").trim();
+    let cleaned = String(title || "Untitled change");
+    for (const pattern of TITLE_PREFIX_PATTERNS) cleaned = cleaned.replace(pattern, "");
+    cleaned = cleaned.replace(/\s+/g, " ").trim();
+    if (!cleaned) cleaned = "Untitled change";
+    cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+    if (cleaned.length > TITLE_MAX_LENGTH) {
+      cleaned = cleaned.slice(0, TITLE_MAX_LENGTH - 1).replace(/[,;:\s-]+$/, "") + "…";
+    }
+    return cleaned;
+  }
+
+  // Upstream catalogs prepend dense disclaimer language to almost every summary
+  // ("Public source material documents this event near …. Related local changes
+  // should be treated as associated context, not causal proof.") — informative once,
+  // but pure repetition across thousands of cards. Strip the boilerplate filler so
+  // the summary line carries only the per-event substance; the same disclaimer is
+  // shown once at the evidence drawer, not per card.
+  const SUMMARY_BOILERPLATE_PATTERNS = [
+    /^Public source material documents this event[^.]*\.\s*/i,
+    /Related local changes should be treated as associated context[^.]*\.\s*/i,
+    /This is an observed mapped-change record, not a confirmed real-world opening or construction date\.\s*/i,
+    /^The planning statistics record documents a planning decision associated with [^.]*\.\s*/i,
+    /^OpenStreetMap metadata records this feature as publicly mapped near [^.]*\.\s*/i,
+  ];
+
+  function cleanSummary(summary) {
+    let cleaned = String(summary || "").trim();
+    if (!cleaned) return "Source-backed record. Open details for cited evidence.";
+    for (const pattern of SUMMARY_BOILERPLATE_PATTERNS) cleaned = cleaned.replace(pattern, "");
+    cleaned = cleaned.replace(/\s+/g, " ").trim();
+    return cleaned || "Source-backed record. Open details for cited evidence.";
   }
 
   function compactNumber(value) {
@@ -2804,6 +3079,7 @@
       openProposal,
       runProposal,
       openCompare,
+      focusMapOnEvent,
       imageryLayerForYear,
       updateMapImageryForYear,
       recenterMap,
