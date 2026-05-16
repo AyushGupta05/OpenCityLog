@@ -16,9 +16,31 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
 function writeJson(filePath, payload) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(payload));
+  const tmpPath = `${filePath}.tmp`;
+  const text = JSON.stringify(payload);
+  let lastError = null;
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      fs.writeFileSync(tmpPath, text, "utf8");
+      fs.renameSync(tmpPath, filePath);
+      return;
+    } catch (error) {
+      lastError = error;
+      try {
+        if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
+      } catch (_) {
+        // Best-effort cleanup before retrying a generated artifact write.
+      }
+      sleep(150 * (attempt + 1));
+    }
+  }
+  throw lastError;
 }
 
 function relativeOutPath(filePath) {

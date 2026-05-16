@@ -12,9 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css?v=paper-atlas-2">
+  <link rel="stylesheet" href="/atlas.css?v=paper-atlas-4">
 </head>
 <body data-theme="light" data-mapstyle="osm">
+
+<a class="skip-link" href="#eventList">Skip to changelog</a>
 
 <div id="root">
   <!-- Map -->
@@ -46,6 +48,14 @@
     <button class="btn" id="methodBtn" title="Methodology and data sources">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 4h7a3 3 0 013 3v13H8a3 3 0 01-3-3V4z"/><path d="M19 4h-7a3 3 0 00-3 3v13h7a3 3 0 003-3V4z"/></svg>
       Methodology
+    </button>
+    <button class="btn" id="changelogToggle" title="Show or hide the event changelog" aria-pressed="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01" stroke-linecap="round"/></svg>
+      Changelog
+    </button>
+    <button class="btn" id="compareBtn" title="Compare source-backed record counts" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 5v14M19 5v14"/><path d="M8 8h8M8 16h8"/></svg>
+      Compare
     </button>
     <button class="btn btn-icon" id="shareBtn" title="Share view">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
@@ -82,6 +92,54 @@
     </div>
   </div>
 
+  <!-- Changelog panel (left) -->
+  <section class="changelog panel" id="changelogPanel" data-open="true" aria-labelledby="changelogTitle">
+    <div class="changelog-head">
+      <div>
+        <div class="panel-kicker">Changelog</div>
+        <h3 id="changelogTitle">Source-backed records</h3>
+      </div>
+      <span class="count" id="eventListCount">0 visible</span>
+    </div>
+    <div class="changelog-meta" id="eventListMeta">Timeline and layer filters apply.</div>
+    <div class="event-list" id="eventList" role="list" tabindex="-1" aria-live="polite"></div>
+    <button class="event-list-more" id="eventListMore" type="button" hidden>Show more records</button>
+  </section>
+
+  <!-- Compare panel -->
+  <section class="compare panel" id="comparePanel" data-open="false" aria-labelledby="compareTitle">
+    <div class="compare-head">
+      <div>
+        <div class="panel-kicker">Compare</div>
+        <h3 id="compareTitle">Observed record counts</h3>
+      </div>
+      <button class="panel-close" id="compareClose" type="button" aria-label="Close compare">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="compare-years" role="group" aria-label="Compare years">
+      <label>
+        <span>Before</span>
+        <select id="compareBeforeYear"></select>
+      </label>
+      <label>
+        <span>After</span>
+        <select id="compareAfterYear"></select>
+      </label>
+    </div>
+    <div class="compare-stats" id="compareStats"></div>
+    <p class="compare-note" id="compareNote">OpenStreetMap remains the current orientation basemap. These are logged record counts, not a causal impact estimate.</p>
+  </section>
+
+  <!-- Map tools restored from the previous atlas controls -->
+  <div class="map-tools panel" aria-label="Map tools">
+    <button class="btn btn-icon" id="recenterBtn" type="button" title="Recenter map">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="12" cy="12" r="7"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+    </button>
+    <button class="btn btn-icon" id="tiltBtn" type="button" title="Toggle tilted view" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M4 15l8 4 8-4"/><path d="M4 10l8 4 8-4"/><path d="M4 5l8 4 8-4"/></svg>
+    </button>
+  </div>
   <!-- Detail panel (right) — overlay panel on by default, populated when an event is selected -->
   <div class="detail panel" id="detailPanel" data-open="true">
     <div class="detail-empty" id="detailEmpty">
@@ -276,6 +334,6 @@
 </div>
 
 <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="/atlas.js?v=paper-atlas-2"></script>
+<script src="/atlas.js?v=paper-atlas-4"></script>
 </body>
 </html>

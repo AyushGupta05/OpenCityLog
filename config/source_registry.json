@@ -218,6 +218,69 @@
       "caveats": ["Replace with a more specific source id during future curation."]
     },
     {
+      "source_id": "belfast-architecture-public-pages",
+      "title": "Belfast architecture and major project public pages",
+      "provider": "Named Belfast public, institutional, venue, and architecture sources",
+      "source_family": "planning",
+      "city_ids": ["belfast"],
+      "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
+      "licence_url": "https://www.belfastcity.gov.uk/",
+      "coverage_years": {"start": 2008, "end": 2026},
+      "update_frequency": "Page-specific.",
+      "url": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "local_paths": ["data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
+      "provenance_notes": "Curated public-source milestone layer for major named architecture and built-environment changes. Use event source_url, source_date_field, and limitations for citation.",
+      "caveats": [
+        "Curated milestone layer is not a complete planning or building-control register.",
+        "Public pages can change; keep retrieval dates and avoid copying page text."
+      ]
+    },
+    {
+      "source_id": "london-architecture-public-pages",
+      "title": "London architecture and major project public pages",
+      "provider": "Named London public, institutional, venue, developer, and architecture sources",
+      "source_family": "planning",
+      "city_ids": ["london"],
+      "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
+      "licence_url": "https://www.london.gov.uk/",
+      "coverage_years": {"start": 2008, "end": 2026},
+      "update_frequency": "Page-specific.",
+      "url": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "local_paths": ["data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
+      "provenance_notes": "Curated public-source milestone layer for major named London architecture and built-environment changes. Use event source_url, source_date_field, and limitations for citation.",
+      "caveats": [
+        "Curated milestone layer is not a complete London development register.",
+        "Public pages can change; keep retrieval dates and avoid copying page text."
+      ]
+    },
+    {
+      "source_id": "nyc-architecture-public-pages",
+      "title": "New York City architecture and major project public pages",
+      "provider": "Named NYC public, institutional, venue, developer, and architecture sources",
+      "source_family": "planning",
+      "city_ids": ["nyc"],
+      "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {"start": 2008, "end": 2026},
+      "update_frequency": "Page-specific.",
+      "url": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "local_paths": ["data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
+      "provenance_notes": "Curated public-source milestone layer for major named New York City architecture and built-environment changes. Use event source_url, source_date_field, and limitations for citation.",
+      "caveats": [
+        "Curated milestone layer is not a complete NYC permit, certificate-of-occupancy, landmark, or zoning ledger.",
+        "Public pages can change; keep retrieval dates and avoid copying page text."
+      ]
+    },
+    {
       "source_id": "london-datastore",
       "title": "Greater London Authority London Datastore",
       "provider": "Greater London Authority",

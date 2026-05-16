@@ -12,6 +12,7 @@ import json
 import math
 import os
 import re
+import time
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,6 +21,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DISCOVERY = ROOT / "data-discovery"
 OUT = ROOT / "web/data/city-atlas"
+ARCHITECTURE_MILESTONES = ROOT / "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"
 GENERATED_AT = os.environ.get("BIMS_DATA_GENERATED_AT") or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 SCHEMA = "1.0.0"
 
@@ -108,7 +110,48 @@ def read_json(path: Path) -> dict[str, Any]:
 
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, separators=(",", ":")) + "\n", encoding="utf-8")
+    body = json.dumps(payload, separators=(",", ":")) + "\n"
+    tmp_path = path.with_name(f"{path.name}.tmp")
+    last_error: OSError | None = None
+    for attempt in range(6):
+        try:
+            tmp_path.write_text(body, encoding="utf-8")
+            os.replace(tmp_path, path)
+            return
+        except OSError as error:
+            last_error = error
+            if tmp_path.exists():
+                try:
+                    tmp_path.unlink()
+                except OSError:
+                    pass
+            time.sleep(0.15 * (attempt + 1))
+    if last_error:
+        raise last_error
+
+
+def architecture_package() -> dict[str, Any]:
+    if not ARCHITECTURE_MILESTONES.exists():
+        return {"sources": [], "events": []}
+    return read_json(ARCHITECTURE_MILESTONES)
+
+
+def architecture_sources_for_city(city: str) -> list[dict[str, Any]]:
+    package = architecture_package()
+    return [source for source in package.get("sources", []) if city in (source.get("city_ids") or [])]
+
+
+def architecture_events_for_city(city: str) -> list[dict[str, Any]]:
+    package = architecture_package()
+    source_path = str(ARCHITECTURE_MILESTONES.relative_to(ROOT)).replace("\\", "/")
+    events = []
+    for event in package.get("events", []):
+        if event.get("city_id") != city:
+            continue
+        annotated = dict(event)
+        annotated["_source_path"] = source_path
+        events.append(annotated)
+    return events
 
 
 def generated_artifact_paths(city: str, city_dir: Path) -> dict[str, str]:
@@ -399,7 +442,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "caveats": [c for c in caveats if c],
         "provenance": {
             "transform": "scripts/build_discovery_city_atlas.py#normalize_seed",
-            "source_path": str(CITY_META[city]["seed_file"].relative_to(ROOT)),
+            "source_path": item.get("_source_path") or str(CITY_META[city]["seed_file"].relative_to(ROOT)).replace("\\", "/"),
             "source_record_id": item.get("source_record_id") or item.get("record_id") or primary_evidence.get("record_id"),
             "source_url": item.get("source_url") or primary_evidence.get("url"),
             "source_retrieved_at": item.get("source_retrieved_at") or primary_evidence.get("accessed_at"),
@@ -445,9 +488,10 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
 
 def load_seeds(city: str) -> list[dict[str, Any]]:
     payload = read_json(CITY_META[city]["seed_file"])
+    curated = architecture_events_for_city(city)
     if city == "london":
-        return payload.get("events", [])
-    return payload.get("chronology_milestones", []) + payload.get("ongoing_event_patterns", [])
+        return payload.get("events", []) + curated
+    return payload.get("chronology_milestones", []) + payload.get("ongoing_event_patterns", []) + curated
 
 
 def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
@@ -468,7 +512,7 @@ def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
         "url": source.get("access_url") or source.get("url") or "",
         "licence": licence,
         "licence_url": source.get("licence_url") or source.get("license_url") or source.get("url") or source.get("access_url") or "",
-        "coverage_years": {"start": 1700, "end": 2026},
+        "coverage_years": source.get("coverage_years") if isinstance(source.get("coverage_years"), dict) else {"start": 1700, "end": 2026},
         "update_frequency": source.get("update_frequency") or source.get("temporal_granularity") or source.get("time_coverage") or "Cadence varies by source; verify publisher metadata.",
         "reliability": "usable_with_caveats",
         "source_confidence": "documented",
@@ -509,7 +553,7 @@ def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]])
 def build_city(city: str) -> dict[str, Any]:
     meta = CITY_META[city]
     catalog_payload = read_json(meta["catalog_file"])
-    source_raw = catalog_payload.get("sources", [])
+    source_raw = catalog_payload.get("sources", []) + architecture_sources_for_city(city)
     sources = [source_to_registry(city, s) for s in source_raw]
     source_by_id = {s["source_id"]: raw for s, raw in zip(sources, source_raw)}
     events = []
@@ -575,7 +619,31 @@ def build_city(city: str) -> dict[str, Any]:
         },
     }
     availability = {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "summary": city_payload["data_availability"], "matrix": [{"family_id": f["family_id"], "label": f["label"], "availability": f["availability"], "years": f["years"], "source_ids": f["source_ids"], "event_count": sum(1 for e in events if set(e.get("source_ids",[])) & set(f["source_ids"])), "notes": f["notes"]} for f in families], "event_counts_by_year": dict(Counter(str(e["year"]) for e in events)), "event_counts_by_category": counts_by_category}
-    events_index = {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "event_count": len(events), "event_years": sorted(by_year), "chunks": chunks, "migration": {"source_kind":"data-discovery civic source catalog + event seeds", "source_schema_version": None, "source_path": str(meta["catalog_file"].relative_to(ROOT)), "source_event_count": len(source_raw) + len(load_seeds(city)), "normalized_event_count": len(events), "basis":["source_catalog.json", "events_seed.json"], "notes":["Current-state source-layer records are dataset/layer markers, not physical single-site events.", "Before/after outcome metrics are not generated unless a source adapter supplies observed measurements."]}}
+    events_index = {
+        "schema_version": SCHEMA,
+        "city_id": city,
+        "generated_at": GENERATED_AT,
+        "event_count": len(events),
+        "event_years": sorted(by_year),
+        "chunks": chunks,
+        "migration": {
+            "source_kind": "data-discovery civic source catalog + event seeds + curated architecture milestones",
+            "source_schema_version": None,
+            "source_path": str(meta["catalog_file"].relative_to(ROOT)).replace("\\", "/"),
+            "source_event_count": len(source_raw) + len(load_seeds(city)),
+            "normalized_event_count": len(events),
+            "basis": [
+                "source_catalog.json",
+                "events_seed.json",
+                str(ARCHITECTURE_MILESTONES.relative_to(ROOT)).replace("\\", "/"),
+            ],
+            "notes": [
+                "Current-state source-layer records are dataset/layer markers, not physical single-site events.",
+                "Curated architecture milestones are named public-source records, not a complete planning or building-control register.",
+                "Before/after outcome metrics are not generated unless a source adapter supplies observed measurements.",
+            ],
+        },
+    }
     write_json(city_dir / "city.json", city_payload)
     write_json(city_dir / "sources.json", {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "source_count": len(sources), "sources": sources})
     write_json(city_dir / "events.json", events_index)

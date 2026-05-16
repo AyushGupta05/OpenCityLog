@@ -4,9 +4,10 @@ const path = require("path");
 const rootDir = path.resolve(__dirname, "..");
 const outputPath = path.join(rootDir, "data", "derived", "2026", "belfast_infrastructure_events_2016_2026.json");
 const planningDir = path.join(rootDir, "data", "raw", "planning_statistics");
+const architectureMilestonesPath = path.join(rootDir, "data", "manual_drops", "architecture_milestones", "architecture_milestones_2008_2026.json");
 
 const bbox = [-6.08, 54.52, -5.78, 54.7];
-const years = Array.from({ length: 11 }, (_, index) => 2016 + index);
+const years = Array.from({ length: 19 }, (_, index) => 2008 + index);
 
 const categoryConfigs = [
   {
@@ -189,6 +190,33 @@ function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(rootDir, relativePath), "utf8"));
 }
 
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function writeJson(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const tmpPath = `${filePath}.tmp`;
+  const text = JSON.stringify(payload, null, 2);
+  let lastError = null;
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      fs.writeFileSync(tmpPath, text, "utf8");
+      fs.renameSync(tmpPath, filePath);
+      return;
+    } catch (error) {
+      lastError = error;
+      try {
+        if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
+      } catch (_) {
+        // Best-effort cleanup before retrying a generated artifact write.
+      }
+      sleep(150 * (attempt + 1));
+    }
+  }
+  throw lastError;
+}
+
 function parseCsv(text) {
   const rows = [];
   let row = [];
@@ -324,6 +352,66 @@ function planningEvents() {
   return events;
 }
 
+function parseMilestoneYear(value) {
+  const match = String(value || "").match(/(19|20)\d{2}/);
+  return match ? Number(match[0]) : null;
+}
+
+function milestoneMonthLabel(value) {
+  const raw = String(value || "").trim();
+  const match = raw.match(/^(\d{4})(?:-(\d{2}))?(?:-\d{2})?$/);
+  if (!match) return raw;
+  if (!match[2]) return match[1];
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, 1));
+  return date.toLocaleString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
+}
+
+function coordinatesForMilestone(event) {
+  const longitude = Number(event.longitude);
+  const latitude = Number(event.latitude);
+  return Number.isFinite(longitude) && Number.isFinite(latitude) ? [longitude, latitude] : null;
+}
+
+function architectureMilestoneEvents() {
+  if (!fs.existsSync(architectureMilestonesPath)) return [];
+  const payload = JSON.parse(fs.readFileSync(architectureMilestonesPath, "utf8"));
+  return (payload.events || [])
+    .filter((event) => event.city_id === "belfast")
+    .map((event) => {
+      const year = parseMilestoneYear(event.date);
+      return {
+        id: event.event_id,
+        sourceId: event.source_record_id || event.event_id,
+        sourceRegistryId: (event.source_ids || [])[0] || "belfast-architecture-public-pages",
+        year,
+        month: milestoneMonthLabel(event.date),
+        effectiveDate: event.date,
+        signal: "buildings",
+        category: "buildings",
+        title: event.title,
+        subtitle: event.summary || event.observed_change || "Curated architecture milestone from a public source.",
+        area: event.area || "Belfast",
+        coordinates: coordinatesForMilestone(event),
+        confidence: event.confidence || "documented",
+        sourceBasis: event.source_date_field || "curated architecture public-source record",
+        sourceName: event.source_name || "Belfast architecture public source",
+        sourceUrl: event.source_url,
+        sourceAccessedAt: event.source_retrieved_at,
+        sourceDateField: event.source_date_field,
+        sourceDatasetId: event.source_dataset_id,
+        geometrySource: event.geometry_source,
+        geometryPrecision: event.geometry_precision,
+        limitations: event.limitations,
+        tags: {
+          architect: event.architect,
+          project_type: event.project_type,
+        },
+        impactNote: "Use the buildings lens to inspect nearby source-backed city-change records without treating this milestone as causal evidence.",
+      };
+    })
+    .filter((event) => Number.isInteger(event.year) && years.includes(event.year));
+}
+
 function sourceIdForElement(element) {
   return `${element.type}/${element.id}`;
 }
@@ -442,7 +530,7 @@ function dedupe(events) {
   return [...byId.values()].sort((a, b) => a.year - b.year || a.id.localeCompare(b.id));
 }
 
-const events = [...officialEvents, ...planningEvents()];
+const events = [...officialEvents, ...architectureMilestoneEvents(), ...planningEvents()];
 for (const config of categoryConfigs) {
   const source = readJson(config.derivedPath);
   const meta = buildMetaMap(config.metaPath);
@@ -467,12 +555,12 @@ const payload = {
   years,
   basis: [
     "Official public project/opening records for named major events.",
+    "Curated architecture and built-environment milestones from public source pages.",
     "OpenStreetMap Overpass metadata timestamp/version/changeset records for asset-level mapped additions.",
     "OSM timestamps prove public mapped visibility, not construction/opening dates."
   ],
   events: compact
 };
 
-fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-fs.writeFileSync(outputPath, JSON.stringify(payload, null, 2));
+writeJson(outputPath, payload);
 console.log(`Wrote ${compact.length} infrastructure event(s) to ${outputPath}`);
