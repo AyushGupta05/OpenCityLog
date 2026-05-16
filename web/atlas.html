@@ -3,316 +3,279 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenCityLog</title>
+  <title>OpenCityLog — A City Change Atlas</title>
   <meta name="description" content="A source-backed city change atlas for exploring observed urban changes over time.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css?v=earth-ui-1">
+  <link rel="stylesheet" href="/atlas.css?v=paper-atlas-2">
 </head>
-<body>
-  <a class="skip-link" href="#changePanel">Skip to changelog</a>
+<body data-theme="light" data-mapstyle="osm">
 
-  <div class="atlas-app" data-loaded="false">
-    <section class="map-stage" id="mapStage" aria-label="OpenCityLog real city map">
-      <div class="city-map" id="cityMap" aria-label="Real city basemap with source-backed event markers"></div>
-      <div class="compare-map-band" id="compareMapBand" aria-hidden="true">
-        <span id="compareBeforeMapLabel">Before</span>
-        <i></i>
-        <span id="compareAfterMapLabel">After</span>
-      </div>
-      <div class="scene-vignette" aria-hidden="true"></div>
-      <div class="app-status" id="appStatus" role="status" aria-live="polite">Loading…</div>
-    </section>
+<div id="root">
+  <!-- Map -->
+  <div id="map" aria-label="OpenCityLog real city basemap"></div>
 
-    <header class="topbar" aria-label="OpenCityLog header">
-      <a class="brand" href="/" aria-label="OpenCityLog home">
-        <span class="brand-mark" aria-hidden="true">
-          <span class="brand-ring"></span>
-          <span class="brand-cross horizontal"></span>
-          <span class="brand-cross vertical"></span>
-          <span class="brand-dot"></span>
-        </span>
-        <span class="brand-name">OpenCityLog</span>
-      </a>
-
-      <label class="global-search" for="eventSearch">
-        <span class="search-icon" aria-hidden="true"></span>
-        <input id="eventSearch" type="search" autocomplete="off" placeholder="Search an area, project, or change..." aria-controls="searchResults" aria-expanded="false">
-        <kbd>/</kbd>
-        <div class="search-results" id="searchResults" role="listbox" hidden></div>
-      </label>
-
-      <nav class="top-nav" aria-label="Primary navigation">
-        <button class="nav-item active" type="button"><span class="nav-icon globe" aria-hidden="true"></span>Explore</button>
-        <button class="nav-item" id="compareButton" type="button" aria-pressed="false"><span class="nav-icon compare" aria-hidden="true"></span>Compare</button>
-        <button class="nav-item" id="proposalButton" type="button"><span class="nav-icon stories" aria-hidden="true"></span>Proposal</button>
-        <button class="share-button" id="shareButton" type="button" aria-label="Share current view">
-          <span class="nav-icon share" aria-hidden="true"></span>
-          <small>Share</small>
-        </button>
-      </nav>
-    </header>
-
-    <aside class="lens-panel glass-panel" aria-labelledby="lensTitle">
-      <div class="panel-title-row">
-        <span class="stack-icon" aria-hidden="true"></span>
-        <h2 id="lensTitle">Lenses</h2>
-        <button class="panel-arrow" type="button" aria-label="Collapse lenses" aria-expanded="true"></button>
-      </div>
-      <div class="lens-list" id="lensList" role="list"></div>
-      <div class="layer-controls" aria-label="Layer filters">
-        <div class="layer-controls-title">Layer filters</div>
-        <label for="confidenceFilter">
-          <span>Evidence</span>
-          <select id="confidenceFilter" aria-label="Filter by evidence confidence">
-            <option value="all">All confidence</option>
-            <option value="documented">Documented + corroborated</option>
-            <option value="inferred">Inferred only</option>
-            <option value="disputed">Disputed only</option>
-          </select>
-        </label>
-        <label class="toggle-row" for="showInferredToggle">
-          <input id="showInferredToggle" type="checkbox" checked>
-          <span>Show inferred OSM visibility records</span>
-        </label>
-      </div>
-    </aside>
-
-    <section class="overview-card glass-panel" aria-labelledby="overviewTitle">
-      <button class="overview-toggle" type="button" aria-label="Collapse city overview" aria-expanded="true"></button>
-      <h2 id="overviewTitle">City Overview</h2>
-      <dl>
-        <div>
-          <dt>Projects</dt>
-          <dd id="projectCount">0</dd>
-        </div>
-        <div>
-          <dt>Changes</dt>
-          <dd id="changeCount">0</dd>
-        </div>
-        <div>
-          <dt>Years tracked</dt>
-          <dd id="yearCount">0</dd>
-        </div>
-      </dl>
-      <button class="insights-button" id="insightsButton" type="button">
-        <span class="insight-icon" aria-hidden="true"></span>
-        View city insights
-      </button>
-    </section>
-
-    <article class="selected-project" id="selectedProject" aria-live="polite">
-      <p class="selected-kicker">Selected change</p>
-      <div class="selected-title-row">
-        <h2 id="selectedTitle"></h2>
-        <span id="selectedYear" class="year-pill"></span>
-      </div>
-      <p class="selected-meta" id="selectedMeta"></p>
-      <p class="selected-summary" id="selectedSummary"></p>
-      <div class="selected-scan" id="selectedScan" aria-label="Selected event evidence scan"></div>
-      <button class="view-details-button" id="viewDetailsButton" type="button">
-        <span>View details</span>
-        <span class="chevron" aria-hidden="true"></span>
-      </button>
-    </article>
-
-    <section class="compare-panel glass-panel" id="comparePanel" aria-labelledby="compareTitle" hidden>
-      <div class="compare-head">
-        <div>
-          <p>Before / after</p>
-          <h2 id="compareTitle">Compare observed records</h2>
-        </div>
-        <button class="close-inline" id="closeCompareButton" type="button" aria-label="Close compare"></button>
-      </div>
-      <div class="compare-years" role="group" aria-label="Compare years">
-        <label for="beforeYearSelect">
-          <span>Before</span>
-          <select id="beforeYearSelect"></select>
-        </label>
-        <label for="afterYearSelect">
-          <span>After</span>
-          <select id="afterYearSelect"></select>
-        </label>
-      </div>
-      <div class="compare-stats" id="compareStats"></div>
-      <p class="compare-note" id="compareNote">Select two years to compare source-backed record counts on the current OpenStreetMap basemap.</p>
-    </section>
-
-    <aside class="change-panel glass-panel" id="changePanel" aria-labelledby="changeTitle">
-      <div class="change-toolbar">
-        <div class="change-title-group">
-          <span class="pulse-icon" aria-hidden="true"></span>
-          <h2 id="changeTitle">Changelog</h2>
-        </div>
-        <label class="type-filter" for="categoryFilter">
-          <select id="categoryFilter" aria-label="Filter changelog by type"></select>
-        </label>
-        <button class="filter-button" type="button" id="filterButton" aria-label="Open filters"></button>
-      </div>
-
-      <label class="city-picker" for="citySelect">
-        <span>City</span>
-        <select id="citySelect"></select>
-      </label>
-
-      <p class="coverage-note" id="coverageNote"></p>
-      <div class="event-list" id="eventList" role="list" aria-live="polite"></div>
-      <button class="view-all-button" id="viewAllButton" type="button">
-        <span>View all changes</span>
-        <span class="chevron" aria-hidden="true"></span>
-      </button>
-    </aside>
-
-    <section class="timeline-dock glass-panel" aria-label="Timeline">
-      <button class="play-button" id="playButton" type="button" aria-label="Play timeline">
-        <span class="play-icon" aria-hidden="true"></span>
-      </button>
-      <div class="timeline-track-wrap">
-        <div class="timeline-track" id="timelineTrack"></div>
-        <input id="yearSlider" class="year-slider" type="range" min="2007" max="2026" value="2024" step="1" aria-label="Timeline year">
-        <div class="timeline-labels" id="timelineLabels" aria-hidden="true"></div>
-      </div>
-      <output class="current-year" id="currentYear" for="yearSlider">2024</output>
-      <button class="today-button" id="todayButton" type="button">
-        <span class="calendar-icon" aria-hidden="true"></span>
-        Latest
-      </button>
-    </section>
-
-    <div class="map-tools" aria-label="Map tools">
-      <div class="compass" aria-hidden="true">
-        <span>N</span>
-        <i></i>
-        <span>N</span>
-      </div>
-      <button class="crosshair-button" id="recenterButton" type="button" aria-label="Recenter map"></button>
-      <div class="zoom-control" role="group" aria-label="Zoom controls">
-        <button id="zoomInButton" type="button" aria-label="Zoom in">+</button>
-        <button id="zoomOutButton" type="button" aria-label="Zoom out">-</button>
-      </div>
-      <button class="three-d-button active" id="view3dButton" type="button" aria-pressed="true">3D</button>
+  <!-- Top bar -->
+  <div class="topbar panel">
+    <div class="brand">
+      <div class="brand-mark">OpenCity<em>Log</em></div>
+      <div class="brand-tag">v0.4 · alpha</div>
     </div>
 
-    <div class="map-attribution" id="mapAttribution">OpenStreetMap contributors. Basemap is orientation context; event timing comes from cited sources.</div>
+    <div class="city-switcher" id="citySwitcher">
+      <button class="btn" id="cityToggle" type="button">
+        <span id="cityNameLabel">Belfast</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="10" height="10"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="city-menu panel" id="cityMenu" hidden></div>
+    </div>
 
-    <dialog class="details-dialog glass-panel" id="detailsDialog" aria-labelledby="detailsTitle">
-      <div class="details-head">
-        <div>
-          <p>Event intelligence brief</p>
-          <h2 id="detailsTitle">Selected change</h2>
-        </div>
-        <button class="copy-brief-button" id="copyBriefButton" type="button">Copy brief</button>
-        <button class="close-dialog" id="closeDialogButton" type="button" aria-label="Close evidence brief"></button>
-      </div>
-      <div class="details-grid">
-        <section class="details-wide">
-          <h3>Event facts</h3>
-          <dl class="event-fact-grid" id="detailsFacts"></dl>
-        </section>
-        <section>
-          <h3>Observed change</h3>
-          <p id="detailsObserved">Select a changelog item to inspect evidence.</p>
-        </section>
-        <section>
-          <h3>Confidence</h3>
-          <p id="detailsConfidence">Loading.</p>
-        </section>
-        <section class="details-wide">
-          <h3>Place and movement scan</h3>
-          <div class="place-scan-grid" id="placeScan"></div>
-        </section>
-        <section class="details-wide">
-          <h3>Nearby source-backed context</h3>
-          <p class="context-note" id="nearbyContextNote">Loading nearby records.</p>
-          <div class="nearby-context" id="nearbyContext"></div>
-        </section>
-        <section>
-          <h3>Limitations</h3>
-          <ul id="detailsLimitations"></ul>
-        </section>
-        <section>
-          <h3>Reviewer notes</h3>
-          <ul id="detailsReviewerNotes"></ul>
-        </section>
-        <section class="details-wide">
-          <h3>Sources</h3>
-          <div id="detailsSources" class="details-sources"></div>
-        </section>
-      </div>
-    </dialog>
+    <div class="search" id="searchBox">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
+      <input id="searchInput" placeholder='Search changes in Belfast…  (try "grand central", "cycle", "translink")' autocomplete="off">
+      <div class="search-results panel" id="searchResults" hidden></div>
+    </div>
 
-    <dialog class="proposal-dialog glass-panel" id="proposalDialog" aria-labelledby="proposalTitle">
-      <div class="details-head">
-        <div>
-          <p>Not a forecast</p>
-          <h2 id="proposalTitle">Historical analogue lens</h2>
-        </div>
-        <button class="copy-brief-button" id="runProposalButton" type="button">Find analogues</button>
-        <button class="close-dialog" id="closeProposalButton" type="button" aria-label="Close proposal lens"></button>
-      </div>
-      <div class="proposal-grid">
-        <form class="proposal-form" id="proposalForm">
-          <label for="proposalName">
-            <span>Working title</span>
-            <input id="proposalName" type="text" autocomplete="off">
-          </label>
-          <label for="proposalCategory">
-            <span>Type</span>
-            <select id="proposalCategory">
-              <option value="building_development">Building / development</option>
-              <option value="road_transport_change">Road / transport</option>
-              <option value="energy_infrastructure">Energy infrastructure</option>
-              <option value="green_public_space">Green / public space</option>
-              <option value="service_civic_infrastructure">Service / civic infrastructure</option>
-            </select>
-          </label>
-          <label for="proposalScale">
-            <span>Scale</span>
-            <select id="proposalScale">
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-              <option value="unknown">Unknown</option>
-            </select>
-          </label>
-          <label for="proposalRadius">
-            <span>Evidence radius</span>
-            <select id="proposalRadius">
-              <option value="750">750 m</option>
-              <option value="1500" selected>1.5 km</option>
-              <option value="3000">3 km</option>
-            </select>
-          </label>
-          <label for="proposalStartYear">
-            <span>Review start</span>
-            <input id="proposalStartYear" type="number" min="2000" max="2100" step="1" inputmode="numeric">
-          </label>
-          <label for="proposalSiteBasis">
-            <span>Site basis</span>
-            <select id="proposalSiteBasis">
-              <option value="selected_event">Selected atlas place</option>
-              <option value="typed_point">Typed or mapped point</option>
-              <option value="boundary_needed">Boundary still needed</option>
-            </select>
-          </label>
-          <label class="proposal-wide" for="proposalDescription">
-            <span>Description</span>
-            <textarea id="proposalDescription" rows="3"></textarea>
-          </label>
-        </form>
-        <section class="proposal-output" id="proposalOutput" aria-live="polite">
-          <div class="empty-state">Choose a selected event or enter a proposal, then find historical analogues. Results are descriptive and source-backed; they are not a forecast.</div>
-        </section>
-      </div>
-    </dialog>
+    <div class="topbar-spacer"></div>
 
-    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <button class="btn" id="methodBtn" title="Methodology and data sources">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 4h7a3 3 0 013 3v13H8a3 3 0 01-3-3V4z"/><path d="M19 4h-7a3 3 0 00-3 3v13h7a3 3 0 003-3V4z"/></svg>
+      Methodology
+    </button>
+    <button class="btn btn-icon" id="shareBtn" title="Share view">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
+    </button>
+    <button class="btn btn-icon" id="themeBtn" title="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M21 13.5A8.5 8.5 0 1110.5 3a7 7 0 0010.5 10.5z" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="btn btn-icon" id="avatarBtn" title="Account" style="padding:0">
+      <span class="avatar-pill">OC</span>
+    </button>
   </div>
 
-  <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
-  <script src="/atlas.js?v=earth-ui-1" defer></script>
+  <!-- Layers panel (left) — overlay panel on by default -->
+  <div class="layers panel" id="layersPanel" data-open="true">
+    <div class="layers-head">
+      <h3>Layers</h3>
+      <span class="count" id="layersCount">0/0 on</span>
+    </div>
+    <div class="layers-list" id="layersList"></div>
+
+    <div class="layer-controls">
+      <label class="confidence-row">
+        <span>Evidence</span>
+        <select id="confidenceFilter">
+          <option value="all">All confidence</option>
+          <option value="documented">Documented</option>
+          <option value="inferred">Inferred only</option>
+        </select>
+      </label>
+      <label class="inferred-row">
+        <input type="checkbox" id="showInferredToggle" checked>
+        <span>Show inferred OSM visibility</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Detail panel (right) — overlay panel on by default, populated when an event is selected -->
+  <div class="detail panel" id="detailPanel" data-open="true">
+    <div class="detail-empty" id="detailEmpty">
+      <div class="detail-empty-eyebrow">Selected change</div>
+      <div class="detail-empty-title">Pick a change on the map or in search</div>
+      <div class="detail-empty-body">
+        Each pin is a documented, source-backed urban change in <strong id="emptyCityName">Belfast</strong>.
+        Move the timeline below to scope the visible changes, or filter layers on the left.
+      </div>
+      <div class="detail-empty-hints">
+        <span><kbd>←</kbd><kbd>→</kbd> scrub years</span>
+        <span><kbd>Space</kbd> play / pause</span>
+        <span><kbd>/</kbd> search</span>
+      </div>
+    </div>
+    <div class="detail-inner" id="detailInner" hidden></div>
+  </div>
+
+  <!-- Proposal Lens FAB -->
+  <button class="lens-fab" id="lensFab" title="Open the Proposal Lens">
+    <span class="dot"></span>
+    Proposal Lens
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="10" height="10"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- Bottom timeline -->
+  <div class="timeline panel">
+    <div class="tl-head">
+      <div class="tl-year" id="tlYear">2024</div>
+      <div class="tl-meta">
+        <span><strong id="tlVisible">0</strong> / <span id="tlTotal">0</span> changes visible</span>
+        <span id="tlCity">Belfast</span>
+        <span id="tlLayers">0/0 layers</span>
+      </div>
+      <div class="tl-play">
+        <span class="tl-speed">1.4×/s</span>
+        <button class="btn btn-icon" id="playBtn" title="Play / pause">
+          <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M7 5l12 7-12 7z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="tl-track" id="tlTrack">
+      <div class="tl-histogram" id="tlHistogram"></div>
+      <div class="tl-axis" id="tlAxis"></div>
+      <div class="tl-cursor" id="tlCursor"></div>
+      <div class="tl-scrub" id="tlScrub"></div>
+    </div>
+  </div>
+
+  <!-- Proposal Lens overlay -->
+  <div class="lens-overlay" id="lensOverlay" data-open="false">
+    <div class="lens-card">
+      <div class="lens-head">
+        <div>
+          <div class="label">Proposal Lens</div>
+          <h2 id="lensTitle">Historical analogue lens</h2>
+        </div>
+        <div class="sub">
+          <strong id="lensType">Not a forecast</strong>
+          <span class="sep">·</span>
+          <span id="lensDecision">Past projects with similar scale, type, and context</span>
+          <div class="sub-body" id="lensSummary">
+            The Lens surfaces past projects with similar scale, type, and context. It surfaces patterns; it does not predict.
+          </div>
+        </div>
+        <button class="lens-close" id="lensClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="lens-body">
+        <div class="lens-pick">
+          <h3>Pick a proposal to compare</h3>
+          <div id="lensProposals"></div>
+          <div class="lens-note">
+            The Lens shows <strong>past projects with similar scale, type, and context</strong>. It surfaces patterns; it does not predict.
+          </div>
+        </div>
+        <div class="lens-analogs">
+          <h3>Historical analogues</h3>
+          <p class="lead">
+            These are the closest matches from the OpenCityLog index — past projects of similar
+            type, scale, and urban context. Each shows how the indicator changed in the years
+            after delivery.
+          </p>
+          <div class="analog-grid" id="lensAnalogs"></div>
+
+          <div class="outcomes-strip">
+            <h3>Likely range of outcomes</h3>
+            <div class="outcomes-grid" id="lensOutcomes"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lens-foot">
+        <strong>Note.</strong>
+        <span class="disclaimer">
+          Historical association, not causation. Past projects had different contexts, policies,
+          and economic conditions. Use the Lens to ask better questions, not to forecast.
+        </span>
+        <div class="lens-foot-actions">
+          <button class="btn" id="lensExport">Export comparison</button>
+          <button class="btn primary" id="lensDiscuss">Discuss with team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodology overlay -->
+  <div class="method-overlay" id="methodOverlay" data-open="false">
+    <button class="btn method-close" id="methodClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+      Close
+    </button>
+    <div class="method-inner">
+      <div class="method-eyebrow">Methodology · v0.4</div>
+      <h1 class="method-h1">A city change atlas, grounded in evidence — not forecasts.</h1>
+      <p class="method-lead">
+        OpenCityLog indexes observed urban changes from primary sources — planning records,
+        official open data, Translink and DfI public project pages, and OpenStreetMap mapped
+        visibility. Each record is timestamped and traceable to a primary source.
+      </p>
+
+      <div class="method-grid">
+        <div class="method-block">
+          <h3>What counts as a "change"</h3>
+          <p>Physical interventions (new stations, openings, demolitions), official decisions with on-the-ground effects (planning approvals, route changes), and observed mapped-visibility records from OSM.</p>
+        </div>
+        <div class="method-block">
+          <h3>Confidence ratings</h3>
+          <p><strong>Documented</strong> — at least one primary public source. <strong>Inferred</strong> — OSM mapped-visibility metadata (visibility on the map, not the same as construction date). Filter on the left panel to scope.</p>
+        </div>
+        <div class="method-block">
+          <h3>What we explicitly do not do</h3>
+          <p>We do not forecast. We do not claim causation. Co-occurrence in space and time is descriptive only. OSM edit dates are mapped-visibility dates, not change-effective dates.</p>
+        </div>
+        <div class="method-block">
+          <h3>The Proposal Lens</h3>
+          <p>Matches a proposed project to historical analogues by type, scale, and urban context. The shown outcomes are observed indicators from those analogues — not predictions for the proposal in question.</p>
+        </div>
+      </div>
+
+      <div class="method-datasets">
+        <h2>Source families</h2>
+        <table class="dataset-table" id="methodDatasetTable"></table>
+      </div>
+
+      <div class="method-datasets">
+        <h2>Cities indexed</h2>
+        <p class="method-cities" id="methodCities">Loading cities…</p>
+      </div>
+
+      <div class="method-datasets">
+        <h2>Governance</h2>
+        <p class="method-cities">
+          OpenCityLog is an open-source urban changelog. Source data is licensed under permissive
+          open licences (CC-BY 4.0, OGL, ODbL) where possible; contested changes are dual-flagged.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome card (open by default per the new design) -->
+  <div class="welcome" id="welcome" data-open="true">
+    <div class="eyebrow">OpenCityLog · alpha</div>
+    <h1>How <span id="welcomeCity">Belfast</span> has changed since 2007.</h1>
+    <p>
+      Move through the timeline and watch the map fill in.
+      Each pin is a documented, source-backed urban change — transit openings,
+      planning decisions, civic services, and mapped infrastructure. Click a pin
+      to see sources, indicators, and the evidence chain.
+    </p>
+    <div class="hint-grid">
+      <div><kbd>←</kbd><kbd>→</kbd> Scrub timeline</div>
+      <div><kbd>Space</kbd> Play / pause</div>
+      <div><kbd>/</kbd> Search</div>
+      <div><kbd>P</kbd> Proposal Lens</div>
+    </div>
+    <div class="welcome-actions">
+      <button class="btn primary" id="welcomeStart">Start exploring →</button>
+      <button class="btn" id="welcomeSkip">Skip</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" data-show="false">
+    <span class="check">●</span><span id="toastText"></span>
+  </div>
+
+  <!-- App status -->
+  <div class="app-status" id="appStatus" role="status" aria-live="polite">Loading…</div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+<script src="/atlas.js?v=paper-atlas-2"></script>
 </body>
 </html>
