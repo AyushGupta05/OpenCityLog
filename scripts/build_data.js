@@ -60,7 +60,24 @@ function writeJson(filePath, payload, options = {}) {
   for (let attempt = 0; attempt < 6; attempt += 1) {
     try {
       fs.writeFileSync(tmpPath, `${body}\n`, "utf8");
-      fs.renameSync(tmpPath, filePath);
+      try {
+        fs.renameSync(tmpPath, filePath);
+      } catch (renameError) {
+        if (!["EPERM", "EACCES", "EEXIST"].includes(renameError.code)) {
+          throw renameError;
+        }
+        try {
+          fs.copyFileSync(tmpPath, filePath);
+          fs.unlinkSync(tmpPath);
+        } catch (copyError) {
+          try {
+            fs.rmSync(filePath, { force: true });
+            fs.renameSync(tmpPath, filePath);
+          } catch (_) {
+            throw copyError;
+          }
+        }
+      }
       return;
     } catch (error) {
       lastError = error;

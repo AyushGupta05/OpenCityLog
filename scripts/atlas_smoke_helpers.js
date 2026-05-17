@@ -48,6 +48,20 @@ async function openAtlas(page, targetUrl = atlasUrl) {
 
 async function atlasState(page) {
   return page.evaluate(() => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const center = map?.getCenter?.();
+    const layerVisible = (id) => Boolean(map?.getLayer?.(id)) && map.getLayoutProperty(id, "visibility") !== "none";
+    const markerStats = { transportPinCount: 0, visibleTransportPinCount: 0 };
+    for (const [id, marker] of atlas?.state?.markers || []) {
+      const event = atlas?.state?.eventById?.get(id);
+      if (event?.category !== "transport") continue;
+      markerStats.transportPinCount += 1;
+      const rect = marker.getElement().getBoundingClientRect();
+      if (rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight) {
+        markerStats.visibleTransportPinCount += 1;
+      }
+    }
     const pins = [...document.querySelectorAll(".pin")].map((pin) => {
       const rect = pin.getBoundingClientRect();
       return {
@@ -77,9 +91,23 @@ async function atlasState(page) {
       mapTools: document.querySelectorAll(".map-tools button").length,
       tiltPressed: document.querySelector("#tiltBtn")?.getAttribute("aria-pressed") || "",
       bimsAtlasApi: typeof window.BimsAtlas === "object",
-      mapPitch: Math.round(window.BimsAtlas?.state?.map?.getPitch?.() || 0),
+      mapPitch: Math.round(map?.getPitch?.() || 0),
+      mapBearing: Number((map?.getBearing?.() || 0).toFixed(3)),
+      mapZoom: Number((map?.getZoom?.() || 0).toFixed(3)),
+      mapCenter: center ? { lng: Number(center.lng.toFixed(6)), lat: Number(center.lat.toFixed(6)) } : null,
+      detailLayerLoaded: Boolean(atlas?.state?.detailLayerLoaded),
+      detailLayerError: atlas?.state?.detailLayerError || "",
+      lensOverlayLoaded: Boolean(atlas?.state?.lensOverlayLoaded),
+      lensOverlayError: atlas?.state?.lensOverlayError || "",
+      lensEventFeatureCount: atlas?.state?.lensEventFeatureCount || 0,
+      lensHeatmapVisible: layerVisible("lens-heatmap"),
+      lensPointsVisible: layerVisible("lens-current-points"),
+      transportRoadVisible: layerVisible("lens-transport-roads"),
+      transportRoadYearLoaded: atlas?.state?.transportRoadYearLoaded || null,
       pinCount: pins.length,
       visiblePinCount: pins.filter((pin) => pin.inViewport).length,
+      transportPinCount: markerStats.transportPinCount,
+      visibleTransportPinCount: markerStats.visibleTransportPinCount,
       activePin: pins.find((pin) => pin.active) || null,
       mapCanvas: document.querySelectorAll(".maplibregl-canvas").length,
       zoomButtons: document.querySelectorAll(".maplibregl-ctrl-zoom-in, .maplibregl-ctrl-zoom-out").length,
@@ -97,13 +125,32 @@ async function atlasState(page) {
 
 async function pinPosition(page, text) {
   return page.evaluate((needle) => {
-    const pin = [...document.querySelectorAll(".pin")].find((candidate) => candidate.textContent.includes(needle));
-    const rect = pin?.getBoundingClientRect();
-    return rect ? {
-      text: pin.textContent.trim(),
-      x: Math.round(rect.left + rect.width / 2),
-      y: Math.round(rect.top + rect.height / 2),
-    } : null;
+    const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
+    const target = normalize(needle).toLowerCase();
+    const candidates = [...document.querySelectorAll(".pin")].map((pin) => {
+      const text = normalize(pin.textContent);
+      const rect = pin.getBoundingClientRect();
+      const x = Math.round(rect.left + rect.width / 2);
+      const y = Math.round(rect.top + rect.height / 2);
+      const top = document.elementFromPoint(x, y);
+      const hit = top === pin || pin.contains(top) || top?.closest?.(".pin") === pin;
+      const inViewport = rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight;
+      return {
+        text,
+        exact: text.toLowerCase().startsWith(target),
+        includes: text.toLowerCase().includes(target),
+        hit,
+        inViewport,
+        x,
+        y,
+      };
+    });
+    return candidates.find((pin) => pin.hit && pin.exact)
+      || candidates.find((pin) => pin.hit && pin.includes)
+      || candidates.find((pin) => pin.inViewport && pin.exact)
+      || candidates.find((pin) => pin.inViewport && pin.includes)
+      || candidates.find((pin) => pin.includes)
+      || null;
   }, text);
 }
 
