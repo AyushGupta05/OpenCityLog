@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-17T20:01:39Z",
+  "generated_at": "2026-05-17T20:06:36Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 248608,
-    "total_unique_events": 248608,
+    "total_events": 248638,
+    "total_unique_events": 248638,
     "duplicate_event_id_count": 0,
     "active_source_count": 72,
     "source_catalog_only_count": 221,
@@ -152,7 +152,7 @@
       "source_title": "Belfast architecture and major project public pages",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 80
+      "event_count": 83
     },
     {
       "city_id": "belfast",
@@ -160,7 +160,7 @@
       "source_title": "Belfast architecture and major project public pages",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 43
+      "event_count": 48
     },
     {
       "city_id": "belfast",
@@ -168,7 +168,7 @@
       "source_title": "Belfast architecture and major project public pages",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 13
+      "event_count": 15
     },
     {
       "city_id": "belfast",
@@ -3608,7 +3608,7 @@
       "source_title": "London architecture and major project public pages",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 39
+      "event_count": 44
     },
     {
       "city_id": "london",
@@ -3616,7 +3616,7 @@
       "source_title": "London architecture and major project public pages",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 44
+      "event_count": 45
     },
     {
       "city_id": "london",
@@ -3624,7 +3624,7 @@
       "source_title": "London architecture and major project public pages",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 49
+      "event_count": 52
     },
     {
       "city_id": "london",
@@ -3632,7 +3632,7 @@
       "source_title": "London architecture and major project public pages",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 33
+      "event_count": 34
     },
     {
       "city_id": "london",
@@ -9032,7 +9032,7 @@
       "source_title": "New York City architecture and major project public pages",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 24
+      "event_count": 26
     },
     {
       "city_id": "nyc",
@@ -9048,7 +9048,7 @@
       "source_title": "New York City architecture and major project public pages",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 35
+      "event_count": 38
     },
     {
       "city_id": "nyc",
@@ -9056,7 +9056,7 @@
       "source_title": "New York City architecture and major project public pages",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 30
+      "event_count": 35
     },
     {
       "city_id": "nyc",
@@ -9775,8 +9775,8 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 29696,
-      "unique_event_count": 29696,
+      "event_count": 29706,
+      "unique_event_count": 29706,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 15,
@@ -9784,8 +9784,8 @@
       "source_catalog_only_count": 8,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 29696,
-        "gap_events": 70304,
+        "backed_event_count": 29706,
+        "gap_events": 70294,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -9810,12 +9810,12 @@
         "2021": 2418,
         "2022": 3197,
         "2023": 2723,
-        "2024": 4470,
-        "2025": 4785,
-        "2026": 2239
+        "2024": 4473,
+        "2025": 4790,
+        "2026": 2241
       },
       "event_counts_by_layer": {
-        "built_environment": 10377,
+        "built_environment": 10387,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -9824,7 +9824,7 @@
       "event_counts_by_confidence": {
         "corroborated": 1,
         "disputed": 1,
-        "documented": 11729,
+        "documented": 11739,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -10096,7 +10096,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1172
+          "event_count": 1175
         },
         {
           "year": 2024,
@@ -10121,7 +10121,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 325
+          "event_count": 330
         },
         {
           "year": 2025,
@@ -10146,7 +10146,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 13
+          "event_count": 15
         },
         {
           "year": 2026,
@@ -10294,7 +10294,7 @@
           "source_title": "Belfast architecture and major project public pages",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 80
+          "event_count": 83
         },
         {
           "city_id": "belfast",
@@ -10302,7 +10302,7 @@
           "source_title": "Belfast architecture and major project public pages",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 43
+          "event_count": 48
         },
         {
           "city_id": "belfast",
@@ -10310,7 +10310,7 @@
           "source_title": "Belfast architecture and major project public pages",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 13
+          "event_count": 15
         },
         {
           "city_id": "belfast",
@@ -10903,7 +10903,7 @@
           "provider": "Named Belfast public, institutional, venue, and architecture sources",
           "reliability": "usable_with_caveats",
           "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-          "event_count": 376,
+          "event_count": 386,
           "years": [
             2008,
             2009,
@@ -10928,12 +10928,12 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 376
+            "built_environment": 386
           },
           "confidence_counts": {
             "corroborated": 1,
             "disputed": 1,
-            "documented": 374
+            "documented": 384
           },
           "coverage_status": "events_emitted"
         },
@@ -11196,8 +11196,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 189578,
-      "unique_event_count": 189578,
+      "event_count": 189588,
+      "unique_event_count": 189588,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 128,
@@ -11205,7 +11205,7 @@
       "source_catalog_only_count": 95,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 189578,
+        "backed_event_count": 189588,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -11295,22 +11295,22 @@
         "2018": 3214,
         "2019": 3539,
         "2020": 8565,
-        "2021": 8168,
-        "2022": 8021,
-        "2023": 22399,
-        "2024": 29740,
+        "2021": 8173,
+        "2022": 8022,
+        "2023": 22402,
+        "2024": 29741,
         "2025": 30737,
         "2026": 19306
       },
       "event_counts_by_layer": {
-        "built_environment": 70431,
+        "built_environment": 70441,
         "civic_services": 53302,
         "environment": 28036,
         "transport": 37809
       },
       "event_counts_by_confidence": {
         "corroborated": 2,
-        "documented": 189576
+        "documented": 189586
       },
       "event_counts_by_year_layer": [
         {
@@ -11951,7 +11951,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2045
+          "event_count": 2050
         },
         {
           "year": 2021,
@@ -11971,7 +11971,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1685
+          "event_count": 1686
         },
         {
           "year": 2022,
@@ -11991,7 +11991,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1547
+          "event_count": 1550
         },
         {
           "year": 2023,
@@ -12011,7 +12011,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 2490
+          "event_count": 2491
         },
         {
           "year": 2024,
@@ -14996,7 +14996,7 @@
           "source_title": "London architecture and major project public pages",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 39
+          "event_count": 44
         },
         {
           "city_id": "london",
@@ -15004,7 +15004,7 @@
           "source_title": "London architecture and major project public pages",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 44
+          "event_count": 45
         },
         {
           "city_id": "london",
@@ -15012,7 +15012,7 @@
           "source_title": "London architecture and major project public pages",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 49
+          "event_count": 52
         },
         {
           "city_id": "london",
@@ -15020,7 +15020,7 @@
           "source_title": "London architecture and major project public pages",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 33
+          "event_count": 34
         },
         {
           "city_id": "london",
@@ -16363,7 +16363,7 @@
           "provider": "Named London public, institutional, venue, developer, and architecture sources",
           "reliability": "usable_with_caveats",
           "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-          "event_count": 401,
+          "event_count": 411,
           "years": [
             2008,
             2009,
@@ -16388,11 +16388,11 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 401
+            "built_environment": 411
           },
           "confidence_counts": {
             "corroborated": 2,
-            "documented": 399
+            "documented": 409
           },
           "coverage_status": "events_emitted"
         },
@@ -18882,8 +18882,8 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 29334,
-      "unique_event_count": 29334,
+      "event_count": 29344,
+      "unique_event_count": 29344,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 150,
@@ -18891,8 +18891,8 @@
       "source_catalog_only_count": 118,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 29334,
-        "gap_events": 70666,
+        "backed_event_count": 29344,
+        "gap_events": 70656,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -19075,20 +19075,20 @@
         "2019": 1943,
         "2020": 1749,
         "2021": 1273,
-        "2022": 1489,
+        "2022": 1491,
         "2023": 1591,
-        "2024": 1667,
-        "2025": 1452,
+        "2024": 1670,
+        "2025": 1457,
         "2026": 1328
       },
       "event_counts_by_layer": {
-        "built_environment": 14174,
+        "built_environment": 14184,
         "civic_services": 2844,
         "environment": 6081,
         "transport": 6235
       },
       "event_counts_by_confidence": {
-        "documented": 29334
+        "documented": 29344
       },
       "event_counts_by_year_layer": [
         {
@@ -20504,7 +20504,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 766
+          "event_count": 768
         },
         {
           "year": 2022,
@@ -20544,7 +20544,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 880
+          "event_count": 883
         },
         {
           "year": 2024,
@@ -20564,7 +20564,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 735
+          "event_count": 740
         },
         {
           "year": 2025,
@@ -25257,7 +25257,7 @@
           "source_title": "New York City architecture and major project public pages",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 24
+          "event_count": 26
         },
         {
           "city_id": "nyc",
@@ -25273,7 +25273,7 @@
           "source_title": "New York City architecture and major project public pages",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 35
+          "event_count": 38
         },
         {
           "city_id": "nyc",
@@ -25281,7 +25281,7 @@
           "source_title": "New York City architecture and major project public pages",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 30
+          "event_count": 35
         },
         {
           "city_id": "nyc",
@@ -26822,7 +26822,7 @@
           "provider": "Named NYC public, institutional, venue, developer, and architecture sources",
           "reliability": "usable_with_caveats",
           "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-          "event_count": 409,
+          "event_count": 419,
           "years": [
             2008,
             2009,
@@ -26847,10 +26847,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 409
+            "built_environment": 419
           },
           "confidence_counts": {
-            "documented": 409
+            "documented": 419
           },
           "coverage_status": "events_emitted"
         },
