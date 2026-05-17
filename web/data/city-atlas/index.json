@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-16T20:18:28Z",
+  "generated_at": "2026-05-17T19:31:37Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 29393,
+      "event_count": 29696,
       "source_count": 15,
       "availability_status": "mvp_partial",
       "artifact_paths": {
@@ -24,7 +24,7 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 189252,
+      "event_count": 189578,
       "source_count": 128,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
@@ -41,7 +41,7 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 29009,
+      "event_count": 29334,
       "source_count": 150,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
@@ -63,15 +63,15 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-16T20:21:19Z",
+  "coverage_report_generated_at": "2026-05-17T19:33:12Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 247654,
-    "total_unique_events": 247654,
+    "total_events": 248608,
+    "total_unique_events": 248608,
     "duplicate_event_id_count": 0,
     "active_source_count": 72,
     "source_catalog_only_count": 221,
-    "source_year_layer_row_count": 1217,
+    "source_year_layer_row_count": 1219,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

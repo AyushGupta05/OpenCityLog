@@ -12,8 +12,16 @@ const {
   ensureOutputDir,
   openAtlas,
   outputDir,
-  pinPosition,
 } = require("./atlas_smoke_helpers");
+
+function cameraMatches(before, after) {
+  if (!before?.mapCenter || !after?.mapCenter) return false;
+  return Math.abs(before.mapCenter.lng - after.mapCenter.lng) < 0.001
+    && Math.abs(before.mapCenter.lat - after.mapCenter.lat) < 0.001
+    && Math.abs(before.mapZoom - after.mapZoom) < 0.02
+    && Math.abs(before.mapPitch - after.mapPitch) <= 1
+    && Math.abs(before.mapBearing - after.mapBearing) < 0.05;
+}
 
 (async () => {
   ensureOutputDir();
@@ -24,6 +32,11 @@ const {
   attachConsoleCapture(page, consoleMessages, pageErrors);
 
   await openAtlas(page, atlasUrl);
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.detailLayerLoaded && window.BimsAtlas?.state?.lensOverlayLoaded,
+    null,
+    { timeout: 45000 }
+  );
   await page.waitForTimeout(1200);
   const initial = await atlasState(page);
 
@@ -35,12 +48,20 @@ const {
   assert(initial.eventRows > 0 && initial.changelogOpen === "true", "Restored changelog list did not render on desktop.");
   assert(initial.mapTools === 2, "Restored map tools are missing.");
   assert(initial.bimsAtlasApi, "BimsAtlas compatibility API is missing.");
+  assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
+  assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
+  assert(initial.lensEventFeatureCount > 0, "Event-derived lens source did not receive current timeline records.");
+  assert(initial.lensHeatmapVisible && initial.lensPointsVisible, "Event heatmap and current-year lens point overlays are not visible.");
+  assert(initial.transportRoadVisible, "Transport road lens should be visible while the transport layer is enabled.");
+  assert(initial.transportRoadYearLoaded === Number(initial.year), "Transport road lens did not load the current timeline year.");
   assert(initial.compareOpen === "false", "Compare panel should start closed.");
   assert(initial.layersCount === "6/6 on", "All paper-atlas layers should be active on first load.");
   assert(initial.detailOpen && initial.detailTitle.length > 8, "Selected event detail panel did not render.");
   assert(initial.welcomeOpen === "false" && initial.welcomeVisibility === "hidden", "Welcome card did not close cleanly.");
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(initial.bodyText), "Legacy simulator copy is visible.");
 
+  await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
+  await page.waitForTimeout(800);
   const yorkPin = await clickPin(page, "York Street");
   await page.waitForFunction(
     () => document.querySelector(".detail-title")?.textContent.includes("York Street"),
@@ -70,7 +91,8 @@ const {
   const afterFilterOff = await atlasState(page);
   assert(afterFilterOff.layersCount === "5/6 on", "Layer click did not update the active layer count.");
   assert(afterFilterOff.transportOn === "false", "Transport layer did not toggle off.");
-  assert(afterFilterOff.visiblePinCount < afterListClick.visiblePinCount, "Layer filter did not reduce visible map pins.");
+  assert(afterFilterOff.lensHeatmapVisible && !afterFilterOff.transportRoadVisible, "Layer filter did not update heatmap/transport lens visibility.");
+  assert(afterFilterOff.pinCount > 0 && afterFilterOff.transportPinCount === 0, "Transport layer filter did not remove transport map pins.");
 
   await page.locator(".layer-row[data-layer='transport']").click();
   await page.waitForFunction(
@@ -78,12 +100,18 @@ const {
     null,
     { timeout: 10000 }
   );
+  const afterFilterOn = await atlasState(page);
+  assert(afterFilterOn.transportRoadVisible, "Transport road lens did not return when the transport layer was re-enabled.");
 
-  const beforeZoom = await pinPosition(page, "Belfast Grand Central");
+  const beforeZoom = await atlasState(page);
   await page.locator(".maplibregl-ctrl-zoom-in").click();
-  await page.waitForTimeout(800);
-  const afterZoom = beforeZoom ? await pinPosition(page, beforeZoom.text) : null;
-  assert(beforeZoom && afterZoom && (beforeZoom.x !== afterZoom.x || beforeZoom.y !== afterZoom.y), "Map zoom control did not move marker positions.");
+  await page.waitForFunction(
+    (zoom) => window.BimsAtlas?.state?.map?.getZoom?.() > zoom + 0.2,
+    beforeZoom.mapZoom,
+    { timeout: 10000 }
+  );
+  const afterZoom = await atlasState(page);
+  assert(afterZoom.mapZoom > beforeZoom.mapZoom, "Map zoom control did not change the map zoom.");
 
   await page.locator("#compareBtn").click();
   await page.waitForFunction(
@@ -99,7 +127,7 @@ const {
   const afterTilt = await atlasState(page);
   assert(afterTilt.tiltPressed === "true" && afterTilt.mapPitch > 10, "Tilt map tool did not change map pitch.");
   await page.locator("#recenterBtn").click();
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(800);
 
   const detailScroll = await page.evaluate(() => {
     const detailBody = document.querySelector(".detail-body");
@@ -113,11 +141,23 @@ const {
 
   const scrubRect = await page.locator("#tlScrub").boundingBox();
   assert(scrubRect, "Timeline scrub target is missing.");
+  const beforeTimeline = await atlasState(page);
   await page.mouse.click(scrubRect.x + scrubRect.width * 0.35, scrubRect.y + scrubRect.height / 2);
-  await page.waitForTimeout(700);
+  await page.waitForFunction(
+    (oldYear) => {
+      const state = window.BimsAtlas?.state;
+      return state && String(state.year) !== oldYear && state.transportRoadYearLoaded === state.year;
+    },
+    beforeTimeline.year,
+    { timeout: 10000 }
+  );
+  await page.waitForTimeout(400);
   const afterTimeline = await atlasState(page);
   assert(afterTimeline.year !== "2024", "Timeline scrub did not change the selected year.");
-  assert(afterTimeline.pinCount > 0 && afterTimeline.activePin?.inViewport, "Timeline scrub did not keep map events visible.");
+  assert(afterTimeline.pinCount > 0 && afterTimeline.visiblePinCount > 0, "Timeline scrub did not keep map events visible.");
+  assert(cameraMatches(beforeTimeline, afterTimeline), "Timeline scrub moved the map camera instead of preserving the current viewport.");
+  assert(afterTimeline.lensHeatmapVisible && afterTimeline.lensPointsVisible, "Timeline scrub hid the event lens overlays.");
+  assert(afterTimeline.transportRoadYearLoaded === Number(afterTimeline.year), "Timeline scrub did not swap the transport lens to the selected year.");
 
   const screenshot = await page.screenshot({ path: path.join(outputDir, "paper-atlas-browser-smoke.png"), fullPage: false });
   assertDetailedPng(screenshot, assert, "Paper atlas browser smoke");
@@ -127,8 +167,10 @@ const {
     afterPinClick,
     afterListClick,
     afterFilterOff,
+    afterFilterOn,
     beforeZoom,
     afterZoom,
+    beforeTimeline,
     afterTimeline,
     afterCompare,
     afterTilt,
@@ -138,7 +180,7 @@ const {
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Browser page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Browser console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
-  console.log("OpenCityLog paper-atlas browser smoke OK: load, pins, changelog, compare, map tools, filter, zoom, scroll, timeline, and screenshot checks passed.");
+  console.log("OpenCityLog paper-atlas browser smoke OK: load, pins, changelog, lenses, compare, map tools, filter, zoom, scroll, timeline, camera, and screenshot checks passed.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

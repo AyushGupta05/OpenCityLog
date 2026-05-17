@@ -42,7 +42,15 @@ function writeJson(filePath, value) {
   for (let attempt = 0; attempt < 6; attempt += 1) {
     try {
       fs.writeFileSync(tmpPath, text, "utf8");
-      fs.renameSync(tmpPath, filePath);
+      try {
+        fs.renameSync(tmpPath, filePath);
+      } catch (renameError) {
+        if (!["EPERM", "EACCES", "EEXIST"].includes(renameError.code)) {
+          throw renameError;
+        }
+        fs.copyFileSync(tmpPath, filePath);
+        fs.unlinkSync(tmpPath);
+      }
       return;
     } catch (error) {
       lastError = error;

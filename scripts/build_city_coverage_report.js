@@ -71,7 +71,15 @@ function writeFile(filePath, body) {
   for (let attempt = 0; attempt < 6; attempt += 1) {
     try {
       fs.writeFileSync(tmpPath, body, "utf8");
-      fs.renameSync(tmpPath, filePath);
+      try {
+        fs.renameSync(tmpPath, filePath);
+      } catch (renameError) {
+        if (!["EPERM", "EACCES", "EEXIST"].includes(renameError.code)) {
+          throw renameError;
+        }
+        fs.copyFileSync(tmpPath, filePath);
+        fs.unlinkSync(tmpPath);
+      }
       return;
     } catch (error) {
       lastError = error;

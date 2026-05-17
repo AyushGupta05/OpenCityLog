@@ -63,9 +63,7 @@
     <button class="btn btn-icon" id="themeBtn" title="Toggle theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M21 13.5A8.5 8.5 0 1110.5 3a7 7 0 0010.5 10.5z" stroke-linejoin="round"/></svg>
     </button>
-    <button class="btn btn-icon" id="avatarBtn" title="Account" style="padding:0">
-      <span class="avatar-pill">OC</span>
-    </button>
+    <span class="avatar-pill" aria-hidden="true">OC</span>
   </div>
 
   <!-- Layers panel (left) — overlay panel on by default -->
@@ -82,13 +80,16 @@
         <select id="confidenceFilter">
           <option value="all">All confidence</option>
           <option value="documented">Documented</option>
+          <option value="corroborated">Corroborated</option>
           <option value="inferred">Inferred only</option>
+          <option value="disputed">Disputed</option>
         </select>
       </label>
       <label class="inferred-row">
         <input type="checkbox" id="showInferredToggle" checked>
         <span>Show inferred OSM visibility</span>
       </label>
+      <div class="coverage-note" id="coverageNote"></div>
     </div>
   </div>
 
@@ -146,7 +147,8 @@
       <div class="detail-empty-eyebrow">Selected change</div>
       <div class="detail-empty-title">Pick a change on the map or in search</div>
       <div class="detail-empty-body">
-        Each pin is a documented, source-backed urban change in <strong id="emptyCityName">Belfast</strong>.
+        Each pin is a source-backed city-change record in <strong id="emptyCityName">Belfast</strong>.
+        Some records are inferred from OSM mapped visibility and are labelled as such.
         Move the timeline below to scope the visible changes, or filter layers on the left.
       </div>
       <div class="detail-empty-hints">
@@ -205,7 +207,7 @@
             The Lens surfaces past projects with similar scale, type, and context. It surfaces patterns; it does not predict.
           </div>
         </div>
-        <button class="lens-close" id="lensClose">
+        <button class="lens-close" id="lensClose" type="button" aria-label="Close Proposal Lens">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
       </div>
@@ -222,13 +224,13 @@
           <h3>Historical analogues</h3>
           <p class="lead">
             These are the closest matches from the OpenCityLog index — past projects of similar
-            type, scale, and urban context. Each shows how the indicator changed in the years
-            after delivery.
+            type, scale, and urban context. Each preserves observed indicators from its
+            own evidence context.
           </p>
           <div class="analog-grid" id="lensAnalogs"></div>
 
           <div class="outcomes-strip">
-            <h3>Likely range of outcomes</h3>
+            <h3>Observed analogue ranges</h3>
             <div class="outcomes-grid" id="lensOutcomes"></div>
           </div>
         </div>
@@ -278,7 +280,7 @@
         </div>
         <div class="method-block">
           <h3>The Proposal Lens</h3>
-          <p>Matches a proposed project to historical analogues by type, scale, and urban context. The shown outcomes are observed indicators from those analogues — not predictions for the proposal in question.</p>
+          <p>Matches a proposed project to historical analogues by type, scale, and urban context. The shown indicators are observations from those analogues — not predictions for the proposal in question.</p>
         </div>
       </div>
 
@@ -308,9 +310,9 @@
     <h1>How <span id="welcomeCity">Belfast</span> has changed since 2007.</h1>
     <p>
       Move through the timeline and watch the map fill in.
-      Each pin is a documented, source-backed urban change — transit openings,
-      planning decisions, civic services, and mapped infrastructure. Click a pin
-      to see sources, indicators, and the evidence chain.
+      Each pin is a source-backed city-change record: transit openings, planning
+      decisions, civic services, and inferred OSM mapped-visibility records. Click
+      a pin to see sources, limitations, and the evidence chain.
     </p>
     <div class="hint-grid">
       <div><kbd>←</kbd><kbd>→</kbd> Scrub timeline</div>
