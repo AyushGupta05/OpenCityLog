@@ -1,1 +1,81 @@
-{"schema_version":"1.0.0","generated_at":"2026-05-17T19:59:23Z","default_city_id":"belfast","city_count":3,"cities":[{"city_id":"belfast","display_name":"Belfast, Northern Ireland","event_count":29696,"source_count":15,"availability_status":"mvp_partial","artifact_paths":{"city":"web/data/city-atlas/cities/belfast/city.json","sources":"web/data/city-atlas/cities/belfast/sources.json","events":"web/data/city-atlas/cities/belfast/events.json","availability":"web/data/city-atlas/cities/belfast/availability.json","detail_layers":"web/data/city-atlas/cities/belfast/detail_layers.geojson","lens_overlays":"web/data/city-atlas/cities/belfast/lens_overlays.geojson","transport_roads_base":"web/data/city-atlas/cities/belfast/transport_roads_base.geojson","transport_roads_template":"web/data/city-atlas/cities/belfast/transport_roads_{year}.geojson"}},{"city_id":"london","display_name":"London, England","event_count":0,"source_count":20,"availability_status":"partial_source_backed","artifact_paths":{"city":"web/data/city-atlas/cities/london/city.json","sources":"web/data/city-atlas/cities/london/sources.json","events":"web/data/city-atlas/cities/london/events.json","availability":"web/data/city-atlas/cities/london/availability.json","lens_overlays":"web/data/city-atlas/cities/london/lens_overlays.geojson","transport_roads_base":"web/data/city-atlas/cities/london/transport_roads_base.geojson","transport_roads_template":"web/data/city-atlas/cities/london/transport_roads_{year}.geojson"}},{"city_id":"nyc","display_name":"New York City, New York","event_count":0,"source_count":23,"availability_status":"partial_source_backed","artifact_paths":{"city":"web/data/city-atlas/cities/nyc/city.json","sources":"web/data/city-atlas/cities/nyc/sources.json","events":"web/data/city-atlas/cities/nyc/events.json","availability":"web/data/city-atlas/cities/nyc/availability.json","lens_overlays":"web/data/city-atlas/cities/nyc/lens_overlays.geojson","transport_roads_base":"web/data/city-atlas/cities/nyc/transport_roads_base.geojson","transport_roads_template":"web/data/city-atlas/cities/nyc/transport_roads_{year}.geojson"}}],"contracts":{"city_schema":"schemas/city.schema.json","source_schema":"schemas/source.schema.json","event_schema":"schemas/event.schema.json","availability_schema":"schemas/availability.schema.json"}}
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-05-17T19:59:24Z",
+  "default_city_id": "belfast",
+  "city_count": 3,
+  "cities": [
+    {
+      "city_id": "belfast",
+      "display_name": "Belfast, Northern Ireland",
+      "event_count": 29696,
+      "source_count": 15,
+      "availability_status": "mvp_partial",
+      "artifact_paths": {
+        "city": "web/data/city-atlas/cities/belfast/city.json",
+        "sources": "web/data/city-atlas/cities/belfast/sources.json",
+        "events": "web/data/city-atlas/cities/belfast/events.json",
+        "availability": "web/data/city-atlas/cities/belfast/availability.json",
+        "detail_layers": "web/data/city-atlas/cities/belfast/detail_layers.geojson",
+        "lens_overlays": "web/data/city-atlas/cities/belfast/lens_overlays.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson",
+        "transport_roads_template": "web/data/city-atlas/cities/belfast/transport_roads_{year}.geojson"
+      }
+    },
+    {
+      "city_id": "london",
+      "display_name": "London, England",
+      "event_count": 189578,
+      "source_count": 128,
+      "availability_status": "partial_source_backed",
+      "artifact_paths": {
+        "city": "web/data/city-atlas/cities/london/city.json",
+        "sources": "web/data/city-atlas/cities/london/sources.json",
+        "events": "web/data/city-atlas/cities/london/events.json",
+        "availability": "web/data/city-atlas/cities/london/availability.json",
+        "current_state": "web/data/city-atlas/cities/london/current_state.json",
+        "lens_overlays": "web/data/city-atlas/cities/london/lens_overlays.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/london/transport_roads_base.geojson",
+        "transport_roads_template": "web/data/city-atlas/cities/london/transport_roads_{year}.geojson"
+      }
+    },
+    {
+      "city_id": "nyc",
+      "display_name": "New York City, New York",
+      "event_count": 29334,
+      "source_count": 150,
+      "availability_status": "partial_source_backed",
+      "artifact_paths": {
+        "city": "web/data/city-atlas/cities/nyc/city.json",
+        "sources": "web/data/city-atlas/cities/nyc/sources.json",
+        "events": "web/data/city-atlas/cities/nyc/events.json",
+        "availability": "web/data/city-atlas/cities/nyc/availability.json",
+        "current_state": "web/data/city-atlas/cities/nyc/current_state.json",
+        "lens_overlays": "web/data/city-atlas/cities/nyc/lens_overlays.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/nyc/transport_roads_base.geojson",
+        "transport_roads_template": "web/data/city-atlas/cities/nyc/transport_roads_{year}.geojson"
+      }
+    }
+  ],
+  "contracts": {
+    "city_schema": "schemas/city.schema.json",
+    "source_schema": "schemas/source.schema.json",
+    "event_schema": "schemas/event.schema.json",
+    "availability_schema": "schemas/availability.schema.json"
+  },
+  "coverage_report_path": "web/data/city-atlas/coverage-report.json",
+  "coverage_report_generated_at": "2026-05-17T20:01:39Z",
+  "coverage_summary": {
+    "city_count": 3,
+    "total_events": 248608,
+    "total_unique_events": 248608,
+    "duplicate_event_id_count": 0,
+    "active_source_count": 72,
+    "source_catalog_only_count": 221,
+    "source_year_layer_row_count": 1219,
+    "notes": [
+      "Counts are emitted source-backed atlas events, not complete civic coverage.",
+      "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
+      "No unsupported causal, predictive, or synthetic coverage claims are added by this report."
+    ]
+  }
+}
