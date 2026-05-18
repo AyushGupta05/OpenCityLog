@@ -254,6 +254,8 @@
     compareOpen: false,
     compareBeforeYear: null,
     compareAfterYear: null,
+    compareEvidenceLoadingKey: "",
+    detailEvidenceLoadingKey: "",
     mapTilted: false,
     lensOpen: false,
     methodOpen: false,
@@ -566,7 +568,7 @@
     const promise = fetchJson(dataPathToUrl(chunk.json_path))
       .then((payload) => {
         const arr = Array.isArray(payload?.events) ? payload.events : (Array.isArray(payload?.features) ? payload.features : []);
-        const events = arr.map((raw, idx) => normalizeEvent(raw, numericYear, idx)).filter((e) => e.lngLat);
+        const events = arr.map((raw, idx) => normalizeEvent(raw, numericYear, idx));
         state.loadedEvents.set(numericYear, events);
         state.yearLoadErrors.delete(numericYear);
         for (const e of events) state.eventById.set(e.id, e);
@@ -600,16 +602,22 @@
     const event = {
       id: String(props.event_id || raw.id || props.id || `${fallbackYear}-${index}`),
       title: cleanTitle(props.title),
+      shortDescription: cleanSummary(props.short_description || props.summary || props.explanation || ""),
       year: Number(props.year || fallbackYear),
       effectiveDate: props.effective_date || "",
+      effectiveDateRange: props.effective_date_range || null,
       datePrecision: props.date_precision || "",
       sourceDateField: props.source_date_field || "",
       category: props.category || "built_environment",
+      lens: props.lens || props.category || "city_change",
       confidence: props.confidence || "documented",
       summary: cleanSummary(props.explanation || props.summary || ""),
       area: props.affected_area?.label || props.affected_area_label || "",
       sourceIds: Array.isArray(sourceIds) ? sourceIds.filter(Boolean) : [sourceIds].filter(Boolean),
       evidence: Array.isArray(props.evidence) ? props.evidence : [],
+      affectedSignals: Array.isArray(props.affected_signals) ? props.affected_signals : [],
+      impactDeltas: Array.isArray(props.impact_deltas) ? props.impact_deltas : [],
+      trafficMetrics: props.traffic_metrics || null,
       caveats: Array.isArray(props.caveats) ? props.caveats : [],
       provenance: props.provenance || {},
       geometry: geom,
@@ -709,7 +717,7 @@
 
   function renderMarkers() {
     if (!state.map) return;
-    const events = filteredEvents().slice(0, MAX_MARKERS);
+    const events = filteredEvents().filter((event) => event.lngLat).slice(0, MAX_MARKERS);
     const eventIds = new Set(events.map((e) => e.id));
 
     // Remove markers that are no longer visible
@@ -1394,7 +1402,7 @@
   }
 
   function lensEventsForYear(year) {
-    let events = visibleEventsForYear(year);
+    let events = visibleEventsForYear(year).filter((event) => event.lngLat);
     if (state.search) {
       const q = state.search.toLowerCase();
       events = events.filter((event) =>
@@ -1415,12 +1423,15 @@
         lens_role: role,
         event_id: event.id,
         title: event.title,
+        short_description: event.shortDescription || event.summary || "",
         category: event.category,
         category_color: layer.color,
         year: Number(event.year),
         confidence: event.confidence || "documented",
         heat_weight: lensHeatWeight(event),
         source_count: event.sourceIds?.length || 0,
+        evidence_count: Array.isArray(event.evidence) ? event.evidence.length : 0,
+        source_ids: (event.sourceIds || []).join(","),
       },
       geometry: { type: "Point", coordinates: event.lngLat },
     };
@@ -1738,6 +1749,121 @@
     setText(els.tlYear, String(state.year));
   }
 
+  function detailEvidenceYears(event) {
+    const current = Number(event?.year || state.year);
+    const before = [...state.years].filter((year) => year < current).pop() || current;
+    return { before, after: current };
+  }
+
+  function ensureDetailEvidenceLoaded(event) {
+    if (!event) return true;
+    const { before, after } = detailEvidenceYears(event);
+    const years = [...new Set([before, after].filter((year) => state.chunks.has(year)))];
+    const missing = years.filter((year) => !state.loadedEvents.has(year));
+    if (!missing.length) return true;
+    const key = `${event.id}:${years.join(",")}`;
+    if (state.detailEvidenceLoadingKey !== key) {
+      state.detailEvidenceLoadingKey = key;
+      Promise.all(missing.map((year) => loadYear(year))).finally(() => {
+        if (state.detailEvidenceLoadingKey === key) state.detailEvidenceLoadingKey = "";
+        renderDetail();
+      });
+    }
+    return false;
+  }
+
+  function evidenceRowsForYears(beforeYear, afterYear, selectedEvent = null) {
+    const beforeEvents = state.loadedEvents.get(beforeYear) || [];
+    const afterEvents = state.loadedEvents.get(afterYear) || [];
+    return LAYERS.map((layer) => ({
+      layer,
+      before: pickEvidenceEvent(beforeEvents, layer.id),
+      after: selectedEvent?.category === layer.id && selectedEvent.year === afterYear
+        ? selectedEvent
+        : pickEvidenceEvent(afterEvents, layer.id),
+    }));
+  }
+
+  function pickEvidenceEvent(events, category) {
+    return events
+      .filter((event) => event.category === category)
+      .sort((a, b) =>
+        confidenceRank(b.confidence) - confidenceRank(a.confidence)
+        || eventSourceCount(b) - eventSourceCount(a)
+        || String(a.title).localeCompare(String(b.title))
+      )[0] || null;
+  }
+
+  function confidenceRank(value) {
+    const key = String(value || "").toLowerCase();
+    if (key === "corroborated") return 4;
+    if (key === "documented") return 3;
+    if (key === "inferred") return 2;
+    if (key === "disputed") return 1;
+    return 0;
+  }
+
+  function renderEvidenceEventButton(event, emptyText) {
+    if (!event) return `<div class="evidence-empty">${escapeHtml(emptyText)}</div>`;
+    const source = firstEvidenceLabel(event);
+    return `
+      <button class="evidence-event" type="button" data-event-id="${escapeAttr(event.id)}">
+        <strong>${escapeHtml(event.shortDescription || event.title)}</strong>
+        <span>${escapeHtml(event.area || "Unknown area")} / ${eventSourceCount(event)} evidence row${eventSourceCount(event) === 1 ? "" : "s"}${source ? ` / ${escapeHtml(source)}` : ""}</span>
+      </button>`;
+  }
+
+  function firstEvidenceLabel(event) {
+    const evidence = Array.isArray(event?.evidence) ? event.evidence.find((item) => item?.label || item?.record_id || item?.url) : null;
+    if (evidence?.label) return evidence.label;
+    if (evidence?.record_id) return `Record ${evidence.record_id}`;
+    if (evidence?.url) return evidence.url;
+    const source = Array.isArray(event?.sourceIds) ? state.sourceById.get(event.sourceIds[0]) : null;
+    return source?.title || "";
+  }
+
+  function wireEvidenceEventButtons(root) {
+    root?.querySelectorAll(".evidence-event[data-event-id]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.getAttribute("data-event-id");
+        if (id) selectEvent(id);
+      });
+    });
+  }
+
+  function renderDetailLensEvidence(event) {
+    const { before, after } = detailEvidenceYears(event);
+    const ready = ensureDetailEvidenceLoaded(event);
+    if (!ready) {
+      return `
+        <div class="detail-section">
+          <h4>Lens Before / After Evidence</h4>
+          <div class="lens-evidence-note">Loading source-backed lens context for ${before} and ${after}.</div>
+        </div>`;
+    }
+    const rows = evidenceRowsForYears(before, after, event);
+    return `
+      <div class="detail-section">
+        <h4>Lens Before / After Evidence</h4>
+        <div class="lens-evidence-note">Nearest source-backed records by lens; these are context records, not causal outcome measurements.</div>
+        <div class="lens-evidence-grid">
+          ${rows.map((row) => `
+            <div class="lens-evidence-row" style="--accent:${row.layer.color}">
+              <div class="lens-evidence-label"><span></span>${escapeHtml(row.layer.label)}</div>
+              <div>
+                <small>Before ${before}</small>
+                ${renderEvidenceEventButton(row.before, "No earlier source-backed record in this lens")}
+              </div>
+              <div>
+                <small>After / current ${after}</small>
+                ${renderEvidenceEventButton(row.after, "No source-backed record in this lens for this year")}
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      </div>`;
+  }
+
   function renderDetail() {
     if (!els.detailPanel) return;
     if (!state.selectedEvent) {
@@ -1771,7 +1897,7 @@
         </div>
       </div>
       <div class="detail-body">
-        <p class="detail-summary">${escapeHtml(e.summary || "")}</p>
+        <p class="detail-summary">${escapeHtml(e.shortDescription || e.summary || "")}</p>
 
         <div class="detail-section">
           <h4>Confidence</h4>
@@ -1794,6 +1920,8 @@
             </div>
           </div>
         ` : ""}
+
+        ${renderDetailLensEvidence(e)}
 
         ${sources.length ? `
           <div class="detail-section">
@@ -1822,6 +1950,7 @@
     `;
 
     els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
+    wireEvidenceEventButtons(els.detailInner);
     els.detailInner.querySelector("#detailOpenLens")?.addEventListener("click", () => setLensOpen(true));
     els.detailInner.querySelector("#detailShare")?.addEventListener("click", async () => {
       const url = new URL(window.location.href);
@@ -1929,6 +2058,7 @@
           <span class="event-dot" aria-hidden="true"></span>
           <span class="event-main">
             <span class="event-title">${escapeHtml(event.title)}</span>
+            <span class="event-summary">${escapeHtml(event.shortDescription || event.summary || "")}</span>
             <span class="event-meta">${escapeHtml(event.area || "Unknown area")} / ${escapeHtml(layer.label)} / ${escapeHtml(confidence)} / ${sourceCount} source${sourceCount === 1 ? "" : "s"}</span>
           </span>
           <span class="event-year">${event.year}</span>
@@ -2234,6 +2364,46 @@
     els.compareAfterYear.value = String(state.compareAfterYear || state.year);
   }
 
+  function ensureCompareEvidenceLoaded(beforeYear, afterYear) {
+    const years = [...new Set([Number(beforeYear), Number(afterYear)].filter((year) => state.chunks.has(year)))];
+    const missing = years.filter((year) => !state.loadedEvents.has(year));
+    if (!missing.length) return true;
+    const key = years.join(",");
+    if (state.compareEvidenceLoadingKey !== key) {
+      state.compareEvidenceLoadingKey = key;
+      Promise.all(missing.map((year) => loadYear(year))).finally(() => {
+        if (state.compareEvidenceLoadingKey === key) state.compareEvidenceLoadingKey = "";
+        renderComparePanel();
+      });
+    }
+    return false;
+  }
+
+  function renderCompareEvidence(rows, beforeYear, afterYear, ready) {
+    if (!ready) {
+      return `<div class="compare-evidence"><div class="lens-evidence-note">Loading source-backed evidence rows for ${beforeYear} and ${afterYear}.</div></div>`;
+    }
+    const evidenceRows = evidenceRowsForYears(beforeYear, afterYear)
+      .filter((row) => state.activeLayers.has(row.layer.id));
+    return `
+      <div class="compare-evidence">
+        <div class="lens-evidence-note">Before/after rows show one inspectable source-backed record per active lens. Count differences are descriptive, not causal.</div>
+        ${evidenceRows.map((row) => `
+          <div class="lens-evidence-row" style="--accent:${row.layer.color}">
+            <div class="lens-evidence-label"><span></span>${escapeHtml(row.layer.label)}</div>
+            <div>
+              <small>Before ${beforeYear}</small>
+              ${renderEvidenceEventButton(row.before, "No source-backed record in this lens")}
+            </div>
+            <div>
+              <small>After ${afterYear}</small>
+              ${renderEvidenceEventButton(row.after, "No source-backed record in this lens")}
+            </div>
+          </div>
+        `).join("")}
+      </div>`;
+  }
+
   function renderComparePanel() {
     if (!els.comparePanel) return;
     els.comparePanel.setAttribute("data-open", String(state.compareOpen));
@@ -2247,6 +2417,7 @@
     const afterCount = compareCountForYear(afterYear);
     const delta = afterCount - beforeCount;
     const rows = compareCategoryRows(beforeYear, afterYear);
+    const evidenceReady = ensureCompareEvidenceLoaded(beforeYear, afterYear);
 
     if (els.compareStats) {
       els.compareStats.innerHTML = `
@@ -2260,7 +2431,9 @@
               <i>${row.delta >= 0 ? "+" : ""}${compactNumber(row.delta)}</i>
             </span>
           `).join("")}
-        </div>`;
+        </div>
+        ${renderCompareEvidence(rows, beforeYear, afterYear, evidenceReady)}`;
+      wireEvidenceEventButtons(els.compareStats);
     }
     setText(els.compareNote, "Layer filters apply to this count comparison. OpenStreetMap remains the current orientation basemap; record deltas are not proof of construction volume, congestion, value change, or causation.");
   }
@@ -2293,9 +2466,7 @@
         after: Number(after[layer.id] || 0),
         delta: Number(after[layer.id] || 0) - Number(before[layer.id] || 0),
       }))
-      .filter((row) => row.before || row.after)
-      .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
-      .slice(0, 6);
+      .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
   }
 
   function recenterMap() {

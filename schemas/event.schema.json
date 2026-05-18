@@ -8,6 +8,7 @@
     "city_id",
     "event_id",
     "title",
+    "short_description",
     "year",
     "effective_date",
     "date_precision",
@@ -29,6 +30,7 @@
     "city_id": {"type": "string"},
     "event_id": {"type": "string"},
     "title": {"type": "string"},
+    "short_description": {"type": "string", "minLength": 12, "maxLength": 220},
     "year": {"type": "integer", "minimum": 1700},
     "effective_date": {"type": ["string", "null"]},
     "effective_date_range": {

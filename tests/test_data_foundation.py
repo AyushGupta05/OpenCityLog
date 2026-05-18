@@ -31,6 +31,8 @@ class DataFoundationTests(unittest.TestCase):
             event = year_payload["events"][0]
             self.assertEqual(event["city_id"], "belfast")
             self.assertEqual(event["confidence"], "inferred")
+            self.assertTrue(event["short_description"])
+            self.assertLessEqual(len(event["short_description"]), 220)
             self.assertEqual(event["source_ids"], ["osm-overpass"])
             self.assertEqual(event["geometry"]["type"], "Point")
             self.assertIn("not a confirmed real-world opening", event["explanation"])
@@ -118,6 +120,22 @@ class DataFoundationTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("missing provenance.geometry_source", completed.stderr)
 
+    def test_verify_rejects_missing_short_description(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0].pop("short_description", None)
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("missing short_description", completed.stderr)
+
     def test_verify_rejects_duplicate_event_ids(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -133,6 +151,33 @@ class DataFoundationTests(unittest.TestCase):
             completed = run_node(root, "scripts/verify_data.js", check=False)
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("Duplicate event id in belfast", completed.stderr)
+
+    def test_verify_rejects_duplicate_source_record_events(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            duplicate = dict(payload["events"][0])
+            duplicate["event_id"] = "osm-traffic-way-duplicate"
+            payload["events"].append(duplicate)
+            payload["event_count"] = len(payload["events"])
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            index_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events.json"
+            index = read_json(index_path)
+            for chunk in index["chunks"]:
+                if chunk["year"] == 2024:
+                    chunk["event_count"] = len(payload["events"])
+            index["event_count"] += 1
+            index_path.write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("Duplicate source-record event in belfast", completed.stderr)
 
     def test_verify_rejects_advertised_overlay_without_limitations(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

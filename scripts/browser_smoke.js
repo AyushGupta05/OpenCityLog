@@ -57,6 +57,7 @@ function cameraMatches(before, after) {
   assert(initial.compareOpen === "false", "Compare panel should start closed.");
   assert(initial.layersCount === "6/6 on", "All paper-atlas layers should be active on first load.");
   assert(initial.detailOpen && initial.detailTitle.length > 8, "Selected event detail panel did not render.");
+  assert(initial.detailLensEvidenceRows === 6 && initial.detailEvidenceButtons > 0, "Detail panel did not render before/after evidence across lenses.");
   assert(initial.welcomeOpen === "false" && initial.welcomeVisibility === "hidden", "Welcome card did not close cleanly.");
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(initial.bodyText), "Legacy simulator copy is visible.");
 
@@ -72,7 +73,14 @@ function cameraMatches(before, after) {
   assert(afterPinClick.detailTitle === "York Street rail station opened", "Clicking a map pin did not update the evidence detail panel.");
   assert(afterPinClick.activePin?.text.includes("York Street"), "Clicked map pin did not become the active event.");
 
-  await page.locator("#eventList .event-row").filter({ hasText: "Belfast Grand Central Station opened" }).first().click();
+  const grandCentralTitle = "Belfast Grand Central Station opened";
+  await page.locator("#searchInput").fill(grandCentralTitle);
+  await page.waitForFunction(
+    (title) => [...document.querySelectorAll("#eventList .event-row")].some((row) => row.textContent.includes(title)),
+    grandCentralTitle,
+    { timeout: 10000 }
+  );
+  await page.locator("#eventList .event-row").filter({ hasText: grandCentralTitle }).first().click();
   await page.waitForFunction(
     () => document.querySelector(".detail-title")?.textContent.includes("Belfast Grand Central Station opened"),
     null,
@@ -81,6 +89,8 @@ function cameraMatches(before, after) {
   const afterListClick = await atlasState(page);
   assert(afterListClick.detailTitle === "Belfast Grand Central Station opened", "Clicking the changelog list did not select the event detail.");
   assert(afterListClick.activePin?.text.includes("Belfast Grand Central"), "Changelog selection did not sync to the map pin.");
+  await page.locator("#searchInput").fill("");
+  await page.waitForFunction(() => !window.BimsAtlas?.state?.search, null, { timeout: 10000 });
 
   await page.locator(".layer-row[data-layer='transport']").click();
   await page.waitForFunction(
@@ -115,12 +125,14 @@ function cameraMatches(before, after) {
 
   await page.locator("#compareBtn").click();
   await page.waitForFunction(
-    () => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true",
+    () => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true"
+      && document.querySelectorAll("#compareStats .lens-evidence-row").length === 6,
     null,
     { timeout: 10000 }
   );
   const afterCompare = await atlasState(page);
   assert(afterCompare.compareOpen === "true" && /Delta|records logged/.test(afterCompare.compareStats), "Compare panel did not show record-count stats.");
+  assert(afterCompare.compareEvidenceButtons > 0, "Compare panel did not expose before/after evidence rows.");
 
   await page.locator("#tiltBtn").click();
   await page.waitForFunction(() => window.BimsAtlas?.state?.map?.getPitch?.() > 10, null, { timeout: 10000 });

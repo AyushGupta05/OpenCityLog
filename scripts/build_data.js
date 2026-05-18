@@ -439,6 +439,37 @@ function caveatsForLegacyEvent(event, sourceId) {
   return [...new Set(caveats)];
 }
 
+function compactText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function sentenceLimit(value, maxLength = 220) {
+  let text = compactText(value);
+  if (text.length < 12) {
+    text = compactText(text ? `${text} source-backed city change record.` : "Source-backed city change record.");
+  }
+  if (text.length <= maxLength) return text;
+  const sentence = text.slice(0, maxLength + 1).match(/^(.+?[.!?])\s/);
+  if (sentence && sentence[1].length >= 40 && sentence[1].length <= maxLength) return sentence[1];
+  const suffix = "...";
+  const clipped = text.slice(0, maxLength - suffix.length);
+  const lastSpace = clipped.lastIndexOf(" ");
+  return `${clipped.slice(0, lastSpace > 80 ? lastSpace : clipped.length).trim().replace(/[ .,;:]+$/, "")}${suffix}`;
+}
+
+function shortDescriptionForLegacyEvent(event, sourceId) {
+  if (event.shortDescription) return sentenceLimit(event.shortDescription);
+  if (event.observed_change || event.observedChange) return sentenceLimit(event.observed_change || event.observedChange);
+  if (event.subtitle && !/use the .* lens/i.test(String(event.subtitle))) return sentenceLimit(event.subtitle);
+  if (sourceId === "osm-overpass") {
+    return sentenceLimit(`${event.title || "Mapped feature"} is an OpenStreetMap visibility record near ${event.area || "Belfast"}.`);
+  }
+  if (sourceId === "ni-planning-statistics") {
+    return sentenceLimit(`${event.title || "Planning decision"} is an administrative planning record for ${event.area || "Belfast"}.`);
+  }
+  return sentenceLimit(event.title || "Source-backed city change record.");
+}
+
 function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
   const sourceId = sourceIdForLegacyEvent(event);
   const dates = dateFieldsForLegacyEvent(event);
@@ -451,6 +482,7 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
     record_kind: "event",
     event_id: String(event.id || event.event_id),
     title: String(event.title || "Observed city change"),
+    short_description: shortDescriptionForLegacyEvent(event, sourceId),
     year,
     effective_date: dates.effective_date,
     effective_date_range: dates.effective_date_range,
@@ -470,6 +502,7 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
     caveats: caveatsForLegacyEvent(event, sourceId),
     provenance: {
       transform: "scripts/build_data.js#normalizeLegacyBelfastEvent",
+      source_path: legacyCatalogPath,
       legacy_catalog_path: legacyCatalogPath,
       legacy_event_id: String(event.id || event.event_id),
       legacy_source_id: event.sourceId || null,
@@ -570,6 +603,7 @@ function featureForEvent(event) {
       year: event.year,
       effective_date: event.effective_date,
       date_precision: event.date_precision,
+      short_description: event.short_description,
       category: event.category,
       lens: event.lens,
       confidence: event.confidence,
@@ -599,7 +633,36 @@ function eventCountForFamily(family, events) {
   return events.filter((event) => (event.source_ids || []).some((sourceId) => sourceIds.has(sourceId))).length;
 }
 
+function existingGeneratedCitySummary(root, outputDir, city) {
+  if (city.city_id === "belfast") return null;
+  const cityOutputDir = path.join(outputDir, "cities", city.city_id);
+  const cityPath = path.join(cityOutputDir, "city.json");
+  const sourcesPath = path.join(cityOutputDir, "sources.json");
+  const eventsPath = path.join(cityOutputDir, "events.json");
+  if (!fs.existsSync(cityPath) || !fs.existsSync(sourcesPath) || !fs.existsSync(eventsPath)) return null;
+  const cityPayload = readJson(cityPath);
+  const sourcesPayload = readJson(sourcesPath);
+  const eventsIndex = readJson(eventsPath);
+  if (!Number.isInteger(eventsIndex.event_count) || eventsIndex.event_count <= 0) return null;
+  return {
+    city_id: city.city_id,
+    display_name: cityPayload.display_name || city.display_name,
+    event_count: eventsIndex.event_count,
+    source_count: sourcesPayload.source_count || (sourcesPayload.sources || []).length,
+    availability_status: cityPayload.data_availability?.status || city.data_availability?.status || "unknown",
+    artifact_paths: cityPayload.artifact_paths || {
+      city: relativeFromRoot(root, cityPath),
+      sources: relativeFromRoot(root, sourcesPath),
+      events: relativeFromRoot(root, eventsPath),
+      availability: relativeFromRoot(root, path.join(cityOutputDir, "availability.json")),
+      ...generatedArtifactPaths(root, cityOutputDir),
+    },
+  };
+}
+
 function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPath, generatedAt) {
+  const existing = existingGeneratedCitySummary(root, outputDir, city);
+  if (existing) return existing;
   const cityOutputDir = path.join(outputDir, "cities", city.city_id);
   const { events, migration } = eventsForCity(root, city, legacyCatalogPath);
   const eventsByYear = new Map();

@@ -117,6 +117,9 @@ function validateValue(value, schema, label, failures, rootSchema = schema) {
   if (Number.isInteger(schema.minLength) && typeof value === "string" && value.length < schema.minLength) {
     fail(failures, `${label} is shorter than minLength ${schema.minLength}`);
   }
+  if (Number.isInteger(schema.maxLength) && typeof value === "string" && value.length > schema.maxLength) {
+    fail(failures, `${label} is longer than maxLength ${schema.maxLength}`);
+  }
 
   if (Array.isArray(value)) {
     if (Number.isInteger(schema.minItems) && value.length < schema.minItems) {

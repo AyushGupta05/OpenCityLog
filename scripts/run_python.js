@@ -8,7 +8,7 @@ if (!args.length) {
 }
 
 const candidates = process.platform === "win32"
-  ? ["py", "python", "python3"]
+  ? ["python", "python3", "py"]
   : ["python3", "python", "py"];
 
 function versionText(result) {
@@ -17,6 +17,11 @@ function versionText(result) {
 
 function isPython3(result) {
   return /Python\s+3\./i.test(versionText(result));
+}
+
+function quoteCommandArg(arg) {
+  if (/^[A-Za-z0-9_./:=+-]+$/.test(arg)) return arg;
+  return `"${arg.replace(/"/g, '\\"')}"`;
 }
 
 let lastError = null;
@@ -30,7 +35,9 @@ for (const executable of candidates) {
   if (probe.status !== 0 || !isPython3(probe)) continue;
 
   const runArgs = executable === "py" ? ["-3", ...args] : args;
-  const result = spawnSync(executable, runArgs, { stdio: "inherit" });
+  const result = process.platform === "win32"
+    ? spawnSync([executable, ...runArgs].map(quoteCommandArg).join(" "), { shell: true, stdio: "inherit" })
+    : spawnSync(executable, runArgs, { stdio: "inherit" });
   if (result.error) {
     lastError = result.error;
     continue;

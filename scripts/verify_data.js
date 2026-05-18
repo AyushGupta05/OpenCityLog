@@ -222,6 +222,20 @@ function hasProvenanceTrace(event) {
   );
 }
 
+function compactText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function sourceRecordSignature(event) {
+  const provenance = event.provenance || {};
+  const recordId = compactText(provenance.source_record_id || provenance.planning_application_id || provenance.legacy_source_id);
+  if (!recordId) return null;
+  const sourceIds = (event.source_ids || []).map(String).filter(Boolean).sort();
+  if (!sourceIds.length || sourceIds.includes(recordId)) return null;
+  const title = compactText(event.title).toLowerCase();
+  return `${sourceIds.join(",")}\u0000${recordId}\u0000${event.effective_date || ""}\u0000${event.category || ""}\u0000${title}`;
+}
+
 function hasSourceAccessTrace(source) {
   return Boolean(source.accessed_at || source.retrieved_at || source.registry_reviewed_at);
 }
@@ -293,7 +307,15 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, event.city_id === city.city_id, `${prefix} city_id does not match ${city.city_id}`);
   assert(failures, Boolean(event.event_id), `${prefix} missing event_id`);
   assert(failures, Boolean(event.title), `${prefix} missing title`);
+  const shortDescription = compactText(event.short_description);
+  assert(failures, Boolean(shortDescription), `${prefix} missing short_description`);
+  assert(failures, shortDescription.length >= 12, `${prefix} short_description is too short`);
+  assert(failures, shortDescription.length <= 220, `${prefix} short_description is longer than 220 characters`);
   assert(failures, Number.isInteger(event.year), `${prefix} missing integer year`);
+  const effectiveYear = Number(String(event.effective_date || "").slice(0, 4));
+  if (Number.isInteger(effectiveYear) && event.date_precision !== "range") {
+    assert(failures, effectiveYear === event.year, `${prefix} effective_date year ${effectiveYear} does not match event year ${event.year}`);
+  }
   const supported = city.available_years || {};
   assert(
     failures,
@@ -316,6 +338,7 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, Boolean(event.provenance?.geometry_source), `${prefix} missing provenance.geometry_source for spatial interpretation`);
   assert(failures, Boolean(event.provenance?.geometry_precision), `${prefix} missing provenance.geometry_precision for spatial precision/caveats`);
   assert(failures, !containsOverclaim(event.title), `${prefix} title contains overclaiming language`);
+  assert(failures, !containsOverclaim(event.short_description), `${prefix} short_description contains overclaiming language`);
   assert(failures, !containsOverclaim(event.explanation), `${prefix} explanation contains overclaiming language`);
   assert(failures, !containsOverclaim((event.caveats || []).join(" ")), `${prefix} caveats contain overclaiming language`);
 
@@ -400,6 +423,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
     validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex);
     let countedEvents = 0;
     const seenEventIds = new Set();
+    const seenSourceRecords = new Map();
     for (const chunk of eventsIndex.chunks || []) {
       const chunkPath = resolve(root, chunk.json_path);
       const geojsonPath = resolve(root, chunk.geojson_path);
@@ -413,6 +437,16 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
       for (const event of payload.events || []) {
         assert(failures, !seenEventIds.has(event.event_id), `Duplicate event id in ${city.city_id}: ${event.event_id}`);
         seenEventIds.add(event.event_id);
+        const signature = sourceRecordSignature(event);
+        if (signature) {
+          const existing = seenSourceRecords.get(signature);
+          assert(
+            failures,
+            !existing,
+            `Duplicate source-record event in ${city.city_id}: ${event.event_id} duplicates ${existing}`,
+          );
+          seenSourceRecords.set(signature, event.event_id);
+        }
         validateEvent(failures, event, validationCity, effectiveSourceById, chunkPath);
       }
       if (fs.existsSync(geojsonPath)) {

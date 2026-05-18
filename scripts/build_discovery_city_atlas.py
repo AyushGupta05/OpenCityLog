@@ -186,6 +186,13 @@ def safe_public_text(value: Any) -> str:
         (r"\bdoes not treat forecasts as completed outcomes\b", "does not treat projected schedule fields as completed outcomes"),
         (r"\bnot proof of\b", "not evidence of"),
         (r"\bas proof of\b", "as evidence of"),
+        (r"\bproof that\b", "evidence that"),
+        (r"\bwill increase\b", "is described as intended to increase"),
+        (r"\bwill decrease\b", "is described as intended to decrease"),
+        (r"\bwill reduce\b", "is described as intended to reduce"),
+        (r"\bwill improve\b", "is described as intended to improve"),
+        (r"\bwill worsen\b", "is described as possibly worsening"),
+        (r"\bwill cause\b", "is described as potentially causing"),
         (r"\bnot final cause/outcome\b", "not final incident-origin/outcome"),
         (r"\bnot final cause or impact determinations\b", "not final incident-origin or impact determinations"),
         (r"\bnot final cause determinations\b", "not final incident-origin determinations"),
@@ -193,6 +200,30 @@ def safe_public_text(value: Any) -> str:
     for pattern, replacement in replacements:
         text = re.sub(pattern, replacement, text, flags=re.I)
     return text
+
+
+def compact_text(value: Any) -> str:
+    return re.sub(r"\s+", " ", safe_public_text(value)).strip()
+
+
+def short_description(value: Any, fallback: Any = "") -> str:
+    text = compact_text(value)
+    fallback_text = compact_text(fallback)
+    if len(text) < 12 and fallback_text:
+        text = fallback_text
+    if len(text) < 12:
+        text = f"{text} source-backed city change record.".strip()
+    if len(text) <= 220:
+        return text
+    sentence = re.match(r"^(.+?[.!?])\s", text[:221])
+    if sentence and 40 <= len(sentence.group(1)) <= 220:
+        return sentence.group(1)
+    suffix = "..."
+    clipped = text[: 220 - len(suffix)]
+    split_at = clipped.rfind(" ")
+    if split_at > 80:
+        clipped = clipped[:split_at]
+    return clipped.rstrip(" .,;:") + suffix
 
 
 def slug(text: str) -> str:
@@ -208,10 +239,10 @@ def stable_hash(text: str) -> int:
 
 
 def year_from_date(value: Any) -> int:
-    m = re.search(r"(17|18|19|20)\d{2}", str(value or ""))
+    m = re.search(r"(16|17|18|19|20)\d{2}", str(value or ""))
     if not m:
         return 2026
-    return max(1700, min(2026, int(m.group(0))))
+    return int(m.group(0))
 
 
 def date_precision(value: Any) -> str:
@@ -410,6 +441,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     primary_source = source_by_id.get(source_ids[0]) if source_ids else None
     primary_evidence = evidence[0] if evidence else {}
     explanation = safe_public_text(item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package.")
+    concise = short_description(item.get("short_description") or item.get("summary") or item.get("observed_change"), explanation)
     source_date_field = source_date_field_for(item)
     caveats = [
         safe_public_text(item.get("limitations") or "Discovery milestone: use as a search/analysis anchor, not a final causal estimate."),
@@ -423,6 +455,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "record_kind": "event",
         "event_id": item.get("event_id") or f"{city}-milestone-{year}-{slug(title)}-{idx}",
         "title": title,
+        "short_description": concise,
         "year": year,
         "effective_date": str(date).split("-")[0] if date_precision(date) == "range" else str(date),
         "effective_date_range": str(date) if date_precision(date) == "range" else None,
@@ -466,6 +499,7 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
         "city_id": city,
         "event_id": f"{city}-current-layer-{slug(sid)}",
         "title": f"Current data layer: {title}",
+        "short_description": short_description(source.get("description") or source.get("limitations"), f"Current source layer for {title}."),
         "year": 2026,
         "effective_date": "2026",
         "effective_date_range": None,
@@ -556,13 +590,29 @@ def build_city(city: str) -> dict[str, Any]:
     source_raw = catalog_payload.get("sources", []) + architecture_sources_for_city(city)
     sources = [source_to_registry(city, s) for s in source_raw]
     source_by_id = {s["source_id"]: raw for s, raw in zip(sources, source_raw)}
-    events = []
-    for i, item in enumerate(load_seeds(city)):
-        events.append(normalize_seed(city, item, i, source_by_id))
-    events.sort(key=lambda e: (e["year"], e["event_id"]))
-
     city_dir = OUT / "cities" / city
     city_dir.mkdir(parents=True, exist_ok=True)
+    events = []
+    rejected_events = []
+    for i, item in enumerate(load_seeds(city)):
+        event = normalize_seed(city, item, i, source_by_id)
+        if not 1700 <= event["year"] <= 2026:
+            rejected_events.append({
+                "event_id": event["event_id"],
+                "title": event["title"],
+                "effective_date": event.get("effective_date"),
+                "reason": "source date is outside the atlas coverage window and was not clamped into a current year",
+                "source_path": event.get("provenance", {}).get("source_path"),
+                "source_record_id": event.get("provenance", {}).get("source_record_id"),
+            })
+            continue
+        events.append(event)
+    events.sort(key=lambda e: (e["year"], e["event_id"]))
+    rejected_path = city_dir / "rejected_events.json"
+    if rejected_events:
+        write_json(rejected_path, {"schema_version": SCHEMA, "city_id": city, "generated_at": GENERATED_AT, "rejected_count": len(rejected_events), "events": rejected_events})
+    elif rejected_path.exists():
+        rejected_path.unlink()
     for stale in city_dir.glob("events_*.json"):
         stale.unlink()
     for stale in city_dir.glob("events_*.geojson"):
@@ -576,7 +626,7 @@ def build_city(city: str) -> dict[str, Any]:
         json_path = city_dir / f"events_{year}.json"
         geojson_path = city_dir / f"events_{year}.geojson"
         write_json(json_path, {"schema_version": SCHEMA, "city_id": city, "year": year, "event_count": len(year_events), "events": year_events})
-        write_json(geojson_path, {"type": "FeatureCollection", "schema_version": SCHEMA, "city_id": city, "year": year, "features": [{"type":"Feature","id":e["event_id"],"properties":{k:e.get(k) for k in ["city_id","event_id","title","year","effective_date","date_precision","category","lens","confidence","source_ids","explanation"]},"geometry":e.get("geometry")} for e in year_events]})
+        write_json(geojson_path, {"type": "FeatureCollection", "schema_version": SCHEMA, "city_id": city, "year": year, "features": [{"type":"Feature","id":e["event_id"],"properties":{k:e.get(k) for k in ["city_id","event_id","title","short_description","year","effective_date","date_precision","category","lens","confidence","source_ids","explanation"]},"geometry":e.get("geometry")} for e in year_events]})
         chunks.append({"year": year, "event_count": len(year_events), "counts_by_category": dict(Counter(e["category"] for e in year_events)), "counts_by_confidence": dict(Counter(e["confidence"] for e in year_events)), "counts_by_category_confidence": nested_counts(year_events, "category", "confidence"), "json_path": str(json_path.relative_to(ROOT)).replace("\\", "/"), "geojson_path": str(geojson_path.relative_to(ROOT)).replace("\\", "/")})
 
     families = source_families(sources, events)
