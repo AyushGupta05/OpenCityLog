@@ -1,24 +1,24 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-18T01:32:11Z
+Generated: 2026-05-18T17:32:08Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 29761 | 7 | 8 | 2007-2026 | transport 17118, built_environment 10442, utilities 851 | 70239 |
-| London, England | 189610 | 33 | 95 | 1801-2026 | built_environment 70463, civic_services 53302, transport 37809 | 0 |
-| New York City, New York | 29398 | 32 | 118 | 1797-2026 | built_environment 14239, transport 6235, environment 6080 | 70602 |
+| Belfast, Northern Ireland | 30082 | 7 | 8 | 2007-2026 | transport 17118, built_environment 10763, utilities 851 | 69918 |
+| London, England | 189954 | 33 | 95 | 1801-2026 | built_environment 70807, civic_services 53302, transport 37809 | 0 |
+| New York City, New York | 29745 | 32 | 118 | 1797-2026 | built_environment 14586, transport 6235, environment 6080 | 70255 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 29761. Unique event IDs: 29761. Duplicate IDs: 0.
+Backed events: 30082. Unique event IDs: 30082. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | OpenStreetMap extracts via Overpass API | 17965 | 2007-2026 | transport 17114, utilities 851 | usable_with_caveats |
 | Northern Ireland planning activity statistics | 11347 | 2016-2025 | built_environment 10000, civic_services 675, economy 672 | strong |
-| Belfast architecture and major project public pages | 441 | 2008-2026 | built_environment 441 | usable_with_caveats |
+| Belfast architecture and major project public pages | 762 | 2008-2026 | built_environment 762 | usable_with_caveats |
 | Belfast City Council public project and facility pages | 3 | 2017-2023 | civic_services 3 | usable_with_caveats |
 | Translink public project and station pages | 3 | 2021-2024 | transport 3 | usable_with_caveats |
 | Department for Infrastructure NI public project pages | 1 | 2018-2018 | transport 1 | usable_with_caveats |
@@ -28,7 +28,7 @@ Catalog-only sources without emitted event rows: 8.
 
 ## London, England
 
-Backed events: 189610. Unique event IDs: 189610. Duplicate IDs: 0.
+Backed events: 189954. Unique event IDs: 189954. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -49,7 +49,7 @@ Catalog-only sources without emitted event rows: 95.
 
 ## New York City, New York
 
-Backed events: 29398. Unique event IDs: 29398. Duplicate IDs: 0.
+Backed events: 29745. Unique event IDs: 29745. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
