@@ -1,4 +1,4 @@
-const { spawnSync } = require("child_process");
+const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
@@ -11,14 +11,35 @@ function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
-function buildCity(cityId) {
-  const args = ["--max-old-space-size=4096", "scripts/build_lens_overlays.js"];
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const result = spawnSync(process.execPath, args, {
+function runOverlayProcess(cityId) {
+  return new Promise((resolve) => {
+    const child = spawn(process.execPath, ["--max-old-space-size=4096", "scripts/build_lens_overlays.js"], {
       cwd: rootDir,
       env: { ...process.env, ONLY: cityId },
       stdio: "inherit",
     });
+
+    const heartbeat = setInterval(() => {
+      console.log(`lens overlays: still building ${cityId}...`);
+    }, 25000);
+
+    child.on("close", (code, signal) => {
+      clearInterval(heartbeat);
+      resolve({ status: code, signal });
+    });
+
+    child.on("error", (error) => {
+      clearInterval(heartbeat);
+      console.error(error);
+      resolve({ status: 1, signal: null });
+    });
+  });
+}
+
+async function buildCity(cityId) {
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    console.log(`lens overlays: building ${cityId} (attempt ${attempt}/3)`);
+    const result = await runOverlayProcess(cityId);
 
     if (result.status === 0) return;
 
@@ -32,6 +53,11 @@ function buildCity(cityId) {
   }
 }
 
-for (const cityId of cityIds) {
-  buildCity(cityId);
-}
+(async () => {
+  for (const cityId of cityIds) {
+    await buildCity(cityId);
+  }
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
