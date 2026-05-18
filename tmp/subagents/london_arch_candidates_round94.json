@@ -1,0 +1,380 @@
+[
+  {
+    "event_id": "lon_arch_qeh_purcell_hayward_listing_2026",
+    "city": "London",
+    "title": "Queen Elizabeth Hall, Purcell Room and Hayward Gallery listed at Grade II",
+    "summary": "Historic England records the Queen Elizabeth Hall, Purcell Room and Hayward Gallery, with associated terraced walkways and stairs, as first listed at Grade II on 4 February 2026.",
+    "effective_date": "2026-02-04",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.115993,
+        51.506466
+      ]
+    },
+    "source_name": "National Heritage List for England: The Queen Elizabeth Hall, Purcell Room and Hayward Gallery and associated terraced walkways and stairs",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1492622",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1492622",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2026. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1492622; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_cobham_mews_studios_listing_2025",
+    "city": "London",
+    "title": "Cobham Mews Studios listed at Grade II",
+    "summary": "Historic England records Cobham Mews Studios at 1 and 1a Cobham Mews as first listed at Grade II on 14 August 2025.",
+    "effective_date": "2025-08-14",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.132895,
+        51.54323
+      ]
+    },
+    "source_name": "National Heritage List for England: Cobham Mews Studios",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1493381",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1493381",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2025. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1493381; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_old_palace_croydon_great_chamber_listing_2025",
+    "city": "London",
+    "title": "Old Palace Croydon great chamber and undercroft range listed at Grade I",
+    "summary": "Historic England records the great chamber and undercroft range at Old Palace Croydon as first listed at Grade I on 11 June 2025.",
+    "effective_date": "2025-06-11",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.105555,
+        51.372292
+      ]
+    },
+    "source_name": "National Heritage List for England: Old Palace Croydon: great chamber and undercroft range",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1493514",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1493514",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, restoration, or public-opening work in 2025. Geometry is the Open Data Hub point marker for one Old Palace Croydon list entry, not the whole site boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1493514; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_groom_place_stable_yard_listing_2025",
+    "city": "London",
+    "title": "5 Groom Place and stable yard listed at Grade II",
+    "summary": "Historic England records 5 Groom Place and stable yard as first listed at Grade II on 15 May 2025.",
+    "effective_date": "2025-05-15",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.151191,
+        51.499125
+      ]
+    },
+    "source_name": "National Heritage List for England: 5 Groom Place and stable yard",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1493124",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1493124",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2025. Geometry is the Open Data Hub point marker, not a measured building or yard boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1493124; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_connaught_place_16_18_listing_2024",
+    "city": "London",
+    "title": "16-18 Connaught Place listed at Grade II",
+    "summary": "Historic England records 16-18 Connaught Place as first listed at Grade II on 20 March 2024.",
+    "effective_date": "2024-03-20",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.162031,
+        51.513721
+      ]
+    },
+    "source_name": "National Heritage List for England: 16-18 Connaught Place",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1487872",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1487872",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2024. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1487872; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_upminster_report_centre_listing_2023",
+    "city": "London",
+    "title": "Upminster Report Centre and civil-defence buildings listed at Grade II",
+    "summary": "Historic England records the Second World War Upminster Report Centre, including a gas cleansing station and other civil-defence buildings, as first listed at Grade II on 15 August 2023.",
+    "effective_date": "2023-08-15",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.244966,
+        51.556395
+      ]
+    },
+    "source_name": "National Heritage List for England: Second World War, Upminster Report Centre, including a gas cleansing station and other civil defence buildings",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1484138",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1484138",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, repair, or public-opening work in 2023. Geometry is the Open Data Hub point marker, not a measured compound or building-group boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1484138; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_high_street_kensington_k8_kiosk_listing_2023",
+    "city": "London",
+    "title": "K8 Kiosk at High Street Kensington Station listed at Grade II",
+    "summary": "Historic England records the K8 Kiosk at High Street Kensington Station as first listed at Grade II on 31 May 2023.",
+    "effective_date": "2023-05-31",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.192278,
+        51.500487
+      ]
+    },
+    "source_name": "National Heritage List for England: K8 Kiosk on High Street Kensington Station",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1485667",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1485667",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence installation, refurbishment, or public-opening work in 2023. Geometry is the Open Data Hub point marker for the kiosk location, not a measured kiosk footprint.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1485667; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_st_mildred_addiscombe_listing_2023",
+    "city": "London",
+    "title": "Church of St Mildred, Addiscombe listed at Grade II",
+    "summary": "Historic England records the Church of St Mildred, Addiscombe as first listed at Grade II on 26 May 2023.",
+    "effective_date": "2023-05-26",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.069932,
+        51.379246
+      ]
+    },
+    "source_name": "National Heritage List for England: Church of St Mildred, Addiscombe",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1485732",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1485732",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, restoration, or public-opening work in 2023. Geometry is the Open Data Hub point marker, not a measured church or churchyard boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1485732; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_ironmongers_hall_listing_2023",
+    "city": "London",
+    "title": "Ironmongers' Hall listed at Grade II",
+    "summary": "Historic England records Ironmongers' Hall, excluding Ferroners' House, as first listed at Grade II on 20 April 2023.",
+    "effective_date": "2023-04-20",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.096134,
+        51.518218
+      ]
+    },
+    "source_name": "National Heritage List for England: Ironmongers' Hall, excluding Ferroners' House",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1485812",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1485812",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2023. Geometry is the Open Data Hub point marker, not a measured hall boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1485812; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_piper_building_listing_2022",
+    "city": "London",
+    "title": "Former exhibition block of Watson House listed at Grade II",
+    "summary": "Historic England records the former exhibition block of Watson House, now the Piper Building, and attached John Piper relief panels as first listed at Grade II on 22 August 2022.",
+    "effective_date": "2022-08-22",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.193,
+        51.465978
+      ]
+    },
+    "source_name": "National Heritage List for England: The former exhibition block of Watson House, now the Piper Building, and the attached relief panels by John Piper",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1482128",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1482128",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, conversion, or public-opening work in 2022. Geometry is the Open Data Hub point marker, not a measured building or panel boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1482128; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_london_scottish_house_listing_2021",
+    "city": "London",
+    "title": "London Scottish House listed at Grade II",
+    "summary": "Historic England records London Scottish House as first listed at Grade II on 16 December 2021.",
+    "effective_date": "2021-12-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.133175,
+        51.495249
+      ]
+    },
+    "source_name": "National Heritage List for England: London Scottish House",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1478839",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1478839",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2021. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1478839; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_guildhall_west_wing_listing_2021",
+    "city": "London",
+    "title": "West Wing, Guildhall listed at Grade II",
+    "summary": "Historic England records the West Wing, Guildhall as first listed at Grade II on 9 August 2021.",
+    "effective_date": "2021-08-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.092688,
+        51.515871
+      ]
+    },
+    "source_name": "National Heritage List for England: West Wing, Guildhall",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1476841",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1476841",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2021. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1476841; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_22_shad_thames_listing_2021",
+    "city": "London",
+    "title": "22 Shad Thames listed at Grade II",
+    "summary": "Historic England records 22 Shad Thames as first listed at Grade II on 28 May 2021.",
+    "effective_date": "2021-05-28",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.072096,
+        51.501999
+      ]
+    },
+    "source_name": "National Heritage List for England: 22 Shad Thames",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1475166",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1475166",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2021. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1475166; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  },
+  {
+    "event_id": "lon_arch_former_tooting_police_station_listing_2021",
+    "city": "London",
+    "title": "Former Tooting Police Station listed at Grade II",
+    "summary": "Historic England records Former Tooting Police Station as first listed at Grade II on 4 May 2021.",
+    "effective_date": "2021-05-04",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.15984,
+        51.421527
+      ]
+    },
+    "source_name": "National Heritage List for England: Former Tooting Police Station",
+    "publisher": "Historic England",
+    "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1474338",
+    "source_type": "official heritage designation page and open-data record",
+    "source_record_id": "NHLE 1474338",
+    "source_date_field": "Date first listed / ListDate",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0 applies to Historic England Open Data Hub GIS data; list-entry page text, images, and map terms require separate review.",
+    "attribution": "Historic England, National Heritage List for England; (c) Crown Copyright 2026. Contains Ordnance Survey data (c) Crown copyright and database right 2026.",
+    "confidence": "documented",
+    "limitations": "Records statutory designation only; it does not evidence construction, refurbishment, or public-opening work in 2021. Geometry is the Open Data Hub point marker, not a measured building boundary.",
+    "transformation_method": "Queried the Historic England NHLE Open Data Hub Listed Building points layer for ListEntry 1474338; transformed ListDate and WGS84 point geometry into Bims event-candidate fields and checked the matching NHLE list-entry URL.",
+    "category": "architecture/heritage_designation/listed_building"
+  }
+]

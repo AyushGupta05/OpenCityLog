@@ -1,0 +1,407 @@
+[
+  {
+    "event_id": "bfs_arch_marlborough_princes_court_apartments_approved_2025",
+    "city": "Belfast",
+    "title": "Marlborough House and Princes Court apartment redevelopment was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for a Victoria Street and Marlborough Street residential redevelopment involving demolition, partial demolition, and refurbishment of listed Princes Court for 103 apartments on 2025-06-17.",
+    "effective_date": "2025-06-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9234681,
+        54.6002134
+      ]
+    },
+    "source_name": "Agenda item for LA04/2024/1592/F, Marlborough House and Princes Court",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=83839",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/1592/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 June 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This is an administrative planning-approval milestone, not evidence that construction, demolition, occupation, or listed-building works had started or completed. Geometry is an approximate point for Marlborough Street and Victoria Street.",
+    "transformation_method": "Manually extracted application reference, committee date, decision, site description, and proposal type from the Belfast City Council Planning Committee minute item; point geometry manually approximated from the named streets.",
+    "category": "planning approval - residential redevelopment"
+  },
+  {
+    "event_id": "bfs_arch_royal_avenue_35_39_shopfront_lbc_approved_2025",
+    "city": "Belfast",
+    "title": "35-39 Royal Avenue shopfront and listed-building works were approved",
+    "summary": "Belfast City Council Planning Committee approved full and listed building consent for shopfront alterations at 35-39 Royal Avenue on 2025-09-16.",
+    "effective_date": "2025-09-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9309579,
+        54.6007504
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2025/1140/F and LA04/2025/0976/LBC, 35-39 Royal Avenue",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=12051",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2025/1140/F; LA04/2025/0976/LBC",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 16 September 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records full and listed building consent for shopfront alterations, not installation, completion, tenancy, or wider building refurbishment. Geometry is an approximate point for 35-39 Royal Avenue.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry geocoded from the named address.",
+    "category": "listed building consent - shopfront alteration"
+  },
+  {
+    "event_id": "bfs_arch_the_oval_stadium_redevelopment_approved_2025",
+    "city": "Belfast",
+    "title": "The Oval stadium redevelopment was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for redevelopment of The Oval stadium on Parkgate Drive, including replacement stands, turnstiles, floodlighting, parking, and circulation works, on 2025-06-17.",
+    "effective_date": "2025-06-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.8908535,
+        54.6017362
+      ]
+    },
+    "source_name": "Agenda item for LA04/2024/0211/F, The Oval, Parkgate Drive",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=83841",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/0211/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 June 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This is a planning permission event, not evidence of stadium works being carried out or completed. Geometry is an approximate point for The Oval/Parkgate Drive site.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee minute item; effective date taken from the meeting date; point geometry approximated from the named stadium address.",
+    "category": "planning approval - sports venue redevelopment"
+  },
+  {
+    "event_id": "bfs_arch_885_shore_road_pavilion_pitch_approved_2025",
+    "city": "Belfast",
+    "title": "885 Shore Road pavilion and pitch works were approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for a new changing pavilion, entrance works, car park upgrades, 3G surfacing, and floodlighting at 885 Shore Road on 2025-06-17.",
+    "effective_date": "2025-06-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9234058,
+        54.6384389
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2023/4543/F, 885 Shore Road",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=12047&Ver=4",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2023/4543/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 June 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records committee approval subject to conditions and delegated authority for outstanding consultee matters; it does not verify construction, installation, opening, or final decision-notice issue. Geometry is an approximate point for 885 Shore Road.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda item and minute decision; effective date taken from the meeting date; point geometry geocoded from the named address.",
+    "category": "planning approval - sports facility works"
+  },
+  {
+    "event_id": "bfs_arch_kings_hall_plot9_medical_reserved_matters_approved_2025",
+    "city": "Belfast",
+    "title": "Kings Hall Plot 9 medical facility reserved matters were approved",
+    "summary": "Belfast City Council Planning Committee approved reserved matters for layout, scale, appearance, access, and landscaping for a medical facility at Plot 9 of the Kings Hall development on 2025-06-17.",
+    "effective_date": "2025-06-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9675508,
+        54.5674123
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2024/1761/RM, Kings Hall Plot 9",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=12047&Ver=4",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/1761/RM",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 June 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This is reserved-matters approval linked to outline permission for the Kings Hall development, not evidence that the medical facility was built, opened, or occupied. Geometry is an approximate point for the Kings Hall site rather than a surveyed Plot 9 centroid.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry approximated from the named Kings Hall location.",
+    "category": "planning approval - healthcare facility reserved matters"
+  },
+  {
+    "event_id": "bfs_arch_lagan_gateway_phase2_approved_2025",
+    "city": "Belfast",
+    "title": "Lagan Gateway Phase 2 greenway works were approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for Lagan Gateway Phase 2, a greenway connection between Lagan Gateway Phase 1 at Annadale Embankment and Belvoir Forest Park, on 2025-06-17.",
+    "effective_date": "2025-06-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9276988,
+        54.5681574
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2024/1036/F, Lagan Gateway Phase 2",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=12047&Ver=4",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/1036/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 June 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records planning approval for greenway and boardwalk works; it does not prove path construction, public opening, ecological clearance, or final decision-notice issue. Geometry is an approximate point within the linear Lagan Gateway corridor.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda item and minute decision; effective date taken from the meeting date; point geometry approximated from the named Lagan Gateway location.",
+    "category": "planning approval - greenway public realm"
+  },
+  {
+    "event_id": "bfs_arch_the_mount_listed_housing_approved_2025",
+    "city": "Belfast",
+    "title": "The Mount listed-building housing redevelopment was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for redevelopment of listed buildings and land at and behind 34-36 The Mount for townhouses and apartments on 2025-09-16.",
+    "effective_date": "2025-09-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9056156,
+        54.5935934
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2024/0948/F, 34-36 The Mount",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=12051",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/0948/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 16 September 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This is a planning-approval record for a listed-building residential scheme, not evidence of restoration, construction, sale, tenancy, or completion. Geometry is an approximate point for 34-36 The Mount.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry geocoded from the named address.",
+    "category": "planning approval - listed building housing"
+  },
+  {
+    "event_id": "bfs_arch_antrim_road_733_735_social_housing_approved_2025",
+    "city": "Belfast",
+    "title": "733-735 Antrim Road social housing scheme was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for demolition of existing buildings at 733-735 Antrim Road and a two-block social housing development on 2025-10-14.",
+    "effective_date": "2025-10-14",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9365006,
+        54.637261
+      ]
+    },
+    "source_name": "Agenda item for LA04/2024/1576/F, 733-735 Antrim Road",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=85223",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/1576/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 14 October 2025.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records planning permission subject to conditions and a Section 76 planning agreement; it does not establish demolition, construction start, housing allocation, or completion. Geometry is an approximate point for 733-735 Antrim Road.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee minute item; effective date taken from the meeting date; point geometry geocoded from the named address.",
+    "category": "planning approval - social housing"
+  },
+  {
+    "event_id": "bfs_arch_st_teresas_gac_sports_facilities_approved_2026",
+    "city": "Belfast",
+    "title": "St Teresa's GAC clubhouse and pitch works were approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for St Teresa's GAC clubhouse extension, indoor sports hall, changing rooms, relocated grass pitch, new 3G training pitch, annex building, and associated site works on 2026-02-17.",
+    "effective_date": "2026-02-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -6.0083127,
+        54.578725
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2023/2633/F, St Teresa's GAC",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12348",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2023/2633/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 February 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records committee approval subject to conditions and delegated authority for outstanding consultee matters; it does not document construction, pitch installation, club occupation, or opening. Geometry is an approximate point for St Teresa's GAC at Glen Road Heights.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry geocoded from the named club location.",
+    "category": "planning approval - sports facility redevelopment"
+  },
+  {
+    "event_id": "bfs_arch_santander_house_transitional_care_approved_2026",
+    "city": "Belfast",
+    "title": "Santander House transitional care unit change of use was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for a change of use at Santander House, 1 Mays Meadow, from office use to a short-term transitional care unit on 2026-02-17.",
+    "effective_date": "2026-02-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9164022,
+        54.595364
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2025/1716/F, Santander House",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12348",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2025/1716/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 February 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This is a change-of-use planning decision, not evidence that the care unit fit-out, licensing, service operation, or patient use had started. Geometry is an approximate point for Mays Meadow/Lanyon Place.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry approximated from the named address.",
+    "category": "planning approval - healthcare change of use"
+  },
+  {
+    "event_id": "bfs_arch_newhill_youth_centre_garden_playcourt_approved_2026",
+    "city": "Belfast",
+    "title": "Newhill Youth and Community Centre garden and play-court works were approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for community garden improvements, a multi-use play-court, allotment area, outdoor food area, and pathways at Newhill Youth and Community Centre on 2026-02-17.",
+    "effective_date": "2026-02-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9794108,
+        54.5909448
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2024/1389/F, Newhill Youth and Community Centre",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12348",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/1389/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 February 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records planning permission for external community-facility works, not construction, completion, public access, or programme delivery. Geometry is an approximate point for Whiterock Road near the named community centre.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry approximated from the named address.",
+    "category": "planning approval - community open space"
+  },
+  {
+    "event_id": "bfs_arch_ulster_hall_facade_lighting_lbc_approved_2026",
+    "city": "Belfast",
+    "title": "Ulster Hall facade lighting listed building consent was approved",
+    "summary": "Belfast City Council Planning Committee granted listed building consent for facade lighting at Ulster Hall, 30 Bedford Street, on 2026-02-17.",
+    "effective_date": "2026-02-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9305172,
+        54.5946179
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2025/2216/LBC, Ulster Hall",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12348",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2025/2216/LBC",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 17 February 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records listed building consent only; it does not verify installation, commissioning, lighting operation, or heritage-condition discharge. Geometry is an approximate point for Ulster Hall.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry geocoded from the named venue.",
+    "category": "listed building consent - cultural venue"
+  },
+  {
+    "event_id": "bfs_arch_mays_meadow_office_public_realm_approved_2026",
+    "city": "Belfast",
+    "title": "Mays Meadow office and public-realm scheme was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for an eight-storey office building with ground-floor retail or business units, parking, cycle parking, plant areas, and public-realm improvements east of Lanyon Place Station on 2026-03-10.",
+    "effective_date": "2026-03-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9164022,
+        54.595364
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2025/0574/F, Mays Meadow",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12349",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2025/0574/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 10 March 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This is a planning approval for a proposed office/public-realm scheme, not evidence of construction, completion, letting, employment, or public-realm delivery. Geometry is an approximate point for Mays Meadow east of Lanyon Place Station.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry approximated from the named site.",
+    "category": "planning approval - office and public realm"
+  },
+  {
+    "event_id": "bfs_arch_bedford_clarence_hotel_conversion_approved_2026",
+    "city": "Belfast",
+    "title": "Bedford Street and Clarence Street hotel conversion was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission and conservation area consent for a hotel conversion and extension at 34-44 Bedford Street and 6 Clarence Street on 2026-03-10.",
+    "effective_date": "2026-03-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9310106,
+        54.5944495
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2024/0483/F and LA04/2024/0480/DCA, Bedford Street and Clarence Street",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12349",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2024/0483/F; LA04/2024/0480/DCA",
+    "source_date_field": "Planning Committee reconsideration date and minute decision, Tuesday 10 March 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "The minutes state the application had been approved at an October 2024 meeting and returned for reconsideration before permission and conservation area consent were granted on 2026-03-10; this does not show hotel construction, opening, or occupancy. Geometry is an approximate point for 34-44 Bedford Street.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the reconsideration meeting decision; point geometry geocoded from the named Bedford Street address.",
+    "category": "planning approval - hotel conversion"
+  },
+  {
+    "event_id": "bfs_arch_mount_masonic_hall_social_housing_approved_2026",
+    "city": "Belfast",
+    "title": "Former Mount Masonic Hall social housing scheme was approved",
+    "summary": "Belfast City Council Planning Committee granted planning permission for demolition of Mount Masonic Hall and construction of two social-housing blocks at 45 Park Avenue on 2026-03-10.",
+    "effective_date": "2026-03-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.8840733,
+        54.6024905
+      ]
+    },
+    "source_name": "Planning Committee agenda and minutes for LA04/2025/0837/F, former Mount Masonic Hall",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=12349",
+    "source_type": "local authority planning committee minutes",
+    "source_record_id": "LA04/2025/0837/F",
+    "source_date_field": "Planning Committee meeting date and minute decision, Tuesday 10 March 2026.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Belfast City Council website terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "confidence": "documented",
+    "limitations": "This records planning permission subject to conditions and Section 77 resolution; it does not establish demolition start, construction start, completion, or housing allocation. Geometry is an approximate point for Park Avenue near the named former Mount Masonic Hall site.",
+    "transformation_method": "Manually extracted from the Belfast City Council Planning Committee agenda and minutes; effective date taken from the meeting date; point geometry approximated from the named Park Avenue site.",
+    "category": "planning approval - social housing"
+  }
+]

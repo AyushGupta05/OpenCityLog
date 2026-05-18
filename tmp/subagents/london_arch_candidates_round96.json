@@ -1,0 +1,224 @@
+[
+  {
+    "event_id": "lon_arch_camden_town_hall_refurbishment_reopening_2023",
+    "city": "London",
+    "title": "Camden Town Hall reopened after refurbishment",
+    "summary": "Camden Council recorded the return of residents, councillors, and the public to the restored Camden Town Hall on 27 April 2023, after a four-year refurbishment of the Grade II listed civic building.",
+    "effective_date": "2023-04-27",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.125353,
+        51.529079
+      ]
+    },
+    "source_name": "Reopening of Town Hall marks a pioneering, greener, more inclusive and connected future for Camden",
+    "publisher": "London Borough of Camden",
+    "source_url": "https://news.camden.gov.uk/reopening-of-town-hall-marks-a-pioneering-greener-more-inclusive-and-connected-future-for-camden/",
+    "source_type": "official council news page",
+    "source_record_id": "camden-news-2023-04-27-town-hall-reopening",
+    "source_date_field": "news publication date and reopening statement",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Camden Council website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "London Borough of Camden, Camden Newsroom.",
+    "confidence": "documented",
+    "limitations": "Records the civic reopening and first council meeting back at the restored Town Hall, not the full design, procurement, or construction programme. Geometry is a postcode/address point for Camden Town Hall, not a building footprint.",
+    "transformation_method": "Extracted the documented reopening date and facility description from Camden's official news page; converted the public Town Hall postcode WC1H 9JE to a WGS84 point using a postcode centroid for atlas placement.",
+    "category": "architecture/civic_refurbishment"
+  },
+  {
+    "event_id": "lon_arch_wood_street_library_formal_opening_2020",
+    "city": "London",
+    "title": "Wood Street Library formally opened at Marlowe Road",
+    "summary": "Waltham Forest Council records the replacement Wood Street Library as formally opened on 13 August 2020 as part of the Marlowe Road redevelopment.",
+    "effective_date": "2020-08-13",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.004768,
+        51.588051
+      ]
+    },
+    "source_name": "Wood Street Families and Homes Hub, Walthamstow",
+    "publisher": "London Borough of Waltham Forest",
+    "source_url": "https://www.walthamforest.gov.uk/regeneration-and-growth/regeneration-projects-and-developments/regeneration-wood-street/wood-street-families-and-homes-hub-walthamstow",
+    "source_type": "official council regeneration project page",
+    "source_record_id": "waltham-forest-wood-street-library-formal-opening-2020-08-13",
+    "source_date_field": "formal opening date stated in project background",
+    "source_retrieved_at": "2026-05-18",
+    "license": "London Borough of Waltham Forest website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "London Borough of Waltham Forest.",
+    "confidence": "documented",
+    "limitations": "Records the formal opening of the replacement library, not the full Marlowe Road housing redevelopment or the later Families and Homes Hub. Geometry is a postcode/address point for Wood Street Library, not a building footprint.",
+    "transformation_method": "Extracted the formal opening date from the council project page; used the public Wood Street Library address/postcode for a WGS84 point suitable for candidate review.",
+    "category": "architecture/public_library"
+  },
+  {
+    "event_id": "lon_arch_tessa_jowell_health_centre_opening_2020",
+    "city": "London",
+    "title": "Tessa Jowell Health Centre opened in East Dulwich",
+    "summary": "NHS Property Services records the new Tessa Jowell Health Centre in East Dulwich as opened to appointment-only patients in May 2020.",
+    "effective_date_range": {
+      "start": "2020-05-01",
+      "end": "2020-05-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.080511,
+        51.459235
+      ]
+    },
+    "source_name": "Tessa Jowell Health Centre now open",
+    "publisher": "NHS Property Services",
+    "source_url": "https://www.property.nhs.uk/news-insights/news/tessa-jowell-health-centre-opening/",
+    "source_type": "institutional NHS estate news page",
+    "source_record_id": "nhsps-tessa-jowell-health-centre-opening-may-2020",
+    "source_date_field": "opening month stated by source",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NHS Property Services website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "NHS Property Services.",
+    "confidence": "documented",
+    "limitations": "The source gives the opening month, not an exact day, and records appointment-only patient use during the COVID-19 period. Geometry is a postcode/address point for the health centre, not a measured site boundary.",
+    "transformation_method": "Extracted the stated opening month and facility role from the NHS Property Services page; converted the public health-centre postcode SE22 8EY to a WGS84 point for atlas review.",
+    "category": "architecture/health_estate"
+  },
+  {
+    "event_id": "lon_arch_finsbury_health_centre_restoration_phase_one_2024",
+    "city": "London",
+    "title": "Finsbury Health Centre restoration first phase completed",
+    "summary": "NHS Property Services announced on 18 September 2024 that the first phase of restoration works at the Grade I listed Finsbury Health Centre had been completed, with the works completed in May 2024.",
+    "effective_date_range": {
+      "start": "2024-05-01",
+      "end": "2024-05-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.108818,
+        51.524866
+      ]
+    },
+    "source_name": "Preserving the historic Finsbury Health Centre",
+    "publisher": "NHS Property Services",
+    "source_url": "https://www.property.nhs.uk/news-insights/news/preserving-the-historic-finsbury-health-centre/",
+    "source_type": "institutional NHS estate news page",
+    "source_record_id": "nhsps-finsbury-health-centre-restoration-phase-one-may-2024",
+    "source_date_field": "announcement date and completion month stated by source",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NHS Property Services website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "NHS Property Services.",
+    "confidence": "documented",
+    "limitations": "Records completion of the first restoration phase only; later restoration phases and Heritage at Risk status changes are separate evidence paths. Geometry is a postcode/address point for Finsbury Health Centre, not a building footprint.",
+    "transformation_method": "Extracted the restoration-phase completion month from the NHS Property Services announcement; converted the public Pine Street postcode EC1R 0LP to a WGS84 point for review.",
+    "category": "architecture/heritage_restoration"
+  },
+  {
+    "event_id": "lon_arch_chiswick_health_centre_patient_opening_2025",
+    "city": "London",
+    "title": "Chiswick Health Centre opened for patients",
+    "summary": "NHS Property Services recorded on 31 March 2025 that the new Chiswick Health Centre on Fishers Lane was open to receive its first patients after two years of construction.",
+    "effective_date": "2025-03-31",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.260272,
+        51.493461
+      ]
+    },
+    "source_name": "Chiswick Health Centre Opened for Patients",
+    "publisher": "NHS Property Services",
+    "source_url": "https://www.property.nhs.uk/news-insights/news/chiswick-health-centre-opened-for-patients/",
+    "source_type": "institutional NHS estate news page",
+    "source_record_id": "nhsps-chiswick-health-centre-opened-for-patients-2025-03-31",
+    "source_date_field": "news publication date and opening statement",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NHS Property Services website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "NHS Property Services.",
+    "confidence": "documented",
+    "limitations": "Records the patient-opening milestone for the health centre, not the later community celebration or every service move-in date. Geometry is a postcode/address point for Fishers Lane, not a parcel boundary.",
+    "transformation_method": "Extracted the opening-for-patients milestone from the NHS Property Services news page; converted the public W4 1RX postcode to a WGS84 point for atlas placement.",
+    "category": "architecture/health_estate"
+  },
+  {
+    "event_id": "lon_arch_canada_water_leisure_centre_opening_2025",
+    "city": "London",
+    "title": "Canada Water Leisure Centre opened",
+    "summary": "Southwark Council records Canada Water Leisure Centre opening its doors on 1 September 2025 in the Dock Shed building within the Canada Water masterplan.",
+    "effective_date": "2025-09-01",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.049801,
+        51.496139
+      ]
+    },
+    "source_name": "Canada Water Leisure Centre opens, marking milestone in London's first new town centre for 50 years",
+    "publisher": "Southwark Council",
+    "source_url": "https://www.southwark.gov.uk/news/2025/canada-water-leisure-centre-opens-marking-milestone-londons-first-new-town-centre-50",
+    "source_type": "official council news page",
+    "source_record_id": "southwark-canada-water-leisure-centre-opening-2025-09-01",
+    "source_date_field": "news date and opening-today statement",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Southwark Council website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "Southwark Council.",
+    "confidence": "documented",
+    "limitations": "Records the leisure-centre opening, not completion of the whole Canada Water masterplan or the later official launch event. Geometry is a postcode/address point for 7 Deal Porters Way, not a building footprint.",
+    "transformation_method": "Extracted the opening date and Dock Shed context from the Southwark Council news page; converted the public leisure-centre postcode SE16 2AJ to a WGS84 point for review.",
+    "category": "architecture/leisure_public_estate"
+  },
+  {
+    "event_id": "lon_arch_goose_green_playground_upgrade_completed_2026",
+    "city": "London",
+    "title": "Goose Green Playground upgrade completed",
+    "summary": "Southwark Council records completion of a Goose Green Playground improvement project on 27 March 2026, including replacement play equipment, ball-court works, and new play surfacing.",
+    "effective_date": "2026-03-27",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.074246,
+        51.461705
+      ]
+    },
+    "source_name": "Upgrade completed at Goose Green Playground",
+    "publisher": "Southwark Council",
+    "source_url": "https://www.southwark.gov.uk/news/2026/ps131000-upgrade-completed-goose-green-playground",
+    "source_type": "official council news page",
+    "source_record_id": "southwark-goose-green-playground-upgrade-completed-2026-03-27",
+    "source_date_field": "news date and completion statement",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Southwark Council website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "Southwark Council.",
+    "confidence": "documented",
+    "limitations": "Records completion of the playground improvement project, not a full park redevelopment or long-term use outcomes. Geometry is a postcode/address point for Goose Green Playground, not a measured play-area boundary.",
+    "transformation_method": "Extracted the completion date and works description from the Southwark Council news page; converted the public Goose Green Playground postcode SE22 9AT to a WGS84 point for atlas review.",
+    "category": "architecture/playground_public_realm"
+  },
+  {
+    "event_id": "lon_arch_peckham_rye_adventure_playground_reopening_2026",
+    "city": "London",
+    "title": "Peckham Rye Park Adventure Playground reopened after refurbishment",
+    "summary": "Southwark Council records Peckham Rye Park Adventure Playground reopening after a major refurbishment, with an opening event held on 18 March 2026.",
+    "effective_date": "2026-03-18",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.054767,
+        51.453955
+      ]
+    },
+    "source_name": "Peckham Rye Park Adventure Playground reopens following major refurbishment",
+    "publisher": "Southwark Council",
+    "source_url": "https://www.southwark.gov.uk/news/2026/peckham-rye-park-adventure-playground-reopens-following-ps575000-major-refurbishment",
+    "source_type": "official council news page",
+    "source_record_id": "southwark-peckham-rye-park-adventure-playground-reopening-2026-03-18",
+    "source_date_field": "opening event date stated by source",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Southwark Council website copyright and terms apply; factual metadata only; do not reuse page text or media without separate review.",
+    "attribution": "Southwark Council.",
+    "confidence": "documented",
+    "limitations": "Records the reopening and opening event after refurbishment, not the full consultation, planning, or procurement history. Geometry is a postcode/address point for Peckham Rye Park Adventure Playground, not a measured playground boundary.",
+    "transformation_method": "Extracted the reopening milestone and opening-event date from the Southwark Council news page; converted the public Peckham Rye Park Adventure Playground postcode SE22 0SB to a WGS84 point for atlas review.",
+    "category": "architecture/playground_public_realm"
+  }
+]

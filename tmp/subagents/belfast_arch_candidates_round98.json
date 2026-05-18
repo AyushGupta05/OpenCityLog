@@ -1,0 +1,245 @@
+[
+  {
+    "event_id": "bfs_arch_impact_training_lanark_way_reported_operational_2021",
+    "city": "Belfast",
+    "title": "Impact Training Lanark Way extension was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2021-12-06 that the Impact Training project at Lanark Way had completed construction and was operational after extension and refurbishment works that added classrooms and improved training workshops.",
+    "effective_date": "2021-12-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.959409,
+        54.603281
+      ]
+    },
+    "source_name": "Impact Training",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/impact-training",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-impact-training",
+    "source_date_field": "article:published_time 2021-12-06T14:36:38+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to the named Lanark Way premises.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually geocoded from the named site context.",
+    "category": "community_education_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_aras_na_bhfal_reported_operational_2021",
+    "city": "Belfast",
+    "title": "Aras na bhFal was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2021-12-06 that the Iontaobhas na Gaelscolaiochta project had completed construction and was operational as a five-storey community and office building at Broadway and Falls Road.",
+    "effective_date": "2021-12-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.95971,
+        54.59251
+      ]
+    },
+    "source_name": "Iontaobhas na Gaelscolaiochta (InaG)",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/iontaobhas-na-gaelscolaiochta-inag",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-iontaobhas-na-gaelscolaiochta-inag",
+    "source_date_field": "article:published_time 2021-12-06T14:33:18+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to the Broadway and Falls Road corner named in the source.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually geocoded from the named junction context.",
+    "category": "cultural_community_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_argyle_business_centre_extension_reported_operational_2021",
+    "city": "Belfast",
+    "title": "Argyle Business Centre extension was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2021-12-08 that the Argyle Business Centre extension had completed construction and was operational, adding two blocks of business units in the lower Shankill area.",
+    "effective_date": "2021-12-08",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.949464,
+        54.602214
+      ]
+    },
+    "source_name": "Argyle Business Centre",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/argyle-business-centre-finance",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-argyle-business-centre-finance",
+    "source_date_field": "article:published_time 2021-12-08T14:01:22+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to Argyle Business Centre on North Howard Street.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually geocoded from the named centre address context.",
+    "category": "social_economy_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_sandy_row_resource_centre_reported_operational_2022",
+    "city": "Belfast",
+    "title": "Sandy Row Resource Centre refurbishment was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2022-01-10 that Sandy Row Resource Centre had completed construction and was operational after purchase and refurbishment of premises for training, education, and community services.",
+    "effective_date": "2022-01-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.936946,
+        54.591973
+      ]
+    },
+    "source_name": "Sandy Row Resource Centre",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/sandy-row-resource-centre",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-sandy-row-resource-centre",
+    "source_date_field": "article:published_time 2022-01-10T10:52:30+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to the Sandy Row community facility context.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually geocoded from the named centre context.",
+    "category": "community_training_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_taughmonagh_enterprise_centre_reported_operational_2022",
+    "city": "Belfast",
+    "title": "Taughmonagh Enterprise Centre extension was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2022-01-10 that the Taughmonagh Enterprise Centre project had completed construction and was operational after works to create a day nursery expansion, healthy living centre, meeting space, and related community facilities.",
+    "effective_date": "2022-01-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.970164,
+        54.558141
+      ]
+    },
+    "source_name": "Taughmonagh Enterprise Centre",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/taughmonagh-enterprise-centre",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-taughmonagh-enterprise-centre",
+    "source_date_field": "article:published_time 2022-01-10T10:56:50+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to Finwood Park and the Taughmonagh Community Forum site context.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually geocoded from the named community facility context.",
+    "category": "community_health_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_crusaders_mcdonald_centre_reported_service_commencing_2021",
+    "city": "Belfast",
+    "title": "Crusaders McDonald Centre was reported complete with service delivery commencing",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2021-12-06 that the McDonald Centre at Crusaders had completed construction and that service delivery was commencing for a new community hub with education, childcare, health, sports, and cultural facilities.",
+    "effective_date": "2021-12-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.921968,
+        54.623672
+      ]
+    },
+    "source_name": "Crusaders - McDonald Centre",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/crusaders-mcdonald-centre",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-crusaders-mcdonald-centre",
+    "source_date_field": "article:published_time 2021-12-06T14:25:43+00:00 and Progress to date field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed construction and commencing service delivery but not the exact construction-completion day; the point is approximate to the Crusaders Seaview site on St Vincent Street.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported completion/service-start status; point manually geocoded from the named Seaview and St Vincent Street context.",
+    "category": "community_sports_education_building_reported_complete"
+  },
+  {
+    "event_id": "bfs_arch_oak_partnership_clarawood_reported_operational_2021",
+    "city": "Belfast",
+    "title": "Oak Partnership Clarawood community centre was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2021-11-29 that the Oak Partnership Clarawood project had completed construction and was operational after renovation and expansion of the Oak Centre and an adjacent business unit in Clarawood Estate.",
+    "effective_date": "2021-11-29",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.8648,
+        54.579
+      ]
+    },
+    "source_name": "The Oak Partnership - Clarawood Project",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/oak-partnership-clarawood-project",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-oak-partnership-clarawood-project",
+    "source_date_field": "article:published_time 2021-11-29T11:05:53+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to Clarawood Estate because the page does not publish a street address for the Oak Centre.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually placed from the named Clarawood Estate context.",
+    "category": "community_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_st_simons_church_hall_reported_operational_2022",
+    "city": "Belfast",
+    "title": "St Simon's Church Hall refurbishment was reported operational",
+    "summary": "The Executive Office Social Investment Fund page recorded on 2022-01-10 that the St Simon's project had completed construction and was operational after purchase and refurbishment of a derelict two-storey church hall for South City Resource and Development Centre community use.",
+    "effective_date": "2022-01-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.953497,
+        54.588655
+      ]
+    },
+    "source_name": "St Simons",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/st-simons",
+    "source_type": "official programme page",
+    "source_record_id": "teo-sif-st-simons",
+    "source_date_field": "article:published_time 2022-01-10T10:45:03+00:00 and page Status field",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The official page records completed and operational status but not the exact construction-completion day; the point is approximate to St Simon's Church on Donegall Road.",
+    "transformation_method": "Selected from official SIF capital pages; screened against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official article publication date for the reported operational status; point manually geocoded from the named church hall context.",
+    "category": "community_building_reported_operational"
+  },
+  {
+    "event_id": "bfs_arch_bradley_court_opening_2020",
+    "city": "Belfast",
+    "title": "Bradley Court learning disability residential home opened",
+    "summary": "The Department of Health recorded on 2020-08-26 that the Health Minister opened Bradley Court, a North Belfast residential nursing home for adults with learning disability and associated care needs.",
+    "effective_date": "2020-08-26",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.962188,
+        54.612696
+      ]
+    },
+    "source_name": "Health Minister opens new learning disability residential home",
+    "publisher": "Department of Health",
+    "source_url": "https://www.health-ni.gov.uk/news/health-minister-opens-new-learning-disability-residential-home",
+    "source_type": "official news release",
+    "source_record_id": "doh-health-minister-opens-new-learning-disability-residential-home-2020-08-26",
+    "source_date_field": "Date published 26 August 2020",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright",
+    "attribution": "Contains public sector information from the Department of Health licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The source records the opening and service purpose, not the full planning history, construction timeline, or later operating changes; the point is approximate to the 420 Crumlin Road care-home campus.",
+    "transformation_method": "Selected from official health-sector news after screening against the Belfast architecture manual file and rounds 94-97 by event_id, source_url, source_record_id, and title/source terms; effective date uses the official published opening date; point manually geocoded from the named Crumlin Road address context.",
+    "category": "health_building_opening"
+  }
+]

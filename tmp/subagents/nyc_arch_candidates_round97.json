@@ -1,0 +1,272 @@
+[
+  {
+    "event_id": "nyc_arch_audubon_park_historic_district_designated_2009",
+    "city": "New York City",
+    "title": "Audubon Park Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Audubon Park Historic District designation in Upper Manhattan on May 12, 2009.",
+    "effective_date": "2009-05-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9475,
+        40.8354
+      ]
+    },
+    "source_name": "Audubon Park Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2335.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-audubon-park-historic-district-lp-2335",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid near Riverside Drive and West 156th to West 158th Streets; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_prospect_heights_historic_district_designated_2009",
+    "city": "New York City",
+    "title": "Prospect Heights Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Prospect Heights Historic District designation in Brooklyn on June 23, 2009.",
+    "effective_date": "2009-06-23",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9678,
+        40.6778
+      ]
+    },
+    "source_name": "Prospect Heights Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2314.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-prospect-heights-historic-district-lp-2314",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid in Prospect Heights; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_ridgewood_north_historic_district_designated_2009",
+    "city": "New York City",
+    "title": "Ridgewood North Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Ridgewood North Historic District designation in Queens on September 15, 2009.",
+    "effective_date": "2009-09-15",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9027,
+        40.7067
+      ]
+    },
+    "source_name": "Ridgewood North Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2319.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-ridgewood-north-historic-district-lp-2319",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid in Ridgewood; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_soho_cast_iron_historic_district_extension_designated_2010",
+    "city": "New York City",
+    "title": "SoHo-Cast Iron Historic District Extension was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the SoHo-Cast Iron Historic District Extension designation in Manhattan on May 11, 2010.",
+    "effective_date": "2010-05-11",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.0001,
+        40.7224
+      ]
+    },
+    "source_name": "SoHo-Cast Iron Historic District Extension designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2362.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-soho-cast-iron-historic-district-extension-lp-2362",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate centroid for the extension areas; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_ridgewood_south_historic_district_designated_2010",
+    "city": "New York City",
+    "title": "Ridgewood South Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Ridgewood South Historic District designation in Queens on October 26, 2010.",
+    "effective_date": "2010-10-26",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9032,
+        40.7005
+      ]
+    },
+    "source_name": "Ridgewood South Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2348.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-ridgewood-south-historic-district-lp-2348",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid in Ridgewood; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_addisleigh_park_historic_district_designated_2011",
+    "city": "New York City",
+    "title": "Addisleigh Park Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Addisleigh Park Historic District designation in St. Albans, Queens, on February 1, 2011.",
+    "effective_date": "2011-02-01",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.771,
+        40.6929
+      ]
+    },
+    "source_name": "Addisleigh Park Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2405.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-addisleigh-park-historic-district-lp-2405",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid in Addisleigh Park; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_central_ridgewood_historic_district_designated_2014",
+    "city": "New York City",
+    "title": "Central Ridgewood Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Central Ridgewood Historic District designation in Queens on December 9, 2014.",
+    "effective_date": "2014-12-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8969,
+        40.704
+      ]
+    },
+    "source_name": "Central Ridgewood Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2448.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-central-ridgewood-historic-district-lp-2448",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid in Central Ridgewood; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_bedford_historic_district_designated_2015",
+    "city": "New York City",
+    "title": "Bedford Historic District was designated",
+    "summary": "The NYC Landmarks Preservation Commission designation report records the Bedford Historic District designation in Bedford-Stuyvesant, Brooklyn, on December 8, 2015.",
+    "effective_date": "2015-12-08",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9458,
+        40.6834
+      ]
+    },
+    "source_name": "Bedford Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2514.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-bedford-historic-district-lp-2514",
+    "source_date_field": "designation report date and LP number",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid in Bedford-Stuyvesant; the official boundary must be read from LPC designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date and LP number from the report, assigned an approximate district centroid, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_ocean_breeze_riding_arena_opening_2016",
+    "city": "New York City",
+    "title": "Ocean Breeze Riding Arena opened in Staten Island",
+    "summary": "The NYC Department of Design and Construction recorded an April 29, 2016 ribbon-cutting for the Ocean Breeze Riding Arena, a public park facility on Father Capodanno Boulevard in Staten Island.",
+    "effective_date": "2016-04-29",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.0715,
+        40.5829
+      ]
+    },
+    "source_name": "News - Ribbon Cutting - Ocean Breeze Riding Arena",
+    "publisher": "NYC Department of Design and Construction",
+    "source_url": "https://www.nyc.gov/site/ddc/about/news-archive/ribbon-ocean-breeze-riding.page",
+    "source_type": "official agency news page",
+    "source_record_id": "ddc-ocean-breeze-riding-arena-opening-2016-04-29",
+    "source_date_field": "agency page date and ribbon-cutting/opening text",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency page; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Department of Design and Construction; NYC Parks",
+    "confidence": "documented",
+    "limitations": "The point marks the riding-arena area near the Ocean Breeze athletic facilities and is not a surveyed building footprint. The source documents an opening/ribbon-cutting event, not later utilization or program outcomes.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the agency page date and opening context, assigned an approximate point in Ocean Breeze Park, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/public-facility"
+  },
+  {
+    "event_id": "nyc_arch_cccadi_firehouse_opening_2016",
+    "city": "New York City",
+    "title": "Caribbean Cultural Center African Diaspora Institute opened its East Harlem firehouse home",
+    "summary": "An official NYC Department of Cultural Affairs PDF records the October 2016 ribbon-cutting and grand-opening celebration for CCCADI's new home in the landmarked East Harlem firehouse on East 125th Street.",
+    "effective_date": "2016-10-13",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9381,
+        40.8044
+      ]
+    },
+    "source_name": "CCCADI Opens Doors to its New Historic Location with Ribbon Cutting Ceremony",
+    "publisher": "NYC Department of Cultural Affairs",
+    "source_url": "https://www.nyc.gov/assets/dcla/downloads/pdf/cccadi-rc-recap-hpd-edc.pdf",
+    "source_type": "official cultural-agency press release PDF",
+    "source_record_id": "dcla-cccadi-firehouse-opening-2016-10-13",
+    "source_date_field": "press release date 2016-10-14 and stated prior-evening ribbon-cutting",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Department of Cultural Affairs; NYCEDC; NYC HPD; Caribbean Cultural Center African Diaspora Institute",
+    "confidence": "documented",
+    "limitations": "The point marks the East 125th Street firehouse location and is not a measured interior plan or landmark boundary. The source documents the opening event and building reuse, not subsequent programming levels.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the press release date and prior-evening ribbon-cutting timing, assigned an approximate point at the East 125th Street firehouse, and checked event_id, source_url plus source_record_id, source_record_id, and title/source similarity against the manual corpus and rounds 94-96.",
+    "category": "planning/development/architecture/cultural"
+  }
+]

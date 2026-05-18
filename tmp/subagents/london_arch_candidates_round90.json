@@ -1,0 +1,407 @@
+[
+  {
+    "proposed_event_id": "lon_arch_lyric_hammersmith_reuben_foundation_wing_opening_2015",
+    "title": "Lyric Hammersmith reopened with the Reuben Foundation Wing",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/cultural facility",
+    "summary": "Lyric Hammersmith records that its building reopened in April 2015 after a multi-million-pound redevelopment that added the Reuben Foundation Wing and refurbished foyer spaces.",
+    "effective_date": "2015-04",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.2264,
+        51.4928
+      ]
+    },
+    "source_name": "The Lyric Announces Refurbishment of the Main House Auditorium and Studio",
+    "publisher": "Lyric Hammersmith Theatre",
+    "source_url": "https://lyric.co.uk/our-home/lyric-life/the-lyric-announces-refurbishment-of-the-main-house-auditorium-and-studio/",
+    "source_type": "institutional news page",
+    "source_record_id": "lyric-hammersmith-reuben-foundation-wing-reopened-april-2015",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Lyric Hammersmith Theatre",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Month-level reopening date only. The record covers the building reopening and wing addition, not later auditorium works or programming outcomes. Geometry is an approximate venue point.",
+    "transformation_method": "Manual candidate extraction from official theatre page; converted stated reopening month and venue location into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_plumstead_centre_opening_2020",
+    "title": "The Plumstead Centre opened in the refurbished Plumstead Library",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/community library leisure centre",
+    "summary": "Royal Borough of Greenwich records The Plumstead Centre as opening in 2020 following council investment, housed in a Grade II listed building with leisure, community, cafe, and library uses.",
+    "effective_date": "2020",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.0843,
+        51.4881
+      ]
+    },
+    "source_name": "Greenwich Builds is growing",
+    "publisher": "Royal Borough of Greenwich",
+    "source_url": "https://www.royalgreenwich.gov.uk/news/2022/greenwich-builds-growing-1750-council-homes-be-created-across-borough",
+    "source_type": "council news page",
+    "source_record_id": "royal-greenwich-plumstead-centre-opened-2020",
+    "license": "Council web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Royal Borough of Greenwich",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Year-level opening date from a later council news page. Confirm exact first public opening date before promotion to an authoritative event. Geometry is an approximate building point.",
+    "transformation_method": "Manual candidate extraction from official council page; normalized the stated year and named facility into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_maggies_royal_marsden_opening_2019",
+    "title": "Maggie's at The Royal Marsden opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/healthcare support centre",
+    "summary": "Maggie's records that its Royal Marsden centre opened in 2019 as a cancer-support building at The Royal Marsden Hospital in Sutton.",
+    "effective_date": "2019",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.191,
+        51.3437
+      ]
+    },
+    "source_name": "Royal Marsden - architecture and design",
+    "publisher": "Maggie's",
+    "source_url": "https://www.maggies.org/about-us/buildings-architecture/royal-marsden/",
+    "source_type": "charity architecture page",
+    "source_record_id": "maggies-royal-marsden-opened-2019",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Maggie's",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Year-level opening only. The record does not claim health outcomes, service capacity, or patient impact. Geometry is an approximate point within The Royal Marsden Sutton campus.",
+    "transformation_method": "Manual candidate extraction from official charity architecture page; normalized stated opening year and centre address context into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_brunel_eastern_gateway_building_completion_2012",
+    "title": "Brunel University Eastern Gateway Building completed",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/university campus",
+    "summary": "Brunel University's institutional timeline records the Eastern Gateway Building as completed in 2012 at its Uxbridge campus.",
+    "effective_date": "2012",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.4722,
+        51.5328
+      ]
+    },
+    "source_name": "Brunel through the years",
+    "publisher": "Brunel University of London",
+    "source_url": "https://www.brunel.ac.uk/about/our-history/Timeline.aspx",
+    "source_type": "institutional history timeline",
+    "source_record_id": "brunel-eastern-gateway-building-completed-2012",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Brunel University of London",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Year-level completion only. The record does not identify an exact opening day or occupancy sequence. Geometry is an approximate campus building point.",
+    "transformation_method": "Manual candidate extraction from official university timeline; normalized completion year and campus location into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_roehampton_university_library_opening_2017",
+    "title": "University of Roehampton Library opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/university library",
+    "summary": "University of Roehampton records that its library opened in September 2017, providing study spaces, book collections, archives, and special collections on the Roehampton campus.",
+    "effective_date": "2017-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.2438,
+        51.4567
+      ]
+    },
+    "source_name": "The University Library",
+    "publisher": "University of Roehampton",
+    "source_url": "https://www.roehampton.ac.uk/student-support/library/",
+    "source_type": "institutional facility page",
+    "source_record_id": "roehampton-university-library-opened-september-2017",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "University of Roehampton",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Month-level opening only. The record does not claim library-use outcomes or award significance. Geometry is an approximate campus library point.",
+    "transformation_method": "Manual candidate extraction from official university library page; normalized opening month and campus location into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_uwl_paul_hamlyn_library_opening_2015",
+    "title": "University of West London Paul Hamlyn Library opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/university library",
+    "summary": "University of West London's 2016 annual report records the new Paul Hamlyn Library at the St Mary's Road site opening for the 2015-16 academic year.",
+    "effective_date": "2015-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.3058,
+        51.5067
+      ]
+    },
+    "source_name": "Annual Report and Financial Statements 2016",
+    "publisher": "University of West London",
+    "source_url": "https://www.uwl.ac.uk/sites/uwl/files/uwl_annual_report_2016.pdf",
+    "source_type": "institutional annual report PDF",
+    "source_record_id": "uwl-paul-hamlyn-library-opened-2015-16-academic-year",
+    "license": "Publisher PDF terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "University of West London",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The annual report supports academic-year opening rather than a precise public opening day; September 2015 is used as a sortable month-level marker. Geometry is an approximate St Mary's Road campus point.",
+    "transformation_method": "Manual candidate extraction from official university annual report; converted academic-year opening statement into month-level Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_nhm_darwin_centre_public_opening_2009",
+    "title": "Natural History Museum Darwin Centre opened to the public",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/museum research collections facility",
+    "summary": "The Natural History Museum records that the Darwin Centre opened to the public in 2009, housing historic collections and working scientists.",
+    "effective_date": "2009",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.1764,
+        51.4967
+      ]
+    },
+    "source_name": "History and architecture",
+    "publisher": "Natural History Museum",
+    "source_url": "https://www.nhm.ac.uk/about-us/history-and-architecture.html",
+    "source_type": "museum history page",
+    "source_record_id": "nhm-darwin-centre-opened-public-2009",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Natural History Museum",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Year-level public opening only from the selected official page. The record does not separate handover, staff occupation, official ceremony, or collection moves. Geometry is an approximate museum-site point.",
+    "transformation_method": "Manual candidate extraction from official museum history page; normalized stated opening year and site location into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_mulberry_utc_new_building_opening_2017",
+    "title": "Mulberry UTC opened in a new Bow building",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/education building",
+    "summary": "Mulberry UTC records that the school opened in September 2017 in a brand new building on the site of the old fire station at Roman Road and Parnell Road in Bow.",
+    "effective_date": "2017-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.0244,
+        51.5329
+      ]
+    },
+    "source_name": "Mulberry UTC home page",
+    "publisher": "Mulberry UTC",
+    "source_url": "https://www.mulberryutc.org/",
+    "source_type": "school institutional page",
+    "source_record_id": "mulberry-utc-opened-new-building-september-2017",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Mulberry UTC",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Month-level opening only. The record does not claim education outcomes or later inspection findings. Geometry is an approximate school building point.",
+    "transformation_method": "Manual candidate extraction from official school page; normalized stated opening month and address context into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_world_heart_beat_embassy_gardens_opening_2022",
+    "title": "World Heart Beat Embassy Gardens opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/community concert hall music education",
+    "summary": "Wandsworth Council records the Mayor of Wandsworth opening World Heart Beat's new community concert hall and music education building on Ponton Road on 1 November 2022.",
+    "effective_date": "2022-11-01",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.1372,
+        51.4814
+      ]
+    },
+    "source_name": "Wandsworth Mayor opens London's first new community concert hall in 9 years",
+    "publisher": "Wandsworth Borough Council",
+    "source_url": "https://www.wandsworth.gov.uk/news/2022-news/news-november-2022/wandsworth-mayor-opens-london-s-first-new-community-concert-hall-in-9-years/",
+    "source_type": "council news page",
+    "source_record_id": "wandsworth-world-heart-beat-embassy-gardens-opening-2022-11-01",
+    "license": "Council web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Wandsworth Borough Council",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The event records formal opening of the venue; later concert seasons and education-programme activity are separate evidence paths. Geometry is an approximate Ponton Road venue point.",
+    "transformation_method": "Manual candidate extraction from official council news page; mapped stated opening date and venue address into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_the_nest_thamesmead_opening_2023",
+    "title": "The Nest Community Building and Library opened in Thamesmead",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/community library",
+    "summary": "Thamesmead official regeneration communications record the grand opening of The Nest Community Building and Library in Cygnet Square, South Thamesmead, on 12 April 2023.",
+    "effective_date": "2023-04-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.1207,
+        51.501
+      ]
+    },
+    "source_name": "Official opening of The Nest Community Building and Library",
+    "publisher": "Thamesmead / Peabody",
+    "source_url": "https://www.thamesmeadnow.org.uk/news/regeneration/official-opening-of-the-nest-community-building-and-library/",
+    "source_type": "regeneration project news page",
+    "source_record_id": "the-nest-community-building-library-opening-2023-04-12",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Thamesmead / Peabody",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The source is a project/regeneration communications page rather than a statutory completion certificate. The record covers the community building and library opening, not wider Southmere phase completion. Geometry is an approximate Cygnet Square point.",
+    "transformation_method": "Manual candidate extraction from official regeneration news page; normalized grand-opening date and site context into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_sidcup_storyteller_library_opening_2022",
+    "title": "Sidcup Storyteller library and cafe opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/library cinema mixed use",
+    "summary": "Bexley Libraries records that the Sidcup Storyteller library and cafe opened on 16 December 2022 as part of a new building also planned to include a cinema, studio, Changing Places toilet, and flats.",
+    "effective_date": "2022-12-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.1037,
+        51.4265
+      ]
+    },
+    "source_name": "The new Sidcup Library and cinema",
+    "publisher": "Bexley Libraries",
+    "source_url": "https://arena.yourlondonlibrary.net/web/bexley/the-new-sidcup-library",
+    "source_type": "public library service page",
+    "source_record_id": "sidcup-storyteller-library-cafe-opened-2022-12-16",
+    "license": "Public library website terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Bexley Libraries",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The event records the library and cafe opening; the cinema opening followed later and should be separately sourced if needed. Geometry is an approximate Sidcup High Street building point.",
+    "transformation_method": "Manual candidate extraction from public library service page; converted stated opening date and facility description into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_london_design_engineering_utc_permanent_building_2019",
+    "title": "London Design and Engineering UTC moved into its permanent Royal Docks building",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/technical education building",
+    "summary": "London City Hall records that London Design and Engineering UTC opened in September 2016 in temporary Royal Docks facilities and moved into its permanent location in January 2019.",
+    "effective_date": "2019-01",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.0658,
+        51.5078
+      ]
+    },
+    "source_name": "MD3294 Land disposal to support expansion of the London Design and Engineering UTC",
+    "publisher": "London City Hall",
+    "source_url": "https://www.london.gov.uk/who-we-are/governance-and-spending/promoting-good-governance/decision-making/mayoral-decisions/md3294-land-disposal-support-expansion-london-design-engineering-university-technical-college-utc",
+    "source_type": "mayoral decision record",
+    "source_record_id": "md3294-lde-utc-permanent-location-january-2019",
+    "license": "London City Hall reuse terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "London City Hall",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Month-level move to permanent location only. The record does not describe construction completion certification or later expansion plans. Geometry is an approximate Royal Docks campus point.",
+    "transformation_method": "Manual candidate extraction from official mayoral decision record; normalized stated move month and address context into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_ada_broad_lane_campus_opening_2016",
+    "title": "Ada National College for Digital Skills Broad Lane campus officially opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/further education campus",
+    "summary": "Ada's institutional history records that its Broad Lane campus in Tottenham Hale was officially opened by the Minister of State for Education in September 2016 after conversion of a former Haringey Council job centre.",
+    "effective_date": "2016-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.0604,
+        51.5871
+      ]
+    },
+    "source_name": "The Ada Story",
+    "publisher": "Ada, the National College for Digital Skills",
+    "source_url": "https://www.ada.ac.uk/the-ada-story/",
+    "source_type": "institutional history page",
+    "source_record_id": "ada-broad-lane-campus-officially-opened-september-2016",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Ada, the National College for Digital Skills",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Month-level official opening only. Ada later moved its London sixth form to a Victoria campus, so this record should be labelled as the first Tottenham Hale campus. Geometry is an approximate Broad Lane point.",
+    "transformation_method": "Manual candidate extraction from official institutional history page; normalized stated opening month and campus description into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_harris_academy_sutton_building_opening_2019",
+    "title": "Harris Academy Sutton building officially opened",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/secondary school",
+    "summary": "Sutton Council records the official opening of the Harris Academy Sutton building on 8 October 2019, noting that the school had opened to pupils in September 2018.",
+    "effective_date": "2019-10-08",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.1917,
+        51.348
+      ]
+    },
+    "source_name": "Sutton Council unveils new ultra-low energy Harris Academy in Belmont",
+    "publisher": "London Borough of Sutton",
+    "source_url": "https://www.sutton.gov.uk/w/sutton-council-unveils-new-ultra-low-energy-harris-academy-in-belmont",
+    "source_type": "council news page",
+    "source_record_id": "sutton-harris-academy-official-building-opening-2019-10-08",
+    "license": "Council web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "London Borough of Sutton",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The official opening date differs from the September 2018 pupil-opening date; both should remain distinct in downstream records. Geometry is an approximate school building point.",
+    "transformation_method": "Manual candidate extraction from official council news page; normalized official opening date and stated prior pupil-opening context into Bims event-candidate fields."
+  },
+  {
+    "proposed_event_id": "lon_arch_goldsmiths_caroline_graveson_computing_hub_opening_2026",
+    "title": "Goldsmiths opened its School of Computing hub in the Caroline Graveson Building",
+    "city": "London",
+    "country": "United Kingdom",
+    "category": "planning/development/architecture/university refurbishment",
+    "summary": "Goldsmiths records the official opening of the School of Computing's new hub in the Caroline Graveson Building in February 2026, following refurbishment of a four-floor building for computing teaching, research, and collaboration spaces.",
+    "effective_date": "2026-02-25",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.042,
+        51.4755
+      ]
+    },
+    "source_name": "New hub, new chapter for Computing at Goldsmiths",
+    "publisher": "Goldsmiths, University of London",
+    "source_url": "https://www.gold.ac.uk/news/2026/new-hub-new-chapter-for-computing-at-goldsmiths/",
+    "source_type": "institutional news page",
+    "source_record_id": "goldsmiths-caroline-graveson-computing-hub-official-opening-2026-02-25",
+    "license": "Publisher web terms not reviewed; cite URL and small factual metadata only.",
+    "attribution": "Goldsmiths, University of London",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The event records official opening of a refurbished computing hub, not initial construction of the building or measured education outcomes. Geometry is an approximate Batavia Road building point.",
+    "transformation_method": "Manual candidate extraction from official university news page; normalized publication/opening date and building location into Bims event-candidate fields."
+  }
+]

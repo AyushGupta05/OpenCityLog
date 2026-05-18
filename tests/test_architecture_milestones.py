@@ -18,9 +18,9 @@ class ArchitectureMilestoneTests(unittest.TestCase):
     def test_package_covers_all_target_cities(self) -> None:
         counts = Counter(event["city_id"] for event in self.payload["events"])
 
-        self.assertGreaterEqual(counts["london"], 812)
-        self.assertGreaterEqual(counts["nyc"], 823)
-        self.assertGreaterEqual(counts["belfast"], 770)
+        self.assertGreaterEqual(counts["london"], 914)
+        self.assertGreaterEqual(counts["nyc"], 904)
+        self.assertGreaterEqual(counts["belfast"], 834)
 
     def test_events_have_provenance_and_limits(self) -> None:
         for event in self.payload["events"]:

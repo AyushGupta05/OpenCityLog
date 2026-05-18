@@ -1,0 +1,218 @@
+[
+  {
+    "proposed_event_id": "bfs_arch_rbhsc_mri_unit_opened_2016",
+    "title": "Royal Belfast Hospital for Sick Children MRI unit opened",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "healthcare facility opening",
+    "summary": "A new MRI unit at the Royal Belfast Hospital for Sick Children was officially opened by the Northern Ireland Health Minister on 2016-10-19. The source describes the opening of the unit and its role as a dedicated imaging facility for children and young people.",
+    "effective_date": "2016-10-19",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.958,
+        54.5922
+      ]
+    },
+    "source_name": "O'Neill opens new GBP4 million MRI Unit at Royal Belfast Hospital for Sick Children",
+    "publisher": "Department of Health Northern Ireland",
+    "source_url": "https://www.health-ni.gov.uk/news/oneill-opens-new-ps4million-mri-unit-royal-belfast-hospital-sick-children",
+    "source_type": "official news release",
+    "source_record_id": "oneill-opens-new-ps4million-mri-unit-royal-belfast-hospital-sick-children",
+    "license": "Open Government Licence v3.0 public-sector information, subject to source-site terms",
+    "attribution": "Department of Health Northern Ireland",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The source documents the official opening of an MRI unit within the hospital, not the original construction date of the wider hospital campus. Geometry is an approximate point for the Royal Hospitals site rather than a source-supplied footprint.",
+    "transformation_method": "Manually extracted from the official Department of Health news release; effective date taken from the publication/opening date; point geometry approximated from the named hospital site."
+  },
+  {
+    "proposed_event_id": "bfs_arch_bradley_court_residential_nursing_home_opened_2020",
+    "title": "Bradley Court residential nursing home opened",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "healthcare facility opening",
+    "summary": "Bradley Court, a Belfast Trust residential nursing home in North Belfast, was officially opened by the Northern Ireland Health Minister on 2020-08-26. The source records the opening of the built facility and identifies it as a regional service for adults with learning disabilities and complex physical health care needs.",
+    "effective_date": "2020-08-26",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9577,
+        54.6174
+      ]
+    },
+    "source_name": "Swann opens new residential nursing home in North Belfast",
+    "publisher": "Department of Health Northern Ireland",
+    "source_url": "https://www.health-ni.gov.uk/news/swann-opens-new-residential-nursing-home-north-belfast",
+    "source_type": "official news release",
+    "source_record_id": "swann-opens-new-residential-nursing-home-north-belfast",
+    "license": "Open Government Licence v3.0 public-sector information, subject to source-site terms",
+    "attribution": "Department of Health Northern Ireland",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The record documents the official opening of the facility, not later operational performance or detailed building-phasing history. Geometry is an approximate site point for Bradley Court in North Belfast.",
+    "transformation_method": "Manually extracted from the official Department of Health news release; effective date taken from the publication/opening date; point geometry approximated from the named facility location."
+  },
+  {
+    "proposed_event_id": "bfs_arch_new_belfast_maternity_hospital_handover_2024",
+    "title": "New Belfast maternity hospital building completed for Trust handover",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "healthcare facility completion",
+    "summary": "Belfast Health and Social Care Trust recorded that the new maternity hospital building had been completed and handed over by the GRAHAM-BAM Healthcare Partnership to the Trust in April 2024.",
+    "effective_date": "2024-04-03",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9588,
+        54.5929
+      ]
+    },
+    "source_name": "Trust's new maternity hospital one step closer to opening",
+    "publisher": "Belfast Health and Social Care Trust",
+    "source_url": "https://belfasttrust.hscni.net/2024/04/03/trusts-new-maternity-hospital-one-step-closer-to-opening/",
+    "source_type": "official trust news release",
+    "source_record_id": "2024-04-03-trusts-new-maternity-hospital-one-step-closer-to-opening",
+    "license": "Belfast Health and Social Care Trust website terms; factual metadata cited with attribution",
+    "attribution": "Belfast Health and Social Care Trust",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "The source documents building completion and handover, not public opening, clinical commissioning, or patient transfer dates. Geometry is an approximate point for the maternity hospital area of the Royal Hospitals site.",
+    "transformation_method": "Manually extracted from the Belfast Trust source page; effective date taken from the publication date describing completion and handover; point geometry approximated from the named hospital campus."
+  },
+  {
+    "proposed_event_id": "bfs_arch_waterworks_footbridge_steps_approved_2024",
+    "title": "Waterworks pedestrian footbridge and replacement steps approved",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "public realm planning approval",
+    "summary": "Belfast City Council Planning Committee records identify application LA04/2023/3758/F for a pedestrian footbridge and replacement steps at Waterworks, Belfast, as approved in March 2024.",
+    "effective_date": "2024-03-19",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9399,
+        54.6176
+      ]
+    },
+    "source_name": "Planning Committee agenda and decisions, 19 March 2024",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=11668",
+    "source_type": "planning committee minutes",
+    "source_record_id": "LA04/2023/3758/F",
+    "license": "Belfast City Council copyright and reuse terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "This records a planning approval, not evidence that the bridge or steps were built or opened. Geometry is an approximate point within Waterworks rather than a source-supplied line or footprint.",
+    "transformation_method": "Manually extracted from Belfast City Council planning committee records; effective date taken from the committee meeting date; point geometry approximated from the named Waterworks location."
+  },
+  {
+    "proposed_event_id": "bfs_arch_queens_quay_kiosks_canopy_approved_2024",
+    "title": "Queen's Quay temporary kiosks and canopy approved",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "temporary public-realm facility planning approval",
+    "summary": "Belfast City Council Planning Committee records identify application LA04/2024/0055/F for new kiosks and a canopy at Queen's Quay, serving an active travel hub, corporate hire stand, events use, and cafe, as approved for a temporary five-year period.",
+    "effective_date": "2024-04-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.917,
+        54.6024
+      ]
+    },
+    "source_name": "Planning Committee agenda and decisions, 16 April 2024",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=11669",
+    "source_type": "planning committee minutes",
+    "source_record_id": "LA04/2024/0055/F",
+    "license": "Belfast City Council copyright and reuse terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "This records a temporary planning approval only; it does not document construction, opening, or the end date of the temporary use. Geometry is an approximate point on Queen's Quay.",
+    "transformation_method": "Manually extracted from Belfast City Council planning committee records; effective date taken from the committee meeting date; point geometry approximated from the named quay location."
+  },
+  {
+    "proposed_event_id": "bfs_arch_little_patrick_york_public_realm_approved_2024",
+    "title": "Little Patrick Street and York Street public realm scheme approved",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "public realm planning approval",
+    "summary": "Belfast City Council Planning Committee granted planning permission for application LA04/2023/3691/F, a public realm scheme at the junction of Little Patrick Street and York Street and along Little York Street and Little Patrick Street.",
+    "effective_date": "2024-12-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9284,
+        54.604
+      ]
+    },
+    "source_name": "Planning Committee minutes, 10 December 2024",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=11931",
+    "source_type": "planning committee minutes",
+    "source_record_id": "LA04/2023/3691/F",
+    "license": "Belfast City Council copyright and reuse terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "This records planning permission subject to conditions, not completed works or public opening. Geometry is an approximate point for the named street junction.",
+    "transformation_method": "Manually extracted from Belfast City Council planning committee minutes; effective date taken from the meeting decision date; point geometry approximated from the named streets."
+  },
+  {
+    "proposed_event_id": "bfs_arch_deramore_park_replacement_dwelling_approved_2024",
+    "title": "20 Deramore Park replacement dwelling approved",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "residential planning approval",
+    "summary": "Belfast City Council Planning Committee granted planning permission and conservation area consent for applications LA04/2024/1591/F and LA04/2024/1593/DCA, covering demolition of an existing dwelling and construction of a replacement dwelling with associated garden store, landscaping, and site works at 20 Deramore Park.",
+    "effective_date": "2024-12-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9458,
+        54.5747
+      ]
+    },
+    "source_name": "Planning Committee minutes, 10 December 2024",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=11931",
+    "source_type": "planning committee minutes",
+    "source_record_id": "LA04/2024/1591/F; LA04/2024/1593/DCA",
+    "license": "Belfast City Council copyright and reuse terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "This records planning permission and conservation area consent, not demolition, construction completion, or occupation. Geometry is an approximate address point for 20 Deramore Park.",
+    "transformation_method": "Manually extracted from Belfast City Council planning committee minutes; effective date taken from the meeting decision date; point geometry approximated from the named address."
+  },
+  {
+    "proposed_event_id": "bfs_arch_duncrue_complex_workshop_store_approved_2024",
+    "title": "Duncrue Complex workshop store approved",
+    "city": "Belfast",
+    "country": "United Kingdom",
+    "category": "industrial and service facility planning approval",
+    "summary": "Belfast City Council Planning Committee granted planning permission for application LA04/2024/1046/F, covering erection of a new workshop store, landscaping, and associated site works at Duncrue Complex, Duncrue Road.",
+    "effective_date": "2024-12-10",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9122,
+        54.6227
+      ]
+    },
+    "source_name": "Planning Committee minutes, 10 December 2024",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?MId=11931",
+    "source_type": "planning committee minutes",
+    "source_record_id": "LA04/2024/1046/F",
+    "license": "Belfast City Council copyright and reuse terms; factual metadata cited with attribution",
+    "attribution": "Belfast City Council",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "This records planning permission subject to conditions, not construction start, completion, or opening. Geometry is an approximate point for Duncrue Complex.",
+    "transformation_method": "Manually extracted from Belfast City Council planning committee minutes; effective date taken from the meeting decision date; point geometry approximated from the named complex."
+  }
+]

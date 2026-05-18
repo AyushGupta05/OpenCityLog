@@ -1,0 +1,326 @@
+[
+  {
+    "event_id": "nyc_arch_stonewall_inn_landmark_designated_2015",
+    "city": "New York City",
+    "title": "Stonewall Inn was designated a New York City landmark",
+    "summary": "The NYC Landmarks Preservation Commission recorded the Stonewall Inn as an individual landmark on June 23, 2015, recognizing a built-environment preservation milestone at Christopher Street.",
+    "effective_date": "2015-06-23",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.00215,
+        40.73364
+      ]
+    },
+    "source_name": "Stonewall Inn designation press release",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/assets/lpc/downloads/pdf/stonewall_inn62315.pdf",
+    "source_type": "official press release PDF",
+    "source_record_id": "lpc-stonewall-inn-designation-2015-06-23",
+    "source_date_field": "press release date and designation vote date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point marks the named landmark site; it is not a parcel boundary, interior survey, or condition assessment.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated LPC designation date, assigned an approximate point at 51-53 Christopher Street, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_st_michaels_episcopal_church_complex_landmark_designated_2016",
+    "city": "New York City",
+    "title": "St. Michael's Episcopal Church complex was designated a New York City landmark",
+    "summary": "The NYC Landmarks Preservation Commission press release records the church, parish house, and rectory at West 99th Street and Amsterdam Avenue as city landmarks on April 12, 2016.",
+    "effective_date": "2016-04-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.97037,
+        40.79562
+      ]
+    },
+    "source_name": "LPC April 12, 2016 backlog designations press release",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/site/lpc/about/pr2016/04-12a.page",
+    "source_type": "official press release",
+    "source_record_id": "lpc-st-michaels-episcopal-church-complex-designation-2016-04-12",
+    "source_date_field": "press release date and stated designation action",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency page; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point marks the church complex location; it is not a full landmark boundary or building-condition record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated LPC designation date, assigned an approximate point for the West 99th Street complex, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_east_village_lower_east_side_historic_district_designated_2012",
+    "city": "New York City",
+    "title": "East Village/Lower East Side Historic District was designated",
+    "summary": "The LPC designation report records the East Village/Lower East Side Historic District designation on October 9, 2012, adding a formal preservation boundary for part of Lower Manhattan's built fabric.",
+    "effective_date": "2012-10-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9877,
+        40.7265
+      ]
+    },
+    "source_name": "East Village/Lower East Side Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2491.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-east-village-lower-east-side-historic-district-lp-2491",
+    "source_date_field": "designation report date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid; the official boundary must be read from LPC maps and designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the designation report date, assigned an approximate centroid for the district, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_south_village_historic_district_designated_2013",
+    "city": "New York City",
+    "title": "South Village Historic District was designated",
+    "summary": "The LPC designation report records the South Village Historic District designation on December 17, 2013, documenting a preservation milestone for the neighborhood's historic streetscape.",
+    "effective_date": "2013-12-17",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.0008,
+        40.7278
+      ]
+    },
+    "source_name": "South Village Historic District designation report",
+    "publisher": "NYC Landmarks Preservation Commission",
+    "source_url": "https://s-media.nyc.gov/agencies/lpc/lp/2546.pdf",
+    "source_type": "official designation report PDF",
+    "source_record_id": "lpc-south-village-historic-district-lp-2546",
+    "source_date_field": "designation report date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC LPC public designation report PDF; citation-only factual metadata, no report text or images reproduced.",
+    "attribution": "NYC Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The point is an approximate district centroid; the official boundary must be read from LPC maps and designation materials.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the designation report date, assigned an approximate centroid for the district, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/preservation"
+  },
+  {
+    "event_id": "nyc_arch_brooklyn_bridge_park_pier1_first_section_opening_2010",
+    "city": "New York City",
+    "title": "Brooklyn Bridge Park's first Pier 1 section opened",
+    "summary": "Brooklyn Bridge Park's official press release records the opening of the park's first section at Pier 1 on March 22, 2010.",
+    "effective_date": "2010-03-22",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9966,
+        40.7021
+      ]
+    },
+    "source_name": "Governor Paterson and Mayor Bloomberg open first section of Brooklyn Bridge Park",
+    "publisher": "Brooklyn Bridge Park",
+    "source_url": "https://brooklynbridgepark.org/press-releases/governor-paterson-and-mayor-bloomberg-open-first-section-of-brooklyn-bridge-park/",
+    "source_type": "official park press release",
+    "source_record_id": "bbp-pier-1-first-section-opening-2010-03-22",
+    "source_date_field": "press release date and opening date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Bridge Park public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Bridge Park",
+    "confidence": "documented",
+    "limitations": "The point marks Pier 1 within Brooklyn Bridge Park; it is not a measured park polygon or construction closeout record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated opening date, assigned an approximate point at Pier 1, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/public-realm/park"
+  },
+  {
+    "event_id": "nyc_arch_brooklyn_bridge_park_pier5_uplands_opening_2017",
+    "city": "New York City",
+    "title": "Brooklyn Bridge Park Pier 5 Uplands opened",
+    "summary": "Brooklyn Bridge Park's official press release records the opening of the Pier 5 Uplands on July 6, 2017.",
+    "effective_date": "2017-07-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.0015,
+        40.6947
+      ]
+    },
+    "source_name": "BBP opens Pier 5 Uplands",
+    "publisher": "Brooklyn Bridge Park",
+    "source_url": "https://brooklynbridgepark.org/press-releases/bbp-opens-pier-5-uplands/",
+    "source_type": "official park press release",
+    "source_record_id": "bbp-pier-5-uplands-opening-2017-07-06",
+    "source_date_field": "press release date and opening date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Bridge Park public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Bridge Park",
+    "confidence": "documented",
+    "limitations": "The point marks the Pier 5 Uplands area; it is not a measured park polygon, planting inventory, or final construction accounting record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated opening date, assigned an approximate point at Pier 5 Uplands, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/public-realm/park"
+  },
+  {
+    "event_id": "nyc_arch_brooklyn_bridge_park_pier2_uplands_opening_2020",
+    "city": "New York City",
+    "title": "Brooklyn Bridge Park Pier 2 Uplands opened",
+    "summary": "Brooklyn Bridge Park's official press release records the Pier 2 Uplands opening on July 6, 2020.",
+    "effective_date": "2020-07-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9992,
+        40.6994
+      ]
+    },
+    "source_name": "Pier 2 Uplands opens July 6, 2020",
+    "publisher": "Brooklyn Bridge Park",
+    "source_url": "https://brooklynbridgepark.org/press-releases/pier-2-uplands-opens-july-6-2020/",
+    "source_type": "official park press release",
+    "source_record_id": "bbp-pier-2-uplands-opening-2020-07-06",
+    "source_date_field": "press release title and opening date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Bridge Park public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Bridge Park",
+    "confidence": "documented",
+    "limitations": "The point marks the Pier 2 Uplands area; it is not a measured park polygon, planting inventory, or final construction accounting record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated opening date, assigned an approximate point at Pier 2 Uplands, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/public-realm/park"
+  },
+  {
+    "event_id": "nyc_arch_emily_warren_roebling_plaza_opening_2021",
+    "city": "New York City",
+    "title": "Emily Warren Roebling Plaza opened at Brooklyn Bridge Park",
+    "summary": "Brooklyn Bridge Park's official press release records the Emily Warren Roebling Plaza opening on December 9, 2021.",
+    "effective_date": "2021-12-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9946,
+        40.7032
+      ]
+    },
+    "source_name": "Emily Warren Roebling Plaza opens",
+    "publisher": "Brooklyn Bridge Park",
+    "source_url": "https://brooklynbridgepark.org/press-releases/emily-warren-roebling-plaza-opens-completing-brooklyn-bridge-park-as-designed/",
+    "source_type": "official park press release",
+    "source_record_id": "bbp-emily-warren-roebling-plaza-opening-2021-12-09",
+    "source_date_field": "press release date and opening date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Bridge Park public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Bridge Park",
+    "confidence": "documented",
+    "limitations": "The point marks the plaza area under the Brooklyn Bridge; it is not a measured plaza polygon or bridge-structure record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated opening date, assigned an approximate point at Emily Warren Roebling Plaza, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/public-realm/plaza"
+  },
+  {
+    "event_id": "nyc_arch_barnard_milstein_center_grand_opening_2018",
+    "city": "New York City",
+    "title": "Barnard College held the Milstein Center grand opening",
+    "summary": "Barnard College's official news page records the Cheryl and Philip Milstein Center for Teaching and Learning grand opening on October 3, 2018.",
+    "effective_date": "2018-10-03",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9638,
+        40.8098
+      ]
+    },
+    "source_name": "The Cheryl and Philip Milstein Center for Teaching and Learning",
+    "publisher": "Barnard College",
+    "source_url": "https://barnard.edu/news/cheryl-philip-milstein-center-teaching-learning",
+    "source_type": "institutional news page",
+    "source_record_id": "barnard-milstein-center-grand-opening-2018-10-03",
+    "source_date_field": "institutional article date and stated grand opening date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Barnard College public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Barnard College",
+    "confidence": "documented",
+    "limitations": "The point marks the campus building location; it is not a parcel boundary, floor-area measurement, or classroom-use audit.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated grand opening date, assigned an approximate point on Barnard's campus, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/education"
+  },
+  {
+    "event_id": "nyc_arch_moma_expanded_campus_opening_2019",
+    "city": "New York City",
+    "title": "MoMA opened its expanded campus after renovation",
+    "summary": "The Museum of Modern Art's official renovation and expansion project page records the expanded museum reopening to the public on October 21, 2019.",
+    "effective_date": "2019-10-21",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9776,
+        40.7614
+      ]
+    },
+    "source_name": "Museum renovation and expansion project",
+    "publisher": "The Museum of Modern Art",
+    "source_url": "https://press.moma.org/news/museum-renovation-and-expansion-project/",
+    "source_type": "institutional project page",
+    "source_record_id": "moma-expanded-campus-opening-2019-10-21",
+    "source_date_field": "project page public reopening date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "The Museum of Modern Art public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The Museum of Modern Art",
+    "confidence": "documented",
+    "limitations": "The point marks MoMA's Midtown campus; it is not a measured building footprint, exhibition-area audit, or visitor-count record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated public reopening date, assigned an approximate point at the museum campus, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/cultural"
+  },
+  {
+    "event_id": "nyc_arch_gouverneur_health_modernization_completion_2015",
+    "city": "New York City",
+    "title": "Gouverneur Health modernization was completed",
+    "summary": "NYC Health + Hospitals' official press release records the completion of Gouverneur Health's modernization project on April 2, 2015.",
+    "effective_date": "2015-04-02",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.98768,
+        40.71316
+      ]
+    },
+    "source_name": "HHC Gouverneur Health completes modernization",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/hhc-gouverneur-health-completes-modernization-to-add-more-nursing-home-beds/",
+    "source_type": "official healthcare-system press release",
+    "source_record_id": "hhc-gouverneur-modernization-completion-2015-04-02",
+    "source_date_field": "press release date and stated completion",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals",
+    "confidence": "documented",
+    "limitations": "The point marks the Gouverneur Health campus; it is not a measured building footprint, bed census, or service-capacity audit.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated modernization completion date, assigned an approximate point at Gouverneur Health, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/healthcare"
+  },
+  {
+    "event_id": "nyc_arch_lincoln_medical_center_ed_modernization_completion_2014",
+    "city": "New York City",
+    "title": "Lincoln Medical Center emergency department modernization was marked complete",
+    "summary": "NYC Health + Hospitals' official press release records an opening event for Lincoln Medical Center's modernized emergency department on April 4, 2014.",
+    "effective_date": "2014-04-04",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9244,
+        40.8177
+      ]
+    },
+    "source_name": "Lincoln Medical Center opens new ED",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/lincoln-medical-center-opens-new-ed/",
+    "source_type": "official healthcare-system press release",
+    "source_record_id": "hhc-lincoln-medical-center-ed-completion-2014-04-04",
+    "source_date_field": "press release date and opening event date",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals",
+    "confidence": "documented",
+    "limitations": "The point marks the Lincoln Medical Center campus; it is not a measured department footprint, patient-volume record, or service-capacity audit.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated opening event date, assigned an approximate point at Lincoln Medical Center, and checked event_id plus source_url/source_record_id against the manual corpus.",
+    "category": "planning/development/architecture/healthcare"
+  }
+]

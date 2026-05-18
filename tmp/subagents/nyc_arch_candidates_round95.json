@@ -1,0 +1,299 @@
+[
+  {
+    "event_id": "nyc_arch_ccny_spitzer_school_architecture_new_home_dedication_2009",
+    "city": "New York City",
+    "title": "CCNY dedicated the Spitzer School of Architecture's new home",
+    "summary": "City College of New York recorded a September 16, 2009 dedication ceremony for the Bernard and Anne Spitzer School of Architecture's new building after it opened for classes at the start of the fall 2009 semester.",
+    "effective_date": "2009-09-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9504,
+        40.8196
+      ]
+    },
+    "source_name": "CCNY To Dedicate Spitzer School Of Architecture's New Home September 16",
+    "publisher": "The City College of New York / CUNY",
+    "source_url": "https://www.ccny.cuny.edu/news/new-book-on-edwin-blashfield-features-ccny-mural",
+    "source_type": "institutional news release",
+    "source_record_id": "ccny-spitzer-school-architecture-dedication-2009-09-16",
+    "source_date_field": "published date 2009-09-14; dedication date in body 2009-09-16",
+    "source_retrieved_at": "2026-05-18",
+    "license": "CCNY/CUNY public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The City College of New York / CUNY",
+    "confidence": "documented",
+    "limitations": "The point marks the Spitzer School building area on the CCNY campus and is not a measured building footprint. The event date is the dedication ceremony, while the source says classes began earlier in fall 2009 without a day-level opening date.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional page; normalized the dedication date, source URL, record id, and address-derived point geometry.",
+    "category": "public_university_facility"
+  },
+  {
+    "event_id": "nyc_arch_bcc_gould_memorial_library_capital_projects_completion_2023",
+    "city": "New York City",
+    "title": "Gould Memorial Library renovation projects were marked complete at Bronx Community College",
+    "summary": "Bronx Community College recorded a May 30, 2023 ribbon-cutting for completion of two capital projects at Gould Memorial Library, including dome and oculus reconstruction and an egress stair project.",
+    "effective_date": "2023-05-30",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9128,
+        40.8579
+      ]
+    },
+    "source_name": "Ribbon-Cutting for Completion of Two Projects on Gould Memorial Library's Renovation at Bronx Community College",
+    "publisher": "Bronx Community College / CUNY",
+    "source_url": "https://www.bcc.cuny.edu/ribbon-cutting-gould-memorial-library/",
+    "source_type": "institutional news release",
+    "source_record_id": "bcc-gould-memorial-library-renovation-projects-completion-2023-05-30",
+    "source_date_field": "posted date 2023-05-30",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Bronx Community College/CUNY public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Bronx Community College / CUNY",
+    "confidence": "documented",
+    "limitations": "The point marks Gould Memorial Library on the Bronx Community College campus and is not a measured project boundary. The source records a completion celebration rather than a full construction closeout file.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional page; normalized the posted completion/ribbon-cutting date, source URL, record id, and campus-building point geometry.",
+    "category": "public_university_facility"
+  },
+  {
+    "event_id": "nyc_arch_hostos_advisement_center_opening_2024",
+    "city": "New York City",
+    "title": "Hostos Community College opened its Advisement Center facilities",
+    "summary": "CUNY Facilities Planning, Construction and Management recorded that Hostos Community College unveiled the Advisement Center facilities at 429 Grand Concourse on February 29, 2024, followed by a ribbon-cutting ceremony.",
+    "effective_date": "2024-02-29",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9273,
+        40.8171
+      ]
+    },
+    "source_name": "Hostos Community College Officially Inaugurates New Advisement Center, Pioneering Student Success in the South Bronx",
+    "publisher": "The City University of New York",
+    "source_url": "https://www.cuny.edu/about/administration/offices/fpcm/media-events/",
+    "source_type": "institutional facilities news page",
+    "source_record_id": "cuny-fpcm-hostos-advisement-center-opening-2024-02-29",
+    "source_date_field": "section date 2024-02-29; opening date in body 2024-02-29",
+    "source_retrieved_at": "2026-05-18",
+    "license": "CUNY public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The City University of New York",
+    "confidence": "documented",
+    "limitations": "The point marks the 429 Grand Concourse address cited by the source and is not a measured interior floorplate. The source documents an institutional opening ceremony for college facilities, not a broader neighborhood outcome.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official CUNY facilities page; normalized the opening date, source URL, source-section record id, and address-derived point geometry.",
+    "category": "public_university_facility"
+  },
+  {
+    "event_id": "nyc_arch_queensborough_humanities_theatre_performing_arts_center_reopening_2024",
+    "city": "New York City",
+    "title": "Queensborough Community College opened its renovated Humanities Theatre and Performing Arts Center",
+    "summary": "CUNY Facilities Planning, Construction and Management recorded that Queensborough Community College celebrated the official opening of the renovated Humanities Theatre and Performing Arts Center on February 21, 2024.",
+    "effective_date": "2024-02-21",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7566,
+        40.7556
+      ]
+    },
+    "source_name": "Ribbon Cutting Ceremony Celebrates Renovation of The Humanities Theatre and Performing Arts Center at Queensborough Community College",
+    "publisher": "The City University of New York",
+    "source_url": "https://www.cuny.edu/about/administration/offices/fpcm/media-events/",
+    "source_type": "institutional facilities news page",
+    "source_record_id": "cuny-fpcm-queensborough-humanities-theatre-opening-2024-02-21",
+    "source_date_field": "section date 2024-02-23; event date in body 2024-02-21",
+    "source_retrieved_at": "2026-05-18",
+    "license": "CUNY public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The City University of New York",
+    "confidence": "documented",
+    "limitations": "The point marks the Queensborough Community College performing arts facility area and is not a measured renovation boundary. The record documents a campus cultural facility opening, not a citywide cultural access claim.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official CUNY facilities page; normalized the event date, source URL, source-section record id, and campus-facility point geometry.",
+    "category": "campus_cultural_facility"
+  },
+  {
+    "event_id": "nyc_arch_lehman_nursing_education_research_practice_center_opening_2024",
+    "city": "New York City",
+    "title": "Lehman College opened its Nursing Education, Research, and Practice Center",
+    "summary": "CUNY Facilities Planning, Construction and Management recorded the February 1, 2024 ribbon-cutting for Lehman College's new Nursing Education, Research, and Practice Center, a four-level facility on the Bronx campus.",
+    "effective_date": "2024-02-01",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8947,
+        40.8731
+      ]
+    },
+    "source_name": "Ribbon Cutting For $95 Million Lehman College Nursing Education, Research, and Practice Center",
+    "publisher": "The City University of New York",
+    "source_url": "https://www.cuny.edu/about/administration/offices/fpcm/media-events/",
+    "source_type": "institutional facilities news page",
+    "source_record_id": "cuny-fpcm-lehman-nursing-center-opening-2024-02-01",
+    "source_date_field": "section date 2024-02-01",
+    "source_retrieved_at": "2026-05-18",
+    "license": "CUNY public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The City University of New York",
+    "confidence": "documented",
+    "limitations": "The point marks the Lehman College campus facility area and is not a surveyed building footprint. The source records an opening event and building program, not later utilization or health outcomes.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official CUNY facilities page; normalized the opening/ribbon-cutting date, source URL, source-section record id, and campus-facility point geometry.",
+    "category": "public_university_facility"
+  },
+  {
+    "event_id": "nyc_arch_hunter_student_union_opening_2019",
+    "city": "New York City",
+    "title": "Hunter College opened a new Student Union",
+    "summary": "Hunter College recorded the October 9, 2019 opening of a new Student Union on the second floor of Thomas Hunter Hall at its 68th Street campus.",
+    "effective_date": "2019-10-09",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9644,
+        40.7687
+      ]
+    },
+    "source_name": "Hunter Cuts the Ribbon on New Space Promoting Student Life on Campus",
+    "publisher": "Hunter College / CUNY",
+    "source_url": "https://www.hunter.cuny.edu/news/hunter-cuts-the-ribbon-on-new-space-promoting-student-life-on-campus/",
+    "source_type": "institutional news release",
+    "source_record_id": "hunter-student-union-opening-2019-10-09",
+    "source_date_field": "published date 2019-10-10; announcement dateline 2019-10-09",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Hunter College/CUNY public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Hunter College / CUNY",
+    "confidence": "documented",
+    "limitations": "The point marks Thomas Hunter Hall on Hunter College's 68th Street campus and is not an interior room geometry. The source documents an institutional facility opening, not student-use metrics.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional page; normalized the announcement/opening date, source URL, record id, and campus-building point geometry.",
+    "category": "public_university_facility"
+  },
+  {
+    "event_id": "nyc_arch_east_tremont_gotham_health_center_upgrade_2017",
+    "city": "New York City",
+    "title": "Gotham Health East Tremont health center upgrade was marked with a ribbon-cutting",
+    "summary": "NYC Health + Hospitals recorded a December 12, 2017 ribbon-cutting for a $1.2 million upgrade to the Gotham Health center at 1826 Arthur Avenue in East Tremont.",
+    "effective_date": "2017-12-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8937,
+        40.8454
+      ]
+    },
+    "source_name": "NYC Health + Hospitals Cuts the Ribbon on a Revitalized Health Center in the Bronx",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/nyc-health-hospitals-cuts-ribbon-on-bronx-health-center/",
+    "source_type": "public health system press release",
+    "source_record_id": "nyc-hh-east-tremont-health-center-upgrade-2017-12-12",
+    "source_date_field": "press release date 2017-12-12",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals",
+    "confidence": "documented",
+    "limitations": "The point marks the 1826 Arthur Avenue health center address cited by the source and is not an interior renovation plan. The source documents facility upgrades and a ribbon-cutting, not later patient volumes.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official public health system press release; normalized the press-release/ribbon-cutting date, source URL, record id, and address-derived point geometry.",
+    "category": "public_health_facility"
+  },
+  {
+    "event_id": "nyc_arch_metropolitan_hospital_floodwall_completion_2024",
+    "city": "New York City",
+    "title": "Metropolitan Hospital floodwall resiliency project was completed",
+    "summary": "NYC Health + Hospitals and NYCEDC recorded a December 3, 2024 ribbon-cutting for the Metropolitan Hospital floodwall resiliency project in East Harlem, including a perimeter floodwall and upgraded stormwater detention system.",
+    "effective_date": "2024-12-03",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9437,
+        40.7847
+      ]
+    },
+    "source_name": "NYCEDC and NYC Health + Hospitals Celebrate Completion of Floodwall at NYC Health + Hospitals/Metropolitan",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/nycedc-and-nyc-health-hospitals-celebrate-completion-of-floodwall-at-nyc-health-hospitals-metropolitan/",
+    "source_type": "public health system press release",
+    "source_record_id": "nyc-hh-metropolitan-floodwall-completion-2024-12-03",
+    "source_date_field": "press release date 2024-12-03",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals; NYCEDC",
+    "confidence": "documented",
+    "limitations": "The point marks the Metropolitan Hospital campus and is not a floodwall alignment or engineering drawing. The source documents completed resiliency infrastructure and public-space improvements, not performance during later storms.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official public health system press release; normalized the completion/ribbon-cutting date, source URL, record id, and campus point geometry.",
+    "category": "health_resilience_infrastructure"
+  },
+  {
+    "event_id": "nyc_arch_ida_g_israel_community_health_center_new_location_2025",
+    "city": "New York City",
+    "title": "Ida G. Israel Community Health Center marked a new Coney Island location",
+    "summary": "NYC Health + Hospitals/South Brooklyn Health recorded a February 18, 2025 ribbon-cutting for the Ida G. Israel Community Health Center's new location at 1607 Surf Avenue.",
+    "effective_date": "2025-02-18",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9845,
+        40.5755
+      ]
+    },
+    "source_name": "NYC Health + Hospitals/South Brooklyn Health Celebrates New Location for Ida G. Israel Community Health Center",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/nyc-health-hospitals-south-brooklyn-health-celebrates-new-location-for-ida-g-israel-community-health-center/",
+    "source_type": "public health system press release",
+    "source_record_id": "nyc-hh-ida-g-israel-new-location-2025-02-18",
+    "source_date_field": "press release date 2025-02-18",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals",
+    "confidence": "documented",
+    "limitations": "The point marks the 1607 Surf Avenue location cited by the source and is not a measured clinic floorplate. The source notes final state approval after the ceremony, so this candidate records the observed ribbon-cutting rather than a confirmed first service date.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official public health system press release; normalized the ribbon-cutting date, source URL, record id, and address-derived point geometry.",
+    "category": "public_health_facility"
+  },
+  {
+    "event_id": "nyc_arch_lincoln_labor_delivery_suite_opening_2009",
+    "city": "New York City",
+    "title": "Lincoln Hospital opened a new Labor and Delivery Suite",
+    "summary": "NYC Health + Hospitals recorded a September 29, 2009 ribbon-cutting for Lincoln Hospital's new Labor and Delivery Suite, a birthing suite in the hospital's 5A wing.",
+    "effective_date": "2009-09-29",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9245,
+        40.8176
+      ]
+    },
+    "source_name": "Lincoln Hospital Opens New State-Of-The-Art Labor and Delivery Suite",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/lincoln-hospital-opens-new-state-of-the-art-labor-and-delivery-suite/",
+    "source_type": "public health system press release",
+    "source_record_id": "nyc-hh-lincoln-labor-delivery-suite-opening-2009-09-29",
+    "source_date_field": "press release date 2009-09-29",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals",
+    "confidence": "documented",
+    "limitations": "The point marks Lincoln Hospital and is not an interior suite geometry. The source documents the opening ceremony and suite location, not later maternity-service outcomes.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official public health system press release; normalized the opening/ribbon-cutting date, source URL, record id, and hospital point geometry.",
+    "category": "public_health_facility"
+  },
+  {
+    "event_id": "nyc_arch_harlem_orthopedic_podiatry_clinic_opening_2026",
+    "city": "New York City",
+    "title": "Harlem Hospital opened an Orthopedic and Podiatry Clinic",
+    "summary": "NYC Health + Hospitals/Harlem recorded the February 20, 2026 opening of a redesigned Orthopedic and Podiatry Clinic at 506 Lenox Avenue.",
+    "effective_date": "2026-02-20",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9405,
+        40.8144
+      ]
+    },
+    "source_name": "NYC Health + Hospitals/Harlem Opens $10 Million State-Of-The-Art Orthopedic and Podiatry Clinic",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/nyc-health-hospitals-harlem-opens-10-million-state-of-the-art-orthopedic-and-podiatry-clinic/",
+    "source_type": "public health system press release",
+    "source_record_id": "nyc-hh-harlem-orthopedic-podiatry-clinic-opening-2026-02-20",
+    "source_date_field": "press release date 2026-02-20",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC Health + Hospitals public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "NYC Health + Hospitals",
+    "confidence": "documented",
+    "limitations": "The point marks the 506 Lenox Avenue hospital address cited by the source and is not an interior clinic geometry. The source documents the clinic opening and physical features, not later clinical performance.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official public health system press release; normalized the opening date, source URL, record id, and address-derived point geometry.",
+    "category": "public_health_facility"
+  }
+]

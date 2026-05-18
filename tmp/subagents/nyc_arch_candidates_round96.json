@@ -1,0 +1,284 @@
+[
+  {
+    "event_id": "nyc_arch_nybg_native_plant_garden_public_opening_2013",
+    "city": "New York City",
+    "title": "NYBG Native Plant Garden opened to the public",
+    "summary": "The New York Botanical Garden documented grand-opening weekends for the new Native Plant Garden in May 2013, following a dedication and ribbon-cutting on May 3.",
+    "effective_date_range": {
+      "start": "2013-05-04",
+      "end": "2013-05-12"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8796,
+        40.8633
+      ]
+    },
+    "source_name": "New 3.5 Acre Native Plant Garden at The New York Botanical Garden Celebrates the Beauty of Native Flora",
+    "publisher": "The New York Botanical Garden",
+    "source_url": "https://www.nybg.org/content/uploads/2017/08/NewNativePlantGarden-PressRelease.pdf",
+    "source_type": "institutional press release PDF",
+    "source_record_id": "nybg-native-plant-garden-public-opening-2013-05-04-2013-05-12",
+    "source_date_field": "press release date 2013-03-27; public grand-opening weekends stated as 2013-05-04 to 2013-05-12",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYBG public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The New York Botanical Garden",
+    "confidence": "documented",
+    "limitations": "The point marks the named garden area within NYBG and is not a measured landscape boundary. The effective date is recorded as the official public opening window rather than a construction closeout date.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional PDF; normalized the public opening window, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape"
+  },
+  {
+    "event_id": "nyc_arch_nybg_azalea_garden_grand_opening_2011",
+    "city": "New York City",
+    "title": "NYBG Azalea Garden held grand-opening weekends",
+    "summary": "The New York Botanical Garden's 2011 calendar recorded grand-opening weekends for the new 11-acre Azalea Garden in May 2011.",
+    "effective_date_range": {
+      "start": "2011-05-07",
+      "end": "2011-05-15"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8812,
+        40.8647
+      ]
+    },
+    "source_name": "2011 Calendar of Exhibitions and Grand Openings, Gardens and Collections, Events and Programs",
+    "publisher": "The New York Botanical Garden",
+    "source_url": "https://www.nybg.org/content/uploads/2017/08/NYBGCalendar2011.pdf",
+    "source_type": "institutional calendar PDF",
+    "source_record_id": "nybg-azalea-garden-grand-opening-2011-05-07-2011-05-15",
+    "source_date_field": "calendar date 2011-01-28; grand-opening weekends stated as 2011-05-07 to 2011-05-15",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYBG public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The New York Botanical Garden",
+    "confidence": "documented",
+    "limitations": "The point marks the named garden area within NYBG and is not a measured landscape boundary. The effective date is the official grand-opening window from NYBG's calendar.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional PDF; normalized the grand-opening window, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape"
+  },
+  {
+    "event_id": "nyc_arch_nybg_rock_garden_cascade_restoration_completion_2014",
+    "city": "New York City",
+    "title": "NYBG completed Rock Garden cascade and stream restoration",
+    "summary": "The New York Botanical Garden's 2014 Annual Report recorded completion of a two-year restoration of the historic Rock Garden cascade and stream.",
+    "effective_date_range": {
+      "start": "2014-01-01",
+      "end": "2014-12-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8791,
+        40.8628
+      ]
+    },
+    "source_name": "2014 Annual Report",
+    "publisher": "The New York Botanical Garden",
+    "source_url": "https://www.nybg.org/content/uploads/2017/03/Annual-Report-2014.pdf",
+    "source_type": "institutional annual report PDF",
+    "source_record_id": "nybg-rock-garden-cascade-restoration-completion-2014",
+    "source_date_field": "2014 annual report horticulture section stating completion during the year",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYBG public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "The New York Botanical Garden",
+    "confidence": "documented",
+    "limitations": "The point marks the Rock Garden area within NYBG and is not a measured restoration boundary. The source supports a year-level completion date, so the effective date is recorded as a 2014 range.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional annual report; normalized the year-level completion window, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape_preservation"
+  },
+  {
+    "event_id": "nyc_arch_bbg_discovery_garden_opening_2015",
+    "city": "New York City",
+    "title": "Brooklyn Botanic Garden opened its new Discovery Garden",
+    "summary": "Brooklyn Botanic Garden recorded that the new Discovery Garden opened on the Saturday after its June 5, 2015 preview story.",
+    "effective_date": "2015-06-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9624,
+        40.6671
+      ]
+    },
+    "source_name": "Discovery Garden Sneak Peek",
+    "publisher": "Brooklyn Botanic Garden",
+    "source_url": "https://www.bbg.org/article/discovery_garden_sneak_peek",
+    "source_type": "institutional garden story",
+    "source_record_id": "bbg-discovery-garden-opening-2015-06-06",
+    "source_date_field": "story date 2015-06-05; opening stated as the following Saturday",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Botanic Garden website conditions apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Botanic Garden",
+    "confidence": "documented",
+    "limitations": "The point marks the Discovery Garden area within BBG and is not a measured landscape boundary. The source documents the public opening timing rather than a construction closeout file.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional page; normalized the stated opening date, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape"
+  },
+  {
+    "event_id": "nyc_arch_bbg_water_garden_opening_2016",
+    "city": "New York City",
+    "title": "Brooklyn Botanic Garden opened the Shelby White and Leon Levy Water Garden",
+    "summary": "Brooklyn Botanic Garden recorded a September 15, 2016 member event on the day the Shelby White and Leon Levy Water Garden opened.",
+    "effective_date": "2016-09-15",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9621,
+        40.6678
+      ]
+    },
+    "source_name": "Members' Water Garden Spotlight",
+    "publisher": "Brooklyn Botanic Garden",
+    "source_url": "https://www.bbg.org/visit/event/members_water_garden_spotlight",
+    "source_type": "institutional event page",
+    "source_record_id": "bbg-water-garden-opening-2016-09-15",
+    "source_date_field": "event date and stated opening day 2016-09-15",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Botanic Garden website conditions apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Botanic Garden",
+    "confidence": "documented",
+    "limitations": "The point marks the Water Garden area within BBG and is not a measured landscape boundary. The source documents an institutional opening day event rather than a full project closeout package.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional event page; normalized the opening date, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape"
+  },
+  {
+    "event_id": "nyc_arch_bbg_water_conservation_project_completion_2019",
+    "city": "New York City",
+    "title": "Brooklyn Botanic Garden completed its Water Conservation Project",
+    "summary": "Brooklyn Botanic Garden's Water Conservation Project page records that the garden-wide water-management project was completed in April 2019.",
+    "effective_date_range": {
+      "start": "2019-04-01",
+      "end": "2019-04-30"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9621,
+        40.6678
+      ]
+    },
+    "source_name": "Water Conservation Project",
+    "publisher": "Brooklyn Botanic Garden",
+    "source_url": "https://www.bbg.org/collections/gardens/water_conservation_project",
+    "source_type": "institutional garden page",
+    "source_record_id": "bbg-water-conservation-project-completion-2019-04",
+    "source_date_field": "project page stating completion in 2019-04",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Botanic Garden website conditions apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Botanic Garden",
+    "confidence": "documented",
+    "limitations": "The point is placed at the Water Garden component and does not represent the full water-management network across BBG. The source supports a month-level completion date.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional page; normalized the month-level completion window, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape_infrastructure"
+  },
+  {
+    "event_id": "nyc_arch_bbg_robert_w_wilson_overlook_opening_2019",
+    "city": "New York City",
+    "title": "Brooklyn Botanic Garden opened the Robert W. Wilson Overlook",
+    "summary": "Brooklyn Botanic Garden recorded the Robert W. Wilson Overlook as newly open in a November 6, 2019 institutional story.",
+    "effective_date": "2019-11-06",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9633,
+        40.6705
+      ]
+    },
+    "source_name": "New Overlook Now Open",
+    "publisher": "Brooklyn Botanic Garden",
+    "source_url": "https://www.bbg.org/article/overlook_now_open",
+    "source_type": "institutional garden story",
+    "source_record_id": "bbg-robert-w-wilson-overlook-opening-2019-11-06",
+    "source_date_field": "story date and now-open statement 2019-11-06",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Brooklyn Botanic Garden website conditions apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Brooklyn Botanic Garden",
+    "confidence": "documented",
+    "limitations": "The point marks the overlook area within BBG and is not a measured path or planting boundary. The source records the opening through an institutional story rather than a capital-project closeout.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional story; normalized the opening date, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_landscape"
+  },
+  {
+    "event_id": "nyc_arch_bronx_zoo_madagascar_lion_house_opening_2008",
+    "city": "New York City",
+    "title": "Bronx Zoo unveiled Madagascar! in the restored Lion House",
+    "summary": "The Wildlife Conservation Society recorded that Madagascar! at the Bronx Zoo was unveiled on June 19, 2008 inside the restored historic Lion House.",
+    "effective_date": "2008-06-19",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8788,
+        40.8509
+      ]
+    },
+    "source_name": "WCS Opens Spectacular Bronx Zoo Exhibit Celebrating Madagascar's Wildlife",
+    "publisher": "Wildlife Conservation Society",
+    "source_url": "https://newsroom.wcs.org/News-Releases/articleType/ArticleView/articleId/6046/WCS-Opens-Spectacular-Bronx-Zoo-Exhibit-Celebrating-Madagascars-Wildlife.aspx",
+    "source_type": "institutional news release",
+    "source_record_id": "wcs-bronx-zoo-madagascar-lion-house-opening-2008-06-19",
+    "source_date_field": "news release date 2008-06-18; body states unveiling date 2008-06-19",
+    "source_retrieved_at": "2026-05-18",
+    "license": "WCS website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Wildlife Conservation Society / Bronx Zoo",
+    "confidence": "documented",
+    "limitations": "The point marks the Lion House area within Bronx Zoo and is not a measured building footprint. The record captures the exhibit and restored-building opening, not a condition assessment of the building.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional news release; normalized the unveiling date, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_institution_facility"
+  },
+  {
+    "event_id": "nyc_arch_bronx_zoo_childrens_zoo_reopening_2015",
+    "city": "New York City",
+    "title": "Bronx Zoo Children's Zoo reopened after renovation",
+    "summary": "The Wildlife Conservation Society recorded the official reopening of the Bronx Zoo Children's Zoo on May 30, 2015 after renovation work.",
+    "effective_date": "2015-05-30",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8758,
+        40.8505
+      ]
+    },
+    "source_name": "Children's Zoo to Reopen at Bronx Zoo After Renovation",
+    "publisher": "Wildlife Conservation Society",
+    "source_url": "https://newsroom.wcs.org/News-Releases/articleType/ArticleView/articleId/6762/Childrens-Zoo-to-Reopen-at-Bronx-Zoo-After-Renovation.aspx",
+    "source_type": "institutional news release",
+    "source_record_id": "wcs-bronx-zoo-childrens-zoo-reopening-2015-05-30",
+    "source_date_field": "news release date 2015-05-27; stated official reopening date 2015-05-30",
+    "source_retrieved_at": "2026-05-18",
+    "license": "WCS website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Wildlife Conservation Society / Bronx Zoo",
+    "confidence": "documented",
+    "limitations": "The point marks the Children's Zoo area within Bronx Zoo and is not a measured exhibit boundary. The source records an institutional reopening event rather than a construction closeout file.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional news release; normalized the reopening date, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "cultural_institution_facility"
+  },
+  {
+    "event_id": "nyc_arch_new_york_aquarium_sea_change_opening_2022",
+    "city": "New York City",
+    "title": "New York Aquarium opened Sea Change and marked all exhibits open",
+    "summary": "The Wildlife Conservation Society recorded a July 1, 2022 ribbon-cutting for the New York Aquarium's full reopening and the opening of Sea Change.",
+    "effective_date": "2022-07-01",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9743,
+        40.5743
+      ]
+    },
+    "source_name": "ALL New York Aquarium Exhibits Open for the First Time Since Superstorm Sandy in 2012",
+    "publisher": "Wildlife Conservation Society",
+    "source_url": "https://newsroom.wcs.org/News-Releases/articleType/ArticleView/articleId/17752/ALL-New-York-Aquarium-Exhibits-Open-for-the-First-Time-Since-Superstorm-Sandy-in-2012.aspx",
+    "source_type": "institutional news release",
+    "source_record_id": "wcs-new-york-aquarium-sea-change-opening-2022-07-01",
+    "source_date_field": "news release date and ribbon-cutting date 2022-07-01",
+    "source_retrieved_at": "2026-05-18",
+    "license": "WCS website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Wildlife Conservation Society / New York Aquarium",
+    "confidence": "documented",
+    "limitations": "The point marks the New York Aquarium campus and is not a measured exhibit footprint. The source records a ribbon-cutting and public-space reopening milestone, not a claim about broader neighborhood effects.",
+    "transformation_method": "Manual candidate extraction on 2026-05-18 from the official institutional news release; normalized the ribbon-cutting and opening date, source URL, record id, and approximate point geometry; checked event_id, source URL, source_record_id, and title against the manual corpus and round94/round95 files.",
+    "category": "waterfront_cultural_facility"
+  }
+]

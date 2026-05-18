@@ -1,0 +1,287 @@
+[
+  {
+    "proposed_event_id": "nyc_arch_ruth_bader_ginsburg_hospital_opening_2023",
+    "title": "Ruth Bader Ginsburg Hospital opened for care",
+    "city": "New York",
+    "country": "United States",
+    "category": "healthcare",
+    "summary": "NYC Health + Hospitals/South Brooklyn Health announced that the 11-story Ruth Bader Ginsburg Hospital was officially open for care and that patients had been moved into the new hospital tower.",
+    "effective_date": "2023-05-07",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9675,
+        40.5859
+      ]
+    },
+    "source_name": "An Historic Day for South Brooklyn: Ruth Bader Ginsburg Hospital Opens for Care, Welcomes First Patients, Opens New Emergency Department",
+    "publisher": "NYC Health + Hospitals",
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/an-historic-day-for-south-brooklyn-ruth-bader-ginsburg-hospital-opens-for-care-welcomes-first-patients-opens-new-emergency-department/",
+    "source_type": "official health-system press release",
+    "source_record_id": "nyc-hh-south-brooklyn-rbg-hospital-opening-2023-05-07",
+    "license": "Public web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review NYC Health + Hospitals terms before reusing text or media.",
+    "attribution": "NYC Health + Hospitals",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Point is an approximate campus/building point at 2601 Ocean Parkway, not a surveyed footprint. Source documents opening for care and first patient move; it does not document later service volumes or health outcomes.",
+    "transformation_method": "Manually extracted from the official press release and normalized as an observed opening event; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_mount_sinai_hess_center_opening_2012",
+    "title": "Mount Sinai Hess Center for Science and Medicine opened",
+    "city": "New York",
+    "country": "United States",
+    "category": "healthcare education",
+    "summary": "Mount Sinai announced that the Leon and Norma Hess Center for Science and Medicine officially opened, adding research, clinical, and collaboration space on the East Harlem medical campus.",
+    "effective_date": "2012-12-13",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9528,
+        40.7909
+      ]
+    },
+    "source_name": "Leon and Norma Hess Center for Science and Medicine Opens at Mount Sinai",
+    "publisher": "Mount Sinai",
+    "source_url": "https://www.mountsinai.org/about/newsroom/2012/leon-and-norma-hess-center-for-science-and-medicine-opens-at-mount-sinai",
+    "source_type": "institutional press release",
+    "source_record_id": "mount-sinai-hess-center-opens-2012-12-13",
+    "license": "Public institutional web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review Mount Sinai terms before reusing text or media.",
+    "attribution": "Mount Sinai",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Point is approximate for the Hess Center area near Madison Avenue and East 102nd Street. Source supports opening and facility description, not later research output or clinical outcomes.",
+    "transformation_method": "Manually extracted from the institutional press release and normalized as an observed opening event; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_msk_josie_robertson_surgery_center_opening_2015",
+    "title": "MSK Josie Robertson Surgery Center opened",
+    "city": "New York",
+    "country": "United States",
+    "category": "healthcare",
+    "summary": "Memorial Sloan Kettering described the new Josie Robertson Surgery Center as opened, a freestanding outpatient cancer surgery facility on Manhattan's Upper East Side.",
+    "effective_date": "2015-12-28",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.959,
+        40.7617
+      ]
+    },
+    "source_name": "The Future of Outpatient Cancer Surgery Takes Shape with New, First-of-Its-Kind Facility",
+    "publisher": "Memorial Sloan Kettering Cancer Center",
+    "source_url": "https://www.mskcc.org/news-releases/future-outpatient-surgery-takes-shape-new-first-its-kind-facility",
+    "source_type": "institutional press release",
+    "source_record_id": "msk-josie-robertson-surgery-center-2015-12-28",
+    "license": "Public institutional web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review MSK terms before reusing text or media.",
+    "attribution": "Memorial Sloan Kettering Cancer Center",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Point is approximate for the York Avenue facility. Source date is the press-release date and describes the facility as opened; confirm certificate-of-occupancy or first-patient date before parcel-level ingestion.",
+    "transformation_method": "Manually extracted from the institutional press release and normalized as an observed opening event; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_columbia_northwest_corner_building_opening_2010",
+    "title": "Columbia Northwest Corner Building welcomed science faculty",
+    "city": "New York",
+    "country": "United States",
+    "category": "education",
+    "summary": "Columbia Facilities and Operations recorded that the Northwest Corner Building welcomed science faculty members, adding research labs, an integrated science library, a cafe, and campus connections at Broadway and 120th Street.",
+    "effective_date": "2010-11-29",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.963,
+        40.8109
+      ]
+    },
+    "source_name": "Science Has a New Home at the Northwest Corner Building",
+    "publisher": "Columbia University Facilities and Operations",
+    "source_url": "https://cufo.columbia.edu/NorthwestCornerBuilding",
+    "source_type": "institutional project news page",
+    "source_record_id": "columbia-northwest-corner-building-2010-11-29",
+    "license": "Public institutional web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review Columbia University terms before reusing text or media.",
+    "attribution": "Columbia University Facilities and Operations",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Point is approximate for the building at 120th Street and Broadway. Source supports faculty occupancy/welcoming date, not a public opening ceremony or full academic-program history.",
+    "transformation_method": "Manually extracted from the institutional project news page and normalized as an observed education-building occupancy/opening event; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_columbia_school_of_nursing_building_opening_2017",
+    "title": "Columbia School of Nursing building officially opened",
+    "city": "New York",
+    "country": "United States",
+    "category": "education healthcare",
+    "summary": "Columbia University Irving Medical Center Facilities records that the seven-story School of Nursing building officially opened in August 2017, with simulation, teaching, research, and student spaces.",
+    "effective_date_range": {
+      "start": "2017-08-01",
+      "end": "2017-08-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9415,
+        40.8415
+      ]
+    },
+    "source_name": "School of Nursing Building",
+    "publisher": "Columbia University Irving Medical Center Facilities Management",
+    "source_url": "https://www.facilities.cuimc.columbia.edu/capital-projects/highlighted-projects/recent/school-of-nursing",
+    "source_type": "institutional capital-project page",
+    "source_record_id": "cuimc-school-of-nursing-building-2017-08",
+    "license": "Public institutional web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review Columbia University terms before reusing text or media.",
+    "attribution": "Columbia University Irving Medical Center Facilities Management",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Source gives an opening month rather than a specific day. Point is approximate for the project location at 168th Street and Audubon Avenue.",
+    "transformation_method": "Manually extracted from the institutional capital-project page and normalized as an observed opening event with a month-level effective date; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_columbia_campbell_sports_center_opening_2013",
+    "title": "Columbia Campbell Sports Center opened at Baker Athletics Complex",
+    "city": "New York",
+    "country": "United States",
+    "category": "education recreation",
+    "summary": "Columbia Magazine reported that Columbia opened the five-story Campbell Sports Center at Baker Athletics Complex, adding training, meeting, auditorium, lounge, and study spaces for varsity teams.",
+    "effective_date_range": {
+      "start": "2013-03-01",
+      "end": "2013-06-30"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9147,
+        40.8726
+      ]
+    },
+    "source_name": "Flex, Stretch, Pump, Press",
+    "publisher": "Columbia Magazine",
+    "source_url": "https://magazine.columbia.edu/article/flex-stretch-pump-press",
+    "source_type": "institutional magazine article",
+    "source_record_id": "columbia-magazine-campbell-sports-center-summer-2013",
+    "license": "Public institutional web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review Columbia University terms before reusing text or media.",
+    "attribution": "Columbia Magazine, Columbia University",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Source states the center opened in spring 2013, so the date is represented as a seasonal range. Point is approximate for Baker Athletics Complex near 218th Street and Broadway.",
+    "transformation_method": "Manually extracted from the institutional magazine article and normalized as an observed opening event with a seasonal effective date range; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_nypl_rose_main_reading_room_reopening_2016",
+    "title": "NYPL Rose Main Reading Room and Bill Blass Public Catalog Room reopened",
+    "city": "New York",
+    "country": "United States",
+    "category": "cultural civic",
+    "summary": "The New York Public Library reopened the Rose Main Reading Room and adjacent Bill Blass Public Catalog Room in the Stephen A. Schwarzman Building after repair and restoration work.",
+    "effective_date": "2016-10-05",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9823,
+        40.7532
+      ]
+    },
+    "source_name": "The New York Public Library Reopens Its Historic Rose Main Reading Room and Bill Blass Public Catalog Room",
+    "publisher": "The New York Public Library",
+    "source_url": "https://www.nypl.org/press/new-york-public-library-reopens-its-historic-rose-main-reading-room-and-bill-blass-public",
+    "source_type": "official library press release",
+    "source_record_id": "nypl-rose-main-reading-room-reopening-2016-10-05",
+    "license": "Public library web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review NYPL terms before reusing text or media.",
+    "attribution": "The New York Public Library",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Point is approximate for the Stephen A. Schwarzman Building, not the individual rooms. Source supports room reopening after restoration and does not describe all later building work.",
+    "transformation_method": "Manually extracted from the official library press release and normalized as an observed cultural/civic reopening event; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_queens_childrens_library_discovery_center_opening_2011",
+    "title": "Children's Library Discovery Center opened at Queens Central Library",
+    "city": "New York",
+    "country": "United States",
+    "category": "cultural education",
+    "summary": "A Queens Public Library Board of Trustees packet records that the Children's Library Discovery Center at Central Library began construction in 2008 and opened to the public in 2011.",
+    "effective_date_range": {
+      "start": "2011-01-01",
+      "end": "2011-12-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7945,
+        40.7076
+      ]
+    },
+    "source_name": "Queens Public Library Board of Trustees Regular Meeting Agenda Packet, September 13, 2023",
+    "publisher": "Queens Public Library",
+    "source_url": "https://www.queenslibrary.org/sites/default/files/2023-09/BOT%20Agenda%20Packet%20-%20September%2013%2C%202023%20%28FOR%20WEB%20ONLY%29.pdf",
+    "source_type": "official board packet PDF",
+    "source_record_id": "qpl-bot-2023-09-13-item-10-id-2959",
+    "license": "Official public PDF; no explicit open-data license identified during candidate pass. Cite factual metadata only and review Queens Public Library terms before reusing text or media.",
+    "attribution": "Queens Public Library",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Source is a later board packet for a ceiling repair authorization, not the original 2011 opening release. It gives only an opening year, so the effective date is represented as a year range.",
+    "transformation_method": "Manually extracted from the official board packet PDF and normalized as an observed public library opening event with a year-level effective date; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_wnyc_transmitter_park_opening_2012",
+    "title": "WNYC Transmitter Park opened to the public",
+    "city": "New York",
+    "country": "United States",
+    "category": "public realm",
+    "summary": "A New York City environmental assessment statement records that the 2.2-acre WNYC Transmitter Park in Greenpoint opened to the public in 2012.",
+    "effective_date_range": {
+      "start": "2012-01-01",
+      "end": "2012-12-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9603,
+        40.7296
+      ]
+    },
+    "source_name": "Greenpoint Landing Disposition Environmental Assessment Statement",
+    "publisher": "New York City Department of City Planning",
+    "source_url": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/eas/14dcp004k_eas.pdf",
+    "source_type": "official environmental assessment PDF",
+    "source_record_id": "14dcp004k-eas-wnyc-transmitter-park-opened-2012",
+    "license": "Official public city PDF; no explicit open-data license identified during candidate pass. Cite factual metadata only and review NYC.gov terms before reusing text or media.",
+    "attribution": "New York City Department of City Planning",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Source is an environmental review document rather than the original parks opening notice. It gives a year for the park opening and separately notes the pier opened in April 2013; point is approximate for the park.",
+    "transformation_method": "Manually extracted from the official environmental assessment PDF and normalized as an observed public-realm opening event with a year-level effective date; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  },
+  {
+    "proposed_event_id": "nyc_arch_schomburg_art_artifacts_reopening_2019",
+    "title": "Schomburg Center Art and Artifacts Division reopened after renovation",
+    "city": "New York",
+    "country": "United States",
+    "category": "cultural civic",
+    "summary": "NYPL's Schomburg Center timeline records that the Art and Artifacts Division reopened and moved its collection back home in spring 2019 after renovation-related offsite storage.",
+    "effective_date_range": {
+      "start": "2019-03-01",
+      "end": "2019-05-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9407,
+        40.8148
+      ]
+    },
+    "source_name": "The Schomburg Center Through the Years",
+    "publisher": "The New York Public Library",
+    "source_url": "https://www.nypl.org/spotlight/schomburg-centennial/timeline",
+    "source_type": "official library historical timeline",
+    "source_record_id": "nypl-schomburg-timeline-art-artifacts-reopened-spring-2019",
+    "license": "Public library web page; no explicit open-data license identified during candidate pass. Cite factual metadata only and review NYPL terms before reusing text or media.",
+    "attribution": "The New York Public Library",
+    "accessed_at": "2026-05-18",
+    "confidence": "documented",
+    "limitations": "Source is a retrospective timeline and gives a season rather than a specific day. Point is approximate for the Schomburg Center, not the individual division space.",
+    "transformation_method": "Manually extracted from the official library timeline and normalized as an observed cultural/civic reopening event with a seasonal effective date range; duplicate checked by title and key terms against the baseline architecture milestones file and round87 candidate file."
+  }
+]
