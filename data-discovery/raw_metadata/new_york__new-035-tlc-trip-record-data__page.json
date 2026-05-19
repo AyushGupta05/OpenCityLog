@@ -1,0 +1,25 @@
+{
+  "source_id": "new-035-tlc-trip-record-data",
+  "city": "new_york",
+  "title": "TLC Trip Record Data",
+  "publisher": "NYC Taxi and Limousine Commission",
+  "bucket": "traffic/transport; economy",
+  "retrieved_at": "2026-04-28T12:20:45.466227+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "retrieved_at": "2026-04-28T12:20:44.832811+00:00",
+      "final_url": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 139601,
+      "page_title": "TLC Trip Record Data - TLC",
+      "h1": "TLC Trip Record Data",
+      "meta_description": "",
+      "text_sample": "<!DOCTYPE html> <html> <head> <META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> <title>TLC Trip Record Data - TLC</title> <!--fixed-layout--> <!--ls:begin[stylesheet]--> <link href=\"/iwov-resources/fixed-layout/3-Row Simple.css\" type=\"text/css\" rel=\"stylesheet\"> <!--ls:end[stylesheet]--> <!--ls:begin[meta-keywords]--> <meta name=\"keywords\" content=\"\"> <!--ls:end[meta-keywords]--> <!--ls:begin[meta-description]--> <meta name=\"description\" content=\"\"> <!--ls:end[meta-description]--> <!--ls:begin[custom-meta-data]--> <!--ls:end[custom-meta-data]--> <!--ls:begin[meta-vpath]--> <meta name=\"vpath\" content=\"\"> <!--ls:end[meta-vpath]--> <!--ls:begin[meta-page-locale-name]--> <meta name=\"page-locale-name\" content=\"\"> <!--ls:end[meta-page-locale-name]--> <!-- ls:begin[pre-head-injection] --><!-- ls:end[pre-head-injection] --><!-- ls:begin[social_media_injection] --><!-- ls:end[social_media_injection] --><!--ls:begin[head-injection]--><meta charset=\"utf-8\" /><!--[if IE]> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"> <![endif]--><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><!-- Google Translate Plugin --><meta name=\"google-translate-customization\" content=\"4707bd7f535893a0-45bca7b6a97e5a2d-g609df9381571b349-c\"/><!--[if lt IE 9]> <script src=\"/assets/home/js/libs/html5shiv.js\" type=\"text/javascript\"></script> <![endif]--><!-- GLOBAL STYLES --><link href=\"/assets/home/css/css-min/global.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"/assets/home/css/css-min/module.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><!-- PRINT STYLE --><link rel=\"stylesheet\" href=\"/assets/home/css/print.css\" type=\"text/css\" media=\"print\" /><!-- PAGE SPECIFIC STYLES --><link href=\"/assets/home/css/includes/header-agencies.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"/assets/home/css/modules/news-panel.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"/assets/home/css/modules/share-icons.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"/assets/home/css/modules/agencies-about-links.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"/assets/home/css/modules/programs-and-initiatives.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><!--<link href=\"/assets/tlc/css/pages/agencies/inside.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />--><!-- centralized css --><link href=\"/assets/home/css/pages/agencies/inside.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><link href=\"/assets/tlc/css/agency-styles.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /><!--[if (gte IE 6)&(lte IE 8)]> <script type=\"text/javascript\" src=\"/assets/home/js/libs/selectivizr.js\"></script> <![endif]--><!--[if IE 8]> <script type=\"text/javascript\" src=\"/assets/home/js/libs/respond.min.js\"></script> <![endif]--><script src=\"/assets/home/js/lib"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-charity-commission-full-register-download",
+  "city": "london",
+  "title": "Charity Commission full register download",
+  "publisher": "Charity Commission",
+  "bucket": "civic institutions/economy/public services",
+  "retrieved_at": "2026-04-28T12:57:24.658924+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://register-of-charities.charitycommission.gov.uk/register/full-register-download",
+      "retrieved_at": "2026-04-28T12:57:24.255420+00:00",
+      "final_url": "https://register-of-charities.charitycommission.gov.uk/en/register/full-register-download",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 85926,
+      "page_title": "Full register download",
+      "h1": "Registered charities in England and Wales",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html class=\"ltr\" dir=\"ltr\" lang=\"en-GB\"> <head> <title>Full register download</title> <meta content=\"initial-scale=1.0, width=device-width\" name=\"viewport\" /> <meta content=\"text/html; charset=UTF-8\" http-equiv=\"content-type\" /> <script type=\"importmap\">{\"imports\":{\"@clayui/breadcrumb\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$breadcrumb.js\",\"react-dom\":\"/o/frontend-js-react-web/__liferay__/exports/react-dom.js\",\"@clayui/charts\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$charts.js\",\"@clayui/empty-state\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$empty-state.js\",\"@clayui/navigation-bar\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$navigation-bar.js\",\"react\":\"/o/frontend-js-react-web/__liferay__/exports/react.js\",\"react-dom-16\":\"/o/frontend-js-react-web/__liferay__/exports/react-dom-16.js\",\"@clayui/icon\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$icon.js\",\"@clayui/table\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$table.js\",\"@clayui/slider\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$slider.js\",\"@clayui/multi-select\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$multi-select.js\",\"@clayui/nav\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$nav.js\",\"@clayui/provider\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$provider.js\",\"@clayui/panel\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$panel.js\",\"@clayui/list\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$list.js\",\"@liferay/dynamic-data-mapping-form-field-type\":\"/o/dynamic-data-mapping-form-field-type/__liferay__/index.js\",\"@clayui/date-picker\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$date-picker.js\",\"@clayui/label\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$label.js\",\"@liferay/frontend-js-api/data-set\":\"/o/frontend-js-dependencies-web/__liferay__/exports/@liferay$js-api$data-set.js\",\"@clayui/core\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$core.js\",\"@clayui/pagination-bar\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$pagination-bar.js\",\"@clayui/layout\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$layout.js\",\"@clayui/multi-step-nav\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$multi-step-nav.js\",\"@liferay/frontend-js-api\":\"/o/frontend-js-dependencies-web/__liferay__/exports/@liferay$js-api.js\",\"@clayui/toolbar\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$toolbar.js\",\"@clayui/badge\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$badge.js\",\"react-dom-18\":\"/o/frontend-js-react-web/__liferay__/exports/react-dom-18.js\",\"@clayui/link\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$link.js\",\"@clayui/card\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$card.js\",\"@clayui/tooltip\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$tooltip.js\",\"@clayui/button\":\"/o"
+    }
+  ]
+}

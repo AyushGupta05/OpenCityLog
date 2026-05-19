@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-ukceh-land-cover-maps",
+  "city": "london",
+  "title": "UKCEH Land Cover Maps",
+  "publisher": "UK Centre for Ecology & Hydrology",
+  "bucket": "land cover/environment/imagery",
+  "retrieved_at": "2026-04-28T12:57:19.427131+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.ceh.ac.uk/data/ukceh-land-cover-maps",
+      "retrieved_at": "2026-04-28T12:57:19.107777+00:00",
+      "final_url": "https://www.ceh.ac.uk/data/ukceh-land-cover-maps",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": "Mon, 27 Apr 2026 19:28:54 GMT",
+      "etag": null,
+      "content_length_header": "73085",
+      "bytes_captured": 73085,
+      "page_title": "UKCEH Land Cover Maps | UK Centre for Ecology & Hydrology",
+      "h1": "UKCEH Land Cover Maps",
+      "meta_description": "UKCEH Land Cover Maps describe the physical material on the surface of the United Kingdom in land cover classes from grassland, woodland and fresh water to urban and suburban built-up areas.",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# \"> <head> <meta charset=\"utf-8\" /> <meta name=\"description\" content=\"UKCEH Land Cover Maps describe the physical material on the surface of the United Kingdom in land cover classes from grassland, woodland and fresh water to urban and suburban built-up areas.\" /> <meta name=\"abstract\" content=\"The UK Centre for Ecology &amp; Hydrology is an independent, not-for-profit research institute, carrying out excellent environmental science across water, land and air.\" /> <meta name=\"robots\" content=\"index, follow, noarchive\" /> <link rel=\"canonical\" href=\"https://www.ceh.ac.uk/data/ukceh-land-cover-maps\" /> <meta name=\"twitter:card\" content=\"summary\" /> <meta name=\"twitter:title\" content=\"UKCEH Land Cover Maps\" /> <meta name=\"twitter:site\" content=\"@CEHScienceNews\" /> <meta name=\"twitter:description\" content=\"UKCEH Land Cover Maps describe the physical material on the surface of the United Kingdom in land cover classes from grassland, woodland and fresh water to urban and suburban built-up areas.\" /> <meta name=\"twitter:image\" content=\"https://www.ceh.ac.uk/sites/default/files/strips/d7-tile-land-cover-maps-landing-370x274.png\" /> <meta name=\"twitter:image:alt\" content=\"Land cover mapping\" /> <meta name=\"Generator\" content=\"Drupal 10 (https://www.drupal.org)\" /> <meta name=\"MobileOptimized\" content=\"width\" /> <meta name=\"HandheldFriendly\" content=\"true\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"preconnect\" href=\"https://challenges.cloudflare.com\" /> <style>div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie-withdraw-tab {background: #333} div#sliding-popup.eu-cookie-withdraw-wrapper { background: transparent; } #sliding-popup h1, #sliding-popup h2, #sliding-popup h3, #sliding-popup p, #sliding-popup label, #sliding-popup div, .eu-cookie-compliance-more-button, .eu-cookie-compliance-secondary-button, .eu-cookie-withdraw-tab { color: #ffffff;} .eu-cookie-withdraw-tab { border-color: #ffffff;}</style> <script type=\"application/ld+json\">{ \"@context\": \"https://schema.org\", \"@graph\": [ { \"@type\": \"Organization\", \"name\": \"UK Centre for Ecology \\u0026 Hydrology\", \"description\": \"UK Centre for Ecology \\u0026 Hydrology is a world-class research organisation\", \"url\": \"https://ceh.ac.uk\", \"telephone\": \"+441491838800\", \"contactPoint\": [], \"logo\": { \"@type\": \"ImageObject\", \"url\": \"https://www.ceh.ac.uk/sites/default/files/images/theme/ukceh_logo_long_720x170_r"
+    }
+  ]
+}

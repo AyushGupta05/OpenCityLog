@@ -1,0 +1,16 @@
+{
+  "source_id": "nyc_census_acs_api",
+  "title": "U.S. Census ACS API",
+  "requested_url": "https://api.census.gov/data.html",
+  "fetched_url": "https://api.census.gov/data.html",
+  "final_url": "https://api.census.gov/data.html",
+  "status": 200,
+  "content_type": "text/html;charset=utf-8",
+  "content_length": "",
+  "last_modified": "",
+  "etag": "",
+  "retrieved_at": "2026-04-28T11:05:59.193618+00:00",
+  "page_title": "Census Data API: /data",
+  "h1": "",
+  "meta_description": "Census Data API: /data"
+}

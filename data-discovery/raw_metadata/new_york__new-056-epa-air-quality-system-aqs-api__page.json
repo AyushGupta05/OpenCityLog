@@ -1,0 +1,25 @@
+{
+  "source_id": "new-056-epa-air-quality-system-aqs-api",
+  "city": "new_york",
+  "title": "EPA Air Quality System (AQS) API",
+  "publisher": "U.S. EPA",
+  "bucket": "environment",
+  "retrieved_at": "2026-04-28T12:21:34.182581+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
+      "retrieved_at": "2026-04-28T12:21:32.665650+00:00",
+      "final_url": "https://aqs.epa.gov/aqsweb/documents/data_api.html",
+      "status": 200,
+      "content_type": "text/html",
+      "last_modified": "Mon, 11 Apr 2022 17:16:47 GMT",
+      "etag": "\"202b1-5dc641bf56a10\"",
+      "content_length_header": "131761",
+      "bytes_captured": 131761,
+      "page_title": "AQS API | AirData | US EPA AQS API | AirData | US EPA",
+      "h1": "US EPA Air Quality System (AQS) API",
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\"><!-- InstanceBegin template=\"/Templates/ad_template.dwt\" codeOutsideHTMLIsLocked=\"false\" --> <!-- EPA Template, OneEPA Web, 17 November 2010 > <meta charset=\"utf-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=8\" /> <!-- InstanceBeginEditable name=\"doctitle\" --> <title>AQS API | AirData | US EPA</title> <!-- InstanceEndEditable --> <!-- InstanceBeginEditable name=\"metaElements\" --> <meta name=\"DC.title\" content=\"AirData website File Download page\" /> <meta name=\"DC.description\" content=\"Large data files available on the AirData website\" /> <meta name=\"keywords\" content=\"download, air, monitoring, data, file, air quality, monitor, statistics, AQS\" /> <!-- InstanceEndEditable --> <meta name=\"DC.type\" content=\"Data & Tools\" /> <meta name=\"DC.Subject.epachannel\" content=\"Science & Technology\" /> <meta name=\"DC.Subject.epabrm\" content=\"\" /> <meta name=\"DC.Subject.epacat\" content=\"\" /> <meta name=\"DC.Subject.epaect\" content=\"\" /> <meta name=\"DC.Subject.epaemt\" content=\"\" /> <meta name=\"DC.Subject.epahealth\" content=\"\" /> <meta name=\"DC.Subject.epaindustry\" content=\"\" /> <meta name=\"DC.Subject.epaopt\" content=\"\" /> <meta name=\"DC.Subject.epappt\" content=\"\" /> <meta name=\"DC.Subject.eparat\" content=\"\" /> <meta name=\"DC.Subject.eparegulation\" content=\"\" /> <meta name=\"DC.Subject.eparit\" content=\"\" /> <meta name=\"DC.Subject.epasubstance\" content=\"\" /> <meta name=\"DC.audience\" content=\"\" /> <meta name=\"DC.coverage\" content=\"\" /> <meta name=\"DC.date.created\" content=\"\" /> <meta name=\"DC.date.modified\" content=\"\" /> <!DOCTYPE html> <!--[if IEMobile 7]><html class=\"iem7 no-js\" lang=\"en\" dir=\"ltr\"><![endif]--> <!--[if lt IE 7]><html class=\"lt-ie9 lt-ie8 lt-ie7 no-js\" lang=\"en\" dir=\"ltr\"><![endif]--> <!--[if (IE 7)&(!IEMobile)]><html class=\"lt-ie9 lt-ie8 no-js\" lang=\"en\" dir=\"ltr\"><![endif]--> <!--[if IE 8]><html class=\"lt-ie9 no-js\" lang=\"en\" dir=\"ltr\"><![endif]--> <!--[if (gt IE 8)|(gt IEMobile 7)]><!--> <li class=\"no-js not-oldie\" lang=\"en\" dir=\"ltr\"> <!--<![endif]--> <head> <meta charset=\"utf-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta name=\"HandheldFriendly\" content=\"true\" /> <link rel=\"shortcut icon\" href=\"https://www.epa.gov/sites/all/themes/epa/favicon.ico\" type=\"image/vnd.microsoft.icon\" /> <meta name=\"MobileOptimized\" content=\"width\" /> <meta http-equiv=\"cleartype\" content=\"on\" /> <meta http-equiv=\"ImageToolbar\" content=\"false\" /> <meta name=\"viewport\" content=\"width=device-width\" /> <meta name=\"version\" content=\"20161218\" /> <!--googleon: all--> <meta name=\"DC.description\" content=\"\" /> <meta name=\"DC.title\" content=\"\" /> <title>AQS API | AirData | US EPA</title> <!--googleoff: snippet--> <meta name=\"keywords\" content=\"\" /> <link rel=\"shortlink\" href=\"\" /> <link rel=\"canonical\" href=\"\" /> <meta name=\"DC.creator\" content=\"\" /> <meta name=\"DC.language\" content=\"en\" /> <meta name=\"DC.Subject.epachannel\""
+    }
+  ]
+}

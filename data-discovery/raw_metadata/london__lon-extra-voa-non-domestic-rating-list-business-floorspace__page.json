@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-voa-non-domestic-rating-list-business-floorspace",
+  "city": "london",
+  "title": "VOA Non-Domestic Rating List / business floorspace",
+  "publisher": "Valuation Office Agency",
+  "bucket": "economy/commercial property/buildings",
+  "retrieved_at": "2026-04-28T12:57:06.514692+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.gov.uk/government/collections/non-domestic-rating-business-floorspace",
+      "retrieved_at": "2026-04-28T12:57:06.296531+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://www.gov.uk/government/collections/non-domestic-rating-business-floorspace",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

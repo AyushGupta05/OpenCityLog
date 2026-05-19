@@ -1,0 +1,4 @@
+{
+  "status": "retired",
+  "message": "The old replay manifest is no longer a public runtime API. Use web/data/city-atlas/index.json for active source-backed atlas data."
+}

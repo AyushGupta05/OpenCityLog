@@ -1,0 +1,1141 @@
+{
+  "id": "c3uy-2p5r",
+  "name": "Air Quality and Health Impacts",
+  "assetType": "dataset",
+  "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+  "averageRating": 0,
+  "category": "Environment",
+  "createdAt": 1414112027,
+  "description": "Dataset contains information on New York City air quality surveillance data.\n\nAir pollution is one of the most important environmental threats to urban populations and while all people are exposed, pollutant emissions, levels of exposure, and population vulnerability vary across neighborhoods. Exposures to common air pollutants have been linked to respiratory and cardiovascular diseases, cancers, and premature deaths. These indicators provide a perspective across time and NYC geographies to better characterize air quality and health in NYC. Data can also be explored online at the Environment and Health Data Portal: http://nyc.gov/health/environmentdata.\n\nReal-time air quality data can be found on the Environmental & Health Data Portal linked here: <a href=\"https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/realtime-air-quality/\">Real-Time Air Quality in NYC</a>",
+  "diciBackend": false,
+  "displayType": "table",
+  "downloadCount": 5416549,
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "locked": false,
+  "newBackend": true,
+  "numberOfComments": 1,
+  "oid": 35948106,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1607537955,
+  "publicationGroup": 1826608,
+  "publicationStage": "published",
+  "rowClass": "",
+  "rowIdentifierColumnId": 513230494,
+  "rowsUpdatedAt": 1773670757,
+  "rowsUpdatedBy": "5fuc-pqz2",
+  "tableId": 17848889,
+  "totalTimesRated": 0,
+  "viewCount": 136005,
+  "viewLastModified": 1776777691,
+  "viewType": "tabular",
+  "approvals": [
+    {
+      "reviewedAt": 1414112118,
+      "reviewedAutomatically": true,
+      "state": "approved",
+      "submissionId": 3002799,
+      "submissionObject": "public_audience_request",
+      "submissionOutcome": "change_audience",
+      "submittedAt": 1414112118,
+      "targetAudience": "public",
+      "workflowId": 2285,
+      "submissionDetails": {
+        "permissionType": "READ"
+      },
+      "submissionOutcomeApplication": {
+        "failureCount": 0,
+        "status": "success"
+      },
+      "submitter": {
+        "id": "5fuc-pqz2",
+        "displayName": "NYC OpenData"
+      }
+    }
+  ],
+  "clientContext": {
+    "clientContextVariables": [],
+    "inheritedVariables": {}
+  },
+  "columns": [
+    {
+      "id": 513230494,
+      "name": "Unique ID",
+      "dataTypeName": "text",
+      "description": "Unique record identifier",
+      "fieldName": "unique_id",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 124883048,
+      "width": 304,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "878254",
+        "null": "0",
+        "top": [
+          {
+            "item": "172091",
+            "count": "1"
+          },
+          {
+            "item": "740966",
+            "count": "1"
+          },
+          {
+            "item": "412533",
+            "count": "1"
+          },
+          {
+            "item": "667046",
+            "count": "1"
+          },
+          {
+            "item": "212301",
+            "count": "1"
+          },
+          {
+            "item": "823240",
+            "count": "1"
+          },
+          {
+            "item": "650066",
+            "count": "1"
+          },
+          {
+            "item": "173119",
+            "count": "1"
+          },
+          {
+            "item": "227583",
+            "count": "1"
+          },
+          {
+            "item": "605786",
+            "count": "1"
+          },
+          {
+            "item": "742357",
+            "count": "1"
+          },
+          {
+            "item": "177220",
+            "count": "1"
+          },
+          {
+            "item": "168499",
+            "count": "1"
+          },
+          {
+            "item": "877252",
+            "count": "1"
+          },
+          {
+            "item": "172102",
+            "count": "1"
+          },
+          {
+            "item": "222408",
+            "count": "1"
+          },
+          {
+            "item": "154617",
+            "count": "1"
+          },
+          {
+            "item": "827527",
+            "count": "1"
+          },
+          {
+            "item": "169512",
+            "count": "1"
+          },
+          {
+            "item": "175386",
+            "count": "1"
+          }
+        ],
+        "smallest": "130355",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230478,
+      "name": "Indicator ID",
+      "dataTypeName": "number",
+      "description": "Identifier of the type of measured value across time and space",
+      "fieldName": "indicator_id",
+      "position": 2,
+      "renderTypeName": "number",
+      "tableColumnId": 22543550,
+      "width": 244,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "661",
+        "null": "0",
+        "top": [
+          {
+            "item": "375",
+            "count": "6345"
+          },
+          {
+            "item": "365",
+            "count": "6345"
+          },
+          {
+            "item": "386",
+            "count": "2115"
+          },
+          {
+            "item": "644",
+            "count": "321"
+          },
+          {
+            "item": "643",
+            "count": "321"
+          },
+          {
+            "item": "645",
+            "count": "321"
+          },
+          {
+            "item": "661",
+            "count": "240"
+          },
+          {
+            "item": "639",
+            "count": "240"
+          },
+          {
+            "item": "652",
+            "count": "240"
+          },
+          {
+            "item": "653",
+            "count": "240"
+          },
+          {
+            "item": "655",
+            "count": "240"
+          },
+          {
+            "item": "657",
+            "count": "240"
+          },
+          {
+            "item": "659",
+            "count": "240"
+          },
+          {
+            "item": "648",
+            "count": "240"
+          },
+          {
+            "item": "650",
+            "count": "240"
+          },
+          {
+            "item": "651",
+            "count": "240"
+          },
+          {
+            "item": "646",
+            "count": "203"
+          },
+          {
+            "item": "647",
+            "count": "203"
+          },
+          {
+            "item": "642",
+            "count": "96"
+          },
+          {
+            "item": "641",
+            "count": "96"
+          }
+        ],
+        "smallest": "365",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230479,
+      "name": "Name",
+      "dataTypeName": "text",
+      "description": "Name of the indicator",
+      "fieldName": "name",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 22543551,
+      "width": 148,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "Respiratory hospitalizations due to PM2.5 (age 20+)",
+        "null": "0",
+        "top": [
+          {
+            "item": "Fine particles (PM 2.5)",
+            "count": "6345"
+          },
+          {
+            "item": "Nitrogen dioxide (NO2)",
+            "count": "6345"
+          },
+          {
+            "item": "Ozone (O3)",
+            "count": "2115"
+          },
+          {
+            "item": "Asthma emergency department visits due to PM2.5",
+            "count": "480"
+          },
+          {
+            "item": "Asthma emergency departments visits due to Ozone",
+            "count": "480"
+          },
+          {
+            "item": "Asthma hospitalizations due to Ozone",
+            "count": "480"
+          },
+          {
+            "item": "Annual vehicle miles traveled",
+            "count": "321"
+          },
+          {
+            "item": "Annual vehicle miles traveled (cars)",
+            "count": "321"
+          },
+          {
+            "item": "Annual vehicle miles traveled (trucks)",
+            "count": "321"
+          },
+          {
+            "item": "Respiratory hospitalizations due to PM2.5 (age 20+)",
+            "count": "240"
+          },
+          {
+            "item": "Cardiac and respiratory deaths due to Ozone",
+            "count": "240"
+          },
+          {
+            "item": "Cardiovascular hospitalizations due to PM2.5 (age 40+)",
+            "count": "240"
+          },
+          {
+            "item": "Deaths due to PM2.5",
+            "count": "240"
+          },
+          {
+            "item": "Outdoor Air Toxics - Benzene",
+            "count": "203"
+          },
+          {
+            "item": "Outdoor Air Toxics - Formaldehyde",
+            "count": "203"
+          },
+          {
+            "item": "Boiler Emissions- Total SO2 Emissions",
+            "count": "96"
+          },
+          {
+            "item": "Boiler Emissions- Total PM2.5 Emissions",
+            "count": "96"
+          },
+          {
+            "item": "Boiler Emissions- Total NOx Emissions",
+            "count": "96"
+          }
+        ],
+        "smallest": "Annual vehicle miles traveled",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230480,
+      "name": "Measure",
+      "dataTypeName": "text",
+      "description": "How the indicator is measured",
+      "fieldName": "measure",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 22543552,
+      "width": 184,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "Number per km2",
+        "null": "0",
+        "top": [
+          {
+            "item": "Mean",
+            "count": "14805"
+          },
+          {
+            "item": "Million miles",
+            "count": "963"
+          },
+          {
+            "item": "Estimated annual rate (age 18+)",
+            "count": "720"
+          },
+          {
+            "item": "Estimated annual rate",
+            "count": "720"
+          },
+          {
+            "item": "Estimated annual rate (under age 18)",
+            "count": "720"
+          },
+          {
+            "item": "Annual average concentration",
+            "count": "406"
+          },
+          {
+            "item": "Number per km2",
+            "count": "288"
+          },
+          {
+            "item": "Estimated annual rate (age 30+)",
+            "count": "240"
+          }
+        ],
+        "smallest": "Annual average concentration",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230490,
+      "name": "Measure Info",
+      "dataTypeName": "text",
+      "description": "Information (such as units) about the measure",
+      "fieldName": "measure_info",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 124883044,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "ppb",
+        "null": "0",
+        "top": [
+          {
+            "item": "ppb",
+            "count": "8460"
+          },
+          {
+            "item": "mcg/m3",
+            "count": "6345"
+          },
+          {
+            "item": "per 100,000 adults",
+            "count": "1440"
+          },
+          {
+            "item": "per square mile",
+            "count": "963"
+          },
+          {
+            "item": "per 100,000 children",
+            "count": "720"
+          },
+          {
+            "item": "Âµg/m3",
+            "count": "406"
+          },
+          {
+            "item": "number",
+            "count": "288"
+          },
+          {
+            "item": "per 100,000",
+            "count": "240"
+          }
+        ],
+        "smallest": "Âµg/m3",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230481,
+      "name": "Geo Type Name",
+      "dataTypeName": "text",
+      "description": "Geography type; UHF' stands for United Hospital Fund neighborhoods; For instance, Citywide, Borough, and Community Districts are different geography types",
+      "fieldName": "geo_type_name",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 22543553,
+      "width": 256,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "UHF42",
+        "null": "0",
+        "top": [
+          {
+            "item": "UHF42",
+            "count": "7392"
+          },
+          {
+            "item": "CD",
+            "count": "6844"
+          },
+          {
+            "item": "UHF34",
+            "count": "3570"
+          },
+          {
+            "item": "Borough",
+            "count": "880"
+          },
+          {
+            "item": "Citywide",
+            "count": "176"
+          }
+        ],
+        "smallest": "Borough",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230483,
+      "name": "Geo Join ID",
+      "dataTypeName": "text",
+      "description": "Identifier of the neighborhood geographic area, used for joining to mapping geography files to make thematic maps",
+      "fieldName": "geo_join_id",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 22543555,
+      "width": 280,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "504",
+        "null": "0",
+        "top": [
+          {
+            "item": "201",
+            "count": "397"
+          },
+          {
+            "item": "203",
+            "count": "397"
+          },
+          {
+            "item": "101",
+            "count": "397"
+          },
+          {
+            "item": "204",
+            "count": "397"
+          },
+          {
+            "item": "102",
+            "count": "397"
+          },
+          {
+            "item": "211",
+            "count": "397"
+          },
+          {
+            "item": "210",
+            "count": "397"
+          },
+          {
+            "item": "408",
+            "count": "397"
+          },
+          {
+            "item": "207",
+            "count": "397"
+          },
+          {
+            "item": "409",
+            "count": "397"
+          },
+          {
+            "item": "206",
+            "count": "397"
+          },
+          {
+            "item": "104",
+            "count": "397"
+          },
+          {
+            "item": "407",
+            "count": "397"
+          },
+          {
+            "item": "401",
+            "count": "397"
+          },
+          {
+            "item": "301",
+            "count": "397"
+          },
+          {
+            "item": "202",
+            "count": "397"
+          },
+          {
+            "item": "302",
+            "count": "397"
+          },
+          {
+            "item": "209",
+            "count": "397"
+          },
+          {
+            "item": "208",
+            "count": "397"
+          },
+          {
+            "item": "410",
+            "count": "397"
+          }
+        ],
+        "smallest": "1",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230489,
+      "name": "Geo Place Name",
+      "dataTypeName": "text",
+      "description": "Neighborhood name",
+      "fieldName": "geo_place_name",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 124883043,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "Woodside and Sunnyside (CD2)",
+        "null": "0",
+        "top": [
+          {
+            "item": "Jamaica",
+            "count": "281"
+          },
+          {
+            "item": "Ridgewood - Forest Hills",
+            "count": "281"
+          },
+          {
+            "item": "Greenpoint",
+            "count": "281"
+          },
+          {
+            "item": "East New York",
+            "count": "281"
+          },
+          {
+            "item": "Long Island City - Astoria",
+            "count": "281"
+          },
+          {
+            "item": "Pelham - Throgs Neck",
+            "count": "281"
+          },
+          {
+            "item": "Coney Island - Sheepshead Bay",
+            "count": "281"
+          },
+          {
+            "item": "Flushing - Clearview",
+            "count": "281"
+          },
+          {
+            "item": "East Flatbush - Flatbush",
+            "count": "281"
+          },
+          {
+            "item": "East Harlem",
+            "count": "281"
+          },
+          {
+            "item": "Bedford Stuyvesant - Crown Heights",
+            "count": "281"
+          },
+          {
+            "item": "Kingsbridge - Riverdale",
+            "count": "281"
+          },
+          {
+            "item": "Northeast Bronx",
+            "count": "281"
+          },
+          {
+            "item": "Fordham - Bronx Pk",
+            "count": "281"
+          },
+          {
+            "item": "Canarsie - Flatlands",
+            "count": "281"
+          },
+          {
+            "item": "Bensonhurst - Bay Ridge",
+            "count": "281"
+          },
+          {
+            "item": "Central Harlem - Morningside Heights",
+            "count": "281"
+          },
+          {
+            "item": "Downtown - Heights - Slope",
+            "count": "281"
+          },
+          {
+            "item": "Borough Park",
+            "count": "281"
+          },
+          {
+            "item": "Rockaways",
+            "count": "281"
+          }
+        ],
+        "smallest": "Bay Ridge and Dyker Heights (CD10)",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230491,
+      "name": "Time Period",
+      "dataTypeName": "text",
+      "description": "Description of the time that the data applies to ; Could be a year, range of years, or season for example",
+      "fieldName": "time_period",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 124883045,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "Winter 2022-23",
+        "null": "0",
+        "top": [
+          {
+            "item": "2012-2014",
+            "count": "480"
+          },
+          {
+            "item": "2015-2017",
+            "count": "480"
+          },
+          {
+            "item": "2009-2011",
+            "count": "480"
+          },
+          {
+            "item": "2017-2019",
+            "count": "480"
+          },
+          {
+            "item": "2005-2007",
+            "count": "480"
+          },
+          {
+            "item": "Summer 2018",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2019",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2021",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2014",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2020",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2013",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2016",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2009",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2017",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2010",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2015",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2012",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2011",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2022",
+            "count": "423"
+          },
+          {
+            "item": "Summer 2023",
+            "count": "423"
+          }
+        ],
+        "smallest": "2005",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230493,
+      "name": "Start_Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date value for the start of the time_period; Always a date value; could be useful for plotting a time series",
+      "fieldName": "start_date",
+      "position": 10,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 124883047,
+      "width": 292,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "2023-06-01T00:00:00.000",
+        "null": "0",
+        "top": [
+          {
+            "item": "2015-01-01T00:00:00.000",
+            "count": "906"
+          },
+          {
+            "item": "2005-01-01T00:00:00.000",
+            "count": "897"
+          },
+          {
+            "item": "2017-01-01T00:00:00.000",
+            "count": "762"
+          },
+          {
+            "item": "2019-01-01T00:00:00.000",
+            "count": "603"
+          },
+          {
+            "item": "2011-12-01T00:00:00.000",
+            "count": "564"
+          },
+          {
+            "item": "2009-12-01T00:00:00.000",
+            "count": "564"
+          },
+          {
+            "item": "2013-12-01T00:00:00.000",
+            "count": "564"
+          },
+          {
+            "item": "2008-12-01T00:00:00.000",
+            "count": "564"
+          },
+          {
+            "item": "2012-12-01T00:00:00.000",
+            "count": "564"
+          },
+          {
+            "item": "2010-12-01T00:00:00.000",
+            "count": "564"
+          },
+          {
+            "item": "2012-01-02T00:00:00.000",
+            "count": "480"
+          },
+          {
+            "item": "2009-01-01T00:00:00.000",
+            "count": "480"
+          },
+          {
+            "item": "2022-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2009-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2015-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2011-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2018-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2017-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2014-06-01T00:00:00.000",
+            "count": "423"
+          },
+          {
+            "item": "2016-06-01T00:00:00.000",
+            "count": "423"
+          }
+        ],
+        "smallest": "2005-01-01T00:00:00.000",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {
+        "view": "date"
+      }
+    },
+    {
+      "id": 513230485,
+      "name": "Data Value",
+      "dataTypeName": "number",
+      "description": "The actual data value for this indicator, measure, place, and time",
+      "fieldName": "data_value",
+      "position": 11,
+      "renderTypeName": "number",
+      "tableColumnId": 22543557,
+      "width": 304,
+      "cachedContents": {
+        "non_null": "18862",
+        "largest": "424.7",
+        "null": "0",
+        "top": [
+          {
+            "item": "2",
+            "count": "46"
+          },
+          {
+            "item": "5",
+            "count": "45"
+          },
+          {
+            "item": "10",
+            "count": "41"
+          },
+          {
+            "item": "9",
+            "count": "38"
+          },
+          {
+            "item": "4",
+            "count": "36"
+          },
+          {
+            "item": "3",
+            "count": "34"
+          },
+          {
+            "item": "7",
+            "count": "32"
+          },
+          {
+            "item": "0",
+            "count": "32"
+          },
+          {
+            "item": "8",
+            "count": "30"
+          },
+          {
+            "item": "2.8",
+            "count": "28"
+          },
+          {
+            "item": "2.1",
+            "count": "26"
+          },
+          {
+            "item": "6",
+            "count": "26"
+          },
+          {
+            "item": "11",
+            "count": "26"
+          },
+          {
+            "item": "8.1",
+            "count": "22"
+          },
+          {
+            "item": "2.2",
+            "count": "21"
+          },
+          {
+            "item": "2.3",
+            "count": "21"
+          },
+          {
+            "item": "8.6",
+            "count": "20"
+          },
+          {
+            "item": "10.35",
+            "count": "20"
+          },
+          {
+            "item": "9.27",
+            "count": "20"
+          },
+          {
+            "item": "8.65",
+            "count": "19"
+          }
+        ],
+        "smallest": "0",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    },
+    {
+      "id": 513230492,
+      "name": "Message",
+      "dataTypeName": "text",
+      "description": "notes that apply to the data value; For example, if an estimate is based on small numbers we will detail here",
+      "fieldName": "message",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 124883046,
+      "cachedContents": {
+        "non_null": "0",
+        "null": "18862",
+        "count": "18862",
+        "cardinality": "18862"
+      },
+      "format": {}
+    }
+  ],
+  "grants": [
+    {
+      "inherited": false,
+      "type": "viewer",
+      "flags": [
+        "public"
+      ]
+    }
+  ],
+  "metadata": {
+    "rdfSubject": "0",
+    "rdfClass": "",
+    "jsonQuery": {
+      "order": [
+        {
+          "columnFieldName": "start_date",
+          "ascending": false
+        }
+      ]
+    },
+    "attachments": [
+      {
+        "filename": "Data-Dictionary-Air Quality 2026.xlsx",
+        "assetId": "32aa22c7-27a0-46c4-aa3f-a02cf6cbe534",
+        "name": "Data-Dictionary-Air Quality 2026.xlsx"
+      }
+    ],
+    "custom_fields": {
+      "Update": {
+        "Automation": "No",
+        "Date Made Public": "10/24/2014",
+        "Update Frequency": "As needed"
+      },
+      "Dataset Information": {
+        "Agency": "Department of Health and Mental Hygiene (DOHMH)"
+      }
+    },
+    "rowIdentifier": 513230494,
+    "rowLabel": "Air Quality Measurement ",
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ],
+    "renderTypeConfig": {
+      "visible": {
+        "table": true
+      }
+    }
+  },
+  "owner": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "query": {
+    "orderBys": [
+      {
+        "ascending": false,
+        "expression": {
+          "columnId": 513230493,
+          "type": "column"
+        }
+      }
+    ]
+  },
+  "rights": [
+    "read"
+  ],
+  "tableAuthor": {
+    "id": "5fuc-pqz2",
+    "displayName": "NYC OpenData",
+    "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+    "screenName": "NYC OpenData",
+    "type": "interactive",
+    "flags": [
+      "acceptedEula",
+      "mayBeStoriesCoOwner"
+    ]
+  },
+  "tags": [
+    "air quality",
+    "surveillance",
+    "health",
+    "dohmh",
+    "2018od4a-video",
+    "climate"
+  ],
+  "flags": [
+    "default",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ]
+}

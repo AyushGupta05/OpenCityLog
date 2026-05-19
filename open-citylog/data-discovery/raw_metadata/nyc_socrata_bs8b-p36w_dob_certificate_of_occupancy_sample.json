@@ -1,0 +1,36 @@
+[
+  {
+    "job_number": "220466350",
+    "job_type": "A1",
+    "c_o_issue_date": "2021-04-08T00:00:00.000",
+    "bin_number": "2102454",
+    "borough": "Bronx",
+    "house_number": "340",
+    "street_name": "BAYCHESTER AVE",
+    "block": "05141",
+    "lot": "00035",
+    "postcode": "10475",
+    "application_status_raw": "Issued",
+    "filing_status_raw": "New",
+    "item_number": "009",
+    "issue_type": "Final",
+    "latitude": "40.867780",
+    "longitude": "-73.831248",
+    "community_board": "10",
+    "council_district": "12",
+    "census_tract": "46201",
+    "bin": "2102454",
+    "bbl": "2051410035",
+    "nta": "Co-op City",
+    "location": {
+      "latitude": "40.86778",
+      "longitude": "-73.831248",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    ":@computed_region_efsh_h5xi": "12344",
+    ":@computed_region_f5dn_yrer": "43",
+    ":@computed_region_yeji_bk3q": "5",
+    ":@computed_region_92fq_4b7q": "2",
+    ":@computed_region_sbqj_enih": "28"
+  }
+]

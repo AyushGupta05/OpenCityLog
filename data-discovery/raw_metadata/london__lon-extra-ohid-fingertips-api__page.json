@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-ohid-fingertips-api",
+  "city": "london",
+  "title": "OHID Fingertips API",
+  "publisher": "Office for Health Improvement and Disparities",
+  "bucket": "health indicators/public services",
+  "retrieved_at": "2026-04-28T12:57:23.656096+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://fingertips.phe.org.uk/api",
+      "retrieved_at": "2026-04-28T12:57:23.418299+00:00",
+      "final_url": "https://fingertips.phe.org.uk/api",
+      "status": 200,
+      "content_type": "text/html",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": "6960",
+      "bytes_captured": 6960,
+      "page_title": "Public Health Data API",
+      "h1": null,
+      "meta_description": null,
+      "text_sample": "<!DOCTYPE html> <html> <head> <meta charset=\"UTF-8\"> <title>Public Health Data API</title> <link rel=\"icon\" type=\"image/png\" href=\"images/favicon-32x32-png\" sizes=\"32x32\" /> <link rel=\"icon\" type=\"image/png\" href=\"images/favicon-16x16-png\" sizes=\"16x16\" /> <link href='api/asset/css/typography-css' media='screen' rel='stylesheet' type='text/css'/> <link href='api/asset/css/reset-css' media='screen' rel='stylesheet' type='text/css'/> <link href='api/asset/css/screen-css' media='screen' rel='stylesheet' type='text/css'/> <link href='api/asset/css/reset-css' media='print' rel='stylesheet' type='text/css'/> <link href='api/asset/css/print-css' media='print' rel='stylesheet' type='text/css'/> <link href='api/asset/ext/PholioVisualisation-ServicesWeb-swagger-css' media='screen' rel='stylesheet' type='text/css' /> <script src='api/asset/lib/object-assign-pollyfill-js' type='text/javascript'></script> <script src='api/asset/lib/jquery-1-8-0-min-js' type='text/javascript'></script> <script src='api/asset/lib/jquery-slideto-min-js' type='text/javascript'></script> <script src='api/asset/lib/jquery-wiggle-min-js' type='text/javascript'></script> <script src='api/asset/lib/jquery-ba-bbq-min-js' type='text/javascript'></script> <script src='api/asset/lib/handlebars-4-0-5-js' type='text/javascript'></script> <script src='api/asset/lib/lodash-min-js' type='text/javascript'></script> <script src='api/asset/lib/backbone-min-js' type='text/javascript'></script> <script src='api/asset/swagger-ui-min-js' type='text/javascript'></script> <script src='api/asset/lib/highlight-9-1-0-pack-js' type='text/javascript'></script> <script src='api/asset/lib/highlight-9-1-0-pack_extended-js' type='text/javascript'></script> <script src='api/asset/lib/jsoneditor-min-js' type='text/javascript'></script> <script src='api/asset/lib/marked-js' type='text/javascript'></script> <script src='api/asset/lib/swagger-oauth-js' type='text/javascript'></script> <!-- Some basic translations --> <!-- <script src='api/asset/lang/translator.js' type='text/javascript'></script> --> <!-- <script src='api/asset/lang/ru.js' type='text/javascript'></script> --> <!-- <script src='api/asset/lang/en.js' type='text/javascript'></script> --> <script type=\"text/javascript\"> $(function () { // Get Swashbuckle config into JavaScript function arrayFrom(configString) { return (configString !== \"\") ? configString.split('|') : []; } function stringOrNullFrom(configString) { return (configString !== \"null\") ? configString : null; } window.swashbuckleConfig = { rootUrl: 'https://fingertips.phe.org.uk', discoveryPaths: arrayFrom('swagger/docs/v1'), booleanValues: arrayFrom('true|false'), validatorUrl: stringOrNullFrom(''), customScripts: arrayFrom(''), docExpansion: 'none', supportedSubmit"
+    }
+  ]
+}

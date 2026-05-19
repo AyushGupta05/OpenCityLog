@@ -1,0 +1,18 @@
+{
+  "source_id": "lon-extra-waltham-forest-open-data",
+  "city": "london",
+  "title": "Waltham Forest Open Data",
+  "publisher": "London Borough of Waltham Forest",
+  "bucket": "borough/active travel/local assets",
+  "retrieved_at": "2026-04-28T12:57:29.049936+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.walthamforest.gov.uk/council-and-elections/open-data",
+      "retrieved_at": "2026-04-28T12:57:28.284376+00:00",
+      "status": 404,
+      "error": "HTTPError: Not Found",
+      "final_url": "https://www.walthamforest.gov.uk/council-and-elections/open-data",
+      "content_type": "text/html; charset=UTF-8"
+    }
+  ]
+}

@@ -1,0 +1,482 @@
+{
+  "source_id": "mm69-vrje",
+  "city": "new_york",
+  "title": "Zoning GIS Data: Geodatabase",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "zoning GIS/planning",
+  "retrieved_at": "2026-04-28T12:57:45.290756+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/mm69-vrje",
+      "retrieved_at": "2026-04-28T12:57:43.511006+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/mm69-vrje",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4727,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Zoning GIS Data: Geodatabase",
+      "description": "This data set consists of 6 classes of zoning features: zoning districts, special purpose districts, special purpose district subdistricts, limited height districts, commercial overlay districts,  and zoning map amendments.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1359482950,
+      "json_sample": {
+        "id": "mm69-vrje",
+        "name": "Zoning GIS Data: Geodatabase",
+        "assetType": "file",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features",
+        "averageRating": 0,
+        "blobFilename": "nycgiszoningfeatures_fgdb.zip",
+        "blobFileSize": 3292671,
+        "blobId": "b0f5d57f-2cdb-4b2e-94bc-83839400d99b",
+        "blobMimeType": "application/zip",
+        "category": "City Government",
+        "createdAt": 1359482950,
+        "description": "This data set consists of 6 classes of zoning features: zoning districts, special purpose districts, special purpose district subdistricts, limited height districts, commercial overlay districts,  and zoning map amendments.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 4458,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1573854126,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 2375149,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1359482950,
+        "publicationGroup": 644075,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1359482950,
+        "tableId": 644075,
+        "totalTimesRated": 0,
+        "viewCount": 11625,
+        "viewLastModified": 1774970940,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1359656278,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064200,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1359656278,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "nyzd_metadata.pdf",
+              "assetId": "6ec80a0a-e1bf-4693-81f8-582d270c75a2",
+              "name": "nyzd_metadata.pdf"
+            },
+            {
+              "filename": "nyzma_metadata.pdf",
+              "assetId": "eec0b024-6ced-484a-a388-83f701e578bf",
+              "name": "nyzma_metadata.pdf"
+            },
+            {
+              "filename": "nysp_sd_metadata.pdf",
+              "assetId": "bd7a61df-96dc-4989-9e55-ed6c7a854e77",
+              "name": "nysp_sd_metadata.pdf"
+            },
+            {
+              "filename": "nysp_metadata.pdf",
+              "assetId": "8e820ddd-d497-45f9-ae2f-6d6b5a8690ba",
+              "name": "nysp_metadata.pdf"
+            },
+            {
+              "filename": "nylh_metadata.pdf",
+              "assetId": "29f37397-8212-4179-bae9-a3cae9299e2c",
+              "name": "nylh_metadata.pdf"
+            },
+            {
+              "filename": "nyco_metadata.pdf",
+              "assetId": "e9b0d83e-c419-46ba-b938-f75f5d61762b",
+              "name": "nyco_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "9/13/2021",
+              "Update Frequency": "Monthly",
+              "Data Change Frequency": "Monthly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "NA",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "zoning",
+          "geographic",
+          "location",
+          "map",
+          "cartography",
+          "zone",
+          "district",
+          "commercial",
+          "dcp"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/mm69-vrje",
+      "retrieved_at": "2026-04-28T12:57:44.089147+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/mm69-vrje",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 4727,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "attributionLink",
+        "averageRating",
+        "blobFileSize",
+        "blobFilename",
+        "blobId",
+        "blobMimeType",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "indexUpdatedAt",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Zoning GIS Data: Geodatabase",
+      "description": "This data set consists of 6 classes of zoning features: zoning districts, special purpose districts, special purpose district subdistricts, limited height districts, commercial overlay districts,  and zoning map amendments.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+      "attribution": "Department of City Planning (DCP)",
+      "rowsUpdatedAt": 1359482950,
+      "json_sample": {
+        "id": "mm69-vrje",
+        "name": "Zoning GIS Data: Geodatabase",
+        "assetType": "file",
+        "attribution": "Department of City Planning (DCP)",
+        "attributionLink": "https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features",
+        "averageRating": 0,
+        "blobFilename": "nycgiszoningfeatures_fgdb.zip",
+        "blobFileSize": 3292671,
+        "blobId": "b0f5d57f-2cdb-4b2e-94bc-83839400d99b",
+        "blobMimeType": "application/zip",
+        "category": "City Government",
+        "createdAt": 1359482950,
+        "description": "This data set consists of 6 classes of zoning features: zoning districts, special purpose districts, special purpose district subdistricts, limited height districts, commercial overlay districts,  and zoning map amendments.\n\nAll previously released versions of this data are available on the <a href=\"https://www.nyc.gov/content/planning/pages/resources/datasets/gis-zoning-features\">DCP Website: BYTES of the BIG APPLE</a>. Current version: 202602",
+        "diciBackend": false,
+        "displayType": "blob",
+        "downloadCount": 4458,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "indexUpdatedAt": 1573854126,
+        "locked": false,
+        "newBackend": false,
+        "numberOfComments": 0,
+        "oid": 2375149,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1359482950,
+        "publicationGroup": 644075,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1359482950,
+        "tableId": 644075,
+        "totalTimesRated": 0,
+        "viewCount": 11625,
+        "viewLastModified": 1774970940,
+        "viewType": "blobby",
+        "approvals": [
+          {
+            "reviewedAt": 1359656278,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 1064200,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1359656278,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "nyzd_metadata.pdf",
+              "assetId": "6ec80a0a-e1bf-4693-81f8-582d270c75a2",
+              "name": "nyzd_metadata.pdf"
+            },
+            {
+              "filename": "nyzma_metadata.pdf",
+              "assetId": "eec0b024-6ced-484a-a388-83f701e578bf",
+              "name": "nyzma_metadata.pdf"
+            },
+            {
+              "filename": "nysp_sd_metadata.pdf",
+              "assetId": "bd7a61df-96dc-4989-9e55-ed6c7a854e77",
+              "name": "nysp_sd_metadata.pdf"
+            },
+            {
+              "filename": "nysp_metadata.pdf",
+              "assetId": "8e820ddd-d497-45f9-ae2f-6d6b5a8690ba",
+              "name": "nysp_metadata.pdf"
+            },
+            {
+              "filename": "nylh_metadata.pdf",
+              "assetId": "29f37397-8212-4179-bae9-a3cae9299e2c",
+              "name": "nylh_metadata.pdf"
+            },
+            {
+              "filename": "nyco_metadata.pdf",
+              "assetId": "e9b0d83e-c419-46ba-b938-f75f5d61762b",
+              "name": "nyco_metadata.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "9/13/2021",
+              "Update Frequency": "Monthly",
+              "Data Change Frequency": "Monthly"
+            },
+            "Dataset Information": {
+              "Agency": "Department of City Planning (DCP)"
+            }
+          },
+          "rowLabel": "NA",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "zoning",
+          "geographic",
+          "location",
+          "map",
+          "cartography",
+          "zone",
+          "district",
+          "commercial",
+          "dcp"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/mm69-vrje.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:57:44.695201+00:00",
+      "status": 403,
+      "error": "HTTPError: Forbidden",
+      "final_url": "https://data.cityofnewyork.us/resource/mm69-vrje.json?$limit=1",
+      "content_type": "application/json; charset=utf-8"
+    }
+  ]
+}

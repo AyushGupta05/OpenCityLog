@@ -1,0 +1,24 @@
+{
+  "name": "bims-city-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static-first city atlas data foundation for source-backed urban changelog artifacts.",
+  "scripts": {
+    "build:data": "node scripts/build_data.js && node scripts/run_python.js scripts/build_discovery_city_atlas.py",
+    "build:events": "node scripts/build_infrastructure_events.js",
+    "build:transit": "node scripts/build_translink_transit_layers.js",
+    "build:manifest": "node scripts/build_wayback_imagery_manifest.js",
+    "build": "npm run build:data && npm run build:events && npm run build:transit && npm run build:manifest && npm run verify",
+    "start": "node server.js",
+    "verify:data": "node scripts/verify_data.js",
+    "verify:proposal": "node scripts/verify_proposal_impact.js",
+    "verify": "npm run verify:data && node scripts/verify_no_legacy_paths.js && node scripts/verify-manifest.js && npm run verify:proposal",
+    "verify:timeline-imagery": "node scripts/timeline_imagery_smoke.js",
+    "verify:browser": "node scripts/browser_smoke.js && node scripts/dashboard_smoke.js && npm run verify:timeline-imagery",
+    "coverage:python": "coverage run -m unittest discover tests && coverage report --fail-under=80",
+    "test": "npm run build:data && npm run verify:data && npm run verify:proposal && npm run coverage:python"
+  },
+  "devDependencies": {
+    "playwright": "^1.51.1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_id": "natural-england-open-data",
+  "city": "london",
+  "title": "Natural England Open Data Geoportal",
+  "publisher": "Natural England / DEFRA",
+  "bucket": "environment",
+  "retrieved_at": "2026-04-28T12:18:57.002332+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://naturalengland-defra.opendata.arcgis.com/",
+      "retrieved_at": "2026-04-28T12:18:55.913890+00:00",
+      "final_url": "https://naturalengland-defra.opendata.arcgis.com/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": "W/\"f4fa-HhYRIAc8M4kbU+ayCOCrZ8HvD88\"",
+      "content_length_header": "62714",
+      "bytes_captured": 62714,
+      "page_title": "Natural England Open Data Geoportal",
+      "h1": null,
+      "meta_description": "This is Natural England's platform for sharing geospatial data and web services.  Natural England is the government’s adviser for the natural environment in England.  We help to protect and restore our natural world and for people to enjoy.",
+      "text_sample": "<!DOCTYPE html><html lang=\"en-us\"><head> <title>Natural England Open Data Geoportal</title><meta name=\"twitter:title\" content=\"Natural England Open Data Geoportal\"><meta property=\"og:title\" content=\"Natural England Open Data Geoportal\"><meta name=\"description\" content=\"This is Natural England's platform for sharing geospatial data and web services. Natural England is the government’s adviser for the natural environment in England. We help to protect and restore our natural world and for people to enjoy.\"><meta name=\"twitter:description\" content=\"This is Natural England's platform for sharing geospatial data and web services. Natural England is the government’s adviser for the natural environment in England. We help to protect and restore our natural world and for people to enjoy.\"><meta property=\"og:description\" content=\"This is Natural England's platform for sharing geospatial data and web services. Natural England is the government’s adviser for the natural environment in England. We help to protect and restore our natural world and for people to enjoy.\"><meta name=\"twitter:image\" content=\"https://assets.publishing.service.gov.uk/media/68f217cbe8e4040c38a3cffb/NE-logo2.png\"><meta property=\"og:image\" content=\"https://assets.publishing.service.gov.uk/media/68f217cbe8e4040c38a3cffb/NE-logo2.png\"><meta name=\"twitter:card\" content=\"summary\"><meta property=\"og:url\" content=\"https://naturalengland-defra.opendata.arcgis.com/\"><meta property=\"og:type\" content=\"website\"> <meta charset=\"utf-8\"> <meta name=\"google-site-verification\" content=\"V9SzvB895BKr2ff7JVvaJQM1CIgPqOL5FPooX1aqENo\"> <meta name=\"msvalidate.01\" content=\"217F0EED65C5B131219477CE2CEAAF8E\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <script> (function () { // check for unsupported browsers function isIE () { return ( (navigator.appName === 'Microsoft Internet Explorer') || ((navigator.appName === 'Netscape') && (new RegExp('Trident/.*rv:([0-9]{1,}[.0-9]{0,})').exec(navigator.userAgent) != null)) ); } function isEdge () { return navigator.userAgent.toLowerCase().includes('edge'); } if (isIE() || isEdge()) { window.location.replace('./unsupported.html'); } })(); </script> <meta name=\"activation-engine/config/environment\" content=\"%7B%22modulePrefix%22%3A%22activation-engine%22%2C%22environment%22%3A%22production%22%2C%22ember-do-forms%22%3A%7B%22defaultClasses%22%3A%7B%22field%22%3A%5B%22field%22%5D%2C%22label%22%3A%5B%22label%22%5D%2C%22control%22%3A%5B%22control%22%5D%2C%22feedback%22%3A%5B%22feedback%22%5D%2C%22hint%22%3A%5B%22hint%22%5D%7D%2C%22validationClasses%22%3A%7B%22fieldSuccess%22%3A%5B%22field-success%22%5D%2C%22fieldError%22%3A%5B%22field-error%22%5D%2C%22controlSuccess%22%3A%5B%22control-success%22%5D%2C%22controlError%22%3A%5B%22control-error%22%5D%7D%7D%7D\"> <meta name=\"community-en"
+    }
+  ]
+}

@@ -1,0 +1,706 @@
+{
+  "source_id": "shkv-c3w7",
+  "city": "new_york",
+  "title": "School Zones Map 2024-2025",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "schools/boundaries",
+  "retrieved_at": "2026-04-28T12:59:15.675761+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/shkv-c3w7",
+      "retrieved_at": "2026-04-28T12:59:13.684342+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/shkv-c3w7",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7713,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "School Zones Map 2024-2025",
+      "description": "Data is used to identify the zoning for the High School grades.",
+      "attribution": "Department of Education (DOE)",
+      "rowsUpdatedAt": 1710353617,
+      "json_sample": {
+        "id": "shkv-c3w7",
+        "name": "School Zones Map 2024-2025",
+        "assetType": "map",
+        "attribution": "Department of Education (DOE)",
+        "averageRating": 0,
+        "category": "Education",
+        "createdAt": 1710340782,
+        "description": "Data is used to identify the zoning for the High School grades.",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 4,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "modifyingViewUid": "ruu9-egea",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41512524,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1754423851,
+        "publicationGroup": 19476116,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1710353617,
+        "tableId": 19476271,
+        "totalTimesRated": 0,
+        "viewCount": 15585,
+        "viewLastModified": 1754423851,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1712170247,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7025669,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1712170237,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1712170247,
+              "failureCount": 0,
+              "startedAt": 1712170247,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "mapZoomLevel": {
+                    "min": 1,
+                    "max": 22
+                  },
+                  "showLegendForMap": true,
+                  "showDataTableControl": false,
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "showLegendOpened": true,
+                  "panAndZoom": true,
+                  "showMultiplePointsSymbolInLegend": true,
+                  "mapFlyoutPrecision": 0,
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -74.068151294328,
+                      "lat": 40.73354720597928
+                    },
+                    "zoom": 8.852050859847031
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.70002020510105,
+                    "searchBoundaryUpperLeftLongitude": -74.25591600590135,
+                    "searchBoundaryUpperLeftLatitude": 40.915534266341744,
+                    "navigationControl": true,
+                    "basemapOpacity": 1,
+                    "basemapStyle": "mapbox://styles/socrata/ckgs33yql0thi19nn0qvl9op8",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.495961061298985
+                  },
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "unit": {
+                      "other": "schools",
+                      "one": "school"
+                    },
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#894baa",
+                      "mapFlyoutTitleColumnName": "schooldist",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#894baa"
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "Department of Education School Zones (Middle School)",
+                      "type": "socrata.soql",
+                      "datasetUid": "t26j-jbq7",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": false
+                  },
+                  {
+                    "unit": {
+                      "other": "schools",
+                      "one": "school"
+                    },
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#71abd9",
+                      "mapFlyoutTitleColumnName": "schooldist",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#71abd9"
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "Department of Education School Zones (Elementary School)",
+                      "type": "socrata.soql",
+                      "datasetUid": "cmjf-yawu",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": false
+                  },
+                  {
+                    "unit": {
+                      "other": "schools",
+                      "one": "school"
+                    },
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#a2deb2",
+                      "mapFlyoutTitleColumnName": "sch_name",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#f98d27",
+                      "additionalFlyoutColumns": [
+                        "schooldist"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "Department of Education School Zones (High School)",
+                      "type": "socrata.soql",
+                      "datasetUid": "ruu9-egea",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 8
+                },
+                "description": "",
+                "id": "eeaceec9-78ac-4135-99fc-daa1c60efa04",
+                "title": "",
+                "currentMapLayerIndex": 1
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "4/3/2024",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Education (DOE)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dataset keywords\teducation; doe; zones",
+          "school zones",
+          "high school",
+          "middle school",
+          "elementary school"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/shkv-c3w7",
+      "retrieved_at": "2026-04-28T12:59:14.341153+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/shkv-c3w7",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 7713,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayFormat",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "modifyingViewUid",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "School Zones Map 2024-2025",
+      "description": "Data is used to identify the zoning for the High School grades.",
+      "attribution": "Department of Education (DOE)",
+      "rowsUpdatedAt": 1710353617,
+      "json_sample": {
+        "id": "shkv-c3w7",
+        "name": "School Zones Map 2024-2025",
+        "assetType": "map",
+        "attribution": "Department of Education (DOE)",
+        "averageRating": 0,
+        "category": "Education",
+        "createdAt": 1710340782,
+        "description": "Data is used to identify the zoning for the High School grades.",
+        "diciBackend": false,
+        "displayType": "visualization_canvas_map",
+        "downloadCount": 4,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "modifyingViewUid": "ruu9-egea",
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 41512524,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1754423851,
+        "publicationGroup": 19476116,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1710353617,
+        "tableId": 19476271,
+        "totalTimesRated": 0,
+        "viewCount": 15585,
+        "viewLastModified": 1754423851,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1712170247,
+            "reviewedAutomatically": false,
+            "state": "approved",
+            "submissionId": 7025669,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1712170237,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "reviewer": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            },
+            "submissionDetails": {
+              "permissionType": "read"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1712170247,
+              "failureCount": 0,
+              "startedAt": 1712170247,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [],
+        "displayFormat": {
+          "visualizationCanvasMetadata": {
+            "vifs": [
+              {
+                "configuration": {
+                  "mapZoomLevel": {
+                    "min": 1,
+                    "max": 22
+                  },
+                  "showLegendForMap": true,
+                  "showDataTableControl": false,
+                  "mapPitchAndBearing": {
+                    "bearing": 0,
+                    "pitch": 0
+                  },
+                  "datasetMetadata": false,
+                  "showLegendOpened": true,
+                  "panAndZoom": true,
+                  "showMultiplePointsSymbolInLegend": true,
+                  "mapFlyoutPrecision": 0,
+                  "viewSourceDataLink": true,
+                  "mapCenterAndZoom": {
+                    "center": {
+                      "lng": -74.068151294328,
+                      "lat": 40.73354720597928
+                    },
+                    "zoom": 8.852050859847031
+                  },
+                  "basemapOptions": {
+                    "searchBoundaryLowerRightLongitude": -73.70002020510105,
+                    "searchBoundaryUpperLeftLongitude": -74.25591600590135,
+                    "searchBoundaryUpperLeftLatitude": 40.915534266341744,
+                    "navigationControl": true,
+                    "basemapOpacity": 1,
+                    "basemapStyle": "mapbox://styles/socrata/ckgs33yql0thi19nn0qvl9op8",
+                    "geoCoderControl": true,
+                    "geoLocateControl": true,
+                    "searchBoundaryLowerRightLatitude": 40.495961061298985
+                  },
+                  "locateUser": false
+                },
+                "series": [
+                  {
+                    "unit": {
+                      "other": "schools",
+                      "one": "school"
+                    },
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#894baa",
+                      "mapFlyoutTitleColumnName": "schooldist",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#894baa"
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "Department of Education School Zones (Middle School)",
+                      "type": "socrata.soql",
+                      "datasetUid": "t26j-jbq7",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": false
+                  },
+                  {
+                    "unit": {
+                      "other": "schools",
+                      "one": "school"
+                    },
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#71abd9",
+                      "mapFlyoutTitleColumnName": "schooldist",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#71abd9"
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "Department of Education School Zones (Elementary School)",
+                      "type": "socrata.soql",
+                      "datasetUid": "cmjf-yawu",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": false
+                  },
+                  {
+                    "unit": {
+                      "other": "schools",
+                      "one": "school"
+                    },
+                    "visible": true,
+                    "color": {
+                      "primary": "#eb6900"
+                    },
+                    "mapOptions": {
+                      "shapeOutlineColor": "#a2deb2",
+                      "mapFlyoutTitleColumnName": "sch_name",
+                      "mapType": "boundaryMap",
+                      "shapeFillColor": "#f98d27",
+                      "additionalFlyoutColumns": [
+                        "schooldist"
+                      ]
+                    },
+                    "showLegend": true,
+                    "type": "map",
+                    "dataSource": {
+                      "measure": {
+                        "aggregationFunction": "count"
+                      },
+                      "name": "Department of Education School Zones (High School)",
+                      "type": "socrata.soql",
+                      "datasetUid": "ruu9-egea",
+                      "dimension": {
+                        "columnName": "the_geom"
+                      }
+                    },
+                    "primary": true
+                  }
+                ],
+                "format": {
+                  "type": "visualization_interchange_format",
+                  "version": 8
+                },
+                "description": "",
+                "id": "eeaceec9-78ac-4135-99fc-daa1c60efa04",
+                "title": "",
+                "currentMapLayerIndex": 1
+              }
+            ],
+            "version": 1
+          }
+        },
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "4/3/2024",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Education (DOE)"
+            }
+          },
+          "availableDisplayTypes": [
+            "visualization"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "dataset keywords\teducation; doe; zones",
+          "school zones",
+          "high school",
+          "middle school",
+          "elementary school"
+        ],
+        "flags": [
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/shkv-c3w7.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:59:14.924382+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/shkv-c3w7.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Wed, 13 Mar 2024 18:13:44 GMT",
+      "etag": "W/\"aW5kaWEuMzIzNjFfMl8yM05qVXhPb3B4aDJmcEZXMVFubWRfcnI1N2VfWQ-k_qLofFMMJ_itS6l-g9lLa2BuJE--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 5,
+      "json_list_count_captured": 1,
+      "sample_keys": [],
+      "json_sample": [
+        {}
+      ]
+    }
+  ]
+}

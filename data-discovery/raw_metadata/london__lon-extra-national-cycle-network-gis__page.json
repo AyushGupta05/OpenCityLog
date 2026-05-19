@@ -1,0 +1,25 @@
+{
+  "source_id": "lon-extra-national-cycle-network-gis",
+  "city": "london",
+  "title": "National Cycle Network GIS",
+  "publisher": "Sustrans",
+  "bucket": "cycling/active travel",
+  "retrieved_at": "2026-04-28T12:57:17.886370+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.sustrans.org.uk/national-cycle-network/",
+      "retrieved_at": "2026-04-28T12:57:17.409825+00:00",
+      "final_url": "https://www.walkwheelcycletrust.org.uk/national-cycle-network/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 63360,
+      "page_title": "The National Cycle Network - Walk Wheel Cycle Trust",
+      "h1": "The National Cycle Network Donate Volunteer",
+      "meta_description": "The National Cycle Network is a UK-wide network of signed paths and routes for walking, wheeling, cycling and exploring outdoors. Find out more about the Network.",
+      "text_sample": "<!DOCTYPE html> <html class=\"no-js\" lang=\"en\"> <head> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width\" /> <meta name=\"theme-color\" content=\"#2B2E6B\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" /> <!-- Google Tag Manager --> <!-- Google Tag Manager --> <script type=\"text/javascript\"> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-5SGTJF4');</script> <!-- End Google Tag Manager --> <!-- /Google Tag Manager --> <title>The National Cycle Network - Walk Wheel Cycle Trust</title> <meta name=\"description\" content=\"The National Cycle Network is a UK-wide network of signed paths and routes for walking, wheeling, cycling and exploring outdoors. Find out more about the Network.\" /> <link rel=\"canonical\" href=\"https://www.walkwheelcycletrust.org.uk/national-cycle-network/\" /> <meta name=\"robots\" content=\"all\" /> <meta name=\"keywords\" content=\"national cycle network,&#xA;NCN,&#xA;network,&#xA;cycle network,&#xA;NCN map,&#xA;Map,&#xA;Walk Wheel Cycle Trust map,&#xA;map,&#xA;ncn,&#xA;Walk Wheel Cycle Trust routes,&#xA;national cycle route,&#xA;national cycle routes\" /> <meta property=\"og:type\" content=\"website\" /> <meta property=\"og:title\" content=\"The National Cycle Network\" /> <meta name=\"twitter:title\" content=\"The National Cycle Network\" /> <meta property=\"og:site_name\" content=\"Walk Wheel Cycle Trust\" /> <meta property=\"og:locale\" content=\"en-GB\" /> <meta property=\"og:copyright\" content=\"&#xA9; Walk Wheel Cycle Trust 2026\" /> <meta property=\"og:url\" content=\"https://www.walkwheelcycletrust.org.uk/national-cycle-network/\" /> <meta property=\"og:description\" content=\"The National Cycle Network is a UK-wide network of signed paths and routes for walking, wheeling, cycling and exploring outdoors. Find out more about the Network.\" /> <meta name=\"twitter:description\" content=\"The National Cycle Network is a UK-wide network of signed paths and routes for walking, wheeling, cycling and exploring outdoors. Find out more about the Network.\" /> <meta property=\"og:image\" content=\"https://www.walkwheelcycletrust.org.uk/media/2039/190627-webheroimages-3840x1400pxv117.jpg?rmode=pad&amp;width=1600&amp;format=jpg&amp;quality=80\" /> <meta name=\"twitter:image\" content=\"https://www.walkwheelcycletrust.org.uk/media/2039/190627-webheroimages-3840x1400pxv117.jpg?rmode=pad&amp;width=1600&amp;format=jpg&amp;quality=80\" /> <meta name=\"twitter:card\" content=\"summary_large_image\" /> <meta name=\"twitter:site\" content=\"Walk Wheel Cycle Trust\" /> <script>document.documentElement.clas"
+    }
+  ]
+}

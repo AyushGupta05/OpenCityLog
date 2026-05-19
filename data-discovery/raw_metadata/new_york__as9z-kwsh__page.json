@@ -1,0 +1,1600 @@
+{
+  "source_id": "as9z-kwsh",
+  "city": "new_york",
+  "title": "Street Network Changes",
+  "publisher": "NYC DOT",
+  "bucket": "traffic/transport; policy",
+  "retrieved_at": "2026-04-28T12:20:18.367455+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/as9z-kwsh",
+      "retrieved_at": "2026-04-28T12:20:16.775436+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/as9z-kwsh",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 14500,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Street Network Changes",
+      "description": "This dataset contains locations of one-way conversions and reversals, two-way conversions and street closure(s) within the five boroughs of New York City. It does NOT contain information on closures or temporary re-routing due to construction or special events.",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1748874031,
+      "json_sample": {
+        "id": "as9z-kwsh",
+        "name": "Street Network Changes",
+        "assetType": "dataset",
+        "attribution": "Department of Transportation (DOT)",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1614486568,
+        "description": "This dataset contains locations of one-way conversions and reversals, two-way conversions and street closure(s) within the five boroughs of New York City. It does NOT contain information on closures or temporary re-routing due to construction or special events.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 1017,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 36575080,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1614486920,
+        "publicationGroup": 18093512,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1748874031,
+        "tableId": 18093512,
+        "totalTimesRated": 0,
+        "viewCount": 4019,
+        "viewLastModified": 1748874030,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1615906479,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 3371682,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1615906479,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1615906480,
+              "failureCount": 0,
+              "startedAt": 1615906479,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 527148793,
+            "name": "On Street",
+            "dataTypeName": "text",
+            "description": "The street where directional changes occurred",
+            "fieldName": "on_street",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 131780008,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "W Mt Eden Ave",
+              "null": "0",
+              "top": [
+                {
+                  "item": "PENELOPE AVENUE",
+                  "count": "5"
+                },
+                {
+                  "item": "31 AVENUE",
+                  "count": "5"
+                },
+                {
+                  "item": "39 Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "Berry St",
+                  "count": "3"
+                },
+                {
+                  "item": "Crescent St",
+                  "count": "3"
+                },
+                {
+                  "item": "DINSMORE PLACE",
+                  "count": "3"
+                },
+                {
+                  "item": "Jackson Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "72 DRIVE",
+                  "count": "3"
+                },
+                {
+                  "item": "97 Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "EAST WILLISTON AVENUE",
+                  "count": "2"
+                },
+                {
+                  "item": "N Henry St",
+                  "count": "2"
+                },
+                {
+                  "item": "E 156 St",
+                  "count": "2"
+                },
+                {
+                  "item": "130 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "POWER ROAD",
+                  "count": "2"
+                },
+                {
+                  "item": "20 St",
+                  "count": "2"
+                },
+                {
+                  "item": "Edgegrove Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "WEST 9 ROAD",
+                  "count": "2"
+                },
+                {
+                  "item": "EAST 175 STREET",
+                  "count": "2"
+                },
+                {
+                  "item": "160 St",
+                  "count": "2"
+                },
+                {
+                  "item": "89 Ave",
+                  "count": "2"
+                }
+              ],
+              "smallest": "102 Ave",
+              "count": "281",
+              "cardinality": "239"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148792,
+            "name": "From St",
+            "dataTypeName": "text",
+            "description": "One end of the street where the directional changes occurred",
+            "fieldName": "from_st",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 131780007,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "Woodside Ave",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Farmers Blvd",
+                  "count": "4"
+                },
+                {
+                  "item": "Murdock Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "Soundview Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "102 St",
+                  "count": "4"
+                },
+                {
+                  "item": "Larkin Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "150 St",
+                  "count": "3"
+                },
+                {
+                  "item": "107 St",
+                  "count": "3"
+                },
+                {
+                  "item": "Concourse Village West",
+                  "count": "3"
+                },
+                {
+                  "item": "ALLEY",
+                  "count": "3"
+                },
+                {
+                  "item": "Liberty Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "10 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "Cooper Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "149 St",
+                  "count": "2"
+                },
+                {
+                  "item": "101 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "147 St",
+                  "count": "2"
+                },
+                {
+                  "item": "Linden Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "Newtown Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "Richardson St",
+                  "count": "2"
+                },
+                {
+                  "item": "Webster Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "104 St",
+                  "count": "2"
+                }
+              ],
+              "smallest": "100 St",
+              "count": "281",
+              "cardinality": "232"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148791,
+            "name": "To Street",
+            "dataTypeName": "text",
+            "description": "The other end of the street where the directional changes occurred.",
+            "fieldName": "to_street",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 131780006,
+            "cachedContents": {
+              "non_null": "280",
+              "largest": "York St",
+              "null": "1",
+              "top": [
+                {
+                  "item": "Bway",
+                  "count": "6"
+                },
+                {
+                  "item": "95 Ave",
+                  "count": "5"
+                },
+                {
+                  "item": "30 Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "102 St",
+                  "count": "4"
+                },
+                {
+                  "item": "3 Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "UNION TURNPIKE",
+                  "count": "3"
+                },
+                {
+                  "item": "107 St",
+                  "count": "3"
+                },
+                {
+                  "item": "EAST WILLISTON AVENUE",
+                  "count": "3"
+                },
+                {
+                  "item": "Linden Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "Remington St",
+                  "count": "2"
+                },
+                {
+                  "item": "103 St",
+                  "count": "2"
+                },
+                {
+                  "item": "100 St",
+                  "count": "2"
+                },
+                {
+                  "item": "149 St",
+                  "count": "2"
+                },
+                {
+                  "item": "101 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "150 St",
+                  "count": "2"
+                },
+                {
+                  "item": "Jefferson Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "St. Marys St",
+                  "count": "2"
+                },
+                {
+                  "item": "Southern Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "50 St",
+                  "count": "2"
+                },
+                {
+                  "item": "ALLEY",
+                  "count": "2"
+                }
+              ],
+              "smallest": "100 St",
+              "count": "281",
+              "cardinality": "224"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148786,
+            "name": "Completion Date",
+            "dataTypeName": "calendar_date",
+            "description": "The date the street directional changes occurred.",
+            "fieldName": "completion_date",
+            "position": 4,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 131780001,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "2024-11-07T00:00:00.000",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2020-08-27T00:00:00.000",
+                  "count": "7"
+                },
+                {
+                  "item": "2021-09-20T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2019-06-13T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2024-11-07T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2017-09-21T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2024-08-27T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2023-04-12T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2024-07-23T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2022-11-01T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2020-11-16T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2018-12-31T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2024-09-30T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2016-04-18T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2018-08-07T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2023-04-13T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2017-05-10T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2021-10-18T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2020-08-18T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2019-10-02T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2019-04-25T00:00:00.000",
+                  "count": "3"
+                }
+              ],
+              "smallest": "2015-03-11T00:00:00.000",
+              "count": "281",
+              "cardinality": "174"
+            },
+            "format": {
+              "view": "date"
+            }
+          },
+          {
+            "id": 527148790,
+            "name": "Type of Change",
+            "dataTypeName": "text",
+            "description": "The type of street directional conversion occurred.",
+            "fieldName": "type_of_change",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 131780005,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "Two-way Conversion",
+              "null": "0",
+              "top": [
+                {
+                  "item": "One-way Conversion",
+                  "count": "146"
+                },
+                {
+                  "item": "One-way",
+                  "count": "38"
+                },
+                {
+                  "item": "One-way Reversal",
+                  "count": "34"
+                },
+                {
+                  "item": "One-way conversion",
+                  "count": "26"
+                },
+                {
+                  "item": "One way Conversion",
+                  "count": "21"
+                },
+                {
+                  "item": "Two-way Conversion",
+                  "count": "10"
+                },
+                {
+                  "item": "Two-way",
+                  "count": "3"
+                },
+                {
+                  "item": "Street closure",
+                  "count": "3"
+                }
+              ],
+              "smallest": "One-way",
+              "count": "281",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148789,
+            "name": "New Direction",
+            "dataTypeName": "text",
+            "description": "The traffic direction the street was changed to.",
+            "fieldName": "new_direction",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 131780004,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "WB",
+              "null": "0",
+              "top": [
+                {
+                  "item": "WB",
+                  "count": "74"
+                },
+                {
+                  "item": "SB",
+                  "count": "68"
+                },
+                {
+                  "item": "EB",
+                  "count": "63"
+                },
+                {
+                  "item": "NB",
+                  "count": "60"
+                },
+                {
+                  "item": "EB-WB",
+                  "count": "7"
+                },
+                {
+                  "item": "NB-SB",
+                  "count": "4"
+                },
+                {
+                  "item": "N/A",
+                  "count": "3"
+                },
+                {
+                  "item": "NB -SB",
+                  "count": "2"
+                }
+              ],
+              "smallest": "EB",
+              "count": "281",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148788,
+            "name": "Boro",
+            "dataTypeName": "text",
+            "description": "The borough the street is located in.",
+            "fieldName": "boro",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 131780003,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "(SI)",
+              "null": "0",
+              "top": [
+                {
+                  "item": "(Q)",
+                  "count": "155"
+                },
+                {
+                  "item": "(K)",
+                  "count": "43"
+                },
+                {
+                  "item": "(BX)",
+                  "count": "39"
+                },
+                {
+                  "item": "(SI)",
+                  "count": "24"
+                },
+                {
+                  "item": "(M)",
+                  "count": "14"
+                },
+                {
+                  "item": "(B)",
+                  "count": "4"
+                },
+                {
+                  "item": "(Bx)",
+                  "count": "2"
+                }
+              ],
+              "smallest": "(B)",
+              "count": "281",
+              "cardinality": "7"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148787,
+            "name": "Notes",
+            "dataTypeName": "text",
+            "description": "Any additional notes about the street directional changes",
+            "fieldName": "notes",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 131780002,
+            "cachedContents": {
+              "non_null": "1",
+              "largest": "Closed to vehicular traffic",
+              "null": "280",
+              "top": [
+                {
+                  "item": "Closed to vehicular traffic",
+                  "count": "1"
+                }
+              ],
+              "smallest": "Closed to vehicular traffic",
+              "count": "281",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Street_Network_Changes.xlsx",
+              "assetId": "534f4238-ee9e-42ae-a362-f97b0dbf9739",
+              "name": "Data-Dictionary-Street_Network_Changes.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "3/16/2021",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "street",
+          "direction",
+          "changes",
+          "network"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/as9z-kwsh",
+      "retrieved_at": "2026-04-28T12:20:17.443235+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/as9z-kwsh",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 14500,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Street Network Changes",
+      "description": "This dataset contains locations of one-way conversions and reversals, two-way conversions and street closure(s) within the five boroughs of New York City. It does NOT contain information on closures or temporary re-routing due to construction or special events.",
+      "attribution": "Department of Transportation (DOT)",
+      "rowsUpdatedAt": 1748874031,
+      "json_sample": {
+        "id": "as9z-kwsh",
+        "name": "Street Network Changes",
+        "assetType": "dataset",
+        "attribution": "Department of Transportation (DOT)",
+        "averageRating": 0,
+        "category": "Transportation",
+        "createdAt": 1614486568,
+        "description": "This dataset contains locations of one-way conversions and reversals, two-way conversions and street closure(s) within the five boroughs of New York City. It does NOT contain information on closures or temporary re-routing due to construction or special events.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 1017,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 36575080,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1614486920,
+        "publicationGroup": 18093512,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1748874031,
+        "tableId": 18093512,
+        "totalTimesRated": 0,
+        "viewCount": 4019,
+        "viewLastModified": 1748874030,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1615906479,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 3371682,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1615906479,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1615906480,
+              "failureCount": 0,
+              "startedAt": 1615906479,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 527148793,
+            "name": "On Street",
+            "dataTypeName": "text",
+            "description": "The street where directional changes occurred",
+            "fieldName": "on_street",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 131780008,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "W Mt Eden Ave",
+              "null": "0",
+              "top": [
+                {
+                  "item": "PENELOPE AVENUE",
+                  "count": "5"
+                },
+                {
+                  "item": "31 AVENUE",
+                  "count": "5"
+                },
+                {
+                  "item": "39 Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "Berry St",
+                  "count": "3"
+                },
+                {
+                  "item": "Crescent St",
+                  "count": "3"
+                },
+                {
+                  "item": "DINSMORE PLACE",
+                  "count": "3"
+                },
+                {
+                  "item": "Jackson Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "72 DRIVE",
+                  "count": "3"
+                },
+                {
+                  "item": "97 Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "EAST WILLISTON AVENUE",
+                  "count": "2"
+                },
+                {
+                  "item": "N Henry St",
+                  "count": "2"
+                },
+                {
+                  "item": "E 156 St",
+                  "count": "2"
+                },
+                {
+                  "item": "130 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "POWER ROAD",
+                  "count": "2"
+                },
+                {
+                  "item": "20 St",
+                  "count": "2"
+                },
+                {
+                  "item": "Edgegrove Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "WEST 9 ROAD",
+                  "count": "2"
+                },
+                {
+                  "item": "EAST 175 STREET",
+                  "count": "2"
+                },
+                {
+                  "item": "160 St",
+                  "count": "2"
+                },
+                {
+                  "item": "89 Ave",
+                  "count": "2"
+                }
+              ],
+              "smallest": "102 Ave",
+              "count": "281",
+              "cardinality": "239"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148792,
+            "name": "From St",
+            "dataTypeName": "text",
+            "description": "One end of the street where the directional changes occurred",
+            "fieldName": "from_st",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 131780007,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "Woodside Ave",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Farmers Blvd",
+                  "count": "4"
+                },
+                {
+                  "item": "Murdock Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "Soundview Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "102 St",
+                  "count": "4"
+                },
+                {
+                  "item": "Larkin Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "150 St",
+                  "count": "3"
+                },
+                {
+                  "item": "107 St",
+                  "count": "3"
+                },
+                {
+                  "item": "Concourse Village West",
+                  "count": "3"
+                },
+                {
+                  "item": "ALLEY",
+                  "count": "3"
+                },
+                {
+                  "item": "Liberty Ave",
+                  "count": "3"
+                },
+                {
+                  "item": "10 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "Cooper Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "149 St",
+                  "count": "2"
+                },
+                {
+                  "item": "101 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "147 St",
+                  "count": "2"
+                },
+                {
+                  "item": "Linden Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "Newtown Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "Richardson St",
+                  "count": "2"
+                },
+                {
+                  "item": "Webster Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "104 St",
+                  "count": "2"
+                }
+              ],
+              "smallest": "100 St",
+              "count": "281",
+              "cardinality": "232"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148791,
+            "name": "To Street",
+            "dataTypeName": "text",
+            "description": "The other end of the street where the directional changes occurred.",
+            "fieldName": "to_street",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 131780006,
+            "cachedContents": {
+              "non_null": "280",
+              "largest": "York St",
+              "null": "1",
+              "top": [
+                {
+                  "item": "Bway",
+                  "count": "6"
+                },
+                {
+                  "item": "95 Ave",
+                  "count": "5"
+                },
+                {
+                  "item": "30 Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "102 St",
+                  "count": "4"
+                },
+                {
+                  "item": "3 Ave",
+                  "count": "4"
+                },
+                {
+                  "item": "UNION TURNPIKE",
+                  "count": "3"
+                },
+                {
+                  "item": "107 St",
+                  "count": "3"
+                },
+                {
+                  "item": "EAST WILLISTON AVENUE",
+                  "count": "3"
+                },
+                {
+                  "item": "Linden Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "Remington St",
+                  "count": "2"
+                },
+                {
+                  "item": "103 St",
+                  "count": "2"
+                },
+                {
+                  "item": "100 St",
+                  "count": "2"
+                },
+                {
+                  "item": "149 St",
+                  "count": "2"
+                },
+                {
+                  "item": "101 Ave",
+                  "count": "2"
+                },
+                {
+                  "item": "150 St",
+                  "count": "2"
+                },
+                {
+                  "item": "Jefferson Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "St. Marys St",
+                  "count": "2"
+                },
+                {
+                  "item": "Southern Blvd",
+                  "count": "2"
+                },
+                {
+                  "item": "50 St",
+                  "count": "2"
+                },
+                {
+                  "item": "ALLEY",
+                  "count": "2"
+                }
+              ],
+              "smallest": "100 St",
+              "count": "281",
+              "cardinality": "224"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148786,
+            "name": "Completion Date",
+            "dataTypeName": "calendar_date",
+            "description": "The date the street directional changes occurred.",
+            "fieldName": "completion_date",
+            "position": 4,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 131780001,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "2024-11-07T00:00:00.000",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2020-08-27T00:00:00.000",
+                  "count": "7"
+                },
+                {
+                  "item": "2021-09-20T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2019-06-13T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2024-11-07T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2017-09-21T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2024-08-27T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2023-04-12T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2024-07-23T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2022-11-01T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2020-11-16T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2018-12-31T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2024-09-30T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2016-04-18T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2018-08-07T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2023-04-13T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2017-05-10T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2021-10-18T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2020-08-18T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2019-10-02T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2019-04-25T00:00:00.000",
+                  "count": "3"
+                }
+              ],
+              "smallest": "2015-03-11T00:00:00.000",
+              "count": "281",
+              "cardinality": "174"
+            },
+            "format": {
+              "view": "date"
+            }
+          },
+          {
+            "id": 527148790,
+            "name": "Type of Change",
+            "dataTypeName": "text",
+            "description": "The type of street directional conversion occurred.",
+            "fieldName": "type_of_change",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 131780005,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "Two-way Conversion",
+              "null": "0",
+              "top": [
+                {
+                  "item": "One-way Conversion",
+                  "count": "146"
+                },
+                {
+                  "item": "One-way",
+                  "count": "38"
+                },
+                {
+                  "item": "One-way Reversal",
+                  "count": "34"
+                },
+                {
+                  "item": "One-way conversion",
+                  "count": "26"
+                },
+                {
+                  "item": "One way Conversion",
+                  "count": "21"
+                },
+                {
+                  "item": "Two-way Conversion",
+                  "count": "10"
+                },
+                {
+                  "item": "Two-way",
+                  "count": "3"
+                },
+                {
+                  "item": "Street closure",
+                  "count": "3"
+                }
+              ],
+              "smallest": "One-way",
+              "count": "281",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148789,
+            "name": "New Direction",
+            "dataTypeName": "text",
+            "description": "The traffic direction the street was changed to.",
+            "fieldName": "new_direction",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 131780004,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "WB",
+              "null": "0",
+              "top": [
+                {
+                  "item": "WB",
+                  "count": "74"
+                },
+                {
+                  "item": "SB",
+                  "count": "68"
+                },
+                {
+                  "item": "EB",
+                  "count": "63"
+                },
+                {
+                  "item": "NB",
+                  "count": "60"
+                },
+                {
+                  "item": "EB-WB",
+                  "count": "7"
+                },
+                {
+                  "item": "NB-SB",
+                  "count": "4"
+                },
+                {
+                  "item": "N/A",
+                  "count": "3"
+                },
+                {
+                  "item": "NB -SB",
+                  "count": "2"
+                }
+              ],
+              "smallest": "EB",
+              "count": "281",
+              "cardinality": "8"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148788,
+            "name": "Boro",
+            "dataTypeName": "text",
+            "description": "The borough the street is located in.",
+            "fieldName": "boro",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 131780003,
+            "cachedContents": {
+              "non_null": "281",
+              "largest": "(SI)",
+              "null": "0",
+              "top": [
+                {
+                  "item": "(Q)",
+                  "count": "155"
+                },
+                {
+                  "item": "(K)",
+                  "count": "43"
+                },
+                {
+                  "item": "(BX)",
+                  "count": "39"
+                },
+                {
+                  "item": "(SI)",
+                  "count": "24"
+                },
+                {
+                  "item": "(M)",
+                  "count": "14"
+                },
+                {
+                  "item": "(B)",
+                  "count": "4"
+                },
+                {
+                  "item": "(Bx)",
+                  "count": "2"
+                }
+              ],
+              "smallest": "(B)",
+              "count": "281",
+              "cardinality": "7"
+            },
+            "format": {}
+          },
+          {
+            "id": 527148787,
+            "name": "Notes",
+            "dataTypeName": "text",
+            "description": "Any additional notes about the street directional changes",
+            "fieldName": "notes",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 131780002,
+            "cachedContents": {
+              "non_null": "1",
+              "largest": "Closed to vehicular traffic",
+              "null": "280",
+              "top": [
+                {
+                  "item": "Closed to vehicular traffic",
+                  "count": "1"
+                }
+              ],
+              "smallest": "Closed to vehicular traffic",
+              "count": "281",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "Data-Dictionary-Street_Network_Changes.xlsx",
+              "assetId": "534f4238-ee9e-42ae-a362-f97b0dbf9739",
+              "name": "Data-Dictionary-Street_Network_Changes.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Date Made Public": "3/16/2021",
+              "Update Frequency": "Annually"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Transportation (DOT)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "street",
+          "direction",
+          "changes",
+          "network"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/as9z-kwsh.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:20:17.609086+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/as9z-kwsh.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 02 Jun 2025 14:20:31 GMT",
+      "etag": "W/\"Z29sZi4zNzM1N18xXzE5Tms3eDF1TlZtb2tQTGVxYUVJTUpMcG5wdGZF---gzip_UFYllLUmxsm6zzWmbB1KJttV7M--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 205,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "boro",
+        "completion_date",
+        "from_st",
+        "new_direction",
+        "on_street",
+        "to_street",
+        "type_of_change"
+      ],
+      "json_sample": [
+        {
+          "on_street": "Dawson Street",
+          "from_st": "Intervale Ave",
+          "to_street": "Longwood Ave",
+          "completion_date": "2015-07-21T00:00:00.000",
+          "type_of_change": "Two-way Conversion",
+          "new_direction": "EB-WB",
+          "boro": "(BX)"
+        }
+      ]
+    }
+  ]
+}

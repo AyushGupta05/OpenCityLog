@@ -1,2 +1,86 @@
 # OpenCityLog
-Open-source city-change atlas for exploring how real decisions, developments, infrastructure, policy, and environmental events changed cities over time — with every claim tied to public evidence.
+
+OpenCityLog is an open-source city-change atlas for exploring how real decisions, developments, infrastructure, policy, and environmental events changed cities over time, with every claim tied to public evidence.
+
+The MVP is static-data first: city configs, source/provenance records, normalized event chunks, and browser-ready JSON/GeoJSON in `web/data`.
+
+The project should show observed historical changes with evidence and caveats. It should not claim prediction, causality, or simulated impact.
+
+## Build The Data Foundation
+
+```powershell
+npm run build:data
+npm run verify:data
+```
+
+Generated artifacts are written to:
+
+```text
+web/data/city-atlas/
+```
+
+Belfast is the default atlas pilot, with London and New York City available through the same city selector. London and NYC currently combine broad official/open-source discovery catalogs with a partial set of row-level generated events; they are not complete histories of every urban change.
+
+## Run The Local Product
+
+```powershell
+npm start
+```
+
+Open `http://localhost:5173`.
+
+The served frontend is the atlas-first public website in `web/index.html`,
+`web/atlas.js`, and `web/atlas.css`. It reads `web/data/city-atlas/` directly,
+draws a lightweight static geometry map, and does not require a Mapbox token for
+open-source deployment. Retired proof-flow, branch-simulation, forecast, and
+legacy replay-manifest runtime paths are guarded by `npm run verify`.
+
+Browser smoke coverage checks the core user path:
+
+```powershell
+npm run verify:browser
+```
+
+The smoke scripts default to `http://127.0.0.1:5173` and also honor `URL=...`
+for alternate local ports.
+
+## Proposal Lens
+
+The secondary workflow is now Proposal Lens. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, and caveats. It is not a calibrated forecast or causal model.
+
+```powershell
+npm run verify:proposal
+```
+
+API:
+
+- `GET /api/proposal-impact/schema`
+- `POST /api/proposal-impact`
+
+## Test
+
+```powershell
+npm test
+```
+
+## Add A New City
+
+1. Add `config/cities/<city_id>.json`.
+2. Add sources to `config/source_registry.json`.
+3. Add or extend an adapter in `scripts/build_data.js`.
+4. Run `npm run build:data`.
+5. Run `npm run verify:data`.
+6. Document source coverage and caveats.
+
+## Key Docs
+
+- `CONTRIBUTING.md`
+- `DATA_LICENSE.md`
+- `docs/data_model.md`
+- `docs/city_adapters.md`
+- `docs/data_sources_uk_us.md`
+- `docs/provenance.md`
+- `docs/data_acquisition.md`
+- `docs/lightweight_impact.md`
+- `docs/city_architect_research.md`
+- `docs/release_notes.md`

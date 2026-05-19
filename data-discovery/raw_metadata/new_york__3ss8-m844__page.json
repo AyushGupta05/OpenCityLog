@@ -1,0 +1,1634 @@
+{
+  "source_id": "3ss8-m844",
+  "city": "new_york",
+  "title": "DDC Active Projects",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "DDC/public construction",
+  "retrieved_at": "2026-04-28T12:58:11.312445+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/3ss8-m844",
+      "retrieved_at": "2026-04-28T12:58:09.438726+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/3ss8-m844",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 17936,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Active Projects",
+      "description": "List of currently active projects. Project IDs are another way of referring to FMS IDs for an active project.  This project identifier provides a critical way of checking funding and procurement details of City projects.\n\nPlease refer to The Mayor’s Office of Operations <a href=\"https://app.powerbigov.us/view?r=eyJrIjoiMTkwYWMyNGEtMDNiZC00OTY4LTk4YjEtYzI0MzhlOTA3MzllIiwidCI6IjM1YzgyODE2LTZjNTYtNDQzYi1iYWY2LTgzMTIxNjNjYWRjMSJ9\" target=\"_blank\" rel=\"noreferrer\">Capital Project Dashboard</a> to see further project and budget details.",
+      "attribution": "Department of Design and Construction (DDC)",
+      "rowsUpdatedAt": 1684795090,
+      "json_sample": {
+        "id": "3ss8-m844",
+        "name": "Active Projects",
+        "assetType": "dataset",
+        "attribution": "Department of Design and Construction (DDC)",
+        "averageRating": 0,
+        "category": "Housing & Development",
+        "createdAt": 1611169781,
+        "description": "List of currently active projects. Project IDs are another way of referring to FMS IDs for an active project.  This project identifier provides a critical way of checking funding and procurement details of City projects.\n\nPlease refer to The Mayor’s Office of Operations <a href=\"https://app.powerbigov.us/view?r=eyJrIjoiMTkwYWMyNGEtMDNiZC00OTY4LTk4YjEtYzI0MzhlOTA3MzllIiwidCI6IjM1YzgyODE2LTZjNTYtNDQzYi1iYWY2LTgzMTIxNjNjYWRjMSJ9\" target=\"_blank\" rel=\"noreferrer\">Capital Project Dashboard</a> to see further project and budget details.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 15344,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 36251621,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1611170134,
+        "publicationGroup": 17954990,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1684795090,
+        "tableId": 17954990,
+        "totalTimesRated": 0,
+        "viewCount": 2476,
+        "viewLastModified": 1760460989,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1611171398,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 3144472,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1611171398,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1611171398,
+              "failureCount": 0,
+              "startedAt": 1611171398,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 520230848,
+            "name": "Project ID",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "project_id",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 128299941,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "WTM4SPRW",
+              "null": "0",
+              "top": [
+                {
+                  "item": "HED-CLUB",
+                  "count": "1"
+                },
+                {
+                  "item": "F175MCE23",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR21XC",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR19M",
+                  "count": "1"
+                },
+                {
+                  "item": "SE885AVWE",
+                  "count": "1"
+                },
+                {
+                  "item": "F204INFRA",
+                  "count": "1"
+                },
+                {
+                  "item": "227DUFFIELD",
+                  "count": "1"
+                },
+                {
+                  "item": "HWTRQX1",
+                  "count": "1"
+                },
+                {
+                  "item": "SER200251",
+                  "count": "1"
+                },
+                {
+                  "item": "HWP19KC1",
+                  "count": "1"
+                },
+                {
+                  "item": "SAND1048",
+                  "count": "1"
+                },
+                {
+                  "item": "HWQ1205",
+                  "count": "1"
+                },
+                {
+                  "item": "HWXP136D",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016R1",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR23Q1",
+                  "count": "1"
+                },
+                {
+                  "item": "HH115REGX-1",
+                  "count": "1"
+                },
+                {
+                  "item": "SEK002386",
+                  "count": "1"
+                },
+                {
+                  "item": "GCJA03-3B",
+                  "count": "1"
+                },
+                {
+                  "item": "SE810",
+                  "count": "1"
+                },
+                {
+                  "item": "HWQ100SBB",
+                  "count": "1"
+                }
+              ],
+              "smallest": "227DUFFIELD",
+              "count": "795",
+              "cardinality": "795"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230849,
+            "name": "Description",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "description",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 128299942,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "Yorkville Boiler and HVAC Replacement",
+              "null": "0",
+              "top": [
+                {
+                  "item": "FUEL TANK REPLACEMENT",
+                  "count": "4"
+                },
+                {
+                  "item": "CLEANING AND TELEVISING OF SEWERS BY DDC",
+                  "count": "3"
+                },
+                {
+                  "item": "CITYWIDE COMPLEX PEDESTRIAN RAMPS - BK",
+                  "count": "3"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS- STATEN ISLAND",
+                  "count": "3"
+                },
+                {
+                  "item": "ACCELERATED DISTRIBUTION WATER MAIN REPLACEMENT",
+                  "count": "3"
+                },
+                {
+                  "item": "Replacement/Continuation Contracts for Remediation",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - MANHATTAN",
+                  "count": "2"
+                },
+                {
+                  "item": "Sewer Lining Contract, Citywide",
+                  "count": "2"
+                },
+                {
+                  "item": "Pedestrian Ramps Rehabilitation - Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Pedestrian Ramp Rehabilitation - Queens",
+                  "count": "2"
+                },
+                {
+                  "item": "Prior Notice Sidewalks- Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Prior Notice Sidewalks- Queens",
+                  "count": "2"
+                },
+                {
+                  "item": "RECONSTRUCTION OF EXISTING SEWERS, STATEN ISLAND",
+                  "count": "2"
+                },
+                {
+                  "item": "REHABILITATION OF PEDESTRIAN RAMPS",
+                  "count": "2"
+                },
+                {
+                  "item": "Coastal Resiliency Area 1 - East 23rd St. to Montg",
+                  "count": "2"
+                },
+                {
+                  "item": "Complex Upgrades Ped Ramps - Manhattan",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - BROOKLYN",
+                  "count": "2"
+                },
+                {
+                  "item": "Complex Upgrades Ped Ramps - Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Install Distribution water mains throughout Brooklyn and Staten Island as directed by Distribution Engineer.",
+                  "count": "2"
+                },
+                {
+                  "item": "SEWER WHEN & WHERE SEQ",
+                  "count": "2"
+                }
+              ],
+              "smallest": "100 Centre Sidewalk Stabilization and Ramps",
+              "count": "795",
+              "cardinality": "764"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230850,
+            "name": "Client Agency",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "client_agency",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 128299943,
+            "cachedContents": {
+              "non_null": "792",
+              "largest": "Unknown",
+              "null": "3",
+              "top": [
+                {
+                  "item": "Transportation",
+                  "count": "244"
+                },
+                {
+                  "item": "Environmental Protection",
+                  "count": "159"
+                },
+                {
+                  "item": "Cultural Affairs",
+                  "count": "86"
+                },
+                {
+                  "item": "DCAS",
+                  "count": "66"
+                },
+                {
+                  "item": "Libraries-NYPL",
+                  "count": "43"
+                },
+                {
+                  "item": "Homeless Services",
+                  "count": "38"
+                },
+                {
+                  "item": "Libraries-BPL",
+                  "count": "33"
+                },
+                {
+                  "item": "Libraries-QBPL",
+                  "count": "33"
+                },
+                {
+                  "item": "Police",
+                  "count": "19"
+                },
+                {
+                  "item": "Parks & Recreation",
+                  "count": "18"
+                },
+                {
+                  "item": "Sanitation",
+                  "count": "10"
+                },
+                {
+                  "item": "Fire",
+                  "count": "7"
+                },
+                {
+                  "item": "Health",
+                  "count": "7"
+                },
+                {
+                  "item": "Department of Transporation (DOT)",
+                  "count": "6"
+                },
+                {
+                  "item": "HPD",
+                  "count": "4"
+                },
+                {
+                  "item": "NYCHA",
+                  "count": "4"
+                },
+                {
+                  "item": "Corrections",
+                  "count": "3"
+                },
+                {
+                  "item": "Trans. & Env. Protection",
+                  "count": "3"
+                },
+                {
+                  "item": "Health & Hospitals Corporation (HHC)",
+                  "count": "2"
+                },
+                {
+                  "item": "Unknown",
+                  "count": "1"
+                }
+              ],
+              "smallest": "Children Services",
+              "count": "795",
+              "cardinality": "26"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230851,
+            "name": "Division",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "division",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 128299944,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "Public Buildings",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Infrastructure",
+                  "count": "419"
+                },
+                {
+                  "item": "Public Buildings",
+                  "count": "376"
+                }
+              ],
+              "smallest": "Infrastructure",
+              "count": "795",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230852,
+            "name": "Phase",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "phase",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 128299945,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "5. Close-Out",
+              "null": "0",
+              "top": [
+                {
+                  "item": "5. Close-Out",
+                  "count": "269"
+                },
+                {
+                  "item": "2. Design",
+                  "count": "224"
+                },
+                {
+                  "item": "4. Construction",
+                  "count": "191"
+                },
+                {
+                  "item": "3. Construction Procurement",
+                  "count": "91"
+                },
+                {
+                  "item": "1. Initiation",
+                  "count": "20"
+                }
+              ],
+              "smallest": "1. Initiation",
+              "count": "795",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230847,
+            "name": "Projected Construction Completion",
+            "dataTypeName": "calendar_date",
+            "description": "",
+            "fieldName": "projected_construction",
+            "position": 6,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 128299940,
+            "cachedContents": {
+              "non_null": "789",
+              "largest": "2032-08-30T00:00:00.000",
+              "null": "6",
+              "top": [
+                {
+                  "item": "2023-06-30T00:00:00.000",
+                  "count": "9"
+                },
+                {
+                  "item": "2022-06-30T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2022-12-31T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2023-05-31T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2025-04-14T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2026-06-30T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2025-01-22T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2023-11-15T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2022-12-30T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2025-06-28T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-12-29T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2025-06-27T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2025-05-02T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2025-08-29T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-12-15T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2027-09-30T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2021-10-29T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2024-07-25T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-02-18T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-09-29T00:00:00.000",
+                  "count": "3"
+                }
+              ],
+              "smallest": "2012-06-26T00:00:00.000",
+              "count": "795",
+              "cardinality": "646"
+            },
+            "format": {
+              "view": "date"
+            }
+          },
+          {
+            "id": 520230853,
+            "name": "Scope",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "scope",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 128299946,
+            "cachedContents": {
+              "non_null": "792",
+              "largest": "Window Replacement at Mott Haven Branch",
+              "null": "3",
+              "top": [
+                {
+                  "item": "Roof Replacement",
+                  "count": "6"
+                },
+                {
+                  "item": "The scope of this project includes rehabilitation (repair and upgrade to Federal ADA 2010 and PROWAG specifications) of existing pedestrian ramps in Brooklyn.",
+                  "count": "5"
+                },
+                {
+                  "item": "The purpose of the project is to have a Code compliant fire alarm system (meet FDNY AND the State OTDA standards) and protect the multiple clients, staff and the general public in the facility.",
+                  "count": "4"
+                },
+                {
+                  "item": "CITYWIDE FUEL TANK REPLACEMENT PROGRAM FOR NEW 2015 EPA PETROLEUM BULK STORAGE REGULATIONS",
+                  "count": "4"
+                },
+                {
+                  "item": "Replacement of sidewalks that have violations where property owners received prior notice.",
+                  "count": "3"
+                },
+                {
+                  "item": "Installation of new building wide fire alarm system.",
+                  "count": "3"
+                },
+                {
+                  "item": "VIT CLAY PIPE SEWERS - STATEN ISLAND",
+                  "count": "3"
+                },
+                {
+                  "item": "REHABILITATION (REPAIR AND UPGRADE TO ADA SPECIFICATIONS TO THE MAXIMUM EXTENT FEASIBLE) OF EXISTING PEDESTRIAN RAMPS IN THE BOROUGH OF BROOKLYN. THE LIST OF LOCATIONS FOR THIS CONTRACT WILL BE PROVIDED BY SIM AT A LATER DATE. THE PED RAMP REPAIRS WILL FOLLOW RESURFACING SCHEDULES. ANY UPGRADES TO THE RAMPS MUST ALSO REHABILITATE THE RECEIVING CORNER WHERE POSSIBLE. ANY DEVIATION WILL REQUIRE DOT'S APPROVAL. THIS CONTRACT WILL BE ADDRESSING SIMPLE PED RAMP UPGRADES. THIS CONTRACT WILL BE ESTABLISHED FOR 1 YEAR AND MAY ONLY BE RENEWED IF A TIME EXTENSION IS NEEDED. ALL THE PROJECT FUNDS MUST BE REGISTERED IN THE 1ST YEAR.",
+                  "count": "3"
+                },
+                {
+                  "item": "Replacement of sidewalks that have violations where property owners received prior notice. Locations for prior notice sidewalks will be determined by New York City Department of Transportation, Division of Sidewalks and Inspections Management (SIM). This contract shall be established for one year. It must comply with applicable Federal ADA requirements. The cost of this contract must not exceed the available funding of $8M.",
+                  "count": "2"
+                },
+                {
+                  "item": "Reconstruction of Existing Sewers, the Staten Island",
+                  "count": "2"
+                },
+                {
+                  "item": "ACCELERATED DISTRIBUTION WATER MAIN REPLACEMENT AND SEWER REHABILITATION/REPLACEMENT, MANHATTAN",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - BROOKLYN",
+                  "count": "2"
+                },
+                {
+                  "item": "Distribution water main area contract, water main replacement in Brooklyn and Staten Island, as directed by Distribution Engineer.",
+                  "count": "2"
+                },
+                {
+                  "item": "HVAC Replacement",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - MANHATTAN",
+                  "count": "2"
+                },
+                {
+                  "item": "The scope of this project includes rehabilitation (repair and upgrade to Federal ADA 2010 specifications to the maximum extent feasible) of existing pedestrian ramps in Brooklyn and Staten Island.",
+                  "count": "2"
+                },
+                {
+                  "item": "The scope of this project includes rehabilitation (repair and upgrade to Federal ADA 2010 specifications to the maximum extent feasible) of existing pedestrian ramps in Brooklyn.",
+                  "count": "2"
+                },
+                {
+                  "item": "Coastal Resiliency Area 1 - East 23rd St. to Montgomery St., Manhattan",
+                  "count": "2"
+                },
+                {
+                  "item": "FUEL TANK REPLACEMENT",
+                  "count": "2"
+                },
+                {
+                  "item": "Replacement/Continuation Contracts for Remediation Of Petroleum Contaminated Sites",
+                  "count": "2"
+                }
+              ],
+              "smallest": "1118 GRAND CONCOURSE - ELEVATORS",
+              "count": "795",
+              "cardinality": "751"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230854,
+            "name": "Status",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "status",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 128299947,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "Active",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Active",
+                  "count": "795"
+                }
+              ],
+              "smallest": "Active",
+              "count": "795",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "DDC_Active_Projects.xlsx",
+              "assetId": "440b2feb-7fab-47c7-b866-6c33c640f9ef",
+              "name": "DDC_Active_Projects.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Design and Construction (DDC)"
+            }
+          },
+          "rowLabel": "active buildings project",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "ddc",
+          "design",
+          "construction",
+          "projects"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/3ss8-m844",
+      "retrieved_at": "2026-04-28T12:58:10.166484+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/3ss8-m844",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 17936,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Active Projects",
+      "description": "List of currently active projects. Project IDs are another way of referring to FMS IDs for an active project.  This project identifier provides a critical way of checking funding and procurement details of City projects.\n\nPlease refer to The Mayor’s Office of Operations <a href=\"https://app.powerbigov.us/view?r=eyJrIjoiMTkwYWMyNGEtMDNiZC00OTY4LTk4YjEtYzI0MzhlOTA3MzllIiwidCI6IjM1YzgyODE2LTZjNTYtNDQzYi1iYWY2LTgzMTIxNjNjYWRjMSJ9\" target=\"_blank\" rel=\"noreferrer\">Capital Project Dashboard</a> to see further project and budget details.",
+      "attribution": "Department of Design and Construction (DDC)",
+      "rowsUpdatedAt": 1684795090,
+      "json_sample": {
+        "id": "3ss8-m844",
+        "name": "Active Projects",
+        "assetType": "dataset",
+        "attribution": "Department of Design and Construction (DDC)",
+        "averageRating": 0,
+        "category": "Housing & Development",
+        "createdAt": 1611169781,
+        "description": "List of currently active projects. Project IDs are another way of referring to FMS IDs for an active project.  This project identifier provides a critical way of checking funding and procurement details of City projects.\n\nPlease refer to The Mayor’s Office of Operations <a href=\"https://app.powerbigov.us/view?r=eyJrIjoiMTkwYWMyNGEtMDNiZC00OTY4LTk4YjEtYzI0MzhlOTA3MzllIiwidCI6IjM1YzgyODE2LTZjNTYtNDQzYi1iYWY2LTgzMTIxNjNjYWRjMSJ9\" target=\"_blank\" rel=\"noreferrer\">Capital Project Dashboard</a> to see further project and budget details.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 15344,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 36251621,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1611170134,
+        "publicationGroup": 17954990,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1684795090,
+        "tableId": 17954990,
+        "totalTimesRated": 0,
+        "viewCount": 2476,
+        "viewLastModified": 1760460989,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1611171398,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 3144472,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1611171398,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1611171398,
+              "failureCount": 0,
+              "startedAt": 1611171398,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "d5dp-fses",
+              "displayName": "afinkel"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 520230848,
+            "name": "Project ID",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "project_id",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 128299941,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "WTM4SPRW",
+              "null": "0",
+              "top": [
+                {
+                  "item": "HED-CLUB",
+                  "count": "1"
+                },
+                {
+                  "item": "F175MCE23",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR21XC",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR19M",
+                  "count": "1"
+                },
+                {
+                  "item": "SE885AVWE",
+                  "count": "1"
+                },
+                {
+                  "item": "F204INFRA",
+                  "count": "1"
+                },
+                {
+                  "item": "227DUFFIELD",
+                  "count": "1"
+                },
+                {
+                  "item": "HWTRQX1",
+                  "count": "1"
+                },
+                {
+                  "item": "SER200251",
+                  "count": "1"
+                },
+                {
+                  "item": "HWP19KC1",
+                  "count": "1"
+                },
+                {
+                  "item": "SAND1048",
+                  "count": "1"
+                },
+                {
+                  "item": "HWQ1205",
+                  "count": "1"
+                },
+                {
+                  "item": "HWXP136D",
+                  "count": "1"
+                },
+                {
+                  "item": "HWS2016R1",
+                  "count": "1"
+                },
+                {
+                  "item": "HWPR23Q1",
+                  "count": "1"
+                },
+                {
+                  "item": "HH115REGX-1",
+                  "count": "1"
+                },
+                {
+                  "item": "SEK002386",
+                  "count": "1"
+                },
+                {
+                  "item": "GCJA03-3B",
+                  "count": "1"
+                },
+                {
+                  "item": "SE810",
+                  "count": "1"
+                },
+                {
+                  "item": "HWQ100SBB",
+                  "count": "1"
+                }
+              ],
+              "smallest": "227DUFFIELD",
+              "count": "795",
+              "cardinality": "795"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230849,
+            "name": "Description",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "description",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 128299942,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "Yorkville Boiler and HVAC Replacement",
+              "null": "0",
+              "top": [
+                {
+                  "item": "FUEL TANK REPLACEMENT",
+                  "count": "4"
+                },
+                {
+                  "item": "CLEANING AND TELEVISING OF SEWERS BY DDC",
+                  "count": "3"
+                },
+                {
+                  "item": "CITYWIDE COMPLEX PEDESTRIAN RAMPS - BK",
+                  "count": "3"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS- STATEN ISLAND",
+                  "count": "3"
+                },
+                {
+                  "item": "ACCELERATED DISTRIBUTION WATER MAIN REPLACEMENT",
+                  "count": "3"
+                },
+                {
+                  "item": "Replacement/Continuation Contracts for Remediation",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - MANHATTAN",
+                  "count": "2"
+                },
+                {
+                  "item": "Sewer Lining Contract, Citywide",
+                  "count": "2"
+                },
+                {
+                  "item": "Pedestrian Ramps Rehabilitation - Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Pedestrian Ramp Rehabilitation - Queens",
+                  "count": "2"
+                },
+                {
+                  "item": "Prior Notice Sidewalks- Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Prior Notice Sidewalks- Queens",
+                  "count": "2"
+                },
+                {
+                  "item": "RECONSTRUCTION OF EXISTING SEWERS, STATEN ISLAND",
+                  "count": "2"
+                },
+                {
+                  "item": "REHABILITATION OF PEDESTRIAN RAMPS",
+                  "count": "2"
+                },
+                {
+                  "item": "Coastal Resiliency Area 1 - East 23rd St. to Montg",
+                  "count": "2"
+                },
+                {
+                  "item": "Complex Upgrades Ped Ramps - Manhattan",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - BROOKLYN",
+                  "count": "2"
+                },
+                {
+                  "item": "Complex Upgrades Ped Ramps - Brooklyn",
+                  "count": "2"
+                },
+                {
+                  "item": "Install Distribution water mains throughout Brooklyn and Staten Island as directed by Distribution Engineer.",
+                  "count": "2"
+                },
+                {
+                  "item": "SEWER WHEN & WHERE SEQ",
+                  "count": "2"
+                }
+              ],
+              "smallest": "100 Centre Sidewalk Stabilization and Ramps",
+              "count": "795",
+              "cardinality": "764"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230850,
+            "name": "Client Agency",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "client_agency",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 128299943,
+            "cachedContents": {
+              "non_null": "792",
+              "largest": "Unknown",
+              "null": "3",
+              "top": [
+                {
+                  "item": "Transportation",
+                  "count": "244"
+                },
+                {
+                  "item": "Environmental Protection",
+                  "count": "159"
+                },
+                {
+                  "item": "Cultural Affairs",
+                  "count": "86"
+                },
+                {
+                  "item": "DCAS",
+                  "count": "66"
+                },
+                {
+                  "item": "Libraries-NYPL",
+                  "count": "43"
+                },
+                {
+                  "item": "Homeless Services",
+                  "count": "38"
+                },
+                {
+                  "item": "Libraries-BPL",
+                  "count": "33"
+                },
+                {
+                  "item": "Libraries-QBPL",
+                  "count": "33"
+                },
+                {
+                  "item": "Police",
+                  "count": "19"
+                },
+                {
+                  "item": "Parks & Recreation",
+                  "count": "18"
+                },
+                {
+                  "item": "Sanitation",
+                  "count": "10"
+                },
+                {
+                  "item": "Fire",
+                  "count": "7"
+                },
+                {
+                  "item": "Health",
+                  "count": "7"
+                },
+                {
+                  "item": "Department of Transporation (DOT)",
+                  "count": "6"
+                },
+                {
+                  "item": "HPD",
+                  "count": "4"
+                },
+                {
+                  "item": "NYCHA",
+                  "count": "4"
+                },
+                {
+                  "item": "Corrections",
+                  "count": "3"
+                },
+                {
+                  "item": "Trans. & Env. Protection",
+                  "count": "3"
+                },
+                {
+                  "item": "Health & Hospitals Corporation (HHC)",
+                  "count": "2"
+                },
+                {
+                  "item": "Unknown",
+                  "count": "1"
+                }
+              ],
+              "smallest": "Children Services",
+              "count": "795",
+              "cardinality": "26"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230851,
+            "name": "Division",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "division",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 128299944,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "Public Buildings",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Infrastructure",
+                  "count": "419"
+                },
+                {
+                  "item": "Public Buildings",
+                  "count": "376"
+                }
+              ],
+              "smallest": "Infrastructure",
+              "count": "795",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230852,
+            "name": "Phase",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "phase",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 128299945,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "5. Close-Out",
+              "null": "0",
+              "top": [
+                {
+                  "item": "5. Close-Out",
+                  "count": "269"
+                },
+                {
+                  "item": "2. Design",
+                  "count": "224"
+                },
+                {
+                  "item": "4. Construction",
+                  "count": "191"
+                },
+                {
+                  "item": "3. Construction Procurement",
+                  "count": "91"
+                },
+                {
+                  "item": "1. Initiation",
+                  "count": "20"
+                }
+              ],
+              "smallest": "1. Initiation",
+              "count": "795",
+              "cardinality": "5"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230847,
+            "name": "Projected Construction Completion",
+            "dataTypeName": "calendar_date",
+            "description": "",
+            "fieldName": "projected_construction",
+            "position": 6,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 128299940,
+            "cachedContents": {
+              "non_null": "789",
+              "largest": "2032-08-30T00:00:00.000",
+              "null": "6",
+              "top": [
+                {
+                  "item": "2023-06-30T00:00:00.000",
+                  "count": "9"
+                },
+                {
+                  "item": "2022-06-30T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2022-12-31T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2023-05-31T00:00:00.000",
+                  "count": "5"
+                },
+                {
+                  "item": "2025-04-14T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2026-06-30T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2025-01-22T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2023-11-15T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2022-12-30T00:00:00.000",
+                  "count": "4"
+                },
+                {
+                  "item": "2025-06-28T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-12-29T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2025-06-27T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2025-05-02T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2025-08-29T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-12-15T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2027-09-30T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2021-10-29T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2024-07-25T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-02-18T00:00:00.000",
+                  "count": "3"
+                },
+                {
+                  "item": "2023-09-29T00:00:00.000",
+                  "count": "3"
+                }
+              ],
+              "smallest": "2012-06-26T00:00:00.000",
+              "count": "795",
+              "cardinality": "646"
+            },
+            "format": {
+              "view": "date"
+            }
+          },
+          {
+            "id": 520230853,
+            "name": "Scope",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "scope",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 128299946,
+            "cachedContents": {
+              "non_null": "792",
+              "largest": "Window Replacement at Mott Haven Branch",
+              "null": "3",
+              "top": [
+                {
+                  "item": "Roof Replacement",
+                  "count": "6"
+                },
+                {
+                  "item": "The scope of this project includes rehabilitation (repair and upgrade to Federal ADA 2010 and PROWAG specifications) of existing pedestrian ramps in Brooklyn.",
+                  "count": "5"
+                },
+                {
+                  "item": "The purpose of the project is to have a Code compliant fire alarm system (meet FDNY AND the State OTDA standards) and protect the multiple clients, staff and the general public in the facility.",
+                  "count": "4"
+                },
+                {
+                  "item": "CITYWIDE FUEL TANK REPLACEMENT PROGRAM FOR NEW 2015 EPA PETROLEUM BULK STORAGE REGULATIONS",
+                  "count": "4"
+                },
+                {
+                  "item": "Replacement of sidewalks that have violations where property owners received prior notice.",
+                  "count": "3"
+                },
+                {
+                  "item": "Installation of new building wide fire alarm system.",
+                  "count": "3"
+                },
+                {
+                  "item": "VIT CLAY PIPE SEWERS - STATEN ISLAND",
+                  "count": "3"
+                },
+                {
+                  "item": "REHABILITATION (REPAIR AND UPGRADE TO ADA SPECIFICATIONS TO THE MAXIMUM EXTENT FEASIBLE) OF EXISTING PEDESTRIAN RAMPS IN THE BOROUGH OF BROOKLYN. THE LIST OF LOCATIONS FOR THIS CONTRACT WILL BE PROVIDED BY SIM AT A LATER DATE. THE PED RAMP REPAIRS WILL FOLLOW RESURFACING SCHEDULES. ANY UPGRADES TO THE RAMPS MUST ALSO REHABILITATE THE RECEIVING CORNER WHERE POSSIBLE. ANY DEVIATION WILL REQUIRE DOT'S APPROVAL. THIS CONTRACT WILL BE ADDRESSING SIMPLE PED RAMP UPGRADES. THIS CONTRACT WILL BE ESTABLISHED FOR 1 YEAR AND MAY ONLY BE RENEWED IF A TIME EXTENSION IS NEEDED. ALL THE PROJECT FUNDS MUST BE REGISTERED IN THE 1ST YEAR.",
+                  "count": "3"
+                },
+                {
+                  "item": "Replacement of sidewalks that have violations where property owners received prior notice. Locations for prior notice sidewalks will be determined by New York City Department of Transportation, Division of Sidewalks and Inspections Management (SIM). This contract shall be established for one year. It must comply with applicable Federal ADA requirements. The cost of this contract must not exceed the available funding of $8M.",
+                  "count": "2"
+                },
+                {
+                  "item": "Reconstruction of Existing Sewers, the Staten Island",
+                  "count": "2"
+                },
+                {
+                  "item": "ACCELERATED DISTRIBUTION WATER MAIN REPLACEMENT AND SEWER REHABILITATION/REPLACEMENT, MANHATTAN",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - BROOKLYN",
+                  "count": "2"
+                },
+                {
+                  "item": "Distribution water main area contract, water main replacement in Brooklyn and Staten Island, as directed by Distribution Engineer.",
+                  "count": "2"
+                },
+                {
+                  "item": "HVAC Replacement",
+                  "count": "2"
+                },
+                {
+                  "item": "PRIOR NOTICE SIDEWALKS - MANHATTAN",
+                  "count": "2"
+                },
+                {
+                  "item": "The scope of this project includes rehabilitation (repair and upgrade to Federal ADA 2010 specifications to the maximum extent feasible) of existing pedestrian ramps in Brooklyn and Staten Island.",
+                  "count": "2"
+                },
+                {
+                  "item": "The scope of this project includes rehabilitation (repair and upgrade to Federal ADA 2010 specifications to the maximum extent feasible) of existing pedestrian ramps in Brooklyn.",
+                  "count": "2"
+                },
+                {
+                  "item": "Coastal Resiliency Area 1 - East 23rd St. to Montgomery St., Manhattan",
+                  "count": "2"
+                },
+                {
+                  "item": "FUEL TANK REPLACEMENT",
+                  "count": "2"
+                },
+                {
+                  "item": "Replacement/Continuation Contracts for Remediation Of Petroleum Contaminated Sites",
+                  "count": "2"
+                }
+              ],
+              "smallest": "1118 GRAND CONCOURSE - ELEVATORS",
+              "count": "795",
+              "cardinality": "751"
+            },
+            "format": {}
+          },
+          {
+            "id": 520230854,
+            "name": "Status",
+            "dataTypeName": "text",
+            "description": "",
+            "fieldName": "status",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 128299947,
+            "cachedContents": {
+              "non_null": "795",
+              "largest": "Active",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Active",
+                  "count": "795"
+                }
+              ],
+              "smallest": "Active",
+              "count": "795",
+              "cardinality": "1"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "attachments": [
+            {
+              "filename": "DDC_Active_Projects.xlsx",
+              "assetId": "440b2feb-7fab-47c7-b866-6c33c640f9ef",
+              "name": "DDC_Active_Projects.xlsx"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Design and Construction (DDC)"
+            }
+          },
+          "rowLabel": "active buildings project",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "ddc",
+          "design",
+          "construction",
+          "projects"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/3ss8-m844.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:58:10.831142+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/3ss8-m844.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 22 May 2023 22:38:10 GMT",
+      "etag": "W/\"aG90ZWwuNTA2NzBfMV8xMlRHTUlaXzZ2ZVZNMFZDbF83U241eGR4VTI4aw---gzijuN6bRbZzgDsCuZdjnjBDG36zIL--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 260,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "client_agency",
+        "description",
+        "division",
+        "phase",
+        "project_id",
+        "projected_construction",
+        "scope",
+        "status"
+      ],
+      "json_sample": [
+        {
+          "project_id": "LNCA15SPK",
+          "description": "Seward Park Boiler Replacement",
+          "client_agency": "Libraries-NYPL",
+          "division": "Public Buildings",
+          "phase": "5. Close-Out",
+          "projected_construction": "2017-12-29T00:00:00.000",
+          "scope": "Boiler Replacement",
+          "status": "Active"
+        }
+      ]
+    }
+  ]
+}

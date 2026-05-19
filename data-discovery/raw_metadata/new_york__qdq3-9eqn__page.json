@@ -1,0 +1,2064 @@
+{
+  "source_id": "qdq3-9eqn",
+  "city": "new_york",
+  "title": "Hyperlocal Temperature Monitoring",
+  "publisher": "NYC Open Data / City agency",
+  "bucket": "heat/climate/environment",
+  "retrieved_at": "2026-04-28T13:00:10.152538+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/qdq3-9eqn",
+      "retrieved_at": "2026-04-28T13:00:07.830477+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/qdq3-9eqn",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 18662,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Hyperlocal Temperature Monitoring",
+      "description": "As a part of the Cool Neighborhoods Initiative, the NYC Parks Department, Mayor’s Office of Resilience and NYC Department of Health and Mental Hygiene monitored street level temperature on a subset of city blocks in some of the neighborhoods with highest heat mortality risk during the summers of 2018 and 2019. The dataset includes hourly average values at approximately 475 locations in degrees Fahrenheit.",
+      "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+      "rowsUpdatedAt": 1629488177,
+      "json_sample": {
+        "id": "qdq3-9eqn",
+        "name": "Hyperlocal Temperature Monitoring",
+        "assetType": "dataset",
+        "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+        "averageRating": 0,
+        "createdAt": 1629484968,
+        "description": "As a part of the Cool Neighborhoods Initiative, the NYC Parks Department, Mayor’s Office of Resilience and NYC Department of Health and Mental Hygiene monitored street level temperature on a subset of city blocks in some of the neighborhoods with highest heat mortality risk during the summers of 2018 and 2019. The dataset includes hourly average values at approximately 475 locations in degrees Fahrenheit.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 4814,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 37572402,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1629486629,
+        "publicationGroup": 18418665,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1629488177,
+        "tableId": 18418665,
+        "totalTimesRated": 0,
+        "viewCount": 14776,
+        "viewLastModified": 1776777597,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1629504237,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 3936542,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1629504237,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1629504237,
+              "failureCount": 0,
+              "startedAt": 1629504237,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 546929197,
+            "name": "Sensor.ID",
+            "dataTypeName": "text",
+            "description": "unique identifier of sensor",
+            "fieldName": "sensor_id",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 139115146,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "Q-JC_04",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Bk-EN_06",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_01",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_03",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_04",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_05",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_06",
+                  "count": "5896"
+                },
+                {
+                  "item": "Bk-EN_08",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_08",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_09",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_10",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_11",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_12",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_13",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_14",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_15",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_16",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_17",
+                  "count": "5896"
+                },
+                {
+                  "item": "Bk-EN_09",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_19",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_20",
+                  "count": "5896"
+                }
+              ],
+              "smallest": "Bk-BR_01",
+              "count": "2097150",
+              "cardinality": "423"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929190,
+            "name": "AirTemp",
+            "dataTypeName": "number",
+            "description": "average hourly air temperature, Fahrenheit",
+            "fieldName": "airtemp",
+            "position": 2,
+            "renderTypeName": "number",
+            "tableColumnId": 139115139,
+            "cachedContents": {
+              "non_null": "2085443",
+              "largest": "114.9636667",
+              "null": "11707",
+              "top": [
+                {
+                  "item": "73.58",
+                  "count": "358"
+                },
+                {
+                  "item": "73.472",
+                  "count": "352"
+                },
+                {
+                  "item": "72.545",
+                  "count": "347"
+                },
+                {
+                  "item": "73.47916667",
+                  "count": "341"
+                },
+                {
+                  "item": "72.53783333",
+                  "count": "338"
+                },
+                {
+                  "item": "73.58716667",
+                  "count": "337"
+                },
+                {
+                  "item": "72.581",
+                  "count": "331"
+                },
+                {
+                  "item": "73.62316667",
+                  "count": "331"
+                },
+                {
+                  "item": "73.688",
+                  "count": "329"
+                },
+                {
+                  "item": "73.55116667",
+                  "count": "325"
+                },
+                {
+                  "item": "73.796",
+                  "count": "325"
+                },
+                {
+                  "item": "73.616",
+                  "count": "323"
+                },
+                {
+                  "item": "73.52233333",
+                  "count": "322"
+                },
+                {
+                  "item": "73.57283333",
+                  "count": "322"
+                },
+                {
+                  "item": "73.45766667",
+                  "count": "322"
+                },
+                {
+                  "item": "72.509",
+                  "count": "320"
+                },
+                {
+                  "item": "73.64483333",
+                  "count": "320"
+                },
+                {
+                  "item": "72.58816667",
+                  "count": "319"
+                },
+                {
+                  "item": "73.68083333",
+                  "count": "317"
+                },
+                {
+                  "item": "73.508",
+                  "count": "315"
+                }
+              ],
+              "smallest": "46.031",
+              "count": "2097150",
+              "cardinality": "179295"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929189,
+            "name": "Day",
+            "dataTypeName": "calendar_date",
+            "description": "Date",
+            "fieldName": "day",
+            "position": 3,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 139115138,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "2019-10-15T00:00:00.000",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2018-06-16T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-17T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-18T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-19T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-20T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-21T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-22T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-23T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-24T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-25T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-26T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-27T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-28T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-29T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-30T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-01T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-02T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-03T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-04T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-05T00:00:00.000",
+                  "count": "8544"
+                }
+              ],
+              "smallest": "2018-06-15T00:00:00.000",
+              "count": "2097150",
+              "cardinality": "246"
+            },
+            "format": {
+              "view": "date"
+            }
+          },
+          {
+            "id": 546929196,
+            "name": "Hour",
+            "dataTypeName": "number",
+            "description": "Hour of day ",
+            "fieldName": "hour",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 139115145,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "23",
+              "null": "0",
+              "top": [
+                {
+                  "item": "19",
+                  "count": "87500"
+                },
+                {
+                  "item": "1",
+                  "count": "87500"
+                },
+                {
+                  "item": "2",
+                  "count": "87500"
+                },
+                {
+                  "item": "3",
+                  "count": "87500"
+                },
+                {
+                  "item": "4",
+                  "count": "87500"
+                },
+                {
+                  "item": "5",
+                  "count": "87500"
+                },
+                {
+                  "item": "6",
+                  "count": "87500"
+                },
+                {
+                  "item": "7",
+                  "count": "87500"
+                },
+                {
+                  "item": "8",
+                  "count": "87500"
+                },
+                {
+                  "item": "9",
+                  "count": "87500"
+                },
+                {
+                  "item": "10",
+                  "count": "87500"
+                },
+                {
+                  "item": "11",
+                  "count": "87500"
+                },
+                {
+                  "item": "12",
+                  "count": "87500"
+                },
+                {
+                  "item": "13",
+                  "count": "87500"
+                },
+                {
+                  "item": "14",
+                  "count": "87500"
+                },
+                {
+                  "item": "15",
+                  "count": "87500"
+                },
+                {
+                  "item": "16",
+                  "count": "87500"
+                },
+                {
+                  "item": "17",
+                  "count": "87500"
+                },
+                {
+                  "item": "18",
+                  "count": "87500"
+                },
+                {
+                  "item": "20",
+                  "count": "87498"
+                }
+              ],
+              "smallest": "0",
+              "count": "2097150",
+              "cardinality": "24"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929195,
+            "name": "Latitude",
+            "dataTypeName": "number",
+            "description": "Latitude of sensor",
+            "fieldName": "latitude",
+            "position": 5,
+            "renderTypeName": "number",
+            "tableColumnId": 139115144,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "40.884616",
+              "null": "0",
+              "top": [
+                {
+                  "item": "40.80551",
+                  "count": "11792"
+                },
+                {
+                  "item": "40.64687652",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64737",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64741",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.647446",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64758829",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64848868",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.648527",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64861313",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.67159155",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.68601245",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.686047",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.68646444",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70048818",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70061715",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.701138",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70117592",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70198422",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70233319",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70239284",
+                  "count": "5896"
+                }
+              ],
+              "smallest": "40.64673764",
+              "count": "2097150",
+              "cardinality": "434"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929194,
+            "name": "Longitude",
+            "dataTypeName": "number",
+            "description": "Longitude of sensor",
+            "fieldName": "longitude",
+            "position": 6,
+            "renderTypeName": "number",
+            "tableColumnId": 139115143,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "-73.7353952",
+              "null": "0",
+              "top": [
+                {
+                  "item": "-73.9108",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.9159",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.946",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.9495",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.951205",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9506",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9504",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95193172",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95152243",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95175509",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.951265",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95123356",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95065556",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95062325",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95232605",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95201341",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.952411",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95222494",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9522",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9521",
+                  "count": "5896"
+                }
+              ],
+              "smallest": "-73.99897774",
+              "count": "2097150",
+              "cardinality": "431"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929188,
+            "name": "Year",
+            "dataTypeName": "text",
+            "description": "Year",
+            "fieldName": "year",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 139115137,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "2019",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2018",
+                  "count": "1048575"
+                },
+                {
+                  "item": "2019",
+                  "count": "1048575"
+                }
+              ],
+              "smallest": "2018",
+              "count": "2097150",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929193,
+            "name": "Install.Type",
+            "dataTypeName": "text",
+            "description": "Type of mounting ( street tree/street light)",
+            "fieldName": "install_type",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 139115142,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "Street Tree",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Street Tree",
+                  "count": "1493723"
+                },
+                {
+                  "item": "Light Pole",
+                  "count": "603427"
+                }
+              ],
+              "smallest": "Light Pole",
+              "count": "2097150",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929192,
+            "name": "Borough",
+            "dataTypeName": "text",
+            "description": "borough",
+            "fieldName": "borough",
+            "position": 9,
+            "renderTypeName": "text",
+            "tableColumnId": 139115141,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "Queens",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Brooklyn",
+                  "count": "857868"
+                },
+                {
+                  "item": "Bronx",
+                  "count": "669196"
+                },
+                {
+                  "item": "Manhattan",
+                  "count": "418616"
+                },
+                {
+                  "item": "Queens",
+                  "count": "151470"
+                }
+              ],
+              "smallest": "Bronx",
+              "count": "2097150",
+              "cardinality": "4"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929191,
+            "name": "ntacode",
+            "dataTypeName": "text",
+            "description": "Neighborhood Tabulation Areas (NTA) code",
+            "fieldName": "ntacode",
+            "position": 10,
+            "renderTypeName": "text",
+            "tableColumnId": 139115140,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "QN34",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BK81",
+                  "count": "224048"
+                },
+                {
+                  "item": "MN33",
+                  "count": "212256"
+                },
+                {
+                  "item": "BX27",
+                  "count": "200464"
+                },
+                {
+                  "item": "BX39",
+                  "count": "179828"
+                },
+                {
+                  "item": "BX36",
+                  "count": "165088"
+                },
+                {
+                  "item": "MN11",
+                  "count": "162140"
+                },
+                {
+                  "item": "BK35",
+                  "count": "135608"
+                },
+                {
+                  "item": "BK85",
+                  "count": "100232"
+                },
+                {
+                  "item": "BK95",
+                  "count": "94336"
+                },
+                {
+                  "item": "BK82",
+                  "count": "85492"
+                },
+                {
+                  "item": "BK91",
+                  "count": "85492"
+                },
+                {
+                  "item": "BX03",
+                  "count": "76648"
+                },
+                {
+                  "item": "QN34",
+                  "count": "73700"
+                },
+                {
+                  "item": "QN33",
+                  "count": "63943"
+                },
+                {
+                  "item": "BK61",
+                  "count": "56012"
+                },
+                {
+                  "item": "BK33",
+                  "count": "29480"
+                },
+                {
+                  "item": "MN34",
+                  "count": "26532"
+                },
+                {
+                  "item": "BX41",
+                  "count": "26532"
+                },
+                {
+                  "item": "BX44",
+                  "count": "20636"
+                },
+                {
+                  "item": "BK60",
+                  "count": "17688"
+                }
+              ],
+              "smallest": "BK33",
+              "count": "2097150",
+              "cardinality": "26"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "Hyperlocal temperature_data_dictionary_updated 07.2021.xlsx",
+              "assetId": "dfda8c68-57cd-4cfd-8be3-c30c9e2d5610",
+              "name": "Hyperlocal temperature_data_dictionary_updated 07.2021.xlsx"
+            },
+            {
+              "filename": "User Guide _ hyperlocal temp 07.2021.pdf",
+              "assetId": "dd8063ed-c459-4453-9c32-8b47938e0c25",
+              "name": "User Guide _ hyperlocal temp 07.2021.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Health and Mental Hygiene (DOHMH)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "extreme temperature",
+          "temperature",
+          "weather",
+          "warming",
+          "dohmh",
+          "heat",
+          "wave",
+          "nyc",
+          "climate"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/qdq3-9eqn",
+      "retrieved_at": "2026-04-28T13:00:08.652234+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/qdq3-9eqn",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 18662,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowClass",
+        "rowsUpdatedAt",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "Hyperlocal Temperature Monitoring",
+      "description": "As a part of the Cool Neighborhoods Initiative, the NYC Parks Department, Mayor’s Office of Resilience and NYC Department of Health and Mental Hygiene monitored street level temperature on a subset of city blocks in some of the neighborhoods with highest heat mortality risk during the summers of 2018 and 2019. The dataset includes hourly average values at approximately 475 locations in degrees Fahrenheit.",
+      "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+      "rowsUpdatedAt": 1629488177,
+      "json_sample": {
+        "id": "qdq3-9eqn",
+        "name": "Hyperlocal Temperature Monitoring",
+        "assetType": "dataset",
+        "attribution": "Department of Health and Mental Hygiene (DOHMH)",
+        "averageRating": 0,
+        "createdAt": 1629484968,
+        "description": "As a part of the Cool Neighborhoods Initiative, the NYC Parks Department, Mayor’s Office of Resilience and NYC Department of Health and Mental Hygiene monitored street level temperature on a subset of city blocks in some of the neighborhoods with highest heat mortality risk during the summers of 2018 and 2019. The dataset includes hourly average values at approximately 475 locations in degrees Fahrenheit.",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 4814,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 0,
+        "oid": 37572402,
+        "provenance": "official",
+        "publicationAppendEnabled": false,
+        "publicationDate": 1629486629,
+        "publicationGroup": 18418665,
+        "publicationStage": "published",
+        "rowClass": "",
+        "rowsUpdatedAt": 1629488177,
+        "tableId": 18418665,
+        "totalTimesRated": 0,
+        "viewCount": 14776,
+        "viewLastModified": 1776777597,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1629504237,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 3936542,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1629504237,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "endedAt": 1629504237,
+              "failureCount": 0,
+              "startedAt": 1629504237,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 546929197,
+            "name": "Sensor.ID",
+            "dataTypeName": "text",
+            "description": "unique identifier of sensor",
+            "fieldName": "sensor_id",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 139115146,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "Q-JC_04",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Bk-EN_06",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_01",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_03",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_04",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_05",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_06",
+                  "count": "5896"
+                },
+                {
+                  "item": "Bk-EN_08",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_08",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_09",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_10",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_11",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_12",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_13",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_14",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_15",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_16",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_17",
+                  "count": "5896"
+                },
+                {
+                  "item": "Bk-EN_09",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_19",
+                  "count": "5896"
+                },
+                {
+                  "item": "M-CH_20",
+                  "count": "5896"
+                }
+              ],
+              "smallest": "Bk-BR_01",
+              "count": "2097150",
+              "cardinality": "423"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929190,
+            "name": "AirTemp",
+            "dataTypeName": "number",
+            "description": "average hourly air temperature, Fahrenheit",
+            "fieldName": "airtemp",
+            "position": 2,
+            "renderTypeName": "number",
+            "tableColumnId": 139115139,
+            "cachedContents": {
+              "non_null": "2085443",
+              "largest": "114.9636667",
+              "null": "11707",
+              "top": [
+                {
+                  "item": "73.58",
+                  "count": "358"
+                },
+                {
+                  "item": "73.472",
+                  "count": "352"
+                },
+                {
+                  "item": "72.545",
+                  "count": "347"
+                },
+                {
+                  "item": "73.47916667",
+                  "count": "341"
+                },
+                {
+                  "item": "72.53783333",
+                  "count": "338"
+                },
+                {
+                  "item": "73.58716667",
+                  "count": "337"
+                },
+                {
+                  "item": "72.581",
+                  "count": "331"
+                },
+                {
+                  "item": "73.62316667",
+                  "count": "331"
+                },
+                {
+                  "item": "73.688",
+                  "count": "329"
+                },
+                {
+                  "item": "73.55116667",
+                  "count": "325"
+                },
+                {
+                  "item": "73.796",
+                  "count": "325"
+                },
+                {
+                  "item": "73.616",
+                  "count": "323"
+                },
+                {
+                  "item": "73.52233333",
+                  "count": "322"
+                },
+                {
+                  "item": "73.57283333",
+                  "count": "322"
+                },
+                {
+                  "item": "73.45766667",
+                  "count": "322"
+                },
+                {
+                  "item": "72.509",
+                  "count": "320"
+                },
+                {
+                  "item": "73.64483333",
+                  "count": "320"
+                },
+                {
+                  "item": "72.58816667",
+                  "count": "319"
+                },
+                {
+                  "item": "73.68083333",
+                  "count": "317"
+                },
+                {
+                  "item": "73.508",
+                  "count": "315"
+                }
+              ],
+              "smallest": "46.031",
+              "count": "2097150",
+              "cardinality": "179295"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929189,
+            "name": "Day",
+            "dataTypeName": "calendar_date",
+            "description": "Date",
+            "fieldName": "day",
+            "position": 3,
+            "renderTypeName": "calendar_date",
+            "tableColumnId": 139115138,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "2019-10-15T00:00:00.000",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2018-06-16T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-17T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-18T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-19T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-20T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-21T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-22T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-23T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-24T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-25T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-26T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-27T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-28T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-29T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-06-30T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-01T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-02T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-03T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-04T00:00:00.000",
+                  "count": "8544"
+                },
+                {
+                  "item": "2018-07-05T00:00:00.000",
+                  "count": "8544"
+                }
+              ],
+              "smallest": "2018-06-15T00:00:00.000",
+              "count": "2097150",
+              "cardinality": "246"
+            },
+            "format": {
+              "view": "date"
+            }
+          },
+          {
+            "id": 546929196,
+            "name": "Hour",
+            "dataTypeName": "number",
+            "description": "Hour of day ",
+            "fieldName": "hour",
+            "position": 4,
+            "renderTypeName": "number",
+            "tableColumnId": 139115145,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "23",
+              "null": "0",
+              "top": [
+                {
+                  "item": "19",
+                  "count": "87500"
+                },
+                {
+                  "item": "1",
+                  "count": "87500"
+                },
+                {
+                  "item": "2",
+                  "count": "87500"
+                },
+                {
+                  "item": "3",
+                  "count": "87500"
+                },
+                {
+                  "item": "4",
+                  "count": "87500"
+                },
+                {
+                  "item": "5",
+                  "count": "87500"
+                },
+                {
+                  "item": "6",
+                  "count": "87500"
+                },
+                {
+                  "item": "7",
+                  "count": "87500"
+                },
+                {
+                  "item": "8",
+                  "count": "87500"
+                },
+                {
+                  "item": "9",
+                  "count": "87500"
+                },
+                {
+                  "item": "10",
+                  "count": "87500"
+                },
+                {
+                  "item": "11",
+                  "count": "87500"
+                },
+                {
+                  "item": "12",
+                  "count": "87500"
+                },
+                {
+                  "item": "13",
+                  "count": "87500"
+                },
+                {
+                  "item": "14",
+                  "count": "87500"
+                },
+                {
+                  "item": "15",
+                  "count": "87500"
+                },
+                {
+                  "item": "16",
+                  "count": "87500"
+                },
+                {
+                  "item": "17",
+                  "count": "87500"
+                },
+                {
+                  "item": "18",
+                  "count": "87500"
+                },
+                {
+                  "item": "20",
+                  "count": "87498"
+                }
+              ],
+              "smallest": "0",
+              "count": "2097150",
+              "cardinality": "24"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929195,
+            "name": "Latitude",
+            "dataTypeName": "number",
+            "description": "Latitude of sensor",
+            "fieldName": "latitude",
+            "position": 5,
+            "renderTypeName": "number",
+            "tableColumnId": 139115144,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "40.884616",
+              "null": "0",
+              "top": [
+                {
+                  "item": "40.80551",
+                  "count": "11792"
+                },
+                {
+                  "item": "40.64687652",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64737",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64741",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.647446",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64758829",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64848868",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.648527",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.64861313",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.67159155",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.68601245",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.686047",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.68646444",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70048818",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70061715",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.701138",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70117592",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70198422",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70233319",
+                  "count": "5896"
+                },
+                {
+                  "item": "40.70239284",
+                  "count": "5896"
+                }
+              ],
+              "smallest": "40.64673764",
+              "count": "2097150",
+              "cardinality": "434"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929194,
+            "name": "Longitude",
+            "dataTypeName": "number",
+            "description": "Longitude of sensor",
+            "fieldName": "longitude",
+            "position": 6,
+            "renderTypeName": "number",
+            "tableColumnId": 139115143,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "-73.7353952",
+              "null": "0",
+              "top": [
+                {
+                  "item": "-73.9108",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.9159",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.946",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.9495",
+                  "count": "11792"
+                },
+                {
+                  "item": "-73.951205",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9506",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9504",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95193172",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95152243",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95175509",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.951265",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95123356",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95065556",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95062325",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95232605",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95201341",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.952411",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.95222494",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9522",
+                  "count": "5896"
+                },
+                {
+                  "item": "-73.9521",
+                  "count": "5896"
+                }
+              ],
+              "smallest": "-73.99897774",
+              "count": "2097150",
+              "cardinality": "431"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929188,
+            "name": "Year",
+            "dataTypeName": "text",
+            "description": "Year",
+            "fieldName": "year",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 139115137,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "2019",
+              "null": "0",
+              "top": [
+                {
+                  "item": "2018",
+                  "count": "1048575"
+                },
+                {
+                  "item": "2019",
+                  "count": "1048575"
+                }
+              ],
+              "smallest": "2018",
+              "count": "2097150",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929193,
+            "name": "Install.Type",
+            "dataTypeName": "text",
+            "description": "Type of mounting ( street tree/street light)",
+            "fieldName": "install_type",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 139115142,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "Street Tree",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Street Tree",
+                  "count": "1493723"
+                },
+                {
+                  "item": "Light Pole",
+                  "count": "603427"
+                }
+              ],
+              "smallest": "Light Pole",
+              "count": "2097150",
+              "cardinality": "2"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929192,
+            "name": "Borough",
+            "dataTypeName": "text",
+            "description": "borough",
+            "fieldName": "borough",
+            "position": 9,
+            "renderTypeName": "text",
+            "tableColumnId": 139115141,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "Queens",
+              "null": "0",
+              "top": [
+                {
+                  "item": "Brooklyn",
+                  "count": "857868"
+                },
+                {
+                  "item": "Bronx",
+                  "count": "669196"
+                },
+                {
+                  "item": "Manhattan",
+                  "count": "418616"
+                },
+                {
+                  "item": "Queens",
+                  "count": "151470"
+                }
+              ],
+              "smallest": "Bronx",
+              "count": "2097150",
+              "cardinality": "4"
+            },
+            "format": {}
+          },
+          {
+            "id": 546929191,
+            "name": "ntacode",
+            "dataTypeName": "text",
+            "description": "Neighborhood Tabulation Areas (NTA) code",
+            "fieldName": "ntacode",
+            "position": 10,
+            "renderTypeName": "text",
+            "tableColumnId": 139115140,
+            "cachedContents": {
+              "non_null": "2097150",
+              "largest": "QN34",
+              "null": "0",
+              "top": [
+                {
+                  "item": "BK81",
+                  "count": "224048"
+                },
+                {
+                  "item": "MN33",
+                  "count": "212256"
+                },
+                {
+                  "item": "BX27",
+                  "count": "200464"
+                },
+                {
+                  "item": "BX39",
+                  "count": "179828"
+                },
+                {
+                  "item": "BX36",
+                  "count": "165088"
+                },
+                {
+                  "item": "MN11",
+                  "count": "162140"
+                },
+                {
+                  "item": "BK35",
+                  "count": "135608"
+                },
+                {
+                  "item": "BK85",
+                  "count": "100232"
+                },
+                {
+                  "item": "BK95",
+                  "count": "94336"
+                },
+                {
+                  "item": "BK82",
+                  "count": "85492"
+                },
+                {
+                  "item": "BK91",
+                  "count": "85492"
+                },
+                {
+                  "item": "BX03",
+                  "count": "76648"
+                },
+                {
+                  "item": "QN34",
+                  "count": "73700"
+                },
+                {
+                  "item": "QN33",
+                  "count": "63943"
+                },
+                {
+                  "item": "BK61",
+                  "count": "56012"
+                },
+                {
+                  "item": "BK33",
+                  "count": "29480"
+                },
+                {
+                  "item": "MN34",
+                  "count": "26532"
+                },
+                {
+                  "item": "BX41",
+                  "count": "26532"
+                },
+                {
+                  "item": "BX44",
+                  "count": "20636"
+                },
+                {
+                  "item": "BK60",
+                  "count": "17688"
+                }
+              ],
+              "smallest": "BK33",
+              "count": "2097150",
+              "cardinality": "26"
+            },
+            "format": {}
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "rdfClass": "",
+          "attachments": [
+            {
+              "filename": "Hyperlocal temperature_data_dictionary_updated 07.2021.xlsx",
+              "assetId": "dfda8c68-57cd-4cfd-8be3-c30c9e2d5610",
+              "name": "Hyperlocal temperature_data_dictionary_updated 07.2021.xlsx"
+            },
+            {
+              "filename": "User Guide _ hyperlocal temp 07.2021.pdf",
+              "assetId": "dd8063ed-c459-4453-9c32-8b47938e0c25",
+              "name": "User Guide _ hyperlocal temp 07.2021.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "No",
+              "Update Frequency": "As needed"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Health and Mental Hygiene (DOHMH)"
+            }
+          },
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "extreme temperature",
+          "temperature",
+          "weather",
+          "warming",
+          "dohmh",
+          "heat",
+          "wave",
+          "nyc",
+          "climate"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/qdq3-9eqn.json?$limit=1",
+      "retrieved_at": "2026-04-28T13:00:09.383550+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/qdq3-9eqn.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Fri, 20 Aug 2021 19:27:16 GMT",
+      "etag": "W/\"Zm94dHJvdC45ODE0Nl8xXzE0TjhJZUYxNWk1VF9nUkRJODcwSmd0aXVQZldn---gzipD41prukZDS_RIqsmhPLSrB1cJgs--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 222,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "airtemp",
+        "borough",
+        "day",
+        "hour",
+        "install_type",
+        "latitude",
+        "longitude",
+        "ntacode",
+        "sensor_id",
+        "year"
+      ],
+      "json_sample": [
+        {
+          "sensor_id": "Bk-BR_01",
+          "airtemp": "71.189",
+          "day": "2018-06-15T00:00:00.000",
+          "hour": "1",
+          "latitude": "40.66620508",
+          "longitude": "-73.91691035",
+          "year": "2018",
+          "install_type": "Street Tree",
+          "borough": "Brooklyn",
+          "ntacode": "BK81"
+        }
+      ]
+    }
+  ]
+}

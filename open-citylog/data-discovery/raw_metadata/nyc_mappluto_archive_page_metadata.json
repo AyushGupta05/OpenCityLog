@@ -1,0 +1,16 @@
+{
+  "source_id": "nyc_mappluto_archive",
+  "title": "MapPLUTO / PLUTO change and archive page",
+  "requested_url": "https://www.nyc.gov/content/planning/pages/resources/datasets/mappluto-pluto-change",
+  "fetched_url": "https://www.nyc.gov/content/planning/pages/resources/datasets/mappluto-pluto-change",
+  "final_url": "https://www.nyc.gov/content/planning/pages/resources/datasets/mappluto-pluto-change",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "content_length": "15252",
+  "last_modified": "Tue, 24 Mar 2026 22:01:13 GMT",
+  "etag": "\"69c309a9-2f99\"",
+  "retrieved_at": "2026-04-28T11:05:56.905357+00:00",
+  "page_title": "",
+  "h1": "",
+  "meta_description": ""
+}

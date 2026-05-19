@@ -1,0 +1,48 @@
+name: Data correction
+description: Correct an event, source, licence, caveat, confidence label, date, or geometry.
+title: "[Data correction]: "
+labels: ["data-correction", "provenance"]
+body:
+  - type: input
+    id: event_or_source
+    attributes:
+      label: Event or source id
+      description: Include the event id, source id, or file path.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Explain what is wrong and what should change.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence
+      description: Link source rows, public pages, files, or archived material that support the correction.
+    validations:
+      required: true
+  - type: dropdown
+    id: affected_fields
+    attributes:
+      label: What changes?
+      multiple: true
+      options:
+        - Date or date basis
+        - Geometry or place
+        - Category or lens
+        - Confidence
+        - Caveat or limitation
+        - Licence or attribution
+        - Source URL or record id
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I am not asking Bims to infer causation or prediction from this correction.
+          required: true
+        - label: The evidence I linked is public or otherwise safe to publish.
+          required: true

@@ -1,0 +1,25 @@
+{
+  "source_id": "ons-census-api",
+  "city": "london",
+  "title": "ONS Census 2021 and historic census data",
+  "publisher": "Office for National Statistics",
+  "bucket": "demographics",
+  "retrieved_at": "2026-04-28T12:18:52.294756+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.ons.gov.uk/census",
+      "retrieved_at": "2026-04-28T12:18:52.067010+00:00",
+      "final_url": "https://www.ons.gov.uk/census",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 49552,
+      "page_title": "Census\n      - Office for National Statistics",
+      "h1": "Census",
+      "meta_description": "",
+      "text_sample": "<!DOCTYPE html> <html lang=\"en\" xml:lang=\"en\"> <head> <title> Census - Office for National Statistics </title> <meta name=\"description\" content=\"\"> <meta charset=\"utf-8\"> <meta content=\"width=device-width,initial-scale=1.0,user-scalable=1\" name=\"viewport\"> <meta name=\"format-detection\" content=\"telephone=no\"> <meta name=\"theme-color\" content=\"#58595B\"> <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"#58595B\"> <link rel=\"stylesheet\" href=\"//cdn.ons.gov.uk/dis-design-system-go/v1.4.0/css/main.css\"> <script> function extractValue(key, extractionString) { const extractionRegex = new RegExp(`'${key}':(.*?)[,}]`) const match = extractionString.match(extractionRegex) if (match) { return match[1] } return null } function getUsageCookieValue() { var policyCookie = document.cookie.match('(?:^|; )ons_cookie_policy=({.*?})'); if (policyCookie) { console.debug('ons_cookie_policy found'); var usageValue = extractValue(\"usage\", policyCookie[1]); console.debug('usage is', usageValue); return (usageValue == \"true\") ? false : true } console.debug('no cookie found - opting out'); return true } function htmlUnescape(str) { return str.replace(/&#x3D;/g, \"=\"); } dataLayer = [{ \"analyticsOptOut\": getUsageCookieValue(), \"gtm.whitelist\": [\"google\", \"hjtc\", \"lcl\"], \"gtm.blacklist\": [\"customScripts\", \"sp\", \"adm\", \"awct\", \"k\", \"d\", \"j\"], \"contentTitle\": htmlUnescape(\"Census\"), \"contentType\": \"census\", }]; </script> <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'}); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-MBCBVQS'); </script> </head> <body class=\"page-type--census\"> <script> document.body.className = ( (document.body.className) ? document.body.className + ' js js-enabled' : 'js js-enabled'); </script> <noscript> <iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MBCBVQS\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe> </noscript> <div class=\"ons-page\"> <div class=\"ons-page__content\"> <section> <form action=\"/cookies/"
+    }
+  ]
+}

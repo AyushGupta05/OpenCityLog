@@ -1,0 +1,824 @@
+{
+  "source_id": "eabe-havv",
+  "city": "new_york",
+  "title": "DOB Complaints Received",
+  "publisher": "NYC DOB",
+  "bucket": "buildings; public services",
+  "retrieved_at": "2026-04-28T12:19:58.830034+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/eabe-havv",
+      "retrieved_at": "2026-04-28T12:19:57.344129+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/eabe-havv",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 8581,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "DOB Complaints Received",
+      "description": "This is the universe of complaints received by Department of Buildings (DOB). It includes complaints that come from 311 or that are entered into the system by DOB staff.\r\n\r\nA Complaint Categories codes can be found at\r\nhttp://www1.nyc.gov/assets/buildings/pdf/bis_complaint_disposition_codes.pdf",
+      "attribution": "Department of Buildings (DOB)",
+      "rowsUpdatedAt": 1777306667,
+      "json_sample": {
+        "id": "eabe-havv",
+        "name": "DOB Complaints Received",
+        "assetType": "dataset",
+        "attribution": "Department of Buildings (DOB)",
+        "averageRating": 0,
+        "category": "Housing & Development",
+        "createdAt": 1366298350,
+        "description": "This is the universe of complaints received by Department of Buildings (DOB). It includes complaints that come from 311 or that are entered into the system by DOB staff.\r\n\r\nA Complaint Categories codes can be found at\r\nhttp://www1.nyc.gov/assets/buildings/pdf/bis_complaint_disposition_codes.pdf",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 55405,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 12,
+        "oid": 40010688,
+        "provenance": "official",
+        "publicationAppendEnabled": true,
+        "publicationDate": 1695931514,
+        "publicationGroup": 804330,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1777306667,
+        "rowsUpdatedBy": "5fuc-pqz2",
+        "tableId": 19304586,
+        "totalTimesRated": 0,
+        "viewCount": 199370,
+        "viewLastModified": 1777305629,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1566159030,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 5803210,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1566159030,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 581848519,
+            "name": "Complaint Number",
+            "dataTypeName": "text",
+            "description": "Complaint number starting with borough code: (1= Manhattan, 2= Bronx, 3 = Brooklyn, 4 = Queens, 5 = Staten Island)",
+            "fieldName": "complaint_number",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 9628780,
+            "width": 127,
+            "format": {}
+          },
+          {
+            "id": 581848520,
+            "name": "Status",
+            "dataTypeName": "text",
+            "description": "Status of Complaint",
+            "fieldName": "status",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 9628781,
+            "width": 106,
+            "format": {}
+          },
+          {
+            "id": 581848521,
+            "name": "Date Entered",
+            "dataTypeName": "text",
+            "description": "Date Complaint was Entered",
+            "fieldName": "date_entered",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 9628782,
+            "width": 111,
+            "format": {}
+          },
+          {
+            "id": 581848522,
+            "name": "House Number",
+            "dataTypeName": "text",
+            "description": "House Number of Complaint",
+            "fieldName": "house_number",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 9628783,
+            "width": 122,
+            "format": {}
+          },
+          {
+            "id": 581848523,
+            "name": "House Street",
+            "dataTypeName": "text",
+            "description": "House Street of Complaint",
+            "fieldName": "house_street",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 9628784,
+            "width": 163,
+            "format": {}
+          },
+          {
+            "id": 581848524,
+            "name": "ZIP Code",
+            "dataTypeName": "text",
+            "description": "Zip code of complaint\n",
+            "fieldName": "zip_code",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 45193476,
+            "width": 100,
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 581848525,
+            "name": "BIN",
+            "dataTypeName": "text",
+            "description": "Number assigned by City Planning to a specific building",
+            "fieldName": "bin",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 9628785,
+            "width": 78,
+            "format": {}
+          },
+          {
+            "id": 581848526,
+            "name": "Community Board",
+            "dataTypeName": "text",
+            "description": "3-digit identifier: Borough code = first position, last 2 = community board",
+            "fieldName": "community_board",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 9628786,
+            "width": 127,
+            "format": {}
+          },
+          {
+            "id": 581848527,
+            "name": "Special District",
+            "dataTypeName": "text",
+            "description": "Is Complaint in Special District",
+            "fieldName": "special_district",
+            "position": 9,
+            "renderTypeName": "text",
+            "tableColumnId": 9628787,
+            "width": 119,
+            "format": {}
+          },
+          {
+            "id": 581848528,
+            "name": "Complaint Category",
+            "dataTypeName": "text",
+            "description": "DOB Complaint Category Codes (01-Accident Construction/Plumbing, etc.) ",
+            "fieldName": "complaint_category",
+            "position": 10,
+            "renderTypeName": "text",
+            "tableColumnId": 9628788,
+            "width": 141,
+            "format": {}
+          },
+          {
+            "id": 581848529,
+            "name": "Unit",
+            "dataTypeName": "text",
+            "description": "Unit dispositioning Complaint",
+            "fieldName": "unit",
+            "position": 11,
+            "renderTypeName": "text",
+            "tableColumnId": 9628789,
+            "width": 80,
+            "format": {}
+          },
+          {
+            "id": 581848530,
+            "name": "Disposition Date",
+            "dataTypeName": "text",
+            "description": "Date Complaint was Dispositioned",
+            "fieldName": "disposition_date",
+            "position": 12,
+            "renderTypeName": "text",
+            "tableColumnId": 9628790,
+            "width": 127,
+            "format": {}
+          },
+          {
+            "id": 581848531,
+            "name": "Disposition Code",
+            "dataTypeName": "text",
+            "description": "Disposition Code of Complaint (A1-Building Violations Served, L1-Partial Stop Work Order,etc.) ",
+            "fieldName": "disposition_code",
+            "position": 13,
+            "renderTypeName": "text",
+            "tableColumnId": 9628791,
+            "width": 124,
+            "format": {}
+          },
+          {
+            "id": 581848532,
+            "name": "Inspection Date",
+            "dataTypeName": "text",
+            "description": "Inspection Date of Complaint",
+            "fieldName": "inspection_date",
+            "position": 14,
+            "renderTypeName": "text",
+            "tableColumnId": 9628792,
+            "width": 128,
+            "format": {}
+          },
+          {
+            "id": 581848533,
+            "name": "DOBRunDate",
+            "dataTypeName": "text",
+            "description": "Date when query is run and pushed to Open Data. Could be used to differentiate report dates.",
+            "fieldName": "dobrundate",
+            "position": 15,
+            "renderTypeName": "text",
+            "tableColumnId": 148582729,
+            "width": 166,
+            "format": {
+              "align": "left"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "attachments": [
+            {
+              "filename": "DD_DOB_Complaints_Received_2019-08-21.xlsx",
+              "assetId": "e19c463a-69dd-4810-ae72-3c7c7fc657f8",
+              "name": "DD_DOB_Complaints_Received_2019-08-21.xlsx"
+            },
+            {
+              "filename": "DOBComplaints_complaint_category_list.pdf",
+              "assetId": "dc709ed2-7af1-429c-92c9-71ec3a4c23fa",
+              "name": "DOBComplaints_complaint_category_list.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "4/26/2013",
+              "Update Frequency": "Daily"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Buildings (DOB)"
+            }
+          },
+          "rowLabel": "Row",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "complaints",
+          "dob",
+          "buildings"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/api/views/eabe-havv",
+      "retrieved_at": "2026-04-28T12:19:57.456804+00:00",
+      "final_url": "https://data.cityofnewyork.us/api/views/eabe-havv",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "last_modified": null,
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 8581,
+      "json_keys": [
+        "approvals",
+        "assetType",
+        "attribution",
+        "averageRating",
+        "category",
+        "clientContext",
+        "columns",
+        "createdAt",
+        "description",
+        "diciBackend",
+        "displayType",
+        "downloadCount",
+        "flags",
+        "grants",
+        "hideFromCatalog",
+        "hideFromDataJson",
+        "id",
+        "locked",
+        "metadata",
+        "name",
+        "newBackend",
+        "numberOfComments",
+        "oid",
+        "owner",
+        "provenance",
+        "publicationAppendEnabled",
+        "publicationDate",
+        "publicationGroup",
+        "publicationStage",
+        "query",
+        "rights",
+        "rowsUpdatedAt",
+        "rowsUpdatedBy",
+        "tableAuthor",
+        "tableId",
+        "tags",
+        "totalTimesRated",
+        "viewCount",
+        "viewLastModified",
+        "viewType"
+      ],
+      "name": "DOB Complaints Received",
+      "description": "This is the universe of complaints received by Department of Buildings (DOB). It includes complaints that come from 311 or that are entered into the system by DOB staff.\r\n\r\nA Complaint Categories codes can be found at\r\nhttp://www1.nyc.gov/assets/buildings/pdf/bis_complaint_disposition_codes.pdf",
+      "attribution": "Department of Buildings (DOB)",
+      "rowsUpdatedAt": 1777306667,
+      "json_sample": {
+        "id": "eabe-havv",
+        "name": "DOB Complaints Received",
+        "assetType": "dataset",
+        "attribution": "Department of Buildings (DOB)",
+        "averageRating": 0,
+        "category": "Housing & Development",
+        "createdAt": 1366298350,
+        "description": "This is the universe of complaints received by Department of Buildings (DOB). It includes complaints that come from 311 or that are entered into the system by DOB staff.\r\n\r\nA Complaint Categories codes can be found at\r\nhttp://www1.nyc.gov/assets/buildings/pdf/bis_complaint_disposition_codes.pdf",
+        "diciBackend": false,
+        "displayType": "table",
+        "downloadCount": 55405,
+        "hideFromCatalog": false,
+        "hideFromDataJson": false,
+        "locked": false,
+        "newBackend": true,
+        "numberOfComments": 12,
+        "oid": 40010688,
+        "provenance": "official",
+        "publicationAppendEnabled": true,
+        "publicationDate": 1695931514,
+        "publicationGroup": 804330,
+        "publicationStage": "published",
+        "rowsUpdatedAt": 1777306667,
+        "rowsUpdatedBy": "5fuc-pqz2",
+        "tableId": 19304586,
+        "totalTimesRated": 0,
+        "viewCount": 199370,
+        "viewLastModified": 1777305629,
+        "viewType": "tabular",
+        "approvals": [
+          {
+            "reviewedAt": 1566159030,
+            "reviewedAutomatically": true,
+            "state": "approved",
+            "submissionId": 5803210,
+            "submissionObject": "public_audience_request",
+            "submissionOutcome": "change_audience",
+            "submittedAt": 1566159030,
+            "targetAudience": "public",
+            "workflowId": 2285,
+            "submissionDetails": {
+              "permissionType": "READ"
+            },
+            "submissionOutcomeApplication": {
+              "failureCount": 0,
+              "status": "success"
+            },
+            "submitter": {
+              "id": "5fuc-pqz2",
+              "displayName": "NYC OpenData"
+            }
+          }
+        ],
+        "clientContext": {
+          "clientContextVariables": [],
+          "inheritedVariables": {}
+        },
+        "columns": [
+          {
+            "id": 581848519,
+            "name": "Complaint Number",
+            "dataTypeName": "text",
+            "description": "Complaint number starting with borough code: (1= Manhattan, 2= Bronx, 3 = Brooklyn, 4 = Queens, 5 = Staten Island)",
+            "fieldName": "complaint_number",
+            "position": 1,
+            "renderTypeName": "text",
+            "tableColumnId": 9628780,
+            "width": 127,
+            "format": {}
+          },
+          {
+            "id": 581848520,
+            "name": "Status",
+            "dataTypeName": "text",
+            "description": "Status of Complaint",
+            "fieldName": "status",
+            "position": 2,
+            "renderTypeName": "text",
+            "tableColumnId": 9628781,
+            "width": 106,
+            "format": {}
+          },
+          {
+            "id": 581848521,
+            "name": "Date Entered",
+            "dataTypeName": "text",
+            "description": "Date Complaint was Entered",
+            "fieldName": "date_entered",
+            "position": 3,
+            "renderTypeName": "text",
+            "tableColumnId": 9628782,
+            "width": 111,
+            "format": {}
+          },
+          {
+            "id": 581848522,
+            "name": "House Number",
+            "dataTypeName": "text",
+            "description": "House Number of Complaint",
+            "fieldName": "house_number",
+            "position": 4,
+            "renderTypeName": "text",
+            "tableColumnId": 9628783,
+            "width": 122,
+            "format": {}
+          },
+          {
+            "id": 581848523,
+            "name": "House Street",
+            "dataTypeName": "text",
+            "description": "House Street of Complaint",
+            "fieldName": "house_street",
+            "position": 5,
+            "renderTypeName": "text",
+            "tableColumnId": 9628784,
+            "width": 163,
+            "format": {}
+          },
+          {
+            "id": 581848524,
+            "name": "ZIP Code",
+            "dataTypeName": "text",
+            "description": "Zip code of complaint\n",
+            "fieldName": "zip_code",
+            "position": 6,
+            "renderTypeName": "text",
+            "tableColumnId": 45193476,
+            "width": 100,
+            "format": {
+              "displayStyle": "plain",
+              "align": "left"
+            }
+          },
+          {
+            "id": 581848525,
+            "name": "BIN",
+            "dataTypeName": "text",
+            "description": "Number assigned by City Planning to a specific building",
+            "fieldName": "bin",
+            "position": 7,
+            "renderTypeName": "text",
+            "tableColumnId": 9628785,
+            "width": 78,
+            "format": {}
+          },
+          {
+            "id": 581848526,
+            "name": "Community Board",
+            "dataTypeName": "text",
+            "description": "3-digit identifier: Borough code = first position, last 2 = community board",
+            "fieldName": "community_board",
+            "position": 8,
+            "renderTypeName": "text",
+            "tableColumnId": 9628786,
+            "width": 127,
+            "format": {}
+          },
+          {
+            "id": 581848527,
+            "name": "Special District",
+            "dataTypeName": "text",
+            "description": "Is Complaint in Special District",
+            "fieldName": "special_district",
+            "position": 9,
+            "renderTypeName": "text",
+            "tableColumnId": 9628787,
+            "width": 119,
+            "format": {}
+          },
+          {
+            "id": 581848528,
+            "name": "Complaint Category",
+            "dataTypeName": "text",
+            "description": "DOB Complaint Category Codes (01-Accident Construction/Plumbing, etc.) ",
+            "fieldName": "complaint_category",
+            "position": 10,
+            "renderTypeName": "text",
+            "tableColumnId": 9628788,
+            "width": 141,
+            "format": {}
+          },
+          {
+            "id": 581848529,
+            "name": "Unit",
+            "dataTypeName": "text",
+            "description": "Unit dispositioning Complaint",
+            "fieldName": "unit",
+            "position": 11,
+            "renderTypeName": "text",
+            "tableColumnId": 9628789,
+            "width": 80,
+            "format": {}
+          },
+          {
+            "id": 581848530,
+            "name": "Disposition Date",
+            "dataTypeName": "text",
+            "description": "Date Complaint was Dispositioned",
+            "fieldName": "disposition_date",
+            "position": 12,
+            "renderTypeName": "text",
+            "tableColumnId": 9628790,
+            "width": 127,
+            "format": {}
+          },
+          {
+            "id": 581848531,
+            "name": "Disposition Code",
+            "dataTypeName": "text",
+            "description": "Disposition Code of Complaint (A1-Building Violations Served, L1-Partial Stop Work Order,etc.) ",
+            "fieldName": "disposition_code",
+            "position": 13,
+            "renderTypeName": "text",
+            "tableColumnId": 9628791,
+            "width": 124,
+            "format": {}
+          },
+          {
+            "id": 581848532,
+            "name": "Inspection Date",
+            "dataTypeName": "text",
+            "description": "Inspection Date of Complaint",
+            "fieldName": "inspection_date",
+            "position": 14,
+            "renderTypeName": "text",
+            "tableColumnId": 9628792,
+            "width": 128,
+            "format": {}
+          },
+          {
+            "id": 581848533,
+            "name": "DOBRunDate",
+            "dataTypeName": "text",
+            "description": "Date when query is run and pushed to Open Data. Could be used to differentiate report dates.",
+            "fieldName": "dobrundate",
+            "position": 15,
+            "renderTypeName": "text",
+            "tableColumnId": 148582729,
+            "width": 166,
+            "format": {
+              "align": "left"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "inherited": false,
+            "type": "viewer",
+            "flags": [
+              "public"
+            ]
+          }
+        ],
+        "metadata": {
+          "rdfSubject": "0",
+          "attachments": [
+            {
+              "filename": "DD_DOB_Complaints_Received_2019-08-21.xlsx",
+              "assetId": "e19c463a-69dd-4810-ae72-3c7c7fc657f8",
+              "name": "DD_DOB_Complaints_Received_2019-08-21.xlsx"
+            },
+            {
+              "filename": "DOBComplaints_complaint_category_list.pdf",
+              "assetId": "dc709ed2-7af1-429c-92c9-71ec3a4c23fa",
+              "name": "DOBComplaints_complaint_category_list.pdf"
+            }
+          ],
+          "custom_fields": {
+            "Update": {
+              "Automation": "Yes",
+              "Date Made Public": "4/26/2013",
+              "Update Frequency": "Daily"
+            },
+            "Dataset Information": {
+              "Agency": "Department of Buildings (DOB)"
+            }
+          },
+          "rowLabel": "Row",
+          "availableDisplayTypes": [
+            "table",
+            "fatrow",
+            "page"
+          ]
+        },
+        "owner": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "query": {},
+        "rights": [
+          "read"
+        ],
+        "tableAuthor": {
+          "id": "5fuc-pqz2",
+          "displayName": "NYC OpenData",
+          "profileImageUrlLarge": "/api/users/5fuc-pqz2/profile_images/LARGE",
+          "profileImageUrlMedium": "/api/users/5fuc-pqz2/profile_images/THUMB",
+          "profileImageUrlSmall": "/api/users/5fuc-pqz2/profile_images/TINY",
+          "screenName": "NYC OpenData",
+          "type": "interactive",
+          "flags": [
+            "acceptedEula",
+            "mayBeStoriesCoOwner"
+          ]
+        },
+        "tags": [
+          "complaints",
+          "dob",
+          "buildings"
+        ],
+        "flags": [
+          "default",
+          "ownerMayBeContacted",
+          "restorable",
+          "restorePossibleForType"
+        ]
+      }
+    },
+    {
+      "requested_url": "https://data.cityofnewyork.us/resource/eabe-havv.json?$limit=1",
+      "retrieved_at": "2026-04-28T12:19:58.121919+00:00",
+      "final_url": "https://data.cityofnewyork.us/resource/eabe-havv.json?$limit=1",
+      "status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "last_modified": "Mon, 27 Apr 2026 16:15:19 GMT",
+      "etag": "W/\"Zm94dHJvdC4xNTY3Ml8xNTEyXzY3ODdSNWhfR2ZHOHVxOFV3UTdkRGlWNVZ4QklUY00---gziomBetTGXFDonL-aO3j047RFXqSbA--gzip--gzip\"",
+      "content_length_header": null,
+      "bytes_captured": 346,
+      "json_list_count_captured": 1,
+      "sample_keys": [
+        "bin",
+        "community_board",
+        "complaint_category",
+        "complaint_number",
+        "date_entered",
+        "disposition_code",
+        "disposition_date",
+        "dobrundate",
+        "house_number",
+        "house_street",
+        "inspection_date",
+        "status",
+        "unit",
+        "zip_code"
+      ],
+      "json_sample": [
+        {
+          "complaint_number": "4982211",
+          "status": "CLOSED",
+          "date_entered": "12/12/2024",
+          "house_number": "107-29",
+          "house_street": "129 STREET",
+          "zip_code": "11419",
+          "bin": "4206074",
+          "community_board": "410",
+          "complaint_category": "45",
+          "unit": "Q-L",
+          "disposition_date": "07/15/2025",
+          "disposition_code": "C4",
+          "inspection_date": "07/15/2025",
+          "dobrundate": "20260427000000"
+        }
+      ]
+    }
+  ]
+}

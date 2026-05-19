@@ -1,0 +1,25 @@
+{
+  "source_id": "legislation-uk-london-acts-orders",
+  "city": "london",
+  "title": "UK legislation API for London transport, planning and local government instruments",
+  "publisher": "The National Archives / legislation.gov.uk",
+  "bucket": "policy",
+  "retrieved_at": "2026-04-28T12:19:23.833932+00:00",
+  "snapshots": [
+    {
+      "requested_url": "https://www.legislation.gov.uk/",
+      "retrieved_at": "2026-04-28T12:19:23.247103+00:00",
+      "final_url": "https://www.legislation.gov.uk/",
+      "status": 200,
+      "content_type": "text/html;charset=utf-8",
+      "last_modified": "Tue, 28 Apr 2026 12:19:23 GMT",
+      "etag": null,
+      "content_length_header": null,
+      "bytes_captured": 18287,
+      "page_title": "Legislation.gov.uk",
+      "h1": "legislation.gov.uk",
+      "meta_description": "The official home of UK legislation, revised and as enacted 1267-present. This website is managed by The National Archives on behalf of HM Government. Publishing all UK legislation is a core part of the remit of His Majesty’s Stationery Office (HMSO), part of The National Archives, and the Office of the King's Printer for Scotland.",
+      "text_sample": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML+RDFa 1.0//EN\" \"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:dct=\"http://purl.org/dc/terms/\" xml:lang=\"en\"> <head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=0.1, user-scalable=1\" /><title>Legislation.gov.uk</title><link rel=\"icon\" href=\"/favicon.ico\" /><link rel=\"stylesheet\" href=\"/styles/screen.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/styles/survey/survey.css\" type=\"text/css\" /><!--[if lte IE 6]><link rel=\"stylesheet\" href=\"/styles/IE/ie6chromeAdditions.css\" type=\"text/css\" /><![endif]--><!--[if lte IE 7]><link rel=\"stylesheet\" href=\"/styles/IE/ie7chromeAdditions.css\" type=\"text/css\" /><![endif]--><script type=\"text/javascript\" src=\"/scripts/jquery-3.7.1.min.js\"></script><script type=\"text/javascript\" src=\"/scripts/CentralConfig.js\"></script><script type=\"text/javascript\" src=\"/scripts/survey/survey.js\"></script><script type=\"text/javascript\" src=\"/scripts/chrome.js\"></script><script type=\"text/javascript\" src=\"/scripts/homepageChrome.js\"></script><link rel=\"apple-touch-icon\" href=\"/images/chrome/apple-touch-icons/apple-touch-icon.png\" /><meta name=\"DC.Date.Modified\" content=\"2026-04-28\" /><meta name=\"DC.description\" content=\"The official home of UK legislation, revised and as enacted 1267-present. This website is managed by The National Archives on behalf of HM Government. Publishing all UK legislation is a core part of the remit of His Majesty’s Stationery Office (HMSO), part of The National Archives, and the Office of the King's Printer for Scotland.\" /><meta name=\"description\" content=\"The official home of UK legislation, revised and as enacted 1267-present. This website is managed by The National Archives on behalf of HM Government. Publishing all UK legislation is a core part of the remit of His Majesty’s Stationery Office (HMSO), part of The National Archives, and the Office of the King's Printer for Scotland.\" /><link rel=\"stylesheet\" href=\"/styles/website.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/styles/print.css\" type=\"text/css\" media=\"print\" /><link rel=\"stylesheet\" href=\"/styles/buy-now.css\" type=\"text/css\" /><script type=\"text/javascript\" src=\"/scripts/jquery-cookie-directive/jquery.cookie.js\"></script><script type=\"text/javascript\" src=\"/scripts/jquery-cookie-directive/jquery-cookie-functions.js\"></script><script type=\"text/javascript\" src=\"/scripts/cookie-directive.js\"></script><!--Google Tag Manager--><script type=\"text/javascript\"> function addGtm(w, d, s, l, i) { // Legislation.gov.uk: Check cookie preferences before running the Google analytics code. if (window.legGlobals.cookiePolicy.userSet &amp;&amp; window.legGlobals.cookiePolicy.analytics) { w[l] = w[l] || []; w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'}); var and = '&amp;'; and = and.charAt(0); var f = d.getEleme"
+    }
+  ]
+}
