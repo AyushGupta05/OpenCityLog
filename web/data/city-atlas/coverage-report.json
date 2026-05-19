@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-19T07:02:00Z",
+  "generated_at": "2026-05-19T07:58:30Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 259030,
-    "total_unique_events": 259030,
+    "total_events": 260368,
+    "total_unique_events": 260368,
     "duplicate_event_id_count": 0,
-    "active_source_count": 321,
+    "active_source_count": 329,
     "source_catalog_only_count": 238,
-    "source_year_layer_row_count": 1925,
+    "source_year_layer_row_count": 1985,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -238,15 +238,31 @@
       "city_id": "belfast",
       "source_id": "bcc-planning-committee-minutes",
       "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 4
     },
     {
       "city_id": "belfast",
       "source_id": "bcc-planning-committee-minutes",
       "source_title": "Belfast City Council Planning Committee agenda and minutes",
       "year": 2020,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2021,
       "layer": "built_environment",
       "event_count": 2
     },
@@ -256,7 +272,7 @@
       "source_title": "Belfast City Council Planning Committee agenda and minutes",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 5
+      "event_count": 8
     },
     {
       "city_id": "belfast",
@@ -264,7 +280,7 @@
       "source_title": "Belfast City Council Planning Committee agenda and minutes",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 2
+      "event_count": 4
     },
     {
       "city_id": "belfast",
@@ -272,7 +288,7 @@
       "source_title": "Belfast City Council Planning Committee agenda and minutes",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 5
+      "event_count": 13
     },
     {
       "city_id": "belfast",
@@ -280,7 +296,15 @@
       "source_title": "Belfast City Council Planning Committee agenda and minutes",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 4
+      "event_count": 16
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 5
     },
     {
       "city_id": "belfast",
@@ -1868,6 +1892,14 @@
     },
     {
       "city_id": "london",
+      "source_id": "camden-west-end-project-pages",
+      "source_title": "Camden West End Project pages",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
       "source_id": "city-of-london-2-finsbury-avenue-approval-news",
       "source_title": "City Corporation approves third tower in a month as developers back Square Mile's future",
       "year": 2021,
@@ -1895,6 +1927,22 @@
       "source_id": "city-of-london-modern-gov-1-undershaft-2024-07-02",
       "source_title": "Agenda item - 1 Undershaft, London, EC3A 8EE",
       "year": 2024,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "city-of-london-public-realm-project-pages",
+      "source_title": "City of London public-realm project and press pages",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "city-of-london-public-realm-project-pages",
+      "source_title": "City of London public-realm project and press pages",
+      "year": 2025,
       "layer": "built_environment",
       "event_count": 1
     },
@@ -2296,7 +2344,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 47
+      "event_count": 79
     },
     {
       "city_id": "london",
@@ -2304,7 +2352,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 18
+      "event_count": 55
     },
     {
       "city_id": "london",
@@ -2312,7 +2360,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 22
+      "event_count": 53
     },
     {
       "city_id": "london",
@@ -2320,7 +2368,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 11
+      "event_count": 48
     },
     {
       "city_id": "london",
@@ -2328,7 +2376,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 269
+      "event_count": 280
     },
     {
       "city_id": "london",
@@ -2336,7 +2384,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 221
+      "event_count": 232
     },
     {
       "city_id": "london",
@@ -2344,7 +2392,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 9049
+      "event_count": 9057
     },
     {
       "city_id": "london",
@@ -6342,9 +6390,25 @@
       "city_id": "london",
       "source_id": "mhclg-called-in-decisions",
       "source_title": "Planning applications: called-in decisions and recovered appeals",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "london",
+      "source_id": "mhclg-called-in-decisions",
+      "source_title": "Planning applications: called-in decisions and recovered appeals",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
+      "source_id": "mhclg-called-in-decisions",
+      "source_title": "Planning applications: called-in decisions and recovered appeals",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 2
     },
     {
       "city_id": "london",
@@ -6360,7 +6424,7 @@
       "source_title": "Planning applications: called-in decisions and recovered appeals",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 2
+      "event_count": 3
     },
     {
       "city_id": "london",
@@ -6368,7 +6432,7 @@
       "source_title": "Planning applications: called-in decisions and recovered appeals",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 4
+      "event_count": 5
     },
     {
       "city_id": "london",
@@ -6376,7 +6440,7 @@
       "source_title": "Planning applications: called-in decisions and recovered appeals",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 6
+      "event_count": 11
     },
     {
       "city_id": "london",
@@ -6392,7 +6456,7 @@
       "source_title": "Planning applications: called-in decisions and recovered appeals",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 2
+      "event_count": 3
     },
     {
       "city_id": "london",
@@ -6489,6 +6553,38 @@
       "year": 1900,
       "layer": "built_environment",
       "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "opdc-public-realm-project-pages",
+      "source_title": "OPDC public-realm consultation, decision and press pages",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "opdc-public-realm-project-pages",
+      "source_title": "OPDC public-realm consultation, decision and press pages",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "opdc-public-realm-project-pages",
+      "source_title": "OPDC public-realm consultation, decision and press pages",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "pins-hs2-phase-one-planning-appeals",
+      "source_title": "pins-hs2-phase-one-planning-appeals",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 3
     },
     {
       "city_id": "london",
@@ -6767,6 +6863,22 @@
       "source_id": "planning-data-conservation-area",
       "source_title": "Planning Data conservation area records",
       "year": 2013,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-inspectorate-appeal-decisions",
+      "source_title": "planning-inspectorate-appeal-decisions",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-inspectorate-appeal-decisions",
+      "source_title": "planning-inspectorate-appeal-decisions",
+      "year": 2025,
       "layer": "built_environment",
       "event_count": 1
     },
@@ -7959,6 +8071,14 @@
       "source_id": "westminster-300-harrow-road-project-page",
       "source_title": "300 Harrow Road",
       "year": 2023,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "westminster-authority-monitoring-public-realm",
+      "source_title": "Westminster City Plan Progress Report / Authority Monitoring Report 2022-23",
+      "year": 2022,
       "layer": "built_environment",
       "event_count": 1
     },
@@ -12772,6 +12892,158 @@
     },
     {
       "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 13
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 12
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 11
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 9
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 15
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 22
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 46
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 33
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 39
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 80
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 180
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 226
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 173
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 14
+    },
+    {
+      "city_id": "nyc",
       "source_id": "nyc-dcla-mfta-pages",
       "source_title": "NYC Department of Cultural Affairs and Materials for the Arts pages",
       "year": 2025,
@@ -13505,6 +13777,134 @@
       "year": 2026,
       "layer": "built_environment",
       "event_count": 15
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 9
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 20
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 17
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 24
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 13
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 11
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 11
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -14294,6 +14694,30 @@
       "city_id": "nyc",
       "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2017,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2017,
       "layer": "transport",
       "event_count": 1
@@ -14304,6 +14728,14 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2018,
       "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2018,
+      "layer": "transport",
       "event_count": 1
     },
     {
@@ -14312,7 +14744,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 5
     },
     {
       "city_id": "nyc",
@@ -14320,6 +14752,14 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2020,
       "layer": "built_environment",
+      "event_count": 7
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2020,
+      "layer": "environment",
       "event_count": 1
     },
     {
@@ -14336,7 +14776,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 4
     },
     {
       "city_id": "nyc",
@@ -14344,7 +14784,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 2
+      "event_count": 6
     },
     {
       "city_id": "nyc",
@@ -14352,6 +14792,22 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2023,
       "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2023,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2023,
+      "layer": "environment",
       "event_count": 1
     },
     {
@@ -14368,7 +14824,23 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2024,
+      "layer": "environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2024,
+      "layer": "transport",
+      "event_count": 2
     },
     {
       "city_id": "nyc",
@@ -14376,7 +14848,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 2
+      "event_count": 6
     },
     {
       "city_id": "nyc",
@@ -14392,6 +14864,14 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2026,
       "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2026,
+      "layer": "transport",
       "event_count": 1
     },
     {
@@ -15423,8 +15903,8 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 30522,
-      "unique_event_count": 30522,
+      "event_count": 30560,
+      "unique_event_count": 30560,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 90,
@@ -15432,8 +15912,8 @@
       "source_catalog_only_count": 14,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 30522,
-        "gap_events": 69478,
+        "backed_event_count": 30560,
+        "gap_events": 69440,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -15452,18 +15932,18 @@
         "2015": 243,
         "2016": 2174,
         "2017": 2195,
-        "2018": 1967,
-        "2019": 955,
-        "2020": 1445,
-        "2021": 2449,
-        "2022": 3249,
-        "2023": 2780,
-        "2024": 4610,
-        "2025": 5041,
-        "2026": 2351
+        "2018": 1969,
+        "2019": 958,
+        "2020": 1446,
+        "2021": 2451,
+        "2022": 3252,
+        "2023": 2782,
+        "2024": 4618,
+        "2025": 5053,
+        "2026": 2356
       },
       "event_counts_by_layer": {
-        "built_environment": 11203,
+        "built_environment": 11241,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -15472,7 +15952,7 @@
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 12554,
+        "documented": 12592,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -15604,7 +16084,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1454
+          "event_count": 1456
         },
         {
           "year": 2018,
@@ -15624,7 +16104,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 389
+          "event_count": 392
         },
         {
           "year": 2019,
@@ -15649,7 +16129,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 783
+          "event_count": 784
         },
         {
           "year": 2020,
@@ -15669,7 +16149,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1470
+          "event_count": 1472
         },
         {
           "year": 2021,
@@ -15694,7 +16174,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1198
+          "event_count": 1201
         },
         {
           "year": 2022,
@@ -15719,7 +16199,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1155
+          "event_count": 1157
         },
         {
           "year": 2023,
@@ -15744,7 +16224,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1312
+          "event_count": 1320
         },
         {
           "year": 2024,
@@ -15769,7 +16249,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 581
+          "event_count": 593
         },
         {
           "year": 2025,
@@ -15794,7 +16274,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 125
+          "event_count": 130
         },
         {
           "year": 2026,
@@ -16028,15 +16508,31 @@
           "city_id": "belfast",
           "source_id": "bcc-planning-committee-minutes",
           "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 4
         },
         {
           "city_id": "belfast",
           "source_id": "bcc-planning-committee-minutes",
           "source_title": "Belfast City Council Planning Committee agenda and minutes",
           "year": 2020,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2021,
           "layer": "built_environment",
           "event_count": 2
         },
@@ -16046,7 +16542,7 @@
           "source_title": "Belfast City Council Planning Committee agenda and minutes",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 5
+          "event_count": 8
         },
         {
           "city_id": "belfast",
@@ -16054,7 +16550,7 @@
           "source_title": "Belfast City Council Planning Committee agenda and minutes",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 2
+          "event_count": 4
         },
         {
           "city_id": "belfast",
@@ -16062,7 +16558,7 @@
           "source_title": "Belfast City Council Planning Committee agenda and minutes",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 5
+          "event_count": 13
         },
         {
           "city_id": "belfast",
@@ -16070,7 +16566,15 @@
           "source_title": "Belfast City Council Planning Committee agenda and minutes",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 4
+          "event_count": 16
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 5
         },
         {
           "city_id": "belfast",
@@ -17717,25 +18221,28 @@
           "source_id": "bcc-planning-committee-minutes",
           "title": "Belfast City Council Planning Committee agenda and minutes",
           "provider": "Belfast City Council",
-          "reliability": "strong",
-          "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
-          "event_count": 31,
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed.",
+          "event_count": 69,
           "years": [
             2015,
+            2018,
             2019,
             2020,
+            2021,
             2022,
             2023,
             2024,
-            2025
+            2025,
+            2026
           ],
           "first_year": 2015,
-          "last_year": 2025,
+          "last_year": 2026,
           "layer_counts": {
-            "built_environment": 31
+            "built_environment": 69
           },
           "confidence_counts": {
-            "documented": 31
+            "documented": 69
           },
           "coverage_status": "events_emitted"
         },
@@ -18135,7 +18642,7 @@
           "title": "Heritage at Risk in Northern Ireland Belfast records",
           "provider": "Department for Communities Historic Environment Division / nidirect",
           "reliability": "usable_with_caveats",
-          "licence": "Crown copyright / Open Government Licence v3.0 for public-sector factual information unless otherwise stated; images, logos, mapping, and third-party material excluded",
+          "licence": "Crown copyright / Open Government Licence v3.0 for public-sector factual information unless otherwise stated; images, logos, mapping, and third-party material excluded.",
           "event_count": 4,
           "years": [
             2024,
@@ -19547,16 +20054,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 192511,
-      "unique_event_count": 192511,
+      "event_count": 192715,
+      "unique_event_count": 192715,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 276,
-      "active_source_count": 172,
+      "source_count": 282,
+      "active_source_count": 178,
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 192511,
+        "backed_event_count": 192715,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -19639,22 +20146,22 @@
         "2011": 3012,
         "2012": 2849,
         "2013": 2815,
-        "2014": 2843,
-        "2015": 2901,
-        "2016": 2970,
+        "2014": 2853,
+        "2015": 2904,
+        "2016": 2971,
         "2017": 4424,
-        "2018": 3389,
-        "2019": 3729,
-        "2020": 8825,
-        "2021": 8324,
-        "2022": 8198,
-        "2023": 22553,
-        "2024": 29993,
-        "2025": 30987,
-        "2026": 19329
+        "2018": 3390,
+        "2019": 3731,
+        "2020": 8866,
+        "2021": 8363,
+        "2022": 8231,
+        "2023": 22591,
+        "2024": 30008,
+        "2025": 31000,
+        "2026": 19337
       },
       "event_counts_by_layer": {
-        "built_environment": 73228,
+        "built_environment": 73432,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -19662,7 +20169,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 192501,
+        "documented": 192705,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -20169,7 +20676,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 1333
+          "event_count": 1343
         },
         {
           "year": 2014,
@@ -20189,7 +20696,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 1387
+          "event_count": 1390
         },
         {
           "year": 2015,
@@ -20209,7 +20716,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1436
+          "event_count": 1437
         },
         {
           "year": 2016,
@@ -20249,7 +20756,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1809
+          "event_count": 1810
         },
         {
           "year": 2018,
@@ -20274,7 +20781,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 2103
+          "event_count": 2105
         },
         {
           "year": 2019,
@@ -20294,7 +20801,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 2735
+          "event_count": 2776
         },
         {
           "year": 2020,
@@ -20314,7 +20821,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2199
+          "event_count": 2238
         },
         {
           "year": 2021,
@@ -20334,7 +20841,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1856
+          "event_count": 1889
         },
         {
           "year": 2022,
@@ -20354,7 +20861,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1691
+          "event_count": 1729
         },
         {
           "year": 2023,
@@ -20374,7 +20881,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 2728
+          "event_count": 2743
         },
         {
           "year": 2024,
@@ -20399,7 +20906,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2516
+          "event_count": 2529
         },
         {
           "year": 2025,
@@ -20419,7 +20926,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 12077
+          "event_count": 12085
         },
         {
           "year": 2026,
@@ -20501,6 +21008,14 @@
         },
         {
           "city_id": "london",
+          "source_id": "camden-west-end-project-pages",
+          "source_title": "Camden West End Project pages",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
           "source_id": "city-of-london-2-finsbury-avenue-approval-news",
           "source_title": "City Corporation approves third tower in a month as developers back Square Mile's future",
           "year": 2021,
@@ -20528,6 +21043,22 @@
           "source_id": "city-of-london-modern-gov-1-undershaft-2024-07-02",
           "source_title": "Agenda item - 1 Undershaft, London, EC3A 8EE",
           "year": 2024,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "city-of-london-public-realm-project-pages",
+          "source_title": "City of London public-realm project and press pages",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "city-of-london-public-realm-project-pages",
+          "source_title": "City of London public-realm project and press pages",
+          "year": 2025,
           "layer": "built_environment",
           "event_count": 1
         },
@@ -20929,7 +21460,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 47
+          "event_count": 79
         },
         {
           "city_id": "london",
@@ -20937,7 +21468,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 18
+          "event_count": 55
         },
         {
           "city_id": "london",
@@ -20945,7 +21476,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 22
+          "event_count": 53
         },
         {
           "city_id": "london",
@@ -20953,7 +21484,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 11
+          "event_count": 48
         },
         {
           "city_id": "london",
@@ -20961,7 +21492,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 269
+          "event_count": 280
         },
         {
           "city_id": "london",
@@ -20969,7 +21500,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 221
+          "event_count": 232
         },
         {
           "city_id": "london",
@@ -20977,7 +21508,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 9049
+          "event_count": 9057
         },
         {
           "city_id": "london",
@@ -24975,9 +25506,25 @@
           "city_id": "london",
           "source_id": "mhclg-called-in-decisions",
           "source_title": "Planning applications: called-in decisions and recovered appeals",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "london",
+          "source_id": "mhclg-called-in-decisions",
+          "source_title": "Planning applications: called-in decisions and recovered appeals",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
+          "source_id": "mhclg-called-in-decisions",
+          "source_title": "Planning applications: called-in decisions and recovered appeals",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 2
         },
         {
           "city_id": "london",
@@ -24993,7 +25540,7 @@
           "source_title": "Planning applications: called-in decisions and recovered appeals",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 2
+          "event_count": 3
         },
         {
           "city_id": "london",
@@ -25001,7 +25548,7 @@
           "source_title": "Planning applications: called-in decisions and recovered appeals",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 4
+          "event_count": 5
         },
         {
           "city_id": "london",
@@ -25009,7 +25556,7 @@
           "source_title": "Planning applications: called-in decisions and recovered appeals",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 6
+          "event_count": 11
         },
         {
           "city_id": "london",
@@ -25025,7 +25572,7 @@
           "source_title": "Planning applications: called-in decisions and recovered appeals",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2
+          "event_count": 3
         },
         {
           "city_id": "london",
@@ -25122,6 +25669,38 @@
           "year": 1900,
           "layer": "built_environment",
           "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "opdc-public-realm-project-pages",
+          "source_title": "OPDC public-realm consultation, decision and press pages",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "opdc-public-realm-project-pages",
+          "source_title": "OPDC public-realm consultation, decision and press pages",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "opdc-public-realm-project-pages",
+          "source_title": "OPDC public-realm consultation, decision and press pages",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "pins-hs2-phase-one-planning-appeals",
+          "source_title": "pins-hs2-phase-one-planning-appeals",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 3
         },
         {
           "city_id": "london",
@@ -25400,6 +25979,22 @@
           "source_id": "planning-data-conservation-area",
           "source_title": "Planning Data conservation area records",
           "year": 2013,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-inspectorate-appeal-decisions",
+          "source_title": "planning-inspectorate-appeal-decisions",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-inspectorate-appeal-decisions",
+          "source_title": "planning-inspectorate-appeal-decisions",
+          "year": 2025,
           "layer": "built_environment",
           "event_count": 1
         },
@@ -26597,6 +27192,14 @@
         },
         {
           "city_id": "london",
+          "source_id": "westminster-authority-monitoring-public-realm",
+          "source_title": "Westminster City Plan Progress Report / Authority Monitoring Report 2022-23",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
           "source_id": "westminster-church-street-groundbreaking-news",
           "source_title": "Work begins on major Church Street regeneration",
           "year": 2026,
@@ -26940,6 +27543,44 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "gla-planning-datahub-applications",
+          "title": "Planning London Datahub - planning applications",
+          "provider": "Greater London Authority / London planning authorities",
+          "reliability": "usable_with_caveats",
+          "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review.",
+          "event_count": 10001,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2008,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 10001
+          },
+          "confidence_counts": {
+            "documented": 10001
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "title": "Food Hygiene Rating Scheme API",
           "provider": "Food Standards Agency",
@@ -26977,44 +27618,6 @@
           },
           "confidence_counts": {
             "documented": 9900
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "gla-planning-datahub-applications",
-          "title": "Planning London Datahub - planning applications",
-          "provider": "Greater London Authority / London planning authorities",
-          "reliability": "usable_with_caveats",
-          "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review.",
-          "event_count": 9834,
-          "years": [
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "first_year": 2008,
-          "last_year": 2026,
-          "layer_counts": {
-            "built_environment": 9834
-          },
-          "confidence_counts": {
-            "documented": 9834
           },
           "coverage_status": "events_emitted"
         },
@@ -27497,6 +28100,38 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "mhclg-called-in-decisions",
+          "title": "Planning applications: called-in decisions and recovered appeals",
+          "provider": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 except where otherwise stated.",
+          "event_count": 56,
+          "years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2026
+          ],
+          "first_year": 2013,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 56
+          },
+          "confidence_counts": {
+            "documented": 56
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "gla-planning-application-decisions",
           "title": "Greater London Authority planning application decisions",
           "provider": "Greater London Authority / London City Hall",
@@ -27540,36 +28175,6 @@
           },
           "confidence_counts": {
             "documented": 42
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "mhclg-called-in-decisions",
-          "title": "Planning applications: called-in decisions and recovered appeals",
-          "provider": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 except where otherwise stated.",
-          "event_count": 34,
-          "years": [
-            2013,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2026
-          ],
-          "first_year": 2013,
-          "last_year": 2026,
-          "layer_counts": {
-            "built_environment": 34
-          },
-          "confidence_counts": {
-            "documented": 34
           },
           "coverage_status": "events_emitted"
         },
@@ -27778,6 +28383,27 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "planning-inspectorate-appeal-decisions",
+          "title": "planning-inspectorate-appeal-decisions",
+          "provider": "Planning Inspectorate",
+          "reliability": "usable_with_caveats",
+          "licence": "Planning Inspectorate decision PDFs are official public-sector documents; reuse should be checked against GOV.UK/OGL terms and any document-specific restrictions.",
+          "event_count": 5,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 5
+          },
+          "confidence_counts": {
+            "documented": 5
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "camden-agar-grove-estate-project-page",
           "title": "Agar Grove estate",
           "provider": "London Borough of Camden",
@@ -27933,6 +28559,48 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "opdc-public-realm-project-pages",
+          "title": "OPDC public-realm consultation, decision and press pages",
+          "provider": "Old Oak and Park Royal Development Corporation / Greater London Authority",
+          "reliability": "usable_with_caveats",
+          "licence": "London.gov.uk terms apply; store factual milestone metadata and source URLs only.",
+          "event_count": 3,
+          "years": [
+            2019,
+            2020,
+            2021
+          ],
+          "first_year": 2019,
+          "last_year": 2021,
+          "layer_counts": {
+            "built_environment": 3
+          },
+          "confidence_counts": {
+            "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "pins-hs2-phase-one-planning-appeals",
+          "title": "pins-hs2-phase-one-planning-appeals",
+          "provider": "High Speed Two (HS2) Limited / Planning Inspectorate / GOV.UK",
+          "reliability": "usable_with_caveats",
+          "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+          "event_count": 3,
+          "years": [
+            2020
+          ],
+          "first_year": 2020,
+          "last_year": 2020,
+          "layer_counts": {
+            "built_environment": 3
+          },
+          "confidence_counts": {
+            "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "src_wcc_300_harrow_road",
           "title": "300 Harrow Road",
           "provider": "Westminster City Council",
@@ -27973,6 +28641,27 @@
           },
           "confidence_counts": {
             "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "city-of-london-public-realm-project-pages",
+          "title": "City of London public-realm project and press pages",
+          "provider": "City of London Corporation",
+          "reliability": "usable_with_caveats",
+          "licence": "City of London Corporation website terms apply; store factual milestone metadata and source URLs only.",
+          "event_count": 2,
+          "years": [
+            2023,
+            2025
+          ],
+          "first_year": 2023,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 2
+          },
+          "confidence_counts": {
+            "documented": 2
           },
           "coverage_status": "events_emitted"
         },
@@ -28218,6 +28907,26 @@
           ],
           "first_year": 2018,
           "last_year": 2018,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "camden-west-end-project-pages",
+          "title": "Camden West End Project pages",
+          "provider": "London Borough of Camden",
+          "reliability": "usable_with_caveats",
+          "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
+          "event_count": 1,
+          "years": [
+            2021
+          ],
+          "first_year": 2021,
+          "last_year": 2021,
           "layer_counts": {
             "built_environment": 1
           },
@@ -30527,6 +31236,26 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "westminster-authority-monitoring-public-realm",
+          "title": "Westminster City Plan Progress Report / Authority Monitoring Report 2022-23",
+          "provider": "Westminster City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Westminster City Council website terms apply; store factual milestone metadata and source URLs only.",
+          "event_count": 1,
+          "years": [
+            2022
+          ],
+          "first_year": 2022,
+          "last_year": 2022,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "westminster-church-street-groundbreaking-news",
           "title": "Work begins on major Church Street regeneration",
           "provider": "Westminster City Council",
@@ -32801,17 +33530,17 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 35997,
-      "unique_event_count": 35997,
+      "event_count": 37093,
+      "unique_event_count": 37093,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 195,
-      "active_source_count": 73,
+      "source_count": 197,
+      "active_source_count": 75,
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 35997,
-        "gap_events": 64003,
+        "backed_event_count": 37093,
+        "gap_events": 62907,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -32980,35 +33709,35 @@
         "2005": 318,
         "2006": 326,
         "2007": 343,
-        "2008": 588,
-        "2009": 583,
-        "2010": 595,
-        "2011": 616,
-        "2012": 844,
-        "2013": 1151,
-        "2014": 1387,
-        "2015": 3326,
-        "2016": 1680,
-        "2017": 1794,
-        "2018": 2078,
-        "2019": 2461,
-        "2020": 2325,
-        "2021": 1679,
-        "2022": 2017,
-        "2023": 2197,
-        "2024": 2253,
-        "2025": 2224,
-        "2026": 1603
+        "2008": 596,
+        "2009": 594,
+        "2010": 612,
+        "2011": 621,
+        "2012": 867,
+        "2013": 1173,
+        "2014": 1418,
+        "2015": 3352,
+        "2016": 1715,
+        "2017": 1827,
+        "2018": 2114,
+        "2019": 2522,
+        "2020": 2368,
+        "2021": 1722,
+        "2022": 2104,
+        "2023": 2381,
+        "2024": 2487,
+        "2025": 2402,
+        "2026": 1622
       },
       "event_counts_by_layer": {
-        "built_environment": 20777,
-        "civic_services": 2869,
-        "environment": 6110,
-        "transport": 6238,
+        "built_environment": 21862,
+        "civic_services": 2870,
+        "environment": 6116,
+        "transport": 6242,
         "utilities": 3
       },
       "event_counts_by_confidence": {
-        "documented": 35997
+        "documented": 37093
       },
       "event_counts_by_year_layer": [
         {
@@ -34144,7 +34873,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 363
+          "event_count": 371
         },
         {
           "year": 2008,
@@ -34164,7 +34893,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 383
+          "event_count": 394
         },
         {
           "year": 2009,
@@ -34184,7 +34913,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 434
+          "event_count": 451
         },
         {
           "year": 2010,
@@ -34204,7 +34933,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 471
+          "event_count": 476
         },
         {
           "year": 2011,
@@ -34224,7 +34953,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 519
+          "event_count": 542
         },
         {
           "year": 2012,
@@ -34244,7 +34973,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 553
+          "event_count": 575
         },
         {
           "year": 2013,
@@ -34264,7 +34993,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 773
+          "event_count": 804
         },
         {
           "year": 2014,
@@ -34284,7 +35013,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 891
+          "event_count": 917
         },
         {
           "year": 2015,
@@ -34304,7 +35033,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 952
+          "event_count": 987
         },
         {
           "year": 2016,
@@ -34329,7 +35058,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 1051
+          "event_count": 1083
         },
         {
           "year": 2017,
@@ -34339,7 +35068,7 @@
         {
           "year": 2017,
           "layer": "environment",
-          "event_count": 124
+          "event_count": 125
         },
         {
           "year": 2017,
@@ -34349,7 +35078,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1271
+          "event_count": 1306
         },
         {
           "year": 2018,
@@ -34364,12 +35093,12 @@
         {
           "year": 2018,
           "layer": "transport",
-          "event_count": 456
+          "event_count": 457
         },
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 1426
+          "event_count": 1487
         },
         {
           "year": 2019,
@@ -34389,7 +35118,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 1441
+          "event_count": 1483
         },
         {
           "year": 2020,
@@ -34399,7 +35128,7 @@
         {
           "year": 2020,
           "layer": "environment",
-          "event_count": 183
+          "event_count": 184
         },
         {
           "year": 2020,
@@ -34414,7 +35143,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1188
+          "event_count": 1231
         },
         {
           "year": 2021,
@@ -34434,7 +35163,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1291
+          "event_count": 1378
         },
         {
           "year": 2022,
@@ -34459,17 +35188,17 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1429
+          "event_count": 1611
         },
         {
           "year": 2023,
           "layer": "civic_services",
-          "event_count": 139
+          "event_count": 140
         },
         {
           "year": 2023,
           "layer": "environment",
-          "event_count": 182
+          "event_count": 183
         },
         {
           "year": 2023,
@@ -34479,7 +35208,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1453
+          "event_count": 1682
         },
         {
           "year": 2024,
@@ -34489,17 +35218,17 @@
         {
           "year": 2024,
           "layer": "environment",
-          "event_count": 192
+          "event_count": 195
         },
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 450
+          "event_count": 452
         },
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 1495
+          "event_count": 1673
         },
         {
           "year": 2025,
@@ -34519,7 +35248,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 666
+          "event_count": 684
         },
         {
           "year": 2026,
@@ -34534,7 +35263,7 @@
         {
           "year": 2026,
           "layer": "transport",
-          "event_count": 583
+          "event_count": 584
         }
       ],
       "source_year_layer_rows": [
@@ -39316,6 +40045,158 @@
         },
         {
           "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 13
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 12
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 11
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 9
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 15
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 22
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 46
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 33
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 39
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 80
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 180
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 226
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 173
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "source_title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 14
+        },
+        {
+          "city_id": "nyc",
           "source_id": "nyc-dcla-mfta-pages",
           "source_title": "NYC Department of Cultural Affairs and Materials for the Arts pages",
           "year": 2025,
@@ -40049,6 +40930,134 @@
           "year": 2026,
           "layer": "built_environment",
           "event_count": 15
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 9
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 20
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 17
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 24
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 13
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 11
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 11
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "source_title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -40838,6 +41847,30 @@
           "city_id": "nyc",
           "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2017,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2017,
           "layer": "transport",
           "event_count": 1
@@ -40848,6 +41881,14 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2018,
           "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2018,
+          "layer": "transport",
           "event_count": 1
         },
         {
@@ -40856,7 +41897,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 5
         },
         {
           "city_id": "nyc",
@@ -40864,6 +41905,14 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2020,
           "layer": "built_environment",
+          "event_count": 7
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2020,
+          "layer": "environment",
           "event_count": 1
         },
         {
@@ -40880,7 +41929,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 4
         },
         {
           "city_id": "nyc",
@@ -40888,7 +41937,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2
+          "event_count": 6
         },
         {
           "city_id": "nyc",
@@ -40896,6 +41945,22 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2023,
           "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2023,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2023,
+          "layer": "environment",
           "event_count": 1
         },
         {
@@ -40912,7 +41977,23 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2024,
+          "layer": "environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2024,
+          "layer": "transport",
+          "event_count": 2
         },
         {
           "city_id": "nyc",
@@ -40920,7 +42001,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2
+          "event_count": 6
         },
         {
           "city_id": "nyc",
@@ -40936,6 +42017,14 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2026,
           "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2026,
+          "layer": "transport",
           "event_count": 1
         },
         {
@@ -42870,6 +43959,44 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+          "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+          "provider": "NYC Mayor's Office of Operations / NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms apply.",
+          "event_count": 903,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2008,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 903
+          },
+          "confidence_counts": {
+            "documented": 903
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "erm2-nwe9",
           "title": "311 Service Requests from 2020 to Present",
           "provider": "NYC 311",
@@ -43169,6 +44296,41 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+          "title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+          "provider": "NYC Department of Transportation via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data terms apply. Attribute NYC Department of Transportation and NYC Open Data; no warranty is implied by the source dataset.",
+          "event_count": 143,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2025
+          ],
+          "first_year": 2008,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 143
+          },
+          "confidence_counts": {
+            "documented": 143
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "nyc-dcp-zap-project-data",
           "title": "Zoning Application Portal project data",
           "provider": "New York City Department of City Planning",
@@ -43260,6 +44422,45 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "title": "NYC Public Design Commission meeting minutes and certificates",
+          "provider": "New York City Public Design Commission",
+          "reliability": "usable_with_caveats",
+          "licence": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+          "event_count": 72,
+          "years": [
+            2008,
+            2010,
+            2012,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2008,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 55,
+            "civic_services": 1,
+            "environment": 9,
+            "transport": 6,
+            "utilities": 1
+          },
+          "confidence_counts": {
+            "documented": 72
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "nyc-pluto-mappluto-lots",
           "title": "NYC PLUTO / MapPLUTO lot records",
           "provider": "NYC Department of City Planning, via NYC Open Data",
@@ -43342,43 +44543,6 @@
           },
           "confidence_counts": {
             "documented": 23
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "title": "NYC Public Design Commission meeting minutes and certificates",
-          "provider": "New York City Public Design Commission",
-          "reliability": "usable_with_caveats",
-          "licence": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
-          "event_count": 22,
-          "years": [
-            2008,
-            2010,
-            2012,
-            2014,
-            2015,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "first_year": 2008,
-          "last_year": 2026,
-          "layer_counts": {
-            "built_environment": 16,
-            "environment": 3,
-            "transport": 2,
-            "utilities": 1
-          },
-          "confidence_counts": {
-            "documented": 22
           },
           "coverage_status": "events_emitted"
         },

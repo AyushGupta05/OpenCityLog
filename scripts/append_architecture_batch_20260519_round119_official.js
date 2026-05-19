@@ -37,7 +37,16 @@ const candidatePaths = {
   belfastCivicPublicRealmGeocoded: "tmp/subagents/round125_belfast_civic_public_realm_geocoded/candidates.json",
   belfastGeocodePreviousRejects: "tmp/subagents/round125_belfast_geocode_previous_rejects/candidates.json",
   londonMajorBoroughDecisionsFacilities: "tmp/subagents/round125_london_major_borough_decisions_facilities/candidates.json",
-  nycCivicCapitalProjects: "tmp/subagents/round125_nyc_civic_capital_projects/candidates.json"
+  nycCivicCapitalProjects: "tmp/subagents/round125_nyc_civic_capital_projects/candidates.json",
+  londonPldLifecycleDirect: "tmp/subagents/round126_london_pld_lifecycle_direct/candidates.json",
+  londonPlanningAppealsCalledInMore: "tmp/subagents/round126_london_planning_appeals_calledin_more/candidates.json",
+  belfastPlanningPortalOfficialMore: "tmp/subagents/round126_belfast_planning_portal_official_more/candidates.json",
+  londonPldLifecycleMore: "tmp/subagents/round126_london_pld_lifecycle_more/candidates.json",
+  nycPdcMoreDesignReview: "tmp/subagents/round126_nyc_pdc_more_design_review/candidates.json",
+  nycDotPublicRealmReconstruction: "tmp/subagents/round127_nyc_dot_public_realm_reconstruction/candidates.json",
+  londonOfficialPublicRealmProjects: "tmp/subagents/round127_london_official_public_realm_projects/candidates.json",
+  nycCapitalProjectsDashboardActualConstruction: "tmp/subagents/round128_nyc_capital_projects_dashboard/candidates.json",
+  belfastHarniSpatial: "tmp/subagents/round128_belfast_harni_spatial/candidates.json"
 };
 
 const sourceIdAliases = {
@@ -87,10 +96,12 @@ const sourceIdAliases = {
   "nyc-dcp-pluto": "nyc-pluto-mappluto-lots",
   "nyc-pluto-mappluto-lots-64uk-42ks": "nyc-pluto-mappluto-lots",
   "planning-london-datahub-lbc": "gla-planning-datahub-applications",
+  "london-planning-datahub-api/core": "gla-planning-datahub-applications",
   "gla-canada-water-stage3-report-2026": "gla-planning-application-decisions",
   "planning-data-article-4-legal-instrument": "planning-data-article-4-direction-area",
   "bcc-current-planning-applications-20260519": "bcc-current-planning-applications",
-  "ni-planning-portal-public-register-round123": "ni-planning-portal-public-register"
+  "ni-planning-portal-public-register-round123": "ni-planning-portal-public-register",
+  "bcc-planning-committee-round126": "bcc-planning-committee-minutes"
 };
 
 function readJson(file) {

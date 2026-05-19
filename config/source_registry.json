@@ -536,27 +536,25 @@
       "source_id": "bcc-planning-committee-minutes",
       "title": "Belfast City Council Planning Committee agenda and minutes",
       "provider": "Belfast City Council",
-      "source_family": "planning",
+      "source_family": "architecture",
       "city_ids": [
         "belfast"
       ],
-      "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
+      "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed.",
       "licence_url": "https://www.belfastcity.gov.uk/Copyright",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Meeting-specific publication.",
+      "update_frequency": "Meeting-specific publication",
       "url": "https://minutes.belfastcity.gov.uk/",
-      "local_paths": [
-        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Source page: Belfast City Council Planning Committee agenda and minutes. Use URL, meeting date, and application reference for citation.",
-      "provenance_notes": "Use application/reference number, meeting date, agenda/minute URL, decision text, location, retrieved date, and limitation text. Committee approvals and consents are administrative records, not evidence that works started or completed.",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Meeting-specific planning and consent decisions from the 2008-2026 architecture corpus window. Meeting date and decision text in committee minutes.",
       "caveats": [
-        "Planning permission, listed-building consent, conservation-area consent, and advertisement consent are not construction, completion, occupation, or opening evidence."
+        "Committee minutes document administrative planning decisions, listed-building consents, conservation-area consents, and related recommendations. They are not evidence of construction start, completion, occupation, opening, building condition, or outcome effects."
       ]
     },
     {
@@ -1044,6 +1042,31 @@
       ]
     },
     {
+      "source_id": "camden-west-end-project-pages",
+      "title": "Camden West End Project pages",
+      "provider": "London Borough of Camden",
+      "source_family": "public_realm",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2021
+      },
+      "update_frequency": "Project archive pages update irregularly.",
+      "url": "https://www3.camden.gov.uk/westendproject/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute London Borough of Camden.",
+      "provenance_notes": "Selected records from 2021-2021 in the Round119 architecture corpus window. project update stated implementation date",
+      "caveats": [
+        "Street-operation milestones do not document broader outcomes. Use as street/public-realm implementation milestones with approximate point geometry. This records an implementation milestone for street-space operation and public realm. It does not document broader traffic, safety, economic, usage, or causal outcomes."
+      ]
+    },
+    {
       "source_id": "city-of-london-2-finsbury-avenue-approval-news",
       "title": "City Corporation approves third tower in a month as developers back Square Mile's future",
       "provider": "City of London Corporation",
@@ -1141,6 +1164,31 @@
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. meeting date and minutes decision text",
       "caveats": [
         "This is a deferral, not permission. It should not be counted as approval or as evidence that redevelopment will proceed."
+      ]
+    },
+    {
+      "source_id": "city-of-london-public-realm-project-pages",
+      "title": "City of London public-realm project and press pages",
+      "provider": "City of London Corporation",
+      "source_family": "public_realm",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "City of London Corporation website terms apply; store factual milestone metadata and source URLs only.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2025
+      },
+      "update_frequency": "Project and press pages update irregularly.",
+      "url": "https://www.cityoflondon.gov.uk/services/streets/projects-and-proposals",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute City of London Corporation.",
+      "provenance_notes": "Selected records from 2023-2025 in the Round119 architecture corpus window. project page works-start date",
+      "caveats": [
+        "Planning consent and works-start milestones do not document completion or outcomes. Use as public-realm administrative or works-start milestones with exact caveats. This is a works-start milestone. It does not document completion, opening, usage, safety effects, traffic effects, regeneration effects, or causal outcomes."
       ]
     },
     {
@@ -1247,27 +1295,25 @@
       "source_id": "dfc-harni-belfast",
       "title": "Heritage at Risk in Northern Ireland Belfast records",
       "provider": "Department for Communities Historic Environment Division / nidirect",
-      "source_family": "planning",
+      "source_family": "heritage_at_risk",
       "city_ids": [
         "belfast"
       ],
-      "licence": "Crown copyright / Open Government Licence v3.0 for public-sector factual information unless otherwise stated; images, logos, mapping, and third-party material excluded",
+      "licence": "Crown copyright / Open Government Licence v3.0 for public-sector factual information unless otherwise stated; images, logos, mapping, and third-party material excluded.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Record-specific update/review cadence.",
+      "update_frequency": "Record-specific update/review cadence",
       "url": "https://apps.communities-ni.gov.uk/HARNI/",
-      "local_paths": [
-        "tmp/subagents/round116_belfast_heritage_projects/candidates.json"
-      ],
+      "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute Department for Communities Historic Environment Division / nidirect and retain HARNI/HB references where applicable.",
-      "provenance_notes": "Use HARNI id, HB reference, original record date, review/status year, source URL, retrieved date, point-source notes, and limitation text.",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division / nidirect.",
+      "provenance_notes": "Selected Belfast HARNI record dates, review years, and status notes in the architecture corpus window. HARNI original record date, narrative review year, or stated restoration/status year.",
       "caveats": [
-        "HARNI records document heritage-risk or safe-status observations, not construction, repair completion, reuse, safety, occupation, ownership, or outcome evidence unless directly stated and separately framed."
+        "HARNI records document heritage-risk or safe-status observations. They are not construction, repair completion, reuse, safety, occupation, ownership, or outcome evidence unless directly stated and separately framed."
       ]
     },
     {
@@ -2467,25 +2513,23 @@
       "source_id": "mhclg-called-in-decisions",
       "title": "Planning applications: called-in decisions and recovered appeals",
       "provider": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-      "source_family": "planning",
+      "source_family": "architecture",
       "city_ids": [
         "london"
       ],
-      "licence": "Open Government Licence v3.0 except where otherwise stated",
+      "licence": "Open Government Licence v3.0 except where otherwise stated.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Decision-specific publication.",
+      "update_frequency": "Decision-specific publication",
       "url": "https://www.gov.uk/government/collections/planning-applications-called-in-decisions-and-recovered-appeals",
-      "local_paths": [
-        "tmp/subagents/round114_london_heritage_candidates.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0 unless otherwise stated.",
-      "provenance_notes": "Use case reference, LPA application reference, site address, decision date, outcome, decision URL, retrieved date, and limitation text.",
+      "attribution_text": "Attribute Ministry of Housing, Communities and Local Government / Planning Casework Unit.",
+      "provenance_notes": "Selected London called-in and recovered planning decisions in the 2008-2026 corpus window. Secretary of State decision date.",
       "caveats": [
         "Secretary of State decisions are administrative planning milestones. Conditions, legal challenges, implementation, later consents, construction, completion, opening, and outcome effects must be tracked separately."
       ]
@@ -2747,6 +2791,31 @@
       "caveats": [
         "Curated milestone layer is not a complete NYC permit, certificate-of-occupancy, landmark, or zoning ledger.",
         "Public pages can change; keep retrieval dates and avoid copying page text."
+      ]
+    },
+    {
+      "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+      "provider": "NYC Mayor's Office of Operations / NYC Open Data",
+      "source_family": "parks_public_realm_capital_project",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data / NYC.gov terms apply.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.",
+      "url": "https://data.cityofnewyork.us/City-Government/Capital-Projects-Dashboard-Citywide-Budget-and-Sched/fb86-vt7u",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Mayor's Office of Operations / NYC Open Data.",
+      "provenance_notes": "Rows with actual_construction_end from 2008-01-01 through 2026-05-19 were fetched; latest row per FMS ID retained. fms_id, pid, agency_project_name, fms_project_name, agency_project_description, actual_construction_end, borough, ten_year_plan_category.",
+      "caveats": [
+        "Use actual_construction_end as an administrative construction-phase milestone only. Display borough-level geometry caveat and do not infer opening, occupancy, final scope, or outcomes. The dashboard row is an administrative capital-program record. It is not independent evidence of public opening, occupancy, construction quality, final delivered scope, operational status, use, safety, regeneration, or causal outcomes. Geometry is borough-level only because the official dataset row lacks site coordinates."
       ]
     },
     {
@@ -3155,6 +3224,31 @@
       "provenance_notes": "Annualized citywide sales updates; property valuation and assessment is annual; NYC HVS is triennial; RGB research extends to the 1990s.",
       "caveats": [
         "NYC rent context relies on survey/report families rather than a single transactional feed."
+      ]
+    },
+    {
+      "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+      "title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
+      "provider": "NYC Department of Transportation via NYC Open Data",
+      "source_family": "public_realm",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data terms apply. Attribute NYC Department of Transportation and NYC Open Data; no warranty is implied by the source dataset.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2025
+      },
+      "update_frequency": "Monthly according to NYC Open Data metadata.",
+      "url": "https://data.cityofnewyork.us/Transportation/Street-and-Highway-Capital-Reconstruction-Project/jvk9-k4re",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Transportation via NYC Open Data.",
+      "provenance_notes": "Selected records from 2008-2025 in the Round119 architecture corpus window. constructi year field with projectsta='Completed Project'",
+      "caveats": [
+        "Construction year is year-level and may be fiscal-year-like rather than an exact completion date. Grouped centroids are for discovery only and do not represent full project footprints or legal boundaries. Street reconstruction rows do not establish changes in safety, traffic, economic activity, or other outcomes. Use as public-realm infrastructure milestones with year precision. Keep source row IDs, project/FMS IDs, scope values, and geometry caveats visible in evidence drawers. DOT block rows are street-segment geometries and the construction year is year-level. The grouped point supports atlas discovery only. Source rows do not document building construction, occupancy, usage, safety outcomes, traffic effects, or causal relationships. Streets sampled: BOND STREET; DEKALB AVENUE; FULTON STREET. Segment labels sampled: ALBEE SQUARE to DUFFIELD STREET; BOERUM PLACE to PEARL STREET; BOND STREET to GOLD STREET; BOND STREET to HANOVER PLACE; BRIDGE STREET to HOYT STREET; BRIDGE STREET to LAWRENCE STREET."
       ]
     },
     {
@@ -4218,6 +4312,31 @@
       ]
     },
     {
+      "source_id": "opdc-public-realm-project-pages",
+      "title": "OPDC public-realm consultation, decision and press pages",
+      "provider": "Old Oak and Park Royal Development Corporation / Greater London Authority",
+      "source_family": "public_realm",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "London.gov.uk terms apply; store factual milestone metadata and source URLs only.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2019,
+        "end": 2021
+      },
+      "update_frequency": "Project and decision pages update irregularly.",
+      "url": "https://www.london.gov.uk/who-we-are/city-halls-partners/old-oak-and-park-royal-development-corporation-opdc",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Old Oak and Park Royal Development Corporation / Greater London Authority.",
+      "provenance_notes": "Selected records from 2019-2021 in the Round119 architecture corpus window. consultation period stated on OPDC page",
+      "caveats": [
+        "Use consultation, decision, proposal, and works-stage language exactly; do not infer delivery or outcomes. Use as public-realm planning/governance milestones with approximate point geometry. This is a consultation-stage milestone. It does not document construction start, completion, opening, usage, safety effects, regeneration effects, or causal outcomes."
+      ]
+    },
+    {
       "source_id": "opendatani-spatial-ni",
       "title": "OpenDataNI and Spatial NI datasets",
       "provider": "Northern Ireland public-sector data publishers",
@@ -4295,6 +4414,31 @@
       "provenance_notes": "Selected records from 2009-2026 in the Round119 architecture corpus window. Decision date shown in PAC search result",
       "caveats": [
         "Appeal outcome only. Does not confirm works start, completion, sale, occupation, or final built form."
+      ]
+    },
+    {
+      "source_id": "pins-hs2-phase-one-planning-appeals",
+      "title": "pins-hs2-phase-one-planning-appeals",
+      "provider": "High Speed Two (HS2) Limited / Planning Inspectorate / GOV.UK",
+      "source_family": "official_record",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2020
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.gov.uk/government/publications/hs2-phase-one-planning-forum-planning-appeal-decisions",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute High Speed Two (HS2) Limited / Planning Inspectorate / GOV.UK.",
+      "provenance_notes": "Selected records from 2020-2020 in the Round119 architecture corpus window. publication date / appeal decision document listing",
+      "caveats": [
+        "This appeal decision is an administrative Schedule 17 planning milestone. It is not evidence of construction timing, route use, completion, opening, traffic impact, or environmental outcome."
       ]
     },
     {
@@ -4420,6 +4564,31 @@
       "provenance_notes": "Selected London conservation-area rows with explicit designation/status dates in the 2008-2026 corpus window. designation-date or start-date where exposed by the source row.",
       "caveats": [
         "Conservation-area rows document administrative heritage/planning status. They are not evidence of fabric condition, construction, demolition, repair, occupancy, or conservation outcomes."
+      ]
+    },
+    {
+      "source_id": "planning-inspectorate-appeal-decisions",
+      "title": "planning-inspectorate-appeal-decisions",
+      "provider": "Planning Inspectorate",
+      "source_family": "official_record",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Planning Inspectorate decision PDFs are official public-sector documents; reuse should be checked against GOV.UK/OGL terms and any document-specific restrictions.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://acp.planninginspectorate.gov.uk/ViewDocument.aspx?fileid=60268604",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Planning Inspectorate.",
+      "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. Decision date",
+      "caveats": [
+        "This appeal decision is an administrative planning milestone and is not construction, opening, occupation, completion, delivery, or outcome evidence."
       ]
     },
     {
@@ -7854,6 +8023,31 @@
       "provenance_notes": "Selected records from 2020-2023 in the Round119 architecture corpus window. project page timeline entry",
       "caveats": [
         "This is a planning committee approval milestone, not evidence that construction had started or completed."
+      ]
+    },
+    {
+      "source_id": "westminster-authority-monitoring-public-realm",
+      "title": "Westminster City Plan Progress Report / Authority Monitoring Report 2022-23",
+      "provider": "Westminster City Council",
+      "source_family": "public_realm",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Westminster City Council website terms apply; store factual milestone metadata and source URLs only.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2022
+      },
+      "update_frequency": "Annual monitoring report.",
+      "url": "https://www.westminster.gov.uk/media/document/city-plan-progress-report---an-authority-monitoring-report-2022-23",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Westminster City Council.",
+      "provenance_notes": "Selected records from 2022-2022 in the Round119 architecture corpus window. AMR project/milestone table month",
+      "caveats": [
+        "AMR milestone rows are not detailed construction records and do not document outcomes. Use as month-precision public-realm monitoring milestones. The AMR is a monitoring/reporting source and the candidate uses month precision. It does not document detailed as-built boundaries, usage, safety effects, regeneration effects, or causal outcomes."
       ]
     },
     {

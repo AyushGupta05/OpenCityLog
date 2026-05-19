@@ -265,7 +265,13 @@
         "src_bca_windrush_square_opened",
         "src_kingston_town_house_opened",
         "src_fairfield_halls_reopened",
-        "src_brent_civic_centre_update"
+        "src_brent_civic_centre_update",
+        "pins-hs2-phase-one-planning-appeals",
+        "planning-inspectorate-appeal-decisions",
+        "opdc-public-realm-project-pages",
+        "city-of-london-public-realm-project-pages",
+        "camden-west-end-project-pages",
+        "westminster-authority-monitoring-public-realm"
       ],
       "availability": "partial_local",
       "years": [
@@ -363,7 +369,8 @@
         "src_newham_carpenters_masterplan_approval",
         "newham-carpenters-masterplan-approval-news",
         "src_newham_carpenters_start_on_site",
-        "newham-carpenters-start-on-site-news"
+        "newham-carpenters-start-on-site-news",
+        "mhclg-called-in-decisions"
       ],
       "availability": "partial_local",
       "years": [

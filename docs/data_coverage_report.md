@@ -1,25 +1,25 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T07:02:00Z
+Generated: 2026-05-19T07:58:30Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 30522 | 76 | 14 | 2007-2026 | transport 17118, built_environment 11203, utilities 851 | 69478 |
-| London, England | 192511 | 172 | 102 | 1801-2026 | built_environment 73228, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 35997 | 73 | 122 | 1797-2026 | built_environment 20777, transport 6238, environment 6110 | 64003 |
+| Belfast, Northern Ireland | 30560 | 76 | 14 | 2007-2026 | transport 17118, built_environment 11241, utilities 851 | 69440 |
+| London, England | 192715 | 178 | 102 | 1801-2026 | built_environment 73432, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 37093 | 75 | 122 | 1797-2026 | built_environment 21862, transport 6242, environment 6116 | 62907 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 30522. Unique event IDs: 30522. Duplicate IDs: 0.
+Backed events: 30560. Unique event IDs: 30560. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | OpenStreetMap extracts via Overpass API | 17965 | 2007-2026 | transport 17114, utilities 851 | usable_with_caveats |
 | Northern Ireland planning activity statistics | 11347 | 2016-2025 | built_environment 10000, civic_services 675, economy 672 | strong |
 | Belfast architecture and major project public pages | 928 | 2008-2026 | built_environment 928 | usable_with_caveats |
-| Belfast City Council Planning Committee agenda and minutes | 31 | 2015-2025 | built_environment 31 | strong |
+| Belfast City Council Planning Committee agenda and minutes | 69 | 2015-2026 | built_environment 69 | usable_with_caveats |
 | Northern Ireland Planning Portal public register records | 21 | 2024-2026 | built_environment 21 | usable_with_caveats |
 | Belfast City Council Planning Committee agendas, minutes and supporting documents | 18 | 2020-2026 | built_environment 18 | usable_with_caveats |
 | Queen's University Belfast Estates Completed Projects | 16 | 2016-2025 | built_environment 16 | usable_with_caveats |
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 14.
 
 ## London, England
 
-Backed events: 192511. Unique event IDs: 192511. Duplicate IDs: 0.
+Backed events: 192715. Unique event IDs: 192715. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -44,8 +44,8 @@ Backed events: 192511. Unique event IDs: 192511. Duplicate IDs: 0.
 | HM Land Registry Price Paid Data | 25600 | 1995-2026 | built_environment 25600 | usable_with_caveats |
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
+| Planning London Datahub - planning applications | 10001 | 2008-2026 | built_environment 10001 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
-| Planning London Datahub - planning applications | 9834 | 2008-2026 | built_environment 9834 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning Data: Tree Preservation Zones | 1168 | 1951-2025 | built_environment 1168 | usable_with_caveats |
 | Planning Data: Conservation Areas | 1129 | 1827-2026 | built_environment 1129 | usable_with_caveats |
@@ -54,7 +54,7 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 35997. Unique event IDs: 35997. Duplicate IDs: 0.
+Backed events: 37093. Unique event IDs: 37093. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |

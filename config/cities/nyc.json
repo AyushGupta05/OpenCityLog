@@ -301,7 +301,9 @@
       "label": "Parks capital projects and public realm",
       "source_ids": [
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
-        "nyc-parks-press-pages"
+        "nyc-parks-press-pages",
+        "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
+        "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u"
       ],
       "availability": "partial_local",
       "years": [
