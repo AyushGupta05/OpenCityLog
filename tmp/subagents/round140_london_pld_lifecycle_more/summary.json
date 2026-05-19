@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "output_dir": "tmp/subagents/round140_london_pld_lifecycle_more",
+  "candidate_count": 90,
+  "target_count": 90,
+  "query_stats": [
+    {
+      "field": "actual_completion_date",
+      "kind": "completion",
+      "fetched": 20636
+    },
+    {
+      "field": "actual_commencement_date",
+      "kind": "commencement",
+      "fetched": 19329
+    }
+  ],
+  "candidate_pool_after_fetch": 39965,
+  "evaluated_until_target_reached": 250,
+  "accepted_until_target_reached": 90,
+  "rejection_summary": {
+    "existing_manual_corpus_pld_id": 148,
+    "missing_or_outside_london_geometry": 10,
+    "low_value_admin_or_minor_application_type": 2
+  },
+  "duplicate_index": {
+    "manual_events_scanned": 18959,
+    "manual_pld_ids": 748,
+    "prior_round126_candidates_scanned": 180,
+    "prior_round126_pld_ids": 171
+  },
+  "dedupe_basis": "Current data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json and tmp/subagents/round126_london_pld_lifecycle_direct|more candidates.json were scanned for PLD ids, source_record_id/source_url pairs, source-date-field/date keys, and title/date keys.",
+  "selected_by_lifecycle_field": {
+    "actual_completion_date": 36,
+    "actual_commencement_date": 54
+  },
+  "selected_date_range": {
+    "min": "2020-03-20",
+    "max": "2026-03-23"
+  },
+  "caveats": [
+    "Candidates are administrative lifecycle records, not claims that a building opened, became occupied, or produced an outcome.",
+    "Rows with PLD ids already present in the current manual corpus or either round126 PLD lifecycle scratch pack were excluded.",
+    "London Datastore licence is treated as Not Specified for this source, so the pack retains factual metadata and attribution only."
+  ]
+}

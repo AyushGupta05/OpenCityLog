@@ -1,0 +1,31 @@
+{
+  "source_audits": [
+    {
+      "source_id": "ni-planning-statistics",
+      "source_name": "Northern Ireland planning activity statistics",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+      "source_type": "official annual planning statistics CSV releases",
+      "license_or_terms_note": "Open Government Licence v3.0 where published as public-sector information; verify terms for each annual release.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "coverage_years": "Round134 read local 2016-17 through 2024-25 annual planning-statistics CSVs and filtered approved Belfast decision records through 2026-05-19.",
+      "geographic_scope": "Northern Ireland planning applications; this pack filters Belfast/Belfast LPA rows and checks approximate Belfast coordinate envelope.",
+      "key_fields_used": [
+        "ID/Id",
+        "DecisionIssuedDate",
+        "Decision_Withdrawal",
+        "Status@31Mar",
+        "StatsCategory",
+        "Classification/AppCategory",
+        "Proposal",
+        "SiteAddress/Location",
+        "Easting",
+        "Northing"
+      ],
+      "reliability_assessment": "strong for administrative planning-statistics rows; usable with caveats for physical city-change interpretation",
+      "required_caveats": "Approval/decision records are administrative planning milestones. They are not construction starts, completions, openings, occupations, final built-form records, or outcome evidence.",
+      "ingestion_recommendation": "Use as source-backed planning-decision milestones with source row/file references, approximate point geometry, and visible planning-approval caveats."
+    }
+  ]
+}

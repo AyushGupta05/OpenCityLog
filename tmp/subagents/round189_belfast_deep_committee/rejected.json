@@ -1,0 +1,203 @@
+{
+  "schema_version": "round189.belfast_deep_committee.rejected.v1",
+  "generated_at": "2026-05-19",
+  "city_id": "belfast",
+  "rejected_count": 3,
+  "rejected": [
+    {
+      "seed_slug": "lisnasharragh-leisure-centre-opened-2019",
+      "reason": "duplicate_title_date_existing",
+      "candidate": {
+        "city_id": "belfast",
+        "record_kind": "candidate_event",
+        "candidate_id": "round189_belfast_lisnasharragh_leisure_centre_opened_2019",
+        "event_id": "round189_belfast_lisnasharragh_leisure_centre_opened_2019",
+        "event_id_suggestion": "bfs_arch_round189_belfast_lisnasharragh_leisure_centre_opened_2019",
+        "date": "2019-12",
+        "effective_date": "2019-12",
+        "effective_date_range": null,
+        "date_precision": "month",
+        "bucket": "planning/development/architecture/public-realm/community-facilities",
+        "event_family": "architecture/official-public-record",
+        "milestone_type": "leisure_facility_opening_reported",
+        "title": "Lisnasharragh Leisure Centre opened",
+        "summary": "Belfast City Council's Lisnasharragh regeneration page records that the centre opened in December 2019.",
+        "observed_change": "Official council project page records an opening month for a leisure facility.",
+        "area": "Lisnasharragh Leisure Centre, Montgomery Road",
+        "lat": 54.568,
+        "lon": -5.867,
+        "latitude": 54.568,
+        "longitude": -5.867,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -5.867,
+            54.568
+          ]
+        },
+        "geometry_ref": "https://www.belfastcity.gov.uk/business-and-investment/transforming-leisure-services/lisnasharragh-leisure-centre-regeneration",
+        "source_id": "bcc-lisnasharragh-regeneration-round189",
+        "source_ids": [
+          "bcc-lisnasharragh-regeneration-round189"
+        ],
+        "source_name": "Lisnasharragh Leisure Centre regeneration",
+        "publisher": "Belfast City Council",
+        "source_url": "https://www.belfastcity.gov.uk/business-and-investment/transforming-leisure-services/lisnasharragh-leisure-centre-regeneration",
+        "source_record_id": "Overview: centre opened in December 2019",
+        "source_type": "official council project/status page",
+        "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+        "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "Contains public sector information from Belfast City Council.",
+        "accessed_at": "2026-05-19",
+        "retrieved_at": "2026-05-19",
+        "source_retrieved_at": "2026-05-19",
+        "source_date_field": "project page overview",
+        "source_date_value": "2019-12",
+        "confidence": "documented",
+        "architect": "Source record does not name a project architect.",
+        "project_type": "leisure centre regeneration",
+        "geometry_source": "Approximate point manually assigned from named Belfast site/project area for candidate review.",
+        "geometry_precision": "approximate_site_or_project_area",
+        "limitations": [
+          "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import.",
+          "Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made.",
+          "Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+        ],
+        "transformation_method": "Round 189 manual source-family review: official/public Belfast pages were converted to candidate event records, required provenance fields were normalized, Belfast envelope/date-window checks were applied, and event_id/source-date/source-record/title-date duplicate keys were compared with the current corpus and prior Belfast candidate packs including rounds 177 and 183.",
+        "raw_source_hint": "Overview: centre opened in December 2019"
+      }
+    },
+    {
+      "seed_slug": "active-travel-covered-cycle-stands-lockkeepers-2025",
+      "reason": "duplicate_source_record_date_within_round",
+      "candidate": {
+        "city_id": "belfast",
+        "record_kind": "candidate_event",
+        "candidate_id": "round189_belfast_active_travel_covered_cycle_stands_lockkeepers_2025",
+        "event_id": "round189_belfast_active_travel_covered_cycle_stands_lockkeepers_2025",
+        "event_id_suggestion": "bfs_arch_round189_belfast_active_travel_covered_cycle_stands_lockkeepers_2025",
+        "date": "2025-03-31",
+        "effective_date": "2025-03-31",
+        "effective_date_range": {
+          "start": "2024-04-01",
+          "end": "2025-03-31"
+        },
+        "date_precision": "year_end",
+        "bucket": "planning/development/architecture/public-realm/community-facilities",
+        "event_family": "architecture/official-public-record",
+        "milestone_type": "active_travel_stands_delivery_reported",
+        "title": "Covered cycle stands at Lockkeepers were listed among delivered physical works",
+        "summary": "Belfast City Council's 2024-2025 corporate performance page lists Active Travel covered cycle stands at Lockkeepers among delivered projects.",
+        "observed_change": "Official performance report records a completed/delivered physical-programme item during 2024-2025. The exact installation date is not stated.",
+        "area": "Lockkeepers, Belfast",
+        "lat": 54.543,
+        "lon": -5.929,
+        "latitude": 54.543,
+        "longitude": -5.929,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -5.929,
+            54.543
+          ]
+        },
+        "geometry_ref": "https://www.belfastcity.gov.uk/documents/performance-improvement-plan-self-assessment-repor/corporate-performance-2024-2025",
+        "source_id": "bcc-corporate-performance-2024-2025-round189",
+        "source_ids": [
+          "bcc-corporate-performance-2024-2025-round189"
+        ],
+        "source_name": "Belfast City Council Performance Improvement Plan self-assessment report 2024-2025 - Corporate performance 2024-2025",
+        "publisher": "Belfast City Council",
+        "source_url": "https://www.belfastcity.gov.uk/documents/performance-improvement-plan-self-assessment-repor/corporate-performance-2024-2025",
+        "source_record_id": "Corporate performance 2024-2025: Active Travel covered cycle stands at Marrowbone and Lockkeepers",
+        "source_type": "official council performance report page",
+        "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+        "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "Contains public sector information from Belfast City Council.",
+        "accessed_at": "2026-05-19",
+        "retrieved_at": "2026-05-19",
+        "source_retrieved_at": "2026-05-19",
+        "source_date_field": "2024-2025 reporting period",
+        "source_date_value": "2025-03-31",
+        "confidence": "documented",
+        "architect": "Source record does not name a project architect.",
+        "project_type": "active travel facility",
+        "geometry_source": "Approximate point manually assigned from named Belfast site/project area for candidate review.",
+        "geometry_precision": "approximate_site_or_project_area",
+        "limitations": [
+          "Source gives a 2024-2025 reporting-period completion/delivery statement; exact effective date should be checked before production import.",
+          "Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made.",
+          "Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+        ],
+        "transformation_method": "Round 189 manual source-family review: official/public Belfast pages were converted to candidate event records, required provenance fields were normalized, Belfast envelope/date-window checks were applied, and event_id/source-date/source-record/title-date duplicate keys were compared with the current corpus and prior Belfast candidate packs including rounds 177 and 183.",
+        "raw_source_hint": "Corporate performance 2024-2025: Active Travel covered cycle stands at Marrowbone and Lockkeepers"
+      }
+    },
+    {
+      "seed_slug": "ormeau-recycling-facility-improvements-2025",
+      "reason": "duplicate_source_record_date_within_round",
+      "candidate": {
+        "city_id": "belfast",
+        "record_kind": "candidate_event",
+        "candidate_id": "round189_belfast_ormeau_recycling_facility_improvements_2025",
+        "event_id": "round189_belfast_ormeau_recycling_facility_improvements_2025",
+        "event_id_suggestion": "bfs_arch_round189_belfast_ormeau_recycling_facility_improvements_2025",
+        "date": "2025-03-31",
+        "effective_date": "2025-03-31",
+        "effective_date_range": {
+          "start": "2024-04-01",
+          "end": "2025-03-31"
+        },
+        "date_precision": "year_end",
+        "bucket": "planning/development/architecture/public-realm/community-facilities",
+        "event_family": "architecture/official-public-record",
+        "milestone_type": "waste_facility_improvement_reported",
+        "title": "Ormeau recycling facility improvements were listed among delivered works",
+        "summary": "Belfast City Council's 2024-2025 corporate performance page lists improvements at household waste recycling facilities including Ormeau.",
+        "observed_change": "Official performance report records delivered facility improvements during 2024-2025. The exact completion date is not stated.",
+        "area": "Ormeau, Belfast",
+        "lat": 54.579,
+        "lon": -5.923,
+        "latitude": 54.579,
+        "longitude": -5.923,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -5.923,
+            54.579
+          ]
+        },
+        "geometry_ref": "https://www.belfastcity.gov.uk/documents/performance-improvement-plan-self-assessment-repor/corporate-performance-2024-2025",
+        "source_id": "bcc-corporate-performance-2024-2025-round189",
+        "source_ids": [
+          "bcc-corporate-performance-2024-2025-round189"
+        ],
+        "source_name": "Belfast City Council Performance Improvement Plan self-assessment report 2024-2025 - Corporate performance 2024-2025",
+        "publisher": "Belfast City Council",
+        "source_url": "https://www.belfastcity.gov.uk/documents/performance-improvement-plan-self-assessment-repor/corporate-performance-2024-2025",
+        "source_record_id": "Corporate performance 2024-2025: improvements at household waste recycling facilities including Alexandra Park and Ormeau",
+        "source_type": "official council performance report page",
+        "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+        "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "Contains public sector information from Belfast City Council.",
+        "accessed_at": "2026-05-19",
+        "retrieved_at": "2026-05-19",
+        "source_retrieved_at": "2026-05-19",
+        "source_date_field": "2024-2025 reporting period",
+        "source_date_value": "2025-03-31",
+        "confidence": "documented",
+        "architect": "Source record does not name a project architect.",
+        "project_type": "household waste recycling facility improvement",
+        "geometry_source": "Approximate point manually assigned from named Belfast site/project area for candidate review.",
+        "geometry_precision": "approximate_site_or_project_area",
+        "limitations": [
+          "Source gives a 2024-2025 reporting-period completion/delivery statement; exact effective date should be checked before production import.",
+          "Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made.",
+          "Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+        ],
+        "transformation_method": "Round 189 manual source-family review: official/public Belfast pages were converted to candidate event records, required provenance fields were normalized, Belfast envelope/date-window checks were applied, and event_id/source-date/source-record/title-date duplicate keys were compared with the current corpus and prior Belfast candidate packs including rounds 177 and 183.",
+        "raw_source_hint": "Corporate performance 2024-2025: improvements at household waste recycling facilities including Alexandra Park and Ormeau"
+      }
+    }
+  ]
+}

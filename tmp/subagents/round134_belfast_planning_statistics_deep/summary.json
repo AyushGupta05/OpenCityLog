@@ -1,0 +1,45 @@
+{
+  "files_read": [
+    "data/raw/planning_statistics/planning-statistics-2016-17-dataset_1.csv",
+    "data/raw/planning_statistics/planning-statistics-2017-18-dataset.csv",
+    "data/raw/planning_statistics/planning-statistics-2018-19-dataset.csv",
+    "data/raw/planning_statistics/planning-statistics-2020-21-dataset.csv",
+    "data/raw/planning_statistics/planning-statistics-2021-22-dataset.csv",
+    "data/raw/planning_statistics/planning-statistics-2022-23-dataset.csv",
+    "data/raw/planning_statistics/planning-statistics-2023-24-dataset.csv",
+    "data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv"
+  ],
+  "scanned": 155331,
+  "belfast": 17431,
+  "approved": 10136,
+  "in_window": 10136,
+  "with_geometry": 10132,
+  "high_signal": 2943,
+  "emitted": 750,
+  "rejected": {
+    "low_signal": 7189,
+    "not_approved": 7295,
+    "missing_or_outside_geometry": 4,
+    "missing_id": 17428
+  },
+  "by_category": {
+    "Residential": 36,
+    "Mixed Use": 279,
+    "Commercial": 187,
+    "Civic": 205,
+    "Industrial": 25,
+    "Change of Use": 6,
+    "Other": 12
+  },
+  "by_year": {
+    "2016": 106,
+    "2017": 128,
+    "2018": 114,
+    "2019": 44,
+    "2020": 75,
+    "2021": 88,
+    "2022": 101,
+    "2023": 93,
+    "2024": 1
+  }
+}

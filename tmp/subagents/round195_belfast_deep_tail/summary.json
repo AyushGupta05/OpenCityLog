@@ -1,0 +1,300 @@
+{
+  "schema_version": "round195.belfast_deep_tail.summary.v1",
+  "generated_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "city_id": "belfast",
+  "target_candidate_cap": 35,
+  "seed_count": 13,
+  "accepted_candidates": 13,
+  "rejected_candidates": 0,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19"
+  },
+  "emitted_date_range": {
+    "min": "2017",
+    "max": "2026-05-19"
+  },
+  "counts_by_year": {
+    "2017": 1,
+    "2023": 1,
+    "2024": 2,
+    "2026": 9
+  },
+  "counts_by_source_id": {
+    "bcc-giants-park-round195": 2,
+    "bcc-future-city-centre-programme-round195": 2,
+    "dfc-mag-living-high-streets-round195": 1,
+    "dfc-five-cs-screening-round195": 1,
+    "bcc-cathedral-gardens-round195": 2,
+    "bcc-open-linked-data-round195": 1,
+    "bcc-vacant-to-vibrant-round195": 3,
+    "bcc-belfastwifi-round195": 1
+  },
+  "counts_by_source_name": {
+    "Giant's Park - North Foreshore": 2,
+    "Future City Centre Programme": 2,
+    "Launch of the MAG Living High Streets initiative - in pictures": 1,
+    "The Five Cs Public Realm Project - screening": 1,
+    "Cathedral Gardens": 2,
+    "Open and linked data": 1,
+    "Vacant to Vibrant scheme": 3,
+    "BelfastWiFi": 1
+  },
+  "counts_by_milestone_type": {
+    "film_studio_complex_opening_reported": 1,
+    "city_centre_public_realm_revitalisation_started": 1,
+    "architecture_built_environment_initiative_launch": 1,
+    "public_realm_screening_publication": 1,
+    "memorial_design_in_project_scope_reported": 1,
+    "public_realm_works_start_reported": 1,
+    "open_data_portal_update": 1,
+    "vacant_property_grant_city_centre_reported": 1,
+    "vacant_property_grant_first_round_reported": 1,
+    "vacant_property_grant_scheme_status_update": 1,
+    "film_studio_extension_current_status_reported": 1,
+    "public_wifi_network_current_status": 1,
+    "public_realm_project_scope_current_status": 1
+  },
+  "source_mix": {
+    "BCC physical investment project pages": 4,
+    "BCC regeneration pages": 2,
+    "DfC architecture and built environment pages": 1,
+    "DfC public realm/screening pages": 1,
+    "BCC open data pages": 1,
+    "BCC regeneration/grant pages": 3,
+    "BCC regeneration/digital infrastructure pages": 1
+  },
+  "source_audit": {
+    "audited_sources": 8,
+    "retrieved_ok": 8,
+    "retrieval_failures": []
+  },
+  "dedupe": {
+    "indexed_files": [
+      {
+        "path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "record_count": 28910
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events.json",
+        "record_count": 0
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2007.json",
+        "record_count": 13
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2008.json",
+        "record_count": 62
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2009.json",
+        "record_count": 196
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2010.json",
+        "record_count": 32
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2011.json",
+        "record_count": 152
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2012.json",
+        "record_count": 237
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2013.json",
+        "record_count": 143
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2014.json",
+        "record_count": 257
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2015.json",
+        "record_count": 246
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2016.json",
+        "record_count": 2326
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2017.json",
+        "record_count": 2380
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2018.json",
+        "record_count": 2132
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2019.json",
+        "record_count": 1049
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2020.json",
+        "record_count": 1551
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2021.json",
+        "record_count": 2693
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2022.json",
+        "record_count": 3466
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2023.json",
+        "record_count": 2942
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2024.json",
+        "record_count": 4714
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2025.json",
+        "record_count": 5094
+      },
+      {
+        "path": "web/data/city-atlas/cities/belfast/events_2026.json",
+        "record_count": 2362
+      },
+      {
+        "path": "tmp/subagents/round115_belfast_public_projects_codex/candidates.json",
+        "record_count": 31
+      },
+      {
+        "path": "tmp/subagents/round116_belfast_heritage_projects/candidates.json",
+        "record_count": 15
+      },
+      {
+        "path": "tmp/subagents/round116_belfast_planning_official/candidates.json",
+        "record_count": 12
+      },
+      {
+        "path": "tmp/subagents/round117_belfast_official_deep/candidates.json",
+        "record_count": 20
+      },
+      {
+        "path": "tmp/subagents/round118_belfast_planning_committees_deep/candidates.json",
+        "record_count": 40
+      },
+      {
+        "path": "tmp/subagents/round118_belfast_public_heritage_projects/candidates.json",
+        "record_count": 22
+      },
+      {
+        "path": "tmp/subagents/round119_belfast_planning_portal_more/candidates.json",
+        "record_count": 30
+      },
+      {
+        "path": "tmp/subagents/round119_belfast_public_facilities_more/candidates.json",
+        "record_count": 14
+      },
+      {
+        "path": "tmp/subagents/round120_belfast_heritage_harni_more/candidates.json",
+        "record_count": 22
+      },
+      {
+        "path": "tmp/subagents/round121_belfast_decisions_committee_more/candidates.json",
+        "record_count": 25
+      },
+      {
+        "path": "tmp/subagents/round122_belfast_major_planning_decisions/candidates.json",
+        "record_count": 13
+      },
+      {
+        "path": "tmp/subagents/round123_belfast_planning_portal_committee_more/candidates.json",
+        "record_count": 21
+      },
+      {
+        "path": "tmp/subagents/round123_belfast_public_facilities_universities_health/candidates.json",
+        "record_count": 12
+      },
+      {
+        "path": "tmp/subagents/round124_belfast_planning_appeals_dfc_public_realm/candidates.json",
+        "record_count": 30
+      },
+      {
+        "path": "tmp/subagents/round125_belfast_civic_public_realm_geocoded/candidates.json",
+        "record_count": 40
+      },
+      {
+        "path": "tmp/subagents/round126_belfast_planning_portal_official_more/candidates.json",
+        "record_count": 40
+      },
+      {
+        "path": "tmp/subagents/round128_belfast_harni_spatial/candidates.json",
+        "record_count": 109
+      },
+      {
+        "path": "tmp/subagents/round130_belfast_official_more/candidates.json",
+        "record_count": 7
+      },
+      {
+        "path": "tmp/subagents/round131_belfast_planning_statistics/candidates.json",
+        "record_count": 640
+      },
+      {
+        "path": "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json",
+        "record_count": 750
+      },
+      {
+        "path": "tmp/subagents/round137_belfast_planning_statistics_more/candidates.json",
+        "record_count": 13
+      },
+      {
+        "path": "tmp/subagents/round141_belfast_harni_gaps/candidates.json",
+        "record_count": 0
+      },
+      {
+        "path": "tmp/subagents/round145_belfast_planning_statistics_next/candidates.json",
+        "record_count": 27
+      },
+      {
+        "path": "tmp/subagents/round151_belfast_planning_statistics_next2/candidates.json",
+        "record_count": 14
+      },
+      {
+        "path": "tmp/subagents/round156_belfast_official_heritage_tail/candidates.json",
+        "record_count": 164
+      },
+      {
+        "path": "tmp/subagents/round165_belfast_planning_statistics_next3/candidates.json",
+        "record_count": 30
+      },
+      {
+        "path": "tmp/subagents/round171_belfast_planning_statistics_next4/candidates.json",
+        "record_count": 12
+      },
+      {
+        "path": "tmp/subagents/round177_belfast_official_architecture_expansion/candidates.json",
+        "record_count": 15
+      },
+      {
+        "path": "tmp/subagents/round183_belfast_deep_public_realm/candidates.json",
+        "record_count": 27
+      },
+      {
+        "path": "tmp/subagents/round189_belfast_deep_committee/candidates.json",
+        "record_count": 29
+      }
+    ],
+    "indexed_event_ids": 60379,
+    "indexed_source_date_keys": 59917,
+    "indexed_title_date_keys": 50209,
+    "explicit_duplicate_exclusion_rounds": [
+      "round177_belfast_official_architecture_expansion",
+      "round183_belfast_deep_public_realm",
+      "round189_belfast_deep_committee"
+    ]
+  },
+  "outputs": {
+    "candidates": "tmp/subagents/round195_belfast_deep_tail/candidates.json",
+    "source_audit": "tmp/subagents/round195_belfast_deep_tail/source_audit.json",
+    "summary": "tmp/subagents/round195_belfast_deep_tail/summary.json",
+    "notes": "tmp/subagents/round195_belfast_deep_tail/notes.md",
+    "rejected": "tmp/subagents/round195_belfast_deep_tail/rejected.json"
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "schema_version": "round162.nyc_dob_now_next4_summary.v1",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "output_files": [
+    "tmp/subagents/round162_nyc_dob_now_next4/candidates.json",
+    "tmp/subagents/round162_nyc_dob_now_next4/source_audit.json",
+    "tmp/subagents/round162_nyc_dob_now_next4/summary.json",
+    "tmp/subagents/round162_nyc_dob_now_next4/notes.md",
+    "tmp/subagents/round162_nyc_dob_now_next4/rejected.json"
+  ],
+  "candidate_count": 240,
+  "selected_summary": {
+    "by_borough": {
+      "Manhattan": 60,
+      "Bronx": 60,
+      "Brooklyn": 60,
+      "Queens": 53,
+      "Staten Island": 7
+    },
+    "by_work_type": {
+      "General Construction": 158,
+      "Support of Excavation": 11,
+      "Foundation": 23,
+      "Structural": 48
+    },
+    "by_job_type": {
+      "Alteration CO": 93,
+      "New Building": 129,
+      "ALT-CO - New Building with Existing Elements to Remain": 18
+    },
+    "by_year": {
+      "2021": 5,
+      "2022": 41,
+      "2023": 55,
+      "2024": 51,
+      "2025": 55,
+      "2026": 33
+    }
+  },
+  "source_ids": [
+    "nyc-dob-now-build-approved-permits-rbx6-tga4",
+    "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
+    "nyc-dob-filings-permits"
+  ],
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19"
+  },
+  "duplicate_screening": {
+    "files_read": 139,
+    "tokens": 84733,
+    "screened_round133_round136_round143_round149_round152_round158_round162_files": [
+      "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+      "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+      "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+      "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+      "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+      "tmp/subagents/round158_nyc_dob_now_next3/candidates.json"
+    ]
+  },
+  "selection_summary": {
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-19"
+    },
+    "target_count": 240,
+    "duplicate_index_files_read": 139,
+    "duplicate_index_tokens": 84733,
+    "duplicate_index_files": [
+      "tmp/subagents/nyc_arch_candidates_round100.json",
+      "tmp/subagents/nyc_arch_candidates_round101.json",
+      "tmp/subagents/nyc_arch_candidates_round102.json",
+      "tmp/subagents/nyc_arch_candidates_round103_civic.json",
+      "tmp/subagents/nyc_arch_candidates_round103_culture.json",
+      "tmp/subagents/nyc_arch_candidates_round103_landmarks.json",
+      "tmp/subagents/nyc_arch_candidates_round104_civic.json",
+      "tmp/subagents/nyc_arch_candidates_round104_institutions.json",
+      "tmp/subagents/nyc_arch_candidates_round105_civic_parks_libraries.json",
+      "tmp/subagents/nyc_arch_candidates_round105_health_education_culture.json",
+      "tmp/subagents/nyc_arch_candidates_round105_housing_mixeduse_landmarks.json",
+      "tmp/subagents/nyc_arch_candidates_round106_civic_infrastructure_facilities.json",
+      "tmp/subagents/nyc_arch_candidates_round106_lpc_landmarks.json",
+      "tmp/subagents/nyc_arch_candidates_round107_lpc_more_designations.json",
+      "tmp/subagents/nyc_arch_candidates_round107_parks_libraries_civic.json",
+      "tmp/subagents/nyc_arch_candidates_round108_health_libraries_culture_2020s.json",
+      "tmp/subagents/nyc_arch_candidates_round108_lpc_2018_2026.json",
+      "tmp/subagents/nyc_arch_candidates_round110_lpc.json",
+      "tmp/subagents/nyc_arch_candidates_round72.json",
+      "tmp/subagents/nyc_arch_candidates_round73_extra.json",
+      "tmp/subagents/nyc_arch_candidates_round75.json",
+      "tmp/subagents/nyc_arch_candidates_round80.json",
+      "tmp/subagents/nyc_arch_candidates_round82.json",
+      "tmp/subagents/nyc_arch_candidates_round84.json",
+      "tmp/subagents/nyc_arch_candidates_round87.json",
+      "tmp/subagents/nyc_arch_candidates_round90.json",
+      "tmp/subagents/nyc_arch_candidates_round92.json",
+      "tmp/subagents/nyc_arch_candidates_round94.json",
+      "tmp/subagents/nyc_arch_candidates_round95.json",
+      "tmp/subagents/nyc_arch_candidates_round96.json",
+      "tmp/subagents/nyc_arch_candidates_round97.json",
+      "tmp/subagents/nyc_arch_candidates_round98.json",
+      "tmp/subagents/nyc_arch_candidates_round99.json",
+      "tmp/subagents/round112_nyc_dob_candidates.json",
+      "tmp/subagents/round112_nyc_lpc_permit_candidates.json",
+      "tmp/subagents/round113_nyc_capital_candidates.json",
+      "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "tmp/subagents/round114_nyc_lpc_landmarks_official/round114_nyc_lpc_landmarks_candidates.json",
+      "tmp/subagents/round115_nyc_development_records_codex/candidates.json",
+      "tmp/subagents/round115_nyc_lpc_fuller_official/round115_nyc_lpc_fuller_candidates.json",
+      "tmp/subagents/round115_nyc_lpc_individual_official/round115_nyc_lpc_individual_candidates.json",
+      "tmp/subagents/round116_nyc_lpc_permits_official/candidates.json",
+      "tmp/subagents/round116_nyc_public_projects_official/candidates.json",
+      "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+      "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+      "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+      "tmp/subagents/round117_nyc_zap_lpc/candidates.json",
+      "tmp/subagents/round118_nyc_ddc_hpd_parks_pages/candidates.json",
+      "tmp/subagents/round118_nyc_hpd_parks_official/candidates.json",
+      "tmp/subagents/round118_nyc_zoning_text_more/candidates.json",
+      "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+      "tmp/subagents/round120_nyc_ddc_projects_official/candidates.json",
+      "tmp/subagents/round120_nyc_libraries_sca_narrow/candidates.json",
+      "tmp/subagents/round120_nyc_lpc_designations_more/candidates.json",
+      "tmp/subagents/round121_nyc_public_facilities_more/candidates.json",
+      "tmp/subagents/round122_nyc_lpc_permits_designations/candidates.json",
+      "tmp/subagents/round122_nyc_public_schools_geocoded/candidates.json",
+      "tmp/subagents/round124_nyc_public_design_commission/candidates.json",
+      "tmp/subagents/round125_nyc_civic_capital_projects/candidates.json",
+      "tmp/subagents/round125_nyc_dcp_zap_landuse/candidates.json",
+      "tmp/subagents/round126_nyc_pdc_more_design_review/candidates.json",
+      "tmp/subagents/round127_nyc_dot_public_realm_reconstruction/candidates.json",
+      "tmp/subagents/round128_nyc_capital_projects_dashboard/candidates.json",
+      "tmp/subagents/round130_nyc_official_more/candidates.json",
+      "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+      "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+      "tmp/subagents/round138_nyc_lpc_individual_landmark_gaps/candidates.json",
+      "tmp/subagents/round142_nyc_lpc_designation_gaps/candidates.json",
+      "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+      "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+      "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+      "tmp/subagents/round154_nyc_lpc_permit_deep/candidates.json",
+      "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+      "tmp/subagents/round158_nyc_dob_now_next3/candidates.json",
+      "tmp/subagents/round159_nyc_lpc_permit_next/candidates.json",
+      "tmp/subagents/round160_nyc_dob_co_next2/candidates.json"
+    ],
+    "permit_rows_fetched": 191708,
+    "permit_rows_after_duplicate_and_geometry_filters": 141899,
+    "application_rows_fetched": 107896,
+    "candidate_pool_before_balancing": 2850,
+    "candidate_count": 240,
+    "retained_less_than_target_reason": null,
+    "rejected_counts": {
+      "duplicate_permit_row_in_source": 27429,
+      "existing_job_or_permit_record": 3613,
+      "duplicate_base_job_in_permit_query": 18765,
+      "invalid_or_outside_nyc_permit_geometry": 2,
+      "no_joined_application_row": 128778,
+      "below_high_signal_scale_threshold": 10271
+    },
+    "selected_job_types": [
+      "New Building",
+      "Alteration CO",
+      "ALT-CO - New Building with Existing Elements to Remain"
+    ],
+    "selected_permit_work_types": [
+      "General Construction",
+      "Foundation",
+      "Structural",
+      "Earthwork",
+      "Support of Excavation"
+    ],
+    "high_signal_thresholds": {
+      "total_construction_floor_area_gte": 25000,
+      "proposed_dwelling_units_gte": 20,
+      "proposed_height_gte": 45,
+      "proposed_stories_gte": 5,
+      "initial_cost_or_estimated_job_costs_gte": 3000000,
+      "public_owner_name_pattern": "NYCHA|SCHOOL CONSTRUCTION AUTHORITY|NYC|HOSPITAL|LIBRARY|PARKS|DORMITORY AUTHORITY|MTA|CUNY|HHC|HEALTH|UNIVERSITY|DEPARTMENT|AUTHORITY|HOUSING PRESERVATION|ECONOMIC DEVELOPMENT|PORT AUTHORITY|TRANSIT"
+    },
+    "selected_summary": {
+      "by_borough": {
+        "Manhattan": 60,
+        "Bronx": 60,
+        "Brooklyn": 60,
+        "Queens": 53,
+        "Staten Island": 7
+      },
+      "by_work_type": {
+        "General Construction": 158,
+        "Support of Excavation": 11,
+        "Foundation": 23,
+        "Structural": 48
+      },
+      "by_job_type": {
+        "Alteration CO": 93,
+        "New Building": 129,
+        "ALT-CO - New Building with Existing Elements to Remain": 18
+      },
+      "by_year": {
+        "2021": 5,
+        "2022": 41,
+        "2023": 55,
+        "2024": 51,
+        "2025": 55,
+        "2026": 33
+      }
+    }
+  },
+  "caveats": [
+    "Administrative DOB NOW filing/permit milestone only.",
+    "Not proof that a building was built, completed, opened, occupied, or causally linked to outcomes.",
+    "Coordinates are DOB/Open Data geocoded address points.",
+    "License/terms notes are NYC Open Data / NYC.gov terms with DOB attribution; verify terms before broader redistribution."
+  ],
+  "sample_candidates": [
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_m00515433_i1_gc_1_897623203_2021_07_20",
+      "date": "2021-07-20",
+      "address": "1155 AVENUE OF THE AMERICAS",
+      "borough": "Manhattan",
+      "job_filing_number": "M00515433-I1",
+      "work_permit": "M00515433-I1-GC",
+      "source_record_id": "M00515433-I1-GC:1:897623203"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_x00487269_i1_gc_1_797262257_2021_09_02",
+      "date": "2021-09-02",
+      "address": "577 EAST 161 STREET",
+      "borough": "Bronx",
+      "job_filing_number": "X00487269-I1",
+      "work_permit": "X00487269-I1-GC",
+      "source_record_id": "X00487269-I1-GC:1:797262257"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_m00521678_i1_gc_1_540739080_2021_09_29",
+      "date": "2021-09-29",
+      "address": "225 LIBERTY STREET",
+      "borough": "Manhattan",
+      "job_filing_number": "M00521678-I1",
+      "work_permit": "M00521678-I1-GC",
+      "source_record_id": "M00521678-I1-GC:1:540739080"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_b00582869_i1_gc_1_290519187_2021_10_22",
+      "date": "2021-10-22",
+      "address": "901 WASHINGTON AVENUE",
+      "borough": "Brooklyn",
+      "job_filing_number": "B00582869-I1",
+      "work_permit": "B00582869-I1-GC",
+      "source_record_id": "B00582869-I1-GC:1:290519187"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_q00478133_i1_gc_1_454057847_2021_12_20",
+      "date": "2021-12-20",
+      "address": "11-17 BAY PARK PLACE",
+      "borough": "Queens",
+      "job_filing_number": "Q00478133-I1",
+      "work_permit": "Q00478133-I1-GC",
+      "source_record_id": "Q00478133-I1-GC:1:454057847"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_q00609668_i1_gc_cx_1_877408610_2022_01_05",
+      "date": "2022-01-05",
+      "address": "205-07 104 AVENUE",
+      "borough": "Queens",
+      "job_filing_number": "Q00609668-I1",
+      "work_permit": "Q00609668-I1-GC-CX",
+      "source_record_id": "Q00609668-I1-GC-CX:1:877408610"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_b00627465_i1_gc_1_939340198_2022_01_27",
+      "date": "2022-01-27",
+      "address": "2 HANSON PLACE",
+      "borough": "Brooklyn",
+      "job_filing_number": "B00627465-I1",
+      "work_permit": "B00627465-I1-GC",
+      "source_record_id": "B00627465-I1-GC:1:939340198"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_q00550468_i1_gc_1_441205976_2022_03_01",
+      "date": "2022-03-01",
+      "address": "135-25 NORTHERN BOULEVARD",
+      "borough": "Queens",
+      "job_filing_number": "Q00550468-I1",
+      "work_permit": "Q00550468-I1-GC",
+      "source_record_id": "Q00550468-I1-GC:1:441205976"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_m00525368_i1_gc_1_964029082_2022_03_28",
+      "date": "2022-03-28",
+      "address": "345 PARK AVENUE",
+      "borough": "Manhattan",
+      "job_filing_number": "M00525368-I1",
+      "work_permit": "M00525368-I1-GC",
+      "source_record_id": "M00525368-I1-GC:1:964029082"
+    },
+    {
+      "candidate_id": "nyc_dob_now_next4_rbx6_m00672843_i1_gc_1_211566061_2022_05_09",
+      "date": "2022-05-09",
+      "address": "80 PINE STREET",
+      "borough": "Manhattan",
+      "job_filing_number": "M00672843-I1",
+      "work_permit": "M00672843-I1-GC",
+      "source_record_id": "M00672843-I1-GC:1:211566061"
+    }
+  ]
+}

@@ -588,7 +588,7 @@
     utilities: "utilities-capacity",
     environment: "civic-catchment",
   };
-  const POINT_LENS_IDS = new Set(["built_environment", "civic_services", "economy", "utilities"]);
+  const POINT_LENS_IDS = new Set(["transport", "built_environment", "civic_services", "economy", "utilities"]);
   const DETAIL_SOURCE_ID = "osm-detail";
   const DETAIL_LENS_LAYER_IDS = [
     "lens-built-footprints-fill",
@@ -612,6 +612,7 @@
   const LENS_GUIDE_LAYER_IDS = [
     "lens-guide-area-fill",
     "lens-guide-area-line",
+    "lens-guide-ring-line",
     "lens-guide-cell-fill",
     "lens-guide-cell-line",
     "lens-guide-flow-case",
@@ -640,6 +641,8 @@
     ...DETAIL_LENS_LAYER_IDS,
     ...LENS_DETAIL_LAYER_IDS,
     "lens-built-site-icons",
+    "lens-transport-event-halo",
+    "lens-transport-event-points",
     "lens-civic-icons",
     "lens-economy-icons",
     "lens-utilities-icons",
@@ -871,6 +874,7 @@
     lensDetailYearLoaded: null,
     lensEventFeatureCount: 0,
     lensEventSourceKey: "",
+    lensInteractiveLayers: new Set(),
   };
 
   const els = {};
@@ -1362,7 +1366,18 @@
             attribution: TILE_PROVIDER.attribution,
           },
         },
-        layers: [{ id: "basemap", type: "raster", source: "basemap", paint: { "raster-fade-duration": 180 } }],
+        layers: [{
+          id: "basemap",
+          type: "raster",
+          source: "basemap",
+          paint: {
+            "raster-fade-duration": 180,
+            "raster-saturation": -0.72,
+            "raster-contrast": -0.18,
+            "raster-brightness-min": 0.22,
+            "raster-brightness-max": 1,
+          },
+        }],
       },
       center,
       zoom,
@@ -1402,7 +1417,31 @@
 
   function renderMarkers() {
     if (!state.map) return;
-    const events = filteredEvents().filter((event) => event.lngLat).slice(0, MAX_MARKERS);
+    const selected = state.selectedEvent?.lngLat ? state.selectedEvent : null;
+    const center = mapCenter();
+    const localVisibleEvents = filteredEvents()
+      .filter((event) => event.lngLat && event.confidence !== "inferred")
+      .map((event) => ({ event, distance: lngLatDistanceMeters(center, event.lngLat) }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 18)
+      .map((item) => item.event);
+    const leadingActiveEvents = filteredEvents()
+      .filter((event) => event.lngLat && event.category === state.activeLens && event.confidence !== "inferred")
+      .slice(0, Math.max(12, Math.floor(MAX_MARKERS / 3)));
+    const scopedEvents = POINT_LENS_IDS.has(state.activeLens)
+      ? lensPointEventsForActiveLens()
+      : filteredEvents().filter((event) => event.lngLat);
+    const markerCandidates = selected
+      ? [selected, ...localVisibleEvents, ...leadingActiveEvents, ...scopedEvents]
+      : [...localVisibleEvents, ...leadingActiveEvents, ...scopedEvents];
+    const seenMarkerIds = new Set();
+    const events = markerCandidates
+      .filter((event) => {
+        if (seenMarkerIds.has(event.id)) return false;
+        seenMarkerIds.add(event.id);
+        return true;
+      })
+      .slice(0, MAX_MARKERS);
     const eventIds = new Set(events.map((e) => e.id));
 
     // Remove markers that are no longer visible
@@ -1662,8 +1701,18 @@
       state.map.setPaintProperty(
         "detail-roads-visible",
         "line-opacity",
-        ["interpolate", ["linear"], ["zoom"], 10, transportActive ? 0.18 : 0.08, 14, transportActive ? 0.42 : 0.18, 17, transportActive ? 0.62 : 0.28],
+        ["interpolate", ["linear"], ["zoom"], 10, transportActive ? 0.025 : 0.04, 14, transportActive ? 0.07 : 0.1, 17, transportActive ? 0.12 : 0.16],
       );
+    }
+    if (state.map.getLayer("detail-roads-year")) {
+      state.map.setPaintProperty(
+        "detail-roads-year",
+        "line-opacity",
+        ["interpolate", ["linear"], ["zoom"], 10, 0.03, 14, builtActive ? 0.12 : 0.06, 17, builtActive ? 0.18 : 0.09],
+      );
+    }
+    if (state.map.getLayer("detail-buildings-year-outline")) {
+      state.map.setPaintProperty("detail-buildings-year-outline", "line-opacity", builtActive ? 0.22 : 0.08);
     }
   }
 
@@ -1750,10 +1799,12 @@
     ensureBuiltFootprintLensLayers();
     addLensDetailLayers();
     addLensGuideLayers();
+    addTransportEventLensLayers();
     addPointLensLayer("lens-built-site-icons", "built_environment", "lens-icon-built", 9.6, 0.72, false, 13.2);
     addPointLensLayer("lens-civic-icons", "civic_services", "lens-icon-civic", 10.2, 0.78, true);
     addPointLensLayer("lens-economy-icons", "economy", "lens-icon-economy", 9.8, 0.76, true);
     addPointLensLayer("lens-utilities-icons", "utilities", "lens-icon-utilities", 10.6, 0.78, true);
+    bindLensInteractionLayers();
 
     if (
       !state.map.getSource(LENS_ROAD_BASE_SOURCE_ID)
@@ -1767,15 +1818,15 @@
       filter: transportBaseRoadFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#201c17",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.03, 12, 0.07, 16, 0.12],
+        "line-color": "#fffdf7",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.12, 12, 0.34, 16, 0.58],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          8, ["*", ["to-number", ["get", "rank"], 1], 0.32],
-          12, ["*", ["to-number", ["get", "rank"], 1], 0.62],
-          16, ["*", ["to-number", ["get", "rank"], 1], 1.15],
+          8, ["*", transportRankExpression(), 0.34],
+          12, ["*", transportRankExpression(), 0.72],
+          16, ["*", transportRankExpression(), 1.18],
         ],
-        "line-blur": 0.2,
+        "line-blur": 0.1,
       },
     });
     state.map.addLayer({
@@ -1785,13 +1836,13 @@
       filter: transportBaseRoadFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#1b7a85",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.05, 12, 0.16, 16, 0.34],
+        "line-color": "#8bb6bd",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.06, 12, 0.18, 16, 0.34],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          8, ["*", ["to-number", ["get", "rank"], 1], 0.16],
-          12, ["*", ["to-number", ["get", "rank"], 1], 0.34],
-          16, ["*", ["to-number", ["get", "rank"], 1], 0.78],
+          8, ["*", transportRankExpression(), 0.18],
+          12, ["*", transportRankExpression(), 0.36],
+          16, ["*", transportRankExpression(), 0.76],
         ],
       },
     });
@@ -1802,15 +1853,15 @@
       filter: transportRoadFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#201c17",
-        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.2, 0.05, 1, 0.1],
+        "line-color": "#fffdf7",
+        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0.2, 0.2, 0.42, 1, 0.72],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.7, ["*", transportActivityExpression(), 1.6]], ["to-number", ["get", "rank"], 1]],
-          13, ["*", ["+", 0.9, ["*", transportActivityExpression(), 2.4]], ["to-number", ["get", "rank"], 1]],
-          16, ["*", ["+", 1.2, ["*", transportActivityExpression(), 3.7]], ["to-number", ["get", "rank"], 1]],
+          9, ["*", ["+", 0.7, ["*", transportActivityExpression(), 1.4]], transportRankExpression()],
+          13, ["*", ["+", 1.15, ["*", transportActivityExpression(), 2.35]], transportRankExpression()],
+          16, ["*", ["+", 1.7, ["*", transportActivityExpression(), 3.45]], transportRankExpression()],
         ],
-        "line-blur": 0.5,
+        "line-blur": 0.16,
       },
     });
     state.map.addLayer({
@@ -1828,15 +1879,15 @@
       filter: transportHotspotFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#d2452f",
-        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.08, 1, 0.16],
+        "line-color": "#c81f2d",
+        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.06, 1, 0.14],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 1.2, ["*", transportActivityExpression(), 3.4]], ["to-number", ["get", "rank"], 1]],
-          13, ["*", ["+", 1.8, ["*", transportActivityExpression(), 5.6]], ["to-number", ["get", "rank"], 1]],
-          16, ["*", ["+", 2.4, ["*", transportActivityExpression(), 8.4]], ["to-number", ["get", "rank"], 1]],
+          9, ["*", ["+", 0.8, ["*", transportActivityExpression(), 1.7]], transportRankExpression()],
+          13, ["*", ["+", 1.25, ["*", transportActivityExpression(), 2.6]], transportRankExpression()],
+          16, ["*", ["+", 1.8, ["*", transportActivityExpression(), 3.8]], transportRankExpression()],
         ],
-        "line-blur": 0.9,
+        "line-blur": 0.55,
       },
     });
   }
@@ -1851,7 +1902,7 @@
       layout: { visibility: "none" },
       paint: {
         "fill-color": ["coalesce", ["get", "color"], "#1b7a85"],
-        "fill-opacity": 0.035,
+        "fill-opacity": 0.025,
       },
     });
     state.map.addLayer({
@@ -1862,9 +1913,22 @@
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": ["coalesce", ["get", "color"], "#1b7a85"],
-        "line-opacity": 0.62,
+        "line-opacity": 0.7,
         "line-width": 1.2,
         "line-dasharray": [4, 2],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-ring-line",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "range_ring"],
+      layout: { visibility: "none", "line-join": "round" },
+      paint: {
+        "line-color": ["coalesce", ["get", "color"], "#1b7a85"],
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.52],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.75, 13, 1.25, 16, 1.85],
+        "line-dasharray": [1.5, 2.4],
       },
     });
     state.map.addLayer({
@@ -1875,7 +1939,7 @@
       layout: { visibility: "none" },
       paint: {
         "fill-color": ["coalesce", ["get", "color"], "#d6a33e"],
-        "fill-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.54],
+        "fill-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 1, 0.58],
       },
     });
     state.map.addLayer({
@@ -1886,8 +1950,8 @@
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": "#ffffff",
-        "line-opacity": 0.38,
-        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.22, 14, 0.52, 17, 0.9],
+        "line-opacity": 0.52,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 14, 0.62, 17, 1.05],
       },
     });
     state.map.addLayer({
@@ -1897,9 +1961,9 @@
       filter: ["==", ["get", "kind"], "flow"],
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#ffffff",
-        "line-opacity": 0.72,
-        "line-width": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.6, 1, 7.8],
+        "line-color": "#fff7e8",
+        "line-opacity": 0.54,
+        "line-width": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.4, 1, 7.4],
       },
     });
     state.map.addLayer({
@@ -1910,8 +1974,8 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": ["coalesce", ["get", "color"], "#7a3b7a"],
-        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.84],
-        "line-width": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 4.8],
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.96],
+        "line-width": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.1, 1, 6.9],
       },
     });
     state.map.addLayer({
@@ -1921,13 +1985,89 @@
       filter: ["==", ["get", "kind"], "node"],
       layout: { visibility: "none" },
       paint: {
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 4, 14, 7, 17, 10],
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 4.5, 14, 7.5, 17, 11],
         "circle-color": ["coalesce", ["get", "color"], "#1b7a85"],
-        "circle-opacity": 0.9,
-        "circle-stroke-width": 2,
+        "circle-opacity": 0.92,
+        "circle-stroke-width": 2.2,
         "circle-stroke-color": "#ffffff",
       },
     });
+  }
+
+  function addTransportEventLensLayers() {
+    if (!state.map?.getSource(LENS_SOURCE_ID) || state.map.getLayer("lens-transport-event-points")) return;
+    state.map.addLayer({
+      id: "lens-transport-event-halo",
+      type: "circle",
+      source: LENS_SOURCE_ID,
+      filter: lensCategoryFilter("transport"),
+      layout: { visibility: "none" },
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 4, 13, 7, 16, 11],
+        "circle-color": ["coalesce", ["get", "lens_layer_color"], "#0f8d95"],
+        "circle-opacity": 0.14,
+        "circle-stroke-width": 0,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-transport-event-points",
+      type: "circle",
+      source: LENS_SOURCE_ID,
+      filter: lensCategoryFilter("transport"),
+      layout: { visibility: "none" },
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 2.4, 13, 4.2, 16, 6.5],
+        "circle-color": ["coalesce", ["get", "lens_layer_color"], "#0f8d95"],
+        "circle-opacity": [
+          "case",
+          ["==", ["get", "confidence"], "inferred"],
+          0.58,
+          0.94,
+        ],
+        "circle-stroke-color": "#fffdf7",
+        "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 9, 0.8, 15, 1.6],
+      },
+    });
+  }
+
+  function bindLensInteractionLayers() {
+    if (!state.map) return;
+    const interactiveLayerIds = [
+      "lens-transport-event-points",
+      "lens-built-site-icons",
+      "lens-civic-icons",
+      "lens-economy-icons",
+      "lens-utilities-icons",
+      "lens-civic-facility-icons",
+      "lens-utility-asset-icons",
+      "lens-planning-cells-fill",
+      "lens-civic-coverage-fill",
+      "lens-economy-cells-fill",
+      "lens-economy-frontage",
+      "lens-utilities-trace",
+    ];
+    for (const layerId of interactiveLayerIds) {
+      if (state.lensInteractiveLayers.has(layerId) || !state.map.getLayer(layerId)) continue;
+      state.map.on("click", layerId, (event) => {
+        const feature = event.features?.[0];
+        const eventId = featureEventId(feature);
+        if (eventId) selectEvent(eventId);
+      });
+      state.map.on("mouseenter", layerId, () => {
+        if (state.map) state.map.getCanvas().style.cursor = "pointer";
+      });
+      state.map.on("mouseleave", layerId, () => {
+        if (state.map) state.map.getCanvas().style.cursor = "";
+      });
+      state.lensInteractiveLayers.add(layerId);
+    }
+  }
+
+  function featureEventId(feature) {
+    const props = feature?.properties || {};
+    if (props.event_id) return String(props.event_id);
+    const first = String(props.event_ids || props.event_ids_all || "").split(",").map((item) => item.trim()).find(Boolean);
+    return first || "";
   }
 
   function addLensDetailLayers() {
@@ -1941,7 +2081,7 @@
       layout: { visibility: "none" },
       paint: {
         "fill-color": planningCellColorExpression(),
-        "fill-opacity": lensDetailFillOpacity(0.2, 0.64),
+        "fill-opacity": lensDetailFillOpacity(0.18, 0.58),
       },
     });
     state.map.addLayer({
@@ -2024,10 +2164,10 @@
       filter: lensDetailFilter("economy_frontage"),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#201c17",
-        "line-opacity": lensDetailLineOpacity(0.08, 0.24),
-        "line-width": lensTraceWidthExpression(2.2, 7.2),
-        "line-blur": 0.4,
+        "line-color": "#fffdf7",
+        "line-opacity": lensDetailLineOpacity(0.24, 0.58),
+        "line-width": lensTraceWidthExpression(2.6, 8.4),
+        "line-blur": 0.18,
       },
     });
     state.map.addLayer({
@@ -2039,8 +2179,8 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": economyCellColorExpression(),
-        "line-opacity": lensDetailLineOpacity(0.28, 0.86),
-        "line-width": lensTraceWidthExpression(0.8, 4.2),
+        "line-opacity": lensDetailLineOpacity(0.36, 0.92),
+        "line-width": lensTraceWidthExpression(1.05, 4.9),
       },
     });
     state.map.addLayer({
@@ -2051,10 +2191,10 @@
       filter: lensDetailFilter("utility_trace"),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
-        "line-color": "#201c17",
-        "line-opacity": lensDetailLineOpacity(0.1, 0.3),
-        "line-width": lensTraceWidthExpression(2.4, 7.6),
-        "line-blur": 0.35,
+        "line-color": "#fffdf7",
+        "line-opacity": lensDetailLineOpacity(0.24, 0.62),
+        "line-width": lensTraceWidthExpression(2.8, 8.8),
+        "line-blur": 0.18,
       },
     });
     state.map.addLayer({
@@ -2066,8 +2206,8 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": utilityTraceColorExpression(),
-        "line-opacity": lensDetailLineOpacity(0.28, 0.9),
-        "line-width": lensTraceWidthExpression(0.9, 4.4),
+        "line-opacity": lensDetailLineOpacity(0.36, 0.94),
+        "line-width": lensTraceWidthExpression(1.05, 5.2),
         "line-dasharray": [1.8, 0.8],
       },
     });
@@ -2106,7 +2246,7 @@
 
   function lensTraceWidthExpression(low, high) {
     const intensity = lensDetailIntensityExpression();
-    const rank = ["min", 2.4, ["max", 0.7, ["to-number", ["get", "rank"], 1]]];
+    const rank = ["min", 1.55, ["max", 0.7, ["to-number", ["get", "rank"], 1]]];
     return [
       "interpolate", ["linear"], ["zoom"],
       9, ["*", ["interpolate", ["linear"], intensity, 0, low * 0.36, 1, high * 0.36], rank],
@@ -2140,13 +2280,13 @@
     }
     return [
       "match", ["get", "lifecycle_status"],
-      "permitted", "#d6a33e",
-      "proposed", "#c98667",
-      "planned", "#b887b8",
-      "construction", "#d66a3a",
-      "completed", "#4f9a5b",
-      "demolished", "#655b54",
-      "inferred", "#8f9d9d",
+      "proposed", "#ef7775",
+      "permitted", "#f2c45f",
+      "planned", "#f2c45f",
+      "construction", "#7e68b8",
+      "completed", "#6f9c7b",
+      "demolished", "#d95992",
+      "inferred", "#b8b6a8",
       "uncertain", "#b8b6a8",
       "#b8b6a8",
     ];
@@ -2481,6 +2621,7 @@
     updateLensGuideSource();
     if (!state.map.getSource(LENS_SOURCE_ID)) return;
     ensureBuiltFootprintLensLayers();
+    addTransportEventLensLayers();
     addLensDetailLayers();
     for (const layerId of ["lens-heatmap", "lens-current-points-glow", "lens-current-points"]) {
       if (state.map.getLayer(layerId)) state.map.setLayoutProperty(layerId, "visibility", "none");
@@ -2489,15 +2630,17 @@
     updateLensDetailLayers();
     updateLensGuideLayers();
     updatePointLensLayer("lens-built-site-icons", "built_environment");
+    updateTransportEventLensLayers();
     updatePointLensLayer("lens-civic-icons", "civic_services");
     updatePointLensLayer("lens-economy-icons", "economy");
     updatePointLensLayer("lens-utilities-icons", "utilities");
+    bindLensInteractionLayers();
 
     const showTransportRoads = isActiveMapLens("transport");
     for (const layerId of ["lens-transport-base-case", "lens-transport-base"]) {
       if (!state.map.getLayer(layerId)) continue;
       state.map.setFilter(layerId, transportBaseRoadFilter());
-      state.map.setLayoutProperty(layerId, "visibility", showTransportRoads ? "visible" : "none");
+      state.map.setLayoutProperty(layerId, "visibility", "none");
     }
     for (const layerId of ["lens-transport-roads-case", "lens-transport-roads"]) {
       if (!state.map.getLayer(layerId)) continue;
@@ -2515,26 +2658,40 @@
     renderLensLegend();
   }
 
+  function updateTransportEventLensLayers() {
+    const visible = isActiveMapLens("transport");
+    for (const layerId of ["lens-transport-event-halo", "lens-transport-event-points"]) {
+      if (!state.map?.getLayer(layerId)) continue;
+      state.map.setFilter(layerId, lensCategoryFilter("transport"));
+      state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
+    }
+  }
+
   function updatePointLensLayer(layerId, category) {
     if (!state.map?.getLayer(layerId)) return;
     state.map.setFilter(layerId, lensCategoryFilter(category));
     const detailBacked = category !== "built_environment" && Boolean(lensDetailYearPath(state.year));
-    state.map.setLayoutProperty(layerId, "visibility", isActiveMapLens(category) && !detailBacked ? "visible" : "none");
+    const hiddenByAspect = category === "built_environment" && activeMapLens().id === "planning-pressure";
+    state.map.setLayoutProperty(layerId, "visibility", isActiveMapLens(category) && !detailBacked && !hiddenByAspect ? "visible" : "none");
   }
 
   function updateLensDetailLayers() {
     if (!state.map?.getSource(LENS_DETAIL_SOURCE_ID)) return;
     const aspect = activeMapLens();
+    const showPlanningCells = isActiveMapLens("built_environment");
+    const showCivicCells = isActiveMapLens("civic_services");
+    const showEconomyCells = isActiveMapLens("economy") && aspect.id !== "economy-gravity";
+    const showEconomyFrontage = isActiveMapLens("economy") && !["economy-land-use", "economy-gravity"].includes(aspect.id);
     const visibilityByLayer = {
-      "lens-planning-cells-fill": isActiveMapLens("built_environment"),
-      "lens-planning-cells-outline": isActiveMapLens("built_environment"),
-      "lens-civic-coverage-fill": isActiveMapLens("civic_services"),
-      "lens-civic-coverage-outline": isActiveMapLens("civic_services"),
+      "lens-planning-cells-fill": showPlanningCells,
+      "lens-planning-cells-outline": showPlanningCells,
+      "lens-civic-coverage-fill": showCivicCells,
+      "lens-civic-coverage-outline": showCivicCells,
       "lens-civic-facility-icons": isActiveMapLens("civic_services"),
-      "lens-economy-cells-fill": isActiveMapLens("economy") && aspect.id !== "economy-vitality" && aspect.id !== "economy-gravity",
-      "lens-economy-cells-outline": isActiveMapLens("economy") && aspect.id !== "economy-vitality" && aspect.id !== "economy-gravity",
-      "lens-economy-frontage-case": isActiveMapLens("economy") && aspect.id !== "economy-land-use",
-      "lens-economy-frontage": isActiveMapLens("economy") && aspect.id !== "economy-land-use",
+      "lens-economy-cells-fill": showEconomyCells,
+      "lens-economy-cells-outline": showEconomyCells,
+      "lens-economy-frontage-case": showEconomyFrontage,
+      "lens-economy-frontage": showEconomyFrontage,
       "lens-utilities-trace-case": isActiveMapLens("utilities"),
       "lens-utilities-trace": isActiveMapLens("utilities"),
       "lens-utility-asset-icons": isActiveMapLens("utilities"),
@@ -2560,10 +2717,16 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.04, 0.18) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.08, 0.28) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : lensDetailFillOpacity(0.16, 0.56));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : lensDetailLineOpacity(0.16, 0.66));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
     setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
@@ -2577,12 +2740,14 @@
     if (!state.map?.getSource(LENS_GUIDE_SOURCE_ID)) return;
     const lens = activeMapLens();
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
+    const showRings = showGuide && ["transport-speed", "transport-reliability", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id);
     const showCells = showGuide && ["transport-access", "civic-catchment", "civic-demand", "economy-land-use"].includes(lens.id);
-    const showFlows = showGuide && ["economy-gravity", "civic-demand"].includes(lens.id);
-    const showNodes = showGuide && ["economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id);
+    const showFlows = showGuide && ["planning-pressure", "civic-access-gaps", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
+    const showNodes = showGuide && ["planning-pressure", "civic-access-gaps", "economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id);
     const visibility = {
       "lens-guide-area-fill": showGuide,
       "lens-guide-area-line": showGuide,
+      "lens-guide-ring-line": showRings,
       "lens-guide-cell-fill": showCells,
       "lens-guide-cell-line": showCells,
       "lens-guide-flow-case": showFlows,
@@ -2592,10 +2757,18 @@
     for (const [layerId, visible] of Object.entries(visibility)) {
       if (state.map.getLayer(layerId)) state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
     }
+    for (const layerId of LENS_GUIDE_LAYER_IDS) {
+      if (state.map.getLayer(layerId)) {
+        try { state.map.moveLayer(layerId); } catch (_error) { /* layer order is best-effort */ }
+      }
+    }
   }
 
   function updateBuiltFootprintLensLayers() {
-    const showBuilt = isActiveMapLens("built_environment") && state.map?.getSource(DETAIL_SOURCE_ID);
+    const aspect = activeMapLens();
+    const showBuilt = isActiveMapLens("built_environment")
+      && ["planning-delta", "planning-parcels"].includes(aspect.id)
+      && state.map?.getSource(DETAIL_SOURCE_ID);
     for (const layerId of DETAIL_LENS_LAYER_IDS) {
       if (!state.map?.getLayer(layerId)) continue;
       const filter = layerId === "lens-built-footprints-year" ? builtFootprintYearFilter() : builtFootprintFilter();
@@ -2729,39 +2902,44 @@
       },
       geometry: circlePolygon(center, radiusM, 96),
     });
+    features.push(...rangeRingFeatures(center, radiusM, lens, accent));
 
     if (lens.id === "transport-access") {
-      const bands = [
-        [0.25, "#e97761"],
-        [0.45, "#edbd62"],
-        [0.65, "#dcd776"],
-        [0.84, "#9bcf9d"],
-        [1, "#7fc0bf"],
-      ];
-      [...bands].reverse().forEach(([intensity, color], index) => {
-        features.push({
-          type: "Feature",
-          properties: { kind: "surface_cell", lens_id: lens.id, intensity, color },
-          geometry: isochronePolygon(center, radiusM * intensity, index + 1),
-        });
-      });
+      features.push(...hexGuideCells(center, radiusM, lens, 92));
     } else if (["civic-catchment", "civic-demand"].includes(lens.id)) {
-      features.push(...hexGuideCells(center, radiusM, lens));
-    } else if (lens.id === "economy-land-use") {
-      features.push(...hexGuideCells(center, radiusM, lens, 145));
+      features.push(...hexGuideCells(center, radiusM, lens, lens.id === "civic-demand" ? 125 : 165));
     }
 
-    if (["economy-gravity", "civic-demand"].includes(lens.id)) {
+    if (["planning-pressure", "civic-access-gaps", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id)) {
       features.push(...flowGuideFeatures(center, lens));
     }
-    if (["economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id)) {
+    if (["economy-gravity", "utilities-resilience", "utilities-capacity", "planning-pressure", "civic-access-gaps"].includes(lens.id)) {
       features.push(...nodeGuideFeatures(center, lens));
     }
     return { type: "FeatureCollection", features };
   }
 
+  function rangeRingFeatures(center, radiusM, lens, accent) {
+    if (!["transport-speed", "transport-reliability", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id)) return [];
+    const stops = lens.id.startsWith("transport") ? [0.35, 0.68, 1] : [0.42, 0.72, 1];
+    return stops.map((scale, index) => ({
+      type: "Feature",
+      properties: {
+        kind: "range_ring",
+        lens_id: lens.id,
+        radius_m: Math.round(radiusM * scale),
+        intensity: Number((0.35 + index * 0.28).toFixed(2)),
+        color: accent,
+      },
+      geometry: circlePolygon(center, radiusM * scale, 96),
+    }));
+  }
+
   function hexGuideCells(center, radiusM, lens, stepM = 210) {
     const features = [];
+    const sourceEvents = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === (lens.category || state.activeLens) && event.lngLat);
+    const limit = guideCellLimit(lens.id);
     let row = 0;
     for (let dy = -radiusM; dy <= radiusM; dy += stepM * 0.82) {
       const offset = row % 2 ? stepM * 0.5 : 0;
@@ -2769,11 +2947,10 @@
         const distance = Math.hypot(dx, dy);
         if (distance > radiusM * 0.98) continue;
         const angle = Math.atan2(dy, dx);
-        const wave = (Math.sin(angle * 3 + state.year * 0.37) + 1) / 2;
-        const proximity = 1 - distance / radiusM;
-        const intensity = clamp01(0.28 + proximity * 0.56 + wave * 0.22);
-        const color = surfaceColorForLens(lens.id, intensity, angle);
         const cellCenter = offsetLngLat(center, dx, dy);
+        const intensity = eventSurfaceIntensity(cellCenter, center, radiusM, sourceEvents);
+        const nearestEvent = nearestGuideEvent(cellCenter, sourceEvents, radiusM * 0.72);
+        const color = surfaceColorForLens(lens.id, intensity, angle, nearestEvent, lens);
         features.push({
           type: "Feature",
           properties: {
@@ -2781,62 +2958,228 @@
             lens_id: lens.id,
             intensity: Number(intensity.toFixed(3)),
             color,
+            event_id: nearestEvent?.id || "",
           },
           geometry: hexPolygon(cellCenter, stepM * 0.48),
         });
       }
       row += 1;
     }
-    return features.slice(0, 130);
+    return features
+      .sort((a, b) => (Number(b.properties.intensity) - Number(a.properties.intensity)))
+      .slice(0, limit);
+  }
+
+  function guideCellLimit(lensId) {
+    if (lensId === "transport-access") return 520;
+    if (lensId === "economy-land-use") return 620;
+    if (lensId === "civic-demand") return 430;
+    if (lensId === "civic-catchment") return 360;
+    return 180;
+  }
+
+  function nearestGuideEvent(cellCenter, events, maxDistance) {
+    let best = null;
+    let bestDistance = Infinity;
+    for (const event of events) {
+      const distance = lngLatDistanceMeters(cellCenter, event.lngLat);
+      if (distance < bestDistance && distance <= maxDistance) {
+        best = event;
+        bestDistance = distance;
+      }
+    }
+    return best;
   }
 
   function flowGuideFeatures(center, lens) {
-    const category = lens.category || state.activeLens;
-    const colors = lens.layers?.map((layer) => layer.color).filter(Boolean) || [lens.accent || "#7a3b7a"];
-    const events = lensEventsForYear(currentTimelineYear())
-      .filter((event) => event.category === category && event.lngLat && event.id !== state.selectedEventId)
-      .map((event) => ({ event, distance: lngLatDistanceMeters(center, event.lngLat) }))
-      .filter((item) => item.distance > 120 && item.distance < Number(lens.radiusM || 1500) * 1.35)
-      .sort((a, b) => a.distance - b.distance)
-      .slice(0, 9);
-    const anchors = events.length ? events.map((item) => item.event.lngLat) : [30, 75, 115, 155, 205, 250, 300].map((deg) => {
-      const radians = deg * Math.PI / 180;
-      return offsetLngLat(center, Math.cos(radians) * 820, Math.sin(radians) * 820);
+    const radiusM = Number(lens.radiusM || 1500);
+    const maxFactorByLens = {
+      "planning-pressure": 3.8,
+      "civic-access-gaps": 2.5,
+      "civic-demand": 1.65,
+      "economy-gravity": 1.35,
+      "utilities-capacity": 2.8,
+      "utilities-resilience": 2.6,
+      "utilities-works": 2.35,
+    };
+    const limitByLens = {
+      "planning-pressure": 20,
+      "civic-access-gaps": 16,
+      "civic-demand": 12,
+      "economy-gravity": 9,
+      "utilities-capacity": 14,
+      "utilities-resilience": 13,
+      "utilities-works": 12,
+    };
+    const maxDistance = radiusM * (maxFactorByLens[lens.id] || 1.35);
+    const events = nearbyLensEventAnchors(center, lens, {
+      maxDistance,
+      minDistance: lens.id === "economy-gravity" ? 120 : 80,
+      limit: limitByLens[lens.id] || 9,
+      distributed: !["economy-gravity", "civic-demand"].includes(lens.id),
     });
-    return anchors.map((target, index) => ({
+    if (["utilities-capacity", "utilities-works"].includes(lens.id)) {
+      return linkedEventGuideFeatures(center, lens, events, maxDistance);
+    }
+    return events.map((item, index) => {
+      const intensity = clamp01(0.24 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.58 + confidenceRank(item.event.confidence) * 0.04);
+      return {
       type: "Feature",
       properties: {
         kind: "flow",
         lens_id: lens.id,
-        intensity: Number((0.48 + (index % 5) * 0.1).toFixed(2)),
-        color: colors[index % colors.length],
+        event_id: item.event.id,
+        intensity: Number(intensity.toFixed(2)),
+        color: guideFlowColor(lens, item.event, index, intensity),
       },
-      geometry: { type: "LineString", coordinates: curvedLine(center, target, index % 2 ? -0.24 : 0.24) },
-    }));
+      geometry: { type: "LineString", coordinates: curvedLine(center, item.event.lngLat, index % 2 ? -0.18 : 0.18) },
+    };
+    });
   }
 
   function nodeGuideFeatures(center, lens) {
-    const colors = lens.layers?.map((layer) => layer.color).filter(Boolean) || [lens.accent || "#1b7a85"];
-    const bearings = lens.id === "utilities-resilience"
-      ? [22, 80, 150, 225, 290]
-      : [45, 135, 215, 315];
-    return bearings.map((deg, index) => {
-      const radians = deg * Math.PI / 180;
-      const distance = (Number(lens.radiusM || 800) * (0.36 + (index % 3) * 0.16));
+    const radiusM = Number(lens.radiusM || 800);
+    const maxDistance = radiusM * (["planning-pressure", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id) ? 2.35 : 1.18);
+    const anchors = nearbyLensEventAnchors(center, lens, {
+      maxDistance,
+      minDistance: 70,
+      limit: lens.id === "economy-gravity" ? 9 : 10,
+      distributed: ["planning-pressure", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id),
+    });
+    return anchors
+      .map((item) => {
+        const intensity = clamp01(0.18 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.72);
       return {
         type: "Feature",
         properties: {
           kind: "node",
           lens_id: lens.id,
-          intensity: 0.7,
-          color: colors[index % colors.length],
+          event_id: item.event.id,
+          title: item.event.title,
+          intensity: Number(intensity.toFixed(2)),
+          color: guideFlowColor(lens, item.event, 0, intensity),
         },
-        geometry: { type: "Point", coordinates: offsetLngLat(center, Math.cos(radians) * distance, Math.sin(radians) * distance) },
+        geometry: { type: "Point", coordinates: item.event.lngLat },
       };
     });
   }
 
-  function surfaceColorForLens(lensId, intensity, angle) {
+  function nearbyLensEventAnchors(center, lens, options = {}) {
+    const category = lens.category || state.activeLens;
+    const maxDistance = Number(options.maxDistance || lens.radiusM || 1500);
+    const minDistance = Number(options.minDistance || 80);
+    const limit = Number(options.limit || 10);
+    const candidates = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === category && event.lngLat && event.id !== state.selectedEventId)
+      .map((event) => {
+        const dx = event.lngLat[0] - center[0];
+        const dy = event.lngLat[1] - center[1];
+        const distance = lngLatDistanceMeters(center, event.lngLat);
+        return { event, distance, angle: Math.atan2(dy, dx) };
+      })
+      .filter((item) => item.distance > minDistance && item.distance < maxDistance);
+    if (!options.distributed) {
+      return candidates
+        .sort((a, b) => a.distance - b.distance || confidenceRank(b.event.confidence) - confidenceRank(a.event.confidence))
+        .slice(0, limit);
+    }
+    const bucketCount = Math.max(8, Math.min(18, Math.round(limit * 0.9)));
+    const byBucket = new Map();
+    for (const item of candidates) {
+      const bucket = Math.floor(((item.angle + Math.PI) / (Math.PI * 2)) * bucketCount);
+      const score = (item.distance / maxDistance) * 0.52 + confidenceRank(item.event.confidence) * 0.08 + lensHeatWeight(item.event) * 0.12;
+      const previous = byBucket.get(bucket);
+      if (!previous || score > previous.score) byBucket.set(bucket, { ...item, score });
+    }
+    const selected = [...byBucket.values()].sort((a, b) => a.angle - b.angle);
+    const selectedIds = new Set(selected.map((item) => item.event.id));
+    if (selected.length < limit) {
+      const fillers = candidates
+        .filter((item) => !selectedIds.has(item.event.id))
+        .sort((a, b) => a.distance - b.distance || confidenceRank(b.event.confidence) - confidenceRank(a.event.confidence))
+        .slice(0, limit - selected.length);
+      selected.push(...fillers);
+    }
+    return selected.slice(0, limit);
+  }
+
+  function linkedEventGuideFeatures(center, lens, anchors, maxDistance) {
+    const links = [];
+    const previous = [];
+    anchors.forEach((item, index) => {
+      const source = previous
+        .map((candidate) => ({ candidate, distance: lngLatDistanceMeters(candidate.event.lngLat, item.event.lngLat) }))
+        .filter((candidate) => candidate.distance < maxDistance * 0.62)
+        .sort((a, b) => a.distance - b.distance)[0]?.candidate;
+      const from = source?.event.lngLat || center;
+      const intensity = clamp01(0.28 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.52 + confidenceRank(item.event.confidence) * 0.03);
+      links.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          event_id: item.event.id,
+          intensity: Number(intensity.toFixed(2)),
+          color: guideFlowColor(lens, item.event, index, intensity),
+        },
+        geometry: { type: "LineString", coordinates: curvedLine(from, item.event.lngLat, index % 2 ? -0.1 : 0.1) },
+      });
+      previous.push(item);
+    });
+    return links;
+  }
+
+  function guideFlowColor(lens, event, index, intensity) {
+    if (lens.id === "planning-pressure") {
+      if (intensity > 0.76) return "#b91f32";
+      if (intensity > 0.6) return "#d84a2d";
+      if (intensity > 0.44) return "#efaa3c";
+      if (intensity > 0.3) return "#77aaa1";
+      return "#8fb2bd";
+    }
+    if (lens.id === "civic-access-gaps") {
+      if (intensity > 0.72) return "#ed4a2e";
+      if (intensity > 0.54) return "#ef8f21";
+      if (intensity > 0.38) return "#e4b33c";
+      return index % 2 ? "#348f67" : "#0f8d95";
+    }
+    if (lens.id === "civic-demand") {
+      if (intensity > 0.7) return "#cf3d4d";
+      if (intensity > 0.52) return "#ed7c62";
+      if (intensity > 0.36) return "#efc06d";
+      return "#55a39d";
+    }
+    if (lens.id === "utilities-capacity") {
+      if (intensity > 0.76) return "#d62d35";
+      if (intensity > 0.58) return "#ed6b35";
+      if (intensity > 0.4) return "#e5b734";
+      return "#438c64";
+    }
+    const lensLayer = lensLayerForEvent(event, lens);
+    return lensLayer.color || lens.layers?.[index % Math.max(1, lens.layers.length)]?.color || lens.accent || "#1b7a85";
+  }
+
+  function eventSurfaceIntensity(cellCenter, lensCenter, radiusM, events) {
+    const proximity = 1 - Math.min(radiusM, lngLatDistanceMeters(lensCenter, cellCenter)) / Math.max(1, radiusM);
+    if (!events.length) return clamp01(0.18 + proximity * 0.3);
+    let score = 0;
+    for (const event of events) {
+      const distance = lngLatDistanceMeters(cellCenter, event.lngLat);
+      if (distance > radiusM * 0.55) continue;
+      const weight = confidenceRank(event.confidence) / 4;
+      score += Math.max(0, 1 - distance / (radiusM * 0.55)) * Math.max(0.18, weight);
+    }
+    return clamp01(0.16 + proximity * 0.2 + Math.min(0.74, score * 0.32));
+  }
+
+  function surfaceColorForLens(lensId, intensity, angle, nearestEvent = null, lens = activeMapLens()) {
+    if (lensId === "transport-access") {
+      if (intensity > 0.84) return "#e97761";
+      if (intensity > 0.66) return "#edbd62";
+      if (intensity > 0.5) return "#dcd776";
+      if (intensity > 0.34) return "#9bcf9d";
+      return "#7fc0bf";
+    }
     if (lensId === "civic-demand") {
       if (intensity > 0.8) return "#cf3d4d";
       if (intensity > 0.64) return "#ed7c62";
@@ -2852,6 +3195,7 @@
       return "#e68c70";
     }
     if (lensId === "economy-land-use") {
+      if (nearestEvent) return lensLayerForEvent(nearestEvent, lens).color || "#ca3b32";
       const palette = ["#ca3b32", "#df8884", "#158c97", "#7b3a8f", "#f0b342", "#8a8f8a"];
       return palette[Math.abs(Math.floor((angle + Math.PI) * 3 + intensity * 6)) % palette.length];
     }
@@ -2879,12 +3223,34 @@
     if (!POINT_LENS_IDS.has(state.activeLens)) {
       return { type: "FeatureCollection", features };
     }
-    const events = lensEventsForYear(currentTimelineYear())
+    const events = lensPointEventsForActiveLens()
       .filter((event) => event.category === state.activeLens);
     for (const event of events) {
       features.push(lensFeatureFromEvent(event, "current"));
     }
     return { type: "FeatureCollection", features };
+  }
+
+  function lensPointEventsForActiveLens() {
+    let events = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === state.activeLens);
+    const center = state.selectedEvent?.lngLat || mapCenter();
+    const radiusM = lensEffectiveRadiusM(activeMapLens()) * (state.activeLens === "transport" ? 2.4 : 1.8);
+    const limit = state.activeLens === "transport" ? 90 : 120;
+    events = events
+      .map((event) => ({ event, distance: event.lngLat ? lngLatDistanceMeters(center, event.lngLat) : Infinity }))
+      .filter((item) => item.event.id === state.selectedEventId || (item.event.confidence !== "inferred" && item.distance <= radiusM))
+      .sort((a, b) => {
+        if (a.event.id === state.selectedEventId) return -1;
+        if (b.event.id === state.selectedEventId) return 1;
+        return a.distance - b.distance || confidenceRank(b.event.confidence) - confidenceRank(a.event.confidence);
+      })
+      .slice(0, limit)
+      .map((item) => item.event);
+    if (state.selectedEvent && state.selectedEvent.category === state.activeLens && events.every((event) => event.id !== state.selectedEvent.id)) {
+      events.unshift(state.selectedEvent);
+    }
+    return events;
   }
 
   function lensEventsForYear(year) {
@@ -2901,6 +3267,7 @@
 
   function lensFeatureFromEvent(event, role) {
     const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
+    const lensLayer = lensLayerForEvent(event, activeMapLens());
     return {
       type: "Feature",
       id: `${role}-${event.id}`,
@@ -2912,6 +3279,9 @@
         short_description: event.shortDescription || event.summary || "",
         category: event.category,
         category_color: layer.color,
+        lens_layer_id: lensLayer.id,
+        lens_layer_label: lensLayer.label,
+        lens_layer_color: lensLayer.color,
         year: Number(event.year),
         confidence: event.confidence || "documented",
         heat_weight: lensHeatWeight(event),
@@ -2921,6 +3291,12 @@
       },
       geometry: { type: "Point", coordinates: event.lngLat },
     };
+  }
+
+  function lensLayerForEvent(event, lens = activeMapLens()) {
+    const layers = lensLayers(lens);
+    const matched = layers.find((layer) => !layer.categoryToggle && eventMatchesTerms(event, aspectLayerTerms(layer)));
+    return matched || layers.find((layer) => layer.categoryToggle) || LAYER_BY_ID.get(event.category) || LAYERS[0];
   }
 
   function isLensPointEvent(event) {
@@ -2991,11 +3367,19 @@
   }
 
   function transportRoadFilter() {
+    const mode = activeMapLens().id;
+    const rank = ["to-number", ["get", "rank"], 1];
+    const threshold = mode === "transport-speed" ? 0.26
+      : mode === "transport-reliability" ? 0.2
+      : 0.34;
     return [
       "all",
       ["==", ["get", "layer"], "traffic_road"],
       ["<=", ["to-number", ["get", "visible_year"], 9999], currentTimelineYear()],
-      [">", transportActivityExpression(), 0],
+      ["any",
+        [">=", rank, 3],
+        [">=", transportActivityExpression(), threshold],
+      ],
     ];
   }
 
@@ -3004,7 +3388,7 @@
       "all",
       ["==", ["get", "layer"], "traffic_road"],
       ["<=", ["to-number", ["get", "visible_year"], 9999], currentTimelineYear()],
-      [">=", transportActivityExpression(), 0.45],
+      [">=", transportActivityExpression(), 0.62],
     ];
   }
 
@@ -3012,8 +3396,13 @@
     return ["to-number", ["get", "transport_activity"], 0];
   }
 
+  function transportRankExpression() {
+    return ["min", 2.2, ["max", 0.72, ["to-number", ["get", "rank"], 1]]];
+  }
+
   function transportRoadPaint() {
     const activity = transportActivityExpression();
+    const rank = transportRankExpression();
     const mode = activeMapLens().id;
     if (mode === "transport-access") {
       return {
@@ -3025,14 +3414,14 @@
           0.75, "#edbd62",
           1, "#e97761",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.2, 0.2, 0.48, 1, 0.82],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.16, 0.2, 0.34, 1, 0.62],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.36, ["*", activity, 1.4]], ["to-number", ["get", "rank"], 1]],
-          13, ["*", ["+", 0.72, ["*", activity, 2.2]], ["to-number", ["get", "rank"], 1]],
-          16, ["*", ["+", 1.2, ["*", activity, 3.4]], ["to-number", ["get", "rank"], 1]],
+          9, ["*", ["+", 0.24, ["*", activity, 0.65]], rank],
+          13, ["*", ["+", 0.48, ["*", activity, 1.1]], rank],
+          16, ["*", ["+", 0.82, ["*", activity, 1.75]], rank],
         ],
-        "line-dasharray": [2, 1.4],
+        "line-dasharray": [1.8, 1.2],
       };
     }
     if (mode === "transport-reliability") {
@@ -3045,14 +3434,14 @@
           0.72, "#ed3f2b",
           1, "#248b94",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.18, 0.2, 0.5, 1, 0.9],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.18, 0.2, 0.44, 1, 0.78],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.44, ["*", activity, 2.1]], ["to-number", ["get", "rank"], 1]],
-          13, ["*", ["+", 0.82, ["*", activity, 3.1]], ["to-number", ["get", "rank"], 1]],
-          16, ["*", ["+", 1.3, ["*", activity, 4.8]], ["to-number", ["get", "rank"], 1]],
+          9, ["*", ["+", 0.32, ["*", activity, 0.95]], rank],
+          13, ["*", ["+", 0.62, ["*", activity, 1.55]], rank],
+          16, ["*", ["+", 1, ["*", activity, 2.25]], rank],
         ],
-        "line-dasharray": [2.4, 1.2],
+        "line-dasharray": [2.2, 1],
       };
     }
     return {
@@ -3064,12 +3453,12 @@
         0.7, "#d66a3a",
         1, "#c8472e",
       ],
-      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.18, 0.2, 0.56, 1, 0.96],
+      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.34, 0.2, 0.64, 1, 0.92],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        9, ["*", ["+", 0.72, ["*", activity, 3.4]], ["to-number", ["get", "rank"], 1]],
-        13, ["*", ["+", 1.25, ["*", activity, 5.4]], ["to-number", ["get", "rank"], 1]],
-        16, ["*", ["+", 2, ["*", activity, 8.4]], ["to-number", ["get", "rank"], 1]],
+        9, ["*", ["+", 0.42, ["*", activity, 1.2]], rank],
+        13, ["*", ["+", 0.82, ["*", activity, 2.2]], rank],
+        16, ["*", ["+", 1.25, ["*", activity, 3.45]], rank],
       ],
       "line-dasharray": [1, 0.0001],
     };
@@ -3319,7 +3708,7 @@
     if (els.lensDataState) setText(els.lensDataState, status.label);
     els.lensLegend.innerHTML = `
       <div class="lens-legend-head">
-        <strong>${escapeHtml(lens.label)}</strong>
+        <strong>${escapeHtml(lensLegendTitle(lens))}</strong>
         <span>${escapeHtml(status.label)}</span>
       </div>
       <div class="lens-legend-summary">${escapeHtml(lens.summary)}</div>
@@ -3333,6 +3722,12 @@
       </div>
       <div class="lens-legend-note" data-empty="${status.empty}">${escapeHtml(status.note || lens.caveat)}</div>
     `;
+  }
+
+  function lensLegendTitle(lens) {
+    const category = LAYER_BY_ID.get(lens.category || lens.layerId || lens.id)?.label || "";
+    if (!category || category === lens.label) return lens.label;
+    return `${category} / ${lens.label}`;
   }
 
   function activeMapLens() {

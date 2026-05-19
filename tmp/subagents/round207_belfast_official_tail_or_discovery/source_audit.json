@@ -1,0 +1,358 @@
+{
+  "schema_version": "round207.belfast_official_tail_or_discovery.source_audit.v1",
+  "generated_at": "2026-05-19",
+  "city_id": "belfast",
+  "audit": [
+    {
+      "source_id": "bcc-validation-checklist-equality-screening-2024-round207",
+      "source_name": "Planning Application Validation Checklist: Equality Screening Outcome Report",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/Documents/Planning-Validation-Checklist-EQIA/Section-A-Details-about-the-policy-or-decision-to",
+      "final_url": "https://www.belfastcity.gov.uk/Documents/Planning-Validation-Checklist-EQIA/Section-A-Details-about-the-policy-or-decision-to",
+      "source_type": "official council equality screening report page",
+      "source_family": "BCC planning validation equality screening",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 209,
+        "content_sha256": "395d7a919d5bfb74223ef08174e292b4691bd17ec32cdaef0a9d74000204cd86",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-yoursay-validation-checklist-consultation-round207",
+      "source_name": "Public Consultation - Draft Planning Application Validation Checklist",
+      "publisher": "Belfast City Council",
+      "url": "https://yoursay.belfastcity.gov.uk/planning-application-validation-checklist",
+      "final_url": "https://yoursay.belfastcity.gov.uk/planning-application-validation-checklist",
+      "source_type": "official council consultation page",
+      "source_family": "BCC planning application validation consultation",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify consultation-platform terms before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Published record; may receive corrections.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 282,
+        "content_sha256": "19e14fba5792380815ffcef8a96ecf95692cef1e7fbad6c675be1d3d29249020",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-planning-validation-checklist-2025-round207",
+      "source_name": "Planning Application Validation Checklist",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/contents",
+      "final_url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/contents",
+      "source_type": "official council planning application validation checklist page",
+      "source_family": "BCC planning application validation checklist",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 151,
+        "content_sha256": "0c1461f8fc66091f29d94cc3e5891b1fac4b2fb9f6528f5f7afde2462e8fa3b6",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-planning-validation-checklist-2025-round207",
+      "source_name": "Planning Application Validation Checklist",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/12-contextual-design-information",
+      "final_url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/12-contextual-design-information",
+      "source_type": "official council planning application validation checklist page",
+      "source_family": "BCC planning application validation checklist",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 145,
+        "content_sha256": "dba25acfed11e5f60e991e9098ce9c6c6d8235ac2168b2c9d5f668f72b5e7a63",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-planning-validation-checklist-2025-round207",
+      "source_name": "Planning Application Validation Checklist",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/22-heritage-impact-assessment",
+      "final_url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/22-heritage-impact-assessment",
+      "source_type": "official council planning application validation checklist page",
+      "source_family": "BCC planning application validation checklist",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 172,
+        "content_sha256": "3b51424feda0b3e9f5f73910ed2bd758b1cf4e4be02bf24214b6c15dd761b407",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-planning-validation-checklist-2025-round207",
+      "source_name": "Planning Application Validation Checklist",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/43-tall-buildings-design-statement",
+      "final_url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/43-tall-buildings-design-statement",
+      "source_type": "official council planning application validation checklist page",
+      "source_family": "BCC planning application validation checklist",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 144,
+        "content_sha256": "0f75df65f2407fdf7e92d27e5a2e17b7994aafa1cf5f4fd2d9c4960b4104c6c9",
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfc-initial-budget-allocations-2025-2026-round207",
+      "source_name": "Oral statement NI Assembly - Communities Minister Gordon Lyons MLA - Initial Budget allocations 2025-26",
+      "publisher": "Department for Communities, Northern Ireland",
+      "url": "https://www.communities-ni.gov.uk/news/oral-statement-ni-assembly-communities-minister-gordon-lyons-mla-initial-budget-allocations-2025-26",
+      "final_url": "https://www.communities-ni.gov.uk/news/oral-statement-ni-assembly-communities-minister-gordon-lyons-mla-initial-budget-allocations-2025-26",
+      "source_type": "official department ministerial budget statement",
+      "source_family": "DfC ministerial budget allocation statements",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party images before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Communities.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Published record; may receive corrections.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 829,
+        "content_sha256": "99442304724de2b7c7138afae098ffd67d0724417795e8af728a2026247ba1e8",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-land-availability-monitoring-2024-2025-round207",
+      "source_name": "Belfast Development Plan and Policy Monitoring",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/documents/employment-monitor-report-2024-2025/introduction",
+      "final_url": "https://www.belfastcity.gov.uk/documents/employment-monitor-report-2024-2025/introduction",
+      "source_type": "official council land availability monitoring page/report",
+      "source_family": "BCC land availability monitoring reports",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; map viewers include OSNI/LPS restrictions and must not be redistributed without separate review.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council; monitor viewers may contain OSNI/LPS data.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 200,
+        "content_sha256": "f50a89f987327b2f9d50a3c5af9e136f27322e95570d4036b736e6141b7d973e",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-land-availability-monitoring-2024-2025-round207",
+      "source_name": "Belfast Development Plan and Policy Monitoring",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/documents/belfast-housing-land-availability-monitor-summary/introduction",
+      "final_url": "https://www.belfastcity.gov.uk/documents/belfast-housing-land-availability-monitor-summary/introduction",
+      "source_type": "official council land availability monitoring page/report",
+      "source_family": "BCC land availability monitoring reports",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; map viewers include OSNI/LPS restrictions and must not be redistributed without separate review.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council; monitor viewers may contain OSNI/LPS data.",
+      "coverage_years": "Selected official/public Belfast records dated between 2008-01-01 and 2026-05-19 where a publication, consultation, monitoring-report, or budget-statement date is present.",
+      "update_frequency": "Council page/report; may be updated by publisher.",
+      "geographic_scope": "Belfast City Council area or named Belfast community/project area.",
+      "granularity": "Administrative planning checklist section, consultation key date, monitoring report publication, or budget-allocation statement.",
+      "key_fields": [
+        "title",
+        "publication/consultation/statement date",
+        "publisher",
+        "source URL",
+        "record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only.",
+        "Do not treat checklist, consultation, monitoring or budget-allocation records as evidence of physical delivery.",
+        "Representative points are not boundaries, parcels, footprints, or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 105,
+        "content_sha256": "a6b51e71a393de58a830ec560466a81f0917d3eda0e00fcab686dd437f990cf1",
+        "error": null
+      }
+    }
+  ]
+}

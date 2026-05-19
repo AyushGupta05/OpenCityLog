@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-05-19",
+  "task": "round182_london_ldd_archive_next8_candidates",
+  "candidate_count": 240,
+  "date_range": {
+    "start": "2008-01-24",
+    "end": "2020-03-25"
+  },
+  "milestone_mix": {
+    "started": 160,
+    "permission": 80
+  },
+  "eligible_milestone_mix": {
+    "permission": 3563,
+    "started": 920
+  },
+  "status_mix": {
+    "Started": 153,
+    "Superseded": 43,
+    "Not started": 29,
+    "Lapsed": 15
+  },
+  "category_mix": {
+    "development_administrative_started_status_record": 160,
+    "development_administrative_permission_record": 80
+  },
+  "eligible_headroom_after_retained_candidates": 4243,
+  "input_rows_scanned": 94948,
+  "duplicate_validation": {
+    "generated_event_ids_unique": true,
+    "generated_source_date_keys_unique": true,
+    "generated_event_ids_seen_in_corpus_or_prior_ldd_packs": 0,
+    "generated_source_date_keys_seen_in_corpus_or_prior_ldd_packs": 0
+  },
+  "exclusion_counts": {
+    "below score threshold": 32974,
+    "minor/domestic row below large-development override": 25489,
+    "missing or outside 2008-2026 permission/started/completed date window": 11579,
+    "below architecture/public/large-development signal threshold": 9552,
+    "existing corpus or previous LDD candidate workbook row": 6968,
+    "administrative-only/minor planning row below high-signal override": 2528,
+    "alteration/extension row below score threshold": 1195,
+    "existing corpus or previous LDD candidate title/date": 127,
+    "duplicate inside round182 batch scan": 52,
+    "missing or outside Greater London LDD point range": 1
+  },
+  "output_files": [
+    "tmp\\subagents\\round182_london_ldd_archive_next8\\candidates.json",
+    "tmp\\subagents\\round182_london_ldd_archive_next8\\source_audit.json",
+    "tmp\\subagents\\round182_london_ldd_archive_next8\\summary.json",
+    "tmp\\subagents\\round182_london_ldd_archive_next8\\notes.md",
+    "tmp\\subagents\\round182_london_ldd_archive_next8\\rejected.json"
+  ]
+}

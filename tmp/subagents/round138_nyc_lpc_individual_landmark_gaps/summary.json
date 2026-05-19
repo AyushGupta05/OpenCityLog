@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+  "raw_rows": 289,
+  "candidates": 16,
+  "rejected": {
+    "already_represented": 273
+  },
+  "by_year": {
+    "2015": 1,
+    "2017": 2,
+    "2018": 4,
+    "2019": 6,
+    "2020": 1,
+    "2023": 2
+  }
+}

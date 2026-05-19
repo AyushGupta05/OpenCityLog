@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "output_dir": "tmp/subagents/round147_london_pld_lifecycle_next",
+  "candidate_count": 90,
+  "target_count": 90,
+  "min_score": 24,
+  "query_stats": [
+    {
+      "field": "actual_completion_date",
+      "kind": "completion",
+      "fetched": 20636
+    },
+    {
+      "field": "actual_commencement_date",
+      "kind": "commencement",
+      "fetched": 19329
+    }
+  ],
+  "candidate_pool_after_fetch": 39965,
+  "evaluated_until_target_reached": 493,
+  "accepted_until_target_reached": 90,
+  "rejection_summary": {
+    "existing_manual_corpus_pld_id": 378,
+    "missing_or_outside_london_geometry": 21,
+    "low_value_admin_or_minor_application_type": 4
+  },
+  "duplicate_index": {
+    "manual_events_scanned": 21535,
+    "manual_pld_ids": 924,
+    "prior_packs": [
+      {
+        "label": "round126_london_pld_lifecycle_direct",
+        "path": "tmp/subagents/round126_london_pld_lifecycle_direct/candidates.json",
+        "exists": true,
+        "candidates_scanned": 100,
+        "pld_ids": 93
+      },
+      {
+        "label": "round126_london_pld_lifecycle_more",
+        "path": "tmp/subagents/round126_london_pld_lifecycle_more/candidates.json",
+        "exists": true,
+        "candidates_scanned": 80,
+        "pld_ids": 78
+      },
+      {
+        "label": "round140_london_pld_lifecycle_more",
+        "path": "tmp/subagents/round140_london_pld_lifecycle_more/candidates.json",
+        "exists": true,
+        "candidates_scanned": 90,
+        "pld_ids": 86
+      }
+    ]
+  },
+  "dedupe_basis": "Live data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json plus round126_london_pld_lifecycle_direct, round126_london_pld_lifecycle_more, and round140_london_pld_lifecycle_more candidates were scanned for PLD ids, source_record_id/source_url pairs, source-date-field/date keys, and title/date keys.",
+  "selected_by_lifecycle_field": {
+    "actual_commencement_date": 40,
+    "actual_completion_date": 50
+  },
+  "selected_by_borough": {
+    "Haringey": 3,
+    "Tower Hamlets": 10,
+    "Greenwich": 4,
+    "Hillingdon": 4,
+    "Bromley": 2,
+    "Brent": 5,
+    "London Borough of Newham": 3,
+    "Wandsworth": 9,
+    "Royal Borough of Kingston (LA Code)": 1,
+    "Islington": 6,
+    "Hackney": 5,
+    "City of London": 2,
+    "Newham": 4,
+    "Enfield": 2,
+    "Lambeth": 5,
+    "Harrow": 1,
+    "Westminster": 3,
+    "London Borough of Southwark": 1,
+    "Croydon": 1,
+    "Hounslow": 3,
+    "Redbridge": 3,
+    "Barnet": 1,
+    "Hammersmith & Fulham": 1,
+    "Merton": 2,
+    "Ealing": 4,
+    "Camden": 1,
+    "London Borough of Barnet": 1,
+    "Havering": 1,
+    "Southwark": 1,
+    "Lewisham": 1
+  },
+  "selected_date_range": {
+    "min": "2020-01-04",
+    "max": "2026-03-04"
+  },
+  "caveats": [
+    "Candidates are administrative lifecycle records, not claims that a building opened, became occupied, reached final built form, or produced an outcome.",
+    "Rows with PLD ids already present in the live manual corpus, round126 PLD lifecycle packs, or round140 PLD lifecycle pack were excluded.",
+    "London Datastore licence is Not Specified for this source, so the pack retains factual metadata and attribution only."
+  ]
+}

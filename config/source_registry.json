@@ -30,7 +30,7 @@
       "source_id": "bcc_adelaide_street_bolder_vision",
       "title": "bcc_adelaide_street_bolder_vision",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -55,7 +55,7 @@
       "source_id": "bcc_andersonstown",
       "title": "bcc_andersonstown",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -80,7 +80,7 @@
       "source_id": "bcc_avoniel",
       "title": "bcc_avoniel",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -105,7 +105,7 @@
       "source_id": "bcc_brook",
       "title": "bcc_brook",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -130,7 +130,7 @@
       "source_id": "bcc_cathedral_gardens",
       "title": "bcc_cathedral_gardens",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -155,7 +155,7 @@
       "source_id": "bcc_lisnasharragh",
       "title": "bcc_lisnasharragh",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -180,7 +180,7 @@
       "source_id": "bcc_olympia",
       "title": "bcc_olympia",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -205,7 +205,7 @@
       "source_id": "bcc_performance_2024_25",
       "title": "bcc_performance_2024_25",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -230,7 +230,7 @@
       "source_id": "bcc_planning_corporation_2025",
       "title": "bcc_planning_corporation_2025",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -255,7 +255,7 @@
       "source_id": "bcc_planning_minutes_2024_11_12",
       "title": "bcc_planning_minutes_2024_11_12",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -280,7 +280,7 @@
       "source_id": "bcc_planning_qub_dublin_road_2024",
       "title": "bcc_planning_qub_dublin_road_2024",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -305,7 +305,7 @@
       "source_id": "bcc_templemore_2023",
       "title": "bcc_templemore_2023",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -330,7 +330,7 @@
       "source_id": "bcc_urban_villages",
       "title": "Urban Villages",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -349,6 +349,131 @@
       "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. project name status section project cost location text delivery partner",
       "caveats": [
         "Exact completion dates and coordinates are often absent; use broad date ranges and approximate geometry until project-specific pages or planning records are found. Keep as candidate source for project discovery; before production ingest, resolve exact dates, addresses, geometry and license permission. Source list does not state exact completion date; keep broad date range until project-specific record is found."
+      ]
+    },
+    {
+      "source_id": "bcc-avoniel-regeneration-round189",
+      "title": "Avoniel Leisure Centre regeneration",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2021
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Business-and-investment/Transforming-leisure-services/Avoniel-regeneration",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2021-2021 in the Round119 architecture corpus window. project page current status",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-belfastwifi-round195",
+      "title": "BelfastWiFi",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/belfastwifi",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. retrieved current-status statement",
+      "caveats": [
+        "Current-status network count only. The page does not provide launch dates, hotspot list geometry, uptime, bandwidth, usage or coverage quality. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-brook-regeneration-round189",
+      "title": "Brook Leisure Centre regeneration",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2019,
+        "end": 2019
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Business-and-investment/Transforming-leisure-services/Brook-regeneration",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2019-2019 in the Round119 architecture corpus window. project page overview",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-cathedral-gardens-round195",
+      "title": "Cathedral Gardens",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/cathedralgardens",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. page current during January 2026 works-start stage",
+      "caveats": [
+        "Design/scope record only. Installation is anticipated after this round's date window and is not claimed here. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-corporate-performance-2024-2025-round189",
+      "title": "Belfast City Council Performance Improvement Plan self-assessment report 2024-2025 - Corporate performance 2024-2025",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/documents/performance-improvement-plan-self-assessment-repor/corporate-performance-2024-2025",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. 2024-2025 reporting period",
+      "caveats": [
+        "Source gives a 2024-2025 reporting-period completion/delivery statement; exact effective date should be checked before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
       ]
     },
     {
@@ -404,6 +529,156 @@
       ]
     },
     {
+      "source_id": "bcc-democratic-services-minutes-round177",
+      "title": "Belfast City Council Democratic Services minutes",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2013,
+        "end": 2018
+      },
+      "update_frequency": "Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.",
+      "url": "https://minutes.belfastcity.gov.uk/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected Belfast committee minute/report pages from 2013 through 2025; candidate dates retained only inside 2008-01-01 to 2026-05-19. Meeting date, item title, official minute/report text, named project/site, source URL and committee item ID.",
+      "caveats": [
+        "Council minutes are strong evidence that a decision/status/opening was reported to committee, but they are not authoritative surveyed geometry and may report prior work without exact per-site completion dates. Recommended for a small official public-record tail when candidates are clearly labelled as minute-reported milestones and not used for physical completion/outcome claims beyond the source wording. Municipal facility status only. Exact commissioning date, asset footprint, fuel types, usage and environmental effects require separate evidence."
+      ]
+    },
+    {
+      "source_id": "bcc-developer-contributions-monitoring-round201",
+      "title": "Developer contributions Annual Monitoring Report",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify report-specific copyright before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2020
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Planning-and-building-control/Planning/Development-plan-and-policy/Supplementary-planning-guidance/Developer-contributions-Annual-Monitoring-Report",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2020-2020 in the Round119 architecture corpus window. reporting period end",
+      "caveats": [
+        "Administrative planning-policy, consultation, monitoring, strategy or framework record only; it is not evidence of construction, completion, occupation, delivery or built-form change. No causation, projects, social, economic, environmental, traffic, housing-delivery or public-realm outcome is claimed. Point geometry is representative review geometry for the named citywide policy area or framework area and should not be treated as a boundary or asset footprint."
+      ]
+    },
+    {
+      "source_id": "bcc-fernhill-house-current-status-round183",
+      "title": "Fernhill House",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Project/status page updated irregularly.",
+      "url": "https://www.belfastcity.gov.uk/business-and-investment/physical-investment/capital-programme/heritage-restoration-projects/fernhill-house",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Current official project page retrieved 2026-05-19; used for September 2025 investment decision. Named asset, month/year investment decision, status wording.",
+      "caveats": [
+        "Investment/stabilisation decision is not restoration or reopening evidence. Use as a heritage-asset status candidate with explicit limitations. Investment decision/status only. Do not infer works completion, restoration, reopening, final use or removal from at-risk status."
+      ]
+    },
+    {
+      "source_id": "bcc-forth-meadow-community-greenway-round183",
+      "title": "Forth Meadow Community Greenway - PEACE IV Shared Spaces",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Project page updated irregularly.",
+      "url": "https://www.belfastcity.gov.uk/Business-and-investment/Physical-investment/Projects-delivered-in-partnership/SEUPB-PEACE-programme/PEACE-IV-Shared-Spaces/Forth-Meadow-Community-Greenway-project",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Current official project page retrieved 2026-05-19; page states greenway completed in 2025. Completion year, section headings, named works, named places.",
+      "caveats": [
+        "Use as section/component completion evidence. Approximate points are not route alignments and cannot support usage, safety, health, reconciliation or regeneration outcomes. Recommended for component-level greenway candidates if the frontend labels year-level dates and approximate corridor geometry. Year-level section record. Do not infer ecological outcome, visitor usage, maintenance condition or exact alignment."
+      ]
+    },
+    {
+      "source_id": "bcc-future-city-centre-programme-round195",
+      "title": "Future City Centre Programme",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/futurecity",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2023-2026 in the Round119 architecture corpus window. project page works-start statement",
+      "caveats": [
+        "Works-start record only. The source lists project streets but does not provide as-built geometry, exact completion date or measured public-realm changes. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-giants-park-round195",
+      "title": "Giant's Park - North Foreshore",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2017,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/giantspark",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2017-2026 in the Round119 architecture corpus window. project page opening year",
+      "caveats": [
+        "Year-level opening status only. Do not infer occupancy, production activity, employment, economic effects or later extension dates. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
       "source_id": "bcc-hed-listing-notifications-20260519",
       "title": "Belfast Planning Committee HED listing notifications, 19 May 2026",
       "provider": "Belfast City Council / Department for Communities Historic Environment Division",
@@ -428,6 +703,56 @@
       "provenance_notes": "Use committee date, HED notification text, site/address, source URL, retrieved date, and HB reference where stated. Proposed-listing records remain proposed/consultation status.",
       "caveats": [
         "Do not treat proposed listing as confirmed listing. Committee notification dates may lag the statutory HED listing date and are heritage-status records, not physical works."
+      ]
+    },
+    {
+      "source_id": "bcc-lagan-gateway-round189",
+      "title": "Lagan Gateway",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Business-and-investment/Physical-investment/Belfast-Investment-Fund/Lagan-Gateway",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2021-2024 in the Round119 architecture corpus window. project page timescales",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-ldp-spg-may-2023-round201",
+      "title": "LDP Plan Strategy (May 2023) Supplementary Planning Guidance",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/development-plan-and-policy/supplementary-planning-guidance/ldp-plan-strategy-%28may-2023%29-spg",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2022-2023 in the Round119 architecture corpus window. consultation opening date",
+      "caveats": [
+        "Administrative planning-policy, consultation, monitoring, strategy or framework record only; it is not evidence of construction, completion, occupation, delivery or built-form change. No causation, projects, social, economic, environmental, traffic, housing-delivery or public-realm outcome is claimed. Point geometry is representative review geometry for the named citywide policy area or framework area and should not be treated as a boundary or asset footprint."
       ]
     },
     {
@@ -459,7 +784,7 @@
       "source_id": "bcc-live-major-applications-2026-04-14",
       "title": "Live Major Applications not previously considered by Committee at 14.04.26",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -481,10 +806,385 @@
       ]
     },
     {
+      "source_id": "bcc-local-development-plan-round201",
+      "title": "Belfast Local Development Plan",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/ldp",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2023-2023 in the Round119 architecture corpus window. page update date",
+      "caveats": [
+        "Administrative planning-policy, consultation, monitoring, strategy or framework record only; it is not evidence of construction, completion, occupation, delivery or built-form change. No causation, projects, social, economic, environmental, traffic, housing-delivery or public-realm outcome is claimed. Point geometry is representative review geometry for the named citywide policy area or framework area and should not be treated as a boundary or asset footprint."
+      ]
+    },
+    {
+      "source_id": "bcc-minutes-pip-2014-2015-round183",
+      "title": "Belfast City Council Parks and Leisure Committee minutes: Playground Improvement Programme 2014-2015",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2014,
+        "end": 2014
+      },
+      "update_frequency": "Meeting-by-meeting publication; historical pages can be republished or attachments moved.",
+      "url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=299&MId=1580",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Committee minute/report page for 14 August 2014; used only for 2013/2014 programme completion by end March 2014. Committee date, minute text, named playgrounds, completion month statement, source URL and item context.",
+      "caveats": [
+        "Strong evidence that named sites were reported complete under the programme; not evidence of exact handover day, equipment inventory, later condition, usage or outcomes. Use for component-level playground completion candidates only with approximate geometry and no outcome claims. Month-level reported completion only. Do not infer equipment condition after March 2014, use levels or accessibility outcomes."
+      ]
+    },
+    {
+      "source_id": "bcc-minutes-pip-2024-2025-round183",
+      "title": "Belfast City Council People and Communities Committee minutes: Playground Improvement Programme 2024/25",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Meeting-by-meeting publication.",
+      "url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=79246",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "People and Communities Committee item for 6 August 2024. Committee date, adopted recommendation, playground names, item ID.",
+      "caveats": [
+        "Use as programme approval only. Do not state that physical works were delivered from this source. Use sparingly for gaps where later completion evidence is not yet available. Administrative programme approval only. It is not evidence that works started, completed or delivered a particular final design."
+      ]
+    },
+    {
+      "source_id": "bcc-minutes-pip-2025-2026-round183",
+      "title": "Belfast City Council People and Communities Committee report: Playground Improvement Programme 2025-2026",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Meeting-by-meeting publication.",
+      "url": "https://minutes.belfastcity.gov.uk/documents/s121294/Playground%20Improvement%20Programme%202025-26.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Committee report dated 6 May 2025 for PIP 2025/2026 selections. Report date, recommendation list, site names.",
+      "caveats": [
+        "Use as programme-selection evidence only; later news/minutes required for completion. Use for candidate backlog and evidence drawer context, not headline completed-project totals. Programme-selection record only. Separate evidence is required for construction start, completion, final equipment and later condition."
+      ]
+    },
+    {
+      "source_id": "bcc-news-black-mountain-shared-space-round189",
+      "title": "£7 million shared community space opens at Belfast interface area",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/%C2%A37-million-shared-community-space-opens-at-Belfast",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. news publication/opening date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-news-brook-opened-round189",
+      "title": "New Brook leisure centre officially opened",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2020
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/new-brook-leisure-centre-officially-opened",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2020-2020 in the Round119 architecture corpus window. news publication/opening date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-news-city-centre-regeneration-2025-round183",
+      "title": "Belfast city centre regeneration steps up a gear",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Page-specific publication.",
+      "url": "https://www.belfastcity.gov.uk/News/Belfast-city-centre-regeneration-steps-up-a-gear",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Official news release dated 4 June 2025. News date, source-stated funding, named projects.",
+      "caveats": [
+        "Funding announcements are not construction, completion or outcome evidence. Use as administrative/funding candidates only. Funding/status record only. Do not infer planning approval, construction start, completion, final design, use or connectivity outcomes."
+      ]
+    },
+    {
+      "source_id": "bcc-news-public-facilities-round177",
+      "title": "Belfast City Council news pages",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Page-specific publication.",
+      "url": "https://www.belfastcity.gov.uk/news",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected Belfast City Council news records through 2026-05-19. News date, title, named project/network, source URL.",
+      "caveats": [
+        "News releases can document launch/announcement milestones but should not be used to infer usage outcomes, causality or long-term condition. Use as source evidence for small factual public-facility/network milestones; retain source URL and avoid reproducing media. Network/fleet milestone only. Do not infer usage, operating performance, scheme success, station availability or active-travel impact."
+      ]
+    },
+    {
+      "source_id": "bcc-news-queens-quay-kiosk-round189",
+      "title": "Local flavours and maritime stories: Queen's Quay Kiosk opens to public on Belfast waterfront",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/Local-flavours-and-maritime-stories-Queen-s-Quay-K",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. news publication/opening date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-news-sandy-row-arts-digital-hub-round183",
+      "title": "Boost for Sandy Row as new Arts & Digital Hub opens",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Page-specific publication.",
+      "url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Official news release dated 18 February 2026. News date, project names, reported status wording.",
+      "caveats": [
+        "Pipeline and planned records must not be counted as completed works. Use only with status labels such as works-underway, pipeline or planned. Planned works only. Do not infer procurement, construction start, completion, final equipment or accessibility outcomes."
+      ]
+    },
+    {
+      "source_id": "bcc-news-sandy-row-arts-digital-hub-round189",
+      "title": "Boost for Sandy Row as new Arts & Digital Hub opens",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. news publication date and text",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Administrative, planned, publication or works-underway milestone only; do not count as a physical completion. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-news-sugarhouse-entry-round189",
+      "title": "Belfast's historic Sugarhouse Entry reopened after more than half a century",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-s-historic-sugarhouse-entry-reopened-after",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. news report date for phase two list",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-olympia-regeneration-round189",
+      "title": "Olympia Leisure Centre regeneration",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2017,
+        "end": 2018
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Business-and-investment/Transforming-leisure-services/Olympia-regeneration",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2017-2018 in the Round119 architecture corpus window. project page overview",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-open-linked-data-round195",
+      "title": "Open and linked data",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 for listed open datasets where the page states OGL terms; verify dataset-specific metadata before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Open-and-linked-data",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. last updated date",
+      "caveats": [
+        "Data governance/source-availability record only. It is not a physical built-environment change and should be kept out of headline built totals unless explicitly included as provenance infrastructure. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-performance-self-assessment-2024-2025-round189",
+      "title": "Belfast City Council Performance Improvement Plan self-assessment report 2024-2025 - Self-assessment of improvement objectives",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/documents/performance-improvement-plan-self-assessment-repor/self-assessment-of-improvement-objectives",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. 2024-2025 reporting period",
+      "caveats": [
+        "Source gives a 2024-2025 reporting-period completion/delivery statement; exact effective date should be checked before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
       "source_id": "bcc-planning-agenda-item-pages-round119",
       "title": "Belfast City Council agenda item minute pages",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -536,7 +1236,7 @@
       "source_id": "bcc-planning-committee-minutes",
       "title": "Belfast City Council Planning Committee agenda and minutes",
       "provider": "Belfast City Council",
-      "source_family": "architecture",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -561,7 +1261,7 @@
       "source_id": "bcc-planning-committee-minutes-round119",
       "title": "Belfast City Council Planning Committee agendas, minutes and supporting documents",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -586,7 +1286,7 @@
       "source_id": "bcc-planning-committee-minutes-round122",
       "title": "Belfast City Council Planning Committee agenda item for LA04/2016/0900/F, 15 November 2016",
       "provider": "Belfast City Council",
-      "source_family": "student accommodation",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -611,7 +1311,7 @@
       "source_id": "bcc-planning-committee-report-pdfs-round122",
       "title": "Belfast City Council Planning Committee agenda item for LA04/2016/0900/F, 15 November 2016",
       "provider": "Belfast City Council",
-      "source_family": "student accommodation",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -661,7 +1361,7 @@
       "source_id": "bcc-planning-decisions-issued-february-2026",
       "title": "Planning decisions issued February 2026",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -686,7 +1386,7 @@
       "source_id": "bcc-planning-decisions-issued-september-2025",
       "title": "Planning decisions issued September 2025",
       "provider": "Belfast City Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -732,6 +1432,156 @@
       "provenance_notes": "Use application/reference number, decision-list month, source URL, location, retrieved date, and limitation text.",
       "caveats": [
         "Planning permission, listed-building consent, conservation-area consent, and proposal notices are not construction, completion, occupation, installation, opening, or public-use evidence."
+      ]
+    },
+    {
+      "source_id": "bcc-shankill-shared-womens-centre-round189",
+      "title": "£7.8 million shared women's centre at Belfast interface opens",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/%C2%A37-8-million-shared-women-s-centre-at-belfast-inte",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. project page current status",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-spr-assets-report-2024-11-22-round189",
+      "title": "Strategic Policy and Resources Committee agenda: 22 November 2024",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=163&MID=11635",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. committee meeting date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Administrative, planned, publication or works-underway milestone only; do not count as a physical completion. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-templemore-baths-restoration-round189",
+      "title": "Templemore Baths restoration",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/business-and-investment/transforming-leisure-services/templemore-baths-restoration",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2023-2023 in the Round119 architecture corpus window. project page status; associated reopening month",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-vacant-to-vibrant-round195",
+      "title": "Vacant to Vibrant scheme",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/vacanttovibrant",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. page update date used for current programme status",
+      "caveats": [
+        "Aggregated grant status only. It does not identify the 48 premises, works dates, completion, tenancy, jobs, vacancy outcomes or heritage condition. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-waterfront-task-group-2025-round189",
+      "title": "Belfast Waterfront Task Group Update",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=84934",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. committee report date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-wilmont-house-current-status-round183",
+      "title": "Wilmont House",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Project/status page updated irregularly.",
+      "url": "https://www.belfastcity.gov.uk/business-and-investment/physical-investment/capital-programme/heritage-restoration-projects/wilmont-house",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Current official project page retrieved 2026-05-19; used for summer 2025 consultation status. Named asset, consultation timing, feasibility-status wording.",
+      "caveats": [
+        "Consultation does not evidence physical works, funding certainty, restoration or reopening. Use as future-use/status evidence only. Consultation/status record only. Do not infer works start, restoration, reopening, funding certainty or final use."
       ]
     },
     {
@@ -870,7 +1720,7 @@
       "source_id": "belfast-trust-annual-quality-report-2019-20",
       "title": "Belfast Trust Annual Quality Report 2019/20",
       "provider": "Belfast Health and Social Care Trust",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -895,7 +1745,7 @@
       "source_id": "belfast-trust-annual-report-2023-24",
       "title": "Belfast Health and Social Care Trust Annual Report and Accounts 2023/24",
       "provider": "Belfast Health and Social Care Trust",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -920,7 +1770,7 @@
       "source_id": "bpl_canarsie_branch_groundbreaking_2026",
       "title": "Brooklyn Public Library Breaks Ground on New Canarsie Branch",
       "provider": "Brooklyn Public Library",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -945,7 +1795,7 @@
       "source_id": "brcd-project-pages-round124",
       "title": "Lagan pedestrian and cycle bridge",
       "provider": "Department for Infrastructure, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1045,7 +1895,7 @@
       "source_id": "camden-west-end-project-pages",
       "title": "Camden West End Project pages",
       "provider": "London Borough of Camden",
-      "source_family": "public_realm",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -1170,7 +2020,7 @@
       "source_id": "city-of-london-public-realm-project-pages",
       "title": "City of London public-realm project and press pages",
       "provider": "City of London Corporation",
-      "source_family": "public_realm",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -1245,7 +2095,7 @@
       "source_id": "de-colaiste-feirste-work-progress-2016",
       "title": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
       "provider": "Department of Education, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1267,10 +2117,185 @@
       ]
     },
     {
+      "source_id": "dfc-belfast-regeneration-news-round201",
+      "title": "DfC Belfast regeneration news",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify image-specific rights before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2016,
+        "end": 2021
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/news/new-way-ahead-regeneration-belfast-city-centre",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2016-2021 in the Round119 architecture corpus window. date published",
+      "caveats": [
+        "Administrative planning-policy, consultation, monitoring, strategy or framework record only; it is not evidence of construction, completion, occupation, delivery or built-form change. No causation, projects, social, economic, environmental, traffic, housing-delivery or public-realm outcome is claimed. Point geometry is representative review geometry for the named citywide policy area or framework area and should not be treated as a boundary or asset footprint."
+      ]
+    },
+    {
+      "source_id": "dfc-belfast-streets-ahead-5-blackstaff-screening-round189",
+      "title": "Belfast Streets Ahead 5 - Phase 1: Blackstaff Square Area - screening",
+      "provider": "Department for Communities",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/publications/belfast-streets-ahead-5-phase-1-blackstaff-square-area-screening",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. publication date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Administrative, planned, publication or works-underway milestone only; do not count as a physical completion. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "dfc-belfast-streets-ahead-phase-3-news-round183",
+      "title": "Givan announces multi-million pound investment for Belfast Streets Ahead",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2015,
+        "end": 2015
+      },
+      "update_frequency": "Page-specific publication.",
+      "url": "https://www.communities-ni.gov.uk/news/givan-announces-multi-million-pound-investment-belfast-streets-ahead",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "DfC news release dated 9 August 2016; used for notes-to-editors planning-permission date. Planning permission date, project area description, publisher.",
+      "caveats": [
+        "Planning permission is administrative evidence, not construction or completion evidence. Use where the corpus lacks this specific administrative milestone. Planning-permission record only. It is not evidence that works started, completed, matched approved plans or changed later public-realm condition."
+      ]
+    },
+    {
+      "source_id": "dfc-belfast-streets-ahead-phase-3-round183",
+      "title": "Belfast: Streets Ahead - phase 3 public realm",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2015,
+        "end": 2015
+      },
+      "update_frequency": "Static publication page.",
+      "url": "https://www.communities-ni.gov.uk/publications/belfast-streets-ahead-phase-3-public-realm",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "DfC publication page dated 27 February 2015. Publication date, project name, project description.",
+      "caveats": [
+        "Design publication is not evidence of planning approval, procurement, start on site or completion. Use as early public-realm scheme evidence with administrative status. Publication/design milestone only. Do not infer planning approval, procurement, construction start, completion or public-realm quality change."
+      ]
+    },
+    {
+      "source_id": "dfc-belfast-urban-regeneration-frameworks-round201",
+      "title": "DfC Belfast urban regeneration plans and frameworks",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify publication-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2009,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/publications/belfast-city-centre-westside-regeneration-masterplan",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2009-2026 in the Round119 architecture corpus window. date published",
+      "caveats": [
+        "Administrative planning-policy, consultation, monitoring, strategy or framework record only; it is not evidence of construction, completion, occupation, delivery or built-form change. No causation, projects, social, economic, environmental, traffic, housing-delivery or public-realm outcome is claimed. Point geometry is representative review geometry for the named citywide policy area or framework area and should not be treated as a boundary or asset footprint."
+      ]
+    },
+    {
+      "source_id": "dfc-five-cs-public-realm-accessibility-round189",
+      "title": "Five Cs Public Realm Project - Accessibility & Inclusion Report",
+      "provider": "Department for Communities",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/publications/five-cs-public-realm-project-accessibility-inclusion-report",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. publication date",
+      "caveats": [
+        "Date is taken from the source page or source-reported milestone; verify against primary attachments before production import. Administrative, planned, publication or works-underway milestone only; do not count as a physical completion. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "dfc-five-cs-screening-round195",
+      "title": "The Five Cs Public Realm Project - screening",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/publications/five-cs-public-realm-project-screening",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. date published",
+      "caveats": [
+        "Screening/publication record only. Do not infer construction, completion, final design, access changes or surrounding private-sector investment effects. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
       "source_id": "dfc-harni",
       "title": "Heritage at Risk in Northern Ireland",
       "provider": "Department for Communities Historic Environment Division / nidirect, in partnership with Ulster Architectural Heritage",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1295,7 +2320,7 @@
       "source_id": "dfc-harni-belfast",
       "title": "Heritage at Risk in Northern Ireland Belfast records",
       "provider": "Department for Communities Historic Environment Division / nidirect",
-      "source_family": "heritage_at_risk",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1320,7 +2345,7 @@
       "source_id": "dfc-hed-buildings",
       "title": "Historic Building Details / Buildings Database",
       "provider": "Department for Communities Historic Environment Division / nidirect",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1370,7 +2395,7 @@
       "source_id": "dfc-hed-changes-to-list-buildings-2026-03",
       "title": "Changes to the List of Buildings of special architectural or historic interest",
       "provider": "Department for Communities Historic Environment Division",
-      "source_family": "heritage_administrative_change",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1389,6 +2414,56 @@
       "provenance_notes": "March 2026 publication; Belfast rows extracted from current PDF accessed on 2026-05-19. HB Ref No Address Survey 2 Current Use PDF month heading",
       "caveats": [
         "A Record Only row must not be presented as confirmed statutory listing status. The PDF row gives address text but no point geometry; candidates retain geometry_ref only. Use as Belfast heritage-record administrative updates with month precision and no point geometry unless separately matched to an official spatial record. The March 2026 PDF row is an administrative heritage-record/list update. A 'Record Only' row must not be presented as a confirmed statutory listing, construction, restoration, occupation, condition change, public access, heritage outcome, or causal evidence."
+      ]
+    },
+    {
+      "source_id": "dfc-hed-defence-heritage-belfast-round156",
+      "title": "Defence Heritage Record ArcGIS layer",
+      "provider": "Department for Communities Historic Environment Division",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "DfC/HED factual public data reused with OGL attribution where applicable; publication images, base maps, logos and third-party material are excluded.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2017,
+        "end": 2026
+      },
+      "update_frequency": "HED GIS service is monthly; DfC describes the Defence Heritage Record survey project as 2020-2024 with records available through the map viewer.",
+      "url": "https://www.communities-ni.gov.uk/articles/defence-heritage",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division.",
+      "provenance_notes": "Belfast-scoped Defence Heritage rows with date_visited from 2008-01-01 through 2026-05-19. OBJECTID, dhr_number, site_name, county, townland, site_type, period, general_history, Site_Description, associated_dhr, associated_dhr_description, smr_reference, smr_further_info, hb_reference, hb_further_info, condition, condition_detail, visibility, land_use, land_use_details, existing_protection, Other_Sources, date_visited, grid_ref, Site_Visited",
+      "caveats": [
+        "date_visited is a source/register observation date. Site_Visited can be yes/no/null, so do not overstate fieldwork. Condition text is not evidence of construction, demolition timing, repair completion, vacancy, occupancy, ownership change, final outcome or causation. Recommended as Belfast heritage/building-status tail candidates with explicit source-observation caveats and row-level OBJECTID/DHR provenance. The date_visited field is an official heritage register/source observation date. The condition and condition_detail fields may reflect site survey, desk review or record maintenance depending on Site_Visited and row notes. Do not treat this row as construction, repair completion, vacancy, occupancy, demolition timing, ownership change, final condition outcome or causal evidence unless another source directly supports that narrower claim."
+      ]
+    },
+    {
+      "source_id": "dfc-hed-industrial-heritage-belfast-round156",
+      "title": "Industrial Heritage Records ArcGIS layer",
+      "provider": "Department for Communities Historic Environment Division",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "DfC/HED factual public data reused with OGL attribution where applicable; publication images, base maps, logos and third-party material are excluded.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "HED GIS service is monthly; DfC notes the Industrial Heritage Record is largely a record of industry-related sites compiled from historic maps and survey sources.",
+      "url": "https://www.communities-ni.gov.uk/articles/industrial-archaeology",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division.",
+      "provenance_notes": "Belfast-scoped Industrial Heritage rows with INSERTDATE or UPDATEDATE from 2008-01-01 through 2026-05-19. OBJECTID, MIAID, CO, TD, IHR, LOCATION, GRIDREF, X_TYPE, INSERTDATE, UPDATEDATE",
+      "caveats": [
+        "INSERTDATE/UPDATEDATE are register maintenance fields and must not be treated as construction, demolition, closure, occupancy, ownership, condition outcome or causal evidence. Recommended only for the small dated Belfast inserted-date tail. Most Industrial Heritage rows are rejected because they lack 2008-2026 row-level dates. INSERTDATE and UPDATEDATE are official source/register maintenance fields. Most Industrial Heritage rows are location-only records compiled from historic-map and survey sources; this row must not be used as evidence of physical works, construction, closure, demolition, occupancy, ownership, condition outcome or causal effects unless another source directly supports that narrower claim."
       ]
     },
     {
@@ -1423,7 +2498,7 @@
       "source_id": "dfc-hed-scheduled-zones-belfast-round130",
       "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
       "provider": "Department for Communities Historic Environment Division",
-      "source_family": "heritage_designation",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1499,10 +2574,35 @@
       ]
     },
     {
+      "source_id": "dfc-mag-living-high-streets-round195",
+      "title": "Launch of the MAG Living High Streets initiative - in pictures",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify image-specific rights before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/galleries/launch-mag-living-high-streets-initiative-pictures",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. event date stated on page",
+      "caveats": [
+        "Initiative/event record only. Do not infer high-street physical changes, funding awards, design adoption or later regeneration outcomes. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
       "source_id": "dfc-public-realm-regeneration-round124",
       "title": "Minister Ni Chuilin launches consultation on Belfast public realm scheme",
       "provider": "Department for Communities, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1527,7 +2627,7 @@
       "source_id": "dfe-gias-establishment-register",
       "title": "Get Information About Schools establishment extract",
       "provider": "Department for Education",
-      "source_family": "public_facility_education_register",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -1552,7 +2652,7 @@
       "source_id": "dfe-ulster-virtual-production-studio-launch-2022",
       "title": "Lyons launches GBP1.6m Virtual Production Studio at Ulster University",
       "provider": "Department for the Economy, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1577,7 +2677,7 @@
       "source_id": "dfi_bgcs_open_2024",
       "title": "dfi_bgcs_open_2024",
       "provider": "Department for Infrastructure",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1602,7 +2702,7 @@
       "source_id": "dfi_colin_transport_hub_2017",
       "title": "dfi_colin_transport_hub_2017",
       "provider": "Department for Infrastructure",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1627,7 +2727,7 @@
       "source_id": "dfi_saltwater_square_2026",
       "title": "dfi_saltwater_square_2026",
       "provider": "Department for Infrastructure",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1652,7 +2752,7 @@
       "source_id": "dfi-bedford-street-pilot-round124",
       "title": "Bedford Street Pilot Project",
       "provider": "Department for Infrastructure, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1704,7 +2804,7 @@
       "source_id": "dfi-casement-round124",
       "title": "Hazzard to call in forthcoming application on Casement Park",
       "provider": "Department for Infrastructure, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1729,7 +2829,7 @@
       "source_id": "dfi-lagan-bridge-round124",
       "title": "Lagan pedestrian and cycle bridge",
       "provider": "Department for Infrastructure, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1804,7 +2904,7 @@
       "source_id": "dfi-tidal-flood-round124",
       "title": "Minister Mallon signs off on GBP17 million flood alleviation scheme in Belfast",
       "provider": "Department for Infrastructure, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1829,7 +2929,7 @@
       "source_id": "doj-belfast-remote-evidence-centre-opening-2023",
       "title": "Official opening of Belfast Remote Evidence Centre",
       "provider": "Department of Justice, Northern Ireland",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -1854,7 +2954,7 @@
       "source_id": "gla-planning-application-decisions",
       "title": "Greater London Authority planning application decisions",
       "provider": "Greater London Authority / London City Hall",
-      "source_family": "architecture",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -1879,7 +2979,7 @@
       "source_id": "gla-planning-datahub-applications",
       "title": "Planning London Datahub - planning applications",
       "provider": "Greater London Authority / London planning authorities",
-      "source_family": "architecture",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -1904,7 +3004,7 @@
       "source_id": "gla-planning-datahub-listed-building-consent",
       "title": "Planning London Datahub applications API - listed building consent records",
       "provider": "Greater London Authority / London planning authorities",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -2108,7 +3208,7 @@
       "source_id": "historic-england-nhle",
       "title": "National Heritage List for England listed-building records",
       "provider": "Historic England",
-      "source_family": "heritage",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -2133,7 +3233,7 @@
       "source_id": "historic-england-nhle-amendments-open-data",
       "title": "National Heritage List for England (NHLE) listed building points",
       "provider": "Historic England",
-      "source_family": "heritage_administrative_change",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -2208,7 +3308,7 @@
       "source_id": "libraries-ni-annual-report-2017-18",
       "title": "Libraries NI Annual Report and Accounts 2017/18",
       "provider": "Libraries NI",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -2233,7 +3333,7 @@
       "source_id": "libraries-ni-equality-progress-report-2023-24",
       "title": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
       "provider": "Libraries NI",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -2613,7 +3713,7 @@
       "source_id": "mhclg-called-in-decisions",
       "title": "Planning applications: called-in decisions and recovered appeals",
       "provider": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-      "source_family": "architecture",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -2738,7 +3838,7 @@
       "source_id": "ni-executive-dfi-casement-round124",
       "title": "Mallon announces decision to recommend planning approval for new stadium at Casement Park",
       "provider": "The Northern Ireland Executive / Department for Infrastructure",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -2763,7 +3863,7 @@
       "source_id": "ni-planning-portal-public-register",
       "title": "Northern Ireland Planning Portal public register records",
       "provider": "Northern Ireland Planning Portal / planning authorities",
-      "source_family": "architecture",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -2792,24 +3892,21 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where published as public-sector information; verify per release",
+      "licence": "Open Government Licence v3.0 where published as public-sector information; verify terms for each annual release.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2016,
         "end": 2025
       },
-      "update_frequency": "Annual statistical releases.",
+      "update_frequency": "Annual statistical releases, with quarterly provisional updates where published.",
       "url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
-      "local_paths": [
-        "data/raw/planning_statistics/*.csv",
-        "planning_statistics/*.csv"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0, where applicable.",
-      "provenance_notes": "Use application id, decision date, category, status, source file, and retrieval date. Records show planning decisions, not construction completions.",
+      "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
+      "provenance_notes": "Selected Belfast planning-statistics records from 2016-2025, using local 2016-17 through 2024-25 annual CSV releases. DecisionIssuedDate, with DateValid/DateReceived retained as source context where present.",
       "caveats": [
-        "Planning approval is not evidence that a development was built."
+        "Planning approval is an administrative decision record. It is not evidence that a development was built, opened, occupied, completed, or associated with any outcome. Coordinates are approximate points converted from source Easting/Northing values and are not legal boundaries, project footprints, or as-built geometry."
       ]
     },
     {
@@ -2897,7 +3994,7 @@
       "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
       "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
       "provider": "NYC Mayor's Office of Operations / NYC Open Data",
-      "source_family": "parks_public_realm_capital_project",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -2999,7 +4096,7 @@
       "source_id": "nyc-dcp-pops-rvih-nhyn",
       "title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
       "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
-      "source_family": "privately_owned_public_space",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3024,7 +4121,7 @@
       "source_id": "nyc-dcp-wpaa-388s-pnvc",
       "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
       "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
-      "source_family": "waterfront_public_access_area",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3074,7 +4171,7 @@
       "source_id": "nyc-dcp-zap-bbl",
       "title": "NYC Zoning Application Portal BBL records",
       "provider": "NYC Department of City Planning, via NYC Open Data",
-      "source_family": "zoning",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3099,7 +4196,7 @@
       "source_id": "nyc-dcp-zap-project-data",
       "title": "Zoning Application Portal project data",
       "provider": "New York City Department of City Planning",
-      "source_family": "zoning",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3124,7 +4221,7 @@
       "source_id": "nyc-ddc-news-archive-pages",
       "title": "NYC Department of Design and Construction news archive pages",
       "provider": "NYC Department of Design and Construction",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3149,7 +4246,7 @@
       "source_id": "nyc-ddc-press-index-2024-2026",
       "title": "nyc-ddc-press-index-2024-2026",
       "provider": "NYC Department of Design and Construction",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3174,7 +4271,7 @@
       "source_id": "nyc-ddc-public-building-press-pages",
       "title": "NYC Department of Design and Construction public building press pages",
       "provider": "NYC Department of Design and Construction",
-      "source_family": "public_facilities",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3221,10 +4318,35 @@
       ]
     },
     {
+      "source_id": "nyc-dob-certificate-of-occupancy",
+      "title": "NYC Open Data: DOB Certificate Of Occupancy",
+      "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_family": "planning",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Factual DOB row metadata and source URLs are retained with DOB/NYC Open Data attribution. Check NYC Open Data and NYC.gov terms before bulk redistribution beyond candidate metadata.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2012,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-axn2.q8xs-cpsz.json",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings (DOB), via NYC Open Data.",
+      "provenance_notes": "Selected records from 2012-2026 in the Round119 architecture corpus window. c_o_issue_date",
+      "caveats": [
+        "This certificate-of-occupancy row is a legal and administrative DOB record. It is not actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal effect. Source dwelling-unit, job-type, CO-type, address, BIN, BBL, and status fields can be corrected or superseded by later DOB records. Coordinates are NYC Open Data/DOB geocoded address points and not surveyed parcels, unit boundaries, building footprints, entrances, or work limits."
+      ]
+    },
+    {
       "source_id": "nyc-dob-co-bs8b-p36w",
       "title": "DOB Certificate Of Occupancy",
       "provider": "NYC Department of Buildings via NYC Open Data",
-      "source_family": "building_status",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3249,7 +4371,7 @@
       "source_id": "nyc-dob-filings-permits",
       "title": "NYC DOB construction filings and permits",
       "provider": "NYC Department of Buildings, via NYC Open Data",
-      "source_family": "building_permits",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3274,7 +4396,7 @@
       "source_id": "nyc-dob-now-co-pkdm-hqz6",
       "title": "DOB NOW: Certificate of Occupancy",
       "provider": "NYC Department of Buildings via NYC Open Data",
-      "source_family": "building_status",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3326,7 +4448,7 @@
       "source_id": "nyc-dob-permit-issuance-ipu4-2q9a",
       "title": "NYC Open Data: DOB Permit Issuance",
       "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3376,7 +4498,7 @@
       "source_id": "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
       "title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
       "provider": "NYC Department of Transportation via NYC Open Data",
-      "source_family": "public_realm",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3401,7 +4523,7 @@
       "source_id": "nyc-edc-hh-resilience-official-pages",
       "title": "nyc-edc-hh-resilience-official-pages",
       "provider": "NYC Department of Design and Construction",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3528,7 +4650,7 @@
       "source_id": "nyc-library-official-capital-pages",
       "title": "nyc-library-official-capital-pages",
       "provider": "Queens Public Library",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3553,7 +4675,7 @@
       "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
       "title": "NYC Open Data Designated and Calendared Buildings and Sites",
       "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
-      "source_family": "historic_preservation",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3578,7 +4700,7 @@
       "source_id": "nyc-lpc-historic-districts-skyk-mpzq",
       "title": "NYC LPC Historic Districts",
       "provider": "NYC Landmarks Preservation Commission, via NYC Open Data",
-      "source_family": "historic_preservation",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3603,34 +4725,32 @@
       "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
       "title": "NYC Open Data Individual Landmark Sites",
       "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
-      "source_family": "landmarks_preservation",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null",
+      "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
       "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "NYC Open Data dataset-specific refresh cadence.",
+      "update_frequency": "NYC Open Data dataset-specific refresh cadence",
       "url": "https://data.cityofnewyork.us/d/buis-pvji",
-      "local_paths": [
-        "tmp/subagents/round114_nyc_lpc_landmarks_official/round114_nyc_lpc_landmarks_candidates.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Landmarks Preservation Commission and NYC Open Data.",
-      "provenance_notes": "Use LP number, LPC name, designation date, address/borough, report URL where available, source URL, geometry source, retrieved date, and limitation text.",
+      "attribution_text": "Attribute NYC Landmarks Preservation Commission / NYC Open Data.",
+      "provenance_notes": "Selected LPC individual landmark designation rows with designation dates in the architecture corpus window. Designation date.",
       "caveats": [
-        "Individual landmark designation rows document legal/protective status only and are not construction, restoration, permit activity, current occupancy, owner action, physical condition change, or preservation outcome evidence."
+        "LPC designation rows document legal/protective status only. They do not document construction, restoration, permit activity, current occupancy, owner action, physical condition change, or preservation outcomes."
       ]
     },
     {
       "source_id": "nyc-lpc-permit-application-information",
       "title": "NYC Open Data LPC Permit Application Information",
       "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
-      "source_family": "historic_preservation",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3884,7 +5004,7 @@
       "source_id": "nyc-pluto-mappluto-lots",
       "title": "NYC PLUTO / MapPLUTO lot records",
       "provider": "NYC Department of City Planning, via NYC Open Data",
-      "source_family": "parcel_geometry",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3909,7 +5029,7 @@
       "source_id": "nyc-sca-factsheet-k597",
       "title": "NYC SCA school opening fact sheet K597",
       "provider": "New York City School Construction Authority",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3934,7 +5054,7 @@
       "source_id": "nyc-sca-factsheet-q026",
       "title": "NYC SCA school opening fact sheet Q026",
       "provider": "New York City School Construction Authority",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3959,7 +5079,7 @@
       "source_id": "nyc-sca-factsheet-x105",
       "title": "NYC SCA school opening fact sheet X105",
       "provider": "New York City School Construction Authority",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -3984,7 +5104,7 @@
       "source_id": "nyc-sca-school-openings-projects",
       "title": "NYC School Construction Authority Projects - School Openings",
       "provider": "New York City School Construction Authority",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4209,7 +5329,7 @@
       "source_id": "nychh_elmhurst_radiology_room_renovation_2025",
       "title": "NYC Health + Hospitals/Elmhurst Unveils Newly Renovated Radiology Room",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4234,7 +5354,7 @@
       "source_id": "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
       "title": "NYC Health + Hospitals/Gotham Health, East New York Opens Newly-Renovated Behavioral Health Suite",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4259,7 +5379,7 @@
       "source_id": "nychh_lincoln_pediatric_playroom_renovation_2026",
       "title": "NYC Health + Hospitals/Lincoln Unveils Renovated Pediatric Playroom",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4284,7 +5404,7 @@
       "source_id": "nychh_north_central_bronx_mri_suite_opening_2026",
       "title": "NYC Health + Hospitals Opens $17M State-of-the-Art MRI Suite at Jacobi, North Central Bronx",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4309,7 +5429,7 @@
       "source_id": "nychh_queens_truebeam_ir_suite_opening_2025",
       "title": "NYC Health + Hospitals/Queens Expands Cancer Services with New TrueBeam Technology and Updated Interventional Radiology Suite",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4334,7 +5454,7 @@
       "source_id": "nychh_south_brooklyn_oncology_infusion_opening_2026",
       "title": "NYC Health + Hospitals/South Brooklyn Health Announces Opening of New Comprehensive Oncology and Infusion Center",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4359,7 +5479,7 @@
       "source_id": "nychh_woodhull_minor_surgery_suite_renovation_2025",
       "title": "NYC Health + Hospitals/Woodhull Opens Newly Renovated Minor Surgery Suite",
       "provider": "NYC Health + Hospitals",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4384,7 +5504,7 @@
       "source_id": "nypl-location-96th-street-branch",
       "title": "NYPL 96th Street Library location page",
       "provider": "The New York Public Library",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4409,7 +5529,7 @@
       "source_id": "nypl-press-2013-96th-street-reopening",
       "title": "New York Public Library press release for 96th Street Branch reopening",
       "provider": "The New York Public Library",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4461,7 +5581,7 @@
       "source_id": "opdc-public-realm-project-pages",
       "title": "OPDC public-realm consultation, decision and press pages",
       "provider": "Old Oak and Park Royal Development Corporation / Greater London Authority",
-      "source_family": "public_realm",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -4541,7 +5661,7 @@
       "source_id": "pacni-appeals-search-round124",
       "title": "Planning Appeals Commission NI appeal details for 2006/A2092",
       "provider": "Planning Appeals Commission / Planning and Water Appeals Commissions Case Search",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4566,7 +5686,7 @@
       "source_id": "pins-hs2-phase-one-planning-appeals",
       "title": "pins-hs2-phase-one-planning-appeals",
       "provider": "High Speed Two (HS2) Limited / Planning Inspectorate / GOV.UK",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -4666,7 +5786,7 @@
       "source_id": "planning-data-certificate-of-immunity",
       "title": "Planning Data certificate of immunity records",
       "provider": "Ministry of Housing, Communities and Local Government / Historic England",
-      "source_family": "heritage",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -4716,7 +5836,7 @@
       "source_id": "planning-inspectorate-appeal-decisions",
       "title": "planning-inspectorate-appeal-decisions",
       "provider": "Planning Inspectorate",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -4768,7 +5888,7 @@
       "source_id": "qpl_seaside_hvac_reopening_2026",
       "title": "QPL, City Celebrate Reopening of Seaside Branch after $2.4 Million HVAC System Replacement",
       "provider": "Queens Public Library",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
@@ -4793,7 +5913,7 @@
       "source_id": "qub_energy_lab_2022",
       "title": "qub_energy_lab_2022",
       "provider": "Queen's University Belfast",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4818,7 +5938,7 @@
       "source_id": "qub_estates_completed",
       "title": "Queen's University Belfast Estates Completed Projects",
       "provider": "Queen's University Belfast",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4843,7 +5963,7 @@
       "source_id": "qub_heaney_2024",
       "title": "qub_heaney_2024",
       "provider": "Queen's University Belfast",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4868,7 +5988,7 @@
       "source_id": "qub_one_elmwood_2022",
       "title": "qub_one_elmwood_2022",
       "provider": "Queen's University Belfast",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4893,7 +6013,7 @@
       "source_id": "qub_qbs_2023",
       "title": "qub_qbs_2023",
       "provider": "Queen's University Belfast",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4918,7 +6038,7 @@
       "source_id": "qub-estates-completed-projects",
       "title": "Completed Projects",
       "provider": "Queen's University Belfast Estates Directorate",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -4943,7 +6063,7 @@
       "source_id": "qub-estates-construction-stage-projects",
       "title": "Projects at Construction Stage",
       "provider": "Queen's University Belfast Estates Directorate",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -5443,7 +6563,7 @@
       "source_id": "src_bac_grand_hall_reopened",
       "title": "src_bac_grand_hall_reopened",
       "provider": "Battersea Arts Centre",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5468,7 +6588,7 @@
       "source_id": "src_barnet_hope_corner_opening",
       "title": "Community centre creates new Hope",
       "provider": "Barnet Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5493,7 +6613,7 @@
       "source_id": "src_barnet_one_stonegrove_opening",
       "title": "Barnet First magazine, October 2016",
       "provider": "Barnet Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5518,7 +6638,7 @@
       "source_id": "src_barts_royal_london_history",
       "title": "src_barts_royal_london_history",
       "provider": "Barts Health NHS Trust",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5543,7 +6663,7 @@
       "source_id": "src_bca_windrush_square_opened",
       "title": "src_bca_windrush_square_opened",
       "provider": "Black Cultural Archives",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5568,7 +6688,7 @@
       "source_id": "src_better_hillingdon_platinum_jubilee",
       "title": "src_better_hillingdon_platinum_jubilee",
       "provider": "GLL / Better",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5593,7 +6713,7 @@
       "source_id": "src_brent_civic_centre_update",
       "title": "src_brent_civic_centre_update",
       "provider": "London Borough of Brent",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5618,7 +6738,7 @@
       "source_id": "src_bromley_west_wickham_library",
       "title": "src_bromley_west_wickham_library",
       "provider": "London Borough of Bromley",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5668,7 +6788,7 @@
       "source_id": "src_camden_highgate_newtown_community_centre_opening",
       "title": "The new Highgate Newtown Community Centre opens to residents",
       "provider": "Camden Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5693,7 +6813,7 @@
       "source_id": "src_camden_kings_cross_academy_frank_barnes_opening",
       "title": "New King's Cross Academy and Frank Barnes School open",
       "provider": "Camden Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5718,7 +6838,7 @@
       "source_id": "src_camden_kingsgate_centre_opening",
       "title": "Kingsgate Centre officially opens after transformation",
       "provider": "Camden Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5743,7 +6863,7 @@
       "source_id": "src_camden_west_hampstead_library_reopening",
       "title": "West Hampstead Library officially re-opens after refurbishment works",
       "provider": "Camden Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5893,7 +7013,7 @@
       "source_id": "src_courtauld_gallery_reopens",
       "title": "src_courtauld_gallery_reopens",
       "provider": "The Courtauld",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5918,7 +7038,7 @@
       "source_id": "src_croydon_oasis_arena_opening",
       "title": "Croydon's latest new school officially opened",
       "provider": "Croydon Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5943,7 +7063,7 @@
       "source_id": "src_design_museum_new_home",
       "title": "src_design_museum_new_home",
       "provider": "Design Museum",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -5993,7 +7113,7 @@
       "source_id": "src_fairfield_halls_reopened",
       "title": "src_fairfield_halls_reopened",
       "provider": "Fairfield Halls / BH Live",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6018,7 +7138,7 @@
       "source_id": "src_gla_city_hall_building",
       "title": "src_gla_city_hall_building",
       "provider": "Greater London Authority",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6168,7 +7288,7 @@
       "source_id": "src_hackney_garden_sen_opening",
       "title": "The Garden SEN School receives its first outstanding Ofsted report",
       "provider": "Hackney Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6218,7 +7338,7 @@
       "source_id": "src_hackney_stoke_newington_ypc",
       "title": "src_hackney_stoke_newington_ypc",
       "provider": "London Borough of Hackney",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6243,7 +7363,7 @@
       "source_id": "src_hackney_thomas_fairchild_opening",
       "title": "Thomas Fairchild Community School rises from the ashes",
       "provider": "Hackney Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6293,7 +7413,7 @@
       "source_id": "src_hackney_young_centres",
       "title": "src_hackney_young_centres",
       "provider": "London Borough of Hackney",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6343,7 +7463,7 @@
       "source_id": "src_hounslow_meadowbank_hub",
       "title": "src_hounslow_meadowbank_hub",
       "provider": "London Borough of Hounslow",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6443,7 +7563,7 @@
       "source_id": "src_imperial_sph_opened",
       "title": "src_imperial_sph_opened",
       "provider": "Imperial College London",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6468,7 +7588,7 @@
       "source_id": "src_imperial_white_city_masterplan",
       "title": "src_imperial_white_city_masterplan",
       "provider": "Imperial College London",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6493,7 +7613,7 @@
       "source_id": "src_kingston_town_house_opened",
       "title": "src_kingston_town_house_opened",
       "provider": "Kingston University London",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6518,7 +7638,7 @@
       "source_id": "src_lambeth_town_hall_reopened",
       "title": "src_lambeth_town_hall_reopened",
       "provider": "London Borough of Lambeth",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6568,7 +7688,7 @@
       "source_id": "src_lcf_east_bank_move",
       "title": "src_lcf_east_bank_move",
       "provider": "University of the Arts London / London College of Fashion",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6618,7 +7738,7 @@
       "source_id": "src_lse_centre_building",
       "title": "src_lse_centre_building",
       "provider": "London School of Economics and Political Science",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6643,7 +7763,7 @@
       "source_id": "src_lse_marshall_building",
       "title": "src_lse_marshall_building",
       "provider": "London School of Economics and Political Science",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6668,7 +7788,7 @@
       "source_id": "src_merton_pollards_hill_library_reopening",
       "title": "Boris opens library for the 21st Century",
       "provider": "Merton Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6693,7 +7813,7 @@
       "source_id": "src_museum_home_story",
       "title": "src_museum_home_story",
       "provider": "Museum of the Home",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6718,7 +7838,7 @@
       "source_id": "src_nam_reopening",
       "title": "src_nam_reopening",
       "provider": "National Army Museum",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6818,7 +7938,7 @@
       "source_id": "src_nlwa_ecopark_house_official_opening",
       "title": "EcoPark House officially opened",
       "provider": "North London Waste Authority",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6843,7 +7963,7 @@
       "source_id": "src_npg_reopening",
       "title": "src_npg_reopening",
       "provider": "National Portrait Gallery",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6893,7 +8013,7 @@
       "source_id": "src_qmul_graduate_centre_opened",
       "title": "src_qmul_graduate_centre_opened",
       "provider": "Queen Mary University of London",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6918,7 +8038,7 @@
       "source_id": "src_rca_battersea_unveiled",
       "title": "src_rca_battersea_unveiled",
       "provider": "Royal College of Art",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6943,7 +8063,7 @@
       "source_id": "src_sadlers_wells_east_mayor_opening",
       "title": "src_sadlers_wells_east_mayor_opening",
       "provider": "Sadler's Wells",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6968,7 +8088,7 @@
       "source_id": "src_science_museum_medicine_galleries",
       "title": "src_science_museum_medicine_galleries",
       "provider": "Science Museum Group",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -6993,7 +8113,7 @@
       "source_id": "src_southbank_concrete_dreams",
       "title": "src_southbank_concrete_dreams",
       "provider": "Southbank Centre",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7018,7 +8138,7 @@
       "source_id": "src_southbank_visual_arts_2018",
       "title": "src_southbank_visual_arts_2018",
       "provider": "Southbank Centre",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7118,7 +8238,7 @@
       "source_id": "src_southwark_canada_water_leisure",
       "title": "src_southwark_canada_water_leisure",
       "provider": "London Borough of Southwark",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7293,7 +8413,7 @@
       "source_id": "src_sutton_carew_academy_opening",
       "title": "New purpose-built school for children with SEND opens in Sutton",
       "provider": "Sutton Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7318,7 +8438,7 @@
       "source_id": "src_sutton_throwley_yard_opening",
       "title": "Sutton's new independent cinema throws open its doors",
       "provider": "Sutton Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7368,7 +8488,7 @@
       "source_id": "src_tate_modern_blavatnik_opened",
       "title": "src_tate_modern_blavatnik_opened",
       "provider": "Tate",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7418,7 +8538,7 @@
       "source_id": "src_tower_hamlets_idea_store_canary_wharf",
       "title": "src_tower_hamlets_idea_store_canary_wharf",
       "provider": "London Borough of Tower Hamlets",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7518,7 +8638,7 @@
       "source_id": "src_ucl_east_official_opening",
       "title": "src_ucl_east_official_opening",
       "provider": "University College London",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7543,7 +8663,7 @@
       "source_id": "src_ucl_student_centre_opening",
       "title": "src_ucl_student_centre_opening",
       "provider": "University College London",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7568,7 +8688,7 @@
       "source_id": "src_uclh_grafton_way_fully_open",
       "title": "src_uclh_grafton_way_fully_open",
       "provider": "University College London Hospitals NHS Foundation Trust",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7593,7 +8713,7 @@
       "source_id": "src_uclh_grafton_way_royal_opening",
       "title": "src_uclh_grafton_way_royal_opening",
       "provider": "University College London Hospitals NHS Foundation Trust",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7618,7 +8738,7 @@
       "source_id": "src_uclh_rnent_eastman_hospital",
       "title": "src_uclh_rnent_eastman_hospital",
       "provider": "University College London Hospitals NHS Foundation Trust",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7643,7 +8763,7 @@
       "source_id": "src_va_east_storehouse_opening",
       "title": "src_va_east_storehouse_opening",
       "provider": "Victoria and Albert Museum",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7668,7 +8788,7 @@
       "source_id": "src_wandsworth_focus_hall_reopening",
       "title": "Alton's refurbished Focus Hall reopens with creative activities day",
       "provider": "Wandsworth Borough Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7693,7 +8813,7 @@
       "source_id": "src_wandsworth_northcote_library_hall_opening",
       "title": "New community space at Northcote Library adds to offer for local community",
       "provider": "Wandsworth Borough Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7743,7 +8863,7 @@
       "source_id": "src_wandsworth_putney_library",
       "title": "src_wandsworth_putney_library",
       "provider": "Wandsworth Borough Council",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7893,7 +9013,7 @@
       "source_id": "src_young_va_open",
       "title": "src_young_va_open",
       "provider": "Victoria and Albert Museum",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],
@@ -7995,7 +9115,7 @@
       "source_id": "translink-bgcs-enabling-work-gvs-closure-2024",
       "title": "Belfast Grand Central Station - Enabling Work",
       "provider": "Translink",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -8073,7 +9193,7 @@
       "source_id": "translink-station-anniversaries-2026",
       "title": "Celebrating the anniversaries of our station",
       "provider": "Translink",
-      "source_family": "official_record",
+      "source_family": "planning",
       "city_ids": [
         "belfast"
       ],
@@ -8175,7 +9295,7 @@
       "source_id": "westminster-authority-monitoring-public-realm",
       "title": "Westminster City Plan Progress Report / Authority Monitoring Report 2022-23",
       "provider": "Westminster City Council",
-      "source_family": "public_realm",
+      "source_family": "planning",
       "city_ids": [
         "london"
       ],

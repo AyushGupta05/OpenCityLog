@@ -51,7 +51,77 @@ const candidatePaths = {
   londonDfeGiasEducationRegister: "tmp/subagents/round130_london_official_more/candidates.json",
   nycDcpPublicAccessOfficial: "tmp/subagents/round130_nyc_official_more/candidates.json",
   belfastHedScheduledZones: "tmp/subagents/round130_belfast_official_more/candidates.json",
-  heritageDesignationsMore: "tmp/subagents/round130_heritage_designations_more/candidates.json"
+  heritageDesignationsMore: "tmp/subagents/round130_heritage_designations_more/candidates.json",
+  belfastPlanningStatisticsRound131: "tmp/subagents/round131_belfast_planning_statistics/candidates.json",
+  londonLddArchiveNextRound132: "tmp/subagents/round132_london_ldd_archive_next/candidates.json",
+  nycDobNowOfficialRound133: "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+  belfastPlanningStatisticsDeep: "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json",
+  londonLddArchiveNext2Round135: "tmp/subagents/round135_london_ldd_archive_next2/candidates.json",
+  nycDobNowMoreRound136: "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+  belfastPlanningStatisticsMoreRound137: "tmp/subagents/round137_belfast_planning_statistics_more/candidates.json",
+  nycLpcIndividualLandmarkGapsRound138: "tmp/subagents/round138_nyc_lpc_individual_landmark_gaps/candidates.json",
+  londonCertificateImmunityGapsRound139: "tmp/subagents/round139_london_certificate_immunity_gaps/candidates.json",
+  londonPldLifecycleMoreRound140: "tmp/subagents/round140_london_pld_lifecycle_more/candidates.json",
+  nycLpcDesignationGapsRound142: "tmp/subagents/round142_nyc_lpc_designation_gaps/candidates.json",
+  nycDobNowEvenMoreRound143: "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+  londonLddArchiveNext3Round144: "tmp/subagents/round144_london_ldd_archive_next3/candidates.json",
+  belfastPlanningStatisticsNextRound145: "tmp/subagents/round145_belfast_planning_statistics_next/candidates.json",
+  londonLddArchiveNext4Round146: "tmp/subagents/round146_london_ldd_archive_next4/candidates.json",
+  londonPldLifecycleNextRound147: "tmp/subagents/round147_london_pld_lifecycle_next/candidates.json",
+  londonLddArchiveNext5Round148: "tmp/subagents/round148_london_ldd_archive_next5/candidates.json",
+  nycDobNowNextRound149: "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+  londonPldLifecycleNext2Round150: "tmp/subagents/round150_london_pld_lifecycle_next2/candidates.json",
+  belfastPlanningStatisticsNext2Round151: "tmp/subagents/round151_belfast_planning_statistics_next2/candidates.json",
+  nycDobNowNext2Round152: "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+  londonPldLifecycleNext3Round153: "tmp/subagents/round153_london_pld_lifecycle_next3/candidates.json",
+  nycLpcPermitDeepRound154: "tmp/subagents/round154_nyc_lpc_permit_deep/candidates.json",
+  nycDobCoNextRound155: "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+  belfastOfficialHeritageTailRound156: "tmp/subagents/round156_belfast_official_heritage_tail/candidates.json",
+  londonPldLifecycleNext4Round157: "tmp/subagents/round157_london_pld_lifecycle_next4/candidates.json",
+  nycDobNowNext3Round158: "tmp/subagents/round158_nyc_dob_now_next3/candidates.json",
+  nycLpcPermitNextRound159: "tmp/subagents/round159_nyc_lpc_permit_next/candidates.json",
+  nycDobCoNext2Round160: "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+  londonPldLifecycleNext5Round161: "tmp/subagents/round161_london_pld_lifecycle_next5/candidates.json",
+  nycDobNowNext4Round162: "tmp/subagents/round162_nyc_dob_now_next4/candidates.json",
+  nycLpcPermitNext2Round163: "tmp/subagents/round163_nyc_lpc_permit_next2/candidates.json",
+  nycDobCoNext3Round164: "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+  belfastPlanningStatisticsNext3Round165: "tmp/subagents/round165_belfast_planning_statistics_next3/candidates.json",
+  londonPldLifecycleNext6Round166: "tmp/subagents/round166_london_pld_lifecycle_next6/candidates.json",
+  nycDobNowNext5Round167: "tmp/subagents/round167_nyc_dob_now_next5/candidates.json",
+  nycLpcPermitNext3Round168: "tmp/subagents/round168_nyc_lpc_permit_next3/candidates.json",
+  nycDobCoNext4Round169: "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+  londonLddArchiveNext6Round170: "tmp/subagents/round170_london_ldd_archive_next6/candidates.json",
+  belfastPlanningStatisticsNext4Round171: "tmp/subagents/round171_belfast_planning_statistics_next4/candidates.json",
+  londonPldLifecycleNext7Round172: "tmp/subagents/round172_london_pld_lifecycle_next7/candidates.json",
+  nycDobNowNext6Round173: "tmp/subagents/round173_nyc_dob_now_next6/candidates.json",
+  nycLpcPermitNext4Round174: "tmp/subagents/round174_nyc_lpc_permit_next4/candidates.json",
+  nycDobCoNext5Round175: "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+  londonLddArchiveNext7Round176: "tmp/subagents/round176_london_ldd_archive_next7/candidates.json",
+  belfastOfficialArchitectureExpansionRound177: "tmp/subagents/round177_belfast_official_architecture_expansion/candidates.json",
+  londonPldLifecycleNext8Round178: "tmp/subagents/round178_london_pld_lifecycle_next8/candidates.json",
+  nycDobNowNext7Round179: "tmp/subagents/round179_nyc_dob_now_next7/candidates.json",
+  nycLpcPermitNext5Round180: "tmp/subagents/round180_nyc_lpc_permit_next5/candidates.json",
+  nycDobCoNext6Round181: "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+  londonLddArchiveNext8Round182: "tmp/subagents/round182_london_ldd_archive_next8/candidates.json",
+  belfastDeepPublicRealmRound183: "tmp/subagents/round183_belfast_deep_public_realm/candidates.json",
+  londonPldLifecycleNext9Round184: "tmp/subagents/round184_london_pld_lifecycle_next9/candidates.json",
+  nycDobNowNext8Round185: "tmp/subagents/round185_nyc_dob_now_next8/candidates.json",
+  nycLpcPermitNext6Round186: "tmp/subagents/round186_nyc_lpc_permit_next6/candidates.json",
+  nycDobCoNext7Round187: "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+  londonLddArchiveNext9Round188: "tmp/subagents/round188_london_ldd_archive_next9/candidates.json",
+  belfastDeepCommitteeRound189: "tmp/subagents/round189_belfast_deep_committee/candidates.json",
+  londonPldLifecycleNext10Round190: "tmp/subagents/round190_london_pld_lifecycle_next10/candidates.json",
+  nycDobNowNext9Round191: "tmp/subagents/round191_nyc_dob_now_next9/candidates.json",
+  nycLpcPermitNext7Round192: "tmp/subagents/round192_nyc_lpc_permit_next7/candidates.json",
+  nycDobCoNext8Round193: "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+  londonLddArchiveNext10Round194: "tmp/subagents/round194_london_ldd_archive_next10/candidates.json",
+  belfastDeepTailRound195: "tmp/subagents/round195_belfast_deep_tail/candidates.json",
+  londonPldLifecycleNext11Round196: "tmp/subagents/round196_london_pld_lifecycle_next11/candidates.json",
+  nycDobNowNext10Round197: "tmp/subagents/round197_nyc_dob_now_next10/candidates.json",
+  nycLpcPermitNext8Round198: "tmp/subagents/round198_nyc_lpc_permit_next8/candidates.json",
+  nycDobCoNext9Round199: "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+  londonLddArchiveNext11Round200: "tmp/subagents/round200_london_ldd_archive_next11/candidates.json",
+  belfastFinalDeepTailRound201: "tmp/subagents/round201_belfast_final_deep_tail/candidates.json"
 };
 
 const sourceIdAliases = {
@@ -66,6 +136,8 @@ const sourceIdAliases = {
   "nyc-dob-job-application-filings-ic3t-wcy2": "nyc-dob-filings-permits",
   "w9ak-ipjd": "nyc-dob-filings-permits",
   "nyc-dob-now-build-job-application-filings-w9ak-ipjd": "nyc-dob-filings-permits",
+  "rbx6-tga4": "nyc-dob-filings-permits",
+  "nyc-dob-now-build-approved-permits-rbx6-tga4": "nyc-dob-filings-permits",
   "dpm2-m9mq": "nyc-lpc-permit-application-information",
   "nyc-lpc-permit-application-information-dpm2-m9mq": "nyc-lpc-permit-application-information",
   "nyc-open-data-lpc-permit-application-information-dpm2-m9mq": "nyc-lpc-permit-application-information",
@@ -114,7 +186,26 @@ function readJson(file) {
 }
 
 function writeJson(file, data) {
-  fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
+  const payload = `${JSON.stringify(data, null, 2)}\n`;
+  const dir = path.dirname(file);
+  const tempFile = path.join(dir, `.${path.basename(file)}.${process.pid}.${Date.now()}.tmp`);
+  fs.writeFileSync(tempFile, payload);
+  let lastError;
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    try {
+      fs.renameSync(tempFile, file);
+      return;
+    } catch (error) {
+      lastError = error;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 250 * (attempt + 1));
+    }
+  }
+  try {
+    if (fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+  } catch (_) {
+    // Best-effort cleanup only; preserve the original write error below.
+  }
+  throw lastError;
 }
 
 function canonicalSourceId(sourceId) {
@@ -282,6 +373,17 @@ function sourceRecordIdFor(candidate, sourceIds) {
   return recordId;
 }
 
+function eventSourceRecordIdFor(candidate, sourceIds, date) {
+  const recordId = sourceRecordIdFor(candidate, sourceIds);
+  const sourceText = sourceIds.join(" ");
+  const dateField = sourceDateFieldFor(candidate);
+  const lifecycleField = candidate.source_lifecycle_field || dateField;
+  if (/gla-planning-datahub-applications|london-planning-datahub-api\/core/i.test(sourceText) && /actual_(commencement|completion)_date/i.test(lifecycleField)) {
+    return `${recordId}; DATE_FIELD:${safeText(lifecycleField)}; DATE:${date}`;
+  }
+  return recordId;
+}
+
 function eventIdFor(candidate, date) {
   const prefix = { belfast: "bfs_arch", london: "lon_arch", nyc: "nyc_arch" }[candidate.city_id];
   const existing = safeText(candidate.event_id || "");
@@ -332,7 +434,7 @@ function normalizeCandidate(candidate, packName) {
     source_name: safeText(candidate.source_name || candidate.dataset_page_url || primarySourceId),
     publisher: safeText(candidate.publisher || candidate.source_publisher || "Source publisher not supplied in candidate."),
     source_url: sourceUrlFor(candidate),
-    source_record_id: safeText(sourceRecordIdFor(candidate, sourceIds)),
+    source_record_id: safeText(eventSourceRecordIdFor(candidate, sourceIds, date)),
     source_type: safeText(candidate.source_type || candidate.event_type || "official/public source record"),
     source_retrieved_at: candidate.accessed_at || candidate.source_retrieved_at || candidate.retrieved_at || candidate.provenance?.source_retrieved_at || retrievedAt,
     source_date_field: safeText(sourceDateFieldFor(candidate)),
@@ -419,18 +521,19 @@ function defaultLicenceUrl(publisher, accessUrl) {
 }
 
 function registryEntryFromSource(source) {
+  const bucketFamily = String(source.bucket || "").split("/").filter(Boolean)[0];
   return {
     source_id: source.source_id,
     title: source.title,
     provider: source.publisher,
-    source_family: source.bucket.split("/").pop() || "planning",
+    source_family: source.source_family || bucketFamily || "planning",
     city_ids: source.city_ids,
     licence: source.licence,
     licence_url: source.licence_url,
     coverage_years: source.coverage_years,
     update_frequency: source.update_frequency,
     url: source.access_url,
-    local_paths: [],
+    local_paths: source.local_paths || [],
     reliability: "usable_with_caveats",
     source_confidence: "documented",
     attribution_text: `Attribute ${source.publisher}.`,
@@ -537,7 +640,13 @@ function sourceToken(event) {
     text.match(/\bZ\/\d{4}\/\d{4}\/[A-Z]+\b/i)?.[0];
   if (planningRef) return `${sourceId}:${planningRef.toUpperCase()}`;
   const pld = text.match(/\bPLD:[^;\s]+/i)?.[0] || text.match(/\bPDU[-:]?\d{4,}\b/i)?.[0];
-  if (pld) return `${sourceId}:${pld.toUpperCase()}`;
+  if (pld) {
+    const field = safeText(event.source_date_field || "");
+    if (/actual_(commencement|completion)_date/i.test(field)) {
+      return `${sourceId}:${pld.toUpperCase()}:${field.toLowerCase()}:${event.date}`;
+    }
+    return `${sourceId}:${pld.toUpperCase()}`;
+  }
   if (sourceId.startsWith("planning-data-")) {
     const entity = text.match(/\bentity\s+(\d{6,})\b/i)?.[1] || text.match(/\/entity\/(\d{6,})\b/i)?.[1];
     if (entity) return `${sourceId}:${entity}`;
@@ -558,6 +667,18 @@ function buildExistingSourceTokens(events) {
     }
   }
   return bySource;
+}
+
+function normalizeExistingPldLifecycleRecordIds(events) {
+  for (const event of events) {
+    const sourceIds = event.source_ids || [event.source_dataset_id].filter(Boolean);
+    const sourceText = sourceIds.join(" ");
+    const dateField = safeText(event.source_date_field || "");
+    if (!/gla-planning-datahub-applications|london-planning-datahub-api\/core/i.test(sourceText)) continue;
+    if (!/actual_(commencement|completion)_date/i.test(dateField)) continue;
+    if (!event.source_record_id || /; DATE_FIELD:/.test(event.source_record_id)) continue;
+    event.source_record_id = `${event.source_record_id}; DATE_FIELD:${dateField}; DATE:${event.date}`;
+  }
 }
 
 function validateRecords(records, doc) {
@@ -618,6 +739,7 @@ function validateRecords(records, doc) {
 
 function main() {
   const doc = readJson(corpusPath);
+  normalizeExistingPldLifecycleRecordIds(doc.events);
   const allCandidates = [];
   const allAudits = [];
   const missingCandidatePacks = [];

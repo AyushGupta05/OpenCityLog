@@ -1,0 +1,415 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "task": "Round142 NYC LPC historic-district/designation gap candidates from official Open Data",
+  "start_date": "2008-01-01",
+  "end_date": "2026-05-19",
+  "candidate_count": 27,
+  "by_landmark_type": {
+    "Historic District": 20,
+    "Interior Landmark": 6,
+    "Individual Landmark": 1
+  },
+  "by_year": {
+    "2009": 1,
+    "2012": 1,
+    "2014": 1,
+    "2016": 1,
+    "2017": 3,
+    "2018": 3,
+    "2019": 2,
+    "2020": 2,
+    "2021": 1,
+    "2022": 3,
+    "2023": 1,
+    "2024": 3,
+    "2025": 5
+  },
+  "by_source_dataset": {
+    "skyk-mpzq": 18,
+    "ncre-qhxs": 8,
+    "buis-pvji": 1
+  },
+  "rows_reviewed": {
+    "skyk-mpzq": 54,
+    "ncre-qhxs": 12509,
+    "buis-pvji": 289
+  },
+  "current_manual_corpus_screen": {
+    "nyc_lp_numbers_seen_any_action": 333,
+    "nyc_lp_numbers_seen_final_designation": 329,
+    "nyc_lp_numbers_seen_calendar_only": 12,
+    "calendar_only_lp_numbers": [
+      "LP-02685",
+      "LP-02694",
+      "LP-02695",
+      "LP-02696"
+    ]
+  },
+  "rejected": {
+    "existing designation LP number in manual corpus": 362,
+    "ncre_historic_district_covered_by_polygon_source": 18,
+    "existing designation title/date in manual corpus": 8
+  },
+  "rejected_examples": [
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02208",
+      "title": "Fiske Terrace-Midwood Park Historic District was designated by NYC LPC",
+      "date": "2008-03-18"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02287",
+      "title": "NoHo Historic District Extension was designated by NYC LPC",
+      "date": "2008-05-13"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02302",
+      "title": "West Chelsea Historic District was designated by NYC LPC",
+      "date": "2008-07-15"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02309",
+      "title": "Alice and Agate Courts Historic District was designated by NYC LPC",
+      "date": "2009-02-10"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02333",
+      "title": "Fillmore Place Historic District was designated by NYC LPC",
+      "date": "2009-05-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02335",
+      "title": "Audubon Park Historic District was designated by NYC LPC",
+      "date": "2009-05-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02314",
+      "title": "Prospect Heights Historic District was designated by NYC LPC",
+      "date": "2009-06-23"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02319",
+      "title": "Ridgewood North Historic District was designated by NYC LPC",
+      "date": "2009-09-15"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02324",
+      "title": "Lamartine Place Historic District was designated by NYC LPC",
+      "date": "2009-10-13"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02334",
+      "title": "Ocean on the Park Historic District was designated by NYC LPC",
+      "date": "2009-10-27"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02373",
+      "title": "Upper East Side Historic District Extension was designated by NYC LPC",
+      "date": "2010-03-23"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02362",
+      "title": "SoHo-Cast Iron Historic District Extension was designated by NYC LPC",
+      "date": "2010-05-11"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02366",
+      "title": "Greenwich Village Historic District Extension II was designated by NYC LPC",
+      "date": "2010-06-22"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02348",
+      "title": "Ridgewood South Historic District was designated by NYC LPC",
+      "date": "2010-10-26"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02405",
+      "title": "Addisleigh Park Historic District was designated by NYC LPC",
+      "date": "2011-02-01"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02361",
+      "title": "Crown Heights North II Historic District was designated by NYC LPC",
+      "date": "2011-06-28"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02445",
+      "title": "Wallabout Historic District was designated by NYC LPC",
+      "date": "2011-07-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02449",
+      "title": "Borough Hall Skyscraper Historic District was designated by NYC LPC",
+      "date": "2011-09-13"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02403",
+      "title": "Grand Concourse Historic District was designated by NYC LPC",
+      "date": "2011-10-25"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02492",
+      "title": "East 10th Street Historic District was designated by NYC LPC",
+      "date": "2012-01-17"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02443",
+      "title": "Park Slope Historic District Extension was designated by NYC LPC",
+      "date": "2012-04-17"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02463",
+      "title": "Riverside-West End Historic Distric Extension I was designated by NYC LPC",
+      "date": "2012-06-26"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02491",
+      "title": "East Village / Lower East Side Historic District was designated by NYC LPC",
+      "date": "2012-10-09"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02496",
+      "title": "Bedford Stuyvesant/Expanded Stuyvesant Heights Historic District was designated by NYC LPC",
+      "date": "2013-04-16"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02462",
+      "title": "West End-Collegiate Historic District Extension was designated by NYC LPC",
+      "date": "2013-06-25"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02546",
+      "title": "South Village Historic District was designated by NYC LPC",
+      "date": "2013-12-17"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02547",
+      "title": "Park Avenue Historic District was designated by NYC LPC",
+      "date": "2014-04-29"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02448",
+      "title": "Central Ridgewood Historic District was designated by NYC LPC",
+      "date": "2014-12-09"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02489",
+      "title": "Crown Heights North III Historic District was designated by NYC LPC",
+      "date": "2015-03-24"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02464",
+      "title": "Riverside-West End Historic District Extension II was designated by NYC LPC",
+      "date": "2015-06-23"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02571",
+      "title": "Mount Morris Park Historic District Extension was designated by NYC LPC",
+      "date": "2015-09-22"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02514",
+      "title": "Bedford Historic District was designated by NYC LPC",
+      "date": "2015-12-08"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02558",
+      "title": "Park Slope Historic District Extension II was designated by NYC LPC",
+      "date": "2016-04-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02622",
+      "title": "Sunset Park South Historic District was designated by NYC LPC",
+      "date": "2019-06-18"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02624",
+      "title": "Central Sunset Park Historic District was designated by NYC LPC",
+      "date": "2019-06-18"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02625",
+      "title": "Sunset Park North Historic District was designated by NYC LPC",
+      "date": "2019-06-18"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02208",
+      "title": "Fiske Terrace-Midwood Park Historic District was designated by NYC LPC",
+      "date": "2008-03-18"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02287",
+      "title": "NoHo Historic District Extension was designated by NYC LPC",
+      "date": "2008-05-13"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02254",
+      "title": "Morningside Park Scenic Landmark was designated a scenic landmark",
+      "date": "2008-07-15"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02302",
+      "title": "West Chelsea Historic District was designated by NYC LPC",
+      "date": "2008-07-15"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02235",
+      "title": "Tompkinsville (Joseph H. Lyons) Pool Bath House, First Floor Interior was designated an interior landmark",
+      "date": "2008-09-16"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02309",
+      "title": "Alice and Agate Courts Historic District was designated by NYC LPC",
+      "date": "2009-02-10"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02333",
+      "title": "Fillmore Place Historic District was designated by NYC LPC",
+      "date": "2009-05-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02335",
+      "title": "Audubon Park Historic District was designated by NYC LPC",
+      "date": "2009-05-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02314",
+      "title": "Prospect Heights Historic District was designated by NYC LPC",
+      "date": "2009-06-23"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02319",
+      "title": "Ridgewood North Historic District was designated by NYC LPC",
+      "date": "2009-09-15"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02324",
+      "title": "Lamartine Place Historic District was designated by NYC LPC",
+      "date": "2009-10-13"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02334",
+      "title": "Ocean on the Park Historic District was designated by NYC LPC",
+      "date": "2009-10-27"
+    },
+    {
+      "reason": "ncre_historic_district_covered_by_polygon_source",
+      "source_record_id": "LP-02339",
+      "title": "Perry Avenue Historic District",
+      "row_count": 9
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02373",
+      "title": "Upper East Side Historic District Extension was designated by NYC LPC",
+      "date": "2010-03-23"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02362",
+      "title": "SoHo-Cast Iron Historic District Extension was designated by NYC LPC",
+      "date": "2010-05-11"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02366",
+      "title": "Greenwich Village Historic District Extension II was designated by NYC LPC",
+      "date": "2010-06-22"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02348",
+      "title": "Ridgewood South Historic District was designated by NYC LPC",
+      "date": "2010-10-26"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02405",
+      "title": "Addisleigh Park Historic District was designated by NYC LPC",
+      "date": "2011-02-01"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02467",
+      "title": "Manufacturers Trust Company Building, First and Second Floor Interiors was designated an interior landmark",
+      "date": "2011-02-15"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02442",
+      "title": "Cities Service Building, First Floor Interior was designated an interior landmark",
+      "date": "2011-06-21"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02361",
+      "title": "Crown Heights North Historic District II was designated by NYC LPC",
+      "date": "2011-06-28"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02445",
+      "title": "Wallabout Historic District was designated by NYC LPC",
+      "date": "2011-07-12"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02449",
+      "title": "Borough Hall Skyscraper Historic District was designated by NYC LPC",
+      "date": "2011-09-13"
+    },
+    {
+      "reason": "existing designation LP number in manual corpus",
+      "source_record_id": "LP-02426",
+      "title": "Madison Belmont Building, First Floor Interior was designated an interior landmark",
+      "date": "2011-09-20"
+    }
+  ]
+}

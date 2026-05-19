@@ -81,7 +81,7 @@ button { font-family: inherit; }
   font-family: var(--font-sans);
 }
 .maplibregl-canvas-container .maplibregl-canvas {
-  filter: grayscale(0.85) contrast(0.95) brightness(1.04);
+  filter: none;
   transition: filter 0.4s ease;
 }
 [data-theme="dark"] .maplibregl-canvas-container .maplibregl-canvas {
@@ -162,6 +162,15 @@ button { font-family: inherit; }
   border-radius: 50%;
   background: var(--accent, var(--ink));
   box-shadow: 0 0 0 2px var(--paper);
+}
+.pin:not([data-active="true"]) {
+  opacity: 0.42;
+  transform: scale(0.72);
+}
+.pin:not([data-active="true"]):hover,
+.pin:not([data-active="true"]):focus-visible {
+  opacity: 0.92;
+  transform: scale(1);
 }
 .pin[data-active="true"] { transform: scale(1.25); z-index: 4; }
 .pin[data-active="true"]::before {
@@ -476,18 +485,27 @@ button { font-family: inherit; }
   color: var(--muted);
 }
 .map-lens {
-  position: fixed;
-  left: 292px;
-  top: 82px;
-  width: 300px;
+  position: absolute;
+  left: calc(100vw - 652px);
+  right: auto;
+  top: 180px;
+  width: 224px;
   z-index: 306;
-  padding: 10px;
+  padding: 12px;
   background: var(--panel);
   border: 1px solid var(--rule);
   border-radius: 6px;
   box-shadow: var(--shadow-2);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  pointer-events: none;
+}
+.map-lens button,
+.map-lens [role="button"],
+.map-lens a,
+.map-lens input,
+.map-lens select {
+  pointer-events: auto;
 }
 .map-lens-head {
   display: flex;
@@ -511,18 +529,18 @@ button { font-family: inherit; }
 .map-lens-switcher {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 4px;
-  padding: 8px 0;
+  gap: 3px;
+  padding: 8px 0 6px;
 }
 .lens-choice {
   min-width: 0;
-  min-height: 30px;
-  padding: 4px 3px;
+  min-height: 26px;
+  padding: 3px 2px;
   border: 1px solid var(--rule);
   border-radius: 4px;
   background: transparent;
   color: var(--muted);
-  font: 500 10.5px var(--font-sans);
+  font: 500 9.5px var(--font-sans);
   cursor: pointer;
 }
 .lens-choice:hover {
@@ -541,20 +559,23 @@ button { font-family: inherit; }
 .lens-aspect-switcher {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 5px;
-  padding: 0 0 9px;
+  gap: 0;
+  padding: 0 0 10px;
 }
 .lens-aspect-choice {
   min-width: 0;
-  min-height: 32px;
-  padding: 5px 5px;
+  min-height: 30px;
+  padding: 5px 4px;
   border: 1px solid var(--rule);
-  border-radius: 4px;
+  border-radius: 0;
   background: color-mix(in oklab, var(--paper) 82%, transparent);
   color: var(--muted);
   font: 600 10.5px var(--font-sans);
   cursor: pointer;
 }
+.lens-aspect-choice:first-child { border-radius: 4px 0 0 4px; }
+.lens-aspect-choice:last-child { border-radius: 0 4px 4px 0; }
+.lens-aspect-choice + .lens-aspect-choice { border-left: 0; }
 .lens-aspect-choice:hover {
   color: var(--ink);
   background: var(--paper-2);
@@ -2190,9 +2211,10 @@ button { font-family: inherit; }
     overflow: auto;
   }
   .map-lens {
-    left: 252px;
+    left: calc(100vw - 608px);
+    right: auto;
     top: 118px;
-    width: 280px;
+    width: 220px;
   }
   .detail {
     width: 340px;
@@ -2265,10 +2287,11 @@ button { font-family: inherit; }
     overflow: auto;
   }
   .map-lens {
-    left: 8px;
-    right: 8px;
-    top: 328px;
-    width: auto;
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: 182px;
+    width: calc(100vw - 16px);
     z-index: 365;
   }
   .map-lens-switcher {
