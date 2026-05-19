@@ -998,6 +998,7 @@
       const url = new URL(window.location.href);
       url.searchParams.set("city", state.cityId);
       url.searchParams.set("year", String(state.year));
+      url.searchParams.set("lens", state.activeAspect || state.activeLens);
       await copyText(url.toString(), "Permalink copied - view shared with city and year");
     });
 
@@ -2532,6 +2533,19 @@
       state.map.setFilter(layerId, filterByLayer[layerId]);
       state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
     }
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
+    setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
+    setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
+    setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
+  }
+
+  function setLayerPaintIfPresent(layerId, prop, value) {
+    if (state.map?.getLayer(layerId)) state.map.setPaintProperty(layerId, prop, value);
   }
 
   function updateLensGuideLayers() {
@@ -2572,7 +2586,8 @@
 
   function shouldLoadLensDetail() {
     const lens = activeMapLens();
-    return Boolean(lens && lens.id !== "transport" && state.activeLayers.has(lens.layerId));
+    const category = lens?.category || lens?.layerId || lens?.id;
+    return Boolean(lens && category !== "transport" && state.activeLayers.has(category));
   }
 
   function updateTransportRoadYearSource() {
@@ -2696,7 +2711,7 @@
         [0.84, "#9bcf9d"],
         [1, "#7fc0bf"],
       ];
-      for (const [intensity, color] of bands.toReversed ? bands.toReversed() : [...bands].reverse()) {
+      for (const [intensity, color] of [...bands].reverse()) {
         features.push({
           type: "Feature",
           properties: { kind: "surface_cell", lens_id: lens.id, intensity, color },
@@ -2821,6 +2836,8 @@
     return [
       state.cityId,
       state.activeLens,
+      state.activeAspect,
+      [...state.activeAspectLayers].sort().join(","),
       year,
       activeLayerIds().join(","),
       state.confidenceFilter,
@@ -3008,13 +3025,7 @@
           13, ["*", ["+", 0.82, ["*", activity, 3.1]], ["to-number", ["get", "rank"], 1]],
           16, ["*", ["+", 1.3, ["*", activity, 4.8]], ["to-number", ["get", "rank"], 1]],
         ],
-        "line-dasharray": [
-          "step", activity,
-          ["literal", [1.1, 1.4]],
-          0.35, ["literal", [2.4, 1.2]],
-          0.62, ["literal", [0.8, 0.8]],
-          0.82, ["literal", [1, 0]],
-        ],
+        "line-dasharray": [2.4, 1.2],
       };
     }
     return {
@@ -3033,6 +3044,7 @@
         13, ["*", ["+", 0.86, ["*", activity, 3.9]], ["to-number", ["get", "rank"], 1]],
         16, ["*", ["+", 1.35, ["*", activity, 6.1]], ["to-number", ["get", "rank"], 1]],
       ],
+      "line-dasharray": [1, 0.0001],
     };
   }
 
@@ -3726,6 +3738,7 @@
       const url = new URL(window.location.href);
       url.searchParams.set("city", state.cityId);
       url.searchParams.set("year", String(state.year));
+      url.searchParams.set("lens", state.activeAspect || state.activeLens);
       url.searchParams.set("event", state.selectedEventId);
       await copyText(url.toString(), "Event permalink copied");
     });
@@ -4556,6 +4569,7 @@
     selectEvent,
     clearSelection,
     setActiveLens,
+    setActiveAspect,
     setChangelogOpen,
     setCompareOpen,
     updateTimeDependentMapState,

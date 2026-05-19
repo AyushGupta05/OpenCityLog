@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-19T12:06:41Z",
+  "generated_at": "2026-05-19T12:14:44Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 261381,
-    "total_unique_events": 261381,
+    "total_events": 261719,
+    "total_unique_events": 261719,
     "duplicate_event_id_count": 0,
-    "active_source_count": 332,
+    "active_source_count": 334,
     "source_catalog_only_count": 239,
-    "source_year_layer_row_count": 2032,
+    "source_year_layer_row_count": 2057,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -889,6 +889,46 @@
       "year": 2025,
       "layer": "built_environment",
       "event_count": 4
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 2
     },
     {
       "city_id": "belfast",
@@ -3073,6 +3113,142 @@
       "year": 2026,
       "layer": "transport",
       "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 21
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 31
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 21
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 27
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 19
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 23
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 23
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 27
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 28
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 17
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 11
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 13
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "source_title": "National Heritage List for England (NHLE) listed building points",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 9
     },
     {
       "city_id": "london",
@@ -14518,7 +14694,31 @@
       "city_id": "nyc",
       "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
       "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
       "year": 2017,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+      "year": 2021,
       "layer": "built_environment",
       "event_count": 1
     },
@@ -16279,17 +16479,17 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 30669,
-      "unique_event_count": 30669,
+      "event_count": 30676,
+      "unique_event_count": 30676,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 91,
-      "active_source_count": 76,
+      "source_count": 92,
+      "active_source_count": 77,
       "source_catalog_only_count": 15,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 30669,
-        "gap_events": 69331,
+        "backed_event_count": 30676,
+        "gap_events": 69324,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -16299,9 +16499,9 @@
       "event_counts_by_year": {
         "2007": 13,
         "2008": 62,
-        "2009": 195,
+        "2009": 196,
         "2010": 32,
-        "2011": 151,
+        "2011": 152,
         "2012": 237,
         "2013": 139,
         "2014": 251,
@@ -16309,17 +16509,17 @@
         "2016": 2174,
         "2017": 2202,
         "2018": 1972,
-        "2019": 983,
+        "2019": 985,
         "2020": 1446,
-        "2021": 2471,
+        "2021": 2472,
         "2022": 3274,
         "2023": 2794,
         "2024": 4621,
         "2025": 5053,
-        "2026": 2356
+        "2026": 2358
       },
       "event_counts_by_layer": {
-        "built_environment": 11350,
+        "built_environment": 11357,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -16328,7 +16528,7 @@
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 12701,
+        "documented": 12708,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -16350,7 +16550,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 22
+          "event_count": 23
         },
         {
           "year": 2009,
@@ -16370,7 +16570,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 15
+          "event_count": 16
         },
         {
           "year": 2011,
@@ -16480,7 +16680,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 417
+          "event_count": 419
         },
         {
           "year": 2019,
@@ -16525,7 +16725,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1492
+          "event_count": 1493
         },
         {
           "year": 2021,
@@ -16650,7 +16850,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 130
+          "event_count": 132
         },
         {
           "year": 2026,
@@ -17535,6 +17735,46 @@
           "year": 2025,
           "layer": "built_environment",
           "event_count": 4
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "source_title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 2
         },
         {
           "city_id": "belfast",
@@ -18957,6 +19197,30 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "provider": "Department for Communities Historic Environment Division",
+          "reliability": "usable_with_caveats",
+          "licence": "OpenDataNI lists the Scheduled Historic Monument Areas dataset under the UK Open Government Licence (OGL).",
+          "event_count": 7,
+          "years": [
+            2009,
+            2011,
+            2019,
+            2021,
+            2026
+          ],
+          "first_year": 2009,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 7
+          },
+          "confidence_counts": {
+            "documented": 7
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "dfi-ni-public-project-pages",
           "title": "Department for Infrastructure NI public project pages",
           "provider": "Department for Infrastructure, Northern Ireland",
@@ -20304,11 +20568,11 @@
           "coverage_status": "source_catalog_only"
         },
         {
-          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
-          "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "source_id": "dfc-hed-changes-to-list-buildings-2026-03",
+          "title": "Changes to the List of Buildings of special architectural or historic interest",
           "provider": "Department for Communities Historic Environment Division",
           "reliability": "usable_with_caveats",
-          "licence": "OpenDataNI lists the Scheduled Historic Monument Areas dataset under the UK Open Government Licence (OGL).",
+          "licence": "Crown copyright / Department for Communities website terms; re-check before redistributing full PDF content",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -20480,8 +20744,8 @@
             "reliability": "strong"
           },
           {
-            "source_id": "dfc-hed-scheduled-zones-belfast-round130",
-            "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+            "source_id": "dfc-hed-changes-to-list-buildings-2026-03",
+            "title": "Changes to the List of Buildings of special architectural or historic interest",
             "provider": "Department for Communities Historic Environment Division",
             "reliability": "usable_with_caveats"
           },
@@ -20549,16 +20813,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 193561,
-      "unique_event_count": 193561,
+      "event_count": 193889,
+      "unique_event_count": 193889,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 283,
-      "active_source_count": 179,
+      "source_count": 284,
+      "active_source_count": 180,
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 193561,
+        "backed_event_count": 193889,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -20635,28 +20899,28 @@
         "2005": 1234,
         "2006": 1254,
         "2007": 1289,
-        "2008": 1551,
-        "2009": 2962,
-        "2010": 2942,
-        "2011": 3072,
-        "2012": 2931,
-        "2013": 2889,
-        "2014": 2942,
-        "2015": 2985,
-        "2016": 3046,
-        "2017": 4488,
-        "2018": 3456,
-        "2019": 3784,
-        "2020": 8877,
-        "2021": 8371,
-        "2022": 8232,
-        "2023": 22592,
-        "2024": 30008,
+        "2008": 1561,
+        "2009": 2983,
+        "2010": 2973,
+        "2011": 3093,
+        "2012": 2958,
+        "2013": 2919,
+        "2014": 2961,
+        "2015": 3008,
+        "2016": 3069,
+        "2017": 4515,
+        "2018": 3484,
+        "2019": 3794,
+        "2020": 8894,
+        "2021": 8382,
+        "2022": 8245,
+        "2023": 22600,
+        "2024": 30017,
         "2025": 31000,
         "2026": 19337
       },
       "event_counts_by_layer": {
-        "built_environment": 74278,
+        "built_environment": 74606,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -20664,7 +20928,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 193551,
+        "documented": 193879,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -21056,7 +21320,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 1545
+          "event_count": 1555
         },
         {
           "year": 2008,
@@ -21071,7 +21335,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 1446
+          "event_count": 1467
         },
         {
           "year": 2009,
@@ -21091,7 +21355,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 1429
+          "event_count": 1460
         },
         {
           "year": 2010,
@@ -21111,7 +21375,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 1562
+          "event_count": 1583
         },
         {
           "year": 2011,
@@ -21131,7 +21395,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 1421
+          "event_count": 1448
         },
         {
           "year": 2012,
@@ -21151,7 +21415,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 1385
+          "event_count": 1415
         },
         {
           "year": 2013,
@@ -21171,7 +21435,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 1432
+          "event_count": 1451
         },
         {
           "year": 2014,
@@ -21191,7 +21455,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 1471
+          "event_count": 1494
         },
         {
           "year": 2015,
@@ -21211,7 +21475,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1512
+          "event_count": 1535
         },
         {
           "year": 2016,
@@ -21231,7 +21495,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 2950
+          "event_count": 2977
         },
         {
           "year": 2017,
@@ -21251,7 +21515,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1876
+          "event_count": 1904
         },
         {
           "year": 2018,
@@ -21276,7 +21540,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 2158
+          "event_count": 2168
         },
         {
           "year": 2019,
@@ -21296,7 +21560,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 2787
+          "event_count": 2804
         },
         {
           "year": 2020,
@@ -21316,7 +21580,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2246
+          "event_count": 2257
         },
         {
           "year": 2021,
@@ -21336,7 +21600,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1890
+          "event_count": 1903
         },
         {
           "year": 2022,
@@ -21356,7 +21620,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1730
+          "event_count": 1738
         },
         {
           "year": 2023,
@@ -21376,7 +21640,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 2743
+          "event_count": 2752
         },
         {
           "year": 2024,
@@ -22596,6 +22860,142 @@
           "year": 2026,
           "layer": "transport",
           "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 21
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 31
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 21
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 27
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 19
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 23
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 23
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 27
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 28
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 17
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 11
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 13
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "source_title": "National Heritage List for England (NHLE) listed building points",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 9
         },
         {
           "city_id": "london",
@@ -28555,6 +28955,42 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "historic-england-nhle-amendments-open-data",
+          "title": "National Heritage List for England (NHLE) listed building points",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
+          "event_count": 328,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "first_year": 2008,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 328
+          },
+          "confidence_counts": {
+            "documented": 328
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "historic-england-har-annual-map-series-2016-2025",
           "title": "Historic England Heritage at Risk annual map series, 2016-2025",
           "provider": "Historic England",
@@ -34161,8 +34597,8 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 37151,
-      "unique_event_count": 37151,
+      "event_count": 37154,
+      "unique_event_count": 37154,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 199,
@@ -34170,8 +34606,8 @@
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 37151,
-        "gap_events": 62849,
+        "backed_event_count": 37154,
+        "gap_events": 62846,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -34348,12 +34784,12 @@
         "2013": 1179,
         "2014": 1422,
         "2015": 3353,
-        "2016": 1717,
+        "2016": 1718,
         "2017": 1833,
-        "2018": 2115,
+        "2018": 2116,
         "2019": 2524,
         "2020": 2368,
-        "2021": 1729,
+        "2021": 1730,
         "2022": 2106,
         "2023": 2387,
         "2024": 2487,
@@ -34361,14 +34797,14 @@
         "2026": 1622
       },
       "event_counts_by_layer": {
-        "built_environment": 21920,
+        "built_environment": 21923,
         "civic_services": 2870,
         "environment": 6116,
         "transport": 6242,
         "utilities": 3
       },
       "event_counts_by_confidence": {
-        "documented": 37151
+        "documented": 37154
       },
       "event_counts_by_year_layer": [
         {
@@ -35664,7 +36100,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 989
+          "event_count": 990
         },
         {
           "year": 2016,
@@ -35709,7 +36145,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1307
+          "event_count": 1308
         },
         {
           "year": 2018,
@@ -35774,7 +36210,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1238
+          "event_count": 1239
         },
         {
           "year": 2021,
@@ -42110,7 +42546,31 @@
           "city_id": "nyc",
           "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
           "year": 2017,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "year": 2021,
           "layer": "built_environment",
           "event_count": 1
         },
@@ -45469,6 +45929,35 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
+          "event_count": 16,
+          "years": [
+            2008,
+            2011,
+            2012,
+            2013,
+            2016,
+            2017,
+            2018,
+            2021,
+            2024,
+            2025
+          ],
+          "first_year": 2008,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 16
+          },
+          "confidence_counts": {
+            "documented": 16
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "nyc-ddc-public-building-press-pages",
           "title": "NYC Department of Design and Construction public building press pages",
           "provider": "NYC Department of Design and Construction",
@@ -45516,32 +46005,6 @@
           },
           "confidence_counts": {
             "documented": 14
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "title": "NYC Open Data Designated and Calendared Buildings and Sites",
-          "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
-          "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
-          "event_count": 13,
-          "years": [
-            2008,
-            2011,
-            2012,
-            2013,
-            2017,
-            2024,
-            2025
-          ],
-          "first_year": 2008,
-          "last_year": 2025,
-          "layer_counts": {
-            "built_environment": 13
-          },
-          "confidence_counts": {
-            "documented": 13
           },
           "coverage_status": "events_emitted"
         },

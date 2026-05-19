@@ -400,10 +400,51 @@ button { font-family: inherit; }
 .layers {
   position: absolute;
   left: 16px;
-  top: 84px;
-  width: 240px;
+  top: 76px;
+  width: 260px;
   z-index: 300;
   padding: 0;
+}
+.active-lens-card {
+  --lens-accent: var(--c-transport);
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  padding: 13px 14px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.active-lens-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fffaf0;
+  background: var(--lens-accent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 8px 18px color-mix(in oklab, var(--lens-accent) 24%, transparent);
+  font: 700 18px var(--font-sans);
+}
+.active-lens-copy {
+  min-width: 0;
+}
+.active-lens-domain {
+  color: var(--lens-accent);
+  font: 700 10px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.active-lens-copy h2 {
+  margin: 2px 0 3px;
+  color: var(--ink);
+  font: 650 22px/1.05 var(--font-sans);
+  letter-spacing: 0;
+}
+.active-lens-copy p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 11.5px;
+  line-height: 1.35;
 }
 .layers-head {
   padding: 12px 14px 8px;
@@ -422,9 +463,9 @@ button { font-family: inherit; }
 }
 .map-lens {
   position: fixed;
-  left: 272px;
-  top: 84px;
-  width: 292px;
+  left: 292px;
+  top: 82px;
+  width: 300px;
   z-index: 306;
   padding: 10px;
   background: var(--panel);
@@ -482,6 +523,33 @@ button { font-family: inherit; }
 .lens-choice[data-layer-on="false"] {
   text-decoration: line-through;
   opacity: 0.62;
+}
+.lens-aspect-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  padding: 0 0 9px;
+}
+.lens-aspect-choice {
+  min-width: 0;
+  min-height: 32px;
+  padding: 5px 5px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--paper) 82%, transparent);
+  color: var(--muted);
+  font: 600 10.5px var(--font-sans);
+  cursor: pointer;
+}
+.lens-aspect-choice:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+.lens-aspect-choice[data-active="true"] {
+  color: var(--ink);
+  border-color: color-mix(in oklab, var(--ink) 38%, var(--rule));
+  background: #ffffff;
+  box-shadow: inset 0 -2px 0 var(--c-transport);
 }
 .lens-legend {
   display: flex;

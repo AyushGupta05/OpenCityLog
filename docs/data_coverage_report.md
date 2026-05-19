@@ -1,18 +1,18 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T12:06:41Z
+Generated: 2026-05-19T12:14:44Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 30669 | 76 | 15 | 2007-2026 | transport 17118, built_environment 11350, utilities 851 | 69331 |
-| London, England | 193561 | 179 | 102 | 1801-2026 | built_environment 74278, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 37151 | 77 | 122 | 1797-2026 | built_environment 21920, transport 6242, environment 6116 | 62849 |
+| Belfast, Northern Ireland | 30676 | 77 | 15 | 2007-2026 | transport 17118, built_environment 11357, utilities 851 | 69324 |
+| London, England | 193889 | 180 | 102 | 1801-2026 | built_environment 74606, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 37154 | 77 | 122 | 1797-2026 | built_environment 21923, transport 6242, environment 6116 | 62846 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 30669. Unique event IDs: 30669. Duplicate IDs: 0.
+Backed events: 30676. Unique event IDs: 30676. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 15.
 
 ## London, England
 
-Backed events: 193561. Unique event IDs: 193561. Duplicate IDs: 0.
+Backed events: 193889. Unique event IDs: 193889. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -54,7 +54,7 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 37151. Unique event IDs: 37151. Duplicate IDs: 0.
+Backed events: 37154. Unique event IDs: 37154. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
