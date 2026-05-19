@@ -1,0 +1,82 @@
+{
+  "schema_version": "round130.nyc_official_more.source_audit.v1",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "sources": [
+    {
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "dataset_id": "rvih-nhyn",
+      "source_name": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "publisher": "NYC Department of City Planning (DCP), via NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/d/rvih-nhyn",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/rvih-nhyn.json",
+      "source_type": "official open-data point dataset",
+      "license": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years_checked": "Rows with year_completed 2008 through 2026 and building_constructed='Completed'.",
+      "update_frequency": "Every 6 months",
+      "data_change_frequency": "Bi-annually",
+      "geographic_scope": "New York City privately owned public spaces attached to developments.",
+      "granularity": "One row per POPS building/development address, with DCP POPS number and source latitude/longitude.",
+      "key_fields_for_events": [
+        "pops_number",
+        "year_completed",
+        "building_constructed",
+        "public_space_type",
+        "building_address_with_zip",
+        "latitude",
+        "longitude",
+        "bbl",
+        "bin"
+      ],
+      "reliability": "usable_with_caveats",
+      "required_caveats": [
+        "Year completed is year precision and sourced by DCP from published information and owner discussions.",
+        "The row does not document exact public opening date, current access compliance, public usage, or outcome effects.",
+        "Coordinates are development points rather than legally surveyed public-space boundaries."
+      ],
+      "ingestion_recommendation": "Use for public-space completion-year candidates where an official DCP POPS row adds provenance. Treat same-site architecture/DOB events as potential duplicates or supplemental evidence.",
+      "rows_fetched": 392,
+      "candidates_retained": 17,
+      "rows_rejected_or_outside_scope": 375
+    },
+    {
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "dataset_id": "388s-pnvc",
+      "source_name": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "publisher": "NYC Department of City Planning (DCP), via NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/d/388s-pnvc",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/388s-pnvc.json",
+      "source_type": "official open-data spatial multipolygon dataset",
+      "license": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years_checked": "Rows with chair_cert or cpc_approv from 2008-01-01 through 2026-05-19.",
+      "update_frequency": "As needed",
+      "data_change_frequency": "Every 2 months",
+      "geographic_scope": "New York City waterfront public access areas.",
+      "granularity": "One row per Waterfront Public Access Area, with WPAA ID, status, approval/certification date, links, features, and source multipolygon.",
+      "key_fields_for_events": [
+        "wpaa_id",
+        "name",
+        "status",
+        "chair_cert",
+        "cpc_approv",
+        "the_geom",
+        "summary",
+        "zap_link",
+        "cpc_report",
+        "wpaa_area",
+        "waterway"
+      ],
+      "reliability": "strong for official approval/certification records and source geometry; usable with caveats for current status and delivery timing",
+      "required_caveats": [
+        "Chair certification and CPC approval dates are administrative dates, not construction starts, completions, public openings, or compliance inspections.",
+        "Current status may post-date the approval date.",
+        "Candidate points are representative summaries of source multipolygons; production maps should use the official source geometry."
+      ],
+      "ingestion_recommendation": "Use as a non-overlapping DCP waterfront-access evidence source. Emit approval/certification milestones, not opening or delivered-public-space claims unless corroborated by a separate source.",
+      "rows_fetched": 78,
+      "candidates_retained": 42,
+      "rows_rejected_or_outside_scope": 36
+    }
+  ]
+}

@@ -1367,6 +1367,31 @@
       ]
     },
     {
+      "source_id": "dfc-hed-changes-to-list-buildings-2026-03",
+      "title": "Changes to the List of Buildings of special architectural or historic interest",
+      "provider": "Department for Communities Historic Environment Division",
+      "source_family": "heritage_administrative_change",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Crown copyright / Department for Communities website terms; re-check before redistributing full PDF content",
+      "licence_url": "https://www.communities-ni.gov.uk/crown-copyright",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Publication page is updated as recent list changes are published.",
+      "url": "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division.",
+      "provenance_notes": "March 2026 publication; Belfast rows extracted from current PDF accessed on 2026-05-19. HB Ref No Address Survey 2 Current Use PDF month heading",
+      "caveats": [
+        "A Record Only row must not be presented as confirmed statutory listing status. The PDF row gives address text but no point geometry; candidates retain geometry_ref only. Use as Belfast heritage-record administrative updates with month precision and no point geometry unless separately matched to an official spatial record. The March 2026 PDF row is an administrative heritage-record/list update. A 'Record Only' row must not be presented as a confirmed statutory listing, construction, restoration, occupation, condition change, public access, heritage outcome, or causal evidence."
+      ]
+    },
+    {
       "source_id": "dfc-hed-nidirect-buildings",
       "title": "Department for Communities / nidirect listed building records",
       "provider": "Department for Communities Northern Ireland and nidirect",
@@ -1392,6 +1417,31 @@
       "caveats": [
         "Listed-building records document designation status and dates, not completion of new construction or later physical alterations.",
         "Public register pages can change; preserve retrieval dates and source record identifiers."
+      ]
+    },
+    {
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "provider": "Department for Communities Historic Environment Division",
+      "source_family": "heritage_designation",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "OpenDataNI lists the Scheduled Historic Monument Areas dataset under the UK Open Government Licence (OGL).",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2009,
+        "end": 2026
+      },
+      "update_frequency": "OpenDataNI Scheduled Historic Monument Areas page says quarterly; HED ESRI REST API page says monthly. Use accessed_at and current service metadata for each release.",
+      "url": "https://admin.opendatani.gov.uk/dataset/scheduled-historic-monument-areas",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division.",
+      "provenance_notes": "Belfast Scheduled Zones rows with Date_added from 2008-01-01 through 2026-05-19. SMNO, TOWNLAND, EDITED_TYP, DC, BFILE, COMMENTS, Date_added, OBJECTID and polygon geometry.",
+      "caveats": [
+        "Treat Date_added as a designation/register/source-maintenance date. Do not infer construction, repair, excavation, condition, public access, development impact or causality. Recommended as a distinct non-HARNI official source for heritage-designation milestones. Keep as built-environment/heritage evidence and expose polygon geometry as source geometry_ref if integrated. Date_added is a source/register date in the Scheduled Zones layer. It can represent scheduling, rescheduling, digitisation or source maintenance depending on the row comments. It must not be used as evidence of physical works, archaeological intervention, monument condition, ownership change, public access, development impact or causal outcomes without separate source evidence."
       ]
     },
     {
@@ -1471,6 +1521,31 @@
       "provenance_notes": "Selected records from 2020-2026 in the Round119 architecture corpus window. Date published and consultation period stated in release",
       "caveats": [
         "Consultation/design milestone only. Separate later screening/accessibility records already exist and should not be duplicated as this same milestone."
+      ]
+    },
+    {
+      "source_id": "dfe-gias-establishment-register",
+      "title": "Get Information About Schools establishment extract",
+      "provider": "Department for Education",
+      "source_family": "public_facility_education_register",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2023
+      },
+      "update_frequency": "GIAS download page states public downloads are updated daily.",
+      "url": "https://www.get-information-schools.service.gov.uk/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Education.",
+      "provenance_notes": "London rows with OpenDate from 2008-01-01 through 2026-05-19 in the 2026-05-19 public extract. URN EstablishmentName TypeOfEstablishment (name) EstablishmentStatus (name) ReasonEstablishmentOpened (name) OpenDate LA (name) Postcode Easting Northing SchoolCapacity NumberOfPupils",
+      "caveats": [
+        "Use as education-facility establishment-opening evidence only. Pair with borough planning/capital sources before claiming a new building, completion, permanent accommodation, or built-form change. GIAS OpenDate is an establishment-register date. It may record institution opening, registration, or organisational status rather than a new building. It is not evidence of construction start, practical completion, first occupation, permanent accommodation, capacity delivery, educational outcomes, or causal effects. Some schools may operate in temporary, shared, or reused buildings; pair with local planning or capital-project records before promoting as a built-form completion event."
       ]
     },
     {
@@ -2052,6 +2127,31 @@
       "provenance_notes": "2008-2026 designation records used for London architecture/heritage milestones Listing or amendment date stated by NHLE record",
       "caveats": [
         "NHLE records document heritage designation changes, not construction completion or comprehensive development activity. Coordinates are source point markers for atlas navigation; Historic England notes spatial data is provided to indicate location and may not define full curtilage or statutory boundary."
+      ]
+    },
+    {
+      "source_id": "historic-england-nhle-amendments-open-data",
+      "title": "National Heritage List for England (NHLE) listed building points",
+      "provider": "Historic England",
+      "source_family": "heritage_administrative_change",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
+      "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2024
+      },
+      "update_frequency": "Historic England API catalogue states NHLE data is updated daily.",
+      "url": "https://www.api.gov.uk/he/national-heritage-list-for-england-nhle/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "2008-01-01 through 2026-05-19 ListEntry Name Grade AmendDate hyperlink NGR geometry",
+      "caveats": [
+        "AmendDate is a list-entry administrative amendment date, not a physical works date. NHLE point geometry locates the asset but does not define full statutory extent or curtilage. Use as heritage-administrative change events with source-row caveats. NHLE AmendDate documents a list-entry administrative amendment only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, or causation."
       ]
     },
     {
@@ -2893,6 +2993,56 @@
       "provenance_notes": "Record release version, file URL, borough, BBL, geometry CRS, and checksum.",
       "caveats": [
         "MapPLUTO is parcel context and carries completeness/fitness disclaimers; do not treat as an event feed."
+      ]
+    },
+    {
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
+      "source_family": "privately_owned_public_space",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2019
+      },
+      "update_frequency": "Every 6 months",
+      "url": "https://data.cityofnewyork.us/d/rvih-nhyn",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of City Planning (DCP), via NYC Open Data.",
+      "provenance_notes": "Rows with year_completed 2008 through 2026 and building_constructed='Completed'. year_completed",
+      "caveats": [
+        "Year completed is year precision and sourced by DCP from published information and owner discussions. The row does not document exact public opening date, current access compliance, public usage, or outcome effects. Coordinates are development points rather than legally surveyed public-space boundaries. Use for public-space completion-year candidates where an official DCP POPS row adds provenance. Treat same-site architecture/DOB events as potential duplicates or supplemental evidence. The POPS row's year_completed field is year precision and, per the source metadata, is based on published information and discussions with the owner. Treat it as a DCP-maintained completion-year record for the development/public-space requirement, not as an exact opening date, current compliance inspection, public access audit, occupancy record, or outcome claim."
+      ]
+    },
+    {
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
+      "source_family": "waterfront_public_access_area",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2023
+      },
+      "update_frequency": "As needed",
+      "url": "https://data.cityofnewyork.us/d/388s-pnvc",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of City Planning (DCP), via NYC Open Data.",
+      "provenance_notes": "Rows with chair_cert or cpc_approv from 2008-01-01 through 2026-05-19. chair_cert",
+      "caveats": [
+        "Chair certification and CPC approval dates are administrative dates, not construction starts, completions, public openings, or compliance inspections. Current status may post-date the approval date. Candidate points are representative summaries of source multipolygons; production maps should use the official source geometry. Use as a non-overlapping DCP waterfront-access evidence source. Emit approval/certification milestones, not opening or delivered-public-space claims unless corroborated by a separate source. The selected date is the Chair certification or City Planning Commission approval date associated with creation of the WPAA, not an observed construction start, completion, public opening, current access/compliance inspection, or outcome measure. The status field is the dataset's current construction status at retrieval and may not describe status on the approval date."
       ]
     },
     {

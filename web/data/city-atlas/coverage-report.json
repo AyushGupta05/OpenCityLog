@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-19T11:42:03Z",
+  "generated_at": "2026-05-19T12:06:41Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 260696,
-    "total_unique_events": 260696,
+    "total_events": 261381,
+    "total_unique_events": 261381,
     "duplicate_event_id_count": 0,
-    "active_source_count": 329,
-    "source_catalog_only_count": 238,
-    "source_year_layer_row_count": 1996,
+    "active_source_count": 332,
+    "source_catalog_only_count": 239,
+    "source_year_layer_row_count": 2032,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -2064,6 +2064,110 @@
       "source_title": "UK-AIR air quality monitoring data",
       "year": 2023,
       "layer": "transport",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 9
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 13
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 28
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 17
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 6
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "dfe-gias-establishment-register",
+      "source_title": "Get Information About Schools establishment extract",
+      "year": 2023,
+      "layer": "built_environment",
       "event_count": 1
     },
     {
@@ -5744,7 +5848,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2008,
       "layer": "built_environment",
-      "event_count": 25
+      "event_count": 66
     },
     {
       "city_id": "london",
@@ -5768,7 +5872,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2009,
       "layer": "built_environment",
-      "event_count": 20
+      "event_count": 65
     },
     {
       "city_id": "london",
@@ -5792,7 +5896,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2010,
       "layer": "built_environment",
-      "event_count": 23
+      "event_count": 59
     },
     {
       "city_id": "london",
@@ -5816,7 +5920,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 20
+      "event_count": 55
     },
     {
       "city_id": "london",
@@ -5840,7 +5944,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 28
+      "event_count": 75
     },
     {
       "city_id": "london",
@@ -5864,7 +5968,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 20
+      "event_count": 58
     },
     {
       "city_id": "london",
@@ -5880,7 +5984,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 22
+      "event_count": 63
     },
     {
       "city_id": "london",
@@ -5912,7 +6016,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 30
+      "event_count": 74
     },
     {
       "city_id": "london",
@@ -5928,7 +6032,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 26
+      "event_count": 79
     },
     {
       "city_id": "london",
@@ -5952,7 +6056,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 29
+      "event_count": 76
     },
     {
       "city_id": "london",
@@ -5976,7 +6080,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 33
+      "event_count": 70
     },
     {
       "city_id": "london",
@@ -6000,7 +6104,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 22
+      "event_count": 54
     },
     {
       "city_id": "london",
@@ -6016,7 +6120,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 4
     },
     {
       "city_id": "london",
@@ -13140,6 +13244,190 @@
     },
     {
       "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-pops-rvih-nhyn",
+      "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 7
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-wpaa-388s-pnvc",
+      "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 6
+    },
+    {
+      "city_id": "nyc",
       "source_id": "nyc-dcp-zap-api-project-details",
       "source_title": "NYC DCP ZAP project detail API",
       "year": 2026,
@@ -15995,9 +16283,9 @@
       "unique_event_count": 30669,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 90,
+      "source_count": 91,
       "active_source_count": 76,
-      "source_catalog_only_count": 14,
+      "source_catalog_only_count": 15,
       "target_coverage_gap": {
         "target_events": 100000,
         "backed_event_count": 30669,
@@ -20016,6 +20304,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+          "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+          "provider": "Department for Communities Historic Environment Division",
+          "reliability": "usable_with_caveats",
+          "licence": "OpenDataNI lists the Scheduled Historic Monument Areas dataset under the UK Open Government Licence (OGL).",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "doj-belfast-remote-evidence-centre-opening-2023",
           "title": "Official opening of Belfast Remote Evidence Centre",
           "provider": "Department of Justice, Northern Ireland",
@@ -20178,6 +20480,12 @@
             "reliability": "strong"
           },
           {
+            "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+            "title": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+            "provider": "Department for Communities Historic Environment Division",
+            "reliability": "usable_with_caveats"
+          },
+          {
             "source_id": "doj-belfast-remote-evidence-centre-opening-2023",
             "title": "Official opening of Belfast Remote Evidence Centre",
             "provider": "Department of Justice, Northern Ireland",
@@ -20241,16 +20549,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 192934,
-      "unique_event_count": 192934,
+      "event_count": 193561,
+      "unique_event_count": 193561,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 282,
-      "active_source_count": 178,
+      "source_count": 283,
+      "active_source_count": 179,
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 192934,
+        "backed_event_count": 193561,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -20327,28 +20635,28 @@
         "2005": 1234,
         "2006": 1254,
         "2007": 1289,
-        "2008": 1508,
-        "2009": 2917,
-        "2010": 2906,
-        "2011": 3028,
-        "2012": 2871,
-        "2013": 2823,
-        "2014": 2871,
-        "2015": 2924,
-        "2016": 2991,
-        "2017": 4441,
-        "2018": 3416,
-        "2019": 3746,
-        "2020": 8866,
-        "2021": 8363,
-        "2022": 8231,
-        "2023": 22591,
+        "2008": 1551,
+        "2009": 2962,
+        "2010": 2942,
+        "2011": 3072,
+        "2012": 2931,
+        "2013": 2889,
+        "2014": 2942,
+        "2015": 2985,
+        "2016": 3046,
+        "2017": 4488,
+        "2018": 3456,
+        "2019": 3784,
+        "2020": 8877,
+        "2021": 8371,
+        "2022": 8232,
+        "2023": 22592,
         "2024": 30008,
         "2025": 31000,
         "2026": 19337
       },
       "event_counts_by_layer": {
-        "built_environment": 73651,
+        "built_environment": 74278,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -20356,7 +20664,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 192924,
+        "documented": 193551,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -20748,7 +21056,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 1502
+          "event_count": 1545
         },
         {
           "year": 2008,
@@ -20763,7 +21071,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 1401
+          "event_count": 1446
         },
         {
           "year": 2009,
@@ -20783,7 +21091,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 1393
+          "event_count": 1429
         },
         {
           "year": 2010,
@@ -20803,7 +21111,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 1518
+          "event_count": 1562
         },
         {
           "year": 2011,
@@ -20823,7 +21131,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 1361
+          "event_count": 1421
         },
         {
           "year": 2012,
@@ -20843,7 +21151,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 1319
+          "event_count": 1385
         },
         {
           "year": 2013,
@@ -20863,7 +21171,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 1361
+          "event_count": 1432
         },
         {
           "year": 2014,
@@ -20883,7 +21191,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 1410
+          "event_count": 1471
         },
         {
           "year": 2015,
@@ -20903,7 +21211,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1457
+          "event_count": 1512
         },
         {
           "year": 2016,
@@ -20923,7 +21231,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 2903
+          "event_count": 2950
         },
         {
           "year": 2017,
@@ -20943,7 +21251,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1836
+          "event_count": 1876
         },
         {
           "year": 2018,
@@ -20968,7 +21276,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 2120
+          "event_count": 2158
         },
         {
           "year": 2019,
@@ -20988,7 +21296,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 2776
+          "event_count": 2787
         },
         {
           "year": 2020,
@@ -21008,7 +21316,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2238
+          "event_count": 2246
         },
         {
           "year": 2021,
@@ -21028,7 +21336,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1889
+          "event_count": 1890
         },
         {
           "year": 2022,
@@ -21048,7 +21356,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1729
+          "event_count": 1730
         },
         {
           "year": 2023,
@@ -21279,6 +21587,110 @@
           "source_title": "UK-AIR air quality monitoring data",
           "year": 2023,
           "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 9
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 13
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 28
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 17
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 6
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "dfe-gias-establishment-register",
+          "source_title": "Get Information About Schools establishment extract",
+          "year": 2023,
+          "layer": "built_environment",
           "event_count": 1
         },
         {
@@ -24959,7 +25371,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 25
+          "event_count": 66
         },
         {
           "city_id": "london",
@@ -24983,7 +25395,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 20
+          "event_count": 65
         },
         {
           "city_id": "london",
@@ -25007,7 +25419,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 23
+          "event_count": 59
         },
         {
           "city_id": "london",
@@ -25031,7 +25443,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 20
+          "event_count": 55
         },
         {
           "city_id": "london",
@@ -25055,7 +25467,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 28
+          "event_count": 75
         },
         {
           "city_id": "london",
@@ -25079,7 +25491,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 20
+          "event_count": 58
         },
         {
           "city_id": "london",
@@ -25095,7 +25507,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 22
+          "event_count": 63
         },
         {
           "city_id": "london",
@@ -25127,7 +25539,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 30
+          "event_count": 74
         },
         {
           "city_id": "london",
@@ -25143,7 +25555,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 26
+          "event_count": 79
         },
         {
           "city_id": "london",
@@ -25167,7 +25579,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 29
+          "event_count": 76
         },
         {
           "city_id": "london",
@@ -25191,7 +25603,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 33
+          "event_count": 70
         },
         {
           "city_id": "london",
@@ -25215,7 +25627,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 22
+          "event_count": 54
         },
         {
           "city_id": "london",
@@ -25231,7 +25643,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 4
         },
         {
           "city_id": "london",
@@ -28085,6 +28497,41 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "london-development-database-archive",
+          "title": "Planning permissions on the London Development Database (LDD)",
+          "provider": "Greater London Authority / London Development Database / relevant London planning authority",
+          "reliability": "usable_with_caveats",
+          "licence": "UK Open Government Licence (OGL v3)",
+          "event_count": 858,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "first_year": 2008,
+          "last_year": 2020,
+          "layer_counts": {
+            "built_environment": 798,
+            "civic_services": 44,
+            "environment": 4,
+            "transport": 12
+          },
+          "confidence_counts": {
+            "documented": 858
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "lon-extra-planning-data-heritage-at-risk",
           "title": "Planning Data: Heritage at Risk",
           "provider": "DLUHC Planning Data",
@@ -28104,41 +28551,6 @@
           },
           "confidence_counts": {
             "documented": 698
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "london-development-database-archive",
-          "title": "Planning permissions on the London Development Database (LDD)",
-          "provider": "Greater London Authority / London Development Database / relevant London planning authority",
-          "reliability": "usable_with_caveats",
-          "licence": "UK Open Government Licence (OGL v3)",
-          "event_count": 359,
-          "years": [
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020
-          ],
-          "first_year": 2008,
-          "last_year": 2020,
-          "layer_counts": {
-            "built_environment": 299,
-            "civic_services": 44,
-            "environment": 4,
-            "transport": 12
-          },
-          "confidence_counts": {
-            "documented": 359
           },
           "coverage_status": "events_emitted"
         },
@@ -28205,6 +28617,38 @@
           },
           "confidence_counts": {
             "documented": 240
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfe-gias-establishment-register",
+          "title": "Get Information About Schools establishment extract",
+          "provider": "Department for Education",
+          "reliability": "usable_with_caveats",
+          "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
+          "event_count": 128,
+          "years": [
+            2008,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023
+          ],
+          "first_year": 2008,
+          "last_year": 2023,
+          "layer_counts": {
+            "built_environment": 128
+          },
+          "confidence_counts": {
+            "documented": 128
           },
           "coverage_status": "events_emitted"
         },
@@ -33717,17 +34161,17 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 37093,
-      "unique_event_count": 37093,
+      "event_count": 37151,
+      "unique_event_count": 37151,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 197,
-      "active_source_count": 75,
+      "source_count": 199,
+      "active_source_count": 77,
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 37093,
-        "gap_events": 62907,
+        "backed_event_count": 37151,
+        "gap_events": 62849,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -33896,35 +34340,35 @@
         "2005": 318,
         "2006": 326,
         "2007": 343,
-        "2008": 596,
-        "2009": 594,
-        "2010": 612,
-        "2011": 621,
-        "2012": 867,
-        "2013": 1173,
-        "2014": 1418,
-        "2015": 3352,
-        "2016": 1715,
-        "2017": 1827,
-        "2018": 2114,
-        "2019": 2522,
+        "2008": 600,
+        "2009": 598,
+        "2010": 618,
+        "2011": 625,
+        "2012": 870,
+        "2013": 1179,
+        "2014": 1422,
+        "2015": 3353,
+        "2016": 1717,
+        "2017": 1833,
+        "2018": 2115,
+        "2019": 2524,
         "2020": 2368,
-        "2021": 1722,
-        "2022": 2104,
-        "2023": 2381,
+        "2021": 1729,
+        "2022": 2106,
+        "2023": 2387,
         "2024": 2487,
         "2025": 2402,
         "2026": 1622
       },
       "event_counts_by_layer": {
-        "built_environment": 21862,
+        "built_environment": 21920,
         "civic_services": 2870,
         "environment": 6116,
         "transport": 6242,
         "utilities": 3
       },
       "event_counts_by_confidence": {
-        "documented": 37093
+        "documented": 37151
       },
       "event_counts_by_year_layer": [
         {
@@ -35060,7 +35504,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 371
+          "event_count": 375
         },
         {
           "year": 2008,
@@ -35080,7 +35524,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 394
+          "event_count": 398
         },
         {
           "year": 2009,
@@ -35100,7 +35544,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 451
+          "event_count": 457
         },
         {
           "year": 2010,
@@ -35120,7 +35564,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 476
+          "event_count": 480
         },
         {
           "year": 2011,
@@ -35140,7 +35584,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 542
+          "event_count": 545
         },
         {
           "year": 2012,
@@ -35160,7 +35604,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 575
+          "event_count": 581
         },
         {
           "year": 2013,
@@ -35180,7 +35624,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 804
+          "event_count": 808
         },
         {
           "year": 2014,
@@ -35200,7 +35644,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 917
+          "event_count": 918
         },
         {
           "year": 2015,
@@ -35220,7 +35664,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 987
+          "event_count": 989
         },
         {
           "year": 2016,
@@ -35245,7 +35689,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 1083
+          "event_count": 1089
         },
         {
           "year": 2017,
@@ -35265,7 +35709,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1306
+          "event_count": 1307
         },
         {
           "year": 2018,
@@ -35285,7 +35729,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 1487
+          "event_count": 1489
         },
         {
           "year": 2019,
@@ -35330,7 +35774,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1231
+          "event_count": 1238
         },
         {
           "year": 2021,
@@ -35350,7 +35794,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1378
+          "event_count": 1380
         },
         {
           "year": 2022,
@@ -35375,7 +35819,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1611
+          "event_count": 1617
         },
         {
           "year": 2023,
@@ -40392,6 +40836,190 @@
         },
         {
           "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "source_title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 7
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "source_title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 6
+        },
+        {
+          "city_id": "nyc",
           "source_id": "nyc-dcp-zap-api-project-details",
           "source_title": "NYC DCP ZAP project detail API",
           "year": 2026,
@@ -44712,6 +45340,38 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-dcp-wpaa-388s-pnvc",
+          "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+          "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+          "event_count": 41,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2017,
+            2019,
+            2021,
+            2022,
+            2023
+          ],
+          "first_year": 2008,
+          "last_year": 2023,
+          "layer_counts": {
+            "built_environment": 41
+          },
+          "confidence_counts": {
+            "documented": 41
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "nyc-ddc-press-index-2024-2026",
           "title": "nyc-ddc-press-index-2024-2026",
           "provider": "NYC Department of Design and Construction",
@@ -44776,6 +45436,35 @@
           },
           "confidence_counts": {
             "documented": 20
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-dcp-pops-rvih-nhyn",
+          "title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
+          "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+          "event_count": 17,
+          "years": [
+            2008,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2016,
+            2017,
+            2018,
+            2019
+          ],
+          "first_year": 2008,
+          "last_year": 2019,
+          "layer_counts": {
+            "built_environment": 17
+          },
+          "confidence_counts": {
+            "documented": 17
           },
           "coverage_status": "events_emitted"
         },

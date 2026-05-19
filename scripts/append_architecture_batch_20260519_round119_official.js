@@ -47,7 +47,11 @@ const candidatePaths = {
   londonOfficialPublicRealmProjects: "tmp/subagents/round127_london_official_public_realm_projects/candidates.json",
   nycCapitalProjectsDashboardActualConstruction: "tmp/subagents/round128_nyc_capital_projects_dashboard/candidates.json",
   belfastHarniSpatial: "tmp/subagents/round128_belfast_harni_spatial/candidates.json",
-  londonLddArchiveMore: "tmp/subagents/round129_london_ldd_archive_more/candidates.json"
+  londonLddArchiveMore: "tmp/subagents/round129_london_ldd_archive_more/candidates.json",
+  londonDfeGiasEducationRegister: "tmp/subagents/round130_london_official_more/candidates.json",
+  nycDcpPublicAccessOfficial: "tmp/subagents/round130_nyc_official_more/candidates.json",
+  belfastHedScheduledZones: "tmp/subagents/round130_belfast_official_more/candidates.json",
+  heritageDesignationsMore: "tmp/subagents/round130_heritage_designations_more/candidates.json"
 };
 
 const sourceIdAliases = {

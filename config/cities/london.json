@@ -271,7 +271,9 @@
         "opdc-public-realm-project-pages",
         "city-of-london-public-realm-project-pages",
         "camden-west-end-project-pages",
-        "westminster-authority-monitoring-public-realm"
+        "westminster-authority-monitoring-public-realm",
+        "dfe-gias-establishment-register",
+        "historic-england-nhle-amendments-open-data"
       ],
       "availability": "partial_local",
       "years": [

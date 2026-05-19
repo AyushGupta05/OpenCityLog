@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T11:42:03Z
+Generated: 2026-05-19T12:06:41Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 30669 | 76 | 14 | 2007-2026 | transport 17118, built_environment 11350, utilities 851 | 69331 |
-| London, England | 192934 | 178 | 102 | 1801-2026 | built_environment 73651, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 37093 | 75 | 122 | 1797-2026 | built_environment 21862, transport 6242, environment 6116 | 62907 |
+| Belfast, Northern Ireland | 30669 | 76 | 15 | 2007-2026 | transport 17118, built_environment 11350, utilities 851 | 69331 |
+| London, England | 193561 | 179 | 102 | 1801-2026 | built_environment 74278, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 37151 | 77 | 122 | 1797-2026 | built_environment 21920, transport 6242, environment 6116 | 62849 |
 
 ## Belfast, Northern Ireland
 
@@ -29,11 +29,11 @@ Backed events: 30669. Unique event IDs: 30669. Duplicate IDs: 0.
 | Planning Appeals Commission NI appeal details for 2006/A2092 | 12 | 2009-2026 | built_environment 12 | usable_with_caveats |
 | Live Major Applications not previously considered by Committee at 14.04.26 | 11 | 2023-2026 | built_environment 11 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 14.
+Catalog-only sources without emitted event rows: 15.
 
 ## London, England
 
-Backed events: 192934. Unique event IDs: 192934. Duplicate IDs: 0.
+Backed events: 193561. Unique event IDs: 193561. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -54,7 +54,7 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 37093. Unique event IDs: 37093. Duplicate IDs: 0.
+Backed events: 37151. Unique event IDs: 37151. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |

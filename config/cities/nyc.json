@@ -204,7 +204,9 @@
         "nyc-dcp-zap-bbl",
         "nyc-zoning-resolution-recently-adopted",
         "nyc-dcp-zap-api-project-details",
-        "nyc-pluto-mappluto-lots"
+        "nyc-pluto-mappluto-lots",
+        "nyc-dcp-pops-rvih-nhyn",
+        "nyc-dcp-wpaa-388s-pnvc"
       ],
       "availability": "partial_local",
       "years": [

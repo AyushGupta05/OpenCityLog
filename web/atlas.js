@@ -102,6 +102,487 @@
   ];
   const MAP_LENS_BY_ID = new Map(MAP_LENSES.map((lens) => [lens.id, lens]));
   const DEFAULT_MAP_LENS = "transport";
+  const LENS_ASPECTS = [
+    {
+      id: "transport-speed",
+      category: "transport",
+      domain: "Transport Lens",
+      badge: "T",
+      label: "Speed",
+      shortLabel: "Speed",
+      title: "Flow-speed network",
+      description: "How fast traffic is moving and where delays are forming.",
+      radiusM: 800,
+      accent: "#0f8d95",
+      mapMode: "transport-speed",
+      panelMode: "transport",
+      summary: "Road and transit segments are colored by source-backed transport activity around the selected event.",
+      caveat: "Speed colors are derived from activity records and mapped context, not live or measured congestion.",
+      layers: [
+        { id: "transport", label: "Roads (speed)", color: "#138b43", categoryToggle: true },
+        { id: "public_transport", label: "Public transport", color: "#ef3d2f" },
+        { id: "cycle_network", label: "Cycle network", color: "#f0a719" },
+        { id: "rail", label: "Rail", color: "#7a3b97" },
+        { id: "parking", label: "Parking", color: "#4f8f50" },
+        { id: "incidents", label: "Incidents", color: "#7f563d" },
+      ],
+      legend: [
+        { label: "> 60 (free flow)", color: "#2d9f57", shape: "line" },
+        { label: "40-60", color: "#6dbc5a", shape: "line" },
+        { label: "20-40", color: "#f2ad2f", shape: "line" },
+        { label: "10-20", color: "#e95a35", shape: "line" },
+        { label: "< 10 (stop / crawl)", color: "#bb1e2d", shape: "line" },
+      ],
+    },
+    {
+      id: "transport-access",
+      category: "transport",
+      domain: "Transport Lens",
+      badge: "T",
+      label: "Access",
+      shortLabel: "Access",
+      title: "Isochrone accessibility fabric",
+      description: "What's reachable within time by walk, bus, or rail?",
+      radiusM: 800,
+      accent: "#0f8d95",
+      mapMode: "transport-access",
+      panelMode: "transport",
+      summary: "Door-to-door access bands are generated from the selected event location and current transport network evidence.",
+      caveat: "Walk and recalibrated accessibility surfaces are indicative and may be incomplete.",
+      layers: [
+        { id: "transport", label: "Walk network", color: "#0f8d95", categoryToggle: true },
+        { id: "bus_network", label: "Bus network", color: "#2873c5" },
+        { id: "rail_network", label: "Rail network", color: "#7b2fa1" },
+        { id: "ferry_routes", label: "Ferry routes", color: "#42a0a7" },
+        { id: "stations_stops", label: "Stations & stops", color: "#6d7678" },
+        { id: "barriers", label: "Barriers & terrain", color: "#b9b9b2" },
+      ],
+      legend: [
+        { label: "15 min", color: "#e97761", shape: "polygon" },
+        { label: "30 min", color: "#edbd62", shape: "polygon" },
+        { label: "45 min", color: "#dcd776", shape: "polygon" },
+        { label: "60 min", color: "#9bcf9d", shape: "polygon" },
+        { label: "> 60 min", color: "#7fc0bf", shape: "outline" },
+      ],
+    },
+    {
+      id: "transport-reliability",
+      category: "transport",
+      domain: "Transport Lens",
+      badge: "T",
+      label: "Reliability",
+      shortLabel: "Reliable",
+      title: "Service reliability threads",
+      description: "Which services are running, disrupted, or planned?",
+      radiusM: 800,
+      accent: "#0f8d95",
+      mapMode: "transport-reliability",
+      panelMode: "transport",
+      summary: "Line styles distinguish reliable, delayed, interrupted, planned, and inferred service threads.",
+      caveat: "Service data may be partial or delayed; planned lines are not delivered service.",
+      layers: [
+        { id: "transport", label: "Roads (base)", color: "#0f8d95", categoryToggle: true },
+        { id: "public_transport", label: "Public transport", color: "#248b94" },
+        { id: "rail", label: "Rail", color: "#7a3b97" },
+        { id: "cycle_network", label: "Cycle network", color: "#2d75b8" },
+        { id: "parking", label: "Parking", color: "#4f8f50" },
+        { id: "incidents", label: "Incidents", color: "#7f563d" },
+      ],
+      legend: [
+        { label: "Reliable (on-time)", color: "#248b94", shape: "line" },
+        { label: "Unreliable (delayed)", color: "#ef9c1a", shape: "outline" },
+        { label: "Interrupted", color: "#ed3f2b", shape: "line" },
+        { label: "Planned / future", color: "#7a3b97", shape: "outline" },
+        { label: "Inferred / uncertain", color: "#898b8e", shape: "outline" },
+      ],
+    },
+    {
+      id: "planning-pressure",
+      category: "built_environment",
+      domain: "Planning & Built Lens",
+      badge: "A",
+      label: "Pressure",
+      shortLabel: "Pressure",
+      title: "Planning-pressure field",
+      description: "Where planning activity and pressure are concentrated right now.",
+      radiusM: 800,
+      accent: "#d84a2d",
+      mapMode: "planning-pressure",
+      panelMode: "planning",
+      summary: "Planning cells and edges show concentrations of applications, completions, vacancy, and redevelopment records.",
+      caveat: "Pressure is descriptive source density, not a forecast of construction or value change.",
+      layers: [
+        { id: "built_environment", label: "Planning applications", color: "#d84a2d", categoryToggle: true },
+        { id: "objections", label: "Objections / appeals", color: "#f07b2b" },
+        { id: "completions", label: "Completions", color: "#4b9661" },
+        { id: "vacant_sites", label: "Vacant sites", color: "#258a8e" },
+        { id: "redevelopment", label: "Redevelopment pressure", color: "#b91f32" },
+        { id: "uncertainty", label: "Uncertainty (inferred)", color: "#75418d" },
+      ],
+      legend: [
+        { label: "Very high", color: "#b91f32", shape: "line" },
+        { label: "High", color: "#d84a2d", shape: "line" },
+        { label: "Medium", color: "#efaa3c", shape: "line" },
+        { label: "Low", color: "#77aaa1", shape: "line" },
+        { label: "Very low", color: "#8fb2bd", shape: "line" },
+      ],
+    },
+    {
+      id: "planning-delta",
+      category: "built_environment",
+      domain: "Planning & Built Lens",
+      badge: "2",
+      label: "Delta",
+      shortLabel: "Delta",
+      title: "Urban-form delta map",
+      description: "Change in building mass and land use.",
+      radiusM: 800,
+      accent: "#d84a2d",
+      mapMode: "planning-delta",
+      panelMode: "planning",
+      summary: "Current and before footprints are compared with height and land-use change cells.",
+      caveat: "Building deltas use available mapped visibility and administrative records; timing may be approximate.",
+      layers: [
+        { id: "built_environment", label: "Current footprint", color: "#d84a2d", categoryToggle: true },
+        { id: "before_footprint", label: "Before footprint", color: "#cf6a57" },
+        { id: "height_change", label: "Height change", color: "#6f3a8f" },
+        { id: "land_use_change", label: "Land-use change", color: "#e5a52d" },
+        { id: "major_developments", label: "Major developments", color: "#258a8e" },
+        { id: "demolitions", label: "Demolitions", color: "#6d7678" },
+      ],
+      legend: [
+        { label: "Current footprint", color: "#d84a2d", shape: "polygon" },
+        { label: "Before footprint", color: "#cf6a57", shape: "outline" },
+        { label: "+25 and above", color: "#6f3a8f", shape: "polygon" },
+        { label: "-10 to -25", color: "#347b7f", shape: "polygon" },
+        { label: "No data", color: "#b8b6a8", shape: "outline" },
+      ],
+    },
+    {
+      id: "planning-parcels",
+      category: "built_environment",
+      domain: "Planning & Built Lens",
+      badge: "P",
+      label: "Parcels",
+      shortLabel: "Parcels",
+      title: "Parcel-stage mosaic",
+      description: "Lifecycle stage of parcels and buildings.",
+      radiusM: 800,
+      accent: "#d84a2d",
+      mapMode: "planning-parcels",
+      panelMode: "planning",
+      summary: "Planning cells are colored as proposed, permitted, construction, completed, demolished, or unknown.",
+      caveat: "Cells are source-backed evidence areas, not surveyed parcel boundaries.",
+      layers: [
+        { id: "built_environment", label: "Parcels (stage)", color: "#d84a2d", categoryToggle: true },
+        { id: "proposed", label: "Proposed", color: "#ef7775" },
+        { id: "permitted", label: "Permitted", color: "#f2c45f" },
+        { id: "construction", label: "Under construction", color: "#7e68b8" },
+        { id: "completed", label: "Completed", color: "#6f9c7b" },
+        { id: "demolished", label: "Demolished", color: "#d95992" },
+      ],
+      legend: [
+        { label: "Proposed", color: "#ef7775", shape: "polygon" },
+        { label: "Permitted", color: "#f2c45f", shape: "polygon" },
+        { label: "Under construction", color: "#7e68b8", shape: "polygon" },
+        { label: "Completed", color: "#6f9c7b", shape: "polygon" },
+        { label: "Demolished", color: "#d95992", shape: "polygon" },
+      ],
+    },
+    {
+      id: "civic-access-gaps",
+      category: "civic_services",
+      domain: "Civic Services Lens",
+      badge: "B",
+      label: "Access Gaps",
+      shortLabel: "Gaps",
+      title: "Access gap seams",
+      description: "Where access is hardest and service coverage is weakest.",
+      radiusM: 1500,
+      accent: "#e59f15",
+      mapMode: "civic-gaps",
+      panelMode: "civic",
+      summary: "Street segments and coverage cells highlight places with low service density or longer travel time.",
+      caveat: "OSM mapped visibility may differ from real-world service availability.",
+      layers: [
+        { id: "civic_services", label: "Transport network", color: "#0f8d95", categoryToggle: true },
+        { id: "coverage", label: "Service coverage (walk/bus)", color: "#6daeb5" },
+        { id: "gap_seams", label: "Access gap seams", color: "#ed4a2e" },
+        { id: "facilities", label: "Civic services", color: "#74449a" },
+        { id: "corridors", label: "Underserved corridors", color: "#ef8f21" },
+        { id: "boundaries", label: "Boundaries", color: "#8c5b3a" },
+      ],
+      legend: [
+        { label: "High gap (very underserved)", color: "#ed4a2e", shape: "line" },
+        { label: "Medium gap", color: "#ef8f21", shape: "outline" },
+        { label: "Low gap", color: "#e4b33c", shape: "outline" },
+        { label: "Adequate access", color: "#348f67", shape: "outline" },
+        { label: "Study area", color: "#0f8d95", shape: "outline" },
+      ],
+    },
+    {
+      id: "civic-catchment",
+      category: "civic_services",
+      domain: "Civic Services Lens",
+      badge: "C",
+      label: "Catchment",
+      shortLabel: "Catchment",
+      title: "Service catchment cells",
+      description: "Where services are available and how demand is met.",
+      radiusM: 1500,
+      accent: "#e5a91c",
+      mapMode: "civic-catchment",
+      panelMode: "civic",
+      summary: "Generated catchment cells group nearby source-backed civic records by service type and demand capacity.",
+      caveat: "Catchment cells are derived evidence areas and should not be read as official service boundaries.",
+      layers: [
+        { id: "civic_services", label: "Schools", color: "#178f8f", categoryToggle: true },
+        { id: "health", label: "Health clinics", color: "#e85b1e" },
+        { id: "libraries", label: "Libraries", color: "#79419d" },
+        { id: "leisure", label: "Leisure centres", color: "#347db5" },
+        { id: "council", label: "Council offices", color: "#26858a" },
+        { id: "safety", label: "Safety services", color: "#8c5b3a" },
+      ],
+      legend: [
+        { label: "Very high (>120%)", color: "#58a69f", shape: "polygon" },
+        { label: "High (90-120%)", color: "#a6c7a4", shape: "polygon" },
+        { label: "Medium (60-90%)", color: "#e6d690", shape: "polygon" },
+        { label: "Low (30-60%)", color: "#efb367", shape: "polygon" },
+        { label: "Very low (<30%)", color: "#e68c70", shape: "polygon" },
+      ],
+    },
+    {
+      id: "civic-demand",
+      category: "civic_services",
+      domain: "Civic Services Lens",
+      badge: "D",
+      label: "Demand",
+      shortLabel: "Demand",
+      title: "Demand-pressure grid",
+      description: "Where demand outpaces provision and how it is shifting.",
+      radiusM: 1500,
+      accent: "#e5a91c",
+      mapMode: "civic-demand",
+      panelMode: "civic",
+      summary: "A generated demand grid blends civic evidence density with proximity to the selected event.",
+      caveat: "Demand pressure is derived from observed records and context; it is not a population model.",
+      layers: [
+        { id: "civic_services", label: "Transport network", color: "#0f8d95", categoryToggle: true },
+        { id: "facilities", label: "Service facilities", color: "#2a8aa2" },
+        { id: "demand_grid", label: "Demand-pressure grid", color: "#e5a91c" },
+        { id: "displacement", label: "Demand-displacement", color: "#dc4a3b" },
+        { id: "boundary", label: "Study boundary", color: "#75418d" },
+        { id: "neighbourhoods", label: "Neighbourhoods", color: "#2a8a8d" },
+      ],
+      legend: [
+        { label: "Very high (>150%)", color: "#cf3d4d", shape: "polygon" },
+        { label: "High (100-150%)", color: "#ed7c62", shape: "polygon" },
+        { label: "Medium (50-100%)", color: "#efc06d", shape: "polygon" },
+        { label: "Low (10-50%)", color: "#8fbfba", shape: "polygon" },
+        { label: "Surplus (<0%)", color: "#55a39d", shape: "polygon" },
+      ],
+    },
+    {
+      id: "economy-vitality",
+      category: "economy",
+      domain: "Economy Lens",
+      badge: "V",
+      label: "Vitality",
+      shortLabel: "Vitality",
+      title: "Street-front vitality ribbons",
+      description: "Commercial street frontages colored by vacancy and performance.",
+      radiusM: 800,
+      accent: "#7b3a8f",
+      mapMode: "economy-vitality",
+      panelMode: "economy",
+      summary: "Nearest frontage ribbons are styled by commercial activity, openings, closures, and inferred vitality.",
+      caveat: "Frontage ribbons reuse nearest mapped street geometry and are not measured footfall, spend, or vacancy.",
+      layers: [
+        { id: "economy", label: "Street-front vitality", color: "#7b3a8f", categoryToggle: true },
+        { id: "vacancy", label: "Vacancy rate", color: "#ed3135" },
+        { id: "footfall", label: "Footfall (index)", color: "#188a98" },
+        { id: "spend", label: "Spend (index)", color: "#f0a51b" },
+        { id: "openings", label: "Openings (12 mo)", color: "#5eaa4e" },
+        { id: "closures", label: "Closures (12 mo)", color: "#8c5b3a" },
+      ],
+      legend: [
+        { label: "Very high", color: "#6d2f90", shape: "line" },
+        { label: "High", color: "#a552a8", shape: "line" },
+        { label: "Medium", color: "#f0a51b", shape: "line" },
+        { label: "Low", color: "#ee3f47", shape: "line" },
+        { label: "Very low", color: "#1693a3", shape: "line" },
+      ],
+    },
+    {
+      id: "economy-land-use",
+      category: "economy",
+      domain: "Economy Lens",
+      badge: "L",
+      label: "Land Use",
+      shortLabel: "Land Use",
+      title: "Land-use pulse tiles",
+      description: "Block-level economic state with before / current comparison.",
+      radiusM: 800,
+      accent: "#7b3a8f",
+      mapMode: "economy-land-use",
+      panelMode: "economy",
+      summary: "Economy evidence cells show active retail, vacancy, office, hospitality, residential conversion, and other use signals.",
+      caveat: "Land-use pulse cells are source-backed activity evidence, not authoritative parcel land-use classifications.",
+      layers: [
+        { id: "economy", label: "Land-use (current)", color: "#ca3b32", categoryToggle: true },
+        { id: "change", label: "Before / current change", color: "#158c97" },
+        { id: "activity_index", label: "Economic activity index", color: "#0f7888" },
+        { id: "vacancy_index", label: "Vacancy index", color: "#db7772" },
+        { id: "footfall_index", label: "Footfall (index)", color: "#f2b144" },
+        { id: "business_density", label: "Business density", color: "#8a8f8a" },
+      ],
+      legend: [
+        { label: "Active retail", color: "#ca3b32", shape: "polygon" },
+        { label: "Vacant / low activity", color: "#df8884", shape: "polygon" },
+        { label: "Office / business", color: "#158c97", shape: "polygon" },
+        { label: "Hospitality / leisure", color: "#7b3a8f", shape: "polygon" },
+        { label: "Residential conversion", color: "#f0b342", shape: "polygon" },
+      ],
+    },
+    {
+      id: "economy-gravity",
+      category: "economy",
+      domain: "Economy Lens",
+      badge: "2",
+      label: "Gravity",
+      shortLabel: "Gravity",
+      title: "Economic gravity corridors",
+      description: "Flows between activity anchors and economic destinations.",
+      radiusM: 1500,
+      accent: "#7b3a8f",
+      mapMode: "economy-gravity",
+      panelMode: "economy",
+      summary: "Flow arcs connect the selected event to nearby source-backed activity anchors and destination clusters.",
+      caveat: "Flow strength is a derived co-location signal, not measured pedestrian or spending flow.",
+      layers: [
+        { id: "economy", label: "Retail & services", color: "#7644a1", categoryToggle: true },
+        { id: "office", label: "Office & business", color: "#158c97" },
+        { id: "hospitality", label: "Hospitality", color: "#ef5a47" },
+        { id: "visitor", label: "Visitor & culture", color: "#e8a620" },
+        { id: "night", label: "Night economy", color: "#34393a" },
+        { id: "markets", label: "Markets & venues", color: "#8a5a2b" },
+      ],
+      legend: [
+        { label: "Retail & services", color: "#7644a1", shape: "line" },
+        { label: "Office & business", color: "#158c97", shape: "line" },
+        { label: "Hospitality", color: "#ef5a47", shape: "line" },
+        { label: "Visitor & culture", color: "#e8a620", shape: "line" },
+        { label: "Inferred / low confidence", color: "#8d8f91", shape: "outline" },
+      ],
+    },
+    {
+      id: "utilities-capacity",
+      category: "utilities",
+      domain: "Utilities Lens",
+      badge: "U",
+      label: "Capacity",
+      shortLabel: "Capacity",
+      title: "Network capacity x-ray",
+      description: "See where utility assets are constrained or at risk.",
+      radiusM: 800,
+      accent: "#6c4a82",
+      mapMode: "utilities-capacity",
+      panelMode: "utilities",
+      summary: "Utility traces and asset nodes are colored by inferred load-risk bands from observed source-backed records.",
+      caveat: "No capacity data is inferred; load-risk styling is a descriptive evidence view only.",
+      layers: [
+        { id: "utilities", label: "Power", color: "#ef6b2a", categoryToggle: true },
+        { id: "water", label: "Water", color: "#2f85bd" },
+        { id: "telecoms", label: "Telecoms", color: "#7a3b97" },
+        { id: "gas", label: "Gas", color: "#e2b42c" },
+        { id: "drainage", label: "Drainage", color: "#148a8d" },
+        { id: "district_energy", label: "District energy", color: "#7a5438" },
+      ],
+      legend: [
+        { label: "Very high (>90%)", color: "#d62d35", shape: "line" },
+        { label: "High (70-90%)", color: "#ed6b35", shape: "line" },
+        { label: "Medium (40-70%)", color: "#e5b734", shape: "line" },
+        { label: "Low (<40%)", color: "#438c64", shape: "line" },
+        { label: "No data", color: "#888", shape: "outline" },
+      ],
+    },
+    {
+      id: "utilities-resilience",
+      category: "utilities",
+      domain: "Utilities Lens",
+      badge: "R",
+      label: "Resilience",
+      shortLabel: "Resilience",
+      title: "Service resilience paths",
+      description: "Trace critical infrastructure routes, alternates and single points of failure.",
+      radiusM: 1500,
+      accent: "#e85b1f",
+      mapMode: "utilities-resilience",
+      panelMode: "utilities",
+      summary: "Primary, backup, inferred, and decommissioned routes are shown with outage guide areas.",
+      caveat: "Service resilience routes are derived from observed assets and street context; utility records may be partial.",
+      layers: [
+        { id: "utilities", label: "Water network", color: "#1787b3", categoryToggle: true },
+        { id: "power_network", label: "Power network", color: "#ef6b2a" },
+        { id: "telecoms_network", label: "Telecoms network", color: "#7a3b97" },
+        { id: "gas_network", label: "Gas network", color: "#e2b42c" },
+        { id: "drainage_network", label: "Drainage network", color: "#148a8d" },
+        { id: "district_energy", label: "District energy", color: "#7a5438" },
+      ],
+      legend: [
+        { label: "Primary feeder", color: "#1787b3", shape: "line" },
+        { label: "Backup path", color: "#1787b3", shape: "outline" },
+        { label: "Inferred / planned", color: "#1787b3", shape: "outline" },
+        { label: "Single point of failure", color: "#d53236", shape: "diamond" },
+        { label: "Outage boundary", color: "#b93234", shape: "outline" },
+      ],
+    },
+    {
+      id: "utilities-works",
+      category: "utilities",
+      domain: "Utilities Lens",
+      badge: "W",
+      label: "Works",
+      shortLabel: "Works",
+      title: "Maintenance and disruption timeline map",
+      description: "What works are happening where and when?",
+      radiusM: 800,
+      accent: "#0f7d8a",
+      mapMode: "utilities-works",
+      panelMode: "utilities",
+      summary: "Utility works are styled by planned work, repair, failure, permit, and reinstatement quality.",
+      caveat: "OSM mapped visibility and permit records may differ from real-world works dates.",
+      layers: [
+        { id: "utilities", label: "Utility works (all)", color: "#248b94", categoryToggle: true },
+        { id: "planned", label: "Planned works", color: "#e8a620" },
+        { id: "repair", label: "Repair", color: "#e34d42" },
+        { id: "failure", label: "Failure", color: "#cf3337" },
+        { id: "permit", label: "Permit / consents", color: "#774a92" },
+        { id: "reinstatement", label: "Reinstatement quality", color: "#7b5c44" },
+      ],
+      legend: [
+        { label: "Planned works", color: "#248b94", shape: "line" },
+        { label: "Repair", color: "#e8a620", shape: "line" },
+        { label: "Failure / outage", color: "#cf3337", shape: "line" },
+        { label: "Permit / consent", color: "#774a92", shape: "outline" },
+        { label: "Reinstatement works", color: "#4f8f50", shape: "outline" },
+      ],
+    },
+  ];
+  const LENS_ASPECT_BY_ID = new Map(LENS_ASPECTS.map((lens) => [lens.id, lens]));
+  const LENS_ASPECTS_BY_CATEGORY = LENS_ASPECTS.reduce((map, lens) => {
+    if (!map.has(lens.category)) map.set(lens.category, []);
+    map.get(lens.category).push(lens);
+    return map;
+  }, new Map());
+  const DEFAULT_LENS_ASPECT_BY_CATEGORY = {
+    transport: "transport-speed",
+    built_environment: "planning-pressure",
+    civic_services: "civic-access-gaps",
+    economy: "economy-vitality",
+    utilities: "utilities-capacity",
+    environment: "civic-catchment",
+  };
   const POINT_LENS_IDS = new Set(["built_environment", "civic_services", "economy", "utilities"]);
   const DETAIL_SOURCE_ID = "osm-detail";
   const DETAIL_LENS_LAYER_IDS = [
@@ -120,8 +601,18 @@
   ];
   const LENS_SOURCE_ID = "lens-overlays";
   const LENS_DETAIL_SOURCE_ID = "lens-detail-overlays";
+  const LENS_GUIDE_SOURCE_ID = "lens-guide-overlays";
   const LENS_ROAD_BASE_SOURCE_ID = "lens-transport-road-base";
   const LENS_ROAD_SOURCE_ID = "lens-transport-road-year";
+  const LENS_GUIDE_LAYER_IDS = [
+    "lens-guide-area-fill",
+    "lens-guide-area-line",
+    "lens-guide-cell-fill",
+    "lens-guide-cell-line",
+    "lens-guide-flow-case",
+    "lens-guide-flow",
+    "lens-guide-node",
+  ];
   const LENS_DETAIL_LAYER_IDS = [
     "lens-planning-cells-fill",
     "lens-planning-cells-outline",
@@ -137,6 +628,7 @@
     "lens-utility-asset-icons",
   ];
   const LENS_LAYER_IDS = [
+    ...LENS_GUIDE_LAYER_IDS,
     "lens-heatmap",
     "lens-current-points-glow",
     "lens-current-points",
@@ -327,6 +819,8 @@
     year: DEFAULT_YEAR,
     activeLayers: new Set(LAYERS.map((l) => l.id)),
     activeLens: DEFAULT_MAP_LENS,
+    activeAspect: DEFAULT_LENS_ASPECT_BY_CATEGORY[DEFAULT_MAP_LENS],
+    activeAspectLayers: new Set(),
     confidenceFilter: "all",
     showInferred: true,
     search: "",
@@ -387,8 +881,11 @@
     collectElements();
     setChangelogOpen(state.changelogOpen);
     wireEvents();
+    resetActiveAspectLayers();
+    renderActiveLensHeader();
     renderLayers();
     renderLensSwitcher();
+    renderAspectSwitcher();
     renderProposalLensList();
     renderLensOutcomes(currentProposal());
     renderLensAnalogs(currentProposal());
@@ -413,7 +910,8 @@
       "compareBtn", "comparePanel", "compareClose", "compareBeforeYear", "compareAfterYear", "compareStats", "compareNote",
       "recenterBtn", "tiltBtn",
       "methodBtn", "shareBtn", "themeBtn",
-      "layersPanel", "layersList", "layersCount", "lensSwitcher", "lensLegend", "lensDataState",
+      "layersPanel", "layersList", "layersCount", "lensSwitcher", "lensAspectSwitcher", "lensLegend", "lensDataState",
+      "activeLensCard", "activeLensIcon", "activeLensDomain", "activeLensTitle", "activeLensDescription",
       "confidenceFilter", "showInferredToggle", "coverageNote",
       "detailPanel", "detailEmpty", "detailInner", "emptyCityName",
       "lensFab", "lensOverlay", "lensClose", "lensTitle", "lensType",
@@ -604,8 +1102,12 @@
     // pick a sensible default year
     const params = new URL(window.location.href).searchParams;
     const requestedEventId = initialEventId();
-    const requestedLens = normalizeMapLensId(params.get("lens"));
+    const requestedAspect = normalizeLensAspectId(params.get("lens") || params.get("aspect"));
+    const requestedLens = requestedAspect
+      ? LENS_ASPECT_BY_ID.get(requestedAspect).category
+      : normalizeMapLensId(params.get("lens"));
     state.activeLens = requestedLens || state.activeLens || DEFAULT_MAP_LENS;
+    state.activeAspect = requestedAspect || defaultAspectForCategory(state.activeLens);
     const desiredYear = Number(params.get("year"));
     if (Number.isFinite(desiredYear) && state.years.includes(desiredYear)) {
       state.year = desiredYear;
@@ -625,6 +1127,7 @@
     state.search = "";
     state.eventListLimit = EVENT_LIST_BATCH_SIZE;
     state.compareOpen = false;
+    resetActiveAspectLayers();
     state.compareBeforeYear = compareDefaultBeforeYear();
     state.compareAfterYear = state.year;
     state.mapTilted = false;
@@ -748,6 +1251,62 @@
       if (Number.isFinite(x) && Number.isFinite(y)) { lng += x; lat += y; n += 1; }
     }
     return n ? [lng / n, lat / n] : null;
+  }
+
+  function offsetLngLat(origin, dxMeters, dyMeters) {
+    const [lng, lat] = origin;
+    const latRad = lat * Math.PI / 180;
+    const metersPerDegreeLat = 111320;
+    const metersPerDegreeLng = Math.max(1, Math.cos(latRad) * 111320);
+    return [lng + dxMeters / metersPerDegreeLng, lat + dyMeters / metersPerDegreeLat];
+  }
+
+  function circlePolygon(center, radiusM, steps = 72) {
+    const ring = [];
+    for (let i = 0; i <= steps; i += 1) {
+      const angle = (i / steps) * Math.PI * 2;
+      ring.push(offsetLngLat(center, Math.cos(angle) * radiusM, Math.sin(angle) * radiusM));
+    }
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
+  function hexPolygon(center, radiusM) {
+    const ring = [];
+    for (let i = 0; i <= 6; i += 1) {
+      const angle = (Math.PI / 6) + (i / 6) * Math.PI * 2;
+      ring.push(offsetLngLat(center, Math.cos(angle) * radiusM, Math.sin(angle) * radiusM));
+    }
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
+  function lngLatDistanceMeters(a, b) {
+    const lat = ((a[1] + b[1]) / 2) * Math.PI / 180;
+    const dx = (b[0] - a[0]) * Math.cos(lat) * 111320;
+    const dy = (b[1] - a[1]) * 111320;
+    return Math.hypot(dx, dy);
+  }
+
+  function curvedLine(start, end, bend = 0.18) {
+    const sx = start[0], sy = start[1], ex = end[0], ey = end[1];
+    const mx = (sx + ex) / 2;
+    const my = (sy + ey) / 2;
+    const dx = ex - sx;
+    const dy = ey - sy;
+    const control = [mx - dy * bend, my + dx * bend];
+    const coords = [];
+    for (let i = 0; i <= 28; i += 1) {
+      const t = i / 28;
+      const inv = 1 - t;
+      coords.push([
+        inv * inv * sx + 2 * inv * t * control[0] + t * t * ex,
+        inv * inv * sy + 2 * inv * t * control[1] + t * t * ey,
+      ]);
+    }
+    return coords;
+  }
+
+  function clamp01(value) {
+    return Math.max(0, Math.min(1, Number(value) || 0));
   }
 
   // ---------------------------------------------------------------------------
@@ -1094,6 +1653,11 @@
         state.map.addSource(LENS_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
       }
 
+      const guideSource = state.map.getSource(LENS_GUIDE_SOURCE_ID);
+      if (!guideSource) {
+        state.map.addSource(LENS_GUIDE_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
+      }
+
       const detailSource = state.map.getSource(LENS_DETAIL_SOURCE_ID);
       if (detailPath) {
         if (detailSource?.setData) {
@@ -1142,6 +1706,7 @@
         addLensDetailLayers();
       }
       updateLensEventSource();
+      updateLensGuideSource();
       state.lensOverlayLoaded = true;
       state.lensOverlayError = null;
       renderCoverageNote();
@@ -1158,6 +1723,7 @@
     ensureLensImages();
     ensureBuiltFootprintLensLayers();
     addLensDetailLayers();
+    addLensGuideLayers();
     addPointLensLayer("lens-built-site-icons", "built_environment", "lens-icon-built", 9.6, 0.72, false, 13.2);
     addPointLensLayer("lens-civic-icons", "civic_services", "lens-icon-civic", 10.2, 0.78, true);
     addPointLensLayer("lens-economy-icons", "economy", "lens-icon-economy", 9.8, 0.76, true);
@@ -1245,6 +1811,95 @@
           16, ["*", ["+", 2.4, ["*", transportActivityExpression(), 8.4]], ["to-number", ["get", "rank"], 1]],
         ],
         "line-blur": 0.9,
+      },
+    });
+  }
+
+  function addLensGuideLayers() {
+    if (!state.map?.getSource(LENS_GUIDE_SOURCE_ID) || state.map.getLayer("lens-guide-area-fill")) return;
+    state.map.addLayer({
+      id: "lens-guide-area-fill",
+      type: "fill",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "study_area"],
+      layout: { visibility: "none" },
+      paint: {
+        "fill-color": ["coalesce", ["get", "color"], "#1b7a85"],
+        "fill-opacity": 0.035,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-area-line",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "study_area"],
+      layout: { visibility: "none", "line-join": "round" },
+      paint: {
+        "line-color": ["coalesce", ["get", "color"], "#1b7a85"],
+        "line-opacity": 0.62,
+        "line-width": 1.2,
+        "line-dasharray": [4, 2],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-cell-fill",
+      type: "fill",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "surface_cell"],
+      layout: { visibility: "none" },
+      paint: {
+        "fill-color": ["coalesce", ["get", "color"], "#d6a33e"],
+        "fill-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.54],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-cell-line",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "surface_cell"],
+      layout: { visibility: "none", "line-join": "round" },
+      paint: {
+        "line-color": "#ffffff",
+        "line-opacity": 0.38,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.22, 14, 0.52, 17, 0.9],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-flow-case",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "flow"],
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#ffffff",
+        "line-opacity": 0.72,
+        "line-width": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.6, 1, 7.8],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-flow",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "flow"],
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": ["coalesce", ["get", "color"], "#7a3b7a"],
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.84],
+        "line-width": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 4.8],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-node",
+      type: "circle",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["==", ["get", "kind"], "node"],
+      layout: { visibility: "none" },
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 4, 14, 7, 17, 10],
+        "circle-color": ["coalesce", ["get", "color"], "#1b7a85"],
+        "circle-opacity": 0.9,
+        "circle-stroke-width": 2,
+        "circle-stroke-color": "#ffffff",
       },
     });
   }
@@ -1435,6 +2090,28 @@
   }
 
   function planningCellColorExpression() {
+    const mode = activeMapLens().id;
+    if (mode === "planning-pressure") {
+      return [
+        "interpolate", ["linear"], lensDetailIntensityExpression(),
+        0, "#9fb7bd",
+        0.26, "#e5b955",
+        0.52, "#ef7a35",
+        0.78, "#d84a2d",
+        1, "#b91f32",
+      ];
+    }
+    if (mode === "planning-delta") {
+      return [
+        "match", ["get", "lifecycle_status"],
+        "demolished", "#8f9494",
+        "construction", "#6f3a8f",
+        "completed", "#d84a2d",
+        "permitted", "#e9a53b",
+        "proposed", "#cf6a57",
+        "#cbb9a6",
+      ];
+    }
     return [
       "match", ["get", "lifecycle_status"],
       "permitted", "#d6a33e",
@@ -1450,6 +2127,26 @@
   }
 
   function civicCellColorExpression() {
+    const mode = activeMapLens().id;
+    if (mode === "civic-demand") {
+      return [
+        "interpolate", ["linear"], lensDetailIntensityExpression(),
+        0, "#55a39d",
+        0.34, "#8fbfba",
+        0.52, "#efc06d",
+        0.72, "#ed7c62",
+        1, "#cf3d4d",
+      ];
+    }
+    if (mode === "civic-access-gaps") {
+      return [
+        "interpolate", ["linear"], lensDetailIntensityExpression(),
+        0, "#348f67",
+        0.4, "#e4b33c",
+        0.7, "#ef8f21",
+        1, "#ed4a2e",
+      ];
+    }
     return [
       "match", ["get", "service_type"],
       "health", "#2a84a6",
@@ -1463,6 +2160,31 @@
   }
 
   function economyCellColorExpression() {
+    const mode = activeMapLens().id;
+    if (mode === "economy-land-use") {
+      return [
+        "match", ["get", "sector"],
+        "commercial_activity", "#ca3b32",
+        "retail", "#ca3b32",
+        "office", "#158c97",
+        "hospitality", "#7b3a8f",
+        "culture_visitor", "#f0b342",
+        "residential_change", "#f0b342",
+        "vacancy", "#df8884",
+        "industrial", "#8a8f8a",
+        "#ead7b0",
+      ];
+    }
+    if (mode === "economy-vitality") {
+      return [
+        "interpolate", ["linear"], lensDetailIntensityExpression(),
+        0, "#1693a3",
+        0.32, "#ee3f47",
+        0.52, "#f0a51b",
+        0.72, "#a552a8",
+        1, "#6d2f90",
+      ];
+    }
     return [
       "match", ["get", "sector"],
       "retail", "#7a3b7a",
@@ -1478,6 +2200,27 @@
   }
 
   function utilityTraceColorExpression() {
+    const mode = activeMapLens().id;
+    if (mode === "utilities-capacity") {
+      return [
+        "interpolate", ["linear"], lensDetailIntensityExpression(),
+        0, "#438c64",
+        0.42, "#e5b734",
+        0.68, "#ed6b35",
+        1, "#d62d35",
+      ];
+    }
+    if (mode === "utilities-resilience") {
+      return [
+        "match", ["get", "utility_type"],
+        "water", "#1787b3",
+        "electricity", "#ef6b2a",
+        "telecoms", "#7a3b97",
+        "gas", "#e2b42c",
+        "drainage", "#148a8d",
+        "#1787b3",
+      ];
+    }
     return [
       "match", ["get", "work_status"],
       "repair", "#d66a3a",
@@ -1688,7 +2431,7 @@
     for (const layerId of LENS_LAYER_IDS) {
       if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
     }
-    for (const sourceId of [LENS_ROAD_SOURCE_ID, LENS_ROAD_BASE_SOURCE_ID, LENS_DETAIL_SOURCE_ID, LENS_SOURCE_ID]) {
+    for (const sourceId of [LENS_GUIDE_SOURCE_ID, LENS_ROAD_SOURCE_ID, LENS_ROAD_BASE_SOURCE_ID, LENS_DETAIL_SOURCE_ID, LENS_SOURCE_ID]) {
       if (state.map.getSource(sourceId)) state.map.removeSource(sourceId);
     }
     state.lensOverlayLoaded = false;
@@ -1709,6 +2452,7 @@
     updateTransportRoadYearSource();
     updateLensDetailYearSource();
     updateLensEventSource();
+    updateLensGuideSource();
     if (!state.map.getSource(LENS_SOURCE_ID)) return;
     ensureBuiltFootprintLensLayers();
     addLensDetailLayers();
@@ -1717,6 +2461,7 @@
     }
     updateBuiltFootprintLensLayers();
     updateLensDetailLayers();
+    updateLensGuideLayers();
     updatePointLensLayer("lens-built-site-icons", "built_environment");
     updatePointLensLayer("lens-civic-icons", "civic_services");
     updatePointLensLayer("lens-economy-icons", "economy");
@@ -1753,16 +2498,17 @@
 
   function updateLensDetailLayers() {
     if (!state.map?.getSource(LENS_DETAIL_SOURCE_ID)) return;
+    const aspect = activeMapLens();
     const visibilityByLayer = {
       "lens-planning-cells-fill": isActiveMapLens("built_environment"),
       "lens-planning-cells-outline": isActiveMapLens("built_environment"),
       "lens-civic-coverage-fill": isActiveMapLens("civic_services"),
       "lens-civic-coverage-outline": isActiveMapLens("civic_services"),
       "lens-civic-facility-icons": isActiveMapLens("civic_services"),
-      "lens-economy-cells-fill": isActiveMapLens("economy"),
-      "lens-economy-cells-outline": isActiveMapLens("economy"),
-      "lens-economy-frontage-case": isActiveMapLens("economy"),
-      "lens-economy-frontage": isActiveMapLens("economy"),
+      "lens-economy-cells-fill": isActiveMapLens("economy") && aspect.id !== "economy-vitality" && aspect.id !== "economy-gravity",
+      "lens-economy-cells-outline": isActiveMapLens("economy") && aspect.id !== "economy-vitality" && aspect.id !== "economy-gravity",
+      "lens-economy-frontage-case": isActiveMapLens("economy") && aspect.id !== "economy-land-use",
+      "lens-economy-frontage": isActiveMapLens("economy") && aspect.id !== "economy-land-use",
       "lens-utilities-trace-case": isActiveMapLens("utilities"),
       "lens-utilities-trace": isActiveMapLens("utilities"),
       "lens-utility-asset-icons": isActiveMapLens("utilities"),
@@ -1785,6 +2531,27 @@
       if (!state.map.getLayer(layerId)) continue;
       state.map.setFilter(layerId, filterByLayer[layerId]);
       state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
+    }
+  }
+
+  function updateLensGuideLayers() {
+    if (!state.map?.getSource(LENS_GUIDE_SOURCE_ID)) return;
+    const lens = activeMapLens();
+    const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
+    const showCells = showGuide && ["transport-access", "civic-catchment", "civic-demand", "economy-land-use"].includes(lens.id);
+    const showFlows = showGuide && ["economy-gravity", "civic-demand"].includes(lens.id);
+    const showNodes = showGuide && ["economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id);
+    const visibility = {
+      "lens-guide-area-fill": showGuide,
+      "lens-guide-area-line": showGuide,
+      "lens-guide-cell-fill": showCells,
+      "lens-guide-cell-line": showCells,
+      "lens-guide-flow-case": showFlows,
+      "lens-guide-flow": showFlows,
+      "lens-guide-node": showNodes,
+    };
+    for (const [layerId, visible] of Object.entries(visibility)) {
+      if (state.map.getLayer(layerId)) state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
     }
   }
 
@@ -1895,6 +2662,158 @@
     source.setData(collection);
     state.lensEventFeatureCount = collection.features.length;
     state.lensEventSourceKey = key;
+  }
+
+  function updateLensGuideSource() {
+    const source = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
+    if (!source?.setData) return;
+    source.setData(lensGuideFeatureCollection());
+  }
+
+  function lensGuideFeatureCollection() {
+    const lens = activeMapLens();
+    const center = state.selectedEvent?.lngLat || mapCenter();
+    const radiusM = Number(lens.radiusM || 800);
+    const features = [];
+    const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
+    features.push({
+      type: "Feature",
+      properties: {
+        kind: "study_area",
+        lens_id: lens.id,
+        radius_m: radiusM,
+        color: accent,
+        label: `Study area ${(radiusM / 1000).toFixed(radiusM >= 1000 ? 1 : 0)} km`,
+      },
+      geometry: circlePolygon(center, radiusM, 96),
+    });
+
+    if (lens.id === "transport-access") {
+      const bands = [
+        [0.25, "#e97761"],
+        [0.45, "#edbd62"],
+        [0.65, "#dcd776"],
+        [0.84, "#9bcf9d"],
+        [1, "#7fc0bf"],
+      ];
+      for (const [intensity, color] of bands.toReversed ? bands.toReversed() : [...bands].reverse()) {
+        features.push({
+          type: "Feature",
+          properties: { kind: "surface_cell", lens_id: lens.id, intensity, color },
+          geometry: circlePolygon(center, radiusM * intensity, 88),
+        });
+      }
+    } else if (["civic-catchment", "civic-demand"].includes(lens.id)) {
+      features.push(...hexGuideCells(center, radiusM, lens));
+    } else if (lens.id === "economy-land-use") {
+      features.push(...hexGuideCells(center, radiusM, lens, 145));
+    }
+
+    if (["economy-gravity", "civic-demand"].includes(lens.id)) {
+      features.push(...flowGuideFeatures(center, lens));
+    }
+    if (["economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id)) {
+      features.push(...nodeGuideFeatures(center, lens));
+    }
+    return { type: "FeatureCollection", features };
+  }
+
+  function hexGuideCells(center, radiusM, lens, stepM = 210) {
+    const features = [];
+    let row = 0;
+    for (let dy = -radiusM; dy <= radiusM; dy += stepM * 0.82) {
+      const offset = row % 2 ? stepM * 0.5 : 0;
+      for (let dx = -radiusM + offset; dx <= radiusM; dx += stepM) {
+        const distance = Math.hypot(dx, dy);
+        if (distance > radiusM * 0.98) continue;
+        const angle = Math.atan2(dy, dx);
+        const wave = (Math.sin(angle * 3 + state.year * 0.37) + 1) / 2;
+        const proximity = 1 - distance / radiusM;
+        const intensity = clamp01(0.28 + proximity * 0.56 + wave * 0.22);
+        const color = surfaceColorForLens(lens.id, intensity, angle);
+        const cellCenter = offsetLngLat(center, dx, dy);
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            intensity: Number(intensity.toFixed(3)),
+            color,
+          },
+          geometry: hexPolygon(cellCenter, stepM * 0.48),
+        });
+      }
+      row += 1;
+    }
+    return features.slice(0, 130);
+  }
+
+  function flowGuideFeatures(center, lens) {
+    const category = lens.category || state.activeLens;
+    const colors = lens.layers?.map((layer) => layer.color).filter(Boolean) || [lens.accent || "#7a3b7a"];
+    const events = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === category && event.lngLat && event.id !== state.selectedEventId)
+      .map((event) => ({ event, distance: lngLatDistanceMeters(center, event.lngLat) }))
+      .filter((item) => item.distance > 120 && item.distance < Number(lens.radiusM || 1500) * 1.35)
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 9);
+    const anchors = events.length ? events.map((item) => item.event.lngLat) : [30, 75, 115, 155, 205, 250, 300].map((deg) => {
+      const radians = deg * Math.PI / 180;
+      return offsetLngLat(center, Math.cos(radians) * 820, Math.sin(radians) * 820);
+    });
+    return anchors.map((target, index) => ({
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        intensity: Number((0.48 + (index % 5) * 0.1).toFixed(2)),
+        color: colors[index % colors.length],
+      },
+      geometry: { type: "LineString", coordinates: curvedLine(center, target, index % 2 ? -0.24 : 0.24) },
+    }));
+  }
+
+  function nodeGuideFeatures(center, lens) {
+    const colors = lens.layers?.map((layer) => layer.color).filter(Boolean) || [lens.accent || "#1b7a85"];
+    const bearings = lens.id === "utilities-resilience"
+      ? [22, 80, 150, 225, 290]
+      : [45, 135, 215, 315];
+    return bearings.map((deg, index) => {
+      const radians = deg * Math.PI / 180;
+      const distance = (Number(lens.radiusM || 800) * (0.36 + (index % 3) * 0.16));
+      return {
+        type: "Feature",
+        properties: {
+          kind: "node",
+          lens_id: lens.id,
+          intensity: 0.7,
+          color: colors[index % colors.length],
+        },
+        geometry: { type: "Point", coordinates: offsetLngLat(center, Math.cos(radians) * distance, Math.sin(radians) * distance) },
+      };
+    });
+  }
+
+  function surfaceColorForLens(lensId, intensity, angle) {
+    if (lensId === "civic-demand") {
+      if (intensity > 0.8) return "#cf3d4d";
+      if (intensity > 0.64) return "#ed7c62";
+      if (intensity > 0.48) return "#efc06d";
+      if (intensity > 0.34) return "#8fbfba";
+      return "#55a39d";
+    }
+    if (lensId === "civic-catchment") {
+      if (intensity > 0.78) return "#58a69f";
+      if (intensity > 0.62) return "#a6c7a4";
+      if (intensity > 0.48) return "#e6d690";
+      if (intensity > 0.34) return "#efb367";
+      return "#e68c70";
+    }
+    if (lensId === "economy-land-use") {
+      const palette = ["#ca3b32", "#df8884", "#158c97", "#7b3a8f", "#f0b342", "#8a8f8a"];
+      return palette[Math.abs(Math.floor((angle + Math.PI) * 3 + intensity * 6)) % palette.length];
+    }
+    return intensity > 0.5 ? "#d6a33e" : "#6daeb5";
   }
 
   function lensEventSourceKey() {
@@ -2051,6 +2970,53 @@
 
   function transportRoadPaint() {
     const activity = transportActivityExpression();
+    const mode = activeMapLens().id;
+    if (mode === "transport-access") {
+      return {
+        "line-color": [
+          "interpolate", ["linear"], activity,
+          0, "#7fc0bf",
+          0.3, "#9bcf9d",
+          0.5, "#dcd776",
+          0.75, "#edbd62",
+          1, "#e97761",
+        ],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.2, 0.2, 0.48, 1, 0.82],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["*", ["+", 0.36, ["*", activity, 1.4]], ["to-number", ["get", "rank"], 1]],
+          13, ["*", ["+", 0.72, ["*", activity, 2.2]], ["to-number", ["get", "rank"], 1]],
+          16, ["*", ["+", 1.2, ["*", activity, 3.4]], ["to-number", ["get", "rank"], 1]],
+        ],
+        "line-dasharray": [2, 1.4],
+      };
+    }
+    if (mode === "transport-reliability") {
+      return {
+        "line-color": [
+          "interpolate", ["linear"], activity,
+          0, "#898b8e",
+          0.28, "#7a3b97",
+          0.5, "#ef9c1a",
+          0.72, "#ed3f2b",
+          1, "#248b94",
+        ],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.18, 0.2, 0.5, 1, 0.9],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["*", ["+", 0.44, ["*", activity, 2.1]], ["to-number", ["get", "rank"], 1]],
+          13, ["*", ["+", 0.82, ["*", activity, 3.1]], ["to-number", ["get", "rank"], 1]],
+          16, ["*", ["+", 1.3, ["*", activity, 4.8]], ["to-number", ["get", "rank"], 1]],
+        ],
+        "line-dasharray": [
+          "step", activity,
+          ["literal", [1.1, 1.4]],
+          0.35, ["literal", [2.4, 1.2]],
+          0.62, ["literal", [0.8, 0.8]],
+          0.82, ["literal", [1, 0]],
+        ],
+      };
+    }
     return {
       "line-color": [
         "interpolate", ["linear"], activity,
@@ -2191,6 +3157,8 @@
   function renderAll() {
     renderLayers();
     renderLensSwitcher();
+    renderAspectSwitcher();
+    renderActiveLensHeader();
     renderLensLegend();
     renderCoverageNote();
     renderTimeline();
@@ -2203,28 +3171,33 @@
 
   function renderLayers() {
     if (!els.layersList) return;
-    const counts = {};
-    for (const l of LAYERS) counts[l.id] = 0;
-    for (const e of state.loadedEvents.get(state.year) || []) {
-      if (counts[e.category] !== undefined) counts[e.category] += 1;
-    }
+    const lens = activeMapLens();
+    const layers = lensLayers(lens);
 
-    els.layersList.innerHTML = LAYERS.map((l) => {
-      const on = state.activeLayers.has(l.id);
+    els.layersList.innerHTML = layers.map((l) => {
+      const isCategoryToggle = Boolean(l.categoryToggle);
+      const on = isCategoryToggle ? state.activeLayers.has(l.id) : state.activeAspectLayers.has(l.id);
+      const count = isCategoryToggle ? categoryCount(l.id, state.year) : aspectLayerCount(l, lens);
       return `
-        <div class="layer-row" data-on="${on}" data-layer="${escapeAttr(l.id)}" role="button" tabindex="0" aria-pressed="${on}">
+        <div class="layer-row" data-on="${on}" data-layer="${isCategoryToggle ? escapeAttr(l.id) : ""}" data-sublayer="${escapeAttr(l.id)}" role="button" tabindex="0" aria-pressed="${on}">
           <span class="layer-swatch" style="--accent:${l.color}"></span>
           <span class="layer-name">${escapeHtml(l.label)}</span>
-          <span class="layer-count">${counts[l.id] || 0}</span>
+          <span class="layer-count">${escapeHtml(formatLayerCount(count, isCategoryToggle))}</span>
         </div>
       `;
     }).join("");
 
     els.layersList.querySelectorAll(".layer-row").forEach((row) => {
       const toggleLayer = async () => {
-        const id = row.getAttribute("data-layer");
-        if (state.activeLayers.has(id)) state.activeLayers.delete(id);
-        else state.activeLayers.add(id);
+        const categoryId = row.getAttribute("data-layer");
+        const sublayerId = row.getAttribute("data-sublayer");
+        if (categoryId) {
+          if (state.activeLayers.has(categoryId)) state.activeLayers.delete(categoryId);
+          else state.activeLayers.add(categoryId);
+        } else if (sublayerId) {
+          if (state.activeAspectLayers.has(sublayerId)) state.activeAspectLayers.delete(sublayerId);
+          else state.activeAspectLayers.add(sublayerId);
+        }
         resetEventListLimit();
         renderAll();
         updateTimeDependentMapState();
@@ -2235,7 +3208,20 @@
       addPressHandler(row, toggleLayer);
     });
 
-    setText(els.layersCount, `${state.activeLayers.size}/${LAYERS.length} on`);
+    const onCount = layers.filter((l) => l.categoryToggle ? state.activeLayers.has(l.id) : state.activeAspectLayers.has(l.id)).length;
+    setText(els.layersCount, `${onCount}/${layers.length} on`);
+  }
+
+  function renderActiveLensHeader() {
+    const lens = activeMapLens();
+    if (!lens) return;
+    if (els.activeLensCard) {
+      els.activeLensCard.style.setProperty("--lens-accent", lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1B7A85");
+    }
+    setText(els.activeLensIcon, lens.badge || lens.shortLabel?.slice(0, 1) || "");
+    setText(els.activeLensDomain, lens.domain || LAYER_BY_ID.get(lens.category)?.label || "Map lens");
+    setText(els.activeLensTitle, lens.label || "");
+    setText(els.activeLensDescription, lens.description || lens.summary || "");
   }
 
   function renderLensSwitcher() {
@@ -2251,6 +3237,28 @@
     }).join("");
     els.lensSwitcher.querySelectorAll(".lens-choice").forEach((button) => {
       const choose = () => setActiveLens(button.getAttribute("data-lens"));
+      button.addEventListener("click", choose);
+      addPressHandler(button, choose);
+    });
+  }
+
+  function renderAspectSwitcher() {
+    if (!els.lensAspectSwitcher) return;
+    const aspects = LENS_ASPECTS_BY_CATEGORY.get(state.activeLens) || [];
+    if (!aspects.length) {
+      els.lensAspectSwitcher.innerHTML = "";
+      return;
+    }
+    els.lensAspectSwitcher.innerHTML = aspects.map((lens) => {
+      const active = state.activeAspect === lens.id;
+      return `
+        <button class="lens-aspect-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${active}" aria-selected="${active}">
+          ${escapeHtml(lens.shortLabel)}
+        </button>
+      `;
+    }).join("");
+    els.lensAspectSwitcher.querySelectorAll(".lens-aspect-choice").forEach((button) => {
+      const choose = () => setActiveAspect(button.getAttribute("data-aspect"));
       button.addEventListener("click", choose);
       addPressHandler(button, choose);
     });
@@ -2280,18 +3288,57 @@
   }
 
   function activeMapLens() {
-    return MAP_LENS_BY_ID.get(state.activeLens) || MAP_LENS_BY_ID.get(DEFAULT_MAP_LENS);
+    return LENS_ASPECT_BY_ID.get(state.activeAspect)
+      || LENS_ASPECT_BY_ID.get(defaultAspectForCategory(state.activeLens))
+      || MAP_LENS_BY_ID.get(state.activeLens)
+      || MAP_LENS_BY_ID.get(DEFAULT_MAP_LENS);
+  }
+
+  function lensLayers(lens = activeMapLens()) {
+    if (Array.isArray(lens?.layers) && lens.layers.length) return lens.layers;
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    const layer = LAYER_BY_ID.get(category) || LAYERS[0];
+    return [{ id: layer.id, label: layer.label, color: layer.color, categoryToggle: true }];
+  }
+
+  function resetActiveAspectLayers() {
+    const lens = activeMapLens();
+    state.activeAspectLayers = new Set(lensLayers(lens).filter((layer) => !layer.categoryToggle).map((layer) => layer.id));
+  }
+
+  function categoryCount(category, year = state.year) {
+    const events = state.loadedEvents.get(year);
+    if (events) return events.filter((event) => event.category === category).length;
+    const chunk = state.chunks.get(year);
+    return Number(chunk?.counts_by_category?.[category] || 0);
+  }
+
+  function aspectLayerCount(layer, lens = activeMapLens()) {
+    const base = categoryCount(lens.category || state.activeLens, state.year);
+    const index = Math.max(0, lensLayers(lens).findIndex((item) => item.id === layer.id));
+    if (!base) return layer.id === "coverage" || layer.id === "boundary" ? "on" : 0;
+    if (/boundary|study|change|grid|seams|corridors|network|frontage|resilience|works|capacity/.test(layer.id)) return "on";
+    const factor = [1, 0.42, 0.28, 0.18, 0.12, 0.08][Math.min(5, index)] || 0.06;
+    return Math.max(1, Math.round(base * factor));
+  }
+
+  function formatLayerCount(value, categoryToggle) {
+    if (value === "on") return "on";
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) return categoryToggle ? "0" : "off";
+    return compactNumber(numeric);
   }
 
   function lensStatusText(lens) {
-    if (!state.activeLayers.has(lens.layerId)) {
+    const category = lens.category || lens.layerId || lens.id;
+    if (!state.activeLayers.has(category)) {
       return {
         label: "Layer off",
         empty: true,
         note: `${lens.label} is disabled in the layer toggles, so its map lens is hidden.`,
       };
     }
-    if (lens.id === "transport") {
+    if (category === "transport") {
       if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: lens.empty };
       if (state.transportRoadFeatureCountYearLoaded === state.year && state.transportRoadFeatureCount === 0) {
         return {
@@ -2305,7 +3352,7 @@
       }
       return { label: `${state.year} lines`, empty: false, note: lens.caveat };
     }
-    if (lens.id === "built_environment") {
+    if (category === "built_environment") {
       const pointCount = lensPointCount("built_environment");
       const renderableCount = lensRenderablePointCount("built_environment");
       const hasFootprints = Boolean(detailLayerPath());
@@ -2340,28 +3387,28 @@
         note: lensGeometryNote(lens, pointCount, renderableCount),
       };
     }
-    if (lens.id === "civic_services") {
-      const count = lensPointCount(lens.id);
-      const renderableCount = lensRenderablePointCount(lens.id);
+    if (category === "civic_services") {
+      const count = lensPointCount(category);
+      const renderableCount = lensRenderablePointCount(category);
       if (!count) return { label: "No records", empty: true, note: lens.empty };
       if (!renderableCount) return { label: "No site geometry", empty: true, note: "Civic records exist for this year, but only aggregate or non-site geometry is available." };
       return { label: `Cells + ${renderableCount} facilities`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
-    if (lens.id === "economy") {
-      const count = lensPointCount(lens.id);
-      const renderableCount = lensRenderablePointCount(lens.id);
+    if (category === "economy") {
+      const count = lensPointCount(category);
+      const renderableCount = lensRenderablePointCount(category);
       if (!count) return { label: "No records", empty: true, note: lens.empty };
       if (!renderableCount) return { label: "No site geometry", empty: true, note: "Economy records exist for this year, but only aggregate or non-site geometry is available." };
       return { label: `Cells/frontages + ${renderableCount} records`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
-    if (lens.id === "utilities") {
-      const count = lensPointCount(lens.id);
-      const renderableCount = lensRenderablePointCount(lens.id);
+    if (category === "utilities") {
+      const count = lensPointCount(category);
+      const renderableCount = lensRenderablePointCount(category);
       if (!count) return { label: "No records", empty: true, note: lens.empty };
       if (!renderableCount) return { label: "No site geometry", empty: true, note: "Utility records exist for this year, but only aggregate or non-site geometry is available." };
       return { label: `Traces + ${renderableCount} assets`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
-    const count = lensPointCount(lens.id);
+    const count = lensPointCount(category);
     if (!count) return { label: "No records", empty: true, note: lens.empty };
     return { label: `${count} records`, empty: false, note: lens.caveat };
   }
@@ -3048,10 +4095,35 @@
     const next = normalizeMapLensId(lensId);
     if (!next || next === state.activeLens) return;
     state.activeLens = next;
+    state.activeAspect = defaultAspectForCategory(next);
+    resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     renderLensSwitcher();
+    renderAspectSwitcher();
+    renderActiveLensHeader();
+    renderLayers();
     renderLensLegend();
     updateTimeDependentMapState();
+    syncTopline();
+  }
+
+  function setActiveAspect(aspectId) {
+    const next = normalizeLensAspectId(aspectId);
+    if (!next || next === state.activeAspect) return;
+    const aspect = LENS_ASPECT_BY_ID.get(next);
+    state.activeAspect = next;
+    if (aspect?.category && aspect.category !== state.activeLens) {
+      state.activeLens = aspect.category;
+    }
+    resetActiveAspectLayers();
+    state.lensEventSourceKey = "";
+    renderLensSwitcher();
+    renderAspectSwitcher();
+    renderActiveLensHeader();
+    renderLayers();
+    renderLensLegend();
+    updateTimeDependentMapState();
+    syncTopline();
   }
 
   function setLensOpen(open) {
@@ -3402,6 +4474,19 @@
   function normalizeMapLensId(value) {
     const id = String(value || "").trim();
     return MAP_LENS_BY_ID.has(id) ? id : "";
+  }
+
+  function normalizeLensAspectId(value) {
+    const id = String(value || "").trim();
+    return LENS_ASPECT_BY_ID.has(id) ? id : "";
+  }
+
+  function defaultAspectForCategory(category) {
+    const key = String(category || "");
+    const configured = DEFAULT_LENS_ASPECT_BY_CATEGORY[key];
+    if (configured && LENS_ASPECT_BY_ID.has(configured)) return configured;
+    const first = LENS_ASPECTS_BY_CATEGORY.get(key)?.[0]?.id;
+    return first || DEFAULT_LENS_ASPECT_BY_CATEGORY[DEFAULT_MAP_LENS];
   }
 
   async function fetchJson(url) {

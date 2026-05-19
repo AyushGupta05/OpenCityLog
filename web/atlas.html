@@ -68,6 +68,14 @@
 
   <!-- Layers panel (left) — overlay panel on by default -->
   <div class="layers panel" id="layersPanel" data-open="true">
+    <div class="active-lens-card" id="activeLensCard">
+      <div class="active-lens-icon" id="activeLensIcon" aria-hidden="true">T</div>
+      <div class="active-lens-copy">
+        <div class="active-lens-domain" id="activeLensDomain">Transport lens</div>
+        <h2 id="activeLensTitle">Speed</h2>
+        <p id="activeLensDescription">Loading source-backed lens treatment.</p>
+      </div>
+    </div>
     <div class="layers-head">
       <h3>Layers</h3>
       <span class="count" id="layersCount">0/0 on</span>
@@ -78,6 +86,7 @@
         <span id="lensDataState">Loading</span>
       </div>
       <div class="map-lens-switcher" id="lensSwitcher" role="tablist" aria-label="Map lens"></div>
+      <div class="lens-aspect-switcher" id="lensAspectSwitcher" role="tablist" aria-label="Lens treatment"></div>
       <div class="lens-legend" id="lensLegend" aria-live="polite"></div>
     </div>
     <div class="layers-list" id="layersList"></div>
