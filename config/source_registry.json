@@ -731,6 +731,31 @@
       ]
     },
     {
+      "source_id": "bcc-land-availability-monitoring-2024-2025-round207",
+      "title": "Belfast Development Plan and Policy Monitoring",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; map viewers include OSNI/LPS restrictions and must not be redistributed without separate review.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/documents/employment-monitor-report-2024-2025/introduction",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. page publication month",
+      "caveats": [
+        "Administrative/source-reported record only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Representative point geometry is for Belfast atlas navigation only and is not a policy boundary, parcel, building footprint, works extent, or surveyed asset location. Source page terms, copyright and any embedded third-party material should be reviewed before production import. Do not reuse map-viewer or site-level OSNI/LPS geometry from this record without separate licence review."
+      ]
+    },
+    {
       "source_id": "bcc-ldp-spg-may-2023-round201",
       "title": "LDP Plan Strategy (May 2023) Supplementary Planning Guidance",
       "provider": "Belfast City Council",
@@ -1435,6 +1460,31 @@
       ]
     },
     {
+      "source_id": "bcc-planning-validation-checklist-2025-round207",
+      "title": "Planning Application Validation Checklist",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/documents/planning-application-validation-checklist/contents",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. page publication date",
+      "caveats": [
+        "Administrative/source-reported record only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Representative point geometry is for Belfast atlas navigation only and is not a policy boundary, parcel, building footprint, works extent, or surveyed asset location. Source page terms, copyright and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
       "source_id": "bcc-shankill-shared-womens-centre-round189",
       "title": "£7.8 million shared women's centre at Belfast interface opens",
       "provider": "Belfast City Council",
@@ -1535,6 +1585,31 @@
       ]
     },
     {
+      "source_id": "bcc-validation-checklist-equality-screening-2024-round207",
+      "title": "Planning Application Validation Checklist: Equality Screening Outcome Report",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/Documents/Planning-Validation-Checklist-EQIA/Section-A-Details-about-the-policy-or-decision-to",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. page publication month",
+      "caveats": [
+        "Administrative/source-reported record only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Representative point geometry is for Belfast atlas navigation only and is not a policy boundary, parcel, building footprint, works extent, or surveyed asset location. Source page terms, copyright and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
       "source_id": "bcc-waterfront-task-group-2025-round189",
       "title": "Belfast Waterfront Task Group Update",
       "provider": "Belfast City Council",
@@ -1582,6 +1657,31 @@
       "provenance_notes": "Current official project page retrieved 2026-05-19; used for summer 2025 consultation status. Named asset, consultation timing, feasibility-status wording.",
       "caveats": [
         "Consultation does not evidence physical works, funding certainty, restoration or reopening. Use as future-use/status evidence only. Consultation/status record only. Do not infer works start, restoration, reopening, funding certainty or final use."
+      ]
+    },
+    {
+      "source_id": "bcc-yoursay-validation-checklist-consultation-round207",
+      "title": "Public Consultation - Draft Planning Application Validation Checklist",
+      "provider": "Belfast City Council",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify consultation-platform terms before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://yoursay.belfastcity.gov.uk/planning-application-validation-checklist",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. consultation key date",
+      "caveats": [
+        "Administrative/source-reported record only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Representative point geometry is for Belfast atlas navigation only and is not a policy boundary, parcel, building footprint, works extent, or surveyed asset location. Source page terms, copyright and any embedded third-party material should be reviewed before production import."
       ]
     },
     {
@@ -2571,6 +2671,31 @@
       "provenance_notes": "Use publication date, source-stated project-stage/status date, site name, source URL, retrieved date, and limitation text.",
       "caveats": [
         "DfC public pages document official status, funding, brief, or project-stage records. They are not final permission, construction, completion, public opening, occupation, or long-term reuse evidence unless separately stated."
+      ]
+    },
+    {
+      "source_id": "dfc-initial-budget-allocations-2025-2026-round207",
+      "title": "Oral statement NI Assembly - Communities Minister Gordon Lyons MLA - Initial Budget allocations 2025-26",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "planning",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party images before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/news/oral-statement-ni-assembly-communities-minister-gordon-lyons-mla-initial-budget-allocations-2025-26",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. statement publication date",
+      "caveats": [
+        "Administrative/source-reported record only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Representative point geometry is for Belfast atlas navigation only and is not a policy boundary, parcel, building footprint, works extent, or surveyed asset location. Source page terms, copyright and any embedded third-party material should be reviewed before production import."
       ]
     },
     {

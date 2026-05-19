@@ -121,7 +121,13 @@ const candidatePaths = {
   nycLpcPermitNext8Round198: "tmp/subagents/round198_nyc_lpc_permit_next8/candidates.json",
   nycDobCoNext9Round199: "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
   londonLddArchiveNext11Round200: "tmp/subagents/round200_london_ldd_archive_next11/candidates.json",
-  belfastFinalDeepTailRound201: "tmp/subagents/round201_belfast_final_deep_tail/candidates.json"
+  belfastFinalDeepTailRound201: "tmp/subagents/round201_belfast_final_deep_tail/candidates.json",
+  londonPldLifecycleNext12Round202: "tmp/subagents/round202_london_pld_lifecycle_next12/candidates.json",
+  nycDobNowNext11Round203: "tmp/subagents/round203_nyc_dob_now_next11/candidates.json",
+  nycLpcPermitNext9Round204: "tmp/subagents/round204_nyc_lpc_permit_next9/candidates.json",
+  nycDobCoNext10Round205: "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+  londonLddArchiveNext12Round206: "tmp/subagents/round206_london_ldd_archive_next12/candidates.json",
+  belfastOfficialTailDiscoveryRound207: "tmp/subagents/round207_belfast_official_tail_or_discovery/candidates.json"
 };
 
 const sourceIdAliases = {
