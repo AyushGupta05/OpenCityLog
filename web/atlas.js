@@ -1280,6 +1280,20 @@
     return { type: "Polygon", coordinates: [ring] };
   }
 
+  function isochronePolygon(center, radiusM, seed = 1) {
+    const ring = [];
+    const steps = 96;
+    for (let i = 0; i <= steps; i += 1) {
+      const angle = (i / steps) * Math.PI * 2;
+      const wobble = 0.86
+        + Math.sin(angle * 3 + seed * 0.9) * 0.08
+        + Math.cos(angle * 5 - seed * 0.55) * 0.05;
+      const r = radiusM * Math.max(0.68, Math.min(1.12, wobble));
+      ring.push(offsetLngLat(center, Math.cos(angle) * r, Math.sin(angle) * r));
+    }
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
   function hexPolygon(center, radiusM) {
     const ring = [];
     for (let i = 0; i <= 6; i += 1) {
@@ -2724,13 +2738,13 @@
         [0.84, "#9bcf9d"],
         [1, "#7fc0bf"],
       ];
-      for (const [intensity, color] of [...bands].reverse()) {
+      [...bands].reverse().forEach(([intensity, color], index) => {
         features.push({
           type: "Feature",
           properties: { kind: "surface_cell", lens_id: lens.id, intensity, color },
-          geometry: circlePolygon(center, radiusM * intensity, 88),
+          geometry: isochronePolygon(center, radiusM * intensity, index + 1),
         });
-      }
+      });
     } else if (["civic-catchment", "civic-demand"].includes(lens.id)) {
       features.push(...hexGuideCells(center, radiusM, lens));
     } else if (lens.id === "economy-land-use") {
@@ -3053,9 +3067,9 @@
       "line-opacity": ["interpolate", ["linear"], activity, 0, 0.18, 0.2, 0.56, 1, 0.96],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        9, ["*", ["+", 0.44, ["*", activity, 2.7]], ["to-number", ["get", "rank"], 1]],
-        13, ["*", ["+", 0.86, ["*", activity, 3.9]], ["to-number", ["get", "rank"], 1]],
-        16, ["*", ["+", 1.35, ["*", activity, 6.1]], ["to-number", ["get", "rank"], 1]],
+        9, ["*", ["+", 0.72, ["*", activity, 3.4]], ["to-number", ["get", "rank"], 1]],
+        13, ["*", ["+", 1.25, ["*", activity, 5.4]], ["to-number", ["get", "rank"], 1]],
+        16, ["*", ["+", 2, ["*", activity, 8.4]], ["to-number", ["get", "rank"], 1]],
       ],
       "line-dasharray": [1, 0.0001],
     };
