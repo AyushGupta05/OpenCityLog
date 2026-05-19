@@ -1834,7 +1834,11 @@
     state.transportRoadFeatureCountPathLoaded = path;
     state.transportRoadFeatureCountYearLoaded = null;
     state.transportRoadFeatureCount = null;
-    fetchJson(path)
+    fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
       .then((payload) => {
         if (state.transportRoadFeatureCountPathLoaded !== path) return;
         state.transportRoadFeatureCount = Array.isArray(payload.features) ? payload.features.length : 0;
