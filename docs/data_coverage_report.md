@@ -1,13 +1,13 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T08:02:25Z
+Generated: 2026-05-19T11:42:03Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 30669 | 76 | 14 | 2007-2026 | transport 17118, built_environment 11350, utilities 851 | 69331 |
-| London, England | 192715 | 178 | 102 | 1801-2026 | built_environment 73432, civic_services 53367, transport 37842 | 0 |
+| London, England | 192934 | 178 | 102 | 1801-2026 | built_environment 73651, civic_services 53367, transport 37842 | 0 |
 | New York City, New York | 37093 | 75 | 122 | 1797-2026 | built_environment 21862, transport 6242, environment 6116 | 62907 |
 
 ## Belfast, Northern Ireland
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 14.
 
 ## London, England
 
-Backed events: 192715. Unique event IDs: 192715. Duplicate IDs: 0.
+Backed events: 192934. Unique event IDs: 192934. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |

@@ -46,7 +46,8 @@ const candidatePaths = {
   nycDotPublicRealmReconstruction: "tmp/subagents/round127_nyc_dot_public_realm_reconstruction/candidates.json",
   londonOfficialPublicRealmProjects: "tmp/subagents/round127_london_official_public_realm_projects/candidates.json",
   nycCapitalProjectsDashboardActualConstruction: "tmp/subagents/round128_nyc_capital_projects_dashboard/candidates.json",
-  belfastHarniSpatial: "tmp/subagents/round128_belfast_harni_spatial/candidates.json"
+  belfastHarniSpatial: "tmp/subagents/round128_belfast_harni_spatial/candidates.json",
+  londonLddArchiveMore: "tmp/subagents/round129_london_ldd_archive_more/candidates.json"
 };
 
 const sourceIdAliases = {
