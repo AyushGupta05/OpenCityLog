@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-19T12:12:13Z",
+  "generated_at": "2026-05-19T12:26:04Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
@@ -25,7 +25,7 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 193889,
+      "event_count": 195375,
       "source_count": 284,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
@@ -66,11 +66,11 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-19T12:14:44Z",
+  "coverage_report_generated_at": "2026-05-19T12:28:09Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 261719,
-    "total_unique_events": 261719,
+    "total_events": 263205,
+    "total_unique_events": 263205,
     "duplicate_event_id_count": 0,
     "active_source_count": 334,
     "source_catalog_only_count": 239,

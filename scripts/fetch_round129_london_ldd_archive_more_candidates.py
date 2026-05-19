@@ -14,7 +14,7 @@ INPUT_DIR = Path("tmp/subagents/round124_london_ldd_archive_completions")
 INPUT_XLSX = INPUT_DIR / "LDD_Permissions_for_Datastore_final.xlsx"
 OUT_DIR = Path("tmp/subagents/round129_london_ldd_archive_more")
 OUT_PATH = OUT_DIR / "candidates.json"
-CANDIDATE_LIMIT = 500
+CANDIDATE_LIMIT = 1000
 
 DATASET_PAGE = "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0/"
 PERMISSIONS_DOWNLOAD = "https://data.london.gov.uk/download/2jxq0/eb050c40-3e94-4384-8e59-1b8c49dbdf36/LDD%20Permissions%20for%20Datastore%20final.xlsx"

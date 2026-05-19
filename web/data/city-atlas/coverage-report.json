@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-19T12:14:44Z",
+  "generated_at": "2026-05-19T12:28:09Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 261719,
-    "total_unique_events": 261719,
+    "total_events": 263205,
+    "total_unique_events": 263205,
     "duplicate_event_id_count": 0,
     "active_source_count": 334,
     "source_catalog_only_count": 239,
@@ -6024,7 +6024,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2008,
       "layer": "built_environment",
-      "event_count": 66
+      "event_count": 264
     },
     {
       "city_id": "london",
@@ -6048,7 +6048,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2009,
       "layer": "built_environment",
-      "event_count": 65
+      "event_count": 195
     },
     {
       "city_id": "london",
@@ -6072,7 +6072,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2010,
       "layer": "built_environment",
-      "event_count": 59
+      "event_count": 172
     },
     {
       "city_id": "london",
@@ -6096,7 +6096,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 55
+      "event_count": 171
     },
     {
       "city_id": "london",
@@ -6120,7 +6120,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 75
+      "event_count": 199
     },
     {
       "city_id": "london",
@@ -6144,7 +6144,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 58
+      "event_count": 142
     },
     {
       "city_id": "london",
@@ -6160,7 +6160,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 63
+      "event_count": 168
     },
     {
       "city_id": "london",
@@ -6192,7 +6192,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 74
+      "event_count": 197
     },
     {
       "city_id": "london",
@@ -6208,7 +6208,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 79
+      "event_count": 239
     },
     {
       "city_id": "london",
@@ -6232,7 +6232,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 76
+      "event_count": 202
     },
     {
       "city_id": "london",
@@ -6256,7 +6256,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 70
+      "event_count": 188
     },
     {
       "city_id": "london",
@@ -6280,7 +6280,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 54
+      "event_count": 137
     },
     {
       "city_id": "london",
@@ -6296,7 +6296,7 @@
       "source_title": "Planning permissions on the London Development Database (LDD)",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 4
+      "event_count": 10
     },
     {
       "city_id": "london",
@@ -20813,8 +20813,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 193889,
-      "unique_event_count": 193889,
+      "event_count": 195375,
+      "unique_event_count": 195375,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 284,
@@ -20822,7 +20822,7 @@
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 193889,
+        "backed_event_count": 195375,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -20899,19 +20899,19 @@
         "2005": 1234,
         "2006": 1254,
         "2007": 1289,
-        "2008": 1561,
-        "2009": 2983,
-        "2010": 2973,
-        "2011": 3093,
-        "2012": 2958,
-        "2013": 2919,
-        "2014": 2961,
-        "2015": 3008,
-        "2016": 3069,
-        "2017": 4515,
-        "2018": 3484,
-        "2019": 3794,
-        "2020": 8894,
+        "2008": 1759,
+        "2009": 3113,
+        "2010": 3086,
+        "2011": 3209,
+        "2012": 3082,
+        "2013": 3003,
+        "2014": 3066,
+        "2015": 3131,
+        "2016": 3229,
+        "2017": 4641,
+        "2018": 3602,
+        "2019": 3877,
+        "2020": 8900,
         "2021": 8382,
         "2022": 8245,
         "2023": 22600,
@@ -20920,7 +20920,7 @@
         "2026": 19337
       },
       "event_counts_by_layer": {
-        "built_environment": 74606,
+        "built_environment": 76092,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -20928,7 +20928,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 193879,
+        "documented": 195365,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -21320,7 +21320,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 1555
+          "event_count": 1753
         },
         {
           "year": 2008,
@@ -21335,7 +21335,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 1467
+          "event_count": 1597
         },
         {
           "year": 2009,
@@ -21355,7 +21355,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 1460
+          "event_count": 1573
         },
         {
           "year": 2010,
@@ -21375,7 +21375,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 1583
+          "event_count": 1699
         },
         {
           "year": 2011,
@@ -21395,7 +21395,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 1448
+          "event_count": 1572
         },
         {
           "year": 2012,
@@ -21415,7 +21415,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 1415
+          "event_count": 1499
         },
         {
           "year": 2013,
@@ -21435,7 +21435,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 1451
+          "event_count": 1556
         },
         {
           "year": 2014,
@@ -21455,7 +21455,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 1494
+          "event_count": 1617
         },
         {
           "year": 2015,
@@ -21475,7 +21475,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1535
+          "event_count": 1695
         },
         {
           "year": 2016,
@@ -21495,7 +21495,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 2977
+          "event_count": 3103
         },
         {
           "year": 2017,
@@ -21515,7 +21515,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1904
+          "event_count": 2022
         },
         {
           "year": 2018,
@@ -21540,7 +21540,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 2168
+          "event_count": 2251
         },
         {
           "year": 2019,
@@ -21560,7 +21560,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 2804
+          "event_count": 2810
         },
         {
           "year": 2020,
@@ -25771,7 +25771,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 66
+          "event_count": 264
         },
         {
           "city_id": "london",
@@ -25795,7 +25795,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 65
+          "event_count": 195
         },
         {
           "city_id": "london",
@@ -25819,7 +25819,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 59
+          "event_count": 172
         },
         {
           "city_id": "london",
@@ -25843,7 +25843,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 55
+          "event_count": 171
         },
         {
           "city_id": "london",
@@ -25867,7 +25867,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 75
+          "event_count": 199
         },
         {
           "city_id": "london",
@@ -25891,7 +25891,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 58
+          "event_count": 142
         },
         {
           "city_id": "london",
@@ -25907,7 +25907,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 63
+          "event_count": 168
         },
         {
           "city_id": "london",
@@ -25939,7 +25939,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 74
+          "event_count": 197
         },
         {
           "city_id": "london",
@@ -25955,7 +25955,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 79
+          "event_count": 239
         },
         {
           "city_id": "london",
@@ -25979,7 +25979,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 76
+          "event_count": 202
         },
         {
           "city_id": "london",
@@ -26003,7 +26003,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 70
+          "event_count": 188
         },
         {
           "city_id": "london",
@@ -26027,7 +26027,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 54
+          "event_count": 137
         },
         {
           "city_id": "london",
@@ -26043,7 +26043,7 @@
           "source_title": "Planning permissions on the London Development Database (LDD)",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 4
+          "event_count": 10
         },
         {
           "city_id": "london",
@@ -28650,6 +28650,41 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "london-development-database-archive",
+          "title": "Planning permissions on the London Development Database (LDD)",
+          "provider": "Greater London Authority / London Development Database / relevant London planning authority",
+          "reliability": "usable_with_caveats",
+          "licence": "UK Open Government Licence (OGL v3)",
+          "event_count": 2344,
+          "years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020
+          ],
+          "first_year": 2008,
+          "last_year": 2020,
+          "layer_counts": {
+            "built_environment": 2284,
+            "civic_services": 44,
+            "environment": 4,
+            "transport": 12
+          },
+          "confidence_counts": {
+            "documented": 2344
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "lon-extra-planning-data-tree-preservation-zones",
           "title": "Planning Data: Tree Preservation Zones",
           "provider": "DLUHC Planning Data",
@@ -28893,41 +28928,6 @@
             "corroborated": 4,
             "documented": 1036,
             "inferred": 1
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "london-development-database-archive",
-          "title": "Planning permissions on the London Development Database (LDD)",
-          "provider": "Greater London Authority / London Development Database / relevant London planning authority",
-          "reliability": "usable_with_caveats",
-          "licence": "UK Open Government Licence (OGL v3)",
-          "event_count": 858,
-          "years": [
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020
-          ],
-          "first_year": 2008,
-          "last_year": 2020,
-          "layer_counts": {
-            "built_environment": 798,
-            "civic_services": 44,
-            "environment": 4,
-            "transport": 12
-          },
-          "confidence_counts": {
-            "documented": 858
           },
           "coverage_status": "events_emitted"
         },

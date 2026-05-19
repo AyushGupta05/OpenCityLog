@@ -3224,27 +3224,25 @@
       "source_id": "nyc-dob-co-bs8b-p36w",
       "title": "DOB Certificate Of Occupancy",
       "provider": "NYC Department of Buildings via NYC Open Data",
-      "source_family": "buildings;_dob_permits",
+      "source_family": "building_status",
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained",
+      "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained.",
       "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
       "coverage_years": {
         "start": 2012,
         "end": 2026
       },
-      "update_frequency": "Legacy dataset; check NYC Open Data metadata before refreshes.",
+      "update_frequency": "Legacy dataset; check NYC Open Data metadata before future refreshes",
       "url": "https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w",
-      "local_paths": [
-        "tmp/subagents/round112_nyc_dob_candidates.json"
-      ],
+      "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "Use job number, issue type/date, address, latitude/longitude, source URL, and retrieved date. Temporary CO rows should remain labelled as temporary administrative occupancy status.",
+      "attribution_text": "Attribute NYC Department of Buildings via NYC Open Data.",
+      "provenance_notes": "Legacy DOB CO records in the architecture corpus window, selected from 2018-2026 rows in curated batches. CO issue date and job number.",
       "caveats": [
-        "Legacy rows can include repeated temporary COs and address-normalization differences."
+        "Legacy CO rows can include repeated temporary COs and address-normalization differences. A temporary CO is an administrative occupancy status, not final completion, public opening, tenant move-in, or outcome evidence."
       ]
     },
     {
@@ -3276,27 +3274,25 @@
       "source_id": "nyc-dob-now-co-pkdm-hqz6",
       "title": "DOB NOW: Certificate of Occupancy",
       "provider": "NYC Department of Buildings via NYC Open Data",
-      "source_family": "buildings;_dob_permits",
+      "source_family": "building_status",
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained",
+      "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained.",
       "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
       "coverage_years": {
         "start": 2021,
         "end": 2026
       },
-      "update_frequency": "Dataset-specific NYC Open Data refresh cadence.",
+      "update_frequency": "NYC Open Data dataset-specific refresh cadence",
       "url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Certificate-of-Occupancy/pkdm-hqz6",
-      "local_paths": [
-        "tmp/subagents/round112_nyc_dob_candidates.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "Use application number, BIN/filing identifiers where present, issue date, address, latitude/longitude, source URL, and retrieved date. CO issuance is an administrative occupancy/legal-use milestone.",
+      "attribution_text": "Attribute NYC Department of Buildings via NYC Open Data.",
+      "provenance_notes": "DOB NOW CO module records beginning around March 2021 through current NYC Open Data publication. CO issue date and application/job identifiers.",
       "caveats": [
-        "CO records are not public opening, tenant move-in, final completion of all works, design authorship, unit sales, or outcome evidence."
+        "CO issuance is an administrative occupancy/legal-use milestone for the cited application. It is not a public opening, tenant move-in, final completion of all work, design authorship, unit sale, or outcome effect."
       ]
     },
     {

@@ -10,6 +10,11 @@
   const MAX_MARKERS = 90;
   const EVENT_LIST_BATCH_SIZE = 24;
   const PLAY_RATE_YEARS_PER_SECOND = 1.4;
+  const GRAND_CENTRAL_EVENT_IDS = new Set([
+    "official-2024-grand-central",
+    "bfs_arch_grand_central_station_opening_2024",
+  ]);
+  const DETAIL_RADIUS_OPTIONS = [500, 800, 1200, 1500, 2500];
 
   const TILE_PROVIDER = {
     name: "OpenStreetMap Standard",
@@ -831,6 +836,8 @@
     eventById: new Map(),
     selectedEventId: null,
     selectedEvent: null,
+    detailBeforeYear: null,
+    detailRadiusM: null,
     pendingCameraFocusEventId: null,
     playing: false,
     playRaf: null,
@@ -847,7 +854,7 @@
     mapTilted: false,
     lensOpen: false,
     methodOpen: false,
-    welcomeOpen: true,
+    welcomeOpen: false,
     currentProposalId: PROPOSALS[0].id,
     detailLayerLoaded: false,
     detailLayerError: null,
@@ -1124,6 +1131,8 @@
     state.eventById.clear();
     state.selectedEventId = null;
     state.selectedEvent = null;
+    state.detailBeforeYear = null;
+    state.detailRadiusM = null;
     state.pendingCameraFocusEventId = null;
     state.search = "";
     state.eventListLimit = EVENT_LIST_BATCH_SIZE;
@@ -1399,6 +1408,8 @@
         const pin = el.querySelector(".pin");
         pin?.setAttribute("data-active", String(event.id === state.selectedEventId));
         pin?.setAttribute("aria-pressed", String(event.id === state.selectedEventId));
+        const label = el.querySelector(".pin-label");
+        if (label) label.innerHTML = `<strong>${escapeHtml(truncate(event.title, 54))}</strong><span>${event.year}</span>`;
         continue;
       }
       const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
@@ -1778,14 +1789,14 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#201c17",
-        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.2, 0.14, 1, 0.24],
+        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.2, 0.05, 1, 0.1],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 1, ["*", transportActivityExpression(), 2.4]], ["to-number", ["get", "rank"], 1]],
-          13, ["*", ["+", 1.2, ["*", transportActivityExpression(), 3.4]], ["to-number", ["get", "rank"], 1]],
-          16, ["*", ["+", 1.6, ["*", transportActivityExpression(), 5.4]], ["to-number", ["get", "rank"], 1]],
+          9, ["*", ["+", 0.7, ["*", transportActivityExpression(), 1.6]], ["to-number", ["get", "rank"], 1]],
+          13, ["*", ["+", 0.9, ["*", transportActivityExpression(), 2.4]], ["to-number", ["get", "rank"], 1]],
+          16, ["*", ["+", 1.2, ["*", transportActivityExpression(), 3.7]], ["to-number", ["get", "rank"], 1]],
         ],
-        "line-blur": 0.24,
+        "line-blur": 0.5,
       },
     });
     state.map.addLayer({
@@ -2626,12 +2637,14 @@
         state.transportRoadFeatureCount = Array.isArray(payload.features) ? payload.features.length : 0;
         state.transportRoadFeatureCountYearLoaded = year;
         renderLensLegend();
+        renderDetail();
       })
       .catch(() => {
         if (state.transportRoadFeatureCountPathLoaded !== path) return;
         state.transportRoadFeatureCount = null;
         state.transportRoadFeatureCountYearLoaded = null;
         renderLensLegend();
+        renderDetail();
       });
   }
 
@@ -2688,7 +2701,7 @@
   function lensGuideFeatureCollection() {
     const lens = activeMapLens();
     const center = state.selectedEvent?.lngLat || mapCenter();
-    const radiusM = Number(lens.radiusM || 800);
+    const radiusM = lensEffectiveRadiusM(lens);
     const features = [];
     const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
     features.push({
@@ -3130,6 +3143,13 @@
     return state.yearRange[1] || DEFAULT_YEAR;
   }
 
+  function lensEffectiveRadiusM(lens = activeMapLens()) {
+    const override = Number(state.detailRadiusM);
+    if (Number.isFinite(override) && override > 0) return override;
+    const configured = Number(lens?.radiusM);
+    return Number.isFinite(configured) && configured > 0 ? configured : 800;
+  }
+
   function earliestTimelineYear() {
     return state.yearRange[0] || state.years[0] || DEFAULT_YEAR;
   }
@@ -3227,9 +3247,11 @@
   function renderActiveLensHeader() {
     const lens = activeMapLens();
     if (!lens) return;
+    const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1B7A85";
     if (els.activeLensCard) {
-      els.activeLensCard.style.setProperty("--lens-accent", lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1B7A85");
+      els.activeLensCard.style.setProperty("--lens-accent", accent);
     }
+    els.layersPanel?.style.setProperty("--lens-accent", accent);
     setText(els.activeLensIcon, lens.badge || lens.shortLabel?.slice(0, 1) || "");
     setText(els.activeLensDomain, lens.domain || LAYER_BY_ID.get(lens.category)?.label || "Map lens");
     setText(els.activeLensTitle, lens.label || "");
@@ -3508,6 +3530,7 @@
 
     els.tlHistogram.innerHTML = years.map((y) => {
       const past = y <= state.year;
+      const selected = state.selectedEvent?.year === y;
       const byLayer = totalPerYear.get(y) || {};
       const bars = LAYERS
         .filter((l) => state.activeLayers.has(l.id) && byLayer[l.id])
@@ -3517,7 +3540,7 @@
           const h = Math.sqrt(n) / Math.sqrt(Math.max(1, maxStack)) * 100;
           return `<div class="tl-bar" style="height:${h.toFixed(1)}%;background:${l.color}"></div>`;
         }).join("");
-      return `<div class="tl-bar-group" data-year="${y}" data-past="${past}">${bars}</div>`;
+      return `<div class="tl-bar-group" data-year="${y}" data-past="${past}" data-selected="${selected}">${bars}</div>`;
     }).join("");
 
     els.tlAxis.innerHTML = years.map((y) => {
@@ -3533,7 +3556,11 @@
 
   function detailEvidenceYears(event) {
     const current = Number(event?.year || state.year);
-    const before = [...state.years].filter((year) => year < current).pop() || current;
+    const previousYears = [...state.years].filter((year) => year < current);
+    const requested = Number(state.detailBeforeYear);
+    const before = previousYears.includes(requested)
+      ? requested
+      : previousYears.filter((year) => year <= current - 2).pop() || previousYears.pop() || current;
     return { before, after: current };
   }
 
@@ -3646,6 +3673,358 @@
       </div>`;
   }
 
+  function buildLensContext(event) {
+    const lens = activeMapLens();
+    const category = lens.category || lens.layerId || state.activeLens;
+    const layer = LAYER_BY_ID.get(category) || LAYERS[0];
+    const { before, after } = detailEvidenceYears(event);
+    const radiusM = lensEffectiveRadiusM(lens);
+    const center = event?.lngLat || mapCenter();
+    const beforeEvents = lensEventsForYear(before).filter((item) => item.category === category);
+    const currentEvents = lensEventsForYear(after).filter((item) => item.category === category);
+    const nearbyBefore = eventsNear(center, beforeEvents, radiusM);
+    const nearbyCurrent = eventsNear(center, currentEvents, radiusM);
+    return {
+      lens,
+      category,
+      layer,
+      beforeYear: before,
+      currentYear: after,
+      radiusM,
+      center,
+      beforeEvents,
+      currentEvents,
+      nearbyBefore,
+      nearbyCurrent,
+      selectedSourceCount: eventSourceCount(event),
+      activeLensLayerCount: lensLayers(lens).filter((item) => item.categoryToggle
+        ? state.activeLayers.has(item.id)
+        : state.activeAspectLayers.has(item.id)).length,
+    };
+  }
+
+  function eventsNear(center, events, radiusM) {
+    if (!Array.isArray(center)) return [];
+    return events
+      .filter((event) => event.lngLat && lngLatDistanceMeters(center, event.lngLat) <= radiusM)
+      .sort((a, b) => lngLatDistanceMeters(center, a.lngLat) - lngLatDistanceMeters(center, b.lngLat));
+  }
+
+  function renderDetailLensControls(event, context) {
+    const currentYear = Number(event?.year || state.year);
+    const beforeOptions = state.years.filter((year) => year < currentYear);
+    const currentOptions = state.years.length ? state.years : [currentYear];
+    const radiusOptions = [...new Set([...DETAIL_RADIUS_OPTIONS, Number(context.lens.radiusM || 0), context.radiusM])]
+      .filter((value) => Number.isFinite(value) && value > 0)
+      .sort((a, b) => a - b);
+    return `
+      <div class="lens-controls-card" style="--accent:${context.lens.accent || context.layer.color}">
+        <label>
+          <span>Before</span>
+          <select id="detailBeforeYear" ${beforeOptions.length ? "" : "disabled"}>
+            ${beforeOptions.length
+              ? beforeOptions.map((year) => `<option value="${year}" ${year === context.beforeYear ? "selected" : ""}>${year}</option>`).join("")
+              : `<option value="${currentYear}">${currentYear}</option>`}
+          </select>
+        </label>
+        <label>
+          <span>Current</span>
+          <select id="detailCurrentYear">
+            ${currentOptions.map((year) => `<option value="${year}" ${year === currentYear ? "selected" : ""}>${year}</option>`).join("")}
+          </select>
+        </label>
+        <label>
+          <span>Radius</span>
+          <select id="detailRadius">
+            ${radiusOptions.map((radius) => `<option value="${radius}" ${radius === context.radiusM ? "selected" : ""}>${escapeHtml(formatRadius(radius))}</option>`).join("")}
+          </select>
+        </label>
+      </div>
+    `;
+  }
+
+  function wireDetailLensControls(root) {
+    root?.querySelector("#detailBeforeYear")?.addEventListener("change", (event) => {
+      state.detailBeforeYear = Number(event.target.value) || null;
+      renderDetail();
+      renderTimeline();
+    });
+    root?.querySelector("#detailCurrentYear")?.addEventListener("change", (event) => {
+      const year = Number(event.target.value);
+      if (Number.isFinite(year)) setYear(year);
+    });
+    root?.querySelector("#detailRadius")?.addEventListener("change", (event) => {
+      state.detailRadiusM = Number(event.target.value) || null;
+      state.lensEventSourceKey = "";
+      updateTimeDependentMapState();
+      renderDetail();
+    });
+  }
+
+  function renderLensMetrics(context) {
+    const metrics = lensMetricRows(context);
+    return `
+      <div class="detail-section lens-metrics-section">
+        <h4>${escapeHtml(context.lens.label)} readout</h4>
+        <div class="lens-metric-grid">
+          ${metrics.map((metric) => `
+            <div class="lens-metric" data-tone="${escapeAttr(metric.tone || "neutral")}">
+              <span>${escapeHtml(metric.label)}</span>
+              <strong>${escapeHtml(metric.value)}</strong>
+              <small>${escapeHtml(metric.hint || "")}${metric.delta != null ? ` / ${escapeHtml(formatSignedNumber(metric.delta))} vs ${context.beforeYear}` : ""}</small>
+            </div>
+          `).join("")}
+        </div>
+      </div>`;
+  }
+
+  function lensMetricRows(context) {
+    const categoryDelta = context.currentEvents.length - context.beforeEvents.length;
+    const nearbyDelta = context.nearbyCurrent.length - context.nearbyBefore.length;
+    const layerTotal = lensLayers(context.lens).length;
+    const sourceText = `${context.selectedSourceCount} row${context.selectedSourceCount === 1 ? "" : "s"}`;
+    const common = [
+      { label: "Lens records", value: compactNumber(context.currentEvents.length), delta: categoryDelta, hint: context.layer.label },
+      { label: "Near event", value: compactNumber(context.nearbyCurrent.length), delta: nearbyDelta, hint: `within ${formatRadius(context.radiusM)}` },
+      { label: "Evidence rows", value: sourceText, hint: "selected event" },
+      { label: "Layers on", value: `${context.activeLensLayerCount}/${layerTotal}`, hint: "visible treatment layers" },
+    ];
+    const roadCount = state.transportRoadFeatureCount == null ? "loading" : compactNumber(state.transportRoadFeatureCount);
+    const detailStatus = state.lensDetailYearLoaded === context.currentYear ? "loaded" : "pending";
+    const nearbyIndex = Math.round(clamp01(context.nearbyCurrent.length / Math.max(1, context.currentEvents.length)) * 100);
+    const variants = {
+      "transport-speed": [
+        { label: "Activity index", value: `${nearbyIndex}`, hint: "derived from nearby records", tone: "teal" },
+        { label: "Mapped segments", value: roadCount, hint: "source-backed linework" },
+        common[1],
+        common[2],
+      ],
+      "transport-access": [
+        { label: "Access radius", value: formatRadius(context.radiusM), hint: "generated isochrone fabric", tone: "teal" },
+        common[1],
+        { label: "Network records", value: compactNumber(context.currentEvents.length), delta: categoryDelta, hint: "walk/bus/rail evidence" },
+        common[3],
+      ],
+      "transport-reliability": [
+        { label: "Service threads", value: compactNumber(context.currentEvents.length), delta: categoryDelta, hint: "transport records" },
+        { label: "Disruption notes", value: compactNumber(countEventsByTerms(context.currentEvents, ["delay", "closed", "works", "disruption", "roadworks"])), hint: "keyword-matched" },
+        common[1],
+        common[2],
+      ],
+      "planning-pressure": [
+        { label: "Pressure records", value: compactNumber(context.currentEvents.length), delta: categoryDelta, hint: "planning/built evidence", tone: "red" },
+        common[1],
+        { label: "Detail cells", value: detailStatus, hint: "planning geometry source" },
+        common[2],
+      ],
+      "planning-delta": [
+        { label: "Changed records", value: compactNumber(Math.max(0, categoryDelta)), delta: categoryDelta, hint: "before/current count" },
+        { label: "Footprint context", value: state.detailLayerLoaded ? "loaded" : "pending", hint: "OSM visibility layer" },
+        common[1],
+        common[2],
+      ],
+      "planning-parcels": [
+        { label: "Parcel-stage cells", value: detailStatus, hint: "derived evidence mosaic" },
+        common[0],
+        common[1],
+        common[2],
+      ],
+      "civic-access-gaps": [
+        { label: "Gap index", value: `${100 - nearbyIndex}`, hint: "inverse nearby coverage", tone: "amber" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "civic-catchment": [
+        { label: "Catchment cells", value: compactNumber(Math.max(1, Math.round(context.radiusM / 85))), hint: "generated around event" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "civic-demand": [
+        { label: "Demand index", value: `${Math.min(160, 40 + nearbyIndex)}`, hint: "derived context" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "economy-vitality": [
+        { label: "Vitality ribbons", value: detailStatus, hint: "frontage geometry" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "economy-land-use": [
+        { label: "Land-use cells", value: detailStatus, hint: "activity tiles" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "economy-gravity": [
+        { label: "Flow anchors", value: compactNumber(Math.min(9, Math.max(0, context.nearbyCurrent.length - 1))), hint: "nearby activity records" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "utilities-capacity": [
+        { label: "Capacity traces", value: detailStatus, hint: "utility trace geometry" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "utilities-resilience": [
+        { label: "Resilience nodes", value: compactNumber(Math.min(5, Math.max(1, Math.round(context.nearbyCurrent.length / 3)))), hint: "generated route nodes" },
+        common[1],
+        common[0],
+        common[2],
+      ],
+      "utilities-works": [
+        { label: "Works records", value: compactNumber(context.currentEvents.length), delta: categoryDelta, hint: "permits/assets/work notes" },
+        { label: "Disruption notes", value: compactNumber(countEventsByTerms(context.currentEvents, ["repair", "works", "closure", "permit", "outage", "disruption"])), hint: "keyword-matched" },
+        common[1],
+        common[2],
+      ],
+    };
+    return variants[context.lens.id] || common;
+  }
+
+  function renderAspectDiffPanel(context) {
+    const rows = lensLayers(context.lens).map((layer) => {
+      const before = aspectLayerEventMatches(context.beforeEvents, layer).length;
+      const current = aspectLayerEventMatches(context.currentEvents, layer).length;
+      return { layer, before, current, delta: current - before };
+    });
+    return `
+      <div class="detail-section aspect-diff-panel">
+        <h4>Change around selected event</h4>
+        <div class="aspect-diff-copy">${escapeHtml(context.lens.summary)}</div>
+        ${renderMicroSparkline(context)}
+        <div class="aspect-diff-rows">
+          ${rows.map((row) => `
+            <div class="aspect-diff-row" style="--accent:${escapeAttr(row.layer.color)}">
+              <span class="aspect-diff-swatch"></span>
+              <span>${escapeHtml(row.layer.label)}</span>
+              <strong>${escapeHtml(compactNumber(row.before))}</strong>
+              <strong>${escapeHtml(compactNumber(row.current))}</strong>
+              <em data-positive="${row.delta > 0}">${escapeHtml(formatSignedNumber(row.delta))}</em>
+            </div>
+          `).join("")}
+        </div>
+        <div class="lens-causality-note">Observed records during the same period; causation is not claimed.</div>
+      </div>`;
+  }
+
+  function renderMicroSparkline(context) {
+    const years = state.years.filter((year) => year <= context.currentYear).slice(-7);
+    const values = years.map((year) => Number(state.chunks.get(year)?.counts_by_category?.[context.category] || 0));
+    const max = Math.max(1, ...values);
+    return `
+      <div class="lens-sparkline" aria-hidden="true">
+        ${years.map((year, index) => {
+          const height = Math.max(10, Math.round((values[index] / max) * 100));
+          return `<span style="height:${height}%" data-current="${year === context.currentYear}"></span>`;
+        }).join("")}
+      </div>`;
+  }
+
+  function aspectLayerEventMatches(events, layer) {
+    if (layer.categoryToggle) return events;
+    const terms = aspectLayerTerms(layer);
+    return events.filter((event) => eventMatchesTerms(event, terms));
+  }
+
+  function countEventsByTerms(events, terms) {
+    return events.filter((event) => eventMatchesTerms(event, terms)).length;
+  }
+
+  function eventMatchesTerms(event, terms) {
+    const text = [
+      event.title,
+      event.shortDescription,
+      event.summary,
+      event.area,
+      event.lens,
+      event.sourceDateField,
+      ...(event.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    return terms.some((term) => text.includes(term));
+  }
+
+  function aspectLayerTerms(layer) {
+    const synonyms = {
+      public_transport: ["bus", "translink", "glider", "public transport", "station", "rail"],
+      bus_network: ["bus", "translink", "glider", "stop"],
+      rail: ["rail", "station", "train"],
+      rail_network: ["rail", "station", "train"],
+      cycle_network: ["cycle", "bike", "cycling"],
+      parking: ["parking", "car park"],
+      incidents: ["closure", "incident", "disruption", "roadworks", "delay"],
+      barriers: ["barrier", "bridge", "crossing", "terrain"],
+      stations_stops: ["station", "stop", "interchange"],
+      objections: ["objection", "appeal"],
+      completions: ["complete", "opened", "built"],
+      vacant_sites: ["vacant", "derelict"],
+      redevelopment: ["redevelopment", "regeneration"],
+      uncertainty: ["inferred", "uncertain"],
+      before_footprint: ["before", "mapped"],
+      height_change: ["height", "storey", "tower"],
+      land_use_change: ["land use", "conversion", "use"],
+      major_developments: ["development", "masterplan"],
+      demolitions: ["demolition", "demolished"],
+      proposed: ["proposed", "proposal"],
+      permitted: ["permitted", "approved", "permission"],
+      construction: ["construction", "commenced", "works"],
+      completed: ["completed", "opened", "built"],
+      demolished: ["demolished", "demolition"],
+      coverage: ["coverage", "service"],
+      gap_seams: ["gap", "underserved"],
+      facilities: ["facility", "school", "health", "library", "leisure"],
+      health: ["health", "clinic", "hospital"],
+      libraries: ["library"],
+      leisure: ["leisure", "sport"],
+      council: ["council"],
+      safety: ["safety", "fire", "police"],
+      demand_grid: ["demand", "capacity"],
+      displacement: ["displacement", "relocation"],
+      vacancy: ["vacancy", "vacant"],
+      footfall: ["footfall", "visitor"],
+      spend: ["spend", "retail"],
+      openings: ["opening", "opened", "launch"],
+      closures: ["closure", "closed"],
+      change: ["change", "conversion"],
+      office: ["office", "business", "workspace"],
+      hospitality: ["hotel", "hospitality", "restaurant", "bar"],
+      visitor: ["visitor", "culture", "tourism"],
+      night: ["night", "bar", "venue"],
+      markets: ["market", "venue"],
+      water: ["water", "drainage", "sewer"],
+      power_network: ["electric", "power", "energy"],
+      telecoms: ["telecom", "broadband", "digital"],
+      gas: ["gas"],
+      drainage: ["drain", "sewer", "water"],
+      district_energy: ["district", "heat", "energy"],
+      planned: ["planned", "proposal"],
+      repair: ["repair", "maintenance"],
+      failure: ["failure", "outage", "fault"],
+      permit: ["permit", "consent", "approval"],
+      reinstatement: ["reinstatement", "resurface"],
+    };
+    const base = String(`${layer.id} ${layer.label}`).toLowerCase().replace(/[_/()]+/g, " ").split(/\s+/);
+    return [...new Set([...(synonyms[layer.id] || []), ...base].filter((term) => term && term.length > 2))];
+  }
+
+  function formatRadius(radiusM) {
+    const value = Number(radiusM) || 0;
+    if (value >= 1000) return `${(value / 1000).toFixed(value % 1000 === 0 ? 0 : 1)} km`;
+    return `${Math.round(value)} m`;
+  }
+
+  function formatSignedNumber(value) {
+    const number = Number(value) || 0;
+    if (number > 0) return `+${compactNumber(number)}`;
+    if (number < 0) return `-${compactNumber(Math.abs(number))}`;
+    return "0";
+  }
+
   function renderDetail() {
     if (!els.detailPanel) return;
     if (!state.selectedEvent) {
@@ -3657,16 +4036,20 @@
     els.detailInner.removeAttribute("hidden");
     const e = state.selectedEvent;
     const layer = LAYER_BY_ID.get(e.category) || LAYERS[1];
+    const context = buildLensContext(e);
+    const lens = context.lens;
     const confidence = confidenceDescriptor(e.confidence);
     const sources = buildSourceRows(e);
     const provenanceFacts = buildProvenanceFacts(e);
 
     els.detailInner.innerHTML = `
-      <div class="detail-head" style="--accent:${layer.color}">
+      <div class="detail-head lens-detail-head" style="--accent:${lens.accent || layer.color}">
         <button class="detail-close" type="button" aria-label="Close">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
+        <div class="detail-eyebrow">Change around selected event</div>
         <div class="detail-chip-row">
+          <span class="chip" style="--accent:${lens.accent || layer.color}">${escapeHtml(lens.label)}</span>
           <span class="chip" style="--accent:${layer.color}">${escapeHtml(layer.label)}</span>
           <span class="chip neutral">${e.year}</span>
           ${e.confidence === "inferred" ? '<span class="chip neutral">OSM visibility</span>' : ''}
@@ -3679,7 +4062,22 @@
         </div>
       </div>
       <div class="detail-body">
-        <p class="detail-summary">${escapeHtml(e.shortDescription || e.summary || "")}</p>
+        ${renderDetailLensControls(e, context)}
+
+        <div class="selected-event-card" style="--accent:${lens.accent || layer.color}">
+          <div>
+            <span>Selected event</span>
+            <strong>${escapeHtml(e.shortDescription || e.summary || e.title)}</strong>
+          </div>
+          <dl>
+            <div><dt>Effective</dt><dd>${escapeHtml(e.effectiveDate || String(e.year))}</dd></div>
+            <div><dt>Confidence</dt><dd>${escapeHtml(confidence.label)}</dd></div>
+            <div><dt>Sources</dt><dd>${eventSourceCount(e)}</dd></div>
+          </dl>
+        </div>
+
+        ${renderLensMetrics(context)}
+        ${renderAspectDiffPanel(context)}
 
         <div class="detail-section">
           <h4>Confidence</h4>
@@ -3732,6 +4130,7 @@
     `;
 
     els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
+    wireDetailLensControls(els.detailInner);
     wireEvidenceEventButtons(els.detailInner);
     els.detailInner.querySelector("#detailOpenLens")?.addEventListener("click", () => setLensOpen(true));
     els.detailInner.querySelector("#detailShare")?.addEventListener("click", async () => {
@@ -3940,9 +4339,11 @@
   function syncTopline() {
     const events = filteredEvents();
     const total = totalEventsForYear(state.year);
+    const lens = activeMapLens();
     setText(els.tlVisible, String(events.length));
     setText(els.tlTotal, String(total));
-    setText(els.tlLayers, `${state.activeLayers.size}/${LAYERS.length} layers`);
+    setText(els.tlCity, state.selectedEvent ? truncate(state.selectedEvent.title, 48) : shortCityName(state.city?.display_name));
+    setText(els.tlLayers, `${lens?.label || "Lens"} / ${state.activeLayers.size}/${LAYERS.length} layers`);
   }
 
   function totalEventsForYear(year) {
@@ -3968,6 +4369,7 @@
       return;
     }
     state.year = next;
+    if (Number(state.detailBeforeYear) >= next) state.detailBeforeYear = null;
     resetEventListLimit();
     if (state.compareOpen) state.compareAfterYear = next;
     setText(els.tlYear, String(next));
@@ -3988,8 +4390,11 @@
 
   async function selectFirstVisibleEvent(opts = {}) {
     const events = filteredEvents();
+    const preferred = events.find((e) => e.id === "official-2024-grand-central")
+      || events.find((e) => /Belfast Grand Central Station opened/i.test(e.title || ""))
+      || events.find((e) => GRAND_CENTRAL_EVENT_IDS.has(e.id));
     const documented = events.find((e) => e.confidence === "documented");
-    const first = documented || events[0];
+    const first = preferred || documented || events[0];
     if (first) await selectEvent(first.id, { silent: true, ...opts });
   }
 
@@ -4029,6 +4434,8 @@
     renderDetail();
     renderEventList();
     renderMarkers();
+    updateLensGuideSource();
+    syncTopline();
     if (!opts.keepCamera && event.lngLat) {
       if (state.map && state.mapReady) {
         focusMapOnEvent(event, 720);
@@ -4057,6 +4464,8 @@
     renderDetail();
     renderEventList();
     renderMarkers();
+    updateLensGuideSource();
+    syncTopline();
   }
 
   // ---------------------------------------------------------------------------
@@ -4109,6 +4518,8 @@
     if (!next || next === state.activeLens) return;
     state.activeLens = next;
     state.activeAspect = defaultAspectForCategory(next);
+    state.detailRadiusM = null;
+    state.detailBeforeYear = null;
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     renderLensSwitcher();
@@ -4116,6 +4527,7 @@
     renderActiveLensHeader();
     renderLayers();
     renderLensLegend();
+    renderDetail();
     updateTimeDependentMapState();
     syncTopline();
   }
@@ -4128,6 +4540,8 @@
     if (aspect?.category && aspect.category !== state.activeLens) {
       state.activeLens = aspect.category;
     }
+    state.detailRadiusM = null;
+    state.detailBeforeYear = null;
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     renderLensSwitcher();
@@ -4135,6 +4549,7 @@
     renderActiveLensHeader();
     renderLayers();
     renderLensLegend();
+    renderDetail();
     updateTimeDependentMapState();
     syncTopline();
   }
