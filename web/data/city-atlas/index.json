@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-19T03:58:18Z",
+  "generated_at": "2026-05-19T04:37:07Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 30312,
-      "source_count": 27,
+      "event_count": 30323,
+      "source_count": 30,
       "availability_status": "mvp_partial",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/belfast/city.json",
@@ -25,8 +25,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 191642,
-      "source_count": 135,
+      "event_count": 191681,
+      "source_count": 141,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/london/city.json",
@@ -43,8 +43,8 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 30347,
-      "source_count": 159,
+      "event_count": 31132,
+      "source_count": 163,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/nyc/city.json",
@@ -66,15 +66,15 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-19T03:59:40Z",
+  "coverage_report_generated_at": "2026-05-19T04:38:31Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 252301,
-    "total_unique_events": 252301,
+    "total_events": 253136,
+    "total_unique_events": 253136,
     "duplicate_event_id_count": 0,
-    "active_source_count": 97,
+    "active_source_count": 110,
     "source_catalog_only_count": 222,
-    "source_year_layer_row_count": 1401,
+    "source_year_layer_row_count": 1459,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

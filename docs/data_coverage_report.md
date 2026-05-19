@@ -1,18 +1,18 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T03:59:40Z
+Generated: 2026-05-19T04:38:31Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 30312 | 18 | 9 | 2007-2026 | transport 17118, built_environment 10993, utilities 851 | 69688 |
-| London, England | 191642 | 39 | 94 | 1801-2026 | built_environment 72432, civic_services 53322, transport 37823 | 0 |
-| New York City, New York | 30347 | 40 | 119 | 1797-2026 | built_environment 15151, transport 6235, environment 6101 | 69653 |
+| Belfast, Northern Ireland | 30323 | 21 | 9 | 2007-2026 | transport 17118, built_environment 11004, utilities 851 | 69677 |
+| London, England | 191681 | 45 | 94 | 1801-2026 | built_environment 72471, civic_services 53322, transport 37823 | 0 |
+| New York City, New York | 31132 | 44 | 119 | 1797-2026 | built_environment 15936, transport 6235, environment 6101 | 68868 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 30312. Unique event IDs: 30312. Duplicate IDs: 0.
+Backed events: 30323. Unique event IDs: 30323. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -21,19 +21,19 @@ Backed events: 30312. Unique event IDs: 30312. Duplicate IDs: 0.
 | Belfast architecture and major project public pages | 928 | 2008-2026 | built_environment 928 | usable_with_caveats |
 | Belfast City Council Planning Committee agenda and minutes | 14 | 2019-2025 | built_environment 14 | strong |
 | Department for Communities / nidirect listed building records | 14 | 2016-2025 | built_environment 14 | usable_with_caveats |
+| Belfast City Council current planning applications | 7 | 2026-2026 | built_environment 7 | usable_with_caveats |
 | Department for Infrastructure NI public project pages | 7 | 2016-2026 | built_environment 6, transport 1 | usable_with_caveats |
 | Belfast City Council planning decisions issued June 2025 | 6 | 2025-2025 | built_environment 6 | usable_with_caveats |
-| Belfast City Council current planning applications | 5 | 2026-2026 | built_environment 5 | usable_with_caveats |
 | Belfast Planning Committee HED listing notifications, 19 May 2026 | 4 | 2026-2026 | built_environment 4 | usable_with_caveats |
+| Belfast City Council planning applications issued PDFs, 2023 | 4 | 2023-2023 | built_environment 4 | usable_with_caveats |
 | Heritage at Risk in Northern Ireland Belfast records | 4 | 2024-2025 | built_environment 4 | usable_with_caveats |
-| Translink public project and station pages | 4 | 2021-2024 | transport 3, built_environment 1 | usable_with_caveats |
-| Belfast City Council public project and facility pages | 3 | 2017-2023 | civic_services 3 | usable_with_caveats |
+| DfC Historic Environment Division Buildings Database and HARNI records | 4 | 2014-2026 | built_environment 4 | usable_with_caveats |
 
 Catalog-only sources without emitted event rows: 9.
 
 ## London, England
 
-Backed events: 191642. Unique event IDs: 191642. Duplicate IDs: 0.
+Backed events: 191681. Unique event IDs: 191681. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -45,7 +45,7 @@ Backed events: 191642. Unique event IDs: 191642. Duplicate IDs: 0.
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
-| Planning London Datahub - planning applications | 9500 | 2020-2026 | built_environment 9500 | usable_with_caveats |
+| Planning London Datahub - planning applications | 9522 | 2020-2026 | built_environment 9522 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning Data: Tree Preservation Zones | 1168 | 1951-2025 | built_environment 1168 | usable_with_caveats |
 | Planning Data: Conservation Areas | 1129 | 1827-2026 | built_environment 1129 | usable_with_caveats |
@@ -54,7 +54,7 @@ Catalog-only sources without emitted event rows: 94.
 
 ## New York City, New York
 
-Backed events: 30347. Unique event IDs: 30347. Duplicate IDs: 0.
+Backed events: 31132. Unique event IDs: 31132. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
