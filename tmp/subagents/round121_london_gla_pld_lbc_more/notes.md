@@ -18,10 +18,10 @@ Accessed: 2026-05-19
 
 ## Counts
 
-- Unique PLD rows fetched before filtering: 16313
+- Unique PLD rows fetched before filtering: 16315
 - Candidate rows written: 70
-- Rejected rows reported: 401
-- Existing duplicate index sizes: {'pld_ids': 9511, 'lpa_refs': 284, 'source_urls': 9463, 'title_dates': 117546}
+- Rejected rows reported: 495
+- Existing duplicate index sizes: {'pld_ids': 9581, 'lpa_refs': 354, 'source_urls': 9533, 'title_dates': 117616}
 
 ## Query Stats
 
@@ -34,15 +34,15 @@ Accessed: 2026-05-19
 
 ## Rejection Summary
 
-- PLD row did not contain an approved/granted planning decision/status.: 2157
-- candidate cap reached for listed-building-consent: 863
-- No usable London centroid or WGS84 polygon found in PLD row.: 560
-- candidate cap reached for estate-regeneration: 293
-- PLD id already present in corpus/prior packs: 149
-- candidate cap reached for civic-health-education-culture: 54
+- PLD row did not contain an approved/granted planning decision/status.: 2148
+- candidate cap reached for listed-building-consent: 918
+- No usable London centroid or WGS84 polygon found in PLD row.: 563
+- candidate cap reached for estate-regeneration: 398
+- PLD id already present in corpus/prior packs: 233
+- candidate cap reached for civic-health-education-culture: 99
 - Location fields too sparse for a useful atlas candidate.: 53
-- title/date duplicated within this scratch fetch: 10
-- title/date already present in corpus/prior packs: 2
+- title/date already present in corpus/prior packs: 13
+- title/date duplicated within this scratch fetch: 9
 
 ## Caveats
 

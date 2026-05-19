@@ -128,14 +128,14 @@
     }
   ],
   "rejection_summary": {
-    "PLD row did not contain an approved/granted planning decision/status.": 2157,
-    "candidate cap reached for listed-building-consent": 863,
-    "No usable London centroid or WGS84 polygon found in PLD row.": 560,
-    "candidate cap reached for estate-regeneration": 293,
-    "PLD id already present in corpus/prior packs": 149,
-    "candidate cap reached for civic-health-education-culture": 54,
+    "PLD row did not contain an approved/granted planning decision/status.": 2148,
+    "candidate cap reached for listed-building-consent": 918,
+    "No usable London centroid or WGS84 polygon found in PLD row.": 563,
+    "candidate cap reached for estate-regeneration": 398,
+    "PLD id already present in corpus/prior packs": 233,
+    "candidate cap reached for civic-health-education-culture": 99,
     "Location fields too sparse for a useful atlas candidate.": 53,
-    "title/date duplicated within this scratch fetch": 10,
-    "title/date already present in corpus/prior packs": 2
+    "title/date already present in corpus/prior packs": 13,
+    "title/date duplicated within this scratch fetch": 9
   }
 }
