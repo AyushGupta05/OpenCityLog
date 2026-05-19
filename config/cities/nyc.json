@@ -159,7 +159,8 @@
         "nyc-dob-filings-permits",
         "nyc-certificates-occupancy",
         "nyc-dob-now-co-pkdm-hqz6",
-        "nyc-dob-co-bs8b-p36w"
+        "nyc-dob-co-bs8b-p36w",
+        "nyc-dob-permit-issuance-ipu4-2q9a"
       ],
       "availability": "partial_local",
       "years": [
@@ -199,7 +200,9 @@
       "source_ids": [
         "nyc-zap-ceqr-documents",
         "nyc-dcp-zap-project-data",
-        "nyc-dcp-zap-bbl"
+        "nyc-dcp-zap-bbl",
+        "nyc-zoning-resolution-recently-adopted",
+        "nyc-dcp-zap-api-project-details"
       ],
       "availability": "partial_local",
       "years": [
@@ -270,7 +273,8 @@
       "family_id": "housing_delivery",
       "label": "HPD affordable housing production",
       "source_ids": [
-        "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr"
+        "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-hpd-news-pages"
       ],
       "availability": "partial_local",
       "years": [
@@ -294,7 +298,8 @@
       "family_id": "parks_capital",
       "label": "Parks capital projects and public realm",
       "source_ids": [
-        "nyc-parks-capital-project-tracker-4hcv-tc5r"
+        "nyc-parks-capital-project-tracker-4hcv-tc5r",
+        "nyc-parks-press-pages"
       ],
       "availability": "partial_local",
       "years": [
@@ -324,7 +329,18 @@
       "family_id": "public_facilities",
       "label": "DDC public building and civic project pages",
       "source_ids": [
-        "nyc-ddc-public-building-press-pages"
+        "nyc-ddc-public-building-press-pages",
+        "nyc-health-hospitals-press-location-pages",
+        "nycedc-press-pages",
+        "nyc-dcla-mfta-pages",
+        "nycha-press-pages",
+        "nyc-ddc-news-archive-pages",
+        "nypl-press-2013-96th-street-reopening",
+        "nypl-location-96th-street-branch",
+        "nyc-sca-school-openings-projects",
+        "nyc-sca-factsheet-x105",
+        "nyc-sca-factsheet-k597",
+        "nyc-sca-factsheet-q026"
       ],
       "availability": "partial_local",
       "years": [

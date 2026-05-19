@@ -1,9 +1,9 @@
 # Round118 NYC HPD/Parks official candidate fetch
 
-Generated 600 candidates and 4200 rejects on 2026-05-19.
+Generated 370 candidates and 6166 rejects on 2026-05-19.
 
 ## Selected by source
-- nyc-parks-capital-project-tracker-4hcv-tc5r: 250
+- nyc-parks-capital-project-tracker-4hcv-tc5r: 20
 - nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr: 350
 
 ## Caveats

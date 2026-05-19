@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-05-19",
+  "task": "Official NYC Landmarks Preservation Commission designation records from 2008-01-01 through 2026-05-19 not already found in the corpus scan.",
+  "source_audits": [
+    {
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/d/ncre-qhxs",
+      "api_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json",
+      "source_type": "official NYC Open Data Socrata API rows",
+      "accessed_at": "2026-05-19",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; dataset-specific metadata license field was not used as a standalone license. Attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check current dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "coverage_years_reviewed": "2008-01-01 through 2026-05-19",
+      "key_fields": [
+        "lp_number",
+        "lm_name",
+        "desig_addr",
+        "boroughid",
+        "lm_type",
+        "status",
+        "last_actio",
+        "desdate",
+        "caldate",
+        "the_geom"
+      ],
+      "reliability": "strong for administrative LPC status when STATUS, LAST_ACTIO, MOST_CURRE, and DESDATE are present and consistent",
+      "required_caveats": [
+        "Designation is an administrative heritage/protective status milestone, not physical construction, restoration, occupancy, current condition, or preservation outcome evidence.",
+        "Point geometry is a representative official row point; interior landmarks use the host-building/site point rather than an interior boundary."
+      ],
+      "ingestion_recommendation": "Usable as documented city-change events when labelled as administrative heritage status and kept separate from physical built-environment changes."
+    }
+  ],
+  "candidates": [
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02426_madison_belmont_first_floor_interior_2011",
+      "title": "Madison Belmont Building first-floor interior was designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Madison Belmont Building, First Floor Interior (LP-02426) at 181 Madison Avenue, Manhattan, as designated on 2011-09-20. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interior.",
+      "date": "2011-09-20",
+      "effective_date": "2011-09-20",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02426",
+      "source_record_id": "LP-02426",
+      "source_type": "official NYC Open Data Socrata API row",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.7474303631503,
+      "longitude": -73.98271380492612,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02426.",
+      "geometry_precision": "Official row point for the host building/site; interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected single-record designations absent from that scan; mapped the official row point to latitude/longitude."
+    },
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02442_cities_service_first_floor_interior_2011",
+      "title": "Cities Service Building first-floor interior was designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Cities Service Building, First Floor Interior (LP-02442) at 70 Pine Street, Manhattan, as designated on 2011-06-21. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interior.",
+      "date": "2011-06-21",
+      "effective_date": "2011-06-21",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02442",
+      "source_record_id": "LP-02442",
+      "source_type": "official NYC Open Data Socrata API row",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.70647718934935,
+      "longitude": -74.00772830549239,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02442.",
+      "geometry_precision": "Official row point for the host building/site; interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected single-record designations absent from that scan; mapped the official row point to latitude/longitude."
+    },
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02467_manufacturers_trust_interiors_2011",
+      "title": "Manufacturers Trust Company Building interiors were designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Manufacturers Trust Company Building, First and Second Floor Interiors (LP-02467) at 510 Fifth Avenue, Manhattan, as designated on 2011-02-15. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interiors.",
+      "date": "2011-02-15",
+      "effective_date": "2011-02-15",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02467",
+      "source_record_id": "LP-02467",
+      "source_type": "official NYC Open Data Socrata API row",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.75410299233111,
+      "longitude": -73.9809028249133,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02467.",
+      "geometry_precision": "Official row point for the host building/site; interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected single-record designations absent from that scan; mapped the official row point to latitude/longitude."
+    },
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02505_rainbow_room_2012",
+      "title": "Rainbow Room was designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Rainbow Room (LP-02505) at 30 Rockefeller Plaza, Manhattan, as designated on 2012-10-16. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interior.",
+      "date": "2012-10-16",
+      "effective_date": "2012-10-16",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02505",
+      "source_record_id": "LP-02505",
+      "source_type": "official NYC Open Data Socrata API row",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.759118995381264,
+      "longitude": -73.97952849777035,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02505.",
+      "geometry_precision": "Official row point for the host building/site; interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected single-record designations absent from that scan; mapped the official row point to latitude/longitude."
+    },
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02551_steinway_sons_reception_room_hallway_2013",
+      "title": "Steinway & Sons reception room and hallway were designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Steinway & Sons Reception Room and Hallway, First Floor Interior (LP-02551) at 109-113 West 57th Street, Manhattan, as designated on 2013-09-10. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interior.",
+      "date": "2013-09-10",
+      "effective_date": "2013-09-10",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02551",
+      "source_record_id": "LP-02551",
+      "source_type": "official NYC Open Data Socrata API row",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.76481862876085,
+      "longitude": -73.97776397849103,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02551.",
+      "geometry_precision": "Official row point for the host building/site; interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected single-record designations absent from that scan; mapped the official row point to latitude/longitude."
+    },
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02588_united_nations_hotel_first_floor_interiors_2017",
+      "title": "United Nations Hotel first-floor interiors were designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records United Nations Hotel, First Floor Interiors (LP-02588) at 1 and 2 United Nations Plaza, Manhattan, as designated on 2017-01-17. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interiors.",
+      "date": "2017-01-17",
+      "effective_date": "2017-01-17",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02588",
+      "source_record_id": "LP-02588",
+      "source_type": "official NYC Open Data Socrata API rows",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.750693122084336,
+      "longitude": -73.96934017136712,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02588.",
+      "geometry_precision": "Representative official row point for the host building/site; the LP number has more than one row and interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected a documented designation absent from that scan; mapped a representative official row point to latitude/longitude."
+    },
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_arch_lpc_designation_lp02591_waldorf_astoria_hotel_interiors_2017",
+      "title": "Waldorf-Astoria Hotel interiors were designated an interior landmark",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Waldorf-Astoria Hotel Interiors (LP-02591) at 301 Park Avenue, Manhattan, as designated on 2017-03-07. This is an administrative heritage status designation, not a physical change.",
+      "observed_change": "The official LPC row documents an interior-landmark designation, a legal/protective status milestone for the named interiors.",
+      "date": "2017-03-07",
+      "effective_date": "2017-03-07",
+      "date_precision": "day",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02591",
+      "source_record_id": "LP-02591",
+      "source_type": "official NYC Open Data Socrata API row",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "DESDATE (date of designation)",
+      "latitude": 40.75646532831202,
+      "longitude": -73.97325989708916,
+      "geometry_source": "Official NYC Open Data Designated and Calendared Buildings and Sites point geometry for LP-02591.",
+      "geometry_precision": "Official row point for the host building/site; interior extent is not mapped as a separate boundary.",
+      "confidence": "documented",
+      "project_type": "administrative heritage status - LPC interior landmark designation",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms; attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check dataset metadata before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This record documents legal/protective designation status only. It does not document construction, restoration, permit activity, current occupancy, physical condition change, owner action, or preservation outcome.",
+      "transformation_method": "Round120 filtered official ncre-qhxs rows to current designated records with DESDATE in 2008-01-01 through 2026-05-19; screened LP numbers and obvious titles against already-seen corpus/script paths; selected single-record designations absent from that scan; mapped the official row point to latitude/longitude."
+    }
+  ],
+  "rejected": [
+    {
+      "source_record_id": "LP-02673",
+      "title": "Old Croton Aqueduct Walk",
+      "reason": "Rejected as duplicate risk: an existing append script already records the 2024-04-16 scenic landmark designation."
+    },
+    {
+      "source_record_id": "LP-02679",
+      "title": "1 Wall Street Banking Room Interior",
+      "reason": "Rejected as duplicate risk: existing append scripts and prior scratch outputs already record the 2024-06-25 interior landmark designation."
+    },
+    {
+      "source_record_id": "LP-02681",
+      "title": "Temple Court Building atrium",
+      "reason": "Rejected as duplicate risk: existing append scripts and prior scratch outputs already record the 2024-06-04 interior landmark designation."
+    },
+    {
+      "source_record_id": "LP-02686",
+      "title": "(Former) Whitney Museum of American Art Interior",
+      "reason": "Rejected as duplicate risk: existing append scripts already record the 2025-05-20 former Whitney Museum individual/interior landmark designation."
+    },
+    {
+      "source_record_id": "LP-02665",
+      "title": "Linden Street Historic District",
+      "reason": "Rejected as duplicate risk: an existing append script already records the 2023-05-09 historic district designation."
+    },
+    {
+      "source_record_id": "LP-02693",
+      "title": "Ditmas Park West Historic District",
+      "reason": "Rejected as duplicate risk: an existing append script records the 2025-11-25 Beverley Square West and Ditmas Park West historic district designations."
+    },
+    {
+      "source_record_id": "LP-02694 / LP-02695 / LP-02696",
+      "title": "Church of Saint Mary; Lithuanian Alliance Building; Public School 15 Annex",
+      "reason": "Rejected for this immediate pack: the ncre-qhxs rows available during the interrupted run still showed CALENDARED status without DESDATE, so these were not selected without further official revalidation."
+    }
+  ]
+}

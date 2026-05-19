@@ -76,6 +76,40 @@ const sourceEntries = [
     limitations: "Camden local-list rows document local heritage/status presence in a source snapshot. last_uploaded is not necessarily the original adoption/designation date. Rows are not evidence of construction, repair, occupancy, physical condition, or outcome effects."
   },
   {
+    source_id: "bcc-decisions-issued-may-2025",
+    city_ids: ["belfast"],
+    title: "Belfast City Council planning decisions issued May 2025",
+    publisher: "Belfast City Council",
+    bucket: "planning/development/architecture",
+    access_url: "https://minutes.belfastcity.gov.uk/documents/s122059/Planning%20Decisions%20issued%20May%202025.pdf",
+    licence: "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
+    licence_url: "https://www.belfastcity.gov.uk/Copyright",
+    coverage_years: { start: 2025, end: 2025 },
+    time_coverage: "May 2025 planning decision rows selected in the Round118 Belfast committee pass.",
+    spatial_granularity: "Planning application address/site point; manual candidates use approximate coordinates.",
+    temporal_granularity: "Month-level decisions-issued list where row-level decision day was not extracted.",
+    update_frequency: "Monthly planning decision list publication",
+    retrieved_at: retrievedAt,
+    limitations: "Decision-list rows document administrative planning or listed-building-consent decisions. Month-level dates are approximate where no row-level decision day is captured. They are not evidence of construction start, completion, occupation, opening, building condition, or outcome effects."
+  },
+  {
+    source_id: "bcc-live-major-applications-2025-05-06",
+    city_ids: ["belfast"],
+    title: "Belfast City Council live major applications list, 6 May 2025",
+    publisher: "Belfast City Council",
+    bucket: "planning/development/architecture",
+    access_url: "https://minutes.belfastcity.gov.uk/%28S%281w3lda453fhw0f55xyxindbs%29%29/documents/s121414/Live%20Major%20Applications%20not%20previously%20considered%20by%20Committee%2006.05.25.pdf",
+    licence: "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
+    licence_url: "https://www.belfastcity.gov.uk/Copyright",
+    coverage_years: { start: 2023, end: 2025 },
+    time_coverage: "Live major-application rows listed for committee briefing on 2025-05-06.",
+    spatial_granularity: "Planning application address/site point; manual candidates use approximate coordinates.",
+    temporal_granularity: "Application received or status date as labelled by the live major-applications list.",
+    update_frequency: "Committee briefing/list publication",
+    retrieved_at: retrievedAt,
+    limitations: "Live major-application rows document applications under consideration at the source-list date. They are not approvals, construction starts, completions, occupation, opening records, building-condition evidence, or outcome effects."
+  },
+  {
     source_id: "round118-brcd-belfast-stories-design-team-2023",
     city_ids: ["belfast"],
     title: "Belfast Stories design-team appointment page",
@@ -363,6 +397,227 @@ const sourceEntries = [
     update_frequency: "Agency press/page publication",
     retrieved_at: retrievedAt,
     limitations: "Development-level geometry can be coarser than building-level geometry. Records are not full campus condition, resident outcome, lease-up, or capital-program completion claims."
+  },
+  {
+    source_id: "src_ucl_east_about_one_pool_street",
+    city_ids: ["london"],
+    title: "UCL East official campus status page",
+    publisher: "University College London",
+    bucket: "planning/development/architecture/education",
+    access_url: "https://www.ucl.ac.uk/ucl-east/about-ucl-east",
+    licence: "Official university web page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.ucl.ac.uk/legal-services/privacy/website-terms-and-conditions",
+    coverage_years: { start: 2022, end: 2023 },
+    time_coverage: "Selected UCL East building opening/status records.",
+    spatial_granularity: "Campus or building point.",
+    temporal_granularity: "Season-level opening date where exact day is not stated.",
+    update_frequency: "Institutional project/status page",
+    retrieved_at: retrievedAt,
+    limitations: "UCL page documents campus/building status. Season-level dates are approximate and do not support exact opening day, occupancy, usage, or educational outcome claims."
+  },
+  {
+    source_id: "src_lsbu_student_centre_opening",
+    city_ids: ["london"],
+    title: "LSBU Student Centre official opening page",
+    publisher: "London South Bank University",
+    bucket: "planning/development/architecture/education",
+    access_url: "https://www.lsbu.ac.uk/about-us/news/student-centre-celebrates-official-opening",
+    licence: "Official university web page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.lsbu.ac.uk/footer/terms-and-conditions",
+    coverage_years: { start: 2012, end: 2013 },
+    time_coverage: "Selected LSBU Student Centre launch/opening records.",
+    spatial_granularity: "Campus building point.",
+    temporal_granularity: "Article date and source-stated launch month.",
+    update_frequency: "Institutional news page",
+    retrieved_at: retrievedAt,
+    limitations: "Official-opening and student-use launch dates differ. Records are not construction certificate, full occupancy, usage, or outcome evidence."
+  },
+  {
+    source_id: "src_city_artizan_street_committee_report",
+    city_ids: ["london"],
+    title: "City of London Artizan Street Library committee report",
+    publisher: "City of London Corporation",
+    bucket: "planning/development/architecture/civic_services",
+    access_url: "https://democracy.cityoflondon.gov.uk/documents/s168695/Artizan-Street-Library-Transformation-Committee-Report-AM-proofed.pdf",
+    licence: "Official local authority committee report; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.cityoflondon.gov.uk/footer/terms-and-conditions",
+    coverage_years: { start: 2012, end: 2026 },
+    time_coverage: "Artizan Street Library and Community Centre opening/status record.",
+    spatial_granularity: "Facility/building point.",
+    temporal_granularity: "Month-level opening date as stated by committee report.",
+    update_frequency: "Committee report publication",
+    retrieved_at: retrievedAt,
+    limitations: "Month-level opening record is not a completion certificate, usage audit, operating-hours record, or outcome evidence."
+  },
+  {
+    source_id: "src_oriel_final_planning_permission",
+    city_ids: ["london"],
+    title: "Oriel final planning permission project page",
+    publisher: "Oriel / Moorfields Eye Hospital NHS Foundation Trust partnership",
+    bucket: "planning/development/architecture/healthcare",
+    access_url: "https://oriel-london.org.uk/final-planning-permission-granted/",
+    licence: "Official project page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://oriel-london.org.uk/",
+    coverage_years: { start: 2022, end: 2022 },
+    time_coverage: "Oriel final planning permission record.",
+    spatial_granularity: "St Pancras Hospital project site point.",
+    temporal_granularity: "Published/project-stage date.",
+    update_frequency: "Project news page",
+    retrieved_at: retrievedAt,
+    limitations: "Final planning permission is an administrative planning-stage record, not construction start, completion, opening, occupation, clinical outcome, or usage evidence."
+  },
+  {
+    source_id: "src_wandsworth_paddock_opening",
+    city_ids: ["london"],
+    title: "Wandsworth Paddock school opening page",
+    publisher: "Wandsworth Borough Council",
+    bucket: "planning/development/architecture/education",
+    access_url: "https://www.wandsworth.gov.uk/news/news-november-2025/new-special-educational-needs-school-opens-its-doors/",
+    licence: "Official local authority page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.wandsworth.gov.uk/cookies-copyright-and-disclaimer/",
+    coverage_years: { start: 2025, end: 2025 },
+    time_coverage: "Paddock Secondary and Sixth Form School grand-opening/handover status record.",
+    spatial_granularity: "School/site point.",
+    temporal_granularity: "Published/opening date and source-stated handover/academic-year timing.",
+    update_frequency: "Council news page",
+    retrieved_at: retrievedAt,
+    limitations: "Opening page records project stage/use. It is not an as-built footprint, completion certificate, accessibility audit, education outcome, or service-capacity claim."
+  },
+  {
+    source_id: "src_swlstg_springfield_redevelopment",
+    city_ids: ["london"],
+    title: "Springfield Hospital redevelopment official status page",
+    publisher: "South West London and St George's Mental Health NHS Trust",
+    bucket: "planning/development/architecture/healthcare",
+    access_url: "https://swlstg.nhs.uk/redeveloping-springfield-hospital",
+    licence: "Official NHS trust web page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://swlstg.nhs.uk/",
+    coverage_years: { start: 2022, end: 2023 },
+    time_coverage: "Selected Springfield University Hospital Trinity and Shaftesbury building opening records.",
+    spatial_granularity: "Hospital campus/building point.",
+    temporal_granularity: "Month-level opening date as stated by source.",
+    update_frequency: "NHS trust project/status page",
+    retrieved_at: retrievedAt,
+    limitations: "Month-level opening/status records are not construction certificates, full occupation, clinical commissioning, service outcome, or health impact evidence."
+  },
+  {
+    source_id: "src_lbbd_greatfields_completion",
+    city_ids: ["london"],
+    title: "LBBD Greatfields School completion page",
+    publisher: "London Borough of Barking and Dagenham / One Borough Voice",
+    bucket: "planning/development/architecture/education",
+    access_url: "https://oneboroughvoice.lbbd.gov.uk/barking-town/news_feed/east-london-school-completes-23-million-building",
+    licence: "Official borough engagement/news page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.lbbd.gov.uk/copyright",
+    coverage_years: { start: 2022, end: 2022 },
+    time_coverage: "Greatfields School building completion/move-in record.",
+    spatial_granularity: "School/site point.",
+    temporal_granularity: "Article date and week-level move-in/completion statement.",
+    update_frequency: "Council engagement/news page",
+    retrieved_at: retrievedAt,
+    limitations: "Article date is an observation date for a week-level completion/move-in statement; it is not a completion certificate, operating audit, or education outcome claim."
+  },
+  {
+    source_id: "src_hackney_new_regents_opening",
+    city_ids: ["london"],
+    title: "Hackney New Regent's College opening page",
+    publisher: "Hackney Council",
+    bucket: "planning/development/architecture/education",
+    access_url: "https://news.hackney.gov.uk/news/five-star-new-regent-s-college-officially-opens-with-ceremony-celebrating-experiences-of-students",
+    licence: "Official local authority page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://hackney.gov.uk/copyright",
+    coverage_years: { start: 2021, end: 2021 },
+    time_coverage: "New Regent's College official opening ceremony record.",
+    spatial_granularity: "School/college point.",
+    temporal_granularity: "Source-stated ceremony date.",
+    update_frequency: "Council news page",
+    retrieved_at: retrievedAt,
+    limitations: "Opening ceremony is not necessarily first use, construction completion, full occupancy, service performance, or education outcome evidence."
+  },
+  {
+    source_id: "src_enfield_dugdale_reopening",
+    city_ids: ["london"],
+    title: "Enfield Dugdale Arts Centre reopening page",
+    publisher: "Enfield Council",
+    bucket: "planning/development/architecture/cultural_facilities",
+    access_url: "https://www.enfield.gov.uk/news-and-events/2022/10/christmas-to-come-early-with-reopening-of-the-dugdale-arts-centre",
+    licence: "Official local authority page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.enfield.gov.uk/privacy-and-cookies/copyright",
+    coverage_years: { start: 2022, end: 2022 },
+    time_coverage: "Dugdale Arts Centre reopening/refurbishment record.",
+    spatial_granularity: "Cultural facility point.",
+    temporal_granularity: "Announced reopening date.",
+    update_frequency: "Council news page",
+    retrieved_at: retrievedAt,
+    limitations: "Pre-reopening announcement records a scheduled/reported reopening stage. It is not a full post-opening audit, final account, operating status, or outcome evidence."
+  },
+  {
+    source_id: "src_icr_cmp_opening",
+    city_ids: ["london"],
+    title: "ICR Centre for Molecular Pathology opening page",
+    publisher: "The Institute of Cancer Research, London",
+    bucket: "planning/development/architecture/research_healthcare",
+    access_url: "https://www.icr.ac.uk/about-us/icr-news/detail/the-icr-and-royal-marsden-open-groundbreaking-facility-bringing-smart-trials-to-the-nhs-",
+    licence: "Official public research institution page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.icr.ac.uk/about-us/policies-and-statements/terms-and-conditions",
+    coverage_years: { start: 2012, end: 2012 },
+    time_coverage: "Centre for Molecular Pathology official opening record.",
+    spatial_granularity: "Royal Marsden / ICR Sutton campus point.",
+    temporal_granularity: "Article/opening date.",
+    update_frequency: "Institutional news page",
+    retrieved_at: retrievedAt,
+    limitations: "Campus-level geometry. Opening record is not a full research-output, patient-care, usage, or outcome claim."
+  },
+  {
+    source_id: "src_icr_cci_opening",
+    city_ids: ["london"],
+    title: "ICR Centre for Cancer Imaging opening page",
+    publisher: "The Institute of Cancer Research, London",
+    bucket: "planning/development/architecture/research_healthcare",
+    access_url: "https://www.icr.ac.uk/about-us/icr-news/detail/new-centre-for-cancer-imaging-to-open-window-onto-cancer",
+    licence: "Official public research institution page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.icr.ac.uk/about-us/policies-and-statements/terms-and-conditions",
+    coverage_years: { start: 2016, end: 2016 },
+    time_coverage: "Centre for Cancer Imaging opening observation.",
+    spatial_granularity: "ICR Sutton campus point.",
+    temporal_granularity: "Article date as week-level opening observation.",
+    update_frequency: "Institutional news page",
+    retrieved_at: retrievedAt,
+    limitations: "Week-level opening observation is not an exact opening-day claim, full occupancy record, equipment inventory, research-output claim, or health outcome evidence."
+  },
+  {
+    source_id: "src_icr_ccdd_opening",
+    city_ids: ["london"],
+    title: "ICR Centre for Cancer Drug Discovery opening page",
+    publisher: "The Institute of Cancer Research, London",
+    bucket: "planning/development/architecture/research_healthcare",
+    access_url: "https://www.icr.ac.uk/about-us/icr-news/detail/research-begins-at-pioneering-centre-aimed-at-overcoming-cancer-s-ability-to-evolve-resistance-to-treatment",
+    licence: "Official public research institution page; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.icr.ac.uk/about-us/policies-and-statements/terms-and-conditions",
+    coverage_years: { start: 2020, end: 2020 },
+    time_coverage: "Centre for Cancer Drug Discovery researcher/virtual opening record.",
+    spatial_granularity: "ICR Sutton campus point.",
+    temporal_granularity: "Source-stated virtual opening date and move-in month.",
+    update_frequency: "Institutional news page",
+    retrieved_at: retrievedAt,
+    limitations: "Researcher/virtual opening stage is not a construction-completion certificate, full occupancy record, research-output claim, or health outcome evidence."
+  },
+  {
+    source_id: "src_haringey_heartlands_opening",
+    city_ids: ["london"],
+    title: "Haringey Heartlands High School local-plan opening reference",
+    publisher: "Haringey Council",
+    bucket: "planning/development/architecture/education",
+    access_url: "https://www.minutes.haringey.gov.uk/documents/s29976/Appendix%202%20Haringey%20Local%20Plan%20Strategic%20Policies%20Feb%202013.pdf",
+    licence: "Official local authority planning document; factual metadata and source URL retained pending fuller reuse review.",
+    licence_url: "https://www.haringey.gov.uk/copyright",
+    coverage_years: { start: 2010, end: 2013 },
+    time_coverage: "Heartlands High School month-level opening reference.",
+    spatial_granularity: "School/address point.",
+    temporal_granularity: "Month-level opening date stated by local-plan appendix.",
+    update_frequency: "Planning document publication",
+    retrieved_at: retrievedAt,
+    limitations: "Month-level opening reference from a planning document is not a dedicated opening notice, construction certificate, operating audit, or education outcome claim."
   }
 ];
 
@@ -494,7 +749,18 @@ function sourceUrlFor(candidate) {
 }
 
 function sourceRecordIdFor(candidate) {
-  if (candidate.source_record_id) return candidate.source_record_id;
+  if (candidate.source_record_id) {
+    const candidateSourceIds = sourceIdsFor(candidate);
+    const hasMultiEventPageSource = candidateSourceIds.some((sourceId) => (
+      sourceId.startsWith("src_") ||
+      sourceId === "round118-qub-capital-completed-projects" ||
+      sourceId === "round118-dfc-harni-templemore-baths-status"
+    ));
+    if (hasMultiEventPageSource) {
+      return `${candidate.source_record_id}; event ${candidate.candidate_id || candidate.title || candidate.date || "source-page-event"}`;
+    }
+    return candidate.source_record_id;
+  }
   if (Array.isArray(candidate.source_record_ids) && candidate.source_record_ids.length > 0) return candidate.source_record_ids.join("; ");
   if (Array.isArray(candidate.planning_refs) && candidate.planning_refs.length > 0) return candidate.planning_refs.join("; ");
   if (candidate.raw_row?.project_id && candidate.raw_row?.building_id) return `${candidate.raw_row.project_id}:${candidate.raw_row.building_id}`;
@@ -741,6 +1007,8 @@ function updateCityConfigs() {
     .filter((source) => source.city_ids.includes("london"))
     .map((source) => source.source_id));
   addSourceIdsToFamily("belfast", "planning", [
+    "bcc-decisions-issued-may-2025",
+    "bcc-live-major-applications-2025-05-06",
     "round118-dfc-harni-templemore-baths-status"
   ]);
   addSourceIdsToFamily("belfast", "transport", [
@@ -754,6 +1022,22 @@ function updateCityConfigs() {
     "round118-ulster-cdht-planning-approval-2026",
     "round118-ulster-belfast-campus-phase-two-contract-2015",
     "round118-qub-capital-completed-projects"
+  ]);
+  addSourceIdsToFamily("nyc", "land_use_documents", [
+    "nyc-zoning-resolution-recently-adopted",
+    "nyc-dcp-zap-api-project-details"
+  ]);
+  addSourceIdsToFamily("nyc", "housing_delivery", [
+    "nyc-hpd-news-pages"
+  ]);
+  addSourceIdsToFamily("nyc", "parks_capital", [
+    "nyc-parks-press-pages"
+  ]);
+  addSourceIdsToFamily("nyc", "public_facilities", [
+    "nyc-health-hospitals-press-location-pages",
+    "nycedc-press-pages",
+    "nyc-dcla-mfta-pages",
+    "nycha-press-pages"
   ]);
 }
 

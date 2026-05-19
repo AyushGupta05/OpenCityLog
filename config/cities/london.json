@@ -162,7 +162,23 @@
         "moorfields-oriel-groundbreak",
         "planning-data-archaeological-priority-area",
         "planning-data-asset-of-community-value",
-        "camden-local-list-open-data"
+        "camden-local-list-open-data",
+        "src_ucl_east_about_one_pool_street",
+        "src_lsbu_student_centre_opening",
+        "src_city_artizan_street_committee_report",
+        "src_oriel_final_planning_permission",
+        "src_wandsworth_paddock_opening",
+        "src_swlstg_springfield_redevelopment",
+        "src_lbbd_greatfields_completion",
+        "src_hackney_new_regents_opening",
+        "src_enfield_dugdale_reopening",
+        "src_icr_cmp_opening",
+        "src_icr_cci_opening",
+        "src_icr_ccdd_opening",
+        "src_haringey_heartlands_opening",
+        "gla-planning-datahub-listed-building-consent",
+        "src_camden_highgate_newtown_community_centre_opening",
+        "src_nlwa_ecopark_house_official_opening"
       ],
       "availability": "partial_local",
       "years": [
@@ -230,7 +246,8 @@
       "family_id": "housing_delivery",
       "label": "Residential approvals, starts, and completions dashboards",
       "source_ids": [
-        "london-residential-pipeline-dashboards"
+        "london-residential-pipeline-dashboards",
+        "planning-data-certificate-of-immunity"
       ],
       "availability": "partial_local",
       "years": [

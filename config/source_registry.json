@@ -54,6 +54,31 @@
       ]
     },
     {
+      "source_id": "bcc-decisions-issued-may-2025",
+      "title": "Belfast City Council planning decisions issued May 2025",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
+      "licence_url": "https://www.belfastcity.gov.uk/Copyright",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Monthly planning decision list publication",
+      "url": "https://minutes.belfastcity.gov.uk/documents/s122059/Planning%20Decisions%20issued%20May%202025.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "May 2025 planning decision rows selected in the Round118 Belfast committee pass. Month-level decisions-issued list where row-level decision day was not extracted.",
+      "caveats": [
+        "Decision-list rows document administrative planning or listed-building-consent decisions. Month-level dates are approximate where no row-level decision day is captured. They are not evidence of construction start, completion, occupation, opening, building condition, or outcome effects."
+      ]
+    },
+    {
       "source_id": "bcc-hed-listing-notifications-20260519",
       "title": "Belfast Planning Committee HED listing notifications, 19 May 2026",
       "provider": "Belfast City Council / Department for Communities Historic Environment Division",
@@ -78,6 +103,56 @@
       "provenance_notes": "Use committee date, HED notification text, site/address, source URL, retrieved date, and HB reference where stated. Proposed-listing records remain proposed/consultation status.",
       "caveats": [
         "Do not treat proposed listing as confirmed listing. Committee notification dates may lag the statutory HED listing date and are heritage-status records, not physical works."
+      ]
+    },
+    {
+      "source_id": "bcc-live-major-applications-2025-05-06",
+      "title": "Belfast City Council live major applications list, 6 May 2025",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
+      "licence_url": "https://www.belfastcity.gov.uk/Copyright",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2025
+      },
+      "update_frequency": "Committee briefing/list publication",
+      "url": "https://minutes.belfastcity.gov.uk/%28S%281w3lda453fhw0f55xyxindbs%29%29/documents/s121414/Live%20Major%20Applications%20not%20previously%20considered%20by%20Committee%2006.05.25.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Live major-application rows listed for committee briefing on 2025-05-06. Application received or status date as labelled by the live major-applications list.",
+      "caveats": [
+        "Live major-application rows document applications under consideration at the source-list date. They are not approvals, construction starts, completions, occupation, opening records, building-condition evidence, or outcome effects."
+      ]
+    },
+    {
+      "source_id": "bcc-planning-agenda-item-pages-round119",
+      "title": "Belfast City Council agenda item minute pages",
+      "provider": "Belfast City Council",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council copyright/terms apply. Store only factual metadata and URLs unless permissions are reviewed.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://minutes.belfastcity.gov.uk/mgAi.aspx",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Used where the meeting page truncated the minute text and the agenda item page exposed the final motion, vote, approval, refusal or reserved-matters wording. Agenda item dates are meeting dates, not final decision-notice issue dates unless the page explicitly states otherwise.",
+      "caveats": [
+        "Agenda item dates are meeting dates, not final decision-notice issue dates unless the page explicitly states otherwise. Used where the meeting page truncated the minute text and the agenda item page exposed the final motion, vote, approval, refusal or reserved-matters wording. Records planning/listed-building approval only. It does not confirm construction start, completion, hotel opening, occupation, conservation quality, or visitor outcomes."
       ]
     },
     {
@@ -132,6 +207,31 @@
       "provenance_notes": "Use application/reference number, meeting date, agenda/minute URL, decision text, location, retrieved date, and limitation text. Committee approvals and consents are administrative records, not evidence that works started or completed.",
       "caveats": [
         "Planning permission, listed-building consent, conservation-area consent, and advertisement consent are not construction, completion, occupation, or opening evidence."
+      ]
+    },
+    {
+      "source_id": "bcc-planning-committee-minutes-round119",
+      "title": "Belfast City Council Planning Committee agendas, minutes and supporting documents",
+      "provider": "Belfast City Council",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://minutes.belfastcity.gov.uk/ieListMeetings.aspx?CId=167",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Targeted 2020-2026 Planning Committee meeting pages and supporting PDF links, with emphasis on major architecture, housing, student accommodation, civic, school, health, research, public realm and heritage-adjacent planning decisions. Committee approval/refusal dates are administrative planning dates. They are not evidence of construction start, completion, occupation, opening, funding certainty, or realised public outcomes.",
+      "caveats": [
+        "Committee approval/refusal dates are administrative planning dates. They are not evidence of construction start, completion, occupation, opening, funding certainty, or realised public outcomes. Targeted 2020-2026 Planning Committee meeting pages and supporting PDF links, with emphasis on major architecture, housing, student accommodation, civic, school, health, research, public realm and heritage-adjacent planning decisions. Records planning/listed-building approval only. It does not confirm construction start, completion, hotel opening, occupation, conservation quality, or visitor outcomes."
       ]
     },
     {
@@ -419,6 +519,56 @@
       ]
     },
     {
+      "source_id": "de-colaiste-feirste-work-progress-2016",
+      "title": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
+      "provider": "Department of Education, Northern Ireland",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Northern Ireland government page footer references Crown copyright and terms; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2016,
+        "end": 2016
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department of Education, Northern Ireland.",
+      "provenance_notes": "Selected records from 2016-2016 in the Round119 architecture corpus window. Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.",
+      "caveats": [
+        "The page is a progress news release, not a completion certificate, planning decision notice, as-built drawing, or later opening record. This is a construction-start/progress milestone. The same facility's 2018 opening is already represented in the corpus as Sportlann na hEireann at Colaiste Feirste, so ingest should keep this only if lifecycle construction milestones are desired."
+      ]
+    },
+    {
+      "source_id": "dfc-harni",
+      "title": "Heritage at Risk in Northern Ireland",
+      "provider": "Department for Communities Historic Environment Division / nidirect, in partnership with Ulster Architectural Heritage",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "HARNI terms say entries are based primarily on external visual inspection; condition/risk comments are guidance, not statements of fact, and permissions may be needed before any restoration or repair. Crown copyright/nidirect terms should be reviewed before reuse.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2016,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://apps.communities-ni.gov.uk/HARNI/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division / nidirect, in partnership with Ulster Architectural Heritage.",
+      "provenance_notes": "Northern Ireland heritage-at-risk records, including listed and some unlisted buildings or monuments. Some record pages include review-year or restoration narrative but many do not expose a structured date field. Description states the building was damaged by fire in 2019 or 2020; status fields observed as Currently at Risk/Critical at access date.",
+      "caveats": [
+        "At-risk status is not evidence of physical works, ownership change, vacancy is associated with, future reuse, or restoration outcome. Where no structured review date is shown, date precision must be no stronger than the source narrative supports. Northern Ireland heritage-at-risk records, including listed and some unlisted buildings or monuments. Some record pages include review-year or restoration narrative but many do not expose a structured date field. The HARNI record is evidence of displayed risk/status fields and narrative observations, not a verified fire investigation, restoration outcome, ownership change, or future reuse. The date is a source-stated year range, not an exact event date."
+      ]
+    },
+    {
       "source_id": "dfc-harni-belfast",
       "title": "Heritage at Risk in Northern Ireland Belfast records",
       "provider": "Department for Communities Historic Environment Division / nidirect",
@@ -443,6 +593,31 @@
       "provenance_notes": "Use HARNI id, HB reference, original record date, review/status year, source URL, retrieved date, point-source notes, and limitation text.",
       "caveats": [
         "HARNI records document heritage-risk or safe-status observations, not construction, repair completion, reuse, safety, occupation, ownership, or outcome evidence unless directly stated and separately framed."
+      ]
+    },
+    {
+      "source_id": "dfc-hed-buildings",
+      "title": "Historic Building Details / Buildings Database",
+      "provider": "Department for Communities Historic Environment Division / nidirect",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "The Buildings Database terms state records are provided as-is and are date-specific to survey or updated record dates. Crown copyright and nidirect terms apply; this scratch drop stores factual metadata, source URLs and cautious summaries only.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2014,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://apps.communities-ni.gov.uk/Buildings/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Historic Environment Division / nidirect.",
+      "provenance_notes": "Northern Ireland historic building records, including listed, de-listed and record-only buildings. Date fields can include Date of Listing, Date of De-listing, Date of Survey and Irish Grid reference. Date of Listing: 28/09/2023 00:00:00",
+      "caveats": [
+        "A listing or de-listing record is a heritage-status event, not evidence of construction, restoration, occupation, public access or causal impact. Irish Grid points are approximate and not listed-boundary geometry. Northern Ireland historic building records, including listed, de-listed and record-only buildings. Date fields can include Date of Listing, Date of De-listing, Date of Survey and Irish Grid reference. This records statutory listing only. It does not verify restoration, sale, reuse, public access, condition improvement, or any later listed-building consent."
       ]
     },
     {
@@ -633,55 +808,75 @@
       "source_id": "gla-planning-application-decisions",
       "title": "Greater London Authority planning application decisions",
       "provider": "Greater London Authority / London City Hall",
-      "source_family": "planning",
+      "source_family": "architecture",
       "city_ids": [
         "london"
       ],
-      "licence": "GLA website terms; factual metadata and source URLs retained pending source-level reuse review",
+      "licence": "GLA website terms; factual metadata and source URLs retained pending source-level reuse review.",
       "licence_url": "https://www.london.gov.uk/about-us/governance-and-spending/privacy-policies/website-terms-and-conditions",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Decision-specific publication.",
+      "update_frequency": "Decision-specific publication",
       "url": "https://www.london.gov.uk/programmes-strategies/planning/planning-applications-and-decisions/planning-application-decisions",
-      "local_paths": [
-        "tmp/subagents/round113_london_gla_candidates.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Source page: Greater London Authority / London City Hall. Use report URL, GLA reference, LPA reference, and access date for citation.",
-      "provenance_notes": "Use GLA reference, LPA application reference, report/decision date, site name, source URL, retrieved date, and limitation text. GLA Stage 1, Stage 2, call-in, and direction records are administrative planning-process milestones.",
+      "attribution_text": "Attribute Greater London Authority / London City Hall.",
+      "provenance_notes": "Selected mayoral strategic planning referral decisions from the 2008-2026 architecture corpus window. GLA report or decision date.",
       "caveats": [
-        "Mayoral planning decisions and referral reports are not evidence of construction start, completion, occupation, opening, delivered design quality, or outcome effects."
+        "GLA Stage 1, Stage 2, call-in, and direction records are administrative planning-process milestones. They do not document construction start, completion, occupation, opening, delivered design quality, or outcome effects."
       ]
     },
     {
       "source_id": "gla-planning-datahub-applications",
       "title": "Planning London Datahub - planning applications",
       "provider": "Greater London Authority / London planning authorities",
-      "source_family": "planning",
+      "source_family": "architecture",
       "city_ids": [
         "london"
       ],
-      "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review",
+      "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review.",
       "licence_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
       "coverage_years": {
-        "start": 2020,
+        "start": 2008,
         "end": 2026
       },
       "update_frequency": "Daily according to the London Datastore dataset page.",
-      "url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
-      "local_paths": [
-        "data-discovery/london/events_seed.json",
-        "tmp/subagents/round113_london_gla_candidates.json"
-      ],
+      "url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute the Greater London Authority, the relevant London planning authority, and the Planning London Datahub source row where applicable.",
-      "provenance_notes": "Use application id, planning authority, LPA reference, validation/decision/status dates, API query or report URL, retrieval timestamp, and quality flags.",
+      "attribution_text": "Attribute Greater London Authority / London planning authorities.",
+      "provenance_notes": "Selected application rows with relevant application/status dates in the 2008-2026 Datahub/backfilled local-authority feed window. Validation, decision, commencement, completion, or status dates as supplied by borough feeds.",
       "caveats": [
-        "Datahub rows can vary by borough feed and historic backfill quality; centroids may be approximate and administrative statuses are not construction, completion, opening, or occupation evidence."
+        "Planning London Datahub rows are administrative application records and can vary by borough feed/backfill quality. Older rows may be backfilled from local authority systems. Centroids may be approximate. Rows do not by themselves document construction completion, opening, occupation, or outcome effects."
+      ]
+    },
+    {
+      "source_id": "gla-planning-datahub-listed-building-consent",
+      "title": "Planning London Datahub applications API - listed building consent records",
+      "provider": "Greater London Authority / London planning authorities",
+      "source_family": "official_record",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "London Datastore dataset page lists Licence: Not Specified. This candidate file keeps factual row metadata, source URLs, and normalized coordinates only; licence review is needed before redistributing a derived bulk dataset.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Greater London Authority / London planning authorities.",
+      "provenance_notes": "Selected records from 2008-2026 in the Round119 architecture corpus window. Planning London Datahub decision_date",
+      "caveats": [
+        "Rows are administrative planning application records. They do not documents construction, completion, occupation, heritage benefit, or effect. Some supplied centroids are wrong, so this pass used the WGS84 polygon representative point when the centroid fell outside London. Use for cited administrative consent/decision milestones after project-level duplicate review and licence review. This is an administrative planning application/consent row. It is not evidence of that works started, were completed, were occupied, produced heritage benefit, or was associated with any outcome. Borough feed quality and field completeness vary."
       ]
     },
     {
@@ -1359,6 +1554,31 @@
       ]
     },
     {
+      "source_id": "nyc-dcla-mfta-pages",
+      "title": "NYC Department of Cultural Affairs and Materials for the Arts pages",
+      "provider": "New York City Department of Cultural Affairs",
+      "source_family": "cultural_facilities",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov terms; factual metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Agency press/page publication",
+      "url": "https://www.nyc.gov/site/dcla/about/news-and-press-releases.page",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City Department of Cultural Affairs.",
+      "provenance_notes": "Selected cultural-facility and Materials for the Arts opening/renovation records. Press release date or source-stated project-stage date.",
+      "caveats": [
+        "Some cultural projects are interior renovations within existing buildings. Records are not new-building completions, public usage, cultural outcome, or operational performance claims."
+      ]
+    },
+    {
       "source_id": "nyc-dcp-mappluto",
       "title": "NYC Department of City Planning MapPLUTO",
       "provider": "NYC Department of City Planning",
@@ -1383,6 +1603,31 @@
       "provenance_notes": "Record release version, file URL, borough, BBL, geometry CRS, and checksum.",
       "caveats": [
         "MapPLUTO is parcel context and carries completeness/fitness disclaimers; do not treat as an event feed."
+      ]
+    },
+    {
+      "source_id": "nyc-dcp-zap-api-project-details",
+      "title": "NYC DCP ZAP project detail API",
+      "provider": "NYC Department of City Planning",
+      "source_family": "zoning",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official DCP ZAP public API; factual identifiers, dates, BBLs, and links retained pending fuller reuse review.",
+      "licence_url": "https://zap.planning.nyc.gov/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Live project-detail API",
+      "url": "https://zap-api-production.herokuapp.com/projects/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of City Planning.",
+      "provenance_notes": "Selected project-detail rows used to cross-check recent ZAP project milestones. Project milestone, completed, or last-milestone date as labelled by the API.",
+      "caveats": [
+        "ZAP API values can change after extraction. BBL arrays are not final development footprints. Records are planning status, not construction, completion, occupancy, or outcome evidence."
       ]
     },
     {
@@ -1438,6 +1683,31 @@
       ]
     },
     {
+      "source_id": "nyc-ddc-news-archive-pages",
+      "title": "NYC Department of Design and Construction news archive pages",
+      "provider": "NYC Department of Design and Construction",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov terms apply; retain factual metadata, publisher attribution, source URL, and retrieval date. Terms page: https://www.nyc.gov/home/terms-of-use.page",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2009,
+        "end": 2009
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nyc.gov/site/ddc/about/news-archive/news-archive.page",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Design and Construction.",
+      "provenance_notes": "2009-2016 archive pages already reached during this round, limited to records found before discovery was stopped. Archive listing date and detail-page milestone language.",
+      "caveats": [
+        "Archive dates are source-publication or event dates. Treat them as DDC-reported milestone dates, not independent evidence of occupancy, service level, or outcome. Archive record supports the groundbreaking milestone only. It does not document completion, opening, occupancy, patronage, or public-service outcome."
+      ]
+    },
+    {
       "source_id": "nyc-ddc-public-building-press-pages",
       "title": "NYC Department of Design and Construction public building press pages",
       "provider": "NYC Department of Design and Construction",
@@ -1445,21 +1715,19 @@
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC.gov terms; factual metadata and source URLs retained with publisher attribution",
+      "licence": "NYC.gov terms; factual metadata and source URLs retained with publisher attribution.",
       "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Press/page-specific publication.",
+      "update_frequency": "Press/page-specific publication",
       "url": "https://www.nyc.gov/site/ddc/about/press-releases.page",
-      "local_paths": [
-        "tmp/subagents/round116_nyc_public_projects_official/candidates.json"
-      ],
+      "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Department of Design and Construction and preserve the evidence URL.",
-      "provenance_notes": "Use page slug/date, named project/building, source-stated milestone date, source URL, retrieved date, and geometry/source notes. Add official geocoding or facility-row provenance before map display where pages lack coordinates.",
+      "attribution_text": "Attribute NYC Department of Design and Construction.",
+      "provenance_notes": "Selected dated DDC public-building, project-delivery, and sustainability milestone pages. Press page publication date and source-stated project dates.",
       "caveats": [
         "DDC pages document official announcements or project milestones. Procurement and certification records are not construction start, completion, opening, occupancy, usage, or outcome evidence unless separately stated."
       ]
@@ -1518,27 +1786,27 @@
     },
     {
       "source_id": "nyc-dob-filings-permits",
-      "title": "NYC DOB construction filings and permits (granular)",
-      "provider": "NYC Department of Buildings",
+      "title": "NYC DOB construction filings and permits",
+      "provider": "NYC Department of Buildings, via NYC Open Data",
       "source_family": "building_permits",
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC Open Data Terms of Use",
-      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "licence": "NYC Open Data / NYC.gov terms; dataset-specific metadata applies.",
+      "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
       "coverage_years": {
-        "start": 2000,
+        "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Ongoing.",
+      "update_frequency": "NYC Open Data dataset-specific refresh cadence",
       "url": "https://data.cityofnewyork.us/Housing-Development/DOB-Job-Application-Filings/ic3t-wcy2",
       "local_paths": [],
-      "reliability": "strong",
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Department of Buildings and the relevant Socrata dataset (DOB Job Application Filings, BIS Permit Issuance, DOB NOW Build Approved Permits).",
-      "provenance_notes": "Three datasets: DOB Job Application Filings (filing ledger), BIS Permit Issuance (legacy), DOB NOW Build Approved Permits (current).",
+      "attribution_text": "Attribute NYC Department of Buildings, via NYC Open Data.",
+      "provenance_notes": "Selected high-signal DOB job application and DOB NOW Build filing/permit/status rows in the corpus window. Application, approval, permit, signoff, LOC, or current-status date as labelled by the source row.",
       "caveats": [
-        "Filing dates are administrative events, not construction completions."
+        "DOB filing and permit rows document administrative job milestones. They are not evidence of construction completion, opening, occupancy level, design quality, safety, affordability, or outcome effects."
       ]
     },
     {
@@ -1596,6 +1864,31 @@
       ]
     },
     {
+      "source_id": "nyc-dob-permit-issuance-ipu4-2q9a",
+      "title": "NYC Open Data: DOB Permit Issuance",
+      "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data / NYC.gov terms. NYC Open Data FAQ states there are no restrictions on use; keep DOB and NYC Open Data attribution and re-check dataset-specific metadata before bulk redistribution.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Operational NYC Open Data dataset; metadata timestamp retained above.",
+      "url": "https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings (DOB), via NYC Open Data.",
+      "provenance_notes": "Selected records from 2008-2026 in the Round119 architecture corpus window. issuance_date from DOB Permit Issuance; DOB Job Application Filings fields used only for linked scale/status context",
+      "caveats": [
+        "A permit issuance is an administrative event, not evidence of construction start, completion, opening, occupancy, design quality, or outcome. Coordinates are geocoded points. Use selected initial NB/AL issued permits, keep permit_si_no row URL, and display linked job application scale fields only as source-reported context. This is an administrative permit-issuance record. It is not evidence of construction start, construction completion, opening, legal occupancy, actual occupancy, design quality, safety condition, affordability, neighborhood outcome, or causal effect. Linked job-application scale fields are source-reported proposed/application attributes and may be amended; legacy DOB rows can contain data-entry anomalies, so extreme scale values were screened and raw fields are retained for review."
+      ]
+    },
+    {
       "source_id": "nyc-dof-sales-valuations",
       "title": "NYC DOF sales, valuations, and rent context",
       "provider": "NYC Department of Finance and partners (HVS, RGB)",
@@ -1618,6 +1911,31 @@
       "provenance_notes": "Annualized citywide sales updates; property valuation and assessment is annual; NYC HVS is triennial; RGB research extends to the 1990s.",
       "caveats": [
         "NYC rent context relies on survey/report families rather than a single transactional feed."
+      ]
+    },
+    {
+      "source_id": "nyc-health-hospitals-press-location-pages",
+      "title": "NYC Health + Hospitals press releases and location pages",
+      "provider": "NYC Health + Hospitals",
+      "source_family": "healthcare",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Health + Hospitals website terms; factual metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://www.nychealthandhospitals.org/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Public health system press/page publication",
+      "url": "https://www.nychealthandhospitals.org/pressrelease/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Health + Hospitals.",
+      "provenance_notes": "Selected health-facility opening and renovation records in the corpus window. Press release date or source-stated opening/renovation date.",
+      "caveats": [
+        "Some records are clinics or departments inside larger hospitals. Geometry is facility/campus point unless the source gives a more precise address. Records are not health outcome, usage, capacity, or full-building completion claims."
       ]
     },
     {
@@ -1645,6 +1963,31 @@
       "provenance_notes": "Use project id, building id, BIN/BBL where supplied, HPD completion date, address/coordinates, source URL, and retrieved date.",
       "caveats": [
         "HPD completion is a housing-production administrative milestone, not necessarily first occupancy, DOB final certificate, ribbon cutting, completion of every non-housing space, or outcome evidence."
+      ]
+    },
+    {
+      "source_id": "nyc-hpd-news-pages",
+      "title": "NYC HPD news and press release pages",
+      "provider": "New York City Department of Housing Preservation and Development",
+      "source_family": "housing",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov terms; factual metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Agency news/page publication",
+      "url": "https://www.nyc.gov/site/hpd/news/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City Department of Housing Preservation and Development.",
+      "provenance_notes": "Selected HPD project announcements, openings, completions, and groundbreakings in the corpus window. Press release date or source-stated project milestone date.",
+      "caveats": [
+        "Press pages can combine announcements, funding, completion, and policy context. Candidate events isolate source-stated milestones and do not infer lease-up, occupancy, affordability duration, construction status beyond the stated milestone, or outcome effects."
       ]
     },
     {
@@ -1676,27 +2019,25 @@
       "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
       "title": "NYC Open Data Designated and Calendared Buildings and Sites",
       "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
-      "source_family": "landmarks_preservation",
+      "source_family": "historic_preservation",
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null",
+      "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
       "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
       "coverage_years": {
         "start": 2008,
         "end": 2026
       },
-      "update_frequency": "NYC Open Data dataset-specific refresh cadence.",
+      "update_frequency": "NYC Open Data dataset-specific refresh cadence",
       "url": "https://data.cityofnewyork.us/d/ncre-qhxs",
-      "local_paths": [
-        "tmp/subagents/round114_nyc_lpc_landmarks_official/round114_nyc_lpc_landmarks_candidates.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Landmarks Preservation Commission and NYC Open Data.",
-      "provenance_notes": "Use LP number, site name, status, last action, calendar/public-hearing/designation date, address, source URL, geometry source, retrieved date, and limitation text.",
+      "attribution_text": "Attribute NYC Landmarks Preservation Commission / NYC Open Data.",
+      "provenance_notes": "Selected LPC designation and calendaring records in the architecture corpus window. Calendar, public hearing, last-action, or designation date as labelled by the source row.",
       "caveats": [
-        "Calendar and public-hearing fields are administrative status/process milestones, not construction, restoration, occupancy, physical condition, permit activity, or preservation outcome evidence."
+        "Calendar and public-hearing fields are administrative status/process milestones. They are not construction, restoration, occupancy, physical condition, permit activity, or preservation outcome evidence."
       ]
     },
     {
@@ -1908,6 +2249,31 @@
       ]
     },
     {
+      "source_id": "nyc-parks-press-pages",
+      "title": "NYC Parks press and park news pages",
+      "provider": "New York City Department of Parks and Recreation",
+      "source_family": "public_realm",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov terms; factual metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Agency press/page publication",
+      "url": "https://www.nycgovparks.org/news/press-releases",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City Department of Parks and Recreation.",
+      "provenance_notes": "Selected Parks opening, ribbon-cutting, completion, and public-realm project pages. Press release or source-stated milestone date.",
+      "caveats": [
+        "Press pages document source-stated milestones. They are not measured work footprints, maintenance status, accessibility audits, usage counts, or outcome evidence."
+      ]
+    },
+    {
       "source_id": "nyc-planimetrics-3d-model",
       "title": "NYC planimetrics and 3D building model",
       "provider": "NYC Department of Information Technology and Telecommunications",
@@ -1955,6 +2321,106 @@
       "provenance_notes": "Record release version, BBL, year built, land use, lot area, FAR, and retrieval timestamp.",
       "caveats": [
         "MapPLUTO is parcel context; pre-2010 vintage continuity was not individually verified in the PDF pass."
+      ]
+    },
+    {
+      "source_id": "nyc-sca-factsheet-k597",
+      "title": "NYC SCA school opening fact sheet K597",
+      "provider": "New York City School Construction Authority",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official public PDF; no open data license was identified during this pass. Use short factual citation with attribution.",
+      "licence_url": "https://www.nycsca.org/Portals/0/App_Resources/Projects/School%20Openings/K597.pdf",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nycsca.org/Portals/0/App_Resources/Projects/School%20Openings/K597.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City School Construction Authority.",
+      "provenance_notes": "Fact-sheet PDF URL observed from the official SCA School Openings listing for record K597. SCA School Openings listing section value 2025",
+      "caveats": [
+        "PDF text was not fully extracted before the stop request; candidate uses the SCA listing year as the effective date precision. Fact-sheet PDF URL observed from the official SCA School Openings listing for record K597. Candidate records the official opening-list milestone only. Address, coordinates, capacity, and detailed scope were not extracted before the stop request."
+      ]
+    },
+    {
+      "source_id": "nyc-sca-factsheet-q026",
+      "title": "NYC SCA school opening fact sheet Q026",
+      "provider": "New York City School Construction Authority",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official public PDF; no open data license was identified during this pass. Use short factual citation with attribution.",
+      "licence_url": "https://www.nycsca.org/Portals/0/App_Resources/Projects/School%20Openings/Q026.pdf",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nycsca.org/Portals/0/App_Resources/Projects/School%20Openings/Q026.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City School Construction Authority.",
+      "provenance_notes": "Fact-sheet PDF URL observed from the official SCA School Openings listing for record Q026. SCA School Openings listing section value 2025",
+      "caveats": [
+        "PDF text was not fully extracted before the stop request; candidate uses the SCA listing year as the effective date precision. Fact-sheet PDF URL observed from the official SCA School Openings listing for record Q026. Candidate records the official opening-list milestone only. Address, coordinates, capacity, and detailed scope were not extracted before the stop request."
+      ]
+    },
+    {
+      "source_id": "nyc-sca-factsheet-x105",
+      "title": "NYC SCA school opening fact sheet X105",
+      "provider": "New York City School Construction Authority",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official public PDF; no open data license was identified during this pass. Use short factual citation with attribution.",
+      "licence_url": "https://www.nycsca.org/Portals/0/App_Resources/Projects/School%20Openings/X105.pdf",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nycsca.org/Portals/0/App_Resources/Projects/School%20Openings/X105.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City School Construction Authority.",
+      "provenance_notes": "Fact-sheet PDF URL observed from the official SCA School Openings listing for record X105. SCA School Openings listing section value 2025",
+      "caveats": [
+        "PDF text was not fully extracted before the stop request; candidate uses the SCA listing year as the effective date precision. Fact-sheet PDF URL observed from the official SCA School Openings listing for record X105. Candidate records the official opening-list milestone only. Address, coordinates, capacity, and detailed scope were not extracted before the stop request."
+      ]
+    },
+    {
+      "source_id": "nyc-sca-school-openings-projects",
+      "title": "NYC School Construction Authority Projects - School Openings",
+      "provider": "New York City School Construction Authority",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official public webpage and dynamically loaded project data; no open data license was identified during this pass. Use short factual citation with attribution.",
+      "licence_url": "https://www.nycsca.org/Quick-Links-Home/Projects",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nycsca.org/Quick-Links-Home/Projects",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City School Construction Authority.",
+      "provenance_notes": "Official SCA School Openings project listing/API, including 2025 school-opening records observed before search stop. SCA School Openings listing section value 2025",
+      "caveats": [
+        "The stopped pass captured project names, borough/location field, section year, and some fact-sheet PDF record ids; detailed addresses and coordinates were not completed. Official SCA School Openings project listing/API, including 2025 school-opening records observed before search stop. Candidate records the official opening-list milestone only. Address, coordinates, capacity, and detailed scope were not extracted before the stop request."
       ]
     },
     {
@@ -2030,6 +2496,131 @@
       "provenance_notes": "ZAP exposes project search; CEQR Access provides environmental review docs (records back to 1979 in CEQR project search).",
       "caveats": [
         "Public documents may contain personal data; minimize redistribution and prefer document links."
+      ]
+    },
+    {
+      "source_id": "nyc-zoning-resolution-recently-adopted",
+      "title": "NYC Zoning Resolution recently adopted records",
+      "provider": "NYC Department of City Planning",
+      "source_family": "zoning",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov / DCP web terms; factual administrative metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "DCP recently adopted page / project-specific publication",
+      "url": "https://zr.planning.nyc.gov/index.php/recently-adopted",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of City Planning.",
+      "provenance_notes": "Selected recently adopted zoning text/map amendment records in the 2008-2026 corpus window. Adoption date stated by the Zoning Resolution page.",
+      "caveats": [
+        "Zoning Resolution records document adopted zoning text or map changes. They are not evidence of construction, permit issuance, built form, occupancy, delivered housing, design quality, or outcome effects."
+      ]
+    },
+    {
+      "source_id": "nycedc-press-pages",
+      "title": "NYCEDC press release pages",
+      "provider": "New York City Economic Development Corporation",
+      "source_family": "public_realm",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYCEDC website terms; factual metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://edc.nyc/terms-use",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Agency/EDC press page publication",
+      "url": "https://edc.nyc/press",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City Economic Development Corporation.",
+      "provenance_notes": "Selected NYCEDC public-building, public-space, renovation, and public-site milestone pages. Byline date or source-stated project-stage date.",
+      "caveats": [
+        "EDC pages often include policy and economic framing; the corpus retains only observed source-stated project milestones and does not infer economic, regeneration, lease-up, or construction outcomes."
+      ]
+    },
+    {
+      "source_id": "nycha-press-pages",
+      "title": "NYCHA press release pages",
+      "provider": "New York City Housing Authority",
+      "source_family": "public_housing",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov terms; factual metadata and source URLs retained pending fuller reuse review.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Agency press/page publication",
+      "url": "https://www.nyc.gov/site/nycha/about/press.page",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute New York City Housing Authority.",
+      "provenance_notes": "Selected NYCHA public-housing community facility and renovation milestone pages. Press release date or source-stated milestone date.",
+      "caveats": [
+        "Development-level geometry can be coarser than building-level geometry. Records are not full campus condition, resident outcome, lease-up, or capital-program completion claims."
+      ]
+    },
+    {
+      "source_id": "nypl-location-96th-street-branch",
+      "title": "NYPL 96th Street Library location page",
+      "provider": "The New York Public Library",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official public webpage; no open data license was identified during this pass. Use short factual citation with attribution.",
+      "licence_url": "https://www.nypl.org/locations/96th-street",
+      "coverage_years": {
+        "start": 2013,
+        "end": 2013
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nypl.org/locations/96th-street",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute The New York Public Library.",
+      "provenance_notes": "Branch identity and address context for geometry only. press release URL path date 2013/09/10",
+      "caveats": [
+        "Used only to anchor the branch location; the event date comes from the NYPL press release. Branch identity and address context for geometry only. No outcome, usage, access, or causal claims extracted. Geometry is approximate and should be replaced by a verified geocode before production ingestion."
+      ]
+    },
+    {
+      "source_id": "nypl-press-2013-96th-street-reopening",
+      "title": "New York Public Library press release for 96th Street Branch reopening",
+      "provider": "The New York Public Library",
+      "source_family": "official_record",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "Official public webpage; no open data license was identified during this pass. Use short factual citation with attribution.",
+      "licence_url": "https://www.nypl.org/press/press-release/2013/09/10/new-york-public-librarys-96th-street-branch-re-opens-following-building",
+      "coverage_years": {
+        "start": 2013,
+        "end": 2013
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nypl.org/press/press-release/2013/09/10/new-york-public-librarys-96th-street-branch-re-opens-following-building",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute The New York Public Library.",
+      "provenance_notes": "Single NYPL branch reopening/building-improvement milestone dated in the URL path. press release URL path date 2013/09/10",
+      "caveats": [
+        "Press-release page supports the reopening milestone only; no outcomes, usage, or causal claims were extracted. Single NYPL branch reopening/building-improvement milestone dated in the URL path. No outcome, usage, access, or causal claims extracted. Geometry is approximate and should be replaced by a verified geocode before production ingestion."
       ]
     },
     {
@@ -2193,27 +2784,25 @@
       "source_id": "planning-data-certificate-of-immunity",
       "title": "Planning Data certificate of immunity records",
       "provider": "Ministry of Housing, Communities and Local Government / Historic England",
-      "source_family": "planning",
+      "source_family": "heritage",
       "city_ids": [
         "london"
       ],
-      "licence": "Open Government Licence v3.0; attribution to Historic England and Ordnance Survey where applicable",
+      "licence": "Open Government Licence v3.0; attribution to Historic England and Ordnance Survey where applicable.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
-        "start": 2020,
+        "start": 2008,
         "end": 2026
       },
-      "update_frequency": "Planning Data collector/page-specific refresh; record collector run and row entry dates.",
+      "update_frequency": "Planning Data source page says the collector last ran on 18 May 2026 and new data was last found on 12 May 2026.",
       "url": "https://www.planning.data.gov.uk/dataset/certificate-of-immunity",
-      "local_paths": [
-        "tmp/planning_data_certificate_immunity_all_round112.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute Historic England, MHCLG Planning Data, and Ordnance Survey Crown copyright/database right where applicable.",
-      "provenance_notes": "Use Planning Data entity id, Historic England reference, start-date, end-date, entry-date, row URL, point WKT, and source geometry. Rows document certificate-of-immunity status periods, not construction, demolition, listing, physical alteration, or outcome effects.",
+      "attribution_text": "Attribute Ministry of Housing, Communities and Local Government / Historic England.",
+      "provenance_notes": "Selected rows with certificate start-date between 2020 and 2026. start-date, end-date, and entry-date fields on each entity row.",
       "caveats": [
-        "National dataset; city filtering must be explicit and checked for boundary false positives."
+        "Certificate-of-immunity rows document a legal/planning heritage status period, not construction, alteration, opening, demolition, building condition, listing, or outcome effects. The manual London extract filters national rows to the atlas city envelope and excludes known outside-Greater-London false positives."
       ]
     },
     {
@@ -2494,6 +3083,381 @@
       ]
     },
     {
+      "source_id": "src_camden_highgate_newtown_community_centre_opening",
+      "title": "The new Highgate Newtown Community Centre opens to residents",
+      "provider": "Camden Council",
+      "source_family": "official_record",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official Camden Council web page. Store factual metadata, source URL, and attribution only pending final Camden reuse terms review.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://news.camden.gov.uk/the-new-highgate-newtown-community-centre-opens-to-residents/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Camden Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. Official Camden news page opening statement; month-level date retained pending exact-day check.",
+      "caveats": [
+        "The retained milestone date is month precision. The point geometry is an approximate site point rather than a surveyed building footprint. Keep as a candidate. Confirm exact publication/opening day and any address wording before promoting to a canonical event. Month-level opening date retained; exact ceremony or public-use day, official address wording, and surveyed boundary require source follow-up. No outcome or causal claims are made."
+      ]
+    },
+    {
+      "source_id": "src_city_artizan_street_committee_report",
+      "title": "City of London Artizan Street Library committee report",
+      "provider": "City of London Corporation",
+      "source_family": "civic_services",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official local authority committee report; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.cityoflondon.gov.uk/footer/terms-and-conditions",
+      "coverage_years": {
+        "start": 2012,
+        "end": 2026
+      },
+      "update_frequency": "Committee report publication",
+      "url": "https://democracy.cityoflondon.gov.uk/documents/s168695/Artizan-Street-Library-Transformation-Committee-Report-AM-proofed.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute City of London Corporation.",
+      "provenance_notes": "Artizan Street Library and Community Centre opening/status record. Month-level opening date as stated by committee report.",
+      "caveats": [
+        "Month-level opening record is not a completion certificate, usage audit, operating-hours record, or outcome evidence."
+      ]
+    },
+    {
+      "source_id": "src_enfield_dugdale_reopening",
+      "title": "Enfield Dugdale Arts Centre reopening page",
+      "provider": "Enfield Council",
+      "source_family": "cultural_facilities",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official local authority page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.enfield.gov.uk/privacy-and-cookies/copyright",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2022
+      },
+      "update_frequency": "Council news page",
+      "url": "https://www.enfield.gov.uk/news-and-events/2022/10/christmas-to-come-early-with-reopening-of-the-dugdale-arts-centre",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Enfield Council.",
+      "provenance_notes": "Dugdale Arts Centre reopening/refurbishment record. Announced reopening date.",
+      "caveats": [
+        "Pre-reopening announcement records a scheduled/reported reopening stage. It is not a full post-opening audit, final account, operating status, or outcome evidence."
+      ]
+    },
+    {
+      "source_id": "src_hackney_new_regents_opening",
+      "title": "Hackney New Regent's College opening page",
+      "provider": "Hackney Council",
+      "source_family": "education",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official local authority page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://hackney.gov.uk/copyright",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2021
+      },
+      "update_frequency": "Council news page",
+      "url": "https://news.hackney.gov.uk/news/five-star-new-regent-s-college-officially-opens-with-ceremony-celebrating-experiences-of-students",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Hackney Council.",
+      "provenance_notes": "New Regent's College official opening ceremony record. Source-stated ceremony date.",
+      "caveats": [
+        "Opening ceremony is not necessarily first use, construction completion, full occupancy, service performance, or education outcome evidence."
+      ]
+    },
+    {
+      "source_id": "src_haringey_heartlands_opening",
+      "title": "Haringey Heartlands High School local-plan opening reference",
+      "provider": "Haringey Council",
+      "source_family": "education",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official local authority planning document; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.haringey.gov.uk/copyright",
+      "coverage_years": {
+        "start": 2010,
+        "end": 2013
+      },
+      "update_frequency": "Planning document publication",
+      "url": "https://www.minutes.haringey.gov.uk/documents/s29976/Appendix%202%20Haringey%20Local%20Plan%20Strategic%20Policies%20Feb%202013.pdf",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Haringey Council.",
+      "provenance_notes": "Heartlands High School month-level opening reference. Month-level opening date stated by local-plan appendix.",
+      "caveats": [
+        "Month-level opening reference from a planning document is not a dedicated opening notice, construction certificate, operating audit, or education outcome claim."
+      ]
+    },
+    {
+      "source_id": "src_icr_ccdd_opening",
+      "title": "ICR Centre for Cancer Drug Discovery opening page",
+      "provider": "The Institute of Cancer Research, London",
+      "source_family": "research_healthcare",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official public research institution page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.icr.ac.uk/about-us/policies-and-statements/terms-and-conditions",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2020
+      },
+      "update_frequency": "Institutional news page",
+      "url": "https://www.icr.ac.uk/about-us/icr-news/detail/research-begins-at-pioneering-centre-aimed-at-overcoming-cancer-s-ability-to-evolve-resistance-to-treatment",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute The Institute of Cancer Research, London.",
+      "provenance_notes": "Centre for Cancer Drug Discovery researcher/virtual opening record. Source-stated virtual opening date and move-in month.",
+      "caveats": [
+        "Researcher/virtual opening stage is not a construction-completion certificate, full occupancy record, research-output claim, or health outcome evidence."
+      ]
+    },
+    {
+      "source_id": "src_icr_cci_opening",
+      "title": "ICR Centre for Cancer Imaging opening page",
+      "provider": "The Institute of Cancer Research, London",
+      "source_family": "research_healthcare",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official public research institution page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.icr.ac.uk/about-us/policies-and-statements/terms-and-conditions",
+      "coverage_years": {
+        "start": 2016,
+        "end": 2016
+      },
+      "update_frequency": "Institutional news page",
+      "url": "https://www.icr.ac.uk/about-us/icr-news/detail/new-centre-for-cancer-imaging-to-open-window-onto-cancer",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute The Institute of Cancer Research, London.",
+      "provenance_notes": "Centre for Cancer Imaging opening observation. Article date as week-level opening observation.",
+      "caveats": [
+        "Week-level opening observation is not an exact opening-day claim, full occupancy record, equipment inventory, research-output claim, or health outcome evidence."
+      ]
+    },
+    {
+      "source_id": "src_icr_cmp_opening",
+      "title": "ICR Centre for Molecular Pathology opening page",
+      "provider": "The Institute of Cancer Research, London",
+      "source_family": "research_healthcare",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official public research institution page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.icr.ac.uk/about-us/policies-and-statements/terms-and-conditions",
+      "coverage_years": {
+        "start": 2012,
+        "end": 2012
+      },
+      "update_frequency": "Institutional news page",
+      "url": "https://www.icr.ac.uk/about-us/icr-news/detail/the-icr-and-royal-marsden-open-groundbreaking-facility-bringing-smart-trials-to-the-nhs-",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute The Institute of Cancer Research, London.",
+      "provenance_notes": "Centre for Molecular Pathology official opening record. Article/opening date.",
+      "caveats": [
+        "Campus-level geometry. Opening record is not a full research-output, patient-care, usage, or outcome claim."
+      ]
+    },
+    {
+      "source_id": "src_lbbd_greatfields_completion",
+      "title": "LBBD Greatfields School completion page",
+      "provider": "London Borough of Barking and Dagenham / One Borough Voice",
+      "source_family": "education",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official borough engagement/news page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.lbbd.gov.uk/copyright",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2022
+      },
+      "update_frequency": "Council engagement/news page",
+      "url": "https://oneboroughvoice.lbbd.gov.uk/barking-town/news_feed/east-london-school-completes-23-million-building",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute London Borough of Barking and Dagenham / One Borough Voice.",
+      "provenance_notes": "Greatfields School building completion/move-in record. Article date and week-level move-in/completion statement.",
+      "caveats": [
+        "Article date is an observation date for a week-level completion/move-in statement; it is not a completion certificate, operating audit, or education outcome claim."
+      ]
+    },
+    {
+      "source_id": "src_lsbu_student_centre_opening",
+      "title": "LSBU Student Centre official opening page",
+      "provider": "London South Bank University",
+      "source_family": "education",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official university web page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.lsbu.ac.uk/footer/terms-and-conditions",
+      "coverage_years": {
+        "start": 2012,
+        "end": 2013
+      },
+      "update_frequency": "Institutional news page",
+      "url": "https://www.lsbu.ac.uk/about-us/news/student-centre-celebrates-official-opening",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute London South Bank University.",
+      "provenance_notes": "Selected LSBU Student Centre launch/opening records. Article date and source-stated launch month.",
+      "caveats": [
+        "Official-opening and student-use launch dates differ. Records are not construction certificate, full occupancy, usage, or outcome evidence."
+      ]
+    },
+    {
+      "source_id": "src_nlwa_ecopark_house_official_opening",
+      "title": "EcoPark House officially opened",
+      "provider": "North London Waste Authority",
+      "source_family": "official_record",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official NLWA web page. Store factual metadata, source URL, and attribution only pending final NLWA reuse terms review.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.nlwa.gov.uk/news/ecopark-house-officially-opened",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute North London Waste Authority.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. Official NLWA news page opening statement; month-level date retained pending exact-day check.",
+      "caveats": [
+        "The retained milestone date is month precision. The point geometry is an approximate site point within Edmonton EcoPark rather than a surveyed building footprint. Keep as a candidate. Confirm exact publication/opening day, facility access status, and official address wording before promoting to a canonical event. Month-level opening date retained; exact opening day, public-access scope, official address wording, and surveyed building footprint require source follow-up. No outcome or causal claims are made."
+      ]
+    },
+    {
+      "source_id": "src_oriel_final_planning_permission",
+      "title": "Oriel final planning permission project page",
+      "provider": "Oriel / Moorfields Eye Hospital NHS Foundation Trust partnership",
+      "source_family": "healthcare",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official project page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://oriel-london.org.uk/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2022
+      },
+      "update_frequency": "Project news page",
+      "url": "https://oriel-london.org.uk/final-planning-permission-granted/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Oriel / Moorfields Eye Hospital NHS Foundation Trust partnership.",
+      "provenance_notes": "Oriel final planning permission record. Published/project-stage date.",
+      "caveats": [
+        "Final planning permission is an administrative planning-stage record, not construction start, completion, opening, occupation, clinical outcome, or usage evidence."
+      ]
+    },
+    {
+      "source_id": "src_swlstg_springfield_redevelopment",
+      "title": "Springfield Hospital redevelopment official status page",
+      "provider": "South West London and St George's Mental Health NHS Trust",
+      "source_family": "healthcare",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official NHS trust web page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://swlstg.nhs.uk/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2023
+      },
+      "update_frequency": "NHS trust project/status page",
+      "url": "https://swlstg.nhs.uk/redeveloping-springfield-hospital",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute South West London and St George's Mental Health NHS Trust.",
+      "provenance_notes": "Selected Springfield University Hospital Trinity and Shaftesbury building opening records. Month-level opening date as stated by source.",
+      "caveats": [
+        "Month-level opening/status records are not construction certificates, full occupation, clinical commissioning, service outcome, or health impact evidence."
+      ]
+    },
+    {
+      "source_id": "src_ucl_east_about_one_pool_street",
+      "title": "UCL East official campus status page",
+      "provider": "University College London",
+      "source_family": "education",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official university web page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.ucl.ac.uk/legal-services/privacy/website-terms-and-conditions",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2023
+      },
+      "update_frequency": "Institutional project/status page",
+      "url": "https://www.ucl.ac.uk/ucl-east/about-ucl-east",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute University College London.",
+      "provenance_notes": "Selected UCL East building opening/status records. Season-level opening date where exact day is not stated.",
+      "caveats": [
+        "UCL page documents campus/building status. Season-level dates are approximate and do not support exact opening day, occupancy, usage, or educational outcome claims."
+      ]
+    },
+    {
+      "source_id": "src_wandsworth_paddock_opening",
+      "title": "Wandsworth Paddock school opening page",
+      "provider": "Wandsworth Borough Council",
+      "source_family": "education",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Official local authority page; factual metadata and source URL retained pending fuller reuse review.",
+      "licence_url": "https://www.wandsworth.gov.uk/cookies-copyright-and-disclaimer/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Council news page",
+      "url": "https://www.wandsworth.gov.uk/news/news-november-2025/new-special-educational-needs-school-opens-its-doors/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Wandsworth Borough Council.",
+      "provenance_notes": "Paddock Secondary and Sixth Form School grand-opening/handover status record. Published/opening date and source-stated handover/academic-year timing.",
+      "caveats": [
+        "Opening page records project stage/use. It is not an as-built footprint, completion certificate, accessibility audit, education outcome, or service-capacity claim."
+      ]
+    },
+    {
       "source_id": "tfl-open-data",
       "title": "Transport for London open data",
       "provider": "Transport for London",
@@ -2518,6 +3482,31 @@
       "provenance_notes": "Record feed URL, endpoint, request parameters, response timestamp, and terms.",
       "caveats": [
         "Use current feeds as current-state context unless archived snapshots are available."
+      ]
+    },
+    {
+      "source_id": "translink-bgcs-enabling-work-gvs-closure-2024",
+      "title": "Belfast Grand Central Station - Enabling Work",
+      "provider": "Translink",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Translink website legal/copyright terms apply; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
+      "licence_url": "https://www.translink.co.uk/about-translink/media/press-releases/bgcsupdates/bgcsworks",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.translink.co.uk/about-translink/media/press-releases/bgcsupdates/bgcsworks",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Translink.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. Page section heading states Great Victoria Street Station permanent closure - Friday 10 May (end of day); page also states revised timetable from Saturday 11 May.",
+      "caveats": [
+        "The page does not provide a publication date, a station footprint, demolition status, ownership transfer, or future reuse of the former station site. This records a service and station-closure milestone only. It does not document demolition, disposal, redevelopment, passenger outcomes, or the full boundary of the former station site."
       ]
     },
     {
@@ -2571,6 +3560,31 @@
       "provenance_notes": "Use for named station or project event citations, not as a bulk open-data feed.",
       "caveats": [
         "Public pages can change; record access date and avoid copying page text into artifacts."
+      ]
+    },
+    {
+      "source_id": "translink-station-anniversaries-2026",
+      "title": "Celebrating the anniversaries of our station",
+      "provider": "Translink",
+      "source_family": "official_record",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Translink website legal/copyright terms apply; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
+      "licence_url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026",
+      "coverage_years": {
+        "start": 2018,
+        "end": 2019
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Translink.",
+      "provenance_notes": "Selected records from 2018-2019 in the Round119 architecture corpus window. Retrospective station-history text states 1 September 2018 as the official name-adoption date and links that date to entrance and ticket-office upgrades.",
+      "caveats": [
+        "The page is retrospective and does not provide formal project files, cost breakdowns, decision notices, construction drawings, or precise completion dates for the 2019 Botanic works. The source is retrospective and does not provide formal works completion certification, cost, design drawings, or a separate project handover date for the entrance and ticket-office changes."
       ]
     },
     {

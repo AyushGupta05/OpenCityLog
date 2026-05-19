@@ -1,0 +1,238 @@
+{
+  "source_audits": [
+    {
+      "source_id": "translink-bgcs-enabling-work-gvs-closure-2024",
+      "source_name": "Belfast Grand Central Station - Enabling Work",
+      "publisher": "Translink",
+      "source_url": "https://www.translink.co.uk/about-translink/media/press-releases/bgcsupdates/bgcsworks",
+      "source_type": "official transport operator web page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Page section heading states Great Victoria Street Station permanent closure - Friday 10 May (end of day); page also states revised timetable from Saturday 11 May.",
+      "license_or_terms_note": "Translink website legal/copyright terms apply; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
+      "audit_summary": "Official Translink page for Belfast Grand Central Station enabling works. It documents the Great Victoria Street station closure and passenger arrangements.",
+      "limitations": "The page does not provide a publication date, a station footprint, demolition status, ownership transfer, or future reuse of the former station site.",
+      "used_for_candidate_ids": [
+        "bfs_round119_great_victoria_street_station_closure_2024"
+      ]
+    },
+    {
+      "source_id": "translink-station-anniversaries-2026",
+      "source_name": "Celebrating the anniversaries of our station",
+      "publisher": "Translink",
+      "source_url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026",
+      "source_type": "official transport operator retrospective web page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Retrospective station-history text states specific milestone dates for Lanyon Place and a year-only refurbishment milestone for Botanic Station.",
+      "license_or_terms_note": "Translink website legal/copyright terms apply; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
+      "audit_summary": "Official Translink page summarising station anniversaries and facility histories. It supports one dated Lanyon Place station milestone and one year-precision Botanic Station refurbishment milestone.",
+      "limitations": "The page is retrospective and does not provide formal project files, cost breakdowns, decision notices, construction drawings, or precise completion dates for the 2019 Botanic works.",
+      "used_for_candidate_ids": [
+        "bfs_round119_lanyon_place_station_rename_improvements_2018",
+        "bfs_round119_botanic_station_accessibility_refurbishment_2019"
+      ]
+    },
+    {
+      "source_id": "de-colaiste-feirste-work-progress-2016",
+      "source_name": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+      "source_type": "official government news release",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.",
+      "license_or_terms_note": "Northern Ireland government page footer references Crown copyright and terms; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
+      "audit_summary": "Official Department of Education news release for the Colaiste Feirste capital works project. It documents the construction-start date and project scope at source level.",
+      "limitations": "The page is a progress news release, not a completion certificate, planning decision notice, as-built drawing, or later opening record.",
+      "used_for_candidate_ids": [
+        "bfs_round119_colaiste_feirste_extension_construction_started_2016"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "candidate_id": "bfs_round119_great_victoria_street_station_closure_2024",
+      "title": "Great Victoria Street Station closed to rail passengers",
+      "summary": "Translink's Belfast Grand Central Station enabling-work page records Great Victoria Street Station's permanent closure at the end of Friday 10 May 2024 and states that the rail line would remain open through Belfast but no longer serve that station.",
+      "observed_change": "The former Great Victoria Street rail station stopped being served by rail passengers; Translink listed alternative stations and ticket-validity arrangements for the transition period.",
+      "date": "2024-05-10",
+      "effective_date": "2024-05-10",
+      "date_precision": "day",
+      "source_id": "translink-bgcs-enabling-work-gvs-closure-2024",
+      "source_ids": [
+        "translink-bgcs-enabling-work-gvs-closure-2024"
+      ],
+      "source_name": "Belfast Grand Central Station - Enabling Work",
+      "publisher": "Translink",
+      "source_url": "https://www.translink.co.uk/about-translink/media/press-releases/bgcsupdates/bgcsworks",
+      "source_record_id": "bgcsworks-great-victoria-street-station-permanent-closure-2024-05-10",
+      "source_type": "official transport operator web page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Page section heading states Great Victoria Street Station permanent closure - Friday 10 May (end of day); page also states revised timetable from Saturday 11 May.",
+      "latitude": 54.594333,
+      "longitude": -5.934472,
+      "geometry_source": "Manual geocoding from Translink's named former station and Great Northern Mall/Glengall Street stop references, cross-checked against the local OSM-derived transport stop point for Great Northern Mall.",
+      "geometry_precision": "approximate former station access point, not a measured station footprint",
+      "confidence": "documented",
+      "project_type": "transport station closure",
+      "license_or_terms_note": "Translink website legal/copyright terms apply; factual metadata and URL only.",
+      "attribution": "Translink",
+      "limitations": "This records a service and station-closure milestone only. It does not document demolition, disposal, redevelopment, passenger outcomes, or the full boundary of the former station site.",
+      "transformation_method": "Manual extraction by round119 from official Translink page; candidate screened against architecture_milestones_2008_2026.json and tmp/subagents for Great Victoria Street, Grand Central, Europa Buscentre, and York Street duplicates; geometry recorded as approximate because the source page provides no coordinates."
+    },
+    {
+      "city_id": "belfast",
+      "candidate_id": "bfs_round119_lanyon_place_station_rename_improvements_2018",
+      "title": "Belfast Central Station adopted the Lanyon Place name",
+      "summary": "Translink's station-history page records that Central Station officially adopted the Lanyon Place Station name on 1 September 2018, and states that the renaming coincided with entrance and ticket-office upgrades.",
+      "observed_change": "The existing rail station was recorded under the Lanyon Place name, with station-front and ticket-office changes documented in the same source passage.",
+      "date": "2018-09-01",
+      "effective_date": "2018-09-01",
+      "date_precision": "day",
+      "source_id": "translink-station-anniversaries-2026",
+      "source_ids": [
+        "translink-station-anniversaries-2026"
+      ],
+      "source_name": "Celebrating the anniversaries of our station - Lanyon Place Station",
+      "publisher": "Translink",
+      "source_url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026",
+      "source_record_id": "station-anniversaries-2026-lanyon-place-2018-09-01",
+      "source_type": "official transport operator retrospective web page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Retrospective station-history text states 1 September 2018 as the official name-adoption date and links that date to entrance and ticket-office upgrades.",
+      "latitude": 54.594138,
+      "longitude": -5.917479,
+      "geometry_source": "Manual geocoding from Translink station name, cross-checked against local OSM-derived transport stop point node/138767875 for Belfast Lanyon Place.",
+      "geometry_precision": "approximate station point, not a platform, concourse, entrance, or parcel boundary",
+      "confidence": "documented",
+      "project_type": "transport station naming and refurbishment milestone",
+      "license_or_terms_note": "Translink website legal/copyright terms apply; factual metadata and URL only.",
+      "attribution": "Translink",
+      "limitations": "The source is retrospective and does not provide formal works completion certification, cost, design drawings, or a separate project handover date for the entrance and ticket-office changes.",
+      "transformation_method": "Manual extraction by round119 from official Translink station-anniversary page; screened against the manual architecture milestone corpus and prior tmp/subagent outputs for Lanyon Place and Belfast Central station duplicates; coordinates normalized to latitude/longitude from local station point."
+    },
+    {
+      "city_id": "belfast",
+      "candidate_id": "bfs_round119_botanic_station_accessibility_refurbishment_2019",
+      "title": "Botanic Station accessibility refurbishment works were recorded",
+      "summary": "Translink's station-history page records that further refurbishment works to improve accessibility were carried out at Botanic Station in 2019.",
+      "observed_change": "Accessibility-related refurbishment works were recorded for the existing Botanic rail station.",
+      "date": "2019",
+      "effective_date": "2019",
+      "date_precision": "year",
+      "source_id": "translink-station-anniversaries-2026",
+      "source_ids": [
+        "translink-station-anniversaries-2026"
+      ],
+      "source_name": "Celebrating the anniversaries of our station - Botanic Station",
+      "publisher": "Translink",
+      "source_url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026",
+      "source_record_id": "station-anniversaries-2026-botanic-station-2019-accessibility-refurbishment",
+      "source_type": "official transport operator retrospective web page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Retrospective station-history text states that further accessibility refurbishment works were carried out in 2019; exact date not provided.",
+      "latitude": 54.588453,
+      "longitude": -5.931853,
+      "geometry_source": "Manual geocoding from Translink station name, cross-checked against local OSM-derived transport stop point node/4038617193 for Botanic.",
+      "geometry_precision": "approximate station point, not a platform, lift, shelter, sign, access route, or parcel boundary",
+      "confidence": "documented",
+      "project_type": "transport station refurbishment",
+      "license_or_terms_note": "Translink website legal/copyright terms apply; factual metadata and URL only.",
+      "attribution": "Translink",
+      "limitations": "The source provides year precision only and does not identify the exact completion date, contractor, accessibility features delivered, or post-works service outcomes.",
+      "transformation_method": "Manual extraction by round119 from official Translink station-anniversary page; screened against the manual architecture milestone corpus and prior tmp/subagent outputs for Botanic Station refurbishment duplicates; coordinates normalized to latitude/longitude from local station point."
+    },
+    {
+      "city_id": "belfast",
+      "candidate_id": "bfs_round119_colaiste_feirste_extension_construction_started_2016",
+      "title": "Colaiste Feirste extension construction had commenced",
+      "summary": "The Department of Education page published on 2 June 2016 records work in progress on a GBP15.5 million extension at Colaiste Feirste and notes that building work commenced on site on 8 February 2016.",
+      "observed_change": "Construction had commenced on a school extension described by the source as including sports and teaching facilities.",
+      "date": "2016-02-08",
+      "effective_date": "2016-02-08",
+      "date_precision": "day",
+      "source_id": "de-colaiste-feirste-work-progress-2016",
+      "source_ids": [
+        "de-colaiste-feirste-work-progress-2016"
+      ],
+      "source_name": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+      "source_record_id": "minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+      "source_type": "official government news release",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.",
+      "latitude": 54.5965,
+      "longitude": -5.9705,
+      "geometry_source": "Manual geocoding from Colaiste Feirste/Beechmount location, aligned with the curated point already used for the existing Sportlann na hEireann opening record.",
+      "geometry_precision": "approximate school and sports-facility site point, not a building footprint, pitch boundary, classroom block, or parcel boundary",
+      "confidence": "documented",
+      "project_type": "school and community sports facility construction milestone",
+      "license_or_terms_note": "Northern Ireland government page footer references Crown copyright and terms; factual metadata and URL only.",
+      "attribution": "Department of Education, Northern Ireland",
+      "limitations": "This is a construction-start/progress milestone. The same facility's 2018 opening is already represented in the corpus as Sportlann na hEireann at Colaiste Feirste, so ingest should keep this only if lifecycle construction milestones are desired.",
+      "transformation_method": "Manual extraction by round119 from official Department of Education page; screened against architecture_milestones_2008_2026.json and tmp/subagents for Colaiste Feirste and Sportlann duplicates; retained as a distinct construction-start milestone rather than an opening event."
+    }
+  ],
+  "rejected": [
+    {
+      "title": "Belfast Grand Central Station operational opening and rail-services commencement",
+      "reason": "Already represented in the manual corpus with bus-service operational opening on 2024-09-09 and rail-service commencement on 2024-10-13.",
+      "matched_record": "bfs_arch_grand_central_station_opening_2024; bfs_arch_round116_bfs_dfi_grand_central_station_rail_services_started_2024",
+      "source_url": "https://www.infrastructure-ni.gov.uk/news/odowd-welcomes-new-era-public-transport-belfast-grand-central-station-opens"
+    },
+    {
+      "title": "York Street station opening and transformation",
+      "reason": "Already represented in the manual corpus, including the Translink opening source and source_record_id york-street-station-opening.",
+      "matched_record": "bfs_arch_york_street_station_opening_2024; source_record_id york-street-station-opening",
+      "source_url": "https://www.translink.co.uk/usingtranslink/stations/yorkstreet"
+    },
+    {
+      "title": "Sportlann na hEireann opened at Colaiste Feirste",
+      "reason": "Already represented in the manual corpus as the 2018 opening milestone. The accepted round119 Colaiste Feirste candidate is limited to the earlier official construction-start date.",
+      "matched_record": "bfs_arch_sportlann_na_heireann_opening_2018",
+      "source_url": "https://ulster.gaa.ie/2020/11/colaiste-feirste-ag-dul-o-neart-go-neart/"
+    },
+    {
+      "title": "Ionad na Fuiseoige family centre opened in Twinbrook",
+      "reason": "Already represented in the manual corpus with the Department for Communities opening source and 2019-03-05 date.",
+      "matched_record": "bfs_arch_ionad_na_fuiseoige_family_centre_opening_2019",
+      "source_url": "https://www.communities-ni.gov.uk/news/new-ps21-million-family-centre-opens-twinbrook-belfast"
+    },
+    {
+      "title": "Belfast Metropolitan College opened its Titanic Quarter campus",
+      "reason": "Already represented in the manual corpus as a September 2011 further-education campus opening.",
+      "matched_record": "bfs_arch_belfast_met_titanic_quarter_opening_2011",
+      "source_url": "https://www.gov.uk/government/news/hrh-the-princess-royal-attends-the-official-opening-of-belfast-metropolitan-college"
+    },
+    {
+      "title": "Lockhouse community garden, redevelopment start, and wellbeing cafe extension",
+      "reason": "Already represented by multiple manual records and a prior official round110 candidate. No additional distinct official facility milestone was retained.",
+      "matched_record": "bfs_arch_lockhouse_garden_shed_opening_2024; bfs_arch_lockhouse_redevelopment_start_2024; bcc-planning-2025-12-09-la04-2025-1454-lockhouse",
+      "source_url": "https://www.executiveoffice-ni.gov.uk/news/opening-lockhouse-community-garden-and-shed"
+    },
+    {
+      "title": "Lisburn Road Library refurbishment and extension completed",
+      "reason": "A prior tmp candidate exists, but the available checked source was a project/case-study page rather than one of the preferred official Libraries NI or departmental pages. It was not added as a new official round119 candidate.",
+      "matched_record": "tmp/subagents/belfast_arch_candidates_round103_culture.json",
+      "source_url": "https://www.workrestplay.co.uk/project/lisburn-road-library/"
+    },
+    {
+      "title": "Rathcoole Library refurbishment",
+      "reason": "Rejected for this Belfast pass because Rathcoole Library is outside Belfast City Council's Belfast pilot geography.",
+      "matched_record": "search-screened only",
+      "source_url": null
+    },
+    {
+      "title": "Botanic Station 2007 upgrades",
+      "reason": "The official Translink station-history page mentions 2007 upgrades, but the date is outside the requested 2008-01-01 to 2026-05-19 window.",
+      "matched_record": "translink-station-anniversaries-2026 Botanic Station section",
+      "source_url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026"
+    },
+    {
+      "title": "Laganside Bus Centre opened",
+      "reason": "The official Translink station-history page records opening on 1996-05-01, which is outside the requested date window.",
+      "matched_record": "translink-station-anniversaries-2026 Laganside Bus Centre section",
+      "source_url": "https://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026"
+    }
+  ]
+}
