@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-19T07:58:30Z",
+  "generated_at": "2026-05-19T08:02:25Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 260368,
-    "total_unique_events": 260368,
+    "total_events": 260477,
+    "total_unique_events": 260477,
     "duplicate_event_id_count": 0,
     "active_source_count": 329,
     "source_catalog_only_count": 238,
-    "source_year_layer_row_count": 1985,
+    "source_year_layer_row_count": 1996,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -702,9 +702,97 @@
       "city_id": "belfast",
       "source_id": "dfc-harni-belfast",
       "source_title": "Heritage at Risk in Northern Ireland Belfast records",
-      "year": 2024,
+      "year": 2008,
       "layer": "built_environment",
       "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 7
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 25
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 20
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 22
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 12
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-harni-belfast",
+      "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 5
     },
     {
       "city_id": "belfast",
@@ -15903,8 +15991,8 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 30560,
-      "unique_event_count": 30560,
+      "event_count": 30669,
+      "unique_event_count": 30669,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 90,
@@ -15912,8 +16000,8 @@
       "source_catalog_only_count": 14,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 30560,
-        "gap_events": 69440,
+        "backed_event_count": 30669,
+        "gap_events": 69331,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -15922,28 +16010,28 @@
       },
       "event_counts_by_year": {
         "2007": 13,
-        "2008": 60,
-        "2009": 185,
+        "2008": 62,
+        "2009": 195,
         "2010": 32,
-        "2011": 150,
+        "2011": 151,
         "2012": 237,
-        "2013": 137,
-        "2014": 249,
+        "2013": 139,
+        "2014": 251,
         "2015": 243,
         "2016": 2174,
-        "2017": 2195,
-        "2018": 1969,
-        "2019": 958,
+        "2017": 2202,
+        "2018": 1972,
+        "2019": 983,
         "2020": 1446,
-        "2021": 2451,
-        "2022": 3252,
-        "2023": 2782,
-        "2024": 4618,
+        "2021": 2471,
+        "2022": 3274,
+        "2023": 2794,
+        "2024": 4621,
         "2025": 5053,
         "2026": 2356
       },
       "event_counts_by_layer": {
-        "built_environment": 11241,
+        "built_environment": 11350,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -15952,7 +16040,7 @@
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 12592,
+        "documented": 12701,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -15964,7 +16052,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 6
+          "event_count": 8
         },
         {
           "year": 2008,
@@ -15974,7 +16062,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 12
+          "event_count": 22
         },
         {
           "year": 2009,
@@ -15994,7 +16082,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 14
+          "event_count": 15
         },
         {
           "year": 2011,
@@ -16014,7 +16102,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 10
+          "event_count": 12
         },
         {
           "year": 2013,
@@ -16024,7 +16112,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 7
+          "event_count": 9
         },
         {
           "year": 2014,
@@ -16064,7 +16152,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 1471
+          "event_count": 1478
         },
         {
           "year": 2017,
@@ -16084,7 +16172,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1456
+          "event_count": 1459
         },
         {
           "year": 2018,
@@ -16104,7 +16192,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 392
+          "event_count": 417
         },
         {
           "year": 2019,
@@ -16149,7 +16237,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1472
+          "event_count": 1492
         },
         {
           "year": 2021,
@@ -16174,7 +16262,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1201
+          "event_count": 1223
         },
         {
           "year": 2022,
@@ -16199,7 +16287,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1157
+          "event_count": 1169
         },
         {
           "year": 2023,
@@ -16224,7 +16312,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1320
+          "event_count": 1323
         },
         {
           "year": 2024,
@@ -16972,9 +17060,97 @@
           "city_id": "belfast",
           "source_id": "dfc-harni-belfast",
           "source_title": "Heritage at Risk in Northern Ireland Belfast records",
-          "year": 2024,
+          "year": 2008,
           "layer": "built_environment",
           "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 7
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 25
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 20
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 22
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 12
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-harni-belfast",
+          "source_title": "Heritage at Risk in Northern Ireland Belfast records",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 5
         },
         {
           "city_id": "belfast",
@@ -18218,6 +18394,38 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "dfc-harni-belfast",
+          "title": "Heritage at Risk in Northern Ireland Belfast records",
+          "provider": "Department for Communities Historic Environment Division / nidirect",
+          "reliability": "usable_with_caveats",
+          "licence": "Crown copyright / Open Government Licence v3.0 for public-sector factual information unless otherwise stated; images, logos, mapping, and third-party material excluded.",
+          "event_count": 113,
+          "years": [
+            2008,
+            2009,
+            2011,
+            2013,
+            2014,
+            2017,
+            2018,
+            2019,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "first_year": 2008,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 113
+          },
+          "confidence_counts": {
+            "documented": 113
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "bcc-planning-committee-minutes",
           "title": "Belfast City Council Planning Committee agenda and minutes",
           "provider": "Belfast City Council",
@@ -18628,27 +18836,6 @@
             2025
           ],
           "first_year": 2022,
-          "last_year": 2025,
-          "layer_counts": {
-            "built_environment": 4
-          },
-          "confidence_counts": {
-            "documented": 4
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "dfc-harni-belfast",
-          "title": "Heritage at Risk in Northern Ireland Belfast records",
-          "provider": "Department for Communities Historic Environment Division / nidirect",
-          "reliability": "usable_with_caveats",
-          "licence": "Crown copyright / Open Government Licence v3.0 for public-sector factual information unless otherwise stated; images, logos, mapping, and third-party material excluded.",
-          "event_count": 4,
-          "years": [
-            2024,
-            2025
-          ],
-          "first_year": 2024,
           "last_year": 2025,
           "layer_counts": {
             "built_environment": 4

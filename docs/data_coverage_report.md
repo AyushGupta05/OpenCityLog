@@ -1,24 +1,25 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T07:58:30Z
+Generated: 2026-05-19T08:02:25Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 30560 | 76 | 14 | 2007-2026 | transport 17118, built_environment 11241, utilities 851 | 69440 |
+| Belfast, Northern Ireland | 30669 | 76 | 14 | 2007-2026 | transport 17118, built_environment 11350, utilities 851 | 69331 |
 | London, England | 192715 | 178 | 102 | 1801-2026 | built_environment 73432, civic_services 53367, transport 37842 | 0 |
 | New York City, New York | 37093 | 75 | 122 | 1797-2026 | built_environment 21862, transport 6242, environment 6116 | 62907 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 30560. Unique event IDs: 30560. Duplicate IDs: 0.
+Backed events: 30669. Unique event IDs: 30669. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | OpenStreetMap extracts via Overpass API | 17965 | 2007-2026 | transport 17114, utilities 851 | usable_with_caveats |
 | Northern Ireland planning activity statistics | 11347 | 2016-2025 | built_environment 10000, civic_services 675, economy 672 | strong |
 | Belfast architecture and major project public pages | 928 | 2008-2026 | built_environment 928 | usable_with_caveats |
+| Heritage at Risk in Northern Ireland Belfast records | 113 | 2008-2025 | built_environment 113 | usable_with_caveats |
 | Belfast City Council Planning Committee agenda and minutes | 69 | 2015-2026 | built_environment 69 | usable_with_caveats |
 | Northern Ireland Planning Portal public register records | 21 | 2024-2026 | built_environment 21 | usable_with_caveats |
 | Belfast City Council Planning Committee agendas, minutes and supporting documents | 18 | 2020-2026 | built_environment 18 | usable_with_caveats |
@@ -27,7 +28,6 @@ Backed events: 30560. Unique event IDs: 30560. Duplicate IDs: 0.
 | Belfast City Council Planning Committee agenda item for LA04/2016/0900/F, 15 November 2016 | 13 | 2016-2023 | built_environment 13 | usable_with_caveats |
 | Planning Appeals Commission NI appeal details for 2006/A2092 | 12 | 2009-2026 | built_environment 12 | usable_with_caveats |
 | Live Major Applications not previously considered by Committee at 14.04.26 | 11 | 2023-2026 | built_environment 11 | usable_with_caveats |
-| Urban Villages | 8 | 2026-2026 | built_environment 8 | usable_with_caveats |
 
 Catalog-only sources without emitted event rows: 14.
 
