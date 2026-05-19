@@ -388,8 +388,18 @@ function buildCoverageReport(args) {
   writeJson(resolve(args.root, args.output), report);
   writeText(resolve(args.root, args.markdownOutput), renderMarkdown(report));
 
+  const coverageByCity = new Map(cities.map((city) => [city.city_id, city]));
   const nextIndex = {
     ...index,
+    cities: (index.cities || []).map((citySummary) => {
+      const coverage = coverageByCity.get(citySummary.city_id);
+      if (!coverage) return citySummary;
+      return {
+        ...citySummary,
+        event_count: coverage.event_count,
+        source_count: coverage.source_count,
+      };
+    }),
     coverage_report_path: toPosix(args.output),
     coverage_report_generated_at: args.generatedAt,
     coverage_summary: report.summary,

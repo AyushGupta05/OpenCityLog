@@ -1,0 +1,1413 @@
+{
+  "schema_version": "1.0.0",
+  "worker_scope": "round114 cross-batch audit only; no source/config/data files modified",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "inspected_inputs": [
+    "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "tmp/subagents/round113_london_gla_candidates.json",
+    "tmp/subagents/round113_nyc_dcp_candidates.json",
+    "tmp/subagents/round113_nyc_capital_candidates.json",
+    "tmp/subagents/round113_belfast_official_candidates.json"
+  ],
+  "candidate_count": 47,
+  "corpus_event_count": 3136,
+  "exact_duplicate_summary": [
+    {
+      "duplicate_key": "event_id",
+      "match_count": 0,
+      "matches": []
+    },
+    {
+      "duplicate_key": "source_url_source_record_id",
+      "match_count": 0,
+      "matches": []
+    },
+    {
+      "duplicate_key": "normalized_title_date_location",
+      "match_count": 0,
+      "matches": []
+    },
+    {
+      "duplicate_key": "canonical_planning_application_id",
+      "match_count": 0,
+      "matches": []
+    }
+  ],
+  "recommended_accept": [
+    {
+      "event_id": "lon_arch_gla_canada_water_masterplan_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Southwark to determine Canada Water masterplan",
+      "date": "2020-02-10",
+      "location_name": "Canada Water masterplan, Rotherhithe",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/public%3A//PAWS/media_id_489056//canada_water_masterplan_report.pdf",
+      "source_record_id": "GLA/4373/02; LPA 18/AP/1604; Datahub Southwark-18_AP_1604",
+      "canonical_ids": [
+        "18/AP/1604",
+        "GLA/4373/02"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_colindale_station_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Barnet to determine Colindale Underground Station redevelopment",
+      "date": "2020-02-24",
+      "location_name": "Colindale Underground Station, Colindale Avenue",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/public%3A//PAWS/media_id_489729//colindale_underground_station_report.pdf",
+      "source_record_id": "GLA/4840/02; LPA 19/0859/OUT; Datahub Barnet-23_2676_PNG used for station point",
+      "canonical_ids": [
+        "19/0859/OUT",
+        "GLA/4840/02"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_st_pancras_commercial_centre_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Camden to determine St Pancras Commercial Centre redevelopment",
+      "date": "2020-04-27",
+      "location_name": "St Pancras Commercial Centre, Pratt Street",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/5097_stage_2_report_final.pdf",
+      "source_record_id": "GLA/5097/02; LPA 2019/4201/P; Datahub Camden-2019_4201_P",
+      "canonical_ids": [
+        "2019/4201/P",
+        "GLA/5097/02"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_former_stag_brewery_callin_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA called in Former Stag Brewery planning applications",
+      "date": "2020-05-04",
+      "location_name": "Former Stag Brewery, Lower Richmond Road, Mortlake",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/4172_4172a_4172b_stag_brewery_stage_2_letter.pdf",
+      "source_record_id": "GLA/4172, 4172a & 4172b/02; LPA 18/0547/FUL, 18/0548/FUL, 18/0549/FUL",
+      "canonical_ids": [
+        "18/0547/FUL",
+        "18/0548/FUL",
+        "18/0549/FUL",
+        "GLA/4172"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_white_city_campus_north_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Hammersmith and Fulham to determine White City Campus North Buildings A and G",
+      "date": "2020-06-02",
+      "location_name": "White City Campus North, Wood Lane",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/2540hi_stage_2_report.pdf",
+      "source_record_id": "GLA/2540h/02 & 2540i/02; LPA 2018/01234/FUL & 2018/01256/VAR; Datahub Hammersmith_&_Fulham-2022_02480_NMAT used for site point",
+      "canonical_ids": [
+        "GLA/2540H/02"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_stratford_centre_morgan_house_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Newham to determine Stratford Centre and Morgan House redevelopment",
+      "date": "2020-06-15",
+      "location_name": "Stratford Centre and Morgan House",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/3059d_stage_2_report.pdf",
+      "source_record_id": "GLA/3059d/02; LPA 18/03088/FUL; Datahub Newham-18_03088_FUL",
+      "canonical_ids": [
+        "18/03088/FUL",
+        "GLA/3059D/02"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_lambeth_college_steam_centre_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Lambeth to determine Lambeth College STEAM Centre redevelopment",
+      "date": "2020-06-15",
+      "location_name": "Lambeth College Vauxhall Centre, Belmore Street",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/3722a_stage_2_report.pdf",
+      "source_record_id": "GLA/3722a/02; LPA 19/02643/OUT; Datahub Lambeth-19_02643_OUT",
+      "canonical_ids": [
+        "19/02643/OUT",
+        "GLA/3722A/02"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_gla_dagenham_film_studios_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "GLA allowed Barking and Dagenham to determine Dagenham Film Studios",
+      "date": "2020-08-10",
+      "location_name": "Dagenham Film Studios, former Sanofi Aventis, Yewtree Avenue",
+      "source_id": "gla-planning-application-decisions",
+      "source_url": "https://www.london.gov.uk/sites/default/files/6074_stage_2_report_letter.pdf",
+      "source_record_id": "GLA/2020/6074/S2; LPA 20/00314/FUL",
+      "canonical_ids": [
+        "20/00314/FUL",
+        "GLA/2020/6074"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "lon_arch_datahub_former_truman_brewery_permission_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "city_id": "london",
+      "title": "Former Truman Brewery Stour Road mixed-use redevelopment permission recorded",
+      "date": "2020-08-27",
+      "location_name": "Former Truman Brewery, Units 1-6, Stour Road",
+      "source_id": "planning-london-datahub-applications",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/LLDC-19_00185_FUL",
+      "source_record_id": "Datahub LLDC-19_00185_FUL; LPA 19/00185/FUL; GLA/5140/01",
+      "canonical_ids": [
+        "19/00185/FUL",
+        "GLA/5140/01"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_gsd_remediation_certification_459_smith_street_approval_2022",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "459 Smith Street Gowanus remediation certification was approved",
+      "date": "2022-03-02",
+      "location_name": "459 Smith Street, Gowanus",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2022K0324",
+      "source_record_id": "2022K0324; ULURP/actions: N220325ZCK; CEQR: 22DCP127K",
+      "canonical_ids": [
+        "2022K0324",
+        "22DCP127K",
+        "N220325ZCK"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_willets_point_anchor_block_development_approval_2021",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "Willets Point Anchor Block development certification was approved",
+      "date": "2021-12-17",
+      "location_name": "Willets Point Anchor Block, Queens",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2020Q0190",
+      "source_record_id": "2020Q0190; ULURP/actions: N220241ZCQ; CEQR: 22DCP087Q",
+      "canonical_ids": [
+        "2020Q0190",
+        "22DCP087Q",
+        "N220241ZCQ"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_250_water_street_approval_2021",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "250 Water Street land-use actions were approved",
+      "date": "2021-12-15",
+      "location_name": "250 Water Street, South Street Seaport",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2021M0224",
+      "source_record_id": "2021M0224; ULURP/actions: N210439ZRM; N210440ZCM; N210441ZAM; M210442LDM; N210443LDM; M130053BZSM; N210445ZAM; N210446ZCM; C210438AZSM; C210438ZSM; CEQR: 21DCP084M",
+      "canonical_ids": [
+        "2021M0224",
+        "21DCP084M",
+        "C210438AZSM",
+        "C210438ZSM",
+        "M130053BZSM",
+        "M210442LDM",
+        "N210439ZRM",
+        "N210440ZCM",
+        "N210441ZAM",
+        "N210443LDM",
+        "N210445ZAM",
+        "N210446ZCM"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_25_01_queens_plaza_north_authorization_approval_2022",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "25-01 Queens Plaza North authorization and certification were approved",
+      "date": "2022-09-07",
+      "location_name": "25-01 Queens Plaza North, Long Island City",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2021Q0433",
+      "source_record_id": "2021Q0433; ULURP/actions: N220359ZAQ; N220360ZCQ; CEQR: 22DCP110Q",
+      "canonical_ids": [
+        "2021Q0433",
+        "22DCP110Q",
+        "N220359ZAQ",
+        "N220360ZCQ"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_two_bridges_lsrd_mod_259_clinton_st_6a_approval_2022",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "Two Bridges 259 Clinton Street LSRD modification was approved",
+      "date": "2022-03-30",
+      "location_name": "259 Clinton Street / Two Bridges",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/P2016M0334",
+      "source_record_id": "P2016M0334; ULURP/actions: N180498ZCM; M180506BZSM; CEQR: 17DCP148M",
+      "canonical_ids": [
+        "17DCP148M",
+        "M180506BZSM",
+        "N180498ZCM"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_domino_site_b_approval_2025",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "Domino Site B LSGD alteration and expansion actions were approved",
+      "date": "2025-10-29",
+      "location_name": "264-350 Kent Avenue / Domino Site B, Williamsburg",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2024K0344",
+      "source_record_id": "2024K0344; ULURP/actions: N250275ZRK; C250276 ZSK; M220462ELDK; M140132CZSK; C250278ZSK; CEQR: 07DCP094K",
+      "canonical_ids": [
+        "07DCP094K",
+        "2024K0344",
+        "C250278ZSK",
+        "M140132CZSK",
+        "M220462ELDK",
+        "N250275ZRK"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_gsd_remediation_certification_175_third_street_approval_2022",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "175 Third Street Gowanus remediation certification was approved",
+      "date": "2022-04-05",
+      "location_name": "175 Third Street, Gowanus",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2022K0374",
+      "source_record_id": "2022K0374; ULURP/actions: N220363ZCK; CEQR: 22DCP154K",
+      "canonical_ids": [
+        "2022K0374",
+        "22DCP154K",
+        "N220363ZCK"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_625_fulton_street_fresh_certification_approval_2024",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "625 Fulton Street FRESH certification was approved",
+      "date": "2024-06-11",
+      "location_name": "625 Fulton Street, Downtown Brooklyn",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2022K0281",
+      "source_record_id": "2022K0281; ULURP/actions: N240062ZCK; N240138LDK; CEQR: 24DCP029K",
+      "canonical_ids": [
+        "2022K0281",
+        "24DCP029K",
+        "N240062ZCK",
+        "N240138LDK"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_723_myrtle_avenue_fresh_approval_2020",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "723 Myrtle Avenue FRESH certification was approved",
+      "date": "2020-09-17",
+      "location_name": "723 Myrtle Avenue, Bedford-Stuyvesant",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2020K0403",
+      "source_record_id": "2020K0403; ULURP/actions: 200349LDK; 200350ZCK; CEQR: 20DCP157K",
+      "canonical_ids": [
+        "200349LDK",
+        "200350ZCK",
+        "2020K0403",
+        "20DCP157K"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_495_eleventh_ave_slaughterhouse_approval_2021",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "495 Eleventh Avenue mixed-use land-use actions were approved",
+      "date": "2021-10-21",
+      "location_name": "495 Eleventh Avenue / Clinton-Hell's Kitchen",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2021M0107",
+      "source_record_id": "2021M0107; ULURP/actions: 210324ZMM; N210325ZRM; 210326PCM; CEQR: 18DME001M",
+      "canonical_ids": [
+        "2021M0107",
+        "210324ZMM",
+        "210326PCM",
+        "N210325ZRM"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_70_hudson_yards_ery_dib_office_chair_certs_approval_2026",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "70 Hudson Yards commercial development certifications were approved",
+      "date": "2026-01-06",
+      "location_name": "70 Hudson Yards / Western Rail Yard, Manhattan",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2023M0207",
+      "source_record_id": "2023M0207; ULURP/actions: 260151ZCM; 260152ZCM; 260153ZCM; 260021LDM; 260022LDM; 260023LDM; CEQR: 26DCP056M",
+      "canonical_ids": [
+        "2023M0207",
+        "260021LDM",
+        "260022LDM",
+        "260023LDM",
+        "260151ZCM",
+        "260152ZCM",
+        "260153ZCM",
+        "26DCP056M"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_1460_1480_sheridan_boulevard_waterfront_approval_2025",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "1460-1480 Sheridan Boulevard waterfront actions were approved",
+      "date": "2025-03-13",
+      "location_name": "1460-1480 Sheridan Boulevard / Bronx River waterfront",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2023X0227",
+      "source_record_id": "2023X0227; ULURP/actions: N230298ZAX; N230299ZCX; N230300ZCX; N230301LDX; N230302LDX; CEQR: 22DCP178X",
+      "canonical_ids": [
+        "2023X0227",
+        "22DCP178X",
+        "N230298ZAX",
+        "N230299ZCX",
+        "N230300ZCX",
+        "N230301LDX",
+        "N230302LDX"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_innovation_qns_rezoning_and_lsgd_approval_2022",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "Innovation QNS Rezoning and LSGD approvals were recorded",
+      "date": "2022-11-22",
+      "location_name": "Innovation QNS / Astoria blocks around 35th Avenue and 36th Avenue",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2021Q0106",
+      "source_record_id": "2021Q0106; ULURP/actions: C220370ZSQ; C220371ZSQ; C220372ZSQ; C220373ZSQ; C220374ZSQ; N220375LDQ; C220364ZMQ; C220365ZSQ; C220366ZSQ; N220367ZRQ; C220368ZSQ; C220369ZSQ; CEQR: 21DCP180Q",
+      "canonical_ids": [
+        "2021Q0106",
+        "21DCP180Q",
+        "C220364ZMQ",
+        "C220365ZSQ",
+        "C220366ZSQ",
+        "C220368ZSQ",
+        "C220369ZSQ",
+        "C220370ZSQ",
+        "C220371ZSQ",
+        "C220372ZSQ",
+        "C220373ZSQ",
+        "C220374ZSQ",
+        "N220367ZRQ",
+        "N220375LDQ"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_fordham_landing_south_approval_2024",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "Fordham Landing South waterfront certifications were approved",
+      "date": "2024-04-11",
+      "location_name": "West Fordham Road / Fordham Landing South, University Heights",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2022X0396",
+      "source_record_id": "2022X0396; ULURP/actions: N240086ZCX; N240087ZCX; N240081LDX; CEQR: 24DCP039X",
+      "canonical_ids": [
+        "2022X0396",
+        "24DCP039X",
+        "N240081LDX",
+        "N240086ZCX",
+        "N240087ZCX"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_dcp_wildflower_studios_special_permit_auth_cert_approval_2021",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "city_id": "nyc",
+      "title": "Wildflower Studios waterfront special permit actions were approved",
+      "date": "2021-10-20",
+      "location_name": "Wildflower Studios / Astoria Industrial Business Zone",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2020Q0238",
+      "source_record_id": "2020Q0238; ULURP/actions: 210461LDQ; N210457ZAQ; N210458ZAQ; C210459ZSQ; N210460ZCQ; CEQR: 21DCP196Q",
+      "canonical_ids": [
+        "2020Q0238",
+        "210461LDQ",
+        "21DCP196Q",
+        "C210459ZSQ",
+        "N210457ZAQ",
+        "N210458ZAQ",
+        "N210460ZCQ"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "\"to facilitate\" without an explicit non-construction caveat"
+      ],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_bushwick_inlet_park_motiva_passive_area_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Bushwick Inlet Park Motiva Parcel passive seating area construction was marked completed",
+      "date": "2026-04",
+      "location_name": "Bushwick Inlet Park, Motiva Parcel",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=8919",
+      "source_record_id": "trackerid 8919 / fmsid 846 P-2GPWB25",
+      "canonical_ids": [
+        "FMSID 846 P-2GPWB25",
+        "TRACKERID 8919"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_annadale_green_reconstruction_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Annadale Green reconstruction was marked completed",
+      "date": "2026-04",
+      "location_name": "Annadale Green",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=10433",
+      "source_record_id": "trackerid 10433 / fmsid 846 P-503ANNA",
+      "canonical_ids": [
+        "FMSID 846 P-503ANNA",
+        "TRACKERID 10433"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_bronx_park_east_nybg_access_ramp_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Bronx Park East Botanical Garden pedestrian access ramp was marked completed",
+      "date": "2026-03",
+      "location_name": "Bronx Park East / New York Botanical Garden access",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=10108",
+      "source_record_id": "trackerid 10108 / fmsid 846 P-1PBEAST",
+      "canonical_ids": [
+        "FMSID 846 P-1PBEAST",
+        "TRACKERID 10108"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_forest_park_overlook_roof_reconstruction_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Forest Park Overlook Building roof reconstruction was marked completed",
+      "date": "2026-03",
+      "location_name": "Forest Park Overlook Building",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=1807111",
+      "source_record_id": "trackerid 1807111 / fmsid 846 P-4OVERLO",
+      "canonical_ids": [
+        "FMSID 846 P-4OVERLO",
+        "TRACKERID 1807111"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_quisqueya_playground_restroom_reconstruction_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Quisqueya Playground public restroom building reconstruction was marked completed",
+      "date": "2026-03",
+      "location_name": "Quisqueya Playground, Highbridge Park",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=8999",
+      "source_record_id": "trackerid 8999 / fmsid 846 P-3QUISCS",
+      "canonical_ids": [
+        "FMSID 846 P-3QUISCS",
+        "TRACKERID 8999"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_lost_battalion_hall_recreation_center_reconstruction_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Lost Battalion Hall Recreation Center reconstruction was marked completed",
+      "date": "2026-03",
+      "location_name": "Lost Battalion Hall Recreation Center",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=6328",
+      "source_record_id": "trackerid 6328 / fmsid 846 P-4PDLBRC",
+      "canonical_ids": [
+        "FMSID 846 P-4PDLBRC",
+        "TRACKERID 6328"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_grant_park_construction_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Grant Park construction was marked completed",
+      "date": "2026-03",
+      "location_name": "Grant Park",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=9153",
+      "source_record_id": "trackerid 9153 / fmsid 846 NDF-GRANT",
+      "canonical_ids": [
+        "FMSID 846 NDF-GRANT",
+        "TRACKERID 9153"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_lieutenant_michael_davidson_playground_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Lt. Michael R. Davidson Playground construction was marked completed",
+      "date": "2026-03",
+      "location_name": "Lt. Michael R. Davidson Playground",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=9591",
+      "source_record_id": "trackerid 9591 / fmsid 846 P-4PHIPPS",
+      "canonical_ids": [
+        "FMSID 846 P-4PHIPPS",
+        "TRACKERID 9591"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_hamilton_fish_park_playground_reconstruction_completed_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Hamilton Fish Park playground reconstruction was marked completed",
+      "date": "2026-01",
+      "location_name": "Hamilton Fish Park",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=9856",
+      "source_record_id": "trackerid 9856 / fmsid 846 P-303HMFS",
+      "canonical_ids": [
+        "FMSID 846 P-303HMFS",
+        "TRACKERID 9856"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_arrow_recreation_center_playground_reconstruction_completed_2018",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Arrow Recreation Center playground reconstruction was marked completed",
+      "date": "2018-03",
+      "location_name": "Arrow Recreation Center",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=1004111",
+      "source_record_id": "trackerid 1004111 / fmsid 846 P-4PL15A1",
+      "canonical_ids": [
+        "FMSID 846 P-4PL15A1",
+        "TRACKERID 1004111"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_2224_cropsey_affordable_housing_completion_2026",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "2224 and 2230 Cropsey Avenue affordable-housing project was recorded complete",
+      "date": "2026-01-06",
+      "location_name": "2224 Cropsey Avenue",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=76716",
+      "source_record_id": "project_id 76716 / building_id 998857 / BIN 3429031 / BBL 3064710008",
+      "canonical_ids": [
+        "BBL 3064710008",
+        "BIN 3429031",
+        "BUILDING_ID 998857",
+        "PROJECT_ID 76716"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_1184_river_phase2_affordable_housing_completion_2025",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "1184 River Phase 2 affordable-housing project was recorded complete",
+      "date": "2025-12-12",
+      "location_name": "1160 River Avenue",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=69620",
+      "source_record_id": "project_id 69620 / building_id 989393 / BIN 2130367 / BBL 2024887501",
+      "canonical_ids": [
+        "BBL 2024887501",
+        "BIN 2130367",
+        "BUILDING_ID 989393",
+        "PROJECT_ID 69620"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_broadway_triangle_site_c_affordable_housing_completion_2025",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Broadway Triangle Site C affordable-housing project was recorded complete",
+      "date": "2025-11-18",
+      "location_name": "88 Throop Avenue",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=70725",
+      "source_record_id": "project_id 70725 / building_id 1014040 / BIN 3429305 / BBL 3022690025",
+      "canonical_ids": [
+        "BBL 3022690025",
+        "BIN 3429305",
+        "BUILDING_ID 1014040",
+        "PROJECT_ID 70725"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_2_21_malt_drive_affordable_housing_completion_2025",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "2-21 Malt Drive Apartments affordable-housing project was recorded complete",
+      "date": "2025-10-21",
+      "location_name": "Malt Drive, Long Island City",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=76318",
+      "source_record_id": "project_id 76318 / building_id 1014854 / BIN 4623739 / BBL 4000110001",
+      "canonical_ids": [
+        "BBL 4000110001",
+        "BIN 4623739",
+        "BUILDING_ID 1014854",
+        "PROJECT_ID 76318"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_wsfssh_97_w_169th_affordable_housing_completion_2025",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "WSFSSH 97 West 169th Street affordable-housing project was recorded complete",
+      "date": "2025-10-15",
+      "location_name": "97 West 169th Street",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=69565",
+      "source_record_id": "project_id 69565 / building_id 1004583",
+      "canonical_ids": [
+        "BUILDING_ID 1004583",
+        "PROJECT_ID 69565"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "nyc_arch_capitol_hall_preservation_completion_2025",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "Capitol Hall preservation project was recorded complete",
+      "date": "2025-12-19",
+      "location_name": "Capitol Hall, 166 West 87th Street",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=77669",
+      "source_record_id": "project_id 77669 / building_id 36448 / BIN 1032217 / BBL 1012170057",
+      "canonical_ids": [
+        "BBL 1012170057",
+        "BIN 1032217",
+        "BUILDING_ID 36448",
+        "PROJECT_ID 77669"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "bfs_arch_rbhsc_listing_confirmation_noted_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "city_id": "belfast",
+      "title": "Royal Belfast Hospital for Sick Children listing confirmation was reported",
+      "date": "2026-05-19",
+      "location_name": "Royal Belfast Hospital for Sick Children, 180-4 Falls Road",
+      "source_id": "bcc-hed-listing-notifications-20260519",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127785/20260519HEDListingStructures.pdf",
+      "source_record_id": "HED confirmed listing notification: Royal Belfast Hospital for Sick Children, 180-4 Falls Road",
+      "canonical_ids": [],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "bfs_arch_gardner_robb_building_listing_confirmation_noted_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "city_id": "belfast",
+      "title": "Gardner Robb Building listing confirmation was reported",
+      "date": "2026-05-19",
+      "location_name": "Gardner Robb Building, Belfast City Hospital, 51 Lisburn Road",
+      "source_id": "bcc-hed-listing-notifications-20260519",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127785/20260519HEDListingStructures.pdf",
+      "source_record_id": "HED confirmed listing notification: Gardner Robb Building, Belfast City Hospital, 51 Lisburn Road",
+      "canonical_ids": [],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "bfs_arch_mater_former_nurses_home_listing_confirmation_noted_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "city_id": "belfast",
+      "title": "Former Nurses Home at Mater Hospital listing confirmation was reported",
+      "date": "2026-05-19",
+      "location_name": "Former Nurses Home, Mater Hospital, 37 Crumlin Road",
+      "source_id": "bcc-hed-listing-notifications-20260519",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127785/20260519HEDListingStructures.pdf",
+      "source_record_id": "HED confirmed listing notification: Former Nurses Home, Mater Hospital, 37 Crumlin Road",
+      "canonical_ids": [],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "bfs_arch_51_malone_park_proposed_listing_noted_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "city_id": "belfast",
+      "title": "51 Malone Park proposed listing was reported",
+      "date": "2026-05-19",
+      "location_name": "51 Malone Park",
+      "source_id": "bcc-hed-listing-notifications-20260519",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127786/20260519HEDListingStructuresAppendix1%20-%202.pdf",
+      "source_record_id": "HB26/18/024",
+      "canonical_ids": [
+        "HB26/18/024"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    },
+    {
+      "event_id": "bfs_arch_maynard_sinclair_pavilion_phasing_variation_recommended_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "city_id": "belfast",
+      "title": "Maynard Sinclair Pavilion phasing variation was recommended for approval",
+      "date": "2026-05-19",
+      "location_name": "The Maynard Sinclair Pavilion, Stormont Estate",
+      "source_id": "bcc-planning-committee-agenda-20260519",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127805/LA0420252033F%20S54%20NICSSA%20Stormont.pdf",
+      "source_record_id": "LA04/2025/2033/F; related approval LA04/2023/2459/F",
+      "canonical_ids": [
+        "2023/2459/F",
+        "2025/2033/F",
+        "LA04/2023/2459/F",
+        "LA04/2025/2033/F"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "recommendation": "accept after source_registry entry and preserving caveats",
+      "reason": "No exact duplicate found by event_id, source_url+source_record_id, normalized title/date/location, or canonical IDs; candidate is framed as observed administrative/completion/status milestone with provenance caveats."
+    }
+  ],
+  "recommended_reject": [
+    {
+      "event_id": "nyc_arch_x487_ps_639_st_anns_school_opening_2024_candidate",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "city_id": "nyc",
+      "title": "P.S. at 639 St. Ann's Avenue opened as part of the 2024 SCA school-building cohort",
+      "date": "2024-09",
+      "location_name": "P.S. at 639 St. Ann's Avenue / building code X487",
+      "source_id": "nyc-sca-mayor-2024-school-openings",
+      "source_url": "https://www.nyc.gov/mayors-office/news/2024/09/mayor-adams-opens-24-new-school-buildings-ahead-2024-2025-school-year",
+      "source_record_id": "X487 / P.S. at 639 St. Ann's Avenue - Bronx / September 2024 opening",
+      "canonical_ids": [
+        "X487"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [
+        "individual opening inferred from cohort-level announcement"
+      ],
+      "reason": "Reject as duplicate/under-provenanced: corpus already contains nyc_arch_ps_487_lead_school_opening_2024 for the same 2024-09-04 Mayor's Office school-opening announcement and 639 St Ann's Avenue site; candidate itself says to verify against SCA/DOE row before high-confidence ingestion."
+    },
+    {
+      "event_id": "bfs_arch_transport_hub_condition_5_notice_opinion_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "city_id": "belfast",
+      "title": "DfI notice of opinion was reported for Belfast Transport Hub condition change",
+      "date": "2026-05-19",
+      "location_name": "Belfast Transport Hub / Grand Central Station",
+      "source_id": "dfi-notice-opinion-transport-hub-20260519",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127795/PC%20Notice%20of%20Opinion%20for%20SPD%202023%200991%20Belfast%20Transport%20Hub.pdf",
+      "source_record_id": "SPD/2023/0991/F; LA04/2017/1388/F Condition 5",
+      "canonical_ids": [
+        "2017/1388/F",
+        "2023/0991/F",
+        "LA04/2017/1388/F",
+        "SPD/2023/0991/F"
+      ],
+      "provenance_warnings": [
+        "license/reuse needs registry review before redistribution beyond factual metadata"
+      ],
+      "overclaiming_phrases": [],
+      "reason": "Reject for this architecture-milestone batch unless planning-condition events are explicitly in scope: this is a DfI notice/opinion about removing a train-service condition on the Transport Hub permission, not observed construction, opening, design, listing, or public-realm change."
+    }
+  ],
+  "possible_duplicate": [
+    {
+      "event_id": "lon_arch_gla_canada_water_masterplan_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://www.london.gov.uk/sites/default/files/public%3A//PAWS/media_id_489056//canada_water_masterplan_report.pdf",
+      "source_record_id": "GLA/4373/02; LPA 18/AP/1604; Datahub Southwark-18_AP_1604",
+      "normalized_title_date_location": "gla allowed southwark to determine canada water masterplan :: 2020-02-10 :: canada water masterplan rotherhithe",
+      "canonical_ids": [
+        "18/AP/1604",
+        "GLA/4373/02"
+      ],
+      "notes": [
+        "Same wider Canada Water area as existing events lon_arch_canada_water_library_opening_2011, lon_arch_porters_edge_completion_2019, lon_arch_canada_water_plot_k1_completion_2023, and lon_arch_canada_water_leisure_centre_opening_2025; exact keys do not match and this is a distinct GLA Stage 2 planning milestone."
+      ]
+    },
+    {
+      "event_id": "lon_arch_gla_colindale_station_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://www.london.gov.uk/sites/default/files/public%3A//PAWS/media_id_489729//colindale_underground_station_report.pdf",
+      "source_record_id": "GLA/4840/02; LPA 19/0859/OUT; Datahub Barnet-23_2676_PNG used for station point",
+      "normalized_title_date_location": "gla allowed barnet to determine colindale underground station redevelopment :: 2020-02-24 :: colindale underground station colindale avenue",
+      "canonical_ids": [
+        "19/0859/OUT",
+        "GLA/4840/02"
+      ],
+      "notes": [
+        "Same station as existing lon_arch_colindale_station_new_ticket_hall_opening_2025; keep separate only as 2020 GLA Stage 2 planning milestone, not opening/completion."
+      ]
+    },
+    {
+      "event_id": "lon_arch_gla_white_city_campus_north_stage2_2020",
+      "input_file": "tmp/subagents/round113_london_gla_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://www.london.gov.uk/sites/default/files/2540hi_stage_2_report.pdf",
+      "source_record_id": "GLA/2540h/02 & 2540i/02; LPA 2018/01234/FUL & 2018/01256/VAR; Datahub Hammersmith_&_Fulham-2022_02480_NMAT used for site point",
+      "normalized_title_date_location": "gla allowed hammersmith and fulham to determine white city campus north buildings a and g :: 2020-06-02 :: white city campus north wood lane",
+      "canonical_ids": [
+        "GLA/2540H/02"
+      ],
+      "notes": [
+        "Same campus family as multiple Imperial White City opening events in corpus; distinct GLA Stage 2 planning milestone if retained."
+      ]
+    },
+    {
+      "event_id": "nyc_arch_dcp_willets_point_anchor_block_development_approval_2021",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2020Q0190",
+      "source_record_id": "2020Q0190; ULURP/actions: N220241ZCQ; CEQR: 22DCP087Q",
+      "normalized_title_date_location": "willets point anchor block development certification was approved :: 2021-12-17 :: willets point anchor block queens",
+      "canonical_ids": [
+        "2020Q0190",
+        "22DCP087Q",
+        "N220241ZCQ"
+      ],
+      "notes": [
+        "Same district/project family as existing Willets Point 2024 text adoption, 2024 stadium groundbreaking, and 2025 housing-frame events; exact action IDs differ, so treat as earlier administrative certification only."
+      ]
+    },
+    {
+      "event_id": "nyc_arch_dcp_domino_site_b_approval_2025",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2024K0344",
+      "source_record_id": "2024K0344; ULURP/actions: N250275ZRK; C250276 ZSK; M220462ELDK; M140132CZSK; C250278ZSK; CEQR: 07DCP094K",
+      "normalized_title_date_location": "domino site b lsgd alteration and expansion actions were approved :: 2025-10-29 :: 264 350 kent avenue domino site b williamsburg",
+      "canonical_ids": [
+        "07DCP094K",
+        "2024K0344",
+        "C250278ZSK",
+        "M140132CZSK",
+        "M220462ELDK",
+        "N250275ZRK"
+      ],
+      "notes": [
+        "Same Domino waterfront family as existing Domino Park, One South First, Refinery, and Domino Square events; exact action IDs differ and candidate is a land-use approval."
+      ]
+    },
+    {
+      "event_id": "nyc_arch_dcp_1460_1480_sheridan_boulevard_waterfront_approval_2025",
+      "input_file": "tmp/subagents/round113_nyc_dcp_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://zap-api-production.herokuapp.com/projects/2023X0227",
+      "source_record_id": "2023X0227; ULURP/actions: N230298ZAX; N230299ZCX; N230300ZCX; N230301LDX; N230302LDX; CEQR: 22DCP178X",
+      "normalized_title_date_location": "1460 1480 sheridan boulevard waterfront actions were approved :: 2025-03-13 :: 1460 1480 sheridan boulevard bronx river waterfront",
+      "canonical_ids": [
+        "2023X0227",
+        "22DCP178X",
+        "N230298ZAX",
+        "N230299ZCX",
+        "N230300ZCX",
+        "N230301LDX",
+        "N230302LDX"
+      ],
+      "notes": [
+        "Same site as existing nyc_arch_1460_1480_sheridan_boulevard_text_adopted_2023; exact action IDs differ, so this is a later waterfront authorization/certification milestone."
+      ]
+    },
+    {
+      "event_id": "nyc_arch_1184_river_phase2_affordable_housing_completion_2025",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json?project_id=69620",
+      "source_record_id": "project_id 69620 / building_id 989393 / BIN 2130367 / BBL 2024887501",
+      "normalized_title_date_location": "1184 river phase 2 affordable housing project was recorded complete :: 2025-12-12 :: 1160 river avenue",
+      "canonical_ids": [
+        "BBL 2024887501",
+        "BIN 2130367",
+        "BUILDING_ID 989393",
+        "PROJECT_ID 69620"
+      ],
+      "notes": [
+        "Near same corridor/name as existing nyc_arch_river_avenue_supportive_housing_completion_2024, but candidate uses project_id 69620 at 1160 River Avenue and existing corpus is 1169 River Avenue; verify address/project boundary before ingest."
+      ]
+    },
+    {
+      "event_id": "nyc_arch_x487_ps_639_st_anns_school_opening_2024_candidate",
+      "input_file": "tmp/subagents/round113_nyc_capital_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://www.nyc.gov/mayors-office/news/2024/09/mayor-adams-opens-24-new-school-buildings-ahead-2024-2025-school-year",
+      "source_record_id": "X487 / P.S. at 639 St. Ann's Avenue - Bronx / September 2024 opening",
+      "normalized_title_date_location": "p s at 639 st ann s avenue opened as part of the 2024 sca school building cohort :: 2024-09 :: p s at 639 st ann s avenue building code x487",
+      "canonical_ids": [
+        "X487"
+      ],
+      "notes": [
+        "Exact same public announcement/date/location family as existing nyc_arch_ps_487_lead_school_opening_2024; recommend reject."
+      ]
+    },
+    {
+      "event_id": "bfs_arch_rbhsc_listing_confirmation_noted_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127785/20260519HEDListingStructures.pdf",
+      "source_record_id": "HED confirmed listing notification: Royal Belfast Hospital for Sick Children, 180-4 Falls Road",
+      "normalized_title_date_location": "royal belfast hospital for sick children listing confirmation was reported :: 2026-05-19 :: royal belfast hospital for sick children 180 4 falls road",
+      "canonical_ids": [],
+      "notes": [
+        "Same institution as prior RBHSC/Children's Hospital facility events, but this is a distinct 2026 heritage-status notification."
+      ]
+    },
+    {
+      "event_id": "bfs_arch_maynard_sinclair_pavilion_phasing_variation_recommended_2026",
+      "input_file": "tmp/subagents/round113_belfast_official_candidates.json",
+      "duplicate_key_used": "site/name family and canonical IDs where available; exact duplicate keys checked separately",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127805/LA0420252033F%20S54%20NICSSA%20Stormont.pdf",
+      "source_record_id": "LA04/2025/2033/F; related approval LA04/2023/2459/F",
+      "normalized_title_date_location": "maynard sinclair pavilion phasing variation was recommended for approval :: 2026-05-19 :: the maynard sinclair pavilion stormont estate",
+      "canonical_ids": [
+        "2023/2459/F",
+        "2025/2033/F",
+        "LA04/2023/2459/F",
+        "LA04/2025/2033/F"
+      ],
+      "notes": [
+        "Related approval LA04/2023/2459/F may already appear in planning corpus later; no exact match found in architecture_milestones_2008_2026.json by event_id/source_record/title-date-location."
+      ]
+    }
+  ],
+  "source_registry_needed": [
+    {
+      "source_id": "gla-planning-application-decisions",
+      "source_name": "Planning application decisions",
+      "publisher": "Greater London Authority / London City Hall",
+      "url": "https://www.london.gov.uk/programmes-strategies/planning/planning-applications-and-decisions/planning-application-decisions",
+      "api_url": null,
+      "license": "GLA website terms; factual metadata and source URLs only until reuse terms are reviewed",
+      "license_url": "https://www.london.gov.uk/about-us/governance-and-spending/privacy-policies/website-terms-and-conditions",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Use as an administrative planning milestone only. Stage 1 and Stage 2 reports can describe proposals and mayoral decisions, but do not prove that works began, completed, opened, or delivered claimed outcomes."
+    },
+    {
+      "source_id": "planning-london-datahub-applications",
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / Planning London Datahub",
+      "url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+      "api_url": null,
+      "license": "London Datastore dataset page says licence not specified; API documentation provides read-only guest access. Treat as GLA planning-system public data with terms review required before redistribution beyond factual metadata.",
+      "license_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Centroids can be approximate or erroneous; rows with placeholder coordinates outside London were rejected or replaced with clearly approximate site points. Datahub decision/status fields are administrative and may lag or differ from GLA Stage 2 process dates."
+    },
+    {
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_name": "Zoning Application Portal (ZAP) - Project Data",
+      "publisher": "New York City Department of City Planning via NYC Open Data",
+      "url": "https://data.cityofnewyork.us/d/hgx4-8ukb",
+      "api_url": null,
+      "license": "NYC Open Data / NYC.gov Terms of Use; catalog record lists no separate license",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Open-data table supplies project/status/action/date fields but not full geometry; project detail API was used for official BBL geometries and action details."
+    },
+    {
+      "source_id": "nyc-dcp-zap-api-project-detail",
+      "source_name": "NYC Planning ZAP project detail API",
+      "publisher": "New York City Department of City Planning",
+      "url": "https://zap-api-production.herokuapp.com/projects/{project_id}",
+      "api_url": null,
+      "license": "NYC.gov Terms of Use / ZAP portal factual metadata cited with attribution",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "SPA/API records may include withdrawn, superseded, certified, active, and approved actions in the same project package; candidates were limited to records with project-level approval dates and documented approved action sets where practical."
+    },
+    {
+      "source_id": "nyc-dcp-zap-portal",
+      "source_name": "NYC Planning Zoning Application Portal",
+      "publisher": "New York City Department of City Planning",
+      "url": "https://zap.planning.nyc.gov/projects",
+      "api_url": null,
+      "license": "NYC.gov Terms of Use",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Portal documents land-use and CEQR review status, not construction starts, completions, openings, design authorship, unit delivery, or causal effects."
+    },
+    {
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_name": "Capital Project Tracker",
+      "publisher": "NYC Department of Parks and Recreation via NYC Open Data",
+      "url": "https://data.cityofnewyork.us/Recreation/Capital-Project-Tracker/4hcv-tc5r",
+      "api_url": "https://data.cityofnewyork.us/resource/4hcv-tc5r.json",
+      "license": "NYC Open Data / NYC.gov terms; dataset metadata license field null",
+      "license_url": "https://opendata.cityofnewyork.us/open-data-law/",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Completion dates are month-level tracker values and may be updated after project closeout. Tracker coordinates are project/park points, not measured work footprints. Summary text often uses future-tense template language even for completed records."
+    },
+    {
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_name": "Affordable Housing Production by Project and Affordable Housing Production by Building",
+      "publisher": "NYC Department of Housing Preservation and Development via NYC Open Data",
+      "url": "https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Project/hq68-rnsi",
+      "api_url": "https://data.cityofnewyork.us/resource/hq68-rnsi.json and https://data.cityofnewyork.us/resource/hg8x-zxpr.json",
+      "license": "NYC Open Data / NYC.gov terms; dataset metadata license field null",
+      "license_url": "https://opendata.cityofnewyork.us/open-data-law/",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Completion is HPD housing-production completion, not necessarily first occupancy, ribbon cutting, final DOB certificate, or completion of every non-housing space. Multi-building projects need one candidate per representative building or a geometry collection in later ETL."
+    },
+    {
+      "source_id": "nyc-capital-projects-dashboard-fb86-vt7u",
+      "source_name": "Capital Projects Dashboard - Citywide Budget and Schedule",
+      "publisher": "Mayor's Office of Operations via NYC Open Data",
+      "url": "https://data.cityofnewyork.us/City-Government/Capital-Projects-Dashboard-Citywide-Budget-and-Schedule/fb86-vt7u",
+      "api_url": null,
+      "license": "NYC Open Data / NYC.gov terms; dataset metadata license field null",
+      "license_url": "https://opendata.cityofnewyork.us/open-data-law/",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Rows often lack precise coordinates and may repeat across reporting periods. Current phase can show completed without an actual completion date in the queried row."
+    },
+    {
+      "source_id": "nyc-sca-mayor-2024-school-openings",
+      "source_name": "Mayor Adams Opens 24 new School Buildings Ahead of 2024-2025 School Year",
+      "publisher": "NYC Mayor's Office / NYC Public Schools / NYC School Construction Authority",
+      "url": "https://www.nyc.gov/mayors-office/news/2024/09/mayor-adams-opens-24-new-school-buildings-ahead-2024-2025-school-year",
+      "api_url": null,
+      "license": "NYC.gov terms",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "The press page is an announcement, not a row-level capital project dataset. It does not list every building, coordinates, cost, contractor or final certificate details."
+    },
+    {
+      "source_id": "bcc-hed-listing-notifications-20260519",
+      "source_name": "Belfast Planning Committee: Notifications from Statutory Bodies - Listing and De-Listing of Structures",
+      "publisher": "Belfast City Council / Department for Communities Historic Environment Division",
+      "url": "https://minutes.belfastcity.gov.uk/documents/s127785/20260519HEDListingStructures.pdf",
+      "api_url": null,
+      "license": "Belfast City Council website copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / Open Government Licence where applicable. Store factual metadata and URLs only until reuse terms are reviewed.",
+      "license_url": "https://www.belfastcity.gov.uk/Copyright",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Do not treat proposed listing as confirmed listing. Do not treat a committee notification date as the statutory listing date unless the HED building record independently states that date. Listing records are heritage-status events, not physical works."
+    },
+    {
+      "source_id": "bcc-planning-committee-agenda-20260519",
+      "source_name": "Belfast Planning Committee agenda reports, 19 May 2026",
+      "publisher": "Belfast City Council",
+      "url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MId=12351",
+      "api_url": null,
+      "license": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed.",
+      "license_url": "https://www.belfastcity.gov.uk/Copyright",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "Agenda reports and officer recommendations are not final decisions unless minutes or a decision notice confirm committee action. Planning approvals are not evidence of construction, completion, occupation, or public use."
+    },
+    {
+      "source_id": "dfi-notice-opinion-transport-hub-20260519",
+      "source_name": "DfI Notice of Opinion for Belfast Transport Hub Section 54 application",
+      "publisher": "Department for Infrastructure / Belfast City Council",
+      "url": "https://minutes.belfastcity.gov.uk/documents/s127795/PC%20Notice%20of%20Opinion%20for%20SPD%202023%200991%20Belfast%20Transport%20Hub.pdf",
+      "api_url": null,
+      "license": "DfI/Crown copyright for statutory planning material where applicable; Belfast committee page copyright also applies. Store factual metadata and source URLs only pending terms review.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "reason": "Used by round113 candidates or source audit but absent from architecture_milestones_2008_2026.json sources list; add registry/source manifest entry before ingestion.",
+      "required_caveats": "This is a planning-condition/status milestone for the integrated transport interchange, not proof of construction, opening, service frequency, or passenger outcomes."
+    }
+  ],
+  "global_notes": [
+    "No exact event_id, exact source_url+source_record_id, or exact normalized title/date/location duplicate was found across the four round113 candidate batches and the manual architecture corpus.",
+    "Most accepted rows still require source_registry/source manifest work because their source_id values are new relative to the current manual architecture source list.",
+    "Preserve administrative-status language: GLA/DCP rows are planning decisions/certifications, not construction, completion, occupancy, or causal impact evidence.",
+    "Preserve tracker caveats: NYC Parks/HPD completion rows are dataset status/completion dates, not ribbon cuttings, measured footprints, first occupancy, or impact claims."
+  ]
+}

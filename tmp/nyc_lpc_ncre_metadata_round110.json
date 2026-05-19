@@ -1,0 +1,2164 @@
+﻿{
+    "id":  "ncre-qhxs",
+    "name":  "Designated and Calendared Buildings and Sites",
+    "assetType":  "dataset",
+    "attribution":  "Landmarks Preservation Commission (LPC)",
+    "averageRating":  0,
+    "category":  "Housing \u0026 Development",
+    "createdAt":  1562332989,
+    "description":  "Provides information on all items designated or under consideration for designation (i.e. calendared) by the New York City Landmarks Preservation Commission (LPC). \u003c/br\u003e\nThis dataset contains information on all items designated or under consideration for designation (i.e. calendared) by the New York City Landmarks Preservation Commission (LPC). The dataset contains records for each individual, scenic, or interior landmark, as well as properties or sites located within the boundaries of historic districts. Please note that points in this dataset represent individual buildings in addition to non-building sites (such as vacant lots or monuments) regulated by LPC. It is possible for a single property to have multiple designations (such as individual and interior designations, or individual and historic district). For this reason, it is not uncommon to see multiple points on a single tax lot and multiple records for a single property within the database. Please pay close attention to the \"MOST_CURRENT,\" \"BBL_STATUS and \"LAST_ACTION_ON_LP\" fields, which together denote the designation status of a site/property (see Attribute Definitions for more information). The geographic locations of the points in this dataset are derived primarily from the Department of City Planning\u0027s PLUTO data in combination with the Department of Information Technology \u0026 Telecommunication\u0027s building footprint information. Because this dataset is not automatically updated when changes occur in the underlying dataset, BIN numbers and tax lot information are potentially out of date. Please pay close attention to the field descriptions present in the file\u0027s metadata to understand how to use this data set.\n\u003c/p\u003e\n\u003cb\u003e\u003cem\u003eTime values are auto-generated and do not reflect the official time of any LPC action, including designation or calendaring.\u003c/em\u003e\u003c/b\u003e",
+    "diciBackend":  false,
+    "displayType":  "table",
+    "downloadCount":  4715,
+    "hideFromCatalog":  false,
+    "hideFromDataJson":  false,
+    "locked":  false,
+    "newBackend":  true,
+    "numberOfComments":  0,
+    "oid":  41320794,
+    "provenance":  "official",
+    "publicationAppendEnabled":  false,
+    "publicationDate":  1747154499,
+    "publicationGroup":  16336092,
+    "publicationStage":  "published",
+    "rowsUpdatedAt":  1770066540,
+    "rowsUpdatedBy":  "d5dp-fses",
+    "tableId":  19892243,
+    "totalTimesRated":  0,
+    "viewCount":  8674,
+    "viewLastModified":  1770066535,
+    "viewType":  "tabular",
+    "approvals":  [
+                      {
+                          "reviewedAt":  1562601010,
+                          "reviewedAutomatically":  true,
+                          "state":  "approved",
+                          "submissionId":  6883367,
+                          "submissionObject":  "public_audience_request",
+                          "submissionOutcome":  "change_audience",
+                          "submittedAt":  1562601010,
+                          "targetAudience":  "public",
+                          "workflowId":  2285,
+                          "submissionDetails":  {
+                                                    "permissionType":  "READ"
+                                                },
+                          "submissionOutcomeApplication":  {
+                                                               "failureCount":  0,
+                                                               "status":  "success"
+                                                           },
+                          "submitter":  {
+                                            "id":  "5fuc-pqz2",
+                                            "displayName":  "NYC OpenData"
+                                        }
+                      }
+                  ],
+    "clientContext":  {
+                          "clientContextVariables":  [
+
+                                                     ],
+                          "inheritedVariables":  {
+
+                                                 }
+                      },
+    "columns":  [
+                    {
+                        "id":  609969507,
+                        "name":  "the_geom",
+                        "dataTypeName":  "point",
+                        "description":  "Department of Buildings “Building Identification Number;” Note: numbers in this field are not auto-updated and so some may be outdated; BINs here are derived using building footprint GIS shapefiles from the NYC Department of Information Technology and Telecommunication (DoITT) (2007-2018); because this file contains both building and non-building landmarks (such as monuments or vacant lots), some records display “dummy” BIN numbers; the following BIN #s serve only as “dummy” BIN #s: 1000000, 2000000, 3000000, 4000000, 5000000",
+                        "fieldName":  "the_geom",
+                        "position":  1,
+                        "renderTypeName":  "point",
+                        "tableColumnId":  83705844,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.9790263524746 40.77035984541488",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "2"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.95555999070417 40.79563735192664",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "2"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.97641328756924 40.76739513833455",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "2"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-74.01374515035465 40.70401708271255",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.75264301789223 40.77243310133773",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.95481904724132 40.6618945268376",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.9447416538614 40.818047889072666",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.97079286593615 40.67826850370258",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.9412162531363 40.676979195538216",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.96715879658029 40.69084247100735",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.99354693078124 40.73793174672378",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.9731055832209 40.67875094818241",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.98003124120429 40.78828582900633",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.96983885209337 40.689240044268374",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.96303313122338 40.68796349772443",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.97962447624394 40.66490638431941",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.94676244046396 40.74704889756392",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.94867069944581 40.68249477163442",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.932059850505 40.68414389990291",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  {
+                                                                            "coordinates":  "-73.99938037100331 40.686474514551556",
+                                                                            "type":  "Point"
+                                                                        },
+                                                               "count":  "1"
+                                                           }
+                                                       ],
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969509,
+                        "name":  "BIN_NUMBER",
+                        "dataTypeName":  "text",
+                        "description":  "Concatenation of the borough code (1=MN, 2=BX,3=BK,4=QN,5=SI), the five digit tax map block and four digit tax map lot numbers (ex. Manhattan Tax Map Block 123 Lot 45 would appear as 1001230045); Note: numbers in this field are no auto-updated and so some may be outdated; because this file contains both building and non-building landmarks (such as monuments or vacant lots) as well as some landmarks not located on tax map lots (such as bridges), some records display “dummy” BBLs; the following BBLs serve only as “dummy” BBLs: 1000000000, 2000000000, 3000000000, 4000000000, 5000000000",
+                        "fieldName":  "bin_number",
+                        "position":  2,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705825,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "5169386",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1000000",
+                                                               "count":  "338"
+                                                           },
+                                                           {
+                                                               "item":  "3000000",
+                                                               "count":  "194"
+                                                           },
+                                                           {
+                                                               "item":  "4000000",
+                                                               "count":  "151"
+                                                           },
+                                                           {
+                                                               "item":  "2000000",
+                                                               "count":  "83"
+                                                           },
+                                                           {
+                                                               "item":  "5000000",
+                                                               "count":  "70"
+                                                           },
+                                                           {
+                                                               "item":  "1079184",
+                                                               "count":  "25"
+                                                           },
+                                                           {
+                                                               "item":  "1086341",
+                                                               "count":  "16"
+                                                           },
+                                                           {
+                                                               "item":  "1090373",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "1085964",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "1083846",
+                                                               "count":  "13"
+                                                           },
+                                                           {
+                                                               "item":  "1012047",
+                                                               "count":  "10"
+                                                           },
+                                                           {
+                                                               "item":  "0",
+                                                               "count":  "9"
+                                                           },
+                                                           {
+                                                               "item":  "1082750",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "1080257",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "3335864",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "4539899",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "4539835",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "1089806",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "3000090",
+                                                               "count":  "6"
+                                                           },
+                                                           {
+                                                               "item":  "1089334",
+                                                               "count":  "6"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969510,
+                        "name":  "BBL",
+                        "dataTypeName":  "text",
+                        "description":  "Borough expressed as a two character abbreviation (MN=Manhattan, BX=Bronx, BK=Brooklyn, QN=Queens, and SI=Staten Island)",
+                        "fieldName":  "bbl",
+                        "position":  3,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705843,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "5080500013",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1000010010",
+                                                               "count":  "161"
+                                                           },
+                                                           {
+                                                               "item":  "4059170001",
+                                                               "count":  "134"
+                                                           },
+                                                           {
+                                                               "item":  "1011110001",
+                                                               "count":  "106"
+                                                           },
+                                                           {
+                                                               "item":  "1000000000",
+                                                               "count":  "88"
+                                                           },
+                                                           {
+                                                               "item":  "5009550100",
+                                                               "count":  "60"
+                                                           },
+                                                           {
+                                                               "item":  "1012420009",
+                                                               "count":  "54"
+                                                           },
+                                                           {
+                                                               "item":  "1000010201",
+                                                               "count":  "47"
+                                                           },
+                                                           {
+                                                               "item":  "1000740001",
+                                                               "count":  "43"
+                                                           },
+                                                           {
+                                                               "item":  "3011170001",
+                                                               "count":  "41"
+                                                           },
+                                                           {
+                                                               "item":  "5019550225",
+                                                               "count":  "41"
+                                                           },
+                                                           {
+                                                               "item":  "3019220001",
+                                                               "count":  "27"
+                                                           },
+                                                           {
+                                                               "item":  "1006730001",
+                                                               "count":  "25"
+                                                           },
+                                                           {
+                                                               "item":  "2056500001",
+                                                               "count":  "23"
+                                                           },
+                                                           {
+                                                               "item":  "3000000000",
+                                                               "count":  "18"
+                                                           },
+                                                           {
+                                                               "item":  "1012040021",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "1004300010",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "3002580017",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "1011300001",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "3030240001",
+                                                               "count":  "12"
+                                                           },
+                                                           {
+                                                               "item":  "1011430049",
+                                                               "count":  "12"
+                                                           }
+                                                       ],
+                                               "smallest":  "1000000000",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969511,
+                        "name":  "BoroughID",
+                        "dataTypeName":  "text",
+                        "description":  "Borough expressed as a two character abbreviation (MN=Manhattan, BX=Bronx, BK=Brooklyn, QN=Queens, and SI=Staten Island)",
+                        "fieldName":  "boroughid",
+                        "position":  4,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705842,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "SI",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "BK",
+                                                               "count":  "17308"
+                                                           },
+                                                           {
+                                                               "item":  "MN",
+                                                               "count":  "15315"
+                                                           },
+                                                           {
+                                                               "item":  "QN",
+                                                               "count":  "5004"
+                                                           },
+                                                           {
+                                                               "item":  "BX",
+                                                               "count":  "1174"
+                                                           },
+                                                           {
+                                                               "item":  "SI",
+                                                               "count":  "584"
+                                                           }
+                                                       ],
+                                               "smallest":  "BK",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969512,
+                        "name":  "BLOCK",
+                        "dataTypeName":  "text",
+                        "description":  "The five digit tax map block number, without leading zeros (ex. tax lot 00123 appears as 123)",
+                        "fieldName":  "block",
+                        "position":  5,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705824,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "999",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1",
+                                                               "count":  "216"
+                                                           },
+                                                           {
+                                                               "item":  "1144",
+                                                               "count":  "148"
+                                                           },
+                                                           {
+                                                               "item":  "1244",
+                                                               "count":  "141"
+                                                           },
+                                                           {
+                                                               "item":  "5917",
+                                                               "count":  "134"
+                                                           },
+                                                           {
+                                                               "item":  "2024",
+                                                               "count":  "131"
+                                                           },
+                                                           {
+                                                               "item":  "0",
+                                                               "count":  "115"
+                                                           },
+                                                           {
+                                                               "item":  "2050",
+                                                               "count":  "112"
+                                                           },
+                                                           {
+                                                               "item":  "1143",
+                                                               "count":  "108"
+                                                           },
+                                                           {
+                                                               "item":  "1111",
+                                                               "count":  "106"
+                                                           },
+                                                           {
+                                                               "item":  "182",
+                                                               "count":  "104"
+                                                           },
+                                                           {
+                                                               "item":  "5034",
+                                                               "count":  "103"
+                                                           },
+                                                           {
+                                                               "item":  "1166",
+                                                               "count":  "102"
+                                                           },
+                                                           {
+                                                               "item":  "1242",
+                                                               "count":  "101"
+                                                           },
+                                                           {
+                                                               "item":  "1250",
+                                                               "count":  "100"
+                                                           },
+                                                           {
+                                                               "item":  "1151",
+                                                               "count":  "96"
+                                                           },
+                                                           {
+                                                               "item":  "5037",
+                                                               "count":  "95"
+                                                           },
+                                                           {
+                                                               "item":  "823",
+                                                               "count":  "95"
+                                                           },
+                                                           {
+                                                               "item":  "1249",
+                                                               "count":  "95"
+                                                           },
+                                                           {
+                                                               "item":  "1150",
+                                                               "count":  "95"
+                                                           },
+                                                           {
+                                                               "item":  "1209",
+                                                               "count":  "95"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969513,
+                        "name":  "LOT",
+                        "dataTypeName":  "text",
+                        "description":  "The four digit tax map lot number, without leading zeros (ex. Lot 0456 appears as 456)",
+                        "fieldName":  "lot",
+                        "position":  6,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705823,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "999",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1",
+                                                               "count":  "1788"
+                                                           },
+                                                           {
+                                                               "item":  "10",
+                                                               "count":  "734"
+                                                           },
+                                                           {
+                                                               "item":  "7501",
+                                                               "count":  "637"
+                                                           },
+                                                           {
+                                                               "item":  "12",
+                                                               "count":  "574"
+                                                           },
+                                                           {
+                                                               "item":  "13",
+                                                               "count":  "560"
+                                                           },
+                                                           {
+                                                               "item":  "15",
+                                                               "count":  "549"
+                                                           },
+                                                           {
+                                                               "item":  "14",
+                                                               "count":  "547"
+                                                           },
+                                                           {
+                                                               "item":  "25",
+                                                               "count":  "541"
+                                                           },
+                                                           {
+                                                               "item":  "29",
+                                                               "count":  "541"
+                                                           },
+                                                           {
+                                                               "item":  "21",
+                                                               "count":  "537"
+                                                           },
+                                                           {
+                                                               "item":  "16",
+                                                               "count":  "537"
+                                                           },
+                                                           {
+                                                               "item":  "17",
+                                                               "count":  "534"
+                                                           },
+                                                           {
+                                                               "item":  "11",
+                                                               "count":  "532"
+                                                           },
+                                                           {
+                                                               "item":  "30",
+                                                               "count":  "522"
+                                                           },
+                                                           {
+                                                               "item":  "20",
+                                                               "count":  "521"
+                                                           },
+                                                           {
+                                                               "item":  "26",
+                                                               "count":  "521"
+                                                           },
+                                                           {
+                                                               "item":  "9",
+                                                               "count":  "520"
+                                                           },
+                                                           {
+                                                               "item":  "24",
+                                                               "count":  "519"
+                                                           },
+                                                           {
+                                                               "item":  "22",
+                                                               "count":  "517"
+                                                           },
+                                                           {
+                                                               "item":  "23",
+                                                               "count":  "516"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969514,
+                        "name":  "LP_NUMBER",
+                        "dataTypeName":  "text",
+                        "description":  "Internal LPC identifier (LP-XXXXX) used to identify a single action (ex. designation), such as an Historic District or Individual Landmark; Note: Buildings within Historic Districts share a single LP number; multiple buildings designated as part of the same Individual or Scenic landmark will also share a single LP number",
+                        "fieldName":  "lp_number",
+                        "position":  7,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705841,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "LP-02696",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "LP-00489",
+                                                               "count":  "2187"
+                                                           },
+                                                           {
+                                                               "item":  "LP-01647",
+                                                               "count":  "1984"
+                                                           },
+                                                           {
+                                                               "item":  "LP-00709",
+                                                               "count":  "1948"
+                                                           },
+                                                           {
+                                                               "item":  "LP-00099",
+                                                               "count":  "1375"
+                                                           },
+                                                           {
+                                                               "item":  "LP-01051",
+                                                               "count":  "1032"
+                                                           },
+                                                           {
+                                                               "item":  "LP-01957",
+                                                               "count":  "1029"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02448",
+                                                               "count":  "1009"
+                                                           },
+                                                           {
+                                                               "item":  "LP-00320",
+                                                               "count":  "993"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02017",
+                                                               "count":  "988"
+                                                           },
+                                                           {
+                                                               "item":  "LP-01024",
+                                                               "count":  "984"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02314",
+                                                               "count":  "878"
+                                                           },
+                                                           {
+                                                               "item":  "LP-00973",
+                                                               "count":  "847"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02496",
+                                                               "count":  "845"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02514",
+                                                               "count":  "825"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02405",
+                                                               "count":  "747"
+                                                           },
+                                                           {
+                                                               "item":  "LP-01831",
+                                                               "count":  "698"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02489",
+                                                               "count":  "679"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02258",
+                                                               "count":  "660"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02361",
+                                                               "count":  "633"
+                                                           },
+                                                           {
+                                                               "item":  "LP-02443",
+                                                               "count":  "613"
+                                                           }
+                                                       ],
+                                               "smallest":  "LP-00001",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969515,
+                        "name":  "LM_NAME",
+                        "dataTypeName":  "text",
+                        "description":  "Official name of the Individual, Scenic, or Interior landmark or of the Historic District as it appears in the designation report",
+                        "fieldName":  "lm_name",
+                        "position":  8,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705840,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "Young Men\u0027s Institute Building",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "Greenwich Village Historic District",
+                                                               "count":  "2187"
+                                                           },
+                                                           {
+                                                               "item":  "Upper West Side/Central Park West Historic District",
+                                                               "count":  "1984"
+                                                           },
+                                                           {
+                                                               "item":  "Park Slope Historic District",
+                                                               "count":  "1948"
+                                                           },
+                                                           {
+                                                               "item":  "Brooklyn Heights Historic District",
+                                                               "count":  "1375"
+                                                           },
+                                                           {
+                                                               "item":  "Upper East Side Historic District",
+                                                               "count":  "1032"
+                                                           },
+                                                           {
+                                                               "item":  "Douglaston Historic District",
+                                                               "count":  "1029"
+                                                           },
+                                                           {
+                                                               "item":  "Central Ridgewood Historic District",
+                                                               "count":  "1009"
+                                                           },
+                                                           {
+                                                               "item":  "Cobble Hill Historic District",
+                                                               "count":  "993"
+                                                           },
+                                                           {
+                                                               "item":  "Clinton Hill Historic District",
+                                                               "count":  "988"
+                                                           },
+                                                           {
+                                                               "item":  "Prospect Lefferts Gardens Historic District",
+                                                               "count":  "984"
+                                                           },
+                                                           {
+                                                               "item":  "Prospect Heights Historic District",
+                                                               "count":  "878"
+                                                           },
+                                                           {
+                                                               "item":  "Fort Greene Historic District",
+                                                               "count":  "847"
+                                                           },
+                                                           {
+                                                               "item":  "Bedford Stuyvesant/Expanded Stuyvesant Heights Historic District",
+                                                               "count":  "845"
+                                                           },
+                                                           {
+                                                               "item":  "Bedford Historic District",
+                                                               "count":  "825"
+                                                           },
+                                                           {
+                                                               "item":  "Addisleigh Park Historic District",
+                                                               "count":  "747"
+                                                           },
+                                                           {
+                                                               "item":  "Jackson Heights Historic District",
+                                                               "count":  "698"
+                                                           },
+                                                           {
+                                                               "item":  "Crown Heights North Historic District III",
+                                                               "count":  "679"
+                                                           },
+                                                           {
+                                                               "item":  "Sunnyside Gardens Historic District",
+                                                               "count":  "660"
+                                                           },
+                                                           {
+                                                               "item":  "Crown Heights North Historic District II",
+                                                               "count":  "633"
+                                                           },
+                                                           {
+                                                               "item":  "Park Slope Historic District Extension",
+                                                               "count":  "613"
+                                                           }
+                                                       ],
+                                               "smallest":  "1009 Fifth Avenue House",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969516,
+                        "name":  "PLUTO_ADDR",
+                        "dataTypeName":  "text",
+                        "description":  "Primary address for the tax lot as per Department of City Planning (DCP) records; Note: Can differ from LPC DESIG_ADDRESS field (see below for definition)",
+                        "fieldName":  "pluto_addr",
+                        "position":  9,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705839,
+                        "cachedContents":  {
+                                               "non_null":  "39377",
+                                               "largest":  "YORK AVENUE",
+                                               "null":  "8",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1 GOVERNORS ISLAND",
+                                                               "count":  "166"
+                                                           },
+                                                           {
+                                                               "item":  "423 ABBOT ROAD",
+                                                               "count":  "134"
+                                                           },
+                                                           {
+                                                               "item":  "1000 5 AVENUE",
+                                                               "count":  "106"
+                                                           },
+                                                           {
+                                                               "item":  "[NO ADDRESS]",
+                                                               "count":  "85"
+                                                           },
+                                                           {
+                                                               "item":  "460 BRIELLE AVENUE",
+                                                               "count":  "64"
+                                                           },
+                                                           {
+                                                               "item":  "259 WEST 95 STREET",
+                                                               "count":  "54"
+                                                           },
+                                                           {
+                                                               "item":  "411 ROCKLAND AVENUE",
+                                                               "count":  "52"
+                                                           },
+                                                           {
+                                                               "item":  "1 ELLIS ISLAND",
+                                                               "count":  "47"
+                                                           },
+                                                           {
+                                                               "item":  "89 SOUTH STREET",
+                                                               "count":  "43"
+                                                           },
+                                                           {
+                                                               "item":  "95 PROSPECT PARK WEST",
+                                                               "count":  "41"
+                                                           },
+                                                           {
+                                                               "item":  "225 STEUBEN STREET",
+                                                               "count":  "27"
+                                                           },
+                                                           {
+                                                               "item":  "261 11 AVENUE",
+                                                               "count":  "25"
+                                                           },
+                                                           {
+                                                               "item":  "895 PELHAM SHORE ROAD",
+                                                               "count":  "23"
+                                                           },
+                                                           {
+                                                               "item":  "PARK AVENUE",
+                                                               "count":  "21"
+                                                           },
+                                                           {
+                                                               "item":  "23 WEST 90 STREET",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "112 EAST 3 STREET",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "10 COLUMBIA PLACE",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "200 CENTRAL PARK WEST",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "142 LEONARD STREET",
+                                                               "count":  "12"
+                                                           },
+                                                           {
+                                                               "item":  "226 HUMBOLDT STREET",
+                                                               "count":  "12"
+                                                           }
+                                                       ],
+                                               "smallest":  "0000 176 STREET",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969517,
+                        "name":  "DESIG_ADDR",
+                        "dataTypeName":  "text",
+                        "description":  "Property address at the time of designation as printed in LPC public hearing and public meeting records and on the LPC designation report for the property; Note: Can differ from Department of City Planning (DCP) records; where LPC has not determined if another property address exists, the address provided by DCP on the PLUTO Tax Lot GIS shapefile is used",
+                        "fieldName":  "desig_addr",
+                        "position":  10,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705838,
+                        "cachedContents":  {
+                                               "non_null":  "39383",
+                                               "largest":  "YORK STREET",
+                                               "null":  "2",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1 GOVERNORS ISLAND",
+                                                               "count":  "164"
+                                                           },
+                                                           {
+                                                               "item":  "318 CROSS ISLAND PARKWAY",
+                                                               "count":  "134"
+                                                           },
+                                                           {
+                                                               "item":  "CENTRAL PARK",
+                                                               "count":  "99"
+                                                           },
+                                                           {
+                                                               "item":  "460 BRIELLE AVENUE",
+                                                               "count":  "64"
+                                                           },
+                                                           {
+                                                               "item":  "259 WEST 95 STREET",
+                                                               "count":  "54"
+                                                           },
+                                                           {
+                                                               "item":  "415 ROCKLAND AVENUE",
+                                                               "count":  "51"
+                                                           },
+                                                           {
+                                                               "item":  "1 ELLIS ISLAND",
+                                                               "count":  "47"
+                                                           },
+                                                           {
+                                                               "item":  "229-247 GRAHAM AVENUE",
+                                                               "count":  "40"
+                                                           },
+                                                           {
+                                                               "item":  "225 STEUBEN STREET",
+                                                               "count":  "27"
+                                                           },
+                                                           {
+                                                               "item":  "261 11 AVENUE",
+                                                               "count":  "25"
+                                                           },
+                                                           {
+                                                               "item":  "RIVERSIDE PARK AND RIVERSIDE DRIVE",
+                                                               "count":  "24"
+                                                           },
+                                                           {
+                                                               "item":  "PROSPECT PARK",
+                                                               "count":  "21"
+                                                           },
+                                                           {
+                                                               "item":  "95 PROSPECT PARK WEST",
+                                                               "count":  "19"
+                                                           },
+                                                           {
+                                                               "item":  "23 WEST 90 STREET",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "895 PELHAM SHORE ROAD",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "209 FLAGG PLACE",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "10 COLUMBIA PLACE",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "112 EAST 3 STREET",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "200 CENTRAL PARK WEST",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "WEST 37TH STREET TO CORBIN PLACE",
+                                                               "count":  "15"
+                                                           }
+                                                       ],
+                                               "smallest":  "0000 60 LANE",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969518,
+                        "name":  "PUBLIC_HEA",
+                        "dataTypeName":  "text",
+                        "description":  "Date of public hearing(s); Note: It is possible for one item to have multiple public hearing dates; this field will be blank for items which have not yet had a public hearing",
+                        "fieldName":  "public_hea",
+                        "position":  11,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705837,
+                        "cachedContents":  {
+                                               "non_null":  "39381",
+                                               "largest":  "9/9/1980",
+                                               "null":  "4",
+                                               "top":  [
+                                                           {
+                                                               "item":  "12/21/1966; 2/7/1967; 2/28/1967",
+                                                               "count":  "2187"
+                                                           },
+                                                           {
+                                                               "item":  "1/12/1988",
+                                                               "count":  "1984"
+                                                           },
+                                                           {
+                                                               "item":  "5/26/1970; 6/23/1970",
+                                                               "count":  "1948"
+                                                           },
+                                                           {
+                                                               "item":  "11/17/1965",
+                                                               "count":  "1375"
+                                                           },
+                                                           {
+                                                               "item":  "3/22/2011",
+                                                               "count":  "1206"
+                                                           },
+                                                           {
+                                                               "item":  "10/27/2009",
+                                                               "count":  "1099"
+                                                           },
+                                                           {
+                                                               "item":  "6/19/1979",
+                                                               "count":  "1054"
+                                                           },
+                                                           {
+                                                               "item":  "1/14/1997",
+                                                               "count":  "1031"
+                                                           },
+                                                           {
+                                                               "item":  "10/9/1979",
+                                                               "count":  "1027"
+                                                           },
+                                                           {
+                                                               "item":  "7/12/1966; 9/13/1966",
+                                                               "count":  "993"
+                                                           },
+                                                           {
+                                                               "item":  "11/14/1978",
+                                                               "count":  "986"
+                                                           },
+                                                           {
+                                                               "item":  "10/28/2008",
+                                                               "count":  "884"
+                                                           },
+                                                           {
+                                                               "item":  "9/20/1977",
+                                                               "count":  "850"
+                                                           },
+                                                           {
+                                                               "item":  "9/21/1993; 8/2/2011",
+                                                               "count":  "845"
+                                                           },
+                                                           {
+                                                               "item":  "1/15/2013",
+                                                               "count":  "825"
+                                                           },
+                                                           {
+                                                               "item":  "3/23/2010",
+                                                               "count":  "751"
+                                                           },
+                                                           {
+                                                               "item":  "1/17/2012",
+                                                               "count":  "709"
+                                                           },
+                                                           {
+                                                               "item":  "12/4/1990",
+                                                               "count":  "698"
+                                                           },
+                                                           {
+                                                               "item":  "10/26/2010",
+                                                               "count":  "691"
+                                                           },
+                                                           {
+                                                               "item":  "4/17/2007",
+                                                               "count":  "660"
+                                                           }
+                                                       ],
+                                               "smallest":  "01/09/1979; 03/13/1979",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969519,
+                        "name":  "LM_TYPE",
+                        "dataTypeName":  "text",
+                        "description":  "Type of landmark: Individual, Scenic, Interior, or Historic District; Note: Properties can have multiple designations, e.g. Individual and Interior, or Historic District and Individual; each designation type will have its own entry (i.e. record) in the database",
+                        "fieldName":  "lm_type",
+                        "position":  12,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705836,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "Scenic Landmark",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "Historic District",
+                                                               "count":  "36932"
+                                                           },
+                                                           {
+                                                               "item":  "Individual Landmark",
+                                                               "count":  "2088"
+                                                           },
+                                                           {
+                                                               "item":  "Scenic Landmark",
+                                                               "count":  "212"
+                                                           },
+                                                           {
+                                                               "item":  "Interior Landmark",
+                                                               "count":  "153"
+                                                           }
+                                                       ],
+                                               "smallest":  "Historic District",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969520,
+                        "name":  "HIST_DISTR",
+                        "dataTypeName":  "text",
+                        "description":  "This field notes whether an item is in an historic district and is intended to identify items designated both as individual, interior, or scenic landmarks that are also in historic districts; Note: At this time, this field is not comprehensively maintained and can be derived from the database by different means (eventually this field can be removed)",
+                        "fieldName":  "hist_distr",
+                        "position":  13,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705835,
+                        "cachedContents":  {
+                                               "non_null":  "39324",
+                                               "largest":  "Yes, Willoughby-Hart",
+                                               "null":  "61",
+                                               "top":  [
+                                                           {
+                                                               "item":  "No",
+                                                               "count":  "3110"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Greenwich Village",
+                                                               "count":  "2191"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Park Slope",
+                                                               "count":  "1950"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Upper West Side/Central Park West",
+                                                               "count":  "1912"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Brooklyn Heights",
+                                                               "count":  "1375"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Upper East Side",
+                                                               "count":  "1058"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Douglaston",
+                                                               "count":  "1031"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Central Ridgewood Historic District",
+                                                               "count":  "1009"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Cobble Hill",
+                                                               "count":  "993"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Clinton Hill",
+                                                               "count":  "990"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Prospect Lefferts Gardens",
+                                                               "count":  "984"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Prospect Heights",
+                                                               "count":  "879"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Fort Greene",
+                                                               "count":  "847"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Bedford Stuyvesant/Expanded Stuyvesant Heights",
+                                                               "count":  "845"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Addisleigh Park",
+                                                               "count":  "747"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Jackson Heights",
+                                                               "count":  "698"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Crown Heights North III",
+                                                               "count":  "679"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Sunnyside Gardens",
+                                                               "count":  "660"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Crown Heights North II",
+                                                               "count":  "633"
+                                                           },
+                                                           {
+                                                               "item":  "Yes, Park Slope Historic District Extension",
+                                                               "count":  "612"
+                                                           }
+                                                       ],
+                                               "smallest":  "Historic District",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969521,
+                        "name":  "OTHER_HEAR",
+                        "dataTypeName":  "text",
+                        "description":  "Notes other relevant public hearing dates for the item (that are known at this time; not comprehensive)",
+                        "fieldName":  "other_hear",
+                        "position":  14,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705834,
+                        "cachedContents":  {
+                                               "non_null":  "94",
+                                               "largest":  "\u003cNull\u003e",
+                                               "null":  "39291",
+                                               "top":  [
+                                                           {
+                                                               "item":  "2/10/2004",
+                                                               "count":  "40"
+                                                           },
+                                                           {
+                                                               "item":  "2/23/2016",
+                                                               "count":  "32"
+                                                           },
+                                                           {
+                                                               "item":  "7/12/1984",
+                                                               "count":  "11"
+                                                           },
+                                                           {
+                                                               "item":  "7/26/2005",
+                                                               "count":  "4"
+                                                           },
+                                                           {
+                                                               "item":  "3/23/2010",
+                                                               "count":  "2"
+                                                           },
+                                                           {
+                                                               "item":  "2/23/2106",
+                                                               "count":  "2"
+                                                           },
+                                                           {
+                                                               "item":  "\u003cNull\u003e",
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  "5/14/1996",
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  "6/19/2012",
+                                                               "count":  "1"
+                                                           }
+                                                       ],
+                                               "smallest":  "2/10/2004",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969522,
+                        "name":  "BOUNDARIES",
+                        "dataTypeName":  "text",
+                        "description":  "Whether the landmark site is the entire tax lot (“Block \u0026 Lot”) or part of the lot (“Partial lot” or “See designation report” or “See public hearing record”)",
+                        "fieldName":  "boundaries",
+                        "position":  15,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705833,
+                        "cachedContents":  {
+                                               "non_null":  "39384",
+                                               "largest":  "See research file",
+                                               "null":  "1",
+                                               "top":  [
+                                                           {
+                                                               "item":  "Block \u0026 Lot",
+                                                               "count":  "37847"
+                                                           },
+                                                           {
+                                                               "item":  "See designation report",
+                                                               "count":  "1017"
+                                                           },
+                                                           {
+                                                               "item":  "Partial lot",
+                                                               "count":  "462"
+                                                           },
+                                                           {
+                                                               "item":  "Partial Lot",
+                                                               "count":  "17"
+                                                           },
+                                                           {
+                                                               "item":  "Irregular",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "See public hearing record",
+                                                               "count":  "11"
+                                                           },
+                                                           {
+                                                               "item":  "Lot in Part",
+                                                               "count":  "10"
+                                                           },
+                                                           {
+                                                               "item":  "Building Footprints",
+                                                               "count":  "2"
+                                                           },
+                                                           {
+                                                               "item":  "Lot in part",
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  "See publich hearing record",
+                                                               "count":  "1"
+                                                           },
+                                                           {
+                                                               "item":  "See research file",
+                                                               "count":  "1"
+                                                           }
+                                                       ],
+                                               "smallest":  "Block \u0026 Lot",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969523,
+                        "name":  "MOST_CURRE",
+                        "dataTypeName":  "number",
+                        "description":  "Binary field (0,1) indicates whether a record in the database is presently active/current (0=Not active/current; 1=Active/current)",
+                        "fieldName":  "most_curre",
+                        "position":  16,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  128934722,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "1",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1",
+                                                               "count":  "39385"
+                                                           }
+                                                       ],
+                                               "smallest":  "1",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969524,
+                        "name":  "STATUS",
+                        "dataTypeName":  "text",
+                        "description":  "Present designation status of the specific BIN/building (**NOT** the status of/last action on the LP number); all items are either NOMINATED, CALENDARED, or DESIGNATED, or NOT DESIGNATED",
+                        "fieldName":  "status",
+                        "position":  17,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705831,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "DESIGNATED",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "DESIGNATED",
+                                                               "count":  "39382"
+                                                           },
+                                                           {
+                                                               "item":  "CALENDARED",
+                                                               "count":  "3"
+                                                           }
+                                                       ],
+                                               "smallest":  "CALENDARED",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969525,
+                        "name":  "LAST_ACTIO",
+                        "dataTypeName":  "text",
+                        "description":  "Last action taken as part of the LP number (i.e. the LP action), specific to the BBL; Note: The last action on a specific BBL may differ from the greater action on the LP number if, for example, an item was left out of the boundaries of a larger historic district. [Note: See below for list of acceptable actions]",
+                        "fieldName":  "last_actio",
+                        "position":  18,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705830,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "DESIGNATED (AMENDMENT/MODIFICATION ACCEPTED)",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "DESIGNATED",
+                                                               "count":  "39354"
+                                                           },
+                                                           {
+                                                               "item":  "DESIGNATED (AMENDMENT/MODIFICATION ACCEPTED)",
+                                                               "count":  "28"
+                                                           },
+                                                           {
+                                                               "item":  "CALENDARED",
+                                                               "count":  "3"
+                                                           }
+                                                       ],
+                                               "smallest":  "CALENDARED",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969526,
+                        "name":  "COUNT_BLDG",
+                        "dataTypeName":  "number",
+                        "description":  "Binary field (0,1) indicating whether a record should be counted as a building; Note: This field is only valid for designated items; note, this field should never be used alone as the basis of public-facing queries",
+                        "fieldName":  "count_bldg",
+                        "position":  19,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  128934721,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "1",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1",
+                                                               "count":  "34780"
+                                                           },
+                                                           {
+                                                               "item":  "0",
+                                                               "count":  "4605"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969527,
+                        "name":  "NON_BLDG",
+                        "dataTypeName":  "text",
+                        "description":  "Text field indicating whether a record is a non-building site and describing the entity; Note: This field contains text markers that are an integral part of the complex queries that comprise the official LPC count of “buildings and sites”",
+                        "fieldName":  "non_bldg",
+                        "position":  20,
+                        "renderTypeName":  "text",
+                        "tableColumnId":  83705828,
+                        "cachedContents":  {
+                                               "non_null":  "1826",
+                                               "largest":  "Viaduct, already counted",
+                                               "null":  "37559",
+                                               "top":  [
+                                                           {
+                                                               "item":  "0",
+                                                               "count":  "453"
+                                                           },
+                                                           {
+                                                               "item":  "Already counted",
+                                                               "count":  "299"
+                                                           },
+                                                           {
+                                                               "item":  "\u003cNull\u003e",
+                                                               "count":  "213"
+                                                           },
+                                                           {
+                                                               "item":  "Interior, exterior already counted",
+                                                               "count":  "104"
+                                                           },
+                                                           {
+                                                               "item":  "Already counted as part of LP-0861",
+                                                               "count":  "99"
+                                                           },
+                                                           {
+                                                               "item":  "Additional Section",
+                                                               "count":  "86"
+                                                           },
+                                                           {
+                                                               "item":  "Lamppost",
+                                                               "count":  "67"
+                                                           },
+                                                           {
+                                                               "item":  "Misc",
+                                                               "count":  "47"
+                                                           },
+                                                           {
+                                                               "item":  "Park / Playground",
+                                                               "count":  "34"
+                                                           },
+                                                           {
+                                                               "item":  "Bridge / Overpass - do not count",
+                                                               "count":  "31"
+                                                           },
+                                                           {
+                                                               "item":  "Street median",
+                                                               "count":  "27"
+                                                           },
+                                                           {
+                                                               "item":  "Bridge lot",
+                                                               "count":  "18"
+                                                           },
+                                                           {
+                                                               "item":  "Monument / Sculpture - do not count",
+                                                               "count":  "16"
+                                                           },
+                                                           {
+                                                               "item":  "Subway / Railway",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "Swimming pool, lot already counted",
+                                                               "count":  "15"
+                                                           },
+                                                           {
+                                                               "item":  "Secondary building, already counted",
+                                                               "count":  "14"
+                                                           },
+                                                           {
+                                                               "item":  "Recreation space and tidal wetlands",
+                                                               "count":  "14"
+                                                           },
+                                                           {
+                                                               "item":  "Graveyard / Cemetery",
+                                                               "count":  "13"
+                                                           },
+                                                           {
+                                                               "item":  "Corridor - do not count",
+                                                               "count":  "12"
+                                                           },
+                                                           {
+                                                               "item":  "Additional section, already counted",
+                                                               "count":  "12"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969528,
+                        "name":  "VACANT_LOT",
+                        "dataTypeName":  "number",
+                        "description":  "Binary field (0,1) indicating whether a record is a vacant lot; Note: This field is not consistently maintained, meaning items vacant at time of designation but later built upon are not consistently updated (therefore, should never become the basis of its own public-facing query; use PLUTO instead)",
+                        "fieldName":  "vacant_lot",
+                        "position":  21,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  128934720,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "1",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "0",
+                                                               "count":  "38907"
+                                                           },
+                                                           {
+                                                               "item":  "1",
+                                                               "count":  "478"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969529,
+                        "name":  "SECND_BLDG",
+                        "dataTypeName":  "number",
+                        "description":  "Binary field (0,1) indicating whether a record could be considered a secondary building (ex. Garage, shed, etc.); Note: Secondary buildings are counted as part of LPC’s definition of “buildings and sites” and the field is not consistently updated (therefore, should never become the basis of its own public-facing query)",
+                        "fieldName":  "secnd_bldg",
+                        "position":  22,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  128934719,
+                        "cachedContents":  {
+                                               "non_null":  "39385",
+                                               "largest":  "1",
+                                               "null":  "0",
+                                               "top":  [
+                                                           {
+                                                               "item":  "0",
+                                                               "count":  "36806"
+                                                           },
+                                                           {
+                                                               "item":  "1",
+                                                               "count":  "2579"
+                                                           }
+                                                       ],
+                                               "smallest":  "0",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969530,
+                        "name":  "DESDATE",
+                        "dataTypeName":  "calendar_date",
+                        "description":  "Date of designation; Note: This field will be blank for items not designated",
+                        "fieldName":  "desdate",
+                        "position":  23,
+                        "renderTypeName":  "calendar_date",
+                        "tableColumnId":  83705822,
+                        "cachedContents":  {
+                                               "non_null":  "39382",
+                                               "largest":  "2025-11-25T00:00:00.000",
+                                               "null":  "3",
+                                               "top":  [
+                                                           {
+                                                               "item":  "1969-04-29T00:00:00.000",
+                                                               "count":  "2187"
+                                                           },
+                                                           {
+                                                               "item":  "1990-04-24T00:00:00.000",
+                                                               "count":  "2018"
+                                                           },
+                                                           {
+                                                               "item":  "1973-07-17T00:00:00.000",
+                                                               "count":  "1948"
+                                                           },
+                                                           {
+                                                               "item":  "1965-11-23T00:00:00.000",
+                                                               "count":  "1381"
+                                                           },
+                                                           {
+                                                               "item":  "1981-05-19T00:00:00.000",
+                                                               "count":  "1040"
+                                                           },
+                                                           {
+                                                               "item":  "1997-06-24T00:00:00.000",
+                                                               "count":  "1035"
+                                                           },
+                                                           {
+                                                               "item":  "2014-12-09T00:00:00.000",
+                                                               "count":  "1009"
+                                                           },
+                                                           {
+                                                               "item":  "1969-12-30T00:00:00.000",
+                                                               "count":  "993"
+                                                           },
+                                                           {
+                                                               "item":  "1981-11-10T00:00:00.000",
+                                                               "count":  "988"
+                                                           },
+                                                           {
+                                                               "item":  "1979-10-09T00:00:00.000",
+                                                               "count":  "984"
+                                                           },
+                                                           {
+                                                               "item":  "1978-09-26T00:00:00.000",
+                                                               "count":  "947"
+                                                           },
+                                                           {
+                                                               "item":  "2009-06-23T00:00:00.000",
+                                                               "count":  "881"
+                                                           },
+                                                           {
+                                                               "item":  "2013-04-16T00:00:00.000",
+                                                               "count":  "845"
+                                                           },
+                                                           {
+                                                               "item":  "2015-12-08T00:00:00.000",
+                                                               "count":  "825"
+                                                           },
+                                                           {
+                                                               "item":  "2011-02-01T00:00:00.000",
+                                                               "count":  "751"
+                                                           },
+                                                           {
+                                                               "item":  "1993-10-19T00:00:00.000",
+                                                               "count":  "698"
+                                                           },
+                                                           {
+                                                               "item":  "2015-03-24T00:00:00.000",
+                                                               "count":  "679"
+                                                           },
+                                                           {
+                                                               "item":  "2007-06-26T00:00:00.000",
+                                                               "count":  "667"
+                                                           },
+                                                           {
+                                                               "item":  "2011-06-28T00:00:00.000",
+                                                               "count":  "635"
+                                                           },
+                                                           {
+                                                               "item":  "2012-04-17T00:00:00.000",
+                                                               "count":  "614"
+                                                           }
+                                                       ],
+                                               "smallest":  "1965-10-14T00:00:00.000",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+                                       "view":  "date"
+                                   }
+                    },
+                    {
+                        "id":  609969531,
+                        "name":  "CALDATE",
+                        "dataTypeName":  "calendar_date",
+                        "description":  "Date of calendaring; Note: Not all items have a date of calendaring (date of calendaring was not tracked until the 1990s)",
+                        "fieldName":  "caldate",
+                        "position":  24,
+                        "renderTypeName":  "calendar_date",
+                        "tableColumnId":  83705821,
+                        "cachedContents":  {
+                                               "non_null":  "16034",
+                                               "largest":  "2025-12-02T00:00:00.000",
+                                               "null":  "23351",
+                                               "top":  [
+                                                           {
+                                                               "item":  "2009-06-23T00:00:00.000",
+                                                               "count":  "1101"
+                                                           },
+                                                           {
+                                                               "item":  "2011-06-28T00:00:00.000",
+                                                               "count":  "1038"
+                                                           },
+                                                           {
+                                                               "item":  "2010-10-26T00:00:00.000",
+                                                               "count":  "1031"
+                                                           },
+                                                           {
+                                                               "item":  "1996-11-19T00:00:00.000",
+                                                               "count":  "1030"
+                                                           },
+                                                           {
+                                                               "item":  "2008-07-15T00:00:00.000",
+                                                               "count":  "878"
+                                                           },
+                                                           {
+                                                               "item":  "2012-05-15T00:00:00.000",
+                                                               "count":  "827"
+                                                           },
+                                                           {
+                                                               "item":  "2010-11-16T00:00:00.000",
+                                                               "count":  "759"
+                                                           },
+                                                           {
+                                                               "item":  "2010-02-09T00:00:00.000",
+                                                               "count":  "749"
+                                                           },
+                                                           {
+                                                               "item":  "2007-03-06T00:00:00.000",
+                                                               "count":  "660"
+                                                           },
+                                                           {
+                                                               "item":  "2010-08-10T00:00:00.000",
+                                                               "count":  "613"
+                                                           },
+                                                           {
+                                                               "item":  "2019-01-22T00:00:00.000",
+                                                               "count":  "543"
+                                                           },
+                                                           {
+                                                               "item":  "2006-06-20T00:00:00.000",
+                                                               "count":  "464"
+                                                           },
+                                                           {
+                                                               "item":  "2006-09-19T00:00:00.000",
+                                                               "count":  "464"
+                                                           },
+                                                           {
+                                                               "item":  "2025-06-17T00:00:00.000",
+                                                               "count":  "427"
+                                                           },
+                                                           {
+                                                               "item":  "2003-10-14T00:00:00.000",
+                                                               "count":  "323"
+                                                           },
+                                                           {
+                                                               "item":  "2013-09-17T00:00:00.000",
+                                                               "count":  "302"
+                                                           },
+                                                           {
+                                                               "item":  "2017-10-31T00:00:00.000",
+                                                               "count":  "291"
+                                                           },
+                                                           {
+                                                               "item":  "2015-04-14T00:00:00.000",
+                                                               "count":  "284"
+                                                           },
+                                                           {
+                                                               "item":  "2021-02-02T00:00:00.000",
+                                                               "count":  "276"
+                                                           },
+                                                           {
+                                                               "item":  "2013-05-21T00:00:00.000",
+                                                               "count":  "248"
+                                                           }
+                                                       ],
+                                               "smallest":  "1996-11-19T00:00:00.000",
+                                               "count":  "39385",
+                                               "cardinality":  "39385"
+                                           },
+                        "format":  {
+                                       "view":  "date"
+                                   }
+                    },
+                    {
+                        "id":  609969532,
+                        "name":  "Police Precincts",
+                        "dataTypeName":  "number",
+                        "description":  "",
+                        "fieldName":  ":@computed_region_sbqj_enih",
+                        "position":  29,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  83705849,
+                        "computationStrategy":  {
+                                                    "source_columns":  [
+                                                                           "the_geom"
+                                                                       ],
+                                                    "type":  "georegion_match_on_point",
+                                                    "parameters":  {
+                                                                       "region":  "_sbqj-enih",
+                                                                       "primary_key":  "_feature_id"
+                                                                   }
+                                                },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969533,
+                        "name":  "Zip Codes",
+                        "dataTypeName":  "number",
+                        "description":  "",
+                        "fieldName":  ":@computed_region_efsh_h5xi",
+                        "position":  30,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  83705845,
+                        "computationStrategy":  {
+                                                    "source_columns":  [
+                                                                           "the_geom"
+                                                                       ],
+                                                    "type":  "georegion_match_on_point",
+                                                    "parameters":  {
+                                                                       "region":  "_efsh-h5xi",
+                                                                       "primary_key":  "_feature_id"
+                                                                   }
+                                                },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969534,
+                        "name":  "Community Districts",
+                        "dataTypeName":  "number",
+                        "description":  "",
+                        "fieldName":  ":@computed_region_f5dn_yrer",
+                        "position":  31,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  83705846,
+                        "computationStrategy":  {
+                                                    "source_columns":  [
+                                                                           "the_geom"
+                                                                       ],
+                                                    "type":  "georegion_match_on_point",
+                                                    "parameters":  {
+                                                                       "region":  "_f5dn-yrer",
+                                                                       "primary_key":  "_feature_id"
+                                                                   }
+                                                },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969535,
+                        "name":  "Borough Boundaries",
+                        "dataTypeName":  "number",
+                        "description":  "",
+                        "fieldName":  ":@computed_region_yeji_bk3q",
+                        "position":  32,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  83705847,
+                        "computationStrategy":  {
+                                                    "source_columns":  [
+                                                                           "the_geom"
+                                                                       ],
+                                                    "type":  "georegion_match_on_point",
+                                                    "parameters":  {
+                                                                       "region":  "_yeji-bk3q",
+                                                                       "primary_key":  "_feature_id"
+                                                                   }
+                                                },
+                        "format":  {
+
+                                   }
+                    },
+                    {
+                        "id":  609969536,
+                        "name":  "City Council Districts",
+                        "dataTypeName":  "number",
+                        "description":  "",
+                        "fieldName":  ":@computed_region_92fq_4b7q",
+                        "position":  33,
+                        "renderTypeName":  "number",
+                        "tableColumnId":  83705848,
+                        "computationStrategy":  {
+                                                    "source_columns":  [
+                                                                           "the_geom"
+                                                                       ],
+                                                    "type":  "georegion_match_on_point",
+                                                    "parameters":  {
+                                                                       "region":  "_92fq-4b7q",
+                                                                       "primary_key":  "_feature_id"
+                                                                   }
+                                                },
+                        "format":  {
+
+                                   }
+                    }
+                ],
+    "grants":  [
+                   {
+                       "inherited":  false,
+                       "type":  "viewer",
+                       "flags":  [
+                                     "public"
+                                 ]
+                   }
+               ],
+    "metadata":  {
+                     "attachments":  [
+                                         {
+                                             "filename":  "Designated and Calendared Buildings and Sites_Data_Dictionary.xlsx",
+                                             "assetId":  "1c1a4171-1885-4ed6-b281-7ebd4f125c32",
+                                             "name":  "Designated and Calendared Buildings and Sites_Data_Dictionary.xlsx"
+                                         },
+                                         {
+                                             "filename":  "Designated_Calendared_Sites.zip",
+                                             "assetId":  "984d28dc-503a-420a-ab01-91cb6e62f7b9",
+                                             "name":  "Designated_Calendared_Sites.zip"
+                                         }
+                                     ],
+                     "custom_fields":  {
+                                           "Update":  {
+                                                          "Automation":  "No",
+                                                          "Date Made Public":  "3/11/2015",
+                                                          "Update Frequency":  "As needed"
+                                                      },
+                                           "Dataset Information":  {
+                                                                       "Agency":  "Landmarks Preservation Commission (LPC)"
+                                                                   }
+                                       },
+                     "rowLabel":  "Building or Non-Building Site",
+                     "availableDisplayTypes":  [
+                                                   "table",
+                                                   "fatrow",
+                                                   "page"
+                                               ]
+                 },
+    "owner":  {
+                  "id":  "5fuc-pqz2",
+                  "displayName":  "NYC OpenData",
+                  "profileImageUrlLarge":  "/api/users/5fuc-pqz2/profile_images/LARGE",
+                  "profileImageUrlMedium":  "/api/users/5fuc-pqz2/profile_images/THUMB",
+                  "profileImageUrlSmall":  "/api/users/5fuc-pqz2/profile_images/TINY",
+                  "screenName":  "NYC OpenData",
+                  "type":  "interactive",
+                  "flags":  [
+                                "acceptedEula",
+                                "mayBeStoriesCoOwner"
+                            ]
+              },
+    "query":  {
+
+              },
+    "rights":  [
+                   "read"
+               ],
+    "tableAuthor":  {
+                        "id":  "5fuc-pqz2",
+                        "displayName":  "NYC OpenData",
+                        "profileImageUrlLarge":  "/api/users/5fuc-pqz2/profile_images/LARGE",
+                        "profileImageUrlMedium":  "/api/users/5fuc-pqz2/profile_images/THUMB",
+                        "profileImageUrlSmall":  "/api/users/5fuc-pqz2/profile_images/TINY",
+                        "screenName":  "NYC OpenData",
+                        "type":  "interactive",
+                        "flags":  [
+                                      "acceptedEula",
+                                      "mayBeStoriesCoOwner"
+                                  ]
+                    },
+    "tags":  [
+                 "landmark",
+                 "landmarks",
+                 "landmarks preservation commission",
+                 "historic preservation",
+                 "preservation",
+                 "lpc",
+                 "landmark list",
+                 "individual landmark",
+                 "interior landmark",
+                 "scenic landmark",
+                 "historic district"
+             ],
+    "flags":  [
+                  "default",
+                  "ownerMayBeContacted",
+                  "restorable",
+                  "restorePossibleForType"
+              ]
+}

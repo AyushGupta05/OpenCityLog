@@ -44,6 +44,41 @@ function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function writeJson(filePath, value) {
+  ensureDir(path.dirname(filePath));
+  const tmpPath = `${filePath}.tmp`;
+  const text = JSON.stringify(value);
+  let lastError = null;
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      fs.writeFileSync(tmpPath, text);
+      try {
+        fs.renameSync(tmpPath, filePath);
+      } catch (renameError) {
+        if (!["EPERM", "EACCES", "EEXIST", "UNKNOWN"].includes(renameError.code)) {
+          throw renameError;
+        }
+        fs.copyFileSync(tmpPath, filePath);
+        fs.unlinkSync(tmpPath);
+      }
+      return;
+    } catch (error) {
+      lastError = error;
+      try {
+        if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
+      } catch (_) {
+        // Best-effort cleanup before retrying a generated artifact write.
+      }
+      sleep(150 * (attempt + 1));
+    }
+  }
+  throw lastError;
+}
+
 function download(url, filePath) {
   return new Promise((resolve, reject) => {
     ensureDir(path.dirname(filePath));
@@ -383,8 +418,8 @@ async function main() {
 
   const routeOut = path.join(outDir, "translink_belfast_route_segments_2026.geojson");
   const stopOut = path.join(outDir, "translink_belfast_bus_stops_2026.geojson");
-  fs.writeFileSync(routeOut, JSON.stringify(routes));
-  fs.writeFileSync(stopOut, JSON.stringify(stops));
+  writeJson(routeOut, routes);
+  writeJson(stopOut, stops);
 
   console.log(`Wrote ${path.relative(rootDir, routeOut)} (${routes.features.length} corridor segments)`);
   console.log(`Wrote ${path.relative(rootDir, stopOut)} (${stops.features.length} official stops)`);

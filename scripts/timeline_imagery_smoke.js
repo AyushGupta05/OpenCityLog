@@ -22,8 +22,7 @@ async function scrubTo(page, ratio) {
       const state = window.BimsAtlas?.state;
       return state
         && String(state.year) !== oldYear
-        && state.transportRoadYearLoaded === state.year
-        && state.lensEventFeatureCount > 0;
+        && state.transportRoadYearLoaded === state.year;
     },
     before.year,
     { timeout: 10000 }
@@ -59,7 +58,7 @@ function cameraStable(before, after) {
   assert(early.year !== start.year, "Timeline did not move to an earlier year.");
   assert(early.pinCount > 0, "Earlier timeline year lost event pins.");
   assert(cameraStable(start, early), "Earlier timeline year moved the map camera.");
-  assert(early.lensEventFeatureCount > 0 && early.lensHeatmapVisible && early.transportRoadYearLoaded === Number(early.year), "Earlier timeline year did not update the map lens overlays.");
+  assert(early.transportRoadVisible && early.transportRoadYearLoaded === Number(early.year), "Earlier timeline year did not update the transport lens linework.");
   assert(/OpenStreetMap contributors/i.test(early.attribution), "OSM attribution disappeared after timeline scrub.");
   assert(!/satellite|wayback|imagery/i.test(early.bodyText), "Legacy imagery/satellite language appeared in the paper atlas.");
   const earlyPng = await page.screenshot({ path: path.join(outputDir, "paper-atlas-timeline-early.png"), fullPage: false });
@@ -69,7 +68,7 @@ function cameraStable(before, after) {
   assert(late.year !== early.year, "Timeline did not move to a later year.");
   assert(late.pinCount > 0, "Later timeline year lost event pins.");
   assert(cameraStable(early, late), "Later timeline year moved the map camera.");
-  assert(late.lensEventFeatureCount > 0 && late.lensHeatmapVisible && late.transportRoadYearLoaded === Number(late.year), "Later timeline year did not update the map lens overlays.");
+  assert(late.transportRoadVisible && late.transportRoadYearLoaded === Number(late.year), "Later timeline year did not update the transport lens linework.");
   assert(/OpenStreetMap contributors/i.test(late.attribution), "OSM attribution disappeared after later timeline scrub.");
   const latePng = await page.screenshot({ path: path.join(outputDir, "paper-atlas-timeline-late.png"), fullPage: false });
   assertDetailedPng(latePng, assert, "Paper atlas late timeline");

@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-19T01:28:59Z",
+  "generated_at": "2026-05-19T02:58:29Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 250373,
-    "total_unique_events": 250373,
+    "total_events": 250596,
+    "total_unique_events": 250596,
     "duplicate_event_id_count": 0,
-    "active_source_count": 74,
+    "active_source_count": 92,
     "source_catalog_only_count": 220,
-    "source_year_layer_row_count": 1246,
+    "source_year_layer_row_count": 1309,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -18,6 +18,62 @@
     ]
   },
   "coverage_rows": [
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-hed-listing-notifications-20260519",
+      "source_title": "Belfast Planning Committee HED listing notifications, 19 May 2026",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-agenda-20260519",
+      "source_title": "Belfast Planning Committee agenda reports, 19 May 2026",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "bcc-planning-committee-minutes",
+      "source_title": "Belfast City Council Planning Committee agenda and minutes",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 2
+    },
     {
       "city_id": "belfast",
       "source_id": "belfast-architecture-public-pages",
@@ -160,7 +216,7 @@
       "source_title": "Belfast architecture and major project public pages",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 241
+      "event_count": 245
     },
     {
       "city_id": "belfast",
@@ -168,7 +224,15 @@
       "source_title": "Belfast architecture and major project public pages",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 70
+      "event_count": 74
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast-city-council-belfast-stories-pages",
+      "source_title": "Belfast Stories project and consultation pages",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 1
     },
     {
       "city_id": "belfast",
@@ -214,9 +278,41 @@
       "city_id": "belfast",
       "source_id": "dfc-hed-nidirect-buildings",
       "source_title": "Department for Communities / nidirect listed building records",
+      "year": 2018,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-nidirect-buildings",
+      "source_title": "Department for Communities / nidirect listed building records",
       "year": 2025,
       "layer": "built_environment",
       "event_count": 4
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-via-bcc-notifications",
+      "source_title": "DfC Historic Environment Division listing notifications reported to Belfast Planning Committee",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc-hed-via-bcc-notifications",
+      "source_title": "DfC Historic Environment Division listing notifications reported to Belfast Planning Committee",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-called-in-planning-documents",
+      "source_title": "DfI regionally significant and called-in planning publications",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
     },
     {
       "city_id": "belfast",
@@ -932,6 +1028,22 @@
     },
     {
       "city_id": "london",
+      "source_id": "gla-planning-application-decisions",
+      "source_title": "Greater London Authority planning application decisions",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "gla-planning-datahub-applications",
+      "source_title": "Planning London Datahub - planning applications",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
       "source_title": "Planning London Datahub - planning applications",
       "year": 2024,
@@ -964,6 +1076,14 @@
     },
     {
       "city_id": "london",
+      "source_id": "historic-england-har-2025",
+      "source_title": "Historic England Heritage at Risk Register 2025",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
       "source_id": "historic-england-nhle",
       "source_title": "National Heritage List for England listed-building records",
       "year": 2018,
@@ -976,7 +1096,7 @@
       "source_title": "National Heritage List for England listed-building records",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 1
+      "event_count": 2
     },
     {
       "city_id": "london",
@@ -992,7 +1112,7 @@
       "source_title": "National Heritage List for England listed-building records",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 2
+      "event_count": 5
     },
     {
       "city_id": "london",
@@ -1000,7 +1120,7 @@
       "source_title": "National Heritage List for England listed-building records",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 3
+      "event_count": 5
     },
     {
       "city_id": "london",
@@ -4236,6 +4356,22 @@
     },
     {
       "city_id": "london",
+      "source_id": "mhclg-called-in-decisions",
+      "source_title": "Planning applications: called-in decisions and recovered appeals",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "mhclg-called-in-decisions",
+      "source_title": "Planning applications: called-in decisions and recovered appeals",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
       "source_id": "national-archives-webarchive",
       "source_title": "UK Government Web Archive for superseded London/TfL/borough policy pages",
       "year": 1858,
@@ -4273,6 +4409,182 @@
       "year": 1900,
       "layer": "built_environment",
       "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2020,
+      "layer": "environment",
+      "event_count": 7
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2020,
+      "layer": "transport",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2021,
+      "layer": "environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 16
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2022,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2022,
+      "layer": "environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2022,
+      "layer": "transport",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2023,
+      "layer": "environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2023,
+      "layer": "transport",
+      "event_count": 6
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 15
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2024,
+      "layer": "environment",
+      "event_count": 6
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2024,
+      "layer": "transport",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2024,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 17
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2025,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2025,
+      "layer": "environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2026,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "planning-data-certificate-of-immunity",
+      "source_title": "Planning Data certificate of immunity records",
+      "year": 2026,
+      "layer": "environment",
+      "event_count": 2
     },
     {
       "city_id": "london",
@@ -9284,6 +9596,198 @@
     },
     {
       "city_id": "nyc",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_title": "Zoning Application Portal project data",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_title": "Zoning Application Portal project data",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_title": "Zoning Application Portal project data",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_title": "Zoning Application Portal project data",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_title": "Zoning Application Portal project data",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_title": "Zoning Application Portal project data",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-co-bs8b-p36w",
+      "source_title": "DOB Certificate Of Occupancy",
+      "year": 2018,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-co-bs8b-p36w",
+      "source_title": "DOB Certificate Of Occupancy",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-co-bs8b-p36w",
+      "source_title": "DOB Certificate Of Occupancy",
+      "year": 2020,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-co-bs8b-p36w",
+      "source_title": "DOB Certificate Of Occupancy",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-now-co-pkdm-hqz6",
+      "source_title": "DOB NOW: Certificate of Occupancy",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-now-co-pkdm-hqz6",
+      "source_title": "DOB NOW: Certificate of Occupancy",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_title": "HPD affordable housing production by project and building",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "source_title": "HPD affordable housing production by project and building",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+      "source_title": "NYC Open Data Individual Landmark Sites",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 9
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+      "source_title": "NYC Open Data Individual Landmark Sites",
+      "year": 2009,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-permit-application-information",
+      "source_title": "NYC Open Data LPC Permit Application Information",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-permit-application-information",
+      "source_title": "NYC Open Data LPC Permit Application Information",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_title": "NYC Parks Capital Project Tracker",
+      "year": 2018,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_title": "NYC Parks Capital Project Tracker",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_title": "NYC Parks Capital Project Tracker",
+      "year": 2026,
+      "layer": "civic_services",
+      "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "source_title": "NYC Parks Capital Project Tracker",
+      "year": 2026,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
       "source_id": "rbx6-tga4",
       "source_title": "DOB NOW: Build - Approved Permits",
       "year": 2018,
@@ -9991,17 +10495,17 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 30239,
-      "unique_event_count": 30239,
+      "event_count": 30268,
+      "unique_event_count": 30268,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 16,
-      "active_source_count": 8,
+      "source_count": 22,
+      "active_source_count": 14,
       "source_catalog_only_count": 8,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 30239,
-        "gap_events": 69761,
+        "backed_event_count": 30268,
+        "gap_events": 69732,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -10020,18 +10524,18 @@
         "2015": 229,
         "2016": 2159,
         "2017": 2186,
-        "2018": 1958,
-        "2019": 944,
+        "2018": 1960,
+        "2019": 946,
         "2020": 1434,
         "2021": 2435,
-        "2022": 3233,
-        "2023": 2754,
-        "2024": 4567,
-        "2025": 4987,
-        "2026": 2296
+        "2022": 3236,
+        "2023": 2756,
+        "2024": 4571,
+        "2025": 4994,
+        "2026": 2305
       },
       "event_counts_by_layer": {
-        "built_environment": 10920,
+        "built_environment": 10949,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -10040,7 +10544,7 @@
       "event_counts_by_confidence": {
         "corroborated": 1,
         "disputed": 1,
-        "documented": 12272,
+        "documented": 12301,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -10172,7 +10676,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1445
+          "event_count": 1447
         },
         {
           "year": 2018,
@@ -10192,7 +10696,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 378
+          "event_count": 380
         },
         {
           "year": 2019,
@@ -10262,7 +10766,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1182
+          "event_count": 1185
         },
         {
           "year": 2022,
@@ -10287,7 +10791,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1129
+          "event_count": 1131
         },
         {
           "year": 2023,
@@ -10312,7 +10816,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1269
+          "event_count": 1273
         },
         {
           "year": 2024,
@@ -10337,7 +10841,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 527
+          "event_count": 534
         },
         {
           "year": 2025,
@@ -10362,7 +10866,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 70
+          "event_count": 79
         },
         {
           "year": 2026,
@@ -10376,6 +10880,62 @@
         }
       ],
       "source_year_layer_rows": [
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-hed-listing-notifications-20260519",
+          "source_title": "Belfast Planning Committee HED listing notifications, 19 May 2026",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-agenda-20260519",
+          "source_title": "Belfast Planning Committee agenda reports, 19 May 2026",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "bcc-planning-committee-minutes",
+          "source_title": "Belfast City Council Planning Committee agenda and minutes",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 2
+        },
         {
           "city_id": "belfast",
           "source_id": "belfast-architecture-public-pages",
@@ -10518,7 +11078,7 @@
           "source_title": "Belfast architecture and major project public pages",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 241
+          "event_count": 245
         },
         {
           "city_id": "belfast",
@@ -10526,7 +11086,15 @@
           "source_title": "Belfast architecture and major project public pages",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 70
+          "event_count": 74
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast-city-council-belfast-stories-pages",
+          "source_title": "Belfast Stories project and consultation pages",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 1
         },
         {
           "city_id": "belfast",
@@ -10572,9 +11140,41 @@
           "city_id": "belfast",
           "source_id": "dfc-hed-nidirect-buildings",
           "source_title": "Department for Communities / nidirect listed building records",
+          "year": 2018,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-nidirect-buildings",
+          "source_title": "Department for Communities / nidirect listed building records",
           "year": 2025,
           "layer": "built_environment",
           "event_count": 4
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-via-bcc-notifications",
+          "source_title": "DfC Historic Environment Division listing notifications reported to Belfast Planning Committee",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc-hed-via-bcc-notifications",
+          "source_title": "DfC Historic Environment Division listing notifications reported to Belfast Planning Committee",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-called-in-planning-documents",
+          "source_title": "DfI regionally significant and called-in planning publications",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
         },
         {
           "city_id": "belfast",
@@ -11143,7 +11743,7 @@
           "provider": "Named Belfast public, institutional, venue, and architecture sources",
           "reliability": "usable_with_caveats",
           "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-          "event_count": 911,
+          "event_count": 919,
           "years": [
             2008,
             2009,
@@ -11168,12 +11768,12 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 911
+            "built_environment": 919
           },
           "confidence_counts": {
             "corroborated": 1,
             "disputed": 1,
-            "documented": 909
+            "documented": 917
           },
           "coverage_status": "events_emitted"
         },
@@ -11183,19 +11783,64 @@
           "provider": "Department for Communities Northern Ireland and nidirect",
           "reliability": "usable_with_caveats",
           "licence": "Northern Ireland public-sector web terms; cite URLs only until terms are reviewed",
-          "event_count": 8,
+          "event_count": 10,
           "years": [
             2016,
             2017,
+            2018,
             2025
           ],
           "first_year": 2016,
           "last_year": 2025,
           "layer_counts": {
-            "built_environment": 8
+            "built_environment": 10
           },
           "confidence_counts": {
-            "documented": 8
+            "documented": 10
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "bcc-planning-committee-minutes",
+          "title": "Belfast City Council Planning Committee agenda and minutes",
+          "provider": "Belfast City Council",
+          "reliability": "strong",
+          "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
+          "event_count": 9,
+          "years": [
+            2019,
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "first_year": 2019,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 9
+          },
+          "confidence_counts": {
+            "documented": 9
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "bcc-hed-listing-notifications-20260519",
+          "title": "Belfast Planning Committee HED listing notifications, 19 May 2026",
+          "provider": "Belfast City Council / Department for Communities Historic Environment Division",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
+          "event_count": 4,
+          "years": [
+            2026
+          ],
+          "first_year": 2026,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 4
+          },
+          "confidence_counts": {
+            "documented": 4
           },
           "coverage_status": "events_emitted"
         },
@@ -11222,6 +11867,27 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "dfc-hed-via-bcc-notifications",
+          "title": "DfC Historic Environment Division listing notifications reported to Belfast Planning Committee",
+          "provider": "Department for Communities Historic Environment Division / Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Underlying nidirect/Crown copyright information may be reusable under Open Government Licence where applicable; Belfast committee pages remain Belfast City Council copyright",
+          "event_count": 3,
+          "years": [
+            2023,
+            2024
+          ],
+          "first_year": 2023,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 3
+          },
+          "confidence_counts": {
+            "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "translink-public-project-pages",
           "title": "Translink public project and station pages",
           "provider": "Translink / Northern Ireland Transport Holding Company",
@@ -11239,6 +11905,66 @@
           },
           "confidence_counts": {
             "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "bcc-planning-committee-agenda-20260519",
+          "title": "Belfast Planning Committee agenda reports, 19 May 2026",
+          "provider": "Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
+          "event_count": 1,
+          "years": [
+            2026
+          ],
+          "first_year": 2026,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "belfast-city-council-belfast-stories-pages",
+          "title": "Belfast Stories project and consultation pages",
+          "provider": "Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council website terms; factual metadata and source URLs retained pending terms review",
+          "event_count": 1,
+          "years": [
+            2025
+          ],
+          "first_year": 2025,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-called-in-planning-documents",
+          "title": "DfI regionally significant and called-in planning publications",
+          "provider": "Department for Infrastructure / Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for Crown copyright material unless otherwise stated; Belfast committee PDFs may have council terms",
+          "event_count": 1,
+          "years": [
+            2019
+          ],
+          "first_year": 2019,
+          "last_year": 2019,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
           },
           "coverage_status": "events_emitted"
         },
@@ -11458,16 +12184,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 190196,
-      "unique_event_count": 190196,
+      "event_count": 190326,
+      "unique_event_count": 190326,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 129,
-      "active_source_count": 34,
+      "source_count": 134,
+      "active_source_count": 38,
       "source_catalog_only_count": 94,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 190196,
+        "backed_event_count": 190326,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -11555,24 +12281,25 @@
         "2016": 2815,
         "2017": 4236,
         "2018": 3258,
-        "2019": 3621,
-        "2020": 8626,
-        "2021": 8221,
-        "2022": 8084,
-        "2023": 22467,
-        "2024": 29816,
-        "2025": 30806,
-        "2026": 19291
+        "2019": 3622,
+        "2020": 8648,
+        "2021": 8234,
+        "2022": 8108,
+        "2023": 22481,
+        "2024": 29841,
+        "2025": 30831,
+        "2026": 19297
       },
       "event_counts_by_layer": {
-        "built_environment": 71029,
-        "civic_services": 53319,
-        "environment": 28037,
-        "transport": 37811
+        "built_environment": 71117,
+        "civic_services": 53322,
+        "environment": 28063,
+        "transport": 37823,
+        "utilities": 1
       },
       "event_counts_by_confidence": {
         "corroborated": 4,
-        "documented": 190191,
+        "documented": 190321,
         "inferred": 1
       },
       "event_counts_by_year_layer": [
@@ -12174,7 +12901,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 1996
+          "event_count": 1997
         },
         {
           "year": 2019,
@@ -12194,7 +12921,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 2546
+          "event_count": 2559
         },
         {
           "year": 2020,
@@ -12204,17 +12931,17 @@
         {
           "year": 2020,
           "layer": "environment",
-          "event_count": 57
+          "event_count": 64
         },
         {
           "year": 2020,
           "layer": "transport",
-          "event_count": 4586
+          "event_count": 4588
         },
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2098
+          "event_count": 2109
         },
         {
           "year": 2021,
@@ -12224,7 +12951,7 @@
         {
           "year": 2021,
           "layer": "environment",
-          "event_count": 69
+          "event_count": 71
         },
         {
           "year": 2021,
@@ -12234,27 +12961,27 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1748
+          "event_count": 1766
         },
         {
           "year": 2022,
           "layer": "civic_services",
-          "event_count": 1442
+          "event_count": 1443
         },
         {
           "year": 2022,
           "layer": "environment",
-          "event_count": 53
+          "event_count": 55
         },
         {
           "year": 2022,
           "layer": "transport",
-          "event_count": 4841
+          "event_count": 4844
         },
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1615
+          "event_count": 1620
         },
         {
           "year": 2023,
@@ -12264,17 +12991,17 @@
         {
           "year": 2023,
           "layer": "environment",
-          "event_count": 6732
+          "event_count": 6735
         },
         {
           "year": 2023,
           "layer": "transport",
-          "event_count": 5459
+          "event_count": 5465
         },
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 2562
+          "event_count": 2579
         },
         {
           "year": 2024,
@@ -12284,27 +13011,32 @@
         {
           "year": 2024,
           "layer": "environment",
-          "event_count": 9015
+          "event_count": 9021
         },
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 7301
+          "event_count": 7302
+        },
+        {
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 1
         },
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2346
+          "event_count": 2366
         },
         {
           "year": 2025,
           "layer": "civic_services",
-          "event_count": 10519
+          "event_count": 10520
         },
         {
           "year": 2025,
           "layer": "environment",
-          "event_count": 8959
+          "event_count": 8963
         },
         {
           "year": 2025,
@@ -12314,17 +13046,17 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 12044
+          "event_count": 12047
         },
         {
           "year": 2026,
           "layer": "civic_services",
-          "event_count": 3283
+          "event_count": 3284
         },
         {
           "year": 2026,
           "layer": "environment",
-          "event_count": 2361
+          "event_count": 2363
         },
         {
           "year": 2026,
@@ -12559,6 +13291,22 @@
         },
         {
           "city_id": "london",
+          "source_id": "gla-planning-application-decisions",
+          "source_title": "Greater London Authority planning application decisions",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "gla-planning-datahub-applications",
+          "source_title": "Planning London Datahub - planning applications",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
           "source_title": "Planning London Datahub - planning applications",
           "year": 2024,
@@ -12591,6 +13339,14 @@
         },
         {
           "city_id": "london",
+          "source_id": "historic-england-har-2025",
+          "source_title": "Historic England Heritage at Risk Register 2025",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
           "source_id": "historic-england-nhle",
           "source_title": "National Heritage List for England listed-building records",
           "year": 2018,
@@ -12603,7 +13359,7 @@
           "source_title": "National Heritage List for England listed-building records",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 1
+          "event_count": 2
         },
         {
           "city_id": "london",
@@ -12619,7 +13375,7 @@
           "source_title": "National Heritage List for England listed-building records",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2
+          "event_count": 5
         },
         {
           "city_id": "london",
@@ -12627,7 +13383,7 @@
           "source_title": "National Heritage List for England listed-building records",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 3
+          "event_count": 5
         },
         {
           "city_id": "london",
@@ -15863,6 +16619,22 @@
         },
         {
           "city_id": "london",
+          "source_id": "mhclg-called-in-decisions",
+          "source_title": "Planning applications: called-in decisions and recovered appeals",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "mhclg-called-in-decisions",
+          "source_title": "Planning applications: called-in decisions and recovered appeals",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
           "source_id": "national-archives-webarchive",
           "source_title": "UK Government Web Archive for superseded London/TfL/borough policy pages",
           "year": 1858,
@@ -15900,6 +16672,182 @@
           "year": 1900,
           "layer": "built_environment",
           "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2020,
+          "layer": "environment",
+          "event_count": 7
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2020,
+          "layer": "transport",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2021,
+          "layer": "environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 16
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2022,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2022,
+          "layer": "environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2022,
+          "layer": "transport",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2023,
+          "layer": "environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2023,
+          "layer": "transport",
+          "event_count": 6
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 15
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2024,
+          "layer": "environment",
+          "event_count": 6
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2024,
+          "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 17
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2025,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2025,
+          "layer": "environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2026,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "planning-data-certificate-of-immunity",
+          "source_title": "Planning Data certificate of immunity records",
+          "year": 2026,
+          "layer": "environment",
+          "event_count": 2
         },
         {
           "city_id": "london",
@@ -16497,22 +17445,23 @@
         {
           "source_id": "gla-planning-datahub-applications",
           "title": "Planning London Datahub - planning applications",
-          "provider": "Greater London Authority (GLA), London borough planning authorities",
+          "provider": "Greater London Authority / London planning authorities",
           "reliability": "usable_with_caveats",
-          "licence": "Not specified on London Datastore; source-level reuse review required before redistributing full rows.",
-          "event_count": 9485,
+          "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review.",
+          "event_count": 9486,
           "years": [
+            2020,
             2024,
             2025,
             2026
           ],
-          "first_year": 2024,
+          "first_year": 2020,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 9485
+            "built_environment": 9486
           },
           "confidence_counts": {
-            "documented": 9485
+            "documented": 9486
           },
           "coverage_status": "events_emitted"
         },
@@ -16776,6 +17725,36 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "planning-data-certificate-of-immunity",
+          "title": "Planning Data certificate of immunity records",
+          "provider": "Ministry of Housing, Communities and Local Government / Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0; attribution to Historic England and Ordnance Survey where applicable.",
+          "event_count": 109,
+          "years": [
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2020,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 67,
+            "civic_services": 3,
+            "environment": 26,
+            "transport": 12,
+            "utilities": 1
+          },
+          "confidence_counts": {
+            "documented": 109
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "tfl-road-disruptions",
           "title": "TfL Road disruptions / planned works API",
           "provider": "Transport for London",
@@ -16848,8 +17827,8 @@
           "title": "National Heritage List for England listed-building records",
           "provider": "Historic England",
           "reliability": "usable_with_caveats",
-          "licence": "Historic England website terms; factual metadata and source URLs only until terms are reviewed",
-          "event_count": 24,
+          "licence": "Historic England Open Data Hub GIS data is licensed under Open Government Licence v3.0; list-entry page text, images, and map products require separate terms review. Factual metadata and source URLs are retained here.",
+          "event_count": 30,
           "years": [
             2018,
             2019,
@@ -16862,10 +17841,10 @@
           "first_year": 2018,
           "last_year": 2025,
           "layer_counts": {
-            "built_environment": 24
+            "built_environment": 30
           },
           "confidence_counts": {
-            "documented": 24
+            "documented": 30
           },
           "coverage_status": "events_emitted"
         },
@@ -16900,6 +17879,26 @@
           },
           "confidence_counts": {
             "documented": 14
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "gla-planning-application-decisions",
+          "title": "Greater London Authority planning application decisions",
+          "provider": "Greater London Authority / London City Hall",
+          "reliability": "usable_with_caveats",
+          "licence": "GLA website terms; factual metadata and source URLs retained pending source-level reuse review.",
+          "event_count": 8,
+          "years": [
+            2020
+          ],
+          "first_year": 2020,
+          "last_year": 2020,
+          "layer_counts": {
+            "built_environment": 8
+          },
+          "confidence_counts": {
+            "documented": 8
           },
           "coverage_status": "events_emitted"
         },
@@ -17023,6 +18022,47 @@
           "last_year": 2023,
           "layer_counts": {
             "transport": 3
+          },
+          "confidence_counts": {
+            "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "historic-england-har-2025",
+          "title": "Historic England Heritage at Risk Register 2025",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Historic England website terms for announcement pages; Historic England GIS open data under OGL v3.0 where used for factual markers.",
+          "event_count": 3,
+          "years": [
+            2025
+          ],
+          "first_year": 2025,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 3
+          },
+          "confidence_counts": {
+            "documented": 3
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "mhclg-called-in-decisions",
+          "title": "Planning applications: called-in decisions and recovered appeals",
+          "provider": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 except where otherwise stated.",
+          "event_count": 3,
+          "years": [
+            2024,
+            2026
+          ],
+          "first_year": 2024,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 3
           },
           "confidence_counts": {
             "documented": 3
@@ -19267,17 +20307,17 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 29938,
-      "unique_event_count": 29938,
+      "event_count": 30002,
+      "unique_event_count": 30002,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 150,
-      "active_source_count": 32,
+      "source_count": 158,
+      "active_source_count": 40,
       "source_catalog_only_count": 118,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 29938,
-        "gap_events": 70062,
+        "backed_event_count": 30002,
+        "gap_events": 69998,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -19446,8 +20486,8 @@
         "2005": 318,
         "2006": 326,
         "2007": 343,
-        "2008": 471,
-        "2009": 474,
+        "2008": 480,
+        "2009": 475,
         "2010": 480,
         "2011": 504,
         "2012": 740,
@@ -19456,25 +20496,25 @@
         "2015": 3076,
         "2016": 1379,
         "2017": 1407,
-        "2018": 1629,
+        "2018": 1631,
         "2019": 1994,
-        "2020": 1764,
-        "2021": 1311,
-        "2022": 1535,
+        "2020": 1767,
+        "2021": 1317,
+        "2022": 1540,
         "2023": 1643,
-        "2024": 1747,
-        "2025": 1562,
-        "2026": 1354
+        "2024": 1750,
+        "2025": 1578,
+        "2026": 1373
       },
       "event_counts_by_layer": {
-        "built_environment": 14766,
-        "civic_services": 2854,
-        "environment": 6081,
+        "built_environment": 14823,
+        "civic_services": 2858,
+        "environment": 6084,
         "transport": 6235,
         "utilities": 2
       },
       "event_counts_by_confidence": {
-        "documented": 29938
+        "documented": 30002
       },
       "event_counts_by_year_layer": [
         {
@@ -20610,7 +21650,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 251
+          "event_count": 260
         },
         {
           "year": 2008,
@@ -20630,7 +21670,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 274
+          "event_count": 275
         },
         {
           "year": 2009,
@@ -20820,12 +21860,12 @@
         {
           "year": 2018,
           "layer": "civic_services",
-          "event_count": 223
+          "event_count": 224
         },
         {
           "year": 2018,
           "layer": "environment",
-          "event_count": 125
+          "event_count": 126
         },
         {
           "year": 2018,
@@ -20855,7 +21895,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 884
+          "event_count": 886
         },
         {
           "year": 2020,
@@ -20865,7 +21905,7 @@
         {
           "year": 2020,
           "layer": "environment",
-          "event_count": 180
+          "event_count": 181
         },
         {
           "year": 2020,
@@ -20875,7 +21915,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 822
+          "event_count": 828
         },
         {
           "year": 2021,
@@ -20895,7 +21935,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 811
+          "event_count": 816
         },
         {
           "year": 2022,
@@ -20940,7 +21980,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 957
+          "event_count": 960
         },
         {
           "year": 2024,
@@ -20960,7 +22000,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 844
+          "event_count": 860
         },
         {
           "year": 2025,
@@ -20980,17 +22020,17 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 423
+          "event_count": 438
         },
         {
           "year": 2026,
           "layer": "civic_services",
-          "event_count": 42
+          "event_count": 45
         },
         {
           "year": 2026,
           "layer": "environment",
-          "event_count": 306
+          "event_count": 307
         },
         {
           "year": 2026,
@@ -25769,6 +26809,198 @@
         },
         {
           "city_id": "nyc",
+          "source_id": "nyc-dcp-zap-project-data",
+          "source_title": "Zoning Application Portal project data",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-zap-project-data",
+          "source_title": "Zoning Application Portal project data",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-zap-project-data",
+          "source_title": "Zoning Application Portal project data",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-zap-project-data",
+          "source_title": "Zoning Application Portal project data",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-zap-project-data",
+          "source_title": "Zoning Application Portal project data",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcp-zap-project-data",
+          "source_title": "Zoning Application Portal project data",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-co-bs8b-p36w",
+          "source_title": "DOB Certificate Of Occupancy",
+          "year": 2018,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-co-bs8b-p36w",
+          "source_title": "DOB Certificate Of Occupancy",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-co-bs8b-p36w",
+          "source_title": "DOB Certificate Of Occupancy",
+          "year": 2020,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-co-bs8b-p36w",
+          "source_title": "DOB Certificate Of Occupancy",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-now-co-pkdm-hqz6",
+          "source_title": "DOB NOW: Certificate of Occupancy",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-now-co-pkdm-hqz6",
+          "source_title": "DOB NOW: Certificate of Occupancy",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+          "source_title": "HPD affordable housing production by project and building",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+          "source_title": "HPD affordable housing production by project and building",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "source_title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+          "source_title": "NYC Open Data Individual Landmark Sites",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 9
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+          "source_title": "NYC Open Data Individual Landmark Sites",
+          "year": 2009,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-permit-application-information",
+          "source_title": "NYC Open Data LPC Permit Application Information",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-lpc-permit-application-information",
+          "source_title": "NYC Open Data LPC Permit Application Information",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+          "source_title": "NYC Parks Capital Project Tracker",
+          "year": 2018,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+          "source_title": "NYC Parks Capital Project Tracker",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+          "source_title": "NYC Parks Capital Project Tracker",
+          "year": 2026,
+          "layer": "civic_services",
+          "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+          "source_title": "NYC Parks Capital Project Tracker",
+          "year": 2026,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
           "source_id": "rbx6-tga4",
           "source_title": "DOB NOW: Build - Approved Permits",
           "year": 2018,
@@ -27473,6 +28705,96 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-dcp-zap-project-data",
+          "title": "Zoning Application Portal project data",
+          "provider": "New York City Department of City Planning",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov Terms of Use; ZAP API and portal factual metadata cited with attribution.",
+          "event_count": 15,
+          "years": [
+            2020,
+            2021,
+            2022,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2020,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 15
+          },
+          "confidence_counts": {
+            "documented": 15
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-lpc-permit-application-information",
+          "title": "NYC Open Data LPC Permit Application Information",
+          "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "Dataset metadata license field is null; NYC Open Data / NYC.gov terms apply. Factual metadata and source URLs retained with LPC attribution.",
+          "event_count": 12,
+          "years": [
+            2025,
+            2026
+          ],
+          "first_year": 2025,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 12
+          },
+          "confidence_counts": {
+            "documented": 12
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+          "title": "NYC Open Data Individual Landmark Sites",
+          "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
+          "event_count": 10,
+          "years": [
+            2008,
+            2009
+          ],
+          "first_year": 2008,
+          "last_year": 2009,
+          "layer_counts": {
+            "built_environment": 10
+          },
+          "confidence_counts": {
+            "documented": 10
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+          "title": "NYC Parks Capital Project Tracker",
+          "provider": "NYC Department of Parks and Recreation via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
+          "event_count": 10,
+          "years": [
+            2018,
+            2026
+          ],
+          "first_year": 2018,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 5,
+            "civic_services": 4,
+            "environment": 1
+          },
+          "confidence_counts": {
+            "documented": 10
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "2iga-a6mk",
           "title": "Zoning Application Portal (ZAP) - BBL",
           "provider": "NYC DCP",
@@ -27497,6 +28819,27 @@
           },
           "confidence_counts": {
             "documented": 8
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+          "title": "HPD affordable housing production by project and building",
+          "provider": "NYC Department of Housing Preservation and Development via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
+          "event_count": 6,
+          "years": [
+            2025,
+            2026
+          ],
+          "first_year": 2025,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 6
+          },
+          "confidence_counts": {
+            "documented": 6
           },
           "coverage_status": "events_emitted"
         },
@@ -27566,6 +28909,71 @@
           },
           "confidence_counts": {
             "documented": 4
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-dob-co-bs8b-p36w",
+          "title": "DOB Certificate Of Occupancy",
+          "provider": "NYC Department of Buildings via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained.",
+          "event_count": 4,
+          "years": [
+            2018,
+            2020,
+            2021
+          ],
+          "first_year": 2018,
+          "last_year": 2021,
+          "layer_counts": {
+            "built_environment": 2,
+            "environment": 2
+          },
+          "confidence_counts": {
+            "documented": 4
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+          "title": "NYC Open Data Designated and Calendared Buildings and Sites",
+          "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
+          "event_count": 4,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 4
+          },
+          "confidence_counts": {
+            "documented": 4
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-dob-now-co-pkdm-hqz6",
+          "title": "DOB NOW: Certificate of Occupancy",
+          "provider": "NYC Department of Buildings via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained.",
+          "event_count": 3,
+          "years": [
+            2021,
+            2025
+          ],
+          "first_year": 2021,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 3
+          },
+          "confidence_counts": {
+            "documented": 3
           },
           "coverage_status": "events_emitted"
         },

@@ -1,35 +1,39 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-19T01:28:59Z
+Generated: 2026-05-19T02:58:29Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 30239 | 8 | 8 | 2007-2026 | transport 17118, built_environment 10920, utilities 851 | 69761 |
-| London, England | 190196 | 34 | 94 | 1801-2026 | built_environment 71029, civic_services 53319, transport 37811 | 0 |
-| New York City, New York | 29938 | 32 | 118 | 1797-2026 | built_environment 14766, transport 6235, environment 6081 | 70062 |
+| Belfast, Northern Ireland | 30268 | 14 | 8 | 2007-2026 | transport 17118, built_environment 10949, utilities 851 | 69732 |
+| London, England | 190326 | 38 | 94 | 1801-2026 | built_environment 71117, civic_services 53322, transport 37823 | 0 |
+| New York City, New York | 30002 | 40 | 118 | 1797-2026 | built_environment 14823, transport 6235, environment 6084 | 69998 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 30239. Unique event IDs: 30239. Duplicate IDs: 0.
+Backed events: 30268. Unique event IDs: 30268. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | OpenStreetMap extracts via Overpass API | 17965 | 2007-2026 | transport 17114, utilities 851 | usable_with_caveats |
 | Northern Ireland planning activity statistics | 11347 | 2016-2025 | built_environment 10000, civic_services 675, economy 672 | strong |
-| Belfast architecture and major project public pages | 911 | 2008-2026 | built_environment 911 | usable_with_caveats |
-| Department for Communities / nidirect listed building records | 8 | 2016-2025 | built_environment 8 | usable_with_caveats |
+| Belfast architecture and major project public pages | 919 | 2008-2026 | built_environment 919 | usable_with_caveats |
+| Department for Communities / nidirect listed building records | 10 | 2016-2025 | built_environment 10 | usable_with_caveats |
+| Belfast City Council Planning Committee agenda and minutes | 9 | 2019-2025 | built_environment 9 | strong |
+| Belfast Planning Committee HED listing notifications, 19 May 2026 | 4 | 2026-2026 | built_environment 4 | usable_with_caveats |
 | Belfast City Council public project and facility pages | 3 | 2017-2023 | civic_services 3 | usable_with_caveats |
+| DfC Historic Environment Division listing notifications reported to Belfast Planning Committee | 3 | 2023-2024 | built_environment 3 | usable_with_caveats |
 | Translink public project and station pages | 3 | 2021-2024 | transport 3 | usable_with_caveats |
-| Department for Infrastructure NI public project pages | 1 | 2018-2018 | transport 1 | usable_with_caveats |
-| Ulster University public campus pages | 1 | 2022-2022 | built_environment 1 | usable_with_caveats |
+| Belfast Planning Committee agenda reports, 19 May 2026 | 1 | 2026-2026 | built_environment 1 | usable_with_caveats |
+| Belfast Stories project and consultation pages | 1 | 2025-2025 | built_environment 1 | usable_with_caveats |
+| DfI regionally significant and called-in planning publications | 1 | 2019-2019 | built_environment 1 | usable_with_caveats |
 
 Catalog-only sources without emitted event rows: 8.
 
 ## London, England
 
-Backed events: 190196. Unique event IDs: 190196. Duplicate IDs: 0.
+Backed events: 190326. Unique event IDs: 190326. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -41,7 +45,7 @@ Backed events: 190196. Unique event IDs: 190196. Duplicate IDs: 0.
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
-| Planning London Datahub - planning applications | 9485 | 2024-2026 | built_environment 9485 | usable_with_caveats |
+| Planning London Datahub - planning applications | 9486 | 2020-2026 | built_environment 9486 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning Data: Tree Preservation Zones | 1168 | 1951-2025 | built_environment 1168 | usable_with_caveats |
 | Planning Data: Conservation Areas | 1129 | 1827-2026 | built_environment 1129 | usable_with_caveats |
@@ -50,7 +54,7 @@ Catalog-only sources without emitted event rows: 94.
 
 ## New York City, New York
 
-Backed events: 29938. Unique event IDs: 29938. Duplicate IDs: 0.
+Backed events: 30002. Unique event IDs: 30002. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |

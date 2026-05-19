@@ -1,0 +1,808 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "source_gap_audit_round110",
+  "generated_at": "2026-05-19",
+  "workspace": "C:/Users/ayush/dev/Bims-5",
+  "scope": {
+    "task": "Audit official architecture and built-environment source gaps not already represented in the generated atlas/source pipeline.",
+    "geographies": [
+      "United Kingdom",
+      "London",
+      "United States",
+      "New York City",
+      "Belfast"
+    ],
+    "target_event_window": "2008-2026",
+    "repo_inputs_inspected": [
+      "config/source_registry.json",
+      "config/source_inventory.json",
+      "config/cities/*.json",
+      "docs/data_acquisition.md",
+      "docs/data_coverage_report.md",
+      "docs/data_sources_uk_us.md",
+      "docs/city_adapters.md",
+      "scripts/expand_london_nyc_events_from_open_sources.py",
+      "scripts/build_discovery_city_atlas.py",
+      "scripts/build_infrastructure_events.js",
+      "data-discovery/london/source_catalog.json",
+      "data-discovery/new_york/source_catalog.json",
+      "data-discovery/raw_metadata/generated_event_expansion_*.json",
+      "web/data/city-atlas/cities/*/availability.json"
+    ],
+    "important_interpretation": "Catalog-only sources are treated as already represented in source discovery, but not as row-level event coverage. Recommended new sources below focus on official datasets not present as source ids in the registry/catalog or not represented by generated event adapters."
+  },
+  "existing_pipeline_summary": {
+    "belfast": {
+      "event_count_from_docs": 30239,
+      "active_architecture_or_built_environment_sources": [
+        "ni-planning-statistics",
+        "belfast-architecture-public-pages",
+        "dfc-hed-nidirect-buildings",
+        "ulster-university-public-pages",
+        "osm-overpass",
+        "ohsome-api"
+      ],
+      "catalog_or_planned_related_sources": [
+        "belfast-city-council-open-data",
+        "opendatani-spatial-ni",
+        "ni_planning_portal"
+      ],
+      "notes": "Belfast has many generated planning-statistics rows and curated architecture milestones, but fine-grained official heritage GIS and building condition/status layers are not yet normalized as row-level atlas events."
+    },
+    "london": {
+      "event_count_from_docs": 190196,
+      "active_architecture_or_built_environment_sources": [
+        "planning-london-datahub",
+        "gla-planning-datahub-applications",
+        "london-architecture-public-pages",
+        "historic-england-nhle",
+        "lon-extra-planning-data-brownfield-land",
+        "lon-extra-planning-data-conservation-areas",
+        "lon-extra-planning-data-listed-building-outlines",
+        "lon-extra-planning-data-heritage-at-risk",
+        "lon-extra-planning-data-article-4-directions",
+        "lon-extra-planning-data-tree-preservation-orders",
+        "lon-extra-planning-data-tree-preservation-zones",
+        "lon-extra-planning-data-protected-trees",
+        "lon-extra-planning-data-local-plan-boundaries",
+        "lon-extra-hm-land-registry-price-paid-data",
+        "lon-extra-uk-house-price-index"
+      ],
+      "catalog_or_planned_related_sources": [
+        "mhclg-epc-open-data",
+        "lon-extra-planning-data-developer-agreements",
+        "gla-london-development-database",
+        "london-residential-pipeline-dashboards",
+        "london-development-database-archive",
+        "london-3d-building-stock-context",
+        "os-open-map-local",
+        "os-open-uprn"
+      ],
+      "notes": "London is well covered by Planning London Datahub and selected Planning Data England datasets. Gaps remain for specific heritage protection instruments and certificate/condition records that have dated legal events."
+    },
+    "nyc": {
+      "event_count_from_docs": 29938,
+      "active_architecture_or_built_environment_sources": [
+        "nyc-dob-open-data",
+        "nyc-dob-filings-permits",
+        "ic3t-wcy2",
+        "bty7-2jhb",
+        "ipu4-2q9a",
+        "rbx6-tga4",
+        "bs8b-p36w",
+        "pkdm-hqz6",
+        "hg8x-zxpr",
+        "hgx4-8ukb",
+        "2iga-a6mk",
+        "dpm2-m9mq",
+        "buis-pvji",
+        "skyk-mpzq",
+        "nyc-architecture-public-pages",
+        "4hcv-tc5r",
+        "g9ub-hrve",
+        "rukc-mmqu",
+        "3ss8-m844"
+      ],
+      "catalog_or_planned_related_sources": [
+        "eabe-havv",
+        "5zhs-2jue",
+        "ipkp-snf6",
+        "5zyy-y8am",
+        "ncre-qhxs",
+        "fdkv-4t4z",
+        "mm69-vrje",
+        "mxbm-493w",
+        "nyc-planimetrics-3d-model",
+        "nyc-dcp-mappluto",
+        "nyc-pluto-mappluto-lots"
+      ],
+      "notes": "NYC has strong permit, CO, LPC, HPD housing-production, capital-project, and public milestone coverage. Building safety, facade, code-violation, and federal heritage listings are the clearest official gaps."
+    }
+  },
+  "sources_audited": [
+    {
+      "audit_source_id": "planning-data-certificate-of-immunity",
+      "name": "Planning Data: Certificate of immunity",
+      "publisher": "Ministry of Housing, Communities and Local Government / Historic England",
+      "geography": "England; London filterable",
+      "official_url": "https://www.planning.data.gov.uk/dataset/certificate-of-immunity",
+      "status_in_repo": "not_found_as_source_id; related heritage coverage exists through historic-england-nhle and Planning Data listed-building/designation ids",
+      "audit_result": "recommended_new_source",
+      "why_it_matters": "Dated legal events where the Secretary of State issues a certificate that a building will not be listed for a fixed period. Rows include start-date, end-date, geometry WKT, point WKT, Historic England list-entry reference, and documentation URL.",
+      "date_fields": [
+        "start-date",
+        "end-date",
+        "entry-date"
+      ],
+      "geometry_fields": [
+        "geometry",
+        "point"
+      ],
+      "coverage_notes": "Planning Data page reported 398 certificates, one data provider, collector last ran 2025-12-09, and OGL v3 licensing. API sample returned 247 rows; use current page/API metadata at ingestion time."
+    },
+    {
+      "audit_source_id": "planning-data-building-preservation-notice",
+      "name": "Planning Data: Building preservation notice",
+      "publisher": "Ministry of Housing, Communities and Local Government / Historic England",
+      "geography": "England; London possible if rows intersect London",
+      "official_url": "https://www.planning.data.gov.uk/dataset/building-preservation-notice",
+      "status_in_repo": "not_found_as_source_id",
+      "audit_result": "recommended_new_source_conditional",
+      "why_it_matters": "A Building Preservation Notice is an immediate temporary protection event for a building considered at risk of demolition or alteration affecting special character.",
+      "date_fields": [
+        "start-date",
+        "end-date",
+        "entry-date"
+      ],
+      "geometry_fields": [
+        "geometry",
+        "point",
+        "documentation-url"
+      ],
+      "coverage_notes": "Planning Data page reported 9 notices and OGL v3 licensing. API sample had usable dates and Historic England documentation URLs, but blank geometry/point for sampled rows. Treat as conditional until geometry is present or joined from Historic England/NHLE reference."
+    },
+    {
+      "audit_source_id": "planning-data-planning-application",
+      "name": "Planning Data: Planning application",
+      "publisher": "Ministry of Housing, Communities and Local Government",
+      "geography": "England; not London-complete",
+      "official_url": "https://www.planning.data.gov.uk/dataset/planning-application",
+      "status_in_repo": "not_found_as_source_id; London already has Planning London Datahub application adapter",
+      "audit_result": "do_not_add_now",
+      "why_it_matters": "Potential future national planning-application feed with decision dates and intended geometry support.",
+      "date_fields": [
+        "decision-date",
+        "entry-date",
+        "start-date"
+      ],
+      "geometry_fields": [
+        "geometry",
+        "point"
+      ],
+      "coverage_notes": "Official page warns the dataset is incomplete and not ready for use. API sample rows had decision dates but blank geometry/point. For London, Planning London Datahub is already the stronger source."
+    },
+    {
+      "audit_source_id": "dfc-hed-gis-feature-service",
+      "name": "Northern Ireland Historic Environment Division GIS Data FeatureServer",
+      "publisher": "Department for Communities, Northern Ireland - Historic Environment Division",
+      "geography": "Northern Ireland; Belfast filterable by Council/LGD",
+      "official_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/arcgis/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "status_in_repo": "generic opendatani-spatial-ni and dfc-hed-nidirect-buildings exist, but this FeatureServer family is not represented as a specific event/source adapter",
+      "audit_result": "recommended_new_source",
+      "why_it_matters": "Official monthly-updated GIS layers cover historic buildings, heritage at risk, industrial heritage, scheduled zones, historic parks/gardens, battlesites, and other built heritage records. Heritage-at-risk rows have Date_Added and geometry; historic-building rows have grade, use, construction-date text, derelict flag, council, and point geometry.",
+      "date_fields": [
+        "Date_Added",
+        "Date_Const",
+        "service dataLastEditDate"
+      ],
+      "geometry_fields": [
+        "ArcGIS point geometry EPSG:29900/29902",
+        "ArcGIS polygon geometry EPSG:29900/29902"
+      ],
+      "coverage_notes": "Service description states publicly available HED GIS datasets, monthly updates, authoritative snapshot, current update published 2026-05-06. The DfC map viewer warns some location information may need correction and scheduled-zone geometry is indicative."
+    },
+    {
+      "audit_source_id": "opendatani-listed-buildings-ni",
+      "name": "Listed Buildings Northern Ireland",
+      "publisher": "Department for Communities - Historic Environment Division via OpenDataNI",
+      "geography": "Northern Ireland; Belfast filterable",
+      "official_url": "https://admin.opendatani.gov.uk/dataset/listed-buildings-northern-ireland",
+      "status_in_repo": "covered_partially_by dfc-hed-nidirect-buildings; also related to generic opendatani-spatial-ni",
+      "audit_result": "already_covered_or_replace_existing_manual_source",
+      "why_it_matters": "Official points dataset for listed buildings with OGL licence and monthly updates. It is a stronger repeatable geometry source than manual nidirect lookups, but it overlaps existing listed-building source coverage.",
+      "date_fields": [
+        "Source last updated",
+        "possible Historic Buildings Record fields through FeatureServer"
+      ],
+      "geometry_fields": [
+        "point geometry",
+        "GeoJSON",
+        "Shapefile"
+      ],
+      "coverage_notes": "OpenDataNI page states the dataset contains points showing locations of all listed buildings within Northern Ireland, created from centre points of designated listed areas, updated monthly, and source last updated 2026-05-06."
+    },
+    {
+      "audit_source_id": "nyc-dob-safety-violations",
+      "name": "DOB Safety Violations",
+      "publisher": "NYC Department of Buildings via NYC Open Data",
+      "geography": "New York City",
+      "official_url": "https://data.cityofnewyork.us/api/views/855j-jady",
+      "status_in_repo": "not_found_as_source_id",
+      "audit_result": "recommended_new_source",
+      "why_it_matters": "Newer DOB civil penalties issued or payable in DOB NOW, with violation issue dates, statuses, device type, BIN, BBL, latitude, longitude, community board, council district, and NTA. Useful for observed building-safety/status events, not for claims about building performance or neighborhood impact.",
+      "date_fields": [
+        "violation_issue_date",
+        "cycle_end_date",
+        "rowsUpdatedAt"
+      ],
+      "geometry_fields": [
+        "latitude",
+        "longitude",
+        "bin",
+        "bbl"
+      ],
+      "coverage_notes": "NYC Open Data metadata says date made public 2023-11-22, daily update, underlying system changes second-to-second. Pairs with older DOB Violations and DOB ECB Violations for pre-DOB-NOW history."
+    },
+    {
+      "audit_source_id": "nyc-dob-legacy-and-ecb-violations",
+      "name": "DOB Violations and DOB ECB Violations",
+      "publisher": "NYC Department of Buildings via NYC Open Data",
+      "geography": "New York City",
+      "official_url": "https://data.cityofnewyork.us/api/views/3h2n-5cm9 and https://data.cityofnewyork.us/api/views/6bgk-3dad",
+      "status_in_repo": "not_found_as_source_id",
+      "audit_result": "recommended_new_source_conditional",
+      "why_it_matters": "Older BIS civil penalties and OATH/ECB summonses fill the 2008-2023 historical gap before DOB NOW Safety Violations. Records include issue/served/hearing dates and BIN/BBL or address fields.",
+      "date_fields": [
+        "issue_date",
+        "served_date",
+        "hearing_date",
+        "rowsUpdatedAt"
+      ],
+      "geometry_fields": [
+        "bin",
+        "boro",
+        "block",
+        "lot",
+        "address fields"
+      ],
+      "coverage_notes": "No native lat/lon in sampled legacy rows. Ingest only after joining BIN/BBL to already-covered NYC building footprints, PLUTO/MapPLUTO, or Digital Tax Map. Omit respondent names and financial fields from public atlas rows unless explicitly justified."
+    },
+    {
+      "audit_source_id": "nyc-dob-facades-compliance-filings",
+      "name": "DOB NOW: Safety - Facades Compliance Filings",
+      "publisher": "NYC Department of Buildings via NYC Open Data",
+      "geography": "New York City",
+      "official_url": "https://data.cityofnewyork.us/api/views/xubg-57si",
+      "status_in_repo": "not_found_as_source_id",
+      "audit_result": "recommended_new_source",
+      "why_it_matters": "Facade Inspection and Safety Program records for buildings over six stories. Rows include submitted_on, filing_date, field_inspection_completed_date, QEWI signed date, current status, filing status, cycle, BIN, block, lot, and exterior wall attributes.",
+      "date_fields": [
+        "submitted_on",
+        "filing_date",
+        "field_inspection_completed_date",
+        "qewi_signed_date",
+        "prior_cycle_filing_date"
+      ],
+      "geometry_fields": [
+        "bin",
+        "block",
+        "lot",
+        "address fields"
+      ],
+      "coverage_notes": "Metadata says date made public 2016-09-15 and update frequency every weekday. Requires BIN/BBL geometry join. Must suppress owner and QEWI personal/business contact fields in public event rows."
+    },
+    {
+      "audit_source_id": "nyc-hpd-housing-maintenance-code-violations",
+      "name": "Housing Maintenance Code Violations",
+      "publisher": "NYC Department of Housing Preservation and Development via NYC Open Data",
+      "geography": "New York City",
+      "official_url": "https://data.cityofnewyork.us/api/views/wvxf-dwi5",
+      "status_in_repo": "not_found_as_source_id; related complaints source ygpa-z7cr is cataloged",
+      "audit_result": "recommended_new_source_conditional",
+      "why_it_matters": "Discrete verified housing-maintenance violations with inspection, approval, NOV issue, correction/certification, and status dates. Supports residential building-condition events separate from complaint records.",
+      "date_fields": [
+        "inspectiondate",
+        "approveddate",
+        "novissueddate",
+        "originalcorrectbydate",
+        "currentstatusdate"
+      ],
+      "geometry_fields": [
+        "buildingid",
+        "registrationid",
+        "boro",
+        "block",
+        "lot",
+        "address fields"
+      ],
+      "coverage_notes": "Base data is open violations as of 2012-10-01 plus violations issued since then. Daily updates. Use building/block/lot joins; omit apartment, story, owner/contact, and excessive narrative detail from public atlas exports."
+    },
+    {
+      "audit_source_id": "nps-national-register-public-dataset",
+      "name": "National Register of Historic Places public dataset and spatial data",
+      "publisher": "U.S. National Park Service",
+      "geography": "United States; New York City filterable by state/county/city",
+      "official_url": "https://www.nps.gov/subjects/nationalregister/data-downloads.htm",
+      "status_in_repo": "not_found_as_source_id; NYC LPC landmarks are covered but federal NRHP designations are not",
+      "audit_result": "recommended_new_source",
+      "why_it_matters": "Federal heritage designation events with listed dates, property names, category, significance fields, and associated spatial dataset for unrestricted National Register properties. Complements NYC LPC local designations without duplicating them.",
+      "date_fields": [
+        "Listed Date",
+        "NHL Designated Date",
+        "spreadsheet update date",
+        "spatial dataset update date"
+      ],
+      "geometry_fields": [
+        "NPS public spatial dataset points/polygons",
+        "reference number / Property ID join"
+      ],
+      "coverage_notes": "NPS page provides listed-properties spreadsheet updated through 2025-06-24 and a public spatial dataset. NPS warns some coordinates and polygon boundaries require correction and restricted/sensitive listings are excluded."
+    },
+    {
+      "audit_source_id": "nyc-dob-complaints-received",
+      "name": "DOB Complaints Received",
+      "publisher": "NYC Department of Buildings via NYC Open Data",
+      "geography": "New York City",
+      "official_url": "https://data.cityofnewyork.us/api/views/eabe-havv",
+      "status_in_repo": "cataloged_as eabe-havv but not generated as event rows",
+      "audit_result": "already_cataloged_not_new_source",
+      "why_it_matters": "Complaint received, inspection, and disposition dates can support building-condition context, but complaints are reports and not verified physical change.",
+      "date_fields": [
+        "date_entered",
+        "disposition_date",
+        "inspection_date",
+        "dobrundate"
+      ],
+      "geometry_fields": [
+        "bin",
+        "address fields"
+      ],
+      "coverage_notes": "Because it is already in the NYC source catalog, this audit does not count it as a new source. If eventized later, label as complaint/inspection workflow rather than confirmed condition."
+    },
+    {
+      "audit_source_id": "mhclg-epc-open-data",
+      "name": "Energy Performance Certificate open data",
+      "publisher": "Ministry of Housing, Communities and Local Government / OpenDataCommunities",
+      "geography": "England and Wales; London filterable",
+      "official_url": "https://epc.opendatacommunities.org/",
+      "status_in_repo": "cataloged_as mhclg-epc-open-data",
+      "audit_result": "already_cataloged_not_new_source",
+      "why_it_matters": "Certificate lodgement events since 2008 can provide building fabric/energy context, but the source is already represented in the London source catalog and should be eventized only with privacy and address-rights minimization.",
+      "date_fields": [
+        "lodgement date",
+        "inspection date"
+      ],
+      "geometry_fields": [
+        "UPRN",
+        "postcode or address-derived join"
+      ],
+      "coverage_notes": "Useful future adapter target, but not a round110 new-source recommendation because the source id is already present."
+    }
+  ],
+  "already_covered_source_ids": [
+    {
+      "city": "belfast",
+      "source_ids": [
+        "ni-planning-statistics",
+        "belfast-architecture-public-pages",
+        "dfc-hed-nidirect-buildings",
+        "belfast-city-council-open-data",
+        "belfast-city-council-public-pages",
+        "opendatani-spatial-ni",
+        "ni_planning_portal",
+        "osm-overpass",
+        "ohsome-api"
+      ],
+      "coverage_meaning": "Official/planned planning and heritage coverage exists, but mostly as statistics, broad registry entries, or manual/cited milestone records rather than complete row-level official built-heritage GIS events."
+    },
+    {
+      "city": "london",
+      "source_ids": [
+        "planning-london-datahub",
+        "gla-planning-datahub-applications",
+        "london-planning-datahub-core",
+        "london-planning-datahub-api",
+        "london-architecture-public-pages",
+        "historic-england-nhle",
+        "mhclg-epc-open-data",
+        "lon-extra-planning-data-brownfield-land",
+        "lon-extra-planning-data-conservation-areas",
+        "lon-extra-planning-data-listed-building-outlines",
+        "lon-extra-planning-data-heritage-at-risk",
+        "lon-extra-planning-data-article-4-directions",
+        "lon-extra-planning-data-tree-preservation-orders",
+        "lon-extra-planning-data-tree-preservation-zones",
+        "lon-extra-planning-data-protected-trees",
+        "lon-extra-planning-data-local-plan-boundaries",
+        "lon-extra-planning-data-local-plans",
+        "lon-extra-planning-data-developer-agreements",
+        "lon-extra-hm-land-registry-price-paid-data",
+        "lon-extra-uk-house-price-index",
+        "london-residential-pipeline-dashboards",
+        "london-development-database-archive",
+        "london-3d-building-stock-context"
+      ],
+      "coverage_meaning": "London has strong source discovery and row-level adapters for selected planning/designation/property rows. New recommendations avoid duplicating those source ids."
+    },
+    {
+      "city": "nyc",
+      "source_ids": [
+        "nyc-dob-open-data",
+        "nyc-dob-filings-permits",
+        "ic3t-wcy2",
+        "w9ak-ipjd",
+        "bty7-2jhb",
+        "ipu4-2q9a",
+        "rbx6-tga4",
+        "bs8b-p36w",
+        "pkdm-hqz6",
+        "eabe-havv",
+        "nyc-certificates-occupancy",
+        "nyc-zap-ceqr-documents",
+        "hgx4-8ukb",
+        "2iga-a6mk",
+        "dpm2-m9mq",
+        "buis-pvji",
+        "skyk-mpzq",
+        "ncre-qhxs",
+        "fdkv-4t4z",
+        "mm69-vrje",
+        "mxbm-493w",
+        "nyc-dcp-mappluto",
+        "nyc-pluto-mappluto-lots",
+        "nyc-digital-tax-map",
+        "nyc-planimetrics-3d-model",
+        "5zhs-2jue",
+        "ipkp-snf6",
+        "hg8x-zxpr",
+        "nyc-architecture-public-pages",
+        "4hcv-tc5r",
+        "n7gv-k5yt",
+        "3ss8-m844",
+        "g9ub-hrve",
+        "rukc-mmqu"
+      ],
+      "coverage_meaning": "NYC already covers permits, filings, COs, LPC landmarks/permits, ZAP projects, HPD production, capital projects, tax-lot context, and building footprints. Recommended sources are compliance, facade, housing-code, and federal heritage gaps."
+    }
+  ],
+  "recommended_new_sources": [
+    {
+      "proposed_source_id": "planning-data-certificate-of-immunity",
+      "priority": "high",
+      "city_or_scope": "UK/London",
+      "source_name": "Planning Data: Certificate of immunity",
+      "publisher": "MHCLG / Historic England",
+      "url": "https://www.planning.data.gov.uk/dataset/certificate-of-immunity",
+      "why_new": "Not present as a source id in the current registry/catalog. It adds dated legal protection/non-listing events with native WKT geometry and point fields.",
+      "suggested_event_type": "heritage_certificate_status",
+      "recommended_date_basis": "Use start-date as effective_date_start and end-date as effective_date_end; keep entry-date as source-record entry date.",
+      "recommended_geometry_basis": "Use point WKT for map point and geometry WKT for footprint/area where present.",
+      "confidence": "documented",
+      "ingestion_notes": [
+        "Filter to Greater London by geometry intersection if used for the London adapter.",
+        "Preserve Historic England documentation-url and source entity id.",
+        "Do not state that a certificate caused demolition, reuse, or redevelopment."
+      ]
+    },
+    {
+      "proposed_source_id": "planning-data-building-preservation-notice",
+      "priority": "medium",
+      "city_or_scope": "UK/London",
+      "source_name": "Planning Data: Building preservation notice",
+      "publisher": "MHCLG / Historic England",
+      "url": "https://www.planning.data.gov.uk/dataset/building-preservation-notice",
+      "why_new": "Not present as a source id. It records temporary immediate protection notices, a highly relevant architecture/heritage event class.",
+      "suggested_event_type": "building_preservation_notice",
+      "recommended_date_basis": "Use start-date and end-date as the temporary protection range; entry-date is source publication date.",
+      "recommended_geometry_basis": "Only emit map events when geometry/point is present or a defensible Historic England reference join supplies geometry.",
+      "confidence": "documented_when_geometry_present",
+      "ingestion_notes": [
+        "Current sampled API rows had blank geometry and point fields, so this should be a conditional adapter.",
+        "Until geometry is present, keep as source gap metadata or source brief rather than map event rows.",
+        "Do not infer that listing was granted or that demolition/alteration occurred."
+      ]
+    },
+    {
+      "proposed_source_id": "dfc-hed-gis-feature-service",
+      "priority": "high",
+      "city_or_scope": "Belfast/Northern Ireland",
+      "source_name": "Historic Environment Division GIS Data FeatureServer",
+      "publisher": "Department for Communities Northern Ireland, Historic Environment Division",
+      "url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/arcgis/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "why_new": "The repo has generic OpenDataNI and a small nidirect listed-building source, but not the full official HED GIS service as a normalized source family. Heritage at Risk Date_Added rows are especially useful for 2008-2026 Belfast events.",
+      "suggested_event_type": "heritage_status_or_designation_record",
+      "recommended_date_basis": "For Heritage at Risk, use Date_Added as the status-observed/added date. For Historic Buildings Record, Date_Const is construction-era context, not a modern event date.",
+      "recommended_geometry_basis": "Use ArcGIS point/polygon geometry in EPSG:29900/29902 and transform to WGS84 for the atlas.",
+      "confidence": "documented",
+      "ingestion_notes": [
+        "Filter layer 3 Heritage at Risk by LGD='Belfast' and layer 1 Historic Buildings Record by Council='Belfast'.",
+        "Keep layer id, object id, HB reference, BHARNI reference, source CRS, and retrieval date.",
+        "Label Scheduled Zones as indicative, per DfC caveat.",
+        "Do not claim current condition unless the source status/date supports it."
+      ]
+    },
+    {
+      "proposed_source_id": "nyc-dob-safety-violations",
+      "priority": "high",
+      "city_or_scope": "NYC",
+      "source_name": "DOB Safety Violations",
+      "publisher": "NYC Department of Buildings",
+      "url": "https://data.cityofnewyork.us/api/views/855j-jady",
+      "why_new": "Not in the current NYC source catalog/registry. Adds newer DOB NOW safety/compliance events with native lat/lon and issue dates.",
+      "suggested_event_type": "building_safety_violation",
+      "recommended_date_basis": "Use violation_issue_date as effective_date; cycle_end_date only as compliance-cycle context.",
+      "recommended_geometry_basis": "Use latitude/longitude directly, retaining BIN and BBL for joins.",
+      "confidence": "documented",
+      "ingestion_notes": [
+        "Preserve violation_number, violation_type, violation_status, device_type, BIN, BBL, and retrieval timestamp.",
+        "Avoid score/risk language; this is an administrative violation record.",
+        "Suppress unnecessary address precision if public atlas privacy posture requires coarser points."
+      ]
+    },
+    {
+      "proposed_source_id": "nyc-dob-legacy-and-ecb-violations",
+      "priority": "medium",
+      "city_or_scope": "NYC",
+      "source_name": "DOB Violations and DOB ECB Violations",
+      "publisher": "NYC Department of Buildings",
+      "url": "https://data.cityofnewyork.us/api/views/3h2n-5cm9 and https://data.cityofnewyork.us/api/views/6bgk-3dad",
+      "why_new": "Not in the current NYC source catalog/registry. Fills older BIS and OATH/ECB enforcement history for the 2008-2023 part of the timeline.",
+      "suggested_event_type": "building_violation_or_enforcement_summons",
+      "recommended_date_basis": "Use issue_date as effective_date; retain served_date and hearing_date where available as separate fields.",
+      "recommended_geometry_basis": "Join BIN/BBL or boro/block/lot to already-covered PLUTO/MapPLUTO/Digital Tax Map/building-footprint geometry.",
+      "confidence": "documented_with_geometry_join",
+      "ingestion_notes": [
+        "Deduplicate against DOB Safety Violations where NYC metadata warns overlap.",
+        "Drop respondent names, financial balances, and contact-like fields from atlas rows.",
+        "Do not treat open/active status as proof that the physical condition still exists without status-date review."
+      ]
+    },
+    {
+      "proposed_source_id": "nyc-dob-facades-compliance-filings",
+      "priority": "high",
+      "city_or_scope": "NYC",
+      "source_name": "DOB NOW: Safety - Facades Compliance Filings",
+      "publisher": "NYC Department of Buildings",
+      "url": "https://data.cityofnewyork.us/api/views/xubg-57si",
+      "why_new": "Not in current NYC source catalog/registry. Adds official dated facade inspection/compliance filings, relevant to architecture, maintenance, and building-envelope condition.",
+      "suggested_event_type": "facade_compliance_filing",
+      "recommended_date_basis": "Use filing_date or submitted_on as effective_date; keep inspection and QEWI signed dates as supporting dates.",
+      "recommended_geometry_basis": "Join BIN/block/lot/address to covered NYC building/tax-lot geometry.",
+      "confidence": "documented_with_geometry_join",
+      "ingestion_notes": [
+        "Suppress owner names, QEWI names, business addresses, and license numbers from public atlas rows.",
+        "Keep current_status and filing_status as source-observed administrative statuses.",
+        "Do not infer facade repair completion unless the filing/status explicitly supports it."
+      ]
+    },
+    {
+      "proposed_source_id": "nyc-hpd-housing-maintenance-code-violations",
+      "priority": "medium",
+      "city_or_scope": "NYC",
+      "source_name": "Housing Maintenance Code Violations",
+      "publisher": "NYC Department of Housing Preservation and Development",
+      "url": "https://data.cityofnewyork.us/api/views/wvxf-dwi5",
+      "why_new": "The related HPD complaints source is cataloged, but verified housing-maintenance violation rows are not. This adds observed building-condition enforcement events with inspection and status dates.",
+      "suggested_event_type": "housing_maintenance_violation",
+      "recommended_date_basis": "Use inspectiondate or novissueddate depending on event label; keep currentstatusdate as status update date.",
+      "recommended_geometry_basis": "Join buildingid/registrationid/boro/block/lot to HPD building or PLUTO/MapPLUTO geometry.",
+      "confidence": "documented_with_geometry_join",
+      "ingestion_notes": [
+        "Omit apartment and story fields from public atlas rows.",
+        "Prefer aggregated building-level events or privacy-minimized details.",
+        "Do not infer landlord behavior, tenant impact, or building habitability beyond the violation text/status."
+      ]
+    },
+    {
+      "proposed_source_id": "nps-national-register-public-dataset",
+      "priority": "medium",
+      "city_or_scope": "US/NYC",
+      "source_name": "National Register of Historic Places public dataset and spatial data",
+      "publisher": "U.S. National Park Service",
+      "url": "https://www.nps.gov/subjects/nationalregister/data-downloads.htm",
+      "why_new": "NYC LPC sources cover local landmarks, but federal NRHP/NHL designation events are absent. NRHP listed dates and spatial records add official federal heritage status.",
+      "suggested_event_type": "federal_heritage_designation",
+      "recommended_date_basis": "Use Listed Date or NHL Designated Date as effective_date, preserving spreadsheet update date.",
+      "recommended_geometry_basis": "Join the listed-properties spreadsheet reference number/Property ID to the NPS public spatial dataset points/polygons.",
+      "confidence": "documented_with_spatial_quality_caveat",
+      "ingestion_notes": [
+        "Filter to NYC counties/boroughs and 2008-2026 listed dates for initial event rows.",
+        "Preserve NPS reference number and NARA/NPGallery link when present.",
+        "Display NPS spatial caveat: points/polygons may need correction and sensitive listings are excluded."
+      ]
+    }
+  ],
+  "license_caveats": [
+    {
+      "source_family": "Planning Data England",
+      "licence": "Open Government Licence v3.0 where stated by dataset page",
+      "caveats": [
+        "Preserve Crown copyright/database right and Historic England/Ordnance Survey attribution where stated.",
+        "Planning Data is beta; some datasets are incomplete or have geometry gaps.",
+        "Legal protection/status records are administrative/legal events, not evidence that physical redevelopment occurred."
+      ]
+    },
+    {
+      "source_family": "Department for Communities Northern Ireland / OpenDataNI / HED GIS",
+      "licence": "UK Open Government Licence for OpenDataNI listed-building downloads; verify per ArcGIS service and DfC terms before redistribution",
+      "caveats": [
+        "HED map viewer notes location information may need correction in some cases.",
+        "Scheduled Zones are indicative; official scheduling declarations should be requested for decisions affecting sites.",
+        "Historic Buildings Record construction-date text is historical context, not a 2008-2026 event date."
+      ]
+    },
+    {
+      "source_family": "NYC Open Data / NYC DOB / NYC HPD",
+      "licence": "NYC Open Data FAQ states no restrictions on use, subject to Terms of Use",
+      "caveats": [
+        "Several datasets contain personal names, business names, apartment/story fields, respondent fields, or contact-like fields. Exclude these from public atlas rows unless explicitly reviewed.",
+        "Violation, complaint, and filing records are administrative status records, not proof of causation or long-term building condition.",
+        "Legacy DOB/ECB/HPD rows usually require geometry joins to BIN, BBL, PLUTO, Digital Tax Map, or building footprints."
+      ]
+    },
+    {
+      "source_family": "U.S. National Park Service NRHP",
+      "licence": "U.S. federal public source; verify NPS/NARA content and photograph/form copyright for linked documentation",
+      "caveats": [
+        "NPS states the public spatial data excludes restricted/sensitive geography.",
+        "NPS warns many coordinates and polygon boundaries require some level of correction.",
+        "NRHP listing is a federal heritage designation event, not local LPC designation and not evidence of physical change."
+      ]
+    }
+  ],
+  "candidate_event_examples": [
+    {
+      "candidate_source_id": "planning-data-certificate-of-immunity",
+      "source_record_id": "2300104",
+      "title": "Certificate of immunity for Queen Elizabeth Hall, Purcell Room, Hayward Gallery and associated terraces",
+      "geography": "London",
+      "event_date_or_range": {
+        "start": "2020-02-06",
+        "end": "2025-02-05",
+        "entry_date": "2025-01-31"
+      },
+      "geometry": {
+        "point_wkt": "POINT (-0.11595 51.506479)",
+        "geometry_type": "MULTIPOLYGON"
+      },
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1456996",
+      "event_label": "A certificate-of-immunity legal status period was recorded; no physical change is claimed."
+    },
+    {
+      "candidate_source_id": "planning-data-building-preservation-notice",
+      "source_record_id": "2000018",
+      "title": "Building Preservation Notice for Old Broadgate Farm buildings and cottage",
+      "geography": "England",
+      "event_date_or_range": {
+        "start": "2026-02-04",
+        "end": "2026-08-04",
+        "entry_date": "2026-05-19"
+      },
+      "geometry": {
+        "point_wkt": "",
+        "geometry_type": "missing_in_sample"
+      },
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1496305",
+      "event_label": "A temporary preservation notice period was recorded; emit map row only after geometry is available or defensibly joined."
+    },
+    {
+      "candidate_source_id": "dfc-hed-gis-feature-service",
+      "source_record_id": "HB25/17/007 / BHARNI 25/17/002",
+      "title": "Belvoir Park Hospital heritage-at-risk status row",
+      "geography": "Belfast",
+      "event_date_or_range": {
+        "date_added": "2009/08/10"
+      },
+      "geometry": {
+        "source_crs": "EPSG:29900/29902",
+        "x": 333780,
+        "y": 368140,
+        "geometry_type": "point"
+      },
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/arcgis/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3",
+      "event_label": "A DfC Heritage at Risk/Saved status row was recorded for a Belfast historic building; current condition requires latest source status."
+    },
+    {
+      "candidate_source_id": "nyc-dob-safety-violations",
+      "source_record_id": "VIO-FTC-FC-UNSAFE-202802-0002807",
+      "title": "Unsafe FISP report filed at 81 Wadsworth Terrace",
+      "geography": "New York City",
+      "event_date_or_range": {
+        "violation_issue_date": "2026-05-13",
+        "cycle_end_date": "2030-02-20"
+      },
+      "geometry": {
+        "latitude": 40.85698,
+        "longitude": -73.930585,
+        "bin": "1084207",
+        "bbl": "1021700420"
+      },
+      "source_url": "https://data.cityofnewyork.us/api/views/855j-jady",
+      "event_label": "A DOB safety violation was issued; do not infer repair, danger duration, or neighborhood impact."
+    },
+    {
+      "candidate_source_id": "nyc-dob-facades-compliance-filings",
+      "source_record_id": "TR6-908009-9C-S1",
+      "title": "Facade compliance filing for 1985 Webster Avenue",
+      "geography": "New York City",
+      "event_date_or_range": {
+        "submitted_on": "2025-11-05",
+        "filing_date": "2025-11-05",
+        "field_inspection_completed_date": "2025-10-30",
+        "qewi_signed_date": "2025-09-10"
+      },
+      "geometry": {
+        "bin": "2092392",
+        "block": "3142",
+        "lot": "1",
+        "join_required": "NYC building footprint, PLUTO/MapPLUTO, or Digital Tax Map"
+      },
+      "source_url": "https://data.cityofnewyork.us/api/views/xubg-57si",
+      "event_label": "A DOB facade filing with UNSAFE status was recorded; suppress owner/QEWI fields."
+    },
+    {
+      "candidate_source_id": "nyc-dob-legacy-and-ecb-violations",
+      "source_record_id": "32067132R",
+      "title": "DOB ECB boiler violation at 1488 Bushwick Avenue",
+      "geography": "New York City",
+      "event_date_or_range": {
+        "issue_date": "2009-11-07",
+        "served_date": "2009-11-07",
+        "hearing_date": "2010-09-13"
+      },
+      "geometry": {
+        "bin": "3080376",
+        "boro": "3",
+        "block": "03461",
+        "lot": "0030",
+        "join_required": "NYC building footprint, PLUTO/MapPLUTO, or Digital Tax Map"
+      },
+      "source_url": "https://data.cityofnewyork.us/api/views/6bgk-3dad",
+      "event_label": "A DOB ECB enforcement summons was recorded; respondent and financial fields should be excluded."
+    },
+    {
+      "candidate_source_id": "nyc-hpd-housing-maintenance-code-violations",
+      "source_record_id": "10081311",
+      "title": "HPD Housing Maintenance Code violation at 22 Front Stagg Street",
+      "geography": "New York City",
+      "event_date_or_range": {
+        "inspectiondate": "2013-12-30",
+        "approveddate": "2014-01-04",
+        "novissueddate": "2014-01-06",
+        "currentstatusdate": "2014-01-25"
+      },
+      "geometry": {
+        "buildingid": "375411",
+        "boro": "BROOKLYN",
+        "block": "3031",
+        "lot": "15",
+        "join_required": "HPD building file, PLUTO/MapPLUTO, or Digital Tax Map"
+      },
+      "source_url": "https://data.cityofnewyork.us/api/views/wvxf-dwi5",
+      "event_label": "A verified housing-maintenance violation was recorded; omit apartment/story in public atlas rows."
+    },
+    {
+      "candidate_source_id": "nps-national-register-public-dataset",
+      "source_record_id": "100010703",
+      "title": "Boston Road Plaza listed in the National Register of Historic Places",
+      "geography": "Bronx, New York City",
+      "event_date_or_range": {
+        "listed_date": "2024-08-26"
+      },
+      "geometry": {
+        "spreadsheet_address": "2440 Boston Road",
+        "join_required": "NPS NRHP public spatial dataset by reference number or Property ID"
+      },
+      "source_url": "https://www.nps.gov/subjects/nationalregister/data-downloads.htm",
+      "event_label": "A federal NRHP listing event was recorded; local LPC status and physical change are separate evidence paths."
+    }
+  ],
+  "next_checks_before_ingestion": [
+    "Confirm final per-source licence/terms immediately before download and record accessed_at.",
+    "Add source_registry entries before event adapters, but do not alter the main corpus in this audit task.",
+    "For every geometry-join source, create a deterministic join verifier and negative tests for missing BIN/BBL/UPRN/reference geometry.",
+    "For DOB/HPD rows, define a privacy minimization allowlist before writing any public event chunks.",
+    "For Planning Data beta datasets, store links.next pagination metadata and skip rows without source dates or geometry.",
+    "For HED ArcGIS layers, record source CRS and transformation method; flag indicative/correctable location caveats in the UI evidence drawer."
+  ]
+}

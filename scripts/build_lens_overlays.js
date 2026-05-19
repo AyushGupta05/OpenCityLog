@@ -19,12 +19,35 @@ const LENS_CATEGORIES = new Set([
   "environment",
   "civic_services",
   "economy",
+  "utilities",
 ]);
 
 const HOTSPOT_CELL_DEG = 0.01;
 const ROAD_INDEX_CELL_DEG = 0.018;
 const TRAFFIC_EVENT_RADIUS_KM = 0.85;
 const TRAFFIC_WINDOW_YEARS = 2;
+const LENS_CELL_CONFIGS = {
+  built_environment: {
+    layer: "planning_cell",
+    sizeM: 95,
+    label: "planning and built",
+    kindField: "lifecycle_status",
+  },
+  civic_services: {
+    layer: "civic_coverage_cell",
+    sizeM: 260,
+    label: "civic service",
+    kindField: "service_type",
+  },
+  economy: {
+    layer: "economy_activity_cell",
+    sizeM: 120,
+    label: "economy",
+    kindField: "sector",
+  },
+};
+const FRONTAGE_TRACE_RADIUS_KM = 0.55;
+const UTILITY_TRACE_RADIUS_KM = 0.62;
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -179,14 +202,36 @@ function loadEvents(city, eventsIndex) {
       if (!Number.isFinite(year)) continue;
       const confidence = String(event.confidence || "documented").toLowerCase();
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
+      const evidence = Array.isArray(event.evidence) ? event.evidence : [];
+      const provenance = event.provenance || {};
+      const text = [
+        event.title,
+        event.short_description,
+        event.explanation,
+        event.affected_area?.label,
+        event.source_date_field,
+        provenance.source_basis,
+        provenance.geometry_precision,
+      ].filter(Boolean).join(" ");
       out.push({
         id: event.event_id || event.id || `${city.city_id}-${category}-${year}-${out.length}`,
         title: event.title || "Source-backed city record",
+        description: event.short_description || "",
+        area: event.affected_area?.label || "",
+        effectiveDate: event.effective_date || "",
+        datePrecision: event.date_precision || "",
+        sourceDateField: event.source_date_field || provenance.source_date_field || "",
+        geometryPrecision: provenance.geometry_precision || "",
+        geometrySource: provenance.geometry_source || "",
+        sourceBasis: provenance.source_basis || "",
+        evidenceCount: evidence.length,
         year,
         category,
         confidence,
         sourceIds,
+        sourceUrls: evidence.map((item) => item.url).filter(Boolean).slice(0, 4),
         signals,
+        text,
         weight: confidenceWeight(confidence),
         coord,
       });
@@ -448,6 +493,537 @@ function writeTransportRoadYears(city, paths, events, years, outDir) {
   return { base, template, roadCount: roads.length };
 }
 
+function lowerText(event) {
+  return String(event.text || `${event.title || ""} ${event.description || ""}`).toLowerCase();
+}
+
+function lensDetailSkipReason(event) {
+  if (!coordinateValid(event.coord)) return "missing_point_geometry";
+  const precision = String(event.geometryPrecision || "").toLowerCase();
+  const sourceBasis = String(event.sourceBasis || "").toLowerCase();
+  const geometrySource = String(event.geometrySource || "").toLowerCase();
+  const sourceIds = (event.sourceIds || []).join(" ").toLowerCase();
+  const text = lowerText(event);
+  const combined = `${precision} ${sourceBasis} ${geometrySource} ${sourceIds} ${text}`;
+  const geometryScope = precision.trim();
+
+  if (/\buk[-_\s]?hpi\b|\bhpi monthly\b|house[-_\s]?price[-_\s]?index|uk[-_\s]?house[-_\s]?price[-_\s]?index|market[-_\s]?trend|lon-extra-uk-house-price-index/.test(combined)) {
+    return "statistical_housing_market_record";
+  }
+  if (/\bborough aggregate\b|\baggregate,\s*not\b|\baggregate record\b/.test(combined)) {
+    return "aggregate_record";
+  }
+  if (/\barea\/city reference\b|\bcitywide\b|\bnot an exact event geometry\b/.test(geometryScope)
+    || /^(approximate\s+)?district(?:-extension)?(?:\s+approximate|\s+centroid)?\b/.test(geometryScope)
+    || /^(approximate\s+)?neighbou?rhood(?:\s+approximate|\s+centroid)?\b/.test(geometryScope)
+    || /^(rail[-\s])?corridor(?:\s+approximate|\s+centroid)?\b/.test(geometryScope)
+    || /^(multiple sites|multi[-\s]?site|programme approximate)\b/.test(geometryScope)) {
+    return "non_site_scope";
+  }
+  if (/^area(?:\s+approximate)?$/.test(precision.trim())) {
+    return "area_scope";
+  }
+  return "";
+}
+
+function isLensDetailEligibleEvent(event) {
+  return !lensDetailSkipReason(event);
+}
+
+function lensDetailSkipSummary(yearEvents) {
+  const reasons = {};
+  for (const event of yearEvents) {
+    if (!["built_environment", "civic_services", "economy", "utilities"].includes(event.category)) continue;
+    const reason = lensDetailSkipReason(event);
+    if (reason) incrementCounter(reasons, reason);
+  }
+  return reasons;
+}
+
+function matchKind(text, entries, fallback) {
+  for (const [kind, pattern] of entries) {
+    if (pattern.test(text)) return kind;
+  }
+  return fallback;
+}
+
+function classifyPlanningLifecycle(event) {
+  const text = lowerText(event);
+  if (event.confidence === "inferred" || /osm|mapped[- ]visibility|mapped[- ]event|mapped in osm/.test(text)) return "inferred";
+  return matchKind(text, [
+    ["demolished", /\bdemolish(ed|ition)?\b|\bdemolition\b|\bremoved\b/],
+    ["construction", /\bunder construction\b|\bconstruction\b|\bworks start(ed)?\b|\bstarted\b|\benabling works\b/],
+    ["completed", /\bcompleted\b|\bopened\b|\bdelivered\b|\boccupied\b|\boperational\b/],
+    ["permitted", /\bapproved\b|\bpermission\b|\bconsent\b|\bcondition variation\b|\bpermitted\b/],
+    ["proposed", /\bpropos(ed|al)\b|\bapplication\b|\bsubmitted\b|\bconsultation\b/],
+    ["planned", /\bplanned\b|\bstage\s*1\b|\bemerging\b|\bprogramme\b|\bmasterplan\b/],
+  ], "uncertain");
+}
+
+function classifyCivicServiceType(event) {
+  const text = lowerText(event);
+  return matchKind(text, [
+    ["health", /\bhealth\b|\bhospital\b|\bclinic\b|\bgp\b|\bmedical\b|\bcare\b/],
+    ["education", /\bschool\b|\beducation\b|\buniversity\b|\bcollege\b|\bcampus\b|\bstudent\b/],
+    ["library", /\blibrary\b|\blibraries\b/],
+    ["leisure", /\bleisure\b|\bsport\b|\bpool\b|\bpark\b|\bplay\b|\brecreation\b/],
+    ["community", /\bcommunity\b|\bcivic\b|\bcouncil\b|\bpublic service\b|\bservice centre\b/],
+    ["safety", /\bpolice\b|\bfire\b|\bemergency\b|\bsafety\b/],
+  ], "service");
+}
+
+function classifyCivicStatus(event) {
+  const text = lowerText(event);
+  if (event.confidence === "inferred") return "inferred";
+  return matchKind(text, [
+    ["planned", /\bplanned\b|\bproposed\b|\bstage\s*1\b|\bprogramme\b/],
+    ["opened", /\bopened\b|\bcompleted\b|\boperational\b/],
+    ["changed", /\brelocat(ed|ion)\b|\bupgrade(d)?\b|\bextension\b|\bchange\b/],
+  ], "documented");
+}
+
+function classifyEconomySector(event) {
+  const text = lowerText(event);
+  return matchKind(text, [
+    ["hospitality", /\bhotel\b|\brestaurant\b|\bcafe\b|\bbar\b|\bhospitality\b/],
+    ["retail", /\bretail\b|\bshop\b|\bstore\b|\bmarket\b/],
+    ["office", /\boffice\b|\bworkspace\b|\bbusiness\b|\bemployment\b/],
+    ["industrial", /\bindustrial\b|\bfactory\b|\blogistics\b|\bwarehouse\b|\bclass b3\b/],
+    ["culture_visitor", /\bvisitor\b|\bculture\b|\btouris[mt]\b|\bmuseum\b|\bvenue\b|\bhotel\b/],
+    ["education_health", /\buniversity\b|\beducation\b|\bhealth\b|\bhospital\b|\bcampus\b/],
+    ["residential_change", /\bresidential\b|\bstudent accommodation\b|\bhmo\b|\bhousing\b/],
+    ["vacancy", /\bvacan(t|cy)\b|\bderelict\b|\bmeanwhile\b|\bclosed\b/],
+  ], "commercial_activity");
+}
+
+function classifyEconomyStatus(event) {
+  const text = lowerText(event);
+  if (event.confidence === "inferred") return "inferred";
+  return matchKind(text, [
+    ["opening", /\bopened\b|\bopening\b|\blaunched\b/],
+    ["closure", /\bclosed\b|\bclosure\b|\bvacan(t|cy)\b/],
+    ["permitted", /\bapproved\b|\bpermission\b|\bconsent\b|\bpermitted\b/],
+    ["planned", /\bplanned\b|\bproposed\b|\bstage\s*1\b|\bprogramme\b/],
+  ], "documented");
+}
+
+function classifyUtilityType(event) {
+  const text = lowerText(event);
+  return matchKind(text, [
+    ["electricity", /\belectricity\b|\bpower\b|\bgenerator\b|\bsubstation\b|\btransformer\b/],
+    ["telecom", /\btelecom\b|\bbroadband\b|\bfibre\b|\bfiber\b|\bcable\b|\bcommunications?\b/],
+    ["water", /\bwater\b|\bsewer\b|\bwastewater\b|\bdrain(age)?\b/],
+    ["gas", /\bgas\b/],
+    ["streetworks", /\bstreet\s*works\b|\broad\s*works\b|\bworks\b|\bclosure\b|\bdisruption\b/],
+  ], "infrastructure");
+}
+
+function classifyUtilityStatus(event) {
+  const text = lowerText(event);
+  if (event.confidence === "inferred" || /osm|mapped[- ]visibility|mapped[- ]event|mapped in osm/.test(text)) return "mapped_asset";
+  return matchKind(text, [
+    ["repair", /\brepair\b|\bmaintenance\b|\breinstatement\b/],
+    ["disruption", /\bdisruption\b|\bclosure\b|\bclosed\b|\boutage\b/],
+    ["planned", /\bplanned\b|\bproposed\b|\bprogramme\b|\bpermit\b/],
+    ["current", /\bopened\b|\boperational\b|\bcompleted\b/],
+  ], "documented");
+}
+
+function classifyLensEvent(event) {
+  if (event.category === "built_environment") {
+    return { primary: classifyPlanningLifecycle(event), secondary: event.confidence === "inferred" ? "inferred" : "source_record" };
+  }
+  if (event.category === "civic_services") {
+    return { primary: classifyCivicServiceType(event), secondary: classifyCivicStatus(event) };
+  }
+  if (event.category === "economy") {
+    return { primary: classifyEconomySector(event), secondary: classifyEconomyStatus(event) };
+  }
+  if (event.category === "utilities") {
+    return { primary: classifyUtilityType(event), secondary: classifyUtilityStatus(event) };
+  }
+  return { primary: "record", secondary: event.confidence || "documented" };
+}
+
+function incrementCounter(target, key, amount = 1) {
+  target[key] = (target[key] || 0) + amount;
+}
+
+function dominantKey(counts, fallback = "documented") {
+  const entries = Object.entries(counts || {});
+  if (!entries.length) return fallback;
+  return entries.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+}
+
+function counterText(counts) {
+  return Object.entries(counts || {})
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([key, value]) => `${key}:${value}`)
+    .join(",");
+}
+
+function addEventToBucket(bucket, event, classification) {
+  bucket.count += 1;
+  bucket.weight += event.weight || 1;
+  bucket.sx += event.coord[0];
+  bucket.sy += event.coord[1];
+  bucket.distance += event.distanceKm || 0;
+  incrementCounter(bucket.confidenceCounts, event.confidence || "documented");
+  incrementCounter(bucket.primaryCounts, classification.primary);
+  incrementCounter(bucket.secondaryCounts, classification.secondary);
+  incrementCounter(bucket.geometryPrecisionCounts, event.geometryPrecision || "unspecified");
+  for (const id of event.sourceIds || []) {
+    if (bucket.sourceIds.size < 12) bucket.sourceIds.add(id);
+  }
+  bucket.eventIdsAll.push(event.id);
+  if (bucket.eventIds.length < 10) bucket.eventIds.push(event.id);
+  if (bucket.titles.length < 3) bucket.titles.push(event.title);
+  for (const url of event.sourceUrls || []) {
+    if (bucket.sourceUrls.size < 4) bucket.sourceUrls.add(url);
+  }
+}
+
+function meterFactors(refLat) {
+  const latRad = Number(refLat || 0) * Math.PI / 180;
+  return {
+    lon: Math.max(1, 111320 * Math.cos(latRad)),
+    lat: 110574,
+  };
+}
+
+function cityReferenceLat(city, events) {
+  if (Array.isArray(city.default_center) && Number.isFinite(Number(city.default_center[1]))) {
+    return Number(city.default_center[1]);
+  }
+  const lat = events.find((event) => coordinateValid(event.coord))?.coord?.[1];
+  return Number.isFinite(Number(lat)) ? Number(lat) : 0;
+}
+
+function gridForCoord(coord, sizeM, refLat) {
+  const factors = meterFactors(refLat);
+  const x = Math.floor((coord[0] * factors.lon) / sizeM);
+  const y = Math.floor((coord[1] * factors.lat) / sizeM);
+  const west = (x * sizeM) / factors.lon;
+  const east = ((x + 1) * sizeM) / factors.lon;
+  const south = (y * sizeM) / factors.lat;
+  const north = ((y + 1) * sizeM) / factors.lat;
+  return {
+    key: `${x}|${y}`,
+    polygon: [
+      [
+        [round(west, 7), round(south, 7)],
+        [round(east, 7), round(south, 7)],
+        [round(east, 7), round(north, 7)],
+        [round(west, 7), round(north, 7)],
+        [round(west, 7), round(south, 7)],
+      ],
+    ],
+  };
+}
+
+function detailBaseProperties(cityId, layer, category, year, bucket, representation, caveat) {
+  const confidence = dominantKey(bucket.confidenceCounts);
+  return {
+    id: bucket.id,
+    layer,
+    category,
+    year,
+    visible_year: year,
+    title: bucket.title,
+    confidence,
+    confidence_mix: counterText(bucket.confidenceCounts),
+    event_count: bucket.count,
+    source_count: bucket.sourceIds.size,
+    source_ids: Array.from(bucket.sourceIds).join(","),
+    event_ids: bucket.eventIds.join(","),
+    event_ids_all: bucket.eventIdsAll.join(","),
+    source_urls: Array.from(bucket.sourceUrls).join(","),
+    geometry_precision_mix: counterText(bucket.geometryPrecisionCounts),
+    representation,
+    timing_note: "Filtered by event effective year. OSM mapped-visibility dates and administrative dates can differ from real-world physical change dates.",
+    caveat,
+    generated_from: `web/data/city-atlas/cities/${cityId}/events_${year}.json`,
+  };
+}
+
+function buildCellFeatures(city, yearEvents, refLat) {
+  const buckets = new Map();
+  for (const event of yearEvents) {
+    const config = LENS_CELL_CONFIGS[event.category];
+    if (!config) continue;
+    if (!isLensDetailEligibleEvent(event)) continue;
+    const grid = gridForCoord(event.coord, config.sizeM, refLat);
+    const classification = classifyLensEvent(event);
+    const key = `${event.year}|${event.category}|${grid.key}`;
+    let bucket = buckets.get(key);
+    if (!bucket) {
+      bucket = {
+        id: `lens-detail-${city.city_id}-${event.year}-${config.layer}-${buckets.size}`,
+        year: event.year,
+        category: event.category,
+        layer: config.layer,
+        sizeM: config.sizeM,
+        polygon: grid.polygon,
+        count: 0,
+        weight: 0,
+        sx: 0,
+        sy: 0,
+        distance: 0,
+        confidenceCounts: {},
+        primaryCounts: {},
+        secondaryCounts: {},
+        geometryPrecisionCounts: {},
+        sourceIds: new Set(),
+        sourceUrls: new Set(),
+        eventIds: [],
+        eventIdsAll: [],
+        titles: [],
+      };
+      buckets.set(key, bucket);
+    }
+    addEventToBucket(bucket, event, classification);
+  }
+
+  return Array.from(buckets.values())
+    .sort((a, b) => a.year - b.year || a.category.localeCompare(b.category) || b.count - a.count || a.id.localeCompare(b.id))
+    .map((bucket) => {
+      const config = LENS_CELL_CONFIGS[bucket.category];
+      const primary = dominantKey(bucket.primaryCounts, "record");
+      const secondary = dominantKey(bucket.secondaryCounts, "documented");
+      bucket.title = `${bucket.count} source-backed ${config.label} record${bucket.count === 1 ? "" : "s"}`;
+      const caveat = bucket.category === "built_environment"
+        ? "Planning cells are derived from source-backed event locations; they are not parcel boundaries unless source geometry is separately present."
+        : bucket.category === "civic_services"
+          ? "Civic coverage cells are evidence grids around facility/service records, not surveyed catchment or capacity areas."
+          : "Economy cells are evidence grids around source-backed activity records, not measured spend, vacancy, or footfall.";
+      const properties = detailBaseProperties(
+        city.city_id,
+        bucket.layer,
+        bucket.category,
+        bucket.year,
+        bucket,
+        `${config.label} evidence grid cell`,
+        caveat,
+      );
+      properties[config.kindField] = primary;
+      properties.status = secondary;
+      properties.cell_size_m = bucket.sizeM;
+      properties.intensity = round(clamp(Math.log1p(bucket.count) / 2.4, 0.18, 1));
+      properties.label = bucket.titles[0] || properties.title;
+      return {
+        type: "Feature",
+        properties,
+        geometry: { type: "Polygon", coordinates: bucket.polygon },
+      };
+    });
+}
+
+function buildPointDetailFeatures(city, yearEvents, category, layer, representation, caveat) {
+  return yearEvents
+    .filter((event) => event.category === category && isLensDetailEligibleEvent(event))
+    .map((event, index) => {
+      const classification = classifyLensEvent(event);
+      const bucket = {
+        id: `lens-detail-${city.city_id}-${event.year}-${layer}-${index}-${event.id}`,
+        title: event.title,
+        count: 1,
+        sourceIds: new Set(event.sourceIds || []),
+        sourceUrls: new Set(event.sourceUrls || []),
+        eventIds: [event.id],
+        eventIdsAll: [event.id],
+        confidenceCounts: { [event.confidence || "documented"]: 1 },
+        geometryPrecisionCounts: { [event.geometryPrecision || "unspecified"]: 1 },
+      };
+      const properties = detailBaseProperties(city.city_id, layer, category, event.year, bucket, representation, caveat);
+      if (category === "civic_services") {
+        properties.service_type = classification.primary;
+        properties.status = classification.secondary;
+      } else if (category === "utilities") {
+        properties.utility_type = classification.primary;
+        properties.work_status = classification.secondary;
+      }
+      properties.geometry_precision = event.geometryPrecision || "";
+      return {
+        type: "Feature",
+        properties,
+        geometry: { type: "Point", coordinates: event.coord },
+      };
+    });
+}
+
+function nearestRoad(index, coord, maxKm) {
+  let best = null;
+  let bestKm = Infinity;
+  for (const road of nearbyRoads(index, coord)) {
+    const km = distanceKm(coord, road.coord);
+    if (km < bestKm) {
+      best = road;
+      bestKm = km;
+    }
+  }
+  return best && bestKm <= maxKm ? { road: best, km: bestKm } : null;
+}
+
+function buildRoadTraceFeatures(city, yearEvents, roads, category, layer, radiusKm, representation, caveat) {
+  if (!roads.length) return [];
+  const index = buildRoadIndex(roads);
+  const buckets = new Map();
+  for (const event of yearEvents.filter((item) => item.category === category)) {
+    if (!isLensDetailEligibleEvent(event)) continue;
+    const nearest = nearestRoad(index, event.coord, radiusKm);
+    if (!nearest) continue;
+    const classification = classifyLensEvent(event);
+    const roadProps = nearest.road.feature.properties || {};
+    const stableRoadId = roadProps.source_id || roadProps.id || roadProps.name || `road-${nearest.road.index}`;
+    const key = `${event.year}|${category}|${nearest.road.index}|${classification.primary}|${classification.secondary}`;
+    let bucket = buckets.get(key);
+    if (!bucket) {
+      bucket = {
+        id: `lens-detail-${city.city_id}-${event.year}-${layer}-${nearest.road.index}-${classification.primary}-${classification.secondary}`,
+        title: roadProps.name || roadProps.ref || "Mapped street segment",
+        year: event.year,
+        category,
+        layer,
+        road: nearest.road,
+        roadId: stableRoadId,
+        roadName: roadProps.name || roadProps.ref || "mapped street segment",
+        rank: Number(roadProps.rank || 1),
+        count: 0,
+        weight: 0,
+        sx: 0,
+        sy: 0,
+        distance: 0,
+        confidenceCounts: {},
+        primaryCounts: {},
+        secondaryCounts: {},
+        geometryPrecisionCounts: {},
+        sourceIds: new Set(),
+        sourceUrls: new Set(),
+        eventIds: [],
+        eventIdsAll: [],
+        titles: [],
+      };
+      buckets.set(key, bucket);
+    }
+    addEventToBucket(bucket, { ...event, distanceKm: nearest.km }, classification);
+  }
+
+  return Array.from(buckets.values())
+    .sort((a, b) => a.year - b.year || b.count - a.count || a.id.localeCompare(b.id))
+    .map((bucket) => {
+      const primary = dominantKey(bucket.primaryCounts, "record");
+      const secondary = dominantKey(bucket.secondaryCounts, "documented");
+      bucket.title = `${bucket.count} source-backed ${category.replace(/_/g, " ")} record${bucket.count === 1 ? "" : "s"} near ${bucket.roadName}`;
+      const properties = detailBaseProperties(city.city_id, layer, category, bucket.year, bucket, representation, caveat);
+      properties.road_source_id = String(bucket.roadId);
+      properties.road_name = bucket.roadName;
+      properties.rank = bucket.rank;
+      properties.nearest_event_distance_km = round(bucket.distance / Math.max(1, bucket.count), 3);
+      properties.intensity = round(clamp(Math.log1p(bucket.count) / 2.2, 0.2, 1));
+      if (category === "economy") {
+        properties.sector = primary;
+        properties.activity_status = secondary;
+      } else if (category === "utilities") {
+        properties.utility_type = primary;
+        properties.work_status = secondary;
+      }
+      return {
+        type: "Feature",
+        properties,
+        geometry: bucket.road.feature.geometry,
+      };
+    });
+}
+
+function lensDetailLayerCounts(features) {
+  const counts = {};
+  for (const feature of features) {
+    const layer = feature.properties?.layer || "unknown";
+    counts[layer] = (counts[layer] || 0) + 1;
+  }
+  return counts;
+}
+
+function writeLensDetailYears(city, paths, events, years, outDir) {
+  const roads = loadRoadFeatures(city, paths);
+  const template = `web/data/city-atlas/cities/${city.city_id}/lens_detail_{year}.geojson`;
+  const refLat = cityReferenceLat(city, events);
+
+  for (const year of years) {
+    const yearEvents = events.filter((event) => event.year === year);
+    const skippedLensDetailRecords = lensDetailSkipSummary(yearEvents);
+    const features = [
+      ...buildCellFeatures(city, yearEvents, refLat),
+      ...buildRoadTraceFeatures(
+        city,
+        yearEvents,
+        roads,
+        "economy",
+        "economy_frontage",
+        FRONTAGE_TRACE_RADIUS_KM,
+        "nearest mapped street frontage proxy from source-backed economy records",
+        "Economy frontage traces use existing OSM street geometry nearest to source-backed event points; they are not measured footfall, spend, or vacancy data.",
+      ),
+      ...buildPointDetailFeatures(
+        city,
+        yearEvents,
+        "civic_services",
+        "civic_facility",
+        "source-backed civic facility or service point",
+        "Facility glyphs use event point geometry only; no catchment, capacity, or service quality is inferred.",
+      ),
+      ...buildRoadTraceFeatures(
+        city,
+        yearEvents,
+        roads,
+        "utilities",
+        "utility_trace",
+        UTILITY_TRACE_RADIUS_KM,
+        "nearest mapped street or infrastructure-work trace from source-backed utility records",
+        "Utility traces are nearest-road/work-location context from source-backed records and existing OSM geometry; no capacity data is inferred.",
+      ),
+      ...buildPointDetailFeatures(
+        city,
+        yearEvents,
+        "utilities",
+        "utility_asset",
+        "source-backed utility asset or work point",
+        "Utility glyphs show observed or mapped records only and do not imply network capacity.",
+      ),
+    ];
+
+    writeJson(path.join(outDir, `lens_detail_${year}.geojson`), {
+      type: "FeatureCollection",
+      name: `${city.city_id}_lens_detail_${year}`,
+      metadata: {
+        schema_version: "1.0.0",
+        city_id: city.city_id,
+        year,
+        generated_at: new Date().toISOString(),
+        source_paths: [
+          `web/data/city-atlas/cities/${city.city_id}/events_${year}.json`,
+          `web/data/city-atlas/cities/${city.city_id}/events.json`,
+          city.city_id === "belfast" && paths.detail_layers ? paths.detail_layers : null,
+          paths.transport_roads_base || null,
+        ].filter(Boolean),
+        method: "Derived OpenCityLog lens geometry built from source-backed event points plus existing OSM road/detail geometry. Grid cells aggregate events by effective year. Trace lines reuse nearest mapped road geometry for context.",
+        caveats: [
+          "Derived cells are evidence grids, not surveyed parcels, catchments, zones, or administrative boundaries.",
+          "Trace lines are nearest mapped street or work-location context, not surveyed utility networks, measured traffic speed, spend, vacancy, or service quality. No capacity data is inferred.",
+          "Borough, citywide, statistical, corridor, and multi-site records are excluded from site-like lens geometry; they remain available in the event list and evidence records.",
+          "OSM mapped-visibility dates and administrative decision dates can differ from real-world physical change dates.",
+        ],
+        feature_layers: lensDetailLayerCounts(features),
+        excluded_non_site_record_count: Object.values(skippedLensDetailRecords).reduce((sum, value) => sum + value, 0),
+        excluded_non_site_reasons: skippedLensDetailRecords,
+      },
+      features,
+    });
+  }
+
+  return { template, roadCount: roads.length };
+}
+
 function updateArtifactPath(filePath, cityId, additions) {
   const json = readJson(filePath);
   if (Array.isArray(json.cities)) {
@@ -497,13 +1073,15 @@ function buildCity(city) {
   });
 
   const transportRoads = writeTransportRoadYears(city, paths, events, years, cityDir);
+  const lensDetail = writeLensDetailYears(city, paths, events, years, cityDir);
   const additions = {
     lens_overlays: overlayRelativePath,
+    lens_detail_template: lensDetail.template,
     transport_roads_base: transportRoads.base,
     transport_roads_template: transportRoads.template,
   };
   updateArtifactPath(cityConfigPath, city.city_id, additions);
-  console.log(`${city.city_id}: wrote ${hotspotFeatures.length} hotspot features, ${transportRoads.roadCount} road source features, ${years.length} transport-road year files.`);
+  console.log(`${city.city_id}: wrote ${hotspotFeatures.length} hotspot features, ${transportRoads.roadCount} road source features, ${years.length} transport-road year files, and ${years.length} lens-detail year files.`);
   return { city_id: city.city_id, additions };
 }
 

@@ -19,10 +19,10 @@
     {
       "family_id": "planning",
       "label": "Planning and development records",
-      "source_ids": ["ni-planning-statistics"],
+      "source_ids": ["ni-planning-statistics", "bcc-planning-committee-minutes", "dfc-hed-via-bcc-notifications", "bcc-hed-listing-notifications-20260519", "bcc-planning-committee-agenda-20260519", "dfi-called-in-planning-documents"],
       "availability": "partial_local",
-      "years": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
-      "notes": "Local CSV extracts support decision records. They are evidence of planning decisions, not evidence of completed construction."
+      "years": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Local CSV extracts and council committee records support decision, consent, agenda, and heritage-notification milestones. They are evidence of administrative planning or heritage-status records, not evidence of completed construction."
     },
     {
       "family_id": "osm_history",
@@ -43,7 +43,7 @@
     {
       "family_id": "civic_services",
       "label": "Council services and facilities",
-      "source_ids": ["belfast-city-council-open-data", "belfast-city-council-public-pages"],
+      "source_ids": ["belfast-city-council-open-data", "belfast-city-council-public-pages", "belfast-city-council-belfast-stories-pages"],
       "availability": "partial_local",
       "years": [2016, 2017, 2020, 2023, 2026],
       "notes": "Open-data facility lists and public pages support civic-service context where licence and attribution are retained."

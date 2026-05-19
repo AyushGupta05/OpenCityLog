@@ -51,7 +51,7 @@
     {
       "family_id": "building_permits",
       "label": "Department of Buildings filings, permits, and CO",
-      "source_ids": ["nyc-dob-open-data", "nyc-dob-filings-permits", "nyc-certificates-occupancy"],
+      "source_ids": ["nyc-dob-open-data", "nyc-dob-filings-permits", "nyc-certificates-occupancy", "nyc-dob-now-co-pkdm-hqz6", "nyc-dob-co-bs8b-p36w"],
       "availability": "partial_local",
       "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
       "notes": "Three datasets cover the filing/permit lifecycle (Job Application Filings, BIS, DOB NOW Build); Certificate of Occupancy datasets approximate housing delivery."
@@ -59,10 +59,34 @@
     {
       "family_id": "land_use_documents",
       "label": "Zoning, environmental review, and land-use documents",
-      "source_ids": ["nyc-zap-ceqr-documents"],
+      "source_ids": ["nyc-zap-ceqr-documents", "nyc-dcp-zap-project-data"],
       "availability": "partial_local",
       "years": [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
       "notes": "ZAP and CEQR Access expose project search, environmental review documents, and historical records back to 1979."
+    },
+    {
+      "family_id": "historic_preservation",
+      "label": "Landmarks and preservation actions",
+      "source_ids": ["nyc-lpc-permit-application-information", "nyc-lpc-individual-landmark-sites-buis-pvji", "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"],
+      "availability": "partial_local",
+      "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "LPC permit and preservation records document administrative preservation actions and landmark-related status. They are not construction start, completion, compliance sign-off, final physical condition, or preservation outcome evidence."
+    },
+    {
+      "family_id": "housing_delivery",
+      "label": "HPD affordable housing production",
+      "source_ids": ["nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr"],
+      "availability": "partial_local",
+      "years": [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "HPD production records support housing-production completion milestones where project/building IDs and coordinates are retained. Completion is administrative production evidence, not necessarily first occupancy or full project closeout."
+    },
+    {
+      "family_id": "parks_capital",
+      "label": "Parks capital projects and public realm",
+      "source_ids": ["nyc-parks-capital-project-tracker-4hcv-tc5r"],
+      "availability": "partial_local",
+      "years": [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+      "notes": "Parks tracker rows support capital-project status milestones where tracker IDs and completion dates are retained. They are not measured work footprints, opening dates, operating status, or outcome evidence."
     },
     {
       "family_id": "street_network",
@@ -126,4 +150,3 @@
     "status": "partial_source_backed"
   }
 }
-
