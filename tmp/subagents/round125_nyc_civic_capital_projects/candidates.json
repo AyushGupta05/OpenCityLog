@@ -1,0 +1,1241 @@
+[
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-shirley-chisholm-rec-center-opened-2026-02-09",
+    "title": "Shirley Chisholm Recreation Center opened in East Flatbush",
+    "summary": "DDC's 2026 press index links to an official city opening milestone for the new Shirley Chisholm Recreation Center, and a DDC detail page states the center opened on February 9, 2026.",
+    "observed_change": "A new city recreation-center building entered documented public-opening status.",
+    "effective_date": "2026-02-09",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2026/pr-022026-SCRC-LEED.page",
+    "source_record_id": "pr-022026-SCRC-LEED",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6384,
+    "longitude": -73.9467,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9467,
+        40.6384
+      ]
+    },
+    "source_date_field": "DDC press release dated 2026-02-20 states the center opened on 2026-02-09.",
+    "geometry_source": "Approximate point from stated facility address, 3105 Farragut Place.",
+    "precision": "address approximate point",
+    "geometry_precision": "address approximate point",
+    "limitations": "Opening and LEED milestone do not imply recreation usage, health outcomes, public-safety outcomes, neighborhood effects, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-weeksville-hunterfly-road-houses-restored-2026-02-27",
+    "title": "Hunterfly Road Houses restoration celebrated at Weeksville",
+    "summary": "DDC's 2026 press index records a February 27, 2026 city celebration of a $4 million restoration of the historic Hunterfly Road Houses at Weeksville Heritage Center.",
+    "observed_change": "Historic cultural-site houses reached a documented restoration celebration milestone.",
+    "effective_date": "2026-02-27",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2026/press-releases.page",
+    "source_record_id": "2026-index-city-celebrates-4-million-restoration-hunterfly-road-houses",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6747,
+    "longitude": -73.9256,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9256,
+        40.6747
+      ]
+    },
+    "source_date_field": "DDC 2026 index date and title: February 27, 2026 restoration celebration.",
+    "geometry_source": "Approximate point at Weeksville Heritage Center / Hunterfly Road Houses.",
+    "precision": "named-site approximate point",
+    "geometry_precision": "named-site approximate point",
+    "limitations": "Restoration celebration does not imply preservation outcomes, visitation, educational outcomes, neighborhood effects, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-qpl-seaside-branch-reopened-hvac-2026-02-05",
+    "title": "QPL Seaside Branch reopened after HVAC replacement",
+    "summary": "The 2026 DDC index links to Queens Public Library's official February 5, 2026 reopening announcement for the Seaside Branch after a $2.4 million HVAC system replacement.",
+    "observed_change": "A public library branch reopened after building-systems work.",
+    "effective_date": "2026-02-05",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages"
+    ],
+    "source_url": "https://www.queenslibrary.org/about-us/news-media",
+    "source_record_id": "qpl-seaside-branch-reopens-2026-02-05",
+    "source_type": "official library news page",
+    "publisher": "Queens Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "Queens Public Library website terms/copyright; factual metadata only.",
+    "license_or_terms_note": "Use source attribution and URL; do not reuse article text/images beyond brief factual citation.",
+    "attribution": "Queens Public Library",
+    "confidence": "documented",
+    "latitude": 40.5809,
+    "longitude": -73.8368,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8368,
+        40.5809
+      ]
+    },
+    "source_date_field": "QPL/linked DDC index date: 2026-02-05 reopening.",
+    "geometry_source": "Approximate point from Seaside Branch address area in Rockaway Park.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening after HVAC work does not imply usage, access equity, service outcomes, resilience outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-del-valle-square-upgrade-completed-2026-01-09",
+    "title": "Del Valle Square upgrade completed in Hunts Point",
+    "summary": "DDC's 2026 press index records a January 9, 2026 milestone for a $12 million Del Valle Square upgrade that created a new public space in Hunts Point.",
+    "observed_change": "A public-square upgrade reached documented completion/opening status.",
+    "effective_date": "2026-01-09",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2026/press-releases.page",
+    "source_record_id": "2026-index-del-valle-square-upgrade",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.8178,
+    "longitude": -73.8909,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8909,
+        40.8178
+      ]
+    },
+    "source_date_field": "DDC 2026 index date/title: January 9, 2026 upgrade milestone.",
+    "geometry_source": "Approximate point at Del Valle Square in Hunts Point.",
+    "precision": "named-public-space approximate point",
+    "geometry_precision": "named-public-space approximate point",
+    "limitations": "Public-space upgrade does not imply pedestrian safety, traffic, economic, health, or causal outcomes."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-bpl-ryder-library-reopened-2025-12-19",
+    "title": "Ryder Library re-opened after DDC/BPL capital work",
+    "summary": "The 2025 DDC press index links to Brooklyn Public Library's official December 19, 2025 re-opening milestone for Ryder Library.",
+    "observed_change": "A Brooklyn public library branch reached documented reopening status after capital work.",
+    "effective_date": "2025-12-19",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-bpl-ryder-library-reopening",
+    "source_type": "official agency index link to official library release",
+    "publisher": "NYC Department of Design and Construction / Brooklyn Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and BPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/BPL attribution and URL; verify BPL detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; Brooklyn Public Library",
+    "confidence": "documented",
+    "latitude": 40.6152,
+    "longitude": -73.9777,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9777,
+        40.6152
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: December 19, 2025 re-opening.",
+    "geometry_source": "Approximate point from Ryder Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening does not imply usage, circulation, access equity, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-bpl-gerritsen-beach-library-reopened-2025-12-11",
+    "title": "Gerritsen Beach Library re-opened after DDC/BPL work",
+    "summary": "The 2025 DDC press index links to Brooklyn Public Library's official December 11, 2025 re-opening milestone for Gerritsen Beach Library.",
+    "observed_change": "A Brooklyn public library branch reached documented reopening status after capital work.",
+    "effective_date": "2025-12-11",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-bpl-gerritsen-beach-library-reopening",
+    "source_type": "official agency index link to official library release",
+    "publisher": "NYC Department of Design and Construction / Brooklyn Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and BPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/BPL attribution and URL; verify BPL detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; Brooklyn Public Library",
+    "confidence": "documented",
+    "latitude": 40.5906,
+    "longitude": -73.925,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.925,
+        40.5906
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: December 11, 2025 re-opening.",
+    "geometry_source": "Approximate point from Gerritsen Beach Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening does not imply usage, circulation, access equity, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-poppenhusen-institute-upgrade-completed-2025-11-12",
+    "title": "Poppenhusen Institute upgrade completed",
+    "summary": "DDC's 2025 press index records completion of a $6.2 million upgrade to the historic Poppenhusen Institute building on November 12, 2025.",
+    "observed_change": "A historic civic/cultural building upgrade reached documented completion status.",
+    "effective_date": "2025-11-12",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/pr-111225-Poppenhusen.page",
+    "source_record_id": "pr-111225-Poppenhusen",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7853,
+    "longitude": -73.8468,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8468,
+        40.7853
+      ]
+    },
+    "source_date_field": "DDC press release date/title: 2025-11-12 completion.",
+    "geometry_source": "Approximate point at Poppenhusen Institute, College Point.",
+    "precision": "named-facility approximate point",
+    "geometry_precision": "named-facility approximate point",
+    "limitations": "Upgrade completion does not imply preservation success, usage, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-qpl-baisley-park-library-renovation-started-2025-09-29",
+    "title": "Baisley Park Library renovation and expansion kicked off",
+    "summary": "DDC's 2025 press index records a September 29, 2025 QPL/city kickoff for a $17.6 million renovation and expansion of Baisley Park Library.",
+    "observed_change": "A Queens library renovation/expansion project reached documented kickoff status.",
+    "effective_date": "2025-09-29",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-qpl-baisley-park-library-renovation-expansion",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction / Queens Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and QPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/QPL attribution and URL; verify detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; Queens Public Library",
+    "confidence": "documented",
+    "latitude": 40.6801,
+    "longitude": -73.7872,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7872,
+        40.6801
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: September 29, 2025 kickoff.",
+    "geometry_source": "Approximate point from Baisley Park Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Kickoff is not completion or reopening; no library access, usage, equity, or causal outcome is claimed."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-nypl-muhlenberg-branch-ribbon-cutting-2025-09-19",
+    "title": "NYPL Muhlenberg Branch ribbon cutting held after capital work",
+    "summary": "DDC's 2025 press index links to NYPL's official September 19, 2025 ribbon-cutting milestone for the landmarked Muhlenberg Branch.",
+    "observed_change": "A landmarked public library branch reached a documented ribbon-cutting/reopening milestone after capital work.",
+    "effective_date": "2025-09-19",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-nypl-muhlenberg-branch-ribbon-cutting",
+    "source_type": "official agency index link to official library release",
+    "publisher": "NYC Department of Design and Construction / The New York Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and NYPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/NYPL attribution and URL; verify NYPL detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; The New York Public Library",
+    "confidence": "documented",
+    "latitude": 40.7444,
+    "longitude": -73.9965,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9965,
+        40.7444
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: September 19, 2025 ribbon cutting.",
+    "geometry_source": "Approximate point from Muhlenberg Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Ribbon cutting does not imply usage, preservation outcomes, access equity, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-bpl-leonard-library-reopened-2025-08-06",
+    "title": "Leonard Library re-opened after DDC/BPL work",
+    "summary": "The 2025 DDC press index links to Brooklyn Public Library's official August 6, 2025 re-opening milestone for Leonard Library.",
+    "observed_change": "A Brooklyn public library branch reached documented reopening status after capital work.",
+    "effective_date": "2025-08-06",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-bpl-leonard-library-reopening",
+    "source_type": "official agency index link to official library release",
+    "publisher": "NYC Department of Design and Construction / Brooklyn Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and BPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/BPL attribution and URL; verify BPL detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; Brooklyn Public Library",
+    "confidence": "documented",
+    "latitude": 40.7138,
+    "longitude": -73.9473,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9473,
+        40.7138
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: August 6, 2025 re-opening.",
+    "geometry_source": "Approximate point from Leonard Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening does not imply usage, circulation, access equity, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-queens-borough-hall-plaza-overhaul-completed-2025-07-09",
+    "title": "Queens Borough Hall Plaza overhaul completed",
+    "summary": "DDC's 2025 press index records July 9, 2025 completion of an overhaul of Queens Borough Hall Plaza.",
+    "observed_change": "A civic plaza at Queens Borough Hall reached documented completion status after capital work.",
+    "effective_date": "2025-07-09",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-queens-borough-hall-plaza-overhaul",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.713,
+    "longitude": -73.8287,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8287,
+        40.713
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: July 9, 2025 completion.",
+    "geometry_source": "Approximate point at Queens Borough Hall Plaza.",
+    "precision": "civic-site approximate point",
+    "geometry_precision": "civic-site approximate point",
+    "limitations": "Plaza completion does not imply civic participation, pedestrian activity, accessibility outcomes, safety outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-queens-botanical-garden-education-building-groundbreaking-2025-06-16",
+    "title": "Queens Botanical Garden education building broke ground",
+    "summary": "DDC's 2025 press index records a June 16, 2025 groundbreaking for a new $34 million education building at Queens Botanical Garden.",
+    "observed_change": "A cultural/educational public-building project reached documented groundbreaking status.",
+    "effective_date": "2025-06-16",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-queens-botanical-garden-education-building-groundbreaking",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; detail page should be reviewed before production import.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7513,
+    "longitude": -73.8261,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8261,
+        40.7513
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: June 16, 2025 groundbreaking.",
+    "geometry_source": "Approximate point at Queens Botanical Garden.",
+    "precision": "campus approximate point",
+    "geometry_precision": "campus approximate point",
+    "limitations": "Groundbreaking is not completion and does not imply educational outcomes, attendance, environmental outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-pershing-square-plaza-final-phase-completed-2025-05-29",
+    "title": "Pershing Square Plaza final phase completed",
+    "summary": "DDC's 2025 press index records May 29, 2025 completion of the final phase of Pershing Square Plaza near Grand Central Terminal.",
+    "observed_change": "A pedestrian plaza/public-realm project reached documented final-phase completion status.",
+    "effective_date": "2025-05-29",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-pershing-square-plaza-final-phase",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; project geometry should be refined from public-realm plans.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7528,
+    "longitude": -73.9772,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9772,
+        40.7528
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: May 29, 2025 final phase completion.",
+    "geometry_source": "Approximate point at Pershing Square Plaza near Grand Central Terminal.",
+    "precision": "public-space approximate point",
+    "geometry_precision": "public-space approximate point",
+    "limitations": "Completion does not imply pedestrian-volume, safety, business, transit, or causal outcomes."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-east-river-park-sections-opened-2025-05-29",
+    "title": "New sections of East River Park opened",
+    "summary": "DDC's 2025 press index records a May 29, 2025 milestone opening large new sections of East River Park as part of East Side Coastal Resiliency.",
+    "observed_change": "New public park/resilience project sections reached documented opening status.",
+    "effective_date": "2025-05-29",
+    "source_id": "nyc-edc-hh-resilience-official-pages",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026",
+      "nyc-edc-hh-resilience-official-pages"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-new-east-river-park-sections-opened",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; replace point with ESCR section geometry before import.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7185,
+    "longitude": -73.9748,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9748,
+        40.7185
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: May 29, 2025 opening.",
+    "geometry_source": "Representative point within East River Park / ESCR project area.",
+    "precision": "project-area approximate point",
+    "geometry_precision": "project-area approximate point",
+    "limitations": "Opening of sections does not prove flood-risk reduction, park-use outcomes, health outcomes, displacement effects, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-bushwick-health-center-upgrade-completed-2025-04-25",
+    "title": "Bushwick Health Center upgrade completed",
+    "summary": "DDC's 2025 press index records April 25, 2025 completion of a $17.3 million upgrade of Bushwick Health Center in Brooklyn.",
+    "observed_change": "A public health facility upgrade reached documented completion status.",
+    "effective_date": "2025-04-25",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-bushwick-health-center-upgrade-completion",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; verify health-center address and project scope before import.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6954,
+    "longitude": -73.9193,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9193,
+        40.6954
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: April 25, 2025 completion.",
+    "geometry_source": "Approximate point at Bushwick Health Center.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Facility upgrade completion does not imply health outcomes, service access, patient volumes, energy outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-bpl-bedford-library-reopened-2025-04-24",
+    "title": "Bedford Library re-opened after DDC/BPL work",
+    "summary": "The 2025 DDC press index links to Brooklyn Public Library's official April 24, 2025 re-opening milestone for Bedford Library.",
+    "observed_change": "A Brooklyn public library branch reached documented reopening status after capital work.",
+    "effective_date": "2025-04-24",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-bpl-bedford-library-reopening",
+    "source_type": "official agency index link to official library release",
+    "publisher": "NYC Department of Design and Construction / Brooklyn Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and BPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/BPL attribution and URL; verify BPL detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; Brooklyn Public Library",
+    "confidence": "documented",
+    "latitude": 40.6814,
+    "longitude": -73.9559,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9559,
+        40.6814
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: April 24, 2025 re-opening.",
+    "geometry_source": "Approximate point from Bedford Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening does not imply usage, circulation, access equity, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-mariner-harbor-community-center-renovation-completed-2025-04-15",
+    "title": "Mariner's Harbor Community Center renovation completed",
+    "summary": "DDC's 2025 press index records an April 15, 2025 ribbon-cutting for completion of a $6.1 million renovation of Mariner's Harbor Community Center on Staten Island.",
+    "observed_change": "A community-center renovation reached documented completion/ribbon-cutting status.",
+    "effective_date": "2025-04-15",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-mariners-harbor-community-center-renovation",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6345,
+    "longitude": -74.1585,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.1585,
+        40.6345
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: April 15, 2025 completion ribbon-cutting.",
+    "geometry_source": "Approximate point at Mariner's Harbor Community Center.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Renovation completion does not imply youth outcomes, community outcomes, public housing outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-selmas-house-renovation-started-2025-03-06",
+    "title": "Selma's House renovation at Louis Armstrong House Museum began",
+    "summary": "DDC/DCLA's March 6, 2025 official release records the start of a $3.5 million renovation of Selma's House at the Louis Armstrong House Museum in Queens.",
+    "observed_change": "A museum-associated historic house renovation reached documented construction-start status.",
+    "effective_date": "2025-03-06",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/pr-030625-LouisArmstrong.page",
+    "source_record_id": "pr-030625-LouisArmstrong",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction; NYC Department of Cultural Affairs",
+    "confidence": "documented",
+    "latitude": 40.7558,
+    "longitude": -73.8613,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.8613,
+        40.7558
+      ]
+    },
+    "source_date_field": "DDC/DCLA press release date/title: March 6, 2025 renovation start.",
+    "geometry_source": "Approximate point at Louis Armstrong House Museum campus in Corona.",
+    "precision": "named-site approximate point",
+    "geometry_precision": "named-site approximate point",
+    "limitations": "Construction start is not completion and does not imply museum attendance, preservation outcomes, cultural outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-mark-constantino-judicial-center-upgrade-completed-2025-02-25",
+    "title": "Mark A. Constantino Judicial Center upgrade completed",
+    "summary": "DDC's 2025 press index records February 25, 2025 completion of a $10.7 million upgrade of the Mark A. Constantino Judicial Center in St. George.",
+    "observed_change": "A civic/court facility upgrade reached documented completion status.",
+    "effective_date": "2025-02-25",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-mark-constantino-judicial-center-upgrade",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; verify detail page for scope before import.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6425,
+    "longitude": -74.0764,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.0764,
+        40.6425
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: February 25, 2025 completion.",
+    "geometry_source": "Approximate point at Mark A. Constantino Judicial Center, St. George.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Facility upgrade completion does not imply court-access, case-processing, public-safety, or causal outcomes."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-bpl-clarendon-library-reopened-2025-01-29",
+    "title": "Clarendon Library re-opened after DDC/BPL work",
+    "summary": "The 2025 DDC press index links to Brooklyn Public Library's official January 29, 2025 re-opening milestone for Clarendon Library.",
+    "observed_change": "A Brooklyn public library branch reached documented reopening status after capital work.",
+    "effective_date": "2025-01-29",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-bpl-clarendon-library-reopening",
+    "source_type": "official agency index link to official library release",
+    "publisher": "NYC Department of Design and Construction / Brooklyn Public Library",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov and BPL website terms; factual metadata only.",
+    "license_or_terms_note": "Retain DDC/BPL attribution and URL; verify BPL detail URL before production import.",
+    "attribution": "NYC Department of Design and Construction; Brooklyn Public Library",
+    "confidence": "documented",
+    "latitude": 40.6406,
+    "longitude": -73.9485,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9485,
+        40.6406
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: January 29, 2025 re-opening.",
+    "geometry_source": "Approximate point from Clarendon Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening does not imply usage, circulation, access equity, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-22-reade-sidewalk-vault-upgrade-completed-2025-01-21",
+    "title": "Historic 22 Reade Street sidewalk vault upgrade completed",
+    "summary": "DDC's 2025 press index records January 21, 2025 completion of a $5.7 million upgrade to a 19th-century two-story sidewalk vault at historic 22 Reade Street.",
+    "observed_change": "A historic civic-building sidewalk vault upgrade reached documented completion status.",
+    "effective_date": "2025-01-21",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_record_id": "2025-index-22-reade-street-sidewalk-vault-upgrade",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7145,
+    "longitude": -74.0055,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.0055,
+        40.7145
+      ]
+    },
+    "source_date_field": "DDC 2025 index date/title: January 21, 2025 completion.",
+    "geometry_source": "Approximate point at 22 Reade Street.",
+    "precision": "address approximate point",
+    "geometry_precision": "address approximate point",
+    "limitations": "Vault upgrade completion does not imply preservation outcomes, access outcomes, safety outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-brooklyn-central-courts-restroom-upgrade-completed-2025-01-02",
+    "title": "Brooklyn Central Courts public restroom upgrade completed",
+    "summary": "DDC's January 2, 2025 official release records completion of a $9.7 million upgrade to 25 public restrooms at the Brooklyn Central Courts Building.",
+    "observed_change": "A civic/court building accessibility and restroom upgrade reached documented completion status.",
+    "effective_date": "2025-01-02",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/pr-01022025-ADA-Brooklyn.page",
+    "source_record_id": "pr-01022025-ADA-Brooklyn",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6895,
+    "longitude": -73.9877,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9877,
+        40.6895
+      ]
+    },
+    "source_date_field": "DDC press release date/title: January 2, 2025 completion.",
+    "geometry_source": "Approximate point at Brooklyn Central Courts Building.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Accessibility/restroom completion does not imply court access outcomes, user experience outcomes, water savings beyond source-reported claim, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-nypd-116th-precinct-station-house-opened-2024-12-18",
+    "title": "New 116th Precinct station house opened in Southeast Queens",
+    "summary": "The Mayor's Office/DDC official December 18, 2024 release records opening of the new nearly $105 million NYPD 116th Precinct station house at 244-04 North Conduit Avenue.",
+    "observed_change": "A new public-safety station-house building entered documented opening status.",
+    "effective_date": "2024-12-18",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/mayors-office/news/2024/12/mayor-adams-nypd-commissioner-tisch-ddc-commissioner-foley-open-new-116th-precinct-station-house",
+    "source_record_id": "mayor-936-24-116th-precinct",
+    "source_type": "official mayoral press release",
+    "publisher": "NYC Mayor's Office",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Mayor's Office; NYC Department of Design and Construction; NYPD",
+    "confidence": "documented",
+    "latitude": 40.6675,
+    "longitude": -73.734,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.734,
+        40.6675
+      ]
+    },
+    "source_date_field": "Mayor's Office press release date/body: opened 2024-12-18.",
+    "geometry_source": "Address stated in source: 244-04 North Conduit Avenue.",
+    "precision": "address approximate point",
+    "geometry_precision": "address approximate point",
+    "limitations": "Station-house opening does not imply crime, response-time, community-relations, safety, or causal outcomes."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-nypd-40th-precinct-station-house-opened-2024-11-20",
+    "title": "New 40th Precinct station house opened in the South Bronx",
+    "summary": "The 2024 DDC press index links to the official November 20, 2024 mayoral opening milestone for the new 40th Precinct station house in the South Bronx.",
+    "observed_change": "A public-safety station-house building entered documented opening status.",
+    "effective_date": "2024-11-20",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/mayors-office/news/2024/11/mayor-adams-interim-nypd-commissioner-donlon-ddc-commissioner-foley-open-new-40th-precinct",
+    "source_record_id": "mayor-850-24-40th-precinct",
+    "source_type": "official mayoral press release",
+    "publisher": "NYC Mayor's Office",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Mayor's Office; NYC Department of Design and Construction; NYPD",
+    "confidence": "documented",
+    "latitude": 40.8166,
+    "longitude": -73.9176,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9176,
+        40.8166
+      ]
+    },
+    "source_date_field": "DDC 2024 index/mayoral release date: 2024-11-20 opening.",
+    "geometry_source": "Approximate point at new 40th Precinct station house in Mott Haven.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Station-house opening does not imply crime, response-time, community-relations, safety, or causal outcomes."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-manhattan-pet-adoption-center-expanded-2024-10-28",
+    "title": "Expanded Manhattan Pet Adoption Center opened on East 109th Street",
+    "summary": "DDC's official October 28, 2024 release records opening of the expanded Manhattan Pet Adoption Center on East 109th Street.",
+    "observed_change": "A public animal-care/adoption facility reached documented expanded-opening status.",
+    "effective_date": "2024-10-28",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/pr-102824-ACC.page",
+    "source_record_id": "pr-102824-ACC",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain attribution, URL, and retrieval date.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7927,
+    "longitude": -73.9394,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9394,
+        40.7927
+      ]
+    },
+    "source_date_field": "DDC press release date/title: October 28, 2024 opening.",
+    "geometry_source": "Approximate point from East 109th Street facility location.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Expanded opening does not imply animal welfare outcomes, adoption volumes, neighborhood outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-escr-first-section-completed-2024-10-17",
+    "title": "First section of East Side Coastal Resiliency completed",
+    "summary": "The official October 17, 2024 mayoral release records completion of the first section of the East Side Coastal Resiliency project.",
+    "observed_change": "A coastal resilience/public-realm project section reached documented completion status.",
+    "effective_date": "2024-10-17",
+    "source_id": "nyc-edc-hh-resilience-official-pages",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026",
+      "nyc-edc-hh-resilience-official-pages"
+    ],
+    "source_url": "https://www.nyc.gov/mayors-office/news/2024/10/mayor-adams-completes-first-section-east-side-coastal-resiliency-project-taking-steps-to",
+    "source_record_id": "mayor-772-24-escr-first-section",
+    "source_type": "official mayoral press release",
+    "publisher": "NYC Mayor's Office",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; replace representative point with project section geometry before import.",
+    "attribution": "NYC Mayor's Office; NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.723,
+    "longitude": -73.974,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.974,
+        40.723
+      ]
+    },
+    "source_date_field": "Mayor's Office release date/title: October 17, 2024 completion.",
+    "geometry_source": "Representative point along ESCR project area.",
+    "precision": "project-section approximate point",
+    "geometry_precision": "project-section approximate point",
+    "limitations": "Section completion does not prove avoided flood damage, property impacts, public-health outcomes, park-use effects, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-qpl-laurelton-library-roof-renovation-reopened-2024-10-09",
+    "title": "Laurelton Library reopened after roof renovation",
+    "summary": "DDC's October 9, 2024 official release records reopening of QPL's Laurelton Library after a DDC roof renovation.",
+    "observed_change": "A Queens public library branch reopened after roof renovation work.",
+    "effective_date": "2024-10-09",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/pr-100924-LaureltonLibrary.page",
+    "source_record_id": "pr-100924-LaureltonLibrary",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain DDC/QPL attribution and URL.",
+    "attribution": "NYC Department of Design and Construction; Queens Public Library",
+    "confidence": "documented",
+    "latitude": 40.6765,
+    "longitude": -73.7445,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7445,
+        40.6765
+      ]
+    },
+    "source_date_field": "DDC press release date/title: October 9, 2024 reopening.",
+    "geometry_source": "Approximate point from Laurelton Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening after roof renovation does not imply usage, access equity, building-performance outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-qpl-hillcrest-library-reopened-2024-09-27",
+    "title": "Hillcrest Library reopened after roof and HVAC renovation",
+    "summary": "DDC's September 27, 2024 official release records reopening of Hillcrest Library after a $2.2 million project replacing the roof and HVAC systems.",
+    "observed_change": "A Queens public library branch reopened after roof and building-systems work.",
+    "effective_date": "2024-09-27",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/pr-092724-HillcrestLibrary.page",
+    "source_record_id": "pr-092724-HillcrestLibrary",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain DDC/QPL attribution and URL.",
+    "attribution": "NYC Department of Design and Construction; Queens Public Library",
+    "confidence": "documented",
+    "latitude": 40.7276,
+    "longitude": -73.7833,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7833,
+        40.7276
+      ]
+    },
+    "source_date_field": "DDC press release date/title: September 27, 2024 reopening.",
+    "geometry_source": "Approximate point from Hillcrest Library branch location.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening after roof/HVAC work does not imply usage, access equity, energy performance beyond source-reported scope, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-escr-east-river-park-ballfields-delancey-bridge-opened-2024-09-10",
+    "title": "East River Park ballfields and Delancey Street Bridge opened",
+    "summary": "The official September 10, 2024 mayoral release records opening of new East River Park ballfields and the Delancey Street Bridge as part of East Side Coastal Resiliency.",
+    "observed_change": "Public park/recreation and bridge elements within a resilience project reached documented opening status.",
+    "effective_date": "2024-09-10",
+    "source_id": "nyc-edc-hh-resilience-official-pages",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026",
+      "nyc-edc-hh-resilience-official-pages"
+    ],
+    "source_url": "https://www.nyc.gov/mayors-office/news/2024/09/mayor-adams-opens-new-east-river-park-ballfields-delancey-street-bridge-part-east-side",
+    "source_record_id": "mayor-684-24-escr-ballfields-delancey-bridge",
+    "source_type": "official mayoral press release",
+    "publisher": "NYC Mayor's Office",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; replace representative point with project element geometry before import.",
+    "attribution": "NYC Mayor's Office; NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7176,
+    "longitude": -73.9754,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9754,
+        40.7176
+      ]
+    },
+    "source_date_field": "Mayor's Office release date/title: September 10, 2024 opening.",
+    "geometry_source": "Representative point near Delancey Street Bridge/East River Park.",
+    "precision": "project-element approximate point",
+    "geometry_precision": "project-element approximate point",
+    "limitations": "Opening does not prove park-use, health, flood-risk, public-safety, or causal outcomes."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-dcla-brooklyn-childrens-museum-renovation-groundbreaking-2024-08-13",
+    "title": "Brooklyn Children's Museum outdoor renovation broke ground",
+    "summary": "DCLA/DDC's August 13, 2024 official release records the start of a project to rebuild retaining walls and renovate/modernize Brooklyn Children's Museum courtyard and terraces.",
+    "observed_change": "A cultural facility outdoor/accessibility renovation reached documented groundbreaking/construction-start status.",
+    "effective_date": "2024-08-13",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/dcla/about/pressrelease/PR-2024-8-13-DCLA-and-DDC-Break-Ground-on-Brooklyn-Childrens-Museum-Garden-Renovation.page",
+    "source_record_id": "PR-2024-8-13-DCLA-and-DDC-Break-Ground-on-Brooklyn-Childrens-Museum-Garden-Renovation",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Cultural Affairs",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain DCLA/DDC attribution and URL.",
+    "attribution": "NYC Department of Cultural Affairs; NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.6744,
+    "longitude": -73.9441,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9441,
+        40.6744
+      ]
+    },
+    "source_date_field": "DCLA/DDC release date/title: August 13, 2024 construction start.",
+    "geometry_source": "Approximate point at Brooklyn Children's Museum.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Groundbreaking is not completion and does not imply museum attendance, education outcomes, accessibility outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-qpl-broadway-library-expanded-renovated-reopened-2024-08-12",
+    "title": "Broadway Library reopened after expansion and renovation",
+    "summary": "DDC's August 12, 2024 official release records the reopening of QPL's Broadway Library in Astoria after a city expansion and renovation.",
+    "observed_change": "A Queens public library branch reopened after expansion and renovation work.",
+    "effective_date": "2024-08-12",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/pr-081224-BroadwayLibrary.page",
+    "source_record_id": "pr-081224-BroadwayLibrary",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain DDC/QPL attribution and URL.",
+    "attribution": "NYC Department of Design and Construction; Queens Public Library",
+    "confidence": "documented",
+    "latitude": 40.758,
+    "longitude": -73.918,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.918,
+        40.758
+      ]
+    },
+    "source_date_field": "DDC press release date/title: August 12, 2024 reopening.",
+    "geometry_source": "Approximate point from Broadway Library branch location in Astoria.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Reopening after expansion/renovation does not imply usage, access equity, educational outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-qpl-far-rockaway-library-opened-2024-07-30",
+    "title": "New Far Rockaway Library opened",
+    "summary": "DDC's July 30, 2024 official release records the opening of the new Far Rockaway Library.",
+    "observed_change": "A new Queens public library building entered documented opening status.",
+    "effective_date": "2024-07-30",
+    "source_id": "nyc-library-official-capital-pages",
+    "source_ids": [
+      "nyc-library-official-capital-pages",
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/pr-073024-FarRockawayLibrary.page",
+    "source_record_id": "pr-073024-FarRockawayLibrary",
+    "source_type": "official agency press release",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; retain DDC/QPL attribution and URL.",
+    "attribution": "NYC Department of Design and Construction; Queens Public Library",
+    "confidence": "documented",
+    "latitude": 40.6039,
+    "longitude": -73.7522,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7522,
+        40.6039
+      ]
+    },
+    "source_date_field": "DDC press release date/title: July 30, 2024 opening.",
+    "geometry_source": "Approximate point from Far Rockaway Library site at Central and Mott area.",
+    "precision": "branch address approximate point",
+    "geometry_precision": "branch address approximate point",
+    "limitations": "Library opening does not imply usage, access equity, educational outcomes, design quality beyond cited source, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-city-hall-steps-reopened-2024-01-19",
+    "title": "Historic City Hall steps reopened after repair and access project",
+    "summary": "DDC's 2024 press index records January 19, 2024 reopening of historic City Hall steps after a $4.6 million project to repair the steps and improve building access.",
+    "observed_change": "A historic civic-building entrance/steps project reached documented reopening status.",
+    "effective_date": "2024-01-19",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/press-releases.page",
+    "source_record_id": "2024-index-city-hall-steps-reopened",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; detail page should be reviewed before production import.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7127,
+    "longitude": -74.006,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -74.006,
+        40.7127
+      ]
+    },
+    "source_date_field": "DDC 2024 index date/title: January 19, 2024 reopening.",
+    "geometry_source": "Approximate point at New York City Hall.",
+    "precision": "civic-building approximate point",
+    "geometry_precision": "civic-building approximate point",
+    "limitations": "Reopening of steps does not imply accessibility outcomes, civic participation, preservation outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-ddc-clemente-soto-velez-renovation-started-2024-01-06",
+    "title": "Clemente Soto Velez Cultural Center modernization began",
+    "summary": "DDC's 2024 press index records January 6, 2024 start of a nearly $13 million renovation project to modernize the Clemente Soto Velez Cultural Center.",
+    "observed_change": "A cultural-center modernization project reached documented construction-start status.",
+    "effective_date": "2024-01-06",
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_ids": [
+      "nyc-ddc-press-index-2024-2026"
+    ],
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/press-releases.page",
+    "source_record_id": "2024-index-clemente-soto-velez-cultural-center-renovation",
+    "source_type": "official agency press release index",
+    "publisher": "NYC Department of Design and Construction",
+    "accessed_at": "2026-05-19",
+    "license": "NYC.gov terms of use; factual metadata only.",
+    "license_or_terms_note": "NYC.gov terms apply; verify detail page before production import.",
+    "attribution": "NYC Department of Design and Construction",
+    "confidence": "documented",
+    "latitude": 40.7187,
+    "longitude": -73.9864,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9864,
+        40.7187
+      ]
+    },
+    "source_date_field": "DDC 2024 index date/title: January 6, 2024 renovation start.",
+    "geometry_source": "Approximate point at Clemente Soto Velez Cultural Center.",
+    "precision": "facility approximate point",
+    "geometry_precision": "facility approximate point",
+    "limitations": "Renovation start is not completion and does not imply cultural programming, attendance, community outcomes, or causation."
+  },
+  {
+    "city_id": "nyc",
+    "candidate_id": "nyc-hh-metropolitan-floodwall-completed-2024-12-03",
+    "title": "Metropolitan Hospital floodwall completed",
+    "summary": "NYCEDC and NYC Health + Hospitals' official December 3, 2024 release records ribbon cutting for the Metropolitan Hospital Floodwall Resiliency Project in East Harlem.",
+    "observed_change": "A public hospital floodwall and stormwater resilience project reached documented completion/ribbon-cutting status.",
+    "effective_date": "2024-12-03",
+    "source_id": "nyc-edc-hh-resilience-official-pages",
+    "source_ids": [
+      "nyc-edc-hh-resilience-official-pages"
+    ],
+    "source_url": "https://www.nychealthandhospitals.org/pressrelease/nycedc-and-nyc-health-hospitals-celebrate-completion-of-floodwall-at-nyc-health-hospitals-metropolitan/",
+    "source_record_id": "nychh-metropolitan-floodwall-2024-12-03",
+    "source_type": "official public hospital press release",
+    "publisher": "NYC Health + Hospitals",
+    "accessed_at": "2026-05-19",
+    "license": "NYC Health + Hospitals website terms/copyright; factual metadata only.",
+    "license_or_terms_note": "Retain NYCEDC/H+H attribution and URL; do not reuse article text/images beyond brief factual citation.",
+    "attribution": "NYC Health + Hospitals; NYC Economic Development Corporation",
+    "confidence": "documented",
+    "latitude": 40.7846,
+    "longitude": -73.9432,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9432,
+        40.7846
+      ]
+    },
+    "source_date_field": "H+H press release date/title: December 3, 2024 completion/ribbon cutting.",
+    "geometry_source": "Approximate point at NYC Health + Hospitals/Metropolitan campus.",
+    "precision": "hospital campus approximate point",
+    "geometry_precision": "hospital campus approximate point",
+    "limitations": "Floodwall completion does not prove avoided flooding, uninterrupted care, health outcomes, property protection, or causation."
+  }
+]

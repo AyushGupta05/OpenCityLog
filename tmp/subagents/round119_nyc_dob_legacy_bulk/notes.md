@@ -19,35 +19,35 @@ The selected records are administrative permit-issuance events linked to high-si
 ## Output
 
 - candidates.json: 200 candidates, 5 aggregate rejection buckets, 6 source audits.
-- Eligible joined permit candidates before spread cap: 7284.
+- Eligible joined permit candidates before spread cap: 6684.
 
 ## Selected by borough
 
-- Bronx: 38
-- Brooklyn: 46
+- Bronx: 44
+- Brooklyn: 48
 - Manhattan: 50
-- Queens: 37
-- Staten Island: 29
+- Queens: 36
+- Staten Island: 22
 
 ## Selected by year
 
 - 2008: 10
-- 2009: 9
+- 2009: 8
 - 2010: 10
 - 2011: 10
 - 2012: 10
 - 2013: 10
-- 2014: 10
-- 2015: 17
+- 2014: 12
+- 2015: 16
 - 2016: 12
-- 2017: 13
-- 2018: 13
-- 2019: 15
-- 2020: 15
+- 2017: 17
+- 2018: 16
+- 2019: 13
+- 2020: 14
 - 2021: 14
-- 2022: 12
+- 2022: 10
 - 2023: 8
-- 2024: 8
+- 2024: 6
 - 2025: 4
 
 ## Source Audits

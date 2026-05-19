@@ -1,0 +1,157 @@
+{
+  "schema_version": "round123_source_audit.v1",
+  "created_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "city_id": "belfast",
+  "source_count": 8,
+  "source_audits": [
+    {
+      "source_id": "libraries-ni-annual-report-2017-18",
+      "source_name": "Libraries NI Annual Report and Accounts 2017/18",
+      "publisher": "Libraries NI",
+      "source_url": "https://www.librariesni.org.uk/media/t3kkya3z/annual-report-and-accounts-2017-18.pdf",
+      "source_type": "official public-body annual report PDF",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Annual report for year ended 31 March 2018; laid before the Assembly on 31 October 2018.",
+      "coverage_years": "2017-04-01 to 2018-03-31",
+      "geographic_scope_granularity": "Northern Ireland public library estate; names individual Belfast library project but no geometry.",
+      "license_or_terms_note": "Publication states Libraries NI Copyright 2018 and Open Government Licence v3.0.",
+      "reliability_assessment": "strong official source for reporting-year completion status; weak for exact opening date or geometry.",
+      "required_caveats": "Use reporting-year precision unless a separate official reopening or handover source is added.",
+      "ingestion_recommendation": "Use for lifecycle completion milestone if the atlas accepts annual-report precision.",
+      "used_for_candidate_ids": [
+        "bfs_round123_lisburn_road_library_refurbishment_completion_2017_18"
+      ]
+    },
+    {
+      "source_id": "libraries-ni-equality-progress-report-2023-24",
+      "source_name": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
+      "publisher": "Libraries NI",
+      "source_url": "https://www.librariesni.org.uk/media/n3wdfg0l/annual-equality-progress-report-2023-2024.pdf",
+      "source_type": "official public-body annual progress report PDF",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Report states progress made between April 2023 and March 2024 and identifies December launch of the Reimagined Children's Library at Whiterock.",
+      "coverage_years": "2023-04-01 to 2024-03-31",
+      "geographic_scope_granularity": "Northern Ireland library network with named Whiterock Library milestone.",
+      "license_or_terms_note": "Libraries NI publication terms apply; factual metadata only.",
+      "reliability_assessment": "strong official source for month-level launch; weak for works scope, capital cost and room geometry.",
+      "required_caveats": "Do not infer construction, cost, or floor area from the launch note.",
+      "ingestion_recommendation": "Use as a library-space launch candidate with month precision and named-branch geometry.",
+      "used_for_candidate_ids": [
+        "bfs_round123_whiterock_reimagined_childrens_library_launched_2023"
+      ]
+    },
+    {
+      "source_id": "dfe-ulster-virtual-production-studio-launch-2022",
+      "source_name": "Lyons launches GBP1.6m Virtual Production Studio at Ulster University",
+      "publisher": "Department for the Economy, Northern Ireland",
+      "source_url": "https://www.economy-ni.gov.uk/news/lyons-launches-ps16m-virtual-production-studio-ulster-university",
+      "source_type": "official government news release",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Date published: 10 February 2022; launch wording and Belfast campus visit in release text.",
+      "coverage_years": "2022",
+      "geographic_scope_granularity": "Names Ulster University's Belfast campus; no room coordinate.",
+      "license_or_terms_note": "Northern Ireland government Crown copyright/terms apply.",
+      "reliability_assessment": "strong for day-level launch and funder/publisher provenance; limited for exact studio geometry.",
+      "required_caveats": "Keep distinct from later Studio Ulster at Belfast Harbour/Giant's Park.",
+      "ingestion_recommendation": "Use as an official university facility launch milestone.",
+      "used_for_candidate_ids": [
+        "bfs_round123_ulster_virtual_production_studio_launched_2022"
+      ]
+    },
+    {
+      "source_id": "qub-estates-completed-projects",
+      "source_name": "Completed Projects",
+      "publisher": "Queen's University Belfast Estates Directorate",
+      "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/CompletedProjects/",
+      "source_type": "official university estates project page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Project entries list month-level 'Completed' dates.",
+      "coverage_years": "2016-2025 on current page, with relevant 2020 and 2022 entries.",
+      "geographic_scope_granularity": "Queen's campus project list; some entries identify individual buildings and rooms while others are multi-building programmes.",
+      "license_or_terms_note": "Queen's University Belfast website copyright/terms apply; factual metadata and URL only.",
+      "reliability_assessment": "strong for university estate completion month and scope; limited for room-level geometry and formal handover certificates.",
+      "required_caveats": "For campus-wide programmes, use representative or multi-site geometry and avoid exact room coordinates unless separately verified.",
+      "ingestion_recommendation": "Use for official Queen's completion milestones not already represented in the manual corpus.",
+      "used_for_candidate_ids": [
+        "bfs_round123_qub_lecture_theatre_refresh_summer_2020_completed",
+        "bfs_round123_qub_lecture_theatre_refresh_summer_2022_completed"
+      ]
+    },
+    {
+      "source_id": "qub-estates-construction-stage-projects",
+      "source_name": "Projects at Construction Stage",
+      "publisher": "Queen's University Belfast Estates Directorate",
+      "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/ProjectsatConstructionStage/",
+      "source_type": "official university estates project page",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Project entries list start-on-site month and target completion season/month.",
+      "coverage_years": "2025-2026 current construction-stage projects.",
+      "geographic_scope_granularity": "Named Queen's buildings/projects, but no coordinates.",
+      "license_or_terms_note": "Queen's University Belfast website copyright/terms apply; factual metadata and URL only.",
+      "reliability_assessment": "strong for construction-stage and start-on-site month; completion targets require later verification.",
+      "required_caveats": "Do not convert target completion into observed completion.",
+      "ingestion_recommendation": "Use start-on-site milestones only until a completed-project update appears.",
+      "used_for_candidate_ids": [
+        "bfs_round123_qub_dkb_bespoke_computer_suite_construction_started_2025"
+      ]
+    },
+    {
+      "source_id": "belfast-trust-annual-quality-report-2019-20",
+      "source_name": "Belfast Trust Annual Quality Report 2019/20",
+      "publisher": "Belfast Health and Social Care Trust",
+      "source_url": "https://belfasttrust.hscni.net/download/91/quality-reports/6565/annual-quality-report-2019-20.pdf",
+      "source_type": "official health trust quality report PDF",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Report covers 2019/20; supported housing section states that during this period the Trust opened Cullingtree Meadows in West Belfast.",
+      "coverage_years": "2019-04-01 to 2020-03-31",
+      "geographic_scope_granularity": "Belfast Trust service estate with named West Belfast facility.",
+      "license_or_terms_note": "Belfast Health and Social Care Trust public document terms apply; factual metadata and URL only.",
+      "reliability_assessment": "strong for reporting-year opening status; weak for exact address, opening day, works contract and geometry.",
+      "required_caveats": "Keep reporting-year precision unless a separate opening release or facilities page provides exact date.",
+      "ingestion_recommendation": "Use as an official health/social-care facility opening candidate if reporting-year precision is acceptable.",
+      "used_for_candidate_ids": [
+        "bfs_round123_cullingtree_meadows_supported_housing_opened_2019_20"
+      ]
+    },
+    {
+      "source_id": "belfast-trust-annual-report-2023-24",
+      "source_name": "Belfast Health and Social Care Trust Annual Report and Accounts 2023/24",
+      "publisher": "Belfast Health and Social Care Trust",
+      "source_url": "https://belfasttrust.hscni.net/download/27/annual-reports/19895/belfast-trust-annual-report-23-24.pdf",
+      "source_type": "official health trust annual report PDF",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Annual report for year ended 31 March 2024; relevant sections contain facility reopening, unit opening, first-use and theatre operational-status milestones.",
+      "coverage_years": "2023-04-01 to 2024-03-31, with one exact operational-status date of 2024-01-22.",
+      "geographic_scope_granularity": "Belfast Trust estate; named hospital and residential facilities, but limited room/building coordinates.",
+      "license_or_terms_note": "Belfast Health and Social Care Trust public document terms apply; factual metadata and URL only.",
+      "reliability_assessment": "strong for official Trust-reported milestones; mixed precision because several records are annual-report summaries rather than project pages.",
+      "required_caveats": "Do not infer clinical outcomes, capacity impacts, or causality. Retain source precision and distinguish first-use from opening/completion.",
+      "ingestion_recommendation": "Use for carefully worded health-estate milestones with reporting-year or source-stated day precision.",
+      "used_for_candidate_ids": [
+        "bfs_round123_cullingtree_brae_valley_residential_makeover_reopened_2023_24",
+        "bfs_round123_childrens_hospital_programme_treatment_unit_opened_2023_24",
+        "bfs_round123_belfast_city_hospital_theatre_refurbishment_completed_2024",
+        "bfs_round123_mater_surgical_overnight_stay_centre_first_surgery_2023"
+      ]
+    },
+    {
+      "source_id": "doj-belfast-remote-evidence-centre-opening-2023",
+      "source_name": "Official opening of Belfast Remote Evidence Centre",
+      "publisher": "Department of Justice, Northern Ireland",
+      "source_url": "https://www.justice-ni.gov.uk/news/official-opening-belfast-remote-evidence-centre",
+      "source_type": "official government news release",
+      "accessed_at": "2026-05-19",
+      "source_date_field": "Date published: 28 September 2023; release states the facility was officially opened in Belfast today.",
+      "coverage_years": "2023",
+      "geographic_scope_granularity": "Belfast city only; exact location explicitly withheld.",
+      "license_or_terms_note": "Northern Ireland government Crown copyright/terms apply.",
+      "reliability_assessment": "strong for day-level official opening and facility scope; intentionally unusable for precise mapping.",
+      "required_caveats": "Do not geocode, infer, publish, or solicit the exact location.",
+      "ingestion_recommendation": "Use only if the atlas supports confidential-location civic records with city-level geometry.",
+      "used_for_candidate_ids": [
+        "bfs_round123_belfast_remote_evidence_centre_opened_2023"
+      ]
+    }
+  ]
+}

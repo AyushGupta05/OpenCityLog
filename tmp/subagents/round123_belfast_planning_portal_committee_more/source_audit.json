@@ -1,0 +1,109 @@
+{
+  "schema_version": "round123.belfast_planning_portal_committee_more.source_audit.v1",
+  "created_at": "2026-05-19",
+  "sources": [
+    {
+      "source_id": "ni-planning-portal-public-register-round123",
+      "source_name": "Northern Ireland Planning Portal public application register",
+      "publisher": "Northern Ireland Planning Portal / participating planning authorities",
+      "source_url": "https://planningregister.planningsystemni.gov.uk/simple-search",
+      "api_base_url": "https://api-planningregister-planningportal.pr.tqinfra.co.uk/api/v1/applications",
+      "source_type": "official public planning application register and application pages",
+      "accessed_at": "2026-05-19",
+      "license_or_terms_note": "Planning Portal pages state that content is copyright Planning Portal. The site links to Planning Portal terms and conditions. This scratch pack stores factual metadata, short paraphrases and source URLs only; do not republish documents, drawings or long text extracts without reuse review.",
+      "attribution_requirements": "Attribute Northern Ireland Planning Portal and the relevant planning authority, here Belfast City Council, for public-register metadata.",
+      "coverage_years": "Register API returned Belfast application records across historic and current references. This pack retained non-duplicate 2024-2026 records after a short nudge pass; the source itself covers a wider period.",
+      "update_frequency": "Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.",
+      "geographic_scope": "Northern Ireland planning authorities, filtered manually to Belfast City Council records.",
+      "granularity": "Application-level records with application id, reference, site address, received date, decision date where present, status, decision type, application type, proposal text, applicant name and authority.",
+      "key_fields_for_events": [
+        "applicationId",
+        "applicationReferenceNumber",
+        "siteAddress",
+        "dateReceived",
+        "decisionDate",
+        "permissionExpiryDate",
+        "proposalText",
+        "applicationStatus",
+        "decisionType",
+        "applicationType",
+        "authority",
+        "applicantName"
+      ],
+      "geometry_fields": "Application polygon endpoint is available by application id, but this pass did not transform portal geometry to WGS84. Candidate files preserve geometry_ref rather than approximate coordinates.",
+      "reliability": "strong for application metadata and public-register decision dates when the application page/API result is queried directly",
+      "required_caveats": [
+        "dateReceived is an administrative application date, not construction, completion, occupation or opening evidence.",
+        "decisionDate and decisionType document planning decisions only; they do not prove physical works.",
+        "permissionExpiryDate is an administrative planning date.",
+        "Application status can change after retrieval.",
+        "Proposal text describes what was applied for or permitted, not delivered change."
+      ],
+      "ingestion_recommendation": "Use as application-stage or decision-stage city-change records with explicit claim type. Preserve source URL, application id, retrieved date and limitations. Before production import, fetch and transform portal geometry and reconcile any related F/LBC/DCA/PAN references."
+    },
+    {
+      "source_id": "bcc-current-planning-applications-round123",
+      "source_name": "Current planning applications",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "source_type": "official local authority current and advertised planning applications page",
+      "accessed_at": "2026-05-19",
+      "license_or_terms_note": "Belfast City Council website copyright and terms apply. Use factual application references and URLs only unless reuse terms are reviewed.",
+      "coverage_years": "Current/recent advertised applications only; the page observed during this pass included May 2026 initial applications and readvertisements.",
+      "update_frequency": "Frequently updated current-applications page; content is not a stable historic dataset.",
+      "geographic_scope": "Belfast City Council planning authority area.",
+      "granularity": "Application reference, location and short proposal text on weekly advertised/current application lists.",
+      "key_fields_for_events": [
+        "application reference",
+        "location",
+        "proposal",
+        "advertised/current page date"
+      ],
+      "geometry_fields": "No reusable geometry on the page.",
+      "reliability": "usable with caveats as a discovery/advertisement source; Planning Portal application pages are stronger primary records for final candidate metadata",
+      "required_caveats": [
+        "The page is a live/current listing and may remove or replace rows.",
+        "Advertisement/listing is not approval, construction, completion, occupation or opening evidence.",
+        "Rows should be reconciled with Planning Portal public application pages before import."
+      ],
+      "ingestion_recommendation": "Use as a discovery source and secondary evidence only. For retained candidates, cite the Planning Portal application page as primary evidence."
+    },
+    {
+      "source_id": "bcc-planning-committee-pages-round123",
+      "source_name": "Belfast City Council Planning Committee meetings, minutes and agenda-item pages",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/ieListMeetings.aspx?CId=167",
+      "source_type": "official local authority committee pages, agenda packs and minutes",
+      "accessed_at": "2026-05-19",
+      "license_or_terms_note": "Belfast City Council public committee pages and PDFs are subject to council website copyright/terms. Store factual metadata, short paraphrases and links only unless reuse terms are reviewed.",
+      "coverage_years": "Belfast Planning Committee records mainly from 2015 onward, after planning powers transferred to councils.",
+      "update_frequency": "Meeting pages update as agendas, reports and minutes are published.",
+      "geographic_scope": "Belfast City Council planning authority area.",
+      "granularity": "Meeting-level and agenda-item-level decisions, reports and minutes; often includes application references and committee actions.",
+      "key_fields_for_events": [
+        "committee meeting date",
+        "agenda item title",
+        "application reference",
+        "committee action",
+        "minute/report URL"
+      ],
+      "geometry_fields": "Usually site address only; committee documents may include plans but reusable geometry needs further review.",
+      "reliability": "strong for committee action and meeting date; must be reconciled against Planning Portal for final decision notice and later status",
+      "required_caveats": [
+        "Committee approval/refusal date is not necessarily the final decision-notice issue date.",
+        "Committee records do not prove construction start, completion, occupation or opening.",
+        "Prior Belfast committee/current-application packs already cover many high-signal committee decisions; this short pass retained no new committee-only candidate to avoid duplicates."
+      ],
+      "ingestion_recommendation": "Use for committee-action milestones where not already covered. Reconcile against the Planning Portal register before final import."
+    }
+  ],
+  "duplicate_screen": {
+    "method": "Application references for retained candidates were checked with rg --fixed-strings against scripts, web/data/city-atlas/cities/belfast and tmp/subagents, excluding the new round123 directory.",
+    "result": "All retained application references returned no pre-existing hits in the checked Belfast atlas files, append scripts or prior subagent packs at the time of this pass.",
+    "known_duplicate_examples_excluded": [
+      "LA04/2026/0482/F Blackstaff Chambers full application was already present in existing Belfast atlas/current-application records.",
+      "LA04/2026/0809/F and LA04/2026/0810/DCA Berry Street shopfront records were already present.",
+      "LA04/2026/0472/F and LA04/2026/0471/A Fountain Street records were already present."
+    ]
+  }
+}

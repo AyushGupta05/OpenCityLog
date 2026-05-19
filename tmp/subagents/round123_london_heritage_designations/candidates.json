@@ -1,0 +1,3135 @@
+{
+  "metadata": {
+    "schema_version": "round123_london_heritage_designations_candidates_v1",
+    "created_at": "2026-05-19",
+    "city_id": "london",
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-19"
+    },
+    "candidate_count": 36,
+    "max_events_requested": 60,
+    "critical_interpretation_note": "Designation, amendment, certificate-of-immunity and de-designation rows are heritage-administrative records. They are not construction dates, demolition dates, opening dates, occupation dates, repair dates, condition observations, forecasts, or causal-impact claims.",
+    "category_counts": {
+      "nhle_amendment_records": 12,
+      "nhle_de_designation_records": 12,
+      "planning_data_certificate_of_immunity_records": 12
+    },
+    "duplicate_screening": {
+      "source_id_policy": "Round123 source_id values are unique and do not reuse existing repo source_id strings.",
+      "prior_round119_coi_references_excluded": [
+        "1469305",
+        "1471302",
+        "1473814",
+        "1474370",
+        "1474618",
+        "1477678",
+        "1478547",
+        "1480003",
+        "1480150",
+        "1480151",
+        "1486530",
+        "1488843",
+        "1488856",
+        "1489646",
+        "1490182",
+        "1491167",
+        "1491168",
+        "1492420",
+        "1492476",
+        "1492567",
+        "1492568",
+        "1492569",
+        "1492584",
+        "1492793",
+        "1492896",
+        "1492933",
+        "1493805",
+        "1493903",
+        "1494978",
+        "1495135",
+        "1495295",
+        "1495504",
+        "1495704",
+        "1495948",
+        "1496217"
+      ],
+      "prior_round119_coi_entities_excluded": [
+        "2300186",
+        "2300192",
+        "2300198",
+        "2300205",
+        "2300210",
+        "2300214",
+        "2300221",
+        "2300223",
+        "2300224",
+        "2300270",
+        "2300294",
+        "2300295",
+        "2300316",
+        "2300320",
+        "2300321",
+        "2300331",
+        "2300334",
+        "2300335",
+        "2300338",
+        "2300353",
+        "2300354",
+        "2300355",
+        "2300356",
+        "2300358",
+        "2300359",
+        "2300384",
+        "2300386",
+        "2300387",
+        "2300397",
+        "2300398",
+        "2300400",
+        "2300401",
+        "2300403",
+        "2300406",
+        "2300409"
+      ]
+    },
+    "spatial_filter": "Official point or source-polygon centroid tested inside ONS London region E12000007."
+  },
+  "candidates": [
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1263477-20260220",
+      "title": "Former Harrow Road Police Station. including former cell block, and area railings NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2026-02-20 for Former Harrow Road Police Station. including former cell block, and area railings (II, ListEntry 1263477).",
+      "year": 2026,
+      "effective_date": "2026-02-20",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1992,
+          51.523475
+        ]
+      },
+      "affected_area": {
+        "label": "Former Harrow Road Police Station. including former cell block, and area railings NHLE record amended",
+        "bbox": [
+          -0.1992,
+          51.523475,
+          -0.1992,
+          51.523475
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1263477",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1263477",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1263477; ArcGIS OBJECTID 240230; AmendDate 2026-02-20"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Former Harrow Road Police Station. including former cell block, and area railings.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1263477; ArcGIS OBJECTID 240230",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1263477",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ 25020 82049; CaptureScale 1:2500",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1263477",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1263477",
+      "grade": "II",
+      "original_list_date": "1992-07-01",
+      "latitude": 51.523475,
+      "longitude": -0.1992,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1359084-20251107",
+      "title": "8 Shirehall Lane removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records 8 Shirehall Lane as removed from the NHLE on 2025-11-07.",
+      "year": 2025,
+      "effective_date": "2025-11-07",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2157601,
+          51.5824683
+        ]
+      },
+      "affected_area": {
+        "label": "8 Shirehall Lane removed from the NHLE",
+        "bbox": [
+          -0.2159386,
+          51.5823658,
+          -0.2155816,
+          51.5825708
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 2543",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 2543; ARTICLEUID 1495674; OriginalListEntryNumber 1359084"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of 8 Shirehall Lane from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 2543; ARTICLEUID 1495674; OriginalListEntryNumber 1359084",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1359084",
+      "article_uid": "1495674",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.5824683,
+      "longitude": -0.2157601,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1078905-20250909",
+      "title": "Entrance lodge to Bush Hill Park Golf Club removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Entrance lodge to Bush Hill Park Golf Club as removed from the NHLE on 2025-09-09.",
+      "year": 2025,
+      "effective_date": "2025-09-09",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0863974,
+          51.6434947
+        ]
+      },
+      "affected_area": {
+        "label": "Entrance lodge to Bush Hill Park Golf Club removed from the NHLE",
+        "bbox": [
+          -0.0864154,
+          51.6434848,
+          -0.0863793,
+          51.6435046
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 2522",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 2522; ARTICLEUID 1495176; OriginalListEntryNumber 1078905"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Entrance lodge to Bush Hill Park Golf Club from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 2522; ARTICLEUID 1495176; OriginalListEntryNumber 1078905",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1078905",
+      "article_uid": "1495176",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.6434947,
+      "longitude": -0.0863974,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1358256-20250904",
+      "title": "1 Windrush Square (Black Cultural Archives) and Raleigh Hall, 1a and 1b Saltoun Road NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-09-04 for 1 Windrush Square (Black Cultural Archives) and Raleigh Hall, 1a and 1b Saltoun Road (II, ListEntry 1358256).",
+      "year": 2025,
+      "effective_date": "2025-09-04",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1144626,
+          51.460518
+        ]
+      },
+      "affected_area": {
+        "label": "1 Windrush Square (Black Cultural Archives) and Raleigh Hall, 1a and 1b Saltoun Road NHLE record amended",
+        "bbox": [
+          -0.1144626,
+          51.460518,
+          -0.1144626,
+          51.460518
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1358256",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1358256",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1358256; ArcGIS OBJECTID 334320; AmendDate 2025-09-04"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for 1 Windrush Square (Black Cultural Archives) and Raleigh Hall, 1a and 1b Saltoun Road.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1358256; ArcGIS OBJECTID 334320",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1358256",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3109575192; CaptureScale 1:2500",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1358256",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1358256",
+      "grade": "II",
+      "original_list_date": "1974-07-09",
+      "latitude": 51.460518,
+      "longitude": -0.1144626,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1066926-20250619",
+      "title": "15 Craven Street (incorporating 3A Craven Passage) removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records 15 Craven Street (incorporating 3A Craven Passage) as removed from the NHLE on 2025-06-19.",
+      "year": 2025,
+      "effective_date": "2025-06-19",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1250437,
+          51.5074294
+        ]
+      },
+      "affected_area": {
+        "label": "15 Craven Street (incorporating 3A Craven Passage) removed from the NHLE",
+        "bbox": [
+          -0.1251534,
+          51.5073593,
+          -0.1249339,
+          51.5074995
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1495",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1495; ARTICLEUID 1494345; OriginalListEntryNumber 1066926"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of 15 Craven Street (incorporating 3A Craven Passage) from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1495; ARTICLEUID 1494345; OriginalListEntryNumber 1066926",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:1250",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1066926",
+      "article_uid": "1494345",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.5074294,
+      "longitude": -0.1250437,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1065648-20250618",
+      "title": "Former Lord Nelson Inn now part of Nurses Home at St Anthony's Hospital removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Former Lord Nelson Inn now part of Nurses Home at St Anthony's Hospital as removed from the NHLE on 2025-06-18.",
+      "year": 2025,
+      "effective_date": "2025-06-18",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2198474,
+          51.3791267
+        ]
+      },
+      "affected_area": {
+        "label": "Former Lord Nelson Inn now part of Nurses Home at St Anthony's Hospital removed from the NHLE",
+        "bbox": [
+          -0.2198654,
+          51.3791168,
+          -0.2198295,
+          51.3791365
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1494",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1494; ARTICLEUID 1494325; OriginalListEntryNumber 1065648"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Former Lord Nelson Inn now part of Nurses Home at St Anthony's Hospital from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1494; ARTICLEUID 1494325; OriginalListEntryNumber 1065648",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1065648",
+      "article_uid": "1494325",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.3791267,
+      "longitude": -0.2198474,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1079296-20250611",
+      "title": "Old Palace Croydon: Great Hall NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-06-11 for Old Palace Croydon: Great Hall (I, ListEntry 1079296).",
+      "year": 2025,
+      "effective_date": "2025-06-11",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.105205,
+          51.3722532
+        ]
+      },
+      "affected_area": {
+        "label": "Old Palace Croydon: Great Hall NHLE record amended",
+        "bbox": [
+          -0.105205,
+          51.3722532,
+          -0.105205,
+          51.3722532
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1079296",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1079296",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1079296; ArcGIS OBJECTID 57418; AmendDate 2025-06-11"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Old Palace Croydon: Great Hall.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1079296; ArcGIS OBJECTID 57418",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1079296",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3198365392; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1079296",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1079296",
+      "grade": "I",
+      "original_list_date": "1951-01-29",
+      "latitude": 51.3722532,
+      "longitude": -0.105205,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1429315-20250611",
+      "title": "Horse and Rider Sculpture removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Horse and Rider Sculpture as removed from the NHLE on 2025-06-11.",
+      "year": 2025,
+      "effective_date": "2025-06-11",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1415183,
+          51.5075966
+        ]
+      },
+      "affected_area": {
+        "label": "Horse and Rider Sculpture removed from the NHLE",
+        "bbox": [
+          -0.1415471,
+          51.5075787,
+          -0.1414895,
+          51.5076146
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1492",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1492; ARTICLEUID 1494262; OriginalListEntryNumber 1429315"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Horse and Rider Sculpture from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1492; ARTICLEUID 1494262; OriginalListEntryNumber 1429315",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:1250",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1429315",
+      "article_uid": "1494262",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.5075966,
+      "longitude": -0.1415183,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300382-20250530",
+      "title": "31 to 32 Soho Square (also known as Twentieth Century House certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300382 for 31 to 32 Soho Square (also known as Twentieth Century House, starting 2025-05-30.",
+      "year": 2025,
+      "effective_date": "2025-05-30",
+      "effective_date_range": {
+        "start": "2025-05-30",
+        "end": "2030-05-29"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.132525,
+          51.514614
+        ]
+      },
+      "affected_area": {
+        "label": "31 to 32 Soho Square (also known as Twentieth Century House certificate of immunity recorded",
+        "bbox": [
+          -0.132525,
+          51.514614,
+          -0.132525,
+          51.514614
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300382",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300382",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300382; reference 1493499"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1493499",
+          "file_path": null,
+          "record_id": "1493499"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for 31 to 32 Soho Square (also known as Twentieth Century House.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300382; reference 1493499",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300382",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300382",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300382",
+      "reference": "1493499",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-05-29",
+      "latitude": 51.514614,
+      "longitude": -0.132525,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1262672-20250520",
+      "title": "Hercules and Achelous Statue, Royal Botanic Gardens Kew, Richmond Upon Thames removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Hercules and Achelous Statue, Royal Botanic Gardens Kew, Richmond Upon Thames as removed from the NHLE on 2025-05-20.",
+      "year": 2025,
+      "effective_date": "2025-05-20",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2913541,
+          51.4793614
+        ]
+      },
+      "affected_area": {
+        "label": "Hercules and Achelous Statue, Royal Botanic Gardens Kew, Richmond Upon Thames removed from the NHLE",
+        "bbox": [
+          -0.2913721,
+          51.4793515,
+          -0.2913361,
+          51.4793712
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1477",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1477; ARTICLEUID 1494072; OriginalListEntryNumber 1262672"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Hercules and Achelous Statue, Royal Botanic Gardens Kew, Richmond Upon Thames from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1477; ARTICLEUID 1494072; OriginalListEntryNumber 1262672",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1262672",
+      "article_uid": "1494072",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.4793614,
+      "longitude": -0.2913541,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1262598-20250520",
+      "title": "Urn and pedestal, Royal Botanic Gardens Kew, Kew Green, Richmond Upon Thames removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Urn and pedestal, Royal Botanic Gardens Kew, Kew Green, Richmond Upon Thames as removed from the NHLE on 2025-05-20.",
+      "year": 2025,
+      "effective_date": "2025-05-20",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2916581,
+          51.4824054
+        ]
+      },
+      "affected_area": {
+        "label": "Urn and pedestal, Royal Botanic Gardens Kew, Kew Green, Richmond Upon Thames removed from the NHLE",
+        "bbox": [
+          -0.2916761,
+          51.4823955,
+          -0.2916401,
+          51.4824152
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1478",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1478; ARTICLEUID 1494073; OriginalListEntryNumber 1262598"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Urn and pedestal, Royal Botanic Gardens Kew, Kew Green, Richmond Upon Thames from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1478; ARTICLEUID 1494073; OriginalListEntryNumber 1262598",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1262598",
+      "article_uid": "1494073",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.4824054,
+      "longitude": -0.2916581,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1066459-20250515",
+      "title": "Seaford House and Gate Piers NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-05-15 for Seaford House and Gate Piers (II*, ListEntry 1066459).",
+      "year": 2025,
+      "effective_date": "2025-05-15",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1514212,
+          51.4992551
+        ]
+      },
+      "affected_area": {
+        "label": "Seaford House and Gate Piers NHLE record amended",
+        "bbox": [
+          -0.1514212,
+          51.4992551,
+          -0.1514212,
+          51.4992551
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1066459",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1066459",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1066459; ArcGIS OBJECTID 44725; AmendDate 2025-05-15"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Seaford House and Gate Piers.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1066459; ArcGIS OBJECTID 44725",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1066459",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ2841579427; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1066459",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1066459",
+      "grade": "II*",
+      "original_list_date": "1970-01-09",
+      "latitude": 51.4992551,
+      "longitude": -0.1514212,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1224469-20250423",
+      "title": "162 New Bond Street NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-04-23 for 162 New Bond Street (II, ListEntry 1224469).",
+      "year": 2025,
+      "effective_date": "2025-04-23",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1431026,
+          51.5103649
+        ]
+      },
+      "affected_area": {
+        "label": "162 New Bond Street NHLE record amended",
+        "bbox": [
+          -0.1431026,
+          51.5103649,
+          -0.1431026,
+          51.5103649
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1224469",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1224469",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1224469; ArcGIS OBJECTID 201510; AmendDate 2025-04-23"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for 162 New Bond Street.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1224469; ArcGIS OBJECTID 201510",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1224469",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ2895780683; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1224469",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1224469",
+      "grade": "II",
+      "original_list_date": "1981-01-13",
+      "latitude": 51.5103649,
+      "longitude": -0.1431026,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1264792-20250328",
+      "title": "52-53 St Martin's Lane NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-03-28 for 52-53 St Martin's Lane (II, ListEntry 1264792).",
+      "year": 2025,
+      "effective_date": "2025-03-28",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1267762,
+          51.5107836
+        ]
+      },
+      "affected_area": {
+        "label": "52-53 St Martin's Lane NHLE record amended",
+        "bbox": [
+          -0.1267762,
+          51.5107836,
+          -0.1267762,
+          51.5107836
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1264792",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1264792",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1264792; ArcGIS OBJECTID 241538; AmendDate 2025-03-28"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for 52-53 St Martin's Lane.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1264792; ArcGIS OBJECTID 241538",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1264792",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3008980758; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1264792",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1264792",
+      "grade": "II",
+      "original_list_date": "1973-01-15",
+      "latitude": 51.5107836,
+      "longitude": -0.1267762,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300357-20250317",
+      "title": "Bonney House and stores building to the rear, Acrow East and Acrow West, at St Mary's Hospita certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300357 for Bonney House and stores building to the rear, Acrow East and Acrow West, at St Mary's Hospita, starting 2025-03-17.",
+      "year": 2025,
+      "effective_date": "2025-03-17",
+      "effective_date_range": {
+        "start": "2025-03-17",
+        "end": "2030-03-16"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.17336,
+          51.518079
+        ]
+      },
+      "affected_area": {
+        "label": "Bonney House and stores building to the rear, Acrow East and Acrow West, at St Mary's Hospita certificate of immunity recorded",
+        "bbox": [
+          -0.17336,
+          51.518079,
+          -0.17336,
+          51.518079
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300357",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300357",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300357; reference 1492585"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1492585",
+          "file_path": null,
+          "record_id": "1492585"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Bonney House and stores building to the rear, Acrow East and Acrow West, at St Mary's Hospita.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300357; reference 1492585",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300357",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300357",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300357",
+      "reference": "1492585",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-03-16",
+      "latitude": 51.518079,
+      "longitude": -0.17336,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1385998-20250304",
+      "title": "Statue of King Alfred, Trinity Church Square NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-03-04 for Statue of King Alfred, Trinity Church Square (II, ListEntry 1385998).",
+      "year": 2025,
+      "effective_date": "2025-03-04",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0936259,
+          51.4988776
+        ]
+      },
+      "affected_area": {
+        "label": "Statue of King Alfred, Trinity Church Square NHLE record amended",
+        "bbox": [
+          -0.0936259,
+          51.4988776,
+          -0.0936259,
+          51.4988776
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1385998",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1385998",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1385998; ArcGIS OBJECTID 361858; AmendDate 2025-03-04"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Statue of King Alfred, Trinity Church Square.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1385998; ArcGIS OBJECTID 361858",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1385998",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3242379493; CaptureScale 1:2500",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1385998",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1385998",
+      "grade": "II",
+      "original_list_date": "1950-03-02",
+      "latitude": 51.4988776,
+      "longitude": -0.0936259,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300337-20250221",
+      "title": "Debden Building and Waterfall mural certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300337 for Debden Building and Waterfall mural, starting 2025-02-21.",
+      "year": 2025,
+      "effective_date": "2025-02-21",
+      "effective_date_range": {
+        "start": "2025-02-21",
+        "end": "2030-02-20"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.08301,
+          51.593873
+        ]
+      },
+      "affected_area": {
+        "label": "Debden Building and Waterfall mural certificate of immunity recorded",
+        "bbox": [
+          -0.08301,
+          51.593873,
+          -0.08301,
+          51.593873
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300337",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300337",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300337; reference 1488129"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1488129",
+          "file_path": null,
+          "record_id": "1488129"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Debden Building and Waterfall mural.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300337; reference 1488129",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300337",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300337",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300337",
+      "reference": "1488129",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-02-20",
+      "latitude": 51.593873,
+      "longitude": -0.08301,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300336-20250221",
+      "title": "Rochford building and Peace mural certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300336 for Rochford building and Peace mural, starting 2025-02-21.",
+      "year": 2025,
+      "effective_date": "2025-02-21",
+      "effective_date_range": {
+        "start": "2025-02-21",
+        "end": "2030-02-20"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.079611,
+          51.59478
+        ]
+      },
+      "affected_area": {
+        "label": "Rochford building and Peace mural certificate of immunity recorded",
+        "bbox": [
+          -0.079611,
+          51.59478,
+          -0.079611,
+          51.59478
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300336",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300336",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300336; reference 1487989"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1487989",
+          "file_path": null,
+          "record_id": "1487989"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Rochford building and Peace mural.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300336; reference 1487989",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300336",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300336",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300336",
+      "reference": "1487989",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-02-20",
+      "latitude": 51.59478,
+      "longitude": -0.079611,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1265525-20250210",
+      "title": "Clarence Memorial Wing, with Second World War memorial gates, at St Mary's Hospital NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-02-10 for Clarence Memorial Wing, with Second World War memorial gates, at St Mary's Hospital (II, ListEntry 1265525).",
+      "year": 2025,
+      "effective_date": "2025-02-10",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1735341,
+          51.5169841
+        ]
+      },
+      "affected_area": {
+        "label": "Clarence Memorial Wing, with Second World War memorial gates, at St Mary's Hospital NHLE record amended",
+        "bbox": [
+          -0.1735341,
+          51.5169841,
+          -0.1735341,
+          51.5169841
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1265525",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1265525",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1265525; ArcGIS OBJECTID 242266; AmendDate 2025-02-10"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Clarence Memorial Wing, with Second World War memorial gates, at St Mary's Hospital.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1265525; ArcGIS OBJECTID 242266",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1265525",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ2682981364; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1265525",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1265525",
+      "grade": "II",
+      "original_list_date": "1975-04-10",
+      "latitude": 51.5169841,
+      "longitude": -0.1735341,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300333-20250117",
+      "title": "Exchequer Court, 25-51 St Mary Axe/ 9 St Helen's Place certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300333 for Exchequer Court, 25-51 St Mary Axe/ 9 St Helen's Place, starting 2025-01-17.",
+      "year": 2025,
+      "effective_date": "2025-01-17",
+      "effective_date_range": {
+        "start": "2025-01-17",
+        "end": "2030-01-16"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.080939,
+          51.514967
+        ]
+      },
+      "affected_area": {
+        "label": "Exchequer Court, 25-51 St Mary Axe/ 9 St Helen's Place certificate of immunity recorded",
+        "bbox": [
+          -0.080939,
+          51.514967,
+          -0.080939,
+          51.514967
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300333",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300333",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300333; reference 1492320"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1492320",
+          "file_path": null,
+          "record_id": "1492320"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Exchequer Court, 25-51 St Mary Axe/ 9 St Helen's Place.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300333; reference 1492320",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300333",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300333",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300333",
+      "reference": "1492320",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-01-16",
+      "latitude": 51.514967,
+      "longitude": -0.080939,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300330-20250117",
+      "title": "18 Leicester Square certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300330 for 18 Leicester Square, starting 2025-01-17.",
+      "year": 2025,
+      "effective_date": "2025-01-17",
+      "effective_date_range": {
+        "start": "2025-01-17",
+        "end": "2030-01-16"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.129447,
+          51.510913
+        ]
+      },
+      "affected_area": {
+        "label": "18 Leicester Square certificate of immunity recorded",
+        "bbox": [
+          -0.129447,
+          51.510913,
+          -0.129447,
+          51.510913
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300330",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300330",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300330; reference 1490769"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1490769",
+          "file_path": null,
+          "record_id": "1490769"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for 18 Leicester Square.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300330; reference 1490769",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300330",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300330",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300330",
+      "reference": "1490769",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-01-16",
+      "latitude": 51.510913,
+      "longitude": -0.129447,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300332-20250108",
+      "title": "9 Newcomen Street certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300332 for 9 Newcomen Street, starting 2025-01-08.",
+      "year": 2025,
+      "effective_date": "2025-01-08",
+      "effective_date_range": {
+        "start": "2025-01-08",
+        "end": "2030-01-07"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.090558,
+          51.50294
+        ]
+      },
+      "affected_area": {
+        "label": "9 Newcomen Street certificate of immunity recorded",
+        "bbox": [
+          -0.090558,
+          51.50294,
+          -0.090558,
+          51.50294
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300332",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300332",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300332; reference 1491850"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1491850",
+          "file_path": null,
+          "record_id": "1491850"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for 9 Newcomen Street.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300332; reference 1491850",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300332",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300332",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300332",
+      "reference": "1491850",
+      "entry_date": "2026-05-12",
+      "end_date": "2030-01-07",
+      "latitude": 51.50294,
+      "longitude": -0.090558,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1357231-20250106",
+      "title": "Floral Hall (Paul Hamlyn Hall) NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-01-06 for Floral Hall (Paul Hamlyn Hall) (II, ListEntry 1357231).",
+      "year": 2025,
+      "effective_date": "2025-01-06",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1221418,
+          51.5130243
+        ]
+      },
+      "affected_area": {
+        "label": "Floral Hall (Paul Hamlyn Hall) NHLE record amended",
+        "bbox": [
+          -0.1221418,
+          51.5130243,
+          -0.1221418,
+          51.5130243
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1357231",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1357231",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1357231; ArcGIS OBJECTID 333306; AmendDate 2025-01-06"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Floral Hall (Paul Hamlyn Hall).",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1357231; ArcGIS OBJECTID 333306",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1357231",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3040481015; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1357231",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1357231",
+      "grade": "II",
+      "original_list_date": "1973-01-15",
+      "latitude": 51.5130243,
+      "longitude": -0.1221418,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1066392-20250106",
+      "title": "Royal Opera House NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2025-01-06 for Royal Opera House (I, ListEntry 1066392).",
+      "year": 2025,
+      "effective_date": "2025-01-06",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1225509,
+          51.512834
+        ]
+      },
+      "affected_area": {
+        "label": "Royal Opera House NHLE record amended",
+        "bbox": [
+          -0.1225509,
+          51.512834,
+          -0.1225509,
+          51.512834
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1066392",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1066392",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1066392; ArcGIS OBJECTID 44659; AmendDate 2025-01-06"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Royal Opera House.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1066392; ArcGIS OBJECTID 44659",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1066392",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3038080999; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1066392",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1066392",
+      "grade": "I",
+      "original_list_date": "1970-01-09",
+      "latitude": 51.512834,
+      "longitude": -0.1225509,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300327-20241120",
+      "title": "Strand Building certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300327 for Strand Building, starting 2024-11-20.",
+      "year": 2024,
+      "effective_date": "2024-11-20",
+      "effective_date_range": {
+        "start": "2024-11-20",
+        "end": "2029-11-19"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.116416,
+          51.511976
+        ]
+      },
+      "affected_area": {
+        "label": "Strand Building certificate of immunity recorded",
+        "bbox": [
+          -0.116416,
+          51.511976,
+          -0.116416,
+          51.511976
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300327",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300327",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300327; reference 1491834"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1491834",
+          "file_path": null,
+          "record_id": "1491834"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Strand Building.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300327; reference 1491834",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300327",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300327",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300327",
+      "reference": "1491834",
+      "entry_date": "2026-05-12",
+      "end_date": "2029-11-19",
+      "latitude": 51.511976,
+      "longitude": -0.116416,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300326-20241120",
+      "title": "Macadam Building certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300326 for Macadam Building, starting 2024-11-20.",
+      "year": 2024,
+      "effective_date": "2024-11-20",
+      "effective_date_range": {
+        "start": "2024-11-20",
+        "end": "2029-11-19"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.115318,
+          51.511228
+        ]
+      },
+      "affected_area": {
+        "label": "Macadam Building certificate of immunity recorded",
+        "bbox": [
+          -0.115318,
+          51.511228,
+          -0.115318,
+          51.511228
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300326",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300326",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300326; reference 1491819"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1491819",
+          "file_path": null,
+          "record_id": "1491819"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Macadam Building.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300326; reference 1491819",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300326",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300326",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300326",
+      "reference": "1491819",
+      "entry_date": "2026-05-12",
+      "end_date": "2029-11-19",
+      "latitude": 51.511228,
+      "longitude": -0.115318,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300323-20241120",
+      "title": "Vogue House, 1 Hanover Square, City of Westminster certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300323 for Vogue House, 1 Hanover Square, City of Westminster, starting 2024-11-20.",
+      "year": 2024,
+      "effective_date": "2024-11-20",
+      "effective_date_range": {
+        "start": "2024-11-20",
+        "end": "2029-11-19"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.143011,
+          51.513254
+        ]
+      },
+      "affected_area": {
+        "label": "Vogue House, 1 Hanover Square, City of Westminster certificate of immunity recorded",
+        "bbox": [
+          -0.143011,
+          51.513254,
+          -0.143011,
+          51.513254
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300323",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300323",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300323; reference 1491481"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1491481",
+          "file_path": null,
+          "record_id": "1491481"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Vogue House, 1 Hanover Square, City of Westminster.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300323; reference 1491481",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300323",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300323",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300323",
+      "reference": "1491481",
+      "entry_date": "2026-05-12",
+      "end_date": "2029-11-19",
+      "latitude": 51.513254,
+      "longitude": -0.143011,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300317-20241120",
+      "title": "Berkshire House and Oasis Sports Centre certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300317 for Berkshire House and Oasis Sports Centre, starting 2024-11-20.",
+      "year": 2024,
+      "effective_date": "2024-11-20",
+      "effective_date_range": {
+        "start": "2024-11-20",
+        "end": "2029-11-19"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.12557,
+          51.515566
+        ]
+      },
+      "affected_area": {
+        "label": "Berkshire House and Oasis Sports Centre certificate of immunity recorded",
+        "bbox": [
+          -0.12557,
+          51.515566,
+          -0.12557,
+          51.515566
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300317",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300317",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300317; reference 1488546"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1488546",
+          "file_path": null,
+          "record_id": "1488546"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Berkshire House and Oasis Sports Centre.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300317; reference 1488546",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300317",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300317",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300317",
+      "reference": "1488546",
+      "entry_date": "2026-05-12",
+      "end_date": "2029-11-19",
+      "latitude": 51.515566,
+      "longitude": -0.12557,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-coi-2300303-20240923",
+      "title": "Minster Court including equine sculptures certificate of immunity recorded",
+      "short_description": "Planning Data records certificate-of-immunity entity 2300303 for Minster Court including equine sculptures, starting 2024-09-23.",
+      "year": 2024,
+      "effective_date": "2024-09-23",
+      "effective_date_range": {
+        "start": "2024-09-23",
+        "end": "2029-09-22"
+      },
+      "date_precision": "day",
+      "source_date_field": "start-date",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.080902,
+          51.510691
+        ]
+      },
+      "affected_area": {
+        "label": "Minster Court including equine sculptures certificate of immunity recorded",
+        "bbox": [
+          -0.080902,
+          51.510691,
+          -0.080902,
+          51.510691
+        ]
+      },
+      "source_ids": [
+        "round123-planning-data-coi-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Planning Data COI entity 2300303",
+          "kind": "source_record",
+          "url": "https://www.planning.data.gov.uk/entity/2300303",
+          "file_path": null,
+          "record_id": "certificate-of-immunity entity 2300303; reference 1489024"
+        },
+        {
+          "source_id": "round123-planning-data-coi-20260518",
+          "label": "Historic England documentation URL",
+          "kind": "source_url",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1489024",
+          "file_path": null,
+          "record_id": "1489024"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Planning Data records a certificate-of-immunity status row for Minster Court including equine sculptures.",
+      "caveats": [
+        "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.",
+        "The source point is for atlas navigation and does not replace the source polygon or legal record.",
+        "This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+      ],
+      "provenance": {
+        "transform": "Fetched Planning Data certificate-of-immunity entity JSON, filtered to ONS London region E12000007, and excluded prior round119 COI refs/entities.",
+        "source_path": null,
+        "source_record_id": "certificate-of-immunity entity 2300303; reference 1489024",
+        "source_url": "https://www.planning.data.gov.uk/entity/2300303",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "planning-data-certificate-of-immunity",
+        "source_basis": "Official Planning Data entity JSON row.",
+        "source_date_field": "start-date",
+        "geometry_source": "Planning Data point field; quality=authoritative",
+        "geometry_precision": "official point for atlas navigation; not a surveyed building footprint"
+      },
+      "source_name": "Planning Data certificate-of-immunity records",
+      "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England",
+      "source_url": "https://www.planning.data.gov.uk/entity/2300303",
+      "source_type": "official Planning Data entity JSON row",
+      "license": "Open Government Licence v3.0 with Historic England and Ordnance Survey attribution where stated by Planning Data.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "certificate_of_immunity_recorded",
+      "planning_data_entity": "2300303",
+      "reference": "1489024",
+      "entry_date": "2026-05-12",
+      "end_date": "2029-09-22",
+      "latitude": 51.510691,
+      "longitude": -0.080902,
+      "limitations": "Certificate-of-immunity dates are heritage-control administrative dates, not construction, alteration, repair, opening, occupation, condition, or outcome dates.; The source point is for atlas navigation and does not replace the source polygon or legal record.; This pack excludes certificate-of-immunity references already selected in the prior round119 London COI batch."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1259316-20240731",
+      "title": "Public Toilet, Bruce Grove, including above-ground pavilion and subterranean chamber, with staircase, railings, gateways, and pavement lights NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2024-07-31 for Public Toilet, Bruce Grove, including above-ground pavilion and subterranean chamber, with staircase, railings, gateways, and pavement lights (II, ListEnt",
+      "year": 2024,
+      "effective_date": "2024-07-31",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0700513,
+          51.5945161
+        ]
+      },
+      "affected_area": {
+        "label": "Public Toilet, Bruce Grove, including above-ground pavilion and subterranean chamber, with staircase, railings, gateways, and pavement lights NHLE record amended",
+        "bbox": [
+          -0.0700513,
+          51.5945161,
+          -0.0700513,
+          51.5945161
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1259316",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1259316",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1259316; ArcGIS OBJECTID 236108; AmendDate 2024-07-31"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Public Toilet, Bruce Grove, including above-ground pavilion and subterranean chamber, with staircase, railings, gateways, and pavement lights.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1259316; ArcGIS OBJECTID 236108",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1259316",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ3377790170; CaptureScale 1:1250",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1259316",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1259316",
+      "grade": "II",
+      "original_list_date": "1997-01-28",
+      "latitude": 51.5945161,
+      "longitude": -0.0700513,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-nhle-amend-1193691-20240723",
+      "title": "Former Deptford Town Hall, with dwarf wall and railings to north NHLE record amended",
+      "short_description": "Historic England records an NHLE amendment date of 2024-07-23 for Former Deptford Town Hall, with dwarf wall and railings to north (II*, ListEntry 1193691).",
+      "year": 2024,
+      "effective_date": "2024-07-23",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "AmendDate",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0377977,
+          51.4752855
+        ]
+      },
+      "affected_area": {
+        "label": "Former Deptford Town Hall, with dwarf wall and railings to north NHLE record amended",
+        "bbox": [
+          -0.0377977,
+          51.4752855,
+          -0.0377977,
+          51.4752855
+        ]
+      },
+      "source_ids": [
+        "round123-he-nhle-amend-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-nhle-amend-20260518",
+          "label": "NHLE ListEntry 1193691",
+          "kind": "source_record",
+          "url": "https://historicengland.org.uk/listing/the-list/list-entry/1193691",
+          "file_path": null,
+          "record_id": "NHLE ListEntry 1193691; ArcGIS OBJECTID 170932; AmendDate 2024-07-23"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England NHLE listed-building points layer records an amendment/status date for Former Deptford Town Hall, with dwarf wall and railings to north.",
+      "caveats": [
+        "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.",
+        "Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England NHLE listed-building points layer for AmendDate in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "NHLE ListEntry 1193691; ArcGIS OBJECTID 170932",
+        "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1193691",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-nhle-listed-building-points",
+        "source_basis": "Official NHLE feature with AmendDate.",
+        "source_date_field": "AmendDate",
+        "geometry_source": "Historic England NHLE point; NGR TQ 36369 76971; CaptureScale 1:2500",
+        "geometry_precision": "official point for atlas location; not full statutory extent"
+      },
+      "source_name": "National Heritage List for England (NHLE)",
+      "publisher": "Historic England",
+      "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1193691",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "nhle_record_amended",
+      "nhle_list_entry": "1193691",
+      "grade": "II*",
+      "original_list_date": "1950-07-05",
+      "latitude": 51.4752855,
+      "longitude": -0.0377977,
+      "limitations": "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1139093-20240625",
+      "title": "Number 33 and attached railings removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Number 33 and attached railings as removed from the NHLE on 2024-06-25.",
+      "year": 2024,
+      "effective_date": "2024-06-25",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1217915,
+          51.5217504
+        ]
+      },
+      "affected_area": {
+        "label": "Number 33 and attached railings removed from the NHLE",
+        "bbox": [
+          -0.1218095,
+          51.5217405,
+          -0.1217735,
+          51.5217602
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1272",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1272; ARTICLEUID 1491142; OriginalListEntryNumber 1139093"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Number 33 and attached railings from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1272; ARTICLEUID 1491142; OriginalListEntryNumber 1139093",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1139093",
+      "article_uid": "1491142",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.5217504,
+      "longitude": -0.1217915,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1079261-20240220",
+      "title": "15A Bruce Grove removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records 15A Bruce Grove as removed from the NHLE on 2024-02-20.",
+      "year": 2024,
+      "effective_date": "2024-02-20",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0720641,
+          51.5955586
+        ]
+      },
+      "affected_area": {
+        "label": "15A Bruce Grove removed from the NHLE",
+        "bbox": [
+          -0.0722041,
+          51.5954784,
+          -0.0719241,
+          51.5956388
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1218",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1218; ARTICLEUID 1489756; OriginalListEntryNumber 1079261"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of 15A Bruce Grove from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1218; ARTICLEUID 1489756; OriginalListEntryNumber 1079261",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1079261",
+      "article_uid": "1489756",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.5955586,
+      "longitude": -0.0720641,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1359051-20231011",
+      "title": "St Anne's House removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records St Anne's House as removed from the NHLE on 2023-10-11.",
+      "year": 2023,
+      "effective_date": "2023-10-11",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.175072,
+          51.5907216
+        ]
+      },
+      "affected_area": {
+        "label": "St Anne's House removed from the NHLE",
+        "bbox": [
+          -0.1751798,
+          51.5906671,
+          -0.1749643,
+          51.5907762
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1131",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1131; ARTICLEUID 1488311; OriginalListEntryNumber 1359051"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of St Anne's House from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1131; ARTICLEUID 1488311; OriginalListEntryNumber 1359051",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1359051",
+      "article_uid": "1488311",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.5907216,
+      "longitude": -0.175072,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1080945-20231004",
+      "title": "70 Christchurch Road removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records 70 Christchurch Road as removed from the NHLE on 2023-10-04.",
+      "year": 2023,
+      "effective_date": "2023-10-04",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1778358,
+          51.4155314
+        ]
+      },
+      "affected_area": {
+        "label": "70 Christchurch Road removed from the NHLE",
+        "bbox": [
+          -0.1779199,
+          51.4155088,
+          -0.1777516,
+          51.415554
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1129",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1129; ARTICLEUID 1488277; OriginalListEntryNumber 1080945"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of 70 Christchurch Road from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1129; ARTICLEUID 1488277; OriginalListEntryNumber 1080945",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:1250",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1080945",
+      "article_uid": "1488277",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.4155314,
+      "longitude": -0.1778358,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    },
+    {
+      "schema_version": "1.0.0",
+      "city_id": "london",
+      "event_id": "lon-heritage-dedesig-1078859-20230418",
+      "title": "Brocket removed from the NHLE",
+      "short_description": "Historic England de-designated-sites data records Brocket as removed from the NHLE on 2023-04-18.",
+      "year": 2023,
+      "effective_date": "2023-04-18",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "DateRemovedFromList",
+      "category": "heritage_administrative_change",
+      "lens": "architecture_heritage_status",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2350292,
+          51.6458899
+        ]
+      },
+      "affected_area": {
+        "label": "Brocket removed from the NHLE",
+        "bbox": [
+          -0.2350472,
+          51.64588,
+          -0.2350111,
+          51.6458997
+        ]
+      },
+      "source_ids": [
+        "round123-he-dedesig-20260518"
+      ],
+      "evidence": [
+        {
+          "source_id": "round123-he-dedesig-20260518",
+          "label": "De-designated site OBJECTID 1045",
+          "kind": "source_record",
+          "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+          "file_path": null,
+          "record_id": "OBJECTID 1045; ARTICLEUID 1486228; OriginalListEntryNumber 1078859"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "heritage_status",
+        "designation_record",
+        "administrative_change"
+      ],
+      "explanation": "Historic England records removal of Brocket from the National Heritage List for England.",
+      "caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.",
+        "The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+      ],
+      "provenance": {
+        "transform": "Queried Historic England De-designated sites layer for DateRemovedFromList in 2008-2026 and filtered to ONS London region E12000007.",
+        "source_path": null,
+        "source_record_id": "OBJECTID 1045; ARTICLEUID 1486228; OriginalListEntryNumber 1078859",
+        "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "historic-england-de-designated-sites",
+        "source_basis": "Official de-designated-sites feature.",
+        "source_date_field": "DateRemovedFromList",
+        "geometry_source": "Historic England de-designated-sites polygon centroid; CaptureScale 1:2500",
+        "geometry_precision": "centroid of official polygon for atlas location"
+      },
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_type": "official register/open geospatial data",
+      "license": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution includes Ordnance Survey Crown copyright/database right.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "accessed_at": "2026-05-19",
+      "heritage_action": "removed_from_nhle",
+      "nhle_original_list_entry": "1078859",
+      "article_uid": "1486228",
+      "decision_text": "This building has been assessed for de-listing under the Planning (Listed Buildings and Conservation Areas) Act 1990 as amended. The building has been removed from The National Heritage List for England as it no longer meets the criteria for listing.",
+      "latitude": 51.6458899,
+      "longitude": -0.2350292,
+      "limitations": "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, or condition date.; The point is a centroid from the official de-designated polygon for atlas navigation and is not evidence of current physical condition."
+    }
+  ]
+}

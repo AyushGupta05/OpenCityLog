@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 const retrievedAt = "2026-05-19";
 const corpusPath = "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json";
@@ -22,7 +23,21 @@ const candidatePaths = {
   londonOfficialFacilitiesMore: "tmp/subagents/round121_london_official_facilities_more/candidates.json",
   nycPublicFacilitiesMore: "tmp/subagents/round121_nyc_public_facilities_more/candidates.json",
   belfastMajorPlanningDecisions: "tmp/subagents/round122_belfast_major_planning_decisions/candidates.json",
-  londonBoroughMajorSchemes: "tmp/subagents/round122_london_borough_major_schemes/candidates.json"
+  londonBoroughMajorSchemes: "tmp/subagents/round122_london_borough_major_schemes/candidates.json",
+  nycLpcPermitsDesignations: "tmp/subagents/round122_nyc_lpc_permits_designations/candidates.json",
+  nycPublicSchoolsGeocoded: "tmp/subagents/round122_nyc_public_schools_geocoded/candidates.json",
+  londonHeritageDesignations: "tmp/subagents/round123_london_heritage_designations/candidates.json",
+  belfastPublicFacilitiesUniversitiesHealth: "tmp/subagents/round123_belfast_public_facilities_universities_health/candidates.json",
+  belfastPlanningPortalCommitteeMore: "tmp/subagents/round123_belfast_planning_portal_committee_more/candidates.json",
+  londonLddArchiveCompletions: "tmp/subagents/round124_london_ldd_archive_completions/candidates.json",
+  nycPublicDesignCommission: "tmp/subagents/round124_nyc_public_design_commission/candidates.json",
+  belfastPlanningAppealsDfcPublicRealm: "tmp/subagents/round124_belfast_planning_appeals_dfc_public_realm/candidates.json",
+  londonLddArchiveCompletionsNext: "tmp/subagents/round125_london_ldd_archive_completions_next/candidates.json",
+  nycDcpZapLanduse: "tmp/subagents/round125_nyc_dcp_zap_landuse/candidates.json",
+  belfastCivicPublicRealmGeocoded: "tmp/subagents/round125_belfast_civic_public_realm_geocoded/candidates.json",
+  belfastGeocodePreviousRejects: "tmp/subagents/round125_belfast_geocode_previous_rejects/candidates.json",
+  londonMajorBoroughDecisionsFacilities: "tmp/subagents/round125_london_major_borough_decisions_facilities/candidates.json",
+  nycCivicCapitalProjects: "tmp/subagents/round125_nyc_civic_capital_projects/candidates.json"
 };
 
 const sourceIdAliases = {
@@ -39,13 +54,43 @@ const sourceIdAliases = {
   "nyc-dob-now-build-job-application-filings-w9ak-ipjd": "nyc-dob-filings-permits",
   "dpm2-m9mq": "nyc-lpc-permit-application-information",
   "nyc-lpc-permit-application-information-dpm2-m9mq": "nyc-lpc-permit-application-information",
+  "nyc-open-data-lpc-permit-application-information-dpm2-m9mq": "nyc-lpc-permit-application-information",
+  "nyc_sca_school_openings_api": "nyc-sca-school-openings-projects",
+  "NYC SCA School Openings listing/API; SCA fact-sheet PDF; NYC PAD/Geosearch": "nyc-sca-school-openings-projects",
+  "nyc_sca_school_opening_fact_sheets": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k053": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k253": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k322": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k347": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k464": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k597": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k676": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k694": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_k909": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_q026": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_q160": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_q278": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_q472": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_q509": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_r005": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_r121": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_x077": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_x087": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_x105": "nyc-sca-school-openings-projects",
+  "nyc_sca_fact_sheet_x138": "nyc-sca-school-openings-projects",
+  "nyc_planninglabs_geosearch_nycpad": "nyc-planninglabs-geosearch-nycpad",
+  "round123-he-nhle-amend-20260518": "historic-england-nhle",
+  "round123-he-dedesig-20260518": "historic-england-nhle",
+  "round123-planning-data-coi-20260518": "planning-data-certificate-of-immunity",
   "nyc-dcp-zap-project-data-hgx4-8ukb": "nyc-dcp-zap-project-data",
   "nyc-dcp-zap-bbl-2iga-a6mk": "nyc-dcp-zap-bbl",
+  "nyc-dcp-pluto": "nyc-pluto-mappluto-lots",
   "nyc-pluto-mappluto-lots-64uk-42ks": "nyc-pluto-mappluto-lots",
   "planning-london-datahub-lbc": "gla-planning-datahub-applications",
   "gla-canada-water-stage3-report-2026": "gla-planning-application-decisions",
   "planning-data-article-4-legal-instrument": "planning-data-article-4-direction-area",
-  "bcc-current-planning-applications-20260519": "bcc-current-planning-applications"
+  "bcc-current-planning-applications-20260519": "bcc-current-planning-applications",
+  "ni-planning-portal-public-register-round123": "ni-planning-portal-public-register"
 };
 
 function readJson(file) {
@@ -129,6 +174,7 @@ function sourceIdsFor(candidate) {
   if (Array.isArray(candidate.source_ids)) explicit.push(...candidate.source_ids);
   if (candidate.source_id) explicit.push(candidate.source_id);
   if (candidate.source_dataset_id) explicit.push(candidate.source_dataset_id);
+  if (candidate.provenance?.source_dataset_id) explicit.push(candidate.provenance.source_dataset_id);
   if (candidate.dataset_id) explicit.push(candidate.dataset_id);
   const seen = new Set();
   return explicit
@@ -155,30 +201,46 @@ function pointFrom(candidate) {
     const longitude = Number(lon);
     if (Number.isFinite(latitude) && Number.isFinite(longitude)) return { latitude, longitude };
   }
+  if (Array.isArray(candidate.geometry?.coordinates) && candidate.geometry.coordinates.length >= 2) {
+    const [longitude, latitude] = candidate.geometry.coordinates.map(Number);
+    if (Number.isFinite(latitude) && Number.isFinite(longitude)) return { latitude, longitude };
+  }
   return null;
 }
 
 function sourceUrlFor(candidate) {
   if (candidate.source_url) return candidate.source_url;
+  if (candidate.provenance?.source_url) return candidate.provenance.source_url;
   if (Array.isArray(candidate.source_urls) && candidate.source_urls.length > 0) return candidate.source_urls[0];
+  if (Array.isArray(candidate.evidence) && candidate.evidence.length > 0) {
+    const evidenceUrl = candidate.evidence.map((item) => item?.url).find(Boolean);
+    if (evidenceUrl) return evidenceUrl;
+  }
   if (candidate.dataset_page_url) return candidate.dataset_page_url;
   return candidate.source_dataset_url || "";
 }
 
 function dateFrom(candidate) {
-  return normalizeDate(
-    candidate.date ||
-    candidate.effective_date ||
-    candidate.event_date ||
-    candidate.decision_date ||
-    candidate.date_fields?.decision_or_publication_date ||
-    candidate.date_fields?.decision_date ||
-    latestDateFromObject(candidate.dates) ||
-    latestDateFromObject(candidate.date_fields) ||
-    candidate.raw_row?.building_completion_date ||
-    candidate.raw_row?.project_completion_date ||
-    candidate.raw_row?.constructionactualcompletion
-  );
+  const values = [
+    candidate.date,
+    candidate.effective_date,
+    candidate.event_date,
+    candidate.decision_date,
+    candidate.date_fields?.decision_or_publication_date,
+    candidate.date_fields?.decision_date,
+    latestDateFromObject(candidate.dates),
+    latestDateFromObject(candidate.date_fields),
+    candidate.raw_row?.building_completion_date,
+    candidate.raw_row?.project_completion_date,
+    candidate.raw_row?.constructionactualcompletion,
+    candidate.effective_date_range?.end,
+    candidate.effective_date_range?.start
+  ];
+  for (const value of values) {
+    const normalized = normalizeDate(value);
+    if (/^\d{4}(-\d{2})?(-\d{2})?$/.test(normalized)) return normalized;
+  }
+  return normalizeDate(values.find(Boolean));
 }
 
 function isPageLike(candidate, sourceIds) {
@@ -190,7 +252,9 @@ function isPageLike(candidate, sourceIds) {
 function sourceRecordIdFor(candidate, sourceIds) {
   let recordId = "";
   if (candidate.source_record_id) recordId = String(candidate.source_record_id);
+  else if (candidate.provenance?.source_record_id) recordId = String(candidate.provenance.source_record_id);
   else if (Array.isArray(candidate.source_record_ids) && candidate.source_record_ids.length > 0) recordId = candidate.source_record_ids.join("; ");
+  else if (Array.isArray(candidate.evidence) && candidate.evidence.length > 0) recordId = candidate.evidence.map((item) => item?.record_id).filter(Boolean).join("; ");
   else if (Array.isArray(candidate.planning_refs) && candidate.planning_refs.length > 0) recordId = candidate.planning_refs.join("; ");
   else if (candidate.raw_row?.project_id && candidate.raw_row?.building_id) recordId = `${candidate.raw_row.project_id}:${candidate.raw_row.building_id}`;
   else if (candidate.raw_row?.trackerid) recordId = String(candidate.raw_row.trackerid);
@@ -223,6 +287,8 @@ function limitationsFor(candidate) {
   const parts = [];
   if (Array.isArray(candidate.limitations)) parts.push(candidate.limitations.join(" "));
   else if (candidate.limitations) parts.push(candidate.limitations);
+  if (Array.isArray(candidate.caveats)) parts.push(candidate.caveats.join(" "));
+  else if (candidate.caveats) parts.push(candidate.caveats);
   if (candidate.confidence_note) parts.push(candidate.confidence_note);
   if (candidate.effective_date_note) parts.push(candidate.effective_date_note);
   parts.push("This event is retained as an observed, source-backed milestone only; broader design, delivery, usage, safety, affordability, regeneration, or causal claims are not inferred.");
@@ -241,9 +307,9 @@ function normalizeCandidate(candidate, packName) {
     date_precision: candidate.date_precision || candidate.date_granularity || candidate.effective_date_precision || datePrecision(date),
     bucket: safeText(candidate.bucket || candidate.category || "planning/development/architecture/official_record"),
     title: safeText(candidate.title),
-    summary: safeText(candidate.summary),
-    observed_change: safeText(candidate.observed_change || candidate.summary || candidate.title),
-    area: safeText(candidate.area || candidate.address || candidate.location_name || candidate.location?.address || candidate.site || candidate.title || candidate.city_id),
+    summary: safeText(candidate.summary || candidate.short_description || candidate.explanation || candidate.title),
+    observed_change: safeText(candidate.observed_change || candidate.summary || candidate.short_description || candidate.explanation || candidate.title),
+    area: safeText(candidate.area || candidate.address || candidate.location_name || candidate.location?.address || candidate.affected_area?.label || candidate.site || candidate.title || candidate.city_id),
     latitude: point?.latitude,
     longitude: point?.longitude,
     source_ids: sourceIds,
@@ -252,16 +318,16 @@ function normalizeCandidate(candidate, packName) {
     source_url: sourceUrlFor(candidate),
     source_record_id: safeText(sourceRecordIdFor(candidate, sourceIds)),
     source_type: safeText(candidate.source_type || candidate.event_type || "official/public source record"),
-    source_retrieved_at: candidate.accessed_at || candidate.source_retrieved_at || candidate.retrieved_at || retrievedAt,
+    source_retrieved_at: candidate.accessed_at || candidate.source_retrieved_at || candidate.retrieved_at || candidate.provenance?.source_retrieved_at || retrievedAt,
     source_date_field: safeText(sourceDateFieldFor(candidate)),
     source_dataset_id: primarySourceId,
     confidence: candidate.confidence || "documented",
     architect: safeText(candidate.architect || "Source record does not name a project architect."),
     project_type: safeText(candidate.project_type || candidate.subcategory || candidate.event_type || "official architecture-related record"),
-    geometry_source: safeText(candidate.geometry_source || candidate.geometry?.source || candidate.location?.geometry_source || "Source candidate supplied official or cited approximate coordinates."),
-    geometry_precision: safeText(candidate.geometry_precision || candidate.geometry?.precision || candidate.location?.geometry_precision || "source point for atlas navigation, not a measured project footprint"),
-    license_or_terms_note: safeText(candidate.license_or_terms_note || candidate.license || candidate.license_terms || candidate.terms_note || "Source terms retained in source audit; review publisher terms before bulk redistribution."),
-    attribution: safeText(candidate.attribution || candidate.publisher || candidate.source_name || primarySourceId),
+    geometry_source: safeText(candidate.geometry_source || candidate.provenance?.geometry_source || candidate.geometry?.source || candidate.location?.geometry_source || "Source candidate supplied official or cited approximate coordinates."),
+    geometry_precision: safeText(candidate.geometry_precision || candidate.provenance?.geometry_precision || candidate.geometry?.precision || candidate.location?.geometry_precision || "source point for atlas navigation, not a measured project footprint"),
+    license_or_terms_note: safeText(candidate.license_or_terms_note || candidate.license_terms_note || candidate.license || candidate.license_terms || candidate.terms_note || "Source terms retained in source audit; review publisher terms before bulk redistribution."),
+    attribution: safeText(candidate.attribution || candidate.attribution_text || candidate.publisher || candidate.source_name || primarySourceId),
     limitations: safeText(limitationsFor(candidate)),
     transformation_method: safeText(`Round119 ${packName} candidate ${candidate.candidate_id || candidate.event_id || candidate.source_record_id || candidate.title}; normalized by scripts/append_architecture_batch_20260519_round119_official.js after source-ID canonicalization, duplicate screening, required-provenance checks, overclaim wording cleanup, current-date guard, and city coordinate-envelope validation.`)
   };
@@ -274,6 +340,22 @@ function auditText(audit, keys) {
   return "";
 }
 
+function auditRowsFromPack(pack) {
+  if (!pack || Array.isArray(pack)) return [];
+  if (Array.isArray(pack.source_audits)) return pack.source_audits;
+  if (Array.isArray(pack.audits)) return pack.audits;
+  if (Array.isArray(pack.sources)) return pack.sources;
+  if (Array.isArray(pack.source_audit)) return pack.source_audit;
+  return [];
+}
+
+function readSiblingAudits(candidateFile) {
+  const auditPath = path.join(path.dirname(candidateFile), "source_audit.json");
+  if (!fs.existsSync(auditPath)) return [];
+  const auditPack = readJson(auditPath);
+  return auditRowsFromPack(auditPack);
+}
+
 function sourceEntryFromAudit(sourceId, candidates, audits, existingSource) {
   if (existingSource) return existingSource;
   const audit = audits.find((item) => canonicalSourceId(item.source_id || item.source_dataset_id || item.dataset_id || "") === sourceId) || {};
@@ -283,13 +365,13 @@ function sourceEntryFromAudit(sourceId, candidates, audits, existingSource) {
   const dates = sameSourceCandidates.map(dateFrom).filter(Boolean).sort();
   const title = auditText(audit, ["title", "source_name", "name"]) || safeText(first.source_name || sourceId);
   const publisher = auditText(audit, ["publisher", "provider", "source_publisher"]) || safeText(first.publisher || first.source_publisher || "Public source publisher not supplied in candidate pack.");
-  const accessUrl = auditText(audit, ["source_url", "url", "access_url", "api_endpoint"]) || sourceUrlFor(first);
-  const license = auditText(audit, ["license_or_terms_note", "licence", "license", "terms_note"]) || safeText(first.license_or_terms_note || "Factual metadata and source URLs retained; review publisher terms before bulk redistribution.");
+  const accessUrl = auditText(audit, ["source_url", "url", "access_url", "api_endpoint", "base_url"]) || sourceUrlFor(first);
+  const license = auditText(audit, ["license_or_terms_note", "licence", "license", "licence_or_terms", "license_and_attribution", "terms_note"]) || safeText(first.license_or_terms_note || first.license || "Factual metadata and source URLs retained; review publisher terms before bulk redistribution.");
   const coverageStart = Number((dates[0] || "2008").slice(0, 4)) || 2008;
   const coverageEnd = Number((dates[dates.length - 1] || "2026").slice(0, 4)) || 2026;
   const caveats = [
     auditText(audit, ["caveats", "required_caveats", "date_caveats", "geometry_caveats", "limitations"]),
-    auditText(audit, ["coverage_note", "coverage", "recommendation", "ingestion_recommendation"]),
+    auditText(audit, ["coverage_note", "coverage", "coverage_used", "recommendation", "ingestion_recommendation"]),
     safeText(first.limitations || "")
   ].filter(Boolean).join(" ");
 
@@ -303,9 +385,9 @@ function sourceEntryFromAudit(sourceId, candidates, audits, existingSource) {
     licence: license,
     licence_url: auditText(audit, ["licence_url", "license_url"]) || defaultLicenceUrl(publisher, accessUrl),
     coverage_years: { start: Math.max(2008, coverageStart), end: Math.min(2026, coverageEnd || 2026) },
-    time_coverage: auditText(audit, ["coverage_years_checked", "time_coverage", "coverage_note", "coverage"]) || `Selected records from ${Math.max(2008, coverageStart)}-${Math.min(2026, coverageEnd || 2026)} in the Round119 architecture corpus window.`,
-    spatial_granularity: auditText(audit, ["geographic_scope", "geography", "geometry_fields", "geometry_fields_observed", "geometry_caveats"]) || safeText(first.geometry_precision || "Project/site point from source row or cited address."),
-    temporal_granularity: auditText(audit, ["date_fields", "date_fields_observed", "date_caveats"]) || safeText(first.source_date_field || "Source-stated event, decision, publication, or administrative milestone date."),
+    time_coverage: auditText(audit, ["coverage_years_checked", "time_coverage", "coverage_note", "coverage", "coverage_used"]) || `Selected records from ${Math.max(2008, coverageStart)}-${Math.min(2026, coverageEnd || 2026)} in the Round119 architecture corpus window.`,
+    spatial_granularity: auditText(audit, ["geographic_scope", "geographic_coverage", "geography", "geometry_fields", "geometry_fields_observed", "geometry_caveats"]) || safeText(first.geometry_precision || first.provenance?.geometry_precision || "Project/site point from source row or cited address."),
+    temporal_granularity: auditText(audit, ["date_fields", "date_fields_observed", "date_caveats", "key_fields", "key_fields_used"]) || safeText(first.source_date_field || "Source-stated event, decision, publication, or administrative milestone date."),
     update_frequency: auditText(audit, ["update_frequency", "frequency"]) || "Source-specific publication/update cadence",
     retrieved_at: retrievedAt,
     limitations: safeText(caveats || "Source records support observed administrative or project milestones only. They are not evidence of construction completion, occupancy, use, outcome effects, or causal relationships unless the source explicitly states that narrower milestone.")
@@ -531,8 +613,9 @@ function main() {
       continue;
     }
     const pack = readJson(file);
-    for (const audit of pack.source_audits || pack.audits || []) allAudits.push(audit);
-    for (const candidate of pack.candidates || []) {
+    for (const audit of auditRowsFromPack(pack)) allAudits.push(audit);
+    for (const audit of readSiblingAudits(file)) allAudits.push(audit);
+    for (const candidate of Array.isArray(pack) ? pack : pack.candidates || pack.events || []) {
       allCandidates.push(candidate);
       packByCandidate.set(candidate, packName);
     }

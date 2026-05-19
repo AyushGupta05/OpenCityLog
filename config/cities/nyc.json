@@ -160,7 +160,8 @@
         "nyc-certificates-occupancy",
         "nyc-dob-now-co-pkdm-hqz6",
         "nyc-dob-co-bs8b-p36w",
-        "nyc-dob-permit-issuance-ipu4-2q9a"
+        "nyc-dob-permit-issuance-ipu4-2q9a",
+        "nyc-lpc-permit-application-information"
       ],
       "availability": "partial_local",
       "years": [
@@ -202,7 +203,8 @@
         "nyc-dcp-zap-project-data",
         "nyc-dcp-zap-bbl",
         "nyc-zoning-resolution-recently-adopted",
-        "nyc-dcp-zap-api-project-details"
+        "nyc-dcp-zap-api-project-details",
+        "nyc-pluto-mappluto-lots"
       ],
       "availability": "partial_local",
       "years": [
@@ -340,7 +342,23 @@
         "nyc-sca-school-openings-projects",
         "nyc-sca-factsheet-x105",
         "nyc-sca-factsheet-k597",
-        "nyc-sca-factsheet-q026"
+        "nyc-sca-factsheet-q026",
+        "qpl_seaside_hvac_reopening_2026",
+        "bpl_canarsie_branch_groundbreaking_2026",
+        "nychh_south_brooklyn_oncology_infusion_opening_2026",
+        "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
+        "nychh_lincoln_pediatric_playroom_renovation_2026",
+        "nychh_north_central_bronx_mri_suite_opening_2026",
+        "nychh_queens_truebeam_ir_suite_opening_2025",
+        "nychh_bellevue_pathology_grossing_room_renovation_2025",
+        "nychh_woodhull_minor_surgery_suite_renovation_2025",
+        "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
+        "nychh_elmhurst_radiology_room_renovation_2025",
+        "nyc-planninglabs-geosearch-nycpad",
+        "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "nyc-ddc-press-index-2024-2026",
+        "nyc-library-official-capital-pages",
+        "nyc-edc-hh-resilience-official-pages"
       ],
       "availability": "partial_local",
       "years": [

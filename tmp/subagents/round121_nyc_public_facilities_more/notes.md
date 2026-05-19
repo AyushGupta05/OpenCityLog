@@ -9,7 +9,7 @@ This is a smaller provenance-clean pack of official NYC public/institutional arc
 Included records:
 
 - 2 official public library milestones from Queens Public Library and Brooklyn Public Library.
-- 8 official NYC Health + Hospitals facility, suite, or room milestones.
+- 7 official NYC Health + Hospitals facility, suite, or room milestones.
 
 No candidate makes usage, outcome, access, health, traffic, or causal claims. Hospital records are treated as physical/interior facility changes only.
 
@@ -31,6 +31,7 @@ Rejected as already present or already proposed:
 - Del Valle Square upgrade completion.
 - Rockaway Park firehouse groundbreaking.
 - Elmhurst Hospital neurology clinic opening after renovation.
+- Bellevue Hospital pathology grossing room renovation, because an exact official source page was not confirmed quickly enough for this partial pack.
 
 Rejected as not a new physical milestone:
 
