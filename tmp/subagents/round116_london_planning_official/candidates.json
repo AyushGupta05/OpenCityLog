@@ -1,0 +1,1327 @@
+{
+  "source_audit": [
+    {
+      "source_id": "mhclg-called-in-decisions",
+      "source_name": "Planning applications: called-in decisions and recovered appeals",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit / Planning Inspectorate",
+      "url": "https://www.gov.uk/government/collections/planning-applications-called-in-decisions-and-recovered-appeals",
+      "api_url": "https://www.gov.uk/api/content/government/collections/planning-applications-called-in-decisions-and-recovered-appeals",
+      "license_or_terms_note": "GOV.UK pages state Open Government Licence v3.0 except where otherwise stated; Crown copyright applies to the public decision letters and inspector reports.",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "geographic_scope": "England; this pass selected only clearly Greater London records.",
+      "update_frequency": "Decision-specific publication; collection last updated 2026-04-15 when accessed.",
+      "key_fields": [
+        "GOV.UK content_id",
+        "base_path",
+        "title",
+        "public_updated_at",
+        "appeal or called-in reference in title",
+        "attachment PDF link",
+        "details text"
+      ],
+      "reliability": "strong",
+      "required_caveats": [
+        "Secretary of State called-in and recovered appeal records are administrative planning decisions, not construction-start, completion, opening, occupation, or outcome evidence.",
+        "Decision letters may be quashed, redetermined, varied by later permissions, or followed by conditions and legal agreements.",
+        "Some pre-2018 links are older GOV.UK or National Archives era records; verify attachment availability before final ingestion."
+      ],
+      "ingestion_recommendation": "Use for documented administrative milestones with OGL attribution, keeping decision date, source publication date, appeal reference, attachment URL, and limitations.",
+      "accessed_at": "2026-05-19"
+    },
+    {
+      "source_id": "gla-planning-datahub-applications",
+      "source_name": "Planning London Datahub applications API",
+      "publisher": "Greater London Authority / London planning authorities",
+      "url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "api_url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+      "license_or_terms_note": "London Datastore dataset page says Licence: Not Specified. The GLA Datahub page presents the platform as publicly accessible; reuse terms need review before redistributing bulk derived data. This file stores factual candidate metadata and source row URLs only.",
+      "coverage_years": {
+        "start": 2004,
+        "end": 2026
+      },
+      "geographic_scope": "Greater London planning authorities, including boroughs and mayoral development corporations.",
+      "update_frequency": "Daily, as stated by London Datastore and the GLA Datahub page.",
+      "key_fields": [
+        "id",
+        "lpa_name",
+        "lpa_app_no",
+        "valid_date",
+        "decision_date",
+        "decision",
+        "status",
+        "description",
+        "centroid",
+        "url_planning_app",
+        "application_details"
+      ],
+      "reliability": "usable with caveats",
+      "required_caveats": [
+        "PLD rows are administrative application records from borough feeds and may contain inconsistent status, missing URLs, bad centroids, or backfilled historical data.",
+        "Decision_date and valid_date are planning-process dates, not real-world construction or opening dates.",
+        "Do not use PLD actual_commencement_date or actual_completion_date as construction evidence without separate verification."
+      ],
+      "ingestion_recommendation": "Use as a candidate finder and geometry/date source, but validate source row geometry, local planning URL, licence/terms, and status consistency before final ingestion.",
+      "accessed_at": "2026-05-19"
+    },
+    {
+      "source_id": "gla-planning-application-decisions",
+      "source_name": "Greater London Authority planning application decisions page",
+      "publisher": "Greater London Authority / London City Hall",
+      "url": "https://www.london.gov.uk/programmes-strategies/planning/planning-applications-and-decisions/planning-application-decisions",
+      "license_or_terms_note": "GLA website terms apply; factual metadata and links only in this candidate file pending fuller reuse review.",
+      "coverage_years": {
+        "start": 2020,
+        "end": 2026
+      },
+      "geographic_scope": "Mayoral strategic planning referrals and decisions in London.",
+      "update_frequency": "Decision/report-specific publication.",
+      "key_fields": [
+        "decision date section heading",
+        "site title",
+        "Final Decision PDF link",
+        "Report PDF link"
+      ],
+      "reliability": "usable with caveats",
+      "required_caveats": [
+        "GLA Stage 1, Stage 2, direction, and call-in records document planning process milestones only.",
+        "The page is useful for evidence links but often needs PDF parsing or PLD/local-register matching for application references and coordinates."
+      ],
+      "ingestion_recommendation": "Use as a supplemental evidence source when a candidate has a clear final decision/report link and can be matched to PLD or a local planning authority record.",
+      "accessed_at": "2026-05-19"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "lon_mhclg_recovered_poplar_business_park_2013_2178920",
+      "city_id": "london",
+      "title": "Recovered appeal decision for Poplar Business Park, Prestons Road",
+      "summary": "GOV.UK published a recovered appeal decision and inspector report for a mixed-use redevelopment appeal at Poplar Business Park, Prestons Road, London.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Poplar Business Park planning case.",
+      "date": "2013-09-23",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2013-09-23",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Poplar Business Park, 10 Prestons Road, Tower Hamlets",
+      "geometry": {
+        "latitude": 51.5080695,
+        "longitude": -0.0105698,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub later condition row Tower_Hamlets-PA_17_02904_S for the same appeal reference and site address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: Poplar Business Park, Prestons Road, London (ref: 2178920, 23 September 2013)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-poplar-business-park-prestons-road-london-ref-2178920-23-september-2013",
+      "source_record_id": "GOVUK:5e956ae0-7631-11e4-a3cb-005056011aef; PINS:APP/E5900/A/12/2178920",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Tower_Hamlets-PA_17_02904_S"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. The PLD geometry comes from a later condition row, not the 2013 GOV.UK page. This record is not evidence of construction start, completion, occupation, opening, or delivered design quality.",
+      "dedupe_basis": "No matching title, source_record_id, source_url, or date found in data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_843_london_road_thornton_heath_2018_3182092",
+      "city_id": "london",
+      "title": "Recovered appeal decision for 843 London Road, Thornton Heath",
+      "summary": "GOV.UK published a recovered appeal decision for land at 843 London Road, Thornton Heath, CR7 6AW.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the 843 London Road planning case.",
+      "date": "2018-06-28",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2018-06-28",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "843 London Road, Thornton Heath, Croydon",
+      "geometry": {
+        "latitude": 51.3962234,
+        "longitude": -0.1159975,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub later condition rows for Paxton Academy Sports and Science Specialist, 843 London Road"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: Land at 843 London Road, Thornton Heath, CR7 6AW (ref: 3182092 - 28 June 2018)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-843-london-road-thornton-heath-cr7-6aw-ref-3182092-28-june-2018",
+      "source_record_id": "GOVUK:0affc1ae-d904-47fc-b0b5-27b25b09ef2f; PINS:3182092",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Croydon-20_00766_DISC",
+        "PLD:Croydon-19_04870_DISC"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Later PLD rows help locate the site but do not prove works, completion, school opening, or outcomes.",
+      "dedupe_basis": "No matching source URL or appeal reference found in the existing manual milestone file."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_harrow_school_2019_3208434",
+      "city_id": "london",
+      "title": "Recovered appeal decision for land at Harrow School",
+      "summary": "GOV.UK published a recovered appeal decision for land at Harrow School, 5 High Street, Harrow.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Harrow School planning case.",
+      "date": "2019-10-31",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2019-10-31",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Harrow School, 5 High Street, Harrow",
+      "geometry": {
+        "latitude": 51.5739,
+        "longitude": -0.3374,
+        "precision": "approximate address point",
+        "source": "Manual approximate navigation point from named official address; PLD centroid match was rejected as outside London."
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: land at Harrow School, 5 High Street, Harrow (ref: 3208434 - 31 October 2019)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-harrow-school-5-high-street-harrow-ref-3208434-31-october-2019",
+      "source_record_id": "GOVUK:eae9619d-dacd-4b2a-aa37-3a06ad7ece71; PINS:3208434",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Geometry is approximate and should be replaced with a verified local planning register or survey point before map publication.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_1_cambridge_heath_road_2019_3190685",
+      "city_id": "london",
+      "title": "Recovered appeal decision for 1 Cambridge Heath Road",
+      "summary": "GOV.UK published a recovered appeal decision for land at 1 Cambridge Heath Road, London E1 5SD.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the 1 Cambridge Heath Road planning case.",
+      "date": "2019-06-10",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2019-06-10",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "1 Cambridge Heath Road, Tower Hamlets",
+      "geometry": {
+        "latitude": 51.520769,
+        "longitude": -0.057439,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub row Tower_Hamlets-PA_17_01991_NC for the same address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: land at 1 Cambridge Heath Road, London, E1 5SD (ref 3190685 - 10 June 2019)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-1-cambridge-heath-road-london-e1-5sd-ref-3190685-10-june-2019",
+      "source_record_id": "GOVUK:76cf56e5-5eff-4afc-a5ff-15fa2af50424; PINS:3190685",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Tower_Hamlets-PA_17_01991_NC"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Related PLD row is an address match and not necessarily the same appeal proposal.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_chiswick_roundabout_2019_3180962_3173208",
+      "city_id": "london",
+      "title": "Recovered appeals decision for land at Chiswick Roundabout",
+      "summary": "GOV.UK published recovered appeal decisions for land at Chiswick Roundabout, junction of Gunnersbury Avenue and Great West Road, London W4.",
+      "observed_change": "Secretary of State recovered appeal decisions were recorded for the Chiswick Roundabout planning cases.",
+      "date": "2019-07-19",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2019-07-19",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Chiswick Roundabout, Hounslow/Ealing boundary area",
+      "geometry": {
+        "latitude": 51.4912,
+        "longitude": -0.2795,
+        "precision": "approximate junction point",
+        "source": "Manual approximate navigation point from named road junction"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeals: land at Chiswick Roundabout, Junction of Gunnersbury Avenue Great West Road, London W4 (ref: 3180962 & 3173208 - 19 July 2019)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeals-land-at-chiswick-roundabout-junction-of-gunnersbury-avenue-great-west-road-london-w4-ref-3180962-3173208-19-july-2019",
+      "source_record_id": "GOVUK:d75f3baa-3ff1-4f07-a258-fe83c744fc69; PINS:3180962; PINS:3173208",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Junction geometry is approximate and should be checked against the decision plan before ingestion.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_214_tunnel_avenue_2019_3216423",
+      "city_id": "london",
+      "title": "Called-in decision for 214 Tunnel Avenue",
+      "summary": "GOV.UK published a called-in decision for land at 214 Tunnel Avenue, London SE10.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the 214 Tunnel Avenue planning case.",
+      "date": "2019-09-25",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2019-09-25",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "214 Tunnel Avenue, Greenwich Peninsula",
+      "geometry": {
+        "latitude": 51.4934,
+        "longitude": 0.0045,
+        "precision": "approximate address point",
+        "source": "Manual approximate navigation point from named official address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Called-in decision: land at 214 Tunnel Avenue, London SE10 (ref: 3216423 - 25 September 2019)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-land-at-214-tunnel-avenue-london-se10-ref-3216423-25-september-2019",
+      "source_record_id": "GOVUK:4b0f870e-2ae9-48e3-bd47-30d5c8170b6d; PINS:3216423",
+      "source_type": "called-in planning decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. Geometry is approximate and the proposal description should be extracted from the decision PDF before final event text is written.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_tesco_conington_road_lewisham_2020_3205926",
+      "city_id": "london",
+      "title": "Recovered appeal decision for former Tesco car parks, Conington Road",
+      "summary": "GOV.UK published a recovered appeal decision for land at former car parks, Tesco Store, Conington Road, Lewisham.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Conington Road planning case.",
+      "date": "2020-01-22",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2020-01-22",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Former Tesco car parks, 209 Conington Road, Lewisham",
+      "geometry": {
+        "latitude": 51.466532,
+        "longitude": -0.012764,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub later rows Lewisham-DC_20_119187 and Lewisham-DC_21_121332 for same permission/site"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: land at former car parks, Tesco Store, Conington Road, Lewisham, London (ref: 3205926 - 22 January 2020)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-former-car-parks-tesco-store-conington-road-lewisham-london-ref-3205926-22-january-2020",
+      "source_record_id": "GOVUK:7a094931-da84-4b50-bae1-c96f63126bf9; PINS:3205926",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Lewisham-DC_20_119187",
+        "PLD:Lewisham-DC_21_121332"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Later PLD rows describe non-material amendment and legal-agreement matters and do not document construction or occupation.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_10_king_henrys_road_2020_3219239",
+      "city_id": "london",
+      "title": "Recovered appeal decision for 10 King Henry's Road",
+      "summary": "GOV.UK published a recovered appeal decision for land at 10 King Henry's Road, London NW3 3RP.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the 10 King Henry's Road planning case.",
+      "date": "2020-03-12",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2020-03-12",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "10 King Henry's Road, Camden",
+      "geometry": {
+        "latitude": 51.5437,
+        "longitude": -0.1596,
+        "precision": "approximate address point",
+        "source": "Manual approximate navigation point from named official address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: land at 10 King's Henrys Road, London, NW3 3RP (ref: 3219239 - 12 March 2020)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-10-king-henrys-road-london-nw3-3rp-ref-3219239-12-march-2020",
+      "source_record_id": "GOVUK:2d17e737-06b2-4547-b8b0-cc49bdc11a9c; PINS:3219239",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Geometry is approximate and should be replaced with local-register geometry if this is promoted into the main corpus.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_burgess_business_park_2020_3225548",
+      "city_id": "london",
+      "title": "Recovered appeal decision for Burgess Business Park",
+      "summary": "GOV.UK published a recovered appeal decision for Burgess Business Park, Parkhouse Street, London SE5 7TJ.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Burgess Business Park planning case.",
+      "date": "2020-04-29",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2020-04-29",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Burgess Business Park, Parkhouse Street, Southwark",
+      "geometry": {
+        "latitude": 51.4794,
+        "longitude": -0.0879,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named official address; PLD centroid matches were rejected as outside London."
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: Burgess Business Park, Parkhouse Street, London SE5 7TJ (ref: 3225548 - 29 April 2020)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-burgess-business-park-parkhouse-street-london-se5-7tj-ref-3225548-29-april-2020",
+      "source_record_id": "GOVUK:9298fbf5-bd76-42f5-a08e-4b0537ab6911; PINS:3225548",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Geometry is approximate and proposal details should be extracted from the decision letter before final ingestion.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_notting_hill_gate_2020_3225884",
+      "city_id": "london",
+      "title": "Called-in decision for Notting Hill Gate and Kensington Church Street land",
+      "summary": "GOV.UK published a called-in decision for land at 43/45 and 39/41 Notting Hill Gate and 161-237 odd Kensington Church Street.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the Notting Hill Gate/Kensington Church Street planning case.",
+      "date": "2020-06-25",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2020-06-25",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Notting Hill Gate and Kensington Church Street, Kensington and Chelsea",
+      "geometry": {
+        "latitude": 51.508822,
+        "longitude": -0.195626,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub later condition rows for the same Newcombe House / Notting Hill Gate site"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Called-in decision: land at 43/45 and 39/41 Notting Hill Gate and 161-237 (odd), Kensington Church Street, London (ref: 3225884 - 25 June 2020)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-land-at-4345-and-3941-notting-hill-gate-and-161-237-odd-kensington-church-street-london-ref-3225884-25-june-2020",
+      "source_record_id": "GOVUK:69338640-ad41-4d9a-a021-9ec31eef0687; PINS:3225884",
+      "source_type": "called-in planning decision",
+      "related_source_rows": [
+        "PLD:Kensington_&_Chelsea-CON_23_00566",
+        "PLD:Kensington_&_Chelsea-CON_23_00567"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. Existing seed file has a built-status NLA event nearby, but not this GOV.UK decision source. Do not merge built and planning dates.",
+      "dedupe_basis": "Existing file contains a separate 47-69 Notting Hill Gate built-status event, but no matching GOV.UK called-in decision URL/ref/date."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_40_40a_high_street_brentford_2021_3226900",
+      "city_id": "london",
+      "title": "Called-in decision for 40 and 40A High Street, Brentford",
+      "summary": "GOV.UK published a called-in decision for 40 and 40A High Street, Brentford, London.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the 40 and 40A High Street Brentford planning case.",
+      "date": "2021-03-31",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-03-31",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "40 and 40A High Street, Brentford",
+      "geometry": {
+        "latitude": 51.4806,
+        "longitude": -0.2962,
+        "precision": "approximate address point",
+        "source": "Manual approximate navigation point from named official address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Called-in decision: 40 and 40A High Street, Brentford, London (ref: 3226900 - 31 March 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-40-and-40a-high-street-brentford-london-ref-3226900-31-march-2021",
+      "source_record_id": "GOVUK:18455b84-730e-419c-87e5-2803265bb50a; PINS:3226900",
+      "source_type": "called-in planning decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. Geometry and proposal summary need verification from the decision PDF/local register before final ingestion.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_rosehill_recreation_ground_2021_3241269",
+      "city_id": "london",
+      "title": "Recovered appeal decision for Rosehill Recreation Ground",
+      "summary": "GOV.UK published a recovered appeal decision for land at former all-weather pitch and astro turf tennis courts, Rosehill Recreation Ground, Sutton.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Rosehill Recreation Ground planning case.",
+      "date": "2021-03-25",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-03-25",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Rosehill Recreation Ground, Rose Hill, Sutton",
+      "geometry": {
+        "latitude": 51.3774054,
+        "longitude": -0.1945376,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub Sutton-DM2019_00985 row for the same site"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: land at former All-Weather Pitch and Astro Turf Tennis Courts, Rosehill Recreation Ground, Rose Hill, Sutton (ref: 3241269 - 25 March 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-former-all-weather-pitch-and-astro-turf-tennis-courts-rosehill-recreation-ground-rose-hill-sutton-ref-3241269-25-marc",
+      "source_record_id": "GOVUK:4c4631f9-ea18-4a88-802c-f629a15e2513; PINS:3241269",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Sutton-DM2019_00985"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. PLD row records the original local decision context and is not evidence that a school or sports facility was built or opened.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_sheen_way_playing_field_2021_3250891",
+      "city_id": "london",
+      "title": "Recovered appeal decision for Sheen Way Playing Field",
+      "summary": "GOV.UK published a recovered appeal decision for land at Sheen Way Playing Field, Wallington.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Sheen Way Playing Field planning case.",
+      "date": "2021-05-10",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-05-10",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Sheen Way Playing Field, Wallington, Sutton",
+      "geometry": {
+        "latitude": 51.3602,
+        "longitude": -0.1458,
+        "precision": "approximate area point",
+        "source": "Manual approximate navigation point from named official address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: land at Sheen Way Playing Field, Sheen Way, Wallington, SM6 8NR (ref: 3250891 - 10 May 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-sheen-way-playing-field-sheen-way-wallington-sm6-8nr-ref-3250891-10-may-2021",
+      "source_record_id": "GOVUK:48357d3e-a08d-41b4-9cc6-efd1fd1c7d07; PINS:3250891",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Geometry is approximate and should be checked against application plans before map use.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_8_albert_embankment_2021_3254203",
+      "city_id": "london",
+      "title": "Called-in decision for 8 Albert Embankment",
+      "summary": "GOV.UK published a called-in decision for 8 Albert Embankment in the London Borough of Lambeth.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the 8 Albert Embankment planning case.",
+      "date": "2021-06-23",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-06-23",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "8 Albert Embankment, Lambeth",
+      "geometry": {
+        "latitude": 51.4926138,
+        "longitude": -0.1202958,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub Lambeth-19_01304_FUL and Lambeth-19_01305_LB rows"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Called-in decision: 8 Albert Embankment, London Borough of Lambeth (ref: 3254203 - 23 June 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-8-albert-embankment-london-borough-of-lambeth-ref-3254203-23-june-2021",
+      "source_record_id": "GOVUK:e50bd753-53b2-4ce9-aceb-324819f5b689; PINS:3254203; LPA:19/01304/FUL; LPA:19/01305/LB",
+      "source_type": "called-in planning decision",
+      "related_source_rows": [
+        "PLD:Lambeth-19_01304_FUL",
+        "PLD:Lambeth-19_01305_LB"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. The proposal includes heritage, museum, hotel, residential, commercial, and public-realm elements in PLD text, but the record does not prove any works or openings.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_victoria_tower_gardens_2021_3240661",
+      "city_id": "london",
+      "title": "Called-in decision for Victoria Tower Gardens",
+      "summary": "GOV.UK published a called-in decision for Victoria Tower Gardens, Millbank, London.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the Victoria Tower Gardens planning case.",
+      "date": "2021-07-29",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-07-29",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Victoria Tower Gardens, Millbank, Westminster",
+      "geometry": {
+        "latitude": 51.4973,
+        "longitude": -0.1247,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named official park/site"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Called-in decision: Victoria Tower Gardens, Millbank, London (ref: 3240661 - 29 July 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-victoria-tower-gardens-millbank-london-ref-3240661-29-july-2021",
+      "source_record_id": "GOVUK:f44bf951-e9c3-43c6-967e-85874a5895e9; PINS:3240661",
+      "source_type": "called-in planning decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. The record should not be presented as construction, completion, operation, memorial opening, or public benefit evidence.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_westferry_printworks_2020_3225474",
+      "city_id": "london",
+      "title": "Recovered appeal decision for former Westferry Printworks, January 2020",
+      "summary": "GOV.UK published a recovered appeal decision for land at former Westferry Printworks, 235 Westferry Road, London.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the former Westferry Printworks planning case.",
+      "date": "2020-01-15",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2020-01-14",
+        "govuk_public_updated_at": "2020-01-15T09:35:22Z",
+        "source_date_field": "GOV.UK title date and public_updated_at"
+      },
+      "area": "Former Westferry Printworks, 235 Westferry Road, Isle of Dogs",
+      "geometry": {
+        "latitude": 51.4918,
+        "longitude": -0.024,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named official address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: land at former Westferry Printworks site, 235 Westferry Road, London (ref: 3225474 - 14 January 2020)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-former-westferry-printworks-site-235-westferry-road-london-ref-3225474-14-january-2020",
+      "source_record_id": "GOVUK:4ac76274-3659-44a1-8278-1c628574898f; PINS:3225474",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. This decision has a later 2021 GOV.UK redetermination candidate; keep dates and legal status separate.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_westferry_printworks_2021_3225474",
+      "city_id": "london",
+      "title": "Recovered appeal decision for former Westferry Printworks, November 2021",
+      "summary": "GOV.UK published a later recovered appeal decision for land at former Westferry Printworks, 235 Westferry Road, London.",
+      "observed_change": "A later Secretary of State recovered appeal decision was recorded for the former Westferry Printworks planning case.",
+      "date": "2021-11-18",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-11-18",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Former Westferry Printworks, 235 Westferry Road, Isle of Dogs",
+      "geometry": {
+        "latitude": 51.4918,
+        "longitude": -0.024,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named official address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: land at former Westferry Printworks Site, 235 Westferry Road, London (ref: 3225474 - 18 November 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-former-westferry-printworks-site-235-westferry-road-london-ref-3225474-18-november-2021",
+      "source_record_id": "GOVUK:aca931bd-2c27-465e-ade2-e07428b1c695; PINS:3225474",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. This is a separate publication from the 2020 Westferry decision and should be reviewed for quashing/redetermination context before final event wording.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_20_bury_street_2021_3244984",
+      "city_id": "london",
+      "title": "Recovered appeal decision for land adjacent to 20 Bury Street",
+      "summary": "GOV.UK published a recovered appeal decision for land adjacent to 20 Bury Street, London EC3A 5AZ.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the 20 Bury Street planning case.",
+      "date": "2021-11-11",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2021-11-11",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Land adjacent to 20 Bury Street, City of London",
+      "geometry": {
+        "latitude": 51.5148,
+        "longitude": -0.0797,
+        "precision": "approximate address point",
+        "source": "Manual approximate navigation point from named official address; PLD matches were rejected as incorrect/outside London"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: land adjacent to 20 Bury Street, London EC3A 5AZ (ref: 3244984 - 11 November 2021)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-adjacent-to-20-bury-street-london-ec3a-5az-ref-3244984-11-november-2021",
+      "source_record_id": "GOVUK:8a3ee842-9a6e-418b-8510-a6c216c598d5; PINS:3244984",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Geometry requires verification from the decision plan or City of London register before map publication.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_windsor_grove_west_norwood_2022_3285463",
+      "city_id": "london",
+      "title": "Recovered appeal decision for land east of Windsor Grove, West Norwood",
+      "summary": "GOV.UK published a recovered appeal decision for land east of Windsor Grove, West Norwood, London.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the Windsor Grove planning case.",
+      "date": "2022-08-26",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2022-08-26",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Land east of Windsor Grove, West Norwood, Lambeth",
+      "geometry": {
+        "latitude": 51.429165,
+        "longitude": -0.098283,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub Lambeth-20_01066_EIAFUL row for same appeal site"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: land east of Windsor Grove, West Norwood, London (ref: 3285463 - 26 August 2022)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-east-of-windsor-grove-west-norwood-london-ref-3285463-26-august-2022",
+      "source_record_id": "GOVUK:28920498-4802-4f94-963f-b778faf4b85e; PINS:3285463; LPA:20/01066/EIAFUL",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Lambeth-20_01066_EIAFUL"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. PLD describes a metal recycling/management facility proposal; this record does not evidence construction, operation, environmental effects, or service outcomes.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_edith_summerskill_house_2022_3277137",
+      "city_id": "london",
+      "title": "Called-in decision for Edith Summerskill House, Clem Attlee Court",
+      "summary": "GOV.UK published a called-in decision for Edith Summerskill House, Clem Attlee Court, London SW6 7TW.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the Edith Summerskill House planning case.",
+      "date": "2022-07-04",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2022-07-04",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Edith Summerskill House, Clem Attlee Court, Hammersmith and Fulham",
+      "geometry": {
+        "latitude": 51.4824176,
+        "longitude": -0.2041776,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub Hammersmith_&_Fulham-2020_01283_FUL row"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Called-in decision: Edith Summerskill House, Clem Attlee Court, London, SW6 7TW (ref: 3277137 - 4 July 2022)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-edith-summerskill-house-clem-attlee-court-london-sw6-7tw-ref-3277137-4-july-2022",
+      "source_record_id": "GOVUK:77c9d641-d98e-4820-b180-c50b2152c72f; PINS:3277137; LPA:2020/01283/FUL",
+      "source_type": "called-in planning decision",
+      "related_source_rows": [
+        "PLD:Hammersmith_&_Fulham-2020_01283_FUL"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. PLD text describes a 20-storey residential tower with ancillary community use and landscaping, but this candidate is not completion or occupancy evidence.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_103_111a_high_street_croydon_2023_3296317",
+      "city_id": "london",
+      "title": "Recovered appeal decision for 103-111a High Street, Croydon",
+      "summary": "GOV.UK published a recovered appeal decision for 103-111a High Street, Croydon.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the 103-111a High Street planning case.",
+      "date": "2023-04-06",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2023-04-06",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "103-111a High Street, Croydon",
+      "geometry": {
+        "latitude": 51.3703851,
+        "longitude": -0.0997174,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub Croydon-20_02540_LE row for the same address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: 103-111a High Street, Croydon (ref: 3296317 - 6 April 2023)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-103-111a-high-street-croydon-ref-3296317-6-april-2023",
+      "source_record_id": "GOVUK:274b960f-80e0-4601-9c06-329d4b76cca8; PINS:3296317",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Croydon-20_02540_LE",
+        "PLD:Croydon-20_00324_DISC"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Related PLD rows concern earlier implementation/condition details; they do not establish completion or occupation.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_new_city_court_2023_3290473_3290477_3290483_3290490",
+      "city_id": "london",
+      "title": "Recovered appeals decision for New City Court, St Thomas Street",
+      "summary": "GOV.UK published recovered appeal decisions for New City Court, 4-26 St Thomas Street, London.",
+      "observed_change": "Secretary of State recovered appeal decisions were recorded for the New City Court planning and listed-building cases.",
+      "date": "2023-09-21",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2023-09-21",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "New City Court, 4-26 St Thomas Street, Southwark",
+      "geometry": {
+        "latitude": 51.5051,
+        "longitude": -0.0895,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named official address; PLD matched rows had invalid non-London centroids"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeals: New City Court, 4-26 St Thomas Street, London (refs: 3290473, 3290477, 3290483 and 3290490 - 21 September 2023)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeals-new-city-court-4-26-st-thomas-street-london-refs-3290473-3290477-3290483-and-3290490-21-september-2023",
+      "source_record_id": "GOVUK:4a23d28f-6c94-4ce4-8f1c-7c1e6cea5691; PINS:3290473; PINS:3290477; PINS:3290483; PINS:3290490",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. GOV.UK details describe alternative office, listed-terrace restoration, public realm, and station-access proposals; this is not evidence of works or delivered public access.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_homebase_tesco_osterley_2023_3287726_3287727",
+      "city_id": "london",
+      "title": "Called-in decisions for Homebase and Tesco Osterley sites",
+      "summary": "GOV.UK published called-in decisions for sites at Homebase and Tesco Osterley, Syon Lane, Isleworth, Hounslow.",
+      "observed_change": "Secretary of State called-in decisions were recorded for the Homebase and Tesco Osterley planning cases.",
+      "date": "2023-12-11",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2023-12-11",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Syon Lane, Isleworth, Hounslow",
+      "geometry": {
+        "latitude": 51.4767,
+        "longitude": -0.3335,
+        "precision": "approximate area point",
+        "source": "Manual approximate navigation point from named official Syon Lane sites"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Called-in decisions: Sites at Homebase and Tesco Osterley, Syon Lane, Isleworth, Hounslow, London (refs: 3287726 and 3287727 - 11 December 2023)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decisions-sites-at-homebase-and-tesco-osterley-syon-lane-isleworth-hounslow-london-refs-3287726-and-3287727-11-december-2023",
+      "source_record_id": "GOVUK:8721b9b2-b52a-45ac-b64f-bb46ea46db61; PINS:3287726; PINS:3287727",
+      "source_type": "called-in planning decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decisions only. Two site references are grouped by GOV.UK; final ingestion should split or link them according to the decision letter and site plans.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_called_in_broadway_retail_park_2023_3307073",
+      "city_id": "london",
+      "title": "Called-in decision for Broadway Retail Park, Cricklewood",
+      "summary": "GOV.UK published a called-in decision for Broadway Retail Park, Unit 1 to 3, Cricklewood Lane, Cricklewood.",
+      "observed_change": "A Secretary of State called-in decision was recorded for the Broadway Retail Park planning case.",
+      "date": "2023-12-04",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2023-12-04",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "Broadway Retail Park, Cricklewood Lane, Barnet",
+      "geometry": {
+        "latitude": 51.5568,
+        "longitude": -0.2147,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named official address; PLD matched rows had invalid non-London centroids"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Called-in decision: Broadway Retail Park, Unit 1 to 3, Cricklewood Lane, Cricklewood, London (ref: 3307073 - 4 December 2023)",
+      "publisher": "Ministry of Housing, Communities and Local Government / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-broadway-retail-park-unit-1-to-3-cricklewood-lane-cricklewood-london-ref-3307073-4-december-2023",
+      "source_record_id": "GOVUK:c8e5039e-9a86-466e-8ed9-b4cc26f251fb; PINS:3307073",
+      "source_type": "called-in planning decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative called-in decision only. Proposal detail and exact geometry should be checked against the decision PDF/local planning register before ingestion.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_225_marsh_wall_2024_3307773",
+      "city_id": "london",
+      "title": "Recovered appeal decision for 225 Marsh Wall",
+      "summary": "GOV.UK published a recovered appeal decision for 225 Marsh Wall, London, for a ground plus 55-storey residential building with flexible commercial space and public realm works.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the 225 Marsh Wall planning case.",
+      "date": "2024-03-28",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2024-03-28",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "225 Marsh Wall, Isle of Dogs, Tower Hamlets",
+      "geometry": {
+        "latitude": 51.499882,
+        "longitude": -0.01202,
+        "precision": "approximate site point",
+        "source": "Planning London Datahub later rows for 225 Marsh Wall, London E14 9FW"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions",
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Recovered appeal: 225 Marsh Wall, London (ref: 3307773 - 28 March 2024)",
+      "publisher": "Department for Levelling Up, Housing and Communities / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-225-marsh-wall-london-ref-3307773-28-march-2024",
+      "source_record_id": "GOVUK:f7b0438d-76ef-4105-a30c-5726b832cdc2; PINS:3307773",
+      "source_type": "recovered appeal decision",
+      "related_source_rows": [
+        "PLD:Tower_Hamlets-PA_21_02563_S",
+        "PLD:Tower_Hamlets-PA_20_00948_NC"
+      ],
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated; PLD licence not specified.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. GOV.UK details describe the proposal; this candidate is not construction, completion, occupation, or housing-delivery evidence.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_mhclg_recovered_london_city_airport_2024_3326646",
+      "city_id": "london",
+      "title": "Recovered appeal decision for London City Airport, Hartmann Road",
+      "summary": "GOV.UK published a recovered appeal decision for London City Airport, Hartmann Road, Silvertown, London E16 2PX.",
+      "observed_change": "A Secretary of State recovered appeal decision was recorded for the London City Airport planning case.",
+      "date": "2024-08-19",
+      "date_precision": "day",
+      "date_fields": {
+        "decision_or_publication_date": "2024-08-19",
+        "source_date_field": "GOV.UK page published date and title date"
+      },
+      "area": "London City Airport, Hartmann Road, Royal Docks",
+      "geometry": {
+        "latitude": 51.5053,
+        "longitude": 0.0553,
+        "precision": "approximate site point",
+        "source": "Manual approximate navigation point from named airport address"
+      },
+      "source_ids": [
+        "mhclg-called-in-decisions"
+      ],
+      "source_name": "Recovered appeal: London City Airport, Hartman Road, Silvertown London E16 2PX (ref: 3326646 - 19 August 2024)",
+      "publisher": "Department for Levelling Up, Housing and Communities / Planning Inspectorate",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-london-city-airport-hartman-road-silvertown-london-e16-2px-ref-3326646-19-august-2024",
+      "source_record_id": "GOVUK:6906df8f-3f54-4542-a91d-5040b407f2f8; PINS:3326646",
+      "source_type": "recovered appeal decision",
+      "confidence": "documented",
+      "license_or_terms_note": "Open Government Licence v3.0 except where otherwise stated.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative appeal decision only. Existing seed file has a separate 2016 London City Airport recovered appeal; this 2024 record is a distinct decision/ref/date and not evidence of airport works, passenger levels, or service effects.",
+      "dedupe_basis": "Existing file contains a different 2016 London City Airport GOV.UK recovered appeal, but no 2024 ref 3326646 source URL/date match."
+    },
+    {
+      "candidate_id": "lon_pld_new_barnsbury_estate_2026_islington_p2025_1765_out",
+      "city_id": "london",
+      "title": "Planning London Datahub approval row for New Barnsbury Estate hybrid redevelopment",
+      "summary": "PLD row Islington-P2025_1765_OUT records an approved hybrid planning application for phased redevelopment of the New Barnsbury Estate.",
+      "observed_change": "A London planning application decision row recorded approval for the New Barnsbury Estate hybrid redevelopment proposal.",
+      "date": "2026-05-08",
+      "date_precision": "day",
+      "date_fields": {
+        "valid_date": "2025-06-27",
+        "decision_date": "2026-05-08",
+        "source_date_field": "PLD decision_date"
+      },
+      "area": "Barnsbury Estate, Islington",
+      "geometry": {
+        "latitude": 51.535874,
+        "longitude": -0.111228,
+        "precision": "PLD centroid",
+        "source": "Planning London Datahub id Islington-P2025_1765_OUT"
+      },
+      "source_ids": [
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / London Borough of Islington",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Islington-P2025_1765_OUT",
+      "source_record_id": "PLD:Islington-P2025_1765_OUT; LPA:P2025/1765/OUT",
+      "source_type": "planning application decision row",
+      "planning_status": "Approved",
+      "proposal_summary": "Hybrid planning application for phased demolition, construction of residential units, nursery, community floorspace, commercial floorspace, public open space, highways/access, parking, and ancillary works.",
+      "confidence": "documented",
+      "license_or_terms_note": "PLD dataset licence not specified on London Datastore; retain factual metadata/source URL pending reuse review.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative PLD application decision row only. It is not construction start, completion, occupation, public-realm delivery, or housing-delivery evidence.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_pld_17_godliman_street_hotel_2026_city_25_01394_full",
+      "city_id": "london",
+      "title": "Planning London Datahub approval row for 17 Godliman Street hotel conversion",
+      "summary": "PLD row City_of_London-25_01394_FULL records approval for change of use of 17 Godliman Street from restaurant and office to hotel use with external alterations and roof works.",
+      "observed_change": "A London planning application decision row recorded approval for the 17 Godliman Street hotel-conversion proposal.",
+      "date": "2026-05-07",
+      "date_precision": "day",
+      "date_fields": {
+        "valid_date": "2025-10-10",
+        "decision_date": "2026-05-07",
+        "source_date_field": "PLD decision_date"
+      },
+      "area": "17 Godliman Street, City of London",
+      "geometry": {
+        "latitude": 51.5123,
+        "longitude": -0.0995,
+        "precision": "approximate address point",
+        "source": "Manual approximate point from named address; PLD centroid was the invalid non-London fallback -7.55716,49.766807"
+      },
+      "source_ids": [
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / City of London",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/City_of_London-25_01394_FULL",
+      "source_record_id": "PLD:City_of_London-25_01394_FULL; LPA:25/01394/FULL",
+      "source_type": "planning application decision row",
+      "planning_status": "Approved",
+      "proposal_summary": "Change of use from restaurant and office to hotel, with facade alterations, blue/green roofs, solar PV panels, and replacement rooftop plant.",
+      "confidence": "documented",
+      "license_or_terms_note": "PLD dataset licence not specified on London Datastore; retain factual metadata/source URL pending reuse review.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative PLD application decision row only. Geometry needs verification because PLD supplied an invalid centroid. This is not evidence of conversion works, hotel opening, or operation.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_pld_coburg_house_newington_causeway_2026_southwark_24_ap_3621",
+      "city_id": "london",
+      "title": "Planning London Datahub approval row for Coburg House, Newington Causeway",
+      "summary": "PLD row Southwark-24_AP_3621 records approval for demolition and erection of a building at Coburg House, Newington Causeway, with commercial floorspace and purpose-built student accommodation.",
+      "observed_change": "A London planning application decision row recorded approval for the Coburg House planning proposal.",
+      "date": "2026-05-07",
+      "date_precision": "day",
+      "date_fields": {
+        "valid_date": "2025-01-16",
+        "decision_date": "2026-05-07",
+        "source_date_field": "PLD decision_date"
+      },
+      "area": "Coburg House, 63-67 Newington Causeway, Southwark",
+      "geometry": {
+        "latitude": 51.4987,
+        "longitude": -0.1007,
+        "precision": "approximate address point",
+        "source": "Manual approximate point from named address; PLD centroid was the invalid non-London fallback -7.55716,49.766807"
+      },
+      "source_ids": [
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / London Borough of Southwark",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Southwark-24_AP_3621",
+      "source_record_id": "PLD:Southwark-24_AP_3621; LPA:24/AP/3621",
+      "source_type": "planning application decision row",
+      "planning_status": "Approved",
+      "proposal_summary": "Demolition of existing building and erection of a part 19-storey, part 18-storey, and part 3-storey building with commercial floorspace and purpose-built student accommodation.",
+      "confidence": "documented",
+      "license_or_terms_note": "PLD dataset licence not specified on London Datastore; retain factual metadata/source URL pending reuse review.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative PLD application decision row only. Geometry needs verification because PLD supplied an invalid centroid. Nearby existing file events for Newington Causeway are separate non-planning public-opening/built-status records.",
+      "dedupe_basis": "Existing file has a separate Mercato Metropolitano event on Newington Causeway, but no matching PLD id/source URL/date."
+    },
+    {
+      "candidate_id": "lon_pld_timber_square_phase_2_2026_southwark_25_ap_0524",
+      "city_id": "london",
+      "title": "Planning London Datahub approval row for Timber Square Phase 2",
+      "summary": "PLD row Southwark-25_AP_0524 records approval for Timber Square Phase 2 at 63 Ewer Street, including viaduct remodelling, new buildings, office and cultural/leisure uses, landscaping, and public realm.",
+      "observed_change": "A London planning application decision row recorded approval for the Timber Square Phase 2 planning proposal.",
+      "date": "2026-05-06",
+      "date_precision": "day",
+      "date_fields": {
+        "valid_date": "2025-02-26",
+        "decision_date": "2026-05-06",
+        "source_date_field": "PLD decision_date"
+      },
+      "area": "Timber Square Phase 2, 63 Ewer Street, Southwark",
+      "geometry": {
+        "latitude": 51.5041,
+        "longitude": -0.101,
+        "precision": "approximate address point",
+        "source": "Manual approximate point from named address; PLD centroid was the invalid non-London fallback -7.55716,49.766807"
+      },
+      "source_ids": [
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / London Borough of Southwark",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Southwark-25_AP_0524",
+      "source_record_id": "PLD:Southwark-25_AP_0524; LPA:25/AP/0524",
+      "source_type": "planning application decision row",
+      "planning_status": "Approved",
+      "proposal_summary": "Partial demolition and remodelling of viaduct structures, change of use of arches, construction of ground-plus-12 and ground-plus-15 buildings, landscaping, public realm, cycle parking, highways works, plant, and associated works.",
+      "confidence": "documented",
+      "license_or_terms_note": "PLD dataset licence not specified on London Datastore; retain factual metadata/source URL pending reuse review.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative PLD application decision row only. Geometry needs verification because PLD supplied an invalid centroid. This is not evidence of office, cultural, public-realm, or leisure-space delivery.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_pld_stamford_hill_school_change_2026_hackney_2025_2762",
+      "city_id": "london",
+      "title": "Planning London Datahub approval row for 101 Stamford Hill school change-of-use works",
+      "summary": "PLD row Hackney-2025_2762 records approval for basement, rear, floor, and roof-extension works to facilitate a change of use to a school at 101 Stamford Hill.",
+      "observed_change": "A London planning application decision row recorded approval for a Stamford Hill building-extension and school-use proposal.",
+      "date": "2026-05-01",
+      "date_precision": "day",
+      "date_fields": {
+        "valid_date": "2026-01-09",
+        "decision_date": "2026-05-01",
+        "source_date_field": "PLD decision_date"
+      },
+      "area": "101 Stamford Hill, Hackney",
+      "geometry": {
+        "latitude": 51.571543,
+        "longitude": -0.073371,
+        "precision": "PLD centroid",
+        "source": "Planning London Datahub id Hackney-2025_2762"
+      },
+      "source_ids": [
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / London Borough of Hackney",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hackney-2025_2762",
+      "source_record_id": "PLD:Hackney-2025_2762; LPA:2025/2762",
+      "source_type": "planning application decision row",
+      "planning_status": "Approved",
+      "related_application_url": "https://developmentandhousing.hackney.gov.uk//planning/index.html?fa=getApplication&id=84349",
+      "proposal_summary": "Extension to existing basement with lightwells, two-storey rear extension, additional floor, and roof extension to facilitate change of use from C3 to school use.",
+      "confidence": "documented",
+      "license_or_terms_note": "PLD dataset licence not specified on London Datastore; retain factual metadata/source URL pending reuse review. Local planning-register terms should be checked before reuse.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative PLD application decision row only. It does not document works, school opening, enrolment, or education outcomes.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    },
+    {
+      "candidate_id": "lon_pld_115_high_street_hounslow_2026_p_2025_3100",
+      "city_id": "london",
+      "title": "Planning London Datahub approval row for 115 High Street, Hounslow",
+      "summary": "PLD row Hounslow-P_2025_3100 records approval for demolition and a mixed-use building at 115 High Street, Hounslow.",
+      "observed_change": "A London planning application decision row recorded approval for the 115 High Street mixed-use planning proposal.",
+      "date": "2026-05-01",
+      "date_precision": "day",
+      "date_fields": {
+        "valid_date": "2025-10-21",
+        "decision_date": "2026-05-01",
+        "source_date_field": "PLD decision_date"
+      },
+      "area": "115 High Street, Hounslow",
+      "geometry": {
+        "latitude": 51.469532,
+        "longitude": -0.358262,
+        "precision": "PLD centroid",
+        "source": "Planning London Datahub id Hounslow-P_2025_3100"
+      },
+      "source_ids": [
+        "gla-planning-datahub-applications"
+      ],
+      "source_name": "Planning London Datahub applications",
+      "publisher": "Greater London Authority / London Borough of Hounslow",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hounslow-P_2025_3100",
+      "source_record_id": "PLD:Hounslow-P_2025_3100; LPA:P/2025/3100",
+      "source_type": "planning application decision row",
+      "planning_status": "Approved",
+      "related_application_url": "https://planningandbuilding.hounslow.gov.uk/NECSWS/ES/Presentation/Planning/OnlinePlanning/OnlinePlanningOverview?applicationNumber=P/2025/3100",
+      "proposal_summary": "Demolition of existing buildings and erection of a mixed-use building with commercial floorspace, seven residential units, amenity space, refuse and cycle storage, and public-realm improvements.",
+      "confidence": "documented",
+      "license_or_terms_note": "PLD dataset licence not specified on London Datastore; retain factual metadata/source URL pending reuse review. Local planning-register terms should be checked before reuse.",
+      "accessed_at": "2026-05-19",
+      "limitations": "Administrative PLD application decision row only. It does not document demolition, construction, occupation, commercial tenancy, or public-realm completion.",
+      "dedupe_basis": "No existing title/source URL/source_record_id/date match found."
+    }
+  ],
+  "rejects": [
+    {
+      "title": "Called-in decision: Royal Mint Court, London, EC3N 4QN",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-royal-mint-court-london-ec3n-4qn-refs-3353754-and-3353755-20-january-2026",
+      "source_record_id": "APP/E5900/V/24/3353754; APP/E5900/V/24/3353755",
+      "date": "2026-01-20",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "Secretary of State granted Royal Mint Court planning permission and listed building consent"
+    },
+    {
+      "title": "Called-in decision: 456-472 Oxford Street, London W1",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-456-472-oxford-street-london-w1-ref-3301508-5-december-2024",
+      "source_record_id": "APP/X5990/V/3301508",
+      "date": "2024-12-05",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "Secretary of State granted permission for 456-472 Oxford Street redevelopment"
+    },
+    {
+      "title": "Called-in decision: Former London Television Centre, 60-72 Upper Ground",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-former-london-television-centre-60-72-upper-ground-london-ref-3306162-6-february-2024",
+      "source_record_id": "APP/N5660/V/22/3306162",
+      "date": "2024-02-09",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "Secretary of State granted permission for former London Television Centre redevelopment"
+    },
+    {
+      "title": "Called-in decision: The Bell Foundry, Whitechapel",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-the-bell-foundry-32-34-whitechapel-road-2-fieldgate-street-london-ref-3245430-3245432-13-may-2021",
+      "source_record_id": "APP/E5900/V/20/3245430; APP/E5900/V/20/3245432",
+      "date": "2021-05-13",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "Secretary of State allowed Whitechapel Bell Foundry planning and listed-building cases"
+    },
+    {
+      "title": "VIP Trading Estate redevelopment application called in",
+      "source_url": "https://www.london.gov.uk/programmes-strategies/planning/planning-applications-and-decisions/public-hearings/vip-trading-estate-public-hearing",
+      "source_record_id": "lon_public_project_gla_vip_trading_estate_call_in_2018",
+      "date": "2018-08-13",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "VIP Trading Estate redevelopment application called in"
+    },
+    {
+      "title": "Recovered appeal: William Sutton Estate, Cale Street",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-william-sutton-estate-cale-street-london-sw3-3qy-ref-3177810-18-december-2018",
+      "source_record_id": "3177810",
+      "date": "2018-12-18",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "William Sutton Estate recovered appeal decision published"
+    },
+    {
+      "title": "Recovered appeal: North London Business Park, Oakleigh Road South",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-north-london-business-park-oakleigh-road-south-london-n11-ref-3189843-22-january-2020",
+      "source_record_id": "3189843",
+      "date": "2020-02-24",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "North London Business Park recovered appeal decision published"
+    },
+    {
+      "title": "Recovered appeal: London City Airport, 2016 passenger-facilities case",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-london-city-airport-hartmann-road-royal-docks-london-ref-3035673-26-july-2016",
+      "source_record_id": "3035673",
+      "date": "2016-07-26",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "London City Airport passenger-facilities recovered appeal decision published"
+    },
+    {
+      "title": "Recovered appeal: former Hackney Police Station",
+      "source_url": "https://www.gov.uk/government/publications/recovered-appeal-land-at-former-hackney-police-station-lower-clapton-road-and-st-johns-church-road-london-refs-31649523164946",
+      "source_record_id": "APP/U5360/W/16/3164952; APP/U5360/Y/16/3164946",
+      "date": "2017-12-19",
+      "reason": "duplicate_existing_manual_milestone",
+      "existing_match": "Secretary of State allowed former Hackney Police Station planning and listed-building appeals"
+    },
+    {
+      "title": "Called-in decision: London Luton Airport, Airport Way, Luton",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-london-luton-airport-airport-way-luton-ref-3296455-13-october-2023",
+      "source_record_id": "3296455",
+      "date": "2023-10-13",
+      "reason": "outside_greater_london",
+      "notes": "Contains 'London' in the airport name but site is in Luton, outside Greater London."
+    },
+    {
+      "title": "Called-in decision: Willow Tree Farm, Sutton On Sea",
+      "source_url": "https://www.gov.uk/government/publications/called-in-decision-willow-tree-farm-brickyard-lane-sutton-on-sea-ln12-2rn-ref-3262551-8-march-2022",
+      "source_record_id": "3262551",
+      "date": "2022-03-08",
+      "reason": "outside_greater_london",
+      "notes": "Sutton-on-Sea is in Lincolnshire, not the London Borough of Sutton."
+    },
+    {
+      "title": "Planning London Datahub small household/tree/advert rows marked called in by Secretary of State",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+      "reason": "not_architecture_milestone_scale",
+      "notes": "Search returned many minor household, tree, shopfront, and advertisement rows. These were excluded unless the proposal was clearly architecture/built-environment relevant at atlas scale."
+    },
+    {
+      "title": "PLD rows with centroid -7.55716, 49.766807",
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+      "reason": "invalid_geometry",
+      "notes": "Several otherwise relevant PLD rows returned a non-London fallback centroid. They were retained only where the candidate used a clearly labelled approximate geometry or geometry could be sourced from another row."
+    }
+  ]
+}

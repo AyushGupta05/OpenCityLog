@@ -1,0 +1,666 @@
+{
+  "source_audit": [
+    {
+      "source_id": "bcc-planning-committee-minutes-round116",
+      "source_name": "Belfast City Council Planning Committee agenda, reports and minutes",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/",
+      "source_type": "official committee minutes and agenda reports",
+      "license": "Belfast City Council copyright. Store factual metadata and source URLs only unless reuse permission is confirmed.",
+      "license_url": "https://www.belfastcity.gov.uk/Copyright",
+      "accessed_at": "2026-05-19",
+      "coverage": "Meeting-specific records within 2008-01-01 to 2026-05-19; useful for committee recommendations, votes, delegated-authority wording and decision context.",
+      "reliability": "strong for administrative committee records; not evidence of works starting, completing, opening or causing outcomes",
+      "required_caveats": "Planning committee approval/minute dates are administrative dates. Where final decision notices issue later, prefer the decision notice date for a determined permission event."
+    },
+    {
+      "source_id": "bcc-current-planning-applications-round116",
+      "source_name": "Belfast City Council current planning applications",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+      "source_type": "official current application advertisement list",
+      "license": "Belfast City Council copyright. Store factual metadata and source URLs only unless reuse permission is confirmed.",
+      "license_url": "https://www.belfastcity.gov.uk/Copyright",
+      "accessed_at": "2026-05-19",
+      "coverage": "Applications open for comment or recently advertised as of late April 2026 in the retrieved page.",
+      "reliability": "usable with caveats for advertised/validated application events",
+      "required_caveats": "An advertised or validated application is not a planning approval, listed-building consent, construction start, completion or opening."
+    },
+    {
+      "source_id": "ni-planning-portal-public-register-round116",
+      "source_name": "Northern Ireland Planning Portal public register",
+      "publisher": "Department for Infrastructure and participating Northern Ireland councils / TerraQuest",
+      "source_url": "https://planningregister.planningsystemni.gov.uk/",
+      "source_type": "official public planning register and public documents",
+      "license": "Planning Portal terms allow viewing/downloading for permitted uses; Crown material may be reusable under OGL v3, but portal content has restrictions on wider redistribution. Store factual metadata, IDs and source URLs only.",
+      "license_url": "https://ecab.planningportal.co.uk/uploads/appPDF/NI%20Planning%20Portal%20TCs%20vMar22.pdf",
+      "accessed_at": "2026-05-19",
+      "coverage": "Public application records, date fields, status, decision type, easting/northing and supporting-document indexes.",
+      "reliability": "strong for application metadata and decision/status fields; public document text should not be reproduced without reuse review",
+      "required_caveats": "Portal status and document lists are administrative records. Coordinates are register easting/northing points, not measured building footprints or curtilage boundaries."
+    },
+    {
+      "source_id": "dfi-regionally-significant-called-in-round116",
+      "source_name": "DfI regionally significant developments and called-in applications",
+      "publisher": "Department for Infrastructure",
+      "source_url": "https://www.infrastructure-ni.gov.uk/topics/regionally-significant-developments-and-called-applications",
+      "source_type": "official DfI topic, publications and news records",
+      "license": "Crown copyright unless otherwise indicated; DfI states reuse is generally under Open Government Licence v3, excluding logos, personal data, OSNI mapping and third-party rights.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "accessed_at": "2026-05-19",
+      "coverage": "Called-in and regionally significant application notices, adverts, notices of opinion and ministerial decisions.",
+      "reliability": "strong for DfI call-in and final decision records",
+      "required_caveats": "DfI approval or notice records do not evidence construction start, construction completion, opening, funding certainty or operational outcomes."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "round116-belfast-casement-park-final-planning-approval-2021",
+      "city_id": "belfast",
+      "title": "Casement Park redevelopment received final DfI planning approval",
+      "summary": "DfI granted final planning approval for application LA04/2017/0474/F, a called-in regionally significant redevelopment of Casement Park for a 34,578-capacity stadium and associated facilities.",
+      "event_type": "planning_permission_granted",
+      "administrative_record_only": true,
+      "source_ids": [
+        "dfi-regionally-significant-called-in-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://www.infrastructure-ni.gov.uk/news/mallon-grants-final-planning-permission-casement-park-stadium",
+        "https://planningregister.planningsystemni.gov.uk/application/149649"
+      ],
+      "publisher": "Department for Infrastructure / Northern Ireland Planning Portal",
+      "source_type": "official DfI decision news and planning register record",
+      "license_or_terms_note": "DfI Crown copyright / OGL v3 subject to exclusions; Planning Portal terms restrict wider redistribution. Store factual metadata and URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2017/0474/F"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-149649"
+      ],
+      "dates": {
+        "application_received": "2017-02-28",
+        "date_validated": "2017-02-28",
+        "date_last_advertised": "2017-06-23",
+        "call_in_date": "2017-03-08",
+        "decision_date": "2021-07-28"
+      },
+      "location": {
+        "address": "Lands at 88-104 Andersonstown Road and between 36-42 Mooreland Park and 202-206 Stockman's Lane, Belfast",
+        "latitude": 54.573369,
+        "longitude": -5.98387,
+        "easting": 330430,
+        "northing": 371323,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate site point, not a stadium footprint or red-line boundary"
+      },
+      "confidence": "documented",
+      "limitations": "This records a planning decision for a called-in regionally significant application. It does not confirm construction start, completion, opening, funding, stadium capacity delivered, traffic outcomes or community impacts."
+    },
+    {
+      "candidate_id": "round116-belfast-448-450-lisburn-road-dfi-called-in-notice-2024-2025",
+      "city_id": "belfast",
+      "title": "448-450 Lisburn Road demolition and replacement dwellings were called in by DfI and re-advertised for FEI",
+      "summary": "Belfast Planning Committee records that applications LA04/2021/1317/F and LA04/2021/1318/DCA were approved by committee and then called in by DfI; DfI later published a September 2025 re-advertisement after further environmental information was received.",
+      "event_type": "called_in_application_stage",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-planning-committee-minutes-round116",
+        "dfi-regionally-significant-called-in-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=78762",
+        "https://www.infrastructure-ni.gov.uk/publications/planning-application-la0420211317f-and-la0420211318dca-re-advertisement",
+        "https://planningregister.planningsystemni.gov.uk/application/508744",
+        "https://planningregister.planningsystemni.gov.uk/application/473961"
+      ],
+      "publisher": "Belfast City Council / Department for Infrastructure / Northern Ireland Planning Portal",
+      "source_type": "official committee minute, DfI publication and planning register records",
+      "license_or_terms_note": "BCC copyright applies to committee pages; DfI Crown copyright/OGL may apply to DfI publication; Planning Portal terms restrict wider redistribution. Store factual metadata and URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2021/1317/F",
+        "LA04/2021/1318/DCA"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-508744",
+        "planning-portal-application-473961"
+      ],
+      "dates": {
+        "application_received": "2021-05-19",
+        "date_validated": "2021-05-19",
+        "date_last_advertised": "2021-06-16",
+        "committee_approval_reported": "2023-06-29",
+        "dfi_call_in_reported": "2023-12-11",
+        "dfi_notice_of_opinion_reported": "2024-05-21",
+        "dfi_fei_readvertisement_published": "2025-09-10"
+      },
+      "location": {
+        "address": "450 and 448 Lisburn Road, Belfast, BT9 7GX",
+        "latitude": 54.569445,
+        "longitude": -5.964703,
+        "easting": 331682,
+        "northing": 370922,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate address/site point"
+      },
+      "confidence": "documented",
+      "limitations": "This is a contested administrative planning record in the Malone Park Conservation Area. It does not prove demolition, replacement construction, final permission, refusal, conservation outcome or physical change."
+    },
+    {
+      "candidate_id": "round116-belfast-winetavern-gresham-butchers-building-permissions-2020",
+      "city_id": "belfast",
+      "title": "Winetavern, Gresham and North Street mixed-use scheme and former Butchers Building works were granted permission and listed-building consent",
+      "summary": "Belfast Planning Committee approved the mixed-use regeneration scheme and associated works to the listed former Butchers Building; the Planning Portal records granted decisions for LA04/2018/2470/O, LA04/2018/2464/F and LA04/2018/2445/LBC on 14 February 2020.",
+      "event_type": "planning_permission_and_listed_building_consent_granted",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-planning-committee-minutes-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MID=9734",
+        "https://planningregister.planningsystemni.gov.uk/application/465495",
+        "https://planningregister.planningsystemni.gov.uk/application/502625",
+        "https://planningregister.planningsystemni.gov.uk/application/465465"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official committee minute and planning register decision records",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2018/2470/O",
+        "LA04/2018/2464/F",
+        "LA04/2018/2445/LBC"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-465495",
+        "planning-portal-application-502625",
+        "planning-portal-application-465465"
+      ],
+      "dates": {
+        "committee_date": "2020-01-23",
+        "decision_date": "2020-02-14",
+        "application_received": "2018-10-08",
+        "date_validated": "2018-10-08",
+        "date_last_advertised": "2018-10-29"
+      },
+      "location": {
+        "address": "Vacant lands at car park bounded by Winetavern Street, Gresham Street and North Street, including 108 North Street and 1 Gresham Street, Belfast",
+        "latitude": 54.602023,
+        "longitude": -5.932837,
+        "easting": 333636,
+        "northing": 374608,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate scheme point; listed-building point differs slightly from wider outline site"
+      },
+      "confidence": "documented",
+      "limitations": "Records permission/consent only. It does not confirm implementation, vacancy change, office occupancy, retail opening, public-realm delivery or effects on nearby listed buildings."
+    },
+    {
+      "candidate_id": "round116-belfast-hamilton-dock-hotel-permission-2020",
+      "city_id": "belfast",
+      "title": "Hamilton Dock and Titanic Belfast hotel application was granted planning permission",
+      "summary": "The Planning Portal records granted permission for LA04/2019/1636/F, a 276-bed hotel with conference, restaurant, cafe, bar, rooftop bar, landscaped public realm, car parking and associated site works south of Titanic Belfast and north-west of Hamilton Dock.",
+      "event_type": "planning_permission_granted",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-planning-committee-minutes-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MID=9734",
+        "https://planningregister.planningsystemni.gov.uk/application/504588"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official committee minute and planning register decision record",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2019/1636/F"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-504588"
+      ],
+      "dates": {
+        "committee_date": "2020-01-23",
+        "application_received": "2019-07-05",
+        "date_validated": "2019-07-05",
+        "date_last_advertised": "2019-08-08",
+        "decision_date": "2020-02-27"
+      },
+      "location": {
+        "address": "Lands directly south of Titanic Belfast and north-west of Hamilton Dock, off Queens Road, Belfast",
+        "latitude": 54.60732,
+        "longitude": -5.910651,
+        "easting": 335052,
+        "northing": 375240,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate site point"
+      },
+      "confidence": "documented",
+      "limitations": "This is a planning permission record, not evidence that the hotel was built, opened, occupied or delivered as designed."
+    },
+    {
+      "candidate_id": "round116-belfast-loft-lines-planning-permission-2022",
+      "city_id": "belfast",
+      "title": "Loft Lines Queen's Island residential-led development was granted planning permission",
+      "summary": "The Planning Portal records granted permission for LA04/2021/2280/F, a mixed-use, mixed-tenure residential-led development of 778 apartments with commercial/community floorspace, public square, waterfront promenade, cycling and parking works on Queen's Island.",
+      "event_type": "planning_permission_granted",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-planning-committee-minutes-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=66221",
+        "https://planningregister.planningsystemni.gov.uk/application/474981"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official committee minute and planning register decision record",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2021/2280/F"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-474981"
+      ],
+      "dates": {
+        "committee_date": "2022-04-14",
+        "application_received": "2021-09-28",
+        "date_validated": "2021-10-08",
+        "date_last_advertised": "2021-10-21",
+        "decision_date": "2022-08-11"
+      },
+      "location": {
+        "address": "Lands adjacent to and south east of the River Lagan, west of Olympic Way of Queen's Road, Queen's Island, Belfast, BT2 9EQ",
+        "latitude": 54.607494,
+        "longitude": -5.912197,
+        "easting": 334952,
+        "northing": 375259,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate site point"
+      },
+      "confidence": "documented",
+      "limitations": "This adds the official planning permission event only. It should not be merged with construction-start or completion evidence without preserving separate dates and provenance."
+    },
+    {
+      "candidate_id": "round116-belfast-city-quays-residential-public-realm-permission-2024",
+      "city_id": "belfast",
+      "title": "City Quays residential and public-realm scheme north of Cross Harbour Bridge was granted permission",
+      "summary": "The Planning Portal records granted permission for LA04/2023/2388/F, a residential development of 256 units with public realm and associated access/site works at City Quays.",
+      "event_type": "planning_permission_granted",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-planning-committee-minutes-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=76204",
+        "https://planningregister.planningsystemni.gov.uk/application/665870"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official committee minute and planning register decision record",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2023/2388/F"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-665870"
+      ],
+      "dates": {
+        "application_received": "2022-12-16",
+        "date_validated": "2022-12-16",
+        "date_last_advertised": "2023-02-03",
+        "committee_approval": "2024-02-20",
+        "decision_date": "2024-10-31"
+      },
+      "location": {
+        "address": "Lands immediately north of Cross Harbour Bridge, east of Donegall Quay and south of AC Marriott Hotel, City Quays, Belfast",
+        "latitude": 54.603608,
+        "longitude": -5.920978,
+        "easting": 334397,
+        "northing": 374807,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate site point"
+      },
+      "confidence": "documented",
+      "limitations": "Planning permission does not prove start of works, completion, occupation, delivery of public realm or social-housing substitution arrangements."
+    },
+    {
+      "candidate_id": "round116-belfast-clarendon-dock-hybrid-application-2026",
+      "city_id": "belfast",
+      "title": "Clarendon Dock hybrid mixed-use application was validated and advertised",
+      "summary": "The Planning Portal records LA04/2025/2210/O as a live hybrid outline application for Plots A-F around Clarendon Dock, including 456 apartments in detailed outline components, commercial/community/leisure uses, hotel/aparthotel outline phases, changes of use to listed dock buildings and re-purposing Clarendon Dock for leisure uses.",
+      "event_type": "planning_application_validated",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-current-planning-applications-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+        "https://planningregister.planningsystemni.gov.uk/application/705723"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official current application list and planning register record",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2025/2210/O"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-705723"
+      ],
+      "dates": {
+        "application_received": "2025-12-19",
+        "date_validated": "2026-01-27",
+        "date_last_advertised": "2026-01-30"
+      },
+      "location": {
+        "address": "Lands east of Corporation Street, north of Donegall Quay, west and south of Clarendon Dock, south/east/south-west of Pilot Street and south/south-east of Corry Road, Belfast",
+        "latitude": 54.606473,
+        "longitude": -5.920399,
+        "easting": 334425,
+        "northing": 375127,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate site point for a broad docklands application"
+      },
+      "confidence": "documented",
+      "limitations": "This is a live application, not a decision. It should be displayed as proposed/under consideration and excluded from approved-change totals unless separately labelled."
+    },
+    {
+      "candidate_id": "round116-belfast-harbour-office-william-ritchie-application-2026",
+      "city_id": "belfast",
+      "title": "Belfast Harbour Office and William Ritchie Building link, roof and access works were advertised",
+      "summary": "The Planning Portal records full and listed-building-consent applications for works to the Belfast Harbour Office and William Ritchie Building, including replacement link bridge, rear and roof extensions, landscaped roof terrace, reinstatement of cellar/northern gable and new gate/railings.",
+      "event_type": "planning_and_listed_building_application_validated",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-current-planning-applications-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+        "https://planningregister.planningsystemni.gov.uk/application/708635",
+        "https://planningregister.planningsystemni.gov.uk/application/708683"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official current application list and planning register records",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2026/0665/LBC",
+        "LA04/2026/0676/F"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-708635",
+        "planning-portal-application-708683"
+      ],
+      "dates": {
+        "application_received": "2026-04-02",
+        "lbc_date_validated": "2026-04-16",
+        "full_date_validated": "2026-04-17",
+        "date_last_advertised": "2026-04-24"
+      },
+      "location": {
+        "address": "Belfast Harbour Office and William Ritchie Building, Corporation Square and 2 Clarendon Road, Belfast, BT1 3AL",
+        "latitude": 54.6054,
+        "longitude": -5.9216,
+        "easting": 334350,
+        "northing": 375005,
+        "geometry_source": "NI Planning Portal easting/northing for paired applications converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate building/site point"
+      },
+      "confidence": "documented",
+      "limitations": "These are live applications. They do not confirm listed-building consent, planning permission, start of works, heritage impact or public access changes."
+    },
+    {
+      "candidate_id": "round116-belfast-qub-administration-building-extension-application-2026",
+      "city_id": "belfast",
+      "title": "Queen's University Administration Building extension and recladding applications were advertised",
+      "summary": "The Planning Portal records full and listed-building-consent applications for a four-storey northern extension, recladding of external elevations, amphitheatre seating, step/retaining-wall works, handrail and landscaping at the Queen's University Belfast Administration Building.",
+      "event_type": "planning_and_listed_building_application_validated",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-current-planning-applications-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+        "https://planningregister.planningsystemni.gov.uk/application/708373",
+        "https://planningregister.planningsystemni.gov.uk/application/708375"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official current application list and planning register records",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2026/0631/F",
+        "LA04/2026/0636/LBC"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-708373",
+        "planning-portal-application-708375"
+      ],
+      "dates": {
+        "application_received": "2026-03-31",
+        "date_validated": "2026-03-31",
+        "date_last_advertised": "2026-04-17"
+      },
+      "location": {
+        "address": "Administration Building, Queen's University Belfast, University Road, Belfast, BT7 1NN",
+        "latitude": 54.584349,
+        "longitude": -5.933345,
+        "easting": 333661,
+        "northing": 372640,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate building point"
+      },
+      "confidence": "documented",
+      "limitations": "These are live applications, not permissions or evidence of physical works. The listed-building-consent scope is narrower than the full planning proposal and should remain separately traceable."
+    },
+    {
+      "candidate_id": "round116-belfast-clarence-chambers-hotel-application-2026",
+      "city_id": "belfast",
+      "title": "Clarence Chambers upper floors hotel conversion applications were advertised",
+      "summary": "The Planning Portal records full and listed-building-consent applications to change the upper floors of Clarence Chambers from offices to a 20-bed hotel with rear extension and associated site works.",
+      "event_type": "planning_and_listed_building_application_validated",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-current-planning-applications-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+        "https://planningregister.planningsystemni.gov.uk/application/708330",
+        "https://planningregister.planningsystemni.gov.uk/application/708334"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official current application list and planning register records",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2026/0430/F",
+        "LA04/2026/0431/LBC"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-708330",
+        "planning-portal-application-708334"
+      ],
+      "dates": {
+        "application_received": "2026-03-05",
+        "full_date_validated": "2026-04-02",
+        "lbc_date_validated": "2026-03-05",
+        "date_last_advertised": "2026-04-10"
+      },
+      "location": {
+        "address": "Clarence Chambers, 18-19 Donegall Square East, Belfast, BT1 5HE",
+        "latitude": 54.596276,
+        "longitude": -5.928331,
+        "easting": 333946,
+        "northing": 373977,
+        "geometry_source": "NI Planning Portal easting/northing for paired applications converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate building point"
+      },
+      "confidence": "documented",
+      "limitations": "These are live applications. They do not confirm permission, listed-building consent, hotel opening, occupancy, conservation outcome or works."
+    },
+    {
+      "candidate_id": "round116-belfast-rosemary-street-20-hotel-dca-application-2026",
+      "city_id": "belfast",
+      "title": "20 Rosemary Street hotel conversion demolition consent application was validated",
+      "summary": "The Planning Portal records LA04/2026/0855/DCA for minor internal and external demolition works to facilitate retention, conversion, refurbishment and change of use of an office building and vacant retail units to 30 hotel bedrooms with bar/restaurant and fifth-floor extension.",
+      "event_type": "conservation_area_consent_application_validated",
+      "administrative_record_only": true,
+      "source_ids": [
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://planningregister.planningsystemni.gov.uk/application/709450"
+      ],
+      "publisher": "Northern Ireland Planning Portal",
+      "source_type": "official planning register record",
+      "license_or_terms_note": "Planning Portal terms restrict wider redistribution; factual metadata and source URL only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2026/0855/DCA"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-709450"
+      ],
+      "dates": {
+        "application_received": "2026-05-08",
+        "date_validated": "2026-05-08",
+        "date_last_advertised": "2026-05-22"
+      },
+      "location": {
+        "address": "20 Rosemary Street, Belfast, BT1 1QD",
+        "latitude": 54.600272,
+        "longitude": -5.928716,
+        "easting": 333908,
+        "northing": 374421,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate building point"
+      },
+      "confidence": "documented",
+      "limitations": "This is a conservation-area-consent application, not a granted consent or evidence of demolition, conversion works, completion or hotel opening. The advertised date is after the current retrieval date and should be rechecked before ingestion."
+    },
+    {
+      "candidate_id": "round116-belfast-dalton-street-apartments-amendment-application-2026",
+      "city_id": "belfast",
+      "title": "Dalton Street 325-apartment amendment application was validated and advertised",
+      "summary": "The Planning Portal records LA04/2026/0496/F for construction of 325 apartments, residents' gym and four retail units with associated car parking and landscaping, as an amendment to previously approved LA04/2018/2649/F.",
+      "event_type": "planning_application_validated",
+      "administrative_record_only": true,
+      "source_ids": [
+        "bcc-current-planning-applications-round116",
+        "ni-planning-portal-public-register-round116"
+      ],
+      "source_urls": [
+        "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+        "https://planningregister.planningsystemni.gov.uk/application/708451"
+      ],
+      "publisher": "Belfast City Council / Northern Ireland Planning Portal",
+      "source_type": "official current application list and planning register record",
+      "license_or_terms_note": "BCC copyright and Planning Portal terms apply; factual metadata and source URLs only.",
+      "accessed_at": "2026-05-19",
+      "planning_refs": [
+        "LA04/2026/0496/F",
+        "LA04/2018/2649/F"
+      ],
+      "source_record_ids": [
+        "planning-portal-application-708451"
+      ],
+      "dates": {
+        "application_received": "2026-03-16",
+        "date_validated": "2026-03-19",
+        "date_last_advertised": "2026-04-17"
+      },
+      "location": {
+        "address": "Lands at 3-9 Dalton Street, bordered by Middlepath Street and Bridge End, Belfast, BT5 4BA",
+        "latitude": 54.600282,
+        "longitude": -5.915143,
+        "easting": 334785,
+        "northing": 374448,
+        "geometry_source": "NI Planning Portal easting/northing converted approximately from Irish Grid to WGS84",
+        "geometry_precision": "approximate site point"
+      },
+      "confidence": "documented",
+      "limitations": "This is a live amendment application. The earlier 2019 approval is already present in the seed corpus; this candidate should be kept as a separate proposed amendment, not counted as a second delivered development."
+    }
+  ],
+  "rejects": [
+    {
+      "planning_refs": [
+        "LA04/2025/0242/F"
+      ],
+      "title": "2-10 Botanic Avenue hotel application",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s122666/LA04.2025.0242.F%20Botanic%20Hotel.pdf",
+      "reason": "duplicate",
+      "duplicate_match": "Existing architecture milestone corpus already contains LA04/2025/0242/F / Botanic Hotel planning record."
+    },
+    {
+      "planning_refs": [
+        "LA04/2024/0626/F"
+      ],
+      "title": "Havelock House social housing scheme",
+      "source_url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=82595",
+      "reason": "duplicate",
+      "duplicate_match": "Existing corpus contains Havelock House social housing scheme approval with source record bcc-planning-2024-12-10-havelock-house-la04-2024-0626."
+    },
+    {
+      "planning_refs": [
+        "LA04/2024/0126/F",
+        "LA04/2024/0138/LBC"
+      ],
+      "title": "Scottish Mutual / Bedford hotel conversion",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s120635/LA04.2024.0126.F%20LA04.2024.0138.LBC.pdf",
+      "reason": "project_duplicate_or_superseded",
+      "duplicate_match": "Existing corpus already contains the 2025 Donegall Square South hotel planning approval and the 2026 Bedford Hotel opening for the same building family."
+    },
+    {
+      "planning_refs": [
+        "LA04/2022/0742/F"
+      ],
+      "title": "Paisley Park Sportsplex community hub",
+      "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MeetingId=11237",
+      "reason": "duplicate",
+      "duplicate_match": "Existing corpus contains Paisley Park Sportsplex community hub and changing-room building approval."
+    },
+    {
+      "planning_refs": [
+        "LA04/2021/2687/F"
+      ],
+      "title": "3 Milner Street apartment development",
+      "source_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=167&MID=11247",
+      "reason": "duplicate",
+      "duplicate_match": "Existing corpus contains Milner Street apartments approval."
+    },
+    {
+      "planning_refs": [
+        "LA04/2026/0809/F",
+        "LA04/2026/0810/DCA"
+      ],
+      "title": "22-24 Berry Street shopfront applications",
+      "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications?action=Index&controller=TwentyEighty",
+      "reason": "duplicate",
+      "duplicate_match": "Existing corpus already contains Berry Street advertised shopfront development applications."
+    },
+    {
+      "planning_refs": [
+        "LA04/2026/0799/DC",
+        "LA04/2025/0556/F",
+        "LA04/2025/0557/DCA"
+      ],
+      "title": "10-22 Ann Street archaeological programme discharge condition",
+      "source_url": "https://planningregister.planningsystemni.gov.uk/application/709397",
+      "reason": "derivative_of_existing_record",
+      "duplicate_match": "Existing corpus already contains the Ann Street/Crown Entry conversion approval; this condition-discharge record is useful follow-up provenance but not a separate architecture milestone candidate for this round."
+    }
+  ]
+}
