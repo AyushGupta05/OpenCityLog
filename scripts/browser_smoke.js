@@ -247,4 +247,9 @@ function cameraMatches(before, after) {
   await browser.close();
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Browser page errors:\n${pageErrors.join("\n")}`);
-  assert(actionable.length === 
+  assert(actionable.length === 0, `Browser console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
+  console.log("OpenCityLog paper-atlas browser smoke OK: load, pins, changelog, lenses, compare, map tools, filter, zoom, scroll, timeline, camera, and screenshot checks passed.");
+})().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
