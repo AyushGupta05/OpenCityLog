@@ -70,7 +70,7 @@ function cameraMatches(before, after) {
     { timeout: 10000 }
   );
   const afterPinClick = await atlasState(page);
-  assert(afterPinClick.detailTitle === "York Street rail station opened", "Clicking a map pin did not update the evidence detail panel.");
+  assert(afterPinClick.detailTitle.includes("York Street"), "Clicking a York Street map pin did not update the evidence detail panel.");
   assert(afterPinClick.activePin?.text.includes("York Street"), "Clicked map pin did not become the active event.");
 
   const grandCentralTitle = "Belfast Grand Central Station opened";

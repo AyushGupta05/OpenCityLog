@@ -1,0 +1,143 @@
+[
+  {
+    "event_id": "nyc_arch_broadway_vision_union_square_phase_completion_2024",
+    "city": "New York City",
+    "title": "Broadway Vision East 17th-21st Street phase was completed",
+    "summary": "NYC DOT announced completion of a Broadway Vision phase from East 17th Street to East 21st Street, including a new pedestrian plaza between East 17th and East 18th Streets, shared-street blocks, public seating, plantings, and two-way bike connections.",
+    "effective_date": "2024-09-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.98985,
+        40.7381
+      ]
+    },
+    "source_name": "Broadway Vision: NYC DOT Completes Latest Phase of Broadway Redesign With New Plaza, Two-way Bike Connections Above Union Square",
+    "publisher": "New York City Department of Transportation",
+    "source_url": "https://www.nyc.gov/html/dot/html/pr2024/nyc-dot-latest-redesign-union-sq.shtml",
+    "source_type": "official agency press release",
+    "source_record_id": "nyc-dot-2024-09-12-broadway-vision-union-square",
+    "source_date_field": "press-release date and completion language for the East 17th Street to East 21st Street phase",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency webpage; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Department of Transportation",
+    "confidence": "documented",
+    "limitations": "The point is an approximate representative marker for the Broadway phase near Union Square, not a surveyed plaza polygon, curb line, bike-lane alignment, or full corridor boundary. The record documents completion of public-realm works, not safety, business, or travel-behavior outcomes.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the press-release date, named project limits, and stated completed elements; assigned an approximate midpoint on Broadway between East 17th and East 21st Streets; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source terms against the manual corpus and NYC architecture candidate rounds 94-98.",
+    "category": "planning/development/architecture/public-realm"
+  },
+  {
+    "event_id": "nyc_arch_jfk_terminal_8_expansion_opening_2022",
+    "city": "New York City",
+    "title": "JFK Terminal 8 expansion opened",
+    "summary": "New York State, the Port Authority, American Airlines, and British Airways announced the opening of a newly expanded Terminal 8 at John F. Kennedy International Airport, marking completion of the first JFK redevelopment project phase.",
+    "effective_date": "2022-11-29",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.7899,
+        40.6467
+      ]
+    },
+    "source_name": "Governor Hochul, the Port Authority of New York & New Jersey, American Airlines and British Airways Announce Completion of JFK's First Redevelopment Project at Terminal 8",
+    "publisher": "New York State Governor's Office",
+    "source_url": "https://www.governor.ny.gov/news/governor-hochul-port-authority-new-york-new-jersey-american-airlines-and-british-airways",
+    "source_type": "official state press release",
+    "source_record_id": "ny-gov-2022-11-29-jfk-terminal-8-completion",
+    "source_date_field": "press-release date and opening/completion statement for newly expanded Terminal 8",
+    "source_retrieved_at": "2026-05-18",
+    "license": "New York State official website; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York State Governor's Office; Port Authority of New York and New Jersey",
+    "confidence": "documented",
+    "limitations": "The point marks the approximate Terminal 8 area at JFK and is not a terminal footprint, gate location, lounge plan, roadway alignment, or airport-wide redevelopment boundary. The record covers the Terminal 8 expansion opening only; other JFK terminal projects and later concessions work are separate evidence paths.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the official announcement date and Terminal 8 opening/completion description; assigned an approximate point at JFK Terminal 8; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source terms against the manual corpus and NYC architecture candidate rounds 94-98.",
+    "category": "planning/development/architecture/transportation"
+  },
+  {
+    "event_id": "nyc_arch_harlem_school_arts_renaissance_project_completion_2020",
+    "city": "New York City",
+    "title": "Harlem School of the Arts completed the Renaissance Project",
+    "summary": "The Harlem School of the Arts official legacy timeline records completion of the Renaissance Project at the Herb Alpert Center in October 2020.",
+    "effective_date_range": {
+      "start": "2020-10-01",
+      "end": "2020-10-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9451,
+        40.8234
+      ]
+    },
+    "source_name": "Our Legacy",
+    "publisher": "Harlem School of the Arts",
+    "source_url": "https://hsanyc.org/our-board/",
+    "source_type": "official institutional timeline",
+    "source_record_id": "hsa-renaissance-project-completed-2020-10",
+    "source_date_field": "official legacy timeline entry states the Renaissance Project was completed in October 2020",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Harlem School of the Arts public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Harlem School of the Arts",
+    "confidence": "documented",
+    "limitations": "The source provides month-level completion timing, not a day-level handover, permit closeout, or public reopening ceremony. The point marks the Harlem School of the Arts building context at 645 St. Nicholas Avenue and is not a surveyed building footprint or interior plan.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the official timeline month for Renaissance Project completion; converted month precision into a date range; assigned an approximate point from the named Harlem School of the Arts location; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source terms against the manual corpus and NYC architecture candidate rounds 94-98.",
+    "category": "planning/development/architecture/cultural-education"
+  },
+  {
+    "event_id": "nyc_arch_harlem_academy_new_home_move_2021",
+    "city": "New York City",
+    "title": "Harlem Academy moved into its new St. Nicholas Avenue home",
+    "summary": "Harlem Academy's official news page states that the school moved to its new home in December 2021; the same site lists the campus at 655 St. Nicholas Avenue with classrooms, a library, a play yard, and a cafe.",
+    "effective_date_range": {
+      "start": "2021-12-01",
+      "end": "2021-12-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9454,
+        40.8238
+      ]
+    },
+    "source_name": "Opening Day & Our First Full House",
+    "publisher": "Harlem Academy",
+    "source_url": "https://www.harlemacademy.org/news-detail?fromId=242719&pk=978336",
+    "source_type": "official institutional news page",
+    "source_record_id": "harlem-academy-new-home-december-2021",
+    "source_date_field": "official 2025 news post states the school moved to its new home in December 2021 and lists the campus address",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Harlem Academy public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "Harlem Academy",
+    "confidence": "documented",
+    "limitations": "The source documents a month-level move to the new home, not a day-level construction completion, certificate of occupancy, or ribbon-cutting. The point is an approximate marker for 655 St. Nicholas Avenue, not a measured campus parcel, classroom, library, play-yard, or cafe geometry.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the stated December 2021 move to the new home and campus address; converted month precision into a date range; assigned an approximate point from 655 St. Nicholas Avenue; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source terms against the manual corpus and NYC architecture candidate rounds 94-98.",
+    "category": "planning/development/architecture/education"
+  },
+  {
+    "event_id": "nyc_arch_sculpturecenter_expanded_building_inauguration_2014",
+    "city": "New York City",
+    "title": "SculptureCenter inaugurated its expanded and renovated building",
+    "summary": "SculptureCenter's official exhibition page dates Puddle, pothole, portal from October 2, 2014 and states that the exhibition inaugurated the newly expanded and renovated building in Long Island City.",
+    "effective_date": "2014-10-02",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9417,
+        40.7466
+      ]
+    },
+    "source_name": "Puddle, pothole, portal",
+    "publisher": "SculptureCenter",
+    "source_url": "https://www.sculpture-center.org/exhibitions/3396/puddle-pothole-portal",
+    "source_type": "official institutional exhibition page",
+    "source_record_id": "sculpturecenter-puddle-pothole-portal-2014-10-02",
+    "source_date_field": "official exhibition start date and page statement that the exhibition inaugurated the newly expanded and renovated building",
+    "source_retrieved_at": "2026-05-18",
+    "license": "SculptureCenter public website terms apply; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "SculptureCenter",
+    "confidence": "documented",
+    "limitations": "The event date follows the official exhibition start date; the page also lists an opening reception and community day on October 5, 2014. The point marks the SculptureCenter site on Purves Street and is not a measured building footprint, courtyard boundary, gallery plan, or construction closeout record.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the official exhibition start date and building-inauguration statement; assigned an approximate point for SculptureCenter at 44-19 Purves Street; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source terms against the manual corpus and NYC architecture candidate rounds 94-98.",
+    "category": "planning/development/architecture/cultural"
+  }
+]

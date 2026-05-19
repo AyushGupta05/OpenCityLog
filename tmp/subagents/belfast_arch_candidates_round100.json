@@ -1,0 +1,83 @@
+[
+  {
+    "event_id": "bfs_arch_st_marys_cbs_sports_hall_approved_2026",
+    "city": "Belfast",
+    "title": "St Mary's Christian Brothers' Grammar School sports hall was approved",
+    "summary": "Belfast City Council Planning Committee minutes for 21 April 2026 record planning permission for a new sports hall, gymnasium, PE classroom facility and a footbridge connecting the GAA field at St Mary's Christian Brothers' Grammar School on Glen Road.",
+    "effective_date": "2026-04-21",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -6.0029514,
+        54.5835397
+      ]
+    },
+    "source_name": "Belfast City Council Planning Committee minutes: St Mary's Christian Brothers' Grammar School sports hall",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/documents/g12408/Public%20reports%20pack%2005th-May-2026%2018.00%20Council.pdf?T=10",
+    "source_type": "official committee minutes",
+    "source_record_id": "LA04/2025/2113/F",
+    "source_date_field": "Planning Committee minutes for 21 April 2026 record that planning permission was granted for application LA04/2025/2113/F.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Source-specific Belfast City Council web terms/copyright; factual metadata and source URL only, no page text or media reproduced.",
+    "attribution": "Belfast City Council Planning Committee minutes, 21 April 2026.",
+    "confidence": "documented",
+    "limitations": "This is a planning approval milestone, not evidence that construction, completion or opening has happened. The point is approximate to the school address and is not a source-supplied building footprint.",
+    "transformation_method": "Selected from Belfast City Council Planning Committee minutes, screened against the manual architecture milestone file and candidate rounds 94-99 by event_id, source URL, source record ID and semantic title/source match. Effective date is the recorded committee decision date; point geometry was manually geocoded from the committee-stated school/site address.",
+    "category": "education_sports_facility_planning_approval"
+  },
+  {
+    "event_id": "bfs_arch_college_gardens_listed_conversion_approved_2026",
+    "city": "Belfast",
+    "title": "29-32 College Gardens listed-building residential conversion was approved",
+    "summary": "Belfast City Council Planning Committee minutes for 21 April 2026 record planning permission and listed building consent for converting 29-32 College Gardens from offices to 19 apartments, with partial demolition of rear returns, extensions, alterations and associated works.",
+    "effective_date": "2026-04-21",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9395299,
+        54.5839634
+      ]
+    },
+    "source_name": "Belfast City Council Planning Committee minutes: 29-32 College Gardens",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/documents/g12408/Public%20reports%20pack%2005th-May-2026%2018.00%20Council.pdf?T=10",
+    "source_type": "official committee minutes",
+    "source_record_id": "LA04/2021/2839/F; LA04/2022/0071/LBC",
+    "source_date_field": "Planning Committee minutes for 21 April 2026 record that planning permission and listed building consent were granted for applications LA04/2021/2839/F and LA04/2022/0071/LBC.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Source-specific Belfast City Council web terms/copyright; factual metadata and source URL only, no page text or media reproduced.",
+    "attribution": "Belfast City Council Planning Committee minutes, 21 April 2026.",
+    "confidence": "documented",
+    "limitations": "This is a planning and listed-building consent milestone, not evidence that conversion, completion or occupation has happened. The point is approximate to the College Gardens address row and is not a source-supplied building footprint.",
+    "transformation_method": "Selected from Belfast City Council Planning Committee minutes, screened against the manual architecture milestone file and candidate rounds 94-99 by event_id, source URL, source record ID and semantic title/source match. Effective date is the recorded committee decision date; point geometry was manually geocoded from the committee-stated address.",
+    "category": "listed_building_residential_conversion_planning_approval"
+  },
+  {
+    "event_id": "bfs_arch_wishing_well_childcare_hub_operational_by_2021",
+    "city": "Belfast",
+    "title": "Wishing Well Family Centre childcare hub was reported operational",
+    "summary": "The Executive Office Social Investment Fund page for the Childcare and Family Support Cluster, published 7 December 2021, recorded that the cluster had completed construction and was operational; the page identifies the Wishing Well Family Centre element as a new building creating pre- and after-school places.",
+    "effective_date": "2021-12-07",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.958662,
+        54.619982
+      ]
+    },
+    "source_name": "Childcare and Family Support Cluster",
+    "publisher": "The Executive Office",
+    "source_url": "https://www.executiveoffice-ni.gov.uk/articles/childcare-and-family-support-cluster",
+    "source_type": "official programme page",
+    "source_record_id": "teo-node-372842-childcare-and-family-support-cluster",
+    "source_date_field": "Article published_time metadata is 2021-12-07T09:52:09+00:00; Progress to date text records the project had completed construction and was operational.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Open Government Licence v3.0; Crown copyright.",
+    "attribution": "Contains public sector information from The Executive Office licensed under the Open Government Licence v3.0.",
+    "confidence": "documented",
+    "limitations": "The source reports operational status for the two-hub cluster by the publication date, not an exact completion or opening day for the Wishing Well hub alone. A separate later Wishing Well play-space event exists in the manual corpus; this record is limited to the SIF childcare-hub building status. The point is approximate to Wishing Well Family Centre and is not source-supplied geometry.",
+    "transformation_method": "Selected from an official Social Investment Fund capital project page, screened against the manual architecture milestone file and candidate rounds 94-99 by event_id, source URL, source record ID and semantic title/source match. Retained because the duplicate check found a separate later Wishing Well play-space record, not this childcare-hub building status. Effective date is the official article publication date used as an operational-by date; point geometry was manually geocoded from public Wishing Well Family Centre address context.",
+    "category": "childcare_family_support_hub_reported_operational"
+  }
+]

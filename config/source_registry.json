@@ -239,6 +239,27 @@
       ]
     },
     {
+      "source_id": "dfc-hed-nidirect-buildings",
+      "title": "Department for Communities / nidirect listed building records",
+      "provider": "Department for Communities Northern Ireland and nidirect",
+      "source_family": "planning",
+      "city_ids": ["belfast"],
+      "licence": "Northern Ireland public-sector web terms; cite URLs only until terms are reviewed",
+      "licence_url": "https://www.nidirect.gov.uk/",
+      "coverage_years": {"start": 2008, "end": 2026},
+      "update_frequency": "Page-specific listed-building record updates.",
+      "url": "https://apps.communities-ni.gov.uk/Buildings/buildview.aspx",
+      "local_paths": ["data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities Northern Ireland / nidirect listed building records and preserve the evidence URL.",
+      "provenance_notes": "Used for Belfast architecture milestones where the source record documents listed-building status and listing dates. The atlas stores factual metadata and source URLs only.",
+      "caveats": [
+        "Listed-building records document designation status and dates, not completion of new construction or later physical alterations.",
+        "Public register pages can change; preserve retrieval dates and source record identifiers."
+      ]
+    },
+    {
       "source_id": "london-architecture-public-pages",
       "title": "London architecture and major project public pages",
       "provider": "Named London public, institutional, venue, developer, and architecture sources",
