@@ -179,7 +179,15 @@ const candidatePaths = {
   londonPldLifecycleNext21Round261: "tmp/subagents/round261_london_pld_lifecycle_next21/candidates.json",
   nycLpcPermitNext18Round262: "tmp/subagents/round262_nyc_lpc_permit_next18/candidates.json",
   nycHpdAffordableHousingNext10Round263: "tmp/subagents/round263_nyc_hpd_affordable_housing_next10/candidates.json",
-  nycDobCoNext19Round264: "tmp/subagents/round264_nyc_dob_co_next19/candidates.json"
+  nycDobCoNext19Round264: "tmp/subagents/round264_nyc_dob_co_next19/candidates.json",
+  londonLddArchiveNext20Round260: "tmp/subagents/round260_london_ldd_archive_next20/candidates.json",
+  londonPldLifecycleNext22Round266: "tmp/subagents/round266_london_pld_lifecycle_next22/candidates.json",
+  nycDobCoNext20Round267: "tmp/subagents/round267_nyc_dob_co_next20/candidates.json",
+  nycLpcPermitNext19Round268: "tmp/subagents/round268_nyc_lpc_permit_next19/candidates.json",
+  nycHpdAffordableHousingNext11Round269: "tmp/subagents/round269_nyc_hpd_affordable_housing_next11/candidates.json",
+  londonPldLifecycleNext23Round272: "tmp/subagents/round272_london_pld_lifecycle_next23/candidates.json",
+  nycDobCoNext21Round273: "tmp/subagents/round273_nyc_dob_co_next21/candidates.json",
+  nycHpdAffordableHousingNext12Round275: "tmp/subagents/round275_nyc_hpd_affordable_housing_next12/candidates.json"
 };
 
 const sourceIdAliases = {

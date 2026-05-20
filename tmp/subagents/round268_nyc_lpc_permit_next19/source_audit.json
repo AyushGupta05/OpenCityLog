@@ -15,6 +15,7 @@
       "source_type": "Official NYC Open Data Socrata dataset containing permit applications for work submitted to and processed by LPC at landmark sites.",
       "description_from_metadata": "Contains information pertaining to permit applications for work to landmark sites submitted to and processed by LPC.",
       "attribution": "Landmarks Preservation Commission (LPC)",
+      "license": "NYC Open Data Terms of Use / NYC.gov Terms of Use",
       "license_or_terms_note": "Dataset metadata licenseId/license is null. NYC Open Data Terms of Use and NYC.gov Terms of Use apply; public datasets may be updated, corrected, or refreshed by the submitting agency.",
       "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
       "accessed_at": "2026-05-20",

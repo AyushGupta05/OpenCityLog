@@ -73,5 +73,17 @@ source = replaceOnce(
   '    latitude: point.latitude,\n    longitude: point.longitude,\n    geometry: { type: "Point", coordinates: [point.longitude, point.latitude] },\n'
 );
 
+source = replaceOnce(
+  source,
+  '    license_or_terms_note: "NYC Open Data / NYC.gov terms apply; dataset metadata licenseId/license is null. Attribute LPC/NYC Open Data, preserve row identifiers, and re-check metadata before redistribution.",\n    license_url: NYC_OPEN_DATA_TERMS,\n',
+  '    license: "NYC Open Data Terms of Use / NYC.gov Terms of Use",\n    license_or_terms_note: "NYC Open Data / NYC.gov terms apply; dataset metadata licenseId/license is null. Attribute LPC/NYC Open Data, preserve row identifiers, and re-check metadata before redistribution.",\n    license_url: NYC_OPEN_DATA_TERMS,\n'
+);
+
+source = replaceOnce(
+  source,
+  '        license_or_terms_note: "Dataset metadata licenseId/license is null. NYC Open Data Terms of Use and NYC.gov Terms of Use apply; public datasets may be updated, corrected, or refreshed by the submitting agency.",\n        license_url: NYC_OPEN_DATA_TERMS,\n',
+  '        license: "NYC Open Data Terms of Use / NYC.gov Terms of Use",\n        license_or_terms_note: "Dataset metadata licenseId/license is null. NYC Open Data Terms of Use and NYC.gov Terms of Use apply; public datasets may be updated, corrected, or refreshed by the submitting agency.",\n        license_url: NYC_OPEN_DATA_TERMS,\n'
+);
+
 const runner = new Function("require", "__dirname", "__filename", "process", "console", "fetch", source);
 runner(require, __dirname, __filename, process, console, fetch);

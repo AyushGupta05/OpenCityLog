@@ -1,4 +1,0 @@
-- tablist "Lens treatment" [box=1298,331,198,40]:
-  - tab "Pressure" [selected] [ref=e2537] [cursor=pointer] [box=1298,331,66,30]
-  - tab "Delta" [ref=e2538] [cursor=pointer] [box=1364,331,66,30]
-  - tab "Parcels" [ref=e2539] [cursor=pointer] [box=1430,331,66,30]

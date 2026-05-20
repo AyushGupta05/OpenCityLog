@@ -3449,12 +3449,12 @@
       const distance = lngLatDistanceMeters(center, point);
       if (distance > maxDistance) continue;
       const nearestEvent = nearestGuideEvent(point, events, 860);
-      const eventDensity = eventDensityIntensity(point, events, 820);
+      const eventDensity = eventDensityIntensity(point, events, 900);
       const rank = Number(road.properties?.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const namedFrontage = road.properties?.name ? 0.08 : 0;
-      const intensity = clamp01(0.14 + eventDensity * 0.58 + proximity * 0.18 + namedFrontage + Math.min(0.1, rank * 0.026));
-      if (intensity < 0.2 && rank < 2) continue;
+      const namedFrontage = road.properties?.name ? 0.12 : 0.02;
+      const intensity = clamp01(0.18 + eventDensity * 0.42 + proximity * 0.3 + namedFrontage + Math.min(0.12, rank * 0.032));
+      if (intensity < 0.22 && rank < 1.5) continue;
       features.push({
         type: "Feature",
         properties: {
@@ -4067,12 +4067,12 @@
           0.75, "#8762a7",
           1, "#176f92",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.3, 0.2, 0.5, 1, 0.82],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.36, 0.2, 0.56, 1, 0.86],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.28, ["*", activity, 0.56]], rank],
-          13, ["*", ["+", 0.48, ["*", activity, 1.0]], rank],
-          16, ["*", ["+", 0.78, ["*", activity, 1.5]], rank],
+          9, ["*", ["+", 0.34, ["*", activity, 0.62]], rank],
+          13, ["*", ["+", 0.58, ["*", activity, 1.08]], rank],
+          16, ["*", ["+", 0.88, ["*", activity, 1.62]], rank],
         ],
         "line-dasharray": [1.35, 1.15],
       };
@@ -4087,12 +4087,12 @@
           0.72, "#ed3f2b",
           1, "#248b94",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.18, 0.2, 0.44, 1, 0.78],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.32, 0.2, 0.52, 1, 0.82],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.32, ["*", activity, 0.95]], rank],
-          13, ["*", ["+", 0.62, ["*", activity, 1.55]], rank],
-          16, ["*", ["+", 1, ["*", activity, 2.25]], rank],
+          9, ["*", ["+", 0.38, ["*", activity, 1.02]], rank],
+          13, ["*", ["+", 0.72, ["*", activity, 1.68]], rank],
+          16, ["*", ["+", 1.1, ["*", activity, 2.36]], rank],
         ],
         "line-dasharray": [2.2, 1],
       };
@@ -4106,12 +4106,12 @@
         0.7, "#d66a3a",
         1, "#c8472e",
       ],
-      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.34, 0.2, 0.64, 1, 0.92],
+      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.52, 0.2, 0.74, 1, 0.94],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        9, ["*", ["+", 0.42, ["*", activity, 1.2]], rank],
-        13, ["*", ["+", 0.82, ["*", activity, 2.2]], rank],
-        16, ["*", ["+", 1.25, ["*", activity, 3.45]], rank],
+        9, ["*", ["+", 0.48, ["*", activity, 1.25]], rank],
+        13, ["*", ["+", 0.94, ["*", activity, 2.26]], rank],
+        16, ["*", ["+", 1.38, ["*", activity, 3.52]], rank],
       ],
       "line-dasharray": [1, 0.0001],
     };
