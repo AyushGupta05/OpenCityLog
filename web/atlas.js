@@ -2023,7 +2023,7 @@
         ],
         "line-opacity": [
           "case",
-          ["==", ["get", "surface_style"], "access_fabric"], 0.08,
+          ["==", ["get", "surface_style"], "access_fabric"], 0.16,
           ["==", ["get", "surface_style"], "land_use_tile"], 0.58,
           0.52,
         ],
@@ -2047,6 +2047,7 @@
           "case",
           ["any",
             ["==", ["get", "lens_id"], "planning-pressure"],
+            ["==", ["get", "lens_id"], "economy-vitality"],
             ["==", ["get", "lens_id"], "utilities-capacity"],
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
@@ -2057,6 +2058,7 @@
           "case",
           ["any",
             ["==", ["get", "lens_id"], "planning-pressure"],
+            ["==", ["get", "lens_id"], "economy-vitality"],
             ["==", ["get", "lens_id"], "utilities-capacity"],
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
@@ -2078,6 +2080,7 @@
           "case",
           ["any",
             ["==", ["get", "lens_id"], "planning-pressure"],
+            ["==", ["get", "lens_id"], "economy-vitality"],
             ["==", ["get", "lens_id"], "utilities-capacity"],
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
@@ -2089,6 +2092,7 @@
           "case",
           ["any",
             ["==", ["get", "lens_id"], "planning-pressure"],
+            ["==", ["get", "lens_id"], "economy-vitality"],
             ["==", ["get", "lens_id"], "utilities-capacity"],
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
@@ -2774,7 +2778,7 @@
     bindLensInteractionLayers();
 
     const showTransportRoads = isActiveMapLens("transport");
-    const showTransportBase = showTransportRoads && activeMapLens().id === "transport-access";
+    const showTransportBase = showTransportRoads;
     for (const layerId of ["lens-transport-base-case", "lens-transport-base"]) {
       if (!state.map.getLayer(layerId)) continue;
       state.map.setFilter(layerId, transportBaseRoadFilter());
@@ -2880,8 +2884,8 @@
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
     const showRings = showGuide && ["transport-speed", "transport-reliability", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id);
     const showCells = showGuide && ["transport-access", "civic-catchment", "civic-demand", "economy-land-use"].includes(lens.id);
-    const showFlows = showGuide && ["planning-pressure", "civic-access-gaps", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
-    const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id);
+    const showFlows = showGuide && ["planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
+    const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id);
     const visibility = {
       "lens-guide-area-fill": showGuide,
       "lens-guide-area-line": showGuide,
@@ -3058,10 +3062,10 @@
       features.push(...economyLandUseTileFeatures(center, radiusM, lens));
     }
 
-    if (["planning-pressure", "civic-access-gaps", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id)) {
+    if (["planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id)) {
       features.push(...flowGuideFeatures(center, lens));
     }
-    if (["transport-speed", "transport-access", "transport-reliability", "economy-gravity", "utilities-resilience", "utilities-capacity", "planning-pressure", "civic-access-gaps"].includes(lens.id)) {
+    if (["transport-speed", "transport-access", "transport-reliability", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "planning-pressure", "civic-access-gaps"].includes(lens.id)) {
       features.push(...nodeGuideFeatures(center, lens));
     }
     return { type: "FeatureCollection", features };
@@ -3119,7 +3123,7 @@
   }
 
   function guideCellLimit(lensId) {
-    if (lensId === "transport-access") return 1900;
+    if (lensId === "transport-access") return 6500;
     if (lensId === "economy-land-use") return 5000;
     if (lensId === "civic-demand") return 430;
     if (lensId === "civic-catchment") return 360;
@@ -3127,24 +3131,41 @@
   }
 
   function transportAccessFabricCells(center, radiusM, lens) {
-    const anchors = nearbyTransportRoadAnchors(center, radiusM * 2.15, 520);
+    const anchors = nearbyTransportRoadAnchors(center, radiusM * 3.25, 1150);
     if (!anchors.length) return hexGuideCells(center, radiusM, lens, 86);
     const sourceEvents = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "transport" && event.lngLat);
     const cells = [];
-    const stepM = 58;
-    const extentM = radiusM * 2;
+    const stepM = 52;
+    const extentM = radiusM * 2.7;
     for (let dy = -extentM; dy <= extentM; dy += stepM) {
       for (let dx = -extentM; dx <= extentM; dx += stepM) {
         const cellCenter = offsetLngLat(center, dx, dy);
         const radial = lngLatDistanceMeters(center, cellCenter);
-        const nearestRoad = nearestRoadAnchor(cellCenter, anchors, 340);
-        const roadBoost = nearestRoad ? clamp01(1 - nearestRoad.distance / 340) * (0.55 + nearestRoad.activity * 0.45) : 0;
-        const nearestEvent = nearestGuideEvent(cellCenter, sourceEvents, radiusM * 1.18);
-        const eventBoost = nearestEvent ? 1 - Math.min(radiusM * 1.18, lngLatDistanceMeters(cellCenter, nearestEvent.lngLat)) / (radiusM * 1.18) : 0;
-        const minutes = 9 + Math.pow(radial / Math.max(1, radiusM), 0.88) * 37 - roadBoost * 16 - eventBoost * 5;
-        if (minutes > 76 || (radial > radiusM * 1.88 && roadBoost < 0.3)) continue;
-        const intensity = clamp01(1 - (minutes - 9) / 67);
+        const nearestRoad = nearestRoadAnchor(cellCenter, anchors, 430);
+        if (!nearestRoad && radial > radiusM * 0.72) continue;
+        const roadCloseness = nearestRoad ? clamp01(1 - nearestRoad.distance / 430) : 0;
+        const roadBoost = nearestRoad ? roadCloseness * (0.5 + nearestRoad.activity * 0.36 + Math.min(0.14, nearestRoad.rank * 0.035)) : 0;
+        const nearestEvent = nearestGuideEvent(cellCenter, sourceEvents, radiusM * 1.55);
+        const eventBoost = nearestEvent ? 1 - Math.min(radiusM * 1.55, lngLatDistanceMeters(cellCenter, nearestEvent.lngLat)) / (radiusM * 1.55) : 0;
+        const angle = Math.atan2(dy, dx);
+        const anchorSeed = stableUnit(`${nearestRoad?.id || ""}:${Math.round((nearestRoad?.point?.[0] || center[0]) * 10000)}`);
+        const streetReach = nearestRoad
+          ? 1.08 + nearestRoad.activity * 0.86 + Math.min(0.36, nearestRoad.rank * 0.08)
+          : 0.84;
+        const directionalReach = 1
+          + Math.sin(angle * 2.2 + anchorSeed * Math.PI * 2) * 0.18
+          + Math.cos(angle * 4.4 + anchorSeed * Math.PI) * 0.09;
+        const reachM = radiusM * streetReach * directionalReach + roadBoost * 330 + eventBoost * 150;
+        if (radial > reachM && radial > radiusM * 0.68) continue;
+        const offNetworkPenalty = nearestRoad ? Math.max(0, nearestRoad.distance - 95) / 14 : 14;
+        const minutes = 8
+          + Math.pow(radial / Math.max(1, reachM), 0.96) * 66
+          + offNetworkPenalty
+          - roadBoost * 9
+          - eventBoost * 4;
+        if (minutes > 82) continue;
+        const intensity = clamp01(1 - (minutes - 8) / 74);
         cells.push({
           type: "Feature",
           properties: {
@@ -3155,13 +3176,14 @@
             minutes: Math.round(minutes),
             color: accessBandColor(minutes),
             event_id: nearestEvent?.id || "",
+            score: Number((intensity + roadBoost * 0.3 + stableUnit(`${dx}:${dy}`) * 0.025).toFixed(3)),
           },
-          geometry: squarePolygon(cellCenter, stepM * 0.52),
+          geometry: squarePolygon(cellCenter, stepM * (0.44 + roadCloseness * 0.1)),
         });
       }
     }
     return cells
-      .sort((a, b) => Number(b.properties.intensity) - Number(a.properties.intensity))
+      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
       .slice(0, guideCellLimit(lens.id));
   }
 
@@ -3362,6 +3384,9 @@
     if (lens.id === "planning-pressure") {
       return planningPressureStreetFeatures(center, lens);
     }
+    if (lens.id === "economy-vitality") {
+      return economyVitalityStreetFeatures(center, lens);
+    }
     if (lens.id.startsWith("utilities-")) {
       return utilityNetworkStreetFeatures(center, lens);
     }
@@ -3410,6 +3435,65 @@
     });
   }
 
+  function economyVitalityStreetFeatures(center, lens) {
+    const roads = state.detailRoadFeatures || [];
+    const events = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === "economy" && event.lngLat);
+    if (!roads.length || !events.length) return [];
+    const radiusM = Number(lens.radiusM || 800);
+    const maxDistance = radiusM * 2.95;
+    const features = [];
+    for (const road of roads) {
+      const point = geometryToLngLat(road.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance) continue;
+      const nearestEvent = nearestGuideEvent(point, events, 860);
+      const eventDensity = eventDensityIntensity(point, events, 820);
+      const rank = Number(road.properties?.rank || 1);
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const namedFrontage = road.properties?.name ? 0.08 : 0;
+      const intensity = clamp01(0.14 + eventDensity * 0.58 + proximity * 0.18 + namedFrontage + Math.min(0.1, rank * 0.026));
+      if (intensity < 0.2 && rank < 2) continue;
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          event_id: nearestEvent?.id || "",
+          intensity: Number(intensity.toFixed(2)),
+          color: economyVitalityGuideColor(nearestEvent, road, intensity),
+          score: Number((intensity + stableUnit(`${lens.id}:${road.properties?.source_id || road.properties?.id || ""}`) * 0.18).toFixed(3)),
+        },
+        geometry: road.geometry,
+      });
+    }
+    return features
+      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
+      .slice(0, 1250);
+  }
+
+  function economyVitalityGuideColor(event, road, intensity) {
+    const text = [
+      event?.title,
+      event?.shortDescription,
+      event?.summary,
+      event?.area,
+      road?.properties?.name,
+      ...(event?.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/vacan|closure|closed|derelict|empty|low activity/.test(text)) return "#ee3f47";
+    if (/open|launch|new shop|retail|market|frontage|store/.test(text)) return intensity > 0.62 ? "#6d2f90" : "#a552a8";
+    if (/food|restaurant|cafe|bar|pub|hotel|hospitality|visitor|tourism|culture/.test(text)) return "#f0a51b";
+    if (/office|business|workspace|industrial|enterprise/.test(text)) return "#1693a3";
+    const seed = stableUnit(`${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
+    if (intensity > 0.76) return seed < 0.45 ? "#6d2f90" : "#a552a8";
+    if (intensity > 0.56) return seed < 0.5 ? "#f0a51b" : "#a552a8";
+    if (seed < 0.38) return "#1693a3";
+    if (seed < 0.68) return "#ee3f47";
+    return "#8c5b3a";
+  }
+
   function planningPressureStreetFeatures(center, lens) {
     const roads = state.detailRoadFeatures || [];
     const events = lensEventsForYear(currentTimelineYear())
@@ -3454,7 +3538,14 @@
       .filter((event) => event.category === "utilities" && event.lngLat);
     if (!roads.length || !events.length) return [];
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * 3.05;
+    const maxDistance = radiusM * (
+      lens.id === "utilities-capacity" ? 3.05
+        : lens.id === "utilities-resilience" ? 2.75
+          : 2.55
+    );
+    const minIntensity = lens.id === "utilities-works" ? 0.25
+      : lens.id === "utilities-resilience" ? 0.21
+        : 0.18;
     const features = [];
     for (const road of roads) {
       const point = geometryToLngLat(road.geometry);
@@ -3466,7 +3557,7 @@
       const rank = Number(road.properties?.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
       const intensity = clamp01(0.18 + eventDensity * 0.5 + proximity * 0.16 + Math.min(0.12, rank * 0.025));
-      if (intensity < 0.18) continue;
+      if (intensity < minIntensity) continue;
       features.push({
         type: "Feature",
         properties: {
@@ -3482,7 +3573,7 @@
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 2200);
+      .slice(0, lens.id === "utilities-capacity" ? 2200 : lens.id === "utilities-resilience" ? 1700 : 1150);
   }
 
   function utilityNetworkGuideColor(lens, event, road, intensity) {
@@ -3500,17 +3591,29 @@
     }
     const type = utilityEventType(event, road);
     if (lens.id === "utilities-resilience") {
-      if (type === "electricity") return "#ef6b2a";
+      if (intensity > 0.88) return "#d53236";
       if (type === "telecoms") return "#7a3b97";
       if (type === "gas") return "#e2b42c";
       if (type === "drainage") return "#148a8d";
-      return "#1787b3";
+      if (type === "electricity" && intensity > 0.66) return "#ef6b2a";
+      const seed = stableUnit(`${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
+      return seed < 0.58 ? "#1787b3" : "#71b4c7";
     }
-    if (intensity > 0.76) return "#c8472e";
-    if (intensity > 0.58) return "#d66a3a";
-    if (type === "electricity") return "#ef6b2a";
-    if (type === "water") return "#1787b3";
-    return "#8c7460";
+    const text = [
+      event?.title,
+      event?.shortDescription,
+      event?.summary,
+      event?.area,
+      ...(event?.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/fail|outage|burst|emergency|disruption|closure/.test(text)) return "#cf3337";
+    if (/repair|replace|upgrade|works/.test(text)) return "#e8a620";
+    if (/permit|consent|licen[cs]e/.test(text)) return "#774a92";
+    if (/reinstate|resurface|restore/.test(text)) return "#4f8f50";
+    if (type === "water") return "#248b94";
+    if (type === "telecoms") return "#774a92";
+    if (type === "electricity") return "#e8a620";
+    return intensity > 0.66 ? "#d66a3a" : "#8c7460";
   }
 
   function utilityEventType(event, road) {
@@ -3926,19 +4029,10 @@
   }
 
   function transportRoadFilter() {
-    const mode = activeMapLens().id;
-    const rank = ["to-number", ["get", "rank"], 1];
-    const threshold = mode === "transport-speed" ? 0.12
-      : mode === "transport-reliability" ? 0.08
-      : 0.05;
     return [
       "all",
       ["==", ["get", "layer"], "traffic_road"],
       ["<=", ["to-number", ["get", "visible_year"], 9999], currentTimelineYear()],
-      ["any",
-        [">=", rank, 2],
-        [">=", transportActivityExpression(), threshold],
-      ],
     ];
   }
 
@@ -5422,7 +5516,7 @@
 
   function focusMapOnEvent(event, duration = 720) {
     if (!event?.lngLat || !state.map || !state.mapReady) return;
-    state.map.flyTo({ center: event.lngLat, zoom: Math.max(state.map.getZoom(), 13.2), duration });
+    state.map.flyTo({ center: event.lngLat, zoom: Math.max(state.map.getZoom(), 13.55), duration });
   }
 
   function clearSelection() {
