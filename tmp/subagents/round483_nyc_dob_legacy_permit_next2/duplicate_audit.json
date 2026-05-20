@@ -272,9 +272,10 @@
       "tmp/subagents/round479_nyc_lpc_permit_next68/candidates.json",
       "tmp/subagents/round480_nyc_dob_now_next32/candidates.json",
       "tmp/subagents/round482_nyc_lpc_permit_next69/candidates.json",
-      "tmp/subagents/round486_nyc_lpc_permit_next70/candidates.json"
+      "tmp/subagents/round486_nyc_lpc_permit_next70/candidates.json",
+      "tmp/subagents/round489_nyc_lpc_permit_next71/candidates.json"
     ],
-    "files_read_count": 266,
+    "files_read_count": 267,
     "files_skipped": []
   },
   "existing_index_counts": {

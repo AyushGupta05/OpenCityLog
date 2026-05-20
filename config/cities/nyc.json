@@ -162,7 +162,8 @@
         "nyc-dob-co-bs8b-p36w",
         "nyc-dob-permit-issuance-ipu4-2q9a",
         "nyc-lpc-permit-application-information",
-        "nyc-dob-certificate-of-occupancy"
+        "nyc-dob-certificate-of-occupancy",
+        "ipu4-2q9a"
       ],
       "availability": "partial_local",
       "years": [

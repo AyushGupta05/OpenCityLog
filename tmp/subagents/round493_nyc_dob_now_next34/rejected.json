@@ -1,14 +1,14 @@
 {
-  "schema_version": "round484.nyc_dob_now_next33_rejections.v1",
+  "schema_version": "round493.nyc_dob_now_next34_rejections.v1",
   "generated_at": "2026-05-20T00:00:00Z",
   "accessed_at": "2026-05-20",
   "rejected_counts": {
-    "existing_job_or_permit_record": 16504,
+    "below_round493_architecture_signal_threshold": 1228,
+    "duplicate_base_job_in_permit_query": 12682,
     "duplicate_permit_row_in_source": 27447,
-    "duplicate_base_job_in_permit_query": 12811,
+    "existing_job_or_permit_record": 16833,
     "invalid_or_outside_nyc_permit_geometry": 2,
-    "no_joined_application_row": 128857,
-    "below_round484_architecture_signal_threshold": 1228
+    "no_joined_application_row": 128857
   },
   "sample_rejections": [
     {
@@ -185,6 +185,14 @@
       "job_filing_number": "M01312475-I1",
       "work_permit": "M01312475-I1-GC",
       "source_record_id": "M01312475-I1-GC:1:554715771",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01261686-I1",
+      "work_permit": "B01261686-I1-GC",
+      "source_record_id": "B01261686-I1-GC:1:558317540",
       "note": ""
     },
     {
@@ -4001,14 +4009,6 @@
       "job_filing_number": "Q01265512-I1",
       "work_permit": "Q01265512-I1-ST",
       "source_record_id": "Q01265512-I1-ST:1:614210930",
-      "note": ""
-    },
-    {
-      "reason": "duplicate_permit_row_in_source",
-      "source_dataset_id": "rbx6-tga4",
-      "job_filing_number": "M01320656-I1",
-      "work_permit": "M01320656-I1-GC-CX",
-      "source_record_id": "M01320656-I1-GC-CX:1:646336755",
       "note": ""
     }
   ]

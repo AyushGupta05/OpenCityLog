@@ -2316,9 +2316,9 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.55, 0.42, 1, 0.58],
           ],
           ["==", ["get", "surface_style"], "catchment_area"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.24, 0.58, 0.42, 1, 0.58],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.58, 0.3, 1, 0.42],
           ["==", ["get", "surface_style"], "catchment_patch"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 1, 0.44],
+          0.34,
           ["==", ["get", "surface_style"], "land_use_tile"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 1, 0.68],
           ["==", ["get", "lens_id"], "civic-demand"],
@@ -2342,7 +2342,7 @@
           ["==", ["get", "surface_style"], "access_fabric"], "#fff9e9",
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case", ["==", ["get", "lens_id"], "planning-delta"], "#f6ded5", "#fff7eb"],
-          ["==", ["get", "surface_style"], "catchment_area"], ["coalesce", ["get", "color"], "#e9cf78"],
+          ["==", ["get", "surface_style"], "catchment_area"], "#fffaf0",
           ["==", ["get", "surface_style"], "land_use_tile"], "#fffaf0",
           "#ffffff",
         ],
@@ -2354,16 +2354,16 @@
           ["==", ["get", "surface_style"], "demand_surface"], 0.12,
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case", ["==", ["get", "lens_id"], "planning-delta"], 0.24, 0.48],
-          ["==", ["get", "surface_style"], "catchment_area"], 0.46,
-          ["==", ["get", "surface_style"], "catchment_patch"], 0.24,
+          ["==", ["get", "surface_style"], "catchment_area"], 0.58,
+          ["==", ["get", "surface_style"], "catchment_patch"], 0.32,
           ["==", ["get", "surface_style"], "land_use_tile"], 0.5,
           0.52,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.2, ["==", ["get", "surface_style"], "access_fabric"], 0.22, ["==", ["get", "surface_style"], "planning_footprint"], 0.2, ["==", ["get", "surface_style"], "catchment_area"], 0.54, 0.3],
-          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.54, ["==", ["get", "surface_style"], "access_fabric"], 0.42, ["==", ["get", "surface_style"], "planning_footprint"], 0.48, ["==", ["get", "surface_style"], "catchment_area"], 1.08, 0.62],
-          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.9, ["==", ["get", "surface_style"], "access_fabric"], 0.68, ["==", ["get", "surface_style"], "planning_footprint"], 0.86, ["==", ["get", "surface_style"], "catchment_area"], 1.55, 1.05],
+          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.2, ["==", ["get", "surface_style"], "access_fabric"], 0.22, ["==", ["get", "surface_style"], "planning_footprint"], 0.2, ["==", ["get", "surface_style"], "catchment_area"], 0.42, 0.3],
+          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.54, ["==", ["get", "surface_style"], "access_fabric"], 0.42, ["==", ["get", "surface_style"], "planning_footprint"], 0.48, ["==", ["get", "surface_style"], "catchment_area"], 0.82, 0.62],
+          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.9, ["==", ["get", "surface_style"], "access_fabric"], 0.68, ["==", ["get", "surface_style"], "planning_footprint"], 0.86, ["==", ["get", "surface_style"], "catchment_area"], 1.2, 1.05],
         ],
       },
     });
@@ -4518,7 +4518,7 @@
     const sourceEvents = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "civic_services" && event.lngLat);
     const candidates = civicCatchmentCandidates(center, radiusM, lens, sourceEvents, year);
-    const selected = selectCivicCatchmentCandidates(center, candidates, lens, 18);
+    const selected = selectCivicCatchmentCandidates(center, candidates, lens, 54);
     const sectorFeatures = civicCatchmentSectorFeatures(center, radiusM, lens, selected);
     if (sectorFeatures.length >= 4) return sectorFeatures;
     const fallbackSources = sourceEvents.map((event) => ({
@@ -4627,11 +4627,11 @@
     const add = (item, strict = true) => {
       if (selected.length >= limit) return false;
       const typeCount = typeCounts.get(item.layerId) || 0;
-      if (strict && typeCount >= 4) return false;
+      if (strict && typeCount >= 8) return false;
       const bucket = transportAngleBucket(center, item.point, 22);
       const bucketCount = angleBuckets.get(bucket) || 0;
-      if (strict && bucketCount >= 2) return false;
-      const minSpacing = strict ? 190 : 120;
+      if (strict && bucketCount >= 3) return false;
+      const minSpacing = strict ? 105 : 72;
       if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < minSpacing)) return false;
       selected.push(item);
       typeCounts.set(item.layerId, typeCount + 1);
@@ -4653,6 +4653,10 @@
 
   function civicCatchmentSectorFeatures(center, radiusM, lens, anchors) {
     if (anchors.length < 3) return [];
+    const serviceCells = civicCatchmentServiceCellFeatures(center, radiusM, lens, anchors);
+    if (serviceCells.length >= 40) return serviceCells;
+    const voronoiFeatures = civicCatchmentVoronoiFeatures(center, radiusM, lens, anchors);
+    if (voronoiFeatures.length >= 4) return voronoiFeatures;
     const features = [];
     const sorted = anchors
       .map((item) => ({ ...item, angle: Math.atan2(item.point[1] - center[1], item.point[0] - center[0]) }))
@@ -4688,7 +4692,7 @@
           sublayer_id: item.layerId,
           service_type: item.layerId,
           intensity: Number(item.intensity.toFixed(3)),
-          color: civicServiceSublayerColor(item.layerId),
+          color: surfaceColorForLens(lens.id, item.intensity, item.angle || 0, item.event, lens),
           event_id: item.event?.id || firstDetailEventId(item.props || {}) || "",
           source_id: item.sourceId || "",
           label: item.event?.title || item.props?.label || item.props?.name || civicServiceSublayerLabel(item.layerId),
@@ -4699,6 +4703,190 @@
       });
     }
     return features;
+  }
+
+  function civicCatchmentServiceCellFeatures(center, radiusM, lens, anchors) {
+    const selected = anchors
+      .map((item, index) => ({
+        ...item,
+        index,
+        local: lngLatToLocalMeters(item.point, center),
+      }))
+      .filter((item) => Number.isFinite(item.local[0]) && Number.isFinite(item.local[1]));
+    if (selected.length < 3) return [];
+    const cells = [];
+    const stepM = 118;
+    const extentM = radiusM * 1.02;
+    let row = 0;
+    for (let dy = -extentM; dy <= extentM; dy += stepM) {
+      for (let dx = -extentM; dx <= extentM; dx += stepM) {
+        const seed = stableUnit(`catchment-cell:${row}:${Math.round(dx)}:${Math.round(dy)}`);
+        const seedY = stableUnit(`catchment-cell-y:${row}:${Math.round(dx)}:${Math.round(dy)}`);
+        const cellDx = dx + (seed - 0.5) * stepM * 0.08;
+        const cellDy = dy + (seedY - 0.5) * stepM * 0.08;
+        const radial = Math.hypot(cellDx, cellDy);
+        if (radial > extentM) continue;
+        const nearest = nearestCivicCatchmentAnchorLocal([cellDx, cellDy], selected);
+        if (!nearest) continue;
+        const proximity = 1 - Math.min(extentM, radial) / extentM;
+        const anchorCloseness = 1 - Math.min(radiusM * 0.7, nearest.distance) / (radiusM * 0.7);
+        const intensity = clamp01(0.28 + proximity * 0.16 + anchorCloseness * 0.26 + nearest.item.intensity * 0.28);
+        const cellCenter = offsetLngLat(center, cellDx, cellDy);
+        cells.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            surface_style: "catchment_patch",
+            sublayer_id: nearest.item.layerId,
+            service_type: nearest.item.layerId,
+            intensity: Number(intensity.toFixed(3)),
+            color: surfaceColorForLens(lens.id, intensity, Math.atan2(cellDy, cellDx), nearest.item.event, lens),
+            event_id: nearest.item.event?.id || firstDetailEventId(nearest.item.props || {}) || "",
+            source_id: nearest.item.sourceId || "",
+            label: nearest.item.event?.title || nearest.item.props?.label || nearest.item.props?.name || civicServiceSublayerLabel(nearest.item.layerId),
+            score: Number((intensity + seed * 0.04 + nearest.item.score * 0.05).toFixed(3)),
+            context: nearest.item.currentContext ? "current_osm_context" : "selected_year_record",
+          },
+          geometry: orientedRectanglePolygon(
+            cellCenter,
+            stepM * (0.72 + seed * 0.08),
+            stepM * (0.68 + seedY * 0.08),
+            (seed - 0.5) * 0.08,
+          ),
+        });
+      }
+      row += 1;
+    }
+    return cells
+      .sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0))
+      .slice(0, guideCellLimit(lens.id));
+  }
+
+  function nearestCivicCatchmentAnchorLocal(point, anchors) {
+    let best = null;
+    let bestDistance = Infinity;
+    for (const item of anchors) {
+      const dx = point[0] - item.local[0];
+      const dy = point[1] - item.local[1];
+      const distance = Math.hypot(dx, dy);
+      const adjusted = distance / Math.max(0.76, 0.9 + Number(item.intensity || 0.5) * 0.22 + Math.min(0.16, Number(item.score || 0) * 0.08));
+      if (adjusted < bestDistance) {
+        best = { item, distance };
+        bestDistance = adjusted;
+      }
+    }
+    return best;
+  }
+
+  function civicCatchmentAnchorAxisAngle(anchors) {
+    if (!anchors.length) return Math.PI / 12;
+    let xx = 0, yy = 0, xy = 0;
+    for (const item of anchors) {
+      const [x, y] = item.local;
+      const weight = Math.max(0.12, Number(item.score || 0.5));
+      xx += x * x * weight;
+      yy += y * y * weight;
+      xy += x * y * weight;
+    }
+    if (Math.abs(xx - yy) + Math.abs(xy) < 1) return Math.PI / 12;
+    return 0.5 * Math.atan2(2 * xy, xx - yy);
+  }
+
+  function civicCatchmentVoronoiFeatures(center, radiusM, lens, anchors) {
+    const selected = anchors
+      .map((item, index) => ({
+        ...item,
+        index,
+        local: lngLatToLocalMeters(item.point, center),
+      }))
+      .filter((item) => Number.isFinite(item.local[0]) && Number.isFinite(item.local[1]));
+    if (selected.length < 3) return [];
+    const clipRadius = radiusM * 1.03;
+    const base = [];
+    const ringSteps = 96;
+    for (let i = 0; i < ringSteps; i += 1) {
+      const angle = (i / ringSteps) * Math.PI * 2;
+      base.push([Math.cos(angle) * clipRadius, Math.sin(angle) * clipRadius]);
+    }
+    const features = [];
+    for (const item of selected) {
+      let polygon = base;
+      const [ax, ay] = item.local;
+      for (const other of selected) {
+        if (other.index === item.index) continue;
+        const [bx, by] = other.local;
+        if (Math.hypot(ax - bx, ay - by) < 5) continue;
+        polygon = clipPolygonToNearestAnchorHalfPlane(polygon, ax, ay, bx, by);
+        if (polygon.length < 3) break;
+      }
+      const area = Math.abs(localPolygonArea(polygon));
+      if (polygon.length < 3 || area < 900) continue;
+      const coordinates = polygon.map(([x, y]) => offsetLngLat(center, x, y));
+      coordinates.push(coordinates[0]);
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "catchment_area",
+          sublayer_id: item.layerId,
+          service_type: item.layerId,
+          intensity: Number(item.intensity.toFixed(3)),
+          color: surfaceColorForLens(lens.id, item.intensity, Math.atan2(item.local[1], item.local[0]), item.event, lens),
+          event_id: item.event?.id || firstDetailEventId(item.props || {}) || "",
+          source_id: item.sourceId || "",
+          label: item.event?.title || item.props?.label || item.props?.name || civicServiceSublayerLabel(item.layerId),
+          score: Number((item.score + item.intensity * 0.12 + Math.min(0.16, area / (clipRadius * clipRadius * Math.PI) * 0.6)).toFixed(3)),
+          context: item.currentContext ? "current_osm_context" : "selected_year_record",
+        },
+        geometry: { type: "Polygon", coordinates: [coordinates] },
+      });
+    }
+    return features.sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0));
+  }
+
+  function clipPolygonToNearestAnchorHalfPlane(polygon, ax, ay, bx, by) {
+    if (!polygon.length) return [];
+    const nx = bx - ax;
+    const ny = by - ay;
+    const c = (bx * bx + by * by - ax * ax - ay * ay) / 2;
+    const inside = (point) => point[0] * nx + point[1] * ny <= c + 1e-6;
+    const intersection = (from, to) => {
+      const fromValue = from[0] * nx + from[1] * ny - c;
+      const toValue = to[0] * nx + to[1] * ny - c;
+      const denom = fromValue - toValue;
+      if (Math.abs(denom) < 1e-9) return to;
+      const t = fromValue / denom;
+      return [
+        from[0] + (to[0] - from[0]) * t,
+        from[1] + (to[1] - from[1]) * t,
+      ];
+    };
+    const output = [];
+    for (let i = 0; i < polygon.length; i += 1) {
+      const current = polygon[i];
+      const previous = polygon[(i - 1 + polygon.length) % polygon.length];
+      const currentInside = inside(current);
+      const previousInside = inside(previous);
+      if (currentInside) {
+        if (!previousInside) output.push(intersection(previous, current));
+        output.push(current);
+      } else if (previousInside) {
+        output.push(intersection(previous, current));
+      }
+    }
+    return output;
+  }
+
+  function localPolygonArea(points) {
+    let area = 0;
+    for (let i = 0; i < points.length; i += 1) {
+      const [x0, y0] = points[i];
+      const [x1, y1] = points[(i + 1) % points.length];
+      area += x0 * y1 - x1 * y0;
+    }
+    return area / 2;
   }
 
   function civicCatchmentSectorPolygon(center, startAngle, endAngle, innerRadiusM, outerRadiusM, seed = 0.5) {
@@ -6522,7 +6710,11 @@
     const eventNodes = anchors
       .map((item, index) => {
         const intensity = clamp01(0.18 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.72);
-        const sublayerId = lens.id === "economy-gravity" ? economyGravitySectorKey(item.event) : "";
+        const sublayerId = lens.id === "economy-gravity"
+          ? economyGravitySectorKey(item.event)
+          : lens.id === "civic-catchment"
+          ? civicServiceSublayerKey(item.event)
+          : "";
       return {
         type: "Feature",
         properties: {
@@ -6539,7 +6731,11 @@
           layer_id: lens.id === "civic-access-gaps" ? "facilities" : "",
           sublayer_id: sublayerId,
           intensity: Number(intensity.toFixed(2)),
-          color: sublayerId ? economyGravitySectorColor(sublayerId) : guideFlowColor(lens, item.event, 0, intensity),
+          color: lens.id === "economy-gravity" && sublayerId
+            ? economyGravitySectorColor(sublayerId)
+            : lens.id === "civic-catchment" && sublayerId
+            ? civicServiceSublayerColor(sublayerId)
+            : guideFlowColor(lens, item.event, 0, intensity),
         },
         geometry: { type: "Point", coordinates: item.event.lngLat },
       };
@@ -8443,7 +8639,7 @@
         common[2],
       ],
       "civic-catchment": [
-        { label: "Catchment cells", value: compactNumber(Math.max(1, Math.round(context.radiusM / 85))), hint: "generated around event" },
+        { label: "Catchment cells", value: compactNumber(Math.max(1, Math.round(context.radiusM / 28))), hint: "nearest service anchors" },
         common[1],
         common[0],
         common[2],

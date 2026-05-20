@@ -38,6 +38,7 @@ function buildRound484Source() {
     .replace(/contains_round473/g, "contains_round480")
     .replace(/round473_records/g, "round480_records")
     .replace(/nyc_dob_now_next31/g, "nyc_dob_now_next32")
+    .replace(/next3332/g, "next3333")
     .replace(/round number <= 473/g, "round number <= 480")
     .replace(/<= 473/g, "<= 480")
     .replace(/> 473/g, "> 480")

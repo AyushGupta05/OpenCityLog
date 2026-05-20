@@ -1,0 +1,424 @@
+{
+  "schema_version": "round495_nyc_dob_legacy_permit_next3_rejected.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "rejected": [
+    {
+      "reason": "job_application_below_high_signal_threshold",
+      "count": 11830,
+      "samples": [
+        {
+          "job_number": "520314883",
+          "scale_note": "49,400 sq ft total construction floor area; 64 ft proposed height; 5 proposed stories"
+        },
+        {
+          "job_number": "520314883",
+          "scale_note": "49,400 sq ft total construction floor area; 64 ft proposed height; 5 proposed stories"
+        },
+        {
+          "job_number": "520362447",
+          "scale_note": "57 sq ft total construction floor area; 9 ft proposed height; 1 proposed stories"
+        },
+        {
+          "job_number": "520362447",
+          "scale_note": "57 sq ft total construction floor area; 9 ft proposed height; 1 proposed stories"
+        },
+        {
+          "job_number": "520363794",
+          "scale_note": "308 sq ft total construction floor area; 16 ft proposed height; 1 proposed stories"
+        },
+        {
+          "job_number": "421795427",
+          "scale_note": "40 ft proposed height; 2 proposed stories; initial cost $1,000"
+        },
+        {
+          "job_number": "420607212",
+          "scale_note": "35 ft proposed height; 1 proposed stories; initial cost $1,000"
+        },
+        {
+          "job_number": "121203857",
+          "scale_note": "1 proposed dwelling units; 267 sq ft total construction floor area; 15 ft proposed height; 1 proposed stories; initial cost $1,290,000"
+        },
+        {
+          "job_number": "520202637",
+          "scale_note": "1 proposed dwelling units; 31 ft proposed height; 2 proposed stories; initial cost $150,000"
+        },
+        {
+          "job_number": "520202637",
+          "scale_note": "1 proposed dwelling units; 31 ft proposed height; 2 proposed stories; initial cost $150,000"
+        },
+        {
+          "job_number": "210180230",
+          "scale_note": "8,400 sq ft total construction floor area; 8,368 proposed zoning sq ft; 20 ft proposed height; 1 proposed stories; initial cost $50,000; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "321591782",
+          "scale_note": "6 proposed dwelling units; 8,010 sq ft total construction floor area; 5,993 proposed zoning sq ft; 29 ft proposed height; 3 proposed stories; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "321598972",
+          "scale_note": "4 proposed dwelling units; 5,198 sq ft total construction floor area; 3,670 proposed zoning sq ft; 30 ft proposed height; 3 proposed stories; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "322035864",
+          "scale_note": "1,280 sq ft total construction floor area; 1,280 proposed zoning sq ft; 25 ft proposed height; 2 proposed stories; initial cost $1; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "240297184",
+          "scale_note": "1 proposed dwelling units; 8,834 sq ft total construction floor area; 7,569 proposed zoning sq ft; 32 ft proposed height; 3 proposed stories; initial cost $50,000; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "210182452",
+          "scale_note": "2 proposed dwelling units; 4,232 sq ft total construction floor area; 3,450 proposed zoning sq ft; 31 ft proposed height; 3 proposed stories; initial cost $124,200; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "321268301",
+          "scale_note": "4 proposed dwelling units; 3,037 proposed zoning sq ft; 31 ft proposed height; 3 proposed stories; initial cost $80,000; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "321422091",
+          "scale_note": "9,636 sq ft total construction floor area; 4,167 proposed zoning sq ft; 40 ft proposed height; 2 proposed stories; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "301002126",
+          "scale_note": "2,200 sq ft total construction floor area; 6 ft proposed height; 1 proposed stories; initial cost $45,000; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "440635172",
+          "scale_note": "1 proposed dwelling units; 2,203 sq ft total construction floor area; 1,168 proposed zoning sq ft; 31 ft proposed height; 2 proposed stories; initial cost $265,000; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "421097707",
+          "scale_note": "7,082 proposed zoning sq ft; 26 ft proposed height; 2 proposed stories; initial cost $18,000; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "140931525",
+          "scale_note": "647 sq ft total construction floor area; 647 proposed zoning sq ft; 15 ft proposed height; 1 proposed stories; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "301166501",
+          "scale_note": "3,200 sq ft total construction floor area; 12 ft proposed height; 1 proposed stories; initial cost $100; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "301166538",
+          "scale_note": "1 proposed dwelling units; 1,443 sq ft total construction floor area; 25 ft proposed height; 2 proposed stories; initial cost $1; public/nonprofit/civic owner flag or name"
+        },
+        {
+          "job_number": "301779724",
+          "scale_note": "3 proposed dwelling units; 4,576 sq ft total construction floor area; 31 ft proposed height; 3 proposed stories; public/nonprofit/civic owner flag or name"
+        }
+      ]
+    },
+    {
+      "reason": "existing_job_number_overlap",
+      "count": 6231,
+      "samples": [
+        {
+          "job_number": "420652074"
+        },
+        {
+          "job_number": "420652074"
+        },
+        {
+          "job_number": "310237927"
+        },
+        {
+          "job_number": "220604344"
+        },
+        {
+          "job_number": "220604344"
+        },
+        {
+          "job_number": "420664043"
+        },
+        {
+          "job_number": "420664043"
+        },
+        {
+          "job_number": "302348109"
+        },
+        {
+          "job_number": "110236940"
+        },
+        {
+          "job_number": "110379518"
+        },
+        {
+          "job_number": "110379518"
+        },
+        {
+          "job_number": "410118572"
+        },
+        {
+          "job_number": "410118572"
+        },
+        {
+          "job_number": "110465871"
+        },
+        {
+          "job_number": "120477162"
+        },
+        {
+          "job_number": "120477162"
+        },
+        {
+          "job_number": "321081306"
+        },
+        {
+          "job_number": "421901080"
+        },
+        {
+          "job_number": "421901080"
+        },
+        {
+          "job_number": "421911836"
+        },
+        {
+          "job_number": "421911836"
+        },
+        {
+          "job_number": "421838015"
+        },
+        {
+          "job_number": "320912704"
+        },
+        {
+          "job_number": "220673091"
+        },
+        {
+          "job_number": "220673091"
+        }
+      ]
+    },
+    {
+      "reason": "no_initial_issued_nb_or_al_permit_in_window",
+      "count": 5502,
+      "samples": [
+        {
+          "job_number": "123055086",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "310108969",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "321920061",
+          "job_type": "NB"
+        },
+        {
+          "job_number": "421328012",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "421662052",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "122875781",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "220112768",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "121184805",
+          "job_type": "NB"
+        },
+        {
+          "job_number": "310153892",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "310159770",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "121191815",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "520390782",
+          "job_type": "NB"
+        },
+        {
+          "job_number": "410097229",
+          "job_type": "NB"
+        },
+        {
+          "job_number": "120297801",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "122757301",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "121961582",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "121331763",
+          "job_type": "NB"
+        },
+        {
+          "job_number": "121406996",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "121326225",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "401962523",
+          "job_type": "NB"
+        },
+        {
+          "job_number": "420813953",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "520372196",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "340776805",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "520042383",
+          "job_type": "A1"
+        },
+        {
+          "job_number": "120081632",
+          "job_type": "A1"
+        }
+      ]
+    },
+    {
+      "reason": "eligible_not_selected_due_to_target_cap",
+      "count": 4817,
+      "samples": [
+        {
+          "eligible_pool_after_duplicate_screening": 5017,
+          "target_count": 200
+        }
+      ]
+    },
+    {
+      "reason": "withdrawn_job_application",
+      "count": 869,
+      "samples": [
+        {
+          "job_number": "122158896",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "122158896",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "320626578",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "122767755",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "121190870",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "121191860",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "421677466",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "421479705",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "320862526",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "321276445",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "420510646",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "321312263",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "121185984",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "410042644",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "122784861",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "123055576",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "123549473",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "123440080",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "110298703",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "122713634",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "123328167",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "123328167",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "121754388",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "110459361",
+          "withdrawal_flag": "1"
+        },
+        {
+          "job_number": "320416028",
+          "withdrawal_flag": "1"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "eligible_not_selected_due_to_target_cap": 4817,
+    "existing_job_number_overlap": 6231,
+    "job_application_below_high_signal_threshold": 11830,
+    "no_initial_issued_nb_or_al_permit_in_window": 5502,
+    "withdrawn_job_application": 869
+  },
+  "retrieved_at": "2026-05-20"
+}

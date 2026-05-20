@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round487_belfast_official_architecture_sweep_next21",
+  "ok": true,
+  "accepted_count": 21,
+  "rejected_count": 8,
+  "point_backed_count": 21,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2025-01-13",
+    "end": "2025-03-31"
+  },
+  "publishers": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_count": 1,
+  "source_record_id_count": 21,
+  "source_date_key_count": 21,
+  "category_counts": {
+    "architecture_commercial_admin": 8,
+    "architecture_heritage_commercial_admin": 1,
+    "architecture_heritage_public_estate_admin": 3,
+    "architecture_residential_commercial_admin": 2,
+    "architecture_hospitality_commercial_admin": 2,
+    "architecture_heritage_health_admin": 1,
+    "architecture_student_accommodation_admin": 1,
+    "architecture_civic_admin": 1,
+    "architecture_hospitality_residential_admin": 1,
+    "architecture_hospitality_cultural_admin": 1
+  },
+  "event_type_counts": {
+    "planning_decision_change_of_use": 12,
+    "planning_decision_listed_building_consent": 4,
+    "planning_decision_listed_building_alterations": 1,
+    "planning_decision_office_accommodation": 1,
+    "planning_decision_building_services_alteration": 1,
+    "planning_decision_accessibility_works": 1,
+    "planning_decision_demolition_consent": 1
+  },
+  "warnings": [],
+  "errors": [],
+  "duplicate_scan_roots": [
+    "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "tmp/subagents Belfast accepted candidate packs through round477"
+  ],
+  "duplicate_scan_files_checked": 97,
+  "dedupe_boundary_round": 477,
+  "searched_queries": [
+    "local DfI planning-statistics 2024-25 Belfast residual APP_ID scan after Round477 accepted-pack dedupe",
+    "local duplicate scan: data/manual_drops/architecture_milestones plus prior tmp Belfast candidates through round477",
+    "source review: DfI planning activity statistics and 2024/25 annual dataset",
+    "source review: EPSG:29902 TM65 / Irish Grid projection and TOWGS84 parameters for Easting/Northing conversion",
+    "source review: DfC/HED ArcGIS feature service status-only rows",
+    "source review: Belfast City Council official project/news page-only leads retained outside the Round477 boundary",
+    "source review: NI Water official page geometry-ref-only utility lead",
+    "source review: QUB Weavers' Hall official future/duplicate page lead"
+  ]
+}

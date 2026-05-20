@@ -88,7 +88,7 @@
     "selected_candidates": 200,
     "retained_less_than_target_reason": null,
     "duplicate_screening": {
-      "files_read": 266,
+      "files_read": 267,
       "files_skipped": [],
       "manual_event_count": 75950,
       "scanned_dob_records": 40355,
@@ -363,6 +363,7 @@
         "tmp/subagents/round480_nyc_dob_now_next32/candidates.json",
         "tmp/subagents/round482_nyc_lpc_permit_next69/candidates.json",
         "tmp/subagents/round486_nyc_lpc_permit_next70/candidates.json",
+        "tmp/subagents/round489_nyc_lpc_permit_next71/candidates.json",
         "web/data/city-atlas/cities/nyc/events.json"
       ]
     },

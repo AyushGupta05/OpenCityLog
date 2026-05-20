@@ -61,13 +61,13 @@
       "path": "tmp/subagents/round483_nyc_dob_legacy_permit_next2/source_audit.json",
       "exists": true,
       "parse_ok": true,
-      "size_bytes": 30247
+      "size_bytes": 30319
     },
     {
       "path": "tmp/subagents/round483_nyc_dob_legacy_permit_next2/summary.json",
       "exists": true,
       "parse_ok": true,
-      "size_bytes": 23798
+      "size_bytes": 23870
     },
     {
       "path": "tmp/subagents/round483_nyc_dob_legacy_permit_next2/rejected.json",
@@ -91,7 +91,7 @@
       "path": "tmp/subagents/round483_nyc_dob_legacy_permit_next2/readback.json",
       "exists": true,
       "parse_ok": true,
-      "size_bytes": 182
+      "size_bytes": 3812
     },
     {
       "path": "tmp/subagents/round483_nyc_dob_legacy_permit_next2/notes.md",
@@ -103,7 +103,7 @@
       "path": "tmp/subagents/round483_nyc_dob_legacy_permit_next2/duplicate_audit.json",
       "exists": true,
       "parse_ok": true,
-      "size_bytes": 30561
+      "size_bytes": 30631
     }
   ],
   "validation_error_count": 0,

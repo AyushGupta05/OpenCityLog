@@ -1437,7 +1437,9 @@ async function main() {
     accessed_at: ACCESSED_AT,
     pending_final_readback: true
   });
-  const readback = buildReadback(summary, validation);
+  let readback = buildReadback(summary, validation);
+  writeJson(path.join(OUT_DIR, "readback.json"), readback);
+  readback = buildReadback(summary, validation);
   writeJson(path.join(OUT_DIR, "readback.json"), readback);
 
   console.log(JSON.stringify({
