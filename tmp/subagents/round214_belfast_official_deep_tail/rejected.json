@@ -1,0 +1,80 @@
+{
+  "schema_version": "round214.belfast_official_deep_tail.rejected.v1",
+  "generated_at": "2026-05-19",
+  "city_id": "belfast",
+  "rejected_count": 9,
+  "rejected": [
+    {
+      "key": "city_quays_gardens_opening_duplicate",
+      "city_id": "belfast",
+      "reason": "City Quays Gardens official opening was already represented in the corpus as bfs_arch_city_quays_gardens_launch_2025; the official Harbour page was retained only as a discovered corroborating source lead.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfast-harbour.co.uk/news/park-life-arrives-at-belfast-harbour-as-official-opening-of-city-quays-gardens-signals-start-of-summer/",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "under_bridges_funding_duplicate",
+      "city_id": "belfast",
+      "reason": "Under the Bridges and Sailortown Bridge DfI investment were already represented in round183/corpus records.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfastcity.gov.uk/News/Belfast-city-centre-regeneration-steps-up-a-gear",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "five_cs_consultation_duplicate",
+      "city_id": "belfast",
+      "reason": "Five Cs consultation, screening, accessibility report and revitalisation milestones were already represented in prior Belfast packs and corpus records.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.communities-ni.gov.uk/news/minister-ni-chuilin-launches-consultation-belfast-public-realm-scheme",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "belfast_stories_design_and_consultation_duplicate",
+      "city_id": "belfast",
+      "reason": "Belfast Stories design-team, Stage 3, design-development and pre-application consultation milestones were already represented in the corpus.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfastcity.gov.uk/BelfastStories/What-is-it",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "cathedral_gardens_duplicate",
+      "city_id": "belfast",
+      "reason": "Cathedral Gardens approval, works-start and Belfast Blitz Memorial design milestones were already represented in the corpus and prior packs.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "spg_masterplans_duplicate",
+      "city_id": "belfast",
+      "reason": "Supplementary Planning Guidance masterplans for Cathedral/Northeast Quarter and Sailortown/City Quays were already represented by an existing 2026 corpus event; the same news page was used only for the distinct Common Market planning-approval item.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfastcity.gov.uk/News/Council-agrees-supplementary-planning-guidance-for",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "st_marys_sports_hall_duplicate",
+      "city_id": "belfast",
+      "reason": "St Mary's Christian Brothers' Grammar School sports hall approval was already present in the corpus.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfastcity.gov.uk/News/Council-agrees-supplementary-planning-guidance-for",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "westbank_logistics_duplicate",
+      "city_id": "belfast",
+      "reason": "Belfast Harbour's Westbank Road logistics warehouse approval appears to duplicate an existing committee/planning-statistics warehouse distribution facility approval record.",
+      "category": "duplicate_existing_event",
+      "source_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-logistics-warehouse/",
+      "rejected_at": "2026-05-19"
+    },
+    {
+      "key": "d3_planning_amendment_page_rejected",
+      "city_id": "belfast",
+      "reason": "The D3 planning amendment lead returned a non-indexed/not-found response during retrieval; the stronger official D3 work-commencement news page was retained instead.",
+      "category": "retrieval_or_date_quality",
+      "source_url": "https://www.belfast-harbour.co.uk/port/amendments-d3-planning-consent/",
+      "rejected_at": "2026-05-19"
+    }
+  ]
+}

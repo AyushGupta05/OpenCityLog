@@ -1,0 +1,249 @@
+{
+  "schema_version": "round219.nyc_dob_co_next12_source_audit.v1",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "audit_scope": "Official NYC Open Data DOB NOW Certificate of Occupancy and legacy DOB Certificate Of Occupancy source audit for Bims-5 candidate ingestion.",
+  "sources": [
+    {
+      "source_id": "nyc-dob-now-certificate-of-occupancy-pkdm-hqz6",
+      "canonical_source_id": "nyc-dob-certificate-of-occupancy",
+      "dataset_id": "pkdm-hqz6",
+      "source_name": "NYC Open Data: DOB NOW: Certificate of Occupancy",
+      "publisher": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Certificate-of-Occupancy/pkdm-hqz6",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/pkdm-hqz6.json",
+      "metadata_url": "https://data.cityofnewyork.us/api/views/pkdm-hqz6",
+      "source_type": "official NYC Open Data Socrata dataset",
+      "description": "This data set includes certificates of occupancy issued through the New York City Department of Buildings' DOB NOW: Certificate of Occupancy module. This module was released in March of 2021, anbd from that point onward this data set should be utilized instead of the \"DOB Certificate of Occupancy\" data set. The data is collected because the Department of Buildings tracks Certificates of Occupancies issued. This data include items such as job filing name, job filing label, BIN, Address, and Certificate of Occupancy status, sequence, label, and issuance date. <br> \"A Certificate of Occupancy (CO) states a legal use and/or type of permitted occupancy of a building. New buildings must have a CO, and existing buildings must have a current or amended CO when there is a change in use, egress or type of occupancy. No one may legally occupy a building until the Department has issued a CO or Temporary Certificate of Occupancy (TCO). A CO confirms that the completed work complies with all applicable laws, all paperwork has been completed, all fees owed to the Department have been paid, all relevant violations have been resolved, and all necessary approvals have been received from other City Agencies. The Department issues a final CO when the completed work matches the submitted plans for new buildings or major alterations.\"",
+      "attribution": "Department of Buildings (DOB)",
+      "provenance": "official",
+      "rows_updated_at_utc": "2026-05-19T20:00:53.000Z",
+      "publication_date_utc": "2026-01-16T15:41:50.000Z",
+      "update_frequency": "Daily",
+      "license": "No dataset-specific license field exposed in Socrata metadata checked during this run; NYC Open Data Terms of Use / NYC.gov Terms of Use apply.",
+      "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "reliability": "strong for DOB-issued CO administrative status; usable with caveats for city-change milestones",
+      "coverage_years_checked": "2008-01-01 through 2026-05-19",
+      "published_coverage_note": "DOB NOW CO module was released in March 2021; the dataset description directs users to this view from that point onward.",
+      "geographic_scope": "New York City DOB NOW certificate-of-occupancy records with address, BIN, BBL, and latitude/longitude fields when geocoded.",
+      "granularity": "One certificate-of-occupancy application/sequence row; repeated rows can occur for renewal, sequence, status, or later corrections.",
+      "key_fields_for_events": [
+        "job_filing_name",
+        "job_type",
+        "bin",
+        "borough",
+        "house_no",
+        "street_name",
+        "block",
+        "lot",
+        "zip_code",
+        "submitted_date",
+        "c_of_o_status",
+        "c_of_o_sequence",
+        "c_of_o_filing_type",
+        "community_board",
+        "c_of_o_issuance_date",
+        "application_number",
+        "number_of_dwelling_units",
+        "c_of_o_number",
+        "latitude",
+        "longitude",
+        "citycouncildistrict",
+        "bbl",
+        "censustract2010",
+        "ntaname"
+      ],
+      "source_date_fields": [
+        "c_of_o_issuance_date",
+        "submitted_date"
+      ],
+      "geometry_fields": [
+        "latitude",
+        "longitude",
+        "bbl",
+        "bin"
+      ],
+      "accepted_candidate_count": 100,
+      "required_caveats": [
+        "CO issuance is an administrative/legal record, not actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal evidence.",
+        "DOB NOW c_of_o_issuance_date is a text field and must be parsed carefully.",
+        "Renewal rows can duplicate earlier CO milestones and were excluded from accepted candidates in this pass.",
+        "Dwelling-unit counts are DOB row values and may be corrected by later records."
+      ],
+      "ingestion_recommendation": "Append only with row-level source URL, application number, job filing name, CO number, date field, coordinates, terms note, and limitations."
+    },
+    {
+      "source_id": "nyc-dob-certificate-of-occupancy-bs8b-p36w",
+      "canonical_source_id": "nyc-dob-certificate-of-occupancy",
+      "dataset_id": "bs8b-p36w",
+      "source_name": "NYC Open Data: DOB Certificate Of Occupancy",
+      "publisher": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/bs8b-p36w.json",
+      "metadata_url": "https://data.cityofnewyork.us/api/views/bs8b-p36w",
+      "source_type": "official NYC Open Data Socrata dataset",
+      "description": "A Certificate of Occupancy (CO) states a building's legal use and/or type of permitted occupancy. New buildings must have a CO, and existing buildings must have a current or amended CO when there is a change in use, egress or type of occupancy. No one may legally occupy a building until the Department has issued a Certificate of Occupancy or Temporary Certificate of Occupancy. The Department issues a final Certificate of Occupancy when the completed work matches the submitted plans for new buildings or major alterations. It issues a Letter of Completion for minor alterations to properties. These documents confirm the work complies with all applicable laws, all paperwork has been completed, all fees owed to the Department have been paid, all relevant violations have been resolved and all necessary approvals have been received from other City Agencies. This dataset contains all Certificates of Occupancy issued from 7/12/2012 to March 2021. PDFs of the actual COs are viewable in www.nyc.gov/bis. For COs issued since March 2021, see <a href=\"https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Certificate-of-Occupancy/pkdm-hqz6\">DOB NOW: Certificate of Occupancy</a> dataset.",
+      "attribution": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "provenance": "official",
+      "rows_updated_at_utc": "2026-05-16T20:36:20.000Z",
+      "publication_date_utc": "2017-07-11T21:58:44.000Z",
+      "update_frequency": "Daily",
+      "license": "No dataset-specific license field exposed in Socrata metadata checked during this run; NYC Open Data Terms of Use / NYC.gov Terms of Use apply.",
+      "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "reliability": "strong for issued legacy CO administrative status; usable with caveats for city-change milestones",
+      "coverage_years_checked": "2008-01-01 through 2026-05-19",
+      "published_coverage_note": "Dataset description says legacy CO coverage is primarily 2012-07-12 through March 2021; this pass retained legacy candidates only through 2021-03-31.",
+      "geographic_scope": "New York City legacy DOB certificate-of-occupancy records with address, BIN, BBL, and latitude/longitude fields when geocoded.",
+      "granularity": "One legacy DOB certificate-of-occupancy job/item row; repeated temporary CO rows can occur for one job and address.",
+      "key_fields_for_events": [
+        "job_number",
+        "job_type",
+        "c_o_issue_date",
+        "bin_number",
+        "borough",
+        "house_number",
+        "street_name",
+        "block",
+        "lot",
+        "postcode",
+        "pr_dwelling_unit",
+        "ex_dwelling_unit",
+        "application_status_raw",
+        "filing_status_raw",
+        "item_number",
+        "issue_type",
+        "latitude",
+        "longitude",
+        "community_board",
+        "council_district",
+        "census_tract",
+        "bin",
+        "bbl",
+        "nta"
+      ],
+      "source_date_fields": [
+        "c_o_issue_date"
+      ],
+      "geometry_fields": [
+        "latitude",
+        "longitude",
+        "location",
+        "bbl",
+        "bin",
+        "bin_number"
+      ],
+      "accepted_candidate_count": 100,
+      "required_caveats": [
+        "Legacy CO issuance is an administrative/legal record, not actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal evidence.",
+        "Legacy coverage does not support pre-2012 CO discovery even though the requested scan window begins in 2008.",
+        "For records after March 2021, DOB NOW CO is the preferred source.",
+        "Temporary CO rows can recur for the same project and were grouped before candidate selection."
+      ],
+      "ingestion_recommendation": "Append only with row-level source URL, DOB job number, item/issue type, date field, coordinates, terms note, and limitations."
+    }
+  ],
+  "selection_summary": {
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-19"
+    },
+    "legacy_preferred_end_date": "2021-03-31",
+    "target_count": 200,
+    "candidate_pool_before_balancing": 9093,
+    "candidate_count": 200,
+    "eligible_headroom_after_retained_candidates": 8893,
+    "retained_less_than_target_reason": null,
+    "duplicate_screening": {
+      "files_read": 21,
+      "tokens": 116641,
+      "source_date_keys": 69957,
+      "screened_files": [
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+        "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+        "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+        "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+        "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+        "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+        "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+        "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+        "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+        "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+        "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+        "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+        "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+        "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+        "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+        "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+        "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+        "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+        "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+        "tmp/subagents/round211_nyc_dob_co_next11/candidates.json"
+      ],
+      "manual_event_count": 33296
+    },
+    "fetched_counts": {
+      "dob_now_rows_fetched": 75796,
+      "dob_now_grouped_rows": 23907,
+      "legacy_rows_fetched": 142076,
+      "legacy_grouped_rows": 52945
+    },
+    "rejected_counts": {
+      "dob_now_below_high_signal_threshold_or_renewal": 20566,
+      "existing_dob_now_co_or_job_identifier": 2059,
+      "legacy_below_high_signal_threshold": 30822,
+      "existing_legacy_co_or_job_identifier": 1890,
+      "legacy_post_dob_now_coverage_period": 12422
+    },
+    "selected_summary": {
+      "by_source_dataset_id": {
+        "bs8b-p36w": 100,
+        "pkdm-hqz6": 100
+      },
+      "by_year": {
+        "2012": 10,
+        "2013": 8,
+        "2014": 8,
+        "2015": 6,
+        "2016": 12,
+        "2017": 15,
+        "2018": 10,
+        "2019": 9,
+        "2020": 12,
+        "2021": 10,
+        "2022": 17,
+        "2023": 41,
+        "2024": 31,
+        "2025": 11
+      },
+      "by_borough": {
+        "Bronx": 27,
+        "Brooklyn": 53,
+        "Manhattan": 31,
+        "Queens": 75,
+        "Staten Island": 14
+      },
+      "by_co_type": {
+        "Final": 182,
+        "Temporary": 17,
+        "Initial": 1
+      },
+      "by_job_type": {
+        "NB": 64,
+        "A1": 36,
+        "NEW BUILDING": 76,
+        "New Building": 24
+      },
+      "date_range": {
+        "start": "2012-07-12",
+        "end": "2025-05-13"
+      },
+      "dwelling_units": {
+        "min": 2,
+        "median": 49,
+        "max": 134
+      }
+    }
+  },
+  "caveat": "CO rows are legal/admin records. Do not present them as actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal evidence."
+}

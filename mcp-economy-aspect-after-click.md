@@ -1,0 +1,4 @@
+- tablist "Lens treatment" [box=1298,343,198,40]:
+  - tab "Vitality" [selected] [ref=e840] [cursor=pointer] [box=1298,343,66,30]
+  - tab "Land Use" [ref=e841] [cursor=pointer] [box=1364,343,66,30]
+  - tab "Gravity" [ref=e842] [cursor=pointer] [box=1430,343,66,30]

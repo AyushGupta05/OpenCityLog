@@ -1,0 +1,173 @@
+- generic [active] [ref=e1] [box=0,0,1920,1080]:
+  - link "Skip to changelog" [ref=e2] [cursor=pointer] [box=16,-48,123,32]:
+    - /url: "#eventList"
+  - generic [ref=e3] [box=0,0,1920,1080]:
+    - generic "OpenCityLog real city basemap" [ref=e4] [box=0,0,1920,1080]:
+      - generic [box=0,0,1920,0]:
+        - region "Map" [ref=e5] [box=0,0,1920,1080]
+        - button "Map marker" [ref=e245] [box=1124,419,22,22]
+        - button "Map marker" [ref=e247] [box=1124,419,22,22]
+        - button "Map marker" [ref=e249] [box=1144,424,22,22]
+        - button "Map marker" [ref=e251] [box=1140,409,22,22]
+        - button "Map marker" [ref=e253] [box=1167,446,22,22]
+        - button "Map marker" [ref=e255] [box=998,391,22,22]
+        - button "Map marker" [ref=e257] [box=1130,540,22,22]
+        - button "Map marker" [ref=e259] [box=1148,391,22,22]
+        - button "Map marker" [ref=e261] [box=1148,391,22,22]
+        - button "Map marker" [ref=e263] [box=1170,430,22,22]
+        - button "Map marker" [ref=e265] [box=1170,430,22,22]
+        - button "Map marker" [ref=e267] [box=1170,430,22,22]
+        - button "Map marker" [ref=e269] [box=971,497,22,22]
+        - button "Map marker" [ref=e271] [box=1139,549,22,22]
+        - button "Map marker" [ref=e273] [box=1046,574,22,22]
+        - button "Map marker" [ref=e275] [box=997,553,22,22]
+        - button "Map marker" [ref=e277] [box=1167,391,22,22]
+        - button "Map marker" [ref=e279] [box=1178,518,22,22]
+        - button "Map marker" [ref=e281] [box=949,529,22,22]
+        - button "Map marker" [ref=e283] [box=1154,185,22,22]
+      - generic [box=0,0,1920,0]:
+        - group [ref=e285] [box=26,908,169,26]
+        - generic [ref=e6] [box=1464,778,34,98]
+    - generic [ref=e13] [box=16,16,1888,52]:
+      - generic [ref=e14] [box=33,29,217,26]:
+        - generic [ref=e15] [box=33,29,112,26]
+        - generic [ref=e17] [box=153,40,82,12]: v0.4 · alpha
+      - button "Belfast" [ref=e19] [cursor=pointer] [box=266,26,82,32]:
+        - generic [ref=e20] [box=279,34,40,16]: Belfast
+        - img [ref=e21] [box=325,37,10,10]
+      - generic [ref=e23] [box=360,26,380,32]:
+        - img [box=370,35,14,14]
+        - textbox "Search changes in Belfast… (try \"grand central\", \"cycle\", \"translink\")" [ref=e24] [box=360,26,380,32]:
+          - /placeholder: Search changes in Belfast…  (try "grand central", "cycle", "translink")
+      - button "Methodology" [ref=e25] [cursor=pointer] [box=1428,26,117,32]:
+        - img [ref=e26] [box=1441,36,12,12]
+        - text: Methodology
+      - button "Changelog" [pressed] [ref=e29] [cursor=pointer] [box=1558,26,104,32]:
+        - img [ref=e30] [box=1571,36,12,12]
+        - text: Changelog
+      - button "Compare" [ref=e33] [cursor=pointer] [box=1674,26,95,32]:
+        - img [ref=e34] [box=1687,36,12,12]
+        - text: Compare
+      - button "Share view" [ref=e37] [cursor=pointer] [box=1781,26,32,32]:
+        - img [ref=e38] [box=1790,35,14,14]
+      - button "Toggle theme" [ref=e43] [cursor=pointer] [box=1825,26,32,32]:
+        - img [ref=e44] [box=1834,35,14,14]
+      - generic [ref=e46] [box=1869,31,22,22]: OC
+    - generic [ref=e47] [box=16,76,260,578]:
+      - generic [ref=e48] [box=17,77,258,98]:
+        - generic [ref=e49] [box=31,90,34,34]: T
+        - generic [ref=e50] [box=81,90,180,72]
+      - generic [ref=e54] [box=17,175,258,37]:
+        - heading "Layers" [level=3] [ref=e55] [box=31,187,39,16]
+        - generic [ref=e56] [box=225,189,36,13]: 6/6 on
+      - generic "Map lens" [box=1285,257,224,358]:
+        - generic [box=1298,270,198,21]
+        - tablist "Map lens" [box=1298,291,198,40]
+        - tablist "Lens treatment" [box=1298,331,198,40]
+        - generic [box=1298,371,198,231]
+      - generic [ref=e65] [box=17,212,258,215]:
+        - button "Walk network 2.9k" [pressed] [ref=e296] [cursor=pointer] [box=23,218,246,33]
+        - button "Bus network on" [pressed] [ref=e300] [cursor=pointer] [box=23,252,246,33]
+        - button "Rail network on" [pressed] [ref=e304] [cursor=pointer] [box=23,286,246,33]
+        - button "Ferry routes 526" [pressed] [ref=e308] [cursor=pointer] [box=23,320,246,33]
+        - button "Stations & stops 351" [pressed] [ref=e312] [cursor=pointer] [box=23,354,246,33]
+        - button "Barriers & terrain 234" [pressed] [ref=e316] [cursor=pointer] [box=23,388,246,33]
+      - generic [ref=e90] [box=17,427,258,226]:
+        - generic [ref=e91] [box=31,438,230,26]
+        - generic [ref=e94] [box=31,474,230,20]
+        - generic [ref=e97] [box=31,504,230,137]: "Coverage: mvp partial Belfast has a usable MVP event catalog from local planning statistics, official public project pages, and OSM mapped-event metadata. Coverage is strongest for 2016-2026 local replay context, with OSM mapped-event metadata extending back to 2007 and thinner official source-backed completions."
+    - region "Source-backed records" [ref=e98] [box=16,430,260,506]:
+      - generic [ref=e99] [box=17,431,258,54]:
+        - generic [ref=e100] [box=31,443,142,31]
+        - generic [ref=e103] [box=189,443,72,15]: 4390 visible
+      - generic [ref=e104] [box=17,485,258,51]: Belfast records in 2024. Timeline, layer, confidence, and inferred filters apply.
+      - list [ref=e105] [box=17,536,258,365]:
+        - listitem [ref=e320] [cursor=pointer] [box=23,542,238,184]
+        - listitem [ref=e327] [cursor=pointer] [box=23,726,238,198]
+        - listitem [ref=e334] [cursor=pointer] [box=23,924,238,214]
+        - listitem [ref=e341] [cursor=pointer] [box=23,1138,238,214]
+        - listitem [ref=e348] [cursor=pointer] [box=23,1352,238,214]
+        - listitem [ref=e355] [cursor=pointer] [box=23,1566,238,214]
+        - listitem [ref=e362] [cursor=pointer] [box=23,1780,238,214]
+        - listitem [ref=e369] [cursor=pointer] [box=23,1994,238,214]
+        - listitem [ref=e376] [cursor=pointer] [box=23,2208,238,214]
+        - listitem [ref=e383] [cursor=pointer] [box=23,2422,238,214]
+        - listitem [ref=e390] [cursor=pointer] [box=23,2636,238,214]
+        - listitem [ref=e397] [cursor=pointer] [box=23,2850,238,214]
+        - listitem [ref=e404] [cursor=pointer] [box=23,3064,238,214]
+        - listitem [ref=e411] [cursor=pointer] [box=23,3277,238,214]
+        - listitem [ref=e418] [cursor=pointer] [box=23,3491,238,214]
+        - listitem [ref=e425] [cursor=pointer] [box=23,3705,238,214]
+        - listitem [ref=e432] [cursor=pointer] [box=23,3919,238,214]
+        - listitem [ref=e439] [cursor=pointer] [box=23,4133,238,214]
+        - listitem [ref=e446] [cursor=pointer] [box=23,4347,238,214]
+        - listitem [ref=e453] [cursor=pointer] [box=23,4561,238,214]
+        - listitem [ref=e460] [cursor=pointer] [box=23,4775,238,214]
+        - listitem [ref=e467] [cursor=pointer] [box=23,4989,238,214]
+        - listitem [ref=e474] [cursor=pointer] [box=23,5203,238,214]
+        - listitem [ref=e481] [cursor=pointer] [box=23,5417,238,214]
+      - button "Show 24 more records" [ref=e488] [cursor=pointer] [box=17,901,258,34]
+    - region "Observed record counts" [box=352,72,620,167]:
+      - generic [box=353,73,618,54]:
+        - generic [box=367,85,146,31]
+        - button "Close compare" [box=929,85,28,28]
+      - group "Compare years" [box=353,127,618,53]:
+        - generic [box=367,139,290,28]
+        - generic [box=667,139,290,28]
+      - paragraph [box=353,180,618,58]: OpenStreetMap remains the current orientation basemap. These are logged record counts, not a causal impact estimate.
+    - generic "Map tools" [ref=e107] [box=1392,846,72,40]:
+      - button "Recenter map" [ref=e108] [cursor=pointer] [box=1396,850,32,32]:
+        - img [ref=e109] [box=1405,859,14,14]
+      - button "Toggle tilted view" [ref=e112] [cursor=pointer] [box=1428,850,32,32]:
+        - img [ref=e113] [box=1437,859,14,14]
+    - generic [ref=e489] [box=1525,85,378,850]:
+      - generic [ref=e490] [box=1525,85,378,140]:
+        - button "Close" [ref=e491] [cursor=pointer] [box=1867,97,24,24]
+        - generic [ref=e494] [box=1543,99,312,13]: Change around selected event
+        - generic [ref=e495] [box=1543,119,342,16]
+        - heading "Belfast Grand Central Station opened" [level=2] [ref=e499] [box=1543,141,342,52]
+        - generic [ref=e500] [box=1543,197,342,15]
+      - generic [ref=e507] [box=1525,225,378,710]:
+        - generic [ref=e508] [box=1543,239,334,68]
+        - generic [ref=e518] [box=1543,319,334,144]
+        - generic [ref=e532] [box=1543,476,334,200]
+        - generic [ref=e551] [box=1543,695,334,343]
+        - generic [ref=e600] [box=1543,1056,334,77]
+        - generic [ref=e605] [box=1543,1150,334,270]
+        - generic [ref=e626] [box=1543,1438,334,2408]
+        - generic [ref=e704] [box=1543,3864,334,299]
+        - generic [ref=e720] [box=1543,4181,334,80]
+        - generic [ref=e725] [box=1543,4277,334,47]
+    - button "Proposal Lens" [ref=e127] [cursor=pointer] [box=1367,896,141,40]:
+      - text: Proposal Lens
+      - img [ref=e129] [box=1483,911,10,10]
+    - generic [ref=e131] [box=16,940,1888,124]:
+      - text: Evidence timeline
+      - generic [ref=e132] [box=35,959,1850,36]:
+        - generic [ref=e133] [box=35,964,60,30]: "2024"
+        - generic [ref=e134] [box=111,973,569,13]
+        - generic [ref=e139] [box=1804,963,81,32]
+      - generic [ref=e223] [box=44,1028,1832,22]:
+        - generic [ref=e817] [box=318,1029,92,21]: "'10"
+        - generic [ref=e822] [box=776,1029,92,21]: "'15"
+        - generic [ref=e827] [box=1234,1029,92,21]: "'20"
+        - generic [ref=e832] [box=1693,1029,92,21]: "'25"
+    - generic [box=0,0,1920,1080]:
+      - generic [box=270,44,1380,1016]:
+        - generic [box=271,45,1378,89]
+        - generic [box=271,134,1378,858]
+        - generic [box=271,992,1378,67]
+    - generic [box=0,0,1920,1080]:
+      - button "Close" [box=1810,24,78,32]:
+        - img [box=1823,33,14,14]
+        - text: Close
+      - generic [box=516,0,880,1186]:
+        - generic [box=564,64,784,14]: Methodology · v0.4
+        - heading "A city change atlas, grounded in evidence — not forecasts." [level=1] [box=564,92,784,101]
+        - paragraph [box=564,217,600,102]: OpenCityLog indexes observed urban changes from primary sources — planning records, official open data, Translink and DfI public project pages, and OpenStreetMap mapped visibility. Each record is timestamped and traceable to a primary source.
+        - generic [box=564,367,784,254]
+        - generic [box=564,668,784,95]
+        - generic [box=564,799,784,117]
+        - generic [box=564,953,784,140]
+    - generic [box=936,919,48,37]:
+      - generic [box=952,929,8,17]: ●

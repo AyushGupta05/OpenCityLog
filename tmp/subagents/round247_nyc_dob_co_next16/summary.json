@@ -1,0 +1,457 @@
+{
+  "schema_version": "round247.nyc_dob_co_next16_summary.v1",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "output_files": [
+    "tmp/subagents/round247_nyc_dob_co_next16/candidates.json",
+    "tmp/subagents/round247_nyc_dob_co_next16/source_audit.json",
+    "tmp/subagents/round247_nyc_dob_co_next16/summary.json",
+    "tmp/subagents/round247_nyc_dob_co_next16/notes.md",
+    "tmp/subagents/round247_nyc_dob_co_next16/rejected.json"
+  ],
+  "candidate_count": 200,
+  "selected_summary": {
+    "by_source_dataset_id": {
+      "bs8b-p36w": 100,
+      "pkdm-hqz6": 100
+    },
+    "by_year": {
+      "2012": 9,
+      "2013": 16,
+      "2014": 13,
+      "2015": 2,
+      "2016": 16,
+      "2017": 11,
+      "2018": 10,
+      "2019": 5,
+      "2020": 13,
+      "2021": 13,
+      "2024": 35,
+      "2025": 40,
+      "2026": 17
+    },
+    "by_borough": {
+      "Manhattan": 46,
+      "Brooklyn": 48,
+      "Queens": 79,
+      "Bronx": 16,
+      "Staten Island": 11
+    },
+    "by_co_type": {
+      "Final": 181,
+      "Temporary": 16,
+      "Initial": 3
+    },
+    "by_job_type": {
+      "A1": 60,
+      "NB": 40,
+      "NEW BUILDING": 54,
+      "New Building": 46
+    },
+    "date_range": {
+      "start": "2012-07-18",
+      "end": "2026-05-08"
+    },
+    "dwelling_units": {
+      "min": 1,
+      "median": 48,
+      "max": 105
+    },
+    "by_status": {
+      "CO Issued": 100,
+      "Issued": 100
+    },
+    "by_source_status": {
+      "bs8b-p36w|Issued": 100,
+      "pkdm-hqz6|CO Issued": 100
+    }
+  },
+  "source_ids": [
+    "nyc-dob-now-certificate-of-occupancy-pkdm-hqz6",
+    "nyc-dob-certificate-of-occupancy-bs8b-p36w",
+    "nyc-dob-certificate-of-occupancy"
+  ],
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19"
+  },
+  "legacy_preferred_end_date": "2021-03-31",
+  "legacy_vs_dob_now_mix": {
+    "dob_now": 100,
+    "legacy": 100
+  },
+  "selection_summary": {
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-19"
+    },
+    "legacy_preferred_end_date": "2021-03-31",
+    "target_count": 200,
+    "candidate_pool_before_balancing": 8218,
+    "candidate_count": 200,
+    "eligible_headroom_after_retained_candidates": 8018,
+    "retained_less_than_target_reason": null,
+    "duplicate_screening": {
+      "files_read": 25,
+      "tokens": 135882,
+      "source_date_keys": 80732,
+      "screened_files": [
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+        "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+        "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+        "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+        "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+        "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+        "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+        "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+        "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+        "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+        "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+        "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+        "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+        "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+        "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+        "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+        "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+        "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+        "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+        "tmp/subagents/round211_nyc_dob_co_next11/candidates.json",
+        "tmp/subagents/round219_nyc_dob_co_next12/candidates.json",
+        "tmp/subagents/round225_nyc_dob_co_next13/candidates.json",
+        "tmp/subagents/round232_nyc_dob_co_next14/candidates.json",
+        "tmp/subagents/round242_nyc_dob_co_next15/candidates.json"
+      ],
+      "manual_event_count": 38282
+    },
+    "fetched_counts": {
+      "dob_now_rows_fetched": 75796,
+      "dob_now_grouped_rows": 23907,
+      "legacy_rows_fetched": 142076,
+      "legacy_grouped_rows": 52945
+    },
+    "rejected_counts": {
+      "dob_now_below_high_signal_threshold_or_renewal": 20566,
+      "existing_dob_now_co_or_job_identifier": 2504,
+      "legacy_below_high_signal_threshold": 30822,
+      "existing_legacy_co_or_job_identifier": 2320,
+      "legacy_post_dob_now_coverage_period": 12422
+    },
+    "selected_summary": {
+      "by_source_dataset_id": {
+        "bs8b-p36w": 100,
+        "pkdm-hqz6": 100
+      },
+      "by_year": {
+        "2012": 9,
+        "2013": 16,
+        "2014": 13,
+        "2015": 2,
+        "2016": 16,
+        "2017": 11,
+        "2018": 10,
+        "2019": 5,
+        "2020": 13,
+        "2021": 13,
+        "2024": 35,
+        "2025": 40,
+        "2026": 17
+      },
+      "by_borough": {
+        "Manhattan": 46,
+        "Brooklyn": 48,
+        "Queens": 79,
+        "Bronx": 16,
+        "Staten Island": 11
+      },
+      "by_co_type": {
+        "Final": 181,
+        "Temporary": 16,
+        "Initial": 3
+      },
+      "by_job_type": {
+        "A1": 60,
+        "NB": 40,
+        "NEW BUILDING": 54,
+        "New Building": 46
+      },
+      "date_range": {
+        "start": "2012-07-18",
+        "end": "2026-05-08"
+      },
+      "dwelling_units": {
+        "min": 1,
+        "median": 48,
+        "max": 105
+      },
+      "by_status": {
+        "CO Issued": 100,
+        "Issued": 100
+      },
+      "by_source_status": {
+        "bs8b-p36w|Issued": 100,
+        "pkdm-hqz6|CO Issued": 100
+      }
+    },
+    "independent_validation": {
+      "ok": true,
+      "checked_at": "2026-05-19T00:00:00Z",
+      "validator": "scripts/fetch_round247_nyc_dob_co_next16_candidates.js independent post-generation validator",
+      "checks": {
+        "required_provenance_fields": [
+          "city_id",
+          "candidate_id",
+          "event_id",
+          "date",
+          "effective_date",
+          "title",
+          "summary",
+          "observed_change",
+          "address",
+          "borough",
+          "latitude",
+          "longitude",
+          "geometry",
+          "source_id",
+          "source_ids",
+          "source_name",
+          "publisher",
+          "source_url",
+          "source_api_url",
+          "source_record_id",
+          "source_type",
+          "source_dataset_id",
+          "source_date_field",
+          "license",
+          "license_url",
+          "license_or_terms_note",
+          "accessed_at",
+          "confidence",
+          "geometry_source",
+          "geometry_precision",
+          "attribution",
+          "limitations",
+          "transformation_method",
+          "source_row_ref",
+          "source_fields"
+        ],
+        "candidate_count": 200,
+        "unique_event_ids": 200,
+        "unique_source_date_keys": 200,
+        "unique_source_url_date_keys": 200,
+        "date_window": {
+          "start": "2008-01-01",
+          "end": "2026-05-19"
+        },
+        "date_window_valid": true,
+        "nyc_coordinate_bounds_valid": true,
+        "screened_required_files_present": [
+          "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "tmp/subagents/round225_nyc_dob_co_next13/candidates.json",
+          "tmp/subagents/round232_nyc_dob_co_next14/candidates.json",
+          "tmp/subagents/round242_nyc_dob_co_next15/candidates.json"
+        ],
+        "screened_files_read": 25,
+        "prior_source_date_keys_checked": 43141,
+        "prior_identifier_tokens_checked": 131765,
+        "no_overlap_with_screened_corpus_and_prior_packs": true,
+        "by_status": {
+          "CO Issued": 100,
+          "Issued": 100
+        },
+        "by_source_status": {
+          "bs8b-p36w|Issued": 100,
+          "pkdm-hqz6|CO Issued": 100
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Certificate of occupancy legal/admin milestone only.",
+    "Not actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal evidence.",
+    "Coordinates are DOB/Open Data geocoded address points.",
+    "License/terms notes are NYC Open Data / NYC.gov terms with DOB attribution; verify terms before broader redistribution."
+  ],
+  "sample_candidates": [
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_103794529_final_2012_07_18",
+      "date": "2012-07-18",
+      "address": "1881 PARK AVENUE",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 103794529 / Socrata row row-272n-xknf.9i85 / item 002 / issue Final",
+      "job_number": "103794529"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_320476356_final_2012_08_13",
+      "date": "2012-08-13",
+      "address": "9 COLLEGE PLACE",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 320476356 / Socrata row row-2np4.9as9.ug2n / item 001 / issue Final",
+      "job_number": "320476356"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_104039201_final_2012_09_12",
+      "date": "2012-09-12",
+      "address": "50 WEST 15 STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 104039201 / Socrata row row-d26a.8mqa.d463 / item 019 / issue Final",
+      "job_number": "104039201"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_120097251_final_2012_09_14",
+      "date": "2012-09-14",
+      "address": "103 EAST 86TH STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 120097251 / Socrata row row-5uus-mucz_nbmw / item 008 / issue Final",
+      "job_number": "120097251"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_402312760_final_2012_09_21",
+      "date": "2012-09-21",
+      "address": "83-30 KEW GARDENS ROAD",
+      "borough": "Queens",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 402312760 / Socrata row row-aze4.4gny-ryfi / item 002 / issue Final",
+      "job_number": "402312760"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_301617301_final_2012_10_05",
+      "date": "2012-10-05",
+      "address": "529 COURT STREET",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 301617301 / Socrata row row-4nbv-ut8h_6933 / item 014 / issue Final",
+      "job_number": "301617301"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_104451807_final_2012_10_10",
+      "date": "2012-10-10",
+      "address": "157 CHAMBERS STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 104451807 / Socrata row row-j5sc.2wmi_bs9f / item 023 / issue Final",
+      "job_number": "104451807"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_104147969_final_2012_10_15",
+      "date": "2012-10-15",
+      "address": "2460 7 AVENUE",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 104147969 / Socrata row row-ditb.s9ex-yj8j / item 007 / issue Final",
+      "job_number": "104147969"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_120045165_final_2012_11_08",
+      "date": "2012-11-08",
+      "address": "63 THOMPSON STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 120045165 / Socrata row row-6nvc.5kb8-a55z / item 005 / issue Final",
+      "job_number": "120045165"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_420112728_final_2013_01_09",
+      "date": "2013-01-09",
+      "address": "135-21 37 AVENUE",
+      "borough": "Queens",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 420112728 / Socrata row row-p7qm~hkwz-r7nh / item 001 / issue Final",
+      "job_number": "420112728"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_110418673_final_2013_01_15",
+      "date": "2013-01-15",
+      "address": "560 WEST 144TH STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 110418673 / Socrata row row-qgih-3ig2_zdfi / item 003 / issue Final",
+      "job_number": "110418673"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round247_legacy_302290777_final_2013_02_01",
+      "date": "2013-02-01",
+      "address": "131 2 PLACE",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 302290777 / Socrata row row-93rk-shng-rb6q / item 009 / issue Final",
+      "job_number": "302290777"
+    }
+  ],
+  "independent_validation": {
+    "ok": true,
+    "checked_at": "2026-05-19T00:00:00Z",
+    "validator": "scripts/fetch_round247_nyc_dob_co_next16_candidates.js independent post-generation validator",
+    "checks": {
+      "required_provenance_fields": [
+        "city_id",
+        "candidate_id",
+        "event_id",
+        "date",
+        "effective_date",
+        "title",
+        "summary",
+        "observed_change",
+        "address",
+        "borough",
+        "latitude",
+        "longitude",
+        "geometry",
+        "source_id",
+        "source_ids",
+        "source_name",
+        "publisher",
+        "source_url",
+        "source_api_url",
+        "source_record_id",
+        "source_type",
+        "source_dataset_id",
+        "source_date_field",
+        "license",
+        "license_url",
+        "license_or_terms_note",
+        "accessed_at",
+        "confidence",
+        "geometry_source",
+        "geometry_precision",
+        "attribution",
+        "limitations",
+        "transformation_method",
+        "source_row_ref",
+        "source_fields"
+      ],
+      "candidate_count": 200,
+      "unique_event_ids": 200,
+      "unique_source_date_keys": 200,
+      "unique_source_url_date_keys": 200,
+      "date_window": {
+        "start": "2008-01-01",
+        "end": "2026-05-19"
+      },
+      "date_window_valid": true,
+      "nyc_coordinate_bounds_valid": true,
+      "screened_required_files_present": [
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "tmp/subagents/round225_nyc_dob_co_next13/candidates.json",
+        "tmp/subagents/round232_nyc_dob_co_next14/candidates.json",
+        "tmp/subagents/round242_nyc_dob_co_next15/candidates.json"
+      ],
+      "screened_files_read": 25,
+      "prior_source_date_keys_checked": 43141,
+      "prior_identifier_tokens_checked": 131765,
+      "no_overlap_with_screened_corpus_and_prior_packs": true,
+      "by_status": {
+        "CO Issued": 100,
+        "Issued": 100
+      },
+      "by_source_status": {
+        "bs8b-p36w|Issued": 100,
+        "pkdm-hqz6|CO Issued": 100
+      }
+    }
+  }
+}

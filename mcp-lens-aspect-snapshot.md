@@ -1,0 +1,4 @@
+- tablist "Lens treatment" [box=1298,331,198,40]:
+  - tab "Speed" [ref=e293] [cursor=pointer] [box=1298,331,66,30]
+  - tab "Access" [selected] [ref=e294] [cursor=pointer] [box=1364,331,66,30]
+  - tab "Reliable" [ref=e295] [cursor=pointer] [box=1430,331,66,30]

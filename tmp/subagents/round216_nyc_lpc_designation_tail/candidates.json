@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "task": "Round216 NYC LPC individual landmark/designation tail from official Open Data",
+  "sources": [
+    {
+      "source_id": "nyc-lpc-individual-landmark-sites-buis-pvji",
+      "dataset_id": "buis-pvji",
+      "source_name": "NYC Open Data: Individual Landmark Sites",
+      "source_url": "https://data.cityofnewyork.us/d/buis-pvji",
+      "api_url": "https://data.cityofnewyork.us/resource/buis-pvji.json",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "license_or_terms_note": "Dataset metadata may not declare a standalone license. NYC Open Data / NYC.gov terms apply; attribute LPC and NYC Open Data and re-check current metadata before redistribution.",
+      "accessed_at": "2026-05-19"
+    },
+    {
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "dataset_id": "ncre-qhxs",
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "source_url": "https://data.cityofnewyork.us/d/ncre-qhxs",
+      "api_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "license_or_terms_note": "Dataset metadata may not declare a standalone license. NYC Open Data / NYC.gov terms apply; attribute LPC and NYC Open Data and re-check current metadata before redistribution.",
+      "accessed_at": "2026-05-19"
+    }
+  ],
+  "caveat": "Round216 emits only unique official LPC designation/amendment records. Designation and amendment dates are administrative preservation-status dates, not evidence of construction, completion, opening, condition, owner action, or causation.",
+  "candidates": [
+    {
+      "city_id": "nyc",
+      "candidate_id": "nyc_lpc_designation_tail_round216_individual_landmark_designation_amendment_modifi_lp02260a_2013",
+      "event_id": "nyc_lpc_designation_tail_round216_individual_landmark_designation_amendment_modifi_lp02260a_2013",
+      "date": "2013-07-23",
+      "effective_date": "2013-07-23",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/heritage_status",
+      "category": "planning/development/architecture/historic_preservation",
+      "subcategory": "individual landmark designation amendment/modification",
+      "latitude": 40.7698487,
+      "longitude": -73.9852115,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9852115,
+          40.7698487
+        ]
+      },
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_ids": [
+        "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs"
+      ],
+      "source_name": "NYC Open Data: Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02260A",
+      "source_record_id": "LP-02260A",
+      "source_type": "official NYC Open Data Socrata designated/calendared site row",
+      "source_date_field": "DESDATE (LPC designation/amendment date); LAST_ACTIO=DESIGNATED (AMENDMENT/MODIFICATION ACCEPTED)",
+      "source_dataset_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_dataset_four_by_four": "ncre-qhxs",
+      "accessed_at": "2026-05-19",
+      "source_retrieved_at": "2026-05-19",
+      "confidence": "documented",
+      "architect": "Source record does not name a project architect.",
+      "license": "NYC Open Data / NYC.gov terms; dataset metadata license field may be null.",
+      "license_url": "https://opendata.cityofnewyork.us/open-data-law/",
+      "license_or_terms_note": "NYC Open Data / NYC.gov terms apply. Attribute NYC Landmarks Preservation Commission and NYC Open Data; re-check dataset metadata and terms before redistribution.",
+      "attribution": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "limitations": "This LPC record documents administrative legal/protective preservation status only. It does not document construction start, completion, restoration, permit compliance, opening, occupancy, current physical condition, owner action, preservation outcome, or causal effect.",
+      "raw_context": {
+        "lp_number": "LP-02260A",
+        "base_lp_number": "LP-02260",
+        "official_name": "Church of St. Paul the Apostle",
+        "landmark_type": "Individual Landmark",
+        "official_report_url": "https://s-media.nyc.gov/agencies/lpc/lp/2260A.pdf",
+        "status_values": [
+          "DESIGNATED"
+        ],
+        "last_action_values": [
+          "DESIGNATED (AMENDMENT/MODIFICATION ACCEPTED)"
+        ],
+        "caldate_values": [
+          "2013-07-09"
+        ],
+        "desdate_values": [
+          "2013-07-23"
+        ],
+        "boroughs": [
+          "Manhattan"
+        ],
+        "addresses": [
+          "8-10 COLUMBUS AVENUE"
+        ],
+        "row_count": 1,
+        "source_row_ids": [
+          "row-sdpj-d93t.2qia"
+        ],
+        "sample_rows": [
+          {
+            "socrata_row_id": "row-sdpj-d93t.2qia",
+            "bin_number": "1076229",
+            "bbl": "1011310031",
+            "boroughid": "MN",
+            "block": "1131",
+            "lot": "31",
+            "desig_addr": "8-10 COLUMBUS AVENUE",
+            "pluto_addr": "415 WEST 59 STREET"
+          }
+        ]
+      },
+      "title": "Church of St. Paul the Apostle LPC amendment/modification was accepted",
+      "summary": "NYC Landmarks Preservation Commission Open Data records Church of St. Paul the Apostle (LP-02260A) in Manhattan as an individual landmark with LAST_ACTIO \"DESIGNATED (AMENDMENT/MODIFICATION ACCEPTED)\" on 2013-07-23; source address context includes 8-10 COLUMBUS AVENUE.",
+      "observed_change": "The official LPC row documents an administrative designation amendment/modification acceptance, a legal/protective preservation-status milestone for the named site.",
+      "official_report_url": "https://s-media.nyc.gov/agencies/lpc/lp/2260A.pdf",
+      "supporting_source_urls": [
+        "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02260A",
+        "https://s-media.nyc.gov/agencies/lpc/lp/2260A.pdf"
+      ],
+      "area": "8-10 COLUMBUS AVENUE, Manhattan",
+      "location_name": "8-10 COLUMBUS AVENUE, Manhattan",
+      "project_type": "administrative heritage status - LPC individual landmark designation amendment/modification",
+      "geometry_ref": {
+        "dataset_id": "ncre-qhxs",
+        "row_count": 1,
+        "source_row_ids": [
+          "row-sdpj-d93t.2qia"
+        ],
+        "lp_number": "LP-02260A",
+        "source_url": "https://data.cityofnewyork.us/resource/ncre-qhxs.json?lp_number=LP-02260A",
+        "official_report_url": "https://s-media.nyc.gov/agencies/lpc/lp/2260A.pdf",
+        "geometry_type": "Point row aggregate"
+      },
+      "geometry_source": "Official LPC Designated and Calendared Buildings and Sites point geometry for LP-02260A; atlas point is the mean of 1 source row coordinate set(s).",
+      "geometry_precision": "official row point or aggregate point from LPC designated/calendared site rows; not a surveyed legal boundary",
+      "transformation_method": "scripts/fetch_round216_nyc_lpc_designation_tail_candidates.js fetched official ncre-qhxs rows with LAST_ACTIO=DESIGNATED (AMENDMENT/MODIFICATION ACCEPTED) and DESDATE from 2008-01-01 through 2026-05-19, grouped rows by full LP number including suffixes, screened against the manual corpus and prior LPC designation packs, and retained only unique administrative amendment/designation milestones."
+    }
+  ]
+}

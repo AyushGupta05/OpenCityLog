@@ -1,0 +1,52 @@
+{
+  "schema_version": "round235_belfast_official_tail_next2.summary.v1",
+  "generated_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "city_id": "belfast",
+  "round_id": "round235_belfast_official_tail_next2",
+  "accepted_count": 0,
+  "rejected_count": 25,
+  "source_audit_count": 11,
+  "candidate_source_mix": {},
+  "audited_source_mix": {
+    "Department for Infrastructure, Northern Ireland": 3,
+    "Belfast City Council": 4,
+    "Department for Communities, Northern Ireland": 1,
+    "Queen's University Belfast": 1,
+    "Ulster University": 2
+  },
+  "accepted_date_range": null,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19"
+  },
+  "retrieval": {
+    "ok": 8,
+    "failed": 3
+  },
+  "dedupe_index": {
+    "prior_file_count": 71,
+    "prior_record_count": 39262,
+    "unique_ids": 39109,
+    "unique_urls": 9990,
+    "unique_source_date_keys": 60740,
+    "unique_title_date_keys": 36932
+  },
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "No accepted candidates survived duplicate/date/source screening; rejected leads carry the audit trail."
+    ],
+    "checked": {
+      "required_provenance": true,
+      "unique_candidate_ids": true,
+      "unique_source_date_keys": true,
+      "unique_title_date_keys": true,
+      "date_window": "2008-01-01..2026-05-19",
+      "belfast_coordinate_sanity": true,
+      "no_overlap_against_prior_index": true
+    }
+  },
+  "notes": "Zero accepted candidates after screening. Rejected leads document duplicate live/manual entries, prior/pending Belfast pack coverage, administrative planning adverts, funding/status-only pages and weak-date consultation records."
+}

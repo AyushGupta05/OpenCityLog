@@ -1,0 +1,6 @@
+- tablist "Map lens" [box=1298,291,198,40]:
+  - tab "Transport" [selected] [ref=e288] [cursor=pointer] [box=1298,299,37,26]
+  - tab "Built" [ref=e289] [cursor=pointer] [box=1338,299,37,26]
+  - tab "Civic" [ref=e290] [cursor=pointer] [box=1378,299,37,26]
+  - tab "Economy" [ref=e291] [cursor=pointer] [box=1419,299,37,26]
+  - tab "Utilities" [ref=e292] [cursor=pointer] [box=1459,299,37,26]

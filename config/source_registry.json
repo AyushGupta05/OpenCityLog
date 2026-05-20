@@ -352,6 +352,31 @@
       ]
     },
     {
+      "source_id": "bcc-assembly-rooms-purchase-agreed-round214",
+      "title": "Council agrees to purchase Assembly Rooms as city centre regeneration continues",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/Council-agrees-to-purchase-Assembly-Rooms-as-city",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
       "source_id": "bcc-avoniel-regeneration-round189",
       "title": "Avoniel Leisure Centre regeneration",
       "provider": "Belfast City Council",
@@ -399,6 +424,56 @@
       "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. retrieved current-status statement",
       "caveats": [
         "Current-status network count only. The page does not provide launch dates, hotspot list geometry, uptime, bandwidth, usage or coverage quality. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-bloomberg-mayors-challenge-award-round228",
+      "title": "Belfast secures $1 million from Bloomberg Philanthropies Mayors Challenge 2025-2026 to help transform alleyways",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-secures-%241-million-from-bloomberg-philanth",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
+      ]
+    },
+    {
+      "source_id": "bcc-bloomberg-mayors-challenge-finalist-round228",
+      "title": "Belfast selected as a global finalist in Bloomberg Philanthropies 2025 Mayors Challenge",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-selected-as-a-global-finalist-in-bloomberg",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
       ]
     },
     {
@@ -452,6 +527,56 @@
       ]
     },
     {
+      "source_id": "bcc-city-centre-major-projects-round228",
+      "title": "Major projects in Belfast city centre",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/city-centre/major-projects",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. source-reported month on current project page",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
+      ]
+    },
+    {
+      "source_id": "bcc-clanmil-inner-northwest-round214",
+      "title": "Belfast city centre car parks and vacant land set to be transformed into new homes",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-city-centre-car-parks-and-vacant-land-set",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
       "source_id": "bcc-corporate-performance-2024-2025-round189",
       "title": "Belfast City Council Performance Improvement Plan self-assessment report 2024-2025 - Corporate performance 2024-2025",
       "provider": "Belfast City Council",
@@ -501,6 +626,31 @@
       "provenance_notes": "Use validation, advertisement, or current-list dates, application reference, site address, source URL, retrieved date, and limitation text.",
       "caveats": [
         "Current-application records are live administrative stages. They are not decisions, construction starts, completions, occupations, openings, or delivered physical changes unless separately evidenced."
+      ]
+    },
+    {
+      "source_id": "bcc-current-planning-applications-round228",
+      "title": "Current planning applications",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. current planning list advertised date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
       ]
     },
     {
@@ -579,6 +729,31 @@
       ]
     },
     {
+      "source_id": "bcc-development-partner-search-round214",
+      "title": "Council seeks development partner to boost city population through GBP630million housing-led regeneration opportunity",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/council-seeks-development-partner-to-boost-city-po",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2023-2023 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
       "source_id": "bcc-fernhill-house-current-status-round183",
       "title": "Fernhill House",
       "provider": "Belfast City Council",
@@ -654,6 +829,31 @@
       ]
     },
     {
+      "source_id": "bcc-future-city-house-programme-minutes-round214",
+      "title": "Agenda item - Future City Centre Vacancy Programme",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=86313",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. committee meeting date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
       "source_id": "bcc-giants-park-round195",
       "title": "Giant's Park - North Foreshore",
       "provider": "Belfast City Council",
@@ -676,6 +876,31 @@
       "provenance_notes": "Selected records from 2017-2026 in the Round119 architecture corpus window. project page opening year",
       "caveats": [
         "Year-level opening status only. Do not infer occupancy, production activity, employment, economic effects or later extension dates. Observed/source-reported or administrative milestone only; no causation, projects, usage, economic, environmental or social outcome is claimed. Point geometry is approximate review geometry for the named site, street cluster, venue or programme area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-graham-delivery-partner-round214",
+      "title": "Belfast City Council appoints GRAHAM as delivery partner for GBP630m housing-led regeneration programme",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/Belfast-City-Council-appoints-GRAHAM-as-delivery-p",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
       ]
     },
     {
@@ -703,6 +928,31 @@
       "provenance_notes": "Use committee date, HED notification text, site/address, source URL, retrieved date, and HB reference where stated. Proposed-listing records remain proposed/consultation status.",
       "caveats": [
         "Do not treat proposed listing as confirmed listing. Committee notification dates may lag the statutory HED listing date and are heritage-status records, not physical works."
+      ]
+    },
+    {
+      "source_id": "bcc-historic-areas-spg-planning-news-round214",
+      "title": "Council agrees supplementary planning guidance for historic areas of Belfast",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/Council-agrees-supplementary-planning-guidance-for",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. news publication / planning committee date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
       ]
     },
     {
@@ -928,6 +1178,31 @@
       "provenance_notes": "Committee report dated 6 May 2025 for PIP 2025/2026 selections. Report date, recommendation list, site names.",
       "caveats": [
         "Use as programme-selection evidence only; later news/minutes required for completion. Use for candidate backlog and evidence drawer context, not headline completed-project totals. Programme-selection record only. Separate evidence is required for construction start, completion, final equipment and later condition."
+      ]
+    },
+    {
+      "source_id": "bcc-nature-towns-cities-funding-round228",
+      "title": "Belfast to receive over GBP850k of National Lottery funding to help connect people with nature",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/Belfast-to-receive-over-%C2%A3850K-of-National-Lottery",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
       ]
     },
     {
@@ -1203,6 +1478,31 @@
       "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. 2024-2025 reporting period",
       "caveats": [
         "Source gives a 2024-2025 reporting-period completion/delivery statement; exact effective date should be checked before production import. Observed/source-reported built-environment milestone only; no outcome, causation or usage claim is made. Point geometry is approximate review geometry for the named site or project area, not surveyed asset geometry."
+      ]
+    },
+    {
+      "source_id": "bcc-place-based-growth-proposition-round214",
+      "title": "Belfast pushes for fair share of regional regeneration funding ahead of Budget Statement",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-pushes-for-fair-share-of-regional-regenera",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
       ]
     },
     {
@@ -1482,6 +1782,56 @@
       "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. page publication date",
       "caveats": [
         "Administrative/source-reported record only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Representative point geometry is for Belfast atlas navigation only and is not a policy boundary, parcel, building footprint, works extent, or surveyed asset location. Source page terms, copyright and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "bcc-queens-quay-grey-to-green-round228",
+      "title": "Queen's Quay goes from grey to green",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/News/Queen-s-Quay-goes-from-grey-to-green",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
+      ]
+    },
+    {
+      "source_id": "bcc-sailortown-titanic-bridge-design-team-round214",
+      "title": "Belfast City Council appoints design team to develop Sailortown to Titanic Quarter bridge",
+      "provider": "Belfast City Council",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-city-council-appoints-design-team-to-devel",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. news publication date",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
       ]
     },
     {
@@ -1789,6 +2139,256 @@
       "provenance_notes": "Use only small factual event metadata and source URLs unless dataset terms permit redistribution.",
       "caveats": [
         "Public pages can change; record access date and avoid copying page text into artifacts."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-advance-regional-prosperity-round214",
+      "title": "Belfast Harbour launches transformative five-year strategy with GBP313m investment programme",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-transformative-five-year-strategy-with-313m-investment-programme/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-transformative-five-year-strategy-with-313m-investment-programme/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-4-application-round214",
+      "title": "Belfast Harbour submits planning application for new residential development at City Quays",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/city-quays-4-residential-development/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2022
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/city-quays-4-residential-development/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2022-2022 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-5-approval-round214",
+      "title": "Approval granted for GBP60m City Quays 5 Development",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/approval-granted-for-60m-city-quays-5-development/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/approval-granted-for-60m-city-quays-5-development/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-affordable-application-round214",
+      "title": "Belfast Harbour submits planning application for new affordable housing scheme at City Quays",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/planning-application-affordable-housing-city-quays/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/planning-application-affordable-housing-city-quays/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2023-2023 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-gardens-start-round214",
+      "title": "Belfast Harbour Begins Work on GBP3m First Phase of City Quays Gardens",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/city-quays-gardens-work-commences/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/city-quays-gardens-work-commences/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2023-2023 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Source-reported physical or operational milestone only; do not infer completion, final design, occupancy, economic impact, usage, environmental outcome or causation. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-clarendon-wharf-application-round214",
+      "title": "Belfast Harbour submits planning application for Clarendon Wharf residential development",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-submits-planning-application-for-clarendon-wharf-residential-development/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-submits-planning-application-for-clarendon-wharf-residential-development/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-clarendon-wharf-masterplan-round214",
+      "title": "Belfast Harbour announces residential masterplan for Clarendon Wharf",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-d3-works-commence-round214",
+      "title": "Work commences on Belfast Harbour's largest ever port investment project",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/work-commences-on-belfast-harbours-largest-ever-port-investment-project-to-create-new-cruise-and-offshore-wind-energy-terminal/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/work-commences-on-belfast-harbours-largest-ever-port-investment-project-to-create-new-cruise-and-offshore-wind-energy-terminal/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Source-reported physical or operational milestone only; do not infer completion, final design, occupancy, economic impact, usage, environmental outcome or causation. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-draft-masterplan-consultation-round214",
+      "title": "Belfast Harbour launches consultation on 2050 Draft Masterplan",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-consultation-on-groundbreaking-2050-draft-masterplan-that-will-support-nis-economy-for-future-generations/",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2025
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-consultation-on-groundbreaking-2050-draft-masterplan-that-will-support-nis-economy-for-future-generations/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Administrative/source-reported milestone only; do not treat as construction start, completion, opening, occupation, delivery outcome, impact evidence or causal evidence. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
+      ]
+    },
+    {
+      "source_id": "belfast-harbour-mobile-crane-arrival-round214",
+      "title": "New GBP4.5m harbour mobile crane arrives in Belfast Harbour",
+      "provider": "Belfast Harbour Commissioners",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "licence_url": "https://www.belfast-harbour.co.uk/news/new-4-5m-harbour-mobile-crane-arrives-in-belfast-harbour-enhancing-the-ports-cargo-handling-capabilities/",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.belfast-harbour.co.uk/news/new-4-5m-harbour-mobile-crane-arrives-in-belfast-harbour-enhancing-the-ports-cargo-handling-capabilities/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast Harbour Commissioners.",
+      "provenance_notes": "Selected records from 2026-2026 in the Round119 architecture corpus window. article datePublished",
+      "caveats": [
+        "Source-reported physical or operational milestone only; do not infer completion, final design, occupancy, economic impact, usage, environmental outcome or causation. Point geometry is for atlas navigation and review only; it is not a surveyed boundary, parcel, building footprint, bridge alignment, works extent or legal planning red line. License and website terms, images, maps, logos and any embedded third-party material should be reviewed before production import."
       ]
     },
     {
@@ -2217,6 +2817,31 @@
       ]
     },
     {
+      "source_id": "dfc-antrim-road-public-realm-investment-round228",
+      "title": "Minister Hargey announces GBP482k investment for Antrim Road, Belfast",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Crown copyright / UK Open Government Licence v3.0 where applicable to public-sector information; publication attachments, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2022
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/news/minister-hargey-announces-ps482k-investment-antrim-road-belfast",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2022-2022 in the Round119 architecture corpus window. department publication date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
+      ]
+    },
+    {
       "source_id": "dfc-belfast-regeneration-news-round201",
       "title": "DfC Belfast regeneration news",
       "provider": "Department for Communities, Northern Ireland",
@@ -2339,6 +2964,31 @@
       "provenance_notes": "Selected records from 2009-2026 in the Round119 architecture corpus window. date published",
       "caveats": [
         "Administrative planning-policy, consultation, monitoring, strategy or framework record only; it is not evidence of construction, completion, occupation, delivery or built-form change. No causation, projects, social, economic, environmental, traffic, housing-delivery or public-realm outcome is claimed. Point geometry is representative review geometry for the named citywide policy area or framework area and should not be treated as a boundary or asset footprint."
+      ]
+    },
+    {
+      "source_id": "dfc-duncairn-gardens-development-study-round228",
+      "title": "Publication of the Duncairn Gardens Development Study for Belfast",
+      "provider": "Department for Communities, Northern Ireland",
+      "source_family": "architecture",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Crown copyright / UK Open Government Licence v3.0 where applicable to public-sector information; publication attachments, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2023,
+        "end": 2023
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.communities-ni.gov.uk/news/publication-duncairn-gardens-development-study-belfast",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Communities, Northern Ireland.",
+      "provenance_notes": "Selected records from 2023-2023 in the Round119 architecture corpus window. department publication date",
+      "caveats": [
+        "Administrative or source-reported milestone only unless the source explicitly documents physical works or an opening. Do not treat as construction start, completion, occupation, usage, final built form, outcome or causation unless stated by the source. Point geometry is for atlas review/navigation only; it is not a surveyed boundary, parcel, building footprint, route alignment, works extent or legal planning red line. Current planning application rows and current-status pages are mutable; source rows should be re-checked against the NI Planning Portal or source page before production import. License and website terms, images, maps, logos and embedded third-party material require source-level rights review before production import."
       ]
     },
     {
@@ -3402,6 +4052,31 @@
       "provenance_notes": "Selected records from 2024-2026 in the Round119 architecture corpus window. AmendDate",
       "caveats": [
         "NHLE AmendDate is a heritage-administrative list-entry/status date, not a construction, opening, occupation, repair, condition, or impact date.; Historic England point coordinates locate the asset for atlas use and do not define the full statutory extent or curtilage."
+      ]
+    },
+    {
+      "source_id": "historic-england-nhle-listed-building-points-round215",
+      "title": "National Heritage List for England (NHLE) listed-building points",
+      "provider": "Historic England",
+      "source_family": "planning",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2014
+      },
+      "update_frequency": "Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.",
+      "url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "2008-01-01 through 2026-05-19 OBJECTID ListEntry Name Grade ListDate AmendDate hyperlink NGR Easting Northing CaptureScale geometry",
+      "caveats": [
+        "ListDate is a heritage-administrative list/designation date, not a physical works date. NHLE point geometry locates the asset but does not define full statutory extent, curtilage, interior boundary, or work area. Use factual metadata and source URLs; list-entry narrative text, images, and map terms require separate review before redistribution. Append as documented heritage-administrative change events only after the main appender re-checks corpus duplicates. NHLE ListDate documents a heritage/listing administrative designation date only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, impact, projects, simulation, or causation."
       ]
     },
     {
@@ -4698,27 +5373,25 @@
       "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
       "title": "HPD affordable housing production by project and building",
       "provider": "NYC Department of Housing Preservation and Development via NYC Open Data",
-      "source_family": "housing_delivery",
+      "source_family": "planning",
       "city_ids": [
         "nyc"
       ],
-      "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null",
+      "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
       "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
       "coverage_years": {
         "start": 2014,
         "end": 2026
       },
-      "update_frequency": "NYC Open Data dataset-specific refresh cadence.",
+      "update_frequency": "NYC Open Data dataset-specific refresh cadence",
       "url": "https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Project/hq68-rnsi",
-      "local_paths": [
-        "tmp/subagents/round113_nyc_capital_candidates.json"
-      ],
-      "reliability": "strong",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
       "source_confidence": "documented",
-      "attribution_text": "Attribute NYC Department of Housing Preservation and Development and NYC Open Data.",
-      "provenance_notes": "Use project id, building id, BIN/BBL where supplied, HPD completion date, address/coordinates, source URL, and retrieved date.",
+      "attribution_text": "Attribute NYC Department of Housing Preservation and Development via NYC Open Data.",
+      "provenance_notes": "HPD housing-production projects after January 2014, with selected project/building completion rows in this batch. HPD project completion date.",
       "caveats": [
-        "HPD completion is a housing-production administrative milestone, not necessarily first occupancy, DOB final certificate, ribbon cutting, completion of every non-housing space, or outcome evidence."
+        "HPD completion is a housing-production administrative milestone. It is not necessarily first occupancy, DOB final certificate, ribbon cutting, completion of every non-housing space, or outcome evidence."
       ]
     },
     {

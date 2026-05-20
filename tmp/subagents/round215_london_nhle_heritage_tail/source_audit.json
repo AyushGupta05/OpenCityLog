@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "source_audits": [
+    {
+      "source_id": "historic-england-nhle-listed-building-points-round215",
+      "source_name": "National Heritage List for England (NHLE) listed-building points",
+      "publisher": "Historic England",
+      "url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "api_endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer/0/query",
+      "source_type": "official Historic England ArcGIS FeatureServer row",
+      "license": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "attribution": "Historic England; Contains Ordnance Survey data Crown copyright and database right 2026.",
+      "accessed_at": "2026-05-19",
+      "coverage_years_checked": "2008-01-01 through 2026-05-19",
+      "update_frequency": "Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.",
+      "geographic_scope": "England source layer; features filtered to the ONS London region E12000007.",
+      "granularity": "One NHLE listed-building point row with a ListEntry and ListDate.",
+      "key_fields": [
+        "OBJECTID",
+        "ListEntry",
+        "Name",
+        "Grade",
+        "ListDate",
+        "AmendDate",
+        "hyperlink",
+        "NGR",
+        "Easting",
+        "Northing",
+        "CaptureScale",
+        "geometry"
+      ],
+      "reliability": "strong for administrative listed-building designation dates",
+      "records_reviewed": 1203,
+      "candidate_count": 5,
+      "headroom_after_cap": 0,
+      "required_caveats": [
+        "ListDate is a heritage-administrative list/designation date, not a physical works date.",
+        "NHLE point geometry locates the asset but does not define full statutory extent, curtilage, interior boundary, or work area.",
+        "Use factual metadata and source URLs; list-entry narrative text, images, and map terms require separate review before redistribution."
+      ],
+      "ingestion_recommendation": "Append as documented heritage-administrative change events only after the main appender re-checks corpus duplicates."
+    }
+  ],
+  "summary": {
+    "generated_at": "2026-05-19T00:00:00Z",
+    "worker_scope": "round215 London Historic England/NHLE heritage-designation tail",
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-19"
+    },
+    "source_rows_fetched": 1203,
+    "candidate_count": 5,
+    "target_candidates": 80,
+    "eligible_after_duplicate_screen": 5,
+    "headroom_after_cap": 0,
+    "date_range": {
+      "start": "2008-05-21",
+      "end": "2014-06-19"
+    },
+    "record_type_mix": {
+      "nhle_list_designation": 5
+    },
+    "grade_mix": {
+      "II": 5
+    },
+    "rejected_reason_counts": {
+      "existing_corpus_or_prior_pack_listentry_listdate": 1084,
+      "outside_ons_london_region": 114
+    },
+    "duplicate_screening": {
+      "corpus_events_scanned": 32044,
+      "prior_candidate_pack_files_scanned": 263,
+      "existing_event_ids_seen": 54139,
+      "existing_source_keys_seen": 38705,
+      "existing_nhle_listentry_listdate_keys_seen": 1175,
+      "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior London NHLE/heritage/certificate outputs, for event IDs, source keys, and exact ListEntry + ListDate pairs. Raw query captures were intentionally excluded from duplicate screening because they are not prior accepted candidate packs."
+    },
+    "critical_interpretation_note": "These records are administrative heritage/listing designations only. They are not evidence of physical construction, completion, demolition, opening, occupation, repair, condition, impact, prediction, simulation, or causation.",
+    "candidate_ids": [
+      "london-nhle-list-round215-1392596-20080521",
+      "london-nhle-list-round215-1393497-20091022",
+      "london-nhle-list-round215-1393922-20100818",
+      "london-nhle-list-round215-1396440-20110201",
+      "london-nhle-list-round215-1420380-20140619"
+    ]
+  }
+}

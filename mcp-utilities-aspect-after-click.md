@@ -1,0 +1,4 @@
+- tablist "Lens treatment" [box=1298,331,198,40]:
+  - tab "Capacity" [selected] [ref=e1981] [cursor=pointer] [box=1298,331,66,30]
+  - tab "Resilience" [ref=e1982] [cursor=pointer] [box=1364,331,66,30]
+  - tab "Works" [ref=e1983] [cursor=pointer] [box=1430,331,66,30]

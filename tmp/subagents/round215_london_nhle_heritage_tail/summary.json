@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "worker_scope": "round215 London Historic England/NHLE heritage-designation tail",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19"
+  },
+  "source_rows_fetched": 1203,
+  "candidate_count": 5,
+  "target_candidates": 80,
+  "eligible_after_duplicate_screen": 5,
+  "headroom_after_cap": 0,
+  "date_range": {
+    "start": "2008-05-21",
+    "end": "2014-06-19"
+  },
+  "record_type_mix": {
+    "nhle_list_designation": 5
+  },
+  "grade_mix": {
+    "II": 5
+  },
+  "rejected_reason_counts": {
+    "existing_corpus_or_prior_pack_listentry_listdate": 1084,
+    "outside_ons_london_region": 114
+  },
+  "duplicate_screening": {
+    "corpus_events_scanned": 32044,
+    "prior_candidate_pack_files_scanned": 263,
+    "existing_event_ids_seen": 54139,
+    "existing_source_keys_seen": 38705,
+    "existing_nhle_listentry_listdate_keys_seen": 1175,
+    "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior London NHLE/heritage/certificate outputs, for event IDs, source keys, and exact ListEntry + ListDate pairs. Raw query captures were intentionally excluded from duplicate screening because they are not prior accepted candidate packs."
+  },
+  "critical_interpretation_note": "These records are administrative heritage/listing designations only. They are not evidence of physical construction, completion, demolition, opening, occupation, repair, condition, impact, prediction, simulation, or causation.",
+  "candidate_ids": [
+    "london-nhle-list-round215-1392596-20080521",
+    "london-nhle-list-round215-1393497-20091022",
+    "london-nhle-list-round215-1393922-20100818",
+    "london-nhle-list-round215-1396440-20110201",
+    "london-nhle-list-round215-1420380-20140619"
+  ]
+}
