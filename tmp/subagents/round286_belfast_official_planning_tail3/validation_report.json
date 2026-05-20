@@ -5,17 +5,17 @@
   "city_id": "belfast",
   "round_id": "round286_belfast_official_planning_tail3",
   "validation_ok": true,
-  "accepted_candidates": 12,
+  "accepted_candidates": 93,
   "date_window": {
     "start": "2008-01-01",
     "end": "2026-05-20"
   },
   "emitted_date_range": {
-    "min": "2016-07-29",
-    "max": "2023-11-21"
+    "min": "2016-04-07",
+    "max": "2025-03-25"
   },
   "source_mix": {
-    "Department for Infrastructure, Northern Ireland": 12
+    "Department for Infrastructure, Northern Ireland": 93
   },
   "audited_source_mix": {
     "Belfast City Council": 1,
@@ -37,12 +37,12 @@
   "dedupe": {
     "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
     "prior_file_count": 74,
-    "prior_record_count": 47782,
+    "prior_record_count": 48222,
     "indexed_application_ids": 1787,
-    "indexed_event_ids": 47519,
-    "indexed_source_record_date_keys": 47048,
-    "indexed_source_url_date_keys": 26257,
-    "indexed_title_date_keys": 45168,
+    "indexed_event_ids": 47959,
+    "indexed_source_record_date_keys": 47488,
+    "indexed_source_url_date_keys": 26357,
+    "indexed_title_date_keys": 45608,
     "includes_round270": true,
     "includes_round281": true
   },

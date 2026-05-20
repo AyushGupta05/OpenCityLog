@@ -2072,7 +2072,7 @@
             ["==", ["get", "lens_id"], "utilities-works"],
           ],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.45, 1, 5.6],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.4, 1, 7.4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.7, 1, 5.4],
         ],
       },
     });
@@ -2110,7 +2110,7 @@
             ["==", ["get", "lens_id"], "utilities-works"],
           ],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.75, 1, 4.15],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.1, 1, 6.9],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.25, 1, 4.8],
         ],
       },
     });
@@ -3435,7 +3435,7 @@
       "planning-pressure": 3.8,
       "civic-access-gaps": 2.5,
       "civic-demand": 1.65,
-      "economy-gravity": 2.15,
+      "economy-gravity": 1.75,
       "utilities-capacity": 2.8,
       "utilities-resilience": 2.6,
       "utilities-works": 2.35,
@@ -3444,7 +3444,7 @@
       "planning-pressure": 20,
       "civic-access-gaps": 16,
       "civic-demand": 12,
-      "economy-gravity": 14,
+      "economy-gravity": 11,
       "utilities-capacity": 14,
       "utilities-resilience": 13,
       "utilities-works": 12,
@@ -3908,6 +3908,21 @@
   }
 
   function guideFlowColor(lens, event, index, intensity) {
+    if (lens.id === "economy-gravity") {
+      const text = [
+        event?.title,
+        event?.shortDescription,
+        event?.summary,
+        event?.area,
+        ...(event?.affectedSignals || []),
+      ].filter(Boolean).join(" ").toLowerCase();
+      if (/office|business|workspace|industrial|enterprise/.test(text)) return "#158c97";
+      if (/hotel|hospitality|restaurant|cafe|bar|visitor|culture|tourism/.test(text)) return "#ef5a47";
+      if (/market|venue|night|pub|entertainment/.test(text)) return "#34393a";
+      const palette = ["#7644a1", "#158c97", "#ef5a47", "#e8a620", "#8a5a2b"];
+      const seed = stableUnit(`${event?.id || ""}:${index}`);
+      return palette[Math.min(palette.length - 1, Math.floor(seed * palette.length))];
+    }
     if (lens.id === "planning-pressure") {
       if (intensity > 0.76) return "#b91f32";
       if (intensity > 0.6) return "#d84a2d";

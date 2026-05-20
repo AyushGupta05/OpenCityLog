@@ -13,9 +13,13 @@ function buildRound286Script(source) {
     .replaceAll("round281", "round286")
     .replaceAll("tail2", "tail3")
     .replaceAll("after round270", "after round281")
-    .replaceAll("quality.score < 65", "quality.score < 55")
+    .replaceAll("quality.score < 65", "quality.score < 45")
     .replaceAll("met a conservative tail gate", "met a residual physical-works tail gate")
-    .replaceAll("capped the ranked review pack at 120", "capped the ranked review pack at 150")
+    .replaceAll("capped the ranked review pack at 120", "capped the ranked review pack at 100")
+    .replaceAll(
+      "forecasts, impacts, or causal evidence",
+      "future projections, outcome claims, or cause-and-effect evidence"
+    )
     .replaceAll(
       "current manual architecture corpus, round270, and prior Belfast candidate packs",
       "current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281"
@@ -24,7 +28,7 @@ function buildRound286Script(source) {
       "current manual architecture corpus, round270, or prior Belfast packs",
       "current manual architecture corpus, round270, round281, or prior Belfast packs through round281"
     )
-    .replace("const TARGET_CANDIDATES = 120;", "const TARGET_CANDIDATES = 150;");
+    .replace("const TARGET_CANDIDATES = 120;", "const TARGET_CANDIDATES = 100;");
 
   const includesRound270 =
     "includes_round270: index.files.some((entry) => /round270_belfast_official_planning_tail\\/candidates\\.json$/i.test(entry.path))";
@@ -34,10 +38,6 @@ function buildRound286Script(source) {
       includes_round281: index.files.some((entry) => /round281_belfast_official_planning_tail2\\/candidates\\.json$/i.test(entry.path))`
   );
 
-  transformed = transformed.replaceAll(
-    "prior Belfast candidate packs",
-    "prior Belfast candidate packs through round281"
-  );
   transformed = transformed.replaceAll(
     "prior-Belfast-pack dedupe",
     "prior-Belfast-pack dedupe through round281"
