@@ -3500,7 +3500,7 @@
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: "street_thread",
+          flow_style: "transport_thread",
           event_id: "",
           intensity: Number(intensity.toFixed(2)),
           color: transportThreadColor(lens.id, activity, rank, intensity),
@@ -3753,8 +3753,8 @@
     if (/fail|outage|burst|emergency|disruption|closure/.test(text)) return "#cf3337";
     if (/permit|consent|licen[cs]e/.test(text)) return "#774a92";
     if (/reinstate|resurface|restore/.test(text)) return "#4f8f50";
-    if (/repair|replace|upgrade/.test(text)) return type === "water" ? "#248b94" : "#e8a620";
-    if (/planned|programme|program|scheme|maintenance|works|utility/.test(text)) return utilityWorksTypeColor(type, event, road);
+    if (/repair|replace|upgrade/.test(text)) return utilityWorksStatusColor("repair", type, event, road);
+    if (/planned|programme|program|scheme|maintenance|works|utility/.test(text)) return utilityWorksStatusColor("planned", type, event, road);
     if (type === "water") return "#248b94";
     if (type === "telecoms") return "#774a92";
     if (type === "electricity") return "#e8a620";
@@ -3773,6 +3773,24 @@
     if (seed < 0.68) return "#774a92";
     if (seed < 0.84) return "#4f8f50";
     return "#d66a3a";
+  }
+
+  function utilityWorksStatusColor(status, type, event, road) {
+    const seed = stableUnit(`${status}:${type}:${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
+    if (status === "repair") {
+      if (type === "water" && seed < 0.58) return "#248b94";
+      if (type === "telecoms" && seed < 0.72) return "#774a92";
+      if (seed < 0.48) return "#e8a620";
+      if (seed < 0.66) return "#d66a3a";
+      if (seed < 0.82) return "#248b94";
+      return "#774a92";
+    }
+    if (type === "water") return seed < 0.72 ? "#248b94" : "#4f8f50";
+    if (type === "telecoms") return "#774a92";
+    if (type === "drainage") return seed < 0.64 ? "#4f8f50" : "#248b94";
+    if (type === "gas") return seed < 0.62 ? "#d66a3a" : "#e8a620";
+    if (type === "electricity") return seed < 0.58 ? "#e8a620" : "#d66a3a";
+    return utilityWorksTypeColor(type, event, road);
   }
 
   function utilityEventType(event, road) {
