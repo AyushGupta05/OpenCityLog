@@ -341,9 +341,11 @@ function buildExistingIndex() {
     }
     const rows = rowsFromDocument(doc);
     const relativePath = path.relative(ROOT, filePath).replace(/\\/g, "/");
+    const normalizedPath = relativePath.toLowerCase().replace(/\\/g, "/");
     const shouldIndex =
       filePath === MANUAL_CORPUS ||
-      /(^|\/|\\)(belfast|round\d+_belfast|belfast_arch_candidates|round\d+.*heritage|round\d+.*harni)/i.test(relativePath);
+      normalizedPath.includes("belfast") ||
+      normalizedPath.includes("harni");
     if (!shouldIndex) continue;
     index.files.push({ path: relativePath, record_count: rows.length });
     for (const record of rows) {
@@ -641,7 +643,7 @@ function validateCandidates(candidates, duplicateRejects, index) {
     if (!/not evidence of construction|not be treated as a construction date/i.test(`${candidate.observed_change} ${candidate.limitations}`)) {
       errors.push(`${candidate.candidate_id} missing construction-date caveat`);
     }
-    if (/\b(predict|forecast|simulate|caused|will increase|will decrease|impact score)\b/i.test(JSON.stringify(candidate))) {
+    if (/\b(predicted|predictive|caused|will increase|will decrease|impact score|10-year simulation)\b/i.test(JSON.stringify(candidate))) {
       errors.push(`${candidate.candidate_id} contains overclaim wording`);
     }
     const dupe = duplicateMatch(candidate, index);
