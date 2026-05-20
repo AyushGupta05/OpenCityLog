@@ -1564,10 +1564,41 @@ async function main() {
     candidates
   };
 
+  const validationReport = {
+    schema_version: `${ROUND_ID}.validation_report.v1`,
+    generated_at: GENERATED_AT,
+    accessed_at: ACCESSED_AT,
+    city_id: "belfast",
+    round_id: ROUND_ID,
+    validation_ok: validation.ok,
+    accepted_candidates: candidates.length,
+    date_window: { start: DATE_MIN, end: DATE_MAX },
+    emitted_date_range: emittedRange,
+    source_mix: sourceMix,
+    audited_source_mix: sourceAudit.source_mix,
+    checks: validation.checked,
+    errors: validation.errors,
+    warnings: validation.warnings,
+    dedupe: {
+      manual_corpus: path.relative(ROOT, MANUAL_CORPUS).replace(/\\/g, "/"),
+      prior_file_count: index.files.length,
+      prior_record_count: index.record_count,
+      indexed_application_ids: index.applicationIds.size,
+      indexed_event_ids: index.eventIds.size,
+      indexed_source_record_date_keys: index.sourceRecordDate.size,
+      indexed_source_url_date_keys: index.sourceUrlDate.size,
+      indexed_title_date_keys: index.titleDate.size,
+      includes_round270: index.files.some((entry) => /round270_belfast_official_planning_tail\/candidates\.json$/i.test(entry.path))
+    },
+    caveat:
+      "This is an internal harvest validation report. It confirms candidate-pack provenance and dedupe checks; it does not validate construction, opening, completion, delivery, impact, or causation."
+  };
+
   writeJson(OUTPUTS.candidates, candidatesPayload);
   writeJson(OUTPUTS.sourceAudit, sourceAudit);
   writeJson(OUTPUTS.summary, summary);
   writeJson(OUTPUTS.rejected, rejectedPayload);
+  writeJson(OUTPUTS.validationReport, validationReport);
   fs.writeFileSync(OUTPUTS.notes, buildNotes(summary, sourceAudit), "utf8");
 
   console.log(
@@ -1580,6 +1611,7 @@ async function main() {
         audited_sources: sourceAudit.audit_count,
         rejected_detail_count: rejectedPayload.rejected_detail_count,
         validation_ok: validation.ok,
+        validation_report: path.relative(ROOT, OUTPUTS.validationReport).replace(/\\/g, "/"),
         output_dir: path.relative(ROOT, OUT_DIR).replace(/\\/g, "/")
       },
       null,
