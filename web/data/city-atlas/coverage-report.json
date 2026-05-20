@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-20T03:31:00Z",
+  "generated_at": "2026-05-20T03:36:17Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 294744,
-    "total_unique_events": 294744,
+    "total_events": 294844,
+    "total_unique_events": 294844,
     "duplicate_event_id_count": 0,
-    "active_source_count": 411,
+    "active_source_count": 416,
     "source_catalog_only_count": 239,
-    "source_year_layer_row_count": 2230,
+    "source_year_layer_row_count": 2261,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -4025,6 +4025,254 @@
       "year": 2014,
       "layer": "built_environment",
       "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 22
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 14
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 19
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 15
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2008,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2022,
+      "layer": "built_environment",
+      "event_count": 22
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2023,
+      "layer": "built_environment",
+      "event_count": 14
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 18
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 15
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2010,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2011,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 2
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2017,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2019,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "source_title": "National Heritage List for England (NHLE) open data",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 4
     },
     {
       "city_id": "london",
@@ -24450,16 +24698,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 208453,
-      "unique_event_count": 208453,
+      "event_count": 208553,
+      "unique_event_count": 208553,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 285,
-      "active_source_count": 181,
+      "source_count": 290,
+      "active_source_count": 186,
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 208453,
+        "backed_event_count": 208553,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -24536,28 +24784,28 @@
         "2005": 1234,
         "2006": 1254,
         "2007": 1289,
-        "2008": 2668,
+        "2008": 2671,
         "2009": 3878,
-        "2010": 3794,
-        "2011": 3973,
+        "2010": 3796,
+        "2011": 3974,
         "2012": 3917,
         "2013": 3782,
         "2014": 4017,
-        "2015": 4225,
-        "2016": 4448,
-        "2017": 5886,
+        "2015": 4229,
+        "2016": 4449,
+        "2017": 5887,
         "2018": 4924,
-        "2019": 5172,
-        "2020": 9292,
-        "2021": 8570,
-        "2022": 8432,
-        "2023": 22774,
-        "2024": 30173,
-        "2025": 31087,
-        "2026": 19345
+        "2019": 5173,
+        "2020": 9296,
+        "2021": 8578,
+        "2022": 8454,
+        "2023": 22788,
+        "2024": 30192,
+        "2025": 31102,
+        "2026": 19350
       },
       "event_counts_by_layer": {
-        "built_environment": 89170,
+        "built_environment": 89270,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -24565,7 +24813,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 208443,
+        "documented": 208543,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -24957,7 +25205,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 2662
+          "event_count": 2665
         },
         {
           "year": 2008,
@@ -24992,7 +25240,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 2281
+          "event_count": 2283
         },
         {
           "year": 2010,
@@ -25012,7 +25260,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 2463
+          "event_count": 2464
         },
         {
           "year": 2011,
@@ -25092,7 +25340,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 2711
+          "event_count": 2715
         },
         {
           "year": 2015,
@@ -25112,7 +25360,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 2914
+          "event_count": 2915
         },
         {
           "year": 2016,
@@ -25132,7 +25380,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 4348
+          "event_count": 4349
         },
         {
           "year": 2017,
@@ -25177,7 +25425,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 3546
+          "event_count": 3547
         },
         {
           "year": 2019,
@@ -25197,7 +25445,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 3202
+          "event_count": 3206
         },
         {
           "year": 2020,
@@ -25217,7 +25465,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2445
+          "event_count": 2453
         },
         {
           "year": 2021,
@@ -25237,7 +25485,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2090
+          "event_count": 2112
         },
         {
           "year": 2022,
@@ -25257,7 +25505,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1912
+          "event_count": 1926
         },
         {
           "year": 2023,
@@ -25277,7 +25525,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 2908
+          "event_count": 2927
         },
         {
           "year": 2024,
@@ -25302,7 +25550,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2616
+          "event_count": 2631
         },
         {
           "year": 2025,
@@ -25322,7 +25570,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 12093
+          "event_count": 12098
         },
         {
           "year": 2026,
@@ -26673,6 +26921,254 @@
           "year": 2014,
           "layer": "built_environment",
           "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 22
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 14
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 19
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 15
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2008,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2022,
+          "layer": "built_environment",
+          "event_count": 22
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2023,
+          "layer": "built_environment",
+          "event_count": 14
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 18
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 15
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2010,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2011,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 2
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2017,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2019,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "source_title": "National Heritage List for England (NHLE) open data",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 4
         },
         {
           "city_id": "london",
@@ -32796,6 +33292,64 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "historic-england-nhle-open-data-round294-tail2",
+          "title": "National Heritage List for England (NHLE) open data",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+          "event_count": 100,
+          "years": [
+            2008,
+            2010,
+            2011,
+            2015,
+            2016,
+            2017,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2008,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 100
+          },
+          "confidence_counts": {
+            "documented": 100
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+          "title": "National Heritage List for England (NHLE) open data",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+          "event_count": 82,
+          "years": [
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2021,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 82
+          },
+          "confidence_counts": {
+            "documented": 82
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "tfl-road-disruptions",
           "title": "TfL Road disruptions / planned works API",
           "provider": "Transport for London",
@@ -32953,6 +33507,31 @@
           },
           "confidence_counts": {
             "documented": 14
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+          "title": "National Heritage List for England (NHLE) open data",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+          "event_count": 10,
+          "years": [
+            2010,
+            2011,
+            2015,
+            2017,
+            2019,
+            2020
+          ],
+          "first_year": 2010,
+          "last_year": 2020,
+          "layer_counts": {
+            "built_environment": 10
+          },
+          "confidence_counts": {
+            "documented": 10
           },
           "coverage_status": "events_emitted"
         },
@@ -33232,6 +33811,49 @@
           "layer_counts": {
             "built_environment": 3,
             "transport": 1
+          },
+          "confidence_counts": {
+            "documented": 4
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+          "title": "National Heritage List for England (NHLE) open data",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+          "event_count": 4,
+          "years": [
+            2008,
+            2010
+          ],
+          "first_year": 2008,
+          "last_year": 2010,
+          "layer_counts": {
+            "built_environment": 4
+          },
+          "confidence_counts": {
+            "documented": 4
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+          "title": "National Heritage List for England (NHLE) open data",
+          "provider": "Historic England",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+          "event_count": 4,
+          "years": [
+            2015,
+            2016,
+            2024
+          ],
+          "first_year": 2015,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 4
           },
           "confidence_counts": {
             "documented": 4

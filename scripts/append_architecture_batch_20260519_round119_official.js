@@ -206,9 +206,11 @@ const candidatePaths = {
   nycLpcPermitNext22Round290: "tmp/subagents/round290_nyc_lpc_permit_next22/candidates.json",
   belfastOfficialPlanningTail4Round291: "tmp/subagents/round291_belfast_official_planning_tail4/candidates.json",
   nycDobNowNext16Round293: "tmp/subagents/round293_nyc_dob_now_next16/candidates.json",
+  londonNhleHeritageTail2Round294: "tmp/subagents/round294_london_nhle_heritage_tail2/candidates.json",
   nycPublicDesignCommissionNextRound295: "tmp/subagents/round295_nyc_public_design_commission_next/candidates.json",
   nycHpdAffordableHousingNext14Round292: "tmp/subagents/round292_nyc_hpd_affordable_housing_next14/candidates.json",
-  londonLddArchiveNext25Round297: "tmp/subagents/round297_london_ldd_archive_next25/candidates.json"
+  londonLddArchiveNext25Round297: "tmp/subagents/round297_london_ldd_archive_next25/candidates.json",
+  londonPldLifecycleNext27Round298: "tmp/subagents/round298_london_pld_lifecycle_next27/candidates.json"
 };
 
 const sourceIdAliases = {

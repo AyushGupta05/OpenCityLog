@@ -4080,6 +4080,131 @@
       ]
     },
     {
+      "source_id": "historic-england-nhle-open-data-round294-tail2",
+      "title": "National Heritage List for England (NHLE) open data",
+      "provider": "Historic England",
+      "source_family": "planning",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "The API catalogue states that NHLE data is updated daily.",
+      "url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "2008-01-01 through 2026-05-20 OBJECTID ListEntry Name Grade ListDate AmendDate BPNStart COIStart SchedDate RegDate DesigDate InscrDate hyperlink NGR Easting Northing geometry",
+      "caveats": [
+        "NHLE date fields used here are administrative designation, listing, inscription, notice/certificate start, or amendment dates, not construction dates. NHLE point and polygon geometries locate heritage assets for atlas use but do not define construction areas, curtilage, condition, ownership, access, or outcomes. The API catalogue page has its own start date, while the individual NHLE rows carry older administrative dates; this pack uses row-level administrative date fields only. Use factual metadata and source URLs; list-entry page narrative text, images, and map products require separate terms review before broader redistribution. Append only as documented heritage-administrative change events after the main appender re-checks corpus duplicates. NHLE AmendDate documents an administrative world heritage site list-entry amendment date only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, impact, projects, simulation, or causation."
+      ]
+    },
+    {
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+      "title": "National Heritage List for England (NHLE) open data",
+      "provider": "Historic England",
+      "source_family": "planning",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2010
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "Selected records from 2008-2010 in the Round119 architecture corpus window. AmendDate",
+      "caveats": [
+        "NHLE AmendDate documents an administrative world heritage site list-entry amendment date only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, impact, projects, simulation, or causation."
+      ]
+    },
+    {
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+      "title": "National Heritage List for England (NHLE) open data",
+      "provider": "Historic England",
+      "source_family": "planning",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2026
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "Selected records from 2021-2026 in the Round119 architecture corpus window. COIStart",
+      "caveats": [
+        "NHLE COIStart documents an administrative certificate of immunity start date only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, impact, projects, simulation, or causation."
+      ]
+    },
+    {
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+      "title": "National Heritage List for England (NHLE) open data",
+      "provider": "Historic England",
+      "source_family": "planning",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1002006",
+      "coverage_years": {
+        "start": 2015,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1002006",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "Selected records from 2015-2024 in the Round119 architecture corpus window. AmendDate",
+      "caveats": [
+        "NHLE AmendDate documents an administrative scheduled monument list-entry amendment date only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, impact, projects, simulation, or causation."
+      ]
+    },
+    {
+      "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+      "title": "National Heritage List for England (NHLE) open data",
+      "provider": "Historic England",
+      "source_family": "planning",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
+      "coverage_years": {
+        "start": 2010,
+        "end": 2020
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Historic England.",
+      "provenance_notes": "Selected records from 2010-2020 in the Round119 architecture corpus window. RegDate",
+      "caveats": [
+        "NHLE RegDate documents an administrative registered park/garden designation date only. It is not evidence of construction, demolition, restoration, occupation, public access, condition change, heritage benefit, impact, projects, simulation, or causation."
+      ]
+    },
+    {
       "source_id": "landsat-collection-2",
       "title": "Landsat Collection 2 archive",
       "provider": "United States Geological Survey",

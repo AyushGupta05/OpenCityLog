@@ -274,7 +274,12 @@
         "westminster-authority-monitoring-public-realm",
         "dfe-gias-establishment-register",
         "historic-england-nhle-amendments-open-data",
-        "historic-england-nhle-listed-building-points-round215"
+        "historic-england-nhle-listed-building-points-round215",
+        "historic-england-nhle-open-data-round294-tail2",
+        "historic-england-nhle-open-data-round294-tail2-layer-10",
+        "historic-england-nhle-open-data-round294-tail2-layer-7",
+        "historic-england-nhle-open-data-round294-tail2-layer-6",
+        "historic-england-nhle-open-data-round294-tail2-layer-2"
       ],
       "availability": "partial_local",
       "years": [
