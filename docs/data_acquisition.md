@@ -15,6 +15,13 @@ The source catalogue is `config/source_inventory.json`. Each source entry record
 
 The inventory covers current repo rasters and vectors plus the recommended future sources: Google Earth/manual drops, OpenStreetMap via Overpass, Geofabrik and ohsome, Belfast City Council/OpenDataNI, Belfast Bikes, NI Planning Portal, Translink, Northern Ireland Air, NISRA population/deprivation/statistical boundaries, and Sentinel/Landsat/Copernicus products.
 
+Architecture-related planning, permit, heritage, public-building and completion/opening sources are frozen separately in `config/architecture_source_inventory.json`. That inventory pins the working window to `2008-01-01` through `2026-05-20`, records API/CSV/portal/docs URLs, licence and redistribution caveats, row id fields, date fields, geometry fields, supported event types, current raw/candidate/generated artifacts, and the next checks for London, New York City, and Belfast priority source families. The methodology is documented in `docs/architecture_methodology.md`. Sync the priority source rows into the general registry and validate them with:
+
+```powershell
+npm run sync:architecture-registry
+npm run verify:architecture
+```
+
 London and New York City are built from `data-discovery/<city>/source_catalog.json` and `events_seed.json`. The row-level expansion script fetches selected official sources and rewrites those seed files with bounded, source-backed event records:
 
 ```powershell
@@ -29,13 +36,23 @@ npm run build:data
 
 Current expansion families include London Planning Data brownfield/designation rows, Planning London Datahub application lifecycle records, London Fire Brigade incidents, DfT STATS19 road-collision rows, HM Land Registry Price Paid property-transaction rows, UK House Price Index borough-month aggregate rows, Food Standards Agency food-hygiene rating records, Police.uk anonymized street-level crime/ASB rows, privacy-minimized Police.uk stop-and-search rows, TfL road disruptions, NYC DOB/DOB NOW permits, DOB certificates of occupancy, DOT street work/closure/network-change records, DCP ZAP projects, LPC landmark and historic-district designations, HPD affordable housing production, FDNY dispatch incidents, capital project tracker/status rows, NYC Parks properties, the 2015 street tree census, 311 service requests, permitted events, and motor-vehicle collision records.
 
-Major named architecture and built-environment milestones that are not well represented as row-level administrative data are kept in `data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json`. The package currently covers London, New York City, and Belfast with 2,999 curated records, public source URLs, retrieval dates, project-level points, confidence labels, architect/project-type metadata, and limitations. `scripts/build_discovery_city_atlas.py` adds the London/NYC milestones to generated city-atlas event chunks, while `scripts/build_infrastructure_events.js` folds Belfast milestones into the legacy Belfast event catalog before `scripts/build_data.js` normalizes them.
+Major named architecture and built-environment milestones that are not well represented as row-level administrative data are kept in `data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json`. As of the 2026-05-20 architecture pass, the package covers London, New York City, and Belfast with 94,265 administrative or documented milestone records, 433 source entries, public source URLs, retrieval dates, source row ids, source date fields, project-level points, confidence labels, licence/terms notes, attribution text, transformation notes, and limitations. `scripts/normalize_architecture_milestones.js` fills required provenance fields for older curated rows and pins the target window. `scripts/build_discovery_city_atlas.py` adds the London/NYC milestones to generated city-atlas event chunks, while `scripts/build_infrastructure_events.js` folds Belfast milestones into the legacy Belfast event catalog before `scripts/build_data.js` normalizes them.
 
 These rows are administrative or observed source records, not predictions and not proof of causal impact. Permit, planning, capital-project, and designation dates must be labelled by the source field that supports them. Forecast/projected fields may be retained in summaries only when the event date is the source reporting date or a recorded actual date.
 
 The expansion follows Planning Data `links.next` pagination for London LPA queries and records page counts in `data-discovery/raw_metadata/generated_event_expansion_london_*_summary.json`. Planning London Datahub application rows are fetched through the documented guest API and stored only as minimal public provenance fields because the London Datastore licence field is currently "Not Specified". London Fire Brigade incident rows are sampled by year from the official 2009-2017 CSV and later 2018-2023/2024-onward XLSX files; DfT STATS19 road-collision rows are sampled by year from large official files. Both keep the repo usable while preserving source IDs, row IDs, retrieval time, and caveats. HM Land Registry Price Paid rows are sampled from yearly CSV files from 1995 onward and treated as property-transaction evidence; because the source address fields carry additional address-data conditions, the adapter omits PAON, SAON, street, locality, town/city, county, full postcode, and exact price before writing atlas events. UK House Price Index rows are aggregate borough-month records from the official full-file CSV; they carry average price, index, percentage change, and sales-volume fields as observed context, not as causal or site-specific evidence. Food Standards Agency FHRS rows are current-snapshot hygiene-rating records; the adapter omits business name, address lines, postcode, phone, email, and right-to-reply text before writing atlas events. Police.uk street-level rows are generated through the public custom-download flow for London police forces and kept as anonymized public-safety context, not exact incident-site evidence. Police.uk stop-and-search rows are also pulled through the public custom-download flow, but the adapter intentionally omits demographic fields, operation names, and exact timestamps before writing atlas events. Rows without a usable source date are skipped and counted instead of being assigned the current year. Generated row events carry `source_url`, `source_record_id`, `source_dataset_id`, and `source_retrieved_at` into the UI-facing provenance.
 
 Run `npm run build:coverage` whenever generated atlas artifacts change. It writes `web/data/city-atlas/coverage-report.json` and `docs/data_coverage_report.md`; rows are keyed by city, source, year, and layer, and catalog-only sources remain visible instead of being backfilled with synthetic events.
+
+For architecture-specific coverage, run:
+
+```powershell
+npm run build:architecture-source-registry
+npm run build:architecture-coverage
+npm run spot-check:architecture-urls
+```
+
+Those commands write `manifests/architecture_source_registry.json`, `web/data/city-atlas/architecture-coverage-report.json`, `docs/architecture_coverage_report.md`, and `manifests/architecture_url_spot_check.json`, including per-source access/legal/data-shape rows, city/source-family counts, deterministic row/source URL samples, the frozen priority-source inventory, caveats, and the current thin-source next-pass list.
 
 ## Manifest Script
 

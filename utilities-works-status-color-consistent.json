@@ -1,0 +1,32 @@
+{
+  "features": 1486,
+  "flows": 1450,
+  "rendered": {
+    "symbols": 283,
+    "flows": 1207,
+    "casings": 0
+  },
+  "byStatus": {
+    "planned": 283,
+    "repair": 581,
+    "permit": 192,
+    "failure": 338,
+    "reinstatement": 56
+  },
+  "bySymbol": {
+    ">": 283,
+    "+": 581,
+    "[": 192,
+    "x": 338,
+    "|": 56
+  },
+  "byColor": {
+    "#248b94": 283,
+    "#e8a620": 581,
+    "#774a92": 192,
+    "#cf3337": 338,
+    "#4f8f50": 56
+  },
+  "mismatches": [],
+  "nan": false
+}

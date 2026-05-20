@@ -564,6 +564,48 @@ def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def merge_coverage_years(first: Any, second: Any) -> dict[str, int] | Any:
+    if not isinstance(first, dict):
+        return second
+    if not isinstance(second, dict):
+        return first
+    start_values = [value for value in [first.get("start"), second.get("start")] if isinstance(value, int)]
+    end_values = [value for value in [first.get("end"), second.get("end")] if isinstance(value, int)]
+    if not start_values or not end_values:
+        return first
+    return {"start": min(start_values), "end": max(end_values)}
+
+
+def merge_source_text(first: str | None, second: str | None) -> str | None:
+    values = [str(value).strip() for value in [first, second] if str(value or "").strip()]
+    if not values:
+        return None
+    if len(values) == 1 or values[1] in values[0]:
+        return values[0]
+    if values[0] in values[1]:
+        return values[1]
+    return f"{values[0]} {values[1]}"
+
+
+def dedupe_sources(source_raw: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    merged: list[dict[str, Any]] = []
+    index_by_id: dict[str, int] = {}
+    for source in source_raw:
+        sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
+        if sid not in index_by_id:
+            merged.append(dict(source))
+            index_by_id[sid] = len(merged) - 1
+            continue
+        existing = merged[index_by_id[sid]]
+        existing["coverage_years"] = merge_coverage_years(existing.get("coverage_years"), source.get("coverage_years"))
+        existing["limitations"] = merge_source_text(existing.get("limitations"), source.get("limitations"))
+        existing["time_coverage"] = merge_source_text(existing.get("time_coverage"), source.get("time_coverage"))
+        for key in ["licence", "licence_url", "retrieved_at", "raw_metadata_file", "access_url", "url", "metadata_url", "api_endpoint"]:
+            if not existing.get(key) and source.get(key):
+                existing[key] = source.get(key)
+    return merged
+
+
 def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]]) -> list[dict[str, Any]]:
     grouped: dict[str, list[str]] = defaultdict(list)
     for s in sources:
@@ -589,7 +631,7 @@ def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]])
 def build_city(city: str) -> dict[str, Any]:
     meta = CITY_META[city]
     catalog_payload = read_json(meta["catalog_file"])
-    source_raw = catalog_payload.get("sources", []) + architecture_sources_for_city(city)
+    source_raw = dedupe_sources(catalog_payload.get("sources", []) + architecture_sources_for_city(city))
     sources = [source_to_registry(city, s) for s in source_raw]
     source_by_id = {s["source_id"]: raw for s, raw in zip(sources, source_raw)}
     city_dir = OUT / "cities" / city

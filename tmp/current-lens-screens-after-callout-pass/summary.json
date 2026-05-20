@@ -1,0 +1,197 @@
+[
+  {
+    "lens": "civic-access-gaps",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\civic-access-gaps.png",
+    "state": {
+      "title": "Access Gaps",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 1,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 1002
+    },
+    "errors": []
+  },
+  {
+    "lens": "civic-catchment",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\civic-catchment.png",
+    "state": {
+      "title": "Catchment",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 373
+    },
+    "errors": []
+  },
+  {
+    "lens": "civic-demand",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\civic-demand.png",
+    "state": {
+      "title": "Demand",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 4179
+    },
+    "errors": []
+  },
+  {
+    "lens": "economy-gravity",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\economy-gravity.png",
+    "state": {
+      "title": "Gravity",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 9,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 83
+    },
+    "errors": []
+  },
+  {
+    "lens": "economy-land-use",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\economy-land-use.png",
+    "state": {
+      "title": "Land Use",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 5001
+    },
+    "errors": []
+  },
+  {
+    "lens": "economy-vitality",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\economy-vitality.png",
+    "state": {
+      "title": "Vitality",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 2,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 1185
+    },
+    "errors": []
+  },
+  {
+    "lens": "planning-delta",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\planning-delta.png",
+    "state": {
+      "title": "Delta",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 3647
+    },
+    "errors": []
+  },
+  {
+    "lens": "planning-parcels",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\planning-parcels.png",
+    "state": {
+      "title": "Parcels",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 2087
+    },
+    "errors": []
+  },
+  {
+    "lens": "planning-pressure",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\planning-pressure.png",
+    "state": {
+      "title": "Pressure",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 6,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 4327
+    },
+    "errors": []
+  },
+  {
+    "lens": "transport-access",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\transport-access.png",
+    "state": {
+      "title": "Access",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 2213
+    },
+    "errors": []
+  },
+  {
+    "lens": "transport-reliability",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\transport-reliability.png",
+    "state": {
+      "title": "Reliability",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 742
+    },
+    "errors": []
+  },
+  {
+    "lens": "transport-speed",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\transport-speed.png",
+    "state": {
+      "title": "Speed",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 0,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 856
+    },
+    "errors": []
+  },
+  {
+    "lens": "utilities-capacity",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\utilities-capacity.png",
+    "state": {
+      "title": "Capacity",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 8,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 2642
+    },
+    "errors": []
+  },
+  {
+    "lens": "utilities-resilience",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\utilities-resilience.png",
+    "state": {
+      "title": "Resilience",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 7,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 2156
+    },
+    "errors": []
+  },
+  {
+    "lens": "utilities-works",
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-callout-pass\\utilities-works.png",
+    "state": {
+      "title": "Works",
+      "layersCount": "6/6 on",
+      "visible": "5142",
+      "labels": 7,
+      "bodyTextHasNaN": false,
+      "guideFeatures": 1486
+    },
+    "errors": []
+  }
+]

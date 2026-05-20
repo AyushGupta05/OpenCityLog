@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-20T16:10:27Z",
+  "generated_at": "2026-05-20T20:22:37Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 32802,
-      "source_count": 226,
+      "event_count": 33126,
+      "source_count": 233,
       "availability_status": "mvp_partial",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/belfast/city.json",
@@ -26,7 +26,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "event_count": 219501,
-      "source_count": 293,
+      "source_count": 291,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/london/city.json",
@@ -44,7 +44,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "event_count": 89026,
-      "source_count": 201,
+      "source_count": 200,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/nyc/city.json",
@@ -66,15 +66,15 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-20T16:13:21Z",
+  "coverage_report_generated_at": "2026-05-20T20:25:33Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 341329,
-    "total_unique_events": 341329,
+    "total_events": 341653,
+    "total_unique_events": 341653,
     "duplicate_event_id_count": 0,
-    "active_source_count": 459,
-    "source_catalog_only_count": 258,
-    "source_year_layer_row_count": 2346,
+    "active_source_count": 470,
+    "source_catalog_only_count": 254,
+    "source_year_layer_row_count": 2362,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

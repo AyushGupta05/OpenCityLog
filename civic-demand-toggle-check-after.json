@@ -1,0 +1,12 @@
+{
+  "buttonFound": true,
+  "before": 12,
+  "after": 0,
+  "restored": 12,
+  "activeAfter": [
+    "facilities",
+    "demand_grid",
+    "boundary",
+    "neighbourhoods"
+  ]
+}

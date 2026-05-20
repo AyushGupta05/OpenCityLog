@@ -1,0 +1,91 @@
+{
+  "years": [
+    {
+      "features": 1468,
+      "flows": 1450,
+      "symbols": 418,
+      "icons": 5,
+      "byStatus": {
+        "permit": 224,
+        "repair": 566,
+        "planned": 290,
+        "failure": 322,
+        "reinstatement": 48
+      },
+      "nan": false
+    },
+    {
+      "features": 1480,
+      "flows": 1450,
+      "symbols": 372,
+      "icons": 10,
+      "byStatus": {
+        "planned": 283,
+        "repair": 581,
+        "permit": 192,
+        "failure": 338,
+        "reinstatement": 56
+      },
+      "nan": false
+    },
+    {
+      "features": 1485,
+      "flows": 1450,
+      "symbols": 390,
+      "icons": 16,
+      "byStatus": {
+        "repair": 586,
+        "planned": 269,
+        "permit": 196,
+        "failure": 336,
+        "reinstatement": 63
+      },
+      "nan": false
+    }
+  ],
+  "toggle": {
+    "foundRepairRow": true,
+    "before": {
+      "features": 1480,
+      "flows": 1450,
+      "symbols": 372,
+      "icons": 10,
+      "byStatus": {
+        "planned": 283,
+        "repair": 581,
+        "permit": 192,
+        "failure": 338,
+        "reinstatement": 56
+      },
+      "nan": false
+    },
+    "afterOff": {
+      "features": 1480,
+      "flows": 1450,
+      "symbols": 266,
+      "icons": 6,
+      "byStatus": {
+        "planned": 283,
+        "repair": 581,
+        "permit": 192,
+        "failure": 338,
+        "reinstatement": 56
+      },
+      "nan": false
+    },
+    "afterOn": {
+      "features": 1480,
+      "flows": 1450,
+      "symbols": 372,
+      "icons": 10,
+      "byStatus": {
+        "planned": 283,
+        "repair": 581,
+        "permit": 192,
+        "failure": 338,
+        "reinstatement": 56
+      },
+      "nan": false
+    }
+  }
+}

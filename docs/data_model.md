@@ -64,6 +64,8 @@ Every source must include:
 
 Licences and attribution are machine-readable because the UI and source briefs should be able to show them without hardcoded copy.
 
+Architecture-related sources also have a stricter frozen inventory at `config/architecture_source_inventory.json`, validated by `schemas/architecture_source_inventory.schema.json` and `npm run verify:architecture`. It records the target window (`2008-01-01` through `2026-05-20`), source family, API/CSV/portal/docs URLs, coverage years, update frequency, geography, licence/attribution/redistribution caveats, date fields, geometry fields, row id fields, status fields, supported architecture event types, current artifact paths, and next checks. `npm run sync:architecture-registry` mirrors those rows into `config/source_registry.json` under their stable source ids, preserving the architecture-specific access and data-shape metadata under `architecture_inventory`.
+
 ## Event Schema
 
 Events validate against `schemas/event.schema.json`.
@@ -90,6 +92,8 @@ Required fields:
 Events describe observed public records. They do not claim that a change caused an outcome. Preferred language is "observed", "associated with", "near", and "evidence suggests".
 
 `npm run verify:data` also rejects duplicate `event_id` values within a city, unknown source references, missing evidence pointers, missing date-basis labels, missing spatial provenance, non-observed generated metrics, source-layer markers posing as events, and unsupported causal or predictive language.
+
+`npm run verify:architecture` additionally checks the architecture milestone package for the fixed 2008-01-01 through 2026-05-20 window, required source/event provenance fields, HTTP source URLs, source row ids, licence/terms notes, attribution, transformation notes, valid confidence labels, coordinates, duplicate event ids, duplicate source-record milestones, and overclaiming language. The raw architecture package uses `bucket` as its event-type/source-family classifier before generated atlas events map the record into `category` and `lens`.
 
 ## Belfast Migration
 

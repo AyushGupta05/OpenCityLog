@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-20T16:13:21Z",
+  "generated_at": "2026-05-20T20:25:33Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 341329,
-    "total_unique_events": 341329,
+    "total_events": 341653,
+    "total_unique_events": 341653,
     "duplicate_event_id_count": 0,
-    "active_source_count": 459,
-    "source_catalog_only_count": 258,
-    "source_year_layer_row_count": 2346,
+    "active_source_count": 470,
+    "source_catalog_only_count": 254,
+    "source_year_layer_row_count": 2362,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -2212,6 +2212,134 @@
     },
     {
       "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round527",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 24
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round527",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 3
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round538",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 21
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round538",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 7
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round544",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 29
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round554",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round560",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round565",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round569",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 25
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round569",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 5
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round577",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round582",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 30
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round587",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round587",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 29
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round592",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 29
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfi-planning-statistics-2024-25-round592",
+      "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
       "source_id": "dfi-spd-advertised-applications",
       "source_title": "DfI Strategic Planning Directorate advertised applications",
       "year": 2024,
@@ -3573,7 +3701,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2008,
       "layer": "built_environment",
       "event_count": 795
@@ -3581,7 +3709,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2009,
       "layer": "built_environment",
       "event_count": 733
@@ -3589,7 +3717,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2010,
       "layer": "built_environment",
       "event_count": 764
@@ -3597,7 +3725,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2011,
       "layer": "built_environment",
       "event_count": 843
@@ -3605,7 +3733,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2012,
       "layer": "built_environment",
       "event_count": 927
@@ -3613,7 +3741,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2013,
       "layer": "built_environment",
       "event_count": 877
@@ -3621,7 +3749,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2014,
       "layer": "built_environment",
       "event_count": 992
@@ -3629,7 +3757,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2015,
       "layer": "built_environment",
       "event_count": 1123
@@ -3637,7 +3765,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2016,
       "layer": "built_environment",
       "event_count": 1187
@@ -3645,7 +3773,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2017,
       "layer": "built_environment",
       "event_count": 1054
@@ -3653,7 +3781,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2018,
       "layer": "built_environment",
       "event_count": 942
@@ -3661,7 +3789,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2019,
       "layer": "built_environment",
       "event_count": 893
@@ -3669,7 +3797,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2020,
       "layer": "built_environment",
       "event_count": 774
@@ -3677,7 +3805,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2021,
       "layer": "built_environment",
       "event_count": 740
@@ -3685,7 +3813,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2022,
       "layer": "built_environment",
       "event_count": 719
@@ -3693,7 +3821,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2023,
       "layer": "built_environment",
       "event_count": 789
@@ -3701,7 +3829,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2024,
       "layer": "built_environment",
       "event_count": 918
@@ -3709,7 +3837,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2025,
       "layer": "built_environment",
       "event_count": 616
@@ -3717,7 +3845,7 @@
     {
       "city_id": "london",
       "source_id": "gla-planning-datahub-applications",
-      "source_title": "Planning London Datahub applications",
+      "source_title": "Planning London Datahub - planning applications",
       "year": 2026,
       "layer": "built_environment",
       "event_count": 9088
@@ -4189,7 +4317,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2008,
       "layer": "built_environment",
       "event_count": 51
@@ -4197,7 +4325,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2009,
       "layer": "built_environment",
       "event_count": 89
@@ -4205,7 +4333,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2010,
       "layer": "built_environment",
       "event_count": 77
@@ -4213,7 +4341,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2011,
       "layer": "built_environment",
       "event_count": 175
@@ -4221,7 +4349,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2012,
       "layer": "built_environment",
       "event_count": 46
@@ -4229,7 +4357,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2013,
       "layer": "built_environment",
       "event_count": 33
@@ -4237,7 +4365,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2014,
       "layer": "built_environment",
       "event_count": 43
@@ -4245,7 +4373,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2015,
       "layer": "built_environment",
       "event_count": 62
@@ -4253,7 +4381,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2016,
       "layer": "built_environment",
       "event_count": 107
@@ -4261,7 +4389,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2017,
       "layer": "built_environment",
       "event_count": 133
@@ -4269,7 +4397,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2018,
       "layer": "built_environment",
       "event_count": 55
@@ -4277,7 +4405,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2019,
       "layer": "built_environment",
       "event_count": 23
@@ -4285,7 +4413,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2020,
       "layer": "built_environment",
       "event_count": 51
@@ -4293,7 +4421,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2021,
       "layer": "built_environment",
       "event_count": 17
@@ -4301,7 +4429,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2022,
       "layer": "built_environment",
       "event_count": 9
@@ -4309,7 +4437,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2023,
       "layer": "built_environment",
       "event_count": 5
@@ -4317,7 +4445,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2023,
       "layer": "transport",
       "event_count": 1
@@ -4325,7 +4453,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2024,
       "layer": "built_environment",
       "event_count": 52
@@ -4333,7 +4461,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2024,
       "layer": "transport",
       "event_count": 3
@@ -4341,7 +4469,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2025,
       "layer": "built_environment",
       "event_count": 18
@@ -4349,7 +4477,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2025,
       "layer": "environment",
       "event_count": 3
@@ -4357,7 +4485,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2025,
       "layer": "transport",
       "event_count": 2
@@ -4365,7 +4493,7 @@
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
-      "source_title": "National Heritage List for England listed-building points - amendment dates",
+      "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2026,
       "layer": "transport",
       "event_count": 1
@@ -14221,7 +14349,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2004,
       "layer": "built_environment",
       "event_count": 140
@@ -14229,7 +14357,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2005,
       "layer": "built_environment",
       "event_count": 140
@@ -14237,7 +14365,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2006,
       "layer": "built_environment",
       "event_count": 140
@@ -14245,7 +14373,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2007,
       "layer": "built_environment",
       "event_count": 140
@@ -14253,7 +14381,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2008,
       "layer": "built_environment",
       "event_count": 444
@@ -14261,7 +14389,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2009,
       "layer": "built_environment",
       "event_count": 348
@@ -14269,7 +14397,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2010,
       "layer": "built_environment",
       "event_count": 529
@@ -14277,7 +14405,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2011,
       "layer": "built_environment",
       "event_count": 490
@@ -14285,7 +14413,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2012,
       "layer": "built_environment",
       "event_count": 397
@@ -14293,7 +14421,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2013,
       "layer": "built_environment",
       "event_count": 564
@@ -14301,7 +14429,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2014,
       "layer": "built_environment",
       "event_count": 422
@@ -14309,7 +14437,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2015,
       "layer": "built_environment",
       "event_count": 489
@@ -14317,7 +14445,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2016,
       "layer": "built_environment",
       "event_count": 507
@@ -14325,7 +14453,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2017,
       "layer": "built_environment",
       "event_count": 508
@@ -14333,7 +14461,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2018,
       "layer": "built_environment",
       "event_count": 473
@@ -14341,7 +14469,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2019,
       "layer": "built_environment",
       "event_count": 505
@@ -14349,7 +14477,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2020,
       "layer": "built_environment",
       "event_count": 451
@@ -14357,7 +14485,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2021,
       "layer": "built_environment",
       "event_count": 245
@@ -14365,7 +14493,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2022,
       "layer": "built_environment",
       "event_count": 144
@@ -14373,7 +14501,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2023,
       "layer": "built_environment",
       "event_count": 63
@@ -14381,7 +14509,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2024,
       "layer": "built_environment",
       "event_count": 35
@@ -14389,7 +14517,7 @@
     {
       "city_id": "nyc",
       "source_id": "ipu4-2q9a",
-      "source_title": "NYC Open Data: DOB Permit Issuance",
+      "source_title": "DOB Permit Issuance",
       "year": 2025,
       "layer": "built_environment",
       "event_count": 6
@@ -18791,17 +18919,17 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 32802,
-      "unique_event_count": 32802,
+      "event_count": 33126,
+      "unique_event_count": 33126,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 226,
-      "active_source_count": 191,
-      "source_catalog_only_count": 35,
+      "source_count": 233,
+      "active_source_count": 202,
+      "source_catalog_only_count": 31,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 32802,
-        "gap_events": 67198,
+        "backed_event_count": 33126,
+        "gap_events": 66874,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -18826,12 +18954,12 @@
         "2021": 2743,
         "2022": 3503,
         "2023": 3006,
-        "2024": 4923,
-        "2025": 5206,
+        "2024": 5142,
+        "2025": 5311,
         "2026": 2399
       },
       "event_counts_by_layer": {
-        "built_environment": 13483,
+        "built_environment": 13807,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -18840,7 +18968,7 @@
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 14834,
+        "documented": 15158,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -19112,7 +19240,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1625
+          "event_count": 1844
         },
         {
           "year": 2024,
@@ -19137,7 +19265,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 746
+          "event_count": 851
         },
         {
           "year": 2025,
@@ -21370,6 +21498,134 @@
         },
         {
           "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round527",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 24
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round527",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 3
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round538",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 21
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round538",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 7
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round544",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 29
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round554",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round560",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round565",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round569",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 25
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round569",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 5
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round577",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round582",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 30
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round587",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round587",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 29
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round592",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 29
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfi-planning-statistics-2024-25-round592",
+          "source_title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
           "source_id": "dfi-spd-advertised-applications",
           "source_title": "DfI Strategic Planning Directorate advertised applications",
           "year": 2024,
@@ -22411,6 +22667,231 @@
           },
           "confidence_counts": {
             "documented": 69
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round554",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2024
+          ],
+          "first_year": 2024,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round560",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2024
+          ],
+          "first_year": 2024,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round565",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2024
+          ],
+          "first_year": 2024,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round569",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round577",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2025
+          ],
+          "first_year": 2025,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round582",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2025
+          ],
+          "first_year": 2025,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round587",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round592",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 30,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 30
+          },
+          "confidence_counts": {
+            "documented": 30
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round544",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 29,
+          "years": [
+            2024
+          ],
+          "first_year": 2024,
+          "last_year": 2024,
+          "layer_counts": {
+            "built_environment": 29
+          },
+          "confidence_counts": {
+            "documented": 29
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round538",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 28,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 28
+          },
+          "confidence_counts": {
+            "documented": 28
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfi-planning-statistics-2024-25-round527",
+          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+          "event_count": 27,
+          "years": [
+            2024,
+            2025
+          ],
+          "first_year": 2024,
+          "last_year": 2025,
+          "layer_counts": {
+            "built_environment": 27
+          },
+          "confidence_counts": {
+            "documented": 27
           },
           "coverage_status": "events_emitted"
         },
@@ -26265,11 +26746,53 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "belfast-city-committee-packs",
+          "title": "Belfast City Council Planning Committee agenda items, minutes and report packs",
+          "provider": "Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council meeting pages and attachments; factual metadata only unless terms and attachment rights are reviewed.",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "belfast-city-council-open-data",
           "title": "Belfast City Council open and linked data",
           "provider": "Belfast City Council",
           "reliability": "strong",
           "licence": "Open Government Licence v3.0 for listed open datasets",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "belfast-city-current-planning-applications",
+          "title": "Belfast City Council current planning applications",
+          "provider": "Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council website terms; OGL may apply to some public-sector information, but page-specific reuse review is required.",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "belfast-dfi-planning-statistics",
+          "title": "Northern Ireland Planning Statistics annual and quarterly datasets",
+          "provider": "Department for Infrastructure, Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Crown copyright / Open Government Licence v3.0 where applicable to public-sector information.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -26298,6 +26821,62 @@
           "provider": "Belfast Harbour",
           "reliability": "usable_with_caveats",
           "licence": "Belfast Harbour website copyright and terms; cited for provenance, not reused as open bulk data",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "belfast-harni",
+          "title": "Heritage at Risk in Northern Ireland Belfast records",
+          "provider": "Department for Communities, Northern Ireland / Historic Environment Division",
+          "reliability": "usable_with_caveats",
+          "licence": "Crown copyright / Open Government Licence v3.0 where applicable; Spatial NI and HED layer terms must be preserved.",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "belfast-hed-buildings-database",
+          "title": "Historic Environment Division Buildings Database",
+          "provider": "Department for Communities, Northern Ireland / Historic Environment Division",
+          "reliability": "usable_with_caveats",
+          "licence": "Crown copyright / Open Government Licence v3.0 where applicable; Spatial NI and HED layer terms must be preserved.",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "belfast-ni-planning-portal",
+          "title": "Northern Ireland Planning Portal public register",
+          "provider": "Northern Ireland Planning Portal / councils",
+          "reliability": "usable_with_caveats",
+          "licence": "Planning Portal terms and public-register rights require review; factual metadata and source URLs only until cleared.",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "belfast-official-project-pages",
+          "title": "Belfast official civic, harbour, transport, education, university and project pages",
+          "provider": "Belfast City Council, Belfast Harbour, Translink, Department of Education, Ulster University and other official project owners",
+          "reliability": "usable_with_caveats",
+          "licence": "Publisher-specific website terms; factual metadata and source URLs retained pending source-level rights review.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -26368,160 +26947,6 @@
           "provider": "Department for Communities Historic Environment Division / nidirect",
           "reliability": "usable_with_caveats",
           "licence": "Crown copyright / public-sector information terms; factual metadata and source URLs retained for audit.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round527",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round538",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round544",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round554",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round560",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round565",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round569",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round577",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round582",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round587",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
-          "event_count": 0,
-          "years": [],
-          "first_year": null,
-          "last_year": null,
-          "layer_counts": {},
-          "confidence_counts": {},
-          "coverage_status": "source_catalog_only"
-        },
-        {
-          "source_id": "dfi-planning-statistics-2024-25-round592",
-          "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-          "provider": "Department for Infrastructure, Northern Ireland",
-          "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -26729,10 +27154,28 @@
             "reliability": "usable_with_caveats"
           },
           {
+            "source_id": "belfast-city-committee-packs",
+            "title": "Belfast City Council Planning Committee agenda items, minutes and report packs",
+            "provider": "Belfast City Council",
+            "reliability": "usable_with_caveats"
+          },
+          {
             "source_id": "belfast-city-council-open-data",
             "title": "Belfast City Council open and linked data",
             "provider": "Belfast City Council",
             "reliability": "strong"
+          },
+          {
+            "source_id": "belfast-city-current-planning-applications",
+            "title": "Belfast City Council current planning applications",
+            "provider": "Belfast City Council",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "belfast-dfi-planning-statistics",
+            "title": "Northern Ireland Planning Statistics annual and quarterly datasets",
+            "provider": "Department for Infrastructure, Northern Ireland",
+            "reliability": "usable_with_caveats"
           },
           {
             "source_id": "belfast-harbour-cruise-terminal-opened-2019-round419",
@@ -26744,6 +27187,30 @@
             "source_id": "belfast-harbour-offshore-wind-terminal-completed-2013-round419",
             "title": "GBP50m Offshore Wind Terminal Completed",
             "provider": "Belfast Harbour",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "belfast-harni",
+            "title": "Heritage at Risk in Northern Ireland Belfast records",
+            "provider": "Department for Communities, Northern Ireland / Historic Environment Division",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "belfast-hed-buildings-database",
+            "title": "Historic Environment Division Buildings Database",
+            "provider": "Department for Communities, Northern Ireland / Historic Environment Division",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "belfast-ni-planning-portal",
+            "title": "Northern Ireland Planning Portal public register",
+            "provider": "Northern Ireland Planning Portal / councils",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "belfast-official-project-pages",
+            "title": "Belfast official civic, harbour, transport, education, university and project pages",
+            "provider": "Belfast City Council, Belfast Harbour, Translink, Department of Education, Ulster University and other official project owners",
             "reliability": "usable_with_caveats"
           },
           {
@@ -26774,72 +27241,6 @@
             "source_id": "dfc-hed-historic-buildings-arcgis-round340",
             "title": "Historic Building Details / HED Buildings Database ArcGIS layer",
             "provider": "Department for Communities Historic Environment Division / nidirect",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round538",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round544",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round554",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round560",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round565",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round569",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round577",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round582",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round587",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
-            "reliability": "usable_with_caveats"
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round592",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "provider": "Department for Infrastructure, Northern Ireland",
             "reliability": "usable_with_caveats"
           },
           {
@@ -26928,7 +27329,7 @@
       "unique_event_count": 219501,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 293,
+      "source_count": 291,
       "active_source_count": 190,
       "source_catalog_only_count": 101,
       "target_coverage_gap": {
@@ -28335,7 +28736,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2008,
           "layer": "built_environment",
           "event_count": 795
@@ -28343,7 +28744,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2009,
           "layer": "built_environment",
           "event_count": 733
@@ -28351,7 +28752,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2010,
           "layer": "built_environment",
           "event_count": 764
@@ -28359,7 +28760,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2011,
           "layer": "built_environment",
           "event_count": 843
@@ -28367,7 +28768,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2012,
           "layer": "built_environment",
           "event_count": 927
@@ -28375,7 +28776,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2013,
           "layer": "built_environment",
           "event_count": 877
@@ -28383,7 +28784,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2014,
           "layer": "built_environment",
           "event_count": 992
@@ -28391,7 +28792,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2015,
           "layer": "built_environment",
           "event_count": 1123
@@ -28399,7 +28800,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2016,
           "layer": "built_environment",
           "event_count": 1187
@@ -28407,7 +28808,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2017,
           "layer": "built_environment",
           "event_count": 1054
@@ -28415,7 +28816,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2018,
           "layer": "built_environment",
           "event_count": 942
@@ -28423,7 +28824,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2019,
           "layer": "built_environment",
           "event_count": 893
@@ -28431,7 +28832,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2020,
           "layer": "built_environment",
           "event_count": 774
@@ -28439,7 +28840,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2021,
           "layer": "built_environment",
           "event_count": 740
@@ -28447,7 +28848,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2022,
           "layer": "built_environment",
           "event_count": 719
@@ -28455,7 +28856,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2023,
           "layer": "built_environment",
           "event_count": 789
@@ -28463,7 +28864,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2024,
           "layer": "built_environment",
           "event_count": 918
@@ -28471,7 +28872,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2025,
           "layer": "built_environment",
           "event_count": 616
@@ -28479,7 +28880,7 @@
         {
           "city_id": "london",
           "source_id": "gla-planning-datahub-applications",
-          "source_title": "Planning London Datahub applications",
+          "source_title": "Planning London Datahub - planning applications",
           "year": 2026,
           "layer": "built_environment",
           "event_count": 9088
@@ -28951,7 +29352,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2008,
           "layer": "built_environment",
           "event_count": 51
@@ -28959,7 +29360,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2009,
           "layer": "built_environment",
           "event_count": 89
@@ -28967,7 +29368,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2010,
           "layer": "built_environment",
           "event_count": 77
@@ -28975,7 +29376,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2011,
           "layer": "built_environment",
           "event_count": 175
@@ -28983,7 +29384,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2012,
           "layer": "built_environment",
           "event_count": 46
@@ -28991,7 +29392,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2013,
           "layer": "built_environment",
           "event_count": 33
@@ -28999,7 +29400,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2014,
           "layer": "built_environment",
           "event_count": 43
@@ -29007,7 +29408,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2015,
           "layer": "built_environment",
           "event_count": 62
@@ -29015,7 +29416,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2016,
           "layer": "built_environment",
           "event_count": 107
@@ -29023,7 +29424,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2017,
           "layer": "built_environment",
           "event_count": 133
@@ -29031,7 +29432,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2018,
           "layer": "built_environment",
           "event_count": 55
@@ -29039,7 +29440,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2019,
           "layer": "built_environment",
           "event_count": 23
@@ -29047,7 +29448,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2020,
           "layer": "built_environment",
           "event_count": 51
@@ -29055,7 +29456,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2021,
           "layer": "built_environment",
           "event_count": 17
@@ -29063,7 +29464,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2022,
           "layer": "built_environment",
           "event_count": 9
@@ -29071,7 +29472,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2023,
           "layer": "built_environment",
           "event_count": 5
@@ -29079,7 +29480,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2023,
           "layer": "transport",
           "event_count": 1
@@ -29087,7 +29488,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2024,
           "layer": "built_environment",
           "event_count": 52
@@ -29095,7 +29496,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2024,
           "layer": "transport",
           "event_count": 3
@@ -29103,7 +29504,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2025,
           "layer": "built_environment",
           "event_count": 18
@@ -29111,7 +29512,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2025,
           "layer": "environment",
           "event_count": 3
@@ -29119,7 +29520,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2025,
           "layer": "transport",
           "event_count": 2
@@ -29127,7 +29528,7 @@
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
-          "source_title": "National Heritage List for England listed-building points - amendment dates",
+          "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2026,
           "layer": "transport",
           "event_count": 1
@@ -35022,10 +35423,10 @@
         },
         {
           "source_id": "gla-planning-datahub-applications",
-          "title": "Planning London Datahub applications",
-          "provider": "Greater London Authority / London planning authorities",
+          "title": "Planning London Datahub - planning applications",
+          "provider": "Greater London Authority (GLA), London borough planning authorities",
           "reliability": "usable_with_caveats",
-          "licence": "London Datastore dataset page lists Licence: Not Specified; this candidate file stores factual metadata, source row URLs, and derived representative coordinates pending reuse review.",
+          "licence": "Not specified on London Datastore; source-level reuse review required before redistributing full rows.",
           "event_count": 24774,
           "years": [
             2008,
@@ -35473,10 +35874,10 @@
         },
         {
           "source_id": "historic-england-nhle",
-          "title": "National Heritage List for England listed-building points - amendment dates",
+          "title": "National Heritage List for England (NHLE) downloads",
           "provider": "Historic England",
           "reliability": "usable_with_caveats",
-          "licence": "Open Government Licence v3.0 subject to Historic England Open Data Hub terms; spatial attribution requires Historic England and Ordnance Survey/Crown copyright/database right text.",
+          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
           "event_count": 1056,
           "years": [
             2008,
@@ -41458,7 +41859,7 @@
       "unique_event_count": 89026,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 201,
+      "source_count": 200,
       "active_source_count": 78,
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
@@ -47403,7 +47804,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2004,
           "layer": "built_environment",
           "event_count": 140
@@ -47411,7 +47812,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2005,
           "layer": "built_environment",
           "event_count": 140
@@ -47419,7 +47820,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2006,
           "layer": "built_environment",
           "event_count": 140
@@ -47427,7 +47828,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2007,
           "layer": "built_environment",
           "event_count": 140
@@ -47435,7 +47836,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2008,
           "layer": "built_environment",
           "event_count": 444
@@ -47443,7 +47844,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2009,
           "layer": "built_environment",
           "event_count": 348
@@ -47451,7 +47852,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2010,
           "layer": "built_environment",
           "event_count": 529
@@ -47459,7 +47860,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2011,
           "layer": "built_environment",
           "event_count": 490
@@ -47467,7 +47868,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2012,
           "layer": "built_environment",
           "event_count": 397
@@ -47475,7 +47876,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2013,
           "layer": "built_environment",
           "event_count": 564
@@ -47483,7 +47884,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2014,
           "layer": "built_environment",
           "event_count": 422
@@ -47491,7 +47892,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2015,
           "layer": "built_environment",
           "event_count": 489
@@ -47499,7 +47900,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2016,
           "layer": "built_environment",
           "event_count": 507
@@ -47507,7 +47908,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2017,
           "layer": "built_environment",
           "event_count": 508
@@ -47515,7 +47916,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2018,
           "layer": "built_environment",
           "event_count": 473
@@ -47523,7 +47924,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2019,
           "layer": "built_environment",
           "event_count": 505
@@ -47531,7 +47932,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2020,
           "layer": "built_environment",
           "event_count": 451
@@ -47539,7 +47940,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2021,
           "layer": "built_environment",
           "event_count": 245
@@ -47547,7 +47948,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2022,
           "layer": "built_environment",
           "event_count": 144
@@ -47555,7 +47956,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2023,
           "layer": "built_environment",
           "event_count": 63
@@ -47563,7 +47964,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2024,
           "layer": "built_environment",
           "event_count": 35
@@ -47571,7 +47972,7 @@
         {
           "city_id": "nyc",
           "source_id": "ipu4-2q9a",
-          "source_title": "NYC Open Data: DOB Permit Issuance",
+          "source_title": "DOB Permit Issuance",
           "year": 2025,
           "layer": "built_environment",
           "event_count": 6
@@ -52151,10 +52552,10 @@
         },
         {
           "source_id": "ipu4-2q9a",
-          "title": "NYC Open Data: DOB Permit Issuance",
-          "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
+          "title": "DOB Permit Issuance",
+          "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms. Keep NYC Department of Buildings and NYC Open Data attribution and re-check dataset-specific metadata before bulk redistribution.",
+          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
           "event_count": 7180,
           "years": [
             2004,

@@ -11913,6 +11913,1735 @@
       "caveats": [
         "The event records an approval-to-implement milestone; subsequent temporary and permanent delivery stages should be separate events."
       ]
+    },
+    {
+      "source_id": "london-pld-applications",
+      "title": "Planning London Datahub applications",
+      "provider": "Greater London Authority / Planning London Datahub",
+      "source_family": "planning_applications",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "London Datastore licence currently recorded as Not Specified for the PLD applications dataset; keep minimal factual event/provenance fields until reuse terms are clarified.",
+      "licence_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications/",
+      "coverage_years": {
+        "start": 2004,
+        "end": 2026
+      },
+      "update_frequency": "Daily/live feed",
+      "url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications/",
+      "local_paths": [
+        "tmp/subagents/round119_london_planning_data_high_volume/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/london/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Greater London Authority / Planning London Datahub and the relevant London Planning Authority.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: valid_date, decision_date, actual_commencement_date, actual_completion_date, last_updated. Geometry fields: centroid, wgs84_polygon. Row id fields: id, lpa_app_no, url_planning_app. Event types: planning_application, planning_decision, construction_start, completion.",
+      "caveats": [
+        "Planning applications, decisions, commencement fields and completion fields are administrative/source-reported milestones.",
+        "Planning approval is not construction. PLD lifecycle fields should not be framed as opening, occupation, final built form, or outcome evidence.",
+        "Borough source geometry may be missing, approximate or later revised.",
+        "Do not redistribute full raw PLD rows in public artifacts until licence terms are confirmed; publish source ids, source URLs, dates, geometry caveats, and minimal factual summaries only."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 1,
+        "access": {
+          "api_url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+          "csv_url": null,
+          "portal_url": "https://planningdata.london.gov.uk/",
+          "docs_url": "https://www.london.gov.uk/programmes-strategies/planning/digital-planning/planning-london-datahub",
+          "landing_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications/"
+        },
+        "data_shape": {
+          "date_fields": [
+            "valid_date",
+            "decision_date",
+            "actual_commencement_date",
+            "actual_completion_date",
+            "last_updated"
+          ],
+          "geometry_fields": [
+            "centroid",
+            "wgs84_polygon"
+          ],
+          "row_id_fields": [
+            "id",
+            "lpa_app_no",
+            "url_planning_app"
+          ],
+          "status_fields": [
+            "status",
+            "decision",
+            "application_type_full"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "construction_start",
+          "completion"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round119_london_planning_data_high_volume/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/london/events.json"
+        },
+        "next_checks": [
+          "Clarify dataset licence and redistribution terms.",
+          "Keep row-level application URLs and LPA references for source briefs.",
+          "Spot-check PLD rows against borough planning portals before promoting high-profile events."
+        ]
+      }
+    },
+    {
+      "source_id": "london-datastore-ldd-permissions",
+      "title": "London Development Database planning permissions archive",
+      "provider": "Greater London Authority / London Datastore",
+      "source_family": "planning_permissions_archive",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "London Datastore dataset terms; source-level licence review required before publishing raw rows.",
+      "licence_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd-",
+      "coverage_years": {
+        "start": 2004,
+        "end": 2020
+      },
+      "update_frequency": "Archived/static",
+      "url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd-",
+      "local_paths": [
+        "tmp/subagents/round124_london_ldd_archive_completions/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/london/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Greater London Authority / London Datastore.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: permission_date, commencement_date, completion_date, decision_date. Geometry fields: easting, northing, site_address, borough. Row id fields: application_id, borough_reference, site_name. Event types: planning_decision, construction_start, completion.",
+      "caveats": [
+        "LDD is an archive of selected permissions and monitoring records, not a full application-level source after PLD replaced it.",
+        "Completion fields are source-reported administrative monitoring fields and should be labelled as such.",
+        "Use as an archive source with citation and minimal event fields; avoid treating the archive as complete for all applications."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 2,
+        "access": {
+          "api_url": null,
+          "csv_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd-",
+          "portal_url": "https://data.london.gov.uk/",
+          "docs_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd-",
+          "landing_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd-"
+        },
+        "data_shape": {
+          "date_fields": [
+            "permission_date",
+            "commencement_date",
+            "completion_date",
+            "decision_date"
+          ],
+          "geometry_fields": [
+            "easting",
+            "northing",
+            "site_address",
+            "borough"
+          ],
+          "row_id_fields": [
+            "application_id",
+            "borough_reference",
+            "site_name"
+          ],
+          "status_fields": [
+            "permission_status",
+            "development_status"
+          ]
+        },
+        "event_types": [
+          "planning_decision",
+          "construction_start",
+          "completion"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round124_london_ldd_archive_completions/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/london/events.json"
+        },
+        "next_checks": [
+          "Retain archive file version and field dictionary in raw metadata.",
+          "Prefer PLD for post-2020 rows."
+        ]
+      }
+    },
+    {
+      "source_id": "london-planning-data-listed-building-outlines",
+      "title": "Planning Data listed building outlines",
+      "provider": "Department for Levelling Up, Housing and Communities / Planning Data",
+      "source_family": "listed_building_geometry",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 unless a contributing authority states otherwise.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Publisher-maintained open-data feed",
+      "url": "https://www.planning.data.gov.uk/dataset/listed-building-outline",
+      "local_paths": [
+        "web/data/city-atlas/cities/london/lens_detail_2026.geojson",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/london/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: entry-date, start-date, end-date. Geometry fields: geometry, point. Row id fields: entity, reference, listed-building. Event types: listed_building_change.",
+      "caveats": [
+        "Listed-building geometry records administrative designation or data-maintenance state, not a construction event.",
+        "Dates may reflect dataset/entity lifecycle dates rather than real-world building change dates.",
+        "Preserve attribution and dataset/entity identifiers; verify third-party source notices in entity metadata."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 3,
+        "access": {
+          "api_url": "https://www.planning.data.gov.uk/entity.json?dataset=listed-building-outline",
+          "csv_url": "https://www.planning.data.gov.uk/dataset/listed-building-outline.csv",
+          "portal_url": "https://www.planning.data.gov.uk/dataset/listed-building-outline",
+          "docs_url": "https://www.planning.data.gov.uk/",
+          "landing_url": "https://www.planning.data.gov.uk/dataset/listed-building-outline"
+        },
+        "data_shape": {
+          "date_fields": [
+            "entry-date",
+            "start-date",
+            "end-date"
+          ],
+          "geometry_fields": [
+            "geometry",
+            "point"
+          ],
+          "row_id_fields": [
+            "entity",
+            "reference",
+            "listed-building"
+          ],
+          "status_fields": [
+            "status",
+            "typology"
+          ]
+        },
+        "event_types": [
+          "listed_building_change"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "web/data/city-atlas/cities/london/lens_detail_2026.geojson",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/london/events.json"
+        },
+        "next_checks": [
+          "Link listed-building outline entities to NHLE list entry identifiers where possible.",
+          "Keep designation changes distinct from planning applications and refurbishments."
+        ]
+      }
+    },
+    {
+      "source_id": "london-historic-england-nhle",
+      "title": "Historic England National Heritage List for England open data",
+      "provider": "Historic England",
+      "source_family": "heritage_designations",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Open Government Licence v3.0 for Historic England Data published through the Open Data Hub.",
+      "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Open Data Hub layers updated by Historic England; some heritage-at-risk layers annual",
+      "url": "https://historicengland.org.uk/listing/the-list/",
+      "local_paths": [
+        "tmp/subagents/round115_london_nhle_official/round115_london_nhle_official_candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/london/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains Historic England Data licensed under the Open Government Licence v3.0.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: dateListed, dateAmended, dateRemoved, lastUpdated. Geometry fields: x, y, geometry, point, polygon. Row id fields: ListEntry, ListEntryNumber, OBJECTID. Event types: listed_building_change.",
+      "caveats": [
+        "Heritage-list updates are legal/administrative heritage records, not evidence of refurbishment, demolition or public opening.",
+        "Heritage at Risk status is risk/condition context and should not be counted as built change.",
+        "Respect Open Data Hub terms and disclaimers; do not redistribute attached images or non-open third-party material."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 4,
+        "access": {
+          "api_url": "https://services5.arcgis.com/nvJ2PabzvQyM65zB/arcgis/rest/services",
+          "csv_url": null,
+          "portal_url": "https://historicengland.org.uk/listing/the-list/data-downloads",
+          "docs_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+          "landing_url": "https://historicengland.org.uk/listing/the-list/"
+        },
+        "data_shape": {
+          "date_fields": [
+            "dateListed",
+            "dateAmended",
+            "dateRemoved",
+            "lastUpdated"
+          ],
+          "geometry_fields": [
+            "x",
+            "y",
+            "geometry",
+            "point",
+            "polygon"
+          ],
+          "row_id_fields": [
+            "ListEntry",
+            "ListEntryNumber",
+            "OBJECTID"
+          ],
+          "status_fields": [
+            "Grade",
+            "AssetType",
+            "DesignationType"
+          ]
+        },
+        "event_types": [
+          "listed_building_change"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round115_london_nhle_official/round115_london_nhle_official_candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/london/events.json"
+        },
+        "next_checks": [
+          "Record layer name, service URL, query parameters and access timestamp for each extract.",
+          "Separate listed-building designation, certificate of immunity, de-designation and heritage-at-risk records."
+        ]
+      }
+    },
+    {
+      "source_id": "london-borough-planning-portals",
+      "title": "London borough planning portals and document packs",
+      "provider": "London borough planning authorities",
+      "source_family": "borough_planning_documents",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Public planning register material under local portal terms; documents and representations may include copyright and personal data.",
+      "licence_url": "https://www.planningportal.co.uk/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Portal-specific; live public registers",
+      "url": "https://www.london.gov.uk/programmes-strategies/planning/digital-planning/planning-london-datahub",
+      "local_paths": [
+        "tmp/subagents/round122_london_borough_major_schemes/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/london/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute the relevant London borough planning authority and preserve application reference/source URL.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: validated_date, decision_date, committee_date, document_date. Geometry fields: site_address, planning red line where available, application map where available. Row id fields: application_reference, document_id, committee_item_id. Event types: planning_application, planning_decision, heritage_permit, demolition.",
+      "caveats": [
+        "Borough portals are source-of-record for documents but have heterogeneous schemas, fragile URLs and personal-data risks.",
+        "Planning reports are evidence of committee process and stated recommendations/decisions only.",
+        "Do not ingest public comments, names, signatures or full documents without privacy and rights review; keep document URLs and factual metadata."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 5,
+        "access": {
+          "api_url": null,
+          "csv_url": null,
+          "portal_url": "https://www.planningportal.co.uk/find-your-local-planning-authority",
+          "docs_url": "https://www.planningportal.co.uk/planning/planning-applications",
+          "landing_url": "https://www.london.gov.uk/programmes-strategies/planning/digital-planning/planning-london-datahub"
+        },
+        "data_shape": {
+          "date_fields": [
+            "validated_date",
+            "decision_date",
+            "committee_date",
+            "document_date"
+          ],
+          "geometry_fields": [
+            "site_address",
+            "planning red line where available",
+            "application map where available"
+          ],
+          "row_id_fields": [
+            "application_reference",
+            "document_id",
+            "committee_item_id"
+          ],
+          "status_fields": [
+            "application_status",
+            "decision",
+            "recommendation"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "heritage_permit",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round122_london_borough_major_schemes/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/london/events.json"
+        },
+        "next_checks": [
+          "Use PLD row IDs to decide which borough document packs need spot-checking.",
+          "Store document metadata and source URLs before scraping any document text."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-dob-permit-issuance",
+      "title": "DOB Permit Issuance",
+      "provider": "NYC Department of Buildings / NYC Open Data",
+      "source_family": "building_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2004,
+        "end": 2026
+      },
+      "update_frequency": "Socrata operating table; publisher-updated",
+      "url": "https://data.cityofnewyork.us/api/views/ipu4-2q9a",
+      "local_paths": [
+        "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Filing Date, Issuance Date, Expiration Date. Geometry fields: BOROUGH, Bin #, Block, Lot, House #, Street Name, Zip Code. Row id fields: Job #, Permit Sequence #, Permit Type, Permit Subtype. Event types: permit_issued, demolition.",
+      "caveats": [
+        "Permit issuance is an administrative permit milestone, not construction start, completion or legal occupancy.",
+        "Address/BIN/BBL fields require geocoding or parcel joins for geometry.",
+        "Minimize owner/applicant/person fields; publish permit identifiers, dates, address-level geometry caveats and source URLs."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 1,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/ipu4-2q9a.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/ipu4-2q9a/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a",
+          "docs_url": "https://www.nyc.gov/site/buildings/dob/building-applications-permits.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/ipu4-2q9a"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Filing Date",
+            "Issuance Date",
+            "Expiration Date"
+          ],
+          "geometry_fields": [
+            "BOROUGH",
+            "Bin #",
+            "Block",
+            "Lot",
+            "House #",
+            "Street Name",
+            "Zip Code"
+          ],
+          "row_id_fields": [
+            "Job #",
+            "Permit Sequence #",
+            "Permit Type",
+            "Permit Subtype"
+          ],
+          "status_fields": [
+            "Permit Status",
+            "Filing Status",
+            "Job Type",
+            "Work Type"
+          ]
+        },
+        "event_types": [
+          "permit_issued",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Join to BIN/BBL geometry through MapPLUTO or Digital Tax Map.",
+          "Link permit rows to DOB job filings and DOB NOW records where job filing numbers align."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-dob-job-application-filings",
+      "title": "DOB Job Application Filings",
+      "provider": "NYC Department of Buildings / NYC Open Data",
+      "source_family": "building_applications",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2000,
+        "end": 2026
+      },
+      "update_frequency": "Socrata operating table; publisher-updated",
+      "url": "https://data.cityofnewyork.us/api/views/ic3t-wcy2",
+      "local_paths": [
+        "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Pre- Filing Date, Latest Action Date, Fully Paid, Assigned, Approved, Fully Permitted. Geometry fields: Borough, House #, Street Name, Block, Lot, Bin #. Row id fields: Job #, Doc #, Bin #. Event types: planning_application, planning_decision, demolition.",
+      "caveats": [
+        "DOB job filings are administrative applications and status records, not evidence that work occurred.",
+        "Legacy BIS and DOB NOW schemas overlap and need deduplication by job number/address/date.",
+        "Suppress applicant/owner personal fields and publish administrative identifiers only."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 2,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/ic3t-wcy2.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/ic3t-wcy2/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-Job-Application-Filings/ic3t-wcy2",
+          "docs_url": "https://www.nyc.gov/site/buildings/dob/building-applications-permits.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/ic3t-wcy2"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Pre- Filing Date",
+            "Latest Action Date",
+            "Fully Paid",
+            "Assigned",
+            "Approved",
+            "Fully Permitted"
+          ],
+          "geometry_fields": [
+            "Borough",
+            "House #",
+            "Street Name",
+            "Block",
+            "Lot",
+            "Bin #"
+          ],
+          "row_id_fields": [
+            "Job #",
+            "Doc #",
+            "Bin #"
+          ],
+          "status_fields": [
+            "Job Type",
+            "Job Status",
+            "Job Status Descrp"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Treat demolition job types as demolition-permit or application records unless a separate source states demolition occurred.",
+          "Link status transitions to permit issuance and certificate-of-occupancy datasets."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-dob-now-job-application-filings",
+      "title": "DOB NOW: Build - Job Application Filings",
+      "provider": "NYC Department of Buildings / NYC Open Data",
+      "source_family": "building_applications",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2019,
+        "end": 2026
+      },
+      "update_frequency": "Socrata operating table; publisher-updated",
+      "url": "https://data.cityofnewyork.us/api/views/w9ak-ipjd",
+      "local_paths": [
+        "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Filing Date, Latest Action Date, Approved Date, Paid Date. Geometry fields: House No, Street Name, Borough, Block, LOT, Bin. Row id fields: Job Filing Number, Bin, Block, LOT. Event types: planning_application, planning_decision, demolition.",
+      "caveats": [
+        "DOB NOW filing status is administrative. It does not by itself evidence construction start, completion or opening.",
+        "DOB NOW records should be linked to approved permits and certificates for lifecycle views.",
+        "Suppress applicant, owner and filing representative personal fields."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 3,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/w9ak-ipjd/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Job-Application-Filings/w9ak-ipjd",
+          "docs_url": "https://www.nyc.gov/site/buildings/industry/dob-now-build-faqs.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/w9ak-ipjd"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Filing Date",
+            "Latest Action Date",
+            "Approved Date",
+            "Paid Date"
+          ],
+          "geometry_fields": [
+            "House No",
+            "Street Name",
+            "Borough",
+            "Block",
+            "LOT",
+            "Bin"
+          ],
+          "row_id_fields": [
+            "Job Filing Number",
+            "Bin",
+            "Block",
+            "LOT"
+          ],
+          "status_fields": [
+            "Filing Status",
+            "Job Type",
+            "Work Type"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Strengthen lifecycle linking between DOB NOW filing, approved permit and certificate-of-occupancy records.",
+          "Document DOB NOW/BIS cutover coverage gaps."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-dob-now-approved-permits",
+      "title": "DOB NOW: Build - Approved Permits",
+      "provider": "NYC Department of Buildings / NYC Open Data",
+      "source_family": "building_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2019,
+        "end": 2026
+      },
+      "update_frequency": "Socrata operating table; publisher-updated",
+      "url": "https://data.cityofnewyork.us/api/views/rbx6-tga4",
+      "local_paths": [
+        "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Issued Date, Filing Date, Expiration Date. Geometry fields: House No, Street Name, Borough, Block, LOT, Bin. Row id fields: Job Filing Number, Work Permit, Sequence Number. Event types: permit_issued, demolition.",
+      "caveats": [
+        "Approved permit rows are permit-administration records, not evidence that work started or was completed.",
+        "Electrical, elevator and limited alteration permits may be represented in separate datasets.",
+        "Suppress applicant and filing representative personal fields; retain permit identifiers and source URLs."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 4,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/rbx6-tga4.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/rbx6-tga4/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4",
+          "docs_url": "https://www.nyc.gov/site/buildings/industry/dob-now-build-faqs.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/rbx6-tga4"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Issued Date",
+            "Filing Date",
+            "Expiration Date"
+          ],
+          "geometry_fields": [
+            "House No",
+            "Street Name",
+            "Borough",
+            "Block",
+            "LOT",
+            "Bin"
+          ],
+          "row_id_fields": [
+            "Job Filing Number",
+            "Work Permit",
+            "Sequence Number"
+          ],
+          "status_fields": [
+            "Filing Reason",
+            "Work Type",
+            "Permit Status"
+          ]
+        },
+        "event_types": [
+          "permit_issued",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Join to DOB NOW job filings and certificate-of-occupancy rows by job filing number.",
+          "Classify work types conservatively and exclude personal fields."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-dob-certificate-occupancy",
+      "title": "DOB Certificate Of Occupancy",
+      "provider": "NYC Department of Buildings / NYC Open Data",
+      "source_family": "certificates_of_occupancy",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2012,
+        "end": 2026
+      },
+      "update_frequency": "Socrata operating table; publisher-updated",
+      "url": "https://data.cityofnewyork.us/api/views/bs8b-p36w",
+      "local_paths": [
+        "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: C_O_ISSUE_DATE. Geometry fields: LATITUDE, LONGITUDE, LOCATION, BIN_NUMBER, BBL. Row id fields: JOB_NUMBER, ITEM_NUMBER, BIN_NUMBER, BBL. Event types: completion, opening.",
+      "caveats": [
+        "A certificate of occupancy is legal occupancy evidence, not a complete construction narrative or public opening notice.",
+        "Temporary and final certificate types must remain distinct.",
+        "Use certificate metadata as administrative occupancy evidence; do not imply project completion beyond the certificate scope."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 5,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/bs8b-p36w.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/bs8b-p36w/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w",
+          "docs_url": "https://www.nyc.gov/site/buildings/dob/find-building-data.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/bs8b-p36w"
+        },
+        "data_shape": {
+          "date_fields": [
+            "C_O_ISSUE_DATE"
+          ],
+          "geometry_fields": [
+            "LATITUDE",
+            "LONGITUDE",
+            "LOCATION",
+            "BIN_NUMBER",
+            "BBL"
+          ],
+          "row_id_fields": [
+            "JOB_NUMBER",
+            "ITEM_NUMBER",
+            "BIN_NUMBER",
+            "BBL"
+          ],
+          "status_fields": [
+            "APPLICATION_STATUS_RAW",
+            "FILING_STATUS_RAW",
+            "ISSUE_TYPE"
+          ]
+        },
+        "event_types": [
+          "completion",
+          "opening"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Separate temporary and final certificate events.",
+          "Join to permit and job filing rows when producing source briefs."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-dob-now-certificate-occupancy",
+      "title": "DOB NOW: Certificate of Occupancy",
+      "provider": "NYC Department of Buildings / NYC Open Data",
+      "source_family": "certificates_of_occupancy",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2026
+      },
+      "update_frequency": "Socrata operating table; publisher-updated",
+      "url": "https://data.cityofnewyork.us/api/views/pkdm-hqz6",
+      "local_paths": [
+        "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: SUBMITTED DATE, C OF O ISSUANCE DATE. Geometry fields: latitude, longitude, BBL, BIN, HOUSE NO, STREET NAME. Row id fields: JOB FILING NAME, APPLICATION NUMBER, C OF O NUMBER. Event types: completion, opening.",
+      "caveats": [
+        "DOB NOW certificates are administrative occupancy records, not general opening announcements.",
+        "DOB NOW and legacy CO coverage must be deduplicated.",
+        "Use certificate metadata as administrative occupancy evidence; do not imply project completion beyond the certificate scope."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 6,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/pkdm-hqz6.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/pkdm-hqz6/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Certificate-of-Occupancy/pkdm-hqz6",
+          "docs_url": "https://www.nyc.gov/site/buildings/dob/find-building-data.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/pkdm-hqz6"
+        },
+        "data_shape": {
+          "date_fields": [
+            "SUBMITTED DATE",
+            "C OF O ISSUANCE DATE"
+          ],
+          "geometry_fields": [
+            "latitude",
+            "longitude",
+            "BBL",
+            "BIN",
+            "HOUSE NO",
+            "STREET NAME"
+          ],
+          "row_id_fields": [
+            "JOB FILING NAME",
+            "APPLICATION NUMBER",
+            "C OF O NUMBER"
+          ],
+          "status_fields": [
+            "C OF O STATUS",
+            "C OF O FILING TYPE",
+            "JOB TYPE"
+          ]
+        },
+        "event_types": [
+          "completion",
+          "opening"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Link DOB NOW CO rows back to DOB NOW permits by job filing name.",
+          "Keep temporary and final certificate status visible in event summaries."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-lpc-permit-application-finder",
+      "title": "LPC Permit Application Finder / Permit Search",
+      "provider": "NYC Landmarks Preservation Commission",
+      "source_family": "heritage_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC.gov and LPC portal terms; factual public permit metadata only unless source terms are reviewed.",
+      "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "coverage_years": {
+        "start": 2016,
+        "end": 2026
+      },
+      "update_frequency": "Live public search portal",
+      "url": "https://home4.nyc.gov/site/lpc/applications/permit-search.page",
+      "local_paths": [
+        "tmp/subagents/round116_nyc_lpc_permits_official/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Landmarks Preservation Commission.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: application_date, issued_date, expiration_date. Geometry fields: borough, block, lot, address, landmark_or_district. Row id fields: permit_application_number, docket_number, address. Event types: heritage_permit, listed_building_change.",
+      "caveats": [
+        "LPC permits authorize or document review of work at designated properties; they are not completion or construction-outcome records.",
+        "Pre-2016 records may require records access rather than portal search.",
+        "Do not ingest applicant-submitted document text, names or attachments without privacy and rights review."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 7,
+        "access": {
+          "api_url": null,
+          "csv_url": null,
+          "portal_url": "https://home4.nyc.gov/site/lpc/applications/permit-search.page",
+          "docs_url": "https://www.nyc.gov/site/lpc/applications/apply-for-a-permit.page",
+          "landing_url": "https://home4.nyc.gov/site/lpc/applications/permit-search.page"
+        },
+        "data_shape": {
+          "date_fields": [
+            "application_date",
+            "issued_date",
+            "expiration_date"
+          ],
+          "geometry_fields": [
+            "borough",
+            "block",
+            "lot",
+            "address",
+            "landmark_or_district"
+          ],
+          "row_id_fields": [
+            "permit_application_number",
+            "docket_number",
+            "address"
+          ],
+          "status_fields": [
+            "permit_status",
+            "approval_type",
+            "work_type"
+          ]
+        },
+        "event_types": [
+          "heritage_permit",
+          "listed_building_change"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round116_nyc_lpc_permits_official/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Resolve a stable source URL strategy for each permit result.",
+          "Link permit rows to LPC designation data and DOB permit rows where feasible."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-zap-project-data",
+      "title": "Zoning Application Portal project and BBL data",
+      "provider": "NYC Department of City Planning / NYC Open Data",
+      "source_family": "planning_records",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2010,
+        "end": 2026
+      },
+      "update_frequency": "Publisher-updated project table",
+      "url": "https://data.cityofnewyork.us/City-Government/Zoning-Application-Portal-ZAP-Project-Data/hgx4-8ukb",
+      "local_paths": [
+        "tmp/subagents/round117_nyc_zap_lpc/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of City Planning and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: current_milestone_date, current_envmilestone_date, app_filed_date, noticed_date, certified_referred, adopted_date. Geometry fields: borough, community_district, related BBL rows from 2iga-a6mk. Row id fields: project_id, ulurp_numbers, ceqr_number. Event types: planning_application, planning_decision.",
+      "caveats": [
+        "ZAP tracks land-use process milestones; it is not evidence of construction, completion or outcomes.",
+        "Some projects affect areas not expressible as a single BBL geometry.",
+        "Use project and BBL identifiers for public planning milestones; review linked documents separately."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 8,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/hgx4-8ukb.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/hgx4-8ukb/rows.csv",
+          "portal_url": "https://zap.planning.nyc.gov/",
+          "docs_url": "https://data.cityofnewyork.us/api/views/hgx4-8ukb",
+          "landing_url": "https://data.cityofnewyork.us/City-Government/Zoning-Application-Portal-ZAP-Project-Data/hgx4-8ukb"
+        },
+        "data_shape": {
+          "date_fields": [
+            "current_milestone_date",
+            "current_envmilestone_date",
+            "app_filed_date",
+            "noticed_date",
+            "certified_referred",
+            "adopted_date"
+          ],
+          "geometry_fields": [
+            "borough",
+            "community_district",
+            "related BBL rows from 2iga-a6mk"
+          ],
+          "row_id_fields": [
+            "project_id",
+            "ulurp_numbers",
+            "ceqr_number"
+          ],
+          "status_fields": [
+            "project_status",
+            "public_status",
+            "current_milestone",
+            "actions"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round117_nyc_zap_lpc/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Join ZAP project rows to the ZAP BBL table and retain project portal URLs.",
+          "Keep ULURP, environmental and public-status milestones distinct."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-public-design-commission-annual-report",
+      "title": "Public Design Commission annual report / project submissions dataset",
+      "provider": "NYC Public Design Commission / NYC Open Data",
+      "source_family": "design_review_records",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use and Public Design Commission publication terms.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Annual/open-data publication cadence",
+      "url": "https://data.cityofnewyork.us/d/5fsv-ze7v",
+      "local_paths": [
+        "tmp/subagents/round124_nyc_public_design_commission/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Public Design Commission and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: review_date, meeting_date, submission_year. Geometry fields: borough, project_address, agency, park_or_site_name. Row id fields: project_id, submission_id, project_name. Event types: planning_decision, heritage_permit.",
+      "caveats": [
+        "Design Commission review is a design-review milestone, not construction approval, funding commitment, completion or opening.",
+        "Geometry often needs project-address or agency/site geocoding.",
+        "Project submission metadata may be open data, but drawings/photos/attachments should not be redistributed unless separately cleared."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 9,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/5fsv-ze7v.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/5fsv-ze7v/rows.csv",
+          "portal_url": "https://www.nyc.gov/site/designcommission/resources/designing-ny/open-data.page",
+          "docs_url": "https://www.nyc.gov/site/designcommission/design-review/design-review.page",
+          "landing_url": "https://data.cityofnewyork.us/d/5fsv-ze7v"
+        },
+        "data_shape": {
+          "date_fields": [
+            "review_date",
+            "meeting_date",
+            "submission_year"
+          ],
+          "geometry_fields": [
+            "borough",
+            "project_address",
+            "agency",
+            "park_or_site_name"
+          ],
+          "row_id_fields": [
+            "project_id",
+            "submission_id",
+            "project_name"
+          ],
+          "status_fields": [
+            "review_status",
+            "approval_status",
+            "review_type"
+          ]
+        },
+        "event_types": [
+          "planning_decision",
+          "heritage_permit"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round124_nyc_public_design_commission/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Verify actual column names in the live dataset before bulk ingestion.",
+          "Avoid redistributing drawings or images from project submissions."
+        ]
+      }
+    },
+    {
+      "source_id": "nyc-hpd-affordable-housing-production",
+      "title": "Affordable Housing Production by Building",
+      "provider": "NYC Department of Housing Preservation and Development / NYC Open Data",
+      "source_family": "housing_completion_records",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use; NYC Open Data FAQ states there are no restrictions on use of Open Data.",
+      "licence_url": "https://opendata.cityofnewyork.us/faq/",
+      "coverage_years": {
+        "start": 2014,
+        "end": 2026
+      },
+      "update_frequency": "Publisher-updated open data",
+      "url": "https://data.cityofnewyork.us/api/views/hg8x-zxpr",
+      "local_paths": [
+        "tmp/subagents/round213_nyc_hpd_affordable_housing_next/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/nyc/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC HPD and NYC Open Data.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: project_start_date, project_completion_date, reporting_construction_type. Geometry fields: borough, block, lot, building_id, house_number, street_name, postcode. Row id fields: project_id, building_id, bbl. Event types: construction_start, completion.",
+      "caveats": [
+        "HPD production records describe housing-program milestones and should not be used as universal NYC construction completion records.",
+        "Construction start/completion field names and definitions must be preserved in event summaries.",
+        "Use building/project rows as housing-program records; do not imply built-form completion without the source date field."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 10,
+        "access": {
+          "api_url": "https://data.cityofnewyork.us/resource/hg8x-zxpr.json",
+          "csv_url": "https://data.cityofnewyork.us/api/views/hg8x-zxpr/rows.csv",
+          "portal_url": "https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Building/hg8x-zxpr",
+          "docs_url": "https://www.nyc.gov/site/hpd/about/open-data.page",
+          "landing_url": "https://data.cityofnewyork.us/api/views/hg8x-zxpr"
+        },
+        "data_shape": {
+          "date_fields": [
+            "project_start_date",
+            "project_completion_date",
+            "reporting_construction_type"
+          ],
+          "geometry_fields": [
+            "borough",
+            "block",
+            "lot",
+            "building_id",
+            "house_number",
+            "street_name",
+            "postcode"
+          ],
+          "row_id_fields": [
+            "project_id",
+            "building_id",
+            "bbl"
+          ],
+          "status_fields": [
+            "project_status",
+            "construction_type",
+            "program_group"
+          ]
+        },
+        "event_types": [
+          "construction_start",
+          "completion"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round213_nyc_hpd_affordable_housing_next/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/nyc/events.json"
+        },
+        "next_checks": [
+          "Verify the live Socrata dataset id before production refresh.",
+          "Deduplicate against DOB CO and DCP Housing Database records."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-dfi-planning-statistics",
+      "title": "Northern Ireland Planning Statistics annual and quarterly datasets",
+      "provider": "Department for Infrastructure, Northern Ireland",
+      "source_family": "planning_statistics",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Crown copyright / Open Government Licence v3.0 where applicable to public-sector information.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2015,
+        "end": 2026
+      },
+      "update_frequency": "Quarterly and annual statistical releases",
+      "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "local_paths": [
+        "planning_statistics/",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: DateReceived, DecisionIssuedDate, ValidDate, reporting_period. Geometry fields: Council, postcode, site_address, grid_reference. Row id fields: ApplicationReference, PlanningPortalReference, row_number. Event types: planning_application, planning_decision.",
+      "caveats": [
+        "Planning statistics are administrative application/decision records, not construction, completion, occupation or public-opening evidence.",
+        "Annual/quarterly statistical fields may be month/period precision rather than exact application-event dates.",
+        "Use official statistics as administrative planning records; record release, table, variable dictionary and source row."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 1,
+        "access": {
+          "api_url": null,
+          "csv_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+          "portal_url": "https://www.infrastructure-ni.gov.uk/topics/planning",
+          "docs_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+          "landing_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025"
+        },
+        "data_shape": {
+          "date_fields": [
+            "DateReceived",
+            "DecisionIssuedDate",
+            "ValidDate",
+            "reporting_period"
+          ],
+          "geometry_fields": [
+            "Council",
+            "postcode",
+            "site_address",
+            "grid_reference"
+          ],
+          "row_id_fields": [
+            "ApplicationReference",
+            "PlanningPortalReference",
+            "row_number"
+          ],
+          "status_fields": [
+            "ApplicationType",
+            "DevelopmentCategory",
+            "Decision",
+            "Status"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "planning_statistics/",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Expand Belfast application-level annual CSV coverage and preserve row-level variable descriptions.",
+          "Link statistics rows to NI Planning Portal records where references align."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-ni-planning-portal",
+      "title": "Northern Ireland Planning Portal public register",
+      "provider": "Northern Ireland Planning Portal / councils",
+      "source_family": "planning_portal_records",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Planning Portal terms and public-register rights require review; factual metadata and source URLs only until cleared.",
+      "licence_url": "https://planningregister.planningsystemni.gov.uk/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Live public register",
+      "url": "https://planningregister.planningsystemni.gov.uk/simple-search",
+      "local_paths": [
+        "tmp/subagents/round114_belfast_planning_portal_architecture_records.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute the Northern Ireland Planning Portal and relevant planning authority.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Date Valid, Decision Issued Date, Committee Date, Received Date. Geometry fields: site_address, map_point, application_site_boundary where available. Row id fields: application_reference, portal_reference. Event types: planning_application, planning_decision, heritage_permit, demolition.",
+      "caveats": [
+        "Portal application and decision dates are planning-process dates, not evidence of works or completion.",
+        "Portal documents can contain personal data or third-party copyright.",
+        "Do not ingest representations, names, signatures, private addresses or full documents without privacy and rights review."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 2,
+        "access": {
+          "api_url": null,
+          "csv_url": null,
+          "portal_url": "https://planningregister.planningsystemni.gov.uk/",
+          "docs_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/new-planning-portal-for-northern-ireland",
+          "landing_url": "https://planningregister.planningsystemni.gov.uk/simple-search"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Date Valid",
+            "Decision Issued Date",
+            "Committee Date",
+            "Received Date"
+          ],
+          "geometry_fields": [
+            "site_address",
+            "map_point",
+            "application_site_boundary where available"
+          ],
+          "row_id_fields": [
+            "application_reference",
+            "portal_reference"
+          ],
+          "status_fields": [
+            "application_status",
+            "decision",
+            "development_type"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "heritage_permit",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round114_belfast_planning_portal_architecture_records.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Prefer official export/API access if available; otherwise collect only metadata with polite request pacing.",
+          "Resolve stable source URLs and row IDs for each portal record."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-city-current-planning-applications",
+      "title": "Belfast City Council current planning applications",
+      "provider": "Belfast City Council",
+      "source_family": "planning_applications",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council website terms; OGL may apply to some public-sector information, but page-specific reuse review is required.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2022,
+        "end": 2026
+      },
+      "update_frequency": "Council-maintained current list",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "local_paths": [
+        "tmp/subagents/round228_belfast_official_deep_tail_next/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: advertised_date, date_valid, committee_date. Geometry fields: site_address, location_text. Row id fields: application_reference, list_row. Event types: planning_application, planning_decision.",
+      "caveats": [
+        "The current list is not a historical backfile and should not be used as full 2008-2026 coverage.",
+        "Advertised or valid dates are not approvals, works starts, completions or openings.",
+        "Use list rows as factual metadata only; do not copy documents, comments or personal data."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 3,
+        "access": {
+          "api_url": null,
+          "csv_url": null,
+          "portal_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+          "docs_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning",
+          "landing_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications"
+        },
+        "data_shape": {
+          "date_fields": [
+            "advertised_date",
+            "date_valid",
+            "committee_date"
+          ],
+          "geometry_fields": [
+            "site_address",
+            "location_text"
+          ],
+          "row_id_fields": [
+            "application_reference",
+            "list_row"
+          ],
+          "status_fields": [
+            "proposal",
+            "status",
+            "decision"
+          ]
+        },
+        "event_types": [
+          "planning_application",
+          "planning_decision"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round228_belfast_official_deep_tail_next/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Pair current-list rows with NI Planning Portal and committee records.",
+          "Backfill annual application-level CSVs and portal exports where available."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-city-committee-packs",
+      "title": "Belfast City Council Planning Committee agenda items, minutes and report packs",
+      "provider": "Belfast City Council",
+      "source_family": "planning_committee_records",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council meeting pages and attachments; factual metadata only unless terms and attachment rights are reviewed.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Meeting-cycle publication",
+      "url": "https://minutes.belfastcity.gov.uk/",
+      "local_paths": [
+        "tmp/subagents/round118_belfast_planning_committees_deep/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: meeting_date, agenda_publication_date, decision_date. Geometry fields: site_address, report_location_text, application_reference. Row id fields: committee_item_id, application_reference, meeting_id. Event types: planning_decision, heritage_permit, demolition.",
+      "caveats": [
+        "Committee approval or refusal is an administrative planning milestone only.",
+        "Committee packs can include applicant claims, consultees and personal data; summaries must avoid copying sensitive text.",
+        "Do not redistribute full PDFs, consultation representations or personal data without review; store URLs, item ids and factual decision summaries."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 4,
+        "access": {
+          "api_url": null,
+          "csv_url": null,
+          "portal_url": "https://minutes.belfastcity.gov.uk/",
+          "docs_url": "https://minutes.belfastcity.gov.uk/",
+          "landing_url": "https://minutes.belfastcity.gov.uk/"
+        },
+        "data_shape": {
+          "date_fields": [
+            "meeting_date",
+            "agenda_publication_date",
+            "decision_date"
+          ],
+          "geometry_fields": [
+            "site_address",
+            "report_location_text",
+            "application_reference"
+          ],
+          "row_id_fields": [
+            "committee_item_id",
+            "application_reference",
+            "meeting_id"
+          ],
+          "status_fields": [
+            "recommendation",
+            "decision",
+            "minute_status"
+          ]
+        },
+        "event_types": [
+          "planning_decision",
+          "heritage_permit",
+          "demolition"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round118_belfast_planning_committees_deep/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Deduplicate against NI Planning Portal and DfI statistics by application reference.",
+          "Keep officer recommendation and committee decision distinct."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-hed-buildings-database",
+      "title": "Historic Environment Division Buildings Database",
+      "provider": "Department for Communities, Northern Ireland / Historic Environment Division",
+      "source_family": "listed_building_change",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Crown copyright / Open Government Licence v3.0 where applicable; Spatial NI and HED layer terms must be preserved.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "HED-maintained register/layer",
+      "url": "https://www.communities-ni.gov.uk/services/buildings-database",
+      "local_paths": [
+        "tmp/subagents/round115_belfast_hed_planning_official/belfast_hed_planning_candidates_round115.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains public sector information from the Department for Communities / Historic Environment Division.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Date of Listing, Date of De-listing, last_updated. Geometry fields: X, Y, grid_reference, point, polygon where available. Row id fields: HB Ref No, MainID, OBJECTID. Event types: listed_building_change.",
+      "caveats": [
+        "Listing or de-listing is an administrative heritage change, not a refurbishment, demolition or opening event.",
+        "Coordinate precision may reflect register geometry rather than surveyed building footprint.",
+        "Preserve HB reference, source URL, access date and layer terms; do not copy images or third-party attachments."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 5,
+        "access": {
+          "api_url": "https://services.spatialni.gov.uk/",
+          "csv_url": null,
+          "portal_url": "https://apps.communities-ni.gov.uk/Buildings/buildsearch.aspx",
+          "docs_url": "https://www.communities-ni.gov.uk/topics/historic-environment",
+          "landing_url": "https://www.communities-ni.gov.uk/services/buildings-database"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Date of Listing",
+            "Date of De-listing",
+            "last_updated"
+          ],
+          "geometry_fields": [
+            "X",
+            "Y",
+            "grid_reference",
+            "point",
+            "polygon where available"
+          ],
+          "row_id_fields": [
+            "HB Ref No",
+            "MainID",
+            "OBJECTID"
+          ],
+          "status_fields": [
+            "CurrentGra",
+            "CurrentUse",
+            "listed_status"
+          ]
+        },
+        "event_types": [
+          "listed_building_change"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round115_belfast_hed_planning_official/belfast_hed_planning_candidates_round115.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Record service URL, layer id and query parameters for each extract.",
+          "Separate listing, de-listing, grade/current-use changes and heritage-at-risk indicators."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-harni",
+      "title": "Heritage at Risk in Northern Ireland Belfast records",
+      "provider": "Department for Communities, Northern Ireland / Historic Environment Division",
+      "source_family": "heritage_at_risk",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Crown copyright / Open Government Licence v3.0 where applicable; Spatial NI and HED layer terms must be preserved.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "HED-maintained register/layer; review cadence varies",
+      "url": "https://www.communities-ni.gov.uk/topics/historic-environment/historic-buildings-buildings-risk",
+      "local_paths": [
+        "tmp/subagents/round141_belfast_harni_gaps/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains public sector information from the Department for Communities / Historic Environment Division.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Date_Added, Date_Removed, last_updated. Geometry fields: X, Y, grid_reference, point. Row id fields: BHARNI_Ref, HB_Ref, OBJECTID, Main_ID. Event types: listed_building_change.",
+      "caveats": [
+        "Heritage at Risk records describe register/risk status, not construction, refurbishment or demolition.",
+        "Risk status should not be counted as architecture delivery.",
+        "Use risk status as condition/context metadata, not a built-change event unless paired with a dated administrative change."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 6,
+        "access": {
+          "api_url": "https://services.spatialni.gov.uk/",
+          "csv_url": null,
+          "portal_url": "https://www.communities-ni.gov.uk/topics/historic-environment/historic-buildings-buildings-risk",
+          "docs_url": "https://www.communities-ni.gov.uk/topics/historic-environment",
+          "landing_url": "https://www.communities-ni.gov.uk/topics/historic-environment/historic-buildings-buildings-risk"
+        },
+        "data_shape": {
+          "date_fields": [
+            "Date_Added",
+            "Date_Removed",
+            "last_updated"
+          ],
+          "geometry_fields": [
+            "X",
+            "Y",
+            "grid_reference",
+            "point"
+          ],
+          "row_id_fields": [
+            "BHARNI_Ref",
+            "HB_Ref",
+            "OBJECTID",
+            "Main_ID"
+          ],
+          "status_fields": [
+            "Category",
+            "Ownership",
+            "RiskStatus"
+          ]
+        },
+        "event_types": [
+          "listed_building_change"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round141_belfast_harni_gaps/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Pair HARNI changes with HED listed-building records and official project pages where a repair/opening is claimed.",
+          "Keep risk-status rows visually distinct from planning and permit rows."
+        ]
+      }
+    },
+    {
+      "source_id": "belfast-official-project-pages",
+      "title": "Belfast official civic, harbour, transport, education, university and project pages",
+      "provider": "Belfast City Council, Belfast Harbour, Translink, Department of Education, Ulster University and other official project owners",
+      "source_family": "official_project_pages",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Publisher-specific website terms; factual metadata and source URLs retained pending source-level rights review.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2026
+      },
+      "update_frequency": "Page-specific publication or project update cadence",
+      "url": "https://www.belfastcity.gov.uk/",
+      "local_paths": [
+        "tmp/subagents/round228_belfast_official_deep_tail_next/candidates.json",
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "web/data/city-atlas/cities/belfast/events.json"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute the named public body or official project owner shown on each source page.",
+      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: published_date, opened_date, completed_date, works_start_date, committee_date. Geometry fields: site_name, address, project_location_text, representative point. Row id fields: source_url, page_slug, project_name. Event types: construction_start, opening, completion, demolition, planning_decision.",
+      "caveats": [
+        "Official project pages support only the milestone they state, such as a published opening or works-start notice.",
+        "Forward-looking project descriptions, funding statements and anticipated dates must not be treated as delivered outcomes.",
+        "Do not copy images, maps, PDFs or long page text; store source URL, publication date, title and limited factual summary."
+      ],
+      "architecture_inventory": {
+        "priority_rank": 7,
+        "access": {
+          "api_url": null,
+          "csv_url": null,
+          "portal_url": "https://www.belfastcity.gov.uk/business-and-investment/physical-investment",
+          "docs_url": "https://www.belfastcity.gov.uk/business-and-investment/physical-investment",
+          "landing_url": "https://www.belfastcity.gov.uk/"
+        },
+        "data_shape": {
+          "date_fields": [
+            "published_date",
+            "opened_date",
+            "completed_date",
+            "works_start_date",
+            "committee_date"
+          ],
+          "geometry_fields": [
+            "site_name",
+            "address",
+            "project_location_text",
+            "representative point"
+          ],
+          "row_id_fields": [
+            "source_url",
+            "page_slug",
+            "project_name"
+          ],
+          "status_fields": [
+            "project_status",
+            "milestone_wording",
+            "owner_operator"
+          ]
+        },
+        "event_types": [
+          "construction_start",
+          "opening",
+          "completion",
+          "demolition",
+          "planning_decision"
+        ],
+        "current_artifacts": {
+          "raw_snapshot_path": "tmp/subagents/round228_belfast_official_deep_tail_next/candidates.json",
+          "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
+        },
+        "next_checks": [
+          "Prefer official owner/operator pages over media articles for openings and completions.",
+          "Add source-specific terms and retrieval timestamps to every manual candidate pack."
+        ]
+      }
     }
   ]
 }

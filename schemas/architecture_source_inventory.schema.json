@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/architecture_source_inventory.schema.json",
+  "title": "Bims Architecture Source Inventory",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_kind",
+    "reviewed_at",
+    "target_scope",
+    "event_type_values",
+    "sources",
+    "rejection_rules",
+    "dedupe_rules"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string"},
+    "artifact_kind": {"const": "architecture_source_inventory"},
+    "reviewed_at": {"type": "string", "minLength": 10},
+    "target_scope": {
+      "type": "object",
+      "required": ["start_date", "end_date", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "start_date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "end_date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "description": {"type": "string", "minLength": 20}
+      }
+    },
+    "event_type_values": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/event_type"},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "sources": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source"},
+      "minItems": 1
+    },
+    "rejection_rules": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 12},
+      "minItems": 1
+    },
+    "dedupe_rules": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 12},
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "planning_application",
+        "planning_decision",
+        "permit_issued",
+        "heritage_permit",
+        "listed_building_change",
+        "demolition",
+        "construction_start",
+        "opening",
+        "completion"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "title",
+        "publisher",
+        "source_family",
+        "city_ids",
+        "priority_rank",
+        "access",
+        "coverage",
+        "legal",
+        "data_shape",
+        "event_types",
+        "current_artifacts",
+        "confidence_default",
+        "caveats",
+        "next_checks"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"},
+        "title": {"type": "string", "minLength": 3},
+        "publisher": {"type": "string", "minLength": 3},
+        "source_family": {"type": "string", "minLength": 3},
+        "city_ids": {
+          "type": "array",
+          "items": {"type": "string", "enum": ["london", "nyc", "belfast"]},
+          "minItems": 1
+        },
+        "priority_rank": {"type": "integer", "minimum": 1},
+        "access": {
+          "type": "object",
+          "required": ["api_url", "csv_url", "portal_url", "docs_url", "landing_url"],
+          "additionalProperties": false,
+          "properties": {
+            "api_url": {"type": ["string", "null"]},
+            "csv_url": {"type": ["string", "null"]},
+            "portal_url": {"type": ["string", "null"]},
+            "docs_url": {"type": ["string", "null"]},
+            "landing_url": {"type": ["string", "null"]}
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "required": ["years", "update_frequency", "geography"],
+          "additionalProperties": false,
+          "properties": {
+            "years": {
+              "type": "object",
+              "required": ["start", "end"],
+              "additionalProperties": false,
+              "properties": {
+                "start": {"type": "integer", "minimum": 1700},
+                "end": {"type": "integer", "minimum": 1700}
+              }
+            },
+            "update_frequency": {"type": "string", "minLength": 3},
+            "geography": {"type": "string", "minLength": 3}
+          }
+        },
+        "legal": {
+          "type": "object",
+          "required": ["licence", "licence_url", "attribution_text", "redistribution_caveat"],
+          "additionalProperties": false,
+          "properties": {
+            "licence": {"type": "string", "minLength": 3},
+            "licence_url": {"type": "string", "minLength": 3},
+            "attribution_text": {"type": "string", "minLength": 3},
+            "redistribution_caveat": {"type": "string", "minLength": 12}
+          }
+        },
+        "data_shape": {
+          "type": "object",
+          "required": ["date_fields", "geometry_fields", "row_id_fields", "status_fields"],
+          "additionalProperties": false,
+          "properties": {
+            "date_fields": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+            "geometry_fields": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+            "row_id_fields": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+            "status_fields": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}
+          }
+        },
+        "event_types": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/event_type"},
+          "minItems": 1
+        },
+        "current_artifacts": {
+          "type": "object",
+          "required": ["raw_snapshot_path", "candidate_pack_path", "generated_event_path"],
+          "additionalProperties": false,
+          "properties": {
+            "raw_snapshot_path": {"type": "string"},
+            "candidate_pack_path": {"type": "string"},
+            "generated_event_path": {"type": "string"}
+          }
+        },
+        "confidence_default": {"type": "string", "enum": ["documented", "corroborated", "inferred", "disputed"]},
+        "caveats": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 1},
+        "next_checks": {"type": "array", "items": {"type": "string", "minLength": 12}, "minItems": 1}
+      }
+    }
+  }
+}

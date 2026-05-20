@@ -1,0 +1,776 @@
+{
+  "artifact_kind": "architecture_coverage_report",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "target_scope": {
+    "start_date": "2008-01-01",
+    "end_date": "2026-05-20",
+    "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
+  },
+  "summary": {
+    "event_count": 94265,
+    "source_count": 433,
+    "frozen_inventory_source_count": 22,
+    "event_years": [
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "city_counts": {
+      "belfast": 3806,
+      "london": 30357,
+      "nyc": 60102
+    },
+    "confidence_counts": {
+      "corroborated": 10,
+      "disputed": 1,
+      "documented": 94241,
+      "inferred": 13
+    },
+    "date_precision_counts": {
+      "day": 93238,
+      "fiscal_year": 1,
+      "month": 429,
+      "period_end": 1,
+      "reporting_year": 5,
+      "retrieval_day_current_status": 4,
+      "season": 3,
+      "week": 1,
+      "year": 576,
+      "year_end": 7
+    }
+  },
+  "city_year_counts": {
+    "belfast": {
+      "2008": 9,
+      "2009": 24,
+      "2010": 12,
+      "2011": 16,
+      "2012": 8,
+      "2013": 17,
+      "2014": 15,
+      "2015": 36,
+      "2016": 261,
+      "2017": 291,
+      "2018": 282,
+      "2019": 150,
+      "2020": 183,
+      "2021": 349,
+      "2022": 340,
+      "2023": 319,
+      "2024": 752,
+      "2025": 569,
+      "2026": 173
+    },
+    "london": {
+      "2008": 1877,
+      "2009": 1662,
+      "2010": 1596,
+      "2011": 1803,
+      "2012": 1865,
+      "2013": 1729,
+      "2014": 1995,
+      "2015": 2259,
+      "2016": 2503,
+      "2017": 2463,
+      "2018": 2413,
+      "2019": 2260,
+      "2020": 1260,
+      "2021": 948,
+      "2022": 960,
+      "2023": 1006,
+      "2024": 967,
+      "2025": 689,
+      "2026": 102
+    },
+    "nyc": {
+      "2008": 1420,
+      "2009": 1300,
+      "2010": 1491,
+      "2011": 1471,
+      "2012": 1798,
+      "2013": 2457,
+      "2014": 2373,
+      "2015": 2567,
+      "2016": 2877,
+      "2017": 3322,
+      "2018": 3210,
+      "2019": 3616,
+      "2020": 3274,
+      "2021": 3659,
+      "2022": 4568,
+      "2023": 5524,
+      "2024": 5927,
+      "2025": 6362,
+      "2026": 2886
+    }
+  },
+  "city_source_family_counts": {
+    "belfast": {
+      "documented_milestones": 2453,
+      "heritage": 619,
+      "other_architecture": 35,
+      "planning_admin": 699
+    },
+    "london": {
+      "documented_milestones": 28868,
+      "heritage": 883,
+      "other_architecture": 31,
+      "planning_admin": 575
+    },
+    "nyc": {
+      "documented_milestones": 28529,
+      "heritage": 141,
+      "other_architecture": 21,
+      "permits": 30992,
+      "planning_admin": 419
+    }
+  },
+  "top_manual_source_ids": [
+    {
+      "key": "nyc-lpc-permit-application-information",
+      "value": 19651
+    },
+    {
+      "key": "gla-planning-datahub-applications",
+      "value": 15255
+    },
+    {
+      "key": "nyc-dob-filings-permits",
+      "value": 11829
+    },
+    {
+      "key": "london-development-database-archive",
+      "value": 11442
+    },
+    {
+      "key": "nyc-dob-certificate-of-occupancy,nyc-dob-co-bs8b-p36w",
+      "value": 8645
+    },
+    {
+      "key": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+      "value": 7382
+    },
+    {
+      "key": "nyc-dob-permit-issuance-ipu4-2q9a,nyc-dob-filings-permits,ipu4-2q9a",
+      "value": 4800
+    },
+    {
+      "key": "nyc-dob-certificate-of-occupancy,nyc-dob-now-co-pkdm-hqz6",
+      "value": 2332
+    },
+    {
+      "key": "nyc-dob-permit-issuance-ipu4-2q9a,nyc-dob-filings-permits",
+      "value": 1600
+    },
+    {
+      "key": "ni-planning-statistics",
+      "value": 1573
+    },
+    {
+      "key": "historic-england-nhle",
+      "value": 1056
+    },
+    {
+      "key": "london-architecture-public-pages",
+      "value": 1041
+    },
+    {
+      "key": "nyc-architecture-public-pages",
+      "value": 1014
+    },
+    {
+      "key": "belfast-architecture-public-pages",
+      "value": 928
+    },
+    {
+      "key": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+      "value": 903
+    },
+    {
+      "key": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+      "value": 654
+    },
+    {
+      "key": "historic-england-nhle-amendments-open-data",
+      "value": 328
+    },
+    {
+      "key": "nyc-lpc-individual-landmark-sites-buis-pvji",
+      "value": 277
+    },
+    {
+      "key": "nyc-dob-now-co-pkdm-hqz6",
+      "value": 254
+    },
+    {
+      "key": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "value": 252
+    }
+  ],
+  "frozen_inventory_by_city": {
+    "london": [
+      {
+        "source_id": "london-pld-applications",
+        "title": "Planning London Datahub applications",
+        "publisher": "Greater London Authority / Planning London Datahub",
+        "source_family": "planning_applications",
+        "priority_rank": 1,
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "construction_start",
+          "completion"
+        ],
+        "coverage_years": {
+          "start": 2004,
+          "end": 2026
+        },
+        "caveats": [
+          "Planning applications, decisions, commencement fields and completion fields are administrative/source-reported milestones.",
+          "Planning approval is not construction. PLD lifecycle fields should not be framed as opening, occupation, final built form, or outcome evidence.",
+          "Borough source geometry may be missing, approximate or later revised."
+        ],
+        "next_checks": [
+          "Clarify dataset licence and redistribution terms.",
+          "Keep row-level application URLs and LPA references for source briefs.",
+          "Spot-check PLD rows against borough planning portals before promoting high-profile events."
+        ]
+      },
+      {
+        "source_id": "london-datastore-ldd-permissions",
+        "title": "London Development Database planning permissions archive",
+        "publisher": "Greater London Authority / London Datastore",
+        "source_family": "planning_permissions_archive",
+        "priority_rank": 2,
+        "event_types": [
+          "planning_decision",
+          "construction_start",
+          "completion"
+        ],
+        "coverage_years": {
+          "start": 2004,
+          "end": 2020
+        },
+        "caveats": [
+          "LDD is an archive of selected permissions and monitoring records, not a full application-level source after PLD replaced it.",
+          "Completion fields are source-reported administrative monitoring fields and should be labelled as such."
+        ],
+        "next_checks": [
+          "Retain archive file version and field dictionary in raw metadata.",
+          "Prefer PLD for post-2020 rows."
+        ]
+      },
+      {
+        "source_id": "london-planning-data-listed-building-outlines",
+        "title": "Planning Data listed building outlines",
+        "publisher": "Department for Levelling Up, Housing and Communities / Planning Data",
+        "source_family": "listed_building_geometry",
+        "priority_rank": 3,
+        "event_types": [
+          "listed_building_change"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Listed-building geometry records administrative designation or data-maintenance state, not a construction event.",
+          "Dates may reflect dataset/entity lifecycle dates rather than real-world building change dates."
+        ],
+        "next_checks": [
+          "Link listed-building outline entities to NHLE list entry identifiers where possible.",
+          "Keep designation changes distinct from planning applications and refurbishments."
+        ]
+      },
+      {
+        "source_id": "london-historic-england-nhle",
+        "title": "Historic England National Heritage List for England open data",
+        "publisher": "Historic England",
+        "source_family": "heritage_designations",
+        "priority_rank": 4,
+        "event_types": [
+          "listed_building_change"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Heritage-list updates are legal/administrative heritage records, not evidence of refurbishment, demolition or public opening.",
+          "Heritage at Risk status is risk/condition context and should not be counted as built change."
+        ],
+        "next_checks": [
+          "Record layer name, service URL, query parameters and access timestamp for each extract.",
+          "Separate listed-building designation, certificate of immunity, de-designation and heritage-at-risk records."
+        ]
+      },
+      {
+        "source_id": "london-borough-planning-portals",
+        "title": "London borough planning portals and document packs",
+        "publisher": "London borough planning authorities",
+        "source_family": "borough_planning_documents",
+        "priority_rank": 5,
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "heritage_permit",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Borough portals are source-of-record for documents but have heterogeneous schemas, fragile URLs and personal-data risks.",
+          "Planning reports are evidence of committee process and stated recommendations/decisions only."
+        ],
+        "next_checks": [
+          "Use PLD row IDs to decide which borough document packs need spot-checking.",
+          "Store document metadata and source URLs before scraping any document text."
+        ]
+      }
+    ],
+    "nyc": [
+      {
+        "source_id": "nyc-dob-permit-issuance",
+        "title": "DOB Permit Issuance",
+        "publisher": "NYC Department of Buildings / NYC Open Data",
+        "source_family": "building_permits",
+        "priority_rank": 1,
+        "event_types": [
+          "permit_issued",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2004,
+          "end": 2026
+        },
+        "caveats": [
+          "Permit issuance is an administrative permit milestone, not construction start, completion or legal occupancy.",
+          "Address/BIN/BBL fields require geocoding or parcel joins for geometry."
+        ],
+        "next_checks": [
+          "Join to BIN/BBL geometry through MapPLUTO or Digital Tax Map.",
+          "Link permit rows to DOB job filings and DOB NOW records where job filing numbers align."
+        ]
+      },
+      {
+        "source_id": "nyc-dob-job-application-filings",
+        "title": "DOB Job Application Filings",
+        "publisher": "NYC Department of Buildings / NYC Open Data",
+        "source_family": "building_applications",
+        "priority_rank": 2,
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2000,
+          "end": 2026
+        },
+        "caveats": [
+          "DOB job filings are administrative applications and status records, not evidence that work occurred.",
+          "Legacy BIS and DOB NOW schemas overlap and need deduplication by job number/address/date."
+        ],
+        "next_checks": [
+          "Treat demolition job types as demolition-permit or application records unless a separate source states demolition occurred.",
+          "Link status transitions to permit issuance and certificate-of-occupancy datasets."
+        ]
+      },
+      {
+        "source_id": "nyc-dob-now-job-application-filings",
+        "title": "DOB NOW: Build - Job Application Filings",
+        "publisher": "NYC Department of Buildings / NYC Open Data",
+        "source_family": "building_applications",
+        "priority_rank": 3,
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2019,
+          "end": 2026
+        },
+        "caveats": [
+          "DOB NOW filing status is administrative. It does not by itself evidence construction start, completion or opening.",
+          "DOB NOW records should be linked to approved permits and certificates for lifecycle views."
+        ],
+        "next_checks": [
+          "Strengthen lifecycle linking between DOB NOW filing, approved permit and certificate-of-occupancy records.",
+          "Document DOB NOW/BIS cutover coverage gaps."
+        ]
+      },
+      {
+        "source_id": "nyc-dob-now-approved-permits",
+        "title": "DOB NOW: Build - Approved Permits",
+        "publisher": "NYC Department of Buildings / NYC Open Data",
+        "source_family": "building_permits",
+        "priority_rank": 4,
+        "event_types": [
+          "permit_issued",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2019,
+          "end": 2026
+        },
+        "caveats": [
+          "Approved permit rows are permit-administration records, not evidence that work started or was completed.",
+          "Electrical, elevator and limited alteration permits may be represented in separate datasets."
+        ],
+        "next_checks": [
+          "Join to DOB NOW job filings and certificate-of-occupancy rows by job filing number.",
+          "Classify work types conservatively and exclude personal fields."
+        ]
+      },
+      {
+        "source_id": "nyc-dob-certificate-occupancy",
+        "title": "DOB Certificate Of Occupancy",
+        "publisher": "NYC Department of Buildings / NYC Open Data",
+        "source_family": "certificates_of_occupancy",
+        "priority_rank": 5,
+        "event_types": [
+          "completion",
+          "opening"
+        ],
+        "coverage_years": {
+          "start": 2012,
+          "end": 2026
+        },
+        "caveats": [
+          "A certificate of occupancy is legal occupancy evidence, not a complete construction narrative or public opening notice.",
+          "Temporary and final certificate types must remain distinct."
+        ],
+        "next_checks": [
+          "Separate temporary and final certificate events.",
+          "Join to permit and job filing rows when producing source briefs."
+        ]
+      },
+      {
+        "source_id": "nyc-dob-now-certificate-occupancy",
+        "title": "DOB NOW: Certificate of Occupancy",
+        "publisher": "NYC Department of Buildings / NYC Open Data",
+        "source_family": "certificates_of_occupancy",
+        "priority_rank": 6,
+        "event_types": [
+          "completion",
+          "opening"
+        ],
+        "coverage_years": {
+          "start": 2021,
+          "end": 2026
+        },
+        "caveats": [
+          "DOB NOW certificates are administrative occupancy records, not general opening announcements.",
+          "DOB NOW and legacy CO coverage must be deduplicated."
+        ],
+        "next_checks": [
+          "Link DOB NOW CO rows back to DOB NOW permits by job filing name.",
+          "Keep temporary and final certificate status visible in event summaries."
+        ]
+      },
+      {
+        "source_id": "nyc-lpc-permit-application-finder",
+        "title": "LPC Permit Application Finder / Permit Search",
+        "publisher": "NYC Landmarks Preservation Commission",
+        "source_family": "heritage_permits",
+        "priority_rank": 7,
+        "event_types": [
+          "heritage_permit",
+          "listed_building_change"
+        ],
+        "coverage_years": {
+          "start": 2016,
+          "end": 2026
+        },
+        "caveats": [
+          "LPC permits authorize or document review of work at designated properties; they are not completion or construction-outcome records.",
+          "Pre-2016 records may require records access rather than portal search."
+        ],
+        "next_checks": [
+          "Resolve a stable source URL strategy for each permit result.",
+          "Link permit rows to LPC designation data and DOB permit rows where feasible."
+        ]
+      },
+      {
+        "source_id": "nyc-zap-project-data",
+        "title": "Zoning Application Portal project and BBL data",
+        "publisher": "NYC Department of City Planning / NYC Open Data",
+        "source_family": "planning_records",
+        "priority_rank": 8,
+        "event_types": [
+          "planning_application",
+          "planning_decision"
+        ],
+        "coverage_years": {
+          "start": 2010,
+          "end": 2026
+        },
+        "caveats": [
+          "ZAP tracks land-use process milestones; it is not evidence of construction, completion or outcomes.",
+          "Some projects affect areas not expressible as a single BBL geometry."
+        ],
+        "next_checks": [
+          "Join ZAP project rows to the ZAP BBL table and retain project portal URLs.",
+          "Keep ULURP, environmental and public-status milestones distinct."
+        ]
+      },
+      {
+        "source_id": "nyc-public-design-commission-annual-report",
+        "title": "Public Design Commission annual report / project submissions dataset",
+        "publisher": "NYC Public Design Commission / NYC Open Data",
+        "source_family": "design_review_records",
+        "priority_rank": 9,
+        "event_types": [
+          "planning_decision",
+          "heritage_permit"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Design Commission review is a design-review milestone, not construction approval, funding commitment, completion or opening.",
+          "Geometry often needs project-address or agency/site geocoding."
+        ],
+        "next_checks": [
+          "Verify actual column names in the live dataset before bulk ingestion.",
+          "Avoid redistributing drawings or images from project submissions."
+        ]
+      },
+      {
+        "source_id": "nyc-hpd-affordable-housing-production",
+        "title": "Affordable Housing Production by Building",
+        "publisher": "NYC Department of Housing Preservation and Development / NYC Open Data",
+        "source_family": "housing_completion_records",
+        "priority_rank": 10,
+        "event_types": [
+          "construction_start",
+          "completion"
+        ],
+        "coverage_years": {
+          "start": 2014,
+          "end": 2026
+        },
+        "caveats": [
+          "HPD production records describe housing-program milestones and should not be used as universal NYC construction completion records.",
+          "Construction start/completion field names and definitions must be preserved in event summaries."
+        ],
+        "next_checks": [
+          "Verify the live Socrata dataset id before production refresh.",
+          "Deduplicate against DOB CO and DCP Housing Database records."
+        ]
+      }
+    ],
+    "belfast": [
+      {
+        "source_id": "belfast-dfi-planning-statistics",
+        "title": "Northern Ireland Planning Statistics annual and quarterly datasets",
+        "publisher": "Department for Infrastructure, Northern Ireland",
+        "source_family": "planning_statistics",
+        "priority_rank": 1,
+        "event_types": [
+          "planning_application",
+          "planning_decision"
+        ],
+        "coverage_years": {
+          "start": 2015,
+          "end": 2026
+        },
+        "caveats": [
+          "Planning statistics are administrative application/decision records, not construction, completion, occupation or public-opening evidence.",
+          "Annual/quarterly statistical fields may be month/period precision rather than exact application-event dates."
+        ],
+        "next_checks": [
+          "Expand Belfast application-level annual CSV coverage and preserve row-level variable descriptions.",
+          "Link statistics rows to NI Planning Portal records where references align."
+        ]
+      },
+      {
+        "source_id": "belfast-ni-planning-portal",
+        "title": "Northern Ireland Planning Portal public register",
+        "publisher": "Northern Ireland Planning Portal / councils",
+        "source_family": "planning_portal_records",
+        "priority_rank": 2,
+        "event_types": [
+          "planning_application",
+          "planning_decision",
+          "heritage_permit",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Portal application and decision dates are planning-process dates, not evidence of works or completion.",
+          "Portal documents can contain personal data or third-party copyright."
+        ],
+        "next_checks": [
+          "Prefer official export/API access if available; otherwise collect only metadata with polite request pacing.",
+          "Resolve stable source URLs and row IDs for each portal record."
+        ]
+      },
+      {
+        "source_id": "belfast-city-current-planning-applications",
+        "title": "Belfast City Council current planning applications",
+        "publisher": "Belfast City Council",
+        "source_family": "planning_applications",
+        "priority_rank": 3,
+        "event_types": [
+          "planning_application",
+          "planning_decision"
+        ],
+        "coverage_years": {
+          "start": 2022,
+          "end": 2026
+        },
+        "caveats": [
+          "The current list is not a historical backfile and should not be used as full 2008-2026 coverage.",
+          "Advertised or valid dates are not approvals, works starts, completions or openings."
+        ],
+        "next_checks": [
+          "Pair current-list rows with NI Planning Portal and committee records.",
+          "Backfill annual application-level CSVs and portal exports where available."
+        ]
+      },
+      {
+        "source_id": "belfast-city-committee-packs",
+        "title": "Belfast City Council Planning Committee agenda items, minutes and report packs",
+        "publisher": "Belfast City Council",
+        "source_family": "planning_committee_records",
+        "priority_rank": 4,
+        "event_types": [
+          "planning_decision",
+          "heritage_permit",
+          "demolition"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Committee approval or refusal is an administrative planning milestone only.",
+          "Committee packs can include applicant claims, consultees and personal data; summaries must avoid copying sensitive text."
+        ],
+        "next_checks": [
+          "Deduplicate against NI Planning Portal and DfI statistics by application reference.",
+          "Keep officer recommendation and committee decision distinct."
+        ]
+      },
+      {
+        "source_id": "belfast-hed-buildings-database",
+        "title": "Historic Environment Division Buildings Database",
+        "publisher": "Department for Communities, Northern Ireland / Historic Environment Division",
+        "source_family": "listed_building_change",
+        "priority_rank": 5,
+        "event_types": [
+          "listed_building_change"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Listing or de-listing is an administrative heritage change, not a refurbishment, demolition or opening event.",
+          "Coordinate precision may reflect register geometry rather than surveyed building footprint."
+        ],
+        "next_checks": [
+          "Record service URL, layer id and query parameters for each extract.",
+          "Separate listing, de-listing, grade/current-use changes and heritage-at-risk indicators."
+        ]
+      },
+      {
+        "source_id": "belfast-harni",
+        "title": "Heritage at Risk in Northern Ireland Belfast records",
+        "publisher": "Department for Communities, Northern Ireland / Historic Environment Division",
+        "source_family": "heritage_at_risk",
+        "priority_rank": 6,
+        "event_types": [
+          "listed_building_change"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Heritage at Risk records describe register/risk status, not construction, refurbishment or demolition.",
+          "Risk status should not be counted as architecture delivery."
+        ],
+        "next_checks": [
+          "Pair HARNI changes with HED listed-building records and official project pages where a repair/opening is claimed.",
+          "Keep risk-status rows visually distinct from planning and permit rows."
+        ]
+      },
+      {
+        "source_id": "belfast-official-project-pages",
+        "title": "Belfast official civic, harbour, transport, education, university and project pages",
+        "publisher": "Belfast City Council, Belfast Harbour, Translink, Department of Education, Ulster University and other official project owners",
+        "source_family": "official_project_pages",
+        "priority_rank": 7,
+        "event_types": [
+          "construction_start",
+          "opening",
+          "completion",
+          "demolition",
+          "planning_decision"
+        ],
+        "coverage_years": {
+          "start": 2008,
+          "end": 2026
+        },
+        "caveats": [
+          "Official project pages support only the milestone they state, such as a published opening or works-start notice.",
+          "Forward-looking project descriptions, funding statements and anticipated dates must not be treated as delivered outcomes."
+        ],
+        "next_checks": [
+          "Prefer official owner/operator pages over media articles for openings and completions.",
+          "Add source-specific terms and retrieval timestamps to every manual candidate pack."
+        ]
+      }
+    ]
+  },
+  "quality_rules": {
+    "rejection_rules": [
+      "Reject records with no licence or unresolved terms for public redistribution unless only minimal factual metadata and source URLs are retained with a clear rights caveat.",
+      "Reject records with no usable source date or only a retrieval date.",
+      "Reject records with no geometry, geometry reference or affected-area label.",
+      "Reject records that require ingesting private personal data, planning representations, signatures, private contact details or applicant documents without review.",
+      "Reject records whose summary implies causality, speculative future modelling, construction outcome, completion or opening beyond the source wording."
+    ],
+    "dedupe_rules": [
+      "Exact source row id and source id first.",
+      "Then compare address/site name, effective date, event type and geometry or affected area.",
+      "Merge evidence references when records describe the same administrative milestone; do not delete raw rows.",
+      "Keep separate events for distinct lifecycle milestones from the same project, such as application, decision, permit issued, commencement, completion and opening."
+    ]
+  },
+  "caveats": [
+    "Counts are coverage of the current source-backed architecture package, not complete city coverage.",
+    "Planning approval is not construction, permit issuance is not completion, and source-reported lifecycle fields are labelled by source date field.",
+    "Manual project pages and official press releases support only the stated milestone. Forward-looking dates remain caveated and are not counted as delivered outcomes."
+  ],
+  "priority_gaps": [
+    "Belfast: continue application-level annual planning CSV and NI Planning Portal linking for row-level geometry and exact decisions.",
+    "London: deepen borough planning document links beyond PLD summaries, especially for listed-building consent and demolition/refurbishment evidence.",
+    "NYC: strengthen lifecycle linking across DOB NOW filings, approved permits, legacy DOB permits, LPC permits and certificates of occupancy."
+  ]
+}

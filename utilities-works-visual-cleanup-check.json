@@ -1,0 +1,74 @@
+{
+  "features": 1480,
+  "flows": 1450,
+  "nodes": 21,
+  "labels": 0,
+  "rendered": {
+    "symbols": 372,
+    "flows": 1291,
+    "icons": 10,
+    "detailTraceVisible": "none",
+    "assetIconsVisible": "none"
+  },
+  "byStatus": {
+    "planned": 283,
+    "repair": 581,
+    "permit": 192,
+    "failure": 338,
+    "reinstatement": 56
+  },
+  "bySymbol": {
+    ">": 283,
+    "+": 581,
+    "[": 192,
+    "x": 338,
+    "|": 56
+  },
+  "byColor": {
+    "#248b94": 283,
+    "#e8a620": 581,
+    "#774a92": 192,
+    "#cf3337": 338,
+    "#4f8f50": 56
+  },
+  "nodeByStatus": {
+    "repair": 4,
+    "permit": 5,
+    "failure": 2,
+    "planned": 1,
+    "": 9
+  },
+  "layerRows": [
+    {
+      "text": "Utility works (all) 234",
+      "sublayer": "utilities",
+      "pressed": "true"
+    },
+    {
+      "text": "Planned works 0",
+      "sublayer": "planned",
+      "pressed": "true"
+    },
+    {
+      "text": "Repair 0",
+      "sublayer": "repair",
+      "pressed": "true"
+    },
+    {
+      "text": "Failure 0",
+      "sublayer": "failure",
+      "pressed": "true"
+    },
+    {
+      "text": "Permit / consents 0",
+      "sublayer": "permit",
+      "pressed": "true"
+    },
+    {
+      "text": "Reinstatement quality 0",
+      "sublayer": "reinstatement",
+      "pressed": "true"
+    }
+  ],
+  "nan": false
+}

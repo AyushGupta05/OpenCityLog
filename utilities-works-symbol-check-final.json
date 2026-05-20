@@ -1,0 +1,15 @@
+{
+  "flows": 1450,
+  "renderedSymbols": 108,
+  "byStatus": {
+    "planned": 1447,
+    "failure": 2,
+    "repair": 1
+  },
+  "bySymbol": {
+    ">": 1447,
+    "x": 2,
+    "+": 1
+  },
+  "nan": 0
+}

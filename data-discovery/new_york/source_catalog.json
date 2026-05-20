@@ -220,10 +220,14 @@
       "socrata_id": "ipu4-2q9a",
       "api_endpoint": "https://data.cityofnewyork.us/resource/ipu4-2q9a.json",
       "metadata_url": "https://data.cityofnewyork.us/api/views/ipu4-2q9a",
-      "time_coverage": "2013-present",
+      "coverage_years": {
+        "start": 2004,
+        "end": 2026
+      },
+      "time_coverage": "Official API row checks on 2026-05-20 found row-level permit issuance records from 2004 onward; current operating table includes legacy rows, while separate historical permit tables also exist.",
       "spatial_granularity": "Permit at BIN/BBL/address",
       "temporal_granularity": "Permit issue/expiration dates",
-      "limitations": "Current operating data; use historical table for pre-2013; permit issuance != completion",
+      "limitations": "Current operating data includes legacy permit issuance rows; pair with historical permit tables for complete pre-2013 review. Permit issuance is an administrative record, not construction start or completion.",
       "suggested_event_seeds": "Post-Sandy rebuilding; rezoning-driven construction; demolition/new-building permits",
       "source_id": "ipu4-2q9a",
       "retrieved_at": "2026-04-28T12:19:23.839593+00:00",

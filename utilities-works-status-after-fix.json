@@ -1,0 +1,138 @@
+{
+  "activeLens": "utilities",
+  "activeAspect": "utilities-works",
+  "features": 1486,
+  "flows": 1450,
+  "renderedSymbols": 283,
+  "byStatus": {
+    "planned": 283,
+    "repair": 581,
+    "permit": 192,
+    "failure": 338,
+    "reinstatement": 56
+  },
+  "bySymbol": {
+    ">": 283,
+    "+": 581,
+    "[": 192,
+    "x": 338,
+    "|": 56
+  },
+  "byColor": {
+    "#e8a620": 584,
+    "#248b94": 278,
+    "#774a92": 190,
+    "#cf3337": 341,
+    "#4f8f50": 57
+  },
+  "byRole": {
+    "substation": 19,
+    "": 1426,
+    "river": 1,
+    "generator": 2,
+    "stream": 2
+  },
+  "nan": false,
+  "samples": [
+    {
+      "status": "planned",
+      "symbol": ">",
+      "color": "#e8a620",
+      "type": "electricity",
+      "role": "substation",
+      "eventTitle": "substation power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "repair",
+      "symbol": "+",
+      "color": "#e8a620",
+      "type": "electricity",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "repair",
+      "symbol": "+",
+      "color": "#e8a620",
+      "type": "electricity",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "planned",
+      "symbol": ">",
+      "color": "#248b94",
+      "type": "electricity",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "repair",
+      "symbol": "+",
+      "color": "#e8a620",
+      "type": "electricity",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "repair",
+      "symbol": "+",
+      "color": "#e8a620",
+      "type": "electricity",
+      "role": "substation",
+      "eventTitle": "substation power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "permit",
+      "symbol": "[",
+      "color": "#e8a620",
+      "type": "electricity",
+      "role": "substation",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "permit",
+      "symbol": "[",
+      "color": "#774a92",
+      "type": "electricity",
+      "eventTitle": "transformer power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "failure",
+      "symbol": "x",
+      "color": "#cf3337",
+      "type": "electricity",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "planned",
+      "symbol": ">",
+      "color": "#248b94",
+      "type": "electricity",
+      "eventTitle": "transformer power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "failure",
+      "symbol": "x",
+      "color": "#4f8f50",
+      "type": "electricity",
+      "role": "substation",
+      "eventTitle": "substation power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    },
+    {
+      "status": "planned",
+      "symbol": ">",
+      "color": "#248b94",
+      "type": "electricity",
+      "eventTitle": "generator power asset mapped in OSM",
+      "short": "Public OSM mapped-event record for power asset; use as mapped change evidence, not a confirmed construction/opening date."
+    }
+  ]
+}

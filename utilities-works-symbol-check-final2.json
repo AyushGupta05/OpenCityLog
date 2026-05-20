@@ -1,0 +1,22 @@
+{
+  "flows": 1450,
+  "renderedSymbols": 108,
+  "byStatus": {
+    "planned": 1447,
+    "failure": 2,
+    "repair": 1
+  },
+  "bySymbol": {
+    ">": 1447,
+    "x": 2,
+    "+": 1
+  },
+  "byColor": {
+    "#e8a620": 12,
+    "#248b94": 1427,
+    "#4f8f50": 2,
+    "#cf3337": 7,
+    "#774a92": 2
+  },
+  "nan": 0
+}

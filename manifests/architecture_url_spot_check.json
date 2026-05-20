@@ -1,0 +1,595 @@
+{
+  "artifact_kind": "architecture_url_spot_check",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "target_scope": {
+    "start_date": "2008-01-01",
+    "end_date": "2026-05-20",
+    "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
+  },
+  "sample_count": 40,
+  "summary": {
+    "byClass": {
+      "reachable": 34,
+      "access_controlled": 4,
+      "network_error": 1,
+      "client_error": 1
+    },
+    "eventByCity": {
+      "london": {
+        "checked": 6,
+        "reachable": 3,
+        "hard_failures": 0
+      },
+      "nyc": {
+        "checked": 6,
+        "reachable": 5,
+        "hard_failures": 1
+      },
+      "belfast": {
+        "checked": 6,
+        "reachable": 6,
+        "hard_failures": 0
+      }
+    }
+  },
+  "failures": [],
+  "results": [
+    {
+      "kind": "event_source_url",
+      "city_id": "london",
+      "event_id": "lon_arch_uclh_elizabeth_garrett_anderson_wing_opening_2008",
+      "source_ids": [
+        "london-architecture-public-pages"
+      ],
+      "source_record_id": "uclh-history-2008-elizabeth-garrett-anderson-wing",
+      "url": "https://www.uclh.nhs.uk/about-us/who-we-are/our-history/2000-present",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://www.uclh.nhs.uk/about-us/who-we-are/our-history/2000-present",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "london",
+      "event_id": "lon_arch_wavelengths_leisure_extension_opening_2008",
+      "source_ids": [
+        "london-architecture-public-pages"
+      ],
+      "source_record_id": "wavelengths-extension-opening-2008",
+      "url": "https://lewisham.gov.uk/-/media/archive/files/imported/statementofaccounts20092010.pdf?sc_lang=en",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://lewisham.gov.uk/-/media/archive/files/imported/statementofaccounts20092010.pdf?sc_lang=en",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "london",
+      "event_id": "lon_arch_lon_ldd_archive_completion_round129_row_25314_ealing_p_2003_2519",
+      "source_ids": [
+        "london-development-database-archive"
+      ],
+      "source_record_id": "LDD planning permissions workbook row 25314; planning_authority=Ealing; borough_reference=P/2003/2519",
+      "url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0/",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0/",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "london",
+      "event_id": "lon_arch_london_nhle_round294_world_heritage_sites_amenddate_1000092_20080101",
+      "source_ids": [
+        "historic-england-nhle-open-data-round294-tail2",
+        "historic-england-nhle-open-data-round294-tail2-layer-10"
+      ],
+      "source_record_id": "NHLE ListEntry 1000092; AmendDate 2008-01-01; OBJECTID 4; layer 10 World Heritage Sites",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": false,
+      "status": 403,
+      "final_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+      "error": null,
+      "response_class": "access_controlled"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "london",
+      "event_id": "lon_arch_london_nhle_round294_world_heritage_sites_amenddate_1000095_20080101",
+      "source_ids": [
+        "historic-england-nhle-open-data-round294-tail2",
+        "historic-england-nhle-open-data-round294-tail2-layer-10"
+      ],
+      "source_record_id": "NHLE ListEntry 1000095; AmendDate 2008-01-01; OBJECTID 9; layer 10 World Heritage Sites",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1000095",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": false,
+      "status": 403,
+      "final_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000095",
+      "error": null,
+      "response_class": "access_controlled"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "london",
+      "event_id": "lon_arch_london_nhle_round294_world_heritage_sites_amenddate_1000096_20080101",
+      "source_ids": [
+        "historic-england-nhle-open-data-round294-tail2",
+        "historic-england-nhle-open-data-round294-tail2-layer-10"
+      ],
+      "source_record_id": "NHLE ListEntry 1000096; AmendDate 2008-01-01; OBJECTID 10; layer 10 World Heritage Sites",
+      "url": "https://historicengland.org.uk/listing/the-list/list-entry/1000096",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": false,
+      "status": 403,
+      "final_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000096",
+      "error": null,
+      "response_class": "access_controlled"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "nyc",
+      "event_id": "nyc_arch_nyc_dcp_pops_k020008_2008",
+      "source_ids": [
+        "nyc-dcp-pops-rvih-nhyn"
+      ],
+      "source_record_id": "pops_number:K020008; bbl:3020490002; year_completed:2008",
+      "url": "https://data.cityofnewyork.us/resource/rvih-nhyn.json?pops_number=K020008",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/resource/rvih-nhyn.json?pops_number=K020008",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "nyc",
+      "event_id": "nyc_arch_round127_nyc_dot_1177_hwmwtca6c_2008",
+      "source_ids": [
+        "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re"
+      ],
+      "source_record_id": "DOT projectid 1177; fmsid HWMWTCA6C; 9 block row(s); event round127_nyc_dot_1177_hwmwtca6c_2008",
+      "url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=1177&fmsid=HWMWTCA6C",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=1177&fmsid=HWMWTCA6C",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "nyc",
+      "event_id": "nyc_arch_round127_nyc_dot_1594_hwxd203_2008",
+      "source_ids": [
+        "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re"
+      ],
+      "source_record_id": "DOT projectid 1594; fmsid HWXD203; 2 block row(s); event round127_nyc_dot_1594_hwxd203_2008",
+      "url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=1594&fmsid=HWXD203",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=1594&fmsid=HWXD203",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "nyc",
+      "event_id": "nyc_arch_round127_nyc_dot_3156_hwq662d_2008",
+      "source_ids": [
+        "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re"
+      ],
+      "source_record_id": "DOT projectid 3156; fmsid HWQ662D; 5 block row(s); event round127_nyc_dot_3156_hwq662d_2008",
+      "url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=3156&fmsid=HWQ662D",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=3156&fmsid=HWQ662D",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "nyc",
+      "event_id": "nyc_arch_round127_nyc_dot_846_hwcsch2_2008",
+      "source_ids": [
+        "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re"
+      ],
+      "source_record_id": "DOT projectid 846; fmsid HWCSCH2; 52 block row(s); event round127_nyc_dot_846_hwcsch2_2008",
+      "url": "https://data.cityofnewyork.us/resource/jvk9-k4re.json?projectid=846&fmsid=HWCSCH2",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": false,
+      "status": null,
+      "final_url": null,
+      "error": "This operation was aborted",
+      "response_class": "network_error"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "nyc",
+      "event_id": "nyc_arch_dob_legacy_permit_1980893_2008_01_02",
+      "source_ids": [
+        "nyc-dob-permit-issuance-ipu4-2q9a",
+        "nyc-dob-filings-permits",
+        "ipu4-2q9a"
+      ],
+      "source_record_id": "ipu4-2q9a permit_si_no 1980893",
+      "url": "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=1980893",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=1980893",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "belfast",
+      "event_id": "bfs_arch_belfast_zoo_entrance_visitor_centre_shop_built_2008",
+      "source_ids": [
+        "belfast-architecture-public-pages"
+      ],
+      "source_record_id": "bcc-parks-2012-08-09-belfast-zoo-entrance-visitor-centre-shop-2008",
+      "url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=299&MId=1555",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://minutes.belfastcity.gov.uk/ieListDocuments.aspx?CId=299&MId=1555",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "belfast",
+      "event_id": "bfs_arch_laganside_house_court_service_fitout_2008",
+      "source_ids": [
+        "belfast-architecture-public-pages"
+      ],
+      "source_record_id": "laganside-house-ni-court-service-fitout-late-2008",
+      "url": "https://www.futurebelfast.com/property/23-27-oxford-street-laganside-house/",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://www.futurebelfast.com/property/23-27-oxford-street-laganside-house/",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "belfast",
+      "event_id": "bfs_arch_belfast_harni_spatial_26_50_023_date_added_2008_02_06",
+      "source_ids": [
+        "dfc-harni-belfast"
+      ],
+      "source_record_id": "BHARNI:26/50/023; HB:HB26/50/184; OBJECTID:372; Main_ID:796",
+      "url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3/query?where=OBJECTID%3D372&outFields=HB_Ref,BHARNI_Ref,Address,Category,Ownership,Date_Added,LGD,County,OBJECTID,Main_ID&returnGeometry=true&f=geojson",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3/query?where=OBJECTID%3D372&outFields=HB_Ref,BHARNI_Ref,Address,Category,Ownership,Date_Added,LGD,County,OBJECTID,Main_ID&returnGeometry=true&f=geojson",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "belfast",
+      "event_id": "bfs_arch_victoria_square_opening_2008",
+      "source_ids": [
+        "belfast-architecture-public-pages"
+      ],
+      "source_record_id": "victoria-square-history",
+      "url": "https://victoriasquare.com/our-history",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://victoriasquare.com/our-history",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "belfast",
+      "event_id": "bfs_arch_belfast_harni_spatial_26_39_001_date_added_2008_03_28",
+      "source_ids": [
+        "dfc-harni-belfast"
+      ],
+      "source_record_id": "BHARNI:26/39/001; HB:HB26/39/005; OBJECTID:526; Main_ID:801",
+      "url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3/query?where=OBJECTID%3D526&outFields=HB_Ref,BHARNI_Ref,Address,Category,Ownership,Date_Added,LGD,County,OBJECTID,Main_ID&returnGeometry=true&f=geojson",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3/query?where=OBJECTID%3D526&outFields=HB_Ref,BHARNI_Ref,Address,Category,Ownership,Date_Added,LGD,County,OBJECTID,Main_ID&returnGeometry=true&f=geojson",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "event_source_url",
+      "city_id": "belfast",
+      "event_id": "bfs_arch_grove_wellbeing_centre_opening_2008",
+      "source_ids": [
+        "belfast-architecture-public-pages"
+      ],
+      "source_record_id": "grove-wellbeing-centre-opens-2008-05-27",
+      "url": "https://www.4ni.co.uk/northern-ireland-news/76544/multi-million-pound-grove-wellbeing-centre-opens",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://www.4ni.co.uk/northern-ireland-news/76544/multi-million-pound-grove-wellbeing-centre-opens",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "london",
+      "source_id": "london-pld-applications",
+      "url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications/",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "london",
+      "source_id": "london-datastore-ldd-permissions",
+      "url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd-",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0/",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "london",
+      "source_id": "london-planning-data-listed-building-outlines",
+      "url": "https://www.planning.data.gov.uk/dataset/listed-building-outline",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://www.planning.data.gov.uk/dataset/listed-building-outline",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "london",
+      "source_id": "london-historic-england-nhle",
+      "url": "https://historicengland.org.uk/listing/the-list/",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": false,
+      "status": 403,
+      "final_url": "https://historicengland.org.uk/listing/the-list/",
+      "error": null,
+      "response_class": "access_controlled"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "london",
+      "source_id": "london-borough-planning-portals",
+      "url": "https://www.london.gov.uk/programmes-strategies/planning/digital-planning/planning-london-datahub",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://maintenance.london.gov.uk/programmes-strategies/planning/digital-planning/planning-london-datahub",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-dob-permit-issuance",
+      "url": "https://data.cityofnewyork.us/api/views/ipu4-2q9a",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/ipu4-2q9a",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-dob-job-application-filings",
+      "url": "https://data.cityofnewyork.us/api/views/ic3t-wcy2",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/ic3t-wcy2",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-dob-now-job-application-filings",
+      "url": "https://data.cityofnewyork.us/api/views/w9ak-ipjd",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/w9ak-ipjd",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-dob-now-approved-permits",
+      "url": "https://data.cityofnewyork.us/api/views/rbx6-tga4",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/rbx6-tga4",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-dob-certificate-occupancy",
+      "url": "https://data.cityofnewyork.us/api/views/bs8b-p36w",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/bs8b-p36w",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-dob-now-certificate-occupancy",
+      "url": "https://data.cityofnewyork.us/api/views/pkdm-hqz6",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/pkdm-hqz6",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-lpc-permit-application-finder",
+      "url": "https://home4.nyc.gov/site/lpc/applications/permit-search.page",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://home4.nyc.gov/site/lpc/applications/permit-search.page",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-zap-project-data",
+      "url": "https://data.cityofnewyork.us/City-Government/Zoning-Application-Portal-ZAP-Project-Data/hgx4-8ukb",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/City-Government/Zoning-Application-Portal-ZAP-Project-Data/hgx4-8ukb",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-public-design-commission-annual-report",
+      "url": "https://data.cityofnewyork.us/d/5fsv-ze7v",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/Housing-Development/Public-Design-Commission-Annual-Report/5fsv-ze7v",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "nyc",
+      "source_id": "nyc-hpd-affordable-housing-production",
+      "url": "https://data.cityofnewyork.us/api/views/hg8x-zxpr",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://data.cityofnewyork.us/api/views/hg8x-zxpr",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-dfi-planning-statistics",
+      "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-ni-planning-portal",
+      "url": "https://planningregister.planningsystemni.gov.uk/simple-search",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://planningregister.planningsystemni.gov.uk/simple-search",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-city-current-planning-applications",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-city-committee-packs",
+      "url": "https://minutes.belfastcity.gov.uk/",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://minutes.belfastcity.gov.uk/uuCoverPage.aspx?bcr=1",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-hed-buildings-database",
+      "url": "https://www.communities-ni.gov.uk/services/buildings-database",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 206,
+      "final_url": "https://www.communities-ni.gov.uk/services/buildings-database",
+      "error": null,
+      "response_class": "reachable"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-harni",
+      "url": "https://www.communities-ni.gov.uk/topics/historic-environment/historic-buildings-buildings-risk",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": false,
+      "status": 404,
+      "final_url": "https://www.communities-ni.gov.uk/topics/historic-environment/historic-buildings-buildings-risk",
+      "error": null,
+      "response_class": "client_error"
+    },
+    {
+      "kind": "priority_source_access_url",
+      "city_id": "belfast",
+      "source_id": "belfast-official-project-pages",
+      "url": "https://www.belfastcity.gov.uk/",
+      "checked_at": "2026-05-20T00:00:00Z",
+      "ok": true,
+      "status": 200,
+      "final_url": "https://www.belfastcity.gov.uk/",
+      "error": null,
+      "response_class": "reachable"
+    }
+  ]
+}
