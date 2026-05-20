@@ -25,7 +25,7 @@
         "fetched_rows": 213359,
         "collapsed_regulation_numbers": 211791,
         "candidates": 200,
-        "eligible_before_cap": 30893
+        "eligible_before_cap": 30693
       },
       "geographic_scope": "New York City landmark properties, individual/interior/scenic landmarks, and historic districts represented in LPC permit/application rows.",
       "granularity": "One regulation_number-level permit/application administrative row after collapsing duplicate rows with the same regulation_number.",
@@ -439,11 +439,11 @@
           "tmp/subagents/round274_nyc_lpc_permit_next20/candidates.json"
         ],
         "missing_optional_files": [],
-        "record_ids_seen": 49425,
-        "title_date_keys_seen": 46450,
-        "source_urls_seen": 49634,
-        "source_date_keys_seen": 56734,
-        "record_date_keys_seen": 52051
+        "record_ids_seen": 49825,
+        "title_date_keys_seen": 46850,
+        "source_urls_seen": 50034,
+        "source_date_keys_seen": 57134,
+        "record_date_keys_seen": 52451
       }
     }
   ]

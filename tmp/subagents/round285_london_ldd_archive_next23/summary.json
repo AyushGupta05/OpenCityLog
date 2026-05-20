@@ -10,7 +10,7 @@
     "permission": 240
   },
   "eligible_milestone_mix": {
-    "permission": 883
+    "permission": 882
   },
   "status_mix": {
     "Not started": 83,
@@ -20,7 +20,7 @@
   "category_mix": {
     "development_administrative_permission_record": 240
   },
-  "eligible_headroom_after_retained_candidates": 643,
+  "eligible_headroom_after_retained_candidates": 642,
   "input_rows_scanned": 94948,
   "duplicate_validation": {
     "generated_event_ids_unique": true,
@@ -31,12 +31,12 @@
   "exclusion_counts": {
     "below score threshold": 32973,
     "minor/domestic row below large-development override": 25488,
-    "missing or outside 2008-2026 permission/started/completed date window": 11579,
+    "missing or outside 2008-2026 permission/started/completed date window": 11568,
     "existing corpus or previous LDD candidate workbook row": 10568,
     "below architecture/public/large-development signal threshold": 9550,
-    "administrative-only/minor planning row below high-signal override": 2528,
+    "administrative-only/minor planning row below high-signal override": 2526,
     "alteration/extension row below score threshold": 1195,
-    "existing corpus or previous LDD candidate title/date": 179,
+    "existing corpus or previous LDD candidate title/date": 193,
     "duplicate inside round285 batch scan": 4,
     "missing or outside Greater London LDD point range": 1
   },
@@ -49,14 +49,11 @@
     "tmp\\subagents\\round285_london_ldd_archive_next23\\validation.json"
   ],
   "validation": {
-    "ok": false,
+    "ok": true,
     "path": "tmp\\subagents\\round285_london_ldd_archive_next23\\validation.json",
     "warnings": [
       "No commencement/started or completion rows remained after dedupe through round277 and signal filters."
     ],
-    "issues": [
-      "cross-dedupe intersection manual_title_dates: 1",
-      "cross-dedupe intersection prior_title_dates: 1"
-    ]
+    "issues": []
   }
 }

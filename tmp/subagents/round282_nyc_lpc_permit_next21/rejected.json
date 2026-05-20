@@ -3,10 +3,10 @@
   "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
   "rejected_counts": {
     "below_high_signal_threshold": 175969,
-    "duplicate_regulation_number_in_corpus_or_prior_pack": 4254,
+    "duplicate_regulation_number_in_corpus_or_prior_pack": 4454,
     "duplicate_title_date_in_corpus_or_prior_pack": 360,
     "excluded_non_candidate_regulation_type": 315,
-    "eligible_but_not_selected_after_cap": 30693
+    "eligible_but_not_selected_after_cap": 30493
   },
   "rejected_examples": [
     {
@@ -404,6 +404,14 @@
       "worktypes": "Interior Alterations",
       "address": "888 LEXINGTON AVENUE",
       "selection_score": -6
+    },
+    {
+      "reason": "duplicate_regulation_number_in_corpus_or_prior_pack",
+      "source_record_id": "COFA-08-5905",
+      "date": "2008-01-03",
+      "regulation_type": "Certificate of Appropriateness",
+      "worktypes": "ADDITIONS",
+      "address": "36 WEST 86TH STREET"
     },
     {
       "reason": "below_high_signal_threshold",
@@ -5389,15 +5397,6 @@
       "worktypes": "Interior Alterations",
       "address": "30 CHARLTON STREET",
       "selection_score": -6
-    },
-    {
-      "reason": "below_high_signal_threshold",
-      "source_record_id": "CNE-08-6836",
-      "date": "2008-01-30",
-      "regulation_type": "Certificate of No Effect",
-      "worktypes": "WINDOWS",
-      "address": "205 WEST 57TH STREET",
-      "selection_score": 8
     }
   ]
 }

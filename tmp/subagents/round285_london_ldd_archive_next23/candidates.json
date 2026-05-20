@@ -21,7 +21,7 @@
   "selection_summary": {
     "input_workbook": "tmp\\subagents\\round124_london_ldd_archive_completions\\LDD_Permissions_for_Datastore_final.xlsx",
     "input_rows_scanned": 94948,
-    "eligible_scored_rows_after_dedupe_and_signal_filters": 883,
+    "eligible_scored_rows_after_dedupe_and_signal_filters": 882,
     "retained_candidates": 240,
     "candidate_limit": 240,
     "date_range": {
@@ -32,7 +32,7 @@
       "permission": 240
     },
     "eligible_milestone_mix": {
-      "permission": 883
+      "permission": 882
     },
     "status_mix": {
       "Not started": 83,
@@ -168,12 +168,12 @@
     "exclusion_counts": {
       "below score threshold": 32973,
       "minor/domestic row below large-development override": 25488,
-      "missing or outside 2008-2026 permission/started/completed date window": 11579,
+      "missing or outside 2008-2026 permission/started/completed date window": 11568,
       "existing corpus or previous LDD candidate workbook row": 10568,
       "below architecture/public/large-development signal threshold": 9550,
-      "administrative-only/minor planning row below high-signal override": 2528,
+      "administrative-only/minor planning row below high-signal override": 2526,
       "alteration/extension row below score threshold": 1195,
-      "existing corpus or previous LDD candidate title/date": 179,
+      "existing corpus or previous LDD candidate title/date": 193,
       "duplicate inside round285 batch scan": 4,
       "missing or outside Greater London LDD point range": 1
     }
@@ -20142,131 +20142,6 @@
     },
     {
       "city_id": "london",
-      "candidate_id": "lon_ldd_archive_next23_round285_permission_row_94396_westminster_17_09161_full",
-      "date": "2017-12-21",
-      "effective_date": "2017-12-21",
-      "date_precision": "day",
-      "bucket": "planning/development/architecture/ldd_permission_record",
-      "title": "LDD administrative permission record: Porchester Road",
-      "summary": "The London Development Database archive row for Porchester Road in Westminster lists Current permission status 'Not started' and a source-supplied Permission Date of 2017-12-21. The row records 1 proposed homes; 1 proposed affordable homes; 0.01 ha proposed site area. Source proposal description: Alterations to roof to provide 1 x 2 bedroom residential unit and a reduced area for plant.",
-      "observed_change": "Administrative LDD archive row records a administrative planning-permission milestone date; this is retained as a planning/development status record, not as independent evidence of opening, occupation, final built form, current use, outcomes, or causal relationships.",
-      "event_type": "development_administrative_permission_record",
-      "category": "architecture_related_ldd_archive_status_record",
-      "area": "Westminster; Porchester Road",
-      "latitude": 51.51863,
-      "longitude": -0.189516,
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.189516,
-          51.51863
-        ]
-      },
-      "geometry_source": "LDD Easting/Northing point fields from the official planning-permissions workbook, converted from British National Grid to WGS84.",
-      "geometry_precision": "LDD point location only; not a building footprint, parcel boundary, entrance, or current as-built geometry.",
-      "location": {
-        "site_name_or_number": "",
-        "scheme_name": "",
-        "subdivision_of_building": "Westbourne Park Baptist Church",
-        "primary_street_name": "Porchester Road",
-        "secondary_streets": "",
-        "postcode": "W2 5DX",
-        "ward": "BAYSWATER",
-        "easting": 525715.0,
-        "northing": 181522.0,
-        "latitude": 51.51863,
-        "longitude": -0.189516,
-        "source_crs": "British National Grid / OSGB36 point fields in LDD workbook",
-        "derived_crs": "WGS84 latitude/longitude converted from source BNG point"
-      },
-      "source_id": "london-development-database-archive",
-      "source_ids": [
-        "london-development-database-archive"
-      ],
-      "source_dataset_id": "london-development-database-archive",
-      "source_name": "Planning permissions on the London Development Database (LDD)",
-      "publisher": "Greater London Authority / London Development Database / relevant London planning authority",
-      "source_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0/",
-      "source_file_url": "https://data.london.gov.uk/download/2jxq0/eb050c40-3e94-4384-8e59-1b8c49dbdf36/LDD%20Permissions%20for%20Datastore%20final.xlsx",
-      "source_record_id": "LDD planning permissions workbook row 94396; planning_authority=Westminster; borough_reference=17/09161/FULL",
-      "source_type": "official archived spreadsheet row",
-      "source_date_field": "Permission Date in the LDD planning-permissions workbook",
-      "source_row_references": [
-        {
-          "workbook": "LDD_Permissions_for_Datastore_final.xlsx",
-          "sheet": "LDD data",
-          "excel_row": 94396,
-          "row_reference": "Westminster / 17/09161/FULL",
-          "download_url": "https://data.london.gov.uk/download/2jxq0/eb050c40-3e94-4384-8e59-1b8c49dbdf36/LDD%20Permissions%20for%20Datastore%20final.xlsx"
-        }
-      ],
-      "accessed_at": "2026-05-20",
-      "retrieved_at": "2026-05-20",
-      "license": "UK Open Government Licence (OGL v3)",
-      "licence": "UK Open Government Licence (OGL v3)",
-      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-      "license_or_terms_note": "London Datastore / Greater London Authority archive under the UK Open Government Licence v3.0; preserve workbook row references and attribution.",
-      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. Attribute Greater London Authority, London Development Database, and the relevant London planning authority.",
-      "confidence": "documented",
-      "architect": "Source record does not name a project architect.",
-      "project_type": "LDD archived planning/development administrative permission record",
-      "limitations": "This is an archived LDD planning/development administrative record. Planning permission, work-start, source-defined completion status, real-world opening, occupation, and current use are separate facts. The selected milestone date is a source field in the LDD workbook and may reflect planning-authority administration, phasing, amendments, reserved matters, or later updates. It is not evidence of public opening, occupation, service delivery, final built form, design quality, local outcomes, or causation. Local planning authority records should be checked before promoting the candidate to a canonical event.",
-      "transformation_method": "Generated by scripts/fetch_round285_london_ldd_archive_next23_candidates.py. Parsed official London Datastore LDD archive XLSX workbooks with a stdlib OOXML reader; deduplicated against the manual architecture corpus and prior LDD archive candidate packs through round277 by LDD workbook row, planning authority/borough reference, source URL/record id, title/date, event id, and source/date key; selected source-defined Permission Date, Started Date, or Completed Date milestones from 2008-01-01 through 2026-05-20 with a valid Greater London Easting/Northing point and architecture/public/civic/mixed-use or large-development signal; excluded domestic/minor/admin-only rows below override thresholds; sorted by milestone priority, signal score, milestone date, and source row; capped at 240. LDD milestones are source-reported administrative lifecycle records, not independent evidence of built outcome.",
-      "permission_date": "2017-12-21",
-      "started_date": "",
-      "completed_financial_year": "",
-      "planning_authority": "Westminster",
-      "borough_reference": "17/09161/FULL",
-      "permission_type": "Full",
-      "decision_agency": "Borough",
-      "current_permission_status": "Not started",
-      "development_description": "Alterations to roof to provide 1 x 2 bedroom residential unit and a reduced area for plant.",
-      "metrics": {
-        "existing_total_residential_units": 0,
-        "proposed_total_residential_units": 1,
-        "proposed_total_affordable_units": 1,
-        "proposed_total_affordable_percentage": 100.0,
-        "existing_total_bedrooms": 0,
-        "proposed_total_bedrooms": 0,
-        "existing_total_floorspace_sqm": 0,
-        "proposed_total_floorspace_sqm": 0,
-        "residential_site_area_ha": 0.01,
-        "non_residential_site_area_ha": 0.0,
-        "total_site_area_ha": 0.01,
-        "total_open_space_existing_ha": 0.0,
-        "total_open_space_proposed_ha": 0.0
-      },
-      "selection_score": 67.355,
-      "selection_flags": {
-        "public_civic_keyword_match": true,
-        "architecture_keyword_match": true,
-        "large_scale_threshold_match": false,
-        "minor_domestic_keyword_match": false,
-        "administrative_minor_keyword_match": false
-      },
-      "raw_row": {
-        "planning_authority": "Westminster",
-        "borough_reference": "17/09161/FULL",
-        "development_description": "Alterations to roof to provide 1 x 2 bedroom residential unit and a reduced area for plant.",
-        "scheme_name": "",
-        "site_name_number": "",
-        "primary_street_name": "Porchester Road",
-        "postcode": "W2 5DX",
-        "ward": "BAYSWATER",
-        "easting": 525715.0,
-        "northing": 181522.0,
-        "permission_date": "2017-12-21",
-        "started_date": "",
-        "completed_date": "",
-        "selected_milestone_type": "permission",
-        "selected_milestone_date": "2017-12-21"
-      },
-      "event_id": "lon_ldd_archive_next23_round285_permission_row_94396_westminster_17_09161_full",
-      "ldd_milestone_type": "permission",
-      "source_date_value": "2017-12-21"
-    },
-    {
-      "city_id": "london",
       "candidate_id": "lon_ldd_archive_next23_round285_permission_row_70215_redbridge_0459_14",
       "date": "2014-03-28",
       "effective_date": "2014-03-28",
@@ -30292,6 +30167,131 @@
       "event_id": "lon_ldd_archive_next23_round285_permission_row_16434_camden_2013_7846_p",
       "ldd_milestone_type": "permission",
       "source_date_value": "2014-07-28"
+    },
+    {
+      "city_id": "london",
+      "candidate_id": "lon_ldd_archive_next23_round285_permission_row_41658_haringey_hgy_2016_4087",
+      "date": "2017-02-03",
+      "effective_date": "2017-02-03",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/ldd_permission_record",
+      "title": "LDD administrative permission record: Thirlestane Court, Colney Hatch Lane",
+      "summary": "The London Development Database archive row for Thirlestane Court, Colney Hatch Lane in Haringey lists Current permission status 'Not started' and a source-supplied Permission Date of 2017-02-03. The row records 2 proposed homes; 0.01 ha proposed site area. Source proposal description: Creation of 2no. residential units in the new lower ground floor with lightwells, improvements to existing access path and amenity areas.",
+      "observed_change": "Administrative LDD archive row records a administrative planning-permission milestone date; this is retained as a planning/development status record, not as independent evidence of opening, occupation, final built form, current use, outcomes, or causal relationships.",
+      "event_type": "development_administrative_permission_record",
+      "category": "architecture_related_ldd_archive_status_record",
+      "area": "Haringey; Thirlestane Court, Colney Hatch Lane",
+      "latitude": 51.598121,
+      "longitude": -0.146809,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.146809,
+          51.598121
+        ]
+      },
+      "geometry_source": "LDD Easting/Northing point fields from the official planning-permissions workbook, converted from British National Grid to WGS84.",
+      "geometry_precision": "LDD point location only; not a building footprint, parcel boundary, entrance, or current as-built geometry.",
+      "location": {
+        "site_name_or_number": "Thirlestane Court",
+        "scheme_name": "",
+        "subdivision_of_building": "",
+        "primary_street_name": "Colney Hatch Lane",
+        "secondary_streets": "",
+        "postcode": "N10 1LH",
+        "ward": "FORTIS GREEN",
+        "easting": 528454.0,
+        "northing": 190436.0,
+        "latitude": 51.598121,
+        "longitude": -0.146809,
+        "source_crs": "British National Grid / OSGB36 point fields in LDD workbook",
+        "derived_crs": "WGS84 latitude/longitude converted from source BNG point"
+      },
+      "source_id": "london-development-database-archive",
+      "source_ids": [
+        "london-development-database-archive"
+      ],
+      "source_dataset_id": "london-development-database-archive",
+      "source_name": "Planning permissions on the London Development Database (LDD)",
+      "publisher": "Greater London Authority / London Development Database / relevant London planning authority",
+      "source_url": "https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database-ldd-2jxq0/",
+      "source_file_url": "https://data.london.gov.uk/download/2jxq0/eb050c40-3e94-4384-8e59-1b8c49dbdf36/LDD%20Permissions%20for%20Datastore%20final.xlsx",
+      "source_record_id": "LDD planning permissions workbook row 41658; planning_authority=Haringey; borough_reference=HGY/2016/4087",
+      "source_type": "official archived spreadsheet row",
+      "source_date_field": "Permission Date in the LDD planning-permissions workbook",
+      "source_row_references": [
+        {
+          "workbook": "LDD_Permissions_for_Datastore_final.xlsx",
+          "sheet": "LDD data",
+          "excel_row": 41658,
+          "row_reference": "Haringey / HGY/2016/4087",
+          "download_url": "https://data.london.gov.uk/download/2jxq0/eb050c40-3e94-4384-8e59-1b8c49dbdf36/LDD%20Permissions%20for%20Datastore%20final.xlsx"
+        }
+      ],
+      "accessed_at": "2026-05-20",
+      "retrieved_at": "2026-05-20",
+      "license": "UK Open Government Licence (OGL v3)",
+      "licence": "UK Open Government Licence (OGL v3)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "license_or_terms_note": "London Datastore / Greater London Authority archive under the UK Open Government Licence v3.0; preserve workbook row references and attribution.",
+      "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. Attribute Greater London Authority, London Development Database, and the relevant London planning authority.",
+      "confidence": "documented",
+      "architect": "Source record does not name a project architect.",
+      "project_type": "LDD archived planning/development administrative permission record",
+      "limitations": "This is an archived LDD planning/development administrative record. Planning permission, work-start, source-defined completion status, real-world opening, occupation, and current use are separate facts. The selected milestone date is a source field in the LDD workbook and may reflect planning-authority administration, phasing, amendments, reserved matters, or later updates. It is not evidence of public opening, occupation, service delivery, final built form, design quality, local outcomes, or causation. Local planning authority records should be checked before promoting the candidate to a canonical event.",
+      "transformation_method": "Generated by scripts/fetch_round285_london_ldd_archive_next23_candidates.py. Parsed official London Datastore LDD archive XLSX workbooks with a stdlib OOXML reader; deduplicated against the manual architecture corpus and prior LDD archive candidate packs through round277 by LDD workbook row, planning authority/borough reference, source URL/record id, title/date, event id, and source/date key; selected source-defined Permission Date, Started Date, or Completed Date milestones from 2008-01-01 through 2026-05-20 with a valid Greater London Easting/Northing point and architecture/public/civic/mixed-use or large-development signal; excluded domestic/minor/admin-only rows below override thresholds; sorted by milestone priority, signal score, milestone date, and source row; capped at 240. LDD milestones are source-reported administrative lifecycle records, not independent evidence of built outcome.",
+      "permission_date": "2017-02-03",
+      "started_date": "",
+      "completed_financial_year": "",
+      "planning_authority": "Haringey",
+      "borough_reference": "HGY/2016/4087",
+      "permission_type": "Full",
+      "decision_agency": "Borough",
+      "current_permission_status": "Not started",
+      "development_description": "Creation of 2no. residential units in the new lower ground floor with lightwells, improvements to existing access path and amenity areas.",
+      "metrics": {
+        "existing_total_residential_units": 0,
+        "proposed_total_residential_units": 2,
+        "proposed_total_affordable_units": 0,
+        "proposed_total_affordable_percentage": 0.0,
+        "existing_total_bedrooms": 0,
+        "proposed_total_bedrooms": 0,
+        "existing_total_floorspace_sqm": 0,
+        "proposed_total_floorspace_sqm": 0,
+        "residential_site_area_ha": 0.01,
+        "non_residential_site_area_ha": 0.0,
+        "total_site_area_ha": 0.01,
+        "total_open_space_existing_ha": 0.0,
+        "total_open_space_proposed_ha": 0.0
+      },
+      "selection_score": 67.28,
+      "selection_flags": {
+        "public_civic_keyword_match": true,
+        "architecture_keyword_match": true,
+        "large_scale_threshold_match": false,
+        "minor_domestic_keyword_match": false,
+        "administrative_minor_keyword_match": false
+      },
+      "raw_row": {
+        "planning_authority": "Haringey",
+        "borough_reference": "HGY/2016/4087",
+        "development_description": "Creation of 2no. residential units in the new lower ground floor with lightwells, improvements to existing access path and amenity areas.",
+        "scheme_name": "",
+        "site_name_number": "Thirlestane Court",
+        "primary_street_name": "Colney Hatch Lane",
+        "postcode": "N10 1LH",
+        "ward": "FORTIS GREEN",
+        "easting": 528454.0,
+        "northing": 190436.0,
+        "permission_date": "2017-02-03",
+        "started_date": "",
+        "completed_date": "",
+        "selected_milestone_type": "permission",
+        "selected_milestone_date": "2017-02-03"
+      },
+      "event_id": "lon_ldd_archive_next23_round285_permission_row_41658_haringey_hgy_2016_4087",
+      "ldd_milestone_type": "permission",
+      "source_date_value": "2017-02-03"
     }
   ]
 }

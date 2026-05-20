@@ -7,7 +7,7 @@ Window: 2008-01-01 through 2026-05-20, using issue_date.
 ## Selection
 
 Fetched 213,359 rows and collapsed them to 211,791 regulation_number records.
-Retained 200 high-signal, non-duplicate administrative preservation milestones out of 30,893 eligible records before the cap.
+Retained 200 high-signal, non-duplicate administrative preservation milestones out of 30,693 eligible records before the cap.
 
 Rows were scored for architecture/preservation signal in WorkTypes and regulation_type, then balanced across years and regulation types. Dedupe checked the current corpus files and prior LPC permit/designation candidate packs through round274.
 

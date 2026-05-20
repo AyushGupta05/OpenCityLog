@@ -7,11 +7,11 @@
   "end_date": "2026-05-20",
   "rows_fetched": 213359,
   "collapsed_regulation_numbers": 211791,
-  "eligible_before_cap": 30893,
+  "eligible_before_cap": 30693,
   "candidate_count": 200,
   "date_range": {
-    "start": "2008-01-03",
-    "end": "2026-04-14"
+    "start": "2008-01-18",
+    "end": "2026-03-25"
   },
   "by_year": {
     "2008": 10,
@@ -27,34 +27,36 @@
     "2018": 10,
     "2019": 10,
     "2020": 10,
-    "2021": 10,
-    "2022": 11,
-    "2023": 19,
+    "2021": 17,
+    "2022": 13,
+    "2023": 10,
     "2024": 10,
     "2025": 10,
     "2026": 10
   },
   "by_regulation_type": {
-    "Certificate of Appropriateness": 56,
-    "Status Update Letter": 24,
-    "Miscellaneous - Amendment": 16,
-    "Certificate of No Effect": 82,
-    "Permit for Minor Work": 16,
-    "Staff Binding Report": 2,
-    "Authorization to Proceed": 4
+    "Status Update Letter": 10,
+    "Miscellaneous - Amendment": 8,
+    "Certificate of Appropriateness": 60,
+    "Certificate of No Effect": 84,
+    "Permit for Minor Work": 28,
+    "Staff Advisory Report": 1,
+    "Notice of Review": 1,
+    "Authorization to Proceed": 4,
+    "Commission Binding Report": 1,
+    "Staff Binding Report": 3
   },
   "by_bucket": {
-    "heritage_permit_addition": 93,
     "heritage_permit_new_building": 14,
-    "heritage_permit_storefront": 9,
-    "heritage_permit_facade_restoration": 81,
-    "heritage_permit_structural_scope": 2,
-    "heritage_permit_application": 1
+    "heritage_permit_storefront": 16,
+    "heritage_permit_addition": 79,
+    "heritage_permit_facade_restoration": 90,
+    "heritage_permit_structural_scope": 1
   },
   "by_borough": {
-    "Manhattan": 133,
-    "Brooklyn": 59,
-    "Queens": 5,
+    "Manhattan": 138,
+    "Brooklyn": 51,
+    "Queens": 8,
     "Bronx": 2,
     "Staten Island": 1
   },
@@ -275,12 +277,12 @@
       "tmp/subagents/round274_nyc_lpc_permit_next20/candidates.json"
     ],
     "missing_optional_files": [],
-    "existing_record_ids": 49425,
-    "existing_title_date_keys": 46450,
-    "existing_source_urls": 49634,
-    "existing_source_date_keys": 56734,
-    "existing_record_date_keys": 52051,
-    "existing_event_ids": 56785
+    "existing_record_ids": 49825,
+    "existing_title_date_keys": 46850,
+    "existing_source_urls": 50034,
+    "existing_source_date_keys": 57134,
+    "existing_record_date_keys": 52451,
+    "existing_event_ids": 57185
   },
   "selection": {
     "max_candidates": 200,

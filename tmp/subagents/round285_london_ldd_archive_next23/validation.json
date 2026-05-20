@@ -1,5 +1,5 @@
 {
-  "ok": false,
+  "ok": true,
   "generated_at": "2026-05-20",
   "task": "round285_london_ldd_archive_next23_candidates",
   "validator": "scripts/fetch_round285_london_ldd_archive_next23_candidates.py independent post-generation validator",
@@ -32,12 +32,12 @@
     "manual_rows": 0,
     "manual_refs": 0,
     "manual_source_dates": 0,
-    "manual_title_dates": 1,
+    "manual_title_dates": 0,
     "manual_event_ids": 0,
     "prior_rows": 0,
     "prior_refs": 0,
     "prior_source_dates": 0,
-    "prior_title_dates": 1,
+    "prior_title_dates": 0,
     "prior_event_ids": 0
   },
   "required_fields_checked": [
@@ -73,8 +73,5 @@
   "warnings": [
     "No commencement/started or completion rows remained after dedupe through round277 and signal filters."
   ],
-  "issues": [
-    "cross-dedupe intersection manual_title_dates: 1",
-    "cross-dedupe intersection prior_title_dates: 1"
-  ]
+  "issues": []
 }
