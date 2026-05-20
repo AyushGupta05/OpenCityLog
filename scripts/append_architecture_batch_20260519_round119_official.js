@@ -210,7 +210,9 @@ const candidatePaths = {
   nycPublicDesignCommissionNextRound295: "tmp/subagents/round295_nyc_public_design_commission_next/candidates.json",
   nycHpdAffordableHousingNext14Round292: "tmp/subagents/round292_nyc_hpd_affordable_housing_next14/candidates.json",
   londonLddArchiveNext25Round297: "tmp/subagents/round297_london_ldd_archive_next25/candidates.json",
-  londonPldLifecycleNext27Round298: "tmp/subagents/round298_london_pld_lifecycle_next27/candidates.json"
+  londonPldLifecycleNext27Round298: "tmp/subagents/round298_london_pld_lifecycle_next27/candidates.json",
+  nycLpcPermitNext23Round299: "tmp/subagents/round299_nyc_lpc_permit_next23/candidates.json",
+  nycDobCoNext24Round300: "tmp/subagents/round300_nyc_dob_co_next24/candidates.json"
 };
 
 const sourceIdAliases = {

@@ -79,12 +79,22 @@ function transformRound289Wrapper(source) {
     '  "tmp/subagents/round273_nyc_dob_co_next21/candidates.json",\\n  "tmp/subagents/round278_nyc_dob_co_next22/candidates.json",\\n  "tmp/subagents/round289_nyc_dob_co_next23/candidates.json"\\n];',
     "required screened round289 file"
   );
-  transformed = replaceOnce(
-    transformed,
-    '"tmp/subagents/round273_nyc_dob_co_next21/candidates.json",\\\\\\\\n  "tmp/subagents/round278_nyc_dob_co_next22/candidates.json"\\\\\\\\n];\';',
-    '"tmp/subagents/round273_nyc_dob_co_next21/candidates.json",\\\\\\\\n  "tmp/subagents/round278_nyc_dob_co_next22/candidates.json",\\\\\\\\n  "tmp/subagents/round289_nyc_dob_co_next23/candidates.json"\\\\\\\\n];\';',
-    "duplicate block round289 file"
-  );
+  const duplicateBlockLabel = '    "duplicate block round278 file"';
+  const duplicateBlockLabelIndex = transformed.indexOf(duplicateBlockLabel);
+  if (duplicateBlockLabelIndex === -1) {
+    throw new Error("Could not find duplicate block label for round289 insertion.");
+  }
+  const duplicateBlockTail = '"tmp/subagents/round278_nyc_dob_co_next22/candidates.json"';
+  const duplicateBlockTailIndex = transformed.lastIndexOf(duplicateBlockTail, duplicateBlockLabelIndex);
+  if (duplicateBlockTailIndex === -1) {
+    throw new Error("Could not find duplicate block round278 tail for round289 insertion.");
+  }
+  const duplicateBlockAfterTail = transformed.slice(duplicateBlockTailIndex + duplicateBlockTail.length);
+  const duplicateBlockNewline = duplicateBlockAfterTail.match(/^((?:\\)+n)/);
+  if (!duplicateBlockNewline) {
+    throw new Error("Could not find duplicate block escaped newline for round289 insertion.");
+  }
+  transformed = `${transformed.slice(0, duplicateBlockTailIndex)}${duplicateBlockTail},${duplicateBlockNewline[1]}  "tmp/subagents/round289_nyc_dob_co_next23/candidates.json"${duplicateBlockAfterTail}`;
   transformed = replaceOnce(
     transformed,
     '  assertContains(transformed, "tmp/subagents/round273_nyc_dob_co_next21/candidates.json", "round273 screening file");\\n  assertContains(transformed, "tmp/subagents/round278_nyc_dob_co_next22/candidates.json", "round278 screening file");',
@@ -114,6 +124,12 @@ function transformRound289Wrapper(source) {
     "    `- Round278 screened: ${validation.checks.required_round278_screened}`,",
     "    `- Round278 screened: ${validation.checks.required_round278_screened}`,\n    `- Round289 screened: ${validation.checks.required_round289_screened}`,",
     "round289 validation report line"
+  );
+  transformed = replaceOnce(
+    transformed,
+    "\nmain().catch((error) => {\n  console.error(error);\n  process.exit(1);\n});\n",
+    "\nmodule.exports = { main };\n",
+    "round300 outer main invocation"
   );
 
   assertContains(transformed, "round300_nyc_dob_co_next24", "round300 output path");
