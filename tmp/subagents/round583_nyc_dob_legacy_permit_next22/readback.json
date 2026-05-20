@@ -1,0 +1,116 @@
+{
+  "schema_version": "round583_nyc_dob_legacy_permit_next22_readback.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "readback_at": "2026-05-20T00:00:00Z",
+  "ok": true,
+  "candidate_count": 200,
+  "date_range": {
+    "start": "2008-01-03",
+    "end": "2024-04-10"
+  },
+  "source_ids": [
+    "nyc-dob-job-application-filings-ic3t-wcy2",
+    "nyc-dob-permit-issuance-ipu4-2q9a"
+  ],
+  "source_record_id_sample": [
+    "ipu4-2q9a permit_si_no 2469320",
+    "ipu4-2q9a permit_si_no 3396735",
+    "ipu4-2q9a permit_si_no 3534372",
+    "ipu4-2q9a permit_si_no 3578033",
+    "ipu4-2q9a permit_si_no 2528276",
+    "ipu4-2q9a permit_si_no 2824097",
+    "ipu4-2q9a permit_si_no 3046481",
+    "ipu4-2q9a permit_si_no 2571053",
+    "ipu4-2q9a permit_si_no 2124031",
+    "ipu4-2q9a permit_si_no 2973218"
+  ],
+  "source_url_sample": [
+    "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=2469320",
+    "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=3396735",
+    "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=3534372",
+    "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=3578033",
+    "https://data.cityofnewyork.us/resource/ipu4-2q9a.json?permit_si_no=2528276"
+  ],
+  "checks": {
+    "all_expected_files_present": true,
+    "json_files_parse": true,
+    "candidate_count_matches": true,
+    "candidate_count_within_target": true,
+    "validation_ok": true,
+    "no_validation_errors": true,
+    "source_dataset_only_ipu4_2q9a": true,
+    "accessed_at_2026_05_20": true,
+    "no_overlap_with_prior_packs": true,
+    "source_audit_present": true,
+    "rejected_report_present": true,
+    "duplicate_audit_present": true,
+    "no_candidate_overclaim_terms": true,
+    "retrieved_at_present": true,
+    "no_duplicate_permit_ids": true,
+    "no_duplicate_job_numbers": true
+  },
+  "file_checks": [
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/candidates.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 1743054
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/source_audit.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 34718
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/summary.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 28206
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/rejected.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 13473
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/validation.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 2920
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/validation_report.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 1505
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/readback.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 3823
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/notes.md",
+      "exists": true,
+      "parse_ok": null,
+      "size_bytes": 2144
+    },
+    {
+      "path": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/duplicate_audit.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 34797
+    }
+  ],
+  "validation_error_count": 0,
+  "duplicate_audit": "tmp/subagents/round583_nyc_dob_legacy_permit_next22/duplicate_audit.json",
+  "caveats": [
+    "Readback confirms this pack contains administrative DOB permit issuance records only.",
+    "The pack does not infer construction start, completion, opening, actual occupancy, outcomes, impacts, or causation."
+  ],
+  "retrieved_at": "2026-05-20"
+}

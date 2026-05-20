@@ -1,0 +1,254 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round592_belfast_official_architecture_sweep_next37",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "candidate_target": 30,
+  "dedupe_boundary": "Round587",
+  "sources_checked": [
+    {
+      "source_id": "dfi-planning-statistics-2024-25-round592",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_dataset_url": "https://www.infrastructure-ni.gov.uk/system/files/2025-06/planning-statistics-2024-25-dataset.csv",
+      "source_type": "official annual planning-statistics CSV release",
+      "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+      "publisher_terms_url": "https://www.infrastructure-ni.gov.uk/terms-and-conditions",
+      "coverage_years": "2024-2025",
+      "geographic_scope": "Belfast planning authority rows in Northern Ireland planning statistics",
+      "granularity": "application-level administrative planning or statutory-consent decision with source Easting/Northing",
+      "reliability": "strong for administrative decision evidence; not physical-start, physical-completion or opening evidence",
+      "local_file": "data\\raw\\planning_statistics\\planning-statistics-2024-25-dataset.csv",
+      "local_file_sha256": "d0d91d1a3485183fd5bc047785d71044c71283dcd3460f43604bfe172fbcbf20",
+      "accepted_records": 30,
+      "accepted_app_ids": [
+        "LA04/2023/4336/F",
+        "LA04/2023/4271/F",
+        "LA04/2024/0183/DCA",
+        "LA04/2023/4079/F",
+        "LA04/2024/0035/F",
+        "LA04/2024/0290/DCA",
+        "LA04/2024/0455/F",
+        "LA04/2024/0471/F",
+        "LA04/2024/0081/DCA",
+        "LA04/2024/0478/DCA",
+        "LA04/2024/1002/F",
+        "LA04/2024/0268/DCA",
+        "LA04/2024/0371/F",
+        "LA04/2024/1155/F",
+        "LA04/2024/0516/DCA",
+        "LA04/2024/1147/F",
+        "LA04/2024/0441/F",
+        "LA04/2024/1324/F",
+        "LA04/2024/1056/DCA",
+        "LA04/2024/1319/F",
+        "LA04/2024/1424/F",
+        "LA04/2024/1731/DCA",
+        "LA04/2024/1461/F",
+        "LA04/2024/0882/LBC",
+        "LA04/2024/0902/DCA",
+        "LA04/2024/1504/F",
+        "LA04/2024/1713/F",
+        "LA04/2022/2322/F",
+        "LA04/2024/2004/LBC",
+        "LA04/2024/1961/F"
+      ],
+      "disposition": "accepted curated residual Belfast planning/statutory-consent rows with official Easting/Northing after manual/corpus/official-sweep duplicate review through Round587"
+    },
+    {
+      "source_id": "epsg-29902-tm65-irish-grid",
+      "source_name": "EPSG:29902 TM65 / Irish Grid",
+      "publisher": "EPSG registry via EPSG.io",
+      "source_url": "https://epsg.io/29902",
+      "source_type": "coordinate reference system definition",
+      "license": "EPSG registry terms apply to CRS metadata; source URL retained for transformation provenance.",
+      "attribution": "EPSG registry / EPSG.io",
+      "accepted_records": 30,
+      "disposition": "used as coordinate-reference provenance for deterministic conversion of source Easting/Northing to WGS84 point coordinates"
+    },
+    {
+      "source_id": "dfi-planning-statistics-2025-26-quarterly-reviewed-round592",
+      "source_name": "Northern Ireland planning statistics 2025/26 provisional quarterly publications",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-october-december-2025",
+      "related_urls": [
+        "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-june-2025",
+        "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-july-september-2025",
+        "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-october-december-2025"
+      ],
+      "source_type": "official provisional quarterly planning-statistics publication",
+      "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+      "accepted_records": 0,
+      "disposition": "reviewed for current coverage; not promoted because the available 2025/26 quarterly releases are aggregate/provisional tables rather than final annual application-level CSV rows with Easting/Northing"
+    },
+    {
+      "source_id": "hed-historic-buildings-and-harni-reviewed-round592",
+      "source_name": "Historic Environment Division GIS Data",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "layer_urls": [
+        "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1",
+        "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3"
+      ],
+      "source_type": "official ArcGIS feature service",
+      "license": "Crown copyright / Open Government Licence v3.0 where applicable.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Communities Historic Environment Division",
+      "accepted_records": 0,
+      "disposition": "reviewed; retained as heritage spatial/status context because this DfI residual pack promotes planning/statutory-consent point rows only"
+    },
+    {
+      "source_id": "bcc-and-planning-portal-pages-reviewed-round592",
+      "source_name": "Northern Ireland Planning Portal and Belfast City Council project pages",
+      "publisher": "Department for Infrastructure / Belfast City Council planning authority",
+      "source_url": "https://planningregister.planningsystemni.gov.uk/",
+      "related_urls": [
+        "https://www.belfastcity.gov.uk/",
+        "https://www.belfastcity.gov.uk/terms-conditions"
+      ],
+      "source_type": "official planning application and council web pages",
+      "license": "Official page citation metadata retained; page content and documents require source-specific terms review before redistribution.",
+      "accepted_records": 0,
+      "disposition": "reviewed as page-only/context leads; not promoted without reusable source-backed point geometry or because they duplicate DfI point-backed rows"
+    },
+    {
+      "source_id": "round592-reject-duplicate_project_rows_through_round587",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "duplicate_project_boundary",
+      "reason": "Official point-backed DfI rows already represented by APP_ID in the manual architecture corpus or official Belfast architecture sweep candidate/rejected/readback packs through Round587 were retained outside the promoted pack."
+    },
+    {
+      "source_id": "round592-reject-equipment_signage_boundary_access_or_transport_only",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "equipment_signage_boundary_access_or_transport_only",
+      "reason": "Point-backed DfI rows limited to signs, advertisements, awnings, telecoms, cabinets, bus/street equipment, parking/access, boundary treatments, fencing or similar low-signal works were reviewed but not promoted because they do not add a stronger building-fabric, use, civic-facility or heritage-works milestone for this architecture pack."
+    },
+    {
+      "source_id": "round592-reject-hmo_shortlet_or_guest_use_only",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "hmo_shortlet_or_guest_use_only",
+      "reason": "Point-backed rows limited to HMO, short-let, holiday-let or guest-accommodation use changes without substantial building-fabric evidence were retained for possible housing/use review rather than promoted in this architecture/development batch."
+    },
+    {
+      "source_id": "round592-reject-condition_status_or_temporary_only",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "condition_status_or_temporary_only",
+      "reason": "Rows limited to condition discharge, non-material amendments, renewal, temporary permissions or status-only administrative changes were retained outside the promoted pack because they do not supply a new observed architecture/development milestone."
+    },
+    {
+      "source_id": "round592-reject-eligible_tail_after_target_count",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "eligible_point_backed_tail_not_promoted",
+      "reason": "Additional non-duplicate, point-backed DfI rows passed the Round592 architecture filters but were retained outside the promoted pack to keep this next sweep close to the requested 30-candidate target. They may be reconsidered in a later residual pass."
+    },
+    {
+      "source_id": "round592-reject-page-only-or-no-point-official-leads",
+      "source_name": "Northern Ireland Planning Portal and Belfast City Council project pages",
+      "publisher": "Department for Infrastructure / Belfast City Council planning authority",
+      "source_url": "https://planningregister.planningsystemni.gov.uk/",
+      "source_type": "official planning application and council web pages",
+      "disposition": "page_only_or_geometry_ref_only",
+      "reason": "Northern Ireland Planning Portal application pages, Belfast City Council project/news pages and similar official public pages were retained as citation or discovery leads where they did not provide reusable source-backed point coordinates or where the page duplicated DfI point rows already handled through the planning-statistics CSV."
+    },
+    {
+      "source_id": "round592-reject-aggregate-only-dfi-quarterly-sources",
+      "source_name": "Northern Ireland planning statistics 2025/26 provisional quarterly publications",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-october-december-2025",
+      "source_type": "official provisional quarterly planning-statistics publication",
+      "disposition": "aggregate_only_no_source_backed_point_records",
+      "reason": "DfI 2025/26 provisional quarterly publications were reviewed as current planning-statistics context available on 2026-05-20, but they were not promoted because this pack requires application-level source rows with application IDs, decision dates and reusable Easting/Northing point coordinates."
+    },
+    {
+      "source_id": "round592-reject-hed-status-or-geometry-ref-only-leads",
+      "source_name": "Historic Environment Division GIS Data",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "source_type": "official ArcGIS feature service",
+      "disposition": "status_or_geometry_ref_only_not_promoted",
+      "reason": "Historic Environment Division layers remain useful official spatial/status context, but this pack did not promote rows lacking a new dated architecture/planning event or rows that would only support a register/status observation rather than a planning/statutory-consent milestone."
+    }
+  ],
+  "search_queries_checked": [
+    "local DfI planning-statistics 2024-25 Belfast residual APP_ID scan after Round587 accepted/rejected/readback dedupe",
+    "local duplicate scan: data/manual_drops/architecture_milestones plus official Belfast architecture sweep candidate/rejected/readback packs through Round587",
+    "source review: DfI planning activity statistics page and 2024/25 annual application-level CSV",
+    "source review: DfI 2025/26 Q1-Q3 provisional quarterly publication pages; retained as aggregate-only context until final annual row-level dataset with coordinates",
+    "source review: EPSG:29902 TM65 / Irish Grid projection and TOWGS84 parameters for Easting/Northing conversion",
+    "source review: DfC/HED Historic Buildings and Heritage at Risk ArcGIS feature layers",
+    "source review: Belfast City Council official project/news pages and website terms",
+    "source review: DfI point-backed duplicate-project, minor domestic, low-signal HMO/short-let, signage, equipment, boundary/access-only, condition-only, transport and telecom rows retained outside promoted pack"
+  ],
+  "duplicate_scan": {
+    "roots": [
+      "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "tmp/subagents official Belfast architecture sweep candidate/rejected/readback packs through round587"
+    ],
+    "files_checked": 99,
+    "app_id_count": 2412,
+    "source_record_id_count": 1709,
+    "event_id_count": 3928,
+    "url_count": 75479,
+    "sampled_chars": 5304233,
+    "note": "Duplicate scan is conservative and text-based over the manual architecture corpus and official Belfast architecture sweep candidate/rejected/readback packs through Round587; generated web/data atlas outputs are not treated as source-of-truth blockers."
+  },
+  "source_assessment": [
+    {
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "reliability": "strong for administrative decision evidence; not physical-start, physical-completion or opening evidence",
+      "required_caveat": "Rows support administrative planning/statutory-consent evidence only. They do not demonstrate built completion, opening, occupation, service delivery or outcomes.",
+      "ingestion_recommendation": "Point-backed review candidates may be promoted only if the atlas accepts planning/statutory-consent milestones and carries the administrative-status limitations inline."
+    },
+    {
+      "source_name": "Northern Ireland planning statistics 2025/26 provisional quarterly publications",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "reliability": "usable for aggregate current context; not usable for this point-event ingestion until the annual application-level dataset is published",
+      "required_caveat": "Quarterly tables should not be treated as point-backed application rows without application IDs, row-level dates and Easting/Northing.",
+      "ingestion_recommendation": "Retain as source audit context and revisit after the final 2025/26 annual application-level dataset is available."
+    },
+    {
+      "source_name": "EPSG:29902 TM65 / Irish Grid",
+      "publisher": "EPSG registry via EPSG.io",
+      "reliability": "strong for CRS parameter provenance; does not certify the DfI row point as a surveyed footprint",
+      "required_caveat": "Converted points represent source row Easting/Northing locations only, not planning red-line boundaries or building footprints.",
+      "ingestion_recommendation": "Retain source Easting/Northing, CRS URL and conversion method alongside WGS84 coordinates."
+    },
+    {
+      "source_name": "Historic Environment Division GIS Data",
+      "publisher": "Department for Communities Historic Environment Division",
+      "reliability": "strong for heritage status/location; not used here for physical-change dating or planning/statutory-consent rows",
+      "required_caveat": "Status/listing/register dates are not construction, repair, completion or condition-improvement dates.",
+      "ingestion_recommendation": "Use only when a dated designation/status event is explicitly in scope and carry status limitations."
+    }
+  ],
+  "caveats": [
+    "All accepted candidates are administrative planning/statutory-consent records, not physical start, completion, opening or occupation evidence.",
+    "All accepted candidates are point-backed by official Easting/Northing fields converted from EPSG:29902 TM65 / Irish Grid to WGS84 using explicit CRS parameters.",
+    "No accepted candidate uses invented coordinates or generic geocoding.",
+    "Rejected official pages and rows include duplicate-project consents, 2025/26 quarterly aggregate-only releases, lower-priority fixture/equipment/signage/boundary/access-only changes, lower-signal HMO/short-let-only rows, condition-only/compliance variations, telecom/transport/street-furniture rows, page-only leads and status-only heritage sources.",
+    "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
+  ]
+}

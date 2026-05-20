@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round577_belfast_official_architecture_sweep_next34",
+  "accepted_count": 30,
+  "rejected_count": 6,
+  "point_backed_count": 30,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2025-03-03",
+    "end": "2025-03-31"
+  },
+  "sources": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_mix": {
+    "source_types": {
+      "official annual planning-statistics CSV release": 30
+    },
+    "categories": {
+      "architecture_residential_fabric_admin": 29,
+      "architecture_residential_development_admin": 1
+    },
+    "event_types": {
+      "planning_decision_residential_extension": 29,
+      "planning_decision_residential_development": 1
+    }
+  },
+  "caveats": [
+    "All accepted candidates are administrative planning/statutory-consent records, not physical start, completion, opening or occupation evidence.",
+    "All accepted candidates are point-backed by official Easting/Northing fields converted from EPSG:29902 TM65 / Irish Grid to WGS84 using explicit CRS parameters.",
+    "No accepted candidate uses invented coordinates or generic geocoding.",
+    "Rejected official pages and rows include duplicate-project consents, 2025/26 quarterly aggregate-only releases, lower-priority fixture/equipment-only changes, lower-signal HMO/short-let-only rows, condition-only/compliance variations, telecom/transport/street-furniture rows, minor domestic rows, sign/advertisement/display rows, page-only leads and status-only heritage sources.",
+    "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
+  ],
+  "outputs": [
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\candidates.json",
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\rejected.json",
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\validation_report.json",
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\source_audit.json",
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\summary.json",
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\readback.json",
+    "tmp\\subagents\\round577_belfast_official_architecture_sweep_next34\\notes.md"
+  ]
+}

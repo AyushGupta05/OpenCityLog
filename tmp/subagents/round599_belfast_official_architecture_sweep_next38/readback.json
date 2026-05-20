@@ -1,0 +1,24 @@
+{
+  "round_id": "round599_belfast_official_architecture_sweep_next38",
+  "accepted_event_ids": [],
+  "accepted_candidate_ids": [],
+  "accepted_source_record_ids": [],
+  "accepted_source_date_keys": [],
+  "accepted_source_row_refs": [],
+  "accepted_app_ids": [],
+  "rejected_ids": [
+    "bfs_arch_round599_reject_duplicate_project_rows_through_round592",
+    "bfs_arch_round599_reject_equipment_signage_boundary_access_or_transport_only",
+    "bfs_arch_round599_reject_hmo_shortlet_or_guest_use_only",
+    "bfs_arch_round599_reject_condition_status_or_temporary_only",
+    "bfs_arch_round599_reject_eligible_tail_after_target_count",
+    "bfs_arch_round599_reject_page_only_or_no_point_official_leads",
+    "bfs_arch_round599_reject_aggregate_only_dfi_quarterly_sources",
+    "bfs_arch_round599_reject_hed_status_or_geometry_ref_only_leads"
+  ],
+  "point_backed_event_ids": [],
+  "geometry_ref_only_event_ids": [],
+  "point_corpus_ready": true,
+  "validation_ok": true,
+  "dedupe_boundary_round": 592
+}

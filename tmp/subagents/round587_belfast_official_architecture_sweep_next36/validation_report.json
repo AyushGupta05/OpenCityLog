@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round587_belfast_official_architecture_sweep_next36",
+  "ok": true,
+  "accepted_count": 30,
+  "rejected_count": 6,
+  "point_backed_count": 30,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2024-12-23",
+    "end": "2025-02-28"
+  },
+  "publishers": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_count": 1,
+  "source_record_id_count": 30,
+  "source_date_key_count": 30,
+  "category_counts": {
+    "architecture_residential_fabric_admin": 28,
+    "architecture_residential_development_admin": 1,
+    "architecture_demolition_consent_admin": 1
+  },
+  "event_type_counts": {
+    "planning_decision_residential_roof_or_external_alteration": 14,
+    "planning_decision_residential_extension": 14,
+    "planning_decision_residential_development": 1,
+    "planning_decision_demolition_consent": 1
+  },
+  "warnings": [],
+  "errors": [],
+  "duplicate_scan_roots": [
+    "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "tmp/subagents official Belfast architecture sweep candidate/rejected/readback packs through round582"
+  ],
+  "duplicate_scan_files_checked": 96,
+  "dedupe_boundary_round": 582,
+  "searched_queries": [
+    "local DfI planning-statistics 2024-25 Belfast residual APP_ID scan after Round582 accepted-pack dedupe",
+    "local duplicate scan: data/manual_drops/architecture_milestones plus official Belfast architecture sweep candidate/rejected/readback packs through Round582",
+    "source review: DfI planning activity statistics page and 2024/25 annual application-level CSV",
+    "source review: DfI 2025/26 Q1-Q3 provisional quarterly publication pages; retained until final annual row-level dataset with coordinates",
+    "source review: EPSG:29902 TM65 / Irish Grid projection and TOWGS84 parameters for Easting/Northing conversion",
+    "source review: DfC/HED Historic Buildings and Heritage at Risk ArcGIS feature layers",
+    "source review: Belfast City Council official project/news pages and website copyright terms",
+    "source review: DfI point-backed duplicate-project, minor domestic, low-signal HMO/short-let, signage, equipment, condition-only, transport and telecom rows retained outside promoted pack"
+  ]
+}

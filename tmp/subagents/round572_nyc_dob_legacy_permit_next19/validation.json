@@ -1,0 +1,111 @@
+{
+  "schema_version": "round572_nyc_dob_legacy_permit_next19_validation.v1",
+  "ok": true,
+  "passed": true,
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "validator": "scripts/fetch_round572_nyc_dob_legacy_permit_next19_candidates.js standalone validation artifact",
+  "errors": [],
+  "checks": {
+    "candidate_count": 200,
+    "summary_candidate_count": 200,
+    "required_provenance_fields": [
+      "city_id",
+      "event_id",
+      "candidate_id",
+      "title",
+      "summary",
+      "date",
+      "effective_date",
+      "latitude",
+      "longitude",
+      "geometry",
+      "source_name",
+      "publisher",
+      "source_url",
+      "source_type",
+      "license",
+      "attribution",
+      "accessed_at",
+      "transformation_method",
+      "confidence",
+      "limitations",
+      "source_record_id"
+    ],
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "dedupe_boundary_round": 568,
+    "date_range": {
+      "start": "2008-03-19",
+      "end": "2023-08-08"
+    },
+    "unique_event_ids": 200,
+    "unique_candidate_ids": 200,
+    "unique_source_record_ids": 200,
+    "unique_permit_si_nos": 200,
+    "unique_job_numbers": 200,
+    "unique_canonical_source_date_keys": 200,
+    "unique_source_url_date_keys": 200,
+    "unique_title_date_keys": 200,
+    "unique_address_date_keys": 200,
+    "nyc_coordinate_bounds_valid": true,
+    "manual_corpus_screened": true,
+    "screened_files_count": 318,
+    "screened_files_skipped": [],
+    "prior_identifier_tokens_checked": 46405,
+    "prior_permit_si_nos_checked": 5012,
+    "prior_job_numbers_checked": 13960,
+    "prior_source_date_keys_checked": 32445,
+    "prior_title_date_keys_checked": 27348,
+    "prior_address_date_keys_checked": 52052,
+    "no_overlap_with_screened_corpus_and_prior_packs": true,
+    "source_audit_count": 2,
+    "source_ids": [
+      "nyc-dob-job-application-filings-ic3t-wcy2",
+      "nyc-dob-permit-issuance-ipu4-2q9a"
+    ],
+    "selected_summary": {
+      "by_year": {
+        "2008": 10,
+        "2009": 11,
+        "2010": 51,
+        "2011": 15,
+        "2012": 10,
+        "2013": 15,
+        "2014": 6,
+        "2015": 10,
+        "2016": 16,
+        "2017": 21,
+        "2018": 11,
+        "2019": 12,
+        "2020": 6,
+        "2021": 4,
+        "2023": 2
+      },
+      "by_borough": {
+        "Manhattan": 88,
+        "Queens": 47,
+        "Staten Island": 7,
+        "Brooklyn": 52,
+        "Bronx": 6
+      },
+      "by_permit_type": {
+        "AL": 131,
+        "NB": 69
+      },
+      "by_project_type": {
+        "administrative_dob_major_alteration_permit": 131,
+        "administrative_dob_new_building_permit": 69
+      },
+      "by_source_date_field": {
+        "issuance_date from DOB Permit Issuance": 200
+      },
+      "date_range": {
+        "start": "2008-03-19",
+        "end": "2023-08-08"
+      }
+    }
+  }
+}

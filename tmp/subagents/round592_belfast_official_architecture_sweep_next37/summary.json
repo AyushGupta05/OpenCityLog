@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round592_belfast_official_architecture_sweep_next37",
+  "accepted_count": 30,
+  "rejected_count": 8,
+  "point_backed_count": 30,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2024-04-19",
+    "end": "2025-01-14"
+  },
+  "sources": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_mix": {
+    "source_types": {
+      "official annual planning-statistics CSV release": 30
+    },
+    "categories": {
+      "architecture_residential_fabric_admin": 9,
+      "architecture_residential_development_admin": 6,
+      "architecture_demolition_consent_admin": 9,
+      "architecture_commercial_development_admin": 4,
+      "architecture_heritage_admin": 2
+    },
+    "event_types": {
+      "planning_decision_residential_roof_or_external_alteration": 4,
+      "planning_decision_residential_development": 6,
+      "planning_decision_demolition_consent": 9,
+      "planning_decision_residential_outbuilding": 5,
+      "planning_decision_commercial_or_mixed_use_development": 4,
+      "planning_decision_listed_building_consent": 2
+    }
+  },
+  "caveats": [
+    "All accepted candidates are administrative planning/statutory-consent records, not physical start, completion, opening or occupation evidence.",
+    "All accepted candidates are point-backed by official Easting/Northing fields converted from EPSG:29902 TM65 / Irish Grid to WGS84 using explicit CRS parameters.",
+    "No accepted candidate uses invented coordinates or generic geocoding.",
+    "Rejected official pages and rows include duplicate-project consents, 2025/26 quarterly aggregate-only releases, lower-priority fixture/equipment/signage/boundary/access-only changes, lower-signal HMO/short-let-only rows, condition-only/compliance variations, telecom/transport/street-furniture rows, page-only leads and status-only heritage sources.",
+    "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
+  ],
+  "outputs": [
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\candidates.json",
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\rejected.json",
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\validation_report.json",
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\source_audit.json",
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\summary.json",
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\readback.json",
+    "tmp\\subagents\\round592_belfast_official_architecture_sweep_next37\\notes.md"
+  ]
+}

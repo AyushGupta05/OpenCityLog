@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round560_belfast_official_architecture_sweep_next31",
+  "ok": true,
+  "accepted_count": 30,
+  "rejected_count": 4,
+  "point_backed_count": 30,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2024-04-03",
+    "end": "2024-06-04"
+  },
+  "publishers": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_count": 1,
+  "source_record_id_count": 30,
+  "source_date_key_count": 30,
+  "category_counts": {
+    "architecture_residential_fabric_admin": 28,
+    "architecture_residential_development_admin": 2
+  },
+  "event_type_counts": {
+    "planning_decision_residential_extension": 28,
+    "planning_decision_residential_development": 2
+  },
+  "warnings": [],
+  "errors": [],
+  "duplicate_scan_roots": [
+    "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "tmp/subagents official Belfast architecture sweep candidates through round554"
+  ],
+  "duplicate_scan_files_checked": 31,
+  "dedupe_boundary_round": 554,
+  "searched_queries": [
+    "local DfI planning-statistics 2024-25 Belfast residual APP_ID scan after Round554 accepted-pack dedupe",
+    "local duplicate scan: data/manual_drops/architecture_milestones plus official Belfast architecture sweep candidate packs through Round554",
+    "source review: DfI planning activity statistics page and 2024/25 annual application-level CSV",
+    "source review: DfI 2025/26 Q1-Q3 provisional quarterly publication pages; retained until final annual row-level dataset with coordinates",
+    "source review: EPSG:29902 TM65 / Irish Grid projection and TOWGS84 parameters for Easting/Northing conversion",
+    "source review: DfC/HED Historic Buildings and Heritage at Risk ArcGIS feature layers",
+    "source review: Belfast City Council official project/news pages and website copyright terms",
+    "source review: DfI point-backed duplicate-project, minor domestic, low-signal HMO/short-let, signage, equipment, transport and telecom rows retained outside promoted pack"
+  ]
+}
