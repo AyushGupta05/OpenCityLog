@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-20T02:17:52Z",
+  "generated_at": "2026-05-20T02:31:30Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 290974,
-    "total_unique_events": 290974,
+    "total_events": 291224,
+    "total_unique_events": 291224,
     "duplicate_event_id_count": 0,
     "active_source_count": 411,
     "source_catalog_only_count": 239,
@@ -1944,7 +1944,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 1254
+      "event_count": 1265
     },
     {
       "city_id": "belfast",
@@ -1968,7 +1968,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 1605
+      "event_count": 1622
     },
     {
       "city_id": "belfast",
@@ -1992,7 +1992,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 1567
+      "event_count": 1580
     },
     {
       "city_id": "belfast",
@@ -2016,7 +2016,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 413
+      "event_count": 417
     },
     {
       "city_id": "belfast",
@@ -2040,7 +2040,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 848
+      "event_count": 858
     },
     {
       "city_id": "belfast",
@@ -2064,7 +2064,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 1534
+      "event_count": 1543
     },
     {
       "city_id": "belfast",
@@ -2088,7 +2088,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 1247
+      "event_count": 1259
     },
     {
       "city_id": "belfast",
@@ -2112,7 +2112,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 1210
+      "event_count": 1222
     },
     {
       "city_id": "belfast",
@@ -2136,7 +2136,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 1180
+      "event_count": 1189
     },
     {
       "city_id": "belfast",
@@ -2160,7 +2160,7 @@
       "source_title": "Northern Ireland planning activity statistics",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 307
+      "event_count": 310
     },
     {
       "city_id": "belfast",
@@ -3240,7 +3240,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 194
+      "event_count": 211
     },
     {
       "city_id": "london",
@@ -3248,7 +3248,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 225
+      "event_count": 236
     },
     {
       "city_id": "london",
@@ -3256,7 +3256,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 213
+      "event_count": 233
     },
     {
       "city_id": "london",
@@ -3264,7 +3264,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 260
+      "event_count": 283
     },
     {
       "city_id": "london",
@@ -3272,7 +3272,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 315
+      "event_count": 329
     },
     {
       "city_id": "london",
@@ -3280,7 +3280,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 301
+      "event_count": 325
     },
     {
       "city_id": "london",
@@ -3288,7 +3288,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 282
+      "event_count": 301
     },
     {
       "city_id": "london",
@@ -3296,7 +3296,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 262
+      "event_count": 270
     },
     {
       "city_id": "london",
@@ -3304,7 +3304,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 271
+      "event_count": 285
     },
     {
       "city_id": "london",
@@ -17823,8 +17823,8 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 32154,
-      "unique_event_count": 32154,
+      "event_count": 32254,
+      "unique_event_count": 32254,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 167,
@@ -17832,8 +17832,8 @@
       "source_catalog_only_count": 15,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 32154,
-        "gap_events": 67846,
+        "backed_event_count": 32254,
+        "gap_events": 67746,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -17850,20 +17850,20 @@
         "2013": 144,
         "2014": 257,
         "2015": 246,
-        "2016": 2327,
-        "2017": 2382,
-        "2018": 2133,
-        "2019": 1050,
-        "2020": 1553,
-        "2021": 2696,
-        "2022": 3469,
-        "2023": 2966,
-        "2024": 4733,
-        "2025": 5118,
+        "2016": 2338,
+        "2017": 2399,
+        "2018": 2146,
+        "2019": 1054,
+        "2020": 1563,
+        "2021": 2705,
+        "2022": 3481,
+        "2023": 2978,
+        "2024": 4742,
+        "2025": 5121,
         "2026": 2387
       },
       "event_counts_by_layer": {
-        "built_environment": 12835,
+        "built_environment": 12935,
         "civic_services": 678,
         "economy": 672,
         "transport": 17118,
@@ -17872,7 +17872,7 @@
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 14186,
+        "documented": 14286,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -17964,7 +17964,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1318
+          "event_count": 1329
         },
         {
           "year": 2016,
@@ -17984,7 +17984,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 1658
+          "event_count": 1675
         },
         {
           "year": 2017,
@@ -18004,7 +18004,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1620
+          "event_count": 1633
         },
         {
           "year": 2018,
@@ -18024,7 +18024,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 484
+          "event_count": 488
         },
         {
           "year": 2019,
@@ -18049,7 +18049,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 891
+          "event_count": 901
         },
         {
           "year": 2020,
@@ -18069,7 +18069,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1717
+          "event_count": 1726
         },
         {
           "year": 2021,
@@ -18094,7 +18094,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1418
+          "event_count": 1430
         },
         {
           "year": 2022,
@@ -18119,7 +18119,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1341
+          "event_count": 1353
         },
         {
           "year": 2023,
@@ -18144,7 +18144,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1435
+          "event_count": 1444
         },
         {
           "year": 2024,
@@ -18169,7 +18169,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 658
+          "event_count": 661
         },
         {
           "year": 2025,
@@ -20134,7 +20134,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1254
+          "event_count": 1265
         },
         {
           "city_id": "belfast",
@@ -20158,7 +20158,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 1605
+          "event_count": 1622
         },
         {
           "city_id": "belfast",
@@ -20182,7 +20182,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1567
+          "event_count": 1580
         },
         {
           "city_id": "belfast",
@@ -20206,7 +20206,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 413
+          "event_count": 417
         },
         {
           "city_id": "belfast",
@@ -20230,7 +20230,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 848
+          "event_count": 858
         },
         {
           "city_id": "belfast",
@@ -20254,7 +20254,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 1534
+          "event_count": 1543
         },
         {
           "city_id": "belfast",
@@ -20278,7 +20278,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 1247
+          "event_count": 1259
         },
         {
           "city_id": "belfast",
@@ -20302,7 +20302,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1210
+          "event_count": 1222
         },
         {
           "city_id": "belfast",
@@ -20326,7 +20326,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 1180
+          "event_count": 1189
         },
         {
           "city_id": "belfast",
@@ -20350,7 +20350,7 @@
           "source_title": "Northern Ireland planning activity statistics",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 307
+          "event_count": 310
         },
         {
           "city_id": "belfast",
@@ -20936,7 +20936,7 @@
           "provider": "Department for Infrastructure, Northern Ireland",
           "reliability": "usable_with_caveats",
           "licence": "Open Government Licence v3.0 where published as public-sector information; verify terms for each annual release.",
-          "event_count": 12512,
+          "event_count": 12612,
           "years": [
             2016,
             2017,
@@ -20952,12 +20952,12 @@
           "first_year": 2016,
           "last_year": 2025,
           "layer_counts": {
-            "built_environment": 11165,
+            "built_environment": 11265,
             "civic_services": 675,
             "economy": 672
           },
           "confidence_counts": {
-            "documented": 12512
+            "documented": 12612
           },
           "coverage_status": "events_emitted"
         },
@@ -24410,8 +24410,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 206881,
-      "unique_event_count": 206881,
+      "event_count": 207031,
+      "unique_event_count": 207031,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 285,
@@ -24419,7 +24419,7 @@
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 206881,
+        "backed_event_count": 207031,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -24499,15 +24499,15 @@
         "2008": 2530,
         "2009": 3780,
         "2010": 3723,
-        "2011": 3898,
-        "2012": 3840,
-        "2013": 3692,
-        "2014": 3895,
-        "2015": 4124,
-        "2016": 4289,
-        "2017": 5714,
-        "2018": 4760,
-        "2019": 4982,
+        "2011": 3915,
+        "2012": 3851,
+        "2013": 3712,
+        "2014": 3918,
+        "2015": 4138,
+        "2016": 4313,
+        "2017": 5733,
+        "2018": 4768,
+        "2019": 4996,
         "2020": 9237,
         "2021": 8551,
         "2022": 8418,
@@ -24517,7 +24517,7 @@
         "2026": 19345
       },
       "event_counts_by_layer": {
-        "built_environment": 87598,
+        "built_environment": 87748,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -24525,7 +24525,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 206871,
+        "documented": 207021,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -24972,7 +24972,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 2388
+          "event_count": 2405
         },
         {
           "year": 2011,
@@ -24992,7 +24992,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 2330
+          "event_count": 2341
         },
         {
           "year": 2012,
@@ -25012,7 +25012,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 2188
+          "event_count": 2208
         },
         {
           "year": 2013,
@@ -25032,7 +25032,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 2385
+          "event_count": 2408
         },
         {
           "year": 2014,
@@ -25052,7 +25052,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 2610
+          "event_count": 2624
         },
         {
           "year": 2015,
@@ -25072,7 +25072,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 2755
+          "event_count": 2779
         },
         {
           "year": 2016,
@@ -25092,7 +25092,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 4176
+          "event_count": 4195
         },
         {
           "year": 2017,
@@ -25112,7 +25112,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 3180
+          "event_count": 3188
         },
         {
           "year": 2018,
@@ -25137,7 +25137,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 3356
+          "event_count": 3370
         },
         {
           "year": 2019,
@@ -25848,7 +25848,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 194
+          "event_count": 211
         },
         {
           "city_id": "london",
@@ -25856,7 +25856,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 225
+          "event_count": 236
         },
         {
           "city_id": "london",
@@ -25864,7 +25864,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 213
+          "event_count": 233
         },
         {
           "city_id": "london",
@@ -25872,7 +25872,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 260
+          "event_count": 283
         },
         {
           "city_id": "london",
@@ -25880,7 +25880,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 315
+          "event_count": 329
         },
         {
           "city_id": "london",
@@ -25888,7 +25888,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 301
+          "event_count": 325
         },
         {
           "city_id": "london",
@@ -25896,7 +25896,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 282
+          "event_count": 301
         },
         {
           "city_id": "london",
@@ -25904,7 +25904,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 262
+          "event_count": 270
         },
         {
           "city_id": "london",
@@ -25912,7 +25912,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 271
+          "event_count": 285
         },
         {
           "city_id": "london",
@@ -32133,7 +32133,7 @@
           "provider": "Greater London Authority / London planning authorities",
           "reliability": "usable_with_caveats",
           "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review.",
-          "event_count": 13524,
+          "event_count": 13674,
           "years": [
             2008,
             2009,
@@ -32158,10 +32158,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 13524
+            "built_environment": 13674
           },
           "confidence_counts": {
-            "documented": 13524
+            "documented": 13674
           },
           "coverage_status": "events_emitted"
         },
