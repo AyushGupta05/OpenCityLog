@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T01:58:55Z
+Generated: 2026-05-20T02:07:00Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 32154 | 152 | 15 | 2007-2026 | transport 17118, built_environment 12835, utilities 851 | 67846 |
-| London, England | 206491 | 181 | 102 | 1801-2026 | built_environment 87208, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 51340 | 78 | 122 | 1797-2026 | built_environment 33596, environment 8413, transport 6447 | 48660 |
+| London, England | 206641 | 181 | 102 | 1801-2026 | built_environment 87358, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 51739 | 78 | 122 | 1797-2026 | built_environment 33995, environment 8413, transport 6447 | 48261 |
 
 ## Belfast, Northern Ireland
 
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 15.
 
 ## London, England
 
-Backed events: 206491. Unique event IDs: 206491. Duplicate IDs: 0.
+Backed events: 206641. Unique event IDs: 206641. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -43,7 +43,7 @@ Backed events: 206491. Unique event IDs: 206491. Duplicate IDs: 0.
 | Road Safety Open Data - STATS19 collision records | 27000 | 2020-2025 | transport 27000 | usable_with_caveats |
 | HM Land Registry Price Paid Data | 25600 | 1995-2026 | built_environment 25600 | usable_with_caveats |
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
-| Planning London Datahub - planning applications | 13374 | 2008-2026 | built_environment 13374 | usable_with_caveats |
+| Planning London Datahub - planning applications | 13524 | 2008-2026 | built_environment 13524 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
 | Planning permissions on the London Development Database (LDD) | 10080 | 2008-2020 | built_environment 10020, civic_services 44, transport 12 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
@@ -54,19 +54,19 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 51340. Unique event IDs: 51340. Duplicate IDs: 0.
+Backed events: 51739. Unique event IDs: 51739. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | NYC DOB construction filings and permits | 6029 | 2008-2026 | built_environment 6029 | usable_with_caveats |
-| HPD affordable housing production by project and building | 4673 | 2014-2026 | built_environment 4673 | usable_with_caveats |
+| HPD affordable housing production by project and building | 4873 | 2014-2026 | built_environment 4873 | usable_with_caveats |
+| NYC Open Data: DOB Certificate Of Occupancy | 4179 | 2012-2026 | built_environment 4179 | usable_with_caveats |
 | NYC Open Data LPC Permit Application Information | 4051 | 2008-2026 | environment 2313, built_environment 1522, transport 205 | usable_with_caveats |
-| NYC Open Data: DOB Certificate Of Occupancy | 3980 | 2012-2026 | built_environment 3980 | usable_with_caveats |
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | DOB Permit Issuance | 2380 | 2004-2020 | built_environment 2380 | usable_with_caveats |
-| DOB NOW: Certificate of Occupancy | 2254 | 2021-2026 | built_environment 2254 | usable_with_caveats |
+| DOB NOW: Certificate of Occupancy | 2354 | 2021-2026 | built_environment 2354 | usable_with_caveats |
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |
-| DOB Certificate Of Occupancy | 2058 | 2012-2026 | built_environment 2056, environment 2 | usable_with_caveats |
+| DOB Certificate Of Occupancy | 2157 | 2012-2026 | built_environment 2155, environment 2 | usable_with_caveats |
 | Street Construction Permits (2013-2021) | 1810 | 1904-2025 | transport 1807, built_environment 3 | usable_with_caveats |
 | 2015 Street Tree Census - Tree Data | 1800 | 2015-2015 | environment 1782, transport 18 | usable_with_caveats |
 | Fire Incident Dispatch Data | 1794 | 2005-2024 | civic_services 1784, built_environment 6, transport 4 | usable_with_caveats |

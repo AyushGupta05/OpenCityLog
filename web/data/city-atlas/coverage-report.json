@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-20T01:58:55Z",
+  "generated_at": "2026-05-20T02:07:00Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 289985,
-    "total_unique_events": 289985,
+    "total_events": 290534,
+    "total_unique_events": 290534,
     "duplicate_event_id_count": 0,
     "active_source_count": 411,
     "source_catalog_only_count": 239,
@@ -3216,7 +3216,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2008,
       "layer": "built_environment",
-      "event_count": 150
+      "event_count": 164
     },
     {
       "city_id": "london",
@@ -3224,7 +3224,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2009,
       "layer": "built_environment",
-      "event_count": 137
+      "event_count": 155
     },
     {
       "city_id": "london",
@@ -3232,7 +3232,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2010,
       "layer": "built_environment",
-      "event_count": 174
+      "event_count": 177
     },
     {
       "city_id": "london",
@@ -3240,7 +3240,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 189
+      "event_count": 194
     },
     {
       "city_id": "london",
@@ -3248,7 +3248,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 216
+      "event_count": 225
     },
     {
       "city_id": "london",
@@ -3256,7 +3256,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 209
+      "event_count": 213
     },
     {
       "city_id": "london",
@@ -3264,7 +3264,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 254
+      "event_count": 260
     },
     {
       "city_id": "london",
@@ -3272,7 +3272,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 313
+      "event_count": 315
     },
     {
       "city_id": "london",
@@ -3280,7 +3280,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 299
+      "event_count": 301
     },
     {
       "city_id": "london",
@@ -3288,7 +3288,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 279
+      "event_count": 282
     },
     {
       "city_id": "london",
@@ -3296,7 +3296,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 259
+      "event_count": 262
     },
     {
       "city_id": "london",
@@ -3304,7 +3304,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 260
+      "event_count": 271
     },
     {
       "city_id": "london",
@@ -3312,7 +3312,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 227
+      "event_count": 242
     },
     {
       "city_id": "london",
@@ -3320,7 +3320,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 213
+      "event_count": 224
     },
     {
       "city_id": "london",
@@ -3328,7 +3328,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 208
+      "event_count": 226
     },
     {
       "city_id": "london",
@@ -3336,7 +3336,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 199
+      "event_count": 210
     },
     {
       "city_id": "london",
@@ -3344,7 +3344,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 412
+      "event_count": 424
     },
     {
       "city_id": "london",
@@ -3352,7 +3352,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 311
+      "event_count": 314
     },
     {
       "city_id": "london",
@@ -14640,37 +14640,13 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 94
+      "event_count": 97
     },
     {
       "city_id": "nyc",
       "source_id": "nyc-dob-certificate-of-occupancy",
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2013,
-      "layer": "built_environment",
-      "event_count": 193
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-dob-certificate-of-occupancy",
-      "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
-      "year": 2014,
-      "layer": "built_environment",
-      "event_count": 183
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-dob-certificate-of-occupancy",
-      "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
-      "year": 2015,
-      "layer": "built_environment",
-      "event_count": 155
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-dob-certificate-of-occupancy",
-      "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
-      "year": 2016,
       "layer": "built_environment",
       "event_count": 201
     },
@@ -14678,9 +14654,33 @@
       "city_id": "nyc",
       "source_id": "nyc-dob-certificate-of-occupancy",
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 193
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-certificate-of-occupancy",
+      "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
+      "year": 2015,
+      "layer": "built_environment",
+      "event_count": 168
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-certificate-of-occupancy",
+      "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
+      "year": 2016,
+      "layer": "built_environment",
+      "event_count": 215
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dob-certificate-of-occupancy",
+      "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 224
+      "event_count": 238
     },
     {
       "city_id": "nyc",
@@ -14688,7 +14688,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 218
+      "event_count": 234
     },
     {
       "city_id": "nyc",
@@ -14696,7 +14696,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 245
+      "event_count": 253
     },
     {
       "city_id": "nyc",
@@ -14704,7 +14704,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 280
+      "event_count": 287
     },
     {
       "city_id": "nyc",
@@ -14712,7 +14712,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 468
+      "event_count": 479
     },
     {
       "city_id": "nyc",
@@ -14720,7 +14720,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 384
+      "event_count": 413
     },
     {
       "city_id": "nyc",
@@ -14728,7 +14728,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 414
+      "event_count": 426
     },
     {
       "city_id": "nyc",
@@ -14736,7 +14736,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 407
+      "event_count": 416
     },
     {
       "city_id": "nyc",
@@ -14744,7 +14744,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 379
+      "event_count": 411
     },
     {
       "city_id": "nyc",
@@ -14752,7 +14752,7 @@
       "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 135
+      "event_count": 148
     },
     {
       "city_id": "nyc",
@@ -14760,7 +14760,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 94
+      "event_count": 97
     },
     {
       "city_id": "nyc",
@@ -14768,7 +14768,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 196
+      "event_count": 204
     },
     {
       "city_id": "nyc",
@@ -14776,7 +14776,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 184
+      "event_count": 194
     },
     {
       "city_id": "nyc",
@@ -14784,7 +14784,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 158
+      "event_count": 171
     },
     {
       "city_id": "nyc",
@@ -14792,7 +14792,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 204
+      "event_count": 218
     },
     {
       "city_id": "nyc",
@@ -14800,7 +14800,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 229
+      "event_count": 243
     },
     {
       "city_id": "nyc",
@@ -14808,7 +14808,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 222
+      "event_count": 238
     },
     {
       "city_id": "nyc",
@@ -14824,7 +14824,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 277
+      "event_count": 285
     },
     {
       "city_id": "nyc",
@@ -14832,7 +14832,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 287
+      "event_count": 294
     },
     {
       "city_id": "nyc",
@@ -14848,7 +14848,7 @@
       "source_title": "DOB Certificate Of Occupancy",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 191
+      "event_count": 197
     },
     {
       "city_id": "nyc",
@@ -15040,7 +15040,7 @@
       "source_title": "DOB NOW: Certificate of Occupancy",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 290
+      "event_count": 295
     },
     {
       "city_id": "nyc",
@@ -15048,7 +15048,7 @@
       "source_title": "DOB NOW: Certificate of Occupancy",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 433
+      "event_count": 462
     },
     {
       "city_id": "nyc",
@@ -15056,7 +15056,7 @@
       "source_title": "DOB NOW: Certificate of Occupancy",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 476
+      "event_count": 488
     },
     {
       "city_id": "nyc",
@@ -15064,7 +15064,7 @@
       "source_title": "DOB NOW: Certificate of Occupancy",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 447
+      "event_count": 456
     },
     {
       "city_id": "nyc",
@@ -15072,7 +15072,7 @@
       "source_title": "DOB NOW: Certificate of Occupancy",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 437
+      "event_count": 469
     },
     {
       "city_id": "nyc",
@@ -15080,7 +15080,7 @@
       "source_title": "DOB NOW: Certificate of Occupancy",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 171
+      "event_count": 184
     },
     {
       "city_id": "nyc",
@@ -15416,7 +15416,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 51
+      "event_count": 52
     },
     {
       "city_id": "nyc",
@@ -15424,7 +15424,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 111
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -15432,7 +15432,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 177
+      "event_count": 198
     },
     {
       "city_id": "nyc",
@@ -15440,7 +15440,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 352
+      "event_count": 410
     },
     {
       "city_id": "nyc",
@@ -15448,7 +15448,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 437
+      "event_count": 457
     },
     {
       "city_id": "nyc",
@@ -15456,7 +15456,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 546
+      "event_count": 575
     },
     {
       "city_id": "nyc",
@@ -15464,7 +15464,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 321
+      "event_count": 330
     },
     {
       "city_id": "nyc",
@@ -15472,7 +15472,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 454
+      "event_count": 467
     },
     {
       "city_id": "nyc",
@@ -15480,7 +15480,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 438
+      "event_count": 453
     },
     {
       "city_id": "nyc",
@@ -15488,7 +15488,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 569
+      "event_count": 587
     },
     {
       "city_id": "nyc",
@@ -15496,7 +15496,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 507
+      "event_count": 513
     },
     {
       "city_id": "nyc",
@@ -15504,7 +15504,7 @@
       "source_title": "HPD affordable housing production by project and building",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 563
+      "event_count": 564
     },
     {
       "city_id": "nyc",
@@ -24410,8 +24410,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 206491,
-      "unique_event_count": 206491,
+      "event_count": 206641,
+      "unique_event_count": 206641,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 285,
@@ -24419,7 +24419,7 @@
       "source_catalog_only_count": 102,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 206491,
+        "backed_event_count": 206641,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -24496,28 +24496,28 @@
         "2005": 1234,
         "2006": 1254,
         "2007": 1289,
-        "2008": 2494,
-        "2009": 3749,
-        "2010": 3700,
-        "2011": 3876,
-        "2012": 3817,
-        "2013": 3678,
-        "2014": 3867,
-        "2015": 4107,
-        "2016": 4266,
-        "2017": 5683,
-        "2018": 4735,
-        "2019": 4946,
-        "2020": 9211,
-        "2021": 8540,
-        "2022": 8400,
-        "2023": 22752,
-        "2024": 30149,
-        "2025": 31080,
+        "2008": 2508,
+        "2009": 3767,
+        "2010": 3703,
+        "2011": 3881,
+        "2012": 3826,
+        "2013": 3682,
+        "2014": 3873,
+        "2015": 4109,
+        "2016": 4268,
+        "2017": 5686,
+        "2018": 4738,
+        "2019": 4957,
+        "2020": 9226,
+        "2021": 8551,
+        "2022": 8418,
+        "2023": 22763,
+        "2024": 30161,
+        "2025": 31083,
         "2026": 19345
       },
       "event_counts_by_layer": {
-        "built_environment": 87208,
+        "built_environment": 87358,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -24525,7 +24525,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 206481,
+        "documented": 206631,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -24917,7 +24917,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 2488
+          "event_count": 2502
         },
         {
           "year": 2008,
@@ -24932,7 +24932,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 2233
+          "event_count": 2251
         },
         {
           "year": 2009,
@@ -24952,7 +24952,7 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 2187
+          "event_count": 2190
         },
         {
           "year": 2010,
@@ -24972,7 +24972,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 2366
+          "event_count": 2371
         },
         {
           "year": 2011,
@@ -24992,7 +24992,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 2307
+          "event_count": 2316
         },
         {
           "year": 2012,
@@ -25012,7 +25012,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 2174
+          "event_count": 2178
         },
         {
           "year": 2013,
@@ -25032,7 +25032,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 2357
+          "event_count": 2363
         },
         {
           "year": 2014,
@@ -25052,7 +25052,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 2593
+          "event_count": 2595
         },
         {
           "year": 2015,
@@ -25072,7 +25072,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 2732
+          "event_count": 2734
         },
         {
           "year": 2016,
@@ -25092,7 +25092,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 4145
+          "event_count": 4148
         },
         {
           "year": 2017,
@@ -25112,7 +25112,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 3155
+          "event_count": 3158
         },
         {
           "year": 2018,
@@ -25137,7 +25137,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 3320
+          "event_count": 3331
         },
         {
           "year": 2019,
@@ -25157,7 +25157,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 3121
+          "event_count": 3136
         },
         {
           "year": 2020,
@@ -25177,7 +25177,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2415
+          "event_count": 2426
         },
         {
           "year": 2021,
@@ -25197,7 +25197,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2058
+          "event_count": 2076
         },
         {
           "year": 2022,
@@ -25217,7 +25217,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 1890
+          "event_count": 1901
         },
         {
           "year": 2023,
@@ -25237,7 +25237,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 2884
+          "event_count": 2896
         },
         {
           "year": 2024,
@@ -25262,7 +25262,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2609
+          "event_count": 2612
         },
         {
           "year": 2025,
@@ -25824,7 +25824,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 150
+          "event_count": 164
         },
         {
           "city_id": "london",
@@ -25832,7 +25832,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 137
+          "event_count": 155
         },
         {
           "city_id": "london",
@@ -25840,7 +25840,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 174
+          "event_count": 177
         },
         {
           "city_id": "london",
@@ -25848,7 +25848,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 189
+          "event_count": 194
         },
         {
           "city_id": "london",
@@ -25856,7 +25856,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 216
+          "event_count": 225
         },
         {
           "city_id": "london",
@@ -25864,7 +25864,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 209
+          "event_count": 213
         },
         {
           "city_id": "london",
@@ -25872,7 +25872,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 254
+          "event_count": 260
         },
         {
           "city_id": "london",
@@ -25880,7 +25880,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 313
+          "event_count": 315
         },
         {
           "city_id": "london",
@@ -25888,7 +25888,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 299
+          "event_count": 301
         },
         {
           "city_id": "london",
@@ -25896,7 +25896,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 279
+          "event_count": 282
         },
         {
           "city_id": "london",
@@ -25904,7 +25904,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 259
+          "event_count": 262
         },
         {
           "city_id": "london",
@@ -25912,7 +25912,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 260
+          "event_count": 271
         },
         {
           "city_id": "london",
@@ -25920,7 +25920,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 227
+          "event_count": 242
         },
         {
           "city_id": "london",
@@ -25928,7 +25928,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 213
+          "event_count": 224
         },
         {
           "city_id": "london",
@@ -25936,7 +25936,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 208
+          "event_count": 226
         },
         {
           "city_id": "london",
@@ -25944,7 +25944,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 199
+          "event_count": 210
         },
         {
           "city_id": "london",
@@ -25952,7 +25952,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 412
+          "event_count": 424
         },
         {
           "city_id": "london",
@@ -25960,7 +25960,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 311
+          "event_count": 314
         },
         {
           "city_id": "london",
@@ -32133,7 +32133,7 @@
           "provider": "Greater London Authority / London planning authorities",
           "reliability": "usable_with_caveats",
           "licence": "London Datastore dataset page does not specify a single open licence; factual metadata and source URLs retained pending terms review.",
-          "event_count": 13374,
+          "event_count": 13524,
           "years": [
             2008,
             2009,
@@ -32158,10 +32158,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 13374
+            "built_environment": 13524
           },
           "confidence_counts": {
-            "documented": 13374
+            "documented": 13524
           },
           "coverage_status": "events_emitted"
         },
@@ -38258,8 +38258,8 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 51340,
-      "unique_event_count": 51340,
+      "event_count": 51739,
+      "unique_event_count": 51739,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 200,
@@ -38267,8 +38267,8 @@
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 51340,
-        "gap_events": 48660,
+        "backed_event_count": 51739,
+        "gap_events": 48261,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -38441,24 +38441,24 @@
         "2009": 799,
         "2010": 818,
         "2011": 825,
-        "2012": 1165,
-        "2013": 1573,
-        "2014": 1815,
-        "2015": 3723,
-        "2016": 2160,
-        "2017": 2388,
-        "2018": 2703,
-        "2019": 3297,
-        "2020": 3022,
-        "2021": 2822,
-        "2022": 3524,
-        "2023": 4131,
-        "2024": 4300,
-        "2025": 4240,
-        "2026": 2639
+        "2012": 1168,
+        "2013": 1581,
+        "2014": 1826,
+        "2015": 3745,
+        "2016": 2195,
+        "2017": 2460,
+        "2018": 2739,
+        "2019": 3334,
+        "2020": 3038,
+        "2021": 2846,
+        "2022": 3568,
+        "2023": 4161,
+        "2024": 4315,
+        "2025": 4273,
+        "2026": 2652
       },
       "event_counts_by_layer": {
-        "built_environment": 33596,
+        "built_environment": 33995,
         "civic_services": 2870,
         "economy": 11,
         "environment": 8413,
@@ -38466,7 +38466,7 @@
         "utilities": 3
       },
       "event_counts_by_confidence": {
-        "documented": 51340
+        "documented": 51739
       },
       "event_counts_by_year_layer": [
         {
@@ -39692,7 +39692,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 724
+          "event_count": 727
         },
         {
           "year": 2012,
@@ -39717,7 +39717,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 861
+          "event_count": 869
         },
         {
           "year": 2013,
@@ -39737,7 +39737,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 1076
+          "event_count": 1087
         },
         {
           "year": 2014,
@@ -39757,7 +39757,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 1173
+          "event_count": 1195
         },
         {
           "year": 2015,
@@ -39777,7 +39777,7 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 1310
+          "event_count": 1345
         },
         {
           "year": 2016,
@@ -39802,7 +39802,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 1508
+          "event_count": 1580
         },
         {
           "year": 2017,
@@ -39822,7 +39822,7 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 1761
+          "event_count": 1797
         },
         {
           "year": 2018,
@@ -39847,7 +39847,7 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 2117
+          "event_count": 2154
         },
         {
           "year": 2019,
@@ -39872,7 +39872,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 2004
+          "event_count": 2020
         },
         {
           "year": 2020,
@@ -39897,7 +39897,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2202
+          "event_count": 2226
         },
         {
           "year": 2021,
@@ -39917,7 +39917,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2662
+          "event_count": 2706
         },
         {
           "year": 2022,
@@ -39942,7 +39942,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 3204
+          "event_count": 3234
         },
         {
           "year": 2023,
@@ -39962,7 +39962,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 3327
+          "event_count": 3342
         },
         {
           "year": 2024,
@@ -39987,7 +39987,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 3346
+          "event_count": 3379
         },
         {
           "year": 2025,
@@ -40012,7 +40012,7 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 1584
+          "event_count": 1597
         },
         {
           "year": 2026,
@@ -45413,37 +45413,13 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 94
+          "event_count": 97
         },
         {
           "city_id": "nyc",
           "source_id": "nyc-dob-certificate-of-occupancy",
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2013,
-          "layer": "built_environment",
-          "event_count": 193
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-dob-certificate-of-occupancy",
-          "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
-          "year": 2014,
-          "layer": "built_environment",
-          "event_count": 183
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-dob-certificate-of-occupancy",
-          "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
-          "year": 2015,
-          "layer": "built_environment",
-          "event_count": 155
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-dob-certificate-of-occupancy",
-          "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
-          "year": 2016,
           "layer": "built_environment",
           "event_count": 201
         },
@@ -45451,9 +45427,33 @@
           "city_id": "nyc",
           "source_id": "nyc-dob-certificate-of-occupancy",
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 193
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-certificate-of-occupancy",
+          "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
+          "year": 2015,
+          "layer": "built_environment",
+          "event_count": 168
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-certificate-of-occupancy",
+          "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
+          "year": 2016,
+          "layer": "built_environment",
+          "event_count": 215
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dob-certificate-of-occupancy",
+          "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 224
+          "event_count": 238
         },
         {
           "city_id": "nyc",
@@ -45461,7 +45461,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 218
+          "event_count": 234
         },
         {
           "city_id": "nyc",
@@ -45469,7 +45469,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 245
+          "event_count": 253
         },
         {
           "city_id": "nyc",
@@ -45477,7 +45477,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 280
+          "event_count": 287
         },
         {
           "city_id": "nyc",
@@ -45485,7 +45485,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 468
+          "event_count": 479
         },
         {
           "city_id": "nyc",
@@ -45493,7 +45493,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 384
+          "event_count": 413
         },
         {
           "city_id": "nyc",
@@ -45501,7 +45501,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 414
+          "event_count": 426
         },
         {
           "city_id": "nyc",
@@ -45509,7 +45509,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 407
+          "event_count": 416
         },
         {
           "city_id": "nyc",
@@ -45517,7 +45517,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 379
+          "event_count": 411
         },
         {
           "city_id": "nyc",
@@ -45525,7 +45525,7 @@
           "source_title": "NYC Open Data: DOB Certificate Of Occupancy",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 135
+          "event_count": 148
         },
         {
           "city_id": "nyc",
@@ -45533,7 +45533,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 94
+          "event_count": 97
         },
         {
           "city_id": "nyc",
@@ -45541,7 +45541,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 196
+          "event_count": 204
         },
         {
           "city_id": "nyc",
@@ -45549,7 +45549,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 184
+          "event_count": 194
         },
         {
           "city_id": "nyc",
@@ -45557,7 +45557,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 158
+          "event_count": 171
         },
         {
           "city_id": "nyc",
@@ -45565,7 +45565,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 204
+          "event_count": 218
         },
         {
           "city_id": "nyc",
@@ -45573,7 +45573,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 229
+          "event_count": 243
         },
         {
           "city_id": "nyc",
@@ -45581,7 +45581,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 222
+          "event_count": 238
         },
         {
           "city_id": "nyc",
@@ -45597,7 +45597,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 277
+          "event_count": 285
         },
         {
           "city_id": "nyc",
@@ -45605,7 +45605,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 287
+          "event_count": 294
         },
         {
           "city_id": "nyc",
@@ -45621,7 +45621,7 @@
           "source_title": "DOB Certificate Of Occupancy",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 191
+          "event_count": 197
         },
         {
           "city_id": "nyc",
@@ -45813,7 +45813,7 @@
           "source_title": "DOB NOW: Certificate of Occupancy",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 290
+          "event_count": 295
         },
         {
           "city_id": "nyc",
@@ -45821,7 +45821,7 @@
           "source_title": "DOB NOW: Certificate of Occupancy",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 433
+          "event_count": 462
         },
         {
           "city_id": "nyc",
@@ -45829,7 +45829,7 @@
           "source_title": "DOB NOW: Certificate of Occupancy",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 476
+          "event_count": 488
         },
         {
           "city_id": "nyc",
@@ -45837,7 +45837,7 @@
           "source_title": "DOB NOW: Certificate of Occupancy",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 447
+          "event_count": 456
         },
         {
           "city_id": "nyc",
@@ -45845,7 +45845,7 @@
           "source_title": "DOB NOW: Certificate of Occupancy",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 437
+          "event_count": 469
         },
         {
           "city_id": "nyc",
@@ -45853,7 +45853,7 @@
           "source_title": "DOB NOW: Certificate of Occupancy",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 171
+          "event_count": 184
         },
         {
           "city_id": "nyc",
@@ -46189,7 +46189,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 51
+          "event_count": 52
         },
         {
           "city_id": "nyc",
@@ -46197,7 +46197,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 111
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -46205,7 +46205,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 177
+          "event_count": 198
         },
         {
           "city_id": "nyc",
@@ -46213,7 +46213,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 352
+          "event_count": 410
         },
         {
           "city_id": "nyc",
@@ -46221,7 +46221,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 437
+          "event_count": 457
         },
         {
           "city_id": "nyc",
@@ -46229,7 +46229,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 546
+          "event_count": 575
         },
         {
           "city_id": "nyc",
@@ -46237,7 +46237,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 321
+          "event_count": 330
         },
         {
           "city_id": "nyc",
@@ -46245,7 +46245,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 454
+          "event_count": 467
         },
         {
           "city_id": "nyc",
@@ -46253,7 +46253,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 438
+          "event_count": 453
         },
         {
           "city_id": "nyc",
@@ -46261,7 +46261,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 569
+          "event_count": 587
         },
         {
           "city_id": "nyc",
@@ -46269,7 +46269,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 507
+          "event_count": 513
         },
         {
           "city_id": "nyc",
@@ -46277,7 +46277,7 @@
           "source_title": "HPD affordable housing production by project and building",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 563
+          "event_count": 564
         },
         {
           "city_id": "nyc",
@@ -48637,7 +48637,7 @@
           "provider": "NYC Department of Housing Preservation and Development via NYC Open Data",
           "reliability": "usable_with_caveats",
           "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
-          "event_count": 4673,
+          "event_count": 4873,
           "years": [
             2014,
             2015,
@@ -48656,10 +48656,44 @@
           "first_year": 2014,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 4673
+            "built_environment": 4873
           },
           "confidence_counts": {
-            "documented": 4673
+            "documented": 4873
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-dob-certificate-of-occupancy",
+          "title": "NYC Open Data: DOB Certificate Of Occupancy",
+          "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
+          "reliability": "usable_with_caveats",
+          "licence": "Factual DOB row metadata and source URLs are retained with DOB/NYC Open Data attribution. Check NYC Open Data and NYC.gov terms before bulk redistribution beyond candidate metadata.",
+          "event_count": 4179,
+          "years": [
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2012,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 4179
+          },
+          "confidence_counts": {
+            "documented": 4179
           },
           "coverage_status": "events_emitted"
         },
@@ -48701,40 +48735,6 @@
           },
           "confidence_counts": {
             "documented": 4051
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "nyc-dob-certificate-of-occupancy",
-          "title": "NYC Open Data: DOB Certificate Of Occupancy",
-          "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
-          "reliability": "usable_with_caveats",
-          "licence": "Factual DOB row metadata and source URLs are retained with DOB/NYC Open Data attribution. Check NYC Open Data and NYC.gov terms before bulk redistribution beyond candidate metadata.",
-          "event_count": 3980,
-          "years": [
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "first_year": 2012,
-          "last_year": 2026,
-          "layer_counts": {
-            "built_environment": 3980
-          },
-          "confidence_counts": {
-            "documented": 3980
           },
           "coverage_status": "events_emitted"
         },
@@ -48814,7 +48814,7 @@
           "provider": "NYC Department of Buildings via NYC Open Data",
           "reliability": "usable_with_caveats",
           "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained.",
-          "event_count": 2254,
+          "event_count": 2354,
           "years": [
             2021,
             2022,
@@ -48826,10 +48826,10 @@
           "first_year": 2021,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 2254
+            "built_environment": 2354
           },
           "confidence_counts": {
-            "documented": 2254
+            "documented": 2354
           },
           "coverage_status": "events_emitted"
         },
@@ -48870,7 +48870,7 @@
           "provider": "NYC Department of Buildings via NYC Open Data",
           "reliability": "usable_with_caveats",
           "licence": "NYC Open Data / NYC.gov terms; factual metadata and source URLs retained.",
-          "event_count": 2058,
+          "event_count": 2157,
           "years": [
             2012,
             2013,
@@ -48890,11 +48890,11 @@
           "first_year": 2012,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 2056,
+            "built_environment": 2155,
             "environment": 2
           },
           "confidence_counts": {
-            "documented": 2058
+            "documented": 2157
           },
           "coverage_status": "events_emitted"
         },
