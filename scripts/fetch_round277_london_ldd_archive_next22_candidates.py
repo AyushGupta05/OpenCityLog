@@ -34,6 +34,12 @@ def build_round_replacements():
         "selected completion, work-start, or permission milestone records": (
             "selected permission milestone records"
         ),
+        "selected permission, commencement, or completion milestone dates": (
+            "selected permission milestone dates"
+        ),
+        "selected permission, commencement, or completion milestone records": (
+            "selected permission milestone records"
+        ),
         "selected permission milestone dates": (
             "selected permission milestone dates"
         ),
@@ -247,6 +253,7 @@ def postprocess_outputs():
 
 def main():
     configure_round277_globals()
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     round271.prior_ldd_pack_paths = prior_ldd_pack_paths
     round271.rewrite_candidate = rewrite_candidate
     round271.write_notes = write_notes
