@@ -1,13 +1,13 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T02:11:10Z
+Generated: 2026-05-20T02:14:38Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 32154 | 152 | 15 | 2007-2026 | transport 17118, built_environment 12835, utilities 851 | 67846 |
-| London, England | 206641 | 181 | 102 | 1801-2026 | built_environment 87358, civic_services 53367, transport 37842 | 0 |
+| London, England | 206881 | 181 | 102 | 1801-2026 | built_environment 87598, civic_services 53367, transport 37842 | 0 |
 | New York City, New York | 51939 | 78 | 122 | 1797-2026 | built_environment 34061, environment 8536, transport 6456 | 48061 |
 
 ## Belfast, Northern Ireland
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 15.
 
 ## London, England
 
-Backed events: 206641. Unique event IDs: 206641. Duplicate IDs: 0.
+Backed events: 206881. Unique event IDs: 206881. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -45,7 +45,7 @@ Backed events: 206641. Unique event IDs: 206641. Duplicate IDs: 0.
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
 | Planning London Datahub - planning applications | 13524 | 2008-2026 | built_environment 13524 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
-| Planning permissions on the London Development Database (LDD) | 10080 | 2008-2020 | built_environment 10020, civic_services 44, transport 12 | usable_with_caveats |
+| Planning permissions on the London Development Database (LDD) | 10320 | 2008-2020 | built_environment 10260, civic_services 44, transport 12 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning Data: Tree Preservation Zones | 1168 | 1951-2025 | built_environment 1168 | usable_with_caveats |
