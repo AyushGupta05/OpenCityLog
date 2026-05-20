@@ -742,7 +742,7 @@ function makePlanningCandidate(record, quality) {
     attribution: SOURCES.planningStats.attribution,
     limitations: limitationsFor(quality),
     transformation_method:
-      "scripts/fetch_round270_belfast_official_planning_tail_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus and prior Belfast candidate packs under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 100, and preserved file/row/date/license/provenance fields.",
+      "scripts/fetch_round281_belfast_official_planning_tail2_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
     raw_row: {
       ID: cleanText(record.appId),
       DateReceived: cleanText(record.dateReceived),
@@ -962,12 +962,12 @@ function buildPlanningCandidates(index) {
       continue;
     }
     if (seenApps.has(record.appIdKey) || seenSourceDate.has(sourceDateKey)) {
-      addRejection(rejected, rejectionCounts, "duplicate_within_round270_source_row_or_app", record);
+      addRejection(rejected, rejectionCounts, "duplicate_within_round281_source_row_or_app", record);
       continue;
     }
     const quality = assessTailQuality(record);
     if (!quality.reasons.length || quality.score < 65) {
-      addRejection(rejected, rejectionCounts, "below_round270_tail_quality_gate", record, {
+      addRejection(rejected, rejectionCounts, "below_round281_tail_quality_gate", record, {
         tail_score: quality.score,
         base_score: quality.base_score,
         quality_reasons: quality.reasons,
@@ -990,7 +990,7 @@ function buildPlanningCandidates(index) {
   );
 
   for (const item of selected.slice(TARGET_CANDIDATES)) {
-    addRejection(rejected, rejectionCounts, "ranked_below_round270_candidate_cap", item.record, {
+    addRejection(rejected, rejectionCounts, "ranked_below_round281_candidate_cap", item.record, {
       tail_score: item.quality.score,
       quality_reasons: item.quality.reasons
     });
@@ -1203,7 +1203,7 @@ async function buildSourceAudit(planningResult, bccRows, bccRetrieval, hedRetrie
         "Rows require NI Planning Portal verification for source geometry and application details before production ingest."
       ],
       ingestion_recommendation:
-        "Audit/reject in round270 unless a row can be linked to planning portal geometry; do not emit approximate address-only candidates from this page alone.",
+        "Audit/reject in round281 unless a row can be linked to planning portal geometry; do not emit approximate address-only candidates from this page alone.",
       retrieval: retrievalSummary(bccRetrieval),
       parsed_row_count: bccRows.length
     },
@@ -1231,7 +1231,7 @@ async function buildSourceAudit(planningResult, bccRows, bccRetrieval, hedRetrie
         "Current grade/current use are snapshot fields and should not be forced into 2008-2026 event chronology without a dated register change."
       ],
       ingestion_recommendation:
-        "Audit-only in round270. Do not emit listed-building candidates from this layer unless a modern row-level listing/change date is available.",
+        "Audit-only in round281. Do not emit listed-building candidates from this layer unless a modern row-level listing/change date is available.",
       retrieval: retrievalSummary(hedRetrieval),
       belfast_layer_count: hedCount
     }
@@ -1400,7 +1400,7 @@ Accessed: ${ACCESSED_AT}
 
 ## Scope
 
-Official Belfast architecture/city-change tail pass for records dated ${DATE_MIN} through ${DATE_MAX}. The accepted candidates are Department for Infrastructure planning-statistics approval rows that were still missing after screening the current manual architecture corpus and prior Belfast candidate packs under \`tmp/subagents\`.
+Official Belfast architecture/city-change tail2 pass after round270 for records dated ${DATE_MIN} through ${DATE_MAX}. The accepted candidates are Department for Infrastructure planning-statistics approval rows that were still missing after screening the current manual architecture corpus, round270, and prior Belfast candidate packs under \`tmp/subagents\`.
 
 ## Result
 
@@ -1411,6 +1411,7 @@ Official Belfast architecture/city-change tail pass for records dated ${DATE_MIN
 - Rejected/detail rows retained: ${summary.rejected_detail_count}
 - Prior files screened: ${summary.dedupe.prior_file_count}
 - Prior records indexed: ${summary.dedupe.prior_record_count}
+- Validation report: ${summary.output_files.validation_report}
 
 ## Accepted Source Mix
 
@@ -1454,7 +1455,7 @@ async function main() {
   const candidates = planningResult.candidates;
   const validation = validateCandidates(candidates, index);
   if (!validation.ok) {
-    throw new Error(`Round270 validation failed: ${validation.errors.join("; ")}`);
+    throw new Error(`Round281 validation failed: ${validation.errors.join("; ")}`);
   }
 
   const emittedRange = dateRange(candidates);
@@ -1533,7 +1534,8 @@ async function main() {
       source_audit: path.relative(ROOT, OUTPUTS.sourceAudit).replace(/\\/g, "/"),
       summary: path.relative(ROOT, OUTPUTS.summary).replace(/\\/g, "/"),
       notes: path.relative(ROOT, OUTPUTS.notes).replace(/\\/g, "/"),
-      rejected: path.relative(ROOT, OUTPUTS.rejected).replace(/\\/g, "/")
+      rejected: path.relative(ROOT, OUTPUTS.rejected).replace(/\\/g, "/"),
+      validation_report: path.relative(ROOT, OUTPUTS.validationReport).replace(/\\/g, "/")
     },
     caveat:
       "Accepted candidates are source-backed administrative planning milestones only. They must not be counted as construction starts, completions, openings, delivery outcomes, forecasts, impacts, or causal evidence."
@@ -1556,7 +1558,7 @@ async function main() {
       prior_files: index.files.map((entry) => entry.path)
     },
     scope_note:
-      "Official DfI Belfast planning-statistics tail candidates not already present in the current manual architecture corpus or prior Belfast packs. Planning approval is not evidence of construction, opening, occupation, completion, delivery, final built form, or causal effects.",
+      "Official DfI Belfast planning-statistics tail2 candidates not already present in the current manual architecture corpus, round270, or prior Belfast packs. Planning approval is not evidence of construction, opening, occupation, completion, delivery, final built form, or causal effects.",
     source_audits: sourceAudit.audit.filter((row) => row.source_id === SOURCES.planningStats.source_id),
     validation,
     candidates
