@@ -43,7 +43,7 @@ const PLANNING_CSV_PATH = path.join(
 );
 
 const METHOD = [
-  "Round503 official Belfast architecture sweep next24 after the completed Round499 next22 pack.",
+  "Round503 official Belfast architecture sweep next24 after the completed Round499 next23 pack.",
   "Accepted selected residual DfI planning-statistics 2024-25 Belfast rows only where the source row supplied an approved planning/statutory-consent decision date and official Easting/Northing.",
   "Source Easting/Northing is converted deterministically from EPSG:29902 TM65 / Irish Grid to WGS84 using the EPSG projection parameters and TOWGS84 transform.",
   "Each accepted record is an observed administrative planning or statutory-consent milestone only.",
@@ -87,6 +87,298 @@ const SOURCES = {
 };
 
 const PLANNING_LEADS = [
+  {
+    app_id: "LA04/2023/2745/F",
+    event_id: "bfs_arch_round503_milltown_road_petrol_station_extension_approval_2024",
+    title: "Milltown Road petrol-station extension and forecourt works were approved",
+    observed_change:
+      "Official planning-statistics row records approval for an amendment to the Milltown Road Maxol petrol-station scheme, including an extension, forecourt canopy, storage, car-wash and associated petroleum works.",
+    admin_proposal_summary:
+      "Petrol-station extension and alterations including forecourt canopy, underground tanks, storage, car-wash works, EV charging points and associated site works.",
+    event_type: "planning_decision_commercial_extension",
+    category: "architecture_commercial_fuel_services_admin",
+    limitation_topic: "petrol-station extension, forecourt canopy and associated commercial site works"
+  },
+  {
+    app_id: "LA04/2024/0778/LBC",
+    event_id: "bfs_arch_round503_city_hall_cycle_rack_lbc_2024",
+    title: "Belfast City Hall cycle-rack replacement consent was approved",
+    observed_change:
+      "Official planning-statistics row records listed-building consent for removal of wall-mounted cycle racks and replacement with free-standing semi-vertical cycle racks at Belfast City Hall.",
+    admin_proposal_summary:
+      "Removal of existing wall-mounted cycle racks and replacement with free-standing semi-vertical cycle racks.",
+    event_type: "planning_decision_listed_building_consent",
+    category: "architecture_heritage_civic_admin",
+    limitation_topic: "listed-building cycle-rack replacement at Belfast City Hall"
+  },
+  {
+    app_id: "LA04/2024/1222/F",
+    event_id: "bfs_arch_round503_glenties_drive_roof_balcony_alterations_2024",
+    title: "Glenties Drive block roof-profile and balcony works were approved",
+    observed_change:
+      "Official planning-statistics row records approval for changing the roof profile from flat to pitched roof, with balcony amendments and associated works at Blocks 2, 4, 6 and 8 Glenties Drive.",
+    admin_proposal_summary:
+      "Change of roof profile from flat to pitched roof, balcony amendments and associated works.",
+    event_type: "planning_decision_residential_retrofit",
+    category: "architecture_residential_retrofit_admin",
+    limitation_topic: "residential-block roof-profile and balcony alteration works"
+  },
+  {
+    app_id: "LA04/2024/0473/F",
+    event_id: "bfs_arch_round503_chlorine_gardens_apartments_extension_approval_2024",
+    title: "7 Chlorine Gardens apartment and rear-extension proposal was approved",
+    observed_change:
+      "Official planning-statistics row records approval for development of five apartments at 7 Chlorine Gardens, including a rear extension, alterations, landscaping and cycle parking.",
+    admin_proposal_summary:
+      "Five apartments with two and two-and-a-half-storey rear extension, alterations, landscaping and cycle parking.",
+    event_type: "planning_decision_residential_conversion",
+    category: "architecture_residential_conversion_admin",
+    limitation_topic: "apartment development, rear extension and associated alterations"
+  },
+  {
+    app_id: "LA04/2023/2755/F",
+    event_id: "bfs_arch_round503_alexander_road_self_storage_approval_2024",
+    title: "Alexander Road self-storage container use was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use of an existing car park west-south-west of Xtra Space NI, Alexander Road, to a self-storage facility formed from shipping containers.",
+    admin_proposal_summary:
+      "Change of use from parking to self-storage facility with 20-foot and 10-foot shipping containers.",
+    event_type: "planning_decision_change_of_use",
+    category: "architecture_commercial_storage_admin",
+    limitation_topic: "car-park-to-self-storage change of use with container storage"
+  },
+  {
+    app_id: "LA04/2023/3826/LBC",
+    event_id: "bfs_arch_round503_upper_newtownards_access_wall_lbc_2024",
+    title: "99 Upper Newtownards Road access and wall works consent was approved",
+    observed_change:
+      "Official planning-statistics row records listed-building consent for alterations and widening of an existing access, with new access, pillars, gates and wall at 99 Upper Newtownards Road.",
+    admin_proposal_summary:
+      "Alterations and widening of existing access to provide new access with pillars, gates and 1.8m wall.",
+    event_type: "planning_decision_listed_building_access_alteration",
+    category: "architecture_heritage_access_boundary_admin",
+    limitation_topic: "listed-building access, pillars, gates and wall works"
+  },
+  {
+    app_id: "LA04/2024/1161/LBC",
+    event_id: "bfs_arch_round503_derryvolgie_avenue_restoration_lbc_2024",
+    title: "30 Derryvolgie Avenue restoration and maintenance consent was approved",
+    observed_change:
+      "Official planning-statistics row records listed-building consent for restoration and maintenance of the Grade 2 listed Victorian property at 30 Derryvolgie Avenue, with no additional building or extension stated.",
+    admin_proposal_summary:
+      "Restoration and maintenance of Grade 2 listed Victorian property with no additional building or extensions.",
+    event_type: "planning_decision_listed_building_repair",
+    category: "architecture_heritage_residential_admin",
+    limitation_topic: "listed-building restoration and maintenance works"
+  },
+  {
+    app_id: "LA04/2024/0148/F",
+    event_id: "bfs_arch_round503_ewart_exterior_awnings_approval_2024",
+    title: "The Ewart exterior awning and planter works were approved",
+    observed_change:
+      "Official planning-statistics row records approval for retractable canvas awnings and planter boxes to the exterior facades of Flame at The Ewart, Bedford Street.",
+    admin_proposal_summary:
+      "Installation of retractable canvas awnings and planter boxes to exterior facades.",
+    event_type: "planning_decision_external_alteration",
+    category: "architecture_commercial_facade_admin",
+    limitation_topic: "commercial exterior awnings and planter-box facade works"
+  },
+  {
+    app_id: "LA04/2023/3067/F",
+    event_id: "bfs_arch_round503_fitzroy_avenue_hmo_apartment_short_stay_approval_2024",
+    title: "8 Fitzroy Avenue apartment and short-stay conversion was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use from a six-bedroom HMO to one apartment and four short-term-stay apartments at 8 Fitzroy Avenue, including a rear extension, front gabled dormer and internal alterations.",
+    admin_proposal_summary:
+      "HMO-to-apartment and short-term-stay apartment conversion with three-storey rear extension, front gabled dormer and internal alterations.",
+    event_type: "planning_decision_mixed_use_change",
+    category: "architecture_hospitality_residential_admin",
+    limitation_topic: "HMO-to-apartment and short-term-stay conversion with rear extension and dormer"
+  },
+  {
+    app_id: "LA04/2024/0061/F",
+    event_id: "bfs_arch_round503_lisburn_road_hair_salon_apartments_approval_2024",
+    title: "537a Lisburn Road hair-salon-to-apartments conversion was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use from first- and second-floor hair salon to three two-bedroom apartments at 537a Lisburn Road, including elevation changes, dormer, chimney-stack removal and roof re-slating.",
+    admin_proposal_summary:
+      "Hair-salon-to-apartments change of use with elevation changes, second-floor dormer, gable chimney-stack removal, roof re-slating and rear extractor fan.",
+    event_type: "planning_decision_residential_conversion",
+    category: "architecture_residential_commercial_admin",
+    limitation_topic: "hair-salon-to-apartments conversion and associated external alterations"
+  },
+  {
+    app_id: "LA04/2024/1726/LBC",
+    event_id: "bfs_arch_round503_university_road_canopy_layout_lbc_2024",
+    title: "7 University Road canopy and internal-layout consent was approved",
+    observed_change:
+      "Official planning-statistics row records retrospective listed-building consent for a rear-elevation canopy and internal-layout changes at 7 University Road.",
+    admin_proposal_summary:
+      "Retrospective listed-building consent for rear-elevation canopy and internal-layout changes from previously approved listed-building-consent drawings.",
+    event_type: "planning_decision_listed_building_alterations",
+    category: "architecture_heritage_hospitality_admin",
+    limitation_topic: "listed-building rear canopy and internal-layout alterations"
+  },
+  {
+    app_id: "LA04/2022/1971/F",
+    event_id: "bfs_arch_round503_parkgate_avenue_garage_gymnasium_approval_2024",
+    title: "1D Parkgate Avenue garage-to-gymnasium change of use was approved",
+    observed_change:
+      "Official planning-statistics row records retrospective approval for change of use from mechanics garage to gymnasium for small-group training at 1D Parkgate Avenue.",
+    admin_proposal_summary:
+      "Retrospective change of use from mechanics garage to gymnasium for small-group training.",
+    event_type: "planning_decision_change_of_use",
+    category: "architecture_commercial_leisure_admin",
+    limitation_topic: "mechanics-garage-to-gymnasium change of use"
+  },
+  {
+    app_id: "LA04/2024/0803/F",
+    event_id: "bfs_arch_round503_rugby_road_service_buildings_approval_2024",
+    title: "Rugby Road service-building renovation and extension was approved",
+    observed_change:
+      "Official planning-statistics row records approval for partial demolition, renovation, new roof, external cladding, internal alterations, two-storey extension, single-storey garage, bicycle store and recycling-facility reconfiguration on land near Rugby Road and College Park.",
+    admin_proposal_summary:
+      "Partial demolition, renovation, roof and cladding works, two-storey extension, garage, bicycle store, recycling-facility reconfiguration and associated car-parking changes.",
+    event_type: "planning_decision_estate_renovation_extension",
+    category: "architecture_education_estate_admin",
+    limitation_topic: "service-building demolition, renovation, extension and estate-support works"
+  },
+  {
+    app_id: "LA04/2024/1573/F",
+    event_id: "bfs_arch_round503_summerhill_barber_healthcare_services_approval_2024",
+    title: "17 Summerhill Avenue barber-shop-to-healthcare-services change of use was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use from barber shop to an extension of health-care services at 17 Summerhill Avenue.",
+    admin_proposal_summary:
+      "Change of use from barber shop to extension of health-care services.",
+    event_type: "planning_decision_change_of_use",
+    category: "architecture_healthcare_commercial_admin",
+    limitation_topic: "barber-shop-to-health-care-services change of use"
+  },
+  {
+    app_id: "LA04/2022/0236/F",
+    event_id: "bfs_arch_round503_newtownards_road_retail_gym_approval_2025",
+    title: "213-223 Newtownards Road retail-to-gym change of use was approved",
+    observed_change:
+      "Official planning-statistics row records approval for retention of part change of use from retail furniture sales to a gym at 213-223 Newtownards Road.",
+    admin_proposal_summary:
+      "Retention of part change of use from retail furniture sales to gym.",
+    event_type: "planning_decision_change_of_use",
+    category: "architecture_commercial_leisure_admin",
+    limitation_topic: "retail-furniture-sales-to-gym change of use"
+  },
+  {
+    app_id: "LA04/2024/1343/F",
+    event_id: "bfs_arch_round503_victoria_square_retail_restaurant_approval_2025",
+    title: "Victoria Square retail-unit amalgamation and restaurant use was approved",
+    observed_change:
+      "Official planning-statistics row records approval for amalgamation of Victoria Square units UG30 and UG31 and change of use from retail unit to restaurant at ground and first-floor units.",
+    admin_proposal_summary:
+      "Amalgamation of retail units and change of use from retail to restaurant at ground and first-floor units.",
+    event_type: "planning_decision_mixed_use_change",
+    category: "architecture_mixed_use_retail_hospitality_admin",
+    limitation_topic: "retail-unit amalgamation and retail-to-restaurant change of use"
+  },
+  {
+    app_id: "LA04/2024/1649/F",
+    event_id: "bfs_arch_round503_arc_cafe_subdivision_approval_2025",
+    title: "The Arc cafe subdivision was approved",
+    observed_change:
+      "Official planning-statistics row records approval for subdivision of an existing cafe at Block E, The Arc, Abercorn Basin, to create a new food-and-drink unit.",
+    admin_proposal_summary:
+      "Subdivision of existing cafe to create a new cafe/food-and-drink unit for consumption on the premises.",
+    event_type: "planning_decision_commercial_subdivision",
+    category: "architecture_hospitality_commercial_admin",
+    limitation_topic: "cafe subdivision and new food-and-drink unit"
+  },
+  {
+    app_id: "LA04/2024/1382/LBC",
+    event_id: "bfs_arch_round503_university_street_guest_accommodation_lbc_2025",
+    title: "51 University Street guest-accommodation consent was approved",
+    observed_change:
+      "Official planning-statistics row records listed-building consent for change of use from dwelling to guest accommodation at 51 University Street, with a two-storey rear extension and internal alterations.",
+    admin_proposal_summary:
+      "Dwelling-to-guest-accommodation change of use with two-storey rear extension and internal alterations.",
+    event_type: "planning_decision_listed_building_consent",
+    category: "architecture_heritage_hospitality_admin",
+    limitation_topic: "listed-building dwelling-to-guest-accommodation conversion with rear extension"
+  },
+  {
+    app_id: "LA04/2024/1622/F",
+    event_id: "bfs_arch_round503_cliftonville_bar_off_sales_shopfront_approval_2025",
+    title: "McGrath's Bar off-sales shopfront change was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use from pool room to new off-sales area and a new shopfront at McGrath's Bar, Cliftonville Road.",
+    admin_proposal_summary:
+      "Change of use from pool room to off-sales area with new shopfront.",
+    event_type: "planning_decision_change_of_use",
+    category: "architecture_hospitality_commercial_admin",
+    limitation_topic: "pool-room-to-off-sales change of use and shopfront works"
+  },
+  {
+    app_id: "LA04/2024/0816/LBC",
+    related_app_ids: ["LA04/2024/0815/F"],
+    event_id: "bfs_arch_round503_donegall_place_bank_shopfront_lbc_2025",
+    title: "36-38 Donegall Place bank and shopfront works consent was approved",
+    observed_change:
+      "Official planning-statistics rows record listed-building consent and full permission for retail-to-bank change of use, internal alterations, shopfront alterations and a new ATM at 36-38 Donegall Place.",
+    admin_proposal_summary:
+      "Retail-to-bank change of use with internal alterations, shopfront alterations and new ATM.",
+    event_type: "planning_decision_listed_building_consent",
+    category: "architecture_heritage_commercial_admin",
+    limitation_topic: "listed-building retail-to-bank change of use, shopfront alterations and ATM works"
+  },
+  {
+    app_id: "LA04/2024/1130/F",
+    event_id: "bfs_arch_round503_duncairn_gardens_hmo_extension_approval_2025",
+    title: "94 Duncairn Gardens apartment-to-HMO works were approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use from two residential apartments to a six-bedroom HMO at 94 Duncairn Gardens, with second-floor rear extension, front bay extension, dormer windows, bike storage and site works.",
+    admin_proposal_summary:
+      "Apartment-to-HMO change of use with rear extension, front bay extension, front and rear dormers, external bike storage and site works.",
+    event_type: "planning_decision_residential_conversion",
+    category: "architecture_residential_hmo_admin",
+    limitation_topic: "apartment-to-HMO conversion with rear extension, bay extension and dormers"
+  },
+  {
+    app_id: "LA04/2024/1440/F",
+    event_id: "bfs_arch_round503_ravenhill_road_offices_short_let_approval_2025",
+    title: "138-140 Ravenhill Road office-to-short-term-let change of use was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use of the first floor from offices to short-term let at 138-140 Ravenhill Road, with use of the rear flat roof as an open terrace.",
+    admin_proposal_summary:
+      "First-floor office-to-short-term-let change of use with rear flat-roof terrace use.",
+    event_type: "planning_decision_change_of_use",
+    category: "architecture_hospitality_residential_admin",
+    limitation_topic: "office-to-short-term-let change of use and rear roof-terrace use"
+  },
+  {
+    app_id: "LA04/2024/1300/F",
+    event_id: "bfs_arch_round503_ormeau_road_retail_apartments_approval_2025",
+    title: "297 Ormeau Road retail-to-apartments conversion was approved",
+    observed_change:
+      "Official planning-statistics row records approval for change of use from existing retail to three two-bedroom apartments at 297 Ormeau Road, including a three-storey rear extension.",
+    admin_proposal_summary:
+      "Retail-to-three-apartments change of use with three-storey rear extension.",
+    event_type: "planning_decision_residential_conversion",
+    category: "architecture_residential_commercial_admin",
+    limitation_topic: "retail-to-apartments conversion with rear extension"
+  },
+  {
+    app_id: "LA04/2023/3220/F",
+    event_id: "bfs_arch_round503_glen_road_retail_apartment_extension_approval_2025",
+    title: "9 Glen Road dwelling-to-retail/apartment conversion was approved",
+    observed_change:
+      "Official planning-statistics row records approval for a two-storey rear extension to facilitate change of use from dwelling to a ground-floor retail unit and first-floor apartment at 9 Glen Road.",
+    admin_proposal_summary:
+      "Two-storey rear extension to facilitate dwelling-to-ground-floor-retail and first-floor-apartment change of use.",
+    event_type: "planning_decision_mixed_use_change",
+    category: "architecture_mixed_use_residential_retail_admin",
+    limitation_topic: "dwelling-to-retail/apartment conversion with two-storey rear extension"
+  }
+];
+
+const ROUND503_UNUSED_PRIOR_TEMPLATE_PLANNING_LEADS = [
   {
     app_id: "LA04/2023/3400/F",
     related_app_ids: ["LA04/2023/3409/LBC"],

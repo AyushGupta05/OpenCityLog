@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const ROUND = 506;
-const SLUG = "round506_nyc_dob_legacy_permit_next5";
-const DEDUPE_BOUNDARY_ROUND = 502;
+const ROUND = 509;
+const SLUG = "round509_nyc_dob_legacy_permit_next6";
+const DEDUPE_BOUNDARY_ROUND = 506;
 const OUT_DIR = path.join(ROOT, "tmp", "subagents", SLUG);
 const START_DATE = "2008-01-01";
 const END_DATE = "2026-05-20";
@@ -728,7 +728,7 @@ function makeCandidate(appRow, permitRow, permitDate, scale) {
     license_or_terms_note: "NYC Open Data / NYC.gov terms. Keep NYC Department of Buildings and NYC Open Data attribution and re-check dataset-specific metadata before bulk redistribution.",
     attribution: "NYC Department of Buildings (DOB), via NYC Open Data",
     limitations: "This is an administrative permit-issuance record. It is not evidence of construction start, construction completion, opening, legal occupancy, actual occupancy, design quality, safety condition, affordability, neighborhood outcome, or causal effect. Linked job-application scale fields are source-reported proposed/application attributes and may be amended; legacy DOB rows can contain data-entry anomalies, so extreme scale values were screened and raw fields are retained for review.",
-    transformation_method: "scripts/fetch_round506_nyc_dob_legacy_permit_next5_candidates.js queried official NYC Open Data DOB Job Application Filings high-signal rows, joined them by legacy job number to official DOB Permit Issuance rows, retained initial issued NB/AL permits within 2008-01-01 through 2026-05-20, and screened against the manual corpus plus prior NYC DOB/DOB legacy candidate packs through Round502 by permit SI number, job number, source/date key, source URL, title/date key, and address/date key.",
+    transformation_method: "scripts/fetch_round509_nyc_dob_legacy_permit_next6_candidates.js queried official NYC Open Data DOB Job Application Filings high-signal rows, joined them by legacy job number to official DOB Permit Issuance rows, retained initial issued NB/AL permits within 2008-01-01 through 2026-05-20, and screened against the manual corpus plus prior NYC DOB/DOB legacy candidate packs through Round506 by permit SI number, job number, source/date key, source URL, title/date key, and address/date key.",
     address,
     area: `${address}, ${borough}, New York City`,
     borough,
@@ -964,7 +964,7 @@ function validateCandidates(candidates, duplicateIndex, sourceAudits, summaryCan
     passed: errors.length === 0,
     generated_at: GENERATED_AT,
     accessed_at: ACCESSED_AT,
-    validator: "scripts/fetch_round506_nyc_dob_legacy_permit_next5_candidates.js standalone validation artifact",
+    validator: "scripts/fetch_round509_nyc_dob_legacy_permit_next6_candidates.js standalone validation artifact",
     errors,
     checks: {
       candidate_count: candidates.length,
@@ -1005,7 +1005,7 @@ function duplicateAudit(candidates, duplicateIndex, validation) {
     schema_version: `${SLUG}_duplicate_audit.v1`,
     generated_at: GENERATED_AT,
     accessed_at: ACCESSED_AT,
-    audit_scope: "Round506 duplicate audit for NYC DOB Permit Issuance legacy permit next5 candidates, treating Round502 as the latest DOB legacy permit boundary.",
+    audit_scope: "Round509 duplicate audit for NYC DOB Permit Issuance legacy permit next6 candidates, treating Round506 as the latest DOB legacy permit boundary.",
     dedupe_boundary: {
       latest_round_scanned: DEDUPE_BOUNDARY_ROUND,
       manual_corpus: rel(CORPUS_PATH),
@@ -1117,7 +1117,7 @@ function buildReadback(summary, validation) {
 function buildNotes(summary, sourceAudits) {
   const selectedSummary = summary.selected_summary;
   const lines = [
-    "# Round506 NYC DOB legacy permit next5",
+    "# Round509 NYC DOB legacy permit next6",
     "",
     `Accessed: ${ACCESSED_AT}`,
     "",
@@ -1287,7 +1287,7 @@ async function main() {
   const sourceAudits = [
     sourceAuditFromMetadata(DATASETS.permits, metadata[DATASETS.permits.dataset_id], {
       update_frequency: "Operational NYC Open Data dataset; metadata timestamp retained in this audit.",
-      method: "Round506 queried official NYC Open Data DOB Permit Issuance rows and retained initial issued NB/AL permit rows joined to high-signal legacy DOB job application rows, with duplicate screening against the manual corpus and prior DOB/DOB legacy packs through Round502.",
+      method: "Round509 queried official NYC Open Data DOB Permit Issuance rows and retained initial issued NB/AL permit rows joined to high-signal legacy DOB job application rows, with duplicate screening against the manual corpus and prior DOB/DOB legacy packs through Round506.",
       limitations: "A permit issuance is an administrative event, not evidence of construction start, completion, opening, occupancy, design quality, safety condition, affordability, neighborhood outcome, or causal effect. Coordinates are geocoded address/building points.",
       reliability: "strong for administrative permit issuance; usable with caveats for city-change atlas milestones",
       published_coverage_note: "NYC Open Data metadata describes DOB Permit Issuance as BIS permits; most current permits are now issued in DOB NOW, so this pass treats it as legacy/BIS coverage.",
@@ -1306,7 +1306,7 @@ async function main() {
     }),
     sourceAuditFromMetadata(DATASETS.filings, metadata[DATASETS.filings.dataset_id], {
       update_frequency: "Operational/legacy NYC Open Data dataset; metadata timestamp retained in this audit.",
-      method: "Round506 used DOB Job Application Filings only as supporting context for selected DOB Permit Issuance rows, joining by legacy job number and retaining source-reported scale/status fields.",
+      method: "Round509 used DOB Job Application Filings only as supporting context for selected DOB Permit Issuance rows, joining by legacy job number and retaining source-reported scale/status fields.",
       limitations: "Application fields are proposed/source-reported and may be amended; legacy fields can include inconsistent or extreme values. The job filing row is not itself used as construction, completion, opening, or occupancy evidence.",
       reliability: "usable with caveats as linked administrative scale/status context",
       published_coverage_note: "Dataset metadata describes legacy DOB job applications with latest action dates since January 1, 2000 and excludes DOB NOW jobs.",
@@ -1331,7 +1331,7 @@ async function main() {
     generated_at: GENERATED_AT,
     accessed_at: ACCESSED_AT,
     output_files: OUTPUT_FILES.map((name) => rel(path.join(OUT_DIR, name))),
-    task: "Round506 NYC DOB Permit Issuance legacy permit next5 candidate pack",
+    task: "Round509 NYC DOB Permit Issuance legacy permit next6 candidate pack",
     candidate_count: selected.length,
     target_count: TARGET_COUNT,
     dedupe_boundary_round: DEDUPE_BOUNDARY_ROUND,
