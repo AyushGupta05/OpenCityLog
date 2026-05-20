@@ -72,6 +72,27 @@ source = replaceRegexOnce(
 
 source = replaceOnce(
   source,
+  "function collectExistingKeys() {\n",
+  `function eventRowsFromCorpus(corpus) {
+  if (Array.isArray(corpus)) return corpus;
+  for (const key of ["events", "candidates", "milestones", "records"]) {
+    if (Array.isArray(corpus?.[key])) return corpus[key];
+  }
+  return [];
+}
+
+function collectExistingKeys() {
+`
+);
+
+source = replaceOnce(
+  source,
+  "    for (const event of corpus.events || []) {\n",
+  "    for (const event of eventRowsFromCorpus(corpus)) {\n"
+);
+
+source = replaceOnce(
+  source,
   "    latitude: point.latitude,\n    longitude: point.longitude,\n",
   '    latitude: point.latitude,\n    longitude: point.longitude,\n    geometry: { type: "Point", coordinates: [point.longitude, point.latitude] },\n'
 );

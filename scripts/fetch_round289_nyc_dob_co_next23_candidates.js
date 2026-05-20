@@ -277,6 +277,12 @@ function transformRound278Wrapper(source) {
     '  assertContains(transformed, "tmp/subagents/round273_nyc_dob_co_next21/candidates.json", "round273 screening file");\n  assertContains(transformed, "tmp/subagents/round278_nyc_dob_co_next22/candidates.json", "round278 screening file");',
     "round278 screening assertion"
   );
+  transformed = replaceOnce(
+    transformed,
+    "main().catch((error) => {\n  console.error(error);\n  process.exit(1);\n});",
+    "module.exports = { main };",
+    "outer main invocation"
+  );
 
   assertContains(transformed, "round289_nyc_dob_co_next23", "round289 output path");
   assertContains(transformed, REQUIRED_ROUND278_FILE, "round278 screened file");
@@ -477,6 +483,11 @@ function validateOutputs() {
   const boroughMix = countBy(candidates, (candidate) => candidate.borough);
   const sourceDateFieldMix = countBy(candidates, (candidate) => `${candidate.source_dataset_id}|${candidate.source_date_field}`);
   const dateValues = candidates.map((candidate) => parseDate(candidate.date)).filter(Boolean).sort();
+  const rejectedSampleCount = Array.isArray(rejected.sample_rejections)
+    ? rejected.sample_rejections.length
+    : Array.isArray(rejected.rejected)
+      ? rejected.rejected.length
+      : candidateArray(rejected).length;
   const validation = {
     schema_version: "round289.nyc_dob_co_next23_validation.v1",
     ok: errors.length === 0,
@@ -509,7 +520,7 @@ function validateOutputs() {
       by_source_dataset_id: sourceMix,
       by_borough: boroughMix,
       by_source_date_field: sourceDateFieldMix,
-      rejected_count: Array.isArray(rejected.rejected) ? rejected.rejected.length : candidateArray(rejected).length,
+      rejected_sample_count: rejectedSampleCount,
       source_audit_count: Array.isArray(sourceAudit.sources) ? sourceAudit.sources.length : 0
     }
   };

@@ -55,30 +55,31 @@
   "selection_summary": {
     "input_workbook": "tmp\\subagents\\round124_london_ldd_archive_completions\\LDD_Permissions_for_Datastore_final.xlsx",
     "input_rows_scanned": 94948,
-    "eligible_scored_rows_after_dedupe_and_signal_filters": 642,
+    "eligible_scored_rows_after_dedupe_and_signal_filters": 402,
     "retained_candidates": 240,
     "candidate_limit": 240,
     "date_range": {
-      "start": "2008-01-17",
-      "end": "2020-05-29"
+      "start": "2008-01-08",
+      "end": "2020-05-01"
     },
     "milestone_mix": {
       "permission": 240
     },
     "eligible_milestone_mix": {
-      "permission": 642
+      "permission": 402
     },
     "status_mix": {
-      "Not started": 90,
-      "Lapsed": 88,
-      "Superseded": 62
+      "Not started": 116,
+      "Superseded": 80,
+      "Lapsed": 43,
+      "Started": 1
     },
     "category_mix": {
       "development_administrative_permission_record": 240
     },
-    "manual_corpus_ldd_events_seen": 10800,
-    "manual_corpus_ldd_workbook_rows_seen": 10800,
-    "manual_corpus_ldd_authority_reference_pairs_seen": 10800,
+    "manual_corpus_ldd_events_seen": 11040,
+    "manual_corpus_ldd_workbook_rows_seen": 11040,
+    "manual_corpus_ldd_authority_reference_pairs_seen": 11040,
     "prior_ldd_archive_candidate_pack_count": 26,
     "round124_london_ldd_archive_completions_candidate_pack_path": "tmp\\subagents\\round124_london_ldd_archive_completions\\candidates.json",
     "round124_london_ldd_archive_completions_candidate_rows_seen": 60,
@@ -204,15 +205,14 @@
       "Reserved up to 80 completion, 80 started, and 80 permission records before filling remaining slots by the same deterministic ordering"
     ],
     "exclusion_counts": {
-      "below score threshold": 32973,
+      "below score threshold": 32967,
       "minor/domestic row below large-development override": 25488,
       "missing or outside 2008-2026 permission/started/completed date window": 11568,
-      "existing corpus or previous LDD candidate workbook row": 10808,
+      "existing corpus or previous LDD candidate workbook row": 11048,
       "below architecture/public/large-development signal threshold": 9550,
       "administrative-only/minor planning row below high-signal override": 2526,
       "alteration/extension row below score threshold": 1195,
-      "existing corpus or previous LDD candidate title/date": 194,
-      "duplicate inside round287 batch scan": 3,
+      "existing corpus or previous LDD candidate title/date": 203,
       "missing or outside Greater London LDD point range": 1
     }
   }

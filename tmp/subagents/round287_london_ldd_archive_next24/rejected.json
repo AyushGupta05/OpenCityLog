@@ -4,15 +4,14 @@
   "sample_limit": 500,
   "rejected_sample_count": 500,
   "exclusion_counts": {
-    "below score threshold": 32973,
+    "below score threshold": 32967,
     "minor/domestic row below large-development override": 25488,
     "missing or outside 2008-2026 permission/started/completed date window": 11568,
-    "existing corpus or previous LDD candidate workbook row": 10808,
+    "existing corpus or previous LDD candidate workbook row": 11048,
     "below architecture/public/large-development signal threshold": 9550,
     "administrative-only/minor planning row below high-signal override": 2526,
     "alteration/extension row below score threshold": 1195,
-    "existing corpus or previous LDD candidate title/date": 194,
-    "duplicate inside round287 batch scan": 3,
+    "existing corpus or previous LDD candidate title/date": 203,
     "missing or outside Greater London LDD point range": 1
   },
   "rejected_sample": [

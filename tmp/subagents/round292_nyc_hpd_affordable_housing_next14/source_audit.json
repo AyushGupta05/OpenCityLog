@@ -63,21 +63,19 @@
         "bbl",
         "bin"
       ],
-      "accepted_candidate_count": 200,
+      "accepted_candidate_count": 156,
       "accepted_date_fields": {
-        "building_completion_date": 156,
-        "project_start_date": 44
+        "building_completion_date": 156
       },
       "accepted_program_fields": {
         "reporting_construction_type": {
-          "Preservation": 156,
-          "New Construction": 44
+          "Preservation": 156
         },
         "extended_affordability_status": {
-          "No": 200
+          "No": 156
         },
         "prevailing_wage_status": {
-          "Non Prevailing Wage": 200
+          "Non Prevailing Wage": 156
         }
       },
       "required_caveats": [
@@ -85,7 +83,8 @@
         "Building completion, project completion, and project start fields are HPD source dates and are kept distinct from retrieval date.",
         "Coordinates are HPD/Open Data geocoded points, not surveyed footprints, parcels, project boundaries, or proof of occupancy.",
         "Unit counts, construction type, and extended-affordability status are source row values and may be updated or corrected by HPD.",
-        "Preservation rows are retained only as HPD administrative building-completion records with coordinates and positive units; they are not treated as independent evidence of full construction scope or occupancy.",
+        "Round292 excludes project_start_date rows from accepted candidates.",
+        "Preservation rows are retained only as HPD administrative completion-date records with coordinates and positive units; they are not treated as independent evidence of full construction scope or occupancy.",
         "No causality, forecast, neighborhood impact, first occupancy, tenant move-in, or proof-of-outcomes claim is made from this dataset."
       ],
       "ingestion_recommendation": "Append only with row-level Socrata URL, project/building source record id, source date field, coordinates, unit counts, attribution, NYC terms caveat, and limitations."

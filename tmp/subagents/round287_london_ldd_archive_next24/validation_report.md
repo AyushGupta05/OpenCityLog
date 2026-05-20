@@ -2,9 +2,9 @@
 
 - OK: true
 - Candidate count: 240
-- Date range: 2008-01-17 to 2020-05-29
+- Date range: 2008-01-08 to 2020-05-01
 - Prior LDD packs checked through round285: 26
-- Manual LDD rows checked: 10800
+- Manual LDD rows checked: 11040
 - Duplicate event IDs: 0
 - Duplicate source/date keys: 0
 - Cross-dedupe intersections: {"manual_event_ids": 0, "manual_refs": 0, "manual_rows": 0, "manual_source_dates": 0, "manual_title_dates": 0, "prior_event_ids": 0, "prior_refs": 0, "prior_rows": 0, "prior_source_dates": 0, "prior_title_dates": 0}

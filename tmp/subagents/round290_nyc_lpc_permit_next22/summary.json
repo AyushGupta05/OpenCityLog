@@ -7,11 +7,11 @@
   "end_date": "2026-05-20",
   "rows_fetched": 213359,
   "collapsed_regulation_numbers": 211791,
-  "eligible_before_cap": 30493,
+  "eligible_before_cap": 30293,
   "candidate_count": 200,
   "date_range": {
-    "start": "2008-01-07",
-    "end": "2026-03-23"
+    "start": "2008-05-08",
+    "end": "2026-03-18"
   },
   "by_year": {
     "2008": 10,
@@ -25,38 +25,39 @@
     "2016": 10,
     "2017": 10,
     "2018": 10,
-    "2019": 10,
+    "2019": 13,
     "2020": 10,
-    "2021": 10,
-    "2022": 20,
-    "2023": 10,
+    "2021": 11,
+    "2022": 11,
+    "2023": 15,
     "2024": 10,
     "2025": 10,
     "2026": 10
   },
   "by_regulation_type": {
-    "Miscellaneous - Amendment": 13,
-    "Status Update Letter": 13,
-    "Certificate of Appropriateness": 46,
+    "Certificate of Appropriateness": 49,
+    "Permit for Minor Work": 39,
     "Certificate of No Effect": 86,
-    "Permit for Minor Work": 30,
+    "Staff Binding Report": 4,
+    "Status Update Letter": 9,
+    "Miscellaneous - Amendment": 9,
     "Notice of Review": 1,
-    "Authorization to Proceed": 6,
-    "Staff Binding Report": 5
+    "Authorization to Proceed": 3
   },
   "by_bucket": {
-    "heritage_permit_new_building": 11,
-    "heritage_permit_addition": 78,
-    "heritage_permit_storefront": 15,
-    "heritage_permit_facade_restoration": 95,
-    "heritage_permit_structural_scope": 1
+    "heritage_permit_facade_restoration": 89,
+    "heritage_permit_addition": 86,
+    "heritage_permit_storefront": 11,
+    "heritage_permit_new_building": 6,
+    "heritage_permit_openings": 2,
+    "heritage_permit_structural_scope": 3,
+    "heritage_permit_application": 3
   },
   "by_borough": {
-    "Manhattan": 136,
-    "Bronx": 5,
-    "Staten Island": 3,
-    "Brooklyn": 50,
-    "Queens": 6
+    "Queens": 6,
+    "Manhattan": 144,
+    "Bronx": 2,
+    "Brooklyn": 48
   },
   "dedupe_inputs": {
     "scanned_files": [
@@ -276,12 +277,12 @@
       "tmp/subagents/round282_nyc_lpc_permit_next21/candidates.json"
     ],
     "missing_optional_files": [],
-    "existing_record_ids": 50025,
-    "existing_title_date_keys": 47050,
-    "existing_source_urls": 50234,
-    "existing_source_date_keys": 57534,
-    "existing_record_date_keys": 52651,
-    "existing_event_ids": 57585
+    "existing_record_ids": 50381,
+    "existing_title_date_keys": 47406,
+    "existing_source_urls": 50590,
+    "existing_source_date_keys": 57890,
+    "existing_record_date_keys": 53007,
+    "existing_event_ids": 57941
   },
   "selection": {
     "max_candidates": 200,

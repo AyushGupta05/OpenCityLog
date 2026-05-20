@@ -8,7 +8,7 @@ Generated the next bounded London Development Database archive candidate pack af
 - Cap: 240
 - Accessed/retrieved date retained in outputs: 2026-05-20
 - Input LDD planning-permissions rows scanned: 94948
-- Eligible rows after dedupe and signal filters: 642
+- Eligible rows after dedupe and signal filters: 402
 - Validation JSON: `tmp/subagents/round287_london_ldd_archive_next24/validation.json`
 - Validation report: `tmp/subagents/round287_london_ldd_archive_next24/validation_report.md`
 
@@ -30,15 +30,14 @@ These are LDD administrative planning/development lifecycle records only. The so
 
 ```json
 {
-  "below score threshold": 32973,
+  "below score threshold": 32967,
   "minor/domestic row below large-development override": 25488,
   "missing or outside 2008-2026 permission/started/completed date window": 11568,
-  "existing corpus or previous LDD candidate workbook row": 10808,
+  "existing corpus or previous LDD candidate workbook row": 11048,
   "below architecture/public/large-development signal threshold": 9550,
   "administrative-only/minor planning row below high-signal override": 2526,
   "alteration/extension row below score threshold": 1195,
-  "existing corpus or previous LDD candidate title/date": 194,
-  "duplicate inside round287 batch scan": 3,
+  "existing corpus or previous LDD candidate title/date": 203,
   "missing or outside Greater London LDD point range": 1
 }
 ```

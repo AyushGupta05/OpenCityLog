@@ -1,6 +1,6 @@
 # Round292 NYC HPD Affordable Housing Production Candidate Pack
 
-Generated 200 candidates from 7374 fetched HPD building rows on 2026-05-20.
+Generated 156 candidates from 7374 fetched HPD building rows on 2026-05-20.
 
 ## Scope
 
@@ -11,28 +11,26 @@ Generated 200 candidates from 7374 fetched HPD building rows on 2026-05-20.
 
 ## Counts
 
-- Candidates retained: 200
+- Candidates retained: 156
 - Eligible unique HPD rows after required-field and duplicate screening: 2309
-- Headroom after this candidate pack: 2109
+- Headroom after this candidate pack: 2153
 - Rejected/source-screened rows: 5065
 
 ## Date Fields
 
 - building_completion_date: 156
-- project_start_date: 44
 
 ## Program Fields
 
 - Reporting construction type Preservation: 156
-- Reporting construction type New Construction: 44
-- Extended affordability status No: 200
-- Prevailing wage status Non Prevailing Wage: 200
+- Extended affordability status No: 156
+- Prevailing wage status Non Prevailing Wage: 156
 
 ## Caveats
 
 - HPD production rows are administrative affordable-housing program/building delivery evidence, not a complete citywide construction inventory or full building-completion survey.
 - Completion/start dates come from HPD source fields and are not DOB certificate dates, first occupancy, tenant move-in, project closeout, or proof of occupancy/outcomes unless another source independently documents that.
 - Coordinates are HPD/Open Data geocoded points, not surveyed building footprints or project boundaries.
-- Round292 Preservation rows are included only when HPD reports building_completion_date, coordinates, positive units, and Extended Affordability Only = No; this is still administrative delivery evidence, not independent proof of full rehabilitation scope or occupancy.
+- Round292 excludes project_start_date rows. Preservation rows are included only when HPD reports building_completion_date or project_completion_date, coordinates, positive units, and Extended Affordability Only = No; this is still administrative delivery evidence, not independent proof of full rehabilitation scope or occupancy.
 - NYC Open Data Terms of Use / NYC.gov Terms of Use apply; no dataset-specific license field was exposed in the metadata checked during this run.
 - Duplicate screening used the live manual corpus and HPD-family candidate packs through round283, explicitly including round229, round234, round236, round241, round246, round251, round255, round263, round269, round275, and round283; this script did not edit the corpus, appender, or generated atlas files.

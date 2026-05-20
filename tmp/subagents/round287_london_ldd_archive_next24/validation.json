@@ -1,25 +1,26 @@
 {
-  "ok": false,
+  "ok": true,
   "generated_at": "2026-05-20",
   "task": "round287_london_ldd_archive_next24_candidates",
   "validator": "scripts/fetch_round287_london_ldd_archive_next24_candidates.py independent post-generation validator",
   "candidate_count": 240,
   "date_range": {
-    "start": "2008-01-17",
-    "end": "2020-05-29"
+    "start": "2008-01-08",
+    "end": "2020-05-01"
   },
   "milestone_mix": {
     "permission": 240
   },
   "status_mix": {
-    "Not started": 90,
-    "Lapsed": 88,
-    "Superseded": 62
+    "Not started": 116,
+    "Superseded": 80,
+    "Lapsed": 43,
+    "Started": 1
   },
   "accessed_at_values": {
     "2026-05-20": 240
   },
-  "prior_ldd_packs_checked_through_round277": 26,
+  "prior_ldd_packs_checked_through_round285": 26,
   "manual_ldd_rows_checked": 11040,
   "manual_ldd_refs_checked": 11040,
   "duplicates": {
@@ -29,10 +30,10 @@
     "workbook_rows": 0
   },
   "cross_dedupe_intersections": {
-    "manual_rows": 240,
-    "manual_refs": 240,
-    "manual_source_dates": 240,
-    "manual_title_dates": 240,
+    "manual_rows": 0,
+    "manual_refs": 0,
+    "manual_source_dates": 0,
+    "manual_title_dates": 0,
     "manual_event_ids": 0,
     "prior_rows": 0,
     "prior_refs": 0,
@@ -67,16 +68,11 @@
     "accessed_at/retrieved_at fixed to 2026-05-20",
     "2008-01-01 through 2026-05-20 date window",
     "London coordinate envelope and GeoJSON point consistency",
-    "manual corpus and prior LDD packs through round277 dedupe intersections",
+    "manual corpus and prior LDD packs through round285 dedupe intersections",
     "overclaim wording guard"
   ],
   "warnings": [
-    "No commencement/started or completion rows remained after dedupe through round277 and signal filters."
+    "No commencement/started or completion rows remained after dedupe through round285 and signal filters."
   ],
-  "issues": [
-    "cross-dedupe intersection manual_rows: 240",
-    "cross-dedupe intersection manual_refs: 240",
-    "cross-dedupe intersection manual_source_dates: 240",
-    "cross-dedupe intersection manual_title_dates: 240"
-  ]
+  "issues": []
 }

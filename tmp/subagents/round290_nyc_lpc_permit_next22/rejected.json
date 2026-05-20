@@ -2,11 +2,11 @@
   "generated_at": "2026-05-20T00:00:00Z",
   "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
   "rejected_counts": {
-    "below_high_signal_threshold": 175967,
-    "duplicate_regulation_number_in_corpus_or_prior_pack": 4654,
-    "duplicate_title_date_in_corpus_or_prior_pack": 362,
+    "below_high_signal_threshold": 175965,
+    "duplicate_regulation_number_in_corpus_or_prior_pack": 4854,
+    "duplicate_title_date_in_corpus_or_prior_pack": 364,
     "excluded_non_candidate_regulation_type": 315,
-    "eligible_but_not_selected_after_cap": 30293
+    "eligible_but_not_selected_after_cap": 30093
   },
   "rejected_examples": [
     {
@@ -828,6 +828,14 @@
       "selection_score": -13
     },
     {
+      "reason": "duplicate_regulation_number_in_corpus_or_prior_pack",
+      "source_record_id": "MISC-08-6190",
+      "date": "2008-01-07",
+      "regulation_type": "Miscellaneous - Amendment",
+      "worktypes": "New building",
+      "address": "408-410 GREENWICH STREET"
+    },
+    {
       "reason": "below_high_signal_threshold",
       "source_record_id": "MISC-08-6200",
       "date": "2008-01-07",
@@ -1264,6 +1272,14 @@
       "worktypes": "RESTORATIVE WORK",
       "address": "60 PERRY STREET",
       "selection_score": 12
+    },
+    {
+      "reason": "duplicate_regulation_number_in_corpus_or_prior_pack",
+      "source_record_id": "SUL-08-6334",
+      "date": "2008-01-08",
+      "regulation_type": "Status Update Letter",
+      "worktypes": "ROOFTOP ADDITION",
+      "address": "851 GRAND CONCOURSE"
     },
     {
       "reason": "below_high_signal_threshold",
@@ -5377,24 +5393,6 @@
       "worktypes": "SIDEWALK CAFES",
       "address": "359 COLUMBUS AVENUE",
       "selection_score": -2
-    },
-    {
-      "reason": "below_high_signal_threshold",
-      "source_record_id": "CNE-08-6820",
-      "date": "2008-01-30",
-      "regulation_type": "Certificate of No Effect",
-      "worktypes": "Interior Alterations",
-      "address": "442 AMSTERDAM AVENUE",
-      "selection_score": -7
-    },
-    {
-      "reason": "below_high_signal_threshold",
-      "source_record_id": "CNE-08-6828",
-      "date": "2008-01-30",
-      "regulation_type": "Certificate of No Effect",
-      "worktypes": "New Storefront Infill: Opening and Surround to Remain",
-      "address": "16 NORTH MOORE STREET",
-      "selection_score": 15
     }
   ]
 }

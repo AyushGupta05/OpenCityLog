@@ -18,7 +18,7 @@
     "start": "2008-01-01",
     "end": "2026-05-20"
   },
-  "candidate_count": 200,
+  "candidate_count": 156,
   "target_count": 200,
   "selected_summary": {
     "by_year": {
@@ -28,33 +28,31 @@
       "2018": 30,
       "2019": 28,
       "2020": 3,
-      "2021": 3,
-      "2022": 4,
-      "2023": 28,
-      "2024": 20,
-      "2025": 12,
-      "2026": 2
+      "2021": 1,
+      "2022": 1,
+      "2023": 15,
+      "2024": 6,
+      "2025": 1,
+      "2026": 1
     },
     "by_borough": {
-      "Queens": 92,
+      "Queens": 84,
       "Staten Island": 1,
-      "Brooklyn": 93,
-      "Bronx": 7,
-      "Manhattan": 7
+      "Brooklyn": 64,
+      "Bronx": 3,
+      "Manhattan": 4
     },
     "by_date_field": {
-      "building_completion_date": 156,
-      "project_start_date": 44
+      "building_completion_date": 156
     },
     "by_reporting_construction_type": {
-      "Preservation": 156,
-      "New Construction": 44
+      "Preservation": 156
     },
     "by_extended_affordability_status": {
-      "No": 200
+      "No": 156
     },
     "by_prevailing_wage_status": {
-      "Non Prevailing Wage": 200
+      "Non Prevailing Wage": 156
     },
     "date_range": {
       "start": "2015-01-08",
@@ -62,15 +60,15 @@
     },
     "total_or_counted_units": {
       "min": 1,
-      "median": 2,
-      "max": 571
+      "median": 1,
+      "max": 3
     }
   },
   "selection_summary": {
     "fetched_source_rows": 7374,
     "eligible_after_required_fields_and_duplicate_screening": 2309,
-    "retained_less_than_target_reason": null,
-    "headroom_after_this_candidate_pack": 2109,
+    "retained_less_than_target_reason": "Fewer unique eligible HPD rows remained after duplicate/provenance screening.",
+    "headroom_after_this_candidate_pack": 2153,
     "duplicate_screening": {
       "max_screening_round": 283,
       "explicit_hpd_candidate_packs": [
@@ -115,7 +113,7 @@
         "tmp\\subagents\\round283_nyc_hpd_affordable_housing_next13\\candidates.json"
       ]
     },
-    "ranking": "Source date priority is applied first: building_completion_date rows, then project_completion_date rows, then project_start_date rows. Round292 keeps the accepted pack to building_completion_date rows where available; Preservation rows are admitted only when the selected row has HPD building_completion_date, source coordinates, positive unit counts, and Extended Affordability Only = No. Within each date-field tier, New Construction rows remain ahead of Preservation rows before unit-count score, senior/supportive text signals, and newer dates.",
+    "ranking": "Source date priority is applied first: building_completion_date rows, then project_completion_date rows; project_start_date rows are excluded from the accepted Round292 pack. Preservation rows are admitted only when the selected row has an HPD completion date, source coordinates, positive unit counts, and Extended Affordability Only = No. Within each completion-date tier, New Construction rows remain ahead of Preservation rows before unit-count score, senior/supportive text signals, and newer dates.",
     "rejected_count": 5065,
     "rejected_by_reason": {
       "duplicate_hpd_source_row_or_event": 5065
@@ -341,7 +339,7 @@
     "HPD Affordable Housing Production by Building is housing-program/administrative delivery evidence, not a complete citywide construction inventory or full building-completion survey.",
     "Source date fields are kept explicit and are not treated as DOB certificate dates, first occupancy, tenant move-in, ribbon cutting, proof of occupancy/outcomes, or causal outcome evidence.",
     "Coordinates are source geocoded points and should not be displayed as exact building footprints or project boundaries.",
-    "Round292 Preservation rows are retained only when HPD reports building_completion_date, coordinates, positive units, and Extended Affordability Only = No; they remain administrative delivery records, not independent proof of full rehabilitation scope or occupancy.",
+    "Round292 excludes project_start_date rows. Preservation rows are retained only when HPD reports building_completion_date or project_completion_date, coordinates, positive units, and Extended Affordability Only = No; they remain administrative delivery records, not independent proof of full rehabilitation scope or occupancy.",
     "NYC Open Data Terms of Use / NYC.gov Terms of Use apply because no dataset-specific license field was exposed in the checked metadata."
   ],
   "validation": {
@@ -356,8 +354,8 @@
       "no parks source records",
       "no overlap with live corpus or HPD candidate packs through round283, including round229, round234, round236, round241, round246, round251, round255, round263, round269, round275, and round283"
     ],
-    "candidate_count": 200,
-    "unique_event_ids": 200,
-    "unique_source_date_keys": 200
+    "candidate_count": 156,
+    "unique_event_ids": 156,
+    "unique_source_date_keys": 156
   }
 }

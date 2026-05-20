@@ -10,7 +10,7 @@
     "no parks source records",
     "no overlap with live corpus or HPD candidate packs through round283, including round229, round234, round236, round241, round246, round251, round255, round263, round269, round275, and round283"
   ],
-  "candidate_count": 200,
-  "unique_event_ids": 200,
-  "unique_source_date_keys": 200
+  "candidate_count": 156,
+  "unique_event_ids": 156,
+  "unique_source_date_keys": 156
 }

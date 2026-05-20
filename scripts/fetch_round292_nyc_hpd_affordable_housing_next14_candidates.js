@@ -59,15 +59,20 @@ function hasPositiveCandidateUnits(candidate) {
   return Math.max(Number(units.total_units || 0), Number(units.all_counted_units || 0)) > 0;
 }
 
+function isCompletionDateField(candidate) {
+  return candidate.source_date_field === "building_completion_date" ||
+    candidate.source_date_field === "project_completion_date";
+}
+
 function isClearlySupportedRound292PreservationCandidate(candidate) {
-  return candidate.source_date_field === "building_completion_date" &&
+  return isCompletionDateField(candidate) &&
     isPreservation(candidate.raw_row) &&
     !isExtendedAffordabilityOnly(candidate.raw_row) &&
     hasPositiveCandidateUnits(candidate);
 }
 
 function isRound292PreferredCandidate(candidate) {
-  if (candidate.source_date_field !== "building_completion_date") return false;
+  if (!isCompletionDateField(candidate)) return false;
   if (isPreservation(candidate.raw_row)) return isClearlySupportedRound292PreservationCandidate(candidate);
   return true;
 }
@@ -84,7 +89,11 @@ function selectedRound292CandidateIds(rankedCandidates) {
   for (const candidate of rankedCandidates) {
     if (selectedIds.size >= targetCount) break;
     if (selectedIds.has(candidate.event_id)) continue;
-    if (!isPreservation(candidate.raw_row)) selectedIds.add(candidate.event_id);
+    if (isCompletionDateField(candidate) &&
+        !isExtendedAffordabilityOnly(candidate.raw_row) &&
+        hasPositiveCandidateUnits(candidate)) {
+      selectedIds.add(candidate.event_id);
+    }
   }
 
   round292SelectionCache.set(rankedCandidates, selectedIds);
@@ -101,33 +110,58 @@ replaceChecked(
 );
 replaceChecked(
   "Source date priority is applied first: building_completion_date rows, then project_completion_date rows, then project_start_date rows. Within each date-field tier, new-construction rows are preferred before unit-count score, senior/supportive text signals, and newer dates.",
-  "Source date priority is applied first: building_completion_date rows, then project_completion_date rows, then project_start_date rows. Round292 keeps the accepted pack to building_completion_date rows where available; Preservation rows are admitted only when the selected row has HPD building_completion_date, source coordinates, positive unit counts, and Extended Affordability Only = No. Within each date-field tier, New Construction rows remain ahead of Preservation rows before unit-count score, senior/supportive text signals, and newer dates.",
+  "Source date priority is applied first: building_completion_date rows, then project_completion_date rows; project_start_date rows are excluded from the accepted Round292 pack. Preservation rows are admitted only when the selected row has an HPD completion date, source coordinates, positive unit counts, and Extended Affordability Only = No. Within each completion-date tier, New Construction rows remain ahead of Preservation rows before unit-count score, senior/supportive text signals, and newer dates.",
   "round292 ranking summary"
 );
 replaceChecked(
   "HPD Affordable Housing Production by Building is administrative affordable-housing program/building delivery evidence. It is not a complete citywide construction inventory, DOB final certificate, first occupancy record, tenant move-in record, as-built footprint, affordability-duration audit, causal outcome evidence, or proof of occupancy/outcomes.",
-  "HPD Affordable Housing Production by Building is administrative affordable-housing program/building delivery evidence. It is not a complete citywide construction inventory, DOB final certificate, first occupancy record, tenant move-in record, as-built footprint, affordability-duration audit, causal outcome evidence, or proof of occupancy/outcomes. Preservation rows in this pack are retained only where HPD reports a building completion date, source coordinates, positive units, and Extended Affordability Only = No; they are not independent evidence of full rehabilitation scope or occupancy.",
+  "HPD Affordable Housing Production by Building is administrative affordable-housing program/building delivery evidence. It is not a complete citywide construction inventory, DOB final certificate, first occupancy record, tenant move-in record, as-built footprint, affordability-duration audit, causal outcome evidence, or proof of occupancy/outcomes. Preservation rows in this pack are retained only where HPD reports a building or project completion date, source coordinates, positive units, and Extended Affordability Only = No; they are not independent evidence of full rehabilitation scope or occupancy.",
   "candidate preservation limitation"
 );
 replaceChecked(
   '          "Unit counts, construction type, and extended-affordability status are source row values and may be updated or corrected by HPD.",',
-  '          "Unit counts, construction type, and extended-affordability status are source row values and may be updated or corrected by HPD.",\n          "Preservation rows are retained only as HPD administrative building-completion records with coordinates and positive units; they are not treated as independent evidence of full construction scope or occupancy.",',
+  '          "Unit counts, construction type, and extended-affordability status are source row values and may be updated or corrected by HPD.",\n          "Round292 excludes project_start_date rows from accepted candidates.",\n          "Preservation rows are retained only as HPD administrative completion-date records with coordinates and positive units; they are not treated as independent evidence of full construction scope or occupancy.",',
   "source audit preservation caveat"
 );
 replaceChecked(
   '      "Coordinates are source geocoded points and should not be displayed as exact building footprints or project boundaries.",',
-  '      "Coordinates are source geocoded points and should not be displayed as exact building footprints or project boundaries.",\n      "Round292 Preservation rows are retained only when HPD reports building_completion_date, coordinates, positive units, and Extended Affordability Only = No; they remain administrative delivery records, not independent proof of full rehabilitation scope or occupancy.",',
+  '      "Coordinates are source geocoded points and should not be displayed as exact building footprints or project boundaries.",\n      "Round292 excludes project_start_date rows. Preservation rows are retained only when HPD reports building_completion_date or project_completion_date, coordinates, positive units, and Extended Affordability Only = No; they remain administrative delivery records, not independent proof of full rehabilitation scope or occupancy.",',
   "summary preservation caveat"
 );
 replaceChecked(
+  'published_coverage_note: "Round292 checked HPD building-level rows with coordinates and building/project completion or project start dates available through the access date.",',
+  'published_coverage_note: "Round292 fetched HPD building-level rows with coordinates and source date fields for duplicate screening; accepted candidates use completion dates only and exclude project_start_date.",',
+  "source audit completion-only coverage note"
+);
+replaceChecked(
   '    "- Coordinates are HPD/Open Data geocoded points, not surveyed building footprints or project boundaries.",',
-  '    "- Coordinates are HPD/Open Data geocoded points, not surveyed building footprints or project boundaries.",\n    "- Round292 Preservation rows are included only when HPD reports building_completion_date, coordinates, positive units, and Extended Affordability Only = No; this is still administrative delivery evidence, not independent proof of full rehabilitation scope or occupancy.",',
+  '    "- Coordinates are HPD/Open Data geocoded points, not surveyed building footprints or project boundaries.",\n    "- Round292 excludes project_start_date rows. Preservation rows are included only when HPD reports building_completion_date or project_completion_date, coordinates, positive units, and Extended Affordability Only = No; this is still administrative delivery evidence, not independent proof of full rehabilitation scope or occupancy.",',
   "notes preservation caveat"
+);
+replaceChecked(
+  '    "- Completion/start dates come from HPD source fields and are not DOB certificate dates, first occupancy, tenant move-in, project closeout, or proof of occupancy/outcomes unless another source independently documents that.",',
+  '    "- Completion dates come from HPD source fields and are not DOB certificate dates, first occupancy, tenant move-in, project closeout, or proof of occupancy/outcomes unless another source independently documents that. Project start rows were screened for duplicates but excluded from accepted candidates.",',
+  "notes completion-only caveat"
 );
 replaceChecked(
   '  writeJson(path.join(outDir, "rejected.json"), rejectedPayload);',
   '  writeJson(path.join(outDir, "rejected.json"), rejectedPayload);\n  writeJson(path.join(outDir, "validation.json"), summaryPayload.validation);',
   "validation output"
+);
+replaceChecked(
+  "  const selectedSummary = summarizeCandidates(selected);",
+  "  const completionOnlyEligibleCount = candidates.filter(isRound292PreferredCandidate).length;\n  const selectedSummary = summarizeCandidates(selected);",
+  "completion-only eligible count"
+);
+replaceChecked(
+  /      eligible_after_required_fields_and_duplicate_screening: candidates\.length,\r?\n      retained_less_than_target_reason: selected\.length < targetCount \? "Fewer unique eligible HPD rows remained after duplicate\/provenance screening\." : null,/,
+  '      eligible_after_required_fields_and_duplicate_screening: candidates.length,\n      completion_date_eligible_after_round292_screening: completionOnlyEligibleCount,\n      excluded_from_accepted_pack_due_to_project_start_date_or_round292_completion_rules: Math.max(0, candidates.length - completionOnlyEligibleCount),\n      retained_less_than_target_reason: selected.length < targetCount ? `Only ${completionOnlyEligibleCount} completion-date HPD rows remained after duplicate/provenance screening and Round292 project_start_date exclusion.` : null,',
+  "completion-only under-target reason"
+);
+replaceChecked(
+  /    `- Eligible unique HPD rows after required-field and duplicate screening: \$\{candidates\.length\}`,\r?\n    `- Headroom after this candidate pack: \$\{headroomAfterPack\}`,/,
+  '    `- Eligible unique HPD rows after required-field and duplicate screening: ${candidates.length}`,\n    `- Completion-date eligible after Round292 screening: ${completionOnlyEligibleCount}`,\n    `- Rows excluded from the accepted pack by completion-only rules: ${Math.max(0, candidates.length - completionOnlyEligibleCount)}`,\n    `- Headroom after this candidate pack: ${headroomAfterPack}`,',
+  "notes completion-only counts"
 );
 replaceChecked(
   /including round229, round234, round236, round241, and round246/g,

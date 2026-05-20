@@ -3,24 +3,25 @@
   "task": "round287_london_ldd_archive_next24_candidates",
   "candidate_count": 240,
   "date_range": {
-    "start": "2008-01-17",
-    "end": "2020-05-29"
+    "start": "2008-01-08",
+    "end": "2020-05-01"
   },
   "milestone_mix": {
     "permission": 240
   },
   "eligible_milestone_mix": {
-    "permission": 642
+    "permission": 402
   },
   "status_mix": {
-    "Not started": 90,
-    "Lapsed": 88,
-    "Superseded": 62
+    "Not started": 116,
+    "Superseded": 80,
+    "Lapsed": 43,
+    "Started": 1
   },
   "category_mix": {
     "development_administrative_permission_record": 240
   },
-  "eligible_headroom_after_retained_candidates": 402,
+  "eligible_headroom_after_retained_candidates": 162,
   "input_rows_scanned": 94948,
   "duplicate_validation": {
     "generated_event_ids_unique": true,
@@ -29,15 +30,14 @@
     "generated_source_date_keys_seen_in_corpus_or_prior_ldd_packs": 0
   },
   "exclusion_counts": {
-    "below score threshold": 32973,
+    "below score threshold": 32967,
     "minor/domestic row below large-development override": 25488,
     "missing or outside 2008-2026 permission/started/completed date window": 11568,
-    "existing corpus or previous LDD candidate workbook row": 10808,
+    "existing corpus or previous LDD candidate workbook row": 11048,
     "below architecture/public/large-development signal threshold": 9550,
     "administrative-only/minor planning row below high-signal override": 2526,
     "alteration/extension row below score threshold": 1195,
-    "existing corpus or previous LDD candidate title/date": 194,
-    "duplicate inside round287 batch scan": 3,
+    "existing corpus or previous LDD candidate title/date": 203,
     "missing or outside Greater London LDD point range": 1
   },
   "output_files": [
@@ -46,19 +46,16 @@
     "tmp\\subagents\\round287_london_ldd_archive_next24\\summary.json",
     "tmp\\subagents\\round287_london_ldd_archive_next24\\notes.md",
     "tmp\\subagents\\round287_london_ldd_archive_next24\\rejected.json",
-    "tmp\\subagents\\round287_london_ldd_archive_next24\\validation.json"
+    "tmp\\subagents\\round287_london_ldd_archive_next24\\validation.json",
+    "tmp\\subagents\\round287_london_ldd_archive_next24\\validation_report.md"
   ],
   "validation": {
-    "ok": false,
+    "ok": true,
     "path": "tmp\\subagents\\round287_london_ldd_archive_next24\\validation.json",
     "warnings": [
-      "No commencement/started or completion rows remained after dedupe through round277 and signal filters."
+      "No commencement/started or completion rows remained after dedupe through round285 and signal filters."
     ],
-    "issues": [
-      "cross-dedupe intersection manual_rows: 240",
-      "cross-dedupe intersection manual_refs: 240",
-      "cross-dedupe intersection manual_source_dates: 240",
-      "cross-dedupe intersection manual_title_dates: 240"
-    ]
-  }
+    "issues": []
+  },
+  "validation_report": "tmp\\subagents\\round287_london_ldd_archive_next24\\validation_report.md"
 }
