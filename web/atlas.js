@@ -2784,6 +2784,14 @@
       state.map.setFilter(layerId, transportBaseRoadFilter());
       state.map.setLayoutProperty(layerId, "visibility", showTransportBase ? "visible" : "none");
     }
+    if (state.map.getLayer("lens-transport-base")) {
+      const paint = transportBaseRoadPaint();
+      Object.entries(paint).forEach(([key, value]) => state.map.setPaintProperty("lens-transport-base", key, value));
+    }
+    if (state.map.getLayer("lens-transport-base-case")) {
+      const paint = transportBaseRoadCasePaint();
+      Object.entries(paint).forEach(([key, value]) => state.map.setPaintProperty("lens-transport-base-case", key, value));
+    }
     for (const layerId of ["lens-transport-roads-case", "lens-transport-roads"]) {
       if (!state.map.getLayer(layerId)) continue;
       state.map.setFilter(layerId, transportRoadFilter());
@@ -3441,19 +3449,19 @@
       .filter((event) => event.category === "economy" && event.lngLat);
     if (!roads.length || !events.length) return [];
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * 2.95;
+    const maxDistance = radiusM * 2.28;
     const features = [];
     for (const road of roads) {
       const point = geometryToLngLat(road.geometry);
       if (!point) continue;
       const distance = lngLatDistanceMeters(center, point);
       if (distance > maxDistance) continue;
-      const nearestEvent = nearestGuideEvent(point, events, 860);
-      const eventDensity = eventDensityIntensity(point, events, 900);
+      const nearestEvent = nearestGuideEvent(point, events, 760);
+      const eventDensity = eventDensityIntensity(point, events, 780);
       const rank = Number(road.properties?.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const namedFrontage = road.properties?.name ? 0.12 : 0.02;
-      const intensity = clamp01(0.18 + eventDensity * 0.42 + proximity * 0.3 + namedFrontage + Math.min(0.12, rank * 0.032));
+      const namedFrontage = road.properties?.name ? 0.14 : 0.04;
+      const intensity = clamp01(0.16 + eventDensity * 0.28 + proximity * 0.48 + namedFrontage + Math.min(0.12, rank * 0.032));
       if (intensity < 0.22 && rank < 1.5) continue;
       features.push({
         type: "Feature",
@@ -3470,7 +3478,7 @@
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 1250);
+      .slice(0, 1550);
   }
 
   function economyVitalityGuideColor(event, road, intensity) {
@@ -4051,6 +4059,66 @@
 
   function transportRankExpression() {
     return ["min", 2.2, ["max", 0.72, ["to-number", ["get", "rank"], 1]]];
+  }
+
+  function transportBaseRoadCasePaint() {
+    const mode = activeMapLens().id;
+    const rank = transportRankExpression();
+    const opacity = mode === "transport-speed" ? [8, 0.18, 12, 0.4, 16, 0.64]
+      : mode === "transport-reliability" ? [8, 0.14, 12, 0.32, 16, 0.52]
+        : [8, 0.1, 12, 0.24, 16, 0.42];
+    return {
+      "line-color": "#fffdf7",
+      "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
+      "line-width": [
+        "interpolate", ["linear"], ["zoom"],
+        8, ["*", rank, mode === "transport-speed" ? 0.42 : 0.32],
+        12, ["*", rank, mode === "transport-speed" ? 0.84 : 0.62],
+        16, ["*", rank, mode === "transport-speed" ? 1.32 : 1.02],
+      ],
+      "line-blur": 0.08,
+    };
+  }
+
+  function transportBaseRoadPaint() {
+    const mode = activeMapLens().id;
+    const rank = ["to-number", ["get", "rank"], 1];
+    const color = mode === "transport-reliability"
+      ? [
+        "interpolate", ["linear"], rank,
+        1, "#8fb2bd",
+        2, "#248b94",
+        3, "#ef9c1a",
+        4, "#7a3b97",
+      ]
+      : mode === "transport-access"
+        ? [
+          "interpolate", ["linear"], rank,
+          1, "#b7d7d2",
+          2, "#73b7b0",
+          3, "#3f9aa0",
+          4, "#6b61a8",
+        ]
+        : [
+          "interpolate", ["linear"], rank,
+          1, "#4f9a5b",
+          2, "#c0b64d",
+          3, "#d99a36",
+          4, "#c8472e",
+        ];
+    const opacity = mode === "transport-speed" ? [8, 0.22, 12, 0.48, 16, 0.72]
+      : mode === "transport-reliability" ? [8, 0.18, 12, 0.36, 16, 0.58]
+        : [8, 0.12, 12, 0.28, 16, 0.48];
+    return {
+      "line-color": color,
+      "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
+      "line-width": [
+        "interpolate", ["linear"], ["zoom"],
+        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.26 : 0.2],
+        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.5 : 0.4],
+        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.86 : 0.68],
+      ],
+    };
   }
 
   function transportRoadPaint() {
