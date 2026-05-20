@@ -4730,7 +4730,7 @@
         if (!nearest) continue;
         const proximity = 1 - Math.min(extentM, radial) / extentM;
         const anchorCloseness = 1 - Math.min(radiusM * 0.7, nearest.distance) / (radiusM * 0.7);
-        const intensity = clamp01(0.28 + proximity * 0.16 + anchorCloseness * 0.26 + nearest.item.intensity * 0.28);
+        const intensity = clamp01(0.24 + proximity * 0.08 + anchorCloseness * 0.5 + nearest.item.intensity * 0.16);
         const cellCenter = offsetLngLat(center, cellDx, cellDy);
         cells.push({
           type: "Feature",
@@ -6770,7 +6770,7 @@
       center,
       civicCatchmentCandidates(center, Number(lens.radiusM || 1500), lens, sourceEvents, currentTimelineYear()),
       lens,
-      16,
+      28,
     );
     return selected.map((item, index) => ({
       type: "Feature",

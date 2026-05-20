@@ -4576,6 +4576,31 @@
       ]
     },
     {
+      "source_id": "dfi-planning-statistics-2024-25-round494",
+      "title": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "provider": "Department for Infrastructure, Northern Ireland",
+      "source_family": "architecture_heritage_commercial_admin",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2024
+      },
+      "update_frequency": "Source-specific publication/update cadence",
+      "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
+      "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
+      "caveats": [
+        "This records an approved planning/listed-building/other-consent administrative milestone for listed-building secondary-window fitting; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
+      ]
+    },
+    {
       "source_id": "dfi-spd-advertised-applications",
       "title": "DfI Strategic Planning Directorate advertised applications",
       "provider": "Department for Infrastructure Northern Ireland",
