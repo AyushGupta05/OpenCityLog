@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T02:31:30Z
+Generated: 2026-05-20T02:35:56Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 32254 | 152 | 15 | 2007-2026 | transport 17118, built_environment 12935, utilities 851 | 67746 |
-| London, England | 207031 | 181 | 102 | 1801-2026 | built_environment 87748, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 51939 | 78 | 122 | 1797-2026 | built_environment 34061, environment 8536, transport 6456 | 48061 |
+| London, England | 207271 | 181 | 102 | 1801-2026 | built_environment 87988, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 52138 | 78 | 122 | 1797-2026 | built_environment 34260, environment 8536, transport 6456 | 47862 |
 
 ## Belfast, Northern Ireland
 
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 15.
 
 ## London, England
 
-Backed events: 207031. Unique event IDs: 207031. Duplicate IDs: 0.
+Backed events: 207271. Unique event IDs: 207271. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -45,7 +45,7 @@ Backed events: 207031. Unique event IDs: 207031. Duplicate IDs: 0.
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
 | Planning London Datahub - planning applications | 13674 | 2008-2026 | built_environment 13674 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
-| Planning permissions on the London Development Database (LDD) | 10320 | 2008-2020 | built_environment 10260, civic_services 44, transport 12 | usable_with_caveats |
+| Planning permissions on the London Development Database (LDD) | 10560 | 2008-2020 | built_environment 10500, civic_services 44, transport 12 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning Data: Tree Preservation Zones | 1168 | 1951-2025 | built_environment 1168 | usable_with_caveats |
@@ -54,19 +54,19 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 51939. Unique event IDs: 51939. Duplicate IDs: 0.
+Backed events: 52138. Unique event IDs: 52138. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | NYC DOB construction filings and permits | 6029 | 2008-2026 | built_environment 6029 | usable_with_caveats |
 | HPD affordable housing production by project and building | 4873 | 2014-2026 | built_environment 4873 | usable_with_caveats |
+| NYC Open Data: DOB Certificate Of Occupancy | 4378 | 2012-2026 | built_environment 4378 | usable_with_caveats |
 | NYC Open Data LPC Permit Application Information | 4251 | 2008-2026 | environment 2436, built_environment 1588, transport 214 | usable_with_caveats |
-| NYC Open Data: DOB Certificate Of Occupancy | 4179 | 2012-2026 | built_environment 4179 | usable_with_caveats |
+| DOB NOW: Certificate of Occupancy | 2454 | 2021-2026 | built_environment 2454 | usable_with_caveats |
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | DOB Permit Issuance | 2380 | 2004-2020 | built_environment 2380 | usable_with_caveats |
-| DOB NOW: Certificate of Occupancy | 2354 | 2021-2026 | built_environment 2354 | usable_with_caveats |
+| DOB Certificate Of Occupancy | 2256 | 2012-2026 | built_environment 2254, environment 2 | usable_with_caveats |
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |
-| DOB Certificate Of Occupancy | 2157 | 2012-2026 | built_environment 2155, environment 2 | usable_with_caveats |
 | Street Construction Permits (2013-2021) | 1810 | 1904-2025 | transport 1807, built_environment 3 | usable_with_caveats |
 | 2015 Street Tree Census - Tree Data | 1800 | 2015-2015 | environment 1782, transport 18 | usable_with_caveats |
 | Fire Incident Dispatch Data | 1794 | 2005-2024 | civic_services 1784, built_environment 6, transport 4 | usable_with_caveats |
