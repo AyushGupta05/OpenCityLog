@@ -4,11 +4,11 @@
   "accessed_at": "2026-05-20",
   "city_id": "belfast",
   "round_id": "round291_belfast_official_planning_tail4",
-  "rejected_count": 155376,
+  "rejected_count": 155385,
   "rejected_detail_count": 1254,
   "detail_scope": "DfI planning-statistics rejected detail is capped for reviewability; rejection_counts preserves full exclusion counts. BCC current-planning rows are listed individually.",
   "rejection_counts": {
-    "already_in_current_corpus_or_prior_belfast_pack_app_id": 1623,
+    "already_in_current_corpus_or_prior_belfast_pack_app_id": 1632,
     "below_round291_tail_quality_gate": 9612,
     "missing_or_outside_belfast_geometry": 4,
     "not_approved": 8243,

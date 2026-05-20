@@ -267,8 +267,8 @@ function transformRound278Wrapper(source) {
   );
   transformed = replaceOnce(
     transformed,
-    '"tmp/subagents/round273_nyc_dob_co_next21/candidates.json"\\n];\';',
-    '"tmp/subagents/round273_nyc_dob_co_next21/candidates.json",\\n  "tmp/subagents/round278_nyc_dob_co_next22/candidates.json"\\n];\';',
+    '"tmp/subagents/round273_nyc_dob_co_next21/candidates.json"\\\\n];\';',
+    '"tmp/subagents/round273_nyc_dob_co_next21/candidates.json",\\\\n  "tmp/subagents/round278_nyc_dob_co_next22/candidates.json"\\\\n];\';',
     "duplicate block round278 file"
   );
   transformed = replaceOnce(
@@ -280,8 +280,9 @@ function transformRound278Wrapper(source) {
 
   assertContains(transformed, "round289_nyc_dob_co_next23", "round289 output path");
   assertContains(transformed, REQUIRED_ROUND278_FILE, "round278 screened file");
-  assertContains(transformed, `round(${NEW_PRIOR_ROUNDS}).*nyc.*(dob|co)`, "prior round regex including round278");
-  assertContains(transformed, `round(${NEW_CO_ROUNDS})_nyc_dob_co_next(${NEW_NEXT_ROUNDS})`, "CO round regex including round278");
+  assertContains(transformed, `const PRIOR_ROUNDS = "${NEW_PRIOR_ROUNDS}";`, "prior round constants including round278");
+  assertContains(transformed, `const CO_ROUNDS = "${NEW_CO_ROUNDS}";`, "CO round constants including round278");
+  assertContains(transformed, `const NEXT_ROUNDS = "${NEW_NEXT_ROUNDS}";`, "CO next-round constants including next22");
   assertContains(transformed, "including rounds 225, 232, 242, 247, 250, 256, 264, 267, 273, and 278", "notes validation caveat");
   assertContains(transformed, "scripts/fetch_round289_nyc_dob_co_next23_candidates.js independent post-generation validator", "round289 validator label");
 

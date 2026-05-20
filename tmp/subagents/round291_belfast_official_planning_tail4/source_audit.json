@@ -53,7 +53,7 @@
         "ok": true,
         "http_status": 200,
         "final_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
-        "elapsed_ms": 26,
+        "elapsed_ms": 43,
         "bytes": 54858,
         "content_sha256": "57fb91a77a3ca8c30475fa368d217ba904c67687585fc66ea68be9013bbe21d1",
         "error": null
@@ -392,9 +392,9 @@
         "ok": true,
         "http_status": 200,
         "final_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
-        "elapsed_ms": 211,
+        "elapsed_ms": 117,
         "bytes": 53495,
-        "content_sha256": "77cfbf42133ddcc1264462b6ae0c7fea3fc4ea0269f070f82c05abebf9bb10a0",
+        "content_sha256": "f42fdc70ab33e5cf1907daea5a617fb13f15ef338cf85b1850c8551b56589da0",
         "error": null
       },
       "parsed_row_count": 53
@@ -435,7 +435,7 @@
         "ok": true,
         "http_status": 200,
         "final_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1/query?where=Council%3D%27Belfast%27&returnCountOnly=true&f=json",
-        "elapsed_ms": 541,
+        "elapsed_ms": 288,
         "bytes": 14,
         "content_sha256": "98949f09681fed228ee8f2413bc884c6dbe249bc711fa6c00a7c0f653fcf4284",
         "error": null

@@ -5,70 +5,42 @@
   "city_id": "belfast",
   "round_id": "round291_belfast_official_planning_tail4",
   "target_candidate_count": 100,
-  "accepted_candidates": 9,
-  "eligible_before_cap": 9,
+  "accepted_candidates": 0,
+  "eligible_before_cap": 0,
   "rejected_detail_count": 1254,
   "source_audit_count": 3,
-  "source_mix": {
-    "Department for Infrastructure, Northern Ireland": 9
-  },
+  "source_mix": {},
   "audited_source_mix": {
     "Belfast City Council": 1,
     "Department for Communities Historic Environment Division": 1,
     "Department for Infrastructure, Northern Ireland": 1
   },
   "emitted_date_range": {
-    "min": "2016-08-22",
-    "max": "2025-01-30"
+    "min": null,
+    "max": null
   },
   "date_window": {
     "start": "2008-01-01",
     "end": "2026-05-20"
   },
-  "counts_by_year": {
-    "2016": 1,
-    "2017": 1,
-    "2018": 1,
-    "2019": 1,
-    "2022": 2,
-    "2023": 1,
-    "2024": 1,
-    "2025": 1
-  },
-  "counts_by_bucket": {
-    "planning/approved/architecture/heritage_or_listed_building": 8,
-    "planning/approved/architecture/residential": 1
-  },
-  "counts_by_category": {
-    "heritage_or_listed_building": 8,
-    "residential": 1
-  },
-  "counts_by_quality_gate": {
-    "listed/conservation-area building works approval": 8,
-    "multi-unit residential planning approval": 1
-  },
-  "counts_by_app_type": {
-    "Listed Building Consents": 8,
-    "Other consents": 1
-  },
-  "counts_by_source_file": {
-    "data/raw/planning_statistics/planning-statistics-2016-17-dataset_1.csv": 2,
-    "data/raw/planning_statistics/planning-statistics-2018-19-dataset.csv": 2,
-    "data/raw/planning_statistics/planning-statistics-2022-23-dataset.csv": 3,
-    "data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv": 2
-  },
+  "counts_by_year": {},
+  "counts_by_bucket": {},
+  "counts_by_category": {},
+  "counts_by_quality_gate": {},
+  "counts_by_app_type": {},
+  "counts_by_source_file": {},
   "dfi_input_rows": 155331,
   "dfi_latest_source_date_seen": "2025-03-31",
   "bcc_current_rows_seen": 53,
   "dedupe": {
     "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
     "prior_file_count": 75,
-    "prior_record_count": 48315,
-    "indexed_application_ids": 1882,
-    "indexed_event_ids": 48052,
-    "indexed_source_record_date_keys": 47581,
-    "indexed_source_url_date_keys": 26388,
-    "indexed_title_date_keys": 45701,
+    "prior_record_count": 48857,
+    "indexed_application_ids": 1891,
+    "indexed_event_ids": 48594,
+    "indexed_source_record_date_keys": 48123,
+    "indexed_source_url_date_keys": 26480,
+    "indexed_title_date_keys": 46150,
     "prior_files": [
       "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
       "tmp/subagents/belfast_arch_candidates_round100.json",
@@ -172,7 +144,5 @@
     "validation": "tmp/subagents/round291_belfast_official_planning_tail4/validation.json"
   },
   "caveat": "Accepted candidates are source-backed administrative planning milestones only. They must not be counted as construction starts, completions, openings, delivery outcomes, future projections, outcome claims, or cause-and-effect evidence.",
-  "counts_by_source_date_field": {
-    "DecisionIssuedDate": 9
-  }
+  "counts_by_source_date_field": {}
 }

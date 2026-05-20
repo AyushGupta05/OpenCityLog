@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "checked_at": "2026-05-20T00:00:00Z",
+  "checks": [
+    "required provenance fields",
+    "unique event_id and candidate_id",
+    "unique source/date keys",
+    "date window",
+    "NYC coordinate bounds",
+    "no parks source records",
+    "no overlap with live corpus or HPD candidate packs through round283, including round229, round234, round236, round241, round246, round251, round255, round263, round269, round275, and round283"
+  ],
+  "candidate_count": 200,
+  "unique_event_ids": 200,
+  "unique_source_date_keys": 200
+}

@@ -9,18 +9,18 @@ Official Belfast architecture/city-change tail4 pass after round286 for records 
 
 ## Result
 
-- Accepted candidates: 9
-- Eligible before cap: 9
+- Accepted candidates: 0
+- Eligible before cap: 0
 - Candidate cap: 100
-- Accepted date range: 2016-08-22 to 2025-01-30
+- Accepted date range: none to none
 - Rejected/detail rows retained: 1254
 - Prior files screened: 75
-- Prior records indexed: 48315
+- Prior records indexed: 48857
 - Validation report: tmp/subagents/round291_belfast_official_planning_tail4/validation_report.json
 
 ## Accepted Source Mix
 
-- Department for Infrastructure, Northern Ireland: 9
+
 
 ## Audited Sources
 

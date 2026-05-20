@@ -46,16 +46,19 @@
     "tmp\\subagents\\round287_london_ldd_archive_next24\\summary.json",
     "tmp\\subagents\\round287_london_ldd_archive_next24\\notes.md",
     "tmp\\subagents\\round287_london_ldd_archive_next24\\rejected.json",
-    "tmp\\subagents\\round287_london_ldd_archive_next24\\validation.json",
-    "tmp\\subagents\\round287_london_ldd_archive_next24\\validation_report.md"
+    "tmp\\subagents\\round287_london_ldd_archive_next24\\validation.json"
   ],
   "validation": {
-    "ok": true,
+    "ok": false,
     "path": "tmp\\subagents\\round287_london_ldd_archive_next24\\validation.json",
     "warnings": [
       "No commencement/started or completion rows remained after dedupe through round277 and signal filters."
     ],
-    "issues": []
-  },
-  "validation_report": "tmp\\subagents\\round287_london_ldd_archive_next24\\validation_report.md"
+    "issues": [
+      "cross-dedupe intersection manual_rows: 240",
+      "cross-dedupe intersection manual_refs: 240",
+      "cross-dedupe intersection manual_source_dates: 240",
+      "cross-dedupe intersection manual_title_dates: 240"
+    ]
+  }
 }
