@@ -5,7 +5,7 @@ Accessed: 2026-05-20
 
 ## Scope
 
-Official Belfast architecture/city-change tail3 pass after round281 for records dated 2008-01-01 through 2026-05-20. The accepted candidates are Department for Infrastructure planning-statistics approval rows that were still missing after screening the current manual architecture corpus, round270, and prior Belfast candidate packs under `tmp/subagents`.
+Official Belfast architecture/city-change tail3 pass after round281 for records dated 2008-01-01 through 2026-05-20. The accepted candidates are Department for Infrastructure planning-statistics approval rows that were still missing after screening the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under `tmp/subagents`.
 
 ## Result
 

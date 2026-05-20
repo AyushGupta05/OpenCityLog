@@ -13,6 +13,15 @@ function buildRound286Script(source) {
     .replaceAll("round281", "round286")
     .replaceAll("tail2", "tail3")
     .replaceAll("after round270", "after round281")
+    .replaceAll("capped the ranked review pack at 120", "capped the ranked review pack at 150")
+    .replaceAll(
+      "current manual architecture corpus, round270, and prior Belfast candidate packs",
+      "current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281"
+    )
+    .replaceAll(
+      "current manual architecture corpus, round270, or prior Belfast packs",
+      "current manual architecture corpus, round270, round281, or prior Belfast packs through round281"
+    )
     .replace("const TARGET_CANDIDATES = 120;", "const TARGET_CANDIDATES = 150;");
 
   const includesRound270 =
@@ -23,11 +32,11 @@ function buildRound286Script(source) {
       includes_round281: index.files.some((entry) => /round281_belfast_official_planning_tail2\\/candidates\\.json$/i.test(entry.path))`
   );
 
-  transformed = transformed.replace(
+  transformed = transformed.replaceAll(
     "prior Belfast candidate packs",
     "prior Belfast candidate packs through round281"
   );
-  transformed = transformed.replace(
+  transformed = transformed.replaceAll(
     "prior-Belfast-pack dedupe",
     "prior-Belfast-pack dedupe through round281"
   );

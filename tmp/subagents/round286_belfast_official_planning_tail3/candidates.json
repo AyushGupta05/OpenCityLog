@@ -93,7 +93,7 @@
       "tmp/subagents/round281_belfast_official_planning_tail2/candidates.json"
     ]
   },
-  "scope_note": "Official DfI Belfast planning-statistics tail3 candidates not already present in the current manual architecture corpus, round270, or prior Belfast packs. Planning approval is not evidence of construction, opening, occupation, completion, delivery, final built form, or causal effects.",
+  "scope_note": "Official DfI Belfast planning-statistics tail3 candidates not already present in the current manual architecture corpus, round270, round281, or prior Belfast packs through round281. Planning approval is not evidence of construction, opening, occupation, completion, delivery, final built form, or causal effects.",
   "source_audits": [
     {
       "source_id": "ni-planning-statistics",
@@ -137,7 +137,7 @@
         "ok": true,
         "http_status": 200,
         "final_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
-        "elapsed_ms": 51,
+        "elapsed_ms": 47,
         "bytes": 54858,
         "content_sha256": "57fb91a77a3ca8c30475fa368d217ba904c67687585fc66ea68be9013bbe21d1",
         "error": null
@@ -547,7 +547,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2015/0705/F",
         "DateReceived": "19/06/2015",
@@ -658,7 +658,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0648/F",
         "DateReceived": "16/03/2016",
@@ -769,7 +769,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0148/F",
         "DateReceived": "14/12/2015",
@@ -880,7 +880,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0257/F",
         "DateReceived": "28/01/2016",
@@ -991,7 +991,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0230/F",
         "DateReceived": "20/01/2016",
@@ -1102,7 +1102,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0598/F",
         "DateReceived": "11/03/2016",
@@ -1213,7 +1213,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0872/F",
         "DateReceived": "27/04/2016",
@@ -1324,7 +1324,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/0989/F",
         "DateReceived": "17/05/2016",
@@ -1435,7 +1435,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/1823/F",
         "DateReceived": "23/08/2016",
@@ -1546,7 +1546,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/1824/F",
         "DateReceived": "23/08/2016",
@@ -1657,7 +1657,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/1329/F",
         "DateReceived": "13/05/2016",
@@ -1769,7 +1769,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2015/0933/F",
         "DateReceived": "14/08/2015",
@@ -1880,7 +1880,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/1965/F",
         "DateReceived": "13/09/2016",
@@ -1991,7 +1991,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/1794/F",
         "DateReceived": "22/08/2016",
@@ -2102,7 +2102,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/1919/F",
         "DateReceived": "02/09/2016",
@@ -2213,7 +2213,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "Z/2015/0238/F",
         "DateReceived": "27/02/2015",
@@ -2324,7 +2324,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/2356/F",
         "DateReceived": "01/11/2016",
@@ -2435,7 +2435,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2016/2643/F",
         "DateReceived": "12/12/2016",
@@ -2546,7 +2546,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/0363/F",
         "DateReceived": "16/02/2017",
@@ -2657,7 +2657,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/0177/F",
         "DateReceived": "25/01/2017",
@@ -2768,7 +2768,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/0058/F",
         "DateReceived": "20/12/2016",
@@ -2879,7 +2879,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/0446/F",
         "DateReceived": "07/02/2017",
@@ -2990,7 +2990,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/0472/F",
         "DateReceived": "14/02/2017",
@@ -3101,7 +3101,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/1453/F",
         "DateReceived": "19/06/2017",
@@ -3212,7 +3212,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/1426/F",
         "DateReceived": "27/06/2017",
@@ -3323,7 +3323,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/0459/F",
         "DateReceived": "01/03/2017",
@@ -3434,7 +3434,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/2712/F",
         "DateReceived": "30/11/2017",
@@ -3545,7 +3545,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/0095/F",
         "DateReceived": "20/12/2017",
@@ -3656,7 +3656,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/2543/F",
         "DateReceived": "06/11/2017",
@@ -3767,7 +3767,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/2544/F",
         "DateReceived": "06/11/2017",
@@ -3878,7 +3878,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/2545/F",
         "DateReceived": "06/11/2017",
@@ -3989,7 +3989,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/2546/F",
         "DateReceived": "06/11/2017",
@@ -4100,7 +4100,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/0970/F",
         "DateReceived": "13/04/2018",
@@ -4211,7 +4211,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/0097/F",
         "DateReceived": "03/01/2018",
@@ -4322,7 +4322,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2017/2362/F",
         "DateReceived": "09/10/2017",
@@ -4433,7 +4433,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/0706/F",
         "DateReceived": "14/03/2018",
@@ -4544,7 +4544,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1361/F",
         "DateReceived": "14/05/2018",
@@ -4655,7 +4655,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1692/F",
         "DateReceived": "28/06/2018",
@@ -4766,7 +4766,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1941/F",
         "DateReceived": "26/07/2018",
@@ -4877,7 +4877,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1745/F",
         "DateReceived": "02/07/2018",
@@ -4988,7 +4988,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1840/F",
         "DateReceived": "09/07/2018",
@@ -5099,7 +5099,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1767/F",
         "DateReceived": "05/07/2018",
@@ -5210,7 +5210,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/1980/F",
         "DateReceived": "30/07/2018",
@@ -5321,7 +5321,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/0874/F",
         "DateReceived": "21/03/2018",
@@ -5432,7 +5432,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2018/2911/F",
         "DateReceived": "04/12/2018",
@@ -5543,7 +5543,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2019/2562/F",
         "DateReceived": "29-Oct-2019",
@@ -5654,7 +5654,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/0387/F",
         "DateReceived": "04-Feb-2020",
@@ -5765,7 +5765,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/0030/F",
         "DateReceived": "06-Nov-2019",
@@ -5876,7 +5876,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2019/1377/F",
         "DateReceived": "03-Jun-2019",
@@ -5987,7 +5987,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/1090/F",
         "DateReceived": "16-Jun-2020",
@@ -6098,7 +6098,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/0961/F",
         "DateReceived": "19-May-2020",
@@ -6209,7 +6209,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/1572/F",
         "DateReceived": "10-Aug-2020",
@@ -6320,7 +6320,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/1434/F",
         "DateReceived": "08-Jul-2020",
@@ -6431,7 +6431,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/0478/F",
         "DateReceived": "19-Feb-2020",
@@ -6542,7 +6542,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/1598/F",
         "DateReceived": "27-Jul-2020",
@@ -6654,7 +6654,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/1857/F",
         "DateReceived": "16-Sep-2020",
@@ -6765,7 +6765,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/0130/F",
         "DateReceived": "11-Dec-2020",
@@ -6876,7 +6876,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/1143/F",
         "DateReceived": "11-Jun-2020",
@@ -6987,7 +6987,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2020/2583/F",
         "DateReceived": "04-Dec-2020",
@@ -7098,7 +7098,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/0223/F",
         "DateReceived": "22-Dec-2020",
@@ -7209,7 +7209,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/0657/F",
         "DateReceived": "12-Mar-2021",
@@ -7320,7 +7320,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/0864/F",
         "DateReceived": "02-Apr-2021",
@@ -7431,7 +7431,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/1627/F",
         "DateReceived": "09-Jun-2021",
@@ -7542,7 +7542,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/0652/F",
         "DateReceived": "12-Mar-2021",
@@ -7653,7 +7653,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/2076/F",
         "DateReceived": "20-Aug-2021",
@@ -7765,7 +7765,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/2468/F",
         "DateReceived": "20-Oct-2021",
@@ -7876,7 +7876,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/2160/F",
         "DateReceived": "14-Sep-2021",
@@ -7988,7 +7988,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/2056/O",
         "DateReceived": "18-Aug-2021",
@@ -8099,7 +8099,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/1062/F",
         "DateReceived": "18-May-2022",
@@ -8210,7 +8210,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/0358/F",
         "DateReceived": "17-Feb-2022",
@@ -8321,7 +8321,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/1754/F",
         "DateReceived": "13-Sep-2022",
@@ -8432,7 +8432,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/1337/F",
         "DateReceived": "27-Jun-2022",
@@ -8543,7 +8543,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/2200/F",
         "DateReceived": "07-Dec-2022",
@@ -8654,7 +8654,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/2285/F",
         "DateReceived": "12-Dec-2022",
@@ -8765,7 +8765,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/2197/F",
         "DateReceived": "07-Dec-2022",
@@ -8876,7 +8876,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2023/2762/F",
         "DateReceived": "22-Feb-2023",
@@ -8987,7 +8987,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2021/1618/F",
         "DateReceived": "08-Jun-2021",
@@ -9098,7 +9098,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2023/3522/F",
         "DateReceived": "22-Jun-2023",
@@ -9210,7 +9210,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2023/3498/F",
         "DateReceived": "19-Jun-2023",
@@ -9321,7 +9321,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2023/3130/F",
         "DateReceived": "21-Apr-2023",
@@ -9432,7 +9432,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2023/3462/F",
         "DateReceived": "09-Jun-2023",
@@ -9543,7 +9543,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2022/1800/F",
         "DateReceived": "16-Sep-2022",
@@ -9654,7 +9654,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2024/0021/F",
         "DateReceived": "21-Dec-2023",
@@ -9765,7 +9765,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2024/0253/F",
         "DateReceived": "13-Feb-2024",
@@ -9876,7 +9876,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2024/0551/F",
         "DateReceived": "28-Mar-2024",
@@ -9987,7 +9987,7 @@
         "Round286 keeps the next residual Belfast rows after round281 that survived live-corpus and prior-Belfast-pack dedupe through round281 and met a conservative tail gate: commercial/industrial/mixed-use building works approval.",
         "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
       ],
-      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, and prior Belfast candidate packs through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 120, and preserved file/row/date/license/provenance fields.",
+      "transformation_method": "scripts/fetch_round286_belfast_official_planning_tail3_candidates.js parsed local official DfI planning-statistics CSVs, deduped against the current manual architecture corpus, round270, round281, and prior Belfast candidate packs through round281 through round281 under tmp/subagents, kept approved Belfast rows dated 2008-01-01 through 2026-05-20 with approximate in-city coordinates, applied residual architecture/planning-tail quality gates, excluded domestic/minor/admin/signage/telecom/frontage-only rows, capped the ranked review pack at 150, and preserved file/row/date/license/provenance fields.",
       "raw_row": {
         "ID": "LA04/2024/1033/F",
         "DateReceived": "06-Jun-2024",
