@@ -1,0 +1,356 @@
+{
+  "round_id": "round519_belfast_official_architecture_sweep_next26",
+  "accepted_event_ids": [
+    "bfs_arch_round519_harberton_drive_refurbishment_demolition_approval_2024",
+    "bfs_arch_round519_brunswick_street_outdoor_social_space_retention_2024",
+    "bfs_arch_round519_ardenlee_avenue_infill_dormer_approval_2024",
+    "bfs_arch_round519_malone_park_garden_room_demolition_renewal_approval_2024",
+    "bfs_arch_round519_upper_malone_facade_attic_alterations_approval_2024",
+    "bfs_arch_round519_sunnyside_street_charity_admin_hub_extension_approval_2024",
+    "bfs_arch_round519_cregagh_road_extension_roofspace_approval_2024",
+    "bfs_arch_round519_bridge_street_hot_food_bar_change_approval_2024",
+    "bfs_arch_round519_ardenlee_avenue_flats_deconversion_approval_2024",
+    "bfs_arch_round519_donegall_place_replacement_shopfront_approval_2024",
+    "bfs_arch_round519_fitzroy_avenue_apartment_rear_extension_approval_2024",
+    "bfs_arch_round519_knockbreda_road_showroom_extension_renewal_approval_2024",
+    "bfs_arch_round519_devenish_restaurant_store_extension_approval_2024",
+    "bfs_arch_round519_malone_road_front_rear_extensions_demolition_approval_2024",
+    "bfs_arch_round519_fortwilliam_drive_side_extension_demolition_approval_2024",
+    "bfs_arch_round519_marylebone_park_cladding_refurbishment_approval_2024",
+    "bfs_arch_round519_college_street_cafe_nail_salon_change_approval_2024",
+    "bfs_arch_round519_heron_road_roller_shutter_window_approval_2024",
+    "bfs_arch_round519_finaghy_road_north_facade_ewi_approval_2024",
+    "bfs_arch_round519_enfield_street_hmo_roof_extension_approval_2024",
+    "bfs_arch_round519_riverdale_park_south_facade_ewi_approval_2024",
+    "bfs_arch_round519_marlborough_park_south_demolition_window_approval_2024",
+    "bfs_arch_round519_malone_park_refurbishment_reinstatement_approval_2024",
+    "bfs_arch_round519_alexander_road_plant_hire_access_approval_2024",
+    "bfs_arch_round519_derryvolgie_avenue_apartment_amalgamation_extension_approval_2025",
+    "bfs_arch_round519_cyprus_avenue_external_wall_demolition_consent_2025"
+  ],
+  "accepted_candidate_ids": [
+    "bfs_arch_round519_harberton_drive_refurbishment_demolition_approval_2024",
+    "bfs_arch_round519_brunswick_street_outdoor_social_space_retention_2024",
+    "bfs_arch_round519_ardenlee_avenue_infill_dormer_approval_2024",
+    "bfs_arch_round519_malone_park_garden_room_demolition_renewal_approval_2024",
+    "bfs_arch_round519_upper_malone_facade_attic_alterations_approval_2024",
+    "bfs_arch_round519_sunnyside_street_charity_admin_hub_extension_approval_2024",
+    "bfs_arch_round519_cregagh_road_extension_roofspace_approval_2024",
+    "bfs_arch_round519_bridge_street_hot_food_bar_change_approval_2024",
+    "bfs_arch_round519_ardenlee_avenue_flats_deconversion_approval_2024",
+    "bfs_arch_round519_donegall_place_replacement_shopfront_approval_2024",
+    "bfs_arch_round519_fitzroy_avenue_apartment_rear_extension_approval_2024",
+    "bfs_arch_round519_knockbreda_road_showroom_extension_renewal_approval_2024",
+    "bfs_arch_round519_devenish_restaurant_store_extension_approval_2024",
+    "bfs_arch_round519_malone_road_front_rear_extensions_demolition_approval_2024",
+    "bfs_arch_round519_fortwilliam_drive_side_extension_demolition_approval_2024",
+    "bfs_arch_round519_marylebone_park_cladding_refurbishment_approval_2024",
+    "bfs_arch_round519_college_street_cafe_nail_salon_change_approval_2024",
+    "bfs_arch_round519_heron_road_roller_shutter_window_approval_2024",
+    "bfs_arch_round519_finaghy_road_north_facade_ewi_approval_2024",
+    "bfs_arch_round519_enfield_street_hmo_roof_extension_approval_2024",
+    "bfs_arch_round519_riverdale_park_south_facade_ewi_approval_2024",
+    "bfs_arch_round519_marlborough_park_south_demolition_window_approval_2024",
+    "bfs_arch_round519_malone_park_refurbishment_reinstatement_approval_2024",
+    "bfs_arch_round519_alexander_road_plant_hire_access_approval_2024",
+    "bfs_arch_round519_derryvolgie_avenue_apartment_amalgamation_extension_approval_2025",
+    "bfs_arch_round519_cyprus_avenue_external_wall_demolition_consent_2025"
+  ],
+  "accepted_source_record_ids": [
+    "APP_ID:LA04/2023/4171/F; RELATED_APP_ID:LA04/2023/4348/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:4136",
+    "APP_ID:LA04/2023/2946/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:2136",
+    "APP_ID:LA04/2024/0241/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:6277",
+    "APP_ID:LA04/2023/3811/F; RELATED_APP_ID:LA04/2023/3866/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:3521",
+    "APP_ID:LA04/2024/0535/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:7428",
+    "APP_ID:LA04/2020/1173/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:249",
+    "APP_ID:LA04/2024/0062/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:5545",
+    "APP_ID:LA04/2023/3763/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:3399",
+    "APP_ID:LA04/2024/0404/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:6900",
+    "APP_ID:LA04/2023/3843/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:3586",
+    "APP_ID:LA04/2023/4602/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:4979",
+    "APP_ID:LA04/2023/3935/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:3727",
+    "APP_ID:LA04/2022/0940/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:940",
+    "APP_ID:LA04/2024/1094/F; RELATED_APP_ID:LA04/2024/1095/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:10036",
+    "APP_ID:LA04/2024/0799/F; RELATED_APP_ID:LA04/2024/0993/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:8744",
+    "APP_ID:LA04/2024/0927/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:9232",
+    "APP_ID:LA04/2023/2894/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:2155",
+    "APP_ID:LA04/2024/1171/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:10260",
+    "APP_ID:LA04/2024/0692/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:7651",
+    "APP_ID:LA04/2023/4608/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:5352",
+    "APP_ID:LA04/2024/0693/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:7652",
+    "APP_ID:LA04/2024/1269/F; RELATED_APP_ID:LA04/2024/1266/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:10698",
+    "APP_ID:LA04/2022/0372/F; RELATED_APP_ID:LA04/2022/0373/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:818",
+    "APP_ID:LA04/2022/0953/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:921",
+    "APP_ID:LA04/2024/0351/F; RELATED_APP_ID:LA04/2024/0481/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:6708",
+    "APP_ID:LA04/2024/0583/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:7822"
+  ],
+  "accepted_source_date_keys": [
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/4171/F|2024-04-16",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/2946/F|2024-04-23",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0241/F|2024-04-30",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/3811/F|2024-05-07",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0535/F|2024-05-17",
+    "dfi-planning-statistics-2024-25-round519|LA04/2020/1173/F|2024-05-20",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0062/F|2024-05-22",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/3763/F|2024-06-11",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0404/F|2024-06-14",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/3843/F|2024-07-11",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/4602/F|2024-07-11",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/3935/F|2024-07-11",
+    "dfi-planning-statistics-2024-25-round519|LA04/2022/0940/F|2024-07-26",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/1094/F|2024-08-02",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0799/F|2024-09-02",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0927/F|2024-09-02",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/2894/F|2024-09-11",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/1171/F|2024-09-13",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0692/F|2024-09-17",
+    "dfi-planning-statistics-2024-25-round519|LA04/2023/4608/F|2024-09-24",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0693/F|2024-09-24",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/1269/F|2024-11-04",
+    "dfi-planning-statistics-2024-25-round519|LA04/2022/0372/F|2024-12-20",
+    "dfi-planning-statistics-2024-25-round519|LA04/2022/0953/F|2024-12-23",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0351/F|2025-02-28",
+    "dfi-planning-statistics-2024-25-round519|LA04/2024/0583/DCA|2025-03-05"
+  ],
+  "accepted_source_row_refs": [
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 4136,
+      "source_record_id": "APP_ID:LA04/2023/4171/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 4620,
+      "source_record_id": "APP_ID:LA04/2023/4348/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 2136,
+      "source_record_id": "APP_ID:LA04/2023/2946/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 6277,
+      "source_record_id": "APP_ID:LA04/2024/0241/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 3521,
+      "source_record_id": "APP_ID:LA04/2023/3811/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 3522,
+      "source_record_id": "APP_ID:LA04/2023/3866/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 7428,
+      "source_record_id": "APP_ID:LA04/2024/0535/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 249,
+      "source_record_id": "APP_ID:LA04/2020/1173/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 5545,
+      "source_record_id": "APP_ID:LA04/2024/0062/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 3399,
+      "source_record_id": "APP_ID:LA04/2023/3763/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 6900,
+      "source_record_id": "APP_ID:LA04/2024/0404/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 3586,
+      "source_record_id": "APP_ID:LA04/2023/3843/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 4979,
+      "source_record_id": "APP_ID:LA04/2023/4602/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 3727,
+      "source_record_id": "APP_ID:LA04/2023/3935/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 940,
+      "source_record_id": "APP_ID:LA04/2022/0940/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 10036,
+      "source_record_id": "APP_ID:LA04/2024/1094/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 10037,
+      "source_record_id": "APP_ID:LA04/2024/1095/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 8744,
+      "source_record_id": "APP_ID:LA04/2024/0799/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 9388,
+      "source_record_id": "APP_ID:LA04/2024/0993/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 9232,
+      "source_record_id": "APP_ID:LA04/2024/0927/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 2155,
+      "source_record_id": "APP_ID:LA04/2023/2894/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 10260,
+      "source_record_id": "APP_ID:LA04/2024/1171/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 7651,
+      "source_record_id": "APP_ID:LA04/2024/0692/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 5352,
+      "source_record_id": "APP_ID:LA04/2023/4608/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 7652,
+      "source_record_id": "APP_ID:LA04/2024/0693/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 10698,
+      "source_record_id": "APP_ID:LA04/2024/1269/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 10697,
+      "source_record_id": "APP_ID:LA04/2024/1266/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 818,
+      "source_record_id": "APP_ID:LA04/2022/0372/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 819,
+      "source_record_id": "APP_ID:LA04/2022/0373/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 921,
+      "source_record_id": "APP_ID:LA04/2022/0953/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 6708,
+      "source_record_id": "APP_ID:LA04/2024/0351/F",
+      "role": "primary"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 7255,
+      "source_record_id": "APP_ID:LA04/2024/0481/DCA",
+      "role": "related"
+    },
+    {
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 7822,
+      "source_record_id": "APP_ID:LA04/2024/0583/DCA",
+      "role": "primary"
+    }
+  ],
+  "rejected_ids": [
+    "bfs_arch_round519_reject_duplicate_project_rows_through_round511",
+    "bfs_arch_round519_reject_2025_26_quarterly_tables_no_point_rows",
+    "bfs_arch_round519_reject_harni_hed_status_date_boundary",
+    "bfs_arch_round519_reject_bcc_pages_page_only_or_license_limited",
+    "bfs_arch_round519_reject_lower_priority_minor_domestic_rows",
+    "bfs_arch_round519_reject_low_signal_short_let_hmo_rows",
+    "bfs_arch_round519_reject_signage_equipment_transport_rows"
+  ],
+  "point_backed_event_ids": [
+    "bfs_arch_round519_harberton_drive_refurbishment_demolition_approval_2024",
+    "bfs_arch_round519_brunswick_street_outdoor_social_space_retention_2024",
+    "bfs_arch_round519_ardenlee_avenue_infill_dormer_approval_2024",
+    "bfs_arch_round519_malone_park_garden_room_demolition_renewal_approval_2024",
+    "bfs_arch_round519_upper_malone_facade_attic_alterations_approval_2024",
+    "bfs_arch_round519_sunnyside_street_charity_admin_hub_extension_approval_2024",
+    "bfs_arch_round519_cregagh_road_extension_roofspace_approval_2024",
+    "bfs_arch_round519_bridge_street_hot_food_bar_change_approval_2024",
+    "bfs_arch_round519_ardenlee_avenue_flats_deconversion_approval_2024",
+    "bfs_arch_round519_donegall_place_replacement_shopfront_approval_2024",
+    "bfs_arch_round519_fitzroy_avenue_apartment_rear_extension_approval_2024",
+    "bfs_arch_round519_knockbreda_road_showroom_extension_renewal_approval_2024",
+    "bfs_arch_round519_devenish_restaurant_store_extension_approval_2024",
+    "bfs_arch_round519_malone_road_front_rear_extensions_demolition_approval_2024",
+    "bfs_arch_round519_fortwilliam_drive_side_extension_demolition_approval_2024",
+    "bfs_arch_round519_marylebone_park_cladding_refurbishment_approval_2024",
+    "bfs_arch_round519_college_street_cafe_nail_salon_change_approval_2024",
+    "bfs_arch_round519_heron_road_roller_shutter_window_approval_2024",
+    "bfs_arch_round519_finaghy_road_north_facade_ewi_approval_2024",
+    "bfs_arch_round519_enfield_street_hmo_roof_extension_approval_2024",
+    "bfs_arch_round519_riverdale_park_south_facade_ewi_approval_2024",
+    "bfs_arch_round519_marlborough_park_south_demolition_window_approval_2024",
+    "bfs_arch_round519_malone_park_refurbishment_reinstatement_approval_2024",
+    "bfs_arch_round519_alexander_road_plant_hire_access_approval_2024",
+    "bfs_arch_round519_derryvolgie_avenue_apartment_amalgamation_extension_approval_2025",
+    "bfs_arch_round519_cyprus_avenue_external_wall_demolition_consent_2025"
+  ],
+  "geometry_ref_only_event_ids": [],
+  "point_corpus_ready": true,
+  "validation_ok": true,
+  "dedupe_boundary_round": 511
+}

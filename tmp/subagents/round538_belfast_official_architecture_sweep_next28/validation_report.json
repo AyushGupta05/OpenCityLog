@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round538_belfast_official_architecture_sweep_next28",
+  "ok": true,
+  "accepted_count": 28,
+  "rejected_count": 4,
+  "point_backed_count": 28,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2024-04-17",
+    "end": "2025-03-11"
+  },
+  "publishers": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_count": 1,
+  "source_record_id_count": 28,
+  "source_date_key_count": 28,
+  "category_counts": {
+    "architecture_residential_fabric_admin": 21,
+    "architecture_residential_development_admin": 4,
+    "architecture_residential_demolition_admin": 3
+  },
+  "event_type_counts": {
+    "planning_decision_residential_extension": 21,
+    "planning_decision_residential_development": 3,
+    "planning_decision_demolition_consent": 3,
+    "planning_decision_residential_replacement": 1
+  },
+  "warnings": [],
+  "errors": [],
+  "duplicate_scan_roots": [
+    "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "tmp/subagents official Belfast architecture sweep candidates through round527"
+  ],
+  "duplicate_scan_files_checked": 28,
+  "dedupe_boundary_round": 527,
+  "searched_queries": [
+    "local DfI planning-statistics 2024-25 Belfast residual APP_ID scan after Round527 accepted-pack dedupe",
+    "local duplicate scan: data/manual_drops/architecture_milestones plus official Belfast architecture sweep candidate packs through Round527",
+    "source review: DfI planning activity statistics page and 2024/25 annual application-level CSV",
+    "source review: DfI 2025/26 Q1-Q3 provisional quarterly publication pages; retained until final annual row-level dataset with coordinates",
+    "source review: EPSG:29902 TM65 / Irish Grid projection and TOWGS84 parameters for Easting/Northing conversion",
+    "source review: DfC/HED Historic Buildings and Heritage at Risk ArcGIS feature layers",
+    "source review: Belfast City Council official project/news pages and website copyright terms",
+    "source review: DfI point-backed duplicate-project, minor domestic, low-signal HMO/short-let, signage, equipment, transport and telecom rows retained outside promoted pack"
+  ]
+}

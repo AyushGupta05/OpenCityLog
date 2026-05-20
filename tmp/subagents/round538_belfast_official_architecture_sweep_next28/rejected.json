@@ -1,0 +1,136 @@
+[
+  {
+    "id": "bfs_arch_round538_reject_duplicate_project_rows_through_round527",
+    "city_id": "belfast",
+    "title": "Residual duplicate-project planning rows through the Round527 boundary",
+    "rejection_category": "duplicate_project_boundary",
+    "reason": "Official point-backed DfI rows for already-covered project families or same-site milestones were retained outside the promoted pack because the manual architecture corpus or official Belfast architecture sweep candidate records through Round527 already cover the same project family.",
+    "source_id": "round538-reject-duplicate_project_rows_through_round527",
+    "source_record_id": "EXAMPLES:APP_ID:LA04/2022/1458/LBC; APP_ID:LA04/2024/0898/LBC; APP_ID:LA04/2021/1593/F; APP_ID:LA04/2024/0507/F; APP_ID:LA04/2024/0757/LBC; APP_ID:LA04/2021/0316/DCA; APP_ID:LA04/2023/4579/F; APP_ID:LA04/2024/1808/LBC; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+    "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_type": "official annual planning-statistics CSV release",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "duplicate_check_terms": [
+      "Glenwood Primary School",
+      "41 High Street",
+      "Blanchflower Playing Fields",
+      "2 Adelaide Park",
+      "99 Upper Newtownards Road",
+      "37-39 Wellington Park",
+      "70 High Street",
+      "15-19 William Street South"
+    ],
+    "duplicate_scan_hits": [
+      "Glenwood Primary School",
+      "99 Upper Newtownards Road",
+      "15-19 William Street South"
+    ],
+    "method": "Round538 official Belfast architecture sweep next28 after the completed Round527 next27 pack. Accepted selected residual DfI planning-statistics 2024-25 Belfast rows only where the source row supplied an approved planning, demolition-consent or statutory-consent decision date and official Easting/Northing. Source Easting/Northing is converted deterministically from EPSG:29902 TM65 / Irish Grid to WGS84 using the EPSG projection parameters and TOWGS84 transform. Each accepted record is an observed administrative planning, listed-building, demolition-consent or other-consent milestone only. The records do not assert that works started, works completed, premises opened, occupation changed, or any public, service, economic, environmental, health, education or heritage outcome followed. Round527 is treated as the latest Belfast official architecture sweep dedupe boundary; official page-only, geometry-ref-only, duplicate-project, status-only, signage-only, equipment-only and lower-priority private-use leads are retained separately.",
+    "transformation_method": "scripts/fetch_round538_belfast_official_architecture_sweep_next28_candidates.js#round538OfficialArchitectureSweepNext28"
+  },
+  {
+    "id": "bfs_arch_round538_reject_short_let_and_hmo_only_tail",
+    "city_id": "belfast",
+    "title": "Lower-signal short-let and HMO-only residual rows",
+    "rejection_category": "lower_priority_private_residential_use_change_not_promoted",
+    "reason": "Residual point-backed DfI rows limited to apartment-to-short-let, dwelling-to-HMO or guest-accommodation use changes with little or no substantial building-fabric signal were retained for a possible housing-use pass rather than promoted in this architecture/development batch.",
+    "source_id": "round538-reject-short_let_and_hmo_only_tail",
+    "source_record_id": "EXAMPLES:APP_ID:LA04/2023/3692/F; APP_ID:LA04/2024/0557/F; APP_ID:LA04/2024/0719/F; APP_ID:LA04/2024/1740/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+    "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_type": "official annual planning-statistics CSV release",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "duplicate_check_terms": [
+      "short term let",
+      "HMO",
+      "Sui Generis",
+      "guest accommodation"
+    ],
+    "duplicate_scan_hits": [
+      "short term let",
+      "HMO",
+      "Sui Generis",
+      "guest accommodation"
+    ],
+    "method": "Round538 official Belfast architecture sweep next28 after the completed Round527 next27 pack. Accepted selected residual DfI planning-statistics 2024-25 Belfast rows only where the source row supplied an approved planning, demolition-consent or statutory-consent decision date and official Easting/Northing. Source Easting/Northing is converted deterministically from EPSG:29902 TM65 / Irish Grid to WGS84 using the EPSG projection parameters and TOWGS84 transform. Each accepted record is an observed administrative planning, listed-building, demolition-consent or other-consent milestone only. The records do not assert that works started, works completed, premises opened, occupation changed, or any public, service, economic, environmental, health, education or heritage outcome followed. Round527 is treated as the latest Belfast official architecture sweep dedupe boundary; official page-only, geometry-ref-only, duplicate-project, status-only, signage-only, equipment-only and lower-priority private-use leads are retained separately.",
+    "transformation_method": "scripts/fetch_round538_belfast_official_architecture_sweep_next28_candidates.js#round538OfficialArchitectureSweepNext28"
+  },
+  {
+    "id": "bfs_arch_round538_reject_page_only_or_no_point_official_leads",
+    "city_id": "belfast",
+    "title": "Official page-only or no-point Belfast architecture leads",
+    "rejection_category": "page_only_or_geometry_ref_only",
+    "reason": "Belfast City Council, planning portal and project/news pages were retained as citation or discovery leads where they did not provide reusable source-backed point coordinates or where the page duplicated DfI point rows already handled through the planning-statistics CSV.",
+    "source_id": "round538-reject-page_only_or_no_point_official_leads",
+    "source_record_id": "BCC project/news pages and Planning Portal application pages checked; no additional reusable source-backed point rows promoted in this pack",
+    "source_url": "https://planningregister.planningsystemni.gov.uk/",
+    "source_name": "Northern Ireland Planning Portal and Belfast City Council project pages",
+    "publisher": "Department for Infrastructure / Belfast City Council planning authority",
+    "source_type": "official planning application and council web pages",
+    "license": "Official page citation metadata retained; page content and documents require source-specific terms review before redistribution.",
+    "license_url": "https://www.infrastructure-ni.gov.uk/terms-and-conditions",
+    "attribution": "Department for Infrastructure / Belfast City Council planning authority",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "duplicate_check_terms": [
+      "Planning Portal",
+      "Belfast City Council",
+      "project page",
+      "no point coordinates"
+    ],
+    "duplicate_scan_hits": [
+      "Planning Portal",
+      "Belfast City Council",
+      "project page"
+    ],
+    "method": "Round538 official Belfast architecture sweep next28 after the completed Round527 next27 pack. Accepted selected residual DfI planning-statistics 2024-25 Belfast rows only where the source row supplied an approved planning, demolition-consent or statutory-consent decision date and official Easting/Northing. Source Easting/Northing is converted deterministically from EPSG:29902 TM65 / Irish Grid to WGS84 using the EPSG projection parameters and TOWGS84 transform. Each accepted record is an observed administrative planning, listed-building, demolition-consent or other-consent milestone only. The records do not assert that works started, works completed, premises opened, occupation changed, or any public, service, economic, environmental, health, education or heritage outcome followed. Round527 is treated as the latest Belfast official architecture sweep dedupe boundary; official page-only, geometry-ref-only, duplicate-project, status-only, signage-only, equipment-only and lower-priority private-use leads are retained separately.",
+    "transformation_method": "scripts/fetch_round538_belfast_official_architecture_sweep_next28_candidates.js#round538OfficialArchitectureSweepNext28"
+  },
+  {
+    "id": "bfs_arch_round538_reject_signage_equipment_transport_rows",
+    "city_id": "belfast",
+    "title": "Signage, equipment-only, transport and telecom residual rows",
+    "rejection_category": "not_architecture_atlas_priority",
+    "reason": "Point-backed DfI rows for advertisements, display plaques, bus/coach parking, fencing-only works, equipment-only changes and telecom/transport changes were reviewed but not promoted because they do not add a higher-signal building-fabric, use, civic-facility or heritage-works milestone for this pack.",
+    "source_id": "round538-reject-signage_equipment_transport_rows",
+    "source_record_id": "EXAMPLES:APP_ID:LA04/2024/0974/F; APP_ID:LA04/2024/1656/A; APP_ID:LA04/2024/0587/F; APP_ID:LA04/2024/0334/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+    "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_type": "official annual planning-statistics CSV release",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "duplicate_check_terms": [
+      "advertisement",
+      "coach parking",
+      "fencing",
+      "shipping container",
+      "building plaque"
+    ],
+    "duplicate_scan_hits": [
+      "advertisement",
+      "fencing",
+      "shipping container"
+    ],
+    "method": "Round538 official Belfast architecture sweep next28 after the completed Round527 next27 pack. Accepted selected residual DfI planning-statistics 2024-25 Belfast rows only where the source row supplied an approved planning, demolition-consent or statutory-consent decision date and official Easting/Northing. Source Easting/Northing is converted deterministically from EPSG:29902 TM65 / Irish Grid to WGS84 using the EPSG projection parameters and TOWGS84 transform. Each accepted record is an observed administrative planning, listed-building, demolition-consent or other-consent milestone only. The records do not assert that works started, works completed, premises opened, occupation changed, or any public, service, economic, environmental, health, education or heritage outcome followed. Round527 is treated as the latest Belfast official architecture sweep dedupe boundary; official page-only, geometry-ref-only, duplicate-project, status-only, signage-only, equipment-only and lower-priority private-use leads are retained separately.",
+    "transformation_method": "scripts/fetch_round538_belfast_official_architecture_sweep_next28_candidates.js#round538OfficialArchitectureSweepNext28"
+  }
+]

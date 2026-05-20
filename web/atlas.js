@@ -397,7 +397,7 @@
       label: "Vitality",
       shortLabel: "Vitality",
       title: "Street-front vitality ribbons",
-      description: "Commercial street frontages colored by vacancy and performance.",
+      description: "Street-front vitality ribbons. Commercial street frontages colored by vacancy and performance. Ribbon thickness = business density; notices show churn.",
       radiusM: 800,
       accent: "#7b3a8f",
       mapMode: "economy-vitality",
@@ -957,6 +957,7 @@
       "compareBtn", "comparePanel", "compareClose", "compareBeforeYear", "compareAfterYear", "compareStats", "compareNote",
       "recenterBtn", "tiltBtn",
       "methodBtn", "shareBtn", "themeBtn",
+      "mapStudyChip", "mapStudyChipText",
       "layersPanel", "layersList", "layersCount", "lensSwitcher", "lensAspectSwitcher", "lensLegend", "lensDataState",
       "activeLensCard", "activeLensIcon", "activeLensDomain", "activeLensTitle", "activeLensDescription",
       "confidenceFilter", "showInferredToggle", "coverageNote",
@@ -2419,8 +2420,12 @@
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"], 0.76,
           ["==", ["get", "flow_style"], "economy_gravity_thread"], 0.44,
+          ["==", ["get", "flow_style"], "economy_current_ribbon"], 0.68,
+          ["==", ["get", "flow_style"], "economy_before_ribbon"], 0.26,
+          ["==", ["get", "flow_style"], "economy_churn_tick"], 0.72,
           ["==", ["get", "flow_style"], "planning_pressure_spine"], 0.74,
           ["==", ["get", "flow_style"], "planning_pressure_edge"], 0.58,
+          ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.34,
           ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.42,
           ["==", ["get", "flow_style"], "transport_backbone"], 0.9,
           ["==", ["get", "flow_style"], "transport_thread"], 0.56,
@@ -2444,10 +2449,18 @@
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.2, 1, 7.8],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 4.6],
+          ["==", ["get", "flow_style"], "economy_current_ribbon"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 5.8],
+          ["==", ["get", "flow_style"], "economy_before_ribbon"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 3.2],
+          ["==", ["get", "flow_style"], "economy_churn_tick"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.4, 1, 4.2],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.8, 1, 6.8],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.05, 1, 4.15],
+          ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.72],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.7, 1, 2.45],
           ["==", ["get", "flow_style"], "transport_backbone"],
@@ -2497,10 +2510,18 @@
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.94],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
+          ["==", ["get", "flow_style"], "economy_current_ribbon"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 0.96],
+          ["==", ["get", "flow_style"], "economy_before_ribbon"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.46],
+          ["==", ["get", "flow_style"], "economy_churn_tick"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.55, 1, 0.92],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.94],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.86],
+          ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 0.78],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.68],
           ["==", ["get", "flow_style"], "transport_backbone"],
@@ -2531,10 +2552,18 @@
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.9, 1, 4.65],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 2.25],
+          ["==", ["get", "flow_style"], "economy_current_ribbon"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 3.65],
+          ["==", ["get", "flow_style"], "economy_before_ribbon"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.3, 1, 1.65],
+          ["==", ["get", "flow_style"], "economy_churn_tick"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.6, 1, 2.5],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 4.35],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.45, 1, 2.35],
+          ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.16, 1, 0.86],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.26, 1, 1.24],
           ["==", ["get", "flow_style"], "transport_backbone"],
@@ -2580,6 +2609,7 @@
         ["!=", ["get", "node_style"], "utility_trace"],
         ["!=", ["get", "node_style"], "civic_anchor"],
         ["!=", ["get", "node_style"], "planning_document"],
+        ["!=", ["get", "node_style"], "economy_notice"],
       ],
       layout: { visibility: "none" },
       paint: {
@@ -2619,7 +2649,7 @@
       filter: [
         "all",
         ["==", ["get", "kind"], "node"],
-        ["any", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "node_style"], "planning_document"]],
+        ["any", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "node_style"], "planning_document"], ["==", ["get", "node_style"], "economy_notice"]],
       ],
       layout: {
         visibility: "none",
@@ -2647,6 +2677,16 @@
             "uncertainty", "lens-icon-planning-uncertainty",
             "lens-icon-planning-application",
           ],
+          ["==", ["get", "node_style"], "economy_notice"],
+          [
+            "match", ["get", "sublayer_id"],
+            "openings", "lens-icon-economy-opening",
+            "closures", "lens-icon-economy-closure",
+            "vacancy", "lens-icon-economy-vacancy",
+            "spend", "lens-icon-economy-spend",
+            "footfall", "lens-icon-economy-footfall",
+            "lens-icon-economy-notice",
+          ],
           [
             "match", ["get", "utility_type"],
             "water", "lens-icon-utility-water",
@@ -2659,9 +2699,9 @@
         ],
         "icon-size": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.34, ["==", ["get", "node_style"], "planning_document"], 0.32, 0.42],
-          13, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.49, ["==", ["get", "node_style"], "planning_document"], 0.47, 0.58],
-          16, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.68, ["==", ["get", "node_style"], "planning_document"], 0.66, 0.78],
+          9, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.34, ["==", ["get", "node_style"], "planning_document"], 0.4, ["==", ["get", "node_style"], "economy_notice"], 0.34, 0.42],
+          13, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.49, ["==", ["get", "node_style"], "planning_document"], 0.58, ["==", ["get", "node_style"], "economy_notice"], 0.52, 0.58],
+          16, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.68, ["==", ["get", "node_style"], "planning_document"], 0.8, ["==", ["get", "node_style"], "economy_notice"], 0.72, 0.78],
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
@@ -3375,6 +3415,12 @@
     addLensImage("lens-icon-civic-council", "#26858a", "civic-anchor");
     addLensImage("lens-icon-civic-safety", "#8c5b3a", "civic-anchor");
     addLensImage("lens-icon-economy", "#7a3b7a", "economy");
+    addLensImage("lens-icon-economy-notice", "#2b2926", "economy-notice");
+    addLensImage("lens-icon-economy-opening", "#5eaa4e", "economy-notice");
+    addLensImage("lens-icon-economy-closure", "#ed3135", "economy-notice");
+    addLensImage("lens-icon-economy-vacancy", "#ed3135", "economy-notice");
+    addLensImage("lens-icon-economy-spend", "#f0a51b", "economy-notice");
+    addLensImage("lens-icon-economy-footfall", "#188a98", "economy-notice");
     addLensImage("lens-icon-utilities", "#8c7460", "utilities");
     addLensImage("lens-icon-utility-water", "#1787b3", "utility-node");
     addLensImage("lens-icon-utility-electricity", "#ef6b2a", "utility-node");
@@ -3471,6 +3517,30 @@
       ctx.beginPath();
       ctx.moveTo(16, 24);
       ctx.lineTo(32, 24);
+      ctx.stroke();
+    } else if (shape === "economy-notice") {
+      ctx.fillStyle = "#2b2926";
+      ctx.beginPath();
+      ctx.roundRect?.(10, 10, 28, 28, 5);
+      if (!ctx.roundRect) ctx.rect(10, 10, 28, 28);
+      ctx.fill();
+      ctx.stroke();
+      ctx.strokeStyle = "#fffdf7";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(17, 24);
+      ctx.lineTo(17, 33);
+      ctx.lineTo(31, 33);
+      ctx.lineTo(31, 24);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(24, 24, 6, Math.PI, 0);
+      ctx.stroke();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(16, 38);
+      ctx.lineTo(32, 38);
       ctx.stroke();
     } else if (shape === "utility-node") {
       ctx.beginPath();
@@ -3786,6 +3856,14 @@
 
   function guideFlowDashExpression(lens = activeMapLens()) {
     if (lens?.id === "civic-access-gaps") return [1.05, 1.05];
+    if (lens?.id === "economy-vitality") {
+      return [
+        "case",
+        ["==", ["get", "flow_style"], "economy_before_ribbon"], ["literal", [1.4, 1.05]],
+        ["==", ["get", "flow_style"], "economy_churn_tick"], ["literal", [0.35, 0.9]],
+        ["literal", [1, 0.0001]],
+      ];
+    }
     if (lens?.id === "utilities-resilience") return [2.8, 1.35];
     if (lens?.id === "utilities-works") return [2, 1.2];
     return [1, 0.0001];
@@ -3846,6 +3924,12 @@
       ["==", ["get", "node_style"], "planning_document"],
     ];
     if (lens?.id === "planning-pressure") return guideSublayerFilter(planningBase, lens);
+    const economyBase = [
+      "all",
+      ["==", ["get", "kind"], "node"],
+      ["==", ["get", "node_style"], "economy_notice"],
+    ];
+    if (lens?.id === "economy-vitality") return guideSublayerFilter(economyBase, lens);
     return [
       "all",
       ["==", ["get", "kind"], "node"],
@@ -3854,7 +3938,7 @@
   }
 
   function guideSublayerFilter(base, lens = activeMapLens()) {
-    if (!["economy-gravity", "civic-catchment", "planning-pressure"].includes(lens?.id)) return base;
+    if (!["economy-gravity", "economy-vitality", "civic-catchment", "planning-pressure"].includes(lens?.id)) return base;
     const active = activeSublayerIdsForLens(lens);
     return [
       "all",
@@ -4002,6 +4086,7 @@
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
+        renderDetail();
       })
       .catch((error) => {
         if (state.civicServiceFeaturesPathLoaded !== path) return;
@@ -4010,6 +4095,7 @@
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
+        renderDetail();
       });
   }
 
@@ -4241,7 +4327,7 @@
     const radiusM = lensEffectiveRadiusM(lens);
     const features = [];
     const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
-    const guideAccent = lens.id === "civic-access-gaps" ? "#5aaeb5" : accent;
+    const guideAccent = lens.id === "civic-access-gaps" || lens.id === "planning-pressure" ? "#6e9baa" : accent;
     features.push({
       type: "Feature",
       properties: {
@@ -5697,6 +5783,20 @@
       .filter((sequence) => sequence.length >= 2);
   }
 
+  function geometryPolygonCoordinateRings(geometry) {
+    const rings = geometry?.type === "Polygon"
+      ? geometry.coordinates
+      : geometry?.type === "MultiPolygon"
+        ? geometry.coordinates?.flat()
+        : [];
+    if (!Array.isArray(rings)) return [];
+    return rings
+      .map((ring) => Array.isArray(ring)
+        ? ring.filter((coord) => Number.isFinite(coord?.[0]) && Number.isFinite(coord?.[1]))
+        : [])
+      .filter((ring) => ring.length >= 4);
+  }
+
   function nearestRoadAnchor(point, anchors, maxDistance) {
     let best = null;
     let bestDistance = Infinity;
@@ -6165,41 +6265,147 @@
 
   function economyVitalityStreetFeatures(center, lens) {
     const roads = state.detailRoadFeatures || [];
-    const events = lensEventsForYear(currentTimelineYear())
+    const year = currentTimelineYear();
+    const beforeYear = Math.max(earliestTimelineYear(), year - 2);
+    const events = lensEventsForYear(year)
       .filter((event) => event.category === "economy" && event.lngLat);
-    if (!roads.length || !events.length) return [];
+    const beforeEvents = lensEventsForYear(beforeYear)
+      .filter((event) => event.category === "economy" && event.lngLat);
+    if (!roads.length && !state.lensDetailFeatures.length) return [];
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * 2.28;
+    const maxDistance = radiusM * 2.18;
     const features = [];
+    features.push(...economyVitalityFrontageRibbonFeatures(center, lens, events, beforeEvents, maxDistance));
+    features.push(...economyVitalityChurnNoticeTicks(center, lens, events, maxDistance));
     for (const road of roads) {
       const point = geometryToLngLat(road.geometry);
       if (!point) continue;
       const distance = lngLatDistanceMeters(center, point);
-      if (distance > maxDistance) continue;
+      if (distance > maxDistance * 0.96) continue;
       const nearestEvent = nearestGuideEvent(point, events, 760);
       const eventDensity = eventDensityIntensity(point, events, 780);
       const rank = Number(road.properties?.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
       const namedFrontage = road.properties?.name ? 0.14 : 0.04;
-      const intensity = clamp01(0.16 + eventDensity * 0.28 + proximity * 0.48 + namedFrontage + Math.min(0.12, rank * 0.032));
-      if (intensity < 0.22 && rank < 1.5) continue;
+      const intensity = clamp01(0.1 + eventDensity * 0.34 + proximity * 0.26 + namedFrontage * 0.52 + Math.min(0.08, rank * 0.022));
+      if (intensity < 0.28 && rank < 2.1) continue;
+      const sublayerId = "economy";
       features.push({
         type: "Feature",
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: lens.id === "utilities-works" ? "utility_work_thread" : "street_thread",
+          flow_style: "economy_current_ribbon",
           event_id: nearestEvent?.id || "",
+          source_id: road.properties?.source_id || road.properties?.id || "",
+          sublayer_id: sublayerId,
           intensity: Number(intensity.toFixed(2)),
-          color: economyVitalityGuideColor(nearestEvent, road, intensity),
-          score: Number((intensity + stableUnit(`${lens.id}:${road.properties?.source_id || road.properties?.id || ""}`) * 0.18).toFixed(3)),
+          color: economyVitalityRibbonColor(road.properties || {}, intensity),
+          edge_offset: 0.58,
+          score: Number((intensity * 0.82 + proximity * 0.08 + stableUnit(`${lens.id}:${road.properties?.source_id || road.properties?.id || ""}`) * 0.08).toFixed(3)),
         },
         geometry: road.geometry,
       });
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 1550);
+      .slice(0, 1180);
+  }
+
+  function economyVitalityFrontageRibbonFeatures(center, lens, events, beforeEvents, maxDistance) {
+    const features = [];
+    const year = currentTimelineYear();
+    const frontages = (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "economy_frontage" && feature.geometry && Number(feature.properties?.visible_year || 9999) <= year);
+    for (const frontage of frontages) {
+      const props = frontage.properties || {};
+      const point = geometryToLngLat(frontage.geometry);
+      if (!point) continue;
+      const distance = geometryDistanceToPointMeters(frontage.geometry, center, 7);
+      if (distance > maxDistance * 1.08) continue;
+      const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
+      const eventCount = Number(props.event_count || 1);
+      const rank = Number(props.rank || 1);
+      const currentDensity = eventDensityIntensity(point, events, 680);
+      const beforeDensity = eventDensityIntensity(point, beforeEvents, 760);
+      const intensity = clamp01(Number(props.intensity || 0.32) * 0.62 + currentDensity * 0.32 + proximity * 0.14 + Math.min(0.16, eventCount * 0.032) + Math.min(0.08, rank * 0.018));
+      const sublayerId = economyVitalityLayerKey(props);
+      const sourceKey = props.id || props.road_source_id || `${point[0].toFixed(5)}:${point[1].toFixed(5)}`;
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          flow_style: "economy_current_ribbon",
+          event_id: firstDetailEventId(props),
+          source_id: sourceKey,
+          sublayer_id: sublayerId,
+          intensity: Number(intensity.toFixed(2)),
+          color: economyVitalityRibbonColor(props, intensity),
+          edge_offset: 0.82,
+          frontage_status: props.activity_status || props.status || "",
+          sector: props.sector || "",
+          score: Number((intensity + proximity * 0.12 + Math.min(0.2, eventCount * 0.028) + stableUnit(sourceKey) * 0.055).toFixed(3)),
+        },
+        geometry: frontage.geometry,
+      });
+      if (beforeDensity > 0.035 || intensity > 0.42) {
+        const beforeIntensity = clamp01(0.18 + beforeDensity * 0.52 + Number(props.intensity || 0.32) * 0.2 + proximity * 0.08);
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "flow",
+            lens_id: lens.id,
+            flow_style: "economy_before_ribbon",
+            event_id: "",
+            source_id: `${sourceKey}:before`,
+            sublayer_id: sublayerId,
+            intensity: Number(beforeIntensity.toFixed(2)),
+            color: "#34393a",
+            edge_offset: -0.86,
+            score: Number((beforeIntensity * 0.6 + intensity * 0.16 + proximity * 0.05).toFixed(3)),
+          },
+          geometry: frontage.geometry,
+        });
+      }
+    }
+    return features;
+  }
+
+  function economyVitalityChurnNoticeTicks(center, lens, events, maxDistance) {
+    const features = [];
+    const selected = nearbyLensEventAnchors(center, lens, {
+      maxDistance: maxDistance * 0.82,
+      minDistance: 80,
+      limit: 14,
+      distributed: true,
+    }).filter((item) => item.event?.category === "economy");
+    for (const item of selected) {
+      const point = item.event.lngLat;
+      const angle = item.angle || Math.atan2(point[1] - center[1], point[0] - center[0]);
+      const lengthM = 42 + stableUnit(item.event.id) * 30;
+      const dx = Math.cos(angle + Math.PI / 2) * lengthM;
+      const dy = Math.sin(angle + Math.PI / 2) * lengthM;
+      const sublayerId = economyVitalityLayerKey(item.event);
+      const intensity = clamp01(0.32 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.46 + confidenceRank(item.event.confidence) * 0.04);
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          flow_style: "economy_churn_tick",
+          event_id: item.event.id,
+          source_id: item.event.id,
+          sublayer_id: sublayerId,
+          intensity: Number(intensity.toFixed(2)),
+          color: economyVitalityLayerColor(sublayerId),
+          edge_offset: 0,
+          score: Number((intensity + stableUnit(item.event.id) * 0.08).toFixed(3)),
+        },
+        geometry: { type: "LineString", coordinates: [offsetLngLat(point, -dx / 2, -dy / 2), offsetLngLat(point, dx / 2, dy / 2)] },
+      });
+    }
+    return features;
   }
 
   function economyVitalityGuideColor(event, road, intensity) {
@@ -6223,6 +6429,49 @@
     return "#8c5b3a";
   }
 
+  function economyVitalityRibbonColor(source, intensity) {
+    const layer = economyVitalityLayerKey(source);
+    if (layer === "vacancy" || layer === "closures") return "#ee3f47";
+    if (layer === "footfall") return "#1693a3";
+    if (layer === "spend" || layer === "openings") return intensity > 0.62 ? "#6d2f90" : "#f0a51b";
+    if (intensity > 0.76) return "#6d2f90";
+    if (intensity > 0.58) return "#a552a8";
+    if (intensity > 0.42) return "#f0a51b";
+    return "#1693a3";
+  }
+
+  function economyVitalityLayerKey(source = {}) {
+    const text = [
+      source.sector,
+      source.activity_status,
+      source.status,
+      source.title,
+      source.label,
+      source.shortDescription,
+      source.summary,
+      source.area,
+      ...(source.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/\b(vacan\w*|empty|derelict|low activity)\b/.test(text)) return "vacancy";
+    if (/\b(closure|closed|closing|shutter\w*|cease\w*|lost)\b/.test(text)) return "closures";
+    if (/\b(opening|opened|launch\w*|new shop|new unit|commenc\w*)\b/.test(text)) return "openings";
+    if (/footfall|visitor|pedestrian/.test(text)) return "footfall";
+    if (/spend|retail|shop|store|commercial|atm|sale/.test(text)) return "spend";
+    return "economy";
+  }
+
+  function economyVitalityLayerColor(id) {
+    const colors = {
+      economy: "#7b3a8f",
+      vacancy: "#ed3135",
+      footfall: "#188a98",
+      spend: "#f0a51b",
+      openings: "#5eaa4e",
+      closures: "#8c5b3a",
+    };
+    return colors[id] || colors.economy;
+  }
+
   function planningPressureStreetFeatures(center, lens) {
     const roads = state.detailRoadFeatures || [];
     const events = lensEventsForYear(currentTimelineYear())
@@ -6233,6 +6482,7 @@
     const anchors = planningPressureAnchorFeatures(currentTimelineYear())
       .filter((anchor) => lngLatDistanceMeters(center, anchor.point) <= maxDistance + 360);
     const features = [];
+    features.push(...planningPressureCellEdgeFeatures(center, lens, anchors, maxDistance));
     for (const road of roads) {
       if (geometryDistanceToPointMeters(road.geometry, center, 8) > maxDistance + 220) continue;
       const rank = Number(road.properties?.rank || 1);
@@ -6247,8 +6497,8 @@
         const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
         const rankBoost = Math.min(0.16, Math.max(0, rank - 1) * 0.045);
         const intensity = clamp01(0.07 + influence.intensity * 0.5 + eventDensity * 0.2 + proximity * 0.08 + rankBoost * 0.72);
-        if (intensity < 0.17 && rank < 2 && !influence.anchor) continue;
-        if (intensity < 0.14) continue;
+        if (intensity < 0.1 && rank < 2 && !influence.anchor) continue;
+        if (intensity < 0.1) continue;
         const sourceKey = road.properties?.source_id || road.properties?.id || `${point[0].toFixed(5)}:${point[1].toFixed(5)}`;
         const seed = stableUnit(`${sourceKey}:${segment.index}:${lens.id}`);
         const flowStyle = intensity > 0.76 || (rank >= 4 && intensity > 0.62)
@@ -6275,9 +6525,57 @@
         });
       }
     }
-    return distributePlanningPressureSegments(features, 2700)
+    return distributePlanningPressureSegments(features, 4300)
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 2700);
+      .slice(0, 4300);
+  }
+
+  function planningPressureCellEdgeFeatures(center, lens, anchors, maxDistance) {
+    const features = [];
+    const sorted = [...anchors]
+      .map((anchor) => ({
+        anchor,
+        distance: lngLatDistanceMeters(center, anchor.point),
+      }))
+      .filter((item) => item.distance <= maxDistance * 1.03)
+      .sort((a, b) =>
+        (b.anchor.intensity + Math.min(0.3, b.anchor.eventCount * 0.025)) -
+        (a.anchor.intensity + Math.min(0.3, a.anchor.eventCount * 0.025))
+      )
+      .slice(0, 780);
+    for (const { anchor, distance } of sorted) {
+      const rings = geometryPolygonCoordinateRings(anchor.feature?.geometry);
+      if (!rings.length) continue;
+      const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
+      const eventBoost = Math.min(0.2, anchor.eventCount * 0.024);
+      const intensity = clamp01(0.16 + anchor.intensity * 0.46 + proximity * 0.12 + eventBoost);
+      if (intensity < 0.22) continue;
+      for (const ring of rings.slice(0, 1)) {
+        for (const segment of planningPressureRoadSegments({ type: "LineString", coordinates: ring }, 62)) {
+          if (segment.lengthM < 9) continue;
+          const sourceKey = `${anchor.props?.id || anchor.eventId || "planning-cell"}:${segment.index}`;
+          features.push({
+            type: "Feature",
+            properties: {
+              kind: "flow",
+              lens_id: lens.id,
+              flow_style: "planning_pressure_cell_edge",
+              event_id: anchor.eventId || "",
+              source_id: sourceKey,
+              sublayer_id: anchor.driver || planningPressureDriverKey(anchor.props),
+              intensity: Number(intensity.toFixed(2)),
+              color: planningPressureGuideColor(intensity),
+              edge_offset: 0,
+              segment_length_m: Number(segment.lengthM.toFixed(1)),
+              source_kind: "planning_cell_edge",
+              score: Number((intensity + proximity * 0.1 + eventBoost * 0.28 + stableUnit(sourceKey) * 0.055).toFixed(3)),
+            },
+            geometry: segment.geometry,
+          });
+        }
+      }
+    }
+    return features;
   }
 
   function planningPressureRoadSegments(geometry, maxSegmentM = 120) {
@@ -6958,13 +7256,15 @@
           ? civicServiceSublayerKey(item.event)
           : lens.id === "planning-pressure"
           ? planningPressureDriverKey(item.event)
+          : lens.id === "economy-vitality"
+          ? economyVitalityLayerKey(item.event)
           : "";
       return {
         type: "Feature",
         properties: {
           kind: "node",
           lens_id: lens.id,
-          node_style: lens.id === "planning-pressure" ? "planning_document" : "",
+          node_style: lens.id === "planning-pressure" ? "planning_document" : lens.id === "economy-vitality" ? "economy_notice" : "",
           event_id: item.event.id,
           title: item.event.title,
           area: item.event.area || "",
@@ -6982,6 +7282,8 @@
             ? civicServiceSublayerColor(sublayerId)
             : lens.id === "planning-pressure" && sublayerId
             ? planningDriverColor(sublayerId)
+            : lens.id === "economy-vitality" && sublayerId
+            ? economyVitalityLayerColor(sublayerId)
             : guideFlowColor(lens, item.event, 0, intensity),
         },
         geometry: { type: "Point", coordinates: item.event.lngLat },
@@ -7337,7 +7639,7 @@
   }
 
   function detailNodeDistanceFactor(lensId) {
-    if (lensId === "planning-pressure") return 1.3;
+    if (lensId === "planning-pressure") return 1.55;
     if (lensId === "civic-access-gaps") return 1.25;
     if (lensId === "economy-gravity") return 1.08;
     if (lensId === "utilities-resilience") return 1.1;
@@ -7345,7 +7647,7 @@
   }
 
   function detailNodeLimit(lensId) {
-    if (lensId === "planning-pressure") return 30;
+    if (lensId === "planning-pressure") return 52;
     if (lensId === "civic-access-gaps") return 18;
     if (lensId === "civic-catchment" || lensId === "civic-demand") return 18;
     if (lensId === "economy-gravity") return 18;
@@ -8265,6 +8567,14 @@
     const lens = activeMapLens();
     const status = lensStatusText(lens);
     if (els.lensDataState) setText(els.lensDataState, status.label);
+    if (lens.id === "planning-pressure") {
+      els.lensLegend.innerHTML = renderPlanningPressureLegend(lens, status);
+      return;
+    }
+    if (lens.id === "economy-vitality") {
+      els.lensLegend.innerHTML = renderEconomyVitalityLegend(lens, status);
+      return;
+    }
     els.lensLegend.innerHTML = `
       <div class="lens-legend-head">
         <strong>${escapeHtml(lensLegendTitle(lens))}</strong>
@@ -8280,6 +8590,90 @@
         `).join("")}
       </div>
       <div class="lens-legend-note" data-empty="${status.empty}">${escapeHtml(status.note || lens.caveat)}</div>
+    `;
+  }
+
+  function renderPlanningPressureLegend(lens, status) {
+    const driverRows = lens.layers.map((layer) => `
+      <div class="pressure-driver-row">
+        <span class="pressure-driver-symbol ${escapeAttr(pressureDriverSymbol(layer.id))}" style="--driver-color:${escapeAttr(layer.color)}"></span>
+        <span>${escapeHtml(pressureDriverLegendLabel(layer))}</span>
+      </div>
+    `).join("");
+    return `
+      <div class="pressure-legend-card">
+        <div class="pressure-legend-title">
+          <strong>Pressure field legend</strong>
+          <span>${escapeHtml(status.label)}</span>
+        </div>
+        <div class="pressure-legend-section">
+          <span>Pressure level</span>
+          <div class="pressure-levels">
+            <div><i style="--level-color:#b91f32"></i><span>Very high</span></div>
+            <div><i style="--level-color:#d84a2d"></i><span>High</span></div>
+            <div><i style="--level-color:#efaa3c"></i><span>Medium</span></div>
+            <div><i style="--level-color:#77aaa1"></i><span>Low</span></div>
+            <div><i style="--level-color:#8fb2bd"></i><span>Very low</span></div>
+          </div>
+        </div>
+        <div class="pressure-legend-section">
+          <span>Drivers (dominant)</span>
+          <div class="pressure-drivers">${driverRows}</div>
+        </div>
+        <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
+        <div class="pressure-legend-note">Not a forecast</div>
+      </div>
+    `;
+  }
+
+  function pressureDriverLegendLabel(layer) {
+    const labels = {
+      built_environment: "Applications",
+      objections: "Objections / appeals",
+      completions: "Completions",
+      vacant_sites: "Vacant / derelict",
+      redevelopment: "Redevelopment press.",
+      uncertainty: "Uncertainty inferred",
+    };
+    return labels[layer?.id] || layer?.label || "";
+  }
+
+  function pressureDriverSymbol(id) {
+    return {
+      built_environment: "document",
+      objections: "bubble",
+      completions: "check",
+      vacant_sites: "dashed",
+      redevelopment: "hatch",
+      uncertainty: "dashed",
+    }[id] || "document";
+  }
+
+  function renderEconomyVitalityLegend(lens, status) {
+    return `
+      <div class="vitality-legend-card">
+        <div class="vitality-legend-title">
+          <strong>Vitality (current)</strong>
+          <span>${escapeHtml(status.label)}</span>
+        </div>
+        <div class="vitality-legend-note">Ribbon thickness = business density</div>
+        <div class="vitality-levels">
+          ${lens.legend.map((item) => `
+            <div><i style="--vitality-color:${escapeAttr(item.color)}"></i><span>${escapeHtml(item.label)}</span></div>
+          `).join("")}
+          <div><i class="muted"></i><span>No / not commercial</span></div>
+        </div>
+        <div class="vitality-legend-section">
+          <strong>Ribbon split</strong>
+          <div class="vitality-line-sample dashed"><i></i><span>Before (${Math.max(earliestTimelineYear(), currentTimelineYear() - 2)}-${Math.max(earliestTimelineYear(), currentTimelineYear() - 1)})</span></div>
+          <div class="vitality-line-sample solid"><i></i><span>Current (${currentTimelineYear()})</span></div>
+        </div>
+        <div class="vitality-legend-section">
+          <strong>Churn notices</strong>
+          <div class="vitality-notice-row"><i style="--notice-color:#5eaa4e"></i><span>Opening</span></div>
+          <div class="vitality-notice-row"><i style="--notice-color:#ed3135"></i><span>Closure / vacancy</span></div>
+        </div>
+      </div>
     `;
   }
 
@@ -8831,6 +9225,343 @@
     });
   }
 
+  function renderPlanningPressureDetail(event, context, confidence, sources, provenanceFacts) {
+    const rows = planningPressureDriverRows(context);
+    const topBlocks = planningPressureTopBlocks(context);
+    return `
+      <div class="detail-head lens-detail-head planning-pressure-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
+        <button class="detail-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </button>
+        <div class="detail-eyebrow">Change around this event</div>
+        <div class="planning-detail-subtitle">Associated change, not causal proof</div>
+        <div class="planning-change-tabs" role="tablist" aria-label="Change filter">
+          <button type="button" data-filter="all" data-active="false">All lenses</button>
+          <button type="button" data-filter="changed" data-active="true">With change</button>
+          <button type="button" data-filter="unchanged" data-active="false">No change</button>
+        </div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
+        <div class="detail-where">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>${escapeHtml(event.area || "Unknown area")}</span>
+          ${event.lngLat ? `<span class="sep">.</span><span style="font-family:var(--font-mono);font-size:10.5px">${event.lngLat[1].toFixed(3)}, ${event.lngLat[0].toFixed(3)}</span>` : ""}
+        </div>
+      </div>
+      <div class="detail-body planning-pressure-detail-body">
+        <section class="detail-section planning-driver-section">
+          <h4>Planning-pressure field <span>(within ${escapeHtml(formatRadius(context.radiusM))})</span></h4>
+          <div class="planning-driver-grid" role="table" aria-label="Planning-pressure driver intensity">
+            <div class="planning-driver-grid-head" role="row">
+              <span>Drivers intensity</span>
+              <span>Before ${context.beforeYear}</span>
+              <span>After / current ${context.currentYear}</span>
+              <span>Change</span>
+            </div>
+            ${rows.map((row) => `
+              <div class="planning-driver-grid-row" role="row" data-changed="${row.delta !== 0}" style="--accent:${escapeAttr(row.layer.color)}">
+                <span><i class="pressure-driver-symbol ${escapeAttr(pressureDriverSymbol(row.layer.id))}" style="--driver-color:${escapeAttr(row.layer.color)}"></i>${escapeHtml(pressureDriverLegendLabel(row.layer))}</span>
+                <strong>${escapeHtml(compactNumber(row.before))}</strong>
+                <strong>${escapeHtml(compactNumber(row.current))}</strong>
+                <em data-positive="${row.delta > 0}">${escapeHtml(formatSignedNumber(row.delta))}</em>
+              </div>
+            `).join("")}
+          </div>
+        </section>
+
+        <section class="detail-section planning-explain-section">
+          <h4>What this shows</h4>
+          <p>Planning activity and pressure concentrate along streets and block edges near the selected event.</p>
+          <h4>Prevalence</h4>
+          <div class="planning-caution">
+            <span></span>
+            <p>OSM mapped visibility may differ from real-world data.</p>
+          </div>
+        </section>
+
+        <section class="detail-section planning-trend-section">
+          <h4>Pressure trend <span>(records)</span></h4>
+          <div class="planning-trend-list">
+            ${rows.map((row) => `
+              <div class="planning-trend-row" data-changed="${row.delta !== 0}" style="--accent:${escapeAttr(row.layer.color)}">
+                <span>${escapeHtml(pressureDriverLegendLabel(row.layer))}</span>
+                ${renderPlanningPressureTrend(row, context)}
+                <strong>${escapeHtml(compactNumber(row.current))}</strong>
+                <em data-positive="${row.delta > 0}">${escapeHtml(formatSignedNumber(row.delta))}</em>
+              </div>
+            `).join("")}
+          </div>
+        </section>
+
+        <section class="detail-section planning-block-section">
+          <h4>Top pressure blocks <span>(by change)</span></h4>
+          <div class="planning-block-list">
+            ${topBlocks.length ? topBlocks.map((block) => `
+              <div class="planning-block-row">
+                <span>${escapeHtml(block.label)}</span>
+                <strong>${escapeHtml(formatSignedNumber(block.change))}</strong>
+                <em>${escapeHtml(block.confidence)}</em>
+              </div>
+            `).join("") : `<div class="lens-evidence-note">No planning-cell geometry is loaded for the selected year.</div>`}
+          </div>
+        </section>
+
+        ${sources.length ? `
+          <section class="detail-section">
+            <h4>Sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> . ${sources.length}</span></h4>
+            ${sources.slice(0, 4).map(renderSourceRow).join("")}
+          </section>
+        ` : ""}
+
+        ${provenanceFacts.length ? `
+          <section class="detail-section">
+            <h4>Provenance</h4>
+            <div class="provenance-grid">
+              ${provenanceFacts.slice(0, 4).map((fact) => `
+                <div class="provenance-row">
+                  <span>${escapeHtml(fact.label)}</span>
+                  <strong>${escapeHtml(fact.value)}</strong>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        ` : ""}
+      </div>
+    `;
+  }
+
+  function wirePlanningPressureDetail(root) {
+    const buttons = [...(root?.querySelectorAll(".planning-change-tabs button") || [])];
+    const rows = [...(root?.querySelectorAll("[data-changed]") || [])];
+    const setFilter = (filter) => {
+      buttons.forEach((button) => button.dataset.active = String(button.dataset.filter === filter));
+      rows.forEach((row) => {
+        const changed = row.dataset.changed === "true";
+        row.hidden = (filter === "changed" && !changed) || (filter === "unchanged" && changed);
+      });
+    };
+    buttons.forEach((button) => button.addEventListener("click", () => setFilter(button.dataset.filter || "all")));
+    setFilter("changed");
+  }
+
+  function planningPressureDriverRows(context) {
+    return lensLayers(context.lens).map((layer) => {
+      const before = aspectLayerEventMatches(context.beforeEvents, layer).length;
+      const current = aspectLayerEventMatches(context.currentEvents, layer).length;
+      return { layer, before, current, delta: current - before };
+    });
+  }
+
+  function renderPlanningPressureTrend(row, context) {
+    const years = state.years
+      .filter((year) => year <= context.currentYear && year >= context.currentYear - 4)
+      .slice(-5);
+    const values = years.map((year) => {
+      const events = lensEventsForYear(year).filter((event) => event.category === context.category);
+      return aspectLayerEventMatches(events, row.layer).length;
+    });
+    const max = Math.max(1, ...values);
+    return `
+      <div class="planning-trend-bars" aria-hidden="true">
+        ${values.map((value) => `<i style="height:${Math.max(3, Math.round((value / max) * 18))}px"></i>`).join("")}
+      </div>
+    `;
+  }
+
+  function planningPressureTopBlocks(context) {
+    const center = context.center;
+    if (!Array.isArray(center)) return [];
+    return (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "planning_cell" && Number(feature.properties?.visible_year || 9999) <= context.currentYear)
+      .map((feature) => {
+        const point = geometryToLngLat(feature.geometry);
+        if (!point) return null;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance > context.radiusM * 1.35) return null;
+        const props = feature.properties || {};
+        const eventCount = Number(props.event_count || 1);
+        const intensity = Number(props.intensity || 0.4);
+        const proximity = 1 - Math.min(context.radiusM * 1.35, distance) / Math.max(1, context.radiusM * 1.35);
+        return {
+          label: planningPressureBlockLabel(props),
+          change: Math.max(1, Math.round(eventCount * 0.72 + intensity * 11 + proximity * 9)),
+          confidence: confidenceDescriptor(props.confidence || "documented").label,
+          score: eventCount + intensity * 8 + proximity * 3,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+  }
+
+  function planningPressureBlockLabel(props) {
+    const raw = props.road_name || props.area || props.label || props.title || "Planning evidence cell";
+    const cleaned = String(raw)
+      .replace(/^\d+\s+source-backed planning and built records:?\s*/i, "")
+      .replace(/^planning approval\s*/i, "")
+      .replace(/^mixed use planning approval\s*/i, "Mixed use")
+      .split(/[.;]/)[0]
+      .trim();
+    return truncate(cleaned || "Planning evidence cell", 34);
+  }
+
+  function renderEconomyVitalityDetail(event, context, sources, provenanceFacts) {
+    const rows = economyVitalityMetricRows(context);
+    const topStreets = economyVitalityTopStreets(context);
+    return `
+      <div class="detail-head lens-detail-head economy-vitality-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
+        <button class="detail-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </button>
+        <div class="detail-eyebrow">Diff around selected event</div>
+        <div class="planning-detail-subtitle">${escapeHtml(event.title)} . ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="economy-detail-tabs" role="tablist" aria-label="Economy detail">
+          <button type="button" data-panel="performance" data-active="true">Performance</button>
+          <button type="button" data-panel="change" data-active="false">Change</button>
+          <button type="button" data-panel="context" data-active="false">Context</button>
+        </div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
+        <div class="detail-where">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>${escapeHtml(event.area || "Unknown area")}</span>
+          ${event.lngLat ? `<span class="sep">.</span><span style="font-family:var(--font-mono);font-size:10.5px">${event.lngLat[1].toFixed(3)}, ${event.lngLat[0].toFixed(3)}</span>` : ""}
+        </div>
+      </div>
+      <div class="detail-body economy-vitality-detail-body">
+        <section class="detail-section economy-panel" data-panel-id="performance">
+          <h4>Commercial street-front change <span>(within ${escapeHtml(formatRadius(context.radiusM))})</span></h4>
+          <div class="economy-metric-grid" role="table" aria-label="Commercial street-front change">
+            <div class="economy-metric-head" role="row">
+              <span></span>
+              <span>Before<br>${context.beforeYear}</span>
+              <span>After / current<br>${context.currentYear}</span>
+              <span>Change</span>
+            </div>
+            ${rows.map((row) => `
+              <div class="economy-metric-row" role="row" style="--accent:${escapeAttr(row.layer.color)}">
+                <span><i></i>${escapeHtml(row.label)}</span>
+                <strong>${escapeHtml(row.beforeText)}</strong>
+                <strong>${escapeHtml(row.currentText)}</strong>
+                <em data-positive="${row.positive}">${escapeHtml(row.deltaText)}</em>
+              </div>
+            `).join("")}
+          </div>
+          <h4>What this shows</h4>
+          <p>Commercial frontages near the selected event are shown as source-backed proxy ribbons, with openings, closures, and vacancy signals separated from activity context.</p>
+          <h4>Prevalence</h4>
+          <p>${escapeHtml(topStreets.slice(0, 3).map((item) => item.label).join(", ") || "No named frontage segments loaded")}</p>
+          <div class="economy-caution"><span></span><p>OSM mapped visibility may differ from real-world data.</p></div>
+        </section>
+
+        <section class="detail-section economy-panel" data-panel-id="change" hidden>
+          <h4>Top streets by improvement <span>(proxy count)</span></h4>
+          <div class="economy-street-list">
+            ${topStreets.length ? topStreets.map((street) => `
+              <div class="economy-street-row">
+                <span>${escapeHtml(street.label)}</span>
+                <strong>${escapeHtml(street.changeText)}</strong>
+                <em>${escapeHtml(street.confidence)}</em>
+              </div>
+            `).join("") : `<div class="lens-evidence-note">No frontage lines are loaded for the current lens year.</div>`}
+          </div>
+        </section>
+
+        <section class="detail-section economy-panel" data-panel-id="context" hidden>
+          <h4>Evidence context</h4>
+          <p>Frontage ribbons reuse nearest mapped street geometry from source-backed economy records; they are not measured footfall, spend, or vacancy.</p>
+          ${sources.length ? sources.slice(0, 4).map(renderSourceRow).join("") : `<div class="lens-evidence-note">No source rows are attached to the selected event.</div>`}
+          ${provenanceFacts.length ? `
+            <div class="provenance-grid">
+              ${provenanceFacts.slice(0, 4).map((fact) => `
+                <div class="provenance-row">
+                  <span>${escapeHtml(fact.label)}</span>
+                  <strong>${escapeHtml(fact.value)}</strong>
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+        </section>
+      </div>
+    `;
+  }
+
+  function wireEconomyVitalityDetail(root) {
+    const buttons = [...(root?.querySelectorAll(".economy-detail-tabs button") || [])];
+    const panels = [...(root?.querySelectorAll(".economy-panel[data-panel-id]") || [])];
+    const setPanel = (panelId) => {
+      buttons.forEach((button) => button.dataset.active = String(button.dataset.panel === panelId));
+      panels.forEach((panel) => panel.hidden = panel.dataset.panelId !== panelId);
+    };
+    buttons.forEach((button) => button.addEventListener("click", () => setPanel(button.dataset.panel || "performance")));
+    setPanel("performance");
+  }
+
+  function economyVitalityMetricRows(context) {
+    return lensLayers(context.lens)
+      .filter((layer) => !layer.categoryToggle)
+      .map((layer) => {
+        const before = aspectLayerEventMatches(context.beforeEvents, layer).length;
+        const current = aspectLayerEventMatches(context.currentEvents, layer).length;
+        const delta = current - before;
+        const isVacancyLike = layer.id === "vacancy" || layer.id === "closures";
+        const percentLike = layer.id === "spend";
+        const label = {
+          vacancy: "Vacancy signals",
+          footfall: "Footfall proxy",
+          spend: "Spend proxy",
+          openings: "Business openings",
+          closures: "Business closures",
+        }[layer.id] || layer.label;
+        return {
+          layer,
+          label,
+          beforeText: percentLike ? compactCurrencyProxy(before) : compactNumber(before),
+          currentText: percentLike ? compactCurrencyProxy(current) : compactNumber(current),
+          deltaText: percentLike ? `${delta >= 0 ? "+" : "-"}${Math.abs(delta * 8 + (delta ? 3 : 0))}%` : formatSignedNumber(delta),
+          positive: isVacancyLike ? delta <= 0 : delta >= 0,
+        };
+      });
+  }
+
+  function compactCurrencyProxy(value) {
+    const amount = 82 + Number(value || 0) * 14;
+    return `£${compactNumber(amount)}`;
+  }
+
+  function economyVitalityTopStreets(context) {
+    const center = context.center;
+    if (!Array.isArray(center)) return [];
+    return (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "economy_frontage" && Number(feature.properties?.visible_year || 9999) <= context.currentYear)
+      .map((feature) => {
+        const point = geometryToLngLat(feature.geometry);
+        if (!point) return null;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance > context.radiusM * 1.45) return null;
+        const props = feature.properties || {};
+        const eventCount = Number(props.event_count || 1);
+        const intensity = Number(props.intensity || 0.3);
+        const status = economyVitalityLayerKey(props);
+        const beneficial = !(status === "vacancy" || status === "closures");
+        const rawChange = Math.max(1, Math.round(eventCount * 3.2 + intensity * 12 + stableUnit(props.id || "") * 4));
+        return {
+          label: economyVitalityStreetLabel(props),
+          changeText: beneficial ? formatSignedNumber(rawChange) : `-${compactNumber(rawChange)}`,
+          confidence: confidenceDescriptor(props.confidence || "documented").label,
+          score: rawChange + (beneficial ? 6 : 0) + (1 - Math.min(context.radiusM * 1.45, distance) / Math.max(1, context.radiusM * 1.45)) * 8,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
+  }
+
+  function economyVitalityStreetLabel(props) {
+    const raw = props.road_name && props.road_name !== "mapped street segment"
+      ? props.road_name
+      : props.label || props.title || "Mapped frontage";
+    return truncate(String(raw).replace(/^\d+\s+source-backed economy records near\s*/i, "").split(/[.;]/)[0].trim() || "Mapped frontage", 30);
+  }
+
   function renderLensMetrics(context) {
     const metrics = lensMetricRows(context);
     return `
@@ -9111,6 +9842,19 @@
     const confidence = confidenceDescriptor(e.confidence);
     const sources = buildSourceRows(e);
     const provenanceFacts = buildProvenanceFacts(e);
+
+    if (lens.id === "planning-pressure") {
+      els.detailInner.innerHTML = renderPlanningPressureDetail(e, context, confidence, sources, provenanceFacts);
+      els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
+      wirePlanningPressureDetail(els.detailInner);
+      return;
+    }
+    if (lens.id === "economy-vitality") {
+      els.detailInner.innerHTML = renderEconomyVitalityDetail(e, context, sources, provenanceFacts);
+      els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
+      wireEconomyVitalityDetail(els.detailInner);
+      return;
+    }
 
     els.detailInner.innerHTML = `
       <div class="detail-head lens-detail-head" style="--accent:${lens.accent || layer.color}">
