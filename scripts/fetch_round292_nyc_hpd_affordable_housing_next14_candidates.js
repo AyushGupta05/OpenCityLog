@@ -164,11 +164,6 @@ replaceChecked(
   "notes completion-only caveat"
 );
 replaceChecked(
-  '  writeJson(path.join(outDir, "rejected.json"), rejectedPayload);',
-  '  writeJson(path.join(outDir, "rejected.json"), rejectedPayload);\n  writeJson(path.join(outDir, "validation.json"), summaryPayload.validation);',
-  "validation output"
-);
-replaceChecked(
   "  const selectedSummary = summarizeCandidates(selected);",
   "  const completionOnlyEligibleCount = candidates.filter(isRound292PreferredCandidate).length;\n  const selectedSummary = summarizeCandidates(selected);",
   "completion-only eligible count"
