@@ -18,7 +18,7 @@ Generated/accessed: 2026-05-20
 
 ## Dedupe
 
-Deduped against data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json and 171 prior Belfast/heritage/HARNI/planning-tail JSON packs through round291.
+Deduped against data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json and 155 prior Belfast/heritage/HARNI/planning-tail JSON packs through round291.
 HB references already represented as listing/de-listing events were rejected; HARNI risk rows with the same HB reference are not treated as duplicates of distinct listing confirmations unless the listing/de-listing milestone is already present.
 
 ## Caveat

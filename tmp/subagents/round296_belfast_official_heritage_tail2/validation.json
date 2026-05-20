@@ -10,7 +10,7 @@
     "unique_source_date_keys": true,
     "no_overlap_against_manual_and_prior_belfast_packs": true,
     "overclaim_wording_scan": true,
-    "prior_file_count": 171,
+    "prior_file_count": 155,
     "duplicate_reject_count": 2
   }
 }

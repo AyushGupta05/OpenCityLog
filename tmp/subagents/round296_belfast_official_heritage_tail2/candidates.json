@@ -20,7 +20,7 @@
   ],
   "deduped_against": {
     "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
-    "prior_file_count": 171
+    "prior_file_count": 155
   },
   "scope_note": "Official Belfast/DfC/HED heritage/listing administrative candidates. Dates are source/report/listing record dates, not construction dates or physical works.",
   "candidates": [

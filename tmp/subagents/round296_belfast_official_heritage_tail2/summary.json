@@ -49,8 +49,8 @@
   },
   "dedupe": {
     "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
-    "prior_file_count": 171,
-    "prior_record_count": 54091,
+    "prior_file_count": 155,
+    "prior_record_count": 50848,
     "prior_files": [
       {
         "path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
@@ -197,10 +197,6 @@
         "record_count": 10
       },
       {
-        "path": "tmp/subagents/round114_london_heritage_candidates.json",
-        "record_count": 6
-      },
-      {
         "path": "tmp/subagents/round115_belfast_hed_planning_official/belfast_hed_planning_candidates_round115.json",
         "record_count": 12
       },
@@ -217,16 +213,8 @@
         "record_count": 12
       },
       {
-        "path": "tmp/subagents/round116_london_heritage_official/candidates.json",
-        "record_count": 1245
-      },
-      {
         "path": "tmp/subagents/round117_belfast_official_deep/candidates.json",
         "record_count": 11
-      },
-      {
-        "path": "tmp/subagents/round117_london_heritage_civic/candidates.json",
-        "record_count": 18
       },
       {
         "path": "tmp/subagents/round118_belfast_planning_committees_deep/candidates.json",
@@ -281,14 +269,6 @@
         "record_count": 0
       },
       {
-        "path": "tmp/subagents/round123_london_heritage_designations/candidates.json",
-        "record_count": 36
-      },
-      {
-        "path": "tmp/subagents/round123_london_heritage_designations/source_audit.json",
-        "record_count": 0
-      },
-      {
         "path": "tmp/subagents/round124_belfast_planning_appeals_dfc_public_realm/candidates.json",
         "record_count": 30
       },
@@ -322,14 +302,6 @@
       },
       {
         "path": "tmp/subagents/round130_belfast_official_more/source_audit.json",
-        "record_count": 0
-      },
-      {
-        "path": "tmp/subagents/round130_heritage_designations_more/candidates.json",
-        "record_count": 333
-      },
-      {
-        "path": "tmp/subagents/round130_heritage_designations_more/source_audit.json",
         "record_count": 0
       },
       {
@@ -589,22 +561,6 @@
         "record_count": 0
       },
       {
-        "path": "tmp/subagents/round215_london_nhle_heritage_tail/candidates.json",
-        "record_count": 5
-      },
-      {
-        "path": "tmp/subagents/round215_london_nhle_heritage_tail/rejected.json",
-        "record_count": 500
-      },
-      {
-        "path": "tmp/subagents/round215_london_nhle_heritage_tail/source_audit.json",
-        "record_count": 0
-      },
-      {
-        "path": "tmp/subagents/round215_london_nhle_heritage_tail/summary.json",
-        "record_count": 0
-      },
-      {
         "path": "tmp/subagents/round228_belfast_official_deep_tail_next/candidates.json",
         "record_count": 12
       },
@@ -715,26 +671,6 @@
       {
         "path": "tmp/subagents/round291_belfast_official_planning_tail4/validation_report.json",
         "record_count": 0
-      },
-      {
-        "path": "tmp/subagents/round294_london_nhle_heritage_tail2/candidates.json",
-        "record_count": 100
-      },
-      {
-        "path": "tmp/subagents/round294_london_nhle_heritage_tail2/rejected.json",
-        "record_count": 1000
-      },
-      {
-        "path": "tmp/subagents/round294_london_nhle_heritage_tail2/source_audit.json",
-        "record_count": 0
-      },
-      {
-        "path": "tmp/subagents/round294_london_nhle_heritage_tail2/summary.json",
-        "record_count": 0
-      },
-      {
-        "path": "tmp/subagents/round294_london_nhle_heritage_tail2/validation.json",
-        "record_count": 0
       }
     ],
     "duplicate_reject_count": 2,
@@ -754,7 +690,7 @@
       "unique_source_date_keys": true,
       "no_overlap_against_manual_and_prior_belfast_packs": true,
       "overclaim_wording_scan": true,
-      "prior_file_count": 171,
+      "prior_file_count": 155,
       "duplicate_reject_count": 2
     }
   },
