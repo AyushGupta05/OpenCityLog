@@ -663,6 +663,170 @@ const ROUND503_UNUSED_PRIOR_TEMPLATE_PLANNING_LEADS = [
 
 const REJECTED_LEADS = [
   {
+    id: "bfs_arch_round503_reject_duplicate_project_rows_through_round499",
+    title: "Residual duplicate-project planning rows through the Round499 boundary",
+    rejection_category: "duplicate_project_boundary",
+    reason:
+      "Official point-backed DfI rows for Crumlin Road Gaol, Glenwood Primary School, 70 High Street and 15-19 William Street South were retained outside the promoted pack because prior manual or Belfast sweep records through Round499 already cover the same project family or same-site milestone.",
+    source_record_id:
+      "EXAMPLES:APP_ID:LA04/2024/0438/F; APP_ID:LA04/2022/1458/LBC; APP_ID:LA04/2023/4579/F; APP_ID:LA04/2024/1808/LBC; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    source_url: DFI_2024_25_PUBLICATION_URL,
+    source_name: SOURCES.dfiPlanningStats.source_name,
+    publisher: SOURCES.dfiPlanningStats.publisher,
+    source_type: SOURCES.dfiPlanningStats.source_type,
+    license: SOURCES.dfiPlanningStats.license,
+    license_url: SOURCES.dfiPlanningStats.license_url,
+    attribution: SOURCES.dfiPlanningStats.attribution,
+    duplicate_terms: [
+      "Crumlin Road Gaol",
+      "Glenwood Primary School",
+      "70 High Street",
+      "15-19 William Street South",
+      "LA04/2022/1458/LBC"
+    ]
+  },
+  {
+    id: "bfs_arch_round503_reject_minor_private_domestic_rows",
+    title: "Minor private domestic alteration rows",
+    rejection_category: "not_public_architecture_atlas_priority",
+    reason:
+      "The residual DfI 2024/25 Belfast rows include many point-backed private-house dormers, roofspace conversions, rear extensions, garages, porches and boundary changes. These were not promoted because this next24 pack prioritizes public, civic, commercial, heritage, multi-unit or mixed-use architecture-administrative milestones.",
+    source_record_id:
+      "EXAMPLES:APP_ID:LA04/2024/1578/F; APP_ID:LA04/2024/1767/F; APP_ID:LA04/2024/2036/F; APP_ID:LA04/2024/2118/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    source_url: DFI_2024_25_PUBLICATION_URL,
+    source_name: SOURCES.dfiPlanningStats.source_name,
+    publisher: SOURCES.dfiPlanningStats.publisher,
+    source_type: SOURCES.dfiPlanningStats.source_type,
+    license: SOURCES.dfiPlanningStats.license,
+    license_url: SOURCES.dfiPlanningStats.license_url,
+    attribution: SOURCES.dfiPlanningStats.attribution,
+    duplicate_terms: [
+      "rear dormer",
+      "roof space conversion",
+      "private domestic",
+      "single storey rear extension"
+    ]
+  },
+  {
+    id: "bfs_arch_round503_reject_signage_advertisement_display_rows",
+    title: "Signage, advertisement and display planning rows",
+    rejection_category: "not_architecture_atlas_priority",
+    reason:
+      "Point-backed DfI rows for building plaques, community-centre signs, digital display panels, fascia signage and similar display consents were reviewed but not promoted because they do not add a higher-signal building-fabric, use, civic-facility or heritage-works milestone for this pack.",
+    source_record_id:
+      "EXAMPLES:APP_ID:LA04/2024/1656/A; APP_ID:LA04/2024/1826/A; APP_ID:LA04/2024/1946/A; APP_ID:LA04/2024/0726/LBC; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    source_url: DFI_2024_25_PUBLICATION_URL,
+    source_name: SOURCES.dfiPlanningStats.source_name,
+    publisher: SOURCES.dfiPlanningStats.publisher,
+    source_type: SOURCES.dfiPlanningStats.source_type,
+    license: SOURCES.dfiPlanningStats.license,
+    license_url: SOURCES.dfiPlanningStats.license_url,
+    attribution: SOURCES.dfiPlanningStats.attribution,
+    duplicate_terms: ["building plaque", "community centre sign", "digital screen", "fascia"]
+  },
+  {
+    id: "bfs_arch_round503_reject_rooftop_pv_ev_equipment_only_rows",
+    title: "Rooftop PV, EV and equipment-only planning rows",
+    rejection_category: "lower_priority_fixture_or_services_change_not_promoted",
+    reason:
+      "Official point-backed rows for rooftop solar/PV arrays, EV charger relocation and similar equipment-only works were retained separately because this pack is not an energy-equipment or building-services fixture sweep.",
+    source_record_id:
+      "EXAMPLES:APP_ID:LA04/2024/0696/F; APP_ID:LA04/2024/0699/F; APP_ID:LA04/2024/1496/F; APP_ID:LA04/2025/0079/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    source_url: DFI_2024_25_PUBLICATION_URL,
+    source_name: SOURCES.dfiPlanningStats.source_name,
+    publisher: SOURCES.dfiPlanningStats.publisher,
+    source_type: SOURCES.dfiPlanningStats.source_type,
+    license: SOURCES.dfiPlanningStats.license,
+    license_url: SOURCES.dfiPlanningStats.license_url,
+    attribution: SOURCES.dfiPlanningStats.attribution,
+    duplicate_terms: ["photovoltaic", "PV panels", "EV charger", "rooftop solar"]
+  },
+  {
+    id: "bfs_arch_round503_reject_low_signal_hmo_short_let_rows",
+    title: "Lower-signal HMO and short-let-only rows",
+    rejection_category: "lower_priority_private_residential_use_change_not_promoted",
+    reason:
+      "Several residual DfI rows were point-backed and dated but were limited to private HMO or short-let use changes with little or no public/civic, heritage, multi-unit, commercial-frontage or substantial building-fabric signal. They are retained for a possible housing-use pass rather than this architecture next24 pack.",
+    source_record_id:
+      "EXAMPLES:APP_ID:LA04/2024/0524/F; APP_ID:LA04/2024/1106/F; APP_ID:LA04/2024/1627/F; APP_ID:LA04/2024/0392/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    source_url: DFI_2024_25_PUBLICATION_URL,
+    source_name: SOURCES.dfiPlanningStats.source_name,
+    publisher: SOURCES.dfiPlanningStats.publisher,
+    source_type: SOURCES.dfiPlanningStats.source_type,
+    license: SOURCES.dfiPlanningStats.license,
+    license_url: SOURCES.dfiPlanningStats.license_url,
+    attribution: SOURCES.dfiPlanningStats.attribution,
+    duplicate_terms: ["short term let", "HMO", "Sui Generis", "private residential"]
+  },
+  {
+    id: "bfs_arch_round503_reject_transport_shelter_buildout_rows",
+    title: "Bus shelter and bus-stop buildout planning rows",
+    rejection_category: "street_furniture_not_architecture_core",
+    reason:
+      "DfI planning-statistics rows for a bus shelter with advertisement panel and a bus-stop pavement buildout are official and point-backed, but they were retained outside this pack because they are street-furniture/highway-management records rather than architecture or building-change milestones.",
+    source_record_id:
+      "APP_ID:LA04/2024/0422/F; APP_ID:LA04/2024/1087/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv",
+    source_url: DFI_2024_25_PUBLICATION_URL,
+    source_name: SOURCES.dfiPlanningStats.source_name,
+    publisher: SOURCES.dfiPlanningStats.publisher,
+    source_type: SOURCES.dfiPlanningStats.source_type,
+    license: SOURCES.dfiPlanningStats.license,
+    license_url: SOURCES.dfiPlanningStats.license_url,
+    attribution: SOURCES.dfiPlanningStats.attribution,
+    duplicate_terms: ["bus shelter", "bus stop", "pavement buildout", "Grosvenor Road"]
+  },
+  {
+    id: "bfs_arch_round503_reject_harni_hed_status_only_no_new_physical_change",
+    title: "HARNI / HED heritage spatial status layers",
+    rejection_category: "source_status_only",
+    reason:
+      "HED spatial layers remain strong for official heritage status and location, but the reviewed status/listing/visit fields do not by themselves document a new dated architecture-change milestone under the point-event contract.",
+    source_record_id: "HED GIS feature service reviewed in Round503",
+    source_url: HED_FEATURE_SERVICE_URL,
+    source_name: "Historic Environment Division GIS Data",
+    publisher: "Department for Communities Historic Environment Division",
+    source_type: "official ArcGIS feature service",
+    license: "Crown copyright / Open Government Licence v3.0 where applicable.",
+    license_url: OGL_URL,
+    attribution: "Department for Communities Historic Environment Division",
+    duplicate_terms: ["HARNI", "Historic Buildings", "Date_Added", "Date Visited"]
+  },
+  {
+    id: "bfs_arch_round503_reject_bcc_project_pages_page_only_or_copyright_limited",
+    title: "Belfast City Council project and news pages",
+    rejection_category: "page_only_or_license_limited",
+    reason:
+      "Council project/news pages were retained as citation-only leads where they did not expose a reusable official point coordinate beyond DfI point rows or where website copyright terms support cautious citation metadata rather than redistribution of page content.",
+    source_record_id: "bcc-project-pages-reviewed-round503",
+    source_url: BCC_COPYRIGHT_URL,
+    source_name: "Belfast City Council copyright and project/news pages",
+    publisher: "Belfast City Council",
+    source_type: "official council web pages",
+    license: "Belfast City Council website copyright/terms; factual citation metadata and source URL retained.",
+    license_url: BCC_TERMS_URL,
+    attribution: "Belfast City Council",
+    duplicate_terms: ["Belfast City Council", "project page", "Assembly Rooms"]
+  },
+  {
+    id: "bfs_arch_round503_reject_niwater_route_pages_geometry_ref_only",
+    title: "Northern Ireland Water route/area works pages",
+    rejection_category: "geometry_ref_only_not_point_ready",
+    reason:
+      "Official NI Water works pages can document route or area works, but reviewed leads did not expose a reusable official point coordinate or point-level source row for this point-backed architecture pack.",
+    source_record_id: "niwater-project-pages-reviewed-round503",
+    source_url: NIW_TERMS_URL,
+    source_name: "Northern Ireland Water project/news pages",
+    publisher: "Northern Ireland Water",
+    source_type: "official utility project/news pages",
+    license: "Northern Ireland Water website copyright/terms; factual citation metadata and source URL retained.",
+    license_url: NIW_TERMS_URL,
+    attribution: "Northern Ireland Water",
+    duplicate_terms: ["NI Water", "route works", "sewer", "geometry-ref"]
+  }
+];
+
+const ROUND503_UNUSED_PRIOR_TEMPLATE_REJECTED_LEADS = [
+  {
     id: "bfs_arch_round503_reject_crumlin_road_gaol_section54_condition_variation",
     title: "Crumlin Road Gaol A Wing Section 54 condition-variation row",
     rejection_category: "condition_variation_not_promoted",
@@ -858,7 +1022,7 @@ const SEARCH_QUERIES_CHECKED = [
   "source review: DfC/HED ArcGIS feature service status-only rows",
   "source review: Belfast City Council official project/news pages and website copyright terms",
   "source review: NI Water official page geometry-ref-only utility leads",
-  "source review: DfI point-backed signage, display, rooftop-PV-only, duplicate-project and minor domestic rows retained outside promoted pack"
+  "source review: DfI point-backed signage, display, rooftop-PV/EV-only, duplicate-project, HMO/short-let-only, bus-shelter and minor domestic rows retained outside promoted pack"
 ];
 
 function ensureDir(dirPath) {
@@ -1732,7 +1896,7 @@ function main() {
       "All accepted candidates are administrative planning/statutory-consent records, not physical start, completion, opening or occupation evidence.",
       "All accepted candidates are point-backed by official Easting/Northing fields converted from EPSG:29902 TM65 / Irish Grid to WGS84 using explicit CRS parameters.",
       "No accepted candidate uses invented coordinates or generic geocoding.",
-      "Rejected official pages and rows include duplicate-project consents, lower-priority fixture or rooftop-PV-only changes, minor domestic rows, sign/advertisement/display rows, page-only leads, geometry-ref-only route/area leads and status-only heritage sources.",
+      "Rejected official pages and rows include duplicate-project consents, lower-priority fixture or rooftop-PV/EV-only changes, lower-signal HMO/short-let-only rows, bus-shelter/street-furniture rows, minor domestic rows, sign/advertisement/display rows, page-only leads, geometry-ref-only route/area leads and status-only heritage sources.",
       "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
     ]
   };
@@ -1821,12 +1985,12 @@ function main() {
     "",
     "- Department for Infrastructure planning statistics 2024/25: 24 selected Belfast planning/statutory-consent rows with official Easting/Northing and no APP_ID/source-record overlap with the manual architecture corpus or prior accepted Belfast candidate packs through Round499.",
     "- EPSG:29902 TM65 / Irish Grid CRS metadata: used only to convert source Easting/Northing to WGS84 points; it is not event evidence.",
-    "- Categories include listed-building consents, hospitality/commercial and residential/commercial change-of-use rows, education facilities, care-home and healthcare-adjacent premises, public-estate roof/parapet works, building-services alterations and commercial facade/entrance works.",
+    "- Categories include listed-building consents, heritage/civic and heritage/residential works, commercial and leisure change-of-use rows, multi-unit residential conversions, mixed-use retail/apartment records, estate-support renovation and commercial facade/forecourt works.",
     "",
     "## Rejected/Retained Separately",
     "",
-    "- Crumlin Road Gaol Section 54, 3-5 Malone Road, 70 High Street, 15-19 William Street South and Glenwood Primary School DfI rows were retained outside the promoted pack because they are condition-variation or duplicate-project/same-site review material against the corpus through Round499.",
-    "- Signage, advertisement, display, rooftop-PV-only, fixture-only and minor domestic DfI rows were reviewed but not promoted as higher-signal public architecture events.",
+    "- Crumlin Road Gaol Section 54, 70 High Street, 15-19 William Street South and Glenwood Primary School DfI rows were retained outside the promoted pack because they are condition-variation or duplicate-project/same-site review material against the corpus through Round499.",
+    "- Signage, advertisement, display, rooftop-PV/EV-only, fixture-only, bus-shelter/street-furniture, low-signal HMO/short-let-only and minor domestic DfI rows were reviewed but not promoted as higher-signal public architecture events.",
     "- HARNI/HED spatial layers were treated as heritage status/location evidence only, not dated physical works evidence.",
     "- Belfast City Council pages and NI Water route/area pages remain citation-only/page-only or geometry-ref-only leads unless a source-backed point/boundary and compatible reuse terms are available.",
     "",

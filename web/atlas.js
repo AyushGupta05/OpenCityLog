@@ -2636,6 +2636,17 @@
             "safety", "lens-icon-civic-safety",
             "lens-icon-civic",
           ],
+          ["==", ["get", "node_style"], "planning_document"],
+          [
+            "match", ["get", "sublayer_id"],
+            "built_environment", "lens-icon-planning-application",
+            "objections", "lens-icon-planning-objection",
+            "completions", "lens-icon-planning-completion",
+            "vacant_sites", "lens-icon-planning-vacant",
+            "redevelopment", "lens-icon-planning-redevelopment",
+            "uncertainty", "lens-icon-planning-uncertainty",
+            "lens-icon-planning-application",
+          ],
           [
             "match", ["get", "utility_type"],
             "water", "lens-icon-utility-water",
@@ -2648,9 +2659,9 @@
         ],
         "icon-size": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.34, 0.42],
-          13, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.49, 0.58],
-          16, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.68, 0.78],
+          9, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.34, ["==", ["get", "node_style"], "planning_document"], 0.32, 0.42],
+          13, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.49, ["==", ["get", "node_style"], "planning_document"], 0.47, 0.58],
+          16, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.68, ["==", ["get", "node_style"], "planning_document"], 0.66, 0.78],
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
@@ -3350,6 +3361,12 @@
   function ensureLensImages() {
     if (!state.map) return;
     addLensImage("lens-icon-built", "#c8472e", "built");
+    addLensImage("lens-icon-planning-application", "#d84a2d", "planning-doc");
+    addLensImage("lens-icon-planning-objection", "#f07b2b", "planning-doc");
+    addLensImage("lens-icon-planning-completion", "#4b9661", "planning-doc");
+    addLensImage("lens-icon-planning-vacant", "#258a8e", "planning-doc");
+    addLensImage("lens-icon-planning-redevelopment", "#b91f32", "planning-doc");
+    addLensImage("lens-icon-planning-uncertainty", "#75418d", "planning-doc");
     addLensImage("lens-icon-civic", "#2a84a6", "civic");
     addLensImage("lens-icon-civic-school", "#178f8f", "civic-anchor");
     addLensImage("lens-icon-civic-health", "#e85b1e", "civic-anchor");
@@ -3387,6 +3404,31 @@
       ctx.beginPath();
       ctx.moveTo(18, 30);
       ctx.lineTo(30, 18);
+      ctx.stroke();
+    } else if (shape === "planning-doc") {
+      ctx.beginPath();
+      ctx.moveTo(15, 10);
+      ctx.lineTo(29, 10);
+      ctx.lineTo(37, 18);
+      ctx.lineTo(37, 38);
+      ctx.lineTo(15, 38);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = "rgba(255,253,247,0.76)";
+      ctx.beginPath();
+      ctx.moveTo(29, 11);
+      ctx.lineTo(36, 18);
+      ctx.lineTo(29, 18);
+      ctx.closePath();
+      ctx.fill();
+      ctx.strokeStyle = "rgba(255,253,247,0.88)";
+      ctx.lineWidth = 2.4;
+      ctx.beginPath();
+      ctx.moveTo(20, 25);
+      ctx.lineTo(32, 25);
+      ctx.moveTo(20, 31);
+      ctx.lineTo(30, 31);
       ctx.stroke();
     } else if (shape === "civic") {
       ctx.beginPath();
@@ -3622,8 +3664,8 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.08, 0.32) : ["planning-delta", "planning-parcels"].includes(aspect.id) ? lensDetailFillOpacity(0.008, 0.065) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.42) : ["planning-delta", "planning-parcels"].includes(aspect.id) ? lensDetailLineOpacity(0.012, 0.085) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.025, 0.16) : ["planning-delta", "planning-parcels"].includes(aspect.id) ? lensDetailFillOpacity(0.008, 0.065) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.07, 0.28) : ["planning-delta", "planning-parcels"].includes(aspect.id) ? lensDetailLineOpacity(0.012, 0.085) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.03, 0.12) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.02, 0.1) : lensDetailFillOpacity(0.16, 0.5));
@@ -3783,6 +3825,7 @@
       ["==", ["get", "kind"], "node"],
       ["!=", ["get", "node_style"], "utility_trace"],
       ["!=", ["get", "node_style"], "civic_anchor"],
+      ["!=", ["get", "node_style"], "planning_document"],
     ];
     if (lens?.id === "economy-gravity") return guideSublayerFilter(base, lens);
     if (lens?.id === "civic-catchment") return guideSublayerFilter(base, lens);
@@ -3797,6 +3840,12 @@
       ["==", ["get", "node_style"], "civic_anchor"],
     ];
     if (lens?.id === "civic-catchment") return guideSublayerFilter(civicBase, lens);
+    const planningBase = [
+      "all",
+      ["==", ["get", "kind"], "node"],
+      ["==", ["get", "node_style"], "planning_document"],
+    ];
+    if (lens?.id === "planning-pressure") return guideSublayerFilter(planningBase, lens);
     return [
       "all",
       ["==", ["get", "kind"], "node"],
@@ -3805,7 +3854,7 @@
   }
 
   function guideSublayerFilter(base, lens = activeMapLens()) {
-    if (!["economy-gravity", "civic-catchment"].includes(lens?.id)) return base;
+    if (!["economy-gravity", "civic-catchment", "planning-pressure"].includes(lens?.id)) return base;
     const active = activeSublayerIdsForLens(lens);
     return [
       "all",
@@ -5619,14 +5668,7 @@
   }
 
   function geometryLineLengthMeters(geometry) {
-    const coords = geometry?.type === "LineString"
-      ? geometry.coordinates
-      : geometry?.type === "MultiLineString"
-        ? geometry.coordinates?.flat()
-        : [];
-    const clean = Array.isArray(coords)
-      ? coords.filter((coord) => Number.isFinite(coord?.[0]) && Number.isFinite(coord?.[1]))
-      : [];
+    const clean = geometryLineCoordinateSequences(geometry).flat();
     if (clean.length < 2) return 0;
     let total = 0;
     const stride = Math.max(1, Math.floor(clean.length / 36));
@@ -5639,6 +5681,20 @@
     const last = clean[clean.length - 1];
     if (previous !== last) total += lngLatDistanceMeters(previous, last);
     return total;
+  }
+
+  function geometryLineCoordinateSequences(geometry) {
+    const sequences = geometry?.type === "LineString"
+      ? [geometry.coordinates]
+      : geometry?.type === "MultiLineString"
+        ? geometry.coordinates
+        : [];
+    if (!Array.isArray(sequences)) return [];
+    return sequences
+      .map((sequence) => Array.isArray(sequence)
+        ? sequence.filter((coord) => Number.isFinite(coord?.[0]) && Number.isFinite(coord?.[1]))
+        : [])
+      .filter((sequence) => sequence.length >= 2);
   }
 
   function nearestRoadAnchor(point, anchors, maxDistance) {
@@ -6173,37 +6229,189 @@
       .filter((event) => event.category === "built_environment" && event.lngLat);
     if (!roads.length || !events.length) return [];
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * 2.85;
+    const maxDistance = radiusM * 2.7;
+    const anchors = planningPressureAnchorFeatures(currentTimelineYear())
+      .filter((anchor) => lngLatDistanceMeters(center, anchor.point) <= maxDistance + 360);
     const features = [];
     for (const road of roads) {
-      const point = geometryToLngLat(road.geometry);
-      if (!point) continue;
-      const distance = lngLatDistanceMeters(center, point);
-      if (distance > maxDistance) continue;
-      const nearestEvent = nearestGuideEvent(point, events, 780);
-      const eventDensity = eventDensityIntensity(point, events, 860);
+      if (geometryDistanceToPointMeters(road.geometry, center, 8) > maxDistance + 220) continue;
       const rank = Number(road.properties?.rank || 1);
-      const arterialBoost = Math.min(0.16, Math.max(0, rank - 1) * 0.04);
-      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const intensity = clamp01(0.16 + eventDensity * 0.25 + arterialBoost + proximity * 0.14);
-      if (intensity < 0.22 && rank < 2) continue;
-      features.push({
-        type: "Feature",
-        properties: {
-          kind: "flow",
-          lens_id: lens.id,
-          flow_style: "street_thread",
-          event_id: nearestEvent?.id || "",
-          intensity: Number(intensity.toFixed(2)),
-          color: guideFlowColor(lens, nearestEvent || {}, 0, intensity),
-          score: Number((intensity + stableUnit(road.properties?.source_id || road.properties?.id || "") * 0.16).toFixed(3)),
-        },
-        geometry: road.geometry,
-      });
+      const maxSegmentM = rank >= 3 ? 150 : 105;
+      for (const segment of planningPressureRoadSegments(road.geometry, maxSegmentM)) {
+        const point = segment.midpoint;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance > maxDistance) continue;
+        const influence = planningPressureAnchorInfluence(point, anchors, rank >= 3 ? 330 : 260);
+        const nearestEvent = influence.event || nearestGuideEvent(point, events, 520);
+        const eventDensity = eventDensityIntensity(point, events, 520);
+        const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+        const rankBoost = Math.min(0.16, Math.max(0, rank - 1) * 0.045);
+        const intensity = clamp01(0.07 + influence.intensity * 0.5 + eventDensity * 0.2 + proximity * 0.08 + rankBoost * 0.72);
+        if (intensity < 0.17 && rank < 2 && !influence.anchor) continue;
+        if (intensity < 0.14) continue;
+        const sourceKey = road.properties?.source_id || road.properties?.id || `${point[0].toFixed(5)}:${point[1].toFixed(5)}`;
+        const seed = stableUnit(`${sourceKey}:${segment.index}:${lens.id}`);
+        const flowStyle = intensity > 0.76 || (rank >= 4 && intensity > 0.62)
+          ? "planning_pressure_spine"
+          : intensity > 0.4
+            ? "planning_pressure_edge"
+            : "planning_pressure_trace";
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "flow",
+            lens_id: lens.id,
+            flow_style: flowStyle,
+            event_id: nearestEvent?.id || influence.eventId || "",
+            source_id: sourceKey,
+            sublayer_id: influence.driver || planningPressureDriverKey(nearestEvent || {}),
+            intensity: Number(intensity.toFixed(2)),
+            color: planningPressureGuideColor(intensity),
+            edge_offset: Number(((seed < 0.5 ? -1 : 1) * (flowStyle === "planning_pressure_spine" ? 0.34 : flowStyle === "planning_pressure_edge" ? 0.68 : 0.52)).toFixed(2)),
+            segment_length_m: Number(segment.lengthM.toFixed(1)),
+            score: Number((intensity + proximity * 0.08 + Math.min(0.08, rank * 0.018) + seed * 0.1).toFixed(3)),
+          },
+          geometry: segment.geometry,
+        });
+      }
     }
-    return features
+    return distributePlanningPressureSegments(features, 2700)
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 1050);
+      .slice(0, 2700);
+  }
+
+  function planningPressureRoadSegments(geometry, maxSegmentM = 120) {
+    const segments = [];
+    let index = 0;
+    for (const sequence of geometryLineCoordinateSequences(geometry)) {
+      for (let i = 1; i < sequence.length; i += 1) {
+        const from = sequence[i - 1];
+        const to = sequence[i];
+        const lengthM = lngLatDistanceMeters(from, to);
+        if (!Number.isFinite(lengthM) || lengthM < 7) continue;
+        const pieces = Math.max(1, Math.min(6, Math.ceil(lengthM / maxSegmentM)));
+        for (let piece = 0; piece < pieces; piece += 1) {
+          const a = interpolateLngLat(from, to, piece / pieces);
+          const b = interpolateLngLat(from, to, (piece + 1) / pieces);
+          const pieceLengthM = lngLatDistanceMeters(a, b);
+          if (pieceLengthM < 7) continue;
+          segments.push({
+            index: index++,
+            midpoint: interpolateLngLat(a, b, 0.5),
+            lengthM: pieceLengthM,
+            geometry: { type: "LineString", coordinates: [a, b] },
+          });
+        }
+      }
+    }
+    return segments;
+  }
+
+  function interpolateLngLat(from, to, t) {
+    return [
+      from[0] + (to[0] - from[0]) * t,
+      from[1] + (to[1] - from[1]) * t,
+    ];
+  }
+
+  function planningPressureAnchorFeatures(year) {
+    return (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "planning_cell" && feature.geometry && Number(feature.properties?.visible_year || 9999) <= year)
+      .map((feature) => {
+        const point = geometryToLngLat(feature.geometry);
+        if (!point) return null;
+        const props = feature.properties || {};
+        return {
+          feature,
+          props,
+          point,
+          eventId: firstDetailEventId(props),
+          eventCount: Number(props.event_count || 1),
+          intensity: clamp01(Number(props.intensity || 0.42)),
+          driver: planningPressureDriverKey(props),
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function planningPressureAnchorInfluence(point, anchors, kernelM) {
+    let score = 0;
+    let best = null;
+    const driverScores = new Map();
+    for (const anchor of anchors) {
+      const distance = lngLatDistanceMeters(point, anchor.point);
+      if (distance > kernelM) continue;
+      const distanceWeight = 1 - distance / kernelM;
+      const recordBoost = Math.min(0.22, anchor.eventCount * 0.024);
+      const weight = distanceWeight * (0.24 + anchor.intensity * 0.54 + recordBoost);
+      score += weight;
+      driverScores.set(anchor.driver, (driverScores.get(anchor.driver) || 0) + weight);
+      if (!best || distance < best.distance) best = { ...anchor, distance };
+    }
+    const driver = [...driverScores.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || best?.driver || "";
+    return {
+      anchor: best,
+      eventId: best?.eventId || "",
+      event: best?.eventId ? (state.eventById.get(best.eventId) || null) : null,
+      driver,
+      intensity: clamp01(score * 0.34),
+    };
+  }
+
+  function distributePlanningPressureSegments(features, target) {
+    if (features.length <= target) return features;
+    const selected = [];
+    const used = new Set();
+    const buckets = new Map();
+    for (const feature of features) {
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const bucket = `${Math.round(point[0] * 520)}:${Math.round(point[1] * 760)}`;
+      const previous = buckets.get(bucket);
+      if (!previous || Number(feature.properties?.score || 0) > Number(previous.properties?.score || 0)) {
+        buckets.set(bucket, feature);
+      }
+    }
+    [...buckets.values()]
+      .sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0))
+      .slice(0, Math.floor(target * 0.62))
+      .forEach((feature) => {
+        selected.push(feature);
+        used.add(feature);
+      });
+    for (const feature of [...features].sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0))) {
+      if (selected.length >= target) break;
+      if (used.has(feature)) continue;
+      selected.push(feature);
+    }
+    return selected;
+  }
+
+  function planningPressureDriverKey(source) {
+    const text = [
+      source?.title,
+      source?.label,
+      source?.summary,
+      source?.area,
+      source?.lifecycle_status,
+      source?.status,
+      source?.confidence,
+      ...(source?.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/inferred|uncertain|uncertainty|osm/.test(text)) return "uncertainty";
+    if (/object|appeal|representations?/.test(text)) return "objections";
+    if (/vacan|derelict|empty site|brownfield/.test(text)) return "vacant_sites";
+    if (/redevelop|demolition|replacement|student|hotel|mixed[-\s]?use|change of use|extension|alteration|conversion/.test(text)) return "redevelopment";
+    if (/complete|opened|reopened|finished|delivered/.test(text)) return "completions";
+    return "built_environment";
+  }
+
+  function planningPressureGuideColor(intensity) {
+    if (intensity > 0.82) return "#b91f32";
+    if (intensity > 0.66) return "#d84a2d";
+    if (intensity > 0.47) return "#efaa3c";
+    if (intensity > 0.32) return "#77aaa1";
+    return "#8fb2bd";
   }
 
   function utilityNetworkStreetFeatures(center, lens) {
@@ -6748,12 +6956,15 @@
           ? economyGravitySectorKey(item.event)
           : lens.id === "civic-catchment"
           ? civicServiceSublayerKey(item.event)
+          : lens.id === "planning-pressure"
+          ? planningPressureDriverKey(item.event)
           : "";
       return {
         type: "Feature",
         properties: {
           kind: "node",
           lens_id: lens.id,
+          node_style: lens.id === "planning-pressure" ? "planning_document" : "",
           event_id: item.event.id,
           title: item.event.title,
           area: item.event.area || "",
@@ -6769,6 +6980,8 @@
             ? economyGravitySectorColor(sublayerId)
             : lens.id === "civic-catchment" && sublayerId
             ? civicServiceSublayerColor(sublayerId)
+            : lens.id === "planning-pressure" && sublayerId
+            ? planningDriverColor(sublayerId)
             : guideFlowColor(lens, item.event, 0, intensity),
         },
         geometry: { type: "Point", coordinates: item.event.lngLat },
@@ -7079,13 +7292,17 @@
     return distributedDetailNodeCandidates(center, candidates, lens)
       .slice(0, detailNodeLimit(lens.id))
       .map((item, index) => {
-        const sublayerId = lens.id === "economy-gravity" ? economyGravitySectorKey(item.props) : "";
+        const sublayerId = lens.id === "economy-gravity"
+          ? economyGravitySectorKey(item.props)
+          : lens.id === "planning-pressure"
+            ? planningPressureDriverKey(item.props)
+            : "";
         return {
           type: "Feature",
           properties: {
             kind: "node",
             lens_id: lens.id,
-            node_style: lens.id.startsWith("utilities-") ? "utility_trace" : "detail",
+            node_style: lens.id.startsWith("utilities-") ? "utility_trace" : lens.id === "planning-pressure" ? "planning_document" : "detail",
             detail_layer: item.props.layer,
             utility_type: item.props.utility_type || "",
             event_id: item.eventId,
@@ -7099,7 +7316,11 @@
             layer_id: lens.id === "civic-access-gaps" ? "facilities" : "",
             sublayer_id: sublayerId,
             intensity: Number(item.intensity.toFixed(2)),
-            color: sublayerId ? economyGravitySectorColor(sublayerId) : detailNodeColor(lens, item.props, index),
+            color: lens.id === "economy-gravity" && sublayerId
+              ? economyGravitySectorColor(sublayerId)
+              : lens.id === "planning-pressure" && sublayerId
+                ? planningDriverColor(sublayerId)
+                : detailNodeColor(lens, item.props, index),
           },
           geometry: { type: "Point", coordinates: item.point },
         };
@@ -7107,6 +7328,7 @@
   }
 
   function detailNodeLayersForLens(lens) {
+    if (lens.id === "planning-pressure") return ["planning_cell"];
     if (lens.id.startsWith("civic-")) return ["civic_facility"];
     if (lens.id === "economy-gravity") return ["economy_activity_cell"];
     if (lens.id === "economy-vitality") return ["economy_frontage", "economy_activity_cell"];
@@ -7115,6 +7337,7 @@
   }
 
   function detailNodeDistanceFactor(lensId) {
+    if (lensId === "planning-pressure") return 1.3;
     if (lensId === "civic-access-gaps") return 1.25;
     if (lensId === "economy-gravity") return 1.08;
     if (lensId === "utilities-resilience") return 1.1;
@@ -7122,6 +7345,7 @@
   }
 
   function detailNodeLimit(lensId) {
+    if (lensId === "planning-pressure") return 30;
     if (lensId === "civic-access-gaps") return 18;
     if (lensId === "civic-catchment" || lensId === "civic-demand") return 18;
     if (lensId === "economy-gravity") return 18;
@@ -7175,6 +7399,7 @@
   }
 
   function detailNodeColor(lens, props, index = 0) {
+    if (lens.id === "planning-pressure") return planningDriverColor(planningPressureDriverKey(props));
     if (lens.id.startsWith("civic-")) {
       const type = String(props.service_type || "").toLowerCase();
       if (/health|care|hospital|gp/.test(type)) return "#e85b1e";
@@ -7196,6 +7421,18 @@
     if (/market/.test(text)) return "#8a5a2b";
     if (/vacan|closure|low/.test(text)) return "#ee3f47";
     return "#7644a1";
+  }
+
+  function planningDriverColor(driver) {
+    const colors = {
+      built_environment: "#d84a2d",
+      objections: "#f07b2b",
+      completions: "#4b9661",
+      vacant_sites: "#258a8e",
+      redevelopment: "#b91f32",
+      uncertainty: "#75418d",
+    };
+    return colors[driver] || colors.built_environment;
   }
 
   function guideNodeLabel(event, lens) {
@@ -7312,11 +7549,7 @@
       return palette[Math.min(palette.length - 1, Math.floor(seed * palette.length))];
     }
     if (lens.id === "planning-pressure") {
-      if (intensity > 0.76) return "#b91f32";
-      if (intensity > 0.6) return "#d84a2d";
-      if (intensity > 0.44) return "#efaa3c";
-      if (intensity > 0.3) return "#77aaa1";
-      return "#8fb2bd";
+      return planningPressureGuideColor(intensity);
     }
     if (lens.id === "civic-access-gaps") {
       if (intensity > 0.72) return "#ed4a2e";

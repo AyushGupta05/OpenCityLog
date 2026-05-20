@@ -406,7 +406,11 @@ const candidatePaths = {
   nycLpcPermitNext75Round501: "tmp/subagents/round501_nyc_lpc_permit_next75/candidates.json",
   londonPldLifecycleNext76Round504: "tmp/subagents/round504_london_pld_lifecycle_next76/candidates.json",
   nycDobLegacyPermitNext5Round506: "tmp/subagents/round506_nyc_dob_legacy_permit_next5/candidates.json",
-  nycDobNowNext36Round507: "tmp/subagents/round507_nyc_dob_now_next36/candidates.json"
+  nycDobNowNext36Round507: "tmp/subagents/round507_nyc_dob_now_next36/candidates.json",
+  belfastOfficialArchitectureSweepNext24Round503: "tmp/subagents/round503_belfast_official_architecture_sweep_next24/candidates.json",
+  nycLpcPermitNext76Round505: "tmp/subagents/round505_nyc_lpc_permit_next76/candidates.json",
+  londonPldLifecycleNext77Round508: "tmp/subagents/round508_london_pld_lifecycle_next77/candidates.json",
+  nycDobLegacyPermitNext6Round509: "tmp/subagents/round509_nyc_dob_legacy_permit_next6/candidates.json"
 };
 
 const sourceIdAliases = {
