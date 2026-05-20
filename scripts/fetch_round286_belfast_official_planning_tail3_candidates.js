@@ -13,6 +13,8 @@ function buildRound286Script(source) {
     .replaceAll("round281", "round286")
     .replaceAll("tail2", "tail3")
     .replaceAll("after round270", "after round281")
+    .replaceAll("quality.score < 65", "quality.score < 55")
+    .replaceAll("met a conservative tail gate", "met a residual physical-works tail gate")
     .replaceAll("capped the ranked review pack at 120", "capped the ranked review pack at 150")
     .replaceAll(
       "current manual architecture corpus, round270, and prior Belfast candidate packs",

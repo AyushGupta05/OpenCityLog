@@ -3435,7 +3435,7 @@
       "planning-pressure": 3.8,
       "civic-access-gaps": 2.5,
       "civic-demand": 1.65,
-      "economy-gravity": 1.35,
+      "economy-gravity": 2.15,
       "utilities-capacity": 2.8,
       "utilities-resilience": 2.6,
       "utilities-works": 2.35,
@@ -3444,7 +3444,7 @@
       "planning-pressure": 20,
       "civic-access-gaps": 16,
       "civic-demand": 12,
-      "economy-gravity": 9,
+      "economy-gravity": 14,
       "utilities-capacity": 14,
       "utilities-resilience": 13,
       "utilities-works": 12,
@@ -3454,7 +3454,7 @@
       maxDistance,
       minDistance: lens.id === "economy-gravity" ? 120 : 80,
       limit: limitByLens[lens.id] || 9,
-      distributed: !["economy-gravity", "civic-demand"].includes(lens.id),
+      distributed: lens.id !== "civic-demand",
     });
     if (["utilities-capacity", "utilities-works"].includes(lens.id)) {
       return linkedEventGuideFeatures(center, lens, events, maxDistance);

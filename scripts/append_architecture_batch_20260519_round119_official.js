@@ -198,6 +198,7 @@ const candidatePaths = {
   nycLpcPermitNext21Round282: "tmp/subagents/round282_nyc_lpc_permit_next21/candidates.json",
   nycHpdAffordableHousingNext13Round283: "tmp/subagents/round283_nyc_hpd_affordable_housing_next13/candidates.json",
   londonPldLifecycleNext25Round284: "tmp/subagents/round284_london_pld_lifecycle_next25/candidates.json",
+  londonLddArchiveNext23Round285: "tmp/subagents/round285_london_ldd_archive_next23/candidates.json",
   belfastOfficialPlanningTail3Round286: "tmp/subagents/round286_belfast_official_planning_tail3/candidates.json"
 };
 
