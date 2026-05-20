@@ -1,0 +1,137 @@
+{
+  "ok": true,
+  "validated_at": "2026-05-20T00:00:00Z",
+  "candidate_count": 150,
+  "date_range": {
+    "min": "2011-03-31",
+    "max": "2019-07-26"
+  },
+  "lifecycle_field_mix": {
+    "actual_completion_date": 41,
+    "actual_commencement_date": 109
+  },
+  "unique_event_ids": 150,
+  "unique_source_date_keys": 150,
+  "manual_field_date_keys_scanned": 4271,
+  "prior_field_date_keys_scanned": 3600,
+  "prior_packs_scanned": [
+    {
+      "name": "round126_london_pld_lifecycle_direct",
+      "candidates": 100
+    },
+    {
+      "name": "round126_london_pld_lifecycle_more",
+      "candidates": 80
+    },
+    {
+      "name": "round140_london_pld_lifecycle_more",
+      "candidates": 90
+    },
+    {
+      "name": "round147_london_pld_lifecycle_next",
+      "candidates": 90
+    },
+    {
+      "name": "round150_london_pld_lifecycle_next2",
+      "candidates": 90
+    },
+    {
+      "name": "round153_london_pld_lifecycle_next3",
+      "candidates": 150
+    },
+    {
+      "name": "round157_london_pld_lifecycle_next4",
+      "candidates": 150
+    },
+    {
+      "name": "round161_london_pld_lifecycle_next5",
+      "candidates": 150
+    },
+    {
+      "name": "round166_london_pld_lifecycle_next6",
+      "candidates": 150
+    },
+    {
+      "name": "round172_london_pld_lifecycle_next7",
+      "candidates": 150
+    },
+    {
+      "name": "round178_london_pld_lifecycle_next8",
+      "candidates": 150
+    },
+    {
+      "name": "round184_london_pld_lifecycle_next9",
+      "candidates": 150
+    },
+    {
+      "name": "round190_london_pld_lifecycle_next10",
+      "candidates": 150
+    },
+    {
+      "name": "round196_london_pld_lifecycle_next11",
+      "candidates": 150
+    },
+    {
+      "name": "round202_london_pld_lifecycle_next12",
+      "candidates": 150
+    },
+    {
+      "name": "round208_london_pld_lifecycle_next13",
+      "candidates": 150
+    },
+    {
+      "name": "round217_london_pld_lifecycle_next14",
+      "candidates": 150
+    },
+    {
+      "name": "round223_london_pld_lifecycle_next15",
+      "candidates": 150
+    },
+    {
+      "name": "round230_london_pld_lifecycle_next16",
+      "candidates": 150
+    },
+    {
+      "name": "round238_london_pld_lifecycle_next17",
+      "candidates": 150
+    },
+    {
+      "name": "round243_london_pld_lifecycle_next18",
+      "candidates": 150
+    },
+    {
+      "name": "round248_london_pld_lifecycle_next19",
+      "candidates": 150
+    },
+    {
+      "name": "round253_london_pld_lifecycle_next20",
+      "candidates": 150
+    },
+    {
+      "name": "round261_london_pld_lifecycle_next21",
+      "candidates": 150
+    },
+    {
+      "name": "round266_london_pld_lifecycle_next22",
+      "candidates": 150
+    },
+    {
+      "name": "round272_london_pld_lifecycle_next23",
+      "candidates": 150
+    }
+  ],
+  "checks": [
+    "required output files",
+    "required provenance fields",
+    "accessed_at fixed to 2026-05-20",
+    "literal source_date_field lifecycle names",
+    "date window",
+    "London coordinate bounds",
+    "unique event ids and source-date keys",
+    "no overlap with manual corpus",
+    "no overlap with PLD lifecycle packs through round272",
+    "source/row/API URLs",
+    "licence and lifecycle caveats",
+    "no prediction/causation wording in title or observed_change"
+  ]
+}
