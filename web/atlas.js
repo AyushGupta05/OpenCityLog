@@ -2448,9 +2448,9 @@
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"], 0.76,
           ["==", ["get", "flow_style"], "economy_gravity_thread"], 0.44,
-          ["==", ["get", "flow_style"], "economy_current_ribbon"], 0.68,
-          ["==", ["get", "flow_style"], "economy_before_ribbon"], 0.26,
-          ["==", ["get", "flow_style"], "economy_churn_tick"], 0.72,
+          ["==", ["get", "flow_style"], "economy_current_ribbon"], 0.84,
+          ["==", ["get", "flow_style"], "economy_before_ribbon"], 0.38,
+          ["==", ["get", "flow_style"], "economy_churn_tick"], 0.82,
           ["==", ["get", "flow_style"], "planning_pressure_spine"], 0.74,
           ["==", ["get", "flow_style"], "planning_pressure_edge"], 0.58,
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.34,
@@ -2480,11 +2480,11 @@
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 4.6],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 5.8],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.15, 1, 8.6],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 3.2],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.05, 1, 3.9],
           ["==", ["get", "flow_style"], "economy_churn_tick"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.4, 1, 4.2],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.7, 1, 5.1],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.8, 1, 6.8],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
@@ -2547,11 +2547,11 @@
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 0.96],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.74, 1, 1],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.46],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
           ["==", ["get", "flow_style"], "economy_churn_tick"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.55, 1, 0.92],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 1],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.94],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
@@ -2593,11 +2593,11 @@
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 2.25],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 3.65],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.95, 1, 5.7],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.3, 1, 1.65],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.44, 1, 2.2],
           ["==", ["get", "flow_style"], "economy_churn_tick"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.6, 1, 2.5],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.8, 1, 3.15],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 4.35],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
@@ -3964,10 +3964,10 @@
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : lensDetailFillOpacity(0.04, 0.16));
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : lensDetailLineOpacity(0.06, 0.28));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.38, 0.78) : lensDetailLineOpacity(0.24, 0.58));
-    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.56, 0.96) : lensDetailLineOpacity(0.36, 0.92));
-    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 9.8) : lensTraceWidthExpression(2.6, 8.4));
-    setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.3, 5.9) : lensTraceWidthExpression(1.05, 4.9));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.58, 0.92) : lensDetailLineOpacity(0.24, 0.58));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(4.6, 12.4) : lensTraceWidthExpression(2.6, 8.4));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(2.15, 7.4) : lensTraceWidthExpression(1.05, 4.9));
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
     setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
   }
@@ -11164,17 +11164,24 @@
       source.accessed ? `Retrieved: ${source.accessed}` : "",
       source.recordId ? `Record: ${source.recordId}` : "",
       source.filePath ? `File: ${source.filePath}` : "",
-    ].filter(Boolean);
+    ].filter(Boolean).map(displaySourceText);
     const body = `
-      <div class="source-kind">${escapeHtml(source.kind)}</div>
+      <div class="source-kind">${escapeHtml(displaySourceText(source.kind))}</div>
       <div class="source-title">
-        <strong>${escapeHtml(source.title)}</strong>
+        <strong>${escapeHtml(displaySourceText(source.title))}</strong>
         ${meta.length ? `<span class="source-meta">${meta.map(escapeHtml).join(" / ")}</span>` : ""}
-        ${source.attribution ? `<span class="source-note">${escapeHtml(source.attribution)}</span>` : ""}
+        ${source.attribution ? `<span class="source-note">${escapeHtml(displaySourceText(source.attribution))}</span>` : ""}
       </div>
       <div class="source-year">${escapeHtml(source.year)}</div>`;
     if (!source.url) return `<div class="source-row">${body}</div>`;
     return `<a class="source-row" href="${escapeAttr(source.url)}" target="_blank" rel="noopener noreferrer">${body}</a>`;
+  }
+
+  function displaySourceText(value) {
+    return String(value || "")
+      .replace(/\bsatellite\b/gi, "aerial")
+      .replace(/\bwayback\b/gi, "historic")
+      .replace(/\bimagery\b/gi, "media");
   }
   function renderEventList() {
     if (!els.eventList) return;
