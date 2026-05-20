@@ -3751,13 +3751,28 @@
       ...(event?.affectedSignals || []),
     ].filter(Boolean).join(" ").toLowerCase();
     if (/fail|outage|burst|emergency|disruption|closure/.test(text)) return "#cf3337";
-    if (/repair|replace|upgrade|works/.test(text)) return "#e8a620";
     if (/permit|consent|licen[cs]e/.test(text)) return "#774a92";
     if (/reinstate|resurface|restore/.test(text)) return "#4f8f50";
+    if (/repair|replace|upgrade/.test(text)) return type === "water" ? "#248b94" : "#e8a620";
+    if (/planned|programme|program|scheme|maintenance|works|utility/.test(text)) return utilityWorksTypeColor(type, event, road);
     if (type === "water") return "#248b94";
     if (type === "telecoms") return "#774a92";
     if (type === "electricity") return "#e8a620";
     return intensity > 0.66 ? "#d66a3a" : "#8c7460";
+  }
+
+  function utilityWorksTypeColor(type, event, road) {
+    if (type === "water") return "#248b94";
+    if (type === "telecoms") return "#774a92";
+    if (type === "electricity") return "#e8a620";
+    if (type === "gas") return "#d66a3a";
+    if (type === "drainage") return "#4f8f50";
+    const seed = stableUnit(`works:${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
+    if (seed < 0.32) return "#248b94";
+    if (seed < 0.52) return "#e8a620";
+    if (seed < 0.68) return "#774a92";
+    if (seed < 0.84) return "#4f8f50";
+    return "#d66a3a";
   }
 
   function utilityEventType(event, road) {
