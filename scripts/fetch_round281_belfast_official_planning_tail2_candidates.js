@@ -650,7 +650,7 @@ function limitationsFor(quality) {
     "Planning statistics rows are administrative planning records, not direct observations of construction start, construction completion, opening, occupation, final built form, delivery, demolition completion, or public use.",
     "The selected date is DecisionIssuedDate from the CSV; DateReceived and DateValid are retained as source fields but are not treated as physical-change dates.",
     "Coordinates are approximate WGS84 points converted from source Easting and Northing values for atlas navigation; they are not surveyed footprints, red-line boundaries, legal boundaries, or parcel geometry.",
-    `Round270 keeps residual Belfast rows that survived live-corpus and prior-Belfast-pack dedupe and met a conservative tail gate: ${quality.reasons.join("; ")}.`,
+    `Round281 keeps the next residual Belfast rows after round270 that survived live-corpus and prior-Belfast-pack dedupe and met a conservative tail gate: ${quality.reasons.join("; ")}.`,
     "Approval is not evidence that the proposal was built, opened, occupied, completed, delivered, or linked to any outcome."
   ];
 }
