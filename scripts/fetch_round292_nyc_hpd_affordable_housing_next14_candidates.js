@@ -38,6 +38,26 @@ replaceChecked(
   "candidate-files summary key"
 );
 replaceChecked(
+  "function extractUrlRecordId(urlText) {",
+  `function isCurrentRound292CorpusRow(row) {
+  const method = String(row?.transformation_method || "");
+  return /Round292|Next14Round292/i.test(method);
+}
+
+function extractUrlRecordId(urlText) {`,
+  "current-round corpus idempotency helper"
+);
+replaceChecked(
+  /    candidateFilesConsidered: 0\r?\n  };/,
+  "    candidateFilesConsidered: 0,\n    skippedCurrentRoundCorpusRows: 0\n  };",
+  "current-round skipped counter"
+);
+replaceChecked(
+  /  for \(const row of corpus\.events \|\| \[\]\) \{\r?\n    if \(!isHpdRecord\(row\)\) continue;/,
+  "  for (const row of corpus.events || []) {\n    if (isCurrentRound292CorpusRow(row)) {\n      index.skippedCurrentRoundCorpusRows += 1;\n      continue;\n    }\n    if (!isHpdRecord(row)) continue;",
+  "skip current-round corpus rows"
+);
+replaceChecked(
   /      path\.join\(outDir, "rejected\.json"\)\.replace\([^\n]+\)\r?\n    \],/,
   '      path.join(outDir, "rejected.json").replace(/\\\\/g, "/"),\n      path.join(outDir, "validation.json").replace(/\\\\/g, "/")\n    ],',
   "summary output validation path"
@@ -157,6 +177,11 @@ replaceChecked(
   /      eligible_after_required_fields_and_duplicate_screening: candidates\.length,\r?\n      retained_less_than_target_reason: selected\.length < targetCount \? "Fewer unique eligible HPD rows remained after duplicate\/provenance screening\." : null,/,
   '      eligible_after_required_fields_and_duplicate_screening: candidates.length,\n      completion_date_eligible_after_round292_screening: completionOnlyEligibleCount,\n      excluded_from_accepted_pack_due_to_project_start_date_or_round292_completion_rules: Math.max(0, candidates.length - completionOnlyEligibleCount),\n      retained_less_than_target_reason: selected.length < targetCount ? `Only ${completionOnlyEligibleCount} completion-date HPD rows remained after duplicate/provenance screening and Round292 project_start_date exclusion.` : null,',
   "completion-only under-target reason"
+);
+replaceChecked(
+  "        hpd_rows_indexed: existing.hpdRowsIndexed,",
+  "        hpd_rows_indexed: existing.hpdRowsIndexed,\n        current_round_corpus_rows_skipped_for_idempotent_regeneration: existing.skippedCurrentRoundCorpusRows,",
+  "current-round skipped summary"
 );
 replaceChecked(
   /    `- Eligible unique HPD rows after required-field and duplicate screening: \$\{candidates\.length\}`,\r?\n    `- Headroom after this candidate pack: \$\{headroomAfterPack\}`,/,

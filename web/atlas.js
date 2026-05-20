@@ -2071,8 +2071,8 @@
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
           ],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.45, 1, 5.6],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.7, 1, 5.4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.25, 1, 4.8],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.85, 1, 5.9],
         ],
       },
     });
@@ -2095,8 +2095,8 @@
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
           ],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.92],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.96],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.38, 1, 0.88],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 0.96],
         ],
         "line-width": [
           "case",
@@ -2109,8 +2109,8 @@
             ["==", ["get", "lens_id"], "utilities-resilience"],
             ["==", ["get", "lens_id"], "utilities-works"],
           ],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.75, 1, 4.15],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.25, 1, 4.8],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.66, 1, 3.55],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.45, 1, 5.05],
         ],
       },
     });
@@ -2811,7 +2811,8 @@
     }
     if (state.map.getLayer("lens-transport-hotspots")) {
       state.map.setFilter("lens-transport-hotspots", transportHotspotFilter());
-      state.map.setLayoutProperty("lens-transport-hotspots", "visibility", showTransportRoads ? "visible" : "none");
+      const showHotspots = showTransportRoads && activeMapLens().id === "transport-speed";
+      state.map.setLayoutProperty("lens-transport-hotspots", "visibility", showHotspots ? "visible" : "none");
     }
     if (state.map.getLayer("lens-transport-roads")) {
       const paint = transportRoadPaint();
@@ -3480,7 +3481,7 @@
     if (!roads.length) return [];
     const year = currentTimelineYear();
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * (lens.id === "transport-reliability" ? 2.7 : 3.05);
+    const maxDistance = radiusM * (lens.id === "transport-reliability" ? 2.45 : 2.55);
     const features = [];
     for (const road of roads) {
       const props = road.properties || {};
@@ -3491,9 +3492,9 @@
       const activity = clamp01(Number(props.transport_activity || 0));
       const rank = Number(props.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const arterial = Math.min(0.16, Math.max(0, rank - 1) * 0.045);
-      const intensity = clamp01(0.16 + activity * 0.54 + proximity * 0.28 + arterial);
-      if (intensity < 0.24 && rank < 2) continue;
+      const arterial = Math.min(0.12, Math.max(0, rank - 1) * 0.035);
+      const intensity = clamp01(0.14 + activity * 0.42 + proximity * 0.36 + arterial);
+      if (intensity < 0.28 && rank < 2) continue;
       features.push({
         type: "Feature",
         properties: {
@@ -4256,17 +4257,17 @@
           3, "#d99a36",
           4, "#c8472e",
         ];
-    const opacity = mode === "transport-speed" ? [8, 0.22, 12, 0.48, 16, 0.72]
-      : mode === "transport-reliability" ? [8, 0.18, 12, 0.36, 16, 0.58]
+    const opacity = mode === "transport-speed" ? [8, 0.14, 12, 0.3, 16, 0.48]
+      : mode === "transport-reliability" ? [8, 0.12, 12, 0.26, 16, 0.42]
         : [8, 0.12, 12, 0.28, 16, 0.48];
     return {
       "line-color": color,
       "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.26 : 0.2],
-        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.5 : 0.4],
-        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.86 : 0.68],
+        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.18 : 0.16],
+        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.36 : 0.32],
+        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.62 : 0.56],
       ],
     };
   }
@@ -4285,7 +4286,7 @@
           0.75, "#8762a7",
           1, "#176f92",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.36, 0.2, 0.56, 1, 0.86],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.12, 0.2, 0.24, 1, 0.42],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
           9, ["*", ["+", 0.26, ["*", activity, 0.46]], rank],
@@ -4305,7 +4306,7 @@
           0.72, "#ed3f2b",
           1, "#248b94",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.32, 0.2, 0.52, 1, 0.82],
+        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.14, 0.2, 0.26, 1, 0.5],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
           9, ["*", ["+", 0.3, ["*", activity, 0.72]], rank],
@@ -4324,7 +4325,7 @@
         0.7, "#d66a3a",
         1, "#c8472e",
       ],
-      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.52, 0.2, 0.74, 1, 0.94],
+      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.22, 0.2, 0.42, 1, 0.68],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
         9, ["*", ["+", 0.34, ["*", activity, 0.9]], rank],

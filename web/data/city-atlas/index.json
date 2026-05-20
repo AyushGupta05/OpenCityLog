@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-20T03:04:37Z",
+  "generated_at": "2026-05-20T03:10:18Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
@@ -43,7 +43,7 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 53094,
+      "event_count": 53493,
       "source_count": 200,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
@@ -66,11 +66,11 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-20T03:07:10Z",
+  "coverage_report_generated_at": "2026-05-20T03:12:38Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 293845,
-    "total_unique_events": 293845,
+    "total_events": 294244,
+    "total_unique_events": 294244,
     "duplicate_event_id_count": 0,
     "active_source_count": 411,
     "source_catalog_only_count": 239,

@@ -13,6 +13,8 @@ Generated 156 candidates from 7374 fetched HPD building rows on 2026-05-20.
 
 - Candidates retained: 156
 - Eligible unique HPD rows after required-field and duplicate screening: 2309
+- Completion-date eligible after Round292 screening: 156
+- Rows excluded from the accepted pack by completion-only rules: 2153
 - Headroom after this candidate pack: 2153
 - Rejected/source-screened rows: 5065
 
@@ -29,7 +31,7 @@ Generated 156 candidates from 7374 fetched HPD building rows on 2026-05-20.
 ## Caveats
 
 - HPD production rows are administrative affordable-housing program/building delivery evidence, not a complete citywide construction inventory or full building-completion survey.
-- Completion/start dates come from HPD source fields and are not DOB certificate dates, first occupancy, tenant move-in, project closeout, or proof of occupancy/outcomes unless another source independently documents that.
+- Completion dates come from HPD source fields and are not DOB certificate dates, first occupancy, tenant move-in, project closeout, or proof of occupancy/outcomes unless another source independently documents that. Project start rows were screened for duplicates but excluded from accepted candidates.
 - Coordinates are HPD/Open Data geocoded points, not surveyed building footprints or project boundaries.
 - Round292 excludes project_start_date rows. Preservation rows are included only when HPD reports building_completion_date or project_completion_date, coordinates, positive units, and Extended Affordability Only = No; this is still administrative delivery evidence, not independent proof of full rehabilitation scope or occupancy.
 - NYC Open Data Terms of Use / NYC.gov Terms of Use apply; no dataset-specific license field was exposed in the metadata checked during this run.

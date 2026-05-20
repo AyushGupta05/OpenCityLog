@@ -1,6 +1,6 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T03:07:10Z
+Generated: 2026-05-20T03:12:38Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
@@ -8,7 +8,7 @@ This report counts source-backed records emitted into `web/data/city-atlas`. It 
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 32460 | 152 | 15 | 2007-2026 | transport 17118, built_environment 13141, utilities 851 | 67540 |
 | London, England | 208291 | 181 | 102 | 1801-2026 | built_environment 89008, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 53094 | 78 | 122 | 1797-2026 | built_environment 34827, environment 8873, transport 6496 | 46906 |
+| New York City, New York | 53493 | 78 | 122 | 1797-2026 | built_environment 35081, environment 9000, transport 6510 | 46507 |
 
 ## Belfast, Northern Ireland
 
@@ -54,18 +54,18 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 53094. Unique event IDs: 53094. Duplicate IDs: 0.
+Backed events: 53493. Unique event IDs: 53493. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | NYC DOB construction filings and permits | 6029 | 2008-2026 | built_environment 6029 | usable_with_caveats |
 | HPD affordable housing production by project and building | 5229 | 2014-2026 | built_environment 5229 | usable_with_caveats |
-| NYC Open Data LPC Permit Application Information | 4851 | 2008-2026 | environment 2773, built_environment 1799, transport 254 | usable_with_caveats |
-| NYC Open Data: DOB Certificate Of Occupancy | 4378 | 2012-2026 | built_environment 4378 | usable_with_caveats |
-| DOB NOW: Certificate of Occupancy | 2454 | 2021-2026 | built_environment 2454 | usable_with_caveats |
+| NYC Open Data LPC Permit Application Information | 5051 | 2008-2026 | environment 2900, built_environment 1854, transport 268 | usable_with_caveats |
+| NYC Open Data: DOB Certificate Of Occupancy | 4577 | 2012-2026 | built_environment 4577 | usable_with_caveats |
+| DOB NOW: Certificate of Occupancy | 2554 | 2021-2026 | built_environment 2554 | usable_with_caveats |
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | DOB Permit Issuance | 2380 | 2004-2020 | built_environment 2380 | usable_with_caveats |
-| DOB Certificate Of Occupancy | 2256 | 2012-2026 | built_environment 2254, environment 2 | usable_with_caveats |
+| DOB Certificate Of Occupancy | 2355 | 2012-2026 | built_environment 2353, environment 2 | usable_with_caveats |
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |
 | Street Construction Permits (2013-2021) | 1810 | 1904-2025 | transport 1807, built_environment 3 | usable_with_caveats |
 | 2015 Street Tree Census - Tree Data | 1800 | 2015-2015 | environment 1782, transport 18 | usable_with_caveats |

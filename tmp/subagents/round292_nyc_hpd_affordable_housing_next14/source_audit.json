@@ -24,7 +24,7 @@
       "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
       "reliability": "strong for HPD affordable-housing production administrative milestones; usable with caveats for physical completion and occupancy claims",
       "coverage_years_checked": "2008-01-01 through 2026-05-20",
-      "published_coverage_note": "Round292 checked HPD building-level rows with coordinates and building/project completion or project start dates available through the access date.",
+      "published_coverage_note": "Round292 fetched HPD building-level rows with coordinates and source date fields for duplicate screening; accepted candidates use completion dates only and exclude project_start_date.",
       "geographic_scope": "New York City HPD affordable housing production rows with address, BBL/BIN where available, and latitude/longitude geocoded points.",
       "granularity": "One HPD project/building row. Multi-building projects can produce multiple building rows and project-level dates can repeat across buildings.",
       "key_fields_for_events": [

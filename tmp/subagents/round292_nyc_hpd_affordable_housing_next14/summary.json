@@ -67,7 +67,9 @@
   "selection_summary": {
     "fetched_source_rows": 7374,
     "eligible_after_required_fields_and_duplicate_screening": 2309,
-    "retained_less_than_target_reason": "Fewer unique eligible HPD rows remained after duplicate/provenance screening.",
+    "completion_date_eligible_after_round292_screening": 156,
+    "excluded_from_accepted_pack_due_to_project_start_date_or_round292_completion_rules": 2153,
+    "retained_less_than_target_reason": "Only 156 completion-date HPD rows remained after duplicate/provenance screening and Round292 project_start_date exclusion.",
     "headroom_after_this_candidate_pack": 2153,
     "duplicate_screening": {
       "max_screening_round": 283,
@@ -89,6 +91,7 @@
       "files_read": 216,
       "candidate_files_considered_through_round283": 215,
       "hpd_rows_indexed": 8042,
+      "current_round_corpus_rows_skipped_for_idempotent_regeneration": 156,
       "event_ids": 5093,
       "source_record_ids": 10148,
       "source_date_keys": 5093,
