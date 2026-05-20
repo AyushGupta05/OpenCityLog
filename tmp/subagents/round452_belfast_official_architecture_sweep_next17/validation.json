@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round452_belfast_official_architecture_sweep_next17",
+  "ok": true,
+  "accepted_count": 5,
+  "rejected_count": 7,
+  "point_backed_count": 0,
+  "geometry_ref_only_count": 5,
+  "date_range": {
+    "start": "2016-07-31",
+    "end": "2019-10-14"
+  },
+  "publishers": [
+    "Belfast Health and Social Care Trust",
+    "Belfast Metropolitan College",
+    "Queen's University Belfast"
+  ],
+  "source_count": 4,
+  "warnings": [
+    "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016 is geometry_ref-only and not point-corpus-ready",
+    "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016 has month-level effective date precision",
+    "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016 is geometry_ref-only and not point-corpus-ready",
+    "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016 has month-level effective date precision",
+    "bfs_arch_round452_qub_keysight_mmwave_lab_opening_2018 is geometry_ref-only and not point-corpus-ready",
+    "bfs_arch_round452_qub_agriplas_lab_opening_2019 is geometry_ref-only and not point-corpus-ready",
+    "bfs_arch_round452_belfast_met_aviation_suite_launch_2019 is geometry_ref-only and not point-corpus-ready"
+  ],
+  "errors": [],
+  "duplicate_scan_roots": [
+    "data/manual_drops",
+    "data/derived/2026",
+    "web/data/city-atlas/cities/belfast",
+    "tmp/subagents"
+  ],
+  "searched_queries": [
+    "site:qub.ac.uk \"Keysight\" \"Millimeter-Wave research lab opened\" \"Queen\"",
+    "site:qub.ac.uk \"Centre for Plasma in Agri-Food\" \"officially opened\" \"Biological Sciences building\"",
+    "site:belfastmet.ac.uk \"Aviation Suite\" \"Castlereagh campus\" \"Belfast Met\"",
+    "site:belfasttrust.hscni.net/download \"RVH outpatient pharmacy\" \"Post-Anaesthetic Care Unit\"",
+    "site:belfastcity.gov.uk Belfast \"Arts & Digital Hub\" \"opens\"",
+    "site:communities-ni.gov.uk Belfast \"officially opened\" \"Ionad na Fuiseoige\"",
+    "local duplicate scan: data/manual_drops, data/derived/2026, web/data/city-atlas/cities/belfast, tmp/subagents including round442"
+  ]
+}

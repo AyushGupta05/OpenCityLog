@@ -1,0 +1,142 @@
+{
+  "schema_version": "bims-source-audit/v0.1",
+  "city_id": "nyc",
+  "created_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "auditor": "Codex worker Round403",
+  "task_scope": "Continue NYC Public Design Commission official design-review source ingestion after Round295; select fresh non-duplicate public-realm/civic/building administrative milestones through the 2026-05-20 access date.",
+  "official_source_only": true,
+  "sources": [
+    {
+      "source_id": "nyc-pdc-current-meetings-page",
+      "source_name": "Public Design Commission meetings page",
+      "publisher": "New York City Public Design Commission",
+      "url": "https://www.nyc.gov/site/designcommission/design-review/meetings/meetings.page",
+      "source_type": "official_index_page",
+      "license": "No explicit data license found on the page or PDFs during this pass; treat as official NYC.gov public records subject to NYC.gov terms.",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "terms_note": "NYC.gov terms of use apply.",
+      "coverage_years": {
+        "start": 2025,
+        "end": 2026
+      },
+      "update_frequency": "Meeting-driven; agendas are posted before meetings and minutes/certificates are generally posted after meetings.",
+      "geographic_scope": "New York City public projects reviewed by the Public Design Commission, with occasional city-owned/city-agency projects outside the five boroughs.",
+      "granularity": "Meeting PDF and certificate-level design-review action.",
+      "key_fields": [
+        "meeting/adoption date",
+        "certificate number",
+        "approval type",
+        "project/location text",
+        "submitting agency",
+        "conditions or understandings"
+      ],
+      "reliability": "strong",
+      "source_confidence": "documented",
+      "required_caveats": [
+        "PDC records document design review actions, not construction, completion, opening, operation, or urban outcome claims.",
+        "PDC PDFs generally provide location descriptions rather than machine-readable geometry."
+      ],
+      "ingestion_recommendation": "Use for administrative design-review milestones. Pair with separate official construction/opening sources only if emitting built-outcome events.",
+      "access_status": {
+        "url": "https://www.nyc.gov/site/designcommission/design-review/meetings/meetings.page",
+        "ok": true,
+        "status": 200,
+        "content_type": "text/html;charset=UTF-8",
+        "byte_length": 37283,
+        "checked_at": "2026-05-20",
+        "mentions_may_18_2026": true,
+        "may_18_2026_minutes_link_present": false
+      }
+    },
+    {
+      "source_id": "nyc-pdc-past-minutes-page",
+      "source_name": "Public Design Commission past meeting minutes archive",
+      "publisher": "New York City Public Design Commission",
+      "url": "https://www.nyc.gov/site/designcommission/design-review/pdc-meetings/past-minutes.page",
+      "source_type": "official_archive_page",
+      "license": "No explicit data license found on archived PDFs during this pass; treat as official NYC.gov public records subject to NYC.gov terms.",
+      "license_url": "https://www.nyc.gov/home/terms-of-use.page",
+      "terms_note": "NYC.gov terms of use apply.",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2024
+      },
+      "update_frequency": "Archived/static with occasional file revisions.",
+      "geographic_scope": "NYC civic buildings, parks, public realm, waterfronts, infrastructure, and public art subject to PDC review.",
+      "granularity": "Meeting PDF and certificate-level design-review action.",
+      "key_fields": [
+        "meeting/adoption date",
+        "certificate number",
+        "approval type",
+        "project/location text",
+        "agency submitter",
+        "conditions"
+      ],
+      "reliability": "strong",
+      "source_confidence": "documented",
+      "required_caveats": [
+        "Older archive PDFs use former Art Commission/PDC naming and may have OCR extraction defects.",
+        "Approval dates are certificate adoption dates and must not be relabelled as physical change dates."
+      ],
+      "ingestion_recommendation": "Use for documented design-review approval events with explicit provenance and geometry caveats.",
+      "access_status": {
+        "url": "https://www.nyc.gov/site/designcommission/design-review/pdc-meetings/past-minutes.page",
+        "ok": true,
+        "status": 200,
+        "content_type": "text/html;charset=UTF-8",
+        "byte_length": 89481,
+        "checked_at": "2026-05-20"
+      }
+    },
+    {
+      "source_id": "nyc-planning-labs-geosearch",
+      "source_name": "NYC Planning Labs Geosearch",
+      "publisher": "NYC Planning Labs / NYC Department of City Planning ecosystem",
+      "url": "https://geosearch.planninglabs.nyc/v2/search",
+      "source_type": "geocoding_service",
+      "license": "Used only for approximate geocoding metadata; check service attribution and underlying source terms before redistribution.",
+      "license_url": "https://geosearch.planninglabs.nyc/attribution",
+      "terms_note": "Geocoding supports map placement only and is not event evidence.",
+      "geographic_scope": "New York City addresses, venues, streets, neighborhoods, and boroughs.",
+      "granularity": "Point geocode candidate.",
+      "reliability": "usable_with_caveats",
+      "source_confidence": "inferred",
+      "required_caveats": [
+        "Geocoder coordinates are approximate and must not be treated as official PDC geometry.",
+        "Corridor, shoreline, and large-park records use curated approximate points when a single address geocode is not defensible."
+      ],
+      "ingestion_recommendation": "Use as map-placement geometry with explicit caveats; replace with authoritative project geometry if available."
+    }
+  ],
+  "selected_pdf_status": [
+    {
+      "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/1-20-26-meeting-minutes-certificates-rev.pdf",
+      "ok": true,
+      "status": 200,
+      "content_type": "application/pdf",
+      "checked_at": "2026-05-20"
+    },
+    {
+      "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/2-23-26-meeting-minutes-certificates-REV.pdf",
+      "ok": true,
+      "status": 200,
+      "content_type": "application/pdf",
+      "checked_at": "2026-05-20"
+    },
+    {
+      "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-23-26-meeting-minutes-certificates-rev.pdf",
+      "ok": true,
+      "status": 200,
+      "content_type": "application/pdf",
+      "checked_at": "2026-05-20"
+    },
+    {
+      "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/4-20-26-meeting-minutes-certificates.pdf",
+      "ok": true,
+      "status": 200,
+      "content_type": "application/pdf",
+      "checked_at": "2026-05-20"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "round353_belfast_official_architecture_sweep_next4.validation.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round353_belfast_official_architecture_sweep_next4",
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "checked": {
+    "no_candidates_emitted": true,
+    "rejected_detail_present": true,
+    "candidate_cap_50": true,
+    "date_window": "2008-01-01..2026-05-20",
+    "source_audit_present": true,
+    "dedupe_against_current_manual_and_prior_belfast_packs": true,
+    "overclaim_wording_scan": true
+  }
+}

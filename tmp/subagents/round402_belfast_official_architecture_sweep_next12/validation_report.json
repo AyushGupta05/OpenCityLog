@@ -1,0 +1,91 @@
+{
+  "errors": [],
+  "generated_at": "2026-05-20",
+  "round_id": "round402_belfast_official_architecture_sweep_next12",
+  "source_fetches": [
+    {
+      "byte_length": 37093,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-elmgrove-primary-first-sod-2021-round402",
+      "status": 200,
+      "text_length": 4155
+    },
+    {
+      "byte_length": 40491,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-scoil-an-droichid-next-phase-2025-round402",
+      "status": 200,
+      "text_length": 4681
+    },
+    {
+      "byte_length": 113134,
+      "content_type": "application/pdf",
+      "extraction": "pypdf",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "belfast-harbour-marina-expansion-notice-2025-round402",
+      "status": 200,
+      "text_length": 1113
+    },
+    {
+      "byte_length": 40753,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-schools-progress-construction-stage-2026-round402",
+      "status": 200,
+      "text_length": 5235
+    },
+    {
+      "byte_length": 40881,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-glenwood-primary-first-sod-2026-round402",
+      "status": 200,
+      "text_length": 4595
+    },
+    {
+      "byte_length": 914,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": false,
+      "source_id": "de-methodist-college-mcarthur-hall-2016-search-only-round402",
+      "status": 404,
+      "text_length": 337
+    },
+    {
+      "byte_length": 54778,
+      "content_type": "text/html; charset=utf-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "bcc-lockhouse-work-begins-2024-duplicate-round402",
+      "status": 200,
+      "text_length": 4112
+    },
+    {
+      "byte_length": 34806,
+      "content_type": "text/html; charset=utf-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "bcc-assembly-rooms-purchase-2025-duplicate-round402",
+      "status": 200,
+      "text_length": 4892
+    }
+  ],
+  "validation_ok": true,
+  "warnings": [
+    "de-methodist-college-mcarthur-hall-2016-search-only-round402: rejected/audit-only source fetch not OK (404)"
+  ]
+}

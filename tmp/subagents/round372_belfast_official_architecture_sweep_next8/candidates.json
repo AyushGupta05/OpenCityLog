@@ -1,0 +1,279 @@
+{
+  "schema_version": "round372_belfast_official_architecture_sweep_next8.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round372_belfast_official_architecture_sweep_next8",
+  "candidate_count": 4,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2025-03-10",
+    "max": "2025-11-18"
+  },
+  "source_ids": [
+    "dfi-lagmore-avenue-belfast-cycling-network-2025-round372",
+    "dfi-west-belfast-greenway-phase-1b-pacc-2025-round372",
+    "dfi-west-belfast-greenway-first-section-construction-2025-round372",
+    "dfi-island-street-active-travel-2025-round372"
+  ],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents Belfast architecture/HED/planning/public-realm/official sweep packs and Belfast append/fetch scripts through Round368, with term checks for project names, streets, source URLs and prior rejection names"
+  },
+  "prior_file_count": 289,
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "event_id": "round372_belfast_lagmore_avenue_bcn_works_commenced_2025_03_10",
+      "date": "2025-03-10",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/public realm/active travel",
+      "title": "Lagmore Avenue Belfast Cycling Network works commenced",
+      "summary": "A Department for Infrastructure news page dated 10 March 2025 recorded that a GBP600,000 pedestrian and cycling improvement scheme on Lagmore Avenue, Belfast was commencing that day. The scheme includes segregated cycle tracks between Stewartstown Road and Glenfearna Park, two toucan crossings at existing crossing points and raised-table humps at minor road accesses.",
+      "observed_change": "An official works-commencement milestone was recorded for public active-travel infrastructure on Lagmore Avenue.",
+      "area": "Lagmore Avenue between Stewartstown Road and Glenfearna Park",
+      "latitude": 54.5548,
+      "longitude": -6.0357,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.0357,
+          54.5548
+        ]
+      },
+      "geometry_ref": "Approximate Lagmore Avenue corridor point between Stewartstown Road and Glenfearna Park",
+      "geometry_source": "Approximate route-midpoint from the DfI-described Lagmore Avenue corridor, checked against public geocoding/Nominatim on 2026-05-20; the source does not publish GIS geometry.",
+      "geometry_precision": "Approximate corridor point only, not a surveyed cycle-track alignment, traffic-order extent, crossing point, raised-table location, work compound, land boundary or as-built record.",
+      "source_ids": [
+        "dfi-lagmore-avenue-belfast-cycling-network-2025-round372"
+      ],
+      "source_name": "Kimmins announces GBP600k investment in Belfast Cycling Network",
+      "source_url": "https://www.infrastructure-ni.gov.uk/news/kimmins-announces-ps600k-investment-belfast-cycling-network",
+      "source_record_id": "Department for Infrastructure news page, 10 March 2025: Lagmore Avenue Belfast Cycling Network pedestrian and cycling scheme",
+      "source_type": "official Northern Ireland department news page",
+      "source_date_field": "Date published and source statement that works were commencing today",
+      "source_date_value": "2025-03-10",
+      "publisher": "Department for Infrastructure",
+      "license": "Crown copyright / Open Government Licence for Department for Infrastructure website text, excluding logos, images and OSNI mapping; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "attribution": "Department for Infrastructure",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "public active-travel infrastructure",
+      "milestone_type": "works_commencement_reported_by_official_source",
+      "architect": "Not stated by the cited Department for Infrastructure source.",
+      "limitations": "This records the official works-commencement announcement only. It does not document final completion, opening, road-safety outcomes, school-access outcomes, measured use, exact engineering drawings, traffic-order extents or as-built geometry. The source stated a late September 2025 works window, which should be treated as a programme note until a completion source is found.",
+      "caveats": "Use as a dated construction-stage/public-realm event, not as evidence that the route was completed or in permanent use.",
+      "duplicate_check_note": "Searched the manual corpus, prior Belfast sweep folders and scripts for Lagmore Avenue, Glenfearna Park, Stewartstown Road, GBP600k, Belfast Cycling Network and the DfI source URL. No existing candidate or manual event for this Lagmore Avenue active-travel works milestone was found.",
+      "source_audit_note": "The official department page is strong for date, publisher, corridor description, budget and stated works-start status. It is weaker for geometry because no route GIS or as-built plan is provided.",
+      "transformation_method": "Round372 official/public Belfast sweep; source page was opened, candidate terms were checked against the manual corpus and prior Belfast packs, and the surviving lead was normalized with approximate geometry, source license, confidence and limitations.",
+      "duplicate_or_overlap_hits": {
+        "Searched the manual corpus": [
+          "tmp/subagents/round361_belfast_official_architecture_sweep_next6/candidates.json",
+          "tmp/subagents/round368_belfast_official_architecture_sweep_next7/candidates.json"
+        ],
+        "Stewartstown Road": [
+          "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "tmp/subagents/belfast_arch_candidates_round73_extra.json",
+          "tmp/subagents/belfast_arch_candidates_round99.json",
+          "tmp/subagents/round125_belfast_civic_public_realm_geocoded/candidates.json",
+          "tmp/subagents/round131_belfast_planning_statistics/candidates.json",
+          "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json",
+          "tmp/subagents/round151_belfast_planning_statistics_next2/candidates.json"
+        ]
+      }
+    },
+    {
+      "city_id": "belfast",
+      "event_id": "round372_belfast_west_belfast_greenway_phase_1b_pacc_opened_2025_09_24",
+      "date": "2025-09-24",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/public realm/active travel",
+      "title": "West Belfast Greenway Phase 1b pre-application consultation opened",
+      "summary": "A Department for Infrastructure consultation page recorded that the West Belfast Greenway Phase 1b pre-application community consultation opened on 24 September 2025 and closed on 30 October 2025. The proposal is for a 1.3km greenway connection from Andersonstown to existing Bog Meadows facilities, including a new 4m-wide section between Bog Meadows and Kennedy Way, lighting and landscaping.",
+      "observed_change": "An official pre-application community-consultation milestone was recorded for a proposed west Belfast active-travel greenway section.",
+      "area": "Bog Meadows to Kennedy Way / Andersonstown corridor",
+      "latitude": 54.5812,
+      "longitude": -5.9728,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9728,
+          54.5812
+        ]
+      },
+      "geometry_ref": "Approximate midpoint for the proposed Bog Meadows to Kennedy Way Phase 1b corridor",
+      "geometry_source": "Approximate corridor midpoint manually placed between public geocoding/Nominatim results for Bog Meadows Nature Reserve and Kennedy Way, checked on 2026-05-20. The source links maps but the candidate stores a point only.",
+      "geometry_precision": "Approximate proposal-corridor point only, not a statutory red-line boundary, route centreline, map-sheet geometry, land-take polygon, lighting column location, biodiversity landscaping area or future as-built record.",
+      "source_ids": [
+        "dfi-west-belfast-greenway-phase-1b-pacc-2025-round372"
+      ],
+      "source_name": "Pre-Application Community Consultation - West Belfast Greenway Phase 1b",
+      "source_url": "https://www.infrastructure-ni.gov.uk/consultations/pre-application-community-consultation-west-belfast-greenway-phase-1b",
+      "source_record_id": "Department for Infrastructure closed consultation page: West Belfast Greenway Phase 1b, consultation opened 24 September 2025",
+      "source_type": "official Northern Ireland department consultation page",
+      "source_date_field": "Consultation opened",
+      "source_date_value": "2025-09-24 10:00",
+      "publisher": "Department for Infrastructure",
+      "license": "Crown copyright / Open Government Licence for Department for Infrastructure website text, excluding logos, images and OSNI mapping; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "attribution": "Department for Infrastructure",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "proposed public active-travel greenway",
+      "milestone_type": "pre_application_community_consultation_opened",
+      "architect": "Not stated by the cited Department for Infrastructure source; the Gazette notice identifies WSP as principal design consultant.",
+      "limitations": "This records the consultation-opening milestone for a proposal only. It does not document planning submission, planning permission, construction start, completion, opening, final alignment, land acquisition, environmental consent, route use or permanent traffic changes.",
+      "caveats": "Use as a proposal-stage event and exclude from built/completed active-travel totals unless a later dated construction or opening source is added.",
+      "duplicate_check_note": "Searched the manual corpus, prior Belfast sweep folders and scripts for West Belfast Greenway Phase 1b, Bog Meadows to Kennedy Way, Andersonstown greenway, 1.3km, 4m wide greenway and the DfI source URL. Existing Kennedy Way and Bog Meadows hits relate to other planning records or Forth Meadow/Bog Meadows works, not this DfI Phase 1b pre-application consultation milestone.",
+      "source_audit_note": "The official consultation page is strong for consultation date, broad route, proposal description, statutory consultation stage and publisher. It is weaker for durable geometry unless the linked PDF maps are separately extracted.",
+      "transformation_method": "Round372 official/public Belfast sweep; source page was opened, candidate terms were checked against the manual corpus and prior Belfast packs, and the surviving lead was normalized with approximate geometry, source license, confidence and proposal-stage limitations.",
+      "duplicate_or_overlap_hits": {
+        "Searched the manual corpus": [
+          "tmp/subagents/round361_belfast_official_architecture_sweep_next6/candidates.json",
+          "tmp/subagents/round368_belfast_official_architecture_sweep_next7/candidates.json"
+        ]
+      }
+    },
+    {
+      "city_id": "belfast",
+      "event_id": "round372_belfast_west_belfast_greenway_first_section_construction_scheduled_2025_10_14",
+      "date": "2025-10-14",
+      "date_precision": "day",
+      "effective_date_range": {
+        "start": "2025-10-14",
+        "end": "2025-10-20",
+        "basis": "source publication date to scheduled construction-commencement date"
+      },
+      "bucket": "planning/development/architecture/public realm/active travel",
+      "title": "West Belfast Greenway first-section construction start was scheduled",
+      "summary": "A Department for Infrastructure news page dated 14 October 2025 recorded that construction on the first section of the West Belfast Greenway was scheduled to commence on 20 October 2025. The initial works focus on upgrading paths through Bog Meadows Nature Reserve, with ecological measures including new ponds and edge treatments, and an estimated GBP500,000 first-phase cost.",
+      "observed_change": "An official construction-start schedule was recorded for the first West Belfast Greenway section through Bog Meadows.",
+      "area": "Bog Meadows Nature Reserve",
+      "latitude": 54.5852,
+      "longitude": -5.9653,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9653,
+          54.5852
+        ]
+      },
+      "geometry_ref": "Approximate Bog Meadows Nature Reserve point for the first West Belfast Greenway works section",
+      "geometry_source": "Approximate point from public geocoding/Nominatim result for Bog Meadows Nature Reserve, checked on 2026-05-20; the source does not publish GIS geometry for the works section.",
+      "geometry_precision": "Approximate nature-reserve point only, not a route centreline, path-edge treatment, tree/hedgerow removal area, pond location, closure extent, contractor compound, land boundary or as-built record.",
+      "source_ids": [
+        "dfi-west-belfast-greenway-first-section-construction-2025-round372"
+      ],
+      "source_name": "Kimmins confirms construction on West Belfast Greenway to commence",
+      "source_url": "https://www.infrastructure-ni.gov.uk/news/kimmins-confirms-construction-west-belfast-greenway-commence",
+      "source_record_id": "Department for Infrastructure news page, 14 October 2025: first section of West Belfast Greenway scheduled to commence 20 October 2025",
+      "source_type": "official Northern Ireland department news page",
+      "source_date_field": "Date published and scheduled construction commencement date",
+      "source_date_value": "2025-10-14 published; 2025-10-20 scheduled commencement",
+      "publisher": "Department for Infrastructure",
+      "license": "Crown copyright / Open Government Licence for Department for Infrastructure website text, excluding logos, images and OSNI mapping; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "attribution": "Department for Infrastructure",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "public active-travel greenway works",
+      "milestone_type": "construction_start_scheduled_by_official_source",
+      "architect": "Not stated by the cited Department for Infrastructure source; contractor named as John McQuillan Contracts Ltd.",
+      "limitations": "This records the official announcement and scheduled construction-start date only. It does not independently document that works began on 20 October 2025, final completion, route opening, exact alignment, ecological delivery, public-use changes or as-built geometry. The same reserve has older Forth Meadow/Bog Meadows public-realm records, so production ingestion should review physical-scope overlap before merging.",
+      "caveats": "Use as a cautious construction-stage candidate with an overlap warning, not as a completed greenway record or a replacement for earlier Forth Meadow/Bog Meadows events.",
+      "duplicate_check_note": "Searched the manual corpus, prior Belfast sweep folders and scripts for West Belfast Greenway, Bog Meadows, construction to commence, 20 October 2025, John McQuillan and the DfI source URL. No exact West Belfast Greenway construction-start event was found, but existing Forth Meadow/Bog Meadows path-enhancement and planning records overlap geographically and should be compared before final ingestion.",
+      "source_audit_note": "The official department page is strong for date, publisher, scheduled construction-start wording, project label, cost estimate, contractor and broad location. It is weaker for actual start confirmation and route geometry.",
+      "transformation_method": "Round372 official/public Belfast sweep; source page was opened, candidate terms were checked against the manual corpus and prior Belfast packs, and the surviving lead was normalized with approximate geometry, source license, confidence and explicit overlap limitations.",
+      "duplicate_or_overlap_hits": {
+        "Searched the manual corpus": [
+          "tmp/subagents/round361_belfast_official_architecture_sweep_next6/candidates.json",
+          "tmp/subagents/round368_belfast_official_architecture_sweep_next7/candidates.json"
+        ],
+        "Bog Meadows": [
+          "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "tmp/subagents/round131_belfast_planning_statistics/rejections.json",
+          "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json",
+          "tmp/subagents/round183_belfast_deep_public_realm/candidates.json",
+          "scripts/fetch_round183_belfast_deep_public_realm_candidates.js"
+        ]
+      }
+    },
+    {
+      "city_id": "belfast",
+      "event_id": "round372_belfast_island_street_active_travel_scheme_commenced_week_2025_11_18",
+      "date": "2025-11-18",
+      "date_precision": "day",
+      "effective_date_range": {
+        "start": "2025-11-17",
+        "end": "2025-11-18",
+        "basis": "source statement that works commenced during the publication week and traffic management dates beginning 17 November 2025"
+      },
+      "bucket": "planning/development/architecture/public realm/active travel",
+      "title": "Island Street active-travel improvement works were reported as commenced",
+      "summary": "A Department for Infrastructure news page dated 18 November 2025 recorded that a GBP650,000 pedestrian and cycling improvement scheme on Island Street, Belfast had commenced that week. The scheme includes a two-way segregated cycle track and traffic-calming features between the Ballymacarrett Road underpass and the Island Street / Dee Street junction, linking to Middlepath Street and the Ballymacarrett Walkway.",
+      "observed_change": "An official works-commencement milestone was recorded for public active-travel infrastructure on Island Street.",
+      "area": "Island Street between Ballymacarrett Road underpass and Dee Street",
+      "latitude": 54.6014,
+      "longitude": -5.8996,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.8996,
+          54.6014
+        ]
+      },
+      "geometry_ref": "Approximate Island Street corridor point between Ballymacarrett Road underpass and Dee Street",
+      "geometry_source": "Approximate route-midpoint from the DfI-described Island Street corridor, checked against public geocoding/Nominatim on 2026-05-20; the source does not publish GIS geometry.",
+      "geometry_precision": "Approximate corridor point only, not a surveyed cycle-track alignment, closure extent, traffic-calming feature, junction design, work compound, land boundary or as-built record.",
+      "source_ids": [
+        "dfi-island-street-active-travel-2025-round372"
+      ],
+      "source_name": "Kimmins announces active travel improvement scheme to commence on Island Street, Belfast",
+      "source_url": "https://www.infrastructure-ni.gov.uk/news/kimmins-announces-active-travel-improvement-scheme-commence-island-street-belfast",
+      "source_record_id": "Department for Infrastructure news page, 18 November 2025: Island Street Belfast Cycling Network pedestrian and cycling scheme",
+      "source_type": "official Northern Ireland department news page",
+      "source_date_field": "Date published and source statement that works had commenced that week",
+      "source_date_value": "2025-11-18; traffic-management period begins 2025-11-17",
+      "publisher": "Department for Infrastructure",
+      "license": "Crown copyright / Open Government Licence for Department for Infrastructure website text, excluding logos, images and OSNI mapping; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "attribution": "Department for Infrastructure",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "public active-travel infrastructure",
+      "milestone_type": "works_commencement_reported_by_official_source",
+      "architect": "Not stated by the cited Department for Infrastructure source.",
+      "limitations": "This records the official works-commencement announcement only. It does not document final completion, permanent opening, traffic-order outcome, road-safety outcome, measured route use, exact engineering drawings or as-built geometry. The source states temporary traffic management and a road-closure period extending into early spring 2026; those are not completion evidence.",
+      "caveats": "Use as a dated construction-stage/public-realm event, not as evidence that the route was completed or in permanent use.",
+      "duplicate_check_note": "Searched the manual corpus, prior Belfast sweep folders and scripts for Island Street, Ballymacarrett Road, Dee Street, Middlepath Street, GBP650k, Belfast Cycling Network and the DfI source URL. No existing candidate or manual event for this Island Street active-travel works milestone was found.",
+      "source_audit_note": "The official department page is strong for publication date, publisher, corridor description, budget and stated works-commencement status. It is weaker for geometry because no route GIS or as-built plan is provided.",
+      "transformation_method": "Round372 official/public Belfast sweep; source page was opened, candidate terms were checked against the manual corpus and prior Belfast packs, and the surviving lead was normalized with approximate geometry, source license, confidence and limitations.",
+      "duplicate_or_overlap_hits": {
+        "Searched the manual corpus": [
+          "tmp/subagents/round361_belfast_official_architecture_sweep_next6/candidates.json",
+          "tmp/subagents/round368_belfast_official_architecture_sweep_next7/candidates.json"
+        ],
+        "Dee Street": [
+          "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json"
+        ],
+        "Middlepath Street": [
+          "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "tmp/subagents/belfast_arch_candidates_round75.json",
+          "tmp/subagents/round116_belfast_planning_official/candidates.json",
+          "tmp/subagents/round124_belfast_planning_appeals_dfc_public_realm/candidates.json",
+          "tmp/subagents/round131_belfast_planning_statistics/candidates.json",
+          "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json"
+        ]
+      }
+    }
+  ]
+}

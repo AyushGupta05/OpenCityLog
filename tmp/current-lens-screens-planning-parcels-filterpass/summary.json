@@ -1,0 +1,127 @@
+{
+  "summaries": [
+    {
+      "year": 2022,
+      "layersCount": "7/7 on",
+      "visibleText": "3503",
+      "lensDataState": "Cells + footprints + 1441 sites",
+      "lensDetailYearLoaded": 2022,
+      "guideStats": {
+        "cells": 2288,
+        "renderedCells": 2368,
+        "byStatus": {
+          "completed": 1478,
+          "uncertain": 284,
+          "demolished": 144,
+          "permitted": 186,
+          "proposed": 77,
+          "construction": 10,
+          "unknown": 109
+        },
+        "bySublayer": {
+          "completed": 1478,
+          "unknown": 393,
+          "demolished": 144,
+          "permitted": 186,
+          "proposed": 77,
+          "construction": 10
+        },
+        "center": [
+          -5.928271999999993,
+          54.59364200000002
+        ],
+        "zoom": 14.682164350375034
+      }
+    },
+    {
+      "year": 2024,
+      "layersCount": "7/7 on",
+      "visibleText": "4794",
+      "lensDataState": "Cells + footprints + 1483 sites",
+      "lensDetailYearLoaded": 2024,
+      "guideStats": {
+        "cells": 2325,
+        "renderedCells": 2411,
+        "byStatus": {
+          "completed": 1085,
+          "demolished": 295,
+          "permitted": 213,
+          "uncertain": 284,
+          "construction": 38,
+          "planned": 45,
+          "unknown": 365
+        },
+        "bySublayer": {
+          "completed": 1085,
+          "demolished": 295,
+          "permitted": 258,
+          "unknown": 649,
+          "construction": 38
+        },
+        "center": [
+          -5.939100000000053,
+          54.594300000000004
+        ],
+        "zoom": 14.682141041714779
+      }
+    },
+    {
+      "year": 2026,
+      "layersCount": "7/7 on",
+      "visibleText": "2399",
+      "lensDataState": "Cells + footprints + 144 sites",
+      "lensDetailYearLoaded": 2026,
+      "guideStats": {
+        "cells": 2627,
+        "renderedCells": 2725,
+        "byStatus": {
+          "uncertain": 326,
+          "permitted": 187,
+          "demolished": 256,
+          "planned": 100,
+          "proposed": 205,
+          "construction": 37,
+          "completed": 311,
+          "unknown": 1205
+        },
+        "bySublayer": {
+          "unknown": 1531,
+          "permitted": 287,
+          "demolished": 256,
+          "proposed": 205,
+          "construction": 37,
+          "completed": 311
+        },
+        "center": [
+          -5.93240000000003,
+          54.593699999999984
+        ],
+        "zoom": 14.682162295835058
+      }
+    }
+  ],
+  "toggleCheck": {
+    "beforeToggle": 2411,
+    "afterToggle": 1296
+  },
+  "pageErrors": [],
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x11d401d59e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x11d401d59e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x11d401d59e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x11d401d59e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    }
+  ],
+  "actionable": []
+}

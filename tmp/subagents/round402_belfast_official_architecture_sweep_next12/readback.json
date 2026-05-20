@@ -1,0 +1,53 @@
+{
+  "candidate_ids": [
+    "bfs_arch_round402_elmgrove_primary_first_sod_2021",
+    "bfs_arch_round402_belfast_harbour_marina_expansion_notice_2025",
+    "bfs_arch_round402_scoil_an_droichid_next_phase_2025",
+    "bfs_arch_round402_our_lady_of_lourdes_construction_stage_release_2026",
+    "bfs_arch_round402_st_brides_construction_stage_release_2026",
+    "bfs_arch_round402_glenwood_primary_construction_start_2026"
+  ],
+  "files": [
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/candidates.json",
+      "sha256": "6d0642433458d197b9fd26bdfde775ac7569c13a83bc4682810683f9f1575f5a"
+    },
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/source_audit.json",
+      "sha256": "21e3426b81e1928510020f72e2c735d33900ddfbcf2bbd45b59cfd73e6ec2a33"
+    },
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/summary.json",
+      "sha256": "ebb8cfa809e1c95f9c821a22b299ef5b716cede13f8a39b137933fa7b677f3b3"
+    },
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/rejected.json",
+      "sha256": "6ebf97f8eb168dc98e08ec0ebdbcd305f99e0707f2102cefcd2aad561bd71a0f"
+    },
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/validation.json",
+      "sha256": "3eade55391fbb5e69f5126fb8cc4f779ddd18876837a17483f9f43cec4347ff4"
+    },
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/validation_report.json",
+      "sha256": "135a99ff1514a59e24c649d1930165725ad69bb8e5919ef763b46216bcb9b1df"
+    },
+    {
+      "path": "tmp/subagents/round402_belfast_official_architecture_sweep_next12/notes.md",
+      "sha256": "e2eccbbff1395b544e6900464fcb4ecfdc8bdd618b6d768d4e116b54061a47c0"
+    }
+  ],
+  "generated_at": "2026-05-20",
+  "rejected_ids": [
+    "methodist_college_mcarthur_hall_official_url_404_round402",
+    "deanby_centre_special_school_duplicate_round402",
+    "lockhouse_redevelopment_work_start_duplicate_round402",
+    "assembly_rooms_purchase_completion_duplicate_round402",
+    "ardoyne_youth_hub_work_start_duplicate_round402",
+    "st_brides_planning_approval_duplicate_not_stage_release_round402",
+    "holy_family_nursery_development_proposal_rejected_round402",
+    "belfast_harbour_deepwater_cruise_quay_held_round402"
+  ],
+  "round_id": "round402_belfast_official_architecture_sweep_next12",
+  "validation_ok": true
+}

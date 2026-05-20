@@ -285,6 +285,7 @@
         { id: "construction", label: "Under construction", color: "#7e68b8" },
         { id: "completed", label: "Completed", color: "#6f9c7b" },
         { id: "demolished", label: "Demolished", color: "#d95992" },
+        { id: "unknown", label: "Unknown / early", color: "#b8b6a8" },
       ],
       legend: [
         { label: "Proposed", color: "#ef7775", shape: "polygon" },
@@ -292,6 +293,7 @@
         { label: "Under construction", color: "#7e68b8", shape: "polygon" },
         { label: "Completed", color: "#6f9c7b", shape: "polygon" },
         { label: "Demolished", color: "#d95992", shape: "polygon" },
+        { label: "Unknown / early", color: "#b8b6a8", shape: "outline" },
       ],
     },
     {
@@ -493,15 +495,15 @@
       accent: "#6c4a82",
       mapMode: "utilities-capacity",
       panelMode: "utilities",
-      summary: "Utility traces and asset nodes are colored by inferred load-risk bands from observed source-backed records.",
-      caveat: "No capacity data is inferred; load-risk styling is a descriptive evidence view only.",
+      summary: "Current OSM water/power context and dated utility records are colored by descriptive load-risk bands.",
+      caveat: "No capacity data is inferred; load-risk styling is descriptive, and current OSM context may post-date the selected year.",
       layers: [
-        { id: "utilities", label: "Power", color: "#ef6b2a", categoryToggle: true },
-        { id: "water", label: "Water", color: "#2f85bd" },
-        { id: "telecoms", label: "Telecoms", color: "#7a3b97" },
-        { id: "gas", label: "Gas", color: "#e2b42c" },
-        { id: "drainage", label: "Drainage", color: "#148a8d" },
-        { id: "district_energy", label: "District energy", color: "#7a5438" },
+        { id: "utilities", label: "Power", color: "#ef6b2a", categoryToggle: true, utilityType: "electricity" },
+        { id: "water", label: "Water", color: "#2f85bd", utilityType: "water" },
+        { id: "telecoms", label: "Telecoms", color: "#7a3b97", utilityType: "telecoms" },
+        { id: "gas", label: "Gas", color: "#e2b42c", utilityType: "gas" },
+        { id: "drainage", label: "Drainage", color: "#148a8d", utilityType: "drainage" },
+        { id: "district_energy", label: "District energy", color: "#7a5438", utilityType: "district_energy" },
       ],
       legend: [
         { label: "Very high (>90%)", color: "#d62d35", shape: "line" },
@@ -524,15 +526,15 @@
       accent: "#e85b1f",
       mapMode: "utilities-resilience",
       panelMode: "utilities",
-      summary: "Primary, backup, inferred, and decommissioned routes are shown with outage guide areas.",
-      caveat: "Service resilience routes are derived from observed assets and street context; utility records may be partial.",
+      summary: "Primary, backup, and inferred service paths are drawn from current OSM utility context plus dated records.",
+      caveat: "Service paths and exposure areas are descriptive guides, not outage proof or engineering capacity data; utility records may be partial.",
       layers: [
-        { id: "utilities", label: "Water network", color: "#1787b3", categoryToggle: true },
-        { id: "power_network", label: "Power network", color: "#ef6b2a" },
-        { id: "telecoms_network", label: "Telecoms network", color: "#7a3b97" },
-        { id: "gas_network", label: "Gas network", color: "#e2b42c" },
-        { id: "drainage_network", label: "Drainage network", color: "#148a8d" },
-        { id: "district_energy", label: "District energy", color: "#7a5438" },
+        { id: "utilities", label: "Water network", color: "#1787b3", categoryToggle: true, utilityType: "water" },
+        { id: "power_network", label: "Power network", color: "#ef6b2a", utilityType: "electricity" },
+        { id: "telecoms_network", label: "Telecoms network", color: "#7a3b97", utilityType: "telecoms" },
+        { id: "gas_network", label: "Gas network", color: "#e2b42c", utilityType: "gas" },
+        { id: "drainage_network", label: "Drainage network", color: "#148a8d", utilityType: "drainage" },
+        { id: "district_energy", label: "District energy", color: "#7a5438", utilityType: "district_energy" },
       ],
       legend: [
         { label: "Primary feeder", color: "#1787b3", shape: "line" },
@@ -609,15 +611,24 @@
   const LENS_GUIDE_SOURCE_ID = "lens-guide-overlays";
   const LENS_ROAD_BASE_SOURCE_ID = "lens-transport-road-base";
   const LENS_ROAD_SOURCE_ID = "lens-transport-road-year";
+  const UTILITY_NETWORK_SOURCE_ID = "lens-utility-network-context";
+  const LENS_CALLOUT_IDS = new Set([
+    "civic-access-gaps",
+    "civic-catchment",
+    "economy-gravity",
+  ]);
   const LENS_GUIDE_LAYER_IDS = [
     "lens-guide-area-fill",
     "lens-guide-area-line",
     "lens-guide-ring-line",
     "lens-guide-cell-fill",
     "lens-guide-cell-line",
+    "lens-guide-coverage-flow-case",
+    "lens-guide-coverage-flow",
     "lens-guide-flow-case",
     "lens-guide-flow",
     "lens-guide-node",
+    "lens-guide-icon-node",
   ];
   const LENS_DETAIL_LAYER_IDS = [
     "lens-planning-cells-fill",
@@ -633,6 +644,11 @@
     "lens-utilities-trace",
     "lens-utility-asset-icons",
   ];
+  const LENS_UTILITY_NETWORK_LAYER_IDS = [
+    "lens-utility-network-case",
+    "lens-utility-network",
+    "lens-utility-network-assets",
+  ];
   const LENS_LAYER_IDS = [
     ...LENS_GUIDE_LAYER_IDS,
     "lens-heatmap",
@@ -640,6 +656,7 @@
     "lens-current-points",
     ...DETAIL_LENS_LAYER_IDS,
     ...LENS_DETAIL_LAYER_IDS,
+    ...LENS_UTILITY_NETWORK_LAYER_IDS,
     "lens-built-site-icons",
     "lens-transport-event-halo",
     "lens-transport-event-points",
@@ -872,14 +889,28 @@
     transportRoadFeatureCount: null,
     transportRoadFeatures: [],
     transportRoadFeaturesPathLoaded: null,
+    transportStopFeaturesPathLoaded: null,
+    transportStopFeatures: [],
+    utilityNetworkPathLoaded: null,
+    utilityNetworkFeaturesPathLoaded: null,
+    utilityNetworkFeatures: [],
+    economyAnchorFeaturesPathLoaded: null,
+    economyAnchorFeatures: [],
+    civicServiceFeaturesPathLoaded: null,
+    civicServiceFeatures: [],
     detailFeaturePathLoaded: null,
     detailBuildingFeatures: [],
     detailRoadFeatures: [],
     lensDetailYearPathLoaded: null,
     lensDetailYearLoaded: null,
+    lensDetailFeaturePathLoaded: null,
+    lensDetailFeatures: [],
     lensEventFeatureCount: 0,
     lensEventSourceKey: "",
     lensInteractiveLayers: new Set(),
+    lensGuideFeatureCache: { type: "FeatureCollection", features: [] },
+    lensGuideLabelLayer: null,
+    lensGuideLabelRaf: null,
   };
 
   const els = {};
@@ -1289,6 +1320,19 @@
     return { type: "Polygon", coordinates: [ring] };
   }
 
+  function ellipsePolygon(center, radiusXM, radiusYM, rotation = 0, steps = 72) {
+    const ring = [];
+    const cos = Math.cos(rotation);
+    const sin = Math.sin(rotation);
+    for (let i = 0; i <= steps; i += 1) {
+      const angle = (i / steps) * Math.PI * 2;
+      const x = Math.cos(angle) * radiusXM;
+      const y = Math.sin(angle) * radiusYM;
+      ring.push(offsetLngLat(center, x * cos - y * sin, x * sin + y * cos));
+    }
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
   function isochronePolygon(center, radiusM, seed = 1) {
     const ring = [];
     const steps = 96;
@@ -1347,6 +1391,15 @@
       ]);
     }
     return coords;
+  }
+
+  function lngLatToLocalMeters(point, origin) {
+    const latRad = Number(origin?.[1] || 0) * Math.PI / 180;
+    const metersPerDegreeLng = Math.max(1, Math.cos(latRad) * 111320);
+    return [
+      (Number(point?.[0]) - Number(origin?.[0])) * metersPerDegreeLng,
+      (Number(point?.[1]) - Number(origin?.[1])) * 111320,
+    ];
   }
 
   function clamp01(value) {
@@ -1432,6 +1485,9 @@
     };
     state.map.on("load", onReady);
     state.map.once("idle", onReady);
+    state.map.on("move", scheduleLensGuideLabelRender);
+    state.map.on("zoom", scheduleLensGuideLabelRender);
+    state.map.on("resize", scheduleLensGuideLabelRender);
     try { state.map.triggerRepaint(); } catch (_e) { /* not yet ready */ }
   }
 
@@ -1517,6 +1573,186 @@
     return "25";
   }
 
+  function scheduleLensGuideLabelRender() {
+    if (state.lensGuideLabelRaf) return;
+    state.lensGuideLabelRaf = window.requestAnimationFrame(() => {
+      state.lensGuideLabelRaf = null;
+      renderLensGuideLabels();
+    });
+  }
+
+  function ensureLensGuideLabelLayer() {
+    if (state.lensGuideLabelLayer?.isConnected) return state.lensGuideLabelLayer;
+    if (!els.map) return null;
+    const layer = document.createElement("div");
+    layer.className = "lens-guide-label-layer";
+    els.map.appendChild(layer);
+    state.lensGuideLabelLayer = layer;
+    return layer;
+  }
+
+  function renderLensGuideLabels() {
+    const layer = ensureLensGuideLabelLayer();
+    if (!layer) return;
+    const lens = activeMapLens();
+    const showLabels = state.map && state.mapReady
+      && lens
+      && LENS_CALLOUT_IDS.has(lens.id)
+      && state.activeLayers.has(lens.category || state.activeLens)
+      && window.innerWidth >= 900;
+    if (!showLabels) {
+      layer.setAttribute("hidden", "");
+      layer.innerHTML = "";
+      return;
+    }
+    const features = state.lensGuideFeatureCache?.features || [];
+    const nodes = features
+      .filter((feature) => {
+        const props = feature.properties || {};
+        if (["economy-gravity", "civic-catchment"].includes(lens.id) && props.sublayer_id && !activeSublayerIdsForLens(lens).includes(props.sublayer_id)) return false;
+        return props.kind === "node"
+          && props.node_style !== "transport"
+          && (props.event_id || props.source_id)
+          && feature.geometry?.type === "Point"
+          && Array.isArray(feature.geometry.coordinates)
+          && props.label;
+      })
+      .sort((a, b) => Number(a.properties?.label_rank || 999) - Number(b.properties?.label_rank || 999))
+      .slice(0, Math.max(lensCalloutLimit(lens.id) * 3, 12));
+    if (!nodes.length) {
+      layer.setAttribute("hidden", "");
+      layer.innerHTML = "";
+      return;
+    }
+
+    const size = state.map.getContainer().getBoundingClientRect();
+    const usable = {
+      left: window.innerWidth < 1180 ? 20 : 300,
+      right: Math.max(360, size.width - 470),
+      top: 82,
+      bottom: Math.max(260, size.height - 145),
+    };
+    const centerPx = state.map.project(state.selectedEvent?.lngLat || mapCenter());
+    const exclusions = lensGuideLabelExclusions();
+    const placed = [];
+    const html = [];
+    const limit = lensCalloutLimit(lens.id);
+    for (const node of nodes) {
+      if (html.length >= limit) break;
+      const props = node.properties || {};
+      const point = state.map.project(node.geometry.coordinates);
+      if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) continue;
+      const label = String(props.label || props.title || "");
+      const detail = String(props.label_detail || "");
+      const width = Math.min(154, Math.max(92, label.length * 6.1 + 42));
+      const height = detail ? 42 : 30;
+      const anchor = chooseGuideLabelAnchor(point, centerPx, width, height, usable, placed, exclusions);
+      if (!anchor) continue;
+      const rect = guideLabelRect(point, anchor, width, height);
+      placed.push(rect);
+      html.push(`
+        <button class="lens-guide-label" type="button" data-anchor="${anchor}" data-lens="${escapeAttr(lens.id)}" data-event-id="${escapeAttr(props.event_id || "")}" data-source-id="${escapeAttr(props.source_id || "")}" style="--accent:${escapeAttr(props.color || lens.accent || "#1b7a85")};left:${Math.round(point.x)}px;top:${Math.round(point.y)}px;width:${Math.round(width)}px" aria-label="${escapeAttr(`${label}${detail ? `, ${detail}` : ""}`)}">
+          <span class="lens-guide-label-mark" aria-hidden="true"></span>
+          <span class="lens-guide-label-copy">
+            <strong>${escapeHtml(label)}</strong>
+            ${detail ? `<small>${escapeHtml(detail)}</small>` : ""}
+          </span>
+        </button>
+      `);
+    }
+    if (!html.length) {
+      layer.setAttribute("hidden", "");
+      layer.innerHTML = "";
+      return;
+    }
+    layer.removeAttribute("hidden");
+    layer.innerHTML = html.join("");
+    layer.querySelectorAll(".lens-guide-label").forEach((button) => {
+      button.addEventListener("click", () => {
+        const eventId = button.getAttribute("data-event-id");
+        if (eventId) selectEvent(eventId, { keepCamera: true });
+      });
+    });
+  }
+
+  function lensCalloutLimit(lensId) {
+    if (lensId === "economy-gravity") return 9;
+    if (lensId === "civic-access-gaps") return 8;
+    if (lensId === "utilities-works") return 7;
+    if (lensId.startsWith("utilities-")) return 8;
+    if (lensId === "economy-vitality") return 7;
+    return 6;
+  }
+
+  function lensGuideLabelExclusions() {
+    const selectors = [
+      ".topbar",
+      "#layersPanel",
+      "#changelogPanel",
+      ".map-lens",
+      "#detailPanel",
+      ".map-tools",
+      ".lens-fab",
+      ".timeline",
+    ];
+    return selectors
+      .map((selector) => document.querySelector(selector))
+      .filter((el) => {
+        if (!el) return false;
+        const style = window.getComputedStyle(el);
+        if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") return false;
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.right > 0 && rect.bottom > 0 && rect.left < window.innerWidth && rect.top < window.innerHeight;
+      })
+      .map((el) => {
+        const rect = el.getBoundingClientRect();
+        return {
+          left: rect.left - 8,
+          right: rect.right + 8,
+          top: rect.top - 8,
+          bottom: rect.bottom + 8,
+        };
+      });
+  }
+
+  function chooseGuideLabelAnchor(point, centerPx, width, height, usable, placed, exclusions = []) {
+    const dx = point.x - centerPx.x;
+    const dy = point.y - centerPx.y;
+    const preferred = Math.abs(dx) > Math.abs(dy)
+      ? (dx >= 0 ? "right" : "left")
+      : (dy >= 0 ? "bottom" : "top");
+    const anchors = [preferred, "right", "left", "top", "bottom"].filter((anchor, index, arr) => arr.indexOf(anchor) === index);
+    for (const anchor of anchors) {
+      const rect = guideLabelRect(point, anchor, width, height);
+      if (rect.left < usable.left || rect.right > usable.right || rect.top < usable.top || rect.bottom > usable.bottom) continue;
+      if (placed.some((other) => rectsOverlap(rect, other, 8))) continue;
+      if (exclusions.some((excluded) => rectsOverlap(rect, excluded, 0))) continue;
+      return anchor;
+    }
+    return "";
+  }
+
+  function guideLabelRect(point, anchor, width, height) {
+    const gap = 12;
+    if (anchor === "right") {
+      return { left: point.x + gap, right: point.x + gap + width, top: point.y - height / 2, bottom: point.y + height / 2 };
+    }
+    if (anchor === "left") {
+      return { left: point.x - gap - width, right: point.x - gap, top: point.y - height / 2, bottom: point.y + height / 2 };
+    }
+    if (anchor === "bottom") {
+      return { left: point.x - width / 2, right: point.x + width / 2, top: point.y + gap, bottom: point.y + gap + height };
+    }
+    return { left: point.x - width / 2, right: point.x + width / 2, top: point.y - gap - height, bottom: point.y - gap };
+  }
+
+  function rectsOverlap(a, b, margin = 0) {
+    return !(a.right + margin < b.left
+      || a.left - margin > b.right
+      || a.bottom + margin < b.top
+      || a.top - margin > b.bottom);
+  }
+
   // ---------------------------------------------------------------------------
   // Map lens overlays
   // ---------------------------------------------------------------------------
@@ -1535,6 +1771,38 @@
     const template = state.cityMeta?.artifact_paths?.transport_roads_template || state.city?.artifact_paths?.transport_roads_template;
     const numericYear = currentTimelineYear(year);
     return template ? dataPathToUrl(String(template).replace("{year}", String(numericYear))) : "";
+  }
+
+  function transportStopsPath() {
+    const configured = state.cityMeta?.artifact_paths?.transport_stops || state.city?.artifact_paths?.transport_stops;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId
+      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/transport_stops_2026.geojson`)
+      : "";
+  }
+
+  function utilityNetworkPath() {
+    const configured = state.cityMeta?.artifact_paths?.utility_network || state.city?.artifact_paths?.utility_network;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId === "belfast"
+      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/utility_network_2026.geojson`)
+      : "";
+  }
+
+  function economyAnchorPath() {
+    const configured = state.cityMeta?.artifact_paths?.economy_anchors || state.city?.artifact_paths?.economy_anchors;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId === "belfast"
+      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/economy_anchors_2026.geojson`)
+      : "";
+  }
+
+  function civicServiceContextPath() {
+    const configured = state.cityMeta?.artifact_paths?.civic_services_context || state.city?.artifact_paths?.civic_services_context;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId === "belfast"
+      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/civic_services_2026.geojson`)
+      : "";
   }
 
   function lensDetailYearPath(year = state.year) {
@@ -1793,6 +2061,23 @@
         state.map.addSource(LENS_GUIDE_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
       }
 
+      const utilityNetworkSource = state.map.getSource(UTILITY_NETWORK_SOURCE_ID);
+      const utilityPath = shouldLoadUtilityNetwork() ? utilityNetworkPath() : "";
+      if (utilityPath) {
+        if (utilityNetworkSource?.setData) {
+          if (state.utilityNetworkPathLoaded !== utilityPath) utilityNetworkSource.setData(utilityPath);
+        } else {
+          state.map.addSource(UTILITY_NETWORK_SOURCE_ID, { type: "geojson", data: utilityPath, generateId: true });
+        }
+        state.utilityNetworkPathLoaded = utilityPath;
+      } else if (!utilityNetworkSource) {
+        state.map.addSource(UTILITY_NETWORK_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
+        state.utilityNetworkPathLoaded = "";
+      } else if (utilityNetworkSource?.setData && state.utilityNetworkPathLoaded !== "") {
+        utilityNetworkSource.setData(emptyFeatureCollection());
+        state.utilityNetworkPathLoaded = "";
+      }
+
       const detailSource = state.map.getSource(LENS_DETAIL_SOURCE_ID);
       if (detailPath) {
         if (detailSource?.setData) {
@@ -1857,6 +2142,7 @@
   function addLensOverlayLayers() {
     ensureLensImages();
     ensureBuiltFootprintLensLayers();
+    addUtilityNetworkLayers();
     addLensDetailLayers();
     addLensGuideLayers();
     addTransportEventLensLayers();
@@ -1914,12 +2200,16 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#fffdf7",
-        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0.14, 0.2, 0.32, 1, 0.58],
+        "line-opacity": [
+          "*",
+          ["interpolate", ["linear"], transportActivityExpression(), 0, 0.08, 0.2, 0.22, 1, 0.46],
+          ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.28, 2, 0.68, 3, 0.92, 4, 1],
+        ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.5, ["*", transportActivityExpression(), 1.0]], transportRankExpression()],
-          13, ["*", ["+", 0.82, ["*", transportActivityExpression(), 1.65]], transportRankExpression()],
-          16, ["*", ["+", 1.15, ["*", transportActivityExpression(), 2.55]], transportRankExpression()],
+          9, ["*", ["+", 0.42, ["*", transportActivityExpression(), 0.84]], transportRankExpression()],
+          13, ["*", ["+", 0.68, ["*", transportActivityExpression(), 1.36]], transportRankExpression()],
+          16, ["*", ["+", 0.96, ["*", transportActivityExpression(), 2.16]], transportRankExpression()],
         ],
         "line-blur": 0.16,
       },
@@ -1962,7 +2252,13 @@
       layout: { visibility: "none" },
       paint: {
         "fill-color": ["coalesce", ["get", "color"], "#1b7a85"],
-        "fill-opacity": 0.025,
+        "fill-opacity": [
+          "match", ["get", "lens_id"],
+          "utilities-capacity", 0,
+          "utilities-resilience", 0,
+          "utilities-works", 0,
+          0.025,
+        ],
       },
     });
     state.map.addLayer({
@@ -1973,7 +2269,13 @@
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": ["coalesce", ["get", "color"], "#1b7a85"],
-        "line-opacity": 0.7,
+        "line-opacity": [
+          "match", ["get", "lens_id"],
+          "utilities-capacity", 0,
+          "utilities-resilience", 0,
+          "utilities-works", 0,
+          0.7,
+        ],
         "line-width": 1.2,
         "line-dasharray": [4, 2],
       },
@@ -2001,10 +2303,24 @@
         "fill-color": ["coalesce", ["get", "color"], "#d6a33e"],
         "fill-opacity": [
           "case",
+          ["==", ["get", "surface_style"], "utility_outage_area"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.018, 1, 0.075],
           ["==", ["get", "surface_style"], "access_fabric"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.2, 1, 0.62],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.32, 1, 0.6],
+          ["==", ["get", "surface_style"], "demand_surface"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.34, 0.26, 0.64, 0.48, 1, 0.7],
+          ["==", ["get", "surface_style"], "planning_footprint"],
+          ["case",
+            ["==", ["get", "lens_id"], "planning-delta"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.28, 0.45, 0.58, 1, 0.82],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.55, 0.42, 1, 0.58],
+          ],
+          ["==", ["get", "surface_style"], "catchment_area"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.24, 0.58, 0.42, 1, 0.58],
+          ["==", ["get", "surface_style"], "catchment_patch"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 1, 0.44],
           ["==", ["get", "surface_style"], "land_use_tile"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.28, 1, 0.78],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 1, 0.68],
           ["==", ["get", "lens_id"], "civic-demand"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.46],
           ["==", ["get", "lens_id"], "civic-catchment"],
@@ -2022,20 +2338,72 @@
       paint: {
         "line-color": [
           "case",
+          ["==", ["get", "surface_style"], "utility_outage_area"], "#b93234",
+          ["==", ["get", "surface_style"], "access_fabric"], "#fff9e9",
+          ["==", ["get", "surface_style"], "planning_footprint"],
+          ["case", ["==", ["get", "lens_id"], "planning-delta"], "#f6ded5", "#fff7eb"],
+          ["==", ["get", "surface_style"], "catchment_area"], ["coalesce", ["get", "color"], "#e9cf78"],
           ["==", ["get", "surface_style"], "land_use_tile"], "#fffaf0",
           "#ffffff",
         ],
         "line-opacity": [
           "case",
-          ["==", ["get", "surface_style"], "access_fabric"], 0.16,
-          ["==", ["get", "surface_style"], "land_use_tile"], 0.58,
+          ["==", ["get", "surface_style"], "utility_outage_area"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.32, 1, 0.72],
+          ["==", ["get", "surface_style"], "access_fabric"], 0.22,
+          ["==", ["get", "surface_style"], "demand_surface"], 0.12,
+          ["==", ["get", "surface_style"], "planning_footprint"],
+          ["case", ["==", ["get", "lens_id"], "planning-delta"], 0.24, 0.48],
+          ["==", ["get", "surface_style"], "catchment_area"], 0.46,
+          ["==", ["get", "surface_style"], "catchment_patch"], 0.24,
+          ["==", ["get", "surface_style"], "land_use_tile"], 0.5,
           0.52,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.2, 0.3],
-          14, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.54, 0.62],
-          17, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.9, 1.05],
+          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.2, ["==", ["get", "surface_style"], "access_fabric"], 0.22, ["==", ["get", "surface_style"], "planning_footprint"], 0.2, ["==", ["get", "surface_style"], "catchment_area"], 0.54, 0.3],
+          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.54, ["==", ["get", "surface_style"], "access_fabric"], 0.42, ["==", ["get", "surface_style"], "planning_footprint"], 0.48, ["==", ["get", "surface_style"], "catchment_area"], 1.08, 0.62],
+          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.9, ["==", ["get", "surface_style"], "access_fabric"], 0.68, ["==", ["get", "surface_style"], "planning_footprint"], 0.86, ["==", ["get", "surface_style"], "catchment_area"], 1.55, 1.05],
+        ],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-coverage-flow-case",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["all", ["==", ["get", "kind"], "flow"], ["==", ["get", "flow_role"], "coverage"]],
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#fffdf6",
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.46],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.4, 1, 3.8],
+          13, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.4, 1, 7.2],
+          16, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.4, 1, 9.8],
+        ],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-coverage-flow",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: ["all", ["==", ["get", "kind"], "flow"], ["==", ["get", "flow_role"], "coverage"]],
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": [
+          "match", ["get", "flow_style"],
+          "service_walk", "#0f7f86",
+          "service_bus", "#5aaeb5",
+          "service_outer", "#a8cfd1",
+          "#5aaeb5",
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.48],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.75, 1, 2.4],
+          13, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.35, 1, 4.8],
+          16, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.05, 1, 7.2],
         ],
       },
     });
@@ -2043,12 +2411,19 @@
       id: "lens-guide-flow-case",
       type: "line",
       source: LENS_GUIDE_SOURCE_ID,
-      filter: ["==", ["get", "kind"], "flow"],
+      filter: ["all", ["==", ["get", "kind"], "flow"], ["!=", ["get", "flow_role"], "coverage"]],
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#fff7e8",
         "line-opacity": [
           "case",
+          ["==", ["get", "flow_style"], "economy_gravity_arc"], 0.76,
+          ["==", ["get", "flow_style"], "economy_gravity_thread"], 0.44,
+          ["==", ["get", "flow_style"], "transport_backbone"], 0.9,
+          ["==", ["get", "flow_style"], "transport_thread"], 0.56,
+          ["==", ["get", "flow_style"], "utility_primary"], 0.62,
+          ["==", ["get", "flow_style"], "utility_backup"], 0.5,
+          ["==", ["get", "flow_style"], "utility_inferred"], 0.36,
           ["any",
             ["==", ["get", "flow_style"], "street_thread"],
             ["==", ["get", "lens_id"], "planning-pressure"],
@@ -2062,10 +2437,27 @@
         ],
         "line-width": [
           "case",
+          ["==", ["get", "flow_style"], "economy_gravity_arc"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.2, 1, 7.8],
+          ["==", ["get", "flow_style"], "economy_gravity_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 4.6],
+          ["==", ["get", "flow_style"], "transport_backbone"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.1, 1, 8.8],
+          ["==", ["get", "flow_style"], "transport_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.3, 1, 4.2],
+          ["==", ["get", "flow_style"], "utility_primary"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.85, 1, 5.4],
+          ["==", ["get", "flow_style"], "utility_backup"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.35, 1, 4.2],
+          ["==", ["get", "flow_style"], "utility_inferred"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.9, 1, 2.8],
+          ["==", ["get", "flow_style"], "utility_work_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.4, 1, 4.6],
+          ["==", ["get", "lens_id"], "civic-access-gaps"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.15, 1, 3.05],
           ["any",
             ["==", ["get", "flow_style"], "street_thread"],
             ["==", ["get", "lens_id"], "planning-pressure"],
-            ["==", ["get", "lens_id"], "civic-access-gaps"],
             ["==", ["get", "lens_id"], "economy-vitality"],
             ["==", ["get", "lens_id"], "utilities-capacity"],
             ["==", ["get", "lens_id"], "utilities-resilience"],
@@ -2080,12 +2472,26 @@
       id: "lens-guide-flow",
       type: "line",
       source: LENS_GUIDE_SOURCE_ID,
-      filter: ["==", ["get", "kind"], "flow"],
+      filter: ["all", ["==", ["get", "kind"], "flow"], ["!=", ["get", "flow_role"], "coverage"]],
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": ["coalesce", ["get", "color"], "#7a3b7a"],
         "line-opacity": [
           "case",
+          ["==", ["get", "flow_style"], "economy_gravity_arc"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.94],
+          ["==", ["get", "flow_style"], "economy_gravity_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
+          ["==", ["get", "flow_style"], "transport_backbone"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 1],
+          ["==", ["get", "flow_style"], "transport_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 0.76],
+          ["==", ["get", "flow_style"], "utility_primary"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.94],
+          ["==", ["get", "flow_style"], "utility_backup"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.82],
+          ["==", ["get", "flow_style"], "utility_inferred"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.62],
           ["any",
             ["==", ["get", "flow_style"], "street_thread"],
             ["==", ["get", "lens_id"], "planning-pressure"],
@@ -2100,10 +2506,27 @@
         ],
         "line-width": [
           "case",
+          ["==", ["get", "flow_style"], "economy_gravity_arc"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.9, 1, 4.65],
+          ["==", ["get", "flow_style"], "economy_gravity_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 2.25],
+          ["==", ["get", "flow_style"], "transport_backbone"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.75, 1, 6.1],
+          ["==", ["get", "flow_style"], "transport_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.6, 1, 2.8],
+          ["==", ["get", "flow_style"], "utility_primary"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.85, 1, 3.35],
+          ["==", ["get", "flow_style"], "utility_backup"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 2.55],
+          ["==", ["get", "flow_style"], "utility_inferred"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.38, 1, 1.75],
+          ["==", ["get", "flow_style"], "utility_work_thread"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 2.4],
+          ["==", ["get", "lens_id"], "civic-access-gaps"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.7],
           ["any",
             ["==", ["get", "flow_style"], "street_thread"],
             ["==", ["get", "lens_id"], "planning-pressure"],
-            ["==", ["get", "lens_id"], "civic-access-gaps"],
             ["==", ["get", "lens_id"], "economy-vitality"],
             ["==", ["get", "lens_id"], "utilities-capacity"],
             ["==", ["get", "lens_id"], "utilities-resilience"],
@@ -2118,31 +2541,88 @@
       id: "lens-guide-node",
       type: "circle",
       source: LENS_GUIDE_SOURCE_ID,
-      filter: ["==", ["get", "kind"], "node"],
+      filter: [
+        "all",
+        ["==", ["get", "kind"], "node"],
+        ["!=", ["get", "node_style"], "utility_trace"],
+        ["!=", ["get", "node_style"], "civic_anchor"],
+      ],
       layout: { visibility: "none" },
       paint: {
         "circle-radius": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "node_style"], "transport"], 3.8, 4.5],
-          14, ["case", ["==", ["get", "node_style"], "transport"], 6.3, 7.5],
-          17, ["case", ["==", ["get", "node_style"], "transport"], 9.5, 11],
+          10, ["case", ["==", ["get", "node_style"], "transport_route"], 3.4, ["==", ["get", "node_style"], "transport"], 3.8, 4.5],
+          14, ["case", ["==", ["get", "node_style"], "transport_route"], 5.8, ["==", ["get", "node_style"], "transport"], 6.4, 7.5],
+          17, ["case", ["==", ["get", "node_style"], "transport_route"], 8.4, ["==", ["get", "node_style"], "transport"], 9.2, 11],
         ],
         "circle-color": [
           "case",
-          ["==", ["get", "node_style"], "transport"], "#fffdf7",
+          ["any", ["==", ["get", "node_style"], "transport"], ["==", ["get", "node_style"], "transport_route"]], "#fffdf7",
           ["coalesce", ["get", "color"], "#1b7a85"],
         ],
-        "circle-opacity": 0.92,
+        "circle-opacity": [
+          "case",
+          ["==", ["get", "node_style"], "transport_route"], 0.96,
+          0.92,
+        ],
         "circle-stroke-width": [
           "case",
+          ["==", ["get", "node_style"], "transport_route"], 1.8,
           ["==", ["get", "node_style"], "transport"], 2.2,
           2.2,
         ],
         "circle-stroke-color": [
           "case",
-          ["==", ["get", "node_style"], "transport"], ["coalesce", ["get", "color"], "#1b7a85"],
+          ["any", ["==", ["get", "node_style"], "transport"], ["==", ["get", "node_style"], "transport_route"]], ["coalesce", ["get", "color"], "#1b7a85"],
           "#ffffff",
         ],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-icon-node",
+      type: "symbol",
+      source: LENS_GUIDE_SOURCE_ID,
+      filter: [
+        "all",
+        ["==", ["get", "kind"], "node"],
+        ["any", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "node_style"], "civic_anchor"]],
+      ],
+      layout: {
+        visibility: "none",
+        "icon-image": [
+          "case",
+          ["==", ["get", "node_style"], "civic_anchor"],
+          [
+            "match", ["get", "sublayer_id"],
+            "civic_services", "lens-icon-civic-school",
+            "health", "lens-icon-civic-health",
+            "libraries", "lens-icon-civic-library",
+            "leisure", "lens-icon-civic-leisure",
+            "council", "lens-icon-civic-council",
+            "safety", "lens-icon-civic-safety",
+            "lens-icon-civic",
+          ],
+          [
+            "match", ["get", "utility_type"],
+            "water", "lens-icon-utility-water",
+            "electricity", "lens-icon-utility-electricity",
+            "telecoms", "lens-icon-utility-telecoms",
+            "gas", "lens-icon-utility-gas",
+            "drainage", "lens-icon-utility-drainage",
+            "lens-icon-utilities",
+          ],
+        ],
+        "icon-size": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.34, 0.42],
+          13, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.49, 0.58],
+          16, ["case", ["==", ["get", "node_style"], "civic_anchor"], 0.68, 0.78],
+        ],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+      },
+      paint: {
+        "icon-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 0.96],
       },
     });
   }
@@ -2375,6 +2855,173 @@
     });
   }
 
+  function addUtilityNetworkLayers() {
+    if (!state.map?.getSource(UTILITY_NETWORK_SOURCE_ID) || state.map.getLayer("lens-utility-network")) return;
+    state.map.addLayer({
+      id: "lens-utility-network-case",
+      type: "line",
+      source: UTILITY_NETWORK_SOURCE_ID,
+      minzoom: 8.6,
+      filter: utilityNetworkLineFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#fffdf7",
+        "line-opacity": utilityNetworkCaseOpacityExpression(),
+        "line-width": utilityNetworkCaseWidthExpression(),
+        "line-blur": 0.1,
+      },
+    });
+    state.map.addLayer({
+      id: "lens-utility-network",
+      type: "line",
+      source: UTILITY_NETWORK_SOURCE_ID,
+      minzoom: 8.6,
+      filter: utilityNetworkLineFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": utilityNetworkContextColorExpression(),
+        "line-opacity": utilityNetworkOpacityExpression(),
+        "line-width": utilityNetworkWidthExpression(),
+        "line-dasharray": utilityNetworkContextDashExpression(),
+      },
+    });
+    state.map.addLayer({
+      id: "lens-utility-network-assets",
+      type: "symbol",
+      source: UTILITY_NETWORK_SOURCE_ID,
+      minzoom: 10.1,
+      filter: utilityNetworkAssetFilter(),
+      layout: {
+        visibility: "none",
+        "icon-image": [
+          "match", ["get", "utility_type"],
+          "water", "lens-icon-utility-water",
+          "electricity", "lens-icon-utility-electricity",
+          "telecoms", "lens-icon-utility-telecoms",
+          "gas", "lens-icon-utility-gas",
+          "drainage", "lens-icon-utility-drainage",
+          "lens-icon-utilities",
+        ],
+        "icon-size": [
+          "interpolate", ["linear"], ["zoom"],
+          10, ["*", 0.22, ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.82, 2, 0.95, 4, 1.12]],
+          14, ["*", 0.32, ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.82, 2, 0.95, 4, 1.14]],
+          16, ["*", 0.45, ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.82, 2, 0.95, 4, 1.18]],
+        ],
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+      },
+      paint: {
+        "icon-opacity": ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.24, 2, 0.54, 4, 0.92],
+      },
+    });
+  }
+
+  function utilityNetworkLineFilter() {
+    return ["all",
+      ["==", ["get", "layer"], "utility_network"],
+      ["match", ["get", "network_geometry"], ["line", "area"], true, false],
+    ];
+  }
+
+  function utilityNetworkAssetFilter() {
+    return ["all",
+      ["==", ["get", "layer"], "utility_network"],
+      ["==", ["get", "network_geometry"], "asset"],
+      [">=", ["to-number", ["get", "asset_priority"], 0], 2],
+    ];
+  }
+
+  function utilityNetworkContextColorExpression() {
+    const mode = activeMapLens().id;
+    if (mode === "utilities-capacity") {
+      return [
+        "case",
+        [">=", ["to-number", ["get", "intensity"], 0], 0.92], "#d62d35",
+        [">=", ["to-number", ["get", "intensity"], 0], 0.8], "#ed6b35",
+        ["match", ["get", "utility_type"],
+          "water", "#1787b3",
+          "electricity", "#ef6b2a",
+          "telecoms", "#7a3b97",
+          "gas", "#e2b42c",
+          "drainage", "#148a8d",
+          "#8c7460",
+        ],
+      ];
+    }
+    if (mode === "utilities-resilience") {
+      return [
+        "case",
+        [">=", ["to-number", ["get", "rank"], 1], 5], "#0b6e8e",
+        ["match", ["get", "utility_type"],
+          "water", "#1787b3",
+          "electricity", "#ef6b2a",
+          "telecoms", "#7a3b97",
+          "gas", "#e2b42c",
+          "drainage", "#148a8d",
+          "#1787b3",
+        ],
+      ];
+    }
+    return [
+      "match", ["get", "utility_type"],
+      "water", "#248b94",
+      "electricity", "#e8a620",
+      "telecoms", "#774a92",
+      "gas", "#d66a3a",
+      "drainage", "#4f8f50",
+      "#8c7460",
+    ];
+  }
+
+  function utilityNetworkOpacityExpression() {
+    const mode = activeMapLens().id;
+    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.84 : 0.72;
+    const low = mode === "utilities-works" ? 0.16 : 0.22;
+    return [
+      "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
+      0, low,
+      1, high,
+    ];
+  }
+
+  function utilityNetworkCaseOpacityExpression() {
+    const mode = activeMapLens().id;
+    const high = mode === "utilities-resilience" ? 0.42 : 0.36;
+    return [
+      "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
+      0, 0.08,
+      1, high,
+    ];
+  }
+
+  function utilityNetworkWidthExpression() {
+    const mode = activeMapLens().id;
+    const factor = mode === "utilities-resilience" ? 1.08 : mode === "utilities-works" ? 0.88 : 1;
+    return [
+      "interpolate", ["linear"], ["zoom"],
+      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.26, 5, 0.9]],
+      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 2.15]],
+      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.96, 5, 3.4]],
+    ];
+  }
+
+  function utilityNetworkCaseWidthExpression() {
+    return [
+      "interpolate", ["linear"], ["zoom"],
+      9, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.72, 5, 1.8],
+      13, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.28, 5, 3.6],
+      16, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.7, 5, 5.1],
+    ];
+  }
+
+  function utilityNetworkContextDashExpression() {
+    const mode = activeMapLens().id;
+    if (mode === "utilities-resilience") return [2.8, 1.25];
+    if (mode === "utilities-works") return [2, 1.2];
+    return [1, 0.0001];
+  }
+
   function lensDetailIntensityExpression() {
     return ["to-number", ["get", "intensity"], 0.35];
   }
@@ -2535,6 +3182,7 @@
         "water", "#1787b3",
         "electricity", "#ef6b2a",
         "telecoms", "#7a3b97",
+        "telecom", "#7a3b97",
         "gas", "#e2b42c",
         "drainage", "#148a8d",
         "#1787b3",
@@ -2669,8 +3317,19 @@
     if (!state.map) return;
     addLensImage("lens-icon-built", "#c8472e", "built");
     addLensImage("lens-icon-civic", "#2a84a6", "civic");
+    addLensImage("lens-icon-civic-school", "#178f8f", "civic-anchor");
+    addLensImage("lens-icon-civic-health", "#e85b1e", "civic-anchor");
+    addLensImage("lens-icon-civic-library", "#79419d", "civic-anchor");
+    addLensImage("lens-icon-civic-leisure", "#347db5", "civic-anchor");
+    addLensImage("lens-icon-civic-council", "#26858a", "civic-anchor");
+    addLensImage("lens-icon-civic-safety", "#8c5b3a", "civic-anchor");
     addLensImage("lens-icon-economy", "#7a3b7a", "economy");
     addLensImage("lens-icon-utilities", "#8c7460", "utilities");
+    addLensImage("lens-icon-utility-water", "#1787b3", "utility-node");
+    addLensImage("lens-icon-utility-electricity", "#ef6b2a", "utility-node");
+    addLensImage("lens-icon-utility-telecoms", "#7a3b97", "utility-node");
+    addLensImage("lens-icon-utility-gas", "#e2b42c", "utility-node");
+    addLensImage("lens-icon-utility-drainage", "#148a8d", "utility-node");
   }
 
   function addLensImage(id, color, shape) {
@@ -2708,6 +3367,20 @@
       ctx.moveTo(15, 24);
       ctx.lineTo(33, 24);
       ctx.stroke();
+    } else if (shape === "civic-anchor") {
+      ctx.beginPath();
+      ctx.roundRect?.(10, 10, 28, 28, 4);
+      if (!ctx.roundRect) ctx.rect(10, 10, 28, 28);
+      ctx.fill();
+      ctx.stroke();
+      ctx.strokeStyle = "rgba(255,253,247,0.86)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(18, 24);
+      ctx.lineTo(30, 24);
+      ctx.moveTo(24, 18);
+      ctx.lineTo(24, 30);
+      ctx.stroke();
     } else if (shape === "economy") {
       ctx.beginPath();
       ctx.moveTo(24, 8);
@@ -2722,6 +3395,22 @@
       ctx.beginPath();
       ctx.moveTo(16, 24);
       ctx.lineTo(32, 24);
+      ctx.stroke();
+    } else if (shape === "utility-node") {
+      ctx.beginPath();
+      ctx.roundRect?.(11, 11, 26, 26, 5);
+      if (!ctx.roundRect) {
+        ctx.rect(11, 11, 26, 26);
+      }
+      ctx.fill();
+      ctx.stroke();
+      ctx.strokeStyle = "rgba(255,253,247,0.82)";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(18, 24);
+      ctx.lineTo(30, 24);
+      ctx.moveTo(24, 18);
+      ctx.lineTo(24, 30);
       ctx.stroke();
     } else {
       ctx.beginPath();
@@ -2750,7 +3439,7 @@
     for (const layerId of LENS_LAYER_IDS) {
       if (state.map.getLayer(layerId)) state.map.removeLayer(layerId);
     }
-    for (const sourceId of [LENS_GUIDE_SOURCE_ID, LENS_ROAD_SOURCE_ID, LENS_ROAD_BASE_SOURCE_ID, LENS_DETAIL_SOURCE_ID, LENS_SOURCE_ID]) {
+    for (const sourceId of [UTILITY_NETWORK_SOURCE_ID, LENS_GUIDE_SOURCE_ID, LENS_ROAD_SOURCE_ID, LENS_ROAD_BASE_SOURCE_ID, LENS_DETAIL_SOURCE_ID, LENS_SOURCE_ID]) {
       if (state.map.getSource(sourceId)) state.map.removeSource(sourceId);
     }
     state.lensOverlayLoaded = false;
@@ -2760,27 +3449,46 @@
     state.transportRoadFeatureCountPathLoaded = null;
     state.transportRoadFeatureCountYearLoaded = null;
     state.transportRoadFeatureCount = null;
+    state.transportStopFeaturesPathLoaded = null;
+    state.transportStopFeatures = [];
+    state.utilityNetworkPathLoaded = null;
+    state.utilityNetworkFeaturesPathLoaded = null;
+    state.utilityNetworkFeatures = [];
+    state.economyAnchorFeaturesPathLoaded = null;
+    state.economyAnchorFeatures = [];
+    state.civicServiceFeaturesPathLoaded = null;
+    state.civicServiceFeatures = [];
     state.lensDetailYearPathLoaded = null;
     state.lensDetailYearLoaded = null;
+    state.lensDetailFeaturePathLoaded = null;
+    state.lensDetailFeatures = [];
     state.lensEventFeatureCount = 0;
     state.lensEventSourceKey = "";
+    state.lensGuideFeatureCache = emptyFeatureCollection();
+    renderLensGuideLabels();
   }
 
   function updateLensOverlayFilters() {
     if (!state.map) return;
     updateTransportRoadYearSource();
     updateLensDetailYearSource();
+    updateTransportStopFeatureCache(shouldLoadTransportStops() ? transportStopsPath() : "");
+    updateEconomyAnchorFeatureCache(shouldLoadEconomyAnchors() ? economyAnchorPath() : "");
+    updateCivicServiceFeatureCache(shouldLoadCivicServiceContext() ? civicServiceContextPath() : "");
     updateLensEventSource();
     updateLensGuideSource();
     if (!state.map.getSource(LENS_SOURCE_ID)) return;
     ensureBuiltFootprintLensLayers();
     addTransportEventLensLayers();
+    addUtilityNetworkLayers();
     addLensDetailLayers();
+    updateUtilityNetworkSource(shouldLoadUtilityNetwork() ? utilityNetworkPath() : "");
     for (const layerId of ["lens-heatmap", "lens-current-points-glow", "lens-current-points"]) {
       if (state.map.getLayer(layerId)) state.map.setLayoutProperty(layerId, "visibility", "none");
     }
     updateBuiltFootprintLensLayers();
     updateLensDetailLayers();
+    updateUtilityNetworkLayers();
     updateLensGuideLayers();
     updatePointLensLayer("lens-built-site-icons", "built_environment");
     updateTransportEventLensLayers();
@@ -2843,7 +3551,7 @@
     const aspect = activeMapLens();
     const showPlanningCells = isActiveMapLens("built_environment");
     const showCivicCells = isActiveMapLens("civic_services");
-    const showEconomyCells = isActiveMapLens("economy") && aspect.id !== "economy-gravity";
+    const showEconomyCells = isActiveMapLens("economy") && !["economy-gravity", "economy-land-use"].includes(aspect.id);
     const showEconomyFrontage = isActiveMapLens("economy") && !["economy-land-use", "economy-gravity"].includes(aspect.id);
     const visibilityByLayer = {
       "lens-planning-cells-fill": showPlanningCells,
@@ -2862,9 +3570,9 @@
     const filterByLayer = {
       "lens-planning-cells-fill": lensDetailFilter("planning_cell"),
       "lens-planning-cells-outline": lensDetailFilter("planning_cell"),
-      "lens-civic-coverage-fill": lensDetailFilter("civic_coverage_cell"),
-      "lens-civic-coverage-outline": lensDetailFilter("civic_coverage_cell"),
-      "lens-civic-facility-icons": lensDetailFilter("civic_facility"),
+      "lens-civic-coverage-fill": lensDetailFilter("civic_coverage_cell", aspect.id === "civic-access-gaps" ? "coverage" : ""),
+      "lens-civic-coverage-outline": lensDetailFilter("civic_coverage_cell", aspect.id === "civic-access-gaps" ? "coverage" : ""),
+      "lens-civic-facility-icons": lensDetailFilter("civic_facility", aspect.id === "civic-access-gaps" ? "facilities" : ""),
       "lens-economy-cells-fill": lensDetailFilter("economy_activity_cell"),
       "lens-economy-cells-outline": lensDetailFilter("economy_activity_cell"),
       "lens-economy-frontage-case": lensDetailFilter("economy_frontage"),
@@ -2880,19 +3588,48 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.08, 0.32) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.42) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.08, 0.32) : ["planning-delta", "planning-parcels"].includes(aspect.id) ? lensDetailFillOpacity(0.008, 0.065) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.42) : ["planning-delta", "planning-parcels"].includes(aspect.id) ? lensDetailLineOpacity(0.012, 0.085) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.03, 0.12) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.02, 0.1) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.08, 0.26) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.04, 0.12) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.04, 0.14) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : lensDetailFillOpacity(0.16, 0.56));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : lensDetailLineOpacity(0.16, 0.66));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : lensDetailFillOpacity(0.04, 0.16));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : lensDetailLineOpacity(0.06, 0.28));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.38, 0.78) : lensDetailLineOpacity(0.24, 0.58));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.56, 0.96) : lensDetailLineOpacity(0.36, 0.92));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 9.8) : lensTraceWidthExpression(2.6, 8.4));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.3, 5.9) : lensTraceWidthExpression(1.05, 4.9));
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
     setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
+  }
+
+  function updateUtilityNetworkLayers() {
+    if (!state.map?.getSource(UTILITY_NETWORK_SOURCE_ID)) return;
+    const visible = shouldLoadUtilityNetwork();
+    for (const layerId of LENS_UTILITY_NETWORK_LAYER_IDS) {
+      if (!state.map.getLayer(layerId)) continue;
+      state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
+    }
+    if (!visible) return;
+    if (state.map.getLayer("lens-utility-network-case")) {
+      state.map.setFilter("lens-utility-network-case", utilityNetworkLineFilter());
+      state.map.setPaintProperty("lens-utility-network-case", "line-opacity", utilityNetworkCaseOpacityExpression());
+      state.map.setPaintProperty("lens-utility-network-case", "line-width", utilityNetworkCaseWidthExpression());
+    }
+    if (state.map.getLayer("lens-utility-network")) {
+      state.map.setFilter("lens-utility-network", utilityNetworkLineFilter());
+      state.map.setPaintProperty("lens-utility-network", "line-color", utilityNetworkContextColorExpression());
+      state.map.setPaintProperty("lens-utility-network", "line-opacity", utilityNetworkOpacityExpression());
+      state.map.setPaintProperty("lens-utility-network", "line-width", utilityNetworkWidthExpression());
+      state.map.setPaintProperty("lens-utility-network", "line-dasharray", utilityNetworkContextDashExpression());
+    }
+    if (state.map.getLayer("lens-utility-network-assets")) {
+      state.map.setFilter("lens-utility-network-assets", utilityNetworkAssetFilter());
+    }
   }
 
   function setLayerPaintIfPresent(layerId, prop, value) {
@@ -2903,20 +3640,50 @@
     if (!state.map?.getSource(LENS_GUIDE_SOURCE_ID)) return;
     const lens = activeMapLens();
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
-    const showRings = showGuide && ["transport-speed", "transport-reliability", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id);
-    const showCells = showGuide && ["transport-access", "civic-catchment", "civic-demand", "economy-land-use"].includes(lens.id);
-    const showFlows = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
-    const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity"].includes(lens.id);
+    const showRings = showGuide && ["transport-speed", "transport-reliability", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id);
+    const showCells = showGuide && ["transport-access", "planning-delta", "planning-parcels", "civic-catchment", "civic-demand", "economy-land-use", "utilities-resilience"].includes(lens.id);
+    const showFlows = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
+    const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "utilities-works"].includes(lens.id);
     const visibility = {
       "lens-guide-area-fill": showGuide,
       "lens-guide-area-line": showGuide,
       "lens-guide-ring-line": showRings,
       "lens-guide-cell-fill": showCells,
       "lens-guide-cell-line": showCells,
+      "lens-guide-coverage-flow-case": showFlows && lens.id === "civic-access-gaps",
+      "lens-guide-coverage-flow": showFlows && lens.id === "civic-access-gaps",
       "lens-guide-flow-case": showFlows,
       "lens-guide-flow": showFlows,
       "lens-guide-node": showNodes,
+      "lens-guide-icon-node": showNodes,
     };
+    const cellFilter = guideCellLayerFilter(lens);
+    for (const layerId of ["lens-guide-cell-fill", "lens-guide-cell-line"]) {
+      if (state.map.getLayer(layerId)) state.map.setFilter(layerId, cellFilter);
+    }
+    const seamFlowFilter = guideSeamFlowLayerFilter(lens);
+    const coverageFlowFilter = guideCoverageFlowLayerFilter(lens);
+    for (const layerId of ["lens-guide-flow-case", "lens-guide-flow"]) {
+      if (state.map.getLayer(layerId)) state.map.setFilter(layerId, seamFlowFilter);
+    }
+    for (const layerId of ["lens-guide-coverage-flow-case", "lens-guide-coverage-flow"]) {
+      if (state.map.getLayer(layerId)) state.map.setFilter(layerId, coverageFlowFilter);
+    }
+    if (state.map.getLayer("lens-guide-flow")) {
+      state.map.setPaintProperty("lens-guide-flow", "line-dasharray", guideFlowDashExpression(lens));
+    }
+    if (state.map.getLayer("lens-guide-flow-case")) {
+      state.map.setPaintProperty("lens-guide-flow-case", "line-dasharray", guideFlowDashExpression(lens));
+    }
+    if (state.map.getLayer("lens-guide-cell-line")) {
+      state.map.setPaintProperty("lens-guide-cell-line", "line-dasharray", lens.id === "utilities-resilience" ? [3.2, 1.6] : [1, 0.0001]);
+    }
+    if (state.map.getLayer("lens-guide-node")) {
+      state.map.setFilter("lens-guide-node", guideNodeLayerFilter(lens));
+    }
+    if (state.map.getLayer("lens-guide-icon-node")) {
+      state.map.setFilter("lens-guide-icon-node", guideIconNodeLayerFilter(lens));
+    }
     for (const [layerId, visible] of Object.entries(visibility)) {
       if (state.map.getLayer(layerId)) state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
     }
@@ -2925,6 +3692,109 @@
         try { state.map.moveLayer(layerId); } catch (_error) { /* layer order is best-effort */ }
       }
     }
+    if (lens?.id === "transport-access") {
+      for (const layerId of ["lens-transport-base-case", "lens-transport-base", "lens-transport-roads-case", "lens-transport-roads", "lens-transport-hotspots", "lens-guide-node", "lens-transport-event-halo", "lens-transport-event-points"]) {
+        if (state.map.getLayer(layerId)) {
+          try { state.map.moveLayer(layerId); } catch (_error) { /* layer order is best-effort */ }
+        }
+      }
+    } else if (lens?.category === "transport") {
+      for (const layerId of ["lens-guide-area-line", "lens-guide-ring-line", "lens-guide-flow-case", "lens-guide-flow", "lens-guide-node", "lens-transport-event-halo", "lens-transport-event-points"]) {
+        if (state.map.getLayer(layerId)) {
+          try { state.map.moveLayer(layerId); } catch (_error) { /* layer order is best-effort */ }
+        }
+      }
+    }
+    renderLensGuideLabels();
+  }
+
+  function guideFlowDashExpression(lens = activeMapLens()) {
+    if (lens?.id === "civic-access-gaps") return [1.05, 1.05];
+    if (lens?.id === "utilities-resilience") return [2.8, 1.35];
+    if (lens?.id === "utilities-works") return [2, 1.2];
+    return [1, 0.0001];
+  }
+
+  function guideCellLayerFilter(lens = activeMapLens()) {
+    const base = ["==", ["get", "kind"], "surface_cell"];
+    if (lens?.id === "civic-catchment") return guideSublayerFilter(base, lens);
+    if (lens?.id !== "planning-parcels") return base;
+    const activeStatuses = [...state.activeAspectLayers].filter(Boolean);
+    return [
+      "all",
+      base,
+      [
+        "any",
+        ["!=", ["get", "lens_id"], "planning-parcels"],
+        activeStatuses.length
+          ? ["match", ["get", "sublayer_id"], activeStatuses, true, false]
+          : ["==", ["get", "sublayer_id"], "__none__"],
+      ],
+    ];
+  }
+
+  function guideSeamFlowLayerFilter(lens = activeMapLens()) {
+    const base = ["all", ["==", ["get", "kind"], "flow"], ["!=", ["get", "flow_role"], "coverage"]];
+    return guideSublayerFilter(base, lens);
+  }
+
+  function guideCoverageFlowLayerFilter(lens = activeMapLens()) {
+    const base = ["all", ["==", ["get", "kind"], "flow"], ["==", ["get", "flow_role"], "coverage"]];
+    return base;
+  }
+
+  function guideNodeLayerFilter(lens = activeMapLens()) {
+    const base = [
+      "all",
+      ["==", ["get", "kind"], "node"],
+      ["!=", ["get", "node_style"], "utility_trace"],
+      ["!=", ["get", "node_style"], "civic_anchor"],
+    ];
+    if (lens?.id === "economy-gravity") return guideSublayerFilter(base, lens);
+    if (lens?.id === "civic-catchment") return guideSublayerFilter(base, lens);
+    if (lens?.id !== "civic-access-gaps") return base;
+    return [...base, civicAccessActiveSublayerFilter(["coverage", "facilities"])];
+  }
+
+  function guideIconNodeLayerFilter(lens = activeMapLens()) {
+    const civicBase = [
+      "all",
+      ["==", ["get", "kind"], "node"],
+      ["==", ["get", "node_style"], "civic_anchor"],
+    ];
+    if (lens?.id === "civic-catchment") return guideSublayerFilter(civicBase, lens);
+    return [
+      "all",
+      ["==", ["get", "kind"], "node"],
+      ["==", ["get", "node_style"], "utility_trace"],
+    ];
+  }
+
+  function guideSublayerFilter(base, lens = activeMapLens()) {
+    if (!["economy-gravity", "civic-catchment"].includes(lens?.id)) return base;
+    const active = activeSublayerIdsForLens(lens);
+    return [
+      "all",
+      base,
+      active.length
+        ? ["match", ["get", "sublayer_id"], active, true, false]
+        : ["==", ["get", "sublayer_id"], "__none__"],
+    ];
+  }
+
+  function activeSublayerIdsForLens(lens = activeMapLens()) {
+    const active = new Set([...state.activeAspectLayers].filter(Boolean));
+    for (const layer of lensLayers(lens)) {
+      if (layer.categoryToggle && state.activeLayers.has(layer.id)) active.add(layer.id);
+    }
+    return [...active];
+  }
+
+  function civicAccessActiveSublayerFilter(_fallbackLayers = []) {
+    const active = [...state.activeAspectLayers].filter(Boolean);
+    return active.length
+      ? ["match", ["get", "layer_id"], active, true, false]
+      : ["==", ["get", "layer_id"], "__none__"];
   }
 
   function updateBuiltFootprintLensLayers() {
@@ -3006,6 +3876,184 @@
       });
   }
 
+  function shouldLoadTransportStops() {
+    return activeMapLens()?.id === "civic-access-gaps";
+  }
+
+  function shouldLoadEconomyAnchors() {
+    return activeMapLens()?.id === "economy-gravity" && state.activeLayers.has("economy");
+  }
+
+  function shouldLoadCivicServiceContext() {
+    return activeMapLens()?.id === "civic-catchment" && state.activeLayers.has("civic_services");
+  }
+
+  function shouldLoadUtilityNetwork() {
+    return Boolean(activeMapLens()?.id?.startsWith("utilities-") && state.activeLayers.has("utilities"));
+  }
+
+  function updateCivicServiceFeatureCache(path) {
+    if (!path) {
+      if (state.civicServiceFeaturesPathLoaded !== null || state.civicServiceFeatures.length) {
+        state.civicServiceFeaturesPathLoaded = null;
+        state.civicServiceFeatures = [];
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      }
+      return;
+    }
+    if (state.civicServiceFeaturesPathLoaded === path) return;
+    state.civicServiceFeaturesPathLoaded = path;
+    state.civicServiceFeatures = [];
+    fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.civicServiceFeaturesPathLoaded !== path) return;
+        state.civicServiceFeatures = Array.isArray(payload.features)
+          ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "civic_service_anchor")
+          : [];
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      })
+      .catch((error) => {
+        if (state.civicServiceFeaturesPathLoaded !== path) return;
+        state.civicServiceFeatures = [];
+        console.warn("[atlas] civic service context unavailable", error);
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      });
+  }
+
+  function updateEconomyAnchorFeatureCache(path) {
+    if (!path) {
+      if (state.economyAnchorFeaturesPathLoaded !== null || state.economyAnchorFeatures.length) {
+        state.economyAnchorFeaturesPathLoaded = null;
+        state.economyAnchorFeatures = [];
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      }
+      return;
+    }
+    if (state.economyAnchorFeaturesPathLoaded === path) return;
+    state.economyAnchorFeaturesPathLoaded = path;
+    state.economyAnchorFeatures = [];
+    fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.economyAnchorFeaturesPathLoaded !== path) return;
+        state.economyAnchorFeatures = Array.isArray(payload.features)
+          ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "economy_anchor")
+          : [];
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      })
+      .catch((error) => {
+        if (state.economyAnchorFeaturesPathLoaded !== path) return;
+        state.economyAnchorFeatures = [];
+        console.warn("[atlas] economy anchor context unavailable", error);
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      });
+  }
+
+  function updateUtilityNetworkSource(path) {
+    const source = state.map?.getSource(UTILITY_NETWORK_SOURCE_ID);
+    if (!source?.setData) return;
+    if (!path) {
+      if (state.utilityNetworkPathLoaded !== "") {
+        source.setData(emptyFeatureCollection());
+        state.utilityNetworkPathLoaded = "";
+        updateUtilityNetworkFeatureCache("");
+      }
+      return;
+    }
+    if (state.utilityNetworkPathLoaded !== path) {
+      source.setData(path);
+      state.utilityNetworkPathLoaded = path;
+    }
+    updateUtilityNetworkFeatureCache(path);
+  }
+
+  function updateUtilityNetworkFeatureCache(path) {
+    if (!path) {
+      if (state.utilityNetworkFeaturesPathLoaded !== null || state.utilityNetworkFeatures.length) {
+        state.utilityNetworkFeaturesPathLoaded = null;
+        state.utilityNetworkFeatures = [];
+        updateLensGuideSource();
+        renderLayers();
+      }
+      return;
+    }
+    if (state.utilityNetworkFeaturesPathLoaded === path) return;
+    state.utilityNetworkFeaturesPathLoaded = path;
+    state.utilityNetworkFeatures = [];
+    fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.utilityNetworkFeaturesPathLoaded !== path) return;
+        state.utilityNetworkFeatures = Array.isArray(payload.features)
+          ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "utility_network")
+          : [];
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      })
+      .catch((error) => {
+        if (state.utilityNetworkFeaturesPathLoaded !== path) return;
+        state.utilityNetworkFeatures = [];
+        console.warn("[atlas] utility network context unavailable", error);
+        updateLensGuideSource();
+        renderLayers();
+      });
+  }
+
+  function updateTransportStopFeatureCache(path) {
+    if (!path) {
+      if (state.transportStopFeaturesPathLoaded !== null || state.transportStopFeatures.length) {
+        state.transportStopFeaturesPathLoaded = null;
+        state.transportStopFeatures = [];
+        updateLensGuideSource();
+      }
+      return;
+    }
+    if (state.transportStopFeaturesPathLoaded === path) return;
+    state.transportStopFeaturesPathLoaded = path;
+    state.transportStopFeatures = [];
+    fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.transportStopFeaturesPathLoaded !== path) return;
+        state.transportStopFeatures = Array.isArray(payload.features)
+          ? payload.features.filter((feature) => feature.geometry?.type === "Point")
+          : [];
+        updateLensGuideSource();
+      })
+      .catch((error) => {
+        if (state.transportStopFeaturesPathLoaded !== path) return;
+        state.transportStopFeatures = [];
+        console.warn("[atlas] transport stop coverage unavailable", error);
+        updateLensGuideSource();
+      });
+  }
+
   function updateLensDetailYearSource() {
     const source = state.map?.getSource(LENS_DETAIL_SOURCE_ID);
     if (!source?.setData) return;
@@ -3014,6 +4062,7 @@
         source.setData(emptyFeatureCollection());
         state.lensDetailYearPathLoaded = "";
         state.lensDetailYearLoaded = null;
+        updateLensDetailFeatureCache("");
       }
       return;
     }
@@ -3023,13 +4072,52 @@
         source.setData(emptyFeatureCollection());
         state.lensDetailYearPathLoaded = "";
         state.lensDetailYearLoaded = null;
+        updateLensDetailFeatureCache("");
       }
       return;
     }
-    if (state.lensDetailYearPathLoaded === path) return;
+    if (state.lensDetailYearPathLoaded === path) {
+      updateLensDetailFeatureCache(path);
+      return;
+    }
     source.setData(path);
     state.lensDetailYearPathLoaded = path;
     state.lensDetailYearLoaded = currentTimelineYear();
+    updateLensDetailFeatureCache(path);
+  }
+
+  function updateLensDetailFeatureCache(path) {
+    if (!path) {
+      state.lensDetailFeaturePathLoaded = null;
+      state.lensDetailFeatures = [];
+      updateLensGuideSource();
+      renderLayers();
+      renderLensLegend();
+      return;
+    }
+    if (state.lensDetailFeaturePathLoaded === path) return;
+    state.lensDetailFeaturePathLoaded = path;
+    state.lensDetailFeatures = [];
+    fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.lensDetailFeaturePathLoaded !== path) return;
+        state.lensDetailFeatures = Array.isArray(payload.features) ? payload.features.filter((feature) => feature.geometry) : [];
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      })
+      .catch((error) => {
+        if (state.lensDetailFeaturePathLoaded !== path) return;
+        state.lensDetailFeatures = [];
+        console.warn("[atlas] lens detail cache unavailable", error);
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+      });
   }
 
   function updateTimeDependentMapState() {
@@ -3052,8 +4140,16 @@
 
   function updateLensGuideSource() {
     const source = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
-    if (!source?.setData) return;
-    source.setData(lensGuideFeatureCollection());
+    if (!source?.setData) {
+      state.lensGuideFeatureCache = emptyFeatureCollection();
+      renderLensGuideLabels();
+      return;
+    }
+    const collection = lensGuideFeatureCollection();
+    source.setData(collection);
+    state.lensGuideFeatureCache = collection;
+    if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
+    else renderLensGuideLabels();
   }
 
   function lensGuideFeatureCollection() {
@@ -3062,39 +4158,50 @@
     const radiusM = lensEffectiveRadiusM(lens);
     const features = [];
     const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
+    const guideAccent = lens.id === "civic-access-gaps" ? "#5aaeb5" : accent;
     features.push({
       type: "Feature",
       properties: {
         kind: "study_area",
         lens_id: lens.id,
         radius_m: radiusM,
-        color: accent,
+        color: guideAccent,
         label: `Study area ${(radiusM / 1000).toFixed(radiusM >= 1000 ? 1 : 0)} km`,
       },
       geometry: circlePolygon(center, radiusM, 96),
     });
-    features.push(...rangeRingFeatures(center, radiusM, lens, accent));
+    features.push(...rangeRingFeatures(center, radiusM, lens, guideAccent));
 
     if (lens.id === "transport-access") {
       features.push(...transportAccessFabricCells(center, radiusM, lens));
-    } else if (["civic-catchment", "civic-demand"].includes(lens.id)) {
-      features.push(...hexGuideCells(center, radiusM, lens, lens.id === "civic-demand" ? 95 : 125));
+    } else if (["planning-delta", "planning-parcels"].includes(lens.id)) {
+      features.push(...planningFootprintTileFeatures(center, radiusM, lens));
+    } else if (lens.id === "civic-catchment") {
+      features.push(...civicCatchmentPatchFeatures(center, radiusM, lens));
+    } else if (lens.id === "civic-demand") {
+      features.push(...civicDemandSurfaceCells(center, radiusM, lens));
     } else if (lens.id === "economy-land-use") {
       features.push(...economyLandUseTileFeatures(center, radiusM, lens));
+    } else if (lens.id === "utilities-resilience") {
+      features.push(...utilityExposureAreaFeatures(center, radiusM, lens));
     }
 
-    if (["transport-speed", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "civic-demand", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id)) {
+    if (["transport-speed", "transport-reliability", "planning-pressure", "civic-access-gaps", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id)) {
       features.push(...flowGuideFeatures(center, lens));
     }
-    if (["transport-speed", "transport-access", "transport-reliability", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "planning-pressure", "civic-access-gaps"].includes(lens.id)) {
+    if (["transport-speed", "transport-access", "transport-reliability", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "utilities-works", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id)) {
       features.push(...nodeGuideFeatures(center, lens));
     }
     return { type: "FeatureCollection", features };
   }
 
   function rangeRingFeatures(center, radiusM, lens, accent) {
-    if (!["transport-speed", "transport-reliability", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id)) return [];
-    const stops = lens.id.startsWith("transport") ? [0.35, 0.68, 1] : [0.42, 0.72, 1];
+    if (!["transport-speed", "transport-reliability", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id)) return [];
+    const stops = lens.id === "civic-access-gaps"
+      ? [1]
+      : ["civic-catchment", "civic-demand"].includes(lens.id)
+      ? [1]
+      : lens.id.startsWith("transport") ? [0.35, 0.68, 1] : [0.42, 0.72, 1];
     return stops.map((scale, index) => ({
       type: "Feature",
       properties: {
@@ -3106,6 +4213,94 @@
       },
       geometry: circlePolygon(center, radiusM * scale, 96),
     }));
+  }
+
+  function utilityExposureAreaFeatures(center, radiusM, lens) {
+    if (lens.id !== "utilities-resilience") return [];
+    const maxDistance = radiusM * 1.2;
+    const utilityEvents = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === "utilities" && event.lngLat);
+    const candidates = [];
+    for (const feature of state.utilityNetworkFeatures || []) {
+      const props = feature.properties || {};
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance < radiusM * 0.22 || distance > maxDistance) continue;
+      const rank = Number(props.rank || 1);
+      const assetPriority = Number(props.asset_priority || 0);
+      const intensity = clamp01(Number(props.intensity || 0.45) + Math.min(0.18, rank * 0.025) + Math.min(0.16, assetPriority * 0.035));
+      candidates.push({
+        point,
+        distance,
+        eventId: "",
+        utilityType: props.utility_type || "utility",
+        sourceId: props.source_id || "",
+        score: intensity * 0.48 + (1 - Math.min(distance, maxDistance) / maxDistance) * 0.24 + Math.min(0.2, rank * 0.036) + Math.min(0.18, assetPriority * 0.04),
+      });
+    }
+    for (const feature of state.lensDetailFeatures || []) {
+      const props = feature.properties || {};
+      if (!["utility_asset", "utility_trace"].includes(props.layer)) continue;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance < radiusM * 0.2 || distance > maxDistance) continue;
+      const eventCount = Number(props.event_count || 1);
+      const intensity = clamp01(Number(props.intensity || 0.45) + Math.min(0.22, eventCount * 0.016));
+      candidates.push({
+        point,
+        distance,
+        eventId: firstDetailEventId(props),
+        utilityType: props.utility_type || "utility",
+        sourceId: props.source_ids || props.source_id || "",
+        score: intensity * 0.54 + (1 - Math.min(distance, maxDistance) / maxDistance) * 0.2 + Math.min(0.22, eventCount * 0.01),
+      });
+    }
+    for (const event of utilityEvents) {
+      const distance = lngLatDistanceMeters(center, event.lngLat);
+      if (distance < radiusM * 0.22 || distance > maxDistance) continue;
+      candidates.push({
+        point: event.lngLat,
+        distance,
+        eventId: event.id,
+        utilityType: utilityEventType(event, null),
+        sourceId: (event.sourceIds || []).join(","),
+        score: 0.42 + confidenceRank(event.confidence) * 0.06 + lensHeatWeight(event) * 0.12 + (1 - Math.min(distance, maxDistance) / maxDistance) * 0.18,
+      });
+    }
+    const selected = [];
+    const buckets = new Map();
+    for (const item of candidates.sort((a, b) => b.score - a.score)) {
+      if (selected.length >= 4) break;
+      const bucket = transportAngleBucket(center, item.point, 12);
+      if (buckets.has(bucket)) continue;
+      if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < 430)) continue;
+      selected.push(item);
+      buckets.set(bucket, true);
+    }
+    return selected.map((item, index) => {
+      const angle = Math.atan2(item.point[1] - center[1], item.point[0] - center[0]);
+      const seed = stableUnit(`${item.sourceId}:${item.eventId}:${index}`);
+      const radiusX = 155 + item.score * 145 + seed * 42;
+      const radiusY = 92 + item.score * 94 + (1 - seed) * 28;
+      const rotation = angle + (seed - 0.5) * 0.9;
+      return {
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "utility_outage_area",
+          utility_type: item.utilityType,
+          source_id: item.sourceId,
+          event_id: item.eventId,
+          intensity: Number(clamp01(0.38 + item.score * 0.62).toFixed(3)),
+          color: "#b93234",
+          label: "Service exposure guide area",
+        },
+        geometry: ellipsePolygon(item.point, radiusX, radiusY, rotation, 72),
+      };
+    });
   }
 
   function hexGuideCells(center, radiusM, lens, stepM = 210) {
@@ -3145,26 +4340,29 @@
 
   function guideCellLimit(lensId) {
     if (lensId === "transport-access") return 6500;
+    if (lensId === "planning-delta") return 4800;
+    if (lensId === "planning-parcels") return 4300;
     if (lensId === "economy-land-use") return 5000;
-    if (lensId === "civic-demand") return 950;
-    if (lensId === "civic-catchment") return 680;
+    if (lensId === "civic-demand") return 4200;
+    if (lensId === "civic-catchment") return 2200;
     return 180;
   }
 
   function transportAccessFabricCells(center, radiusM, lens) {
     const anchors = nearbyTransportRoadAnchors(center, radiusM * 3.25, 1150);
-    if (!anchors.length) return hexGuideCells(center, radiusM, lens, 86);
+    if (!anchors.length) return transportAccessRadialCells(center, radiusM, lens);
     const sourceEvents = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "transport" && event.lngLat);
     const cells = [];
-    const stepM = 52;
-    const extentM = radiusM * 2.7;
-    for (let dy = -extentM; dy <= extentM; dy += stepM) {
-      for (let dx = -extentM; dx <= extentM; dx += stepM) {
+    const stepM = 88;
+    const extentM = radiusM * 2.35;
+    let row = 0;
+    for (let dy = -extentM; dy <= extentM; dy += stepM * 0.82) {
+      const rowOffset = row % 2 ? stepM * 0.5 : 0;
+      for (let dx = -extentM + rowOffset; dx <= extentM; dx += stepM) {
         const cellCenter = offsetLngLat(center, dx, dy);
         const radial = lngLatDistanceMeters(center, cellCenter);
         const nearestRoad = nearestRoadAnchor(cellCenter, anchors, 430);
-        if (!nearestRoad && radial > radiusM * 0.72) continue;
         const roadCloseness = nearestRoad ? clamp01(1 - nearestRoad.distance / 430) : 0;
         const roadBoost = nearestRoad ? roadCloseness * (0.5 + nearestRoad.activity * 0.36 + Math.min(0.14, nearestRoad.rank * 0.035)) : 0;
         const nearestEvent = nearestGuideEvent(cellCenter, sourceEvents, radiusM * 1.55);
@@ -3172,19 +4370,18 @@
         const angle = Math.atan2(dy, dx);
         const anchorSeed = stableUnit(`${nearestRoad?.id || ""}:${Math.round((nearestRoad?.point?.[0] || center[0]) * 10000)}`);
         const streetReach = nearestRoad
-          ? 1.08 + nearestRoad.activity * 0.86 + Math.min(0.36, nearestRoad.rank * 0.08)
-          : 0.84;
+          ? 1.14 + nearestRoad.activity * 0.78 + Math.min(0.3, nearestRoad.rank * 0.07)
+          : 1.02;
         const directionalReach = 1
           + Math.sin(angle * 2.2 + anchorSeed * Math.PI * 2) * 0.18
           + Math.cos(angle * 4.4 + anchorSeed * Math.PI) * 0.09;
-        const reachM = radiusM * streetReach * directionalReach + roadBoost * 330 + eventBoost * 150;
-        if (radial > reachM && radial > radiusM * 0.68) continue;
-        const offNetworkPenalty = nearestRoad ? Math.max(0, nearestRoad.distance - 95) / 14 : 14;
-        const minutes = 8
-          + Math.pow(radial / Math.max(1, reachM), 0.96) * 66
-          + offNetworkPenalty
-          - roadBoost * 9
-          - eventBoost * 4;
+        const reachM = Math.max(extentM * 0.78, radiusM * streetReach * directionalReach + roadBoost * 360 + eventBoost * 170);
+        const offNetworkPenalty = nearestRoad ? Math.max(0, nearestRoad.distance - 150) / 28 : 7;
+        const radialMinutes = 10 + Math.pow(radial / Math.max(1, extentM), 1.02) * 60;
+        const networkMinutes = 8.5 + Math.pow(radial / Math.max(1, reachM), 0.95) * 55;
+        const minutes = Math.min(radialMinutes, networkMinutes + offNetworkPenalty)
+          - roadBoost * 6.5
+          - eventBoost * 3;
         if (minutes > 82) continue;
         const intensity = clamp01(1 - (minutes - 8) / 74);
         cells.push({
@@ -3199,7 +4396,40 @@
             event_id: nearestEvent?.id || "",
             score: Number((intensity + roadBoost * 0.3 + stableUnit(`${dx}:${dy}`) * 0.025).toFixed(3)),
           },
-          geometry: squarePolygon(cellCenter, stepM * (0.44 + roadCloseness * 0.1)),
+          geometry: hexPolygon(cellCenter, stepM * (0.55 + roadCloseness * 0.08)),
+        });
+      }
+      row += 1;
+    }
+    return cells
+      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
+      .slice(0, guideCellLimit(lens.id));
+  }
+
+  function transportAccessRadialCells(center, radiusM, lens) {
+    const cells = [];
+    const stepM = 74;
+    const extentM = radiusM * 1.55;
+    for (let dy = -extentM; dy <= extentM; dy += stepM) {
+      for (let dx = -extentM; dx <= extentM; dx += stepM) {
+        const radial = Math.hypot(dx, dy);
+        if (radial > extentM) continue;
+        const cellCenter = offsetLngLat(center, dx, dy);
+        const minutes = 12 + Math.pow(radial / Math.max(1, extentM), 0.94) * 62;
+        const intensity = clamp01(1 - (minutes - 12) / 62);
+        cells.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            surface_style: "access_fabric",
+            intensity: Number(intensity.toFixed(3)),
+            minutes: Math.round(minutes),
+            color: accessBandColor(minutes),
+            event_id: "",
+            score: Number((intensity + stableUnit(`access:${Math.round(dx)}:${Math.round(dy)}`) * 0.02).toFixed(3)),
+          },
+          geometry: circlePolygon(cellCenter, stepM * 1.02, 18),
         });
       }
     }
@@ -3208,12 +4438,494 @@
       .slice(0, guideCellLimit(lens.id));
   }
 
+  function civicDemandSurfaceCells(center, radiusM, lens) {
+    const sourceEvents = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === "civic_services" && event.lngLat);
+    if (!sourceEvents.length) return [];
+    const year = currentTimelineYear();
+    const detailAnchors = (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "civic_facility" && Number(feature.properties?.visible_year || 9999) <= year)
+      .map((feature) => {
+        const point = geometryToLngLat(feature.geometry);
+        return point ? { id: firstDetailEventId(feature.properties || {}) || feature.properties?.source_id || "", lngLat: point, confidence: feature.properties?.confidence || "documented" } : null;
+      })
+      .filter(Boolean);
+    const serviceAnchors = detailAnchors.length ? detailAnchors : sourceEvents;
+    const features = [];
+    const stepM = 48;
+    const extentM = radiusM * 1.08;
+    const kernelM = radiusM * 0.46;
+    const axisAngle = civicDemandAxisAngle(center, sourceEvents, radiusM * 1.25);
+    const axisCos = Math.cos(axisAngle);
+    const axisSin = Math.sin(axisAngle);
+    let row = 0;
+    for (let dy = -extentM; dy <= extentM; dy += stepM * 0.86) {
+      const rowOffset = row % 2 ? stepM * 0.5 : 0;
+      for (let dx = -extentM + rowOffset; dx <= extentM; dx += stepM) {
+        const seed = stableUnit(`demand-cell:${row}:${Math.round(dx)}:${Math.round(dy)}`);
+        const seedY = stableUnit(`demand-cell-y:${row}:${Math.round(dx)}:${Math.round(dy)}`);
+        const cellDx = dx + (seed - 0.5) * stepM * 0.12;
+        const cellDy = dy + (seedY - 0.5) * stepM * 0.1;
+        const distance = Math.hypot(cellDx, cellDy);
+        if (distance > extentM) continue;
+        const cellCenter = offsetLngLat(center, cellDx, cellDy);
+        const tightDensity = eventDensityIntensity(cellCenter, sourceEvents, kernelM);
+        const broadDensity = eventDensityIntensity(cellCenter, sourceEvents, radiusM * 0.78);
+        const serviceDensity = eventDensityIntensity(cellCenter, serviceAnchors, radiusM * 0.38);
+        const radial = 1 - Math.min(extentM, distance) / extentM;
+        const nearestEvent = nearestGuideEvent(cellCenter, sourceEvents, radiusM * 0.72);
+        const eventBoost = nearestEvent ? Math.max(0, 1 - lngLatDistanceMeters(cellCenter, nearestEvent.lngLat) / (radiusM * 0.72)) : 0;
+        const selectedPressure = Math.max(0, 1 - distance / (radiusM * 0.58));
+        const crossAxis = Math.abs(cellDx * axisSin - cellDy * axisCos);
+        const alongAxis = Math.abs(cellDx * axisCos + cellDy * axisSin);
+        const civicAxisPressure = Math.max(0, 1 - crossAxis / (radiusM * 0.18)) * Math.max(0, 1 - alongAxis / (radiusM * 0.95));
+        const serviceGap = Math.max(0, 0.45 - serviceDensity);
+        const densityLift = Math.pow(Math.max(0, tightDensity), 0.72);
+        const rawIntensity = 0.14
+          + densityLift * 0.48
+          + broadDensity * 0.14
+          + eventBoost * 0.14
+          + selectedPressure * 0.24
+          + civicAxisPressure * 0.18
+          + serviceGap * 0.1
+          + radial * 0.08;
+        const edgeCap = 0.56 + radial * 0.42;
+        const intensity = clamp01(Math.min(rawIntensity, edgeCap));
+        const angle = Math.atan2(cellDy, cellDx);
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            surface_style: "demand_surface",
+            intensity: Number(intensity.toFixed(3)),
+            color: surfaceColorForLens(lens.id, intensity, angle, nearestEvent, lens),
+            event_id: nearestEvent?.id || "",
+            score: Number((intensity + seed * 0.025).toFixed(3)),
+          },
+          geometry: hexPolygon(cellCenter, stepM * 0.48),
+        });
+      }
+      row += 1;
+    }
+    return features
+      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
+      .slice(0, guideCellLimit(lens.id));
+  }
+
+  function civicCatchmentPatchFeatures(center, radiusM, lens) {
+    const year = currentTimelineYear();
+    const sourceEvents = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === "civic_services" && event.lngLat);
+    const candidates = civicCatchmentCandidates(center, radiusM, lens, sourceEvents, year);
+    const selected = selectCivicCatchmentCandidates(center, candidates, lens, 18);
+    const sectorFeatures = civicCatchmentSectorFeatures(center, radiusM, lens, selected);
+    if (sectorFeatures.length >= 4) return sectorFeatures;
+    const fallbackSources = sourceEvents.map((event) => ({
+      id: event.id,
+      title: event.title,
+      shortDescription: event.shortDescription || "",
+      summary: event.summary || "",
+      area: event.area || "",
+      affectedSignals: event.affectedSignals || [],
+      lngLat: event.lngLat,
+      confidence: event.confidence || "documented",
+    }));
+    return civicCatchmentMosaicPatches(center, radiusM, lens, fallbackSources)
+      .sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0))
+      .slice(0, guideCellLimit(lens.id));
+  }
+
+  function civicCatchmentCandidates(center, radiusM, lens, sourceEvents, year) {
+    const maxDistance = radiusM * 1.42;
+    const candidates = [];
+    const activeSublayers = new Set(activeSublayerIdsForLens(lens));
+    const includeLayer = (layerId) => !activeSublayers.size || activeSublayers.has(layerId);
+    for (const feature of state.civicServiceFeatures || []) {
+      const props = feature.properties || {};
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance) continue;
+      const layerId = civicServiceSublayerKey(props);
+      if (!includeLayer(layerId)) continue;
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const rank = Number(props.rank || 1);
+      const named = props.label && !/^school or|^health service|^leisure or|^council or|^library or|^safety service/i.test(String(props.label));
+      const score = proximity * 0.5 + Math.min(0.28, rank * 0.06) + (named ? 0.14 : 0) + stableUnit(`${props.source_id || ""}:${layerId}`) * 0.08;
+      candidates.push({
+        point,
+        layerId,
+        props,
+        event: null,
+        sourceId: props.source_id || "",
+        currentContext: true,
+        distance,
+        angle: Math.atan2(point[1] - center[1], point[0] - center[0]),
+        intensity: clamp01(0.34 + proximity * 0.34 + Math.min(0.24, rank * 0.05)),
+        score,
+      });
+    }
+    for (const feature of state.lensDetailFeatures || []) {
+      const props = feature.properties || {};
+      if (props.layer !== "civic_facility" || Number(props.visible_year || 9999) > year) continue;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance) continue;
+      const eventId = firstDetailEventId(props);
+      const event = state.eventById.get(eventId) || sourceEvents.find((candidate) => candidate.id === eventId) || null;
+      const layerId = civicServiceSublayerKey(props, event);
+      if (!includeLayer(layerId)) continue;
+      const serviceDensity = eventDensityIntensity(point, sourceEvents, radiusM * 0.74);
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const countBoost = Math.min(0.18, Number(props.event_count || 1) * 0.022);
+      candidates.push({
+        point,
+        layerId,
+        props,
+        event,
+        sourceId: props.source_ids || "",
+        currentContext: false,
+        distance,
+        angle: Math.atan2(point[1] - center[1], point[0] - center[0]),
+        intensity: clamp01(0.36 + serviceDensity * 0.28 + proximity * 0.24 + countBoost),
+        score: 0.12 + proximity * 0.42 + serviceDensity * 0.32 + countBoost + stableUnit(`${eventId}:${props.label || ""}`) * 0.08,
+      });
+    }
+    for (const event of sourceEvents) {
+      const distance = lngLatDistanceMeters(center, event.lngLat);
+      if (distance > maxDistance) continue;
+      const layerId = civicServiceSublayerKey(event);
+      if (!includeLayer(layerId)) continue;
+      const serviceDensity = eventDensityIntensity(event.lngLat, sourceEvents, radiusM * 0.74);
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      candidates.push({
+        point: event.lngLat,
+        layerId,
+        props: {},
+        event,
+        sourceId: (event.sourceIds || []).join(","),
+        currentContext: false,
+        distance,
+        angle: Math.atan2(event.lngLat[1] - center[1], event.lngLat[0] - center[0]),
+        intensity: clamp01(0.38 + serviceDensity * 0.28 + proximity * 0.24),
+        score: 0.16 + proximity * 0.44 + serviceDensity * 0.3 + confidenceRank(event.confidence) * 0.025 + stableUnit(event.id) * 0.08,
+      });
+    }
+    return candidates;
+  }
+
+  function selectCivicCatchmentCandidates(center, candidates, lens, limit = 18) {
+    const activeSublayers = new Set(activeSublayerIdsForLens(lens));
+    const eligible = candidates
+      .filter((item) => !activeSublayers.size || activeSublayers.has(item.layerId))
+      .sort((a, b) => b.score - a.score);
+    const selected = [];
+    const typeCounts = new Map();
+    const angleBuckets = new Map();
+    const add = (item, strict = true) => {
+      if (selected.length >= limit) return false;
+      const typeCount = typeCounts.get(item.layerId) || 0;
+      if (strict && typeCount >= 4) return false;
+      const bucket = transportAngleBucket(center, item.point, 22);
+      const bucketCount = angleBuckets.get(bucket) || 0;
+      if (strict && bucketCount >= 2) return false;
+      const minSpacing = strict ? 190 : 120;
+      if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < minSpacing)) return false;
+      selected.push(item);
+      typeCounts.set(item.layerId, typeCount + 1);
+      angleBuckets.set(bucket, bucketCount + 1);
+      return true;
+    };
+    for (const layerId of activeSublayers) {
+      const best = eligible.find((item) => item.layerId === layerId && !selected.includes(item));
+      if (best) add(best, false);
+    }
+    for (const item of eligible) add(item, true);
+    if (selected.length < Math.min(limit, eligible.length)) {
+      for (const item of eligible) add(item, false);
+    }
+    return selected
+      .map((item) => ({ ...item, angle: Math.atan2(item.point[1] - center[1], item.point[0] - center[0]) }))
+      .sort((a, b) => a.angle - b.angle);
+  }
+
+  function civicCatchmentSectorFeatures(center, radiusM, lens, anchors) {
+    if (anchors.length < 3) return [];
+    const features = [];
+    const sorted = anchors
+      .map((item) => ({ ...item, angle: Math.atan2(item.point[1] - center[1], item.point[0] - center[0]) }))
+      .sort((a, b) => a.angle - b.angle);
+    const twoPi = Math.PI * 2;
+    for (let index = 0; index < sorted.length; index += 1) {
+      const item = sorted[index];
+      const prev = sorted[(index - 1 + sorted.length) % sorted.length];
+      const next = sorted[(index + 1) % sorted.length];
+      const prevAngle = prev.angle > item.angle ? prev.angle - twoPi : prev.angle;
+      const nextAngle = next.angle < item.angle ? next.angle + twoPi : next.angle;
+      let start = (prevAngle + item.angle) / 2;
+      let end = (item.angle + nextAngle) / 2;
+      const maxSpan = 0.82 + stableUnit(`${item.sourceId || item.event?.id || index}:span`) * 0.34;
+      if (end - start > maxSpan) {
+        const mid = item.angle;
+        start = mid - maxSpan / 2;
+        end = mid + maxSpan / 2;
+      }
+      const seed = stableUnit(`${item.sourceId || item.event?.id || index}:catchment-sector`);
+      const outerBase = Math.max(
+        radiusM * 0.52,
+        Math.min(radiusM * 1.06, item.distance + 360 + item.intensity * 280 + seed * 110),
+      );
+      const innerBase = Math.max(35, Math.min(radiusM * 0.18, item.distance * 0.22));
+      const geometry = civicCatchmentSectorPolygon(center, start, end, innerBase, outerBase, seed);
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "catchment_area",
+          sublayer_id: item.layerId,
+          service_type: item.layerId,
+          intensity: Number(item.intensity.toFixed(3)),
+          color: civicServiceSublayerColor(item.layerId),
+          event_id: item.event?.id || firstDetailEventId(item.props || {}) || "",
+          source_id: item.sourceId || "",
+          label: item.event?.title || item.props?.label || item.props?.name || civicServiceSublayerLabel(item.layerId),
+          score: Number((item.score + item.intensity * 0.12).toFixed(3)),
+          context: item.currentContext ? "current_osm_context" : "selected_year_record",
+        },
+        geometry,
+      });
+    }
+    return features;
+  }
+
+  function civicCatchmentSectorPolygon(center, startAngle, endAngle, innerRadiusM, outerRadiusM, seed = 0.5) {
+    const outer = [];
+    const inner = [];
+    const span = Math.max(0.12, endAngle - startAngle);
+    const steps = Math.max(5, Math.min(13, Math.ceil(span / 0.11)));
+    for (let i = 0; i <= steps; i += 1) {
+      const t = i / steps;
+      const angle = startAngle + span * t;
+      const wobble = 0.94
+        + Math.sin(t * Math.PI * 1.6 + seed * 5.1) * 0.055
+        + Math.cos(angle * 2.3 + seed * 2.7) * 0.045;
+      outer.push(offsetLngLat(center, Math.cos(angle) * outerRadiusM * wobble, Math.sin(angle) * outerRadiusM * wobble));
+    }
+    for (let i = steps; i >= 0; i -= 1) {
+      const t = i / steps;
+      const angle = startAngle + span * t;
+      const wobble = 0.9 + Math.sin(t * Math.PI + seed * 3.3) * 0.035;
+      inner.push(offsetLngLat(center, Math.cos(angle) * innerRadiusM * wobble, Math.sin(angle) * innerRadiusM * wobble));
+    }
+    const ring = [...outer, ...inner];
+    ring.push(ring[0]);
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
+  function civicCoverageCellPatchFeatures(center, radiusM, lens, sourceEvents, year) {
+    const features = [];
+    const maxDistance = radiusM * 1.45;
+    for (const feature of state.lensDetailFeatures || []) {
+      const props = feature.properties || {};
+      if (props.layer !== "civic_coverage_cell" || Number(props.visible_year || props.year || 9999) > year) continue;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance) continue;
+      const eventId = firstDetailEventId(props);
+      const event = state.eventById.get(eventId) || sourceEvents.find((candidate) => candidate.id === eventId) || {
+        id: eventId || props.id || "",
+        title: props.service_type || props.title || "Civic service",
+        shortDescription: props.service_type || "",
+        summary: props.label || props.title || "",
+        area: props.road_name || "",
+        affectedSignals: [props.service_type, props.status].filter(Boolean),
+        confidence: props.confidence || "documented",
+      };
+      const baseIntensity = Number(props.intensity || 0.42);
+      const eventCountBoost = Math.min(0.16, Number(props.event_count || 1) * 0.025);
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const intensity = clamp01(0.2 + baseIntensity * 0.46 + eventCountBoost + proximity * 0.18);
+      const angle = Math.atan2(point[1] - center[1], point[0] - center[0]);
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "catchment_patch",
+          intensity: Number(intensity.toFixed(3)),
+          color: civicCatchmentColor(event, angle, props.id || eventId),
+          event_id: eventId || event.id || "",
+          source_id: props.source_ids || "",
+          service_type: props.service_type || "",
+          status: props.status || "",
+          label: props.label || props.title || "",
+          score: Number((intensity + proximity * 0.22 + stableUnit(`${props.id || ""}:${eventId}`) * 0.04).toFixed(3)),
+        },
+        geometry: feature.geometry,
+      });
+    }
+    return features;
+  }
+
+  function distributedCatchmentCandidates(candidates, limit) {
+    const buckets = new Map();
+    for (const item of candidates) {
+      const bucket = `${Math.floor(((item.angle + Math.PI) / (Math.PI * 2)) * 18)}:${String(item.props.service_type || item.event?.category || "service").toLowerCase()}`;
+      const previous = buckets.get(bucket);
+      if (!previous || item.score > previous.score) buckets.set(bucket, item);
+    }
+    const selected = [...buckets.values()].sort((a, b) => b.score - a.score).slice(0, limit);
+    if (selected.length >= limit) return selected;
+    const selectedKeys = new Set(selected.map((item) => `${item.point[0].toFixed(6)},${item.point[1].toFixed(6)}`));
+    const fillers = candidates
+      .filter((item) => !selectedKeys.has(`${item.point[0].toFixed(6)},${item.point[1].toFixed(6)}`))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit - selected.length);
+    return [...selected, ...fillers];
+  }
+
+  function civicCatchmentMosaicPatches(center, radiusM, lens, sourceEvents) {
+    if (!sourceEvents.length) return [];
+    const patches = [];
+    const stepM = 132;
+    const extentM = radiusM * 0.98;
+    const kernelM = radiusM * 0.58;
+    const axisAngle = civicDemandAxisAngle(center, sourceEvents, radiusM * 1.2);
+    let row = 0;
+    for (let dy = -extentM; dy <= extentM; dy += stepM * 0.84) {
+      const offset = row % 2 ? stepM * 0.48 : 0;
+      for (let dx = -extentM + offset; dx <= extentM; dx += stepM) {
+        const seed = stableUnit(`catchment-mosaic:${row}:${Math.round(dx)}:${Math.round(dy)}`);
+        const seedY = stableUnit(`catchment-mosaic-y:${row}:${Math.round(dx)}:${Math.round(dy)}`);
+        const patchDx = dx + (seed - 0.5) * stepM * 0.18;
+        const patchDy = dy + (seedY - 0.5) * stepM * 0.16;
+        const distance = Math.hypot(patchDx, patchDy);
+        if (distance > extentM) continue;
+        const patchCenter = offsetLngLat(center, patchDx, patchDy);
+        const nearestEvent = nearestGuideEvent(patchCenter, sourceEvents, radiusM * 0.58);
+        const density = eventDensityIntensity(patchCenter, sourceEvents, kernelM);
+        const proximity = 1 - Math.min(extentM, distance) / extentM;
+        const intensity = clamp01(0.2 + density * 0.36 + proximity * 0.18 + (nearestEvent ? 0.16 : 0));
+        const eventSeed = stableUnit(`catchment-mosaic:${row}:${Math.round(dx)}:${Math.round(dy)}:${nearestEvent?.id || ""}`);
+        const angle = Math.atan2(patchDy, patchDx);
+        patches.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            surface_style: "catchment_patch",
+            intensity: Number(intensity.toFixed(3)),
+            color: nearestEvent ? civicCatchmentColor(nearestEvent, angle, `${row}:${Math.round(dx)}:${Math.round(dy)}`) : surfaceColorForLens(lens.id, intensity, angle, nearestEvent, lens),
+            event_id: nearestEvent?.id || "",
+            score: Number((intensity + eventSeed * 0.04).toFixed(3)),
+          },
+          geometry: orientedRectanglePolygon(
+            patchCenter,
+            stepM * (0.34 + seed * 0.12),
+            stepM * (0.27 + seedY * 0.14),
+            axisAngle + (eventSeed - 0.5) * 0.42,
+          ),
+        });
+      }
+      row += 1;
+    }
+    return patches;
+  }
+
+  function jitteredPatchPolygon(center, radiusM, seed = 0.5) {
+    const ring = [];
+    const steps = 7 + Math.floor(seed * 3);
+    const rotation = seed * Math.PI * 2;
+    for (let i = 0; i <= steps; i += 1) {
+      const t = i % steps;
+      const angle = rotation + (t / steps) * Math.PI * 2;
+      const wobble = 0.84
+        + Math.sin(angle * 2.2 + seed * 3.1) * 0.12
+        + Math.cos(angle * 3.8 - seed * 2.4) * 0.08;
+      const r = radiusM * Math.max(0.64, Math.min(1.08, wobble));
+      ring.push(offsetLngLat(center, Math.cos(angle) * r, Math.sin(angle) * r));
+    }
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
+  function civicCatchmentColor(event, angle = 0, seedKey = "") {
+    const text = [
+      event?.title,
+      event?.shortDescription,
+      event?.summary,
+      event?.area,
+      ...(event?.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/school|education|college|student/.test(text)) return "#178f8f";
+    if (/health|care|hospital|clinic|gp/.test(text)) return "#2a84a6";
+    if (/library|culture|arts|museum/.test(text)) return "#74449a";
+    if (/sport|leisure|park|play/.test(text)) return "#4f9a5b";
+    if (/council|city hall|office|municipal/.test(text)) return "#26858a";
+    if (/police|fire|safety|emergency/.test(text)) return "#c8472e";
+    if (/boundary|ward|district|neighbourhood/.test(text)) return "#b996cb";
+    const palette = ["#66aaa5", "#d8cf86", "#edae65", "#79a8c9", "#b996cb", "#78aa78", "#df8268"];
+    const seed = stableUnit(`${event?.id || ""}:${seedKey}`);
+    return palette[Math.abs(Math.floor((angle + Math.PI) * 2.7 + seed * palette.length)) % palette.length];
+  }
+
+  function civicServiceSublayerKey(input = {}, fallbackEvent = null) {
+    const text = [
+      input.sublayer_id,
+      input.service_type,
+      input.title,
+      input.label,
+      input.name,
+      input.area,
+      input.summary,
+      input.shortDescription,
+      ...(input.affectedSignals || []),
+      fallbackEvent?.title,
+      fallbackEvent?.summary,
+      ...(fallbackEvent?.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/police|fire|ambulance|emergency|safety|court|justice|prison/.test(text)) return "safety";
+    if (/health|care|hospital|clinic|gp|doctor|dentist|pharmacy|nursing|radiopharmacy/.test(text)) return "health";
+    if (/library|museum|arts|culture|cultural|gallery|theatre/.test(text)) return "libraries";
+    if (/leisure|sport|sports|park|play|recreation|swimming|green/.test(text)) return "leisure";
+    if (/council|city hall|government|office|municipal|community|public realm|service centre|customer service/.test(text)) return "council";
+    if (/school|education|college|university|student|classroom|campus|nursery|academy/.test(text)) return "civic_services";
+    return "civic_services";
+  }
+
+  function civicServiceSublayerColor(layerId) {
+    const colors = {
+      civic_services: "#178f8f",
+      health: "#e85b1e",
+      libraries: "#79419d",
+      leisure: "#347db5",
+      council: "#26858a",
+      safety: "#8c5b3a",
+    };
+    return colors[layerId] || colors.civic_services;
+  }
+
+  function civicServiceSublayerLabel(layerId) {
+    const labels = {
+      civic_services: "Schools",
+      health: "Health clinics",
+      libraries: "Libraries",
+      leisure: "Leisure centres",
+      council: "Council offices",
+      safety: "Safety services",
+    };
+    return labels[layerId] || labels.civic_services;
+  }
+
   function accessBandColor(minutes) {
-    if (minutes <= 18) return "#e87965";
-    if (minutes <= 30) return "#efbd72";
-    if (minutes <= 44) return "#e5d98b";
-    if (minutes <= 58) return "#a8d6bd";
-    return "#cbe7df";
+    if (minutes <= 18) return "#e4775f";
+    if (minutes <= 30) return "#efaa62";
+    if (minutes <= 44) return "#dfd27b";
+    if (minutes <= 58) return "#95cbaa";
+    return "#b8d8c3";
   }
 
   function densityGridCells(center, extentM, lens, stepM = 110) {
@@ -3250,41 +4962,121 @@
   function economyLandUseTileFeatures(center, radiusM, lens) {
     const buildings = state.detailBuildingFeatures || [];
     if (!buildings.length) return densityGridCells(center, radiusM * 2.1, lens, 92);
+    const year = currentTimelineYear();
     const sourceEvents = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "economy" && event.lngLat);
     const maxDistance = radiusM * 3.05;
     const features = [];
     for (const building of buildings) {
+      const props = building.properties || {};
+      if (Number(props.visible_year || 9999) > year) continue;
       const point = geometryToLngLat(building.geometry);
       if (!point) continue;
       const distance = lngLatDistanceMeters(center, point);
       if (distance > maxDistance) continue;
-      const props = building.properties || {};
       const area = Number(props.footprint_area_m2 || 0);
       if (area && area < 16) continue;
-      const nearestEvent = nearestGuideEvent(point, sourceEvents, 420);
-      const eventProximity = nearestEvent ? 1 - Math.min(420, lngLatDistanceMeters(point, nearestEvent.lngLat)) / 420 : 0;
+      const nearestEvent = nearestGuideEvent(point, sourceEvents, 290);
+      const eventProximity = nearestEvent ? 1 - Math.min(290, lngLatDistanceMeters(point, nearestEvent.lngLat)) / 290 : 0;
       const areaScore = Math.min(0.24, Math.sqrt(Math.max(20, area || 80)) / 220);
-      const recency = Math.max(0, Math.min(1, (currentTimelineYear() - Number(props.visible_year || currentTimelineYear() - 8) + 1) / 12));
+      const recency = Math.max(0, Math.min(1, (year - Number(props.visible_year || year - 8) + 1) / 12));
       const intensity = clamp01(0.2 + (1 - distance / maxDistance) * 0.34 + eventProximity * 0.36 + areaScore + recency * 0.06);
-      features.push({
-        type: "Feature",
-        properties: {
-          kind: "surface_cell",
-          lens_id: lens.id,
-          surface_style: "land_use_tile",
-          intensity: Number(intensity.toFixed(3)),
-          color: economyBuildingColor(building, nearestEvent, point),
-          event_id: nearestEvent?.id || "",
-          source_id: props.source_id || "",
-          score: Number((intensity + stableUnit(props.source_id || "") * 0.12).toFixed(3)),
-        },
-        geometry: building.geometry,
+      const seed = stableUnit(`${props.source_id || ""}:${point[0]?.toFixed(5) || ""}:${point[1]?.toFixed(5) || ""}`);
+      const tiles = economyLandUseBuildingTiles(building.geometry, point, area, seed);
+      tiles.forEach((tile, tileIndex) => {
+        const tilePoint = tile.point || point;
+        const tileEvent = nearestEvent || nearestGuideEvent(tilePoint, sourceEvents, 240);
+        const tileDistance = lngLatDistanceMeters(center, tilePoint);
+        const tileProximity = 1 - Math.min(tileDistance, maxDistance) / maxDistance;
+        const tileIntensity = clamp01(intensity * 0.78 + tileProximity * 0.14 + seed * 0.08);
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            surface_style: "land_use_tile",
+            intensity: Number(tileIntensity.toFixed(3)),
+            color: economyBuildingColor(building, tileEvent, tilePoint),
+            event_id: tileEvent?.id || "",
+            source_id: `${props.source_id || ""}${tiles.length > 1 ? `:${tileIndex + 1}` : ""}`,
+            score: Number((tileIntensity + seed * 0.12 - (tiles.length > 1 ? 0.03 : 0)).toFixed(3)),
+          },
+          geometry: tile.geometry,
+        });
       });
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
       .slice(0, guideCellLimit(lens.id));
+  }
+
+  function economyLandUseBuildingTiles(geometry, point, area, seed = 0.5) {
+    if (!geometry || !point || area < 1200) return [{ geometry, point }];
+    const bounds = geometryBounds(geometry);
+    if (!bounds) return [{ geometry, point }];
+    const center = [
+      (bounds.minLng + bounds.maxLng) / 2,
+      (bounds.minLat + bounds.maxLat) / 2,
+    ];
+    const widthM = lngLatDistanceMeters([bounds.minLng, center[1]], [bounds.maxLng, center[1]]);
+    const heightM = lngLatDistanceMeters([center[0], bounds.minLat], [center[0], bounds.maxLat]);
+    if (widthM < 34 || heightM < 34) return [{ geometry, point }];
+    const targetM = area > 10000 ? 48 : area > 4200 ? 42 : 36;
+    const cols = Math.max(2, Math.min(7, Math.round(widthM / targetM)));
+    const rows = Math.max(2, Math.min(7, Math.round(heightM / targetM)));
+    const halfWidth = Math.max(8, (widthM / cols) * (0.34 + seed * 0.05));
+    const halfHeight = Math.max(8, (heightM / rows) * (0.34 + (1 - seed) * 0.05));
+    const tiles = [];
+    for (let row = 0; row < rows; row += 1) {
+      for (let col = 0; col < cols; col += 1) {
+        const dx = (col + 0.5 - cols / 2) * (widthM / cols);
+        const dy = (row + 0.5 - rows / 2) * (heightM / rows);
+        const tilePoint = offsetLngLat(center, dx, dy);
+        if (!pointInGeometry(tilePoint, geometry)) continue;
+        tiles.push({
+          point: tilePoint,
+          geometry: rectanglePolygon(tilePoint, halfWidth, halfHeight),
+        });
+      }
+    }
+    return tiles.length >= 2 ? tiles : [{ geometry, point }];
+  }
+
+  function pointInGeometry(point, geometry) {
+    if (!point || !geometry) return false;
+    if (geometry.type === "Polygon") {
+      return pointInPolygonRings(point, geometry.coordinates);
+    }
+    if (geometry.type === "MultiPolygon") {
+      return (geometry.coordinates || []).some((rings) => pointInPolygonRings(point, rings));
+    }
+    return false;
+  }
+
+  function pointInPolygonRings(point, rings) {
+    if (!Array.isArray(rings?.[0])) return false;
+    if (!pointInRing(point, rings[0])) return false;
+    for (let index = 1; index < rings.length; index += 1) {
+      if (pointInRing(point, rings[index])) return false;
+    }
+    return true;
+  }
+
+  function pointInRing(point, ring) {
+    let inside = false;
+    const x = point[0];
+    const y = point[1];
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i, i += 1) {
+      const xi = Number(ring[i]?.[0]);
+      const yi = Number(ring[i]?.[1]);
+      const xj = Number(ring[j]?.[0]);
+      const yj = Number(ring[j]?.[1]);
+      if (!Number.isFinite(xi) || !Number.isFinite(yi) || !Number.isFinite(xj) || !Number.isFinite(yj)) continue;
+      const intersects = ((yi > y) !== (yj > y))
+        && (x < ((xj - xi) * (y - yi)) / Math.max(1e-12, yj - yi) + xi);
+      if (intersects) inside = !inside;
+    }
+    return inside;
   }
 
   function economyBuildingColor(building, nearestEvent, point) {
@@ -3309,11 +5101,222 @@
     const height = Number(props.height_m || 0);
     const seed = stableUnit(`${props.source_id || ""}:${point?.[0]?.toFixed(5) || ""}:${point?.[1]?.toFixed(5) || ""}`);
     if (area > 1800 || height > 18) return seed > 0.58 ? "#158c97" : "#8f9692";
-    if (seed < 0.48) return "#ca3b32";
-    if (seed < 0.64) return "#e39b97";
-    if (seed < 0.78) return "#efb94d";
-    if (seed < 0.9) return "#158c97";
+    if (seed < 0.28) return "#ca3b32";
+    if (seed < 0.46) return "#e39b97";
+    if (seed < 0.64) return "#158c97";
+    if (seed < 0.82) return "#efb94d";
+    if (seed < 0.93) return "#8f9692";
     return "#7b3a8f";
+  }
+
+  function planningFootprintTileFeatures(center, radiusM, lens) {
+    const buildings = state.detailBuildingFeatures || [];
+    if (!buildings.length) return [];
+    const year = currentTimelineYear();
+    const planningAnchors = (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "planning_cell" && feature.geometry && Number(feature.properties?.visible_year || 9999) <= year)
+      .map((feature) => ({ feature, point: geometryToLngLat(feature.geometry) }))
+      .filter((item) => item.point);
+    const maxDistance = radiusM * (lens.id === "planning-parcels" ? 1.18 : 1.46);
+    const features = [];
+    for (const building of buildings) {
+      const props = building.properties || {};
+      if (Number(props.visible_year || 9999) > year) continue;
+      const point = geometryToLngLat(building.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance) continue;
+      const area = Number(props.footprint_area_m2 || 0);
+      if (area && area < (lens.id === "planning-parcels" ? 28 : 14)) continue;
+      const seed = stableUnit(`${props.source_id || ""}:${point[0]?.toFixed(5) || ""}:${point[1]?.toFixed(5) || ""}`);
+      const nearest = nearestPlanningAnchor(point, planningAnchors, lens.id === "planning-parcels" ? 180 : 158);
+      const recency = clamp01((year - Number(props.visible_year || year - 12) + 1) / 14);
+      const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
+      const planningIntensity = Number(nearest?.feature?.properties?.intensity || 0);
+      const areaBoost = Math.min(0.16, Math.sqrt(Math.max(20, area || 90)) / 260);
+      const statusBoost = nearest ? (lens.id === "planning-parcels" ? 0.12 : 0.2) : 0;
+      const intensity = clamp01(0.18 + proximity * 0.22 + planningIntensity * 0.36 + statusBoost + areaBoost + recency * 0.06);
+      const tiles = lens.id === "planning-parcels"
+        ? planningParcelGeometryTiles(building.geometry, point, area, seed)
+        : [{ geometry: building.geometry, point }];
+      tiles.forEach((tile, tileIndex) => {
+        if (!tile.geometry) return;
+        const tilePoint = tile.point || point;
+        const tileNearest = tileIndex ? (nearestPlanningAnchor(tilePoint, planningAnchors, 180) || nearest) : nearest;
+        const tileSeed = stableUnit(`${props.source_id || ""}:${tileIndex}:${tilePoint?.[0]?.toFixed(5) || ""}:${tilePoint?.[1]?.toFixed(5) || ""}`);
+        const tileIntensity = lens.id === "planning-parcels"
+          ? clamp01(intensity * 0.86 + (tileNearest ? 0.07 : 0) + tileSeed * 0.035)
+          : intensity;
+        const planningStatus = tileNearest?.feature?.properties?.lifecycle_status || "unknown";
+        const color = planningFootprintColor(lens.id, props, tileNearest?.feature?.properties || nearest?.feature?.properties || null, tilePoint);
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "surface_cell",
+            lens_id: lens.id,
+            surface_style: "planning_footprint",
+            intensity: Number(tileIntensity.toFixed(3)),
+            color,
+            event_id: tileNearest ? firstDetailEventId(tileNearest.feature.properties || {}) : "",
+            planning_status: planningStatus,
+            sublayer_id: planningAspectLayerId(planningStatus),
+            source_id: `${props.source_id || ""}${tiles.length > 1 ? `:${tileIndex + 1}` : ""}`,
+            score: Number((tileIntensity + (tileNearest ? 0.16 : 0) + tileSeed * 0.08 - (tiles.length > 1 ? 0.025 : 0)).toFixed(3)),
+          },
+          geometry: tile.geometry,
+        });
+      });
+    }
+    return features
+      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
+      .slice(0, guideCellLimit(lens.id));
+  }
+
+  function planningParcelGeometryTiles(geometry, point, area, seed = 0.5) {
+    const envelope = planningParcelEnvelopeGeometry(geometry, point, area, seed);
+    if (!geometry || !point || area < 720) return [{ geometry: envelope || geometry, point }];
+    const bounds = geometryBounds(geometry);
+    if (!bounds) return [{ geometry: envelope || geometry, point }];
+    const center = [
+      (bounds.minLng + bounds.maxLng) / 2,
+      (bounds.minLat + bounds.maxLat) / 2,
+    ];
+    const widthM = lngLatDistanceMeters([bounds.minLng, center[1]], [bounds.maxLng, center[1]]);
+    const heightM = lngLatDistanceMeters([center[0], bounds.minLat], [center[0], bounds.maxLat]);
+    if (widthM < 26 || heightM < 26) return [{ geometry: envelope || geometry, point }];
+    const targetM = area > 6200 ? 34 : area > 2400 ? 30 : 26;
+    const cols = Math.max(2, Math.min(8, Math.round(widthM / targetM)));
+    const rows = Math.max(2, Math.min(8, Math.round(heightM / targetM)));
+    const halfWidth = Math.max(5.5, Math.min(26, (widthM / cols) * (0.34 + seed * 0.04)));
+    const halfHeight = Math.max(5.5, Math.min(26, (heightM / rows) * (0.34 + (1 - seed) * 0.04)));
+    const tiles = [];
+    for (let row = 0; row < rows; row += 1) {
+      for (let col = 0; col < cols; col += 1) {
+        const dx = (col + 0.5 - cols / 2) * (widthM / cols);
+        const dy = (row + 0.5 - rows / 2) * (heightM / rows);
+        const tilePoint = offsetLngLat(center, dx, dy);
+        if (!pointInGeometry(tilePoint, geometry)) continue;
+        tiles.push({
+          point: tilePoint,
+          geometry: rectanglePolygon(tilePoint, halfWidth, halfHeight),
+        });
+      }
+    }
+    return tiles.length >= 2 ? tiles : [{ geometry: envelope || geometry, point }];
+  }
+
+  function planningParcelEnvelopeGeometry(geometry, point, area, seed = 0.5) {
+    const bounds = geometryBounds(geometry);
+    if (!bounds || !point) return geometry || null;
+    const center = [
+      (bounds.minLng + bounds.maxLng) / 2,
+      (bounds.minLat + bounds.maxLat) / 2,
+    ];
+    const widthM = lngLatDistanceMeters([bounds.minLng, center[1]], [bounds.maxLng, center[1]]);
+    const heightM = lngLatDistanceMeters([center[0], bounds.minLat], [center[0], bounds.maxLat]);
+    const areaRoot = Math.sqrt(Math.max(24, Number(area || 80)));
+    const padBase = Math.max(5, Math.min(16, 4 + areaRoot / 7));
+    const cap = area > 2500 ? 68 : area > 900 ? 52 : 36;
+    const halfWidth = Math.max(widthM / 2 + padBase * (0.58 + seed * 0.28), 8 + seed * 6);
+    const halfHeight = Math.max(heightM / 2 + padBase * (0.62 + (1 - seed) * 0.26), 8 + (1 - seed) * 6);
+    return rectanglePolygon(
+      center,
+      Math.min(cap, halfWidth),
+      Math.min(cap, halfHeight),
+    );
+  }
+
+  function planningAspectLayerId(status) {
+    const normalized = String(status || "").toLowerCase();
+    if (normalized === "planned" || normalized === "permitted") return "permitted";
+    if (normalized === "construction") return "construction";
+    if (normalized === "completed") return "completed";
+    if (normalized === "demolished") return "demolished";
+    if (normalized === "proposed") return "proposed";
+    return "unknown";
+  }
+
+  function rectanglePolygon(center, halfWidthM, halfHeightM) {
+    const ring = [
+      offsetLngLat(center, -halfWidthM, -halfHeightM),
+      offsetLngLat(center, halfWidthM, -halfHeightM),
+      offsetLngLat(center, halfWidthM, halfHeightM),
+      offsetLngLat(center, -halfWidthM, halfHeightM),
+      offsetLngLat(center, -halfWidthM, -halfHeightM),
+    ];
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
+  function orientedRectanglePolygon(center, halfWidthM, halfHeightM, angleRad = 0) {
+    const cos = Math.cos(angleRad);
+    const sin = Math.sin(angleRad);
+    const corners = [
+      [-halfWidthM, -halfHeightM],
+      [halfWidthM, -halfHeightM],
+      [halfWidthM, halfHeightM],
+      [-halfWidthM, halfHeightM],
+      [-halfWidthM, -halfHeightM],
+    ];
+    const ring = corners.map(([x, y]) => offsetLngLat(center, x * cos - y * sin, x * sin + y * cos));
+    return { type: "Polygon", coordinates: [ring] };
+  }
+
+  function geometryBounds(geometry) {
+    const bounds = { minLng: Infinity, minLat: Infinity, maxLng: -Infinity, maxLat: -Infinity };
+    let count = 0;
+    const visit = (coords) => {
+      if (!Array.isArray(coords)) return;
+      if (typeof coords[0] === "number" && typeof coords[1] === "number") {
+        const [lng, lat] = coords;
+        if (Number.isFinite(lng) && Number.isFinite(lat)) {
+          bounds.minLng = Math.min(bounds.minLng, lng);
+          bounds.maxLng = Math.max(bounds.maxLng, lng);
+          bounds.minLat = Math.min(bounds.minLat, lat);
+          bounds.maxLat = Math.max(bounds.maxLat, lat);
+          count += 1;
+        }
+        return;
+      }
+      coords.forEach(visit);
+    };
+    visit(geometry?.coordinates);
+    return count ? bounds : null;
+  }
+
+  function nearestPlanningAnchor(point, anchors, maxDistance) {
+    let best = null;
+    let bestDistance = Infinity;
+    for (const anchor of anchors) {
+      const distance = lngLatDistanceMeters(point, anchor.point);
+      if (distance < bestDistance && distance <= maxDistance) {
+        best = anchor;
+        bestDistance = distance;
+      }
+    }
+    return best ? { ...best, distance: bestDistance } : null;
+  }
+
+  function planningFootprintColor(lensId, buildingProps, planningProps, point) {
+    const status = String(planningProps?.lifecycle_status || "").toLowerCase();
+    if (status === "demolished") return lensId === "planning-delta" ? "#8f9494" : "#d95a94";
+    if (status === "construction") return lensId === "planning-delta" ? "#8460a8" : "#866bb8";
+    if (status === "completed") return lensId === "planning-delta" ? "#d8583f" : "#7fa780";
+    if (status === "permitted" || status === "planned") return lensId === "planning-delta" ? "#e7b454" : "#f4c762";
+    if (status === "proposed") return lensId === "planning-delta" ? "#d87965" : "#ee7477";
+    if (lensId === "planning-parcels") return "#b8b6a8";
+    const visibleYear = Number(buildingProps?.visible_year || 0);
+    if (lensId === "planning-delta") {
+      if (visibleYear === currentTimelineYear()) return "#d84a2d";
+      if (visibleYear >= currentTimelineYear() - 2) return "#d99175";
+      return "#c98667";
+    }
+    const seed = stableUnit(`${buildingProps?.source_id || ""}:${point?.[0]?.toFixed(5) || ""}:${point?.[1]?.toFixed(5) || ""}`);
+    if (seed < 0.2) return "#ee7477";
+    if (seed < 0.4) return "#f4c762";
+    if (seed < 0.55) return "#866bb8";
+    if (seed < 0.72) return "#7fa780";
+    if (seed < 0.86) return "#b8b6a8";
+    return "#d95a94";
   }
 
   function nearestGuideEvent(cellCenter, events, maxDistance) {
@@ -3393,6 +5396,29 @@
     return best;
   }
 
+  function geometryLineLengthMeters(geometry) {
+    const coords = geometry?.type === "LineString"
+      ? geometry.coordinates
+      : geometry?.type === "MultiLineString"
+        ? geometry.coordinates?.flat()
+        : [];
+    const clean = Array.isArray(coords)
+      ? coords.filter((coord) => Number.isFinite(coord?.[0]) && Number.isFinite(coord?.[1]))
+      : [];
+    if (clean.length < 2) return 0;
+    let total = 0;
+    const stride = Math.max(1, Math.floor(clean.length / 36));
+    let previous = clean[0];
+    for (let index = stride; index < clean.length; index += stride) {
+      const current = clean[index];
+      total += lngLatDistanceMeters(previous, current);
+      previous = current;
+    }
+    const last = clean[clean.length - 1];
+    if (previous !== last) total += lngLatDistanceMeters(previous, last);
+    return total;
+  }
+
   function nearestRoadAnchor(point, anchors, maxDistance) {
     let best = null;
     let bestDistance = Infinity;
@@ -3427,6 +5453,9 @@
     }
     if (lens.id === "economy-vitality") {
       return economyVitalityStreetFeatures(center, lens);
+    }
+    if (lens.id === "economy-gravity") {
+      return economyGravityFlowFeatures(center, lens);
     }
     if (lens.id.startsWith("utilities-")) {
       return utilityNetworkStreetFeatures(center, lens);
@@ -3481,20 +5510,28 @@
     if (!roads.length) return [];
     const year = currentTimelineYear();
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * (lens.id === "transport-reliability" ? 2.45 : 2.55);
+    const maxDistance = radiusM * (lens.id === "transport-reliability" ? 3.9 : 4.25);
     const features = [];
+    const seenRoadIds = new Set();
     for (const road of roads) {
       const props = road.properties || {};
       if (props.layer !== "traffic_road") continue;
       if (Number(props.visible_year || 9999) > year) continue;
       const distance = geometryDistanceToPointMeters(road.geometry, center, 7);
       if (distance > maxDistance) continue;
+      const point = geometryToLngLat(road.geometry);
+      if (!point) continue;
+      const routeLengthM = geometryLineLengthMeters(road.geometry);
       const activity = clamp01(Number(props.transport_activity || 0));
       const rank = Number(props.rank || 1);
+      if (rank < 1.4 && distance > radiusM * 2.45 && activity < 0.2) continue;
+      if (rank < 2 && distance > radiusM * 3.3 && activity < 0.3) continue;
+      if (activity < 0.08 && rank < 2.5 && distance > radiusM * 2.15) continue;
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const arterial = Math.min(0.12, Math.max(0, rank - 1) * 0.035);
-      const intensity = clamp01(0.14 + activity * 0.42 + proximity * 0.36 + arterial);
-      if (intensity < 0.28 && rank < 2) continue;
+      const arterial = Math.min(0.16, Math.max(0, rank - 1) * 0.045);
+      const intensity = clamp01(0.12 + activity * 0.58 + proximity * 0.2 + arterial);
+      if (intensity < 0.18 && rank < 2) continue;
+      if (props.source_id) seenRoadIds.add(props.source_id);
       features.push({
         type: "Feature",
         properties: {
@@ -3502,27 +5539,200 @@
           lens_id: lens.id,
           flow_style: "transport_thread",
           event_id: "",
+          source_id: props.source_id || props.id || "",
           intensity: Number(intensity.toFixed(2)),
           color: transportThreadColor(lens.id, activity, rank, intensity),
-          score: Number((intensity + proximity * 0.12 + Math.min(0.12, rank * 0.03)).toFixed(3)),
+          source_kind: "activity",
+          corridor_key: transportCorridorKey(props),
+          angle_bucket: transportAngleBucket(center, point),
+          rank,
+          route_length_m: Math.round(routeLengthM),
+          activity: Number(activity.toFixed(3)),
+          score: Number((intensity + activity * 0.08 + Math.min(0.24, rank * 0.065) + Math.min(0.12, routeLengthM / 2600) + proximity * 0.05 + stableUnit(props.source_id || props.id || "") * 0.035).toFixed(3)),
+        },
+        geometry: road.geometry,
+      });
+    }
+    features.push(...transportDetailRoadContextFeatures(center, lens, seenRoadIds));
+    return distributedTransportThreadFeatures(features, lens);
+  }
+
+  function transportDetailRoadContextFeatures(center, lens, seenRoadIds = new Set()) {
+    const roads = state.detailRoadFeatures || [];
+    if (!roads.length) return [];
+    const year = currentTimelineYear();
+    const radiusM = Number(lens.radiusM || 800);
+    const maxDistance = radiusM * (lens.id === "transport-reliability" ? 2.8 : 3.05);
+    const events = lensEventsForYear(year)
+      .filter((event) => event.category === "transport" && event.lngLat);
+    const features = [];
+    for (const road of roads) {
+      const props = road.properties || {};
+      if (props.layer !== "road") continue;
+      if (seenRoadIds.has(props.source_id)) continue;
+      if (Number(props.visible_year || 9999) > year) continue;
+      const distance = geometryDistanceToPointMeters(road.geometry, center, 7);
+      if (distance > maxDistance) continue;
+      const point = geometryToLngLat(road.geometry);
+      if (!point) continue;
+      const routeLengthM = geometryLineLengthMeters(road.geometry);
+      const rank = Number(props.rank || 1);
+      const eventDensity = eventDensityIntensity(point, events, lens.id === "transport-reliability" ? 980 : 880);
+      if (rank < 1.5 && eventDensity < 0.08 && distance > radiusM * 1.95) continue;
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const activity = clamp01(0.1 + eventDensity * 0.54 + proximity * 0.16 + Math.min(0.16, rank * 0.045));
+      const intensity = clamp01(0.16 + activity * 0.54 + proximity * 0.12 + Math.min(0.12, rank * 0.035));
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          flow_style: "transport_thread",
+          event_id: "",
+          source_id: props.source_id || props.id || "",
+          intensity: Number(intensity.toFixed(2)),
+          color: transportThreadColor(lens.id, activity, rank, intensity),
+          source_kind: "context",
+          corridor_key: transportCorridorKey(props),
+          angle_bucket: transportAngleBucket(center, point),
+          rank,
+          route_length_m: Math.round(routeLengthM),
+          activity: Number(activity.toFixed(3)),
+          score: Number((intensity + eventDensity * 0.08 + proximity * 0.05 + Math.min(0.16, rank * 0.045) + Math.min(0.1, routeLengthM / 3000) + stableUnit(props.source_id || props.id || "") * 0.03).toFixed(3)),
         },
         geometry: road.geometry,
       });
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, lens.id === "transport-reliability" ? 1250 : 1550);
+      .slice(0, lens.id === "transport-reliability" ? 850 : 1050);
+  }
+
+  function distributedTransportThreadFeatures(features, lens) {
+    const target = lens.id === "transport-reliability" ? 660 : 760;
+    const perBucket = lens.id === "transport-reliability" ? 29 : 34;
+    const perCorridor = lens.id === "transport-reliability" ? 18 : 20;
+    const selected = [];
+    const selectedIds = new Set();
+    const bucketCounts = new Map();
+    const corridorCounts = new Map();
+    const sorted = [...features].sort((a, b) => {
+      const ap = a.properties || {};
+      const bp = b.properties || {};
+      const aPrimary = ap.source_kind === "activity" ? 0.08 : 0;
+      const bPrimary = bp.source_kind === "activity" ? 0.08 : 0;
+      return (Number(bp.score || 0) + bPrimary) - (Number(ap.score || 0) + aPrimary);
+    });
+    const add = (feature, relaxed = false) => {
+      const props = feature.properties || {};
+      const id = featureKey(feature);
+      if (selectedIds.has(id)) return false;
+      const bucket = String(props.angle_bucket ?? "0");
+      const corridor = String(props.corridor_key || "road");
+      const bucketCount = bucketCounts.get(bucket) || 0;
+      const corridorCount = corridorCounts.get(corridor) || 0;
+      const corridorCap = perCorridor + (Number(props.rank || 1) >= 3.5 ? 10 : 0);
+      if (!relaxed && bucketCount >= perBucket) return false;
+      if (!relaxed && corridorCount >= corridorCap) return false;
+      if (relaxed && corridorCount >= corridorCap + 18) return false;
+      selected.push(feature);
+      selectedIds.add(id);
+      bucketCounts.set(bucket, bucketCount + 1);
+      corridorCounts.set(corridor, corridorCount + 1);
+      return true;
+    };
+    for (const feature of sorted) {
+      if (selected.length >= target) break;
+      add(feature);
+    }
+    for (const feature of sorted) {
+      if (selected.length >= target) break;
+      add(feature, true);
+    }
+    return promoteTransportBackboneFeatures(
+      selected.sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0)),
+      lens,
+    );
+  }
+
+  function promoteTransportBackboneFeatures(features, lens) {
+    const limit = lens.id === "transport-reliability" ? 245 : 300;
+    const perBucket = lens.id === "transport-reliability" ? 12 : 14;
+    const perCorridor = lens.id === "transport-reliability" ? 9 : 10;
+    const backboneIds = new Set();
+    const bucketCounts = new Map();
+    const corridorCounts = new Map();
+    const sorted = [...features].sort((a, b) => {
+      const ap = a.properties || {};
+      const bp = b.properties || {};
+      const aRank = Math.min(0.4, Number(ap.rank || 1) * 0.1);
+      const bRank = Math.min(0.4, Number(bp.rank || 1) * 0.1);
+      const aLength = Math.min(0.18, Number(ap.route_length_m || 0) / 2100);
+      const bLength = Math.min(0.18, Number(bp.route_length_m || 0) / 2100);
+      return (Number(bp.score || 0) + Number(bp.activity || 0) * 0.08 + bRank + bLength)
+        - (Number(ap.score || 0) + Number(ap.activity || 0) * 0.08 + aRank + aLength);
+    });
+    for (const feature of sorted) {
+      if (backboneIds.size >= limit) break;
+      const props = feature.properties || {};
+      const rank = Number(props.rank || 1);
+      const activity = Number(props.activity || 0);
+      const routeLengthM = Number(props.route_length_m || 0);
+      if (rank < 2.15 && routeLengthM < 145) continue;
+      if (activity < 0.1 && rank < 2.6 && routeLengthM < 260) continue;
+      const bucket = String(props.angle_bucket ?? "0");
+      const corridor = String(props.corridor_key || "road");
+      const bucketCount = bucketCounts.get(bucket) || 0;
+      const corridorCount = corridorCounts.get(corridor) || 0;
+      if (bucketCount >= perBucket) continue;
+      if (corridorCount >= perCorridor + (rank >= 3.5 ? 4 : 0)) continue;
+      backboneIds.add(featureKey(feature));
+      bucketCounts.set(bucket, bucketCount + 1);
+      corridorCounts.set(corridor, corridorCount + 1);
+    }
+    return features.map((feature) => {
+      const props = feature.properties || {};
+      const backbone = backboneIds.has(featureKey(feature));
+      const intensity = Number(props.intensity || 0.42);
+      return {
+        ...feature,
+        properties: {
+          ...props,
+          flow_style: backbone ? "transport_backbone" : "transport_thread",
+          route_tier: backbone ? 2 : 1,
+          intensity: Number((backbone ? Math.max(0.42, intensity) : Math.min(0.72, intensity * 0.86 + 0.04)).toFixed(2)),
+        },
+      };
+    });
+  }
+
+  function transportCorridorKey(props = {}) {
+    const name = String(props.name || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    if (name && name !== "mapped road segment") return name;
+    return String(props.kind || props.source_id || props.id || "road").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim() || "road";
+  }
+
+  function transportAngleBucket(center, point, bucketCount = 32) {
+    const dx = point[0] - center[0];
+    const dy = point[1] - center[1];
+    const angle = Math.atan2(dy, dx);
+    return Math.floor(((angle + Math.PI) / (Math.PI * 2)) * bucketCount);
+  }
+
+  function featureKey(feature) {
+    const props = feature.properties || {};
+    return props.source_id || props.id || `${props.corridor_key || "feature"}:${JSON.stringify(feature.geometry?.coordinates?.[0] || feature.geometry?.coordinates || "")}`;
   }
 
   function transportThreadColor(lensId, activity, rank, intensity) {
     if (lensId === "transport-reliability") {
-      if (activity > 0.76) return "#ed3f2b";
+      if (activity > 0.76) return rank >= 2 ? "#ed3f2b" : "#ef9c1a";
       if (activity > 0.56) return "#ef9c1a";
       if (rank >= 3.5 && activity < 0.42) return "#7a3b97";
       if (intensity < 0.36) return "#898b8e";
       return "#248b94";
     }
-    if (activity > 0.82) return "#bb1e2d";
+    if (activity > 0.82) return rank >= 2 ? "#bb1e2d" : "#e95a35";
     if (activity > 0.64) return "#e95a35";
     if (activity > 0.43) return "#f2ad2f";
     if (activity > 0.22) return "#6dbc5a";
@@ -3533,47 +5743,146 @@
     const roads = state.detailRoadFeatures || [];
     const events = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "civic_services" && event.lngLat);
-    if (!roads.length || !events.length) return [];
+    if (!roads.length) return [];
     const radiusM = Number(lens.radiusM || 1500);
-    const maxDistance = radiusM * 1.7;
-    const features = [];
+    const maxDistance = radiusM * 1.56;
+    const transportStops = civicAccessTransportStopsNear(center, maxDistance + 620);
+    const seamFeatures = [];
+    const coverageFeatures = [];
     for (const road of roads) {
+      const props = road.properties || {};
+      if (Number(props.visible_year || 9999) > currentTimelineYear()) continue;
       const point = geometryToLngLat(road.geometry);
       if (!point) continue;
-      const distance = lngLatDistanceMeters(center, point);
+      const distance = geometryDistanceToPointMeters(road.geometry, center, 7);
       if (distance > maxDistance) continue;
-      const nearestEvent = nearestGuideEvent(point, events, 980);
-      const serviceDensity = eventDensityIntensity(point, events, 980);
-      const rank = Number(road.properties?.rank || 1);
+      const nearestEvent = events.length ? nearestGuideEvent(point, events, 980) : null;
+      const civicDensity = events.length ? eventDensityIntensity(point, events, 880) : 0;
+      const stopDensity = civicAccessStopDensity(point, transportStops, 440);
+      const serviceDensity = clamp01(civicDensity * 0.62 + stopDensity * 0.46);
+      const rank = Number(props.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const gapIntensity = clamp01(0.15 + (1 - serviceDensity) * 0.24 + proximity * 0.2 + Math.min(0.12, rank * 0.032));
-      if (gapIntensity < 0.34 && rank < 1.5) continue;
-      features.push({
+      const routeLengthM = geometryLineLengthMeters(road.geometry);
+      const sourceId = props.source_id || props.id || "";
+      const stable = stableUnit(`gap:${sourceId}`);
+      const gapIntensity = clamp01(0.16 + (1 - civicDensity) * 0.28 + (1 - stopDensity) * 0.18 + proximity * 0.11 + Math.min(0.09, rank * 0.026) + stable * 0.06);
+      const coverageIntensity = clamp01(serviceDensity * 0.78 + proximity * 0.08 + Math.min(0.12, rank * 0.026));
+      if (coverageIntensity > 0.42 && (stopDensity > 0.34 || civicDensity > 0.3 || rank >= 3.2)) {
+        const coverageStyle = civicAccessCoverageStyle(coverageIntensity, stopDensity, civicDensity);
+        coverageFeatures.push({
+          type: "Feature",
+          properties: {
+            kind: "flow",
+            lens_id: lens.id,
+            layer_id: "coverage",
+            flow_role: "coverage",
+            flow_style: coverageStyle,
+            event_id: nearestEvent?.id || "",
+            source_id: sourceId,
+            intensity: Number(coverageIntensity.toFixed(2)),
+            color: civicAccessCoverageColor(coverageStyle),
+            score: Number((coverageIntensity + stopDensity * 0.18 + civicDensity * 0.12 + Math.min(0.12, routeLengthM / 2400) + proximity * 0.05 + stable * 0.03).toFixed(3)),
+          },
+          geometry: road.geometry,
+        });
+      }
+      const seamStyle = civicAccessGapStyle(gapIntensity, serviceDensity);
+      seamFeatures.push({
         type: "Feature",
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: "street_thread",
+          layer_id: seamStyle === "gap_high" || seamStyle === "gap_medium" ? "corridors" : "gap_seams",
+          flow_role: "gap_seam",
+          flow_style: seamStyle,
           event_id: nearestEvent?.id || "",
+          source_id: sourceId,
           intensity: Number(gapIntensity.toFixed(2)),
           color: civicGapStreetColor(gapIntensity, serviceDensity, rank),
-          score: Number((gapIntensity + proximity * 0.08 + stableUnit(`gap:${road.properties?.source_id || road.properties?.id || ""}`) * 0.1).toFixed(3)),
+          service_density: Number(serviceDensity.toFixed(3)),
+          stop_density: Number(stopDensity.toFixed(3)),
+          score: Number((gapIntensity + proximity * 0.08 + Math.min(0.12, routeLengthM / 2800) + stable * 0.07).toFixed(3)),
         },
         geometry: road.geometry,
       });
     }
-    return features
-      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 1450);
+    return [
+      ...coverageFeatures
+        .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
+        .slice(0, 240),
+      ...distributedCivicAccessGapSeams(seamFeatures),
+    ];
+  }
+
+  function civicAccessCoverageStyle(coverageIntensity, stopDensity, civicDensity) {
+    if (coverageIntensity > 0.76 && (stopDensity > 0.48 || civicDensity > 0.48)) return "service_walk";
+    if (coverageIntensity > 0.58 || stopDensity > 0.4) return "service_bus";
+    return "service_outer";
+  }
+
+  function civicAccessCoverageColor(style) {
+    if (style === "service_walk") return "#0f7f86";
+    if (style === "service_bus") return "#5aaeb5";
+    return "#a8cfd1";
+  }
+
+  function civicAccessGapStyle(intensity, serviceDensity) {
+    if (serviceDensity > 0.58 && intensity < 0.42) return "gap_adequate";
+    if (intensity > 0.6) return "gap_high";
+    if (intensity > 0.48) return "gap_medium";
+    if (intensity > 0.36) return "gap_low";
+    return "gap_adequate";
   }
 
   function civicGapStreetColor(intensity, serviceDensity, rank) {
-    if (serviceDensity > 0.44 && intensity < 0.56) return "#0f8d95";
-    if (rank <= 1.4 && serviceDensity > 0.28) return "#348f67";
-    if (intensity > 0.72) return "#ed4a2e";
-    if (intensity > 0.56) return "#ef8f21";
-    if (intensity > 0.42) return "#e4b33c";
+    if (serviceDensity > 0.62 && intensity < 0.42) return "#348f67";
+    if (rank <= 1.4 && serviceDensity > 0.48 && intensity < 0.46) return "#348f67";
+    if (intensity > 0.6) return "#ed4a2e";
+    if (intensity > 0.48) return "#ef8f21";
+    if (intensity > 0.36) return "#e4b33c";
     return "#348f67";
+  }
+
+  function civicAccessTransportStopsNear(center, maxDistance) {
+    const stops = state.transportStopFeatures || [];
+    if (!stops.length) return [];
+    return stops
+      .map((feature) => {
+        const point = geometryToLngLat(feature.geometry);
+        if (!point) return null;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance > maxDistance) return null;
+        const props = feature.properties || {};
+        const lines = Number(props.servingLineCount || props.routeNode || 0);
+        const weight = clamp01(Number(props.weight || 0.32) + Math.min(0.42, lines / 34));
+        return {
+          point,
+          props,
+          distance,
+          weight,
+          score: weight * 0.58 + (1 - Math.min(distance, maxDistance) / Math.max(1, maxDistance)) * 0.34 + stableUnit(props.source_id || props.name || "") * 0.08,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score);
+  }
+
+  function civicAccessStopDensity(point, stops, radiusM = 440) {
+    if (!stops.length) return 0;
+    let score = 0;
+    for (const stop of stops) {
+      const distance = lngLatDistanceMeters(point, stop.point);
+      if (distance > radiusM) continue;
+      score += (1 - distance / radiusM) * (0.45 + stop.weight * 0.8);
+    }
+    return clamp01(score / 3.1);
+  }
+
+  function distributedCivicAccessGapSeams(features) {
+    const target = 780;
+    const sorted = [...features].sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0));
+    if (features.length <= target) return sorted;
+    return sorted.slice(0, target);
   }
 
   function economyVitalityStreetFeatures(center, lens) {
@@ -3679,8 +5988,9 @@
     const roads = state.detailRoadFeatures || [];
     const events = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "utilities" && event.lngLat);
-    if (!roads.length || !events.length) return [];
     const radiusM = Number(lens.radiusM || 800);
+    const contextFeatures = utilityNetworkContextFlowFeatures(center, lens, events, radiusM);
+    if (!roads.length || !events.length) return contextFeatures;
     const maxDistance = radiusM * (
       lens.id === "utilities-capacity" ? 3.05
         : lens.id === "utilities-resilience" ? 2.75
@@ -3701,13 +6011,15 @@
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
       const intensity = clamp01(0.18 + eventDensity * 0.5 + proximity * 0.16 + Math.min(0.12, rank * 0.025));
       if (intensity < minIntensity) continue;
+      const type = utilityEventType(nearestEvent, road);
       features.push({
         type: "Feature",
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: lens.id === "utilities-works" ? "utility_work_thread" : "street_thread",
+          flow_style: utilityGuideFlowStyle(lens, nearestEvent, road, intensity, distance, maxDistance),
           event_id: nearestEvent?.id || "",
+          utility_type: type,
           intensity: Number(intensity.toFixed(2)),
           color: utilityNetworkGuideColor(lens, nearestEvent, road, intensity),
           score: Number((intensity + stableUnit(`${lens.id}:${road.properties?.source_id || road.properties?.id || ""}`) * 0.2).toFixed(3)),
@@ -3715,31 +6027,122 @@
         geometry: road.geometry,
       });
     }
+    return [...contextFeatures, ...features]
+      .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
+      .slice(0, lens.id === "utilities-capacity" ? 2600 : lens.id === "utilities-resilience" ? 2100 : 1450);
+  }
+
+  function utilityNetworkContextFlowFeatures(center, lens, events, radiusM) {
+    const network = (state.utilityNetworkFeatures || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.layer === "utility_network" && ["line", "area"].includes(props.network_geometry) && feature.geometry;
+      });
+    if (!network.length) return [];
+    const maxDistance = radiusM * (
+      lens.id === "utilities-capacity" ? 2.8
+        : lens.id === "utilities-resilience" ? 2.2
+          : 1.95
+    );
+    const minIntensity = lens.id === "utilities-resilience" ? 0.24 : 0.2;
+    const features = [];
+    for (const feature of network) {
+      const props = feature.properties || {};
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance) continue;
+      const eventDensity = events.length ? eventDensityIntensity(point, events, lens.id === "utilities-resilience" ? 1120 : 780) : 0;
+      const nearestEvent = events.length ? nearestGuideEvent(point, events, lens.id === "utilities-resilience" ? 1280 : 820) : null;
+      const rank = Number(props.rank || 1);
+      const baseIntensity = Number(props.intensity || 0.45);
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const intensity = clamp01(baseIntensity * 0.52 + eventDensity * 0.26 + proximity * 0.16 + Math.min(0.16, rank * 0.026));
+      if (intensity < minIntensity) continue;
+      const flowStyle = utilityNetworkContextFlowStyle(lens, props, intensity, distance, maxDistance);
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          flow_role: "utility_network",
+          flow_style: flowStyle,
+          event_id: nearestEvent?.id || "",
+          source_id: props.source_id || "",
+          utility_type: props.utility_type || "",
+          network_role: props.network_role || "",
+          intensity: Number(intensity.toFixed(2)),
+          color: utilityNetworkContextGuideColor(lens, props, intensity, flowStyle),
+          score: Number((intensity + Math.min(0.24, rank * 0.024) + stableUnit(`${lens.id}:${props.source_id || props.id || ""}`) * 0.14).toFixed(3)),
+        },
+        geometry: feature.geometry,
+      });
+    }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, lens.id === "utilities-capacity" ? 2200 : lens.id === "utilities-resilience" ? 1700 : 1150);
+      .slice(0, lens.id === "utilities-capacity" ? 1150 : lens.id === "utilities-resilience" ? 850 : 620);
+  }
+
+  function utilityNetworkContextFlowStyle(lens, props, intensity, distance, maxDistance) {
+    if (lens.id === "utilities-works") return "utility_work_thread";
+    if (lens.id === "utilities-capacity") return "utility_capacity_trace";
+    if (lens.id !== "utilities-resilience") return "street_thread";
+    const rank = Number(props.rank || 1);
+    const seed = stableUnit(`${props.source_id || ""}:${props.network_role || ""}`);
+    if (rank >= 4 || intensity > 0.78 || distance < maxDistance * 0.24) return "utility_primary";
+    if (seed < 0.58 || intensity > 0.54) return "utility_backup";
+    return "utility_inferred";
+  }
+
+  function utilityGuideFlowStyle(lens, event, road, intensity, distance, maxDistance) {
+    if (lens.id === "utilities-works") return "utility_work_thread";
+    if (lens.id === "utilities-capacity") return "utility_capacity_trace";
+    if (lens.id !== "utilities-resilience") return "street_thread";
+    const rank = Number(road?.properties?.rank || 1);
+    const seed = stableUnit(`${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
+    if (rank >= 4 || intensity > 0.8 || distance < maxDistance * 0.22) return "utility_primary";
+    if (seed < 0.62 || intensity > 0.56) return "utility_backup";
+    return "utility_inferred";
+  }
+
+  function utilityTypeColor(type, fallback = "#8c7460") {
+    if (type === "water") return "#1787b3";
+    if (type === "electricity") return "#ef6b2a";
+    if (type === "telecoms" || type === "telecom") return "#7a3b97";
+    if (type === "gas") return "#e2b42c";
+    if (type === "drainage") return "#148a8d";
+    if (type === "district_energy") return "#7a5438";
+    return fallback;
+  }
+
+  function utilityNetworkContextGuideColor(lens, props, intensity, flowStyle) {
+    const type = String(props.utility_type || "");
+    if (lens.id === "utilities-capacity") {
+      if (intensity > 0.91) return "#d62d35";
+      if (intensity > 0.8 && type === "electricity") return "#ed6b35";
+      return utilityTypeColor(type, "#438c64");
+    }
+    if (lens.id === "utilities-resilience") {
+      if (flowStyle === "utility_primary") return type === "electricity" ? "#ef6b2a" : "#1787b3";
+      if (flowStyle === "utility_backup") return type === "electricity" ? "#d66a3a" : "#2f85bd";
+      return "#7f9ba3";
+    }
+    return utilityWorksTypeColor(type, { id: props.source_id || "", title: props.title || "" }, { properties: props });
   }
 
   function utilityNetworkGuideColor(lens, event, road, intensity) {
     if (lens.id === "utilities-capacity") {
       const type = utilityEventType(intensity > 0.78 ? event : null, road);
-      if (intensity > 0.86) return "#d62d35";
-      if (intensity > 0.72) return "#ef6b2a";
+      if (intensity > 0.92) return "#d62d35";
+      if (intensity > 0.82) return "#ed6b35";
       if (intensity > 0.62 && type === "electricity") return "#e2b42c";
-      if (type === "water") return "#1787b3";
-      if (type === "telecoms") return "#7a3b97";
-      if (type === "gas") return "#e2b42c";
-      if (type === "drainage") return "#148a8d";
-      if (type === "electricity") return "#ef6b2a";
-      return "#438c64";
+      return utilityTypeColor(type, "#438c64");
     }
     const type = utilityEventType(event, road);
     if (lens.id === "utilities-resilience") {
-      if (intensity > 0.88) return "#d53236";
-      if (type === "telecoms") return "#7a3b97";
-      if (type === "gas") return "#e2b42c";
-      if (type === "drainage") return "#148a8d";
+      if (intensity > 0.9) return "#d53236";
       if (type === "electricity" && intensity > 0.66) return "#ef6b2a";
+      if (["telecoms", "gas", "drainage"].includes(type)) return utilityTypeColor(type, "#1787b3");
       const seed = stableUnit(`${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
       return seed < 0.58 ? "#1787b3" : "#71b4c7";
     }
@@ -3832,21 +6235,294 @@
     return "drainage";
   }
 
+  function economyGravityFlowFeatures(center, lens) {
+    const radiusM = Number(lens.radiusM || 1500);
+    const maxDistance = radiusM * 1.78;
+    const detailCandidates = economyGravityDetailCandidates(center, lens, maxDistance);
+    const seenEventIds = new Set(detailCandidates.map((item) => item.eventId).filter(Boolean));
+    const anchorCandidates = economyGravityAnchorCandidates(center, lens, maxDistance);
+    const eventCandidates = economyGravityEventCandidates(center, lens, maxDistance, seenEventIds);
+    const selected = selectEconomyGravityCandidates(center, [...anchorCandidates, ...detailCandidates, ...eventCandidates], lens, 26);
+    if (!selected.length) {
+      const fallback = nearbyLensEventAnchors(center, lens, {
+        maxDistance,
+        minDistance: 120,
+        limit: 11,
+        distributed: true,
+      });
+      return fallback.map((item, index) => {
+        const intensity = clamp01(0.24 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.58 + confidenceRank(item.event.confidence) * 0.04);
+        const sector = economyGravitySectorKey(item.event);
+        return {
+          type: "Feature",
+          properties: {
+            kind: "flow",
+            lens_id: lens.id,
+            flow_role: "gravity_anchor",
+            flow_style: "economy_gravity_arc",
+            event_id: item.event.id,
+            sublayer_id: sector,
+            sector,
+            intensity: Number(intensity.toFixed(2)),
+            color: economyGravitySectorColor(sector),
+          },
+          geometry: { type: "LineString", coordinates: economyGravityArcLine(center, item.event.lngLat, { eventId: item.event.id, sector }, index, 0, 1) },
+        };
+      });
+    }
+    const features = [];
+    selected.forEach((item, index) => {
+      const laneCount = item.eventCount >= 5 ? 3 : item.eventCount >= 2 || item.intensity > 0.54 ? 2 : 1;
+      for (let lane = 0; lane < laneCount; lane += 1) {
+        const laneIntensity = clamp01(item.intensity * (lane === 0 ? 1 : 0.72) + Math.min(0.12, item.eventCount * 0.018));
+        features.push({
+          type: "Feature",
+          properties: {
+            kind: "flow",
+            lens_id: lens.id,
+            flow_role: "gravity_anchor",
+            flow_style: lane === 0 ? "economy_gravity_arc" : "economy_gravity_thread",
+            event_id: item.eventId || "",
+            source_id: item.sourceId || "",
+            sublayer_id: item.sublayerId,
+            sector: item.sector,
+            event_count: item.eventCount,
+            source_count: item.sourceCount,
+            intensity: Number(laneIntensity.toFixed(2)),
+            color: economyGravitySectorColor(item.sublayerId),
+          },
+          geometry: {
+            type: "LineString",
+            coordinates: economyGravityArcLine(center, item.point, item, index, lane, laneCount),
+          },
+        });
+      }
+    });
+    return features;
+  }
+
+  function economyGravityDetailCandidates(center, lens, maxDistance) {
+    const year = currentTimelineYear();
+    return (state.lensDetailFeatures || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.layer === "economy_activity_cell"
+          && Number(props.visible_year || 9999) <= year
+          && feature.geometry;
+      })
+      .map((feature) => {
+        const props = feature.properties || {};
+        const point = geometryToLngLat(feature.geometry);
+        if (!point) return null;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance < 95 || distance > maxDistance) return null;
+        const eventCount = Math.max(1, Number(props.event_count || 1));
+        const sourceCount = Math.max(1, Number(props.source_count || 1));
+        const intensity = clamp01(Number(props.intensity || 0.36) + Math.min(0.2, eventCount * 0.028));
+        const sector = economyGravitySectorKey(props);
+        const proximity = 1 - Math.min(distance, maxDistance) / Math.max(1, maxDistance);
+        const outerPull = Math.min(0.16, distance / Math.max(1, maxDistance) * 0.18);
+        return {
+          point,
+          props,
+          eventId: firstDetailEventId(props),
+          sourceId: props.source_ids || props.source_id || "",
+          sublayerId: sector,
+          sector,
+          eventCount,
+          sourceCount,
+          intensity,
+          distance,
+          score: intensity * 0.42 + Math.min(0.26, eventCount * 0.045) + proximity * 0.18 + outerPull + stableUnit(`${props.id || ""}:${props.event_ids || ""}`) * 0.045,
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function economyGravityEventCandidates(center, lens, maxDistance, seenEventIds = new Set()) {
+    return lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === "economy" && event.lngLat && event.id !== state.selectedEventId && !seenEventIds.has(event.id))
+      .map((event) => {
+        const distance = lngLatDistanceMeters(center, event.lngLat);
+        if (distance < 110 || distance > maxDistance) return null;
+        const sector = economyGravitySectorKey(event);
+        const confidence = confidenceRank(event.confidence);
+        const intensity = clamp01(0.28 + (1 - Math.min(distance, maxDistance) / maxDistance) * 0.42 + confidence * 0.055 + lensHeatWeight(event) * 0.07);
+        return {
+          point: event.lngLat,
+          props: event,
+          eventId: event.id,
+          sourceId: (event.sourceIds || []).join(","),
+          sublayerId: sector,
+          sector,
+          eventCount: 1,
+          sourceCount: Math.max(1, event.sourceIds?.length || 1),
+          intensity,
+          distance,
+          score: intensity * 0.5 + confidence * 0.045 + stableUnit(event.id) * 0.04,
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function economyGravityAnchorCandidates(center, lens, maxDistance) {
+    const anchorMaxDistance = Math.min(maxDistance, Number(lens.radiusM || 1500) * 1.62);
+    return (state.economyAnchorFeatures || [])
+      .map((feature) => {
+        const props = feature.properties || {};
+        const point = geometryToLngLat(feature.geometry);
+        if (!point) return null;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance < 135 || distance > anchorMaxDistance) return null;
+        const sector = props.sublayer_id || props.sector || economyGravitySectorKey(props);
+        const rank = Number(props.anchor_rank || 1);
+        const proximity = 1 - Math.min(distance, anchorMaxDistance) / Math.max(1, anchorMaxDistance);
+        const radial = Math.min(1, distance / Math.max(1, anchorMaxDistance));
+        const ringFit = clamp01(1 - Math.abs(radial - 0.58) / 0.58);
+        const nameBoost = props.label ? 0.12 : 0;
+        const intensity = clamp01(0.26 + rank * 0.16 + ringFit * 0.18 + nameBoost);
+        return {
+          point,
+          props,
+          eventId: "",
+          sourceId: props.source_id || props.id || "",
+          sublayerId: sector,
+          sector,
+          eventCount: 1,
+          sourceCount: 1,
+          intensity,
+          distance,
+          score: intensity * 0.38 + ringFit * 0.34 + Math.min(0.22, rank * 0.07) + radial * 0.08 + stableUnit(`${props.source_id || ""}:${props.label || ""}`) * 0.04,
+          isContextAnchor: true,
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function selectEconomyGravityCandidates(center, candidates, lens, limit) {
+    const selected = [];
+    const sectorCounts = new Map();
+    const bucketCounts = new Map();
+    const sorted = candidates
+      .filter((item) => item.point && item.sublayerId)
+      .sort((a, b) => b.score - a.score || b.distance - a.distance);
+    for (const item of sorted) {
+      if (selected.length >= limit) break;
+      const sectorLimit = item.sublayerId === "economy" ? 7 : item.isContextAnchor ? 4 : 5;
+      if ((sectorCounts.get(item.sublayerId) || 0) >= sectorLimit) continue;
+      const bucket = transportAngleBucket(center, item.point, 30);
+      if ((bucketCounts.get(bucket) || 0) >= (item.isContextAnchor ? 2 : 3)) continue;
+      const minSpacing = item.distance < 600 ? 92 : 138;
+      if (selected.some((existing) => existing.sublayerId === item.sublayerId && lngLatDistanceMeters(existing.point, item.point) < minSpacing)) continue;
+      selected.push(item);
+      sectorCounts.set(item.sublayerId, (sectorCounts.get(item.sublayerId) || 0) + 1);
+      bucketCounts.set(bucket, (bucketCounts.get(bucket) || 0) + 1);
+    }
+    if (selected.length >= Math.min(12, limit)) return selected;
+    const selectedKeys = new Set(selected.map((item) => `${item.eventId}:${item.sourceId}:${item.distance.toFixed(0)}`));
+    for (const item of sorted) {
+      if (selected.length >= limit) break;
+      const key = `${item.eventId}:${item.sourceId}:${item.distance.toFixed(0)}`;
+      if (selectedKeys.has(key)) continue;
+      if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < 84)) continue;
+      selected.push(item);
+      selectedKeys.add(key);
+    }
+    return selected;
+  }
+
+  function economyGravityArcLine(start, end, item, index = 0, laneIndex = 0, laneCount = 1) {
+    const [dx, dy] = lngLatToLocalMeters(end, start);
+    const distance = Math.max(1, Math.hypot(dx, dy));
+    const px = -dy / distance;
+    const py = dx / distance;
+    const angle = Math.atan2(dy, dx);
+    const seed = stableUnit(`${item?.sourceId || ""}:${item?.eventId || ""}:${item?.sector || ""}:${index}`);
+    const laneOffset = (laneIndex - (laneCount - 1) / 2) * Math.min(76, 26 + distance * 0.026);
+    const sectorSign = item?.sublayerId === "office" || item?.sublayerId === "visitor" ? -1 : 1;
+    const orbitSign = Math.sin(angle * 1.55 + seed * 5.6) >= 0 ? 1 : -1;
+    const bendMagnitude = Math.min(distance * (0.12 + seed * 0.095 + clamp01(item?.intensity || 0.45) * 0.045), 520);
+    const bend = bendMagnitude * sectorSign * orbitSign + laneOffset;
+    const c1 = [dx * 0.28 + px * bend * 0.54, dy * 0.28 + py * bend * 0.54];
+    const c2 = [dx * 0.78 + px * bend * 0.86, dy * 0.78 + py * bend * 0.86];
+    const coords = [];
+    for (let i = 0; i <= 34; i += 1) {
+      const t = i / 34;
+      const inv = 1 - t;
+      const x = inv * inv * inv * 0
+        + 3 * inv * inv * t * c1[0]
+        + 3 * inv * t * t * c2[0]
+        + t * t * t * dx;
+      const y = inv * inv * inv * 0
+        + 3 * inv * inv * t * c1[1]
+        + 3 * inv * t * t * c2[1]
+        + t * t * t * dy;
+      coords.push(offsetLngLat(start, x, y));
+    }
+    return coords;
+  }
+
+  function economyGravitySectorKey(source = {}) {
+    const text = [
+      source.sector,
+      source.status,
+      source.title,
+      source.label,
+      source.shortDescription,
+      source.summary,
+      source.area,
+      ...(source.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/night|pub|club|late[-\s]?night/.test(text)) return "night";
+    if (/market|venue|arena|concert|event space/.test(text)) return "markets";
+    if (/hotel|hospitality|restaurant|cafe|caf\u00e9|bar|food|drink|takeaway/.test(text)) return "hospitality";
+    if (/visitor|culture|tourism|museum|gallery|theatre|cinema|leisure|university|education|campus/.test(text)) return "visitor";
+    if (/office|workspace|business|enterprise|industrial|warehouse|manufactur|employment/.test(text)) return "office";
+    if (/retail|shop|store|commercial|service|atm|awning|frontage|salon/.test(text)) return "economy";
+    return "economy";
+  }
+
+  function economyGravitySectorColor(sector) {
+    const colors = {
+      economy: "#7644a1",
+      office: "#158c97",
+      hospitality: "#ef5a47",
+      visitor: "#e8a620",
+      night: "#34393a",
+      markets: "#8a5a2b",
+    };
+    return colors[sector] || colors.economy;
+  }
+
+  function economyGravitySectorLabel(sector) {
+    const labels = {
+      economy: "Retail & services",
+      office: "Office & business",
+      hospitality: "Hospitality",
+      visitor: "Visitor & culture",
+      night: "Night economy",
+      markets: "Markets & venues",
+    };
+    return labels[sector] || labels.economy;
+  }
+
   function nodeGuideFeatures(center, lens) {
     if (lens.id.startsWith("transport-")) {
       return transportNodeGuideFeatures(center, lens);
     }
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * (["planning-pressure", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id) ? 2.35 : 1.18);
+    const distributedNodeLenses = ["planning-pressure", "civic-access-gaps", "utilities-capacity", "utilities-resilience", "utilities-works"];
+    const maxDistance = radiusM * (distributedNodeLenses.includes(lens.id) ? 2.35 : 1.18);
     const anchors = nearbyLensEventAnchors(center, lens, {
       maxDistance,
       minDistance: 70,
-      limit: lens.id === "economy-gravity" ? 9 : 10,
-      distributed: ["planning-pressure", "civic-access-gaps", "utilities-capacity", "utilities-resilience"].includes(lens.id),
+      limit: lens.id === "economy-gravity" ? 9 : lens.id === "utilities-works" ? 8 : 10,
+      distributed: distributedNodeLenses.includes(lens.id),
     });
-    return anchors
-      .map((item) => {
+    const eventNodes = anchors
+      .map((item, index) => {
         const intensity = clamp01(0.18 + (1 - Math.min(item.distance, maxDistance) / maxDistance) * 0.72);
+        const sublayerId = lens.id === "economy-gravity" ? economyGravitySectorKey(item.event) : "";
       return {
         type: "Feature",
         properties: {
@@ -3854,15 +6530,183 @@
           lens_id: lens.id,
           event_id: item.event.id,
           title: item.event.title,
+          area: item.event.area || "",
+          year: item.event.year || currentTimelineYear(),
+          confidence: item.event.confidence || "",
+          label: guideNodeLabel(item.event, lens),
+          label_detail: guideNodeDetail(item.event, lens),
+          label_rank: index + 1,
+          layer_id: lens.id === "civic-access-gaps" ? "facilities" : "",
+          sublayer_id: sublayerId,
           intensity: Number(intensity.toFixed(2)),
-          color: guideFlowColor(lens, item.event, 0, intensity),
+          color: sublayerId ? economyGravitySectorColor(sublayerId) : guideFlowColor(lens, item.event, 0, intensity),
         },
         geometry: { type: "Point", coordinates: item.event.lngLat },
+      };
+    });
+    const seenEventIds = new Set(eventNodes.map((feature) => feature.properties.event_id).filter(Boolean));
+    const utilityTraceNodes = lens.id.startsWith("utilities-")
+      ? utilityTraceNodeGuideFeatures(center, lens, maxDistance, seenEventIds)
+      : [];
+    const civicAccessStopNodes = lens.id === "civic-access-gaps"
+      ? civicAccessStopNodeGuideFeatures(center, lens, maxDistance)
+      : [];
+    const economyAnchorNodes = lens.id === "economy-gravity"
+      ? economyGravityAnchorNodeGuideFeatures(center, lens, maxDistance)
+      : [];
+    const civicCatchmentAnchorNodes = lens.id === "civic-catchment"
+      ? civicCatchmentAnchorNodeGuideFeatures(center, lens, maxDistance)
+      : [];
+    return [
+      ...civicAccessStopNodes,
+      ...civicCatchmentAnchorNodes,
+      ...economyAnchorNodes,
+      ...eventNodes,
+      ...utilityTraceNodes,
+      ...lensDetailNodeGuideFeatures(center, lens, maxDistance, seenEventIds, eventNodes.length + economyAnchorNodes.length + civicCatchmentAnchorNodes.length),
+    ];
+  }
+
+  function civicCatchmentAnchorNodeGuideFeatures(center, lens, maxDistance) {
+    const sourceEvents = lensEventsForYear(currentTimelineYear())
+      .filter((event) => event.category === "civic_services" && event.lngLat);
+    const selected = selectCivicCatchmentCandidates(
+      center,
+      civicCatchmentCandidates(center, Number(lens.radiusM || 1500), lens, sourceEvents, currentTimelineYear()),
+      lens,
+      16,
+    );
+    return selected.map((item, index) => ({
+      type: "Feature",
+      properties: {
+        kind: "node",
+        lens_id: lens.id,
+        node_style: "civic_anchor",
+        source_id: item.sourceId || "",
+        event_id: item.event?.id || firstDetailEventId(item.props || {}) || "",
+        title: item.event?.title || item.props?.label || item.props?.name || civicServiceSublayerLabel(item.layerId),
+        label: truncate(item.event?.title || item.props?.label || item.props?.name || civicServiceSublayerLabel(item.layerId), 28),
+        label_detail: item.currentContext
+          ? `${civicServiceSublayerLabel(item.layerId)} / OSM context`
+          : `${civicServiceSublayerLabel(item.layerId)} / ${currentTimelineYear()}`,
+        label_rank: index + 1,
+        sublayer_id: item.layerId,
+        intensity: Number(item.intensity.toFixed(2)),
+        color: civicServiceSublayerColor(item.layerId),
+      },
+      geometry: { type: "Point", coordinates: item.point },
+    }));
+  }
+
+  function economyGravityAnchorNodeGuideFeatures(center, lens, maxDistance) {
+    const selected = selectEconomyGravityCandidates(
+      center,
+      economyGravityAnchorCandidates(center, lens, maxDistance),
+      lens,
+      13,
+    );
+    return selected.map((item, index) => ({
+      type: "Feature",
+      properties: {
+        kind: "node",
+        lens_id: lens.id,
+        node_style: "economy_anchor",
+        source_id: item.sourceId || "",
+        event_id: "",
+        title: item.props.label || "Economy anchor",
+        label: truncate(item.props.label || economyGravitySectorLabel(item.sublayerId), 30),
+        label_detail: `${economyGravitySectorLabel(item.sublayerId)} / OSM context`,
+        label_rank: index + 1,
+        sublayer_id: item.sublayerId,
+        intensity: Number(item.intensity.toFixed(2)),
+        color: economyGravitySectorColor(item.sublayerId),
+      },
+      geometry: { type: "Point", coordinates: item.point },
+    }));
+  }
+
+  function utilityTraceNodeGuideFeatures(center, lens, maxDistance, seenEventIds = new Set()) {
+    const traces = (state.lensDetailFeatures || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.layer === "utility_trace"
+          && Number(props.visible_year || 9999) <= currentTimelineYear()
+          && feature.geometry;
+      });
+    if (!traces.length) return [];
+    const limit = lens.id === "utilities-capacity" ? 86
+      : lens.id === "utilities-resilience" ? 74
+        : 56;
+    const minSpacingM = lens.id === "utilities-works" ? 88 : 72;
+    const traceMaxDistance = maxDistance * (
+      lens.id === "utilities-capacity" ? 1.18
+        : lens.id === "utilities-resilience" ? 1.1
+          : 1
+    );
+    const candidates = [];
+    for (const trace of traces) {
+      const props = trace.properties || {};
+      const eventId = firstDetailEventId(props);
+      const tracePoint = geometryToLngLat(trace.geometry);
+      if (!tracePoint) continue;
+      const traceDistance = lngLatDistanceMeters(center, tracePoint);
+      if (traceDistance > traceMaxDistance) continue;
+      const eventCount = Number(props.event_count || 1);
+      const intensity = clamp01(Number(props.intensity || 0.45) + Math.min(0.18, eventCount * 0.008));
+      const sampleCount = Math.max(4, Math.min(12, Math.round(3 + Math.sqrt(eventCount) / 1.8 + Number(props.rank || 1))));
+      const points = geometryCoordinateSamples(trace.geometry, sampleCount);
+      for (const point of points) {
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance > traceMaxDistance) continue;
+        const proximity = 1 - Math.min(distance, traceMaxDistance) / Math.max(1, traceMaxDistance);
+        const duplicatePenalty = eventId && seenEventIds.has(eventId) ? -0.08 : 0;
+        candidates.push({
+          point,
+          props,
+          eventId,
+          intensity,
+          distance,
+          score: proximity * 0.45 + intensity * 0.34 + Math.min(0.18, eventCount * 0.006) + Math.min(0.08, Number(props.rank || 1) * 0.018) + duplicatePenalty,
+        });
+      }
+    }
+    const selected = [];
+    const buckets = new Map();
+    for (const item of candidates.sort((a, b) => b.score - a.score)) {
+      if (selected.length >= limit) break;
+      const bucket = transportAngleBucket(center, item.point, 36);
+      const bucketCount = buckets.get(bucket) || 0;
+      if (bucketCount >= 7) continue;
+      if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < minSpacingM)) continue;
+      selected.push(item);
+      buckets.set(bucket, bucketCount + 1);
+    }
+    return selected.map((item) => {
+      const utilityType = String(item.props.utility_type || utilityEventType({ id: item.eventId, title: item.props.title || "" }, { properties: item.props }) || "asset");
+      return {
+        type: "Feature",
+        properties: {
+          kind: "node",
+          lens_id: lens.id,
+          node_style: "utility_trace",
+          detail_layer: "utility_trace",
+          utility_type: utilityType,
+          event_id: item.eventId || "",
+          source_id: item.props.source_ids || item.props.source_id || "",
+          confidence: item.props.confidence || "",
+          intensity: Number(item.intensity.toFixed(2)),
+          color: utilityWorksTypeColor(utilityType, { id: item.eventId, title: item.props.title || "" }, { properties: item.props }),
+        },
+        geometry: { type: "Point", coordinates: item.point },
       };
     });
   }
 
   function transportNodeGuideFeatures(center, lens) {
+    if (["transport-speed", "transport-reliability"].includes(lens.id)) {
+      const routeNodes = transportRouteNodeGuideFeatures(center, lens);
+      if (routeNodes.length) return routeNodes;
+    }
     const radiusM = Number(lens.radiusM || 800);
     const searchRadius = radiusM * (lens.id === "transport-access" ? 2.05 : 2.05);
     const anchors = nearbyTransportRoadAnchors(center, searchRadius, 620);
@@ -3891,6 +6735,269 @@
         },
         geometry: { type: "Point", coordinates: anchor.point },
       }));
+  }
+
+  function transportRouteNodeGuideFeatures(center, lens) {
+    const routes = transportNetworkStreetFeatures(center, lens)
+      .filter((feature) => feature.properties?.flow_style === "transport_backbone")
+      .sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0));
+    if (!routes.length) return [];
+    const radiusM = Number(lens.radiusM || 800);
+    const maxDistance = radiusM * (lens.id === "transport-reliability" ? 3.65 : 3.95);
+    const limit = lens.id === "transport-reliability" ? 78 : 92;
+    const minSpacingM = lens.id === "transport-reliability" ? 150 : 132;
+    const bucketCounts = new Map();
+    const selected = [];
+    for (const route of routes) {
+      if (selected.length >= limit) break;
+      const props = route.properties || {};
+      const samples = geometryCoordinateSamples(route.geometry, Number(props.rank || 1) >= 3 ? 5 : 3);
+      for (const point of samples) {
+        if (selected.length >= limit) break;
+        const distance = lngLatDistanceMeters(center, point);
+        if (distance > maxDistance) continue;
+        const bucket = transportAngleBucket(center, point, 36);
+        const bucketCount = bucketCounts.get(bucket) || 0;
+        if (bucketCount >= 5) continue;
+        const tooClose = selected.some((item) => lngLatDistanceMeters(item.point, point) < minSpacingM);
+        if (tooClose) continue;
+        selected.push({ point, props, distance });
+        bucketCounts.set(bucket, bucketCount + 1);
+      }
+    }
+    return selected.map((item) => ({
+      type: "Feature",
+      properties: {
+        kind: "node",
+        lens_id: lens.id,
+        node_style: "transport_route",
+        source_id: item.props.source_id || "",
+        corridor_key: item.props.corridor_key || "",
+        intensity: Number(Math.max(0.34, Number(item.props.intensity || 0.45)).toFixed(2)),
+        color: item.props.color || "#1b7a85",
+        event_id: "",
+      },
+      geometry: { type: "Point", coordinates: item.point },
+    }));
+  }
+
+  function civicAccessStopNodeGuideFeatures(center, lens, maxDistance) {
+    const stops = civicAccessTransportStopsNear(center, maxDistance * 1.08);
+    if (!stops.length) return [];
+    const selected = [];
+    const buckets = new Map();
+    const minSpacingM = 138;
+    for (const stop of stops) {
+      if (selected.length >= 64) break;
+      const bucket = transportAngleBucket(center, stop.point, 40);
+      const bucketCount = buckets.get(bucket) || 0;
+      if (bucketCount >= 4) continue;
+      if (selected.some((item) => lngLatDistanceMeters(item.point, stop.point) < minSpacingM)) continue;
+      selected.push(stop);
+      buckets.set(bucket, bucketCount + 1);
+    }
+    return selected.map((stop) => {
+      const props = stop.props || {};
+      const lineCount = Number(props.servingLineCount || 0);
+      const color = lineCount >= 12 ? "#0f7f86" : lineCount >= 7 ? "#2a84a6" : "#6daeb5";
+      return {
+        type: "Feature",
+        properties: {
+          kind: "node",
+          lens_id: lens.id,
+          layer_id: "coverage",
+          node_style: "transport",
+          source_id: props.source_id || "",
+          title: props.name || "Transport stop",
+          label: truncate(props.name || "Stop", 24),
+          label_detail: lineCount ? `${lineCount} lines` : "Translink stop",
+          intensity: Number(Math.max(0.32, stop.weight).toFixed(2)),
+          color,
+          event_id: "",
+        },
+        geometry: { type: "Point", coordinates: stop.point },
+      };
+    });
+  }
+
+  function lensDetailNodeGuideFeatures(center, lens, maxDistance, seenEventIds = new Set(), baseRank = 0) {
+    const detailLayers = detailNodeLayersForLens(lens);
+    if (!detailLayers.length || !state.lensDetailFeatures.length) return [];
+    const candidates = [];
+    for (const feature of state.lensDetailFeatures) {
+      const props = feature.properties || {};
+      if (!detailLayers.includes(props.layer)) continue;
+      if (Number(props.visible_year || 9999) > currentTimelineYear()) continue;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      if (distance > maxDistance * detailNodeDistanceFactor(lens.id)) continue;
+      const eventId = firstDetailEventId(props);
+      const duplicatePenalty = eventId && seenEventIds.has(eventId) ? -0.16 : 0;
+      const eventCount = Number(props.event_count || 1);
+      const intensity = clamp01(Number(props.intensity || 0.45) + Math.min(0.24, eventCount * 0.035));
+      const proximity = 1 - Math.min(distance, maxDistance) / Math.max(1, maxDistance);
+      candidates.push({
+        point,
+        eventId,
+        props,
+        score: proximity * 0.58 + intensity * 0.28 + Math.min(0.12, eventCount * 0.018) + duplicatePenalty,
+        intensity,
+        distance,
+      });
+    }
+    return distributedDetailNodeCandidates(center, candidates, lens)
+      .slice(0, detailNodeLimit(lens.id))
+      .map((item, index) => {
+        const sublayerId = lens.id === "economy-gravity" ? economyGravitySectorKey(item.props) : "";
+        return {
+          type: "Feature",
+          properties: {
+            kind: "node",
+            lens_id: lens.id,
+            node_style: lens.id.startsWith("utilities-") ? "utility_trace" : "detail",
+            detail_layer: item.props.layer,
+            utility_type: item.props.utility_type || "",
+            event_id: item.eventId,
+            title: item.props.label || item.props.title || "",
+            area: item.props.road_name || item.props.service_type || item.props.utility_type || "",
+            year: item.props.year || currentTimelineYear(),
+            confidence: item.props.confidence || "",
+            label: guideDetailNodeLabel(item.props, lens),
+            label_detail: guideDetailNodeDetail(item.props, lens),
+            label_rank: baseRank + index + 1,
+            layer_id: lens.id === "civic-access-gaps" ? "facilities" : "",
+            sublayer_id: sublayerId,
+            intensity: Number(item.intensity.toFixed(2)),
+            color: sublayerId ? economyGravitySectorColor(sublayerId) : detailNodeColor(lens, item.props, index),
+          },
+          geometry: { type: "Point", coordinates: item.point },
+        };
+      });
+  }
+
+  function detailNodeLayersForLens(lens) {
+    if (lens.id.startsWith("civic-")) return ["civic_facility"];
+    if (lens.id === "economy-gravity") return ["economy_activity_cell"];
+    if (lens.id === "economy-vitality") return ["economy_frontage", "economy_activity_cell"];
+    if (lens.id.startsWith("utilities-")) return ["utility_asset"];
+    return [];
+  }
+
+  function detailNodeDistanceFactor(lensId) {
+    if (lensId === "civic-access-gaps") return 1.25;
+    if (lensId === "economy-gravity") return 1.08;
+    if (lensId === "utilities-resilience") return 1.1;
+    return 1;
+  }
+
+  function detailNodeLimit(lensId) {
+    if (lensId === "civic-access-gaps") return 18;
+    if (lensId === "civic-catchment" || lensId === "civic-demand") return 18;
+    if (lensId === "economy-gravity") return 18;
+    if (lensId.startsWith("utilities-")) return 16;
+    return 12;
+  }
+
+  function distributedDetailNodeCandidates(center, candidates, lens) {
+    const buckets = new Map();
+    const bucketCount = lens.id === "civic-access-gaps" ? 20 : 16;
+    for (const item of candidates) {
+      const angle = Math.atan2(item.point[1] - center[1], item.point[0] - center[0]);
+      const bucket = Math.floor(((angle + Math.PI) / (Math.PI * 2)) * bucketCount);
+      const previous = buckets.get(bucket);
+      if (!previous || item.score > previous.score) buckets.set(bucket, { ...item, angle });
+    }
+    return [...buckets.values()].sort((a, b) => b.score - a.score);
+  }
+
+  function firstDetailEventId(props) {
+    return String(props.event_ids || props.event_ids_all || "")
+      .split(",")
+      .map((value) => value.trim())
+      .find(Boolean) || "";
+  }
+
+  function guideDetailNodeLabel(props, lens) {
+    return guideNodeLabel({
+      title: props.label || props.title,
+      area: props.road_name || props.service_type || props.utility_type || "",
+      year: props.year,
+    }, lens);
+  }
+
+  function guideDetailNodeDetail(props, lens) {
+    if (lens.id === "economy-gravity") {
+      const sector = economyGravitySectorKey(props);
+      const count = Number(props.event_count || 0);
+      return count > 1
+        ? `${economyGravitySectorLabel(sector)} / ${count} records`
+        : economyGravitySectorLabel(sector);
+    }
+    const values = [];
+    if (props.road_name) values.push(props.road_name);
+    if (props.service_type) values.push(titleCase(props.service_type));
+    if (props.utility_type) values.push(titleCase(props.utility_type));
+    if (props.status || props.work_status) values.push(titleCase(String(props.status || props.work_status).replace(/_/g, " ")));
+    if (!values.length && props.event_count) values.push(`${props.event_count} records`);
+    if (!values.length && lens?.label) values.push(lens.label);
+    return truncate(values.join(" / "), 32);
+  }
+
+  function detailNodeColor(lens, props, index = 0) {
+    if (lens.id.startsWith("civic-")) {
+      const type = String(props.service_type || "").toLowerCase();
+      if (/health|care|hospital|gp/.test(type)) return "#e85b1e";
+      if (/education|school|college|library/.test(type)) return "#178f8f";
+      if (/leisure|sport|culture/.test(type)) return "#347db5";
+      if (/safety|police|fire/.test(type)) return "#8c5b3a";
+      return index % 3 === 0 ? "#74449a" : index % 3 === 1 ? "#d69423" : "#2a84a6";
+    }
+    if (lens.id.startsWith("utilities-")) {
+      return utilityWorksTypeColor(String(props.utility_type || ""), { id: firstDetailEventId(props), title: props.title || props.label || "" }, { properties: props });
+    }
+    if (lens.id === "economy-gravity") {
+      return economyGravitySectorColor(economyGravitySectorKey(props));
+    }
+    const text = [props.sector, props.status, props.title, props.label].filter(Boolean).join(" ").toLowerCase();
+    if (/office|business/.test(text)) return "#158c97";
+    if (/hospitality|hotel|restaurant|cafe|visitor|culture/.test(text)) return /visitor|culture/.test(text) ? "#e8a620" : "#ef5a47";
+    if (/night/.test(text)) return "#34393a";
+    if (/market/.test(text)) return "#8a5a2b";
+    if (/vacan|closure|low/.test(text)) return "#ee3f47";
+    return "#7644a1";
+  }
+
+  function guideNodeLabel(event, lens) {
+    const raw = String(event?.title || event?.area || "Source-backed record");
+    const cleaned = raw
+      .replace(/^(Civic|Commercial|Utility)\s+planning\s+approval:\s*/i, "")
+      .replace(/^\d+\s+source-backed\s+(civic service|economy|utilities?)\s+records?\s+(near|around)\s+/i, "")
+      .replace(/\bmapped in OSM\b/gi, "mapped asset")
+      .replace(/\bBelfast\b/gi, "")
+      .replace(/\bopened\b/gi, "open")
+      .replace(/\bcompleted\b/gi, "complete")
+      .replace(/\bplanning application\b/gi, "planning")
+      .replace(/\s+[./-]\s+$/g, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+    const maxByLens = {
+      "economy-gravity": 30,
+      "economy-vitality": 28,
+      "civic-access-gaps": 26,
+      "utilities-capacity": 26,
+      "utilities-resilience": 26,
+      "utilities-works": 24,
+    };
+    return truncate(cleaned || raw, maxByLens[lens.id] || 26);
+  }
+
+  function guideNodeDetail(event, lens) {
+    const parts = [];
+    if (event?.area) parts.push(event.area);
+    if (event?.year) parts.push(String(event.year));
+    if (!parts.length && lens?.label) parts.push(lens.label);
+    return truncate(parts.join(" / "), 32);
   }
 
   function nearbyLensEventAnchors(center, lens, options = {}) {
@@ -4025,6 +7132,26 @@
       score += Math.max(0, 1 - distance / kernelM) * Math.max(0.2, weight);
     }
     return clamp01(Math.min(1, score * 0.36));
+  }
+
+  function civicDemandAxisAngle(center, events, maxDistance) {
+    let xx = 0, yy = 0, xy = 0, total = 0;
+    const latRad = center[1] * Math.PI / 180;
+    const metersPerLng = Math.max(1, Math.cos(latRad) * 111320);
+    for (const event of events) {
+      if (!event.lngLat) continue;
+      const dx = (event.lngLat[0] - center[0]) * metersPerLng;
+      const dy = (event.lngLat[1] - center[1]) * 111320;
+      const distance = Math.hypot(dx, dy);
+      if (!Number.isFinite(distance) || distance <= 1 || distance > maxDistance) continue;
+      const weight = Math.max(0.08, 1 - distance / maxDistance) * Math.max(0.24, confidenceRank(event.confidence) / 4);
+      xx += dx * dx * weight;
+      yy += dy * dy * weight;
+      xy += dx * dy * weight;
+      total += weight;
+    }
+    if (total < 0.1 || Math.abs(xx - yy) + Math.abs(xy) < 1) return Math.PI / 2;
+    return 0.5 * Math.atan2(2 * xy, xx - yy);
   }
 
   function surfaceColorForLens(lensId, intensity, angle, nearestEvent = null, lens = activeMapLens()) {
@@ -4197,13 +7324,15 @@
     return ["all", ["==", ["get", "lens_role"], "current"], ["==", ["get", "category"], category]];
   }
 
-  function lensDetailFilter(layer) {
-    return [
+  function lensDetailFilter(layer, sublayerId = "") {
+    const clauses = [
       "all",
       ["==", ["get", "layer"], layer],
       ["==", ["to-number", ["get", "year"], 0], currentTimelineYear()],
       ...lensDetailConfidenceFilter(),
     ];
+    if (sublayerId && !state.activeAspectLayers.has(sublayerId)) clauses.push(["==", ["get", "layer"], "__none__"]);
+    return clauses;
   }
 
   function lensDetailConfidenceFilter() {
@@ -4234,15 +7363,27 @@
   }
 
   function transportBaseRoadFilter() {
-    return ["==", ["get", "layer"], "traffic_road_base"];
+    const mode = activeMapLens().id;
+    const filter = ["==", ["get", "layer"], "traffic_road_base"];
+    if (["transport-speed", "transport-reliability"].includes(mode)) {
+      return ["all", filter, [">=", ["to-number", ["get", "rank"], 1], 2]];
+    }
+    return filter;
   }
 
   function transportRoadFilter() {
-    return [
+    const mode = activeMapLens().id;
+    const filter = [
       "all",
       ["==", ["get", "layer"], "traffic_road"],
       ["<=", ["to-number", ["get", "visible_year"], 9999], currentTimelineYear()],
     ];
+    if (mode === "transport-speed") {
+      filter.push(["any", [">=", transportActivityExpression(), 0.16], [">=", ["to-number", ["get", "rank"], 1], 2]]);
+    } else if (mode === "transport-reliability") {
+      filter.push(["any", [">=", transportActivityExpression(), 0.12], [">=", ["to-number", ["get", "rank"], 1], 2]]);
+    }
+    return filter;
   }
 
   function transportHotspotFilter() {
@@ -4265,17 +7406,17 @@
   function transportBaseRoadCasePaint() {
     const mode = activeMapLens().id;
     const rank = transportRankExpression();
-    const opacity = mode === "transport-speed" ? [8, 0.18, 12, 0.4, 16, 0.64]
-      : mode === "transport-reliability" ? [8, 0.14, 12, 0.32, 16, 0.52]
+    const opacity = mode === "transport-speed" ? [8, 0.1, 12, 0.24, 16, 0.42]
+      : mode === "transport-reliability" ? [8, 0.08, 12, 0.2, 16, 0.36]
         : [8, 0.1, 12, 0.24, 16, 0.42];
     return {
       "line-color": "#fffdf7",
       "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        8, ["*", rank, mode === "transport-speed" ? 0.42 : 0.32],
-        12, ["*", rank, mode === "transport-speed" ? 0.84 : 0.62],
-        16, ["*", rank, mode === "transport-speed" ? 1.32 : 1.02],
+        8, ["*", rank, mode === "transport-speed" ? 0.34 : 0.28],
+        12, ["*", rank, mode === "transport-speed" ? 0.7 : 0.54],
+        16, ["*", rank, mode === "transport-speed" ? 1.1 : 0.9],
       ],
       "line-blur": 0.08,
     };
@@ -4307,17 +7448,17 @@
           3, "#d99a36",
           4, "#c8472e",
         ];
-    const opacity = mode === "transport-speed" ? [8, 0.14, 12, 0.3, 16, 0.48]
-      : mode === "transport-reliability" ? [8, 0.12, 12, 0.26, 16, 0.42]
+    const opacity = mode === "transport-speed" ? [8, 0.08, 12, 0.18, 16, 0.34]
+      : mode === "transport-reliability" ? [8, 0.07, 12, 0.16, 16, 0.3]
         : [8, 0.12, 12, 0.28, 16, 0.48];
     return {
       "line-color": color,
       "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.18 : 0.16],
-        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.36 : 0.32],
-        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.62 : 0.56],
+        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.24 : 0.2],
+        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.48 : 0.38],
+        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.82 : 0.68],
       ],
     };
   }
@@ -4325,6 +7466,8 @@
   function transportRoadPaint() {
     const activity = transportActivityExpression();
     const rank = transportRankExpression();
+    const rankRaw = ["to-number", ["get", "rank"], 1];
+    const rankVisibility = ["interpolate", ["linear"], rankRaw, 1, 0.32, 2, 0.7, 3, 0.92, 4, 1];
     const mode = activeMapLens().id;
     if (mode === "transport-access") {
       return {
@@ -4349,38 +7492,60 @@
     if (mode === "transport-reliability") {
       return {
         "line-color": [
-          "interpolate", ["linear"], activity,
-          0, "#898b8e",
-          0.28, "#7a3b97",
-          0.5, "#ef9c1a",
-          0.72, "#ed3f2b",
-          1, "#248b94",
+          "case",
+          ["<", rankRaw, 2],
+          [
+            "interpolate", ["linear"], activity,
+            0, "#898b8e",
+            0.42, "#7a3b97",
+            0.72, "#ef9c1a",
+            1, "#ef9c1a",
+          ],
+          [
+            "interpolate", ["linear"], activity,
+            0, "#898b8e",
+            0.28, "#7a3b97",
+            0.5, "#ef9c1a",
+            0.72, "#ed3f2b",
+            1, "#248b94",
+          ],
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.14, 0.2, 0.26, 1, 0.5],
+        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.12, 0.2, 0.28, 1, 0.58], rankVisibility],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.3, ["*", activity, 0.72]], rank],
-          13, ["*", ["+", 0.56, ["*", activity, 1.18]], rank],
-          16, ["*", ["+", 0.86, ["*", activity, 1.76]], rank],
+          9, ["*", ["+", 0.36, ["*", activity, 0.72]], rank],
+          13, ["*", ["+", 0.58, ["*", activity, 1.08]], rank],
+          16, ["*", ["+", 0.86, ["*", activity, 1.72]], rank],
         ],
         "line-dasharray": [2.2, 1],
       };
     }
     return {
       "line-color": [
-        "interpolate", ["linear"], activity,
-        0, "#2f8f46",
-        0.22, "#6da34d",
-        0.46, "#d6a33e",
-        0.7, "#d66a3a",
-        1, "#c8472e",
+        "case",
+        ["<", rankRaw, 2],
+        [
+          "interpolate", ["linear"], activity,
+          0, "#2f8f46",
+          0.3, "#6da34d",
+          0.62, "#d6a33e",
+          1, "#d66a3a",
+        ],
+        [
+          "interpolate", ["linear"], activity,
+          0, "#2f8f46",
+          0.22, "#6da34d",
+          0.46, "#d6a33e",
+          0.7, "#d66a3a",
+          1, "#c8472e",
+        ],
       ],
-      "line-opacity": ["interpolate", ["linear"], activity, 0, 0.22, 0.2, 0.42, 1, 0.68],
-      "line-width": [
-        "interpolate", ["linear"], ["zoom"],
-        9, ["*", ["+", 0.34, ["*", activity, 0.9]], rank],
-        13, ["*", ["+", 0.62, ["*", activity, 1.55]], rank],
-        16, ["*", ["+", 0.98, ["*", activity, 2.5]], rank],
+        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.14, 0.2, 0.3, 1, 0.62], rankVisibility],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, ["*", ["+", 0.34, ["*", activity, 0.82]], rank],
+          13, ["*", ["+", 0.58, ["*", activity, 1.42]], rank],
+          16, ["*", ["+", 0.9, ["*", activity, 2.25]], rank],
       ],
       "line-dasharray": [1, 0.0001],
     };
@@ -4534,7 +7699,15 @@
     els.layersList.innerHTML = layers.map((l) => {
       const isCategoryToggle = Boolean(l.categoryToggle);
       const on = isCategoryToggle ? state.activeLayers.has(l.id) : state.activeAspectLayers.has(l.id);
-      const count = isCategoryToggle ? categoryCount(l.id, state.year) : aspectLayerCount(l, lens);
+      const count = lens.id === "economy-gravity"
+        ? economyGravityAspectLayerCount(l, lens, categoryCount(l.id, state.year))
+        : lens.id === "civic-catchment"
+        ? civicCatchmentAspectLayerCount(l, lens, categoryCount(l.id, state.year))
+        : isCategoryToggle && lens.category === "utilities"
+        ? utilityAspectLayerCount(l, lens, categoryCount(l.id, state.year))
+        : isCategoryToggle
+          ? categoryCount(l.id, state.year)
+          : aspectLayerCount(l, lens);
       return `
         <div class="layer-row" data-on="${on}" data-layer="${isCategoryToggle ? escapeAttr(l.id) : ""}" data-sublayer="${escapeAttr(l.id)}" role="button" tabindex="0" aria-pressed="${on}">
           <span class="layer-swatch" style="--accent:${l.color}"></span>
@@ -4577,6 +7750,7 @@
       els.activeLensCard.style.setProperty("--lens-accent", accent);
     }
     els.layersPanel?.style.setProperty("--lens-accent", accent);
+    if (els.layersPanel) els.layersPanel.dataset.lens = lens.id;
     setText(els.activeLensIcon, lens.badge || lens.shortLabel?.slice(0, 1) || "");
     setText(els.activeLensDomain, lens.domain || LAYER_BY_ID.get(lens.category)?.label || "Map lens");
     setText(els.activeLensTitle, lens.label || "");
@@ -4647,6 +7821,7 @@
   }
 
   function lensLegendTitle(lens) {
+    if (lens.id === "civic-access-gaps") return "Access gap seams";
     const category = LAYER_BY_ID.get(lens.category || lens.layerId || lens.id)?.label || "";
     if (!category || category === lens.label) return lens.label;
     return `${category} / ${lens.label}`;
@@ -4682,9 +7857,94 @@
     const base = categoryCount(lens.category || state.activeLens, state.year);
     const index = Math.max(0, lensLayers(lens).findIndex((item) => item.id === layer.id));
     if (!base) return layer.id === "coverage" || layer.id === "boundary" ? "on" : 0;
+    if (lens.category === "utilities") return utilityAspectLayerCount(layer, lens, base);
+    if (lens.id === "economy-gravity") return economyGravityAspectLayerCount(layer, lens, base);
+    if (lens.id === "civic-catchment") return civicCatchmentAspectLayerCount(layer, lens, base);
     if (/boundary|study|change|grid|seams|corridors|network|frontage|resilience|works|capacity/.test(layer.id)) return "on";
     const factor = [1, 0.42, 0.28, 0.18, 0.12, 0.08][Math.min(5, index)] || 0.06;
     return Math.max(1, Math.round(base * factor));
+  }
+
+  function economyGravityAspectLayerCount(layer, _lens, base) {
+    const target = layer.categoryToggle ? "economy" : layer.id;
+    const detailFeatures = (state.lensDetailFeatures || [])
+      .filter((feature) => feature.properties?.layer === "economy_activity_cell");
+    const anchorFeatures = (state.economyAnchorFeatures || [])
+      .filter((feature) => feature.properties?.layer === "economy_anchor");
+    if (detailFeatures.length || anchorFeatures.length) {
+      const detailCount = detailFeatures.reduce((sum, feature) => {
+        const props = feature.properties || {};
+        const sector = economyGravitySectorKey(props);
+        return sector === target ? sum + Math.max(1, Number(props.event_count || 1)) : sum;
+      }, 0);
+      const anchorCount = anchorFeatures.reduce((sum, feature) => {
+        const props = feature.properties || {};
+        const sector = props.sublayer_id || props.sector || economyGravitySectorKey(props);
+        return sector === target ? sum + 1 : sum;
+      }, 0);
+      return detailCount + anchorCount;
+    }
+    return lensEventsForYear(state.year)
+      .filter((event) => event.category === "economy" && economyGravitySectorKey(event) === target)
+      .length;
+  }
+
+  function civicCatchmentAspectLayerCount(layer, _lens, base) {
+    const target = layer.id;
+    const anchorCount = (state.civicServiceFeatures || [])
+      .filter((feature) => civicServiceSublayerKey(feature.properties || {}) === target)
+      .length;
+    const detailCount = (state.lensDetailFeatures || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.layer === "civic_facility" && civicServiceSublayerKey(props) === target;
+      })
+      .reduce((sum, feature) => sum + Math.max(1, Number(feature.properties?.event_count || 1)), 0);
+    if (anchorCount || detailCount) return anchorCount + detailCount;
+    if (layer.categoryToggle) return base;
+    return lensEventsForYear(state.year)
+      .filter((event) => event.category === "civic_services" && civicServiceSublayerKey(event) === target)
+      .length;
+  }
+
+  function utilityAspectLayerCount(layer, lens, base) {
+    const typeByLayer = {
+      utilities: "electricity",
+      power_network: "electricity",
+      water: "water",
+      water_network: "water",
+      telecoms: "telecoms",
+      telecoms_network: "telecoms",
+      gas: "gas",
+      gas_network: "gas",
+      drainage: "drainage",
+      drainage_network: "drainage",
+      district_energy: "district_energy",
+    };
+    if (lens.id === "utilities-works") {
+      const termsByLayer = {
+        planned: ["planned", "programme", "scheme", "maintenance", "works"],
+        repair: ["repair", "replace", "upgrade", "reinstate"],
+        failure: ["fail", "outage", "burst", "emergency", "disruption"],
+        permit: ["permit", "consent", "licence", "license"],
+        reinstatement: ["reinstate", "restore", "resurface"],
+      };
+      if (layer.categoryToggle) return base;
+      const terms = termsByLayer[layer.id] || [];
+      return countEventsByTerms(lensEventsForYear(state.year).filter((event) => event.category === "utilities"), terms);
+    }
+    const type = layer.utilityType || typeByLayer[layer.id];
+    if (!type) return 0;
+    const networkCount = (state.utilityNetworkFeatures || [])
+      .filter((feature) => feature.properties?.utility_type === type)
+      .length;
+    const detailCount = (state.lensDetailFeatures || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return ["utility_trace", "utility_asset"].includes(props.layer) && props.utility_type === type;
+      })
+      .length;
+    return networkCount + detailCount;
   }
 
   function formatLayerCount(value, categoryToggle) {
@@ -4757,6 +8017,14 @@
       const renderableCount = lensRenderablePointCount(category);
       if (!count) return { label: "No records", empty: true, note: lens.empty };
       if (!renderableCount) return { label: "No site geometry", empty: true, note: "Civic records exist for this year, but only aggregate or non-site geometry is available." };
+      if (lens.id === "civic-catchment") {
+        const anchorCount = state.civicServiceFeatures.length;
+        return {
+          label: `${compactNumber(anchorCount)} anchors + ${renderableCount} facilities`,
+          empty: false,
+          note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM civic-service anchors are context only and may post-date the selected year.`,
+        };
+      }
       return { label: `Cells + ${renderableCount} facilities`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
     if (category === "economy") {
@@ -4764,6 +8032,14 @@
       const renderableCount = lensRenderablePointCount(category);
       if (!count) return { label: "No records", empty: true, note: lens.empty };
       if (!renderableCount) return { label: "No site geometry", empty: true, note: "Economy records exist for this year, but only aggregate or non-site geometry is available." };
+      if (lens.id === "economy-gravity") {
+        const anchorCount = state.economyAnchorFeatures.length;
+        return {
+          label: `${compactNumber(anchorCount)} anchors + ${renderableCount} records`,
+          empty: false,
+          note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM economy anchors are context only and may post-date the selected year.`,
+        };
+      }
       return { label: `Cells/frontages + ${renderableCount} records`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
     if (category === "utilities") {
@@ -5191,7 +8467,7 @@
         common[2],
       ],
       "economy-gravity": [
-        { label: "Flow anchors", value: compactNumber(Math.min(9, Math.max(0, context.nearbyCurrent.length - 1))), hint: "nearby activity records" },
+        { label: "Flow anchors", value: compactNumber(Math.min(13, Math.max(0, state.economyAnchorFeatures.length ? state.economyAnchorFeatures.length : context.nearbyCurrent.length - 1))), hint: state.economyAnchorFeatures.length ? "current OSM context" : "nearby activity records" },
         common[1],
         common[0],
         common[2],
@@ -5788,7 +9064,92 @@
 
   function focusMapOnEvent(event, duration = 720) {
     if (!event?.lngLat || !state.map || !state.mapReady) return;
-    state.map.flyTo({ center: event.lngLat, zoom: Math.max(state.map.getZoom(), 13.55), duration });
+    state.map.flyTo({
+      center: event.lngLat,
+      zoom: lensCameraZoom(activeMapLens(), event.lngLat),
+      pitch: state.mapTilted ? 48 : 0,
+      bearing: state.mapTilted ? -10 : 0,
+      duration,
+    });
+  }
+
+  function focusActiveLensCamera(duration = 420) {
+    const event = state.selectedEvent;
+    if (!event?.lngLat || !state.map || !state.mapReady) return;
+    state.map.easeTo({
+      center: event.lngLat,
+      zoom: lensCameraZoom(activeMapLens(), event.lngLat),
+      pitch: state.mapTilted ? 48 : 0,
+      bearing: state.mapTilted ? -10 : 0,
+      duration,
+    });
+  }
+
+  function lensCameraZoom(lens = activeMapLens(), lngLat = state.selectedEvent?.lngLat || mapCenter()) {
+    const radiusM = Math.max(300, lensEffectiveRadiusM(lens));
+    const metersPerPixelByLens = {
+      "transport-speed": 5.95,
+      "transport-access": 7.85,
+      "transport-reliability": 6.1,
+      "planning-pressure": 6.05,
+      "planning-delta": 4.85,
+      "planning-parcels": 3.45,
+      "civic-access-gaps": 6.25,
+      "civic-catchment": 6.1,
+      "civic-demand": 7.8,
+      "economy-vitality": 5.75,
+      "economy-land-use": 3.78,
+      "economy-gravity": 5.85,
+      "utilities-capacity": 4.65,
+      "utilities-resilience": 5.15,
+      "utilities-works": 4.65,
+    };
+    const lat = Number(lngLat?.[1] || mapCenter()[1]) * Math.PI / 180;
+    const maxZoomByLens = {
+      "planning-parcels": 14.85,
+      "economy-land-use": 14.65,
+      "utilities-capacity": 14.65,
+      "utilities-resilience": 14.5,
+      "utilities-works": 14.65,
+    };
+    const maxZoom = maxZoomByLens[lens?.id] || (["planning-delta", "planning-parcels", "economy-land-use"].includes(lens?.id) ? 14.4 : 14.3);
+    const configuredMetersPerPixel = metersPerPixelByLens[lens?.id];
+    if (configuredMetersPerPixel) {
+      const zoom = Math.log2((156543.03392 * Math.max(0.25, Math.cos(lat))) / configuredMetersPerPixel);
+      return Math.max(13.35, Math.min(maxZoom, zoom));
+    }
+    const factorByLens = {
+      "transport-speed": 1.55,
+      "transport-access": 2.55,
+      "transport-reliability": 1.7,
+      "planning-pressure": 1.35,
+      "planning-delta": 0.92,
+      "planning-parcels": 0.92,
+      "civic-access-gaps": 1.45,
+      "civic-catchment": 1.55,
+      "civic-demand": 1.55,
+      "economy-vitality": 1.35,
+      "economy-land-use": 0.94,
+      "economy-gravity": 1.45,
+      "utilities-capacity": 1.25,
+      "utilities-resilience": 1.5,
+      "utilities-works": 1.4,
+    };
+    const targetPxByLens = {
+      "transport-access": 420,
+      "civic-demand": 380,
+      "civic-catchment": 380,
+      "economy-gravity": 390,
+      "planning-delta": 330,
+      "planning-parcels": 330,
+      "economy-land-use": 340,
+      "utilities-works": 350,
+    };
+    const effectiveRadius = radiusM * (factorByLens[lens?.id] || 1.35);
+    const targetPx = targetPxByLens[lens?.id] || (radiusM >= 1200 ? 370 : 335);
+    const metersPerPixel = Math.max(1.4, effectiveRadius / targetPx);
+    const rawZoom = Math.log2((156543.03392 * Math.max(0.25, Math.cos(lat))) / metersPerPixel);
+    return Math.max(13.55, Math.min(maxZoom, rawZoom));
   }
 
   function clearSelection() {
@@ -5863,6 +9224,7 @@
     renderLensLegend();
     renderDetail();
     updateTimeDependentMapState();
+    focusActiveLensCamera();
     syncTopline();
   }
 
@@ -5885,6 +9247,7 @@
     renderLensLegend();
     renderDetail();
     updateTimeDependentMapState();
+    focusActiveLensCamera();
     syncTopline();
   }
 

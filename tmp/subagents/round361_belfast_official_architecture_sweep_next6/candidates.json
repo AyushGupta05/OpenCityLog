@@ -1,0 +1,77 @@
+{
+  "schema_version": "round361_belfast_official_architecture_sweep_next6.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round361_belfast_official_architecture_sweep_next6",
+  "candidate_count": 1,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2026-03-05",
+    "max": "2026-03-05"
+  },
+  "source_ids": [
+    "qub-weavers-hall-topping-out-2026-round361",
+    "qub-weavers-hall-accommodation-page-round361",
+    "qub-estates-construction-stage-round361"
+  ],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents Belfast/HARNI/HED/official planning/public realm/university packs through Round357 and visible Round113/114/121/123/124/125/228/235 references"
+  },
+  "prior_file_count_by_belfast_path": 239,
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "event_id": "round361_belfast_weavers_hall_topping_out_reported_2026_03_05",
+      "date": "2026-03-05",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/construction milestone",
+      "title": "Weavers' Hall topping-out milestone was reported",
+      "summary": "Queen's University Belfast reported on 5 March 2026 that a topping-out ceremony with GRAHAM had taken place at Weavers' Hall, the university's Passivhaus-standard student accommodation project on Dublin Road.",
+      "observed_change": "A documented construction-stage milestone was recorded for the 459-bed Weavers' Hall student accommodation building on Dublin Road.",
+      "area": "Weavers' Hall, 14 Dublin Road",
+      "latitude": 54.592,
+      "longitude": -5.931,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.931,
+          54.592
+        ]
+      },
+      "geometry_ref": "14 Dublin Road, Belfast, BT2 7HN",
+      "geometry_source": "Approximate point reused from the existing Dublin Road / former Movie House cinema site context and checked against Queen's Weavers' Hall accommodation address.",
+      "geometry_precision": "Approximate site point, not a surveyed building footprint, floor plate, courtyard, terrace, Passivhaus element, red-line planning boundary, or construction crane location.",
+      "source_ids": [
+        "qub-weavers-hall-topping-out-2026-round361",
+        "qub-weavers-hall-accommodation-page-round361",
+        "qub-estates-construction-stage-round361"
+      ],
+      "source_name": "Queen's and GRAHAM top-off Ireland's largest Passivhaus student accommodation",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2026/QueensandGRAHAMtop-offIrelandslargestPassivhausstudentaccommodation.html",
+      "source_record_id": "Queen's University Belfast news article, 5 March 2026; Weavers' Hall topping-out/top-off milestone",
+      "source_type": "official university news page",
+      "source_date_field": "News page date and reported topping-out ceremony",
+      "source_date_value": "2026-03-05",
+      "publisher": "Queen's University Belfast",
+      "license": "Queen's University Belfast website copyright and terms; factual construction-stage metadata and source URLs retained for audit.",
+      "license_url": "https://www.qub.ac.uk/about/website/",
+      "attribution": "Queen's University Belfast",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "purpose-built student accommodation",
+      "milestone_type": "topping_out_reported",
+      "architect": "Queen's University Belfast, GRAHAM and the Weavers' Hall project team; architect not asserted by the cited Queen's news page.",
+      "limitations": "This records the Queen's-reported topping-out/top-off construction milestone only. It does not document practical completion, opening, student occupation, building-control sign-off, Passivhaus certification, measured energy performance, wider Dublin Road outcomes, or the neighbouring Kainos office project. The source mentions future student intake/opening expectations, which should remain watchlist context until observed by a later source.",
+      "caveats": "Use as a construction-stage milestone separate from the existing 2024 construction-start record and any later opening, occupation or certification records.",
+      "duplicate_check_note": "Searched the manual corpus and Belfast prior packs for Weavers' Hall, Dublin Road Passivhaus student accommodation, Queen's/GRAHAM top-off, topping-out, largest Passivhaus and the existing 2024 construction-start title. The current corpus contains the 2024 construction/enabling works start for the same project but no Queen's 5 March 2026 topping-out/top-off milestone.",
+      "source_audit_note": "The official Queen's news page is strong evidence for the reported topping-out date, site/project name, developer/university attribution and scale fields. The accommodation and estates pages are supporting context for address, room count and future opening/status only.",
+      "transformation_method": "Round361 official/public source sweep; source pages were searched and fetched for availability, candidate terms were checked with rg against the current manual corpus and prior Belfast sweep packs, and the surviving lead was normalized with point geometry, provenance, license caveats and overclaim wording controls."
+    }
+  ]
+}

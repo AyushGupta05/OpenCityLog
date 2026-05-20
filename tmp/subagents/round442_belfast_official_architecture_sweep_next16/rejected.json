@@ -1,0 +1,314 @@
+[
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast City Council",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Belfast Zoo visitor centre",
+      "new visitor centre and entrance",
+      "Belfast Zoological Gardens Opening of Visitor Centre"
+    ],
+    "duplicate_scan_hits": [],
+    "id": "round442_reject_belfast_zoo_visitor_centre_insufficient_actual_date",
+    "license": "Belfast City Council website terms/copyright; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "observed_or_candidate_date": "2009-04",
+    "publisher": "Belfast City Council",
+    "reason": "Rejected for this batch: the official report proposed a mid-April 2009 opening and later committee material says the visitor centre and entrance opened in 2009, but this sweep did not find a source-backed actual day-level opening record.",
+    "source_name": "Belfast Zoological Gardens - Opening of Visitor Centre",
+    "source_record_id": "bcc-zoo-visitor-centre-opening-report-2009",
+    "source_type": "official council committee report PDF",
+    "source_url": "https://minutes.belfastcity.gov.uk/documents/s25383/Belfast%20Zoological%20Gardens%20-%20Opening%20of%20Visitor%20Centre.pdf",
+    "terms": "https://www.belfastcity.gov.uk/terms-conditions",
+    "title": "Belfast Zoo visitor centre and entrance opening"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast City Council",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Black Mountain Shared Space officially opened",
+      "bfs_arch_black_mountain_shared_space_opening_2024",
+      "7-million-shared-community-space-opens-at-Belfast"
+    ],
+    "duplicate_scan_hits": [
+      {
+        "file": "web\\data\\city-atlas\\cities\\belfast\\sources.json",
+        "index": 86132,
+        "term": "7-million-shared-community-space-opens-at-belfast"
+      },
+      {
+        "file": "tmp\\subagents\\round112_major_arch_pages_no_new_candidates.json",
+        "index": 2615,
+        "term": "black mountain shared space officially opened"
+      },
+      {
+        "file": "tmp\\subagents\\round183_belfast_deep_public_realm\\rejected.json",
+        "index": 1008,
+        "term": "black mountain shared space officially opened"
+      },
+      {
+        "file": "tmp\\subagents\\round189_belfast_deep_committee\\candidates.json",
+        "index": 1594,
+        "term": "7-million-shared-community-space-opens-at-belfast"
+      },
+      {
+        "file": "tmp\\subagents\\round189_belfast_deep_committee\\source_audit.json",
+        "index": 2219,
+        "term": "7-million-shared-community-space-opens-at-belfast"
+      },
+      {
+        "file": "tmp\\subagents\\round228_belfast_official_deep_tail_next\\rejected.json",
+        "index": 871,
+        "term": "7-million-shared-community-space-opens-at-belfast"
+      }
+    ],
+    "id": "round442_reject_black_mountain_shared_space_duplicate",
+    "license": "Belfast City Council website terms/copyright; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "observed_or_candidate_date": "2024-09-18",
+    "publisher": "Belfast City Council",
+    "reason": "Rejected as duplicate: Black Mountain Shared Space approval/opening records are already present in the live corpus and prior Belfast packs.",
+    "source_name": "GBP7 million shared community space opens at Belfast interface area",
+    "source_record_id": "bcc-news-black-mountain-shared-space-opening-2024-09-18",
+    "source_type": "official council news page",
+    "source_url": "https://www.belfastcity.gov.uk/News/%C2%A37-million-shared-community-space-opens-at-Belfast",
+    "terms": "https://www.belfastcity.gov.uk/terms-conditions",
+    "title": "Black Mountain Shared Space official opening"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Health and Social Care Trust",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Horatio's Garden Northern Ireland opened at Musgrave Park Hospital",
+      "bfs_arch_horatios_garden_northern_ireland_opening_2023",
+      "horatios-garden-northern-ireland-first-opening-2023-12-21"
+    ],
+    "duplicate_scan_hits": [
+      {
+        "file": "web\\data\\city-atlas\\cities\\belfast\\events_2023.json",
+        "index": 539290,
+        "term": "horatio's garden northern ireland opened at musgrave park hospital"
+      },
+      {
+        "file": "tmp\\subagents\\belfast_arch_candidates_round82.json",
+        "index": 16625,
+        "term": "horatio's garden northern ireland opened at musgrave park hospital"
+      }
+    ],
+    "id": "round442_reject_horatios_garden_official_opening_near_duplicate",
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "observed_or_candidate_date": "2024-06-18",
+    "publisher": "Belfast Health and Social Care Trust",
+    "reason": "Rejected as a near-duplicate delivered-stage milestone: the live/manual corpus already contains Horatio's Garden Northern Ireland opening at Musgrave Park Hospital, and the Trust page states the garden was completed at Christmas 2023 before the 2024 ceremony.",
+    "source_name": "Horatio's Garden Opens at Musgrave Park Hospital",
+    "source_record_id": "belfast-trust-2024-06-18-horatios-garden-official-opening",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2024/06/18/horatios-garden-opens-at-musgrave-park-hospital/",
+    "terms": "https://belfasttrust.hscni.net/copyright/",
+    "title": "Horatio's Garden official opening at Musgrave Park Hospital"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Department for Communities, Northern Ireland",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Ionad na Fuiseoige family centre opened in Twinbrook",
+      "bfs_arch_ionad_na_fuiseoige_family_centre_opening_2019",
+      "new-ps21-million-family-centre-opens-twinbrook-belfast"
+    ],
+    "duplicate_scan_hits": [
+      {
+        "file": "web\\data\\city-atlas\\cities\\belfast\\events_2019.json",
+        "index": 348273,
+        "term": "ionad na fuiseoige family centre opened in twinbrook"
+      },
+      {
+        "file": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json",
+        "index": 14761,
+        "term": "ionad na fuiseoige family centre opened in twinbrook"
+      }
+    ],
+    "id": "round442_reject_ionad_na_fuiseoige_duplicate",
+    "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+    "observed_or_candidate_date": "2019-03-05",
+    "publisher": "Department for Communities, Northern Ireland",
+    "reason": "Rejected as duplicate: the live/manual corpus already contains the Ionad na Fuiseoige family-centre opening using the Department for Communities source.",
+    "source_name": "New GBP2.1 million family centre opens in Twinbrook, Belfast",
+    "source_record_id": "dfc-new-ps21-million-family-centre-opens-twinbrook-belfast",
+    "source_type": "official government news page",
+    "source_url": "https://www.communities-ni.gov.uk/news/new-ps21-million-family-centre-opens-twinbrook-belfast",
+    "terms": "https://www.communities-ni.gov.uk/articles/crown-copyright",
+    "title": "Ionad na Fuiseoige family centre opened in Twinbrook"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Queen's University Belfast",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "NIE Networks Sustainable Energy Laboratory opened at Queen's University Belfast",
+      "bfs_arch_nie_networks_sustainable_energy_lab_opening_2022",
+      "NIENetworksSustainableEnergyLaboratoryofficiallyopensatQueens"
+    ],
+    "duplicate_scan_hits": [
+      {
+        "file": "web\\data\\city-atlas\\cities\\belfast\\events_2022.json",
+        "index": 651766,
+        "term": "nie networks sustainable energy laboratory opened at queen's university belfast"
+      }
+    ],
+    "id": "round442_reject_nie_networks_sustainable_energy_lab_duplicate",
+    "license": "Queen's University Belfast website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "observed_or_candidate_date": "2022-11-10",
+    "publisher": "Queen's University Belfast",
+    "reason": "Rejected as duplicate: the live 2022 Belfast corpus already contains the NIE Networks Sustainable Energy Laboratory opening event.",
+    "source_name": "NIE Networks Sustainable Energy Laboratory officially opens at Queen's University Belfast",
+    "source_record_id": "qub-news-nie-networks-sustainable-energy-laboratory-2022-11-10",
+    "source_type": "official university news page",
+    "source_url": "https://www.qub.ac.uk/News/Allnews/2022/NIENetworksSustainableEnergyLaboratoryofficiallyopensatQueens.html",
+    "terms": "https://www.qub.ac.uk/Legal/",
+    "title": "NIE Networks Sustainable Energy Laboratory opened at Queen's University Belfast"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast City Council",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Sandy Row Arts and Digital Hub",
+      "sandy_row_arts_digital_hub",
+      "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+    ],
+    "duplicate_scan_hits": [
+      {
+        "file": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json",
+        "index": 59727,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "web\\data\\city-atlas\\cities\\belfast\\sources.json",
+        "index": 93908,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round116_belfast_heritage_projects\\candidates.json",
+        "index": 38063,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round116_belfast_heritage_projects\\notes.md",
+        "index": 2952,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round118_belfast_public_heritage_projects\\candidates.json",
+        "index": 37269,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round118_belfast_public_heritage_projects\\notes.md",
+        "index": 2232,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round125_belfast_civic_public_realm_geocoded\\candidates.json",
+        "index": 14846,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round183_belfast_deep_public_realm\\candidates.json",
+        "index": 1531,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round183_belfast_deep_public_realm\\source_audit.json",
+        "index": 5621,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round189_belfast_deep_committee\\candidates.json",
+        "index": 2339,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round189_belfast_deep_committee\\source_audit.json",
+        "index": 18881,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round228_belfast_official_deep_tail_next\\rejected.json",
+        "index": 4263,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round235_belfast_official_tail_next2\\notes.md",
+        "index": 2337,
+        "term": "sandy_row_arts_digital_hub"
+      },
+      {
+        "file": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json",
+        "index": 5388,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json",
+        "index": 6099,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round347_belfast_official_architecture_sweep_next3\\notes.md",
+        "index": 2762,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round347_belfast_official_architecture_sweep_next3\\rejected.json",
+        "index": 6797,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round347_belfast_official_architecture_sweep_next3\\source_audit.json",
+        "index": 8191,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round357_belfast_official_architecture_sweep_next5\\notes.md",
+        "index": 3519,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round357_belfast_official_architecture_sweep_next5\\rejected.json",
+        "index": 3988,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round357_belfast_official_architecture_sweep_next5\\source_audit.json",
+        "index": 4100,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      },
+      {
+        "file": "tmp\\subagents\\round383_belfast_official_architecture_sweep_next10\\notes.md",
+        "index": 3540,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round383_belfast_official_architecture_sweep_next10\\rejected.json",
+        "index": 3835,
+        "term": "sandy row arts and digital hub"
+      },
+      {
+        "file": "tmp\\subagents\\round383_belfast_official_architecture_sweep_next10\\source_audit.json",
+        "index": 12704,
+        "term": "boost-for-sandy-row-as-new-arts-digital-hub-opens"
+      }
+    ],
+    "id": "round442_reject_sandy_row_arts_digital_hub_duplicate",
+    "license": "Belfast City Council website terms/copyright; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "observed_or_candidate_date": "2026-02-18",
+    "publisher": "Belfast City Council",
+    "reason": "Rejected as duplicate: prior Belfast packs and the live/manual corpus already represent Sandy Row Arts and Digital Hub opening/progress milestones.",
+    "source_name": "Boost for Sandy Row as new Arts & Digital Hub opens",
+    "source_record_id": "bcc-news-sandy-row-arts-digital-hub-2026-02-18",
+    "source_type": "official council news page",
+    "source_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+    "terms": "https://www.belfastcity.gov.uk/terms-conditions",
+    "title": "Sandy Row Arts and Digital Hub official opening"
+  }
+]

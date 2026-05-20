@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "validated_at": "2026-05-20T00:00:00Z",
+  "validation_type": "round444_london_pld_lifecycle_next61_pack_validation",
+  "candidate_count": 150,
+  "date_range": {
+    "min": "2010-02-01",
+    "max": "2012-12-22"
+  },
+  "lifecycle_field_mix": {
+    "actual_completion_date": 149,
+    "actual_commencement_date": 1
+  },
+  "unique_event_ids": 150,
+  "unique_source_date_keys": 150,
+  "manual_field_date_keys_scanned": 9821,
+  "prior_field_date_keys_scanned": 9150,
+  "prior_pack_count_scanned": 63,
+  "report_file": "validation_report.json",
+  "checks": [
+    "required output files",
+    "required provenance fields",
+    "accessed_at fixed to 2026-05-20",
+    "literal source_date_field lifecycle names",
+    "date window",
+    "London coordinate bounds",
+    "unique event ids and source-date keys",
+    "no overlap with manual corpus",
+    "no overlap with PLD lifecycle packs through round439",
+    "source/row/API URLs",
+    "licence and lifecycle caveats",
+    "administrative-only wording in title and observed_change",
+    "no overlap by event id, bare source_url/source_record_id, or title/date"
+  ],
+  "strict_duplicate_audit_ok": true,
+  "strict_duplicate_audit_file": "strict_duplicate_audit.json"
+}

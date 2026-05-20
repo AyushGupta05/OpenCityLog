@@ -1,0 +1,251 @@
+{
+  "schema_version": "round361_belfast_official_architecture_sweep_next6.rejected.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round361_belfast_official_architecture_sweep_next6",
+  "rejected_count": 8,
+  "rejected": [
+    {
+      "key": "weavers_hall_groundbreak_and_construction_start",
+      "city_id": "belfast",
+      "title": "Queen's Dublin Road student accommodation works-start / groundbreak sources",
+      "date": "2024-08-07",
+      "category": "duplicate_existing_event",
+      "reason": "The 2024 Kainos/Queen's works-start and groundbreak/sod-cut source trail is already represented in the manual corpus as the Weavers' Hall construction/enabling works start. Round361 emits only the later 2026 topping-out milestone.",
+      "source_name": "Queen's breaks ground on Golden Mile's eco-friendly student accommodation",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2024/QueensbreaksgroundonGoldenMileseco-friendlystudentaccommodation.html",
+      "source_type": "official university news page",
+      "screened_terms": [
+        "Queen's breaks ground",
+        "Dublin Road",
+        "Weavers' Hall",
+        "construction started",
+        "459 students"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Weavers' Hall construction started",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Queen's Dublin Road student accommodation works were due to start"
+        }
+      ]
+    },
+    {
+      "key": "weavers_hall_future_opening_and_occupation",
+      "city_id": "belfast",
+      "title": "Weavers' Hall future opening / first cohort references",
+      "date": "2026-05-20",
+      "category": "future_or_watchlist_only",
+      "reason": "Queen's accommodation/status pages describe future opening or first-intake expectations after the current date. These are useful watchlist context but are not observed Belfast change events as of 2026-05-20.",
+      "source_name": "Weavers' Hall accommodation page",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/accommodation/student-accommodation/weavers-hall/",
+      "source_type": "official university accommodation page",
+      "screened_terms": [
+        "opening September 2026",
+        "first cohort",
+        "available rooms",
+        "459"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Weavers' Hall construction started",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Queen's Dublin Road student accommodation works were due to start"
+        }
+      ]
+    },
+    {
+      "key": "qub_estates_construction_stage_other_rows",
+      "city_id": "belfast",
+      "title": "Queen's Estates construction-stage rows other than Weavers' Hall topping-out",
+      "date": "2026-05-20",
+      "category": "mutable_page_future_or_duplicate",
+      "reason": "The construction-stage page is useful context, but visible non-Weavers rows were either future relative to 2026-05-20, lacked a distinct observed milestone, or were already represented in the manual corpus.",
+      "source_name": "Projects at Construction Stage",
+      "publisher": "Queen's University Belfast Estates Directorate",
+      "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/ProjectsatConstructionStage/",
+      "source_type": "official university estates project-status page",
+      "screened_terms": [
+        "Elms BT1 Common Room Extension",
+        "Sycamore Park Store Extension",
+        "David Keir Building bespoke computer suite",
+        "Purpose Built Managed Student Accommodation"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "David Keir Building bespoke computer suite",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Queen's David Keir Building bespoke computer suite works started on site"
+        }
+      ]
+    },
+    {
+      "key": "qub_completed_projects_2024_2025_rows",
+      "city_id": "belfast",
+      "title": "Queen's Estates completed-projects rows",
+      "date": "2026-05-20",
+      "category": "duplicate_existing_event",
+      "reason": "Sonic Arts Research Centre, Nursing and Midwifery, Grant House, Elms BT2 common-room extension, Willow Walk and lecture-theatre refresh records already appear in the manual corpus and earlier Belfast packs.",
+      "source_name": "Completed Projects",
+      "publisher": "Queen's University Belfast Estates Directorate",
+      "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/CompletedProjects/",
+      "source_type": "official university estates completed-projects page",
+      "screened_terms": [
+        "Sonic Arts Research Centre",
+        "Nursing & Midwifery",
+        "Grant House",
+        "Elms BT2 Common Room Extension",
+        "Willow Walk",
+        "Lecture Theatre Refresh"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Sonic Arts Research Centre",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sonic Arts Research Centre refurbishment completed"
+        },
+        {
+          "term": "Grant House",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Grant House refurbishment completed at 64 Malone Road"
+        },
+        {
+          "term": "Elms BT2 Common Room Extension",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Elms BT2 common room extension completed"
+        }
+      ]
+    },
+    {
+      "key": "momentum_one_zero_construction_start",
+      "city_id": "belfast",
+      "title": "Momentum One Zero contractor / construction-start announcement",
+      "date": "2025-10-06",
+      "category": "duplicate_existing_event",
+      "reason": "Queen's / Belfast Region City Deal construction-start source for Momentum One Zero is already represented by Round124 and the current manual corpus.",
+      "source_name": "Queen's announces Henry Brothers as contractor for new GBP37m Momentum One Zero innovation centre",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2025/QueensannouncesHenryBrothersascontractorfornew37mMomentumOneZeroinnovationcentre.html",
+      "source_type": "official university news page",
+      "screened_terms": [
+        "Momentum One Zero",
+        "Henry Brothers",
+        "construction commenced",
+        "Titanic Quarter"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Momentum One Zero contractor announcement",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Momentum One Zero contractor announcement recorded construction commencement"
+        }
+      ]
+    },
+    {
+      "key": "hed_may_2026_listing_notifications",
+      "city_id": "belfast",
+      "title": "HED May 2026 listing / de-listing notification cluster",
+      "date": "2026-05-19",
+      "category": "duplicate_or_not_final",
+      "reason": "Royal Belfast Hospital for Sick Children, Gardner Robb Building, Former Nurses Home and 51 Malone Park are already in the manual corpus from Round113. Friar's Bush remains a proposed de-listing consultation and was retained as a reject by Round113 rather than a final heritage-status event.",
+      "source_name": "Notifications from Statutory Bodies: Listing and De-Listing of Structures",
+      "publisher": "Belfast City Council / Department for Communities Historic Environment Division",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127785/20260519HEDListingStructures.pdf",
+      "source_type": "official council committee report carrying HED statutory notifications",
+      "screened_terms": [
+        "Royal Belfast Hospital for Sick Children",
+        "Gardner Robb Building",
+        "Former Nurses Home",
+        "51 Malone Park",
+        "Friar's Bush"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "51 Malone Park",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "51 Malone Park proposed listing was reported"
+        },
+        {
+          "term": "Gardner Robb Building",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Gardner Robb Building listing confirmation was reported"
+        },
+        {
+          "term": "Friar's Bush",
+          "file": "tmp/subagents/round113_belfast_official_candidates.json",
+          "title": "Friar's Bush Graveyard proposed de-listing"
+        }
+      ]
+    },
+    {
+      "key": "bcc_current_planning_apr_may_2026_rows",
+      "city_id": "belfast",
+      "title": "Belfast current planning April/May 2026 architecture leads",
+      "date": "2026-05-20",
+      "category": "duplicate_or_mutable_live_list",
+      "reason": "Queen's Administration Building, Clarence Chambers, Dalton Street, Lord Craigavon's Tomb, Mercy College, Bruce Street and Berry Street were already represented or rejected in prior Belfast packs. The live current-planning page is mutable and should not replace Planning Portal, committee minutes or decision notices.",
+      "source_name": "Current planning applications",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "source_type": "official council live planning list",
+      "screened_terms": [
+        "LA04/2026/0631/F",
+        "LA04/2026/0430/F",
+        "LA04/2026/0431/LBC",
+        "LA04/2026/0496/F",
+        "LA04/2026/0597/F",
+        "LA04/2026/0598/LBC",
+        "Mercy College",
+        "Bruce Street",
+        "Berry Street"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2026/0631/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Queen's University Administration Building extension and recladding applications were advertised"
+        },
+        {
+          "term": "LA04/2026/0496/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Dalton Street 325-apartment amendment application was validated and advertised"
+        }
+      ]
+    },
+    {
+      "key": "peaceplus_nrf_tail_rechecks",
+      "city_id": "belfast",
+      "title": "PEACEPLUS / NRF / Sandy Row / Cathedral Gardens tail rechecks",
+      "date": "2026-05-20",
+      "category": "previous_exhaustion_no_new_row",
+      "reason": "Rounds332, 340, 347, 353 and 357 already screened PEACEPLUS, NRF, Sandy Row, Cathedral Gardens, Ardoyne Youth Hub, Albertbridge/Carnforth and related Belfast City Council official pages. This round did not find a new dated official milestone in those families beyond prior candidates/rejects.",
+      "source_name": "Belfast City Council PEACEPLUS and Neighbourhood Regeneration Fund pages",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/peaceplus",
+      "source_type": "official council programme pages",
+      "screened_terms": [
+        "PEACEPLUS",
+        "Neighbourhood Regeneration Fund",
+        "Sandy Row",
+        "Cathedral Gardens",
+        "Ardoyne Youth Hub",
+        "Albertbridge Road"
+      ],
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Cathedral Gardens",
+          "file": "tmp/subagents/round357_belfast_official_architecture_sweep_next5/notes.md",
+          "title": "Cathedral Gardens transformation gets underway"
+        },
+        {
+          "term": "Sandy Row",
+          "file": "tmp/subagents/round357_belfast_official_architecture_sweep_next5/notes.md",
+          "title": "Boost for Sandy Row as new Arts & Digital Hub opens"
+        }
+      ]
+    }
+  ]
+}

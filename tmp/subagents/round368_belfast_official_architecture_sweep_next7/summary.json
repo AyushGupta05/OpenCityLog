@@ -1,0 +1,48 @@
+{
+  "schema_version": "round368_belfast_official_architecture_sweep_next7.summary.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round368_belfast_official_architecture_sweep_next7",
+  "result": "three_candidates_emitted",
+  "candidate_count": 3,
+  "rejected_count": 11,
+  "source_audit_count": 8,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "accepted_date_range": {
+    "min": "2026-04-08",
+    "max": "2026-05-19"
+  },
+  "accepted_titles": [
+    "North Belfast business-centre property acquisition was announced",
+    "Titanic Quarter Fleadh campsite application was recommended for approval",
+    "Shaws Bridge floating pontoon application was recommended for approval"
+  ],
+  "sources_checked": [
+    "Department for the Economy: Major investment to drive economic development in North Belfast",
+    "Belfast City Council: Planning Committee agenda and reports, 19 May 2026",
+    "Belfast City Council: LA04/2026/0393/F - TQ Fleadh campsite",
+    "Belfast City Council: LA04/2025/1661/F Pontoon Clement Wilson Park",
+    "Belfast City Council: Current planning applications, May 2026 live list",
+    "Department for Communities HED: Changes to the List of Buildings of special architectural or historic interest",
+    "Queen's University Belfast and Department for the Economy campus/project pages",
+    "Belfast City Council: PEACEPLUS, NRF, regeneration, City Growth and People & Communities committee sources"
+  ],
+  "dedupe_notes": [
+    "No manual or prior-pack hits for North City Business Centre, 220-256 York Street, Northgate Business Park, Duncairn Business Park, Edlingham Street, GBP3.75m, LA04/2026/0393/F or LA04/2025/1661/F.",
+    "Round113/manual already contain the 19 May 2026 HED listing cluster, Maynard Sinclair Pavilion phasing recommendation and Belfast Transport Hub Condition 5 notice/opinion.",
+    "Round361/manual already contain Weavers' Hall topping-out, while future opening/occupation remains watchlist context only.",
+    "Current planning May 2026 rows were already present in manual/prior packs when material, or were minor/private/live-list records."
+  ],
+  "verification": {
+    "json_parse": "passed",
+    "required_candidate_fields": "passed",
+    "date_window_scan": "passed",
+    "overclaim_scan": "passed",
+    "dedupe_term_scan": "passed",
+    "ownership_scan": "passed"
+  }
+}

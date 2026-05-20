@@ -1,0 +1,2065 @@
+{
+  "rows": [
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.896,
+      "callouts": 0,
+      "guideFeatures": 834,
+      "guideNodes": 11,
+      "guideFlows": 819,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.896,
+      "callouts": 0,
+      "guideFeatures": 1576,
+      "guideNodes": 22,
+      "guideFlows": 1550,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 1,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 2279,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.896,
+      "callouts": 0,
+      "guideFeatures": 1576,
+      "guideNodes": 22,
+      "guideFlows": 1550,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 1,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 2156,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.735,
+      "callouts": 0,
+      "guideFeatures": 1826,
+      "guideNodes": 11,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 363,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.735,
+      "callouts": 0,
+      "guideFeatures": 1829,
+      "guideNodes": 22,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 1,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 375,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.735,
+      "callouts": 0,
+      "guideFeatures": 1829,
+      "guideNodes": 22,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 1,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 375,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.86,
+      "callouts": 0,
+      "guideFeatures": 764,
+      "guideNodes": 11,
+      "guideFlows": 749,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 1249,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.86,
+      "callouts": 0,
+      "guideFeatures": 1276,
+      "guideNodes": 22,
+      "guideFlows": 1250,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 1,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 2213,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "transport",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.86,
+      "callouts": 0,
+      "guideFeatures": 1276,
+      "guideNodes": 22,
+      "guideFlows": 1250,
+      "guideCells": 0,
+      "detailFeatures": 0,
+      "lensEventFeatures": 1,
+      "lensDetailYearLoaded": null,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": true,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.872,
+      "callouts": 0,
+      "guideFeatures": 1061,
+      "guideNodes": 10,
+      "guideFlows": 1050,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 7,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 327,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.872,
+      "callouts": 0,
+      "guideFeatures": 1061,
+      "guideNodes": 10,
+      "guideFlows": 1050,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 6,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 376,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.872,
+      "callouts": 0,
+      "guideFeatures": 1061,
+      "guideNodes": 10,
+      "guideFlows": 1050,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 6,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 376,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 14.191,
+      "callouts": 0,
+      "guideFeatures": 1,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 246,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.191,
+      "callouts": 0,
+      "guideFeatures": 1,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 303,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.191,
+      "callouts": 0,
+      "guideFeatures": 1,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 303,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 14.191,
+      "callouts": 0,
+      "guideFeatures": 1,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 246,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.191,
+      "callouts": 0,
+      "guideFeatures": 1,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 303,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "built_environment",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.191,
+      "callouts": 0,
+      "guideFeatures": 1,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 120,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 303,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": true,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.825,
+      "callouts": 8,
+      "guideFeatures": 1482,
+      "guideNodes": 28,
+      "guideFlows": 1450,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 35,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 2,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.825,
+      "callouts": 8,
+      "guideFeatures": 1480,
+      "guideNodes": 26,
+      "guideFlows": 1450,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 26,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 3,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.825,
+      "callouts": 8,
+      "guideFeatures": 1480,
+      "guideNodes": 26,
+      "guideFlows": 1450,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 26,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 3,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.757,
+      "callouts": 0,
+      "guideFeatures": 552,
+      "guideNodes": 19,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 35,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 10,
+        "guideFlow": 0,
+        "guideCell": 587,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.757,
+      "callouts": 0,
+      "guideFeatures": 551,
+      "guideNodes": 18,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 26,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 10,
+        "guideFlow": 0,
+        "guideCell": 588,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.757,
+      "callouts": 0,
+      "guideFeatures": 551,
+      "guideNodes": 18,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 26,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 10,
+        "guideFlow": 0,
+        "guideCell": 588,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.757,
+      "callouts": 0,
+      "guideFeatures": 950,
+      "guideNodes": 19,
+      "guideFlows": 12,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 35,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 10,
+        "guideFlow": 24,
+        "guideCell": 990,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.757,
+      "callouts": 0,
+      "guideFeatures": 949,
+      "guideNodes": 18,
+      "guideFlows": 12,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 26,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 10,
+        "guideFlow": 28,
+        "guideCell": 989,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "civic_services",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.757,
+      "callouts": 0,
+      "guideFeatures": 949,
+      "guideNodes": 18,
+      "guideFlows": 12,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 26,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 10,
+        "guideFlow": 28,
+        "guideCell": 989,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": true,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.945,
+      "callouts": 7,
+      "guideFeatures": 1571,
+      "guideNodes": 20,
+      "guideFlows": 1550,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 23,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 9,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 39,
+        "economyFrontage": 35,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": true,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.945,
+      "callouts": 4,
+      "guideFeatures": 1555,
+      "guideNodes": 4,
+      "guideFlows": 1550,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 11,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 2,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 38,
+        "economyFrontage": 41,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": true,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.945,
+      "callouts": 4,
+      "guideFeatures": 1555,
+      "guideNodes": 4,
+      "guideFlows": 1550,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 11,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 2,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 38,
+        "economyFrontage": 41,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": true,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 14.161,
+      "callouts": 0,
+      "guideFeatures": 5001,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 23,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 713,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 29,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.161,
+      "callouts": 0,
+      "guideFeatures": 5001,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 11,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 506,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 34,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.161,
+      "callouts": 0,
+      "guideFeatures": 5001,
+      "guideNodes": 0,
+      "guideFlows": 0,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 11,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 0,
+        "guideFlow": 0,
+        "guideCell": 506,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 34,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": false,
+        "guideFlow": false,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 13.92,
+      "callouts": 9,
+      "guideFeatures": 35,
+      "guideNodes": 23,
+      "guideFlows": 11,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 40,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 9,
+        "guideFlow": 19,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.92,
+      "callouts": 9,
+      "guideFeatures": 29,
+      "guideNodes": 17,
+      "guideFlows": 11,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 44,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 9,
+        "guideFlow": 22,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "economy",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 13.92,
+      "callouts": 9,
+      "guideFeatures": 29,
+      "guideNodes": 17,
+      "guideFlows": 11,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 44,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 9,
+        "guideFlow": 22,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": false
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 14.416,
+      "callouts": 2,
+      "guideFeatures": 2215,
+      "guideNodes": 11,
+      "guideFlows": 2200,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 5,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.416,
+      "callouts": 8,
+      "guideFeatures": 2223,
+      "guideNodes": 19,
+      "guideFlows": 2200,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 8,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.416,
+      "callouts": 8,
+      "guideFeatures": 2223,
+      "guideNodes": 19,
+      "guideFlows": 2200,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 8,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 14.221,
+      "callouts": 3,
+      "guideFeatures": 1722,
+      "guideNodes": 18,
+      "guideFlows": 1700,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 7,
+        "guideFlow": 0,
+        "guideCell": 9,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.221,
+      "callouts": 7,
+      "guideFeatures": 1724,
+      "guideNodes": 20,
+      "guideFlows": 1700,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 6,
+        "guideFlow": 0,
+        "guideCell": 9,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.221,
+      "callouts": 7,
+      "guideFeatures": 1724,
+      "guideNodes": 20,
+      "guideFlows": 1700,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 6,
+        "guideFlow": 0,
+        "guideCell": 9,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2022,
+      "tlVisible": "3503",
+      "zoom": 14.416,
+      "callouts": 2,
+      "guideFeatures": 1162,
+      "guideNodes": 11,
+      "guideFlows": 1150,
+      "guideCells": 0,
+      "detailFeatures": 1454,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2022,
+      "transportRoadYearLoaded": 2022,
+      "rendered": {
+        "guideNode": 5,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.416,
+      "callouts": 7,
+      "guideFeatures": 1168,
+      "guideNodes": 17,
+      "guideFlows": 1150,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 6,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    },
+    {
+      "lens": "",
+      "category": "utilities",
+      "year": 2024,
+      "tlVisible": "4791",
+      "zoom": 14.416,
+      "callouts": 7,
+      "guideFeatures": 1168,
+      "guideNodes": 17,
+      "guideFlows": 1150,
+      "guideCells": 0,
+      "detailFeatures": 1594,
+      "lensEventFeatures": 0,
+      "lensDetailYearLoaded": 2024,
+      "transportRoadYearLoaded": 2024,
+      "rendered": {
+        "guideNode": 6,
+        "guideFlow": 0,
+        "guideCell": 4,
+        "transportRoad": 0,
+        "planningCells": 0,
+        "civicCoverage": 0,
+        "civicFacilities": 0,
+        "economyCells": 0,
+        "economyFrontage": 0,
+        "utilityTrace": 0,
+        "utilityAssets": 0
+      },
+      "visibleLayers": {
+        "guideNode": true,
+        "guideFlow": true,
+        "guideCell": true,
+        "transportRoad": false,
+        "planningCells": false,
+        "civicCoverage": false,
+        "economyFrontage": false,
+        "utilityTrace": true
+      }
+    }
+  ],
+  "messages": [
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15842/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15847/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15847/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15842/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15842/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15842/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    }
+  ]
+}

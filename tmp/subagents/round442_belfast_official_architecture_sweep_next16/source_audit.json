@@ -1,0 +1,342 @@
+[
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Health and Social Care Trust",
+    "candidate_disposition": "accepted",
+    "content_length": 209588,
+    "content_sha256": "04ad1925daedf0638f3748473501465bf8d95ea83b1b761709f8f8fe770f1d13",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:19.519Z",
+    "final_url": "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/",
+    "http_status": 200,
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "Topping Out Ceremony at Critical Care Centre"
+      },
+      {
+        "found": true,
+        "marker": "15th December 2011"
+      },
+      {
+        "found": true,
+        "marker": "performed the Topping Out ceremony at Phase 2B"
+      },
+      {
+        "found": true,
+        "marker": "Critical Care Centre, Royal Victoria Hospital"
+      },
+      {
+        "found": true,
+        "marker": "Construction of the Critical Care Building is due to be completed in 2012"
+      }
+    ],
+    "modified_time": null,
+    "published_time": null,
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and URL slug",
+    "source_date_value": "2011-12-15",
+    "source_id": "belfast-trust-critical-care-topping-out-2011-round442",
+    "source_name": "Topping Out Ceremony at Critical Care Centre",
+    "source_record_id": "belfast-trust-2011-12-15-critical-care-centre-topping-out",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Health and Social Care Trust",
+    "candidate_disposition": "accepted",
+    "content_length": 209305,
+    "content_sha256": "ea58a4bae67b636c13fb7d213039576dc7be3e5507e7635ee6c318a0251240d9",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:19.664Z",
+    "final_url": "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/",
+    "http_status": 200,
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "Sod-Cutting Ceremony At New Neurology Unit"
+      },
+      {
+        "found": true,
+        "marker": "13th December 2010"
+      },
+      {
+        "found": true,
+        "marker": "cut the first sod at a new GBP4.9m purpose built Neurology Unit"
+      },
+      {
+        "found": true,
+        "marker": "Musgrave Park Hospital"
+      },
+      {
+        "found": true,
+        "marker": "adjacent and attached to the Regional Acquired Brain Injury Unit"
+      }
+    ],
+    "modified_time": null,
+    "published_time": null,
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and URL slug",
+    "source_date_value": "2010-12-13",
+    "source_id": "belfast-trust-neurology-unit-sod-cutting-2010-round442",
+    "source_name": "Sod-Cutting Ceremony At New Neurology Unit",
+    "source_record_id": "belfast-trust-2010-12-13-neurology-unit-sod-cutting",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Health and Social Care Trust",
+    "candidate_disposition": "accepted",
+    "content_length": 208923,
+    "content_sha256": "21d018546a35e318966197cdf8c1bf5da234b9c2bb7d1a97496ac14798be5be0",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:19.786Z",
+    "final_url": "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/",
+    "http_status": 200,
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "New Macmillan Information Centre Opens"
+      },
+      {
+        "found": true,
+        "marker": "1st November 2010"
+      },
+      {
+        "found": true,
+        "marker": "performed the official opening of the Macmillan Drop-in Information Service"
+      },
+      {
+        "found": true,
+        "marker": "Royal Victoria Hospital"
+      },
+      {
+        "found": true,
+        "marker": "Located on the second floor of the main mall"
+      }
+    ],
+    "modified_time": null,
+    "published_time": null,
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and URL slug",
+    "source_date_value": "2010-11-01",
+    "source_id": "belfast-trust-macmillan-rvh-opening-2010-round442",
+    "source_name": "New Macmillan Information Centre Opens",
+    "source_record_id": "belfast-trust-2010-11-01-macmillan-rvh-information-centre-opening",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Health and Social Care Trust",
+    "candidate_disposition": "rejected_duplicate",
+    "content_length": 216618,
+    "content_sha256": "fb612b3f662843d1d139163a051412a49c13a345a76c6274785e990332b78d91",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:19.828Z",
+    "final_url": "https://belfasttrust.hscni.net/2024/06/18/horatios-garden-opens-at-musgrave-park-hospital/",
+    "http_status": 200,
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "Horatio's Garden Opens at Musgrave Park Hospital"
+      },
+      {
+        "found": true,
+        "marker": "officially opened in the Spinal Cord Injuries Unit"
+      },
+      {
+        "found": true,
+        "marker": "It was completed at Christmas last year"
+      }
+    ],
+    "modified_time": null,
+    "published_time": null,
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and official-opening text",
+    "source_date_value": "2024-06-18",
+    "source_id": "belfast-trust-horatios-garden-official-opening-2024-duplicate-round442",
+    "source_name": "Horatio's Garden Opens at Musgrave Park Hospital",
+    "source_record_id": "belfast-trust-2024-06-18-horatios-garden-official-opening",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2024/06/18/horatios-garden-opens-at-musgrave-park-hospital/"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast City Council",
+    "candidate_disposition": "rejected_duplicate",
+    "content_length": 34613,
+    "content_sha256": "ecb06fa3fad40f78b54f8ba296b8b728324fae1b734d0ce17ce728aa31be08cc",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:19.885Z",
+    "final_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+    "http_status": 200,
+    "license": "Belfast City Council website terms/copyright; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "Boost for Sandy Row as new Arts & Digital Hub opens"
+      },
+      {
+        "found": true,
+        "marker": "officially opened by the Lord Mayor"
+      },
+      {
+        "found": true,
+        "marker": "Sandy Row Arts & Digital Hub"
+      }
+    ],
+    "modified_time": null,
+    "published_time": null,
+    "publisher": "Belfast City Council",
+    "publisher_terms_url": "https://www.belfastcity.gov.uk/terms-conditions",
+    "source_date_field": "Date",
+    "source_date_value": "2026-02-18",
+    "source_id": "bcc-sandy-row-arts-digital-hub-opening-2026-duplicate-round442",
+    "source_name": "Boost for Sandy Row as new Arts & Digital Hub opens",
+    "source_record_id": "bcc-news-sandy-row-arts-digital-hub-2026-02-18",
+    "source_type": "official council news page",
+    "source_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast City Council",
+    "candidate_disposition": "rejected_duplicate",
+    "content_length": 38092,
+    "content_sha256": "06e19613c3c60a6163dd2ef66e790f20633768002dfbc9291bb6a0e6fb185ce2",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:19.993Z",
+    "final_url": "https://www.belfastcity.gov.uk/News/%C2%A37-million-shared-community-space-opens-at-Belfast",
+    "http_status": 200,
+    "license": "Belfast City Council website terms/copyright; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "shared community building has been officially opened"
+      },
+      {
+        "found": true,
+        "marker": "Black Mountain Shared Space"
+      },
+      {
+        "found": true,
+        "marker": "former Finlay"
+      }
+    ],
+    "modified_time": null,
+    "published_time": null,
+    "publisher": "Belfast City Council",
+    "publisher_terms_url": "https://www.belfastcity.gov.uk/terms-conditions",
+    "source_date_field": "Date",
+    "source_date_value": "2024-09-18",
+    "source_id": "bcc-black-mountain-shared-space-opening-2024-duplicate-round442",
+    "source_name": "GBP7 million shared community space opens at Belfast interface area",
+    "source_record_id": "bcc-news-black-mountain-shared-space-opening-2024-09-18",
+    "source_type": "official council news page",
+    "source_url": "https://www.belfastcity.gov.uk/News/%C2%A37-million-shared-community-space-opens-at-Belfast"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Department for Communities, Northern Ireland",
+    "candidate_disposition": "rejected_duplicate",
+    "content_length": 53561,
+    "content_sha256": "c34ed8fcc050e5cc5d63fe4f319b9ad4e6bba175e4cb720306ca112355b04c1d",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:20.031Z",
+    "final_url": "https://www.communities-ni.gov.uk/news/new-ps21-million-family-centre-opens-twinbrook-belfast",
+    "http_status": 200,
+    "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "New GBP2.1 million family centre opens in Twinbrook"
+      },
+      {
+        "found": true,
+        "marker": "officially opened"
+      },
+      {
+        "found": true,
+        "marker": "Ionad na Fuiseoige"
+      }
+    ],
+    "modified_time": "2019-03-05T13:57:54+00:00",
+    "published_time": "2019-03-05T12:58:05+00:00",
+    "publisher": "Department for Communities, Northern Ireland",
+    "publisher_terms_url": "https://www.communities-ni.gov.uk/articles/crown-copyright",
+    "source_date_field": "Date published",
+    "source_date_value": "2019-03-05",
+    "source_id": "dfc-ionad-na-fuiseoige-opening-2019-duplicate-round442",
+    "source_name": "New GBP2.1 million family centre opens in Twinbrook, Belfast",
+    "source_record_id": "dfc-new-ps21-million-family-centre-opens-twinbrook-belfast",
+    "source_type": "official government news page",
+    "source_url": "https://www.communities-ni.gov.uk/news/new-ps21-million-family-centre-opens-twinbrook-belfast"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Queen's University Belfast",
+    "candidate_disposition": "rejected_duplicate",
+    "content_length": 504355,
+    "content_sha256": "c7012926ac4702597beff5d9376a587da211f2141c20718d542c9d97379fe255",
+    "fetch_ok": true,
+    "fetched_at": "2026-05-20T10:21:20.082Z",
+    "final_url": "https://www.qub.ac.uk/News/Allnews/2022/NIENetworksSustainableEnergyLaboratoryofficiallyopensatQueens.html",
+    "http_status": 200,
+    "license": "Queen's University Belfast website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.qub.ac.uk/Legal/",
+    "marker_ok": true,
+    "marker_results": [
+      {
+        "found": true,
+        "marker": "NIE Networks Sustainable Energy Laboratory officially opens"
+      },
+      {
+        "found": true,
+        "marker": "Queen's University Belfast"
+      },
+      {
+        "found": true,
+        "marker": "10 November, 2022"
+      },
+      {
+        "found": true,
+        "marker": "Ashby Building in Stranmillis"
+      }
+    ],
+    "modified_time": "Mon, 19 May 2025 16:42:53 BST",
+    "published_time": "Wed, 5 Jan 2022 10:36:00 GMT",
+    "publisher": "Queen's University Belfast",
+    "publisher_terms_url": "https://www.qub.ac.uk/Legal/",
+    "source_date_field": "official university news date",
+    "source_date_value": "2022-11-10",
+    "source_id": "qub-nie-networks-lab-opening-2022-duplicate-round442",
+    "source_name": "NIE Networks Sustainable Energy Laboratory officially opens at Queen's University Belfast",
+    "source_record_id": "qub-news-nie-networks-sustainable-energy-laboratory-2022-11-10",
+    "source_type": "official university news page",
+    "source_url": "https://www.qub.ac.uk/News/Allnews/2022/NIENetworksSustainableEnergyLaboratoryofficiallyopensatQueens.html"
+  }
+]

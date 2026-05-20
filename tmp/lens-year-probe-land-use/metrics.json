@@ -1,0 +1,59 @@
+[
+  {
+    "year": 2022,
+    "selectedYear": "2022",
+    "stateYear": 2022,
+    "zoom": 14.550374477819494,
+    "guide": 5001,
+    "landUse": 5000,
+    "economyCellLayer": "none",
+    "colors": {
+      "#ca3b32": 2082,
+      "#158c97": 1425,
+      "#f0b342": 303,
+      "#7b3a8f": 215,
+      "#8f9692": 141,
+      "#efb94d": 726,
+      "#e39b97": 108
+    },
+    "hash": "ab32adf49d13"
+  },
+  {
+    "year": 2024,
+    "selectedYear": "2024",
+    "stateYear": 2024,
+    "zoom": 14.550351169159237,
+    "guide": 5001,
+    "landUse": 5000,
+    "economyCellLayer": "none",
+    "colors": {
+      "#ca3b32": 2296,
+      "#158c97": 581,
+      "#f0b342": 204,
+      "#7b3a8f": 152,
+      "#8f9692": 192,
+      "#efb94d": 1390,
+      "#e39b97": 163,
+      "#df8884": 22
+    },
+    "hash": "a92eb78bd3d9"
+  },
+  {
+    "year": 2026,
+    "selectedYear": "2026",
+    "stateYear": 2026,
+    "zoom": 14.550372423279518,
+    "guide": 5001,
+    "landUse": 5000,
+    "economyCellLayer": "none",
+    "colors": {
+      "#158c97": 576,
+      "#ca3b32": 821,
+      "#8f9692": 293,
+      "#efb94d": 2873,
+      "#7b3a8f": 147,
+      "#e39b97": 290
+    },
+    "hash": "9fb99a143bac"
+  }
+]

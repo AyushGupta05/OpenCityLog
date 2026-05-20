@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "schema_version": "round392_london_nhle_heritage_tail5_candidates_v1",
+    "generated_at": "2026-05-20T00:00:00Z",
+    "city_id": "london",
+    "source_id": "historic-england-nhle-open-data-round392-tail5",
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "candidate_count": 0,
+    "critical_interpretation_note": "These records are administrative heritage designation, listing, inscription, certificate/status-start or expiry, de-designation/removal, or amendment rows only. They are not evidence of construction, completion, demolition, opening, occupation, repair, condition, impact, prediction, simulation, or causation.",
+    "duplicate_screening": {
+      "manual_corpus_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "corpus_events_scanned": 61634,
+      "prior_candidate_pack_files_scanned": 431,
+      "existing_event_ids_seen": 106719,
+      "existing_source_keys_seen": 72623,
+      "existing_nhle_date_keys_seen": 2273,
+      "dedupe_key": "NHLE ListEntry + canonical source date field + administrative date",
+      "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior Historic England/NHLE London heritage packs through round315, for event IDs, source keys, exact NHLE ListEntry/date-field/date keys, and de-designated OriginalListEntryNumber/date keys. Rejected files and raw query captures were not treated as accepted candidate packs."
+    }
+  },
+  "candidates": []
+}

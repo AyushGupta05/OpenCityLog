@@ -1,0 +1,391 @@
+{
+  "candidate_count": 6,
+  "duplicate_scans": [
+    {
+      "duplicate_check_terms": [
+        "Work begins on new GBP12.6 million East Belfast Primary School",
+        "Elmgrove Primary School construction-start",
+        "cut the first sod Elmgrove Primary School",
+        "28 April 2021 Elmgrove Primary School",
+        "Woodvale Elmgrove Primary School"
+      ],
+      "duplicate_hits": [
+        {
+          "count_shown": 3,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:39:    source_name: \"Work begins on new GBP12.6 million East Belfast Primary School\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:233:    source_name: \"Work begins on new GBP12.6 million East Belfast Primary School\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:247:      \"Work begins on new GBP12.6 million East Belfast Primary School\","
+          ],
+          "term": "Work begins on new GBP12.6 million East Belfast Primary School"
+        },
+        {
+          "count_shown": 2,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:215:    title: \"Elmgrove Primary School construction-start milestone was marked\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:248:      \"Elmgrove Primary School construction-start\","
+          ],
+          "term": "Elmgrove Primary School construction-start"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:249:      \"cut the first sod Elmgrove Primary School\","
+          ],
+          "term": "cut the first sod Elmgrove Primary School"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:250:      \"28 April 2021 Elmgrove Primary School\","
+          ],
+          "term": "28 April 2021 Elmgrove Primary School"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:251:      \"Woodvale Elmgrove Primary School\""
+          ],
+          "term": "Woodvale Elmgrove Primary School"
+        }
+      ],
+      "event_id": "bfs_arch_round402_elmgrove_primary_first_sod_2021"
+    },
+    {
+      "duplicate_check_terms": [
+        "Belfast Harbour Marina Expansion Works",
+        "No.19 of 2025 Marina Expansion Works",
+        "Belfast Harbour Marina pontoon installation",
+        "Marina Expansion Works Belfast Harbour Marina",
+        "14th October 2025 Belfast Harbour Marina"
+      ],
+      "duplicate_hits": [
+        {
+          "count_shown": 3,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:27:  'site:belfast-harbour.co.uk/notice-to-mariners \"Belfast Harbour Marina Expansion Works\"',",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:28:  '\"Belfast Harbour Marina Expansion Works\" \"14 Oct 2025\"',",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:297:      \"Belfast Harbour Marina Expansion Works\","
+          ],
+          "term": "Belfast Harbour Marina Expansion Works"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:298:      \"No.19 of 2025 Marina Expansion Works\","
+          ],
+          "term": "No.19 of 2025 Marina Expansion Works"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:299:      \"Belfast Harbour Marina pontoon installation\","
+          ],
+          "term": "Belfast Harbour Marina pontoon installation"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:300:      \"Marina Expansion Works Belfast Harbour Marina\","
+          ],
+          "term": "Marina Expansion Works Belfast Harbour Marina"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:301:      \"14th October 2025 Belfast Harbour Marina\""
+          ],
+          "term": "14th October 2025 Belfast Harbour Marina"
+        }
+      ],
+      "event_id": "bfs_arch_round402_belfast_harbour_marina_expansion_notice_2025"
+    },
+    {
+      "duplicate_check_terms": [
+        "Scoil an Droichid next phase of construction",
+        "Education Minister marks next phase of construction work at Scoil an Droichid",
+        "former Ulidia Resource Centre 21 October 2025",
+        "Connolly & Fee Scoil an Droichid",
+        "Scoil an Droichid Primary School and Nursery Unit"
+      ],
+      "duplicate_hits": [
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:341:      \"Scoil an Droichid next phase of construction\","
+          ],
+          "term": "Scoil an Droichid next phase of construction"
+        },
+        {
+          "count_shown": 3,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:64:    source_name: \"Education Minister marks next phase of construction work at Scoil an Droichid Primary School and Nursery Unit\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:327:    source_name: \"Education Minister marks next phase of construction work at Scoil an Droichid Primary School and Nursery Unit\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:342:      \"Education Minister marks next phase of construction work at Scoil an Droichid\","
+          ],
+          "term": "Education Minister marks next phase of construction work at Scoil an Droichid"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:343:      \"former Ulidia Resource Centre 21 October 2025\","
+          ],
+          "term": "former Ulidia Resource Centre 21 October 2025"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:344:      \"Connolly & Fee Scoil an Droichid\","
+          ],
+          "term": "Connolly & Fee Scoil an Droichid"
+        },
+        {
+          "count_shown": 5,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:64:    source_name: \"Education Minister marks next phase of construction work at Scoil an Droichid Primary School and Nursery Unit\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:74:    coverage: \"Department of Education capital-project progress milestone for Scoil an Droichid Primary School and Nursery Unit, Belfast.\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:311:    observed_change: \"A documented ministerial site visit placed the Scoil an Droichid Primary School and Nursery Unit project in a next-phase construction stage.\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:327:    source_name: \"Education Minister marks next phase of construction work at Scoil an Droichid Primary School and Nursery Unit\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:345:      \"Scoil an Droichid Primary School and Nursery Unit\""
+          ],
+          "term": "Scoil an Droichid Primary School and Nursery Unit"
+        }
+      ],
+      "event_id": "bfs_arch_round402_scoil_an_droichid_next_phase_2025"
+    },
+    {
+      "duplicate_check_terms": [
+        "Our Lady of Lourdes Primary School Belfast construction stage",
+        "Our Lady of Lourdes Primary School Belfast school enhancement",
+        "29 April 2026 Our Lady of Lourdes Primary School Belfast",
+        "Our Lady of Lourdes Primary School progress to construction stage",
+        "Park Lodge 700 Antrim Road construction stage"
+      ],
+      "duplicate_hits": [
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:385:      \"Our Lady of Lourdes Primary School Belfast construction stage\","
+          ],
+          "term": "Our Lady of Lourdes Primary School Belfast construction stage"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:386:      \"Our Lady of Lourdes Primary School Belfast school enhancement\","
+          ],
+          "term": "Our Lady of Lourdes Primary School Belfast school enhancement"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:387:      \"29 April 2026 Our Lady of Lourdes Primary School Belfast\","
+          ],
+          "term": "29 April 2026 Our Lady of Lourdes Primary School Belfast"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:388:      \"Our Lady of Lourdes Primary School progress to construction stage\","
+          ],
+          "term": "Our Lady of Lourdes Primary School progress to construction stage"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:389:      \"Park Lodge 700 Antrim Road construction stage\""
+          ],
+          "term": "Park Lodge 700 Antrim Road construction stage"
+        }
+      ],
+      "event_id": "bfs_arch_round402_our_lady_of_lourdes_construction_stage_release_2026"
+    },
+    {
+      "duplicate_check_terms": [
+        "St Bride's Primary School construction stage",
+        "St Bride's Primary School Belfast school enhancement",
+        "29 April 2026 St Bride's Primary School Belfast",
+        "St Bride's Primary School progress to construction stage",
+        "36 Derryvolgie Avenue construction stage"
+      ],
+      "duplicate_hits": [
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:429:      \"St Bride's Primary School construction stage\","
+          ],
+          "term": "St Bride's Primary School construction stage"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:430:      \"St Bride's Primary School Belfast school enhancement\","
+          ],
+          "term": "St Bride's Primary School Belfast school enhancement"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:431:      \"29 April 2026 St Bride's Primary School Belfast\","
+          ],
+          "term": "29 April 2026 St Bride's Primary School Belfast"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:432:      \"St Bride's Primary School progress to construction stage\","
+          ],
+          "term": "St Bride's Primary School progress to construction stage"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:433:      \"36 Derryvolgie Avenue construction stage\""
+          ],
+          "term": "36 Derryvolgie Avenue construction stage"
+        }
+      ],
+      "event_id": "bfs_arch_round402_st_brides_construction_stage_release_2026"
+    },
+    {
+      "duplicate_check_terms": [
+        "Education Minister marks start of construction at Glenwood Primary School",
+        "Glenwood Primary School construction began in February 2026",
+        "13 May 2026 Glenwood Primary School",
+        "Bell Contracts Limited Glenwood Primary School",
+        "Hamilton Architects Glenwood Primary School"
+      ],
+      "duplicate_hits": [
+        {
+          "count_shown": 3,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:136:    source_name: \"Education Minister marks start of construction at Glenwood Primary School\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:465:    source_name: \"Education Minister marks start of construction at Glenwood Primary School\",",
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:479:      \"Education Minister marks start of construction at Glenwood Primary School\","
+          ],
+          "term": "Education Minister marks start of construction at Glenwood Primary School"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:480:      \"Glenwood Primary School construction began in February 2026\","
+          ],
+          "term": "Glenwood Primary School construction began in February 2026"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:481:      \"13 May 2026 Glenwood Primary School\","
+          ],
+          "term": "13 May 2026 Glenwood Primary School"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:482:      \"Bell Contracts Limited Glenwood Primary School\","
+          ],
+          "term": "Bell Contracts Limited Glenwood Primary School"
+        },
+        {
+          "count_shown": 1,
+          "lines": [
+            "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js:483:      \"Hamilton Architects Glenwood Primary School\""
+          ],
+          "term": "Hamilton Architects Glenwood Primary School"
+        }
+      ],
+      "event_id": "bfs_arch_round402_glenwood_primary_construction_start_2026"
+    }
+  ],
+  "errors": [],
+  "generated_at": "2026-05-20",
+  "rejected_count": 8,
+  "round_id": "round402_belfast_official_architecture_sweep_next12",
+  "source_count": 8,
+  "source_fetches": [
+    {
+      "byte_length": 37093,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-elmgrove-primary-first-sod-2021-round402",
+      "status": 200,
+      "text_length": 4155
+    },
+    {
+      "byte_length": 40491,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-scoil-an-droichid-next-phase-2025-round402",
+      "status": 200,
+      "text_length": 4681
+    },
+    {
+      "byte_length": 113134,
+      "content_type": "application/pdf",
+      "extraction": "pypdf",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "belfast-harbour-marina-expansion-notice-2025-round402",
+      "status": 200,
+      "text_length": 1113
+    },
+    {
+      "byte_length": 40753,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-schools-progress-construction-stage-2026-round402",
+      "status": 200,
+      "text_length": 5235
+    },
+    {
+      "byte_length": 40881,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "de-glenwood-primary-first-sod-2026-round402",
+      "status": 200,
+      "text_length": 4595
+    },
+    {
+      "byte_length": 914,
+      "content_type": "text/html; charset=UTF-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": false,
+      "source_id": "de-methodist-college-mcarthur-hall-2016-search-only-round402",
+      "status": 404,
+      "text_length": 337
+    },
+    {
+      "byte_length": 54778,
+      "content_type": "text/html; charset=utf-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "bcc-lockhouse-work-begins-2024-duplicate-round402",
+      "status": 200,
+      "text_length": 4112
+    },
+    {
+      "byte_length": 34806,
+      "content_type": "text/html; charset=utf-8",
+      "extraction": "html_or_text",
+      "extraction_error": null,
+      "ok": true,
+      "source_id": "bcc-assembly-rooms-purchase-2025-duplicate-round402",
+      "status": 200,
+      "text_length": 4892
+    }
+  ],
+  "validation_ok": true,
+  "warnings": [
+    "de-methodist-college-mcarthur-hall-2016-search-only-round402: rejected/audit-only source fetch not OK (404)"
+  ]
+}

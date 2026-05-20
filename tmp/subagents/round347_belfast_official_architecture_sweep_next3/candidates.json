@@ -1,0 +1,73 @@
+{
+  "schema_version": "round347_belfast_official_architecture_sweep_next3.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round347_belfast_official_architecture_sweep_next3",
+  "candidate_count": 1,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2026-05-08",
+    "max": "2026-05-08"
+  },
+  "source_ids": [
+    "bcc-workhouse-burial-ground-plaque-2026-round347"
+  ],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents JSON paths containing Belfast/HARNI/Round296/Round310/Round332/Round340 context"
+  },
+  "prior_file_count": 181,
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "event_id": "round347_belfast_workhouse_burial_ground_plaque_marked_2026_05_08",
+      "date": "2026-05-08",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/official heritage works",
+      "title": "Former Belfast Workhouse burial ground was marked with a permanent plaque",
+      "summary": "Belfast City Council's 8 May 2026 news page recorded that a permanent plaque was mounted on the remaining workhouse wall and gatepost at Donegall Road to mark the burial ground associated with the former Belfast Workhouse.",
+      "observed_change": "A documented council heritage-marker milestone made the former Belfast Workhouse burial-ground location visible with a permanent plaque.",
+      "area": "Former Belfast Workhouse burial ground, between 263 and 265 Donegall Road",
+      "latitude": 54.5879,
+      "longitude": -5.9558,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9558,
+          54.5879
+        ]
+      },
+      "geometry_ref": "Between 263 and 265 Donegall Road, BT12 5NB",
+      "geometry_source": "Approximate point on Donegall Road from the council-stated plaque location between 263 and 265 Donegall Road, BT12 5NB.",
+      "geometry_precision": "Approximate plaque/location point, not a surveyed burial-ground boundary, wall footprint, gatepost point, grave extent, or full former-workhouse site.",
+      "source_ids": [
+        "bcc-workhouse-burial-ground-plaque-2026-round347"
+      ],
+      "source_name": "Council marks hidden burial ground from former Belfast Workhouse",
+      "source_url": "https://www.belfastcity.gov.uk/News/Council-marks-hidden-burial-ground-from-former-Bel",
+      "source_record_id": "Belfast City Council news page, 8 May 2026: permanent plaque situated between 263 and 265 Donegall Road, BT12 5NB",
+      "source_type": "official council news page",
+      "source_date_field": "News page date",
+      "source_date_value": "2026-05-08",
+      "publisher": "Belfast City Council",
+      "license": "Belfast City Council website copyright and terms; factual plaque, location and source metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "heritage memorial plaque",
+      "milestone_type": "permanent_heritage_plaque_marked",
+      "architect": "Belfast City Council and former Belfast Workhouse burial-ground memorial advocates; plaque designer, fabricator and installer not named in the cited page.",
+      "limitations": "This records the plaque/marker milestone only. It does not document excavation, archaeological investigation, conservation works to the wall or gatepost, a surveyed burial-ground boundary, public-realm completion, site access changes or the original nineteenth-century burial activity.",
+      "caveats": "Use as a council-reported heritage marker milestone only. Keep it separate from archaeological, conservation, burial-ground-boundary, wall-repair or public-realm records unless those are sourced separately.",
+      "duplicate_check_note": "Searched the current manual corpus and prior Belfast packs for Belfast Workhouse, Donegall Road burial ground, 263-265 Donegall Road, permanent plaque and Famine grave. Existing Donegall Road rows cover other planning or community-building records; no matching Belfast Workhouse plaque milestone was found.",
+      "source_audit_note": "The council news page is suitable for the plaque date, broad address and council attribution. It is not a surveyed site dataset and does not provide a polygon.",
+      "transformation_method": "Round347 official-source sweep; source pages were fetched for availability, candidate terms were checked against the current manual corpus and prior Belfast packs, and the surviving lead was normalized with explicit caveats and approximate point geometry."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "round383_belfast_official_architecture_sweep_next10.rejected.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round383_belfast_official_architecture_sweep_next10",
+  "rejected_count": 12,
+  "rejected": [
+    {
+      "source_id": "dfi-stranmillis-cycle-routes-order-2026-recheck-round383",
+      "title_or_lead": "Stranmillis Embankment cycle-route amendment order consultation",
+      "url": "https://www.infrastructure-ni.gov.uk/consultations/cycle-routes-amendment-order-northern-ireland-2026",
+      "publisher": "Department for Infrastructure",
+      "checked_at": "2026-05-20",
+      "status": "rejected_traffic_order_only",
+      "reason": "Official and dated, but the page is a roads-legislation consultation for a cycle-route order. It does not document construction start, completion, opening or a broader project milestone suitable for this architecture/public-realm sweep.",
+      "follow_up": "Watch for a DfI project page, works notice or completion/opening source."
+    },
+    {
+      "source_id": "dfi-little-victoria-street-abandonment-order-2026-recheck-round383",
+      "title_or_lead": "Little Victoria Street Car Park road-abandonment order consultation",
+      "url": "https://www.infrastructure-ni.gov.uk/consultations/little-victoria-street-car-park-belfast-abandonment-order-northern-ireland-2026",
+      "publisher": "Department for Infrastructure",
+      "checked_at": "2026-05-20",
+      "status": "rejected_legal_precondition",
+      "reason": "The page records a proposed road-abandonment order and road-area measurements. It is not a construction, completion, opening, design, civic-estate or public-realm delivery milestone.",
+      "follow_up": "Only emit later if a durable source links the abandonment to an observed built-environment change."
+    },
+    {
+      "source_id": "dfi-ravenhill-ormeau-active-travel-statutory-consultation-recheck-round383",
+      "title_or_lead": "Ravenhill Road and Ormeau Embankment active-travel statutory consultation",
+      "url": "https://www.infrastructure-ni.gov.uk/consultations/ravenhill-road-and-ormeau-embankment-pedestrian-and-cycling-improvements-statutory-consultation",
+      "publisher": "Department for Infrastructure",
+      "checked_at": "2026-05-20",
+      "status": "rejected_prior_duplicate_or_proposal_stage",
+      "reason": "Already screened in earlier Belfast sweeps. The 2026 page is a statutory-consultation/order stage and does not document works start, completion or opening.",
+      "follow_up": "Revisit only when DfI publishes a construction-start, completion or opening milestone."
+    },
+    {
+      "source_id": "dfi-saltwater-square-grand-central-public-realm-recheck-round383",
+      "title_or_lead": "Saltwater Square / Grand Central Station public-realm and sculpture milestone",
+      "url": "https://www.infrastructure-ni.gov.uk/news/community-inspired-landmark-sculpture-unveiled-new-saltwater-square-grand-central-station-progresses",
+      "publisher": "Department for Infrastructure",
+      "checked_at": "2026-05-20",
+      "status": "rejected_duplicate",
+      "reason": "Manual corpus/prior packs already include Saltwater Square public-realm and Reflections sculpture/opening records.",
+      "follow_up": "Do not emit another Saltwater Square row unless a later phase has a distinct source date and scope."
+    },
+    {
+      "source_id": "bcc-cathedral-gardens-transformation-started-recheck-round383",
+      "title_or_lead": "Cathedral Gardens transformation works-start news",
+      "url": "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+      "publisher": "Belfast City Council",
+      "checked_at": "2026-05-20",
+      "status": "rejected_duplicate",
+      "reason": "Cathedral Gardens approval, design/listing and works-start rows are already represented in the manual corpus and previous Belfast sweeps.",
+      "follow_up": "Only a later completion/opening record should be considered."
+    },
+    {
+      "source_id": "bcc-sandy-row-arts-digital-hub-opened-recheck-round383",
+      "title_or_lead": "Sandy Row Arts and Digital Hub opening",
+      "url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "publisher": "Belfast City Council",
+      "checked_at": "2026-05-20",
+      "status": "rejected_duplicate_or_overlap",
+      "reason": "Sandy Row Urban Villages, Arts and Digital Hub, Coffee Culture and nearby public-realm/hub milestones were already represented or screened in prior rounds.",
+      "follow_up": "Avoid re-emitting unless a distinct later building phase is source-dated."
+    },
+    {
+      "source_id": "bcc-planning-committee-20260120-pack-recheck-round383",
+      "title_or_lead": "Belfast Planning Committee public reports pack, 20 January 2026",
+      "url": "https://minutes.belfastcity.gov.uk/documents/g12345/Public%20reports%20pack%2020th-Jan-2026%2017.00%20Planning%20Committee.pdf?T=10",
+      "publisher": "Belfast City Council",
+      "checked_at": "2026-05-20",
+      "status": "rejected_duplicate_or_minor_condition",
+      "reason": "Black Mountain Shared Space, Adelaide Business Centre and 341-345 Albertbridge Road rows were duplicates; remaining condition-variation/park-equipment rows were too narrow for this sweep.",
+      "follow_up": "Use later committee minutes or decision notices only when they provide a distinct major milestone."
+    },
+    {
+      "source_id": "bcc-city-growth-regeneration-20260211-pack-recheck-round383",
+      "title_or_lead": "City Growth and Regeneration Committee, 11 February 2026",
+      "url": "https://minutes.belfastcity.gov.uk/documents/b37618/Combined%20Pack%2011th-Feb-2026%2017.15%20City%20Growth%20and%20Regeneration%20Committee.pdf?T=9",
+      "publisher": "Belfast City Council",
+      "checked_at": "2026-05-20",
+      "status": "rejected_strategy_context",
+      "reason": "Belfast Harbour/masterplan and regeneration references were strategy/context or duplicates of prior masterplan coverage, not a remaining concrete built-environment event.",
+      "follow_up": "Watch for planning submissions, approvals, works starts or openings linked to specific sites."
+    },
+    {
+      "source_id": "bcc-historic-areas-spg-recheck-round383",
+      "title_or_lead": "Supplementary planning guidance for historic areas of Belfast",
+      "url": "https://www.belfastcity.gov.uk/news/council-agrees-supplementary-planning-guidance-for",
+      "publisher": "Belfast City Council",
+      "checked_at": "2026-05-20",
+      "status": "rejected_duplicate_policy",
+      "reason": "Policy/SPG milestone overlaps prior historic-area/SPG coverage and is not a physical built-environment change.",
+      "follow_up": "Use as policy context only."
+    },
+    {
+      "source_id": "dfc-hed-development-briefs-belfast-recheck-round383",
+      "title_or_lead": "DfC/HED development briefs, Shankill/Duncairn studies and list-change pages",
+      "url": "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+      "publisher": "Department for Communities / Historic Environment Division",
+      "checked_at": "2026-05-20",
+      "status": "rejected_exhausted_or_duplicate",
+      "reason": "Recent Belfast HED/list-change, Shankill, Duncairn Gardens, Albertbridge/Carnforth and Crumlin Road development-brief leads were already represented or rejected in earlier sweeps.",
+      "follow_up": "Recheck after HED publishes a confirmed Belfast listing/de-listing change or DfC publishes a new dated Belfast development brief."
+    },
+    {
+      "source_id": "dfe-investni-property-investment-belfast-recheck-round383",
+      "title_or_lead": "DfE/Invest NI property investment and regeneration pages",
+      "url": "https://www.economy-ni.gov.uk/news/major-investment-drive-economic-development-north-belfast",
+      "publisher": "Department for the Economy / Invest NI",
+      "checked_at": "2026-05-20",
+      "status": "rejected_no_new_non_duplicate",
+      "reason": "Round368 already emitted the North Belfast business-centre acquisition. Other DfE/Invest NI hits were economic or occupancy announcements without a concrete new built-environment milestone.",
+      "follow_up": "Track planning/works/opening sources for named properties rather than economic-development recaps."
+    },
+    {
+      "source_id": "qub-ulster-civic-project-owner-recheck-round383",
+      "title_or_lead": "Queen's, Ulster University and civic project-owner pages",
+      "url": "https://www.qub.ac.uk/News/Allnews/2026/QueensandGRAHAMtop-offIrelandslargestPassivhausstudentaccommodation.html",
+      "publisher": "Queen's University Belfast / Ulster University",
+      "checked_at": "2026-05-20",
+      "status": "rejected_duplicate_or_watchlist",
+      "reason": "Weavers' Hall topping-out and Ulster CDHT planning approval were already represented. Future openings remained watchlist items rather than observed 2008-2026 milestones as of 2026-05-20.",
+      "follow_up": "Recheck for source-dated openings or occupation milestones after publication."
+    }
+  ]
+}

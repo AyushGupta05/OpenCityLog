@@ -1,0 +1,445 @@
+{
+  "schema_version": "round353_belfast_official_architecture_sweep_next4.rejected.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round353_belfast_official_architecture_sweep_next4",
+  "rejected_count": 10,
+  "rejected": [
+    {
+      "key": "mount_masonic_hall_social_housing_approval",
+      "city_id": "belfast",
+      "title": "Mount Masonic Hall / 45 Park Avenue social-housing planning approval",
+      "date": "2026-03-10",
+      "category": "duplicate_existing_event",
+      "reason": "Existing manual corpus and Round95 already contain the LA04/2025/0837/F approval for demolition of Mount Masonic Hall and 35 social homes at 45 Park Avenue.",
+      "source_id": "bcc-planning-committee-march-2026-approvals-round353",
+      "source_name": "New residential developments in east Belfast and grade A office block approved at council's Planning Committee",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+      "source_type": "official council planning news page",
+      "screened_terms": [
+        "LA04/2025/0837/F",
+        "Mount Masonic Hall",
+        "45 Park Avenue",
+        "35 social housing"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual approval metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2025/0837/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Former Mount Masonic Hall social housing scheme was approved"
+        },
+        {
+          "term": "Mount Masonic Hall",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "45 Park Avenue social housing approved"
+        },
+        {
+          "term": "45 Park Avenue",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Mixed Use planning approval at Lands to the north of 41-43 Park Avenue Belfast and to the south of 45 Park A..."
+        },
+        {
+          "term": "35 social housing",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "733-735 Antrim Road social housing scheme was approved"
+        }
+      ]
+    },
+    {
+      "key": "cabin_hill_residential_approval",
+      "city_id": "belfast",
+      "title": "Former Cabin Hill 53-unit residential planning approval",
+      "date": "2026-03-10",
+      "category": "duplicate_existing_event",
+      "reason": "Existing manual corpus, Round119 and Round126 already contain the LA04/2024/0015/F Cabin Hill residential approval.",
+      "source_id": "bcc-planning-committee-march-2026-approvals-round353",
+      "source_name": "New residential developments in east Belfast and grade A office block approved at council's Planning Committee",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+      "source_type": "official council planning news page",
+      "screened_terms": [
+        "LA04/2024/0015/F",
+        "Cabin Hill",
+        "53 residential units",
+        "Upper Newtownards Road"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual approval metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2024/0015/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Cabin Hill residential scheme was approved"
+        },
+        {
+          "term": "Cabin Hill",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Residential planning approval LA04/2017/1682/F: Proposed development of 33 dwellings, garages and all other associated site works. Dwellings comprise of 16No..."
+        },
+        {
+          "term": "53 residential units",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Other planning approval at Lands at former Rosepark House Upper Newtownards Road Belfast BT4 3NR"
+        },
+        {
+          "term": "Upper Newtownards Road",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Mixed Use planning approval LA04/2015/1311/F: Change of use from retail to café/restaurant. Amalgamation of 2 units into 1 unit including alterations to sh..."
+        }
+      ]
+    },
+    {
+      "key": "harberton_mobile_classroom_approval",
+      "city_id": "belfast",
+      "title": "Harberton North Special School temporary mobile classroom village approval",
+      "date": "2026-03-10",
+      "category": "duplicate_existing_event",
+      "reason": "Existing manual corpus, Round110 and Round126 already contain the LA04/2025/1272/F Harberton temporary classroom village milestone.",
+      "source_id": "bcc-harberton-la04-2025-1272-report-round353",
+      "source_name": "LA04/2025/1272/F - Harberton Special School final",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s126543/LA04%202025%201272%20F%20-%20Harberton%20Special%20School%20final.pdf",
+      "source_type": "official planning committee development-management report",
+      "screened_terms": [
+        "LA04/2025/1272/F",
+        "Harberton North Special School",
+        "temporary mobile classroom"
+      ],
+      "license": "Belfast City Council public committee-document terms; factual report metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2025/1272/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Harberton North temporary classroom village received planning permission"
+        },
+        {
+          "term": "Harberton North Special School",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Harberton North Special School extension application was received"
+        },
+        {
+          "term": "temporary mobile classroom",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Civic planning approval at St Patricks Primary School (Junior School Site) Churchill Street Belfast"
+        }
+      ]
+    },
+    {
+      "key": "mays_meadow_lanyon_place_office_approval",
+      "city_id": "belfast",
+      "title": "Lanyon Place / Mays Meadow grade-A office block approval",
+      "date": "2026-03-10",
+      "category": "duplicate_existing_event",
+      "reason": "Existing manual corpus, Round95 and Round126 already contain LA04/2025/0574/F for the Mays Meadow/Lanyon Place office scheme.",
+      "source_id": "bcc-planning-committee-march-2026-approvals-round353",
+      "source_name": "New residential developments in east Belfast and grade A office block approved at council's Planning Committee",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+      "source_type": "official council planning news page",
+      "screened_terms": [
+        "LA04/2025/0574/F",
+        "Mays Meadow",
+        "Lanyon Place",
+        "grade A office"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual approval metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2025/0574/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Eight-storey building application reached Planning Committee"
+        },
+        {
+          "term": "Mays Meadow",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Allstate Northern Ireland opened its Mays Meadow headquarters"
+        },
+        {
+          "term": "Lanyon Place",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "The Soloist completed at Lanyon Place"
+        },
+        {
+          "term": "grade A office",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "City Quays 1 completed on Belfast waterfront"
+        }
+      ]
+    },
+    {
+      "key": "redcar_street_padel_approval",
+      "city_id": "belfast",
+      "title": "Redcar Street vacant warehouse padel-facility approval",
+      "date": "2026-03-10",
+      "category": "duplicate_existing_event",
+      "reason": "Existing manual corpus, Round110 and Round112 already contain LA04/2025/0463/F for the Decco Ltd / Redcar Street warehouse change-of-use approval.",
+      "source_id": "bcc-redcar-la04-2025-0463-report-round353",
+      "source_name": "LA04/2025/0463/F - Redcar Street",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s126484/LA04%202025%200463%20F%20Redcar%20St.pdf",
+      "source_type": "official planning committee development-management report",
+      "screened_terms": [
+        "LA04/2025/0463/F",
+        "Redcar Street",
+        "Decco Ltd",
+        "Padel"
+      ],
+      "license": "Belfast City Council public committee-document terms; factual report metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2025/0463/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Redcar Street warehouse-to-padel facility received planning permission"
+        },
+        {
+          "term": "Redcar Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Residential planning approval at 1-5 Redcar Street Belfast BT6 9BP."
+        },
+        {
+          "term": "Decco Ltd",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Redcar Street warehouse-to-padel facility received planning permission"
+        },
+        {
+          "term": "Padel",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "civic/community/public-facility planning approval LA04/2024/1215/F: Erection of elevated Padel Court at first floor level over the existing car park and balcony link to existi..."
+        }
+      ]
+    },
+    {
+      "key": "nrf_underway_projects_page",
+      "city_id": "belfast",
+      "title": "Neighbourhood Regeneration Fund projects-underway page",
+      "date": "2026-05-20",
+      "category": "mutable_programme_page_or_duplicate",
+      "reason": "The current NRF page is useful discovery context, but the named underway projects checked here are already represented by more specific committee, news or project-status rows, or lack a fresh dated physical milestone on the page.",
+      "source_id": "bcc-neighbourhood-regeneration-fund-page-round353",
+      "source_name": "Neighbourhood Regeneration Fund",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/business-and-investment/physical-investment/funding-programmes/neighbourhood-regeneration-fund",
+      "source_type": "official council programme page",
+      "screened_terms": [
+        "Michael Davitt Community Heritage Centre",
+        "ACT Initiative Community Hub",
+        "Belfast Orange Hall",
+        "AYE Youth and Community Hub",
+        "Solas new build"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual programme metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "ACT Initiative Community Hub",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "ACT Community Hub and Visitor Centre status was recorded"
+        },
+        {
+          "term": "Belfast Orange Hall",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Belfast Orange Hall refurbishment works started"
+        }
+      ]
+    },
+    {
+      "key": "west_awg_michael_davitt_act_glencairn_mountainview",
+      "city_id": "belfast",
+      "title": "West Belfast NRF Area Working Group project statuses",
+      "date": "2026-02-26",
+      "category": "duplicate_or_not_ingestible",
+      "reason": "Michael Davitt, ACT Initiative and Mountainview status rows are already in the current manual corpus. Glencairn was awaiting a planning-application response in this report, so it is not a clean new approval, works-start, completion or opening milestone.",
+      "source_id": "bcc-west-awg-nrf-2026-02-26-round353",
+      "source_name": "West Belfast Area Working Group - Neighbourhood Regeneration Fund, 26 February 2026",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s126858/WBAWG%2026.02.26.pdf",
+      "source_type": "official council area-working-group minutes/report",
+      "screened_terms": [
+        "Michael Davitt",
+        "ACT Initiative",
+        "Mountainview Hotel",
+        "Glencairn Community Project Hub"
+      ],
+      "license": "Belfast City Council public committee-document terms; factual project-status metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Michael Davitt",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Michael Davitt Heritage and Community Centre was approved"
+        },
+        {
+          "term": "ACT Initiative",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "ACT Initiative interpretive fit-out contract was awarded"
+        },
+        {
+          "term": "Mountainview Hotel",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Mountainview Hotel project status was recorded"
+        }
+      ]
+    },
+    {
+      "key": "city_deal_studio_ulster_digital_twin_ireach",
+      "city_id": "belfast",
+      "title": "Belfast Region City Deal progress page facility leads",
+      "date": "2025-09-24",
+      "category": "duplicate_existing_event",
+      "reason": "Studio Ulster opening, UK Digital Twin Centre opening and iREACH Health construction-start/approval records are already present in the manual corpus from more direct project or partner sources.",
+      "source_id": "bcc-city-deal-progress-2025-09-24-round353",
+      "source_name": "Belfast Region already reaping rewards from City Deal programme of investment",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/belfast-region-already-reaping-rewards-from-city-d",
+      "source_type": "official council City Deal news page",
+      "screened_terms": [
+        "Studio Ulster",
+        "UK Digital Twin Centre",
+        "iREACH Health"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual programme metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Studio Ulster",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Ulster Virtual Production Studio was launched at Ulster University's Belfast campus"
+        },
+        {
+          "term": "UK Digital Twin Centre",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "UK Digital Twin Centre opened in Belfast"
+        },
+        {
+          "term": "iREACH Health",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "iREACH Health clinical research buildings approved"
+        }
+      ]
+    },
+    {
+      "key": "dfc_hed_list_changes_page",
+      "city_id": "belfast",
+      "title": "DfC HED changes-to-list publication page",
+      "date": "2026-05-20",
+      "category": "no_new_safe_row_in_this_pass",
+      "reason": "Recent Belfast HED/list-change leads visible from prior rounds were already screened or ingested, including All Saints, Knock Burial Ground and Victoria College-related rows. No additional distinct Belfast HB26 row with safe date, status and geometry was isolated in this round.",
+      "source_id": "dfc-hed-list-changes-page-round353",
+      "source_name": "Changes to the List of Buildings of special architectural or historic interest",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+      "source_type": "official department publication page",
+      "screened_terms": [
+        "All Saints",
+        "Knock Burial Ground",
+        "Victoria College",
+        "HB26"
+      ],
+      "license": "Crown copyright / Department for Communities terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.communities-ni.gov.uk/crown-copyright",
+      "attribution": "Department for Communities Historic Environment Division",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "All Saints",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "All Saints' Church proposed listing consultation was reported"
+        },
+        {
+          "term": "Knock Burial Ground",
+          "file": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+          "title": "DfC HED March 2026 Record Only row for Knock Burial Ground"
+        },
+        {
+          "term": "Victoria College",
+          "file": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+          "title": "DfC HED March 2026 Record Only row for Victoria College swimming pool"
+        },
+        {
+          "term": "HB26",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "HARNI spatial layer recorded Heritage at Risk status for 76-88 Royal Avenue and 104 North Street, Belfast"
+        }
+      ]
+    },
+    {
+      "key": "hed_buildings_layer",
+      "city_id": "belfast",
+      "title": "HED historic-building spatial layer",
+      "date": "2026-05-20",
+      "category": "supporting_endpoint_only",
+      "reason": "The ArcGIS layer remains useful for HB references and point geometry, but this pass did not identify a non-duplicate Belfast list-status change needing HED geometry support.",
+      "source_id": "dfc-hed-historic-buildings-arcgis-round353",
+      "source_name": "Historic Building Details / HED Buildings Database ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division / nidirect",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1",
+      "source_type": "official HED historic-building spatial layer",
+      "screened_terms": [
+        "HB26/27/054",
+        "HB26/11/002",
+        "HB26/18/192"
+      ],
+      "license": "Crown copyright / public-sector information terms; factual spatial endpoint metadata retained for audit.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Communities Historic Environment Division / nidirect",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round353 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "HB26/27/054",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "All Saints' Church proposed listing consultation was reported"
+        },
+        {
+          "term": "HB26/11/002",
+          "file": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+          "title": "DfC HED March 2026 Record Only row for Knock Burial Ground"
+        },
+        {
+          "term": "HB26/18/192",
+          "file": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+          "title": "DfC HED March 2026 Record Only row for Victoria College swimming pool"
+        }
+      ]
+    }
+  ],
+  "rejected_category_counts": {
+    "duplicate_existing_event": 6,
+    "mutable_programme_page_or_duplicate": 1,
+    "duplicate_or_not_ingestible": 1,
+    "no_new_safe_row_in_this_pass": 1,
+    "supporting_endpoint_only": 1
+  }
+}

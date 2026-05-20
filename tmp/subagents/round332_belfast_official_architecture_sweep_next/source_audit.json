@@ -1,0 +1,92 @@
+{
+  "schema_version": "round332_belfast_official_architecture_sweep_next.source_audit.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round332_belfast_official_architecture_sweep_next",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "source_audits": [
+    {
+      "source_id": "bcc-peaceplus-projects-unveiled-2024-round332",
+      "source_name": "Transformative Belfast PEACEPLUS projects unveiled during Good Relations Week",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/News/Transformative-Belfast-PEACEPLUS-projects-unveiled",
+      "source_type": "official council news page",
+      "license": "Belfast City Council website copyright and terms; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast City Council PEACEPLUS capital-project locations.",
+      "key_fields_reviewed": "News/page date, project name, project location text, programme/funding context, source URL and council attribution.",
+      "reliability": "strong for official programme-announcement date and named project locations",
+      "required_caveats": "Programme pages identify capital-project locations but do not document planning approval, construction start, completion, opening, final design, or mapped extents.",
+      "ingestion_recommendation": "Use only the two non-duplicate programme-inclusion candidates emitted in this pack; retain caveats and approximate geometry.",
+      "emitted_candidates": 2,
+      "rejected_or_overlap_leads": 3,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/News/Transformative-Belfast-PEACEPLUS-projects-unveiled",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 39414,
+        "contains_expected_markers": {
+          "belfast": true,
+          "peaceplus": true,
+          "annadale": true,
+          "distillery": true,
+          "sanctuary": true,
+          "2 royal avenue": true
+        }
+      }
+    },
+    {
+      "source_id": "bcc-peaceplus-project-page-round332",
+      "source_name": "PEACEPLUS",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/peaceplus",
+      "source_type": "official council programme page",
+      "license": "Belfast City Council website copyright and terms; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast City Council PEACEPLUS capital-project locations.",
+      "key_fields_reviewed": "News/page date, project name, project location text, programme/funding context, source URL and council attribution.",
+      "reliability": "usable with caveats for current project descriptions",
+      "required_caveats": "Programme pages identify capital-project locations but do not document planning approval, construction start, completion, opening, final design, or mapped extents.",
+      "ingestion_recommendation": "Use as supporting context only unless a later dated page state adds a distinct row-level milestone.",
+      "emitted_candidates": 2,
+      "rejected_or_overlap_leads": 0,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/peaceplus",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 54144,
+        "contains_expected_markers": {
+          "belfast": true,
+          "peaceplus": true,
+          "annadale": true,
+          "distillery": true,
+          "sanctuary": true,
+          "2 royal avenue": true
+        }
+      }
+    }
+  ],
+  "checked_urls": [
+    "https://www.belfastcity.gov.uk/News/Transformative-Belfast-PEACEPLUS-projects-unveiled",
+    "https://www.belfastcity.gov.uk/peaceplus"
+  ],
+  "search_queries": [
+    "site:belfastcity.gov.uk \"PEACEPLUS\" \"Annadale Open Space\" Belfast",
+    "site:belfastcity.gov.uk \"PEACEPLUS\" \"Distillery Street\" Belfast",
+    "site:belfastcity.gov.uk \"Sanctuary Theatre\" \"PEACEPLUS\" Belfast",
+    "site:belfastcity.gov.uk \"2 Royal Avenue\" \"LGBTQIA+ Hub\""
+  ],
+  "overall_recommendation": "Round332 can emit two cautious programme-inclusion candidates. Treat the remaining PEACEPLUS/building leads as duplicate or context until a new official dated approval, start, completion, handover or mapped row is found."
+}

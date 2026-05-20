@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round452_belfast_official_architecture_sweep_next17",
+  "accepted_event_ids": [
+    "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016",
+    "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016",
+    "bfs_arch_round452_qub_keysight_mmwave_lab_opening_2018",
+    "bfs_arch_round452_qub_agriplas_lab_opening_2019",
+    "bfs_arch_round452_belfast_met_aviation_suite_launch_2019"
+  ],
+  "rejected_event_ids": [
+    "bfs_arch_round452_reject_bcc_sandy_row_hub_duplicate_2026",
+    "bfs_arch_round452_reject_belfast_trust_horatios_garden_duplicate_2024",
+    "bfs_arch_round452_reject_dfc_ionad_na_fuiseoige_duplicate_2019",
+    "bfs_arch_round452_reject_qub_advanced_manufacturing_duplicate_2018",
+    "bfs_arch_round452_reject_qub_cyber_security_lab_thin_2018",
+    "bfs_arch_round452_reject_qub_nie_networks_lab_duplicate_2022",
+    "bfs_arch_round452_reject_qub_wellcome_wolfson_duplicate_2018"
+  ],
+  "point_backed_event_ids": [],
+  "geometry_ref_only_event_ids": [
+    "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016",
+    "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016",
+    "bfs_arch_round452_qub_keysight_mmwave_lab_opening_2018",
+    "bfs_arch_round452_qub_agriplas_lab_opening_2019",
+    "bfs_arch_round452_belfast_met_aviation_suite_launch_2019"
+  ],
+  "source_urls": [
+    "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf",
+    "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf",
+    "https://www.qub.ac.uk/News/Allnews/2018/NewKeysightMillimeter-WaveresearchlabopenedatQueensUniversityBelfast.html",
+    "https://www.qub.ac.uk/Research/GRI/TheInstituteforGlobalFoodSecurity/institute-for-global-security-news/NewsArchive2019/WondertechnologytotransformfarmingfoodproductionandmitigateAMRpioneeredbyIGFS.html",
+    "https://www.belfastmet.ac.uk/about-us/news/belfast-met-launch-new-aviation-suite/"
+  ],
+  "validation_ok": true,
+  "validation_errors": [],
+  "caveats": [
+    "All accepted records are geometry_ref-only; none is ready for the current point-only corpus without source-supported coordinates or footprints.",
+    "Two Belfast Trust annual-report records have month-level effective date precision because the official PDF gives only July 2016 and October 2016.",
+    "No causality, prediction, simulation, service-performance, health, education or economic outcome claim is made."
+  ]
+}

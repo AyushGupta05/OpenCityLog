@@ -1,0 +1,517 @@
+{
+  "schema_version": "round409_belfast_official_architecture_sweep_next13.source_audit.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round409_belfast_official_architecture_sweep_next13",
+  "audited_source_count": 8,
+  "audited_sources": [
+    {
+      "source_id": "de-st-patricks-primary-north-belfast-works-begin-2020-round409",
+      "source_name": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+      "source_type": "official government news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2020-01-23",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "accepted",
+      "geographic_scope": "Department of Education first-sod/construction-start milestone for St Patrick's Primary School, North Belfast.",
+      "reliability": "High for the source-published first-sod, construction-start, new-school-build scope, outdoor play/parking scope and contractor note.",
+      "caveats": "The source includes ministerial outcome language and a planned completion note. This pack records only the source-published construction-start milestone and does not treat the projected completion date as observed completion.",
+      "required_markers": [
+        "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+        "Date published",
+        "23 January 2020",
+        "first sod has been cut",
+        "start of construction work",
+        "new school building",
+        "Woodvale Construction Ltd"
+      ],
+      "fetch_check": {
+        "source_id": "de-st-patricks-primary-north-belfast-works-begin-2020-round409",
+        "source_url": "https://www.education-ni.gov.uk/news/ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+        "final_url": "https://www.education-ni.gov.uk/news/ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=UTF-8",
+        "byte_length": 37067,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "827e5b0d77c5db2b9465042ae0cebf80fdffa657c313362d7a2fa212d86cab5d",
+        "marker_ok": true,
+        "marker_results": [
+          {
+            "marker": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+            "present": true
+          },
+          {
+            "marker": "Date published",
+            "present": true
+          },
+          {
+            "marker": "23 January 2020",
+            "present": true
+          },
+          {
+            "marker": "first sod has been cut",
+            "present": true
+          },
+          {
+            "marker": "start of construction work",
+            "present": true
+          },
+          {
+            "marker": "new school building",
+            "present": true
+          },
+          {
+            "marker": "Woodvale Construction Ltd",
+            "present": true
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
+      "source_name": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/odowd-visits-site-ps42million-project-belfast-royal-academy",
+      "source_type": "official government news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2015-06-25",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "accepted",
+      "geographic_scope": "Department of Education School Enhancement Programme site/contract milestone for Belfast Royal Academy.",
+      "reliability": "High for the source-published site visit, project scope, approval-to-proceed wording and construction-contract award.",
+      "caveats": "The source documents a site/contract-stage milestone, not a completion/opening or measured construction-start date. Candidate language must not import ministerial outcome claims.",
+      "required_markers": [
+        "Belfast Royal Academy",
+        "Date published",
+        "25 June 2015",
+        "new two-storey building",
+        "construction contract has been awarded",
+        "Felix O'Hare",
+        "approval has been given to proceed"
+      ],
+      "fetch_check": {
+        "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
+        "source_url": "https://www.education-ni.gov.uk/news/odowd-visits-site-ps42million-project-belfast-royal-academy",
+        "final_url": "https://www.education-ni.gov.uk/news/odowd-visits-site-ps42million-project-belfast-royal-academy",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=UTF-8",
+        "byte_length": 37683,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "d8538d1f8bb8c16a7e9e653bcde8aa95a66ab7d95b15442c9cc942d337f5fb20",
+        "marker_ok": true,
+        "marker_results": [
+          {
+            "marker": "Belfast Royal Academy",
+            "present": true
+          },
+          {
+            "marker": "Date published",
+            "present": true
+          },
+          {
+            "marker": "25 June 2015",
+            "present": true
+          },
+          {
+            "marker": "new two-storey building",
+            "present": true
+          },
+          {
+            "marker": "construction contract has been awarded",
+            "present": true
+          },
+          {
+            "marker": "Felix O'Hare",
+            "present": true
+          },
+          {
+            "marker": "approval has been given to proceed",
+            "present": true
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "de-methodist-college-mcarthur-hall-work-start-2016-round409",
+      "source_name": "Work begins on GBP4million project at Methodist College",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/work-begins-ps4million-project-methodist-college",
+      "source_type": "official government news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2016-12-15",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "rejected_unavailable",
+      "geographic_scope": "Department of Education capital-project works-start lead for McArthur Hall at Methodist College, Belfast.",
+      "reliability": "Not accepted in Round409 because the direct live fetch returned HTTP 404.",
+      "caveats": "Search snippets still expose older page text, but snippets are not accepted as source evidence. Round409 records this as an inaccessible official lead rather than a candidate.",
+      "required_markers": [
+        "Work begins on GBP4million project at Methodist College",
+        "Date published",
+        "15 December 2016",
+        "Methodist College",
+        "work has started",
+        "McArthur Hall",
+        "Woodvale Construction Company Ltd"
+      ],
+      "fetch_check": {
+        "source_id": "de-methodist-college-mcarthur-hall-work-start-2016-round409",
+        "source_url": "https://www.education-ni.gov.uk/news/work-begins-ps4million-project-methodist-college",
+        "final_url": "https://www.education-ni.gov.uk/news/work-begins-ps4million-project-methodist-college",
+        "ok": false,
+        "status": 404,
+        "status_text": "Not Found",
+        "content_type": "text/html; charset=UTF-8",
+        "byte_length": 914,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "fb8144e491ae6eb1162a43bc782d747d0b43bcc8c448238ba45d853f90eaf665",
+        "marker_ok": false,
+        "marker_results": [
+          {
+            "marker": "Work begins on GBP4million project at Methodist College",
+            "present": false
+          },
+          {
+            "marker": "Date published",
+            "present": false
+          },
+          {
+            "marker": "15 December 2016",
+            "present": false
+          },
+          {
+            "marker": "Methodist College",
+            "present": false
+          },
+          {
+            "marker": "work has started",
+            "present": false
+          },
+          {
+            "marker": "McArthur Hall",
+            "present": false
+          },
+          {
+            "marker": "Woodvale Construction Company Ltd",
+            "present": false
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "bcc-strand-arts-restoration-start-2025-duplicate-round409",
+      "source_name": "Work underway to redevelop Strand Arts Centre in its 90th anniversary year",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/News/Work-underway-to-redevelop-Strand-Arts-Centre-in-i",
+      "source_type": "official council news page",
+      "source_date_field": "Date",
+      "source_date_value": "2025-01-14",
+      "license": "Belfast City Council website terms; official page cited for provenance audit, not reused as open bulk data",
+      "license_url": "https://www.belfastcity.gov.uk/terms-and-conditions",
+      "publisher_terms_url": "https://www.belfastcity.gov.uk/terms-and-conditions",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "rejected_unavailable_duplicate",
+      "geographic_scope": "Belfast City Council restoration-start page for Strand Arts Centre, Holywood Road.",
+      "reliability": "Not accepted in Round409 because the URL redirects to the council news index and live markers for the project page are absent.",
+      "caveats": "Rejected because the current URL is not a usable project-specific source and because Strand Arts Centre restoration-start/progress rows were already screened in prior Belfast packs and are visible in the live generated corpus.",
+      "required_markers": [
+        "Work underway to redevelop Strand Arts Centre",
+        "Date: 14 January 2025",
+        "Restoration work has begun",
+        "Strand Arts Centre",
+        "GBP6.5 million"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-strand-arts-restoration-start-2025-duplicate-round409",
+        "source_url": "https://www.belfastcity.gov.uk/News/Work-underway-to-redevelop-Strand-Arts-Centre-in-i",
+        "final_url": "https://www.belfastcity.gov.uk/news",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=utf-8",
+        "byte_length": 54778,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "589f7a3c98d38ff25dfcb7d766f3afa41c3c47064abfdb6c9e61357bf72da029",
+        "marker_ok": false,
+        "marker_results": [
+          {
+            "marker": "Work underway to redevelop Strand Arts Centre",
+            "present": false
+          },
+          {
+            "marker": "Date: 14 January 2025",
+            "present": false
+          },
+          {
+            "marker": "Restoration work has begun",
+            "present": false
+          },
+          {
+            "marker": "Strand Arts Centre",
+            "present": false
+          },
+          {
+            "marker": "GBP6.5 million",
+            "present": false
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "de-belvoir-sure-start-opening-2015-duplicate-round409",
+      "source_name": "O'Dowd opens new GBP360,000 Sure Start Centre at Belvoir",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/odowd-opens-new-ps360000-sure-start-centre-belvoir",
+      "source_type": "official government news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2015-11-11",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "rejected_duplicate",
+      "geographic_scope": "Department of Education official-opening source for the Belvoir Sure Start Centre.",
+      "reliability": "High for the source-published opening date and refurbished-building description.",
+      "caveats": "Rejected because this exact event is already present in earlier Belfast candidate packs and the live generated corpus.",
+      "required_markers": [
+        "Sure Start Centre at Belvoir",
+        "Date published",
+        "11 November 2015",
+        "officially opened",
+        "newly refurbished multipurpose building"
+      ],
+      "fetch_check": {
+        "source_id": "de-belvoir-sure-start-opening-2015-duplicate-round409",
+        "source_url": "https://www.education-ni.gov.uk/news/odowd-opens-new-ps360000-sure-start-centre-belvoir",
+        "final_url": "https://www.education-ni.gov.uk/news/odowd-opens-new-ps360000-sure-start-centre-belvoir",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=UTF-8",
+        "byte_length": 39337,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "f38673e1440ef037029774be355c6da3ca7ecb2030486b93b57c4c6d92c77b87",
+        "marker_ok": true,
+        "marker_results": [
+          {
+            "marker": "Sure Start Centre at Belvoir",
+            "present": true
+          },
+          {
+            "marker": "Date published",
+            "present": true
+          },
+          {
+            "marker": "11 November 2015",
+            "present": true
+          },
+          {
+            "marker": "officially opened",
+            "present": true
+          },
+          {
+            "marker": "newly refurbished multipurpose building",
+            "present": true
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "de-victoria-college-sep-proceed-2015-rejected-round409",
+      "source_name": "GBP14million to progress six more School Enhancement Projects",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/ps14million-progress-six-more-school-enhancement-projects",
+      "source_type": "official government news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2015-09-23",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "rejected_insufficient_specificity",
+      "geographic_scope": "Department of Education aggregate SEP proceed-to-construction announcement including Victoria College, Belfast.",
+      "reliability": "High for the list-stage programme announcement, but weak for a standalone Belfast built-environment candidate because the page does not give project scope, address or geometry for Victoria College.",
+      "caveats": "Rejected pending a Victoria College project-specific official source that gives scope and location without relying on a broad programme list.",
+      "required_markers": [
+        "Date published",
+        "23 September 2015",
+        "proceed to construction",
+        "Victoria College, Belfast",
+        "six schools"
+      ],
+      "fetch_check": {
+        "source_id": "de-victoria-college-sep-proceed-2015-rejected-round409",
+        "source_url": "https://www.education-ni.gov.uk/news/ps14million-progress-six-more-school-enhancement-projects",
+        "final_url": "https://www.education-ni.gov.uk/news/ps14million-progress-six-more-school-enhancement-projects",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=UTF-8",
+        "byte_length": 37242,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "97dde71c67723d3fae4b4d96e7ad002f79e3e056d08189ade9f76c03cd801e91",
+        "marker_ok": true,
+        "marker_results": [
+          {
+            "marker": "Date published",
+            "present": true
+          },
+          {
+            "marker": "23 September 2015",
+            "present": true
+          },
+          {
+            "marker": "proceed to construction",
+            "present": true
+          },
+          {
+            "marker": "Victoria College, Belfast",
+            "present": true
+          },
+          {
+            "marker": "six schools",
+            "present": true
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "dfc-shankill-gateway-public-realm-start-2026-duplicate-round409",
+      "source_name": "Lyons announces start of construction on the Shankill Gateway Public Realm scheme",
+      "publisher": "Department for Communities, Northern Ireland",
+      "source_url": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+      "source_type": "official government news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2026-03-25",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "publisher_terms_url": "https://www.communities-ni.gov.uk/articles/crown-copyright",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "rejected_duplicate",
+      "geographic_scope": "Department for Communities public-realm construction-start page for Shankill Gateway.",
+      "reliability": "High for source-published construction-start and route description.",
+      "caveats": "Rejected as duplicate because the live corpus/manual corpus and Round235 already represent the Shankill Gateway Phase 1 construction-start event.",
+      "required_markers": [
+        "Shankill Gateway Public Realm scheme",
+        "Date published",
+        "25 March 2026",
+        "commencement of construction",
+        "Peter's Hill",
+        "Lower Shankill Road"
+      ],
+      "fetch_check": {
+        "source_id": "dfc-shankill-gateway-public-realm-start-2026-duplicate-round409",
+        "source_url": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+        "final_url": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=UTF-8",
+        "byte_length": 55083,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "52942f0254ff82bb87427612f37c48e156508e1d8c7afc08bfeb5e5ab245ee04",
+        "marker_ok": true,
+        "marker_results": [
+          {
+            "marker": "Shankill Gateway Public Realm scheme",
+            "present": true
+          },
+          {
+            "marker": "Date published",
+            "present": true
+          },
+          {
+            "marker": "25 March 2026",
+            "present": true
+          },
+          {
+            "marker": "commencement of construction",
+            "present": true
+          },
+          {
+            "marker": "Peter's Hill",
+            "present": true
+          },
+          {
+            "marker": "Lower Shankill Road",
+            "present": true
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "bcc-city-quays-gardens-opened-2025-duplicate-round409",
+      "source_name": "Major projects - City Quays Gardens",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/City-Centre/Major-projects",
+      "source_type": "official council project page",
+      "source_date_field": "current project page text",
+      "source_date_value": "2025",
+      "license": "Belfast City Council website terms; official page cited for provenance audit, not reused as open bulk data",
+      "license_url": "https://www.belfastcity.gov.uk/terms-and-conditions",
+      "publisher_terms_url": "https://www.belfastcity.gov.uk/terms-and-conditions",
+      "accessed_at": "2026-05-20",
+      "candidate_disposition": "rejected_duplicate",
+      "geographic_scope": "Belfast City Council current major-projects page noting City Quays Gardens opened in 2025.",
+      "reliability": "Usable for current-status discovery; weaker than a dated project-specific opening page.",
+      "caveats": "Rejected because City Quays Gardens is already represented via Belfast Harbour/source registry material and the page is a current summary rather than a dated primary opening record.",
+      "required_markers": [
+        "City Quays Gardens",
+        "opened in 2025",
+        "two-acre green public space",
+        "Corporation Square",
+        "River Lagan waterfront"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-city-quays-gardens-opened-2025-duplicate-round409",
+        "source_url": "https://www.belfastcity.gov.uk/City-Centre/Major-projects",
+        "final_url": "https://www.belfastcity.gov.uk/City-Centre/Major-projects",
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "content_type": "text/html; charset=utf-8",
+        "byte_length": 34728,
+        "fetched_at": "2026-05-20",
+        "text_sha256": "fa289692c5add9c7297098a174eaa0a02ff1b43e58bc1c4c81f92ed413fc251f",
+        "marker_ok": true,
+        "marker_results": [
+          {
+            "marker": "City Quays Gardens",
+            "present": true
+          },
+          {
+            "marker": "opened in 2025",
+            "present": true
+          },
+          {
+            "marker": "two-acre green public space",
+            "present": true
+          },
+          {
+            "marker": "Corporation Square",
+            "present": true
+          },
+          {
+            "marker": "River Lagan waterfront",
+            "present": true
+          }
+        ]
+      }
+    }
+  ]
+}

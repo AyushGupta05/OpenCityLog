@@ -1,0 +1,285 @@
+{
+  "schema_version": "round347_belfast_official_architecture_sweep_next3.rejected.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round347_belfast_official_architecture_sweep_next3",
+  "rejected_count": 6,
+  "rejected": [
+    {
+      "key": "current_planning_may_2026_rows_duplicate",
+      "city_id": "belfast",
+      "title": "Current planning list rows advertised in May 2026",
+      "date": "2026-05-15",
+      "category": "duplicate_or_mutable_current_list",
+      "reason": "Mercy College SEN building, Bruce Street structural bracing and Berry Street shopfront rows are already represented or rejected in prior Belfast current-planning packs. The live list is mutable and should not replace Planning Portal or committee/decision records.",
+      "source_id": "bcc-current-planning-applications-2026-round347",
+      "source_name": "Current planning applications",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "source_type": "official council current-planning list",
+      "screened_terms": [
+        "LA04/2026/0074/F",
+        "LA04/2026/0782/F",
+        "LA04/2026/0809/F",
+        "LA04/2026/0810/DCA"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual application references retained only for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round347 manual official-source screen; lead was checked against the current manual corpus and prior Belfast packs.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "LA04/2026/0074/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Mercy College SEN building planning application was advertised"
+        },
+        {
+          "term": "LA04/2026/0782/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "2-4 Bruce Street office-alteration development application was advertised"
+        },
+        {
+          "term": "LA04/2026/0809/F",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "22-24 Berry Street shopfront development applications were advertised"
+        },
+        {
+          "term": "LA04/2026/0810/DCA",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "22-24 Berry Street shopfront development applications were advertised"
+        }
+      ]
+    },
+    {
+      "key": "historic_areas_spg_duplicate",
+      "city_id": "belfast",
+      "title": "Historic areas supplementary planning guidance",
+      "date": "2026-04-21",
+      "category": "duplicate_existing_event",
+      "reason": "The Cathedral/Northeast Quarter and Sailortown/City Quays SPG milestone and the Common Market and St Mary's CBS approval mentions from the same news page are already represented in the live corpus or prior Belfast packs.",
+      "source_id": "bcc-historic-areas-spg-news-2026-round347",
+      "source_name": "Council agrees supplementary planning guidance for historic areas of Belfast",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/News/Council-agrees-supplementary-planning-guidance-for",
+      "source_type": "official council planning news page",
+      "screened_terms": [
+        "Supplementary Planning Guidance",
+        "Common Market",
+        "St Mary's Christian Brothers"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual policy and approval metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round347 manual official-source screen; lead was checked against the current manual corpus and prior Belfast packs.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Supplementary Planning Guidance",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "First developer contributions monitoring period closed"
+        },
+        {
+          "term": "Common Market",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Common Market opened on Dunbar Street"
+        },
+        {
+          "term": "St Mary's Christian Brothers",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "St Mary's CBS sports pitch and changing accommodation was approved"
+        }
+      ]
+    },
+    {
+      "key": "white_rise_ohio_playgrounds_duplicate",
+      "city_id": "belfast",
+      "title": "White Rise and Ohio Street revamped playgrounds opened",
+      "date": "2026-04-02",
+      "category": "duplicate_existing_public_realm_pack",
+      "reason": "White Rise, Ohio Street, Finvoy Street and Roddens Crescent playground-improvement programme milestones were already represented or rejected by prior Belfast public-realm packs.",
+      "source_id": "bcc-playground-improvements-open-2026-round347",
+      "source_name": "GBP1.5 million of further park improvements planned for Belfast as revamped playgrounds open",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/News/%C2%A31-5-million-of-further-park-improvements-planned",
+      "source_type": "official council parks news page",
+      "screened_terms": [
+        "White Rise",
+        "Ohio Street",
+        "Finvoy Street",
+        "Roddens Crescent",
+        "Playground Improvement Programme"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual playground names and page date retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round347 manual official-source screen; lead was checked against the current manual corpus and prior Belfast packs.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "White Rise",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "White Rise playground refurbishment was proposed for the 2025/2026 programme"
+        },
+        {
+          "term": "Ohio Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Ohio Street playground refurbishment was proposed for the 2025/2026 programme"
+        },
+        {
+          "term": "Finvoy Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Finvoy Street playground refurbishment was proposed for the 2025/2026 programme"
+        },
+        {
+          "term": "Roddens Crescent",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Roddens Crescent playground refurbishment was proposed for the 2025/2026 programme"
+        },
+        {
+          "term": "Playground Improvement Programme",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Belfast 2013-2014 playground improvement programme completed"
+        }
+      ]
+    },
+    {
+      "key": "sandy_row_hub_duplicate",
+      "city_id": "belfast",
+      "title": "Sandy Row Arts and Digital Hub official opening",
+      "date": "2026-02-18",
+      "category": "duplicate_existing_event",
+      "reason": "The Sandy Row Arts and Digital Hub opening, Coffee Culture works and Sandy Row open-space pipeline items are already represented or rejected in prior Belfast packs.",
+      "source_id": "bcc-sandy-row-arts-digital-hub-open-2026-round347",
+      "source_name": "Boost for Sandy Row as new Arts & Digital Hub opens",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "source_type": "official council news page",
+      "screened_terms": [
+        "Sandy Row Arts",
+        "Arts and Digital Hub",
+        "Coffee Culture",
+        "Sandy Row Open Space"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual opening and project metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round347 manual official-source screen; lead was checked against the current manual corpus and prior Belfast packs.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Sandy Row Arts",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sandy Row Arts and Digital Hub letter-of-offer amendment was recorded"
+        },
+        {
+          "term": "Arts and Digital Hub",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sandy Row Arts and Digital Hub letter-of-offer amendment was recorded"
+        },
+        {
+          "term": "Coffee Culture",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Coffee Culture works-commencement status was recorded"
+        },
+        {
+          "term": "Sandy Row Open Space",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sandy Row Open Space Project was reported in the 2026 project pipeline"
+        }
+      ]
+    },
+    {
+      "key": "cathedral_gardens_duplicate",
+      "city_id": "belfast",
+      "title": "Cathedral Gardens transformation works started",
+      "date": "2026-01-05",
+      "category": "duplicate_existing_event",
+      "reason": "Cathedral Gardens approval, works-start and memorial design-stage milestones are already represented in the live corpus and prior Belfast packs.",
+      "source_id": "bcc-cathedral-gardens-works-start-2026-round347",
+      "source_name": "Cathedral Gardens transformation gets underway",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+      "source_type": "official council news page",
+      "screened_terms": [
+        "Cathedral Gardens",
+        "Belfast Blitz Memorial",
+        "work started"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual works-start metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round347 manual official-source screen; lead was checked against the current manual corpus and prior Belfast packs.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Cathedral Gardens",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Cathedral Gardens reopened as an interim family-friendly public space"
+        },
+        {
+          "term": "Belfast Blitz Memorial",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Belfast Blitz Memorial was listed within Cathedral Gardens redevelopment scope"
+        },
+        {
+          "term": "work started",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Five Cs city-centre revitalisation work started"
+        }
+      ]
+    },
+    {
+      "key": "assembly_rooms_duplicate",
+      "city_id": "belfast",
+      "title": "Assembly Rooms purchase agreement and completion",
+      "date": "2025-09-01",
+      "category": "duplicate_existing_event",
+      "reason": "Assembly Rooms purchase-agreed and purchase-completion milestones are already represented in the live corpus and prior Belfast packs.",
+      "source_id": "bcc-assembly-rooms-purchase-2025-round347",
+      "source_name": "Council agrees to purchase Assembly Rooms as city centre regeneration continues",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/council-agrees-to-purchase-assembly-rooms-as-city",
+      "source_type": "official council news page",
+      "screened_terms": [
+        "Assembly Rooms",
+        "Braddell",
+        "North Street",
+        "Waring Street"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual purchase-agreement metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round347 manual official-source screen; lead was checked against the current manual corpus and prior Belfast packs.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Assembly Rooms",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Other planning approval LA04/2019/2031/LBC: Renovation and extension of building together with the demolition of the modern structures to the rear, to fa..."
+        },
+        {
+          "term": "Braddell",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "HARNI spatial layer recorded Heritage at Risk status for J Braddell and Sons Ltd 11 North Street Belfast BT1 1NA"
+        },
+        {
+          "term": "North Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "HARNI spatial layer recorded Heritage at Risk status for 76-88 Royal Avenue and 104 North Street, Belfast"
+        },
+        {
+          "term": "Waring Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "War Memorial Building was listed"
+        }
+      ]
+    }
+  ],
+  "rejected_category_counts": {
+    "duplicate_or_mutable_current_list": 1,
+    "duplicate_existing_event": 4,
+    "duplicate_existing_public_realm_pack": 1
+  }
+}

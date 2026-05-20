@@ -1,0 +1,89 @@
+{
+  "schema_version": "bims-validation-report/v0.1",
+  "round": "round414",
+  "task": "nyc_public_design_commission_next4_candidates",
+  "generated_at": "2026-05-20",
+  "status": "PASS",
+  "candidate_count": 36,
+  "date_range": {
+    "start": "2025-10-21",
+    "end": "2026-04-20"
+  },
+  "certificate_numbers": [
+    "30174",
+    "30175",
+    "30176",
+    "30177",
+    "30178",
+    "30179",
+    "30180",
+    "30181",
+    "30182",
+    "30187",
+    "30188",
+    "30189",
+    "30190",
+    "30200",
+    "30206",
+    "30207",
+    "30213",
+    "30214",
+    "30215",
+    "30216",
+    "30217",
+    "30218",
+    "30229",
+    "30234",
+    "30235",
+    "30244",
+    "30245",
+    "30254",
+    "30300",
+    "30333",
+    "30337",
+    "30340",
+    "30347",
+    "30359",
+    "30363",
+    "30367"
+  ],
+  "checks": [
+    {
+      "name": "required_candidate_fields",
+      "ok": true,
+      "detail": "Required provenance, source, date, confidence, and transformation fields are present."
+    },
+    {
+      "name": "date_scope",
+      "ok": true,
+      "detail": "2008-01-01 through 2026-05-20"
+    },
+    {
+      "name": "official_pdc_urls",
+      "ok": true,
+      "detail": "Selected source URLs are nyc.gov PDC PDF links."
+    },
+    {
+      "name": "duplicate_screening",
+      "ok": true,
+      "detail": "Certificate/source/event keys are unique in this pack after live and prior-pack screening."
+    },
+    {
+      "name": "overclaim_guard",
+      "ok": true,
+      "detail": "Observed-change statements avoid prediction, causation, opening, operation, completion, and outcome claims."
+    },
+    {
+      "name": "source_page_checks",
+      "ok": true,
+      "detail": "Official index/terms pages were fetched for citation metadata."
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "caveats": [
+    "Administrative PDC design-review records only; no construction, opening, completion, operation, impact, or causation claim is made.",
+    "Coordinates are approximate map-placement geometry, not official PDC GIS geometry.",
+    "Explicit PDF reuse license was not found; NYC.gov terms are carried as the applicable terms reference."
+  ]
+}

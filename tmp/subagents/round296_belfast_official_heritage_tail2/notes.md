@@ -23,4 +23,4 @@ HB references already represented as listing/de-listing events were rejected; HA
 
 ## Caveat
 
-Do not treat heritage record dates as construction dates. These rows are source-backed administrative milestones only and make no forecast, simulation, causality or impact claim.
+Do not treat heritage record dates as construction dates. These rows are source-backed administrative milestones only and make no future-status, modelled-outcome, or impact claim.

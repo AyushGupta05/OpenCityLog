@@ -1,0 +1,584 @@
+{
+  "schema_version": "round390_belfast_official_architecture_sweep_next11.source_audit.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round390_belfast_official_architecture_sweep_next11",
+  "search_queries_checked": [
+    "site:infrastructure-ni.gov.uk/news Hill Street Belfast pedestrianised 4 December 2025",
+    "site:infrastructure-ni.gov.uk/consultations Hill Street Gordon Street Belfast Experimental Traffic Control Scheme 2025",
+    "\"Kimmins announces next stage of Lagan Pedestrian and Cycle Bridge procurement\"",
+    "site:infrastructure-ni.gov.uk \"Lagan Pedestrian and Cycle Bridge\" \"shortlist of contractors\" \"17 April 2025\"",
+    "site:minutes.belfastcity.gov.uk \"Planning Committee review of implemented applications 2026\" \"Loft Lines\"",
+    "site:minutes.belfastcity.gov.uk \"Raphael Street and Cromac Street\" \"LA04/2021/1672/O\"",
+    "site:minutes.belfastcity.gov.uk \"Bedford Hotel\" \"LA04/2024/0126/F\"",
+    "site:belfastcity.gov.uk/news Belfast architecture public realm official 2026",
+    "site:communities-ni.gov.uk/publications Belfast development brief built environment 2026",
+    "site:infrastructure-ni.gov.uk/news Belfast public realm active travel bridge 2025 2026"
+  ],
+  "source_count": 10,
+  "sources": [
+    {
+      "source_id": "dfi-hill-street-pedestrianisation-effective-2025-round390",
+      "source_name": "Hill Street, Belfast to be pedestrianised from Thursday 4 December",
+      "publisher": "Department for Infrastructure",
+      "url": "https://www.infrastructure-ni.gov.uk/news/hill-street-belfast-be-pedestrianised-thursday-4-december",
+      "source_type": "official department news page",
+      "license": "Crown copyright; DfI states Crown copyright material on its site may be used and re-used under the Open Government Licence, excluding logos and other exemptions.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "related_license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Infrastructure",
+      "coverage_years": "News page dated 2025-12-02; stated effective date 2025-12-04",
+      "update_frequency": "News page, milestone-specific",
+      "geographic_scope": "Hill Street between Gordon Street and Waring Street, Cathedral Quarter, Belfast",
+      "granularity": "Named street segment, effective date, experimental traffic-control status and review period",
+      "key_fields": "Publication date, street name, effective date, street-segment description, experimental scheme wording and review period.",
+      "reliability": "strong for the source-stated experimental pedestrianisation effective date",
+      "required_caveats": "Experimental traffic-management record only; do not treat as permanent public-realm delivery, streetscape construction, final order, completion, opening, safety, footfall or economic outcome evidence.",
+      "ingestion_recommendation": "Accept one candidate as a documented experimental pedestrianisation milestone with street-management caveats.",
+      "emitted_candidates": 1,
+      "source_check_method": "HTML fetch and marker scan",
+      "marker_terms": [
+        "2 December 2025",
+        "Hill Street in Belfast",
+        "Thursday 4 December 2025",
+        "Experimental Traffic Control Scheme",
+        "between Gordon Street and Waring Street",
+        "initial 6-month period"
+      ],
+      "fetch_check": {
+        "source_id": "dfi-hill-street-pedestrianisation-effective-2025-round390",
+        "url": "https://www.infrastructure-ni.gov.uk/news/hill-street-belfast-be-pedestrianised-thursday-4-december",
+        "ok": true,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "fetched_at": "2026-05-20",
+        "method": "HTML fetch and marker scan",
+        "marker_results": [
+          {
+            "term": "2 December 2025",
+            "found": true
+          },
+          {
+            "term": "Hill Street in Belfast",
+            "found": true
+          },
+          {
+            "term": "Thursday 4 December 2025",
+            "found": true
+          },
+          {
+            "term": "Experimental Traffic Control Scheme",
+            "found": true
+          },
+          {
+            "term": "between Gordon Street and Waring Street",
+            "found": true
+          },
+          {
+            "term": "initial 6-month period",
+            "found": true
+          }
+        ],
+        "error": null,
+        "byte_length": 39147,
+        "marker_match_count": 6
+      }
+    },
+    {
+      "source_id": "dfi-lagan-ped-cycle-bridge-procurement-next-stage-2025-round390",
+      "source_name": "Liz Kimmins announces next stage of Lagan Pedestrian and Cycle Bridge procurement",
+      "publisher": "Department for Infrastructure",
+      "url": "https://www.infrastructure-ni.gov.uk/news/liz-kimmins-announces-next-stage-lagan-pedestrian-and-cycle-bridge-procurement",
+      "source_type": "official department news page",
+      "license": "Crown copyright; DfI states Crown copyright material on its site may be used and re-used under the Open Government Licence, excluding logos and other exemptions.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "related_license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Infrastructure",
+      "coverage_years": "News page dated 2025-04-17",
+      "update_frequency": "News page, milestone-specific",
+      "geographic_scope": "River Lagan bridge corridor between the Gasworks site and Ormeau Embankment, Belfast",
+      "granularity": "Named bridge project, procurement-stage status, bid invitation and broad bridge corridor",
+      "key_fields": "Publication date, project name, procurement-stage wording, shortlist/bid wording, span/location notes and funding context.",
+      "reliability": "strong for the source-stated procurement-stage milestone; not physical-delivery evidence",
+      "required_caveats": "Procurement-stage record only; do not treat as contract award, detailed design, works start, bridge construction, completion, opening, final alignment, cost outcome, use or active-travel impact evidence.",
+      "ingestion_recommendation": "Accept one candidate as a documented procurement milestone with proposal/delivery-stage caveats.",
+      "emitted_candidates": 1,
+      "source_check_method": "HTML fetch and marker scan",
+      "marker_terms": [
+        "17 April 2025",
+        "Lagan Pedestrian and Cycle Bridge",
+        "procurement process",
+        "shortlist of contractors",
+        "invited to bid",
+        "Gasworks site and Ormeau Embankment"
+      ],
+      "fetch_check": {
+        "source_id": "dfi-lagan-ped-cycle-bridge-procurement-next-stage-2025-round390",
+        "url": "https://www.infrastructure-ni.gov.uk/news/liz-kimmins-announces-next-stage-lagan-pedestrian-and-cycle-bridge-procurement",
+        "ok": true,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "fetched_at": "2026-05-20",
+        "method": "HTML fetch and marker scan",
+        "marker_results": [
+          {
+            "term": "17 April 2025",
+            "found": true
+          },
+          {
+            "term": "Lagan Pedestrian and Cycle Bridge",
+            "found": true
+          },
+          {
+            "term": "procurement process",
+            "found": true
+          },
+          {
+            "term": "shortlist of contractors",
+            "found": true
+          },
+          {
+            "term": "invited to bid",
+            "found": true
+          },
+          {
+            "term": "Gasworks site and Ormeau Embankment",
+            "found": true
+          }
+        ],
+        "error": null,
+        "byte_length": 43923,
+        "marker_match_count": 6
+      }
+    },
+    {
+      "source_id": "bcc-planning-implemented-applications-review-2026-round390",
+      "source_name": "Planning Committee review of implemented applications 2026",
+      "publisher": "Belfast City Council",
+      "url": "https://minutes.belfastcity.gov.uk/documents/b37961/Combined%20Pack%2019th-May-2026%2017.00%20Planning%20Committee.pdf?T=9",
+      "source_type": "official council Planning Committee PDF pack",
+      "license": "Belfast City Council public committee-document terms; factual committee metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years": "Planning Committee pack dated 2026-05-19; implemented-schemes report on extracted PDF pages 161-162",
+      "update_frequency": "Meeting-specific pack",
+      "geographic_scope": "Belfast City Council planning authority area; screened for architecture/built-environment milestones",
+      "granularity": "Committee report, planning application references, named schemes and proposed review/site-visit status",
+      "key_fields": "Committee date, report title, application references, scheme names, site-visit schedule and completed/implemented wording.",
+      "reliability": "usable with caveats for committee-recorded implemented/completed-form status; not a substitute for completion certificates, opening notices or as-built plans",
+      "required_caveats": "Committee review/site-visit record only; do not treat as exact completion date, opening, full occupation, building-control certification, final as-built geometry or outcome evidence.",
+      "ingestion_recommendation": "Accept two cautious candidates: one for Loft Lines completed-form/public-realm status and one for Raphael/Cromac Gasworks implemented-scheme listing. Reject Bedford Hotel as duplicate.",
+      "emitted_candidates": 2,
+      "source_check_method": "PDF HTTP fetch and pypdf text marker scan",
+      "marker_terms": [
+        "Planning Committee review of implemented applications 2026",
+        "Date: 19th May 2026",
+        "Raphael Street and Cromac Street",
+        "LA04/2021/1672/O",
+        "Loft Lines",
+        "completed form",
+        "public realm delivered"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-planning-implemented-applications-review-2026-round390",
+        "url": "https://minutes.belfastcity.gov.uk/documents/b37961/Combined%20Pack%2019th-May-2026%2017.00%20Planning%20Committee.pdf?T=9",
+        "ok": true,
+        "status": 200,
+        "content_type": "application/pdf",
+        "fetched_at": "2026-05-20",
+        "method": "PDF HTTP fetch and pypdf text marker scan",
+        "marker_results": [
+          {
+            "term": "Planning Committee review of implemented applications 2026",
+            "found": true
+          },
+          {
+            "term": "Date: 19th May 2026",
+            "found": true
+          },
+          {
+            "term": "Raphael Street and Cromac Street",
+            "found": true
+          },
+          {
+            "term": "LA04/2021/1672/O",
+            "found": true
+          },
+          {
+            "term": "Loft Lines",
+            "found": true
+          },
+          {
+            "term": "completed form",
+            "found": true
+          },
+          {
+            "term": "public realm delivered",
+            "found": true
+          }
+        ],
+        "error": null,
+        "byte_length": 17645927,
+        "marker_match_count": 7
+      }
+    },
+    {
+      "source_id": "bcc-bedford-hotel-implemented-site-visit-duplicate-round390",
+      "source_name": "Bedford Hotel implemented-scheme site-visit listing in 19 May 2026 Planning Committee pack",
+      "publisher": "Belfast City Council",
+      "url": "https://minutes.belfastcity.gov.uk/documents/b37961/Combined%20Pack%2019th-May-2026%2017.00%20Planning%20Committee.pdf?T=9",
+      "source_type": "official council Planning Committee PDF pack",
+      "license": "Belfast City Council public committee-document terms; factual committee metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years": "Planning Committee pack dated 2026-05-19",
+      "update_frequency": "Meeting-specific pack",
+      "geographic_scope": "15-16 Donegall Square South and 2-14 Bedford Street, Belfast",
+      "granularity": "Committee site-visit line item",
+      "key_fields": "Committee date, application reference, scheme name and prior committee approval date.",
+      "reliability": "strong for source-stated listing, but duplicate against existing manual Bedford Hotel opening/planning records",
+      "required_caveats": "Do not double count the Scottish Mutual/Bedford Hotel building family.",
+      "ingestion_recommendation": "Reject as duplicate.",
+      "emitted_candidates": 0,
+      "source_check_method": "PDF HTTP fetch and pypdf text marker scan",
+      "marker_terms": [
+        "Bedford Hotel",
+        "LA04/2024/0126/F",
+        "18th March 2025"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-bedford-hotel-implemented-site-visit-duplicate-round390",
+        "url": "https://minutes.belfastcity.gov.uk/documents/b37961/Combined%20Pack%2019th-May-2026%2017.00%20Planning%20Committee.pdf?T=9",
+        "ok": true,
+        "status": 200,
+        "content_type": "application/pdf",
+        "fetched_at": "2026-05-20",
+        "method": "PDF HTTP fetch and pypdf text marker scan",
+        "marker_results": [
+          {
+            "term": "Bedford Hotel",
+            "found": true
+          },
+          {
+            "term": "LA04/2024/0126/F",
+            "found": true
+          },
+          {
+            "term": "18th March 2025",
+            "found": true
+          }
+        ],
+        "error": null,
+        "byte_length": 17645927,
+        "marker_match_count": 3
+      }
+    },
+    {
+      "source_id": "dfi-hill-street-experimental-consultation-supporting-round390",
+      "source_name": "Experimental Traffic Control Scheme (Hill Street and Gordon Street) Belfast 2025",
+      "publisher": "Department for Infrastructure",
+      "url": "https://www.infrastructure-ni.gov.uk/consultations/experimental-traffic-control-scheme-hill-street-and-gordon-street-belfast-2025",
+      "source_type": "official department consultation page",
+      "license": "Crown copyright; DfI states Crown copyright material on its site may be used and re-used under the Open Government Licence, excluding logos and other exemptions.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "related_license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Infrastructure",
+      "coverage_years": "Consultation opened 2025-10-15 and closed 2025-11-06",
+      "update_frequency": "Consultation page, status-specific",
+      "geographic_scope": "Hill Street and Gordon Street, Belfast",
+      "granularity": "Draft experimental traffic-control scheme documents and consultation dates",
+      "key_fields": "Consultation title, opening and closing dates, scheme name, street names and documents.",
+      "reliability": "supporting context for the later DfI effective-date news page",
+      "required_caveats": "Consultation status alone is not an effective-date, construction, completion or permanent public-realm record.",
+      "ingestion_recommendation": "Do not emit separately; use as supporting context for the stronger 2025-12-04 effective-date candidate.",
+      "emitted_candidates": 0,
+      "source_check_method": "HTML fetch and marker scan",
+      "marker_terms": [
+        "Consultation opened 15 October 2025",
+        "closed 6 November 2025",
+        "Hill Street and Gordon Street",
+        "for a period of 6 months"
+      ],
+      "fetch_check": {
+        "source_id": "dfi-hill-street-experimental-consultation-supporting-round390",
+        "url": "https://www.infrastructure-ni.gov.uk/consultations/experimental-traffic-control-scheme-hill-street-and-gordon-street-belfast-2025",
+        "ok": true,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "fetched_at": "2026-05-20",
+        "method": "HTML fetch and marker scan",
+        "marker_results": [
+          {
+            "term": "Consultation opened 15 October 2025",
+            "found": true
+          },
+          {
+            "term": "closed 6 November 2025",
+            "found": true
+          },
+          {
+            "term": "Hill Street and Gordon Street",
+            "found": true
+          },
+          {
+            "term": "for a period of 6 months",
+            "found": true
+          }
+        ],
+        "error": null,
+        "byte_length": 37804,
+        "marker_match_count": 4
+      }
+    },
+    {
+      "source_id": "dfi-stranmillis-cycle-routes-order-2026-recheck-round390",
+      "source_name": "The Cycle Routes (Amendment) Order (Northern Ireland) 2026",
+      "publisher": "Department for Infrastructure",
+      "url": "https://www.infrastructure-ni.gov.uk/consultations/cycle-routes-amendment-order-northern-ireland-2026",
+      "source_type": "official department roads-legislation consultation page",
+      "license": "Crown copyright / Open Government Licence terms for reusable public-sector information, excluding logos and exemptions.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "related_license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Infrastructure",
+      "coverage_years": "Consultation opened 2026-03-18 and closed 2026-04-10",
+      "update_frequency": "Consultation page, status-specific",
+      "geographic_scope": "Stranmillis Embankment, Belfast",
+      "granularity": "Draft cycle-route order and map",
+      "key_fields": "Order title, consultation date, road name, route order description and downloadable draft order/map.",
+      "reliability": "usable with caveats for legal-order consultation status",
+      "required_caveats": "Traffic-order consultation does not document construction, completion, opening, public-realm delivery or as-built alignment.",
+      "ingestion_recommendation": "Reject for this architecture/public-realm sweep; already rejected in Round383.",
+      "emitted_candidates": 0,
+      "source_check_method": "HTML fetch and marker scan",
+      "marker_terms": [
+        "Stranmillis Embankment",
+        "two-way cycle shared track",
+        "18 March 2026"
+      ],
+      "fetch_check": {
+        "source_id": "dfi-stranmillis-cycle-routes-order-2026-recheck-round390",
+        "url": "https://www.infrastructure-ni.gov.uk/consultations/cycle-routes-amendment-order-northern-ireland-2026",
+        "ok": true,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "fetched_at": "2026-05-20",
+        "method": "HTML fetch and marker scan",
+        "marker_results": [
+          {
+            "term": "Stranmillis Embankment",
+            "found": true
+          },
+          {
+            "term": "two-way cycle shared track",
+            "found": true
+          },
+          {
+            "term": "18 March 2026",
+            "found": true
+          }
+        ],
+        "error": null,
+        "byte_length": 37248,
+        "marker_match_count": 3
+      }
+    },
+    {
+      "source_id": "bcc-city-quays-gardens-opening-duplicate-round390",
+      "source_name": "City Quays Gardens opening / completion source family",
+      "publisher": "Belfast City Council / Belfast Harbour public sources",
+      "url": "https://www.belfastcity.gov.uk/news",
+      "source_type": "official/civic public source family recheck",
+      "license": "Mixed public-source terms; factual duplicate-check metadata only.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council and Belfast Harbour where applicable",
+      "coverage_years": "Prior Belfast sweep coverage through Round383",
+      "update_frequency": "News pages, milestone-specific",
+      "geographic_scope": "City Quays Gardens, Belfast",
+      "granularity": "Named public-realm/open-space milestone",
+      "key_fields": "Project name, source date, opening/works status and source URL.",
+      "reliability": "strong in existing corpus; duplicate for Round390",
+      "required_caveats": "Do not duplicate existing City Quays Gardens records.",
+      "ingestion_recommendation": "Reject as duplicate/exhausted lead.",
+      "emitted_candidates": 0,
+      "source_check_method": "Prior-corpus duplicate scan",
+      "marker_terms": [
+        "City Quays Gardens",
+        "opening",
+        "public realm"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-city-quays-gardens-opening-duplicate-round390",
+        "url": "https://www.belfastcity.gov.uk/news",
+        "ok": true,
+        "status": "not_fetched",
+        "content_type": "not_applicable",
+        "fetched_at": "2026-05-20",
+        "method": "Prior-corpus duplicate scan",
+        "marker_results": [
+          {
+            "term": "City Quays Gardens",
+            "found": "not_applicable"
+          },
+          {
+            "term": "opening",
+            "found": "not_applicable"
+          },
+          {
+            "term": "public realm",
+            "found": "not_applicable"
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-belfast-stories-duplicate-round390",
+      "source_name": "Belfast Stories official project and committee source family",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/belfaststories",
+      "source_type": "official council project page / committee source family recheck",
+      "license": "Belfast City Council website terms; factual duplicate-check metadata only.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years": "Prior Belfast sweep coverage through Round383",
+      "update_frequency": "Project pages and committee packs update irregularly",
+      "geographic_scope": "Belfast Stories / North Street, Belfast",
+      "granularity": "Design-stage and consultation-stage project milestones",
+      "key_fields": "Project stage, committee date, consultation dates, design-team status and source URL.",
+      "reliability": "usable with caveats, but already represented in prior rounds",
+      "required_caveats": "Do not double count existing Belfast Stories design-team, Stage 3, PACC or funding-condition records.",
+      "ingestion_recommendation": "Reject as duplicate/exhausted lead.",
+      "emitted_candidates": 0,
+      "source_check_method": "Prior-corpus duplicate scan",
+      "marker_terms": [
+        "Belfast Stories",
+        "Stage 3",
+        "PACC",
+        "design team"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-belfast-stories-duplicate-round390",
+        "url": "https://www.belfastcity.gov.uk/belfaststories",
+        "ok": true,
+        "status": "not_fetched",
+        "content_type": "not_applicable",
+        "fetched_at": "2026-05-20",
+        "method": "Prior-corpus duplicate scan",
+        "marker_results": [
+          {
+            "term": "Belfast Stories",
+            "found": "not_applicable"
+          },
+          {
+            "term": "Stage 3",
+            "found": "not_applicable"
+          },
+          {
+            "term": "PACC",
+            "found": "not_applicable"
+          },
+          {
+            "term": "design team",
+            "found": "not_applicable"
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-current-planning-major-duplicates-recheck-round390",
+      "source_name": "Belfast current/live major planning application rechecks",
+      "publisher": "Belfast City Council / NI Planning Portal",
+      "url": "https://www.planningni.gov.uk/",
+      "source_type": "official planning application source family recheck",
+      "license": "Planning Portal and council public-record terms; factual duplicate-check metadata only.",
+      "license_url": "https://www.planningni.gov.uk/",
+      "attribution": "Belfast City Council and Department for Infrastructure planning-data sources",
+      "coverage_years": "Current/live application checks through 2026-05-20",
+      "update_frequency": "Continuously updated planning register / committee snapshots",
+      "geographic_scope": "Belfast City Council planning authority area",
+      "granularity": "Application reference, address, proposal and status",
+      "key_fields": "Application id, site address, proposal, status, committee date and decision date where available.",
+      "reliability": "usable for planning status only; not works/opening evidence",
+      "required_caveats": "Current/live application rows are not approvals, construction starts, completions, openings or occupation evidence.",
+      "ingestion_recommendation": "No Round390 candidate; Mercy College SEN, Blackstaff Chambers, Studio Ulster and similar major-application leads were already represented or not yet physical-change evidence.",
+      "emitted_candidates": 0,
+      "source_check_method": "Prior-corpus duplicate scan",
+      "marker_terms": [
+        "Mercy College",
+        "Blackstaff Chambers",
+        "Studio Ulster"
+      ],
+      "fetch_check": {
+        "source_id": "bcc-current-planning-major-duplicates-recheck-round390",
+        "url": "https://www.planningni.gov.uk/",
+        "ok": true,
+        "status": "not_fetched",
+        "content_type": "not_applicable",
+        "fetched_at": "2026-05-20",
+        "method": "Prior-corpus duplicate scan",
+        "marker_results": [
+          {
+            "term": "Mercy College",
+            "found": "not_applicable"
+          },
+          {
+            "term": "Blackstaff Chambers",
+            "found": "not_applicable"
+          },
+          {
+            "term": "Studio Ulster",
+            "found": "not_applicable"
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfi-belfast-tidal-flood-alleviation-completion-duplicate-round390",
+      "source_name": "Belfast Tidal Flood Alleviation Scheme official completion source family",
+      "publisher": "Department for Infrastructure",
+      "url": "https://www.infrastructure-ni.gov.uk/",
+      "source_type": "official department source family recheck",
+      "license": "Crown copyright / Open Government Licence terms for reusable public-sector information, excluding logos and exemptions.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "related_license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Infrastructure",
+      "coverage_years": "Prior Belfast sweep coverage through Round383",
+      "update_frequency": "News/project pages update irregularly",
+      "geographic_scope": "Belfast tidal flood-defence project areas",
+      "granularity": "Scheme-level status and completion records",
+      "key_fields": "Project name, status, completion date/source date, source URL and caveats.",
+      "reliability": "strong in existing corpus; duplicate for Round390",
+      "required_caveats": "Do not duplicate existing Belfast tidal flood-alleviation completion records.",
+      "ingestion_recommendation": "Reject as duplicate/exhausted lead.",
+      "emitted_candidates": 0,
+      "source_check_method": "Prior-corpus duplicate scan",
+      "marker_terms": [
+        "Belfast Tidal Flood Alleviation",
+        "completion"
+      ],
+      "fetch_check": {
+        "source_id": "dfi-belfast-tidal-flood-alleviation-completion-duplicate-round390",
+        "url": "https://www.infrastructure-ni.gov.uk/",
+        "ok": true,
+        "status": "not_fetched",
+        "content_type": "not_applicable",
+        "fetched_at": "2026-05-20",
+        "method": "Prior-corpus duplicate scan",
+        "marker_results": [
+          {
+            "term": "Belfast Tidal Flood Alleviation",
+            "found": "not_applicable"
+          },
+          {
+            "term": "completion",
+            "found": "not_applicable"
+          }
+        ],
+        "error": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "bytes": 34661,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\candidates.json",
+      "parsed_count": 4,
+      "sha256": "df06c2e7658c05a6015cc909d711e9d3d6ceee5f8bd636f5361f2135c5e64e89"
+    },
+    {
+      "bytes": 55828,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\rejected.json",
+      "parsed_count": 4,
+      "sha256": "38dd81ced548b6ee5b3c7d26cc79a760ac706fe23ae73e5f70468b7837f76aef"
+    },
+    {
+      "bytes": 15274,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\source_audit.json",
+      "parsed_count": 8,
+      "sha256": "d0c79de5b506ab0f2bcbfacca9ee633bd055427f02967e5c18610620721c6079"
+    },
+    {
+      "bytes": 2675,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\summary.json",
+      "parsed_count": null,
+      "sha256": "7d2f5949a8a2ee35817312fcef1fb23b524c5d607910ca87ccfa06718afd4a9e"
+    },
+    {
+      "bytes": 976,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\validation.json",
+      "parsed_count": null,
+      "sha256": "aa03a8be9b07d1f59032e32cf755cb55569dc8b0708ca14ad36fffdc4b8dd9dc"
+    },
+    {
+      "bytes": 976,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\validation_report.json",
+      "parsed_count": null,
+      "sha256": "aa03a8be9b07d1f59032e32cf755cb55569dc8b0708ca14ad36fffdc4b8dd9dc"
+    },
+    {
+      "bytes": 5246,
+      "file": "tmp\\subagents\\round431_belfast_official_architecture_sweep_next15\\notes.md",
+      "parsed_count": null,
+      "sha256": "10aef45884c139b18fb7d4120eb81bd4499d084b6beef3bf3c5fff80ac2e1d2c"
+    }
+  ],
+  "generated_at": "2026-05-20",
+  "round_id": "round431_belfast_official_architecture_sweep_next15"
+}

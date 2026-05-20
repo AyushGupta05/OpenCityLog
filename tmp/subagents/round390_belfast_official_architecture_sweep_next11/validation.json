@@ -1,0 +1,27 @@
+{
+  "schema_version": "round390_belfast_official_architecture_sweep_next11.validation.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "checks": {
+    "required_fields": true,
+    "belfast_coordinate_bounds": true,
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "confidence_values": [
+      "documented",
+      "corroborated",
+      "inferred",
+      "disputed"
+    ],
+    "source_references_known": true,
+    "overclaim_scan": true,
+    "accepted_source_fetches": 4,
+    "source_fetches_attempted": 10,
+    "prior_file_count": 2507
+  }
+}

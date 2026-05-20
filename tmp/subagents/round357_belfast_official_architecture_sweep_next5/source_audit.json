@@ -1,0 +1,356 @@
+{
+  "schema_version": "round357_belfast_official_architecture_sweep_next5.source_audit.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round357_belfast_official_architecture_sweep_next5",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "result": "no_candidates_emitted",
+  "source_audits": [
+    {
+      "source_id": "bcc-peaceplus-programme-page-round357",
+      "source_name": "PEACEPLUS",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/peaceplus",
+      "source_type": "official council programme page",
+      "license": "Belfast City Council website copyright and terms; factual programme metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/peaceplus",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 54144,
+        "contains_expected_markers": {
+          "reconnected belfast": true,
+          "community regeneration": true,
+          "construction partners": true
+        }
+      }
+    },
+    {
+      "source_id": "bcc-peaceplus-showcase-2025-09-22-round357",
+      "source_name": "PEACEPLUS projects to end racism and build peace showcased at City Hall to mark International Day of Peace",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/peaceplus-projects-to-end-racism-and-build-peace-s",
+      "source_type": "official council news page",
+      "license": "Belfast City Council website copyright and terms; factual event and programme metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/news/peaceplus-projects-to-end-racism-and-build-peace-s",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 34703,
+        "contains_expected_markers": {
+          "access to the hills": true,
+          "peaceplus": true,
+          "city hall": true
+        }
+      }
+    },
+    {
+      "source_id": "bcc-sandy-row-arts-digital-hub-open-2026-round357",
+      "source_name": "Boost for Sandy Row as new Arts & Digital Hub opens",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "source_type": "official council news page",
+      "license": "Belfast City Council website copyright and terms; factual opening and project metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 34615,
+        "contains_expected_markers": {
+          "sandy row": true,
+          "arts": true,
+          "coffee culture": true,
+          "blythefield": true,
+          "bentham drive": true
+        }
+      }
+    },
+    {
+      "source_id": "bcc-cathedral-gardens-works-start-2026-round357",
+      "source_name": "Cathedral Gardens transformation gets underway",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+      "source_type": "official council news page",
+      "license": "Belfast City Council website copyright and terms; factual works-start metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 33072,
+        "contains_expected_markers": {
+          "cathedral gardens": true,
+          "work has started": true,
+          "belfast blitz memorial": true
+        }
+      }
+    },
+    {
+      "source_id": "teo-ardoyne-youth-hub-sod-cut-2026-round357",
+      "source_name": "First Minister and deputy First Minister cut sod at new purpose-built youth hub",
+      "publisher": "The Executive Office",
+      "source_url": "https://www.executiveoffice-ni.gov.uk/news/first-minister-and-deputy-first-minister-cut-sod-new-purpose-built-youth-hub",
+      "source_type": "official executive news page",
+      "license": "Northern Ireland public-sector website terms; factual milestone metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "The Executive Office",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.executiveoffice-ni.gov.uk/news/first-minister-and-deputy-first-minister-cut-sod-new-purpose-built-youth-hub",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 39592,
+        "contains_expected_markers": {
+          "ardoyne": true,
+          "youth hub": true,
+          "work is now underway": true,
+          "crumlin road": true
+        }
+      }
+    },
+    {
+      "source_id": "dfc-albertbridge-carnforth-development-brief-2026-round357",
+      "source_name": "269-283 Albertbridge Road and 2 Carnforth Street, Belfast - development brief",
+      "publisher": "Department for Communities",
+      "source_url": "https://www.communities-ni.gov.uk/publications/269-283-albertbridge-road-and-2-carnforth-street-belfast-development-brief",
+      "source_type": "official department publication page",
+      "license": "Crown copyright / public-sector information terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for Communities",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.communities-ni.gov.uk/publications/269-283-albertbridge-road-and-2-carnforth-street-belfast-development-brief",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 47473,
+        "contains_expected_markers": {
+          "269-283 albertbridge road": true,
+          "2 carnforth street": true,
+          "development brief": true
+        }
+      }
+    },
+    {
+      "source_id": "dfi-st-andrews-square-west-stopping-up-2026-round357",
+      "source_name": "The St Andrews Square West, Belfast (Stopping-Up) Order (Northern Ireland) 2026",
+      "publisher": "Department for Infrastructure",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/st-andrews-square-west-belfast-stopping-order-northern-ireland-2026",
+      "source_type": "official department roads-legislation publication page",
+      "license": "Crown copyright / public-sector information terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for Infrastructure",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.infrastructure-ni.gov.uk/publications/st-andrews-square-west-belfast-stopping-order-northern-ireland-2026",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 35662,
+        "contains_expected_markers": {
+          "st andrews square west": true,
+          "stopping-up": true,
+          "comes into operation": true
+        }
+      }
+    },
+    {
+      "source_id": "bcc-planning-committee-march-2026-approvals-round357",
+      "source_name": "New residential developments in east Belfast and grade A office block approved at council's Planning Committee",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+      "source_type": "official council planning news page",
+      "license": "Belfast City Council website copyright and terms; factual approval metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 33184,
+        "contains_expected_markers": {
+          "45 park avenue": true,
+          "cabin hill": true,
+          "harberton": true,
+          "mays meadow": true,
+          "redcar street": true
+        }
+      }
+    },
+    {
+      "source_id": "dfc-hed-list-changes-page-round357",
+      "source_name": "Changes to the List of Buildings of special architectural or historic interest",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+      "source_type": "official department publication page",
+      "license": "Crown copyright / Department for Communities terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for Communities Historic Environment Division",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "usable with caveats for official planning, programme, legislation, publication or project milestones",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 47742,
+        "contains_expected_markers": {
+          "list of buildings": true,
+          "architectural": true,
+          "historic interest": true
+        }
+      }
+    },
+    {
+      "source_id": "dfc-hed-historic-buildings-arcgis-round357",
+      "source_name": "Historic Building Details / HED Buildings Database ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division / nidirect",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1",
+      "source_type": "official HED historic-building spatial layer",
+      "license": "Crown copyright / public-sector information terms; factual spatial endpoint metadata retained for audit.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Communities Historic Environment Division / nidirect",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20 for additional official Belfast architecture-related leads.",
+      "geographic_scope": "Belfast city and named official project/building/heritage locations.",
+      "key_fields_reviewed": "Page or publication date, committee or project reference where available, named site, source URL, publisher attribution, terms, and geometry or geometry_ref availability.",
+      "reliability": "strong for current official HB reference and point geometry when a non-duplicate list-status lead exists",
+      "required_caveats": "Do not infer approval, construction start, completion, opening, final design, statutory listing confirmation, exact boundary, or built condition unless the cited source explicitly states that milestone.",
+      "ingestion_recommendation": "Do not ingest from this round; retain checked source as audit context only.",
+      "emitted_candidates": 0,
+      "rejected_or_overlap_leads": 1,
+      "retrieval": {
+        "ok": true,
+        "status": 200,
+        "status_text": "OK",
+        "fetched_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 8167,
+        "contains_expected_markers": {
+          "historic": true,
+          "building": true,
+          "feature": true
+        }
+      }
+    }
+  ],
+  "checked_urls": [
+    "https://www.belfastcity.gov.uk/peaceplus",
+    "https://www.belfastcity.gov.uk/news/peaceplus-projects-to-end-racism-and-build-peace-s",
+    "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+    "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+    "https://www.executiveoffice-ni.gov.uk/news/first-minister-and-deputy-first-minister-cut-sod-new-purpose-built-youth-hub",
+    "https://www.communities-ni.gov.uk/publications/269-283-albertbridge-road-and-2-carnforth-street-belfast-development-brief",
+    "https://www.infrastructure-ni.gov.uk/publications/st-andrews-square-west-belfast-stopping-order-northern-ireland-2026",
+    "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+    "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+    "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1"
+  ],
+  "web_queries_checked": [
+    "site:belfastcity.gov.uk/news Belfast City Council 2026 opened refurbishment building Belfast architecture",
+    "site:belfastcity.gov.uk/news Belfast \"officially opened\" \"Date:\" \"2026\"",
+    "site:belfastcity.gov.uk/news Belfast \"work has started\" \"Date:\" \"2026\" \"redevelopment\"",
+    "site:executiveoffice-ni.gov.uk Belfast Urban Villages 2026 building opened official",
+    "site:communities-ni.gov.uk Belfast 2026 building refurbishment heritage official",
+    "site:infrastructure-ni.gov.uk Belfast 2026 planning approval listed building official architecture"
+  ],
+  "manual_source_recommendations": [
+    "Recheck later Belfast Planning Committee decisions-issued lists after March 2026 for fresh non-duplicate decisions.",
+    "For PEACEPLUS and NRF pages, wait for a dated committee minute, award, works-start, completion, opening or statutory milestone rather than ingesting mutable programme-page text.",
+    "For DfC/HED, continue checking row-level changes-to-list attachments and HED ArcGIS points for new Belfast HB26 records not already screened by Rounds340, 347 and 353.",
+    "For Urban Villages and Executive Office pages, dedupe against existing Sandy Row, Coffee Culture and Ardoyne youth hub records before retaining a milestone."
+  ],
+  "overall_recommendation": "Round357 found no safe new ingestible official Belfast architecture candidate. The checked official leads were duplicates, programme/event context, supporting endpoints, or outside the current architecture-atlas fit."
+}

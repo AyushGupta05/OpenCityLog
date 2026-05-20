@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "candidate_count": 148,
+  "date_range": {
+    "start": "2008-04-08",
+    "end": "2022-09-28"
+  },
+  "source_date_field_mix": {
+    "ListDate": 3,
+    "DateRemovedFromList": 143,
+    "AmendDate": 2
+  },
+  "record_type_mix": {
+    "nhle_listed_building_designation": 3,
+    "nhle_de_designation_removal": 143,
+    "nhle_listed_building_amendment": 2
+  },
+  "independent_duplicate_scan": {
+    "manual_corpus_events_scanned": 48378,
+    "prior_candidate_pack_files_scanned": 348,
+    "existing_nhle_or_admin_keys_seen": 1979,
+    "duplicate_keys_found": []
+  }
+}

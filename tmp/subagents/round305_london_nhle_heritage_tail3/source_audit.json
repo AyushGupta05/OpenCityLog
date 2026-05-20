@@ -1,0 +1,627 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "source_audits": [
+    {
+      "source_id": "historic-england-nhle-open-data-round305-tail3",
+      "source_name": "National Heritage List for England (NHLE) open data",
+      "publisher": "Historic England",
+      "url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "api_catalogue_url": "https://www.api.gov.uk/he/national-heritage-list-for-england-nhle/",
+      "api_endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer",
+      "source_type": "official Historic England ArcGIS FeatureServer",
+      "license": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "attribution": "Historic England; Contains Ordnance Survey data Crown copyright and database right 2026.",
+      "accessed_at": "2026-05-20",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20",
+      "update_frequency": "The API catalogue states that NHLE data is updated daily.",
+      "geographic_scope": "England source layers; features filtered to the ONS London region E12000007.",
+      "granularity": "One NHLE source row and one explicit administrative source date field.",
+      "layers_checked": [
+        {
+          "layer_id": 0,
+          "layer_name": "Listed Building points",
+          "source_date_field": "ListDate",
+          "record_type": "nhle_listed_building_designation"
+        },
+        {
+          "layer_id": 0,
+          "layer_name": "Listed Building points",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_listed_building_amendment"
+        },
+        {
+          "layer_id": 3,
+          "layer_name": "Listed Building polygons",
+          "source_date_field": "ListDate",
+          "record_type": "nhle_listed_building_designation"
+        },
+        {
+          "layer_id": 3,
+          "layer_name": "Listed Building polygons",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_listed_building_amendment"
+        },
+        {
+          "layer_id": 1,
+          "layer_name": "Building Preservation Notice points",
+          "source_date_field": "BPNStart",
+          "record_type": "nhle_building_preservation_notice_start"
+        },
+        {
+          "layer_id": 1,
+          "layer_name": "Building Preservation Notice points",
+          "source_date_field": "BPNExpire",
+          "record_type": "nhle_building_preservation_notice_expiry"
+        },
+        {
+          "layer_id": 4,
+          "layer_name": "Building Preservation Notices polygons",
+          "source_date_field": "BPNStart",
+          "record_type": "nhle_building_preservation_notice_start"
+        },
+        {
+          "layer_id": 4,
+          "layer_name": "Building Preservation Notices polygons",
+          "source_date_field": "BPNExpire",
+          "record_type": "nhle_building_preservation_notice_expiry"
+        },
+        {
+          "layer_id": 2,
+          "layer_name": "Certificate of Immunity points",
+          "source_date_field": "COIStart",
+          "record_type": "nhle_certificate_of_immunity_start"
+        },
+        {
+          "layer_id": 2,
+          "layer_name": "Certificate of Immunity points",
+          "source_date_field": "COIExpire",
+          "record_type": "nhle_certificate_of_immunity_expiry"
+        },
+        {
+          "layer_id": 5,
+          "layer_name": "Certificate of Immunity polygons",
+          "source_date_field": "COIStart",
+          "record_type": "nhle_certificate_of_immunity_start"
+        },
+        {
+          "layer_id": 5,
+          "layer_name": "Certificate of Immunity polygons",
+          "source_date_field": "COIExpire",
+          "record_type": "nhle_certificate_of_immunity_expiry"
+        },
+        {
+          "layer_id": 6,
+          "layer_name": "Scheduled Monuments",
+          "source_date_field": "SchedDate",
+          "record_type": "nhle_scheduled_monument_designation"
+        },
+        {
+          "layer_id": 6,
+          "layer_name": "Scheduled Monuments",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_scheduled_monument_amendment"
+        },
+        {
+          "layer_id": 7,
+          "layer_name": "Parks and Gardens",
+          "source_date_field": "RegDate",
+          "record_type": "nhle_registered_park_garden_designation"
+        },
+        {
+          "layer_id": 7,
+          "layer_name": "Parks and Gardens",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_registered_park_garden_amendment"
+        },
+        {
+          "layer_id": 8,
+          "layer_name": "Battlefields",
+          "source_date_field": "RegDate",
+          "record_type": "nhle_registered_battlefield_designation"
+        },
+        {
+          "layer_id": 8,
+          "layer_name": "Battlefields",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_registered_battlefield_amendment"
+        },
+        {
+          "layer_id": 9,
+          "layer_name": "Protected Wreck Sites",
+          "source_date_field": "DesigDate",
+          "record_type": "nhle_protected_wreck_designation"
+        },
+        {
+          "layer_id": 9,
+          "layer_name": "Protected Wreck Sites",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_protected_wreck_amendment"
+        },
+        {
+          "layer_id": 10,
+          "layer_name": "World Heritage Sites",
+          "source_date_field": "InscrDate",
+          "record_type": "nhle_world_heritage_site_inscription"
+        },
+        {
+          "layer_id": 10,
+          "layer_name": "World Heritage Sites",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_world_heritage_site_amendment"
+        }
+      ],
+      "key_fields": [
+        "OBJECTID",
+        "ListEntry",
+        "Name",
+        "Grade",
+        "ListDate",
+        "AmendDate",
+        "BPNStart",
+        "BPNExpire",
+        "COIStart",
+        "COIExpire",
+        "SchedDate",
+        "RegDate",
+        "DesigDate",
+        "InscrDate",
+        "hyperlink",
+        "NGR",
+        "Easting",
+        "Northing",
+        "geometry"
+      ],
+      "reliability": "strong for official NHLE administrative source dates, with interpretation caveats",
+      "records_reviewed": 3408,
+      "candidate_count": 5,
+      "required_caveats": [
+        "NHLE date fields used here are administrative designation, listing, inscription, notice/certificate start or expiry, or amendment dates, not construction dates.",
+        "NHLE point and polygon geometries locate heritage assets for atlas use but do not define construction areas, curtilage, condition, ownership, access, or outcomes.",
+        "The API catalogue page has its own start date, while the individual NHLE rows carry older administrative dates; this pack uses row-level administrative date fields only.",
+        "Use factual metadata and source URLs; list-entry page narrative text, images, and map products require separate terms review before broader redistribution."
+      ],
+      "ingestion_recommendation": "Append only as documented heritage-administrative change events after the main appender re-checks corpus duplicates."
+    },
+    {
+      "source_id": "historic-england-de-designated-sites",
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "api_item_url": "https://www.arcgis.com/sharing/rest/content/items/8836370be44f4916b9ba7d350df24902",
+      "api_endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Delisted/FeatureServer",
+      "source_type": "official Historic England ArcGIS FeatureServer",
+      "license": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "attribution": "Historic England; Contains Ordnance Survey data Crown copyright and database right 2026.",
+      "accessed_at": "2026-05-20",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20",
+      "update_frequency": "ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.",
+      "geographic_scope": "England source layer; features filtered to the ONS London region E12000007.",
+      "granularity": "One de-designated source row and the DateRemovedFromList administrative field.",
+      "layers_checked": [
+        {
+          "layer_id": 0,
+          "layer_name": "De-designated sites",
+          "source_date_field": "DateRemovedFromList",
+          "record_type": "nhle_de_designation_removal"
+        }
+      ],
+      "key_fields": [
+        "OBJECTID",
+        "ARTICLEUID",
+        "ARTICLEVERSIONNAME",
+        "HERITAGECATEGORYDESCRIPTION",
+        "DateRemovedFromList",
+        "DecisionText",
+        "DDRType",
+        "OriginalListEntryNumber",
+        "geometry"
+      ],
+      "reliability": "strong for official Historic England de-designation/removal administrative dates, with interpretation caveats",
+      "records_reviewed": 201,
+      "candidate_count": 143,
+      "required_caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, condition, or outcome date.",
+        "The de-designated polygon or representative point is for atlas location only and is not evidence of current physical condition or work extent.",
+        "The dataset states it covers complete removals from the NHLE since 4 April 2011 and excludes partial delisting, removal of part of an area, and duplicate-entry removals."
+      ],
+      "ingestion_recommendation": "Append only as documented heritage-administrative change events after the main appender re-checks corpus duplicates."
+    }
+  ],
+  "supporting_boundary_source": {
+    "source_name": "ONS Regions December 2024 Boundaries EN BFC",
+    "publisher": "Office for National Statistics / Esri ArcGIS service",
+    "url": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Regions_December_2024_Boundaries_EN_BFC/FeatureServer/0",
+    "filter": "RGN24CD='E12000007'",
+    "use": "London region spatial inclusion test only, not event evidence."
+  },
+  "summary": {
+    "generated_at": "2026-05-20T00:00:00Z",
+    "worker_scope": "round305 London Historic England/NHLE heritage-designation tail3",
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "source_rows_fetched": 3609,
+    "source_rows_fetched_by_source": {
+      "national_heritage_list_for_england_nhle": 3408,
+      "historic_england_de_designated_sites": 201
+    },
+    "candidate_count": 148,
+    "date_range": {
+      "start": "2008-04-08",
+      "end": "2022-09-28"
+    },
+    "record_type_mix": {
+      "nhle_listed_building_designation": 3,
+      "nhle_de_designation_removal": 143,
+      "nhle_listed_building_amendment": 2
+    },
+    "source_date_field_mix": {
+      "ListDate": 3,
+      "DateRemovedFromList": 143,
+      "AmendDate": 2
+    },
+    "designation_type_mix": {
+      "listed-building designation": 3,
+      "de-designation/removal from the NHLE": 143,
+      "listed-building list-entry amendment": 2
+    },
+    "source_layer_mix": {
+      "3 Listed Building polygons": 5,
+      "0 De-designated sites": 143
+    },
+    "query_counts": [
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 0,
+        "layer_name": "Listed Building points",
+        "source_date_field": "ListDate",
+        "rows_fetched_in_london_bbox": 1203,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 0,
+        "layer_name": "Listed Building points",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 372,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 3,
+        "layer_name": "Listed Building polygons",
+        "source_date_field": "ListDate",
+        "rows_fetched_in_london_bbox": 1203,
+        "candidate_count_after_dedupe": 3
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 3,
+        "layer_name": "Listed Building polygons",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 372,
+        "candidate_count_after_dedupe": 2
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 1,
+        "layer_name": "Building Preservation Notice points",
+        "source_date_field": "BPNStart",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 1,
+        "layer_name": "Building Preservation Notice points",
+        "source_date_field": "BPNExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 4,
+        "layer_name": "Building Preservation Notices polygons",
+        "source_date_field": "BPNStart",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 4,
+        "layer_name": "Building Preservation Notices polygons",
+        "source_date_field": "BPNExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 2,
+        "layer_name": "Certificate of Immunity points",
+        "source_date_field": "COIStart",
+        "rows_fetched_in_london_bbox": 97,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 2,
+        "layer_name": "Certificate of Immunity points",
+        "source_date_field": "COIExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 5,
+        "layer_name": "Certificate of Immunity polygons",
+        "source_date_field": "COIStart",
+        "rows_fetched_in_london_bbox": 97,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 5,
+        "layer_name": "Certificate of Immunity polygons",
+        "source_date_field": "COIExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 6,
+        "layer_name": "Scheduled Monuments",
+        "source_date_field": "SchedDate",
+        "rows_fetched_in_london_bbox": 26,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 6,
+        "layer_name": "Scheduled Monuments",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 7,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 7,
+        "layer_name": "Parks and Gardens",
+        "source_date_field": "RegDate",
+        "rows_fetched_in_london_bbox": 20,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 7,
+        "layer_name": "Parks and Gardens",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 5,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 8,
+        "layer_name": "Battlefields",
+        "source_date_field": "RegDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 8,
+        "layer_name": "Battlefields",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 9,
+        "layer_name": "Protected Wreck Sites",
+        "source_date_field": "DesigDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 9,
+        "layer_name": "Protected Wreck Sites",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 10,
+        "layer_name": "World Heritage Sites",
+        "source_date_field": "InscrDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 10,
+        "layer_name": "World Heritage Sites",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 6,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "Historic England De-designated sites",
+        "layer_id": 0,
+        "layer_name": "De-designated sites",
+        "source_date_field": "DateRemovedFromList",
+        "rows_fetched_in_london_bbox": 201,
+        "candidate_count_after_dedupe": 143
+      }
+    ],
+    "rejected_reason_counts": {
+      "existing_corpus_or_prior_pack_nhle_key": 3114,
+      "outside_ons_london_region": 347
+    },
+    "duplicate_screening": {
+      "manual_corpus_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "corpus_events_scanned": 48378,
+      "prior_candidate_pack_files_scanned": 348,
+      "existing_event_ids_seen": 82499,
+      "existing_source_keys_seen": 56490,
+      "existing_nhle_date_keys_seen": 2124,
+      "dedupe_key": "NHLE ListEntry + canonical source date field + administrative date",
+      "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior Historic England/NHLE London heritage packs through round294, for event IDs, source keys, exact NHLE ListEntry/date-field/date keys, and de-designated OriginalListEntryNumber/date keys. Rejected files and raw query captures were not treated as accepted candidate packs."
+    },
+    "critical_interpretation_note": "These records are administrative heritage designation, listing, inscription, certificate/status-start or expiry, de-designation/removal, or amendment rows only. They are not evidence of construction, completion, demolition, opening, occupation, repair, condition, impact, prediction, simulation, or causation.",
+    "candidate_ids": [
+      "london-nhle-round305-listed-building-polygons-listdate-1392513-20080408",
+      "london-nhle-round305-de-designated-sites-date-removed-1357886-20130115",
+      "london-nhle-round305-de-designated-sites-date-removed-1195571-20130131",
+      "london-nhle-round305-de-designated-sites-date-removed-1359120-20130301",
+      "london-nhle-round305-de-designated-sites-date-removed-1359169-20130313",
+      "london-nhle-round305-de-designated-sites-date-removed-1064748-20130314",
+      "london-nhle-round305-de-designated-sites-date-removed-1287018-20130314",
+      "london-nhle-round305-de-designated-sites-date-removed-1194233-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1358916-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1359219-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1359220-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1194271-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1079141-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1358906-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1079142-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1262516-20130321",
+      "london-nhle-round305-de-designated-sites-date-removed-1226625-20130424",
+      "london-nhle-round305-de-designated-sites-date-removed-1242723-20130426",
+      "london-nhle-round305-de-designated-sites-date-removed-1265291-20130517",
+      "london-nhle-round305-de-designated-sites-date-removed-1079998-20130708",
+      "london-nhle-round305-de-designated-sites-date-removed-1358577-20130719",
+      "london-nhle-round305-listed-building-polygons-listdate-1416598-20131031",
+      "london-nhle-round305-de-designated-sites-date-removed-1064346-20131101",
+      "london-nhle-round305-listed-building-polygons-listdate-1416575-20131101",
+      "london-nhle-round305-de-designated-sites-date-removed-1357072-20131213",
+      "london-nhle-round305-de-designated-sites-date-removed-1064904-20140307",
+      "london-nhle-round305-de-designated-sites-date-removed-1113022-20140314",
+      "london-nhle-round305-de-designated-sites-date-removed-1079709-20140327",
+      "london-nhle-round305-de-designated-sites-date-removed-1358600-20140327",
+      "london-nhle-round305-de-designated-sites-date-removed-1079711-20140327",
+      "london-nhle-round305-de-designated-sites-date-removed-1066833-20140603",
+      "london-nhle-round305-de-designated-sites-date-removed-1385619-20140625",
+      "london-nhle-round305-de-designated-sites-date-removed-1252892-20140804",
+      "london-nhle-round305-de-designated-sites-date-removed-1193287-20140813",
+      "london-nhle-round305-de-designated-sites-date-removed-1245861-20140903",
+      "london-nhle-round305-de-designated-sites-date-removed-1065516-20141110",
+      "london-nhle-round305-de-designated-sites-date-removed-1356741-20141110",
+      "london-nhle-round305-de-designated-sites-date-removed-1064419-20150311",
+      "london-nhle-round305-de-designated-sites-date-removed-1001393-20150319",
+      "london-nhle-round305-de-designated-sites-date-removed-1249693-20150319",
+      "london-nhle-round305-de-designated-sites-date-removed-1064959-20150602",
+      "london-nhle-round305-de-designated-sites-date-removed-1080487-20150602",
+      "london-nhle-round305-de-designated-sites-date-removed-1064947-20150603",
+      "london-nhle-round305-de-designated-sites-date-removed-1290540-20150603",
+      "london-nhle-round305-de-designated-sites-date-removed-1378810-20150603",
+      "london-nhle-round305-listed-building-polygons-amenddate-1275000-20150616",
+      "london-nhle-round305-de-designated-sites-date-removed-1286717-20150716",
+      "london-nhle-round305-de-designated-sites-date-removed-1379818-20150717",
+      "london-nhle-round305-de-designated-sites-date-removed-1226087-20150813",
+      "london-nhle-round305-de-designated-sites-date-removed-1358866-20150909",
+      "london-nhle-round305-de-designated-sites-date-removed-1080172-20151005",
+      "london-nhle-round305-de-designated-sites-date-removed-1380071-20151204",
+      "london-nhle-round305-de-designated-sites-date-removed-1079225-20151208",
+      "london-nhle-round305-de-designated-sites-date-removed-1391500-20151216",
+      "london-nhle-round305-de-designated-sites-date-removed-1265164-20151221",
+      "london-nhle-round305-de-designated-sites-date-removed-1235175-20151221",
+      "london-nhle-round305-de-designated-sites-date-removed-1253085-20151222",
+      "london-nhle-round305-de-designated-sites-date-removed-1294331-20160205",
+      "london-nhle-round305-de-designated-sites-date-removed-1080061-20160415",
+      "london-nhle-round305-listed-building-polygons-amenddate-1358138-20160519",
+      "london-nhle-round305-de-designated-sites-date-removed-1078878-20160720",
+      "london-nhle-round305-de-designated-sites-date-removed-1080175-20160720",
+      "london-nhle-round305-de-designated-sites-date-removed-1080255-20160720",
+      "london-nhle-round305-de-designated-sites-date-removed-1188596-20160725",
+      "london-nhle-round305-de-designated-sites-date-removed-1358159-20160728",
+      "london-nhle-round305-de-designated-sites-date-removed-article-1438213-20160729",
+      "london-nhle-round305-de-designated-sites-date-removed-1358799-20160803",
+      "london-nhle-round305-de-designated-sites-date-removed-1428380-20160815",
+      "london-nhle-round305-de-designated-sites-date-removed-1402022-20160825",
+      "london-nhle-round305-de-designated-sites-date-removed-1357597-20161011",
+      "london-nhle-round305-de-designated-sites-date-removed-1226841-20161014",
+      "london-nhle-round305-de-designated-sites-date-removed-1379283-20161025",
+      "london-nhle-round305-de-designated-sites-date-removed-1265123-20161115",
+      "london-nhle-round305-de-designated-sites-date-removed-1079670-20161213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080750-20161213",
+      "london-nhle-round305-de-designated-sites-date-removed-1064864-20161213",
+      "london-nhle-round305-de-designated-sites-date-removed-1235649-20161220",
+      "london-nhle-round305-de-designated-sites-date-removed-1225380-20170118",
+      "london-nhle-round305-de-designated-sites-date-removed-1066399-20170130",
+      "london-nhle-round305-de-designated-sites-date-removed-1219303-20170130",
+      "london-nhle-round305-de-designated-sites-date-removed-1065963-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1358244-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080520-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080519-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080518-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080517-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080516-20170213",
+      "london-nhle-round305-de-designated-sites-date-removed-1080515-20170214",
+      "london-nhle-round305-de-designated-sites-date-removed-1379109-20170221",
+      "london-nhle-round305-de-designated-sites-date-removed-1358273-20170221",
+      "london-nhle-round305-de-designated-sites-date-removed-1389538-20170221",
+      "london-nhle-round305-de-designated-sites-date-removed-1357432-20170221",
+      "london-nhle-round305-de-designated-sites-date-removed-1129998-20170228",
+      "london-nhle-round305-de-designated-sites-date-removed-1080159-20170228",
+      "london-nhle-round305-de-designated-sites-date-removed-1129999-20170228",
+      "london-nhle-round305-de-designated-sites-date-removed-1079694-20170518",
+      "london-nhle-round305-de-designated-sites-date-removed-1359156-20170526",
+      "london-nhle-round305-de-designated-sites-date-removed-1242925-20170526",
+      "london-nhle-round305-de-designated-sites-date-removed-1272351-20170725",
+      "london-nhle-round305-de-designated-sites-date-removed-1298103-20170725",
+      "london-nhle-round305-de-designated-sites-date-removed-1079095-20170725",
+      "london-nhle-round305-de-designated-sites-date-removed-1358839-20170725",
+      "london-nhle-round305-de-designated-sites-date-removed-1357519-20170731",
+      "london-nhle-round305-de-designated-sites-date-removed-1064692-20170731",
+      "london-nhle-round305-de-designated-sites-date-removed-1262300-20170731",
+      "london-nhle-round305-de-designated-sites-date-removed-1298029-20170815",
+      "london-nhle-round305-de-designated-sites-date-removed-1263947-20170831",
+      "london-nhle-round305-de-designated-sites-date-removed-1080786-20170920",
+      "london-nhle-round305-de-designated-sites-date-removed-1357610-20170928",
+      "london-nhle-round305-de-designated-sites-date-removed-1378343-20170929",
+      "london-nhle-round305-de-designated-sites-date-removed-1227135-20171004",
+      "london-nhle-round305-de-designated-sites-date-removed-1385756-20171013",
+      "london-nhle-round305-de-designated-sites-date-removed-1358148-20171018",
+      "london-nhle-round305-de-designated-sites-date-removed-1066502-20171102",
+      "london-nhle-round305-de-designated-sites-date-removed-1184889-20171110",
+      "london-nhle-round305-de-designated-sites-date-removed-1189787-20171130",
+      "london-nhle-round305-de-designated-sites-date-removed-1227628-20171130",
+      "london-nhle-round305-de-designated-sites-date-removed-1357630-20180117",
+      "london-nhle-round305-de-designated-sites-date-removed-1065232-20180306",
+      "london-nhle-round305-de-designated-sites-date-removed-1390821-20180326",
+      "london-nhle-round305-de-designated-sites-date-removed-1378904-20180420",
+      "london-nhle-round305-de-designated-sites-date-removed-1258108-20180420",
+      "london-nhle-round305-de-designated-sites-date-removed-1066767-20180502",
+      "london-nhle-round305-de-designated-sites-date-removed-1357648-20180517",
+      "london-nhle-round305-de-designated-sites-date-removed-1226882-20180518",
+      "london-nhle-round305-de-designated-sites-date-removed-1226423-20180604",
+      "london-nhle-round305-de-designated-sites-date-removed-1079105-20180604",
+      "london-nhle-round305-de-designated-sites-date-removed-1226878-20181011",
+      "london-nhle-round305-de-designated-sites-date-removed-1029817-20181011",
+      "london-nhle-round305-de-designated-sites-date-removed-1358533-20181106",
+      "london-nhle-round305-de-designated-sites-date-removed-1242220-20181213",
+      "london-nhle-round305-de-designated-sites-date-removed-1242312-20181213",
+      "london-nhle-round305-de-designated-sites-date-removed-1382110-20181214",
+      "london-nhle-round305-de-designated-sites-date-removed-1249683-20190129",
+      "london-nhle-round305-de-designated-sites-date-removed-1030182-20190207",
+      "london-nhle-round305-de-designated-sites-date-removed-1221558-20190228",
+      "london-nhle-round305-de-designated-sites-date-removed-1221596-20190228",
+      "london-nhle-round305-de-designated-sites-date-removed-1240492-20190531",
+      "london-nhle-round305-de-designated-sites-date-removed-1124174-20191014",
+      "london-nhle-round305-de-designated-sites-date-removed-1065209-20200203",
+      "london-nhle-round305-de-designated-sites-date-removed-1065133-20200313",
+      "london-nhle-round305-de-designated-sites-date-removed-1065090-20200313",
+      "london-nhle-round305-de-designated-sites-date-removed-1065212-20210111",
+      "london-nhle-round305-de-designated-sites-date-removed-1235549-20210917",
+      "london-nhle-round305-de-designated-sites-date-removed-1080671-20220308",
+      "london-nhle-round305-de-designated-sites-date-removed-1359162-20220802",
+      "london-nhle-round305-de-designated-sites-date-removed-1359186-20220802",
+      "london-nhle-round305-de-designated-sites-date-removed-1079929-20220928"
+    ]
+  }
+}

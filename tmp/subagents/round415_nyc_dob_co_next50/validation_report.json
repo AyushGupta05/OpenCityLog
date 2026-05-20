@@ -1,0 +1,42 @@
+{
+  "schema_version": "round415.nyc_dob_co_next50_validation_report.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "report_type": "json_readable_validation_summary",
+  "validation_ok": true,
+  "candidate_count": 200,
+  "date_range": {
+    "start": "2016-03-04",
+    "end": "2019-08-20"
+  },
+  "source_ids": [
+    "nyc-dob-certificate-of-occupancy-bs8b-p36w",
+    "nyc-dob-certificate-of-occupancy"
+  ],
+  "source_mix": {
+    "bs8b-p36w": 200
+  },
+  "borough_mix": {
+    "Bronx": 19,
+    "Brooklyn": 67,
+    "Manhattan": 77,
+    "Queens": 37
+  },
+  "source_date_field_mix": {
+    "bs8b-p36w|c_o_issue_date": 200
+  },
+  "screened_files_read": 59,
+  "prior_identifier_tokens_checked": 251107,
+  "prior_source_date_keys_checked": 140859,
+  "prior_title_date_keys_checked": 64885,
+  "manual_corpus_screened": true,
+  "required_round412_screened": true,
+  "no_overlap_with_screened_corpus_and_prior_packs": true,
+  "source_audit_count": 1,
+  "caveats": [
+    "Certificate-of-occupancy rows are DOB legal/admin records only.",
+    "No design quality, actual occupancy, construction completion, outcome, impact, causation, or unobserved construction detail is inferred.",
+    "Coordinates are DOB/Open Data geocoded address points, not surveyed footprints or parcel polygons."
+  ],
+  "errors": []
+}

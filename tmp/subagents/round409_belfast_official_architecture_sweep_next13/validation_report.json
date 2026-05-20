@@ -1,0 +1,150 @@
+{
+  "schema_version": "round409_belfast_official_architecture_sweep_next13.validation_report.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round409_belfast_official_architecture_sweep_next13",
+  "ok": true,
+  "accepted_ids": [
+    "bfs_arch_round409_st_patricks_primary_north_belfast_works_start_2020",
+    "bfs_arch_round409_belfast_royal_academy_sep_site_contract_2015"
+  ],
+  "rejected_keys": [
+    "methodist_college_mcarthur_hall_official_page_unavailable",
+    "strand_arts_centre_restoration_start_duplicate",
+    "belvoir_sure_start_opening_duplicate",
+    "victoria_college_sep_2015_insufficient_specificity",
+    "shankill_gateway_public_realm_duplicate",
+    "city_quays_gardens_duplicate_or_weak_date"
+  ],
+  "source_fetch_checks": [
+    {
+      "source_id": "de-st-patricks-primary-north-belfast-works-begin-2020-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": true,
+      "byte_length": 37067
+    },
+    {
+      "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": true,
+      "byte_length": 37683
+    },
+    {
+      "source_id": "de-methodist-college-mcarthur-hall-work-start-2016-round409",
+      "ok": false,
+      "status": 404,
+      "marker_ok": false,
+      "byte_length": 914
+    },
+    {
+      "source_id": "bcc-strand-arts-restoration-start-2025-duplicate-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": false,
+      "byte_length": 54778
+    },
+    {
+      "source_id": "de-belvoir-sure-start-opening-2015-duplicate-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": true,
+      "byte_length": 39337
+    },
+    {
+      "source_id": "de-victoria-college-sep-proceed-2015-rejected-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": true,
+      "byte_length": 37242
+    },
+    {
+      "source_id": "dfc-shankill-gateway-public-realm-start-2026-duplicate-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": true,
+      "byte_length": 55083
+    },
+    {
+      "source_id": "bcc-city-quays-gardens-opened-2025-duplicate-round409",
+      "ok": true,
+      "status": 200,
+      "marker_ok": true,
+      "byte_length": 34728
+    }
+  ],
+  "duplicate_scan_counts": [
+    {
+      "id": "bfs_arch_round409_st_patricks_primary_north_belfast_works_start_2020",
+      "terms": 5,
+      "terms_with_hits": 1
+    },
+    {
+      "id": "bfs_arch_round409_belfast_royal_academy_sep_site_contract_2015",
+      "terms": 4,
+      "terms_with_hits": 0
+    },
+    {
+      "id": "methodist_college_mcarthur_hall_official_page_unavailable",
+      "terms": 3,
+      "terms_with_hits": 3
+    },
+    {
+      "id": "strand_arts_centre_restoration_start_duplicate",
+      "terms": 3,
+      "terms_with_hits": 2
+    },
+    {
+      "id": "belvoir_sure_start_opening_duplicate",
+      "terms": 3,
+      "terms_with_hits": 2
+    },
+    {
+      "id": "victoria_college_sep_2015_insufficient_specificity",
+      "terms": 3,
+      "terms_with_hits": 1
+    },
+    {
+      "id": "shankill_gateway_public_realm_duplicate",
+      "terms": 3,
+      "terms_with_hits": 2
+    },
+    {
+      "id": "city_quays_gardens_duplicate_or_weak_date",
+      "terms": 3,
+      "terms_with_hits": 2
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "Duplicate scans returned contextual hits; candidate duplicate_check_note fields explain why accepted records are distinct."
+    ],
+    "checked": {
+      "required_provenance": true,
+      "unique_candidate_ids": true,
+      "unique_source_date_keys": true,
+      "unique_title_date_keys": true,
+      "date_window": "2008-01-01..2026-05-20",
+      "belfast_coordinate_sanity": true,
+      "source_fetch_and_markers": true,
+      "overclaim_scan": true,
+      "duplicate_scans_recorded": true
+    }
+  },
+  "output_files_expected": [
+    "candidates.json",
+    "source_audit.json",
+    "summary.json",
+    "rejected.json",
+    "validation.json",
+    "validation_report.json",
+    "notes.md",
+    "readback.json"
+  ],
+  "no_shared_files_edited_by_script": true,
+  "overclaim_guard": "Candidate language records observed/source-published milestones only and avoids prediction, causation and outcome claims."
+}

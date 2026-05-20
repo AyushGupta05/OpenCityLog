@@ -1,0 +1,44 @@
+{
+  "candidate_count": 4,
+  "date_window": {
+    "end": "2026-05-20",
+    "start": "2008-01-01"
+  },
+  "errors": [],
+  "generated_at": "2026-05-20",
+  "ok": true,
+  "rejected_count": 4,
+  "required_field_policy": {
+    "confidence_values_used": [
+      "documented"
+    ],
+    "required_candidate_fields": [
+      "stable id",
+      "city_id",
+      "title",
+      "summary",
+      "date/effective_date",
+      "geometry or geometry_ref/address_ref",
+      "source_name",
+      "publisher",
+      "source_url",
+      "source_type",
+      "source_record_id",
+      "license/terms/attribution",
+      "accessed_at",
+      "method/transformation_method",
+      "confidence",
+      "limitations"
+    ]
+  },
+  "round_id": "round431_belfast_official_architecture_sweep_next15",
+  "source_fetch_summary": {
+    "accepted_fetch_ok": true,
+    "accepted_marker_ok": true,
+    "accepted_sources": 4,
+    "fetch_ok": 8,
+    "marker_ok": 8,
+    "total_sources": 8
+  },
+  "warnings": []
+}

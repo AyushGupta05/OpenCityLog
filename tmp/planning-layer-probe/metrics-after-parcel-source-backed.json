@@ -1,0 +1,54 @@
+[
+  {
+    "lens": "planning-delta",
+    "activeLens": "built_environment",
+    "activeAspect": "planning-delta",
+    "selected": "Belfast Grand Central Station opened",
+    "year": 2024,
+    "zoom": 14.19075265630582,
+    "center": [
+      -5.939100000000053,
+      54.594300000000004
+    ],
+    "guides": 3647,
+    "planningFootprints": 3646,
+    "renderedGuide": 3769,
+    "colors": {
+      "#d8583f": 1765,
+      "#c98667": 1095,
+      "#e7b454": 390,
+      "#8f9494": 309,
+      "#8460a8": 37,
+      "#d87965": 37,
+      "#d99175": 9,
+      "#d84a2d": 4
+    },
+    "detailLayerLoaded": true,
+    "lensDetailYearLoaded": 2024
+  },
+  {
+    "lens": "planning-parcels",
+    "activeLens": "built_environment",
+    "activeAspect": "planning-parcels",
+    "selected": "Belfast Grand Central Station opened",
+    "year": 2024,
+    "zoom": 14.19075265630582,
+    "center": [
+      -5.939100000000053,
+      54.594300000000004
+    ],
+    "guides": 2732,
+    "planningFootprints": 2731,
+    "renderedGuide": 2860,
+    "colors": {
+      "#7fa780": 1793,
+      "#f4c762": 407,
+      "#d95a94": 348,
+      "#866bb8": 80,
+      "#ee7477": 65,
+      "#b8b6a8": 38
+    },
+    "detailLayerLoaded": true,
+    "lensDetailYearLoaded": 2024
+  }
+]

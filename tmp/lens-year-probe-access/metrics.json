@@ -1,0 +1,50 @@
+[
+  {
+    "year": 2022,
+    "selectedYear": "2022",
+    "stateYear": 2022,
+    "guide": 2219,
+    "accessCells": 2207,
+    "nodes": 11,
+    "minuteBands": {
+      "<=30": 272,
+      "<=18": 75,
+      "<=44": 452,
+      "<=58": 652,
+      ">58": 756
+    },
+    "hash": "a93d9cfddb42"
+  },
+  {
+    "year": 2024,
+    "selectedYear": "2024",
+    "stateYear": 2024,
+    "guide": 2213,
+    "accessCells": 2190,
+    "nodes": 22,
+    "minuteBands": {
+      "<=18": 143,
+      "<=30": 198,
+      "<=44": 422,
+      "<=58": 597,
+      ">58": 830
+    },
+    "hash": "6a3896ed4eb2"
+  },
+  {
+    "year": 2026,
+    "selectedYear": "2026",
+    "stateYear": 2026,
+    "guide": 2208,
+    "accessCells": 2185,
+    "nodes": 22,
+    "minuteBands": {
+      "<=18": 153,
+      "<=30": 201,
+      "<=44": 345,
+      "<=58": 576,
+      ">58": 910
+    },
+    "hash": "38b384b6d3ba"
+  }
+]

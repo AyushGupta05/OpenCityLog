@@ -1,0 +1,57 @@
+{
+  "schema_version": "round409_belfast_official_architecture_sweep_next13.summary.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round409_belfast_official_architecture_sweep_next13",
+  "accepted_count": 2,
+  "rejected_count": 6,
+  "source_audit_count": 8,
+  "accepted_date_range": {
+    "start": "2015-06-25",
+    "end": "2020-01-23"
+  },
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20",
+    "note": "Round409 Belfast official architecture/built-environment sweep window."
+  },
+  "accepted_official_sources": [
+    {
+      "source_id": "de-st-patricks-primary-north-belfast-works-begin-2020-round409",
+      "source_name": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+      "source_date_value": "2020-01-23"
+    },
+    {
+      "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
+      "source_name": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/odowd-visits-site-ps42million-project-belfast-royal-academy",
+      "source_date_value": "2015-06-25"
+    }
+  ],
+  "accepted_source_mix": {
+    "Department of Education, Northern Ireland": 2
+  },
+  "audited_source_mix": {
+    "Department of Education, Northern Ireland": 5,
+    "Belfast City Council": 2,
+    "Department for Communities, Northern Ireland": 1
+  },
+  "retrieval": {
+    "ok": 7,
+    "failed": 1,
+    "marker_ok": 6,
+    "marker_failed": 2
+  },
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "Duplicate scans returned contextual hits; candidate duplicate_check_note fields explain why accepted records are distinct."
+    ]
+  },
+  "notes": "Round409 keeps a small high-confidence accepted pack and rejects official leads that duplicate live/prior Belfast records or lack enough project-specific detail."
+}

@@ -1,0 +1,209 @@
+[
+  {
+    "accessed_at": "2026-05-20",
+    "address_ref": "New Neurology Unit adjacent and attached to the Regional Acquired Brain Injury Unit, Musgrave Park Hospital, Belfast",
+    "attribution": "Belfast Health and Social Care Trust",
+    "category": "architecture_public_estate",
+    "city_id": "belfast",
+    "confidence": "documented",
+    "date": "2010-12-13",
+    "duplicate_check_terms": [
+      "bfs_arch_round442_musgrave_neurology_unit_sod_cutting_2010",
+      "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/",
+      "belfast-trust-2010-12-13-neurology-unit-sod-cutting",
+      "Sod-Cutting Ceremony At New Neurology Unit",
+      "Musgrave Park Hospital neurology unit sod-cutting 2010-12-13"
+    ],
+    "duplicate_review": "No exact id, source URL, source record, or same title/date event found in the live/manual corpus or prior Belfast packs. Other Musgrave Park events are separate facilities or later milestones.",
+    "duplicate_scan_hits": [],
+    "effective_date": "2010-12-13",
+    "effective_date_range": {
+      "basis": "Belfast Trust page date and URL slug",
+      "end": "2010-12-13",
+      "precision": "day",
+      "start": "2010-12-13"
+    },
+    "event_type": "construction_commencement_ceremony",
+    "evidence_basis": [
+      "Official Belfast Trust page identifies the sod-cutting for the Neurology Unit at Musgrave Park Hospital.",
+      "Effective date is taken from the page date and URL slug."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "label": "New Neurology Unit adjacent and attached to the Regional Acquired Brain Injury Unit, Musgrave Park Hospital, Belfast",
+      "precision": "source-stated hospital/project reference only; no official coordinate or footprint extracted in Round442",
+      "source_url": "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/",
+      "type": "source_stated_hospital_project_reference"
+    },
+    "id": "bfs_arch_round442_musgrave_neurology_unit_sod_cutting_2010",
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "limitations": [
+      "This records a sod-cutting/commencement ceremony only.",
+      "It is not treated as completion, opening, occupation, service capacity, patient benefit or health outcome evidence.",
+      "No official coordinate or building footprint was extracted in this sweep."
+    ],
+    "method": "Manual official/public Belfast architecture sweep after Round431. Accepted only source-published facts from official public bodies or public-estate owners. Opening, sod-cutting and topping-out records are labelled as source-specific milestones only. No construction completion, opening, impact, service-performance, employment, health or causality claim is carried unless the official source directly supports that milestone.",
+    "observed_change": "Official source-published sod-cutting milestone for a planned Neurology Unit at Musgrave Park Hospital.",
+    "provenance_links": [
+      {
+        "href": "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/",
+        "rel": "primary_source"
+      },
+      {
+        "href": "https://belfasttrust.hscni.net/copyright/",
+        "rel": "terms"
+      }
+    ],
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and URL slug",
+    "source_date_value": "2010-12-13",
+    "source_name": "Sod-Cutting Ceremony At New Neurology Unit",
+    "source_record_id": "belfast-trust-2010-12-13-neurology-unit-sod-cutting",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/",
+    "summary": "Belfast Health and Social Care Trust recorded that Health Minister Michael McGimpsey cut the first sod for a new purpose-built Neurology Unit at Musgrave Park Hospital on 13 December 2010.",
+    "terms": "https://belfasttrust.hscni.net/copyright/",
+    "title": "Musgrave Park Hospital neurology unit sod-cutting ceremony was held",
+    "transformation_method": "scripts\\fetch_round442_belfast_official_architecture_sweep_next16_candidates.js#manualOfficialPublicArchitectureSweepRound442"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "address_ref": "Phase 2B, Critical Care Centre, Royal Victoria Hospital, Belfast",
+    "attribution": "Belfast Health and Social Care Trust",
+    "category": "architecture_public_estate",
+    "city_id": "belfast",
+    "confidence": "documented",
+    "date": "2011-12-15",
+    "duplicate_check_terms": [
+      "bfs_arch_round442_rvh_critical_care_centre_topping_out_2011",
+      "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/",
+      "belfast-trust-2011-12-15-critical-care-centre-topping-out",
+      "Topping Out Ceremony at Critical Care Centre",
+      "Royal Victoria Hospital Critical Care Centre topping-out 2011-12-15"
+    ],
+    "duplicate_review": "No exact id, source URL, source record, or same title/date event found in the live/manual corpus or prior Belfast packs. The 2020 helipad event at the Critical Care Building is a different later facility milestone.",
+    "duplicate_scan_hits": [],
+    "effective_date": "2011-12-15",
+    "effective_date_range": {
+      "basis": "Belfast Trust page date and URL slug",
+      "end": "2011-12-15",
+      "precision": "day",
+      "start": "2011-12-15"
+    },
+    "event_type": "construction_milestone_topping_out",
+    "evidence_basis": [
+      "Official Belfast Trust page identifies the topping-out ceremony and the Critical Care Centre/Royal Victoria Hospital site.",
+      "Effective date is taken from the page date and URL slug."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "label": "Phase 2B, Critical Care Centre, Royal Victoria Hospital, Belfast",
+      "precision": "source-stated hospital/project reference only; no official coordinate or footprint extracted in Round442",
+      "source_url": "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/",
+      "type": "source_stated_hospital_project_reference"
+    },
+    "id": "bfs_arch_round442_rvh_critical_care_centre_topping_out_2011",
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "limitations": [
+      "This records a topping-out ceremony only.",
+      "The source refers to expected future completion, but this candidate does not assert completion, opening, occupation, service availability or health outcomes.",
+      "No official coordinate or building footprint was extracted in this sweep."
+    ],
+    "method": "Manual official/public Belfast architecture sweep after Round431. Accepted only source-published facts from official public bodies or public-estate owners. Opening, sod-cutting and topping-out records are labelled as source-specific milestones only. No construction completion, opening, impact, service-performance, employment, health or causality claim is carried unless the official source directly supports that milestone.",
+    "observed_change": "Official source-published topping-out milestone for Phase 2B of the Critical Care Centre at Royal Victoria Hospital.",
+    "provenance_links": [
+      {
+        "href": "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/",
+        "rel": "primary_source"
+      },
+      {
+        "href": "https://belfasttrust.hscni.net/copyright/",
+        "rel": "terms"
+      }
+    ],
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and URL slug",
+    "source_date_value": "2011-12-15",
+    "source_name": "Topping Out Ceremony at Critical Care Centre",
+    "source_record_id": "belfast-trust-2011-12-15-critical-care-centre-topping-out",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/",
+    "summary": "Belfast Health and Social Care Trust recorded that Health Minister Edwin Poots performed the topping-out ceremony at Phase 2B, Critical Care Centre, Royal Victoria Hospital, on 15 December 2011.",
+    "terms": "https://belfasttrust.hscni.net/copyright/",
+    "title": "Royal Victoria Hospital Critical Care Centre topping-out ceremony was held",
+    "transformation_method": "scripts\\fetch_round442_belfast_official_architecture_sweep_next16_candidates.js#manualOfficialPublicArchitectureSweepRound442"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "address_ref": "second floor of the main mall, Royal Victoria Hospital, Belfast",
+    "attribution": "Belfast Health and Social Care Trust",
+    "category": "architecture_public_estate",
+    "city_id": "belfast",
+    "confidence": "documented",
+    "date": "2010-11-01",
+    "duplicate_check_terms": [
+      "bfs_arch_round442_rvh_macmillan_information_centre_opening_2010",
+      "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/",
+      "belfast-trust-2010-11-01-macmillan-rvh-information-centre-opening",
+      "New Macmillan Information Centre Opens",
+      "Macmillan Drop-in Information Service Royal Victoria Hospital 2010-11-01"
+    ],
+    "duplicate_review": "No exact id, source URL, source record, or same title/date event found in the live/manual corpus or prior Belfast packs. Existing cancer-centre records are separate facilities or source paths.",
+    "duplicate_scan_hits": [],
+    "effective_date": "2010-11-01",
+    "effective_date_range": {
+      "basis": "Belfast Trust page date and URL slug",
+      "end": "2010-11-01",
+      "precision": "day",
+      "start": "2010-11-01"
+    },
+    "event_type": "facility_opening_official",
+    "evidence_basis": [
+      "Official Belfast Trust page identifies the Macmillan Drop-in Information Service opening and its Royal Victoria Hospital internal location.",
+      "Effective date is taken from the page date and URL slug."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "label": "second floor of the main mall, Royal Victoria Hospital, Belfast",
+      "precision": "source-stated internal hospital location only; no official coordinate or footprint extracted in Round442",
+      "source_url": "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/",
+      "type": "source_stated_hospital_location_reference"
+    },
+    "id": "bfs_arch_round442_rvh_macmillan_information_centre_opening_2010",
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "limitations": [
+      "This records the official opening of an internal hospital information-service centre only.",
+      "It is not treated as evidence of wider hospital estate renewal, clinical capacity, service usage or patient outcome.",
+      "No official coordinate, room footprint or floorplan was extracted in this sweep."
+    ],
+    "method": "Manual official/public Belfast architecture sweep after Round431. Accepted only source-published facts from official public bodies or public-estate owners. Opening, sod-cutting and topping-out records are labelled as source-specific milestones only. No construction completion, opening, impact, service-performance, employment, health or causality claim is carried unless the official source directly supports that milestone.",
+    "observed_change": "Official source-published opening milestone for the Macmillan Drop-in Information Service in Royal Victoria Hospital.",
+    "provenance_links": [
+      {
+        "href": "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/",
+        "rel": "primary_source"
+      },
+      {
+        "href": "https://belfasttrust.hscni.net/copyright/",
+        "rel": "terms"
+      }
+    ],
+    "publisher": "Belfast Health and Social Care Trust",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "source_date_field": "page date and URL slug",
+    "source_date_value": "2010-11-01",
+    "source_name": "New Macmillan Information Centre Opens",
+    "source_record_id": "belfast-trust-2010-11-01-macmillan-rvh-information-centre-opening",
+    "source_type": "official health trust news page",
+    "source_url": "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/",
+    "summary": "Belfast Health and Social Care Trust recorded that Trust Chairman Pat McCartan performed the official opening of the Macmillan Drop-in Information Service at Royal Victoria Hospital on 1 November 2010.",
+    "terms": "https://belfasttrust.hscni.net/copyright/",
+    "title": "Macmillan Drop-in Information Service opened at Royal Victoria Hospital",
+    "transformation_method": "scripts\\fetch_round442_belfast_official_architecture_sweep_next16_candidates.js#manualOfficialPublicArchitectureSweepRound442"
+  }
+]

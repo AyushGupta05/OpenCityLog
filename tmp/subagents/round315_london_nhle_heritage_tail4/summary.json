@@ -1,0 +1,227 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "worker_scope": "round315 London Historic England/NHLE heritage-designation tail4",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "source_rows_fetched": 3609,
+  "source_rows_fetched_by_source": {
+    "national_heritage_list_for_england_nhle": 3408,
+    "historic_england_de_designated_sites": 201
+  },
+  "candidate_count": 0,
+  "pack_type": "exhaustion",
+  "exhaustion_note": "No clean deduped London NHLE or de-designated administrative rows remained after scanning the manual architecture corpus and prior candidate packs through round305.",
+  "date_range": {
+    "start": null,
+    "end": null
+  },
+  "record_type_mix": {},
+  "source_date_field_mix": {},
+  "designation_type_mix": {},
+  "source_layer_mix": {},
+  "query_counts": [
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 0,
+      "layer_name": "Listed Building points",
+      "source_date_field": "ListDate",
+      "rows_fetched_in_london_bbox": 1203,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 0,
+      "layer_name": "Listed Building points",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 372,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 3,
+      "layer_name": "Listed Building polygons",
+      "source_date_field": "ListDate",
+      "rows_fetched_in_london_bbox": 1203,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 3,
+      "layer_name": "Listed Building polygons",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 372,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 1,
+      "layer_name": "Building Preservation Notice points",
+      "source_date_field": "BPNStart",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 1,
+      "layer_name": "Building Preservation Notice points",
+      "source_date_field": "BPNExpire",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 4,
+      "layer_name": "Building Preservation Notices polygons",
+      "source_date_field": "BPNStart",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 4,
+      "layer_name": "Building Preservation Notices polygons",
+      "source_date_field": "BPNExpire",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 2,
+      "layer_name": "Certificate of Immunity points",
+      "source_date_field": "COIStart",
+      "rows_fetched_in_london_bbox": 97,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 2,
+      "layer_name": "Certificate of Immunity points",
+      "source_date_field": "COIExpire",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 5,
+      "layer_name": "Certificate of Immunity polygons",
+      "source_date_field": "COIStart",
+      "rows_fetched_in_london_bbox": 97,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 5,
+      "layer_name": "Certificate of Immunity polygons",
+      "source_date_field": "COIExpire",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 6,
+      "layer_name": "Scheduled Monuments",
+      "source_date_field": "SchedDate",
+      "rows_fetched_in_london_bbox": 26,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 6,
+      "layer_name": "Scheduled Monuments",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 7,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 7,
+      "layer_name": "Parks and Gardens",
+      "source_date_field": "RegDate",
+      "rows_fetched_in_london_bbox": 20,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 7,
+      "layer_name": "Parks and Gardens",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 5,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 8,
+      "layer_name": "Battlefields",
+      "source_date_field": "RegDate",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 8,
+      "layer_name": "Battlefields",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 9,
+      "layer_name": "Protected Wreck Sites",
+      "source_date_field": "DesigDate",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 9,
+      "layer_name": "Protected Wreck Sites",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 10,
+      "layer_name": "World Heritage Sites",
+      "source_date_field": "InscrDate",
+      "rows_fetched_in_london_bbox": 0,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "National Heritage List for England (NHLE)",
+      "layer_id": 10,
+      "layer_name": "World Heritage Sites",
+      "source_date_field": "AmendDate",
+      "rows_fetched_in_london_bbox": 6,
+      "candidate_count_after_dedupe": 0
+    },
+    {
+      "source": "Historic England De-designated sites",
+      "layer_id": 0,
+      "layer_name": "De-designated sites",
+      "source_date_field": "DateRemovedFromList",
+      "rows_fetched_in_london_bbox": 201,
+      "candidate_count_after_dedupe": 0
+    }
+  ],
+  "rejected_reason_counts": {
+    "existing_corpus_or_prior_pack_nhle_key": 3261,
+    "outside_ons_london_region": 347,
+    "existing_source_key": 1
+  },
+  "duplicate_screening": {
+    "manual_corpus_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "corpus_events_scanned": 50422,
+    "prior_candidate_pack_files_scanned": 358,
+    "existing_event_ids_seen": 85591,
+    "existing_source_keys_seen": 58438,
+    "existing_nhle_date_keys_seen": 2273,
+    "dedupe_key": "NHLE ListEntry + canonical source date field + administrative date",
+    "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior Historic England/NHLE London heritage packs through round305, for event IDs, source keys, exact NHLE ListEntry/date-field/date keys, and de-designated OriginalListEntryNumber/date keys. Rejected files and raw query captures were not treated as accepted candidate packs."
+  },
+  "critical_interpretation_note": "These records are administrative heritage designation, listing, inscription, certificate/status-start or expiry, de-designation/removal, or amendment rows only. They are not evidence of construction, completion, demolition, opening, occupation, repair, condition, or broader outcome evidence.",
+  "candidate_ids": []
+}

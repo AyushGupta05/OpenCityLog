@@ -1,0 +1,108 @@
+{
+  "schema_version": "round390_belfast_official_architecture_sweep_next11.validation_report.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "ok": true,
+  "candidate_count": 4,
+  "rejected_count": 7,
+  "accepted_source_ids": [
+    "dfi-lagan-ped-cycle-bridge-procurement-next-stage-2025-round390",
+    "dfi-hill-street-pedestrianisation-effective-2025-round390",
+    "bcc-planning-implemented-applications-review-2026-round390",
+    "bcc-planning-implemented-applications-review-2026-round390"
+  ],
+  "source_fetch_summary": [
+    {
+      "source_id": "dfi-hill-street-pedestrianisation-effective-2025-round390",
+      "ok": true,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "marker_match_count": 6,
+      "marker_count": 6,
+      "error": null
+    },
+    {
+      "source_id": "dfi-lagan-ped-cycle-bridge-procurement-next-stage-2025-round390",
+      "ok": true,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "marker_match_count": 6,
+      "marker_count": 6,
+      "error": null
+    },
+    {
+      "source_id": "bcc-planning-implemented-applications-review-2026-round390",
+      "ok": true,
+      "status": 200,
+      "content_type": "application/pdf",
+      "marker_match_count": 7,
+      "marker_count": 7,
+      "error": null
+    },
+    {
+      "source_id": "bcc-bedford-hotel-implemented-site-visit-duplicate-round390",
+      "ok": true,
+      "status": 200,
+      "content_type": "application/pdf",
+      "marker_match_count": 3,
+      "marker_count": 3,
+      "error": null
+    },
+    {
+      "source_id": "dfi-hill-street-experimental-consultation-supporting-round390",
+      "ok": true,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "marker_match_count": 4,
+      "marker_count": 4,
+      "error": null
+    },
+    {
+      "source_id": "dfi-stranmillis-cycle-routes-order-2026-recheck-round390",
+      "ok": true,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "marker_match_count": 3,
+      "marker_count": 3,
+      "error": null
+    },
+    {
+      "source_id": "bcc-city-quays-gardens-opening-duplicate-round390",
+      "ok": true,
+      "status": "not_fetched",
+      "content_type": "not_applicable",
+      "marker_match_count": null,
+      "marker_count": 3,
+      "error": null
+    },
+    {
+      "source_id": "bcc-belfast-stories-duplicate-round390",
+      "ok": true,
+      "status": "not_fetched",
+      "content_type": "not_applicable",
+      "marker_match_count": null,
+      "marker_count": 4,
+      "error": null
+    },
+    {
+      "source_id": "bcc-current-planning-major-duplicates-recheck-round390",
+      "ok": true,
+      "status": "not_fetched",
+      "content_type": "not_applicable",
+      "marker_match_count": null,
+      "marker_count": 3,
+      "error": null
+    },
+    {
+      "source_id": "dfi-belfast-tidal-flood-alleviation-completion-duplicate-round390",
+      "ok": true,
+      "status": "not_fetched",
+      "content_type": "not_applicable",
+      "marker_match_count": null,
+      "marker_count": 2,
+      "error": null
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

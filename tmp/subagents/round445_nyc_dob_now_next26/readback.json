@@ -1,0 +1,217 @@
+{
+  "schema_version": "round445.nyc_dob_now_next26_readback.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "ok": true,
+  "output_dir": "tmp/subagents/round445_nyc_dob_now_next26",
+  "json_files": {
+    "candidates.json": {
+      "path": "tmp/subagents/round445_nyc_dob_now_next26/candidates.json",
+      "bytes": 2506498,
+      "parsed": true
+    },
+    "source_audit.json": {
+      "path": "tmp/subagents/round445_nyc_dob_now_next26/source_audit.json",
+      "bytes": 30295,
+      "parsed": true
+    },
+    "summary.json": {
+      "path": "tmp/subagents/round445_nyc_dob_now_next26/summary.json",
+      "bytes": 33317,
+      "parsed": true
+    },
+    "rejected.json": {
+      "path": "tmp/subagents/round445_nyc_dob_now_next26/rejected.json",
+      "bytes": 135526,
+      "parsed": true
+    },
+    "validation_report.json": {
+      "path": "tmp/subagents/round445_nyc_dob_now_next26/validation_report.json",
+      "bytes": 9998,
+      "parsed": true
+    }
+  },
+  "notes_file": {
+    "path": "tmp/subagents/round445_nyc_dob_now_next26/notes.md",
+    "bytes": 1814,
+    "present": true
+  },
+  "candidate_count": 200,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "date_range": {
+    "start": "2021-08-04",
+    "end": "2026-05-14"
+  },
+  "source_ids": [
+    "nyc-dob-filings-permits",
+    "nyc-dob-now-build-approved-permits-rbx6-tga4",
+    "nyc-dob-now-build-job-application-filings-w9ak-ipjd"
+  ],
+  "source_record_id_samples": [
+    "B00488090-I1-GC:1:389860332",
+    "M00555107-I1-GC:1:368237878",
+    "Q00489967-I1-GC-CX:1:865785874",
+    "Q00489969-I1-GC-CX:1:220088536",
+    "Q00489964-I1-GC-CX:1:929139017",
+    "X00579913-I1-GC:1:456601269",
+    "B00507579-I1-GC:1:842205772",
+    "B00485238-S3-ST:1:277058232",
+    "S00670890-I1-GC-CX:1:228830816",
+    "M00701545-I1-GC:1:175771669",
+    "S00698980-I1-GC-CX:1:304836782",
+    "B00656384-I1-GC:1:638170333",
+    "B00484265-S2-ST:1:180083643",
+    "X00710518-I1-GC:1:832426591",
+    "B00679378-I1-GC:1:278786024",
+    "M00670158-I1-GC:1:230543662",
+    "S00752292-I1-GC-CX:1:232671534",
+    "B00502080-S8-ST:1:720166662",
+    "X00711126-I1-GC:1:792430751",
+    "Q00685584-I1-GC:1:287726968"
+  ],
+  "source_api_url_samples": [
+    "https://data.cityofnewyork.us/resource/rbx6-tga4.json",
+    "https://data.cityofnewyork.us/resource/rbx6-tga4.json",
+    "https://data.cityofnewyork.us/resource/rbx6-tga4.json",
+    "https://data.cityofnewyork.us/resource/rbx6-tga4.json",
+    "https://data.cityofnewyork.us/resource/rbx6-tga4.json"
+  ],
+  "selected_summary": {
+    "by_borough": {
+      "Bronx": 40,
+      "Brooklyn": 50,
+      "Manhattan": 10,
+      "Queens": 50,
+      "Staten Island": 50
+    },
+    "by_work_type": {
+      "Foundation": 28,
+      "General Construction": 127,
+      "Structural": 37,
+      "Support of Excavation": 8
+    },
+    "by_job_type": {
+      "ALT-CO - New Building with Existing Elements to Remain": 42,
+      "Alteration CO": 53,
+      "New Building": 105
+    },
+    "by_year": {
+      "2021": 5,
+      "2022": 20,
+      "2023": 37,
+      "2024": 39,
+      "2025": 73,
+      "2026": 26
+    }
+  },
+  "prior_screening": {
+    "manual_corpus_screened": true,
+    "manual_corpus": {
+      "path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "present": true,
+      "records": 69931,
+      "contains_round429": true,
+      "round429_records": 200
+    },
+    "dob_now_through_round441_screened": true,
+    "prior_files_read": 417,
+    "prior_dob_files_scanned": [
+      "tmp/subagents/round112_nyc_dob_candidates.json",
+      "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+      "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+      "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+      "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+      "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+      "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+      "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+      "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+      "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+      "tmp/subagents/round158_nyc_dob_now_next3/candidates.json",
+      "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+      "tmp/subagents/round162_nyc_dob_now_next4/candidates.json",
+      "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+      "tmp/subagents/round167_nyc_dob_now_next5/candidates.json",
+      "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+      "tmp/subagents/round173_nyc_dob_now_next6/candidates.json",
+      "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+      "tmp/subagents/round179_nyc_dob_now_next7/candidates.json",
+      "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+      "tmp/subagents/round185_nyc_dob_now_next8/candidates.json",
+      "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+      "tmp/subagents/round191_nyc_dob_now_next9/candidates.json",
+      "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+      "tmp/subagents/round197_nyc_dob_now_next10/candidates.json",
+      "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+      "tmp/subagents/round203_nyc_dob_now_next11/candidates.json",
+      "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+      "tmp/subagents/round209_nyc_dob_now_next12/candidates.json",
+      "tmp/subagents/round211_nyc_dob_co_next11/candidates.json",
+      "tmp/subagents/round219_nyc_dob_co_next12/candidates.json",
+      "tmp/subagents/round222_nyc_dob_now_next13/candidates.json",
+      "tmp/subagents/round225_nyc_dob_co_next13/candidates.json",
+      "tmp/subagents/round227_nyc_dob_now_next14/candidates.json",
+      "tmp/subagents/round232_nyc_dob_co_next14/candidates.json",
+      "tmp/subagents/round237_nyc_dob_now_residual_next15/candidates.json",
+      "tmp/subagents/round242_nyc_dob_co_next15/candidates.json",
+      "tmp/subagents/round247_nyc_dob_co_next16/candidates.json",
+      "tmp/subagents/round250_nyc_dob_co_next17/candidates.json",
+      "tmp/subagents/round256_nyc_dob_co_next18/candidates.json",
+      "tmp/subagents/round264_nyc_dob_co_next19/candidates.json",
+      "tmp/subagents/round267_nyc_dob_co_next20/candidates.json",
+      "tmp/subagents/round273_nyc_dob_co_next21/candidates.json",
+      "tmp/subagents/round278_nyc_dob_co_next22/candidates.json",
+      "tmp/subagents/round289_nyc_dob_co_next23/candidates.json",
+      "tmp/subagents/round293_nyc_dob_now_next16/candidates.json",
+      "tmp/subagents/round300_nyc_dob_co_next24/candidates.json",
+      "tmp/subagents/round303_nyc_dob_co_next25/candidates.json",
+      "tmp/subagents/round308_nyc_dob_co_next26/candidates.json",
+      "tmp/subagents/round313_nyc_dob_co_next27/candidates.json",
+      "tmp/subagents/round318_nyc_dob_co_next28/candidates.json",
+      "tmp/subagents/round322_nyc_dob_co_next29/candidates.json",
+      "tmp/subagents/round326_nyc_dob_co_next30/candidates.json",
+      "tmp/subagents/round330_nyc_dob_co_next31/candidates.json",
+      "tmp/subagents/round335_nyc_dob_co_next32/candidates.json",
+      "tmp/subagents/round339_nyc_dob_co_next33/candidates.json",
+      "tmp/subagents/round344_nyc_dob_co_next34/candidates.json",
+      "tmp/subagents/round349_nyc_dob_co_next35/candidates.json",
+      "tmp/subagents/round356_nyc_dob_co_next36/candidates.json",
+      "tmp/subagents/round360_nyc_dob_co_next37/candidates.json",
+      "tmp/subagents/round364_nyc_dob_co_next38/candidates.json",
+      "tmp/subagents/round367_nyc_dob_co_next39/candidates.json",
+      "tmp/subagents/round371_nyc_dob_co_next40/candidates.json",
+      "tmp/subagents/round375_nyc_dob_co_next41/candidates.json",
+      "tmp/subagents/round379_nyc_dob_co_next42/candidates.json",
+      "tmp/subagents/round382_nyc_dob_co_next43/candidates.json",
+      "tmp/subagents/round386_nyc_dob_co_next44/candidates.json",
+      "tmp/subagents/round389_nyc_dob_co_next45/candidates.json",
+      "tmp/subagents/round395_nyc_dob_co_next46/candidates.json",
+      "tmp/subagents/round397_nyc_dob_now_next17/candidates.json",
+      "tmp/subagents/round400_nyc_dob_co_next47/candidates.json",
+      "tmp/subagents/round401_nyc_dob_now_next18/candidates.json",
+      "tmp/subagents/round406_nyc_dob_co_next48/candidates.json",
+      "tmp/subagents/round407_nyc_dob_now_next19/candidates.json",
+      "tmp/subagents/round412_nyc_dob_co_next49/candidates.json",
+      "tmp/subagents/round413_nyc_dob_now_next20/candidates.json",
+      "tmp/subagents/round415_nyc_dob_co_next50/candidates.json",
+      "tmp/subagents/round417_nyc_dob_co_next51/candidates.json",
+      "tmp/subagents/round422_nyc_dob_now_next21/candidates.json",
+      "tmp/subagents/round429_nyc_dob_now_next22/candidates.json",
+      "tmp/subagents/round435_nyc_dob_now_next23/candidates.json",
+      "tmp/subagents/round438_nyc_dob_now_next24/candidates.json",
+      "tmp/subagents/round441_nyc_dob_now_next25/candidates.json"
+    ],
+    "prior_identifier_tokens_checked": 317428,
+    "no_overlap_with_screened_corpus_and_prior_packs": true,
+    "no_title_date_overlap_with_prior_packs": true
+  },
+  "caveats": [
+    "DOB NOW rows are administrative filing/permit milestones only.",
+    "The pack does not claim construction start, construction completion, opening, occupancy, impact, or causation.",
+    "Coordinates are NYC Open Data/DOB geocoded points, not surveyed footprints or work limits."
+  ],
+  "errors": [],
+  "warnings": []
+}

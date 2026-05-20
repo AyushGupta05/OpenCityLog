@@ -38,7 +38,7 @@
       "milestone_type": "listed_building_designation",
       "title": "HED Buildings Database recorded listed status for Frames Snooker Hall, 2/14 Little Donegall Street",
       "summary": "Department for Communities Historic Environment Division / nidirect source material records Frames Snooker Hall, 2/14 Little Donegall Street (HB26/50/280) as a heritage/listing administrative milestone with source date 2008-08-11. The current HED ArcGIS historic-buildings row gives grade/status 'B1' and use 'Entertainment Building'.",
-      "observed_change": "Official heritage administrative milestone: The official HED Buildings Database record exposes Date of Listing 11/08/2008 for HB26/50/280. Date is a statutory/admin heritage record date, not construction or refurbishment. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official HED Buildings Database record exposes Date of Listing 11/08/2008 for HB26/50/280. Date is a statutory/admin heritage record date, not construction or refurbishment. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Frames Snooker Hall, 2/14 Little Donegall Street",
       "latitude": 54.603474,
       "longitude": -5.931851,
@@ -74,7 +74,7 @@
       "license_url": "https://www.nidirect.gov.uk/crown-copyright",
       "license_or_terms_note": "Crown copyright / nidirect terms for page content; factual metadata and source URLs retained for review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Department for Communities Historic Environment Division / nidirect",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/50/280",
         "hb_refs": [
@@ -151,7 +151,7 @@
       "milestone_type": "listed_building_de_listing",
       "title": "HED Buildings Database recorded de-listed status for Imperial House, 4-10 Donegall Square East",
       "summary": "Department for Communities Historic Environment Division / nidirect source material records Imperial House, 4-10 Donegall Square East (HB26/50/190) as a heritage/listing administrative milestone with source date 2015-08-21. The current HED ArcGIS historic-buildings row gives grade/status 'Record Only' and use 'Office'.",
-      "observed_change": "Official heritage administrative milestone: The official HED Buildings Database record exposes Date of De-listing 21/08/2015 for HB26/50/190. Date is a statutory/admin heritage record date, not demolition or redevelopment. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official HED Buildings Database record exposes Date of De-listing 21/08/2015 for HB26/50/190. Date is a statutory/admin heritage record date, not demolition or redevelopment. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Imperial House, 4-10 Donegall Square East",
       "latitude": 54.596918,
       "longitude": -5.928346,
@@ -187,7 +187,7 @@
       "license_url": "https://www.nidirect.gov.uk/crown-copyright",
       "license_or_terms_note": "Crown copyright / nidirect terms for page content; factual metadata and source URLs retained for review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Department for Communities Historic Environment Division / nidirect",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/50/190",
         "hb_refs": [
@@ -267,7 +267,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 12 St Johns Avenue, Belfast BT7 3JE",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 12 St Johns Avenue, Belfast BT7 3JE (HB26/01/075 B) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "12 St Johns Avenue, Belfast BT7 3JE",
       "latitude": 54.569646,
       "longitude": -5.9153,
@@ -303,7 +303,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/01/075 B",
         "hb_refs": [
@@ -386,7 +386,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 46 Hampton Park, Belfast BT7 3JP",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 46 Hampton Park, Belfast BT7 3JP (HB26/01/080) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B1' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "46 Hampton Park, Belfast BT7 3JP",
       "latitude": 54.565554,
       "longitude": -5.920746,
@@ -422,7 +422,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/01/080",
         "hb_refs": [
@@ -505,7 +505,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 16 Knockbreda Park, Belfast BT6 0HB",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 16 Knockbreda Park, Belfast BT6 0HB (HB26/01/089) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "16 Knockbreda Park, Belfast BT6 0HB",
       "latitude": 54.569052,
       "longitude": -5.911953,
@@ -541,7 +541,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/01/089",
         "hb_refs": [
@@ -624,7 +624,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 8 Bladon Park, Belfast BT9 5LH",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 8 Bladon Park, Belfast BT9 5LH (HB26/17/023 A) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B1' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "8 Bladon Park, Belfast BT9 5LH",
       "latitude": 54.568165,
       "longitude": -5.947982,
@@ -660,7 +660,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/17/023 A",
         "hb_refs": [
@@ -743,7 +743,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for The Crags including gate piers, 29 New Forge Lane, Belfast BT9 5NU",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records The Crags including gate piers, 29 New Forge Lane, Belfast BT9 5NU (HB26/17/069) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B1' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "The Crags including gate piers, 29 New Forge Lane, Belfast BT9 5NU",
       "latitude": 54.561734,
       "longitude": -5.946309,
@@ -779,7 +779,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/17/069",
         "hb_refs": [
@@ -862,7 +862,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 1 Sans Souci Lane, Belfast BT9 5QY",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 1 Sans Souci Lane, Belfast BT9 5QY (HB26/17/122 A) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B+' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "1 Sans Souci Lane, Belfast BT9 5QY",
       "latitude": 54.577889,
       "longitude": -5.939861,
@@ -898,7 +898,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/17/122 A",
         "hb_refs": [
@@ -981,7 +981,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 3 Sans Souci Lane, Belfast BT9 5QY",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 3 Sans Souci Lane, Belfast BT9 5QY (HB26/17/122 B) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B+' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "3 Sans Souci Lane, Belfast BT9 5QY",
       "latitude": 54.577839,
       "longitude": -5.939957,
@@ -1017,7 +1017,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/17/122 B",
         "hb_refs": [
@@ -1100,7 +1100,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 30 Malone Park, Belfast BT9 6NJ",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 30 Malone Park, Belfast BT9 6NJ (HB26/18/082) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'House'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "30 Malone Park, Belfast BT9 6NJ",
       "latitude": 54.567762,
       "longitude": -5.958201,
@@ -1136,7 +1136,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/18/082",
         "hb_refs": [
@@ -1219,7 +1219,7 @@
       "milestone_type": "listed_building_additions_list_record",
       "title": "HED additions-to-list appendix recorded listed-building addition for 38-44 Great Victoria Street, Belfast BT2 7BA",
       "summary": "Belfast City Council / Northern Ireland Environment Agency / Department for Communities source material records 38-44 Great Victoria Street, Belfast BT2 7BA (HB26/30/005) as a heritage/listing administrative milestone with source date 2018-01. The current HED ArcGIS historic-buildings row gives grade/status 'Record Only; B2' and use 'PUBLIC HOUSE; SHOP'.",
-      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official Belfast City Council appendix records this HB reference under additions to the list for January 2018. Month precision is retained because the appendix does not expose a row-level day. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "38-44 Great Victoria Street, Belfast BT2 7BA",
       "latitude": 54.594803,
       "longitude": -5.934065,
@@ -1255,7 +1255,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/30/005",
         "hb_refs": [
@@ -1360,7 +1360,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Beersbridge Road and Upper Newtownards Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Beersbridge Road and Upper Newtownards Road (HB26/10/010) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Beersbridge Road and Upper Newtownards Road",
       "latitude": 54.596187,
       "longitude": -5.882056,
@@ -1396,7 +1396,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/10/010",
         "hb_refs": [
@@ -1472,7 +1472,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Summerhill Parade and Barnett's Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Summerhill Parade and Barnett's Road (HB26/11/013) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Summerhill Parade and Barnett's Road",
       "latitude": 54.592944,
       "longitude": -5.838752,
@@ -1508,7 +1508,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/11/013",
         "hb_refs": [
@@ -1584,7 +1584,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Knockland Park and Barnett's Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Knockland Park and Barnett's Road (HB26/11/014) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Knockland Park and Barnett's Road",
       "latitude": 54.592707,
       "longitude": -5.839704,
@@ -1620,7 +1620,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/11/014",
         "hb_refs": [
@@ -1696,7 +1696,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Cherryvalley Park and Kensington Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Cherryvalley Park and Kensington Road (HB26/11/016) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Cherryvalley Park and Kensington Road",
       "latitude": 54.584957,
       "longitude": -5.84919,
@@ -1732,7 +1732,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/11/016",
         "hb_refs": [
@@ -1808,7 +1808,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Kensington Road and Knock Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Kensington Road and Knock Road (HB26/11/017) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Kensington Road and Knock Road",
       "latitude": 54.588311,
       "longitude": -5.856212,
@@ -1844,7 +1844,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/11/017",
         "hb_refs": [
@@ -1920,7 +1920,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Belmont Church Road and Sydenham Avenue",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Belmont Church Road and Sydenham Avenue (HB26/12/059) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Belmont Church Road and Sydenham Avenue",
       "latitude": 54.600761,
       "longitude": -5.865519,
@@ -1956,7 +1956,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/12/059",
         "hb_refs": [
@@ -2032,7 +2032,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Carolhill Gardens and Holywood Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Carolhill Gardens and Holywood Road (HB26/12/064) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Carolhill Gardens and Holywood Road",
       "latitude": 54.607895,
       "longitude": -5.868921,
@@ -2068,7 +2068,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/12/064",
         "hb_refs": [
@@ -2144,7 +2144,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Eastleigh Drive and Kincora Avenue",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Eastleigh Drive and Kincora Avenue (HB26/14/025) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Eastleigh Drive and Kincora Avenue",
       "latitude": 54.596794,
       "longitude": -5.866676,
@@ -2180,7 +2180,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/14/025",
         "hb_refs": [
@@ -2256,7 +2256,7 @@
       "milestone_type": "listed_street_sign_formal_confirmation",
       "title": "HED formal listing confirmation recorded historic street sign at Street sign at Clonlee Drive and Upper Newtownards Road",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Street sign at Clonlee Drive and Upper Newtownards Road (HB26/14/026) as a heritage/listing administrative milestone with source date 2021-04-20. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Street sign'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report says HED confirmed the nine street signs were formally listed. The report date is used as the documented administrative milestone, not as a claimed installation date. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Street sign at Clonlee Drive and Upper Newtownards Road",
       "latitude": 54.596241,
       "longitude": -5.877374,
@@ -2292,7 +2292,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/14/026",
         "hb_refs": [
@@ -2368,7 +2368,7 @@
       "milestone_type": "listed_structure_formal_confirmation",
       "title": "HED formal listing confirmation recorded Botanic Gardens structure at Gate screen and railings at Colenso Parade, Botanic Gardens",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Gate screen and railings at Colenso Parade, Botanic Gardens (HB26/27/105 E) as a heritage/listing administrative milestone with source date 2024-04-16. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Gates/ Screens/ Lodges'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report records DfC/HED correspondence confirming the structures had been added to the statutory list. The report date is the documented administrative milestone. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report records DfC/HED correspondence confirming the structures had been added to the statutory list. The report date is the documented administrative milestone. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Gate screen and railings at Colenso Parade, Botanic Gardens",
       "latitude": 54.581318,
       "longitude": -5.932971,
@@ -2404,7 +2404,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/27/105 E",
         "hb_refs": [
@@ -2480,7 +2480,7 @@
       "milestone_type": "listed_structure_formal_confirmation",
       "title": "HED formal listing confirmation recorded Botanic Gardens structure at Gate screen at University Road / Stranmillis Road, Botanic Gardens",
       "summary": "Belfast City Council / Department for Communities Historic Environment Division source material records Gate screen at University Road / Stranmillis Road, Botanic Gardens (HB26/27/105 F) as a heritage/listing administrative milestone with source date 2024-04-16. The current HED ArcGIS historic-buildings row gives grade/status 'B2' and use 'Gates/ Screens/ Lodges'.",
-      "observed_change": "Official heritage administrative milestone: The official committee report records DfC/HED correspondence confirming the structures had been added to the statutory list. The report date is the documented administrative milestone. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.",
+      "observed_change": "Official heritage administrative milestone: The official committee report records DfC/HED correspondence confirming the structures had been added to the statutory list. The report date is the documented administrative milestone. This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.",
       "area": "Gate screen at University Road / Stranmillis Road, Botanic Gardens",
       "latitude": 54.583167,
       "longitude": -5.936444,
@@ -2516,7 +2516,7 @@
       "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
       "license_or_terms_note": "Belfast City Council public committee document; factual metadata and source URLs retained pending full reuse review. HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.",
       "attribution": "Belfast City Council / Department for Communities Historic Environment Division",
-      "limitations": "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "limitations": "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
       "source_fields": {
         "input_hb_ref": "HB26/27/105 F",
         "hb_refs": [

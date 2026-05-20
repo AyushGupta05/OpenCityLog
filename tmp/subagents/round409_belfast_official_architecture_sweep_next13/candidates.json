@@ -1,0 +1,218 @@
+{
+  "schema_version": "round409_belfast_official_architecture_sweep_next13.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round409_belfast_official_architecture_sweep_next13",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20",
+    "note": "Round409 Belfast official architecture/built-environment sweep window."
+  },
+  "candidate_count": 2,
+  "accepted_count": 2,
+  "candidates": [
+    {
+      "id": "bfs_arch_round409_st_patricks_primary_north_belfast_works_start_2020",
+      "event_id": "bfs_arch_round409_st_patricks_primary_north_belfast_works_start_2020",
+      "city_id": "belfast",
+      "title": "St Patrick's Primary School new-build works started",
+      "summary": "The Department of Education recorded on 23 January 2020 that the first sod had been cut and construction work had started for a new-build St Patrick's Primary School in North Belfast.",
+      "observed_change": "An official Department of Education source documents a construction-start milestone for a new school building with outdoor play and parking provision.",
+      "date": "2020-01-23",
+      "effective_date": "2020-01-23",
+      "date_precision": "day",
+      "event_type": "works_start_recorded",
+      "milestone_type": "works_start",
+      "category": "education building / new school build",
+      "area": "St Patrick's Primary School / Pim Street",
+      "address_or_location": "St Patrick's Primary School, 9-25 Pim Street, Belfast BT15 2BN",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.922723,
+          54.612937
+        ]
+      },
+      "latitude": 54.612937,
+      "longitude": -5.922723,
+      "geometry_precision": "Approximate school-site point, not a surveyed building footprint, planning red-line boundary, post-completion as-built outline or site-works boundary.",
+      "geometry_ref": "Source CSV Easting/Northing in DfI planning-statistics application LA04/2016/2196/F for St Patricks Primary School 9-25 Pim Street Belfast BT15 2BN; reused from prior official planning-statistics geocode.",
+      "geometry_source": "Department for Infrastructure Northern Ireland planning activity statistics, application LA04/2016/2196/F, planning-statistics-2018-19-dataset.csv row 627.",
+      "location_source_name": "Northern Ireland planning activity statistics",
+      "location_source_publisher": "Department for Infrastructure, Northern Ireland",
+      "location_source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+      "location_source_record_id": "LA04/2016/2196/F; planning-statistics-2018-19-dataset.csv row 627",
+      "source_ids": [
+        "de-st-patricks-primary-north-belfast-works-begin-2020-round409"
+      ],
+      "source_name": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+      "source_type": "official government news page",
+      "source_record_id": "Department of Education news page, Date published 23 January 2020",
+      "source_date_field": "Date published",
+      "source_date_value": "2020-01-23",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "accessed_at": "2026-05-20",
+      "confidence": "documented",
+      "duplicate_check_terms": [
+        "St Patrick's Primary School North Belfast first sod",
+        "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+        "ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+        "start of construction work on a brand new school",
+        "LA04/2016/2196/F"
+      ],
+      "duplicate_check_note": "Earlier planning-statistics rounds include the 2018 planning approval for application LA04/2016/2196/F at 9-25 Pim Street. Round409 keeps this as a distinct 2020 Department of Education construction-start/first-sod milestone, not as another planning approval.",
+      "limitations": "This records only the source-published first-sod/construction-start milestone. It is not evidence of completion, opening, occupation, educational outcomes, public benefit, final as-built condition, exact construction boundary or the projected completion date being met.",
+      "transformation_method": "scripts\\fetch_round409_belfast_official_architecture_sweep_next13_candidates.js: manual official-source extraction, live source marker validation, duplicate screen against manual corpus, live Belfast atlas files and prior Belfast packs through Round402, approximate school-site point reuse from prior official DfI planning-statistics geocode.",
+      "duplicate_scan": {
+        "id": "bfs_arch_round409_st_patricks_primary_north_belfast_works_start_2020",
+        "duplicate_check_terms": [
+          "St Patrick's Primary School North Belfast first sod",
+          "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+          "ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+          "start of construction work on a brand new school",
+          "LA04/2016/2196/F"
+        ],
+        "duplicate_hits": [
+          {
+            "term": "St Patrick's Primary School North Belfast first sod",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "ps114-million-works-begin-st-patricks-primary-school-north-belfast",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "start of construction work on a brand new school",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "LA04/2016/2196/F",
+            "hit_count": 6,
+            "files": [
+              "data/manual_drops\\architecture_milestones\\architecture_milestones_2008_2026.json",
+              "web/data/city-atlas/cities/belfast\\events_2018.json",
+              "web/data/city-atlas/cities/belfast\\events_2018.geojson",
+              "tmp/subagents\\round134_belfast_planning_statistics_deep\\candidates.json",
+              "tmp/subagents\\round131_belfast_planning_statistics\\candidates.json",
+              "tmp/subagents\\round131_belfast_planning_statistics\\rejections.json"
+            ],
+            "truncated": false,
+            "rg_status": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "bfs_arch_round409_belfast_royal_academy_sep_site_contract_2015",
+      "event_id": "bfs_arch_round409_belfast_royal_academy_sep_site_contract_2015",
+      "city_id": "belfast",
+      "title": "Belfast Royal Academy improvement project site and contract milestone was recorded",
+      "summary": "The Department of Education recorded on 25 June 2015 that the minister visited the Belfast Royal Academy improvement-project site and that the construction contract had been awarded.",
+      "observed_change": "An official Department of Education source documents a School Enhancement Programme site/contract-stage milestone for a new two-storey music and Home Economics block, dining facilities and a rear extension.",
+      "date": "2015-06-25",
+      "effective_date": "2015-06-25",
+      "date_precision": "day",
+      "event_type": "contract_award_site_visit",
+      "milestone_type": "site_visit_contract_award",
+      "category": "education building / school enhancement",
+      "area": "Belfast Royal Academy / Cliftonville Road",
+      "address_or_location": "Belfast Royal Academy, Cliftonville Road, Belfast BT14 6JL",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.927077,
+          54.617081
+        ]
+      },
+      "latitude": 54.617081,
+      "longitude": -5.927077,
+      "geometry_precision": "Approximate school-site point, not a measured two-storey block footprint, Jackson building extension boundary or planning red line.",
+      "geometry_ref": "Approximate point reused from existing DfI planning-statistics/manual-corpus record for Belfast Royal Academy, Cliftonville Road.",
+      "geometry_source": "Prior source-derived planning-statistics point for Belfast Royal Academy, used because the Department of Education news page does not publish a coordinate.",
+      "source_ids": [
+        "de-belfast-royal-academy-sep-site-contract-2015-round409"
+      ],
+      "source_name": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_url": "https://www.education-ni.gov.uk/news/odowd-visits-site-ps42million-project-belfast-royal-academy",
+      "source_type": "official government news page",
+      "source_record_id": "Department of Education news page, Date published 25 June 2015",
+      "source_date_field": "Date published",
+      "source_date_value": "2015-06-25",
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "accessed_at": "2026-05-20",
+      "confidence": "documented",
+      "duplicate_check_terms": [
+        "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
+        "new two-storey building to provide a music and HE block",
+        "Felix O'Hare Belfast Royal Academy",
+        "approval has been given to proceed with the SEP project"
+      ],
+      "duplicate_check_note": "Existing live/manual records include a separate 2016 sports-hall planning approval at Belfast Royal Academy. No matched 2015 Department of Education site/contract-stage event for the music/Home Economics/dining project was found.",
+      "limitations": "This records a source-published site visit, approval-to-proceed and contract-award milestone. It is not evidence that construction started on that day, that works were completed, that facilities opened, that outcomes changed, or that the final built form matched the source description.",
+      "transformation_method": "scripts\\fetch_round409_belfast_official_architecture_sweep_next13_candidates.js: manual official-source extraction, live source marker validation, duplicate screen against manual corpus, live Belfast atlas files and prior Belfast packs through Round402, approximate school-site point reuse from prior official geocode.",
+      "duplicate_scan": {
+        "id": "bfs_arch_round409_belfast_royal_academy_sep_site_contract_2015",
+        "duplicate_check_terms": [
+          "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
+          "new two-storey building to provide a music and HE block",
+          "Felix O'Hare Belfast Royal Academy",
+          "approval has been given to proceed with the SEP project"
+        ],
+        "duplicate_hits": [
+          {
+            "term": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "new two-storey building to provide a music and HE block",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "Felix O'Hare Belfast Royal Academy",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          },
+          {
+            "term": "approval has been given to proceed with the SEP project",
+            "hit_count": 0,
+            "files": [],
+            "truncated": false,
+            "rg_status": 0
+          }
+        ]
+      }
+    }
+  ]
+}

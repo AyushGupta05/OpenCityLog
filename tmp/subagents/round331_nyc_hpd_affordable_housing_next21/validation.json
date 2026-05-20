@@ -1,0 +1,76 @@
+{
+  "schema_version": "round331.nyc_hpd_affordable_housing_next21_validation.v1",
+  "status": "passed",
+  "checked_at": "2026-05-20T00:00:00Z",
+  "command": "node scripts/fetch_round331_nyc_hpd_affordable_housing_next21_candidates.js",
+  "checks": [
+    "required output files and provenance fields",
+    "official NYC HPD Open Data hg8x-zxpr source only",
+    "accessed_at, publisher, confidence, license/terms, limitations, and transformation_method present",
+    "date window 2008-01-01 through 2026-05-20",
+    "NYC point geometry/lat-lon bounds",
+    "unique event IDs and source-date keys",
+    "dedupe against manual corpus and HPD-family candidate packs through round324",
+    "extended-affordability administrative-record caveat present",
+    "blocked overclaim terms absent from candidate narrative, caveats, and notes"
+  ],
+  "candidate_count": 200,
+  "target_count": 200,
+  "date_range": {
+    "start": "2015-10-22",
+    "end": "2026-03-10"
+  },
+  "by_date_field": {
+    "project_start_date": 200
+  },
+  "by_construction_type": {
+    "New Construction": 142,
+    "Preservation": 58
+  },
+  "by_extended_affordability_status": {
+    "No": 199,
+    "Yes": 1
+  },
+  "by_prevailing_wage_status": {
+    "Non Prevailing Wage": 195,
+    "Prevailing Wage": 5
+  },
+  "rejected_count": 6421,
+  "prior_index": {
+    "max_screening_round": 324,
+    "files_read": 257,
+    "hpd_rows_indexed": 10754,
+    "event_ids": 6449,
+    "source_record_ids": 12860,
+    "source_urls": 6431,
+    "source_date_keys": 6449,
+    "hpd_files": [
+      "data\\manual_drops\\architecture_milestones\\architecture_milestones_2008_2026.json",
+      "tmp\\subagents\\round115_nyc_development_records_codex\\candidates.json",
+      "tmp\\subagents\\round116_nyc_public_projects_official\\candidates.json",
+      "tmp\\subagents\\round118_nyc_hpd_parks_official\\candidates.json",
+      "tmp\\subagents\\round213_nyc_hpd_affordable_housing_next\\candidates.json",
+      "tmp\\subagents\\round221_nyc_hpd_affordable_housing_next2\\candidates.json",
+      "tmp\\subagents\\round229_nyc_hpd_affordable_housing_next3\\candidates.json",
+      "tmp\\subagents\\round234_nyc_hpd_affordable_housing_next4\\candidates.json",
+      "tmp\\subagents\\round236_nyc_hpd_affordable_housing_next5\\candidates.json",
+      "tmp\\subagents\\round241_nyc_hpd_affordable_housing_next6\\candidates.json",
+      "tmp\\subagents\\round246_nyc_hpd_affordable_housing_next7\\candidates.json",
+      "tmp\\subagents\\round251_nyc_hpd_affordable_housing_next8\\candidates.json",
+      "tmp\\subagents\\round255_nyc_hpd_affordable_housing_next9\\candidates.json",
+      "tmp\\subagents\\round263_nyc_hpd_affordable_housing_next10\\candidates.json",
+      "tmp\\subagents\\round269_nyc_hpd_affordable_housing_next11\\candidates.json",
+      "tmp\\subagents\\round275_nyc_hpd_affordable_housing_next12\\candidates.json",
+      "tmp\\subagents\\round283_nyc_hpd_affordable_housing_next13\\candidates.json",
+      "tmp\\subagents\\round292_nyc_hpd_affordable_housing_next14\\candidates.json",
+      "tmp\\subagents\\round304_nyc_hpd_affordable_housing_next15\\candidates.json",
+      "tmp\\subagents\\round309_nyc_hpd_affordable_housing_next16\\candidates.json",
+      "tmp\\subagents\\round314_nyc_hpd_affordable_housing_next17\\candidates.json",
+      "tmp\\subagents\\round319_nyc_hpd_affordable_housing_next18\\candidates.json",
+      "tmp\\subagents\\round320_nyc_hpd_affordable_housing_next19\\candidates.json",
+      "tmp\\subagents\\round324_nyc_hpd_affordable_housing_next20\\candidates.json"
+    ]
+  },
+  "blocked_output_term_locations": 0,
+  "errors": []
+}

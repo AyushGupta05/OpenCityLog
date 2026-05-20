@@ -1,0 +1,826 @@
+[
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Harbour Commissioners",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "City Quays 2 completed",
+      "City Quays 2 completion",
+      "belfast-harbour-completes-second-major-city-quays-office-buildin-177",
+      "2017-09-28"
+    ],
+    "duplicate_scan": {
+      "scanned_at": "2026-05-20",
+      "scanned_file_count": 2122,
+      "scanned_roots": [
+        "data/manual_drops/architecture_milestones",
+        "data/derived/2026",
+        "web/data/city-atlas/cities/belfast",
+        "tmp/subagents"
+      ],
+      "terms": [
+        {
+          "hit_count": 1,
+          "hits": [
+            {
+              "context": "elfast\",\"record_kind\":\"event\",\"event_id\":\"bfs_arch_city_quays_2_completion_2017\",\"title\":\"City Quays 2 completed on Belfast waterfront\",\"short_description\":\"City Quays public materials record City Quays",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2017.json"
+            }
+          ],
+          "term": "City Quays 2 completed"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "City Quays 2 completion"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "belfast-harbour-completes-second-major-city-quays-office-buildin-177"
+        },
+        {
+          "hit_count": 11,
+          "hits": [
+            {
+              "context": "unveiled its new home at 20 Thomas Street on September 28, 2017.\", \"effective_date\": \"2017-09-28\", \"geometry\": { \"type\": \"Point\", \"coordinates\": [ -74.0064,",
+              "path": "tmp\\subagents\\nyc_arch_candidates_round92.json"
+            },
+            {
+              "context": "Cultural Affairs\", \"source_url\": \"https://www.nyc.gov/site/dcla/about/pressrelease/PR-2017-09-28-CHIYB-FleaTheater-Reopen.page\", \"source_type\": \"city agency press release\", \"sour",
+              "path": "tmp\\subagents\\nyc_arch_candidates_round92.json"
+            },
+            {
+              "context": "Reopen.page\", \"source_type\": \"city agency press release\", \"source_record_id\": \"PR-2017-09-28-CHIYB-FleaTheater-Reopen\", \"license\": \"NYC.gov Terms of Use; citation-only factual me",
+              "path": "tmp\\subagents\\nyc_arch_candidates_round92.json"
+            },
+            {
+              "context": "\"summary\": \"Historic England's National Heritage List for England records an AmendDate of 2017-09-28 for Church of St Nicholas (ListEntry 1065629, Grade II*). This is a heritage-administrati",
+              "path": "tmp\\subagents\\round130_heritage_designations_more\\candidates.json"
+            },
+            {
+              "context": "urce does not by itself state a physical change on that date.\", \"effective_date\": \"2017-09-28\", \"effective_date_range\": null, \"date\": \"2017-09-28\", \"date_precisio",
+              "path": "tmp\\subagents\\round130_heritage_designations_more\\candidates.json"
+            },
+            {
+              "context": "\"effective_date\": \"2017-09-28\", \"effective_date_range\": null, \"date\": \"2017-09-28\", \"date_precision\": \"day\", \"source_date_field\": \"AmendDate\", \"bucket",
+              "path": "tmp\\subagents\\round130_heritage_designations_more\\candidates.json"
+            },
+            {
+              "context": "signal score, milestone date, and source row; capped at 240.\", \"permission_date\": \"2017-09-28\", \"started_date\": \"2018-04-05\", \"completed_financial_year\": \"\", \"pla",
+              "path": "tmp\\subagents\\round182_london_ldd_archive_next8\\candidates.json"
+            },
+            {
+              "context": "\"easting\": 534913.0, \"northing\": 178071.0, \"permission_date\": \"2017-09-28\", \"started_date\": \"2018-04-05\", \"completed_date\": \"\", \"selecte",
+              "path": "tmp\\subagents\\round182_london_ldd_archive_next8\\candidates.json"
+            },
+            {
+              "context": "\"lon_ldd_archive_next9_round188_started_row_6718_bexley_15_00370_outm03\", \"date\": \"2017-09-28\", \"effective_date\": \"2017-09-28\", \"date_precision\": \"day\", \"bucket\":",
+              "path": "tmp\\subagents\\round188_london_ldd_archive_next9\\candidates.json"
+            },
+            {
+              "context": "_row_6718_bexley_15_00370_outm03\", \"date\": \"2017-09-28\", \"effective_date\": \"2017-09-28\", \"date_precision\": \"day\", \"bucket\": \"planning/development/architecture/ldd",
+              "path": "tmp\\subagents\\round188_london_ldd_archive_next9\\candidates.json"
+            }
+          ],
+          "term": "2017-09-28"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "round431_reject_city_quays_2_completion_duplicate"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "https://www.belfast-harbour.co.uk/news/belfast-harbour-completes-second-major-city-quays-office-buildin-177/"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "belfast-harbour-news-city-quays-office-buildin-177"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "City Quays 2 office building completion"
+        }
+      ]
+    },
+    "id": "round431_reject_city_quays_2_completion_duplicate",
+    "license": "Belfast Harbour Commissioners website copyright/terms; used here as factual citation metadata.",
+    "observed_or_candidate_date": "2017-09-28",
+    "publisher": "Belfast Harbour Commissioners",
+    "reason": "Rejected as duplicate: the live/manual corpus already contains a City Quays 2 completion event on the same project/date class, even though this official source URL itself was not yet used.",
+    "source_name": "Belfast Harbour Completes Second Major City Quays Office Building",
+    "source_record_id": "belfast-harbour-news-city-quays-office-buildin-177",
+    "source_type": "official public-estate owner news page",
+    "source_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-completes-second-major-city-quays-office-buildin-177/",
+    "terms": "https://www.belfast-harbour.co.uk/policies/",
+    "title": "City Quays 2 office building completion"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Belfast Harbour Commissioners",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "AC Hotel Belfast",
+      "ac-hotel-belfast-flagship-feature-of-city-quays-development-205",
+      "City Quays hotel",
+      "2018-06-22"
+    ],
+    "duplicate_scan": {
+      "scanned_at": "2026-05-20",
+      "scanned_file_count": 2122,
+      "scanned_roots": [
+        "data/manual_drops/architecture_milestones",
+        "data/derived/2026",
+        "web/data/city-atlas/cities/belfast",
+        "tmp/subagents"
+      ],
+      "terms": [
+        {
+          "hit_count": 2,
+          "hits": [
+            {
+              "context": "st\",\"record_kind\":\"event\",\"event_id\":\"bfs_arch_ac_hotel_city_quays_opening_2018\",\"title\":\"AC Hotel Belfast officially opened at City Quays\",\"short_description\":\"Belfast Harbour records the officia",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            },
+            {
+              "context": "pened at City Quays\",\"short_description\":\"Belfast Harbour records the official opening of AC Hotel Belfast as part of the City Quays waterfront development.\",\"year\":2018,\"effective_date\":\"2018-06-",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            }
+          ],
+          "term": "AC Hotel Belfast"
+        },
+        {
+          "hit_count": 2,
+          "hits": [
+            {
+              "context": "abel\":\"Belfast Harbour\",\"kind\":\"source_url\",\"url\":\"https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/\",\"file_path\":null,\"record_id\":\"ac-hotel-belfast-official-opening\"},{\"source_id\":\"belfast",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            },
+            {
+              "context": ":\"ac-hotel-belfast-official-opening\",\"source_url\":\"https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/\",\"source_retrieved_at\":\"2026-05-16\",\"source_dataset_id\":\"belfast-architecture-public-pag",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            }
+          ],
+          "term": "ac-hotel-belfast-flagship-feature-of-city-quays-development-205"
+        },
+        {
+          "hit_count": 2,
+          "hits": [
+            {
+              "context": "\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-5.9082,54.607946]},\"affected_area\":{\"label\":\"City Quays Hotel 90 Donegall Quay Belfast BT1 3FE\"},\"source_ids\":[\"ni-planning-statistics\"],\"evidence\":",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            },
+            {
+              "context": "xplanation\":\"The planning statistics record documents a planning decision associated with City Quays Hotel 90 Donegall Quay Belfast BT1 3FE. It is administrative evidence of a planning decision",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            }
+          ],
+          "term": "City Quays hotel"
+        },
+        {
+          "hit_count": 11,
+          "hits": [
+            {
+              "context": "\"city_id\": \"nyc\", \"candidate_id\": \"nyc-cpdb-fb86-p_217wykf-actual-construction-end-2018-06-22\", \"date\": \"2018-06-22\", \"date_precision\": \"day\", \"bucket\": \"planning",
+              "path": "tmp\\subagents\\round128_nyc_capital_projects_dashboard\\candidates.json"
+            },
+            {
+              "context": "didate_id\": \"nyc-cpdb-fb86-p_217wykf-actual-construction-end-2018-06-22\", \"date\": \"2018-06-22\", \"date_precision\": \"day\", \"bucket\": \"planning/development/architecture/rec",
+              "path": "tmp\\subagents\\round128_nyc_capital_projects_dashboard\\candidates.json"
+            },
+            {
+              "context": "C Capital Projects Dashboard citywide budget/schedule row records actual_construction_end 2018-06-22 for Wyckoff House Roof Reconstruction. FMS project name: WYCKOFF FARMHOUSE - ROOF RESTORA",
+              "path": "tmp\\subagents\\round128_nyc_capital_projects_dashboard\\candidates.json"
+            },
+            {
+              "context": "\"event_id\": \"nyc_dob_co_round164_legacy_122458116_final_2018_06_22\", \"date\": \"2018-06-22\", \"effective_date\": \"2018-06-22\", \"issuance_date\": \"2018-06-22\", \"da",
+              "path": "tmp\\subagents\\round164_nyc_dob_co_next3\\candidates.json"
+            },
+            {
+              "context": "egacy_122458116_final_2018_06_22\", \"date\": \"2018-06-22\", \"effective_date\": \"2018-06-22\", \"issuance_date\": \"2018-06-22\", \"date_precision\": \"day\", \"effective",
+              "path": "tmp\\subagents\\round164_nyc_dob_co_next3\\candidates.json"
+            },
+            {
+              "context": "\"date\": \"2018-06-22\", \"effective_date\": \"2018-06-22\", \"issuance_date\": \"2018-06-22\", \"date_precision\": \"day\", \"effective_date_precision\": \"day\", \"bucke",
+              "path": "tmp\\subagents\\round164_nyc_dob_co_next3\\candidates.json"
+            },
+            {
+              "context": "73\", \"lot\": \"2\", \"community_board\": \"MN-01\", \"received_date\": \"2018-06-22\", \"issue_date\": \"2018-08-09\", \"expiration_date\": \"2024-08-07\" },",
+              "path": "tmp\\subagents\\round174_nyc_lpc_permit_next4\\candidates.json"
+            },
+            {
+              "context": "et\": \"LPC-19-27732\", \"address\": \"83-85 WORTH STREET\", \"received_date\": \"2018-06-22T00:00:00.000\", \"borough\": \"Manhattan\", \"block\": \"173\", \"lot\":",
+              "path": "tmp\\subagents\\round174_nyc_lpc_permit_next4\\candidates.json"
+            },
+            {
+              "context": "19-26059\", \"candidate_id\": \"nyc-lpc-permit-round180-sul-19-26059\", \"date\": \"2018-06-22\", \"effective_date\": \"2018-06-22\", \"date_precision\": \"day\", \"bucket\":",
+              "path": "tmp\\subagents\\round180_nyc_lpc_permit_next5\\candidates.json"
+            },
+            {
+              "context": "lpc-permit-round180-sul-19-26059\", \"date\": \"2018-06-22\", \"effective_date\": \"2018-06-22\", \"date_precision\": \"day\", \"bucket\": \"heritage_permit_addition\", \"ca",
+              "path": "tmp\\subagents\\round180_nyc_lpc_permit_next5\\candidates.json"
+            }
+          ],
+          "term": "2018-06-22"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "round431_reject_ac_hotel_city_quays_launch_duplicate"
+        },
+        {
+          "hit_count": 2,
+          "hits": [
+            {
+              "context": ":\"belfast-architecture-public-pages\",\"label\":\"Belfast Harbour\",\"kind\":\"source_url\",\"url\":\"https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/\",\"file_path\":null,\"record_id\":\"ac-hotel-belfast-official-opening\"},{\"source_id\":\"belfast-",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            },
+            {
+              "context": "st-official-opening\",\"source_record_id\":\"ac-hotel-belfast-official-opening\",\"source_url\":\"https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/\",\"source_retrieved_at\":\"2026-05-16\",\"source_dataset_id\":\"belfast-architecture-public-page",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            }
+          ],
+          "term": "https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "belfast-harbour-news-ac-hotel-belfast-flagship-feature-205"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "AC Hotel Belfast launch at City Quays"
+        }
+      ]
+    },
+    "id": "round431_reject_ac_hotel_city_quays_launch_duplicate",
+    "license": "Belfast Harbour Commissioners website copyright/terms; used here as factual citation metadata.",
+    "observed_or_candidate_date": "2018-06-22",
+    "publisher": "Belfast Harbour Commissioners",
+    "reason": "Rejected as duplicate: this exact source URL and AC Hotel/City Quays launch already appear in the live/manual corpus.",
+    "source_name": "AC Hotel Belfast Flagship Feature of City Quays Development",
+    "source_record_id": "belfast-harbour-news-ac-hotel-belfast-flagship-feature-205",
+    "source_type": "official public-estate owner news page",
+    "source_url": "https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/",
+    "terms": "https://www.belfast-harbour.co.uk/policies/",
+    "title": "AC Hotel Belfast launch at City Quays"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Department of Education, Northern Ireland",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Colaiste Feirste",
+      "ps155million-work-colaiste-feirste-belfast",
+      "Building work commenced on site on 8 February 2016"
+    ],
+    "duplicate_scan": {
+      "scanned_at": "2026-05-20",
+      "scanned_file_count": 2122,
+      "scanned_roots": [
+        "data/manual_drops/architecture_milestones",
+        "data/derived/2026",
+        "web/data/city-atlas/cities/belfast",
+        "tmp/subagents"
+      ],
+      "terms": [
+        {
+          "hit_count": 12,
+          "hits": [
+            {
+              "context": "te-work-progress-2016\", \"source_name\": \"Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast\", \"publisher\": \"Department of Education, Northern Ireland\", \"sourc",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "roduced.\", \"audit_summary\": \"Official Department of Education news release for the Colaiste Feirste capital works project. It documents the construction-start date and project scope at sour",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "d\": \"bfs_round119_colaiste_feirste_extension_construction_started_2016\", \"title\": \"Colaiste Feirste extension construction had commenced\", \"summary\": \"The Department of Education pag",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "were manually geocoded and cross-checked against local OSM-derived transport stop points; Colaiste Feirste uses the existing curated Beechmount/Sportlann point already in the corpus. ## Accepte",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\notes.md"
+            },
+            {
+              "context": "://www.translink.co.uk/about-translink/spirit-in-action/station-anniversaries-2026) 4. Colaiste Feirste extension construction commenced on site on 2016-02-08. Source: [Department of Educat",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\notes.md"
+            },
+            {
+              "context": "York Street station opening is already in the manual corpus. - Sportlann na hEireann at Colaiste Feirste is already in the manual corpus as a 2018 opening; the new candidate is limited to the ea",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\notes.md"
+            },
+            {
+              "context": "id\":\"bfs_arch_bfs_round119_colaiste_feirste_extension_construction_started_2016\",\"title\":\"Colaiste Feirste extension construction had commenced\",\"short_description\":\"The Department of Education pa",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "page published on 2 June 2016 records work in progress on a GBP15.5 million extension at Colaiste Feirste and notes that building work commenced on site on 8 February 2016.\",\"year\":2016,\"effectiv",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "nt\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-5.9705,54.5965]},\"affected_area\":{\"label\":\"Colaiste Feirste extension construction had commenced\"},\"source_ids\":[\"de-colaiste-feirste-work-progress-2",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "d\":\"bfs_arch_sportlann_na_heireann_opening_2018\",\"title\":\"Sportlann na hEireann opened at Colaiste Feirste\",\"short_description\":\"Ulster GAA recorded Sportlann na hEireann at Colaiste Feirste as op",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            }
+          ],
+          "term": "Colaiste Feirste"
+        },
+        {
+          "hit_count": 8,
+          "hits": [
+            {
+              "context": "Ireland\", \"source_url\": \"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\", \"source_type\": \"official government news release\", \"accessed_at\": \"2026-0",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "Ireland\", \"source_url\": \"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\", \"source_record_id\": \"minister-weir-views-ps155million-work-colaiste-feirste-belf",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "55million-work-colaiste-feirste-belfast\", \"source_record_id\": \"minister-weir-views-ps155million-work-colaiste-feirste-belfast\", \"source_type\": \"official government news release\", \"accessed_at\": \"2026-0",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "tment of Education news release](https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast) ## Duplicate And Rejection Notes - Belfast Grand Central Station bus opening and r",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\notes.md"
+            },
+            {
+              "context": "fast\",\"kind\":\"source_url\",\"url\":\"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\",\"file_path\":null,\"record_id\":\"minister-weir-views-ps155million-work-colaiste-feirste-bel",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "5million-work-colaiste-feirste-belfast\",\"file_path\":null,\"record_id\":\"minister-weir-views-ps155million-work-colaiste-feirste-belfast; event bfs_round119_colaiste_feirste_extension_construction_started_2016\"},{\"source_id\":\"",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "iste_feirste_extension_construction_started_2016\",\"legacy_source_id\":\"minister-weir-views-ps155million-work-colaiste-feirste-belfast; event bfs_round119_colaiste_feirste_extension_construction_started_2016\",\"source_record_",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "blication/update cadence\",\"url\":\"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\",\"local_paths\":[],\"reliability\":\"usable_with_caveats\",\"source_confidence\":\"documented\",\"a",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\sources.json"
+            }
+          ],
+          "term": "ps155million-work-colaiste-feirste-belfast"
+        },
+        {
+          "hit_count": 7,
+          "hits": [
+            {
+              "context": "-05-19\", \"source_date_field\": \"Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.\", \"license_or_terms_note\": \"Northern Ireland government page footer references Cr",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "ecords work in progress on a GBP15.5 million extension at Colaiste Feirste and notes that building work commenced on site on 8 February 2016.\", \"observed_change\": \"Construction had commenced on a school extension described",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "-05-19\", \"source_date_field\": \"Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.\", \"latitude\": 54.5965, \"longitude\": -5.9705, \"geometry_source\": \"Ma",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "ecords work in progress on a GBP15.5 million extension at Colaiste Feirste and notes that building work commenced on site on 8 February 2016.\",\"year\":2016,\"effective_date\":\"2016-02-08\",\"effective_date_range\":null,\"date_precision\":",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "precision\":\"day\",\"source_date_field\":\"Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.\",\"category\":\"built_environment\",\"lens\":\"built_environment\",\"geometry\":{\"type\":\"Point\",\"c",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "e-work-progress-2016\",\"source_basis\":\"Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.\",\"source_date_field\":\"Date published: 2 June 2016; notes to editors state building work",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "Round119 architecture corpus window. Date published: 2 June 2016; notes to editors state building work commenced on site on 8 February 2016.\",\"caveats\":[\"The page is a progress news release, not a completion certificate, planning",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\sources.json"
+            }
+          ],
+          "term": "Building work commenced on site on 8 February 2016"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "round431_reject_colaiste_feirste_works_duplicate"
+        },
+        {
+          "hit_count": 6,
+          "hits": [
+            {
+              "context": "\", \"publisher\": \"Department of Education, Northern Ireland\", \"source_url\": \"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\", \"source_type\": \"official government news release\", \"accessed_at\": \"2026-0",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "\", \"publisher\": \"Department of Education, Northern Ireland\", \"source_url\": \"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\", \"source_record_id\": \"minister-weir-views-ps155million-work-colaiste-feirste-belf",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\candidates.json"
+            },
+            {
+              "context": "ction commenced on site on 2016-02-08. Source: [Department of Education news release](https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast) ## Duplicate And Rejection Notes - Belfast Grand Central Station bus opening and r",
+              "path": "tmp\\subagents\\round119_belfast_public_facilities_more\\notes.md"
+            },
+            {
+              "context": "r Weir views GBP15.5million work at Colaiste Feirste, Belfast\",\"kind\":\"source_url\",\"url\":\"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\",\"file_path\":null,\"record_id\":\"minister-weir-views-ps155million-work-colaiste-feirste-bel",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "t; event bfs_round119_colaiste_feirste_extension_construction_started_2016\",\"source_url\":\"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\",\"source_retrieved_at\":\"2026-05-19\",\"source_dataset_id\":\"de-colaiste-feirste-work-progres",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2016.json"
+            },
+            {
+              "context": "\":2016,\"end\":2016},\"update_frequency\":\"Source-specific publication/update cadence\",\"url\":\"https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast\",\"local_paths\":[],\"reliability\":\"usable_with_caveats\",\"source_confidence\":\"documented\",\"a",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\sources.json"
+            }
+          ],
+          "term": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "de-minister-weir-views-ps155million-work-colaiste-feirste-belfast"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "Colaiste Feirste capital works progress/start"
+        },
+        {
+          "hit_count": 10,
+          "hits": [
+            {
+              "context": "\"bfs_arch_shaftesbury_square_reformed_presbyterian_church_listing_2016\", \"date\": \"2016-06-02\", \"date_precision\": \"day\", \"bucket\": \"planning/development/architecture/her",
+              "path": "tmp\\subagents\\belfast_arch_candidates_round105_heritage_restoration.json"
+            },
+            {
+              "context": "ns, reserved matters, variations, or administrative updates.\", \"permission_date\": \"2016-06-02\", \"started_date\": \"2016-06-23\", \"completed_financial_year\": \"FY2017\",",
+              "path": "tmp\\subagents\\round129_london_ldd_archive_more\\candidates.json"
+            },
+            {
+              "context": "\"easting\": 533971.0, \"northing\": 181888.0, \"permission_date\": \"2016-06-02\", \"started_date\": \"2016-06-23\", \"completed_date\": \"2018-01-26\",",
+              "path": "tmp\\subagents\\round129_london_ldd_archive_more\\candidates.json"
+            },
+            {
+              "context": "\"belfast\", \"candidate_id\": \"round131_belfast_planning_statistics_la04_2015_0707_f_2016-06-02\", \"event_id\": \"round131_belfast_planning_statistics_la04_2015_0707_f_2016-06-02\",",
+              "path": "tmp\\subagents\\round131_belfast_planning_statistics\\candidates.json"
+            },
+            {
+              "context": "_f_2016-06-02\", \"event_id\": \"round131_belfast_planning_statistics_la04_2015_0707_f_2016-06-02\", \"title\": \"Residential planning approval LA04/2015/0707/F: Residential developmen",
+              "path": "tmp\\subagents\\round131_belfast_planning_statistics\\candidates.json"
+            },
+            {
+              "context": "st south of Bridge End and east of Belfast/ Londonderry railway line., with decision date 2016-06-02.\", \"observed_change\": \"Administrative planning approval recorded for application L",
+              "path": "tmp\\subagents\\round131_belfast_planning_statistics\\candidates.json"
+            },
+            {
+              "context": "recorded an approved planning decision for the cited Belfast proposal.\", \"date\": \"2016-06-02\", \"date_precision\": \"day\", \"bucket\": \"planning/development/housing\",",
+              "path": "tmp\\subagents\\round134_belfast_planning_statistics_deep\\candidates.json"
+            },
+            {
+              "context": "istics-2016-17-dataset_1.csv\", \"source_row_number\": 4711, \"decision_date\": \"2016-06-02\", \"category\": \"Residential\", \"classification\": \"Major\", \"app_type\":",
+              "path": "tmp\\subagents\\round137_belfast_planning_statistics_more\\rejections.json"
+            },
+            {
+              "context": "istics-2016-17-dataset_1.csv\", \"source_row_number\": 4745, \"decision_date\": \"2016-06-02\", \"category\": \"Residential\", \"classification\": \"Local\", \"app_type\":",
+              "path": "tmp\\subagents\\round137_belfast_planning_statistics_more\\rejections.json"
+            },
+            {
+              "context": "istics-2016-17-dataset_1.csv\", \"source_row_number\": 4836, \"decision_date\": \"2016-06-02\", \"category\": \"Other\", \"classification\": \"Local\", \"app_type\": \"Full\"",
+              "path": "tmp\\subagents\\round137_belfast_planning_statistics_more\\rejections.json"
+            }
+          ],
+          "term": "2016-06-02"
+        }
+      ]
+    },
+    "id": "round431_reject_colaiste_feirste_works_duplicate",
+    "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+    "observed_or_candidate_date": "2016-06-02",
+    "publisher": "Department of Education, Northern Ireland",
+    "reason": "Rejected as duplicate: the live/manual corpus and prior candidate packs already contain the Colaiste Feirste works record/source.",
+    "source_name": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
+    "source_record_id": "de-minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+    "source_type": "official government news page",
+    "source_url": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+    "terms": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+    "title": "Colaiste Feirste capital works progress/start"
+  },
+  {
+    "accessed_at": "2026-05-20",
+    "attribution": "Department for Communities, Northern Ireland",
+    "city_id": "belfast",
+    "duplicate_check_terms": [
+      "Shankill Gateway Public Realm scheme",
+      "lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+      "Peter's Hill",
+      "Agnes Street",
+      "2026-03-25"
+    ],
+    "duplicate_scan": {
+      "scanned_at": "2026-05-20",
+      "scanned_file_count": 2122,
+      "scanned_roots": [
+        "data/manual_drops/architecture_milestones",
+        "data/derived/2026",
+        "web/data/city-atlas/cities/belfast",
+        "tmp/subagents"
+      ],
+      "terms": [
+        {
+          "hit_count": 12,
+          "hits": [
+            {
+              "context": "- Department for Communities, Northern Ireland: Lyons announces start of construction on Shankill Gateway public realm scheme (retrieved) - Department for Infrastructure, Northern Ireland: Ravenhill Road and Ormeau",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\notes.md"
+            },
+            {
+              "context": "uplicate_existing_event\", \"source_name\": \"Lyons announces start of construction on Shankill Gateway public realm scheme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"source_url\"",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "y-public-realm-round235\", \"source_name\": \"Lyons announces start of construction on Shankill Gateway public realm scheme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"url\": \"http",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": "6-duplicate-round409\", \"source_name\": \"Lyons announces start of construction on the Shankill Gateway Public Realm scheme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"source_url\":",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            },
+            {
+              "context": "date_basis\": \"2026-03-25\", \"screened_terms\": [ \"Shankill Gateway\", \"Shankill Gateway Public Realm scheme\", \"construction on the Shankill Gateway\" ], \"accessed_at\": \"2026-05-2",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            },
+            {
+              "context": "\"marker_ok\": true, \"marker_results\": [ { \"marker\": \"Shankill Gateway Public Realm scheme\", \"present\": true }, { \"marker\": \"Date publis",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            },
+            {
+              "context": "6-duplicate-round409\", \"source_name\": \"Lyons announces start of construction on the Shankill Gateway Public Realm scheme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"source_url\":",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\source_audit.json"
+            },
+            {
+              "context": "Shankill Gateway Phase 1 construction-start event.\", \"required_markers\": [ \"Shankill Gateway Public Realm scheme\", \"Date published\", \"25 March 2026\", \"commencement of constructio",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\source_audit.json"
+            },
+            {
+              "context": "\"marker_ok\": true, \"marker_results\": [ { \"marker\": \"Shankill Gateway Public Realm scheme\", \"present\": true }, { \"marker\": \"Date publis",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\source_audit.json"
+            },
+            {
+              "context": "5ee04\", \"marker_ok\": true, \"marker_results\": [ { \"marker\": \"Shankill Gateway Public Realm scheme\", \"present\": true }, { \"marker\": \"Date published\",",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\validation.json"
+            }
+          ],
+          "term": "Shankill Gateway Public Realm scheme"
+        },
+        {
+          "hit_count": 11,
+          "hits": [
+            {
+              "context": "alm construction milestone\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"license_ter",
+              "path": "tmp\\subagents\\round115_belfast_public_projects_codex\\candidates.json"
+            },
+            {
+              "context": "\"duplicate_existing_event\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"rejected_at\": \"2026-05-19\" }, { \"key\": \"shankill_shared_womens",
+              "path": "tmp\\subagents\\round228_belfast_official_deep_tail_next\\rejected.json"
+            },
+            {
+              "context": "munities, Northern Ireland\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_type\": \"official department news page\", \"license\": \"Crown copyrig",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "\"date\": \"2026-03-25\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_record_id\": \"bfs_public_project_shankill_gateway_phase1_2026\"",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "\"date\": null, \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_record_id\": null }, { \"file\": \"data/man",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "for Communities, Northern Ireland\", \"url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-const",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": "gateway-public-realm-scheme\", \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_type\": \"official department news page\", \"source_family\": \"DfC Bel",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": "\"elapsed_ms\": 29, \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"content_sha256\": \"e5eb88c0ffa793f0f9bee34cf5f89d52f82174b7452ddc3d35e83dd6354",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": "mmunities, Northern Ireland\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_type\": \"official government news page\", \"source_record_id\": \"Depart",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            },
+            {
+              "context": "t-2026-duplicate-round409\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-cons",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            }
+          ],
+          "term": "lyons-announces-start-construction-shankill-gateway-public-realm-scheme"
+        },
+        {
+          "hit_count": 8,
+          "hits": [
+            {
+              "context": "e_or_range\": \"2026-03-25 construction-start announcement\", \"address_or_location\": \"Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill",
+              "path": "tmp\\subagents\\round115_belfast_public_projects_codex\\candidates.json"
+            },
+            {
+              "context": "onstruction\", \"present\": true }, { \"marker\": \"Peter's Hill\", \"present\": true }, { \"marker\": \"Lower Shank",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            },
+            {
+              "context": "ate published\", \"25 March 2026\", \"commencement of construction\", \"Peter's Hill\", \"Lower Shankill Road\" ], \"fetch_check\": { \"source_id\": \"dfc",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\source_audit.json"
+            },
+            {
+              "context": "onstruction\", \"present\": true }, { \"marker\": \"Peter's Hill\", \"present\": true }, { \"marker\": \"Lower Shank",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\source_audit.json"
+            },
+            {
+              "context": "ent of construction\", \"present\": true }, { \"marker\": \"Peter's Hill\", \"present\": true }, { \"marker\": \"Lower Shankill Road",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\validation.json"
+            },
+            {
+              "context": "ent\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-5.9433,54.604]},\"affected_area\":{\"label\":\"Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json"
+            },
+            {
+              "context": "ls\":[\"built_environment\"],\"explanation\":\"Public source material documents this event near Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json"
+            },
+            {
+              "context": "nouncement.\",\"geometry_source\":\"Approximate navigation point from the candidate location: Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json"
+            }
+          ],
+          "term": "Peter's Hill"
+        },
+        {
+          "hit_count": 6,
+          "hits": [
+            {
+              "context": "art announcement\", \"address_or_location\": \"Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill Road\", \"coordinates\": {\"lat\": 54.",
+              "path": "tmp\\subagents\\round115_belfast_public_projects_codex\\candidates.json"
+            },
+            {
+              "context": "\"Point\",\"coordinates\":[-5.933477,54.608216]},\"affected_area\":{\"label\":\"Hammer Playground Agnes Street Belfast BT13 1GG\"},\"source_ids\":[\"ni-planning-statistics\"],\"evidence\":[{\"source_id\":\"ni",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            },
+            {
+              "context": "anning statistics record documents a planning decision associated with Hammer Playground Agnes Street Belfast BT13 1GG. It is administrative evidence of a planning decision, not evidence th",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2018.json"
+            },
+            {
+              "context": "ates\":[-5.9433,54.604]},\"affected_area\":{\"label\":\"Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill Road\"},\"source_ids\":[\"belfast-architectu",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json"
+            },
+            {
+              "context": "\"Public source material documents this event near Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill Road. Related local changes should be tr",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json"
+            },
+            {
+              "context": "ate navigation point from the candidate location: Peter's Hill / North Street junction to Agnes Street / Northumberland Street junction, Lower Shankill Road.\",\"geometry_precision\":\"approximate",
+              "path": "web\\data\\city-atlas\\cities\\belfast\\events_2026.json"
+            }
+          ],
+          "term": "Agnes Street"
+        },
+        {
+          "hit_count": 12,
+          "hits": [
+            {
+              "context": "stated. Cite URL and access date; verify page terms for reuse.\", \"date_or_range\": \"2026-03-25 construction-start announcement\", \"address_or_location\": \"Peter's Hill / North Str",
+              "path": "tmp\\subagents\\round115_belfast_public_projects_codex\\candidates.json"
+            },
+            {
+              "context": "n scope.\" }, { \"candidate_id\": \"nyc-ddc-70-mulberry-cm-build-procurement-2026-03-25\", \"city_id\": \"nyc\", \"title\": \"70 Mulberry Street rebuild entered DDC CM-Bui",
+              "path": "tmp\\subagents\\round116_nyc_public_projects_official\\candidates.json"
+            },
+            {
+              "context": "rry Street rebuild entered DDC CM-Build pilot procurement context\", \"event_date\": \"2026-03-25\", \"date_type\": \"DDC announcement date for procurement/project-delivery milestone\",",
+              "path": "tmp\\subagents\\round116_nyc_public_projects_official\\candidates.json"
+            },
+            {
+              "context": "only pending official geocoding\" }, \"date_fields\": { \"page_date\": \"2026-03-25\" }, \"license_or_terms_note\": \"NYC Open Data / NYC.gov Terms of Use apply; r",
+              "path": "tmp\\subagents\\round116_nyc_public_projects_official\\candidates.json"
+            },
+            {
+              "context": "04106 at 140 WEST 24TH ST, MANHATTAN; the row lists 510 dwelling units.\", \"date\": \"2026-03-25\", \"effective_date\": \"2026-03-25\", \"date_precision\": \"day\", \"source_i",
+              "path": "tmp\\subagents\\round117_nyc_dob_co_high_signal\\candidates.json"
+            },
+            {
+              "context": "he row lists 510 dwelling units.\", \"date\": \"2026-03-25\", \"effective_date\": \"2026-03-25\", \"date_precision\": \"day\", \"source_ids\": [ \"nyc-dob-now-certificat",
+              "path": "tmp\\subagents\\round117_nyc_dob_co_high_signal\\candidates.json"
+            },
+            {
+              "context": ".cityofnewyork.us/resource/pkdm-hqz6/row-6a5w_dqa9.33vj.json\", \"source_date\": \"2026-03-25\", \"source_date_raw\": \"03/25/26 9:58:56 AM\", \"co_milestone_type\": \"",
+              "path": "tmp\\subagents\\round117_nyc_dob_co_high_signal\\candidates.json"
+            },
+            {
+              "context": ", \"filing_date\": \"2021-12-22T00:00:00.000\", \"current_status_date\": \"2026-03-25T13:28:35.000\", \"first_permit_date\": \"2024-12-20T00:00:00.000\", \"app",
+              "path": "tmp\\subagents\\round136_nyc_dob_now_more\\candidates.json"
+            },
+            {
+              "context": ", \"filing_date\": \"2022-01-12T00:00:00.000\", \"current_status_date\": \"2026-03-25T18:39:45.000\", \"first_permit_date\": \"2025-04-01T00:00:00.000\", \"app",
+              "path": "tmp\\subagents\\round136_nyc_dob_now_more\\candidates.json"
+            },
+            {
+              "context": ", \"filing_date\": \"2024-01-17T00:00:00.000\", \"current_status_date\": \"2026-03-25T18:30:15.000\", \"first_permit_date\": \"2025-03-31T00:00:00.000\", \"app",
+              "path": "tmp\\subagents\\round143_nyc_dob_now_even_more\\candidates.json"
+            }
+          ],
+          "term": "2026-03-25"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "round431_reject_shankill_gateway_public_realm_duplicate"
+        },
+        {
+          "hit_count": 11,
+          "hits": [
+            {
+              "context": "erved_change_type\": \"arterial public realm construction milestone\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"license_ter",
+              "path": "tmp\\subagents\\round115_belfast_public_projects_codex\\candidates.json"
+            },
+            {
+              "context": "n the live corpus.\", \"category\": \"duplicate_existing_event\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"rejected_at\": \"2026-05-19\" }, { \"key\": \"shankill_shared_womens",
+              "path": "tmp\\subagents\\round228_belfast_official_deep_tail_next\\rejected.json"
+            },
+            {
+              "context": "\"publisher\": \"Department for Communities, Northern Ireland\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_type\": \"official department news page\", \"license\": \"Crown copyrig",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "c realm construction started\", \"date\": \"2026-03-25\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_record_id\": \"bfs_public_project_shankill_gateway_phase1_2026\"",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "1 public realm construction started\", \"date\": null, \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_record_id\": null }, { \"file\": \"data/man",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "heme\", \"publisher\": \"Department for Communities, Northern Ireland\", \"url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-const",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": "-announces-start-construction-shankill-gateway-public-realm-scheme\", \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_type\": \"official department news page\", \"source_family\": \"DfC Bel",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": "http_status\": 200, \"ok\": true, \"elapsed_ms\": 29, \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"content_sha256\": \"e5eb88c0ffa793f0f9bee34cf5f89d52f82174b7452ddc3d35e83dd6354",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\source_audit.json"
+            },
+            {
+              "context": ", \"publisher\": \"Department for Communities, Northern Ireland\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"source_type\": \"official government news page\", \"source_record_id\": \"Depart",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            },
+            {
+              "context": "\"dfc-shankill-gateway-public-realm-start-2026-duplicate-round409\", \"source_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme\", \"final_url\": \"https://www.communities-ni.gov.uk/news/lyons-announces-start-cons",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            }
+          ],
+          "term": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme"
+        },
+        {
+          "hit_count": 0,
+          "hits": [],
+          "term": "dfc-lyons-announces-start-construction-shankill-gateway-public-realm-scheme"
+        },
+        {
+          "hit_count": 2,
+          "hits": [
+            {
+              "context": "\"shankill_gateway_public_realm_duplicate\", \"city_id\": \"belfast\", \"title\": \"Shankill Gateway public realm construction start\", \"reason\": \"Shankill Gateway public-realm construction start is already represent",
+              "path": "tmp\\subagents\\round235_belfast_official_tail_next2\\rejected.json"
+            },
+            {
+              "context": "\": \"shankill_gateway_public_realm_duplicate\", \"city_id\": \"belfast\", \"title\": \"Shankill Gateway public realm construction start\", \"reason\": \"The Department for Communities source is live and high-confidence, but",
+              "path": "tmp\\subagents\\round409_belfast_official_architecture_sweep_next13\\rejected.json"
+            }
+          ],
+          "term": "Shankill Gateway Public Realm construction start"
+        }
+      ]
+    },
+    "id": "round431_reject_shankill_gateway_public_realm_duplicate",
+    "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+    "observed_or_candidate_date": "2026-03-25",
+    "publisher": "Department for Communities, Northern Ireland",
+    "reason": "Rejected as duplicate: prior Belfast candidate output already captured the same DfC Shankill Gateway public realm construction-start milestone.",
+    "source_name": "Lyons announces start of construction on the Shankill Gateway Public Realm scheme",
+    "source_record_id": "dfc-lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+    "source_type": "official government news page",
+    "source_url": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+    "terms": "https://www.communities-ni.gov.uk/articles/crown-copyright",
+    "title": "Shankill Gateway Public Realm construction start"
+  }
+]

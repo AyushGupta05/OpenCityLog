@@ -1,0 +1,342 @@
+{
+  "accepted_source_count": 4,
+  "accessed_at": "2026-05-20",
+  "generated_at": "2026-05-20",
+  "rejected_source_count": 4,
+  "round_id": "round431_belfast_official_architecture_sweep_next15",
+  "source_count": 8,
+  "sources": [
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Belfast Harbour Commissioners",
+      "candidate_disposition": "accepted",
+      "content_length": 258993,
+      "content_sha256": "0bcf1247eac1d30572df6ca7adf640c353c3949bec64e8dd340f182ba43d032e",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.646Z",
+      "final_url": "https://www.belfast-harbour.co.uk/news/cq3-235/",
+      "http_status": 200,
+      "license": "Belfast Harbour Commissioners website copyright/terms; used here as factual citation metadata.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Belfast Harbour Awards Largest Ever Contract"
+        },
+        {
+          "found": true,
+          "marker": "awarded the contract to build City Quays 3"
+        },
+        {
+          "found": true,
+          "marker": "Farrans Construction"
+        },
+        {
+          "found": true,
+          "marker": "Construction work on the 16-storey"
+        }
+      ],
+      "modified_time": "2022-03-26T13:02:01+00:00",
+      "published_time": "2019-05-20T11:27:19+00:00",
+      "publisher": "Belfast Harbour Commissioners",
+      "publisher_terms_url": "https://www.belfast-harbour.co.uk/policies/",
+      "source_date_field": "article:published_time metadata",
+      "source_date_value": "2019-05-20",
+      "source_id": "belfast-harbour-city-quays-3-contract-award-2019-round431",
+      "source_name": "Belfast Harbour Awards Largest Ever Contract to Local Construction Company",
+      "source_record_id": "belfast-harbour-news-cq3-235",
+      "source_type": "official public-estate owner news page",
+      "source_url": "https://www.belfast-harbour.co.uk/news/cq3-235/"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Belfast Harbour Commissioners",
+      "candidate_disposition": "accepted",
+      "content_length": 263743,
+      "content_sha256": "8af434ebde035b58537cd42705b8cacb01fe204c93cf74df9611f1020872ff4d",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.676Z",
+      "final_url": "https://www.belfast-harbour.co.uk/news/city-quays-3-topping-out-303/",
+      "http_status": 200,
+      "license": "Belfast Harbour Commissioners website copyright/terms; used here as factual citation metadata.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Topping Out Milestone on City Quays 3"
+        },
+        {
+          "found": true,
+          "marker": "Farrans Construction has topped out on City Quays 3"
+        },
+        {
+          "found": true,
+          "marker": "completion of the external structure"
+        },
+        {
+          "found": true,
+          "marker": "Construction started on City Quays 3 in 2019"
+        }
+      ],
+      "modified_time": "2022-03-23T05:28:53+00:00",
+      "published_time": "2021-10-05T05:15:33+00:00",
+      "publisher": "Belfast Harbour Commissioners",
+      "publisher_terms_url": "https://www.belfast-harbour.co.uk/policies/",
+      "source_date_field": "article:published_time metadata",
+      "source_date_value": "2021-10-05",
+      "source_id": "belfast-harbour-city-quays-3-topping-out-2021-round431",
+      "source_name": "Belfast Harbour and Farrans Construction Reach Topping Out Milestone on City Quays 3",
+      "source_record_id": "belfast-harbour-news-city-quays-3-topping-out-303",
+      "source_type": "official public-estate owner news page",
+      "source_url": "https://www.belfast-harbour.co.uk/news/city-quays-3-topping-out-303/"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Queen's University Belfast",
+      "candidate_disposition": "accepted",
+      "content_length": 504553,
+      "content_sha256": "c237b6f023da2a9bf1842392f25784b82e35793fe1efa64400b5543fd043b02d",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.677Z",
+      "final_url": "https://www.qub.ac.uk/News/Allnews/2024/Graham-awarded-contract-for-new-iREACH-Health-clinical-research-innovation-centre.html",
+      "http_status": 200,
+      "license": "Queen's University Belfast website copyright/terms; used here as factual citation metadata.",
+      "license_url": "https://www.qub.ac.uk/Legal/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Graham awarded contract for new iREACH Health clinical research innovation centre"
+        },
+        {
+          "found": true,
+          "marker": "Queen's University Belfast has awarded Graham"
+        },
+        {
+          "found": true,
+          "marker": "beside the Belfast City Hospital"
+        },
+        {
+          "found": true,
+          "marker": "planned 8,500"
+        }
+      ],
+      "modified_time": "Tue, 5 May 2026 12:06:36 BST",
+      "published_time": "Tue, 9 Jan 2024 11:53:13 GMT",
+      "publisher": "Queen's University Belfast",
+      "publisher_terms_url": "https://www.qub.ac.uk/Legal/",
+      "source_date_field": "official university news date",
+      "source_date_value": "2024-12-10",
+      "source_id": "qub-ireach-contract-award-2024-round431",
+      "source_name": "Graham awarded contract for new iREACH Health clinical research innovation centre",
+      "source_record_id": "qub-news-3414347",
+      "source_type": "official university news page",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2024/Graham-awarded-contract-for-new-iREACH-Health-clinical-research-innovation-centre.html"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Department of Education, Northern Ireland",
+      "candidate_disposition": "accepted",
+      "content_length": 38188,
+      "content_sha256": "cf1182246ae8ae9bfcb7f8d9f9fcab13ec30b3f688b42f8ac0c76432ab573b6c",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.677Z",
+      "final_url": "https://www.education-ni.gov.uk/news/odowd-marks-commencement-ps13million-building-work-edenderry-nursery-school",
+      "http_status": 200,
+      "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Edenderry Nursery School in Belfast as work begins"
+        },
+        {
+          "found": true,
+          "marker": "junction of Lanark Way and Mayo link"
+        },
+        {
+          "found": true,
+          "marker": "Construction work is being taken forward"
+        },
+        {
+          "found": true,
+          "marker": "Date published"
+        }
+      ],
+      "modified_time": "2016-05-06T17:08:35+01:00",
+      "published_time": "2016-03-10T11:03:24+00:00",
+      "publisher": "Department of Education, Northern Ireland",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "source_date_field": "Date published",
+      "source_date_value": "2016-03-10",
+      "source_id": "de-edenderry-nursery-works-commencement-2016-round431",
+      "source_name": "O'Dowd marks commencement of GBP1.3million building work at Edenderry Nursery school",
+      "source_record_id": "de-odowd-marks-commencement-ps13million-building-work-edenderry-nursery-school",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/odowd-marks-commencement-ps13million-building-work-edenderry-nursery-school"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Belfast Harbour Commissioners",
+      "candidate_disposition": "rejected_duplicate",
+      "content_length": 258017,
+      "content_sha256": "5884b6cf7adfc0b3fabf32afb6006ff4b5ae5f3d7e90be56080819dd7e1c0597",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.678Z",
+      "final_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-completes-second-major-city-quays-office-buildin-177/",
+      "http_status": 200,
+      "license": "Belfast Harbour Commissioners website copyright/terms; used here as factual citation metadata.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Belfast Harbour Completes Second Major City Quays Office Building"
+        },
+        {
+          "found": true,
+          "marker": "City Quays 2"
+        },
+        {
+          "found": true,
+          "marker": "completed"
+        }
+      ],
+      "modified_time": "2022-03-26T11:54:45+00:00",
+      "published_time": "2017-09-28T10:13:41+00:00",
+      "publisher": "Belfast Harbour Commissioners",
+      "publisher_terms_url": "https://www.belfast-harbour.co.uk/policies/",
+      "source_date_field": "article:published_time metadata",
+      "source_date_value": "2017-09-28",
+      "source_id": "belfast-harbour-city-quays-2-completion-2017-duplicate-round431",
+      "source_name": "Belfast Harbour Completes Second Major City Quays Office Building",
+      "source_record_id": "belfast-harbour-news-city-quays-office-buildin-177",
+      "source_type": "official public-estate owner news page",
+      "source_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-completes-second-major-city-quays-office-buildin-177/"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Belfast Harbour Commissioners",
+      "candidate_disposition": "rejected_duplicate",
+      "content_length": 258412,
+      "content_sha256": "eaa2e3c3e0684f536bb122aa52e06f34cdf3770eb9c176590ca8314a0fc7ea48",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.679Z",
+      "final_url": "https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/",
+      "http_status": 200,
+      "license": "Belfast Harbour Commissioners website copyright/terms; used here as factual citation metadata.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "AC Hotel Belfast"
+        },
+        {
+          "found": true,
+          "marker": "officially launched"
+        },
+        {
+          "found": true,
+          "marker": "City Quays"
+        }
+      ],
+      "modified_time": "2022-03-26T12:37:57+00:00",
+      "published_time": "2018-06-22T05:35:21+00:00",
+      "publisher": "Belfast Harbour Commissioners",
+      "publisher_terms_url": "https://www.belfast-harbour.co.uk/policies/",
+      "source_date_field": "article:published_time metadata",
+      "source_date_value": "2018-06-22",
+      "source_id": "belfast-harbour-ac-hotel-launch-2018-duplicate-round431",
+      "source_name": "AC Hotel Belfast Flagship Feature of City Quays Development",
+      "source_record_id": "belfast-harbour-news-ac-hotel-belfast-flagship-feature-205",
+      "source_type": "official public-estate owner news page",
+      "source_url": "https://www.belfast-harbour.co.uk/news/ac-hotel-belfast-flagship-feature-of-city-quays-development-205/"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Department of Education, Northern Ireland",
+      "candidate_disposition": "rejected_duplicate",
+      "content_length": 37232,
+      "content_sha256": "0978acb7ff56c6e072d24465ee15cbc491bb3643f375eb91b6e5b29489a5c1fd",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.679Z",
+      "final_url": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+      "http_status": 200,
+      "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Colaiste Feirste"
+        },
+        {
+          "found": true,
+          "marker": "Building work commenced on site on 8 February 2016"
+        },
+        {
+          "found": true,
+          "marker": "Woodvale Construction"
+        }
+      ],
+      "modified_time": "2016-06-02T10:57:46+01:00",
+      "published_time": "2016-06-02T09:40:57+01:00",
+      "publisher": "Department of Education, Northern Ireland",
+      "publisher_terms_url": "https://www.education-ni.gov.uk/articles/crown-copyright-education",
+      "source_date_field": "Date published",
+      "source_date_value": "2016-06-02",
+      "source_id": "de-colaiste-feirste-work-progress-2016-duplicate-round431",
+      "source_name": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
+      "source_record_id": "de-minister-weir-views-ps155million-work-colaiste-feirste-belfast",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/minister-weir-views-ps155million-work-colaiste-feirste-belfast"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "attribution": "Department for Communities, Northern Ireland",
+      "candidate_disposition": "rejected_duplicate",
+      "content_length": 55005,
+      "content_sha256": "1b7df323854a26072e4786efd7070624c20162b9101abcf9b2c3819ad6ae85fd",
+      "fetch_ok": true,
+      "fetched_at": "2026-05-20T10:01:21.680Z",
+      "final_url": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+      "http_status": 200,
+      "license": "Crown copyright; Open Government Licence v3.0 unless otherwise stated.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "marker_ok": true,
+      "marker_results": [
+        {
+          "found": true,
+          "marker": "Shankill Gateway Public Realm scheme"
+        },
+        {
+          "found": true,
+          "marker": "commencement of construction"
+        },
+        {
+          "found": true,
+          "marker": "Peter"
+        },
+        {
+          "found": true,
+          "marker": "Agnes Street"
+        }
+      ],
+      "modified_time": "2026-03-25T09:35:44+00:00",
+      "published_time": "2026-03-25T09:31:36+00:00",
+      "publisher": "Department for Communities, Northern Ireland",
+      "publisher_terms_url": "https://www.communities-ni.gov.uk/articles/crown-copyright",
+      "source_date_field": "Date published",
+      "source_date_value": "2026-03-25",
+      "source_id": "dfc-shankill-gateway-start-2026-duplicate-round431",
+      "source_name": "Lyons announces start of construction on the Shankill Gateway Public Realm scheme",
+      "source_record_id": "dfc-lyons-announces-start-construction-shankill-gateway-public-realm-scheme",
+      "source_type": "official government news page",
+      "source_url": "https://www.communities-ni.gov.uk/news/lyons-announces-start-construction-shankill-gateway-public-realm-scheme"
+    }
+  ]
+}

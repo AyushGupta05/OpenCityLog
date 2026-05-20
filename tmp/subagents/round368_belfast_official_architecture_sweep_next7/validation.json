@@ -1,0 +1,63 @@
+{
+  "schema_version": "round368_belfast_official_architecture_sweep_next7.validation.v1",
+  "generated_at": "2026-05-20",
+  "round_id": "round368_belfast_official_architecture_sweep_next7",
+  "status": "passed",
+  "checks": {
+    "json_parse": {
+      "status": "passed",
+      "files": [
+        "candidates.json",
+        "source_audit.json",
+        "rejected.json",
+        "summary.json"
+      ]
+    },
+    "required_candidate_fields": {
+      "status": "passed",
+      "candidate_count": 3,
+      "missing": []
+    },
+    "date_window_scan": {
+      "status": "passed",
+      "start": "2008-01-01",
+      "end": "2026-05-20",
+      "bad_dates": []
+    },
+    "overclaim_scan": {
+      "status": "passed",
+      "overclaim_hits": []
+    },
+    "dedupe_term_scan": {
+      "status": "passed",
+      "terms": [
+        "la04/2026/0393/f",
+        "tq fleadh campsite",
+        "la04/2025/1661/f",
+        "pontoon clement wilson park",
+        "north city business centre",
+        "220-256 york street",
+        "northgate business park",
+        "duncairn business park",
+        "2 edlingham street"
+      ],
+      "hits": [],
+      "hit_count": 0
+    },
+    "counts_match": {
+      "status": "passed",
+      "candidate_count_declared": 3,
+      "candidate_count_actual": 3,
+      "source_count_declared": 8,
+      "source_count_actual": 8,
+      "rejected_count_declared": 11,
+      "rejected_count_actual": 11
+    },
+    "ownership_scan": {
+      "status": "passed",
+      "checked_dir": "tmp/subagents/round368_belfast_official_architecture_sweep_next7",
+      "outside_owned_paths": []
+    }
+  },
+  "warnings": []
+}

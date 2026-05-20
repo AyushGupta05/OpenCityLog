@@ -1,0 +1,1092 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "output_dir": "tmp/subagents/round333_london_pld_lifecycle_next35",
+  "candidate_count": 150,
+  "target_count": 150,
+  "min_score": 24,
+  "query_stats": [
+    {
+      "field": "actual_completion_date",
+      "kind": "completion",
+      "fetched": 76859
+    },
+    {
+      "field": "actual_commencement_date",
+      "kind": "commencement",
+      "fetched": 79636
+    }
+  ],
+  "candidate_pool_after_fetch": 156495,
+  "evaluated": 156495,
+  "evaluated_until_target_reached": 5590,
+  "eligible_not_selected_after_target": 61278,
+  "eligible_not_selected_sample": [
+    {
+      "pld_id": "CROYDON-08_03171_P",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-12-07",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Croydon-08_03171_P"
+    },
+    {
+      "pld_id": "WANDSWORTH-2008_3687",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-10-13",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Wandsworth-2008_3687"
+    },
+    {
+      "pld_id": "HARROW-P_1917_05_DFU",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-10-10",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Harrow-P_1917_05_DFU"
+    },
+    {
+      "pld_id": "RICHMOND-08_2707_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-10-07",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Richmond-08_2707_FUL"
+    },
+    {
+      "pld_id": "HAMMERSMITH_&_FULHAM-2006_02305",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-10-01",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hammersmith_%26_Fulham-2006_02305"
+    },
+    {
+      "pld_id": "RICHMOND-08_1006_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-10-01",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Richmond-08_1006_FUL"
+    },
+    {
+      "pld_id": "BARNET-B_00746_08",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-09-15",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barnet-B_00746_08"
+    },
+    {
+      "pld_id": "EALING-P_2008_2213",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-08-26",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Ealing-P_2008_2213"
+    },
+    {
+      "pld_id": "KENSINGTON_&_CHELSEA-PP_07_02152",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-07-31",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Kensington_%26_Chelsea-PP_07_02152"
+    },
+    {
+      "pld_id": "WALTHAM_FOREST-2006_1626",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-02-11",
+      "selection_score": 78,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Waltham_Forest-2006_1626"
+    },
+    {
+      "pld_id": "WANDSWORTH-2022_1056",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2023-11-30",
+      "selection_score": 77.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Wandsworth-2022_1056"
+    },
+    {
+      "pld_id": "CROYDON-19_03360_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2020-08-31",
+      "selection_score": 77.7,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Croydon-19_03360_FUL"
+    },
+    {
+      "pld_id": "LAMBETH-17_06154_VOC",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2020-03-20",
+      "selection_score": 77.7,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Lambeth-17_06154_VOC"
+    },
+    {
+      "pld_id": "HAVERING-P0578.23",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2024-12-06",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P0578.23"
+    },
+    {
+      "pld_id": "REDBRIDGE-1373_23",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2024-09-23",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Redbridge-1373_23"
+    },
+    {
+      "pld_id": "BROMLEY-19_03530_FULL1",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2024-08-30",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Bromley-19_03530_FULL1"
+    },
+    {
+      "pld_id": "GREENWICH-21_3705_F",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2024-08-13",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Greenwich-21_3705_F"
+    },
+    {
+      "pld_id": "MERTON-21_P1907",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2024-04-18",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Merton-21_P1907"
+    },
+    {
+      "pld_id": "LLDC-20_00112_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2024-03-31",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/LLDC-20_00112_FUL"
+    },
+    {
+      "pld_id": "LAMBETH-18_04183_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2024-02-12",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Lambeth-18_04183_FUL"
+    },
+    {
+      "pld_id": "BEXLEY-20_00775_OUTM27",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2024-02-05",
+      "selection_score": 77.5,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Bexley-20_00775_OUTM27"
+    },
+    {
+      "pld_id": "ISLINGTON-P2016_3939_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-12-08",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Islington-P2016_3939_FUL"
+    },
+    {
+      "pld_id": "KINGSTON-22_01574_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2021-09-17",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Kingston-22_01574_FUL"
+    },
+    {
+      "pld_id": "KINGSTON-22_01575_LBC",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2021-09-17",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Kingston-22_01575_LBC"
+    },
+    {
+      "pld_id": "ENFIELD-20_02007_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-08-31",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Enfield-20_02007_FUL"
+    },
+    {
+      "pld_id": "EALING-191378VAR",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-08-03",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Ealing-191378VAR"
+    },
+    {
+      "pld_id": "KINGSTON-22_02256_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2021-08-01",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Kingston-22_02256_FUL"
+    },
+    {
+      "pld_id": "LEWISHAM-DC_18_105753",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-08-01",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Lewisham-DC_18_105753"
+    },
+    {
+      "pld_id": "TOWER_HAMLETS-PA_14_02607",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-07-12",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Tower_Hamlets-PA_14_02607"
+    },
+    {
+      "pld_id": "HAVERING-P0125.20",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-06-11",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P0125.20"
+    },
+    {
+      "pld_id": "HACKNEY-2019_0786",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2021-04-18",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hackney-2019_0786"
+    },
+    {
+      "pld_id": "SUTTON-C2017_78161",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-04-01",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Sutton-C2017_78161"
+    },
+    {
+      "pld_id": "HARINGEY-HGY_2018_1771",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-03-31",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Haringey-HGY_2018_1771"
+    },
+    {
+      "pld_id": "HARINGEY-HGY_2019_2519",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-03-31",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Haringey-HGY_2019_2519"
+    },
+    {
+      "pld_id": "RICHMOND-18_1022_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-03-31",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Richmond-18_1022_FUL"
+    },
+    {
+      "pld_id": "EALING-166016FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-03-24",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Ealing-166016FUL"
+    },
+    {
+      "pld_id": "BROMLEY-18_03940_FULL1",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-03-09",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Bromley-18_03940_FULL1"
+    },
+    {
+      "pld_id": "EALING-195015FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-03-05",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Ealing-195015FUL"
+    },
+    {
+      "pld_id": "REDBRIDGE-0985_19",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-02-23",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Redbridge-0985_19"
+    },
+    {
+      "pld_id": "KENSINGTON_&_CHELSEA-PP_18_06144",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-02-08",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Kensington_%26_Chelsea-PP_18_06144"
+    },
+    {
+      "pld_id": "REDBRIDGE-2249_20",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-01-28",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Redbridge-2249_20"
+    },
+    {
+      "pld_id": "BARNET-18_7311_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2021-01-20",
+      "selection_score": 77.4,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barnet-18_7311_FUL"
+    },
+    {
+      "pld_id": "MERTON-16_P1696",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2019-10-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Merton-16_P1696"
+    },
+    {
+      "pld_id": "LAMBETH-15_04713_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2019-09-16",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Lambeth-15_04713_FUL"
+    },
+    {
+      "pld_id": "LLDC-14_00422_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2019-05-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/LLDC-14_00422_FUL"
+    },
+    {
+      "pld_id": "HILLINGDON-11981_APP_2016_4626",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2018-07-24",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hillingdon-11981_APP_2016_4626"
+    },
+    {
+      "pld_id": "HOUNSLOW-P_2014_2204",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2017-12-31",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hounslow-P_2014_2204"
+    },
+    {
+      "pld_id": "BROMLEY-16_02632_DET",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2017-06-26",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Bromley-16_02632_DET"
+    },
+    {
+      "pld_id": "NEWHAM-15_02251_REM",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2017-04-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Newham-15_02251_REM"
+    },
+    {
+      "pld_id": "NEWHAM-16_00480_REM",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2017-04-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Newham-16_00480_REM"
+    },
+    {
+      "pld_id": "HILLINGDON-38402_APP_2012_1033",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2016-11-25",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hillingdon-38402_APP_2012_1033"
+    },
+    {
+      "pld_id": "HOUNSLOW-P_2014_2192",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2016-11-25",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hounslow-P_2014_2192"
+    },
+    {
+      "pld_id": "BARNET-H_05828_14",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2016-07-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barnet-H_05828_14"
+    },
+    {
+      "pld_id": "NEWHAM-12_00626",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2016-03-31",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Newham-12_00626"
+    },
+    {
+      "pld_id": "ISLINGTON-P2016_2937",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2016-02-21",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Islington-P2016_2937"
+    },
+    {
+      "pld_id": "WALTHAM_FOREST-2011_0275",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2015-11-12",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Waltham_Forest-2011_0275"
+    },
+    {
+      "pld_id": "HOUNSLOW-P_2013_0003",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2015-08-24",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hounslow-P_2013_0003"
+    },
+    {
+      "pld_id": "LAMBETH-11_01869_RG4",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2015-07-15",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Lambeth-11_01869_RG4"
+    },
+    {
+      "pld_id": "HAVERING-P1279.12",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2015-06-26",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P1279.12"
+    },
+    {
+      "pld_id": "WESTMINSTER-08_08518_FULL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2015-05-30",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Westminster-08_08518_FULL"
+    },
+    {
+      "pld_id": "ENFIELD-TP_11_0905",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2015-03-31",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Enfield-TP_11_0905"
+    },
+    {
+      "pld_id": "SUTTON-D2012_66549",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2015-03-31",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Sutton-D2012_66549"
+    },
+    {
+      "pld_id": "BRENT-122653",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2015-02-25",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Brent-122653"
+    },
+    {
+      "pld_id": "CROYDON-13_02294_P",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2015-01-14",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Croydon-13_02294_P"
+    },
+    {
+      "pld_id": "GREENWICH-11_1632_F",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2014-09-10",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Greenwich-11_1632_F"
+    },
+    {
+      "pld_id": "HAVERING-P0086.11",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2013-10-21",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P0086.11"
+    },
+    {
+      "pld_id": "CROYDON-12_00636_P",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2013-08-09",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Croydon-12_00636_P"
+    },
+    {
+      "pld_id": "ENFIELD-TP_11_0830",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2013-06-03",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Enfield-TP_11_0830"
+    },
+    {
+      "pld_id": "NEWHAM-04_0161",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2012-08-26",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Newham-04_0161"
+    },
+    {
+      "pld_id": "WESTMINSTER-11_03034_FULL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2012-07-02",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Westminster-11_03034_FULL"
+    },
+    {
+      "pld_id": "BARNET-H_04167_10",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2012-05-08",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barnet-H_04167_10"
+    },
+    {
+      "pld_id": "ENFIELD-LBE_11_0006",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2012-04-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Enfield-LBE_11_0006"
+    },
+    {
+      "pld_id": "BROMLEY-09_01664_FULL1",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2012-03-09",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Bromley-09_01664_FULL1"
+    },
+    {
+      "pld_id": "HARROW-P_0596_08_CFU",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2010-12-16",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Harrow-P_0596_08_CFU"
+    },
+    {
+      "pld_id": "HARROW-P_0405_10",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2010-12-14",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Harrow-P_0405_10"
+    },
+    {
+      "pld_id": "HAVERING-P0406.08",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2010-10-01",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P0406.08"
+    },
+    {
+      "pld_id": "REDBRIDGE-0034_09",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2010-07-26",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Redbridge-0034_09"
+    },
+    {
+      "pld_id": "HAVERING-P0959.07",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2010-05-12",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P0959.07"
+    },
+    {
+      "pld_id": "BARKING_&_DAGENHAM-09_00151_REG3",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2010-02-04",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barking_%26_Dagenham-09_00151_REG3"
+    },
+    {
+      "pld_id": "BARNET-W01731LA_07",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2009-10-05",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barnet-W01731LA_07"
+    },
+    {
+      "pld_id": "KENSINGTON_&_CHELSEA-PP_06_00646",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2009-04-15",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Kensington_%26_Chelsea-PP_06_00646"
+    },
+    {
+      "pld_id": "HAVERING-P1641.07",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2009-01-30",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Havering-P1641.07"
+    },
+    {
+      "pld_id": "HAMMERSMITH_&_FULHAM-2002_03132_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2009-01-29",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hammersmith_%26_Fulham-2002_03132_FUL"
+    },
+    {
+      "pld_id": "BRENT-060856",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-11-30",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Brent-060856"
+    },
+    {
+      "pld_id": "ENFIELD-TP_06_1912",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-09-03",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Enfield-TP_06_1912"
+    },
+    {
+      "pld_id": "HILLINGDON-20817_APP_2007_2019",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2008-08-04",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hillingdon-20817_APP_2007_2019"
+    },
+    {
+      "pld_id": "BARNET-N01211C_05",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2008-06-09",
+      "selection_score": 77,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Barnet-N01211C_05"
+    },
+    {
+      "pld_id": "RICHMOND-23_0729_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-11-01",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Richmond-23_0729_FUL"
+    },
+    {
+      "pld_id": "REDBRIDGE-4570_18",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-09-11",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Redbridge-4570_18"
+    },
+    {
+      "pld_id": "ISLINGTON-P2023_2428_LBC",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-07-17",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Islington-P2023_2428_LBC"
+    },
+    {
+      "pld_id": "EALING-192888FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-07-01",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Ealing-192888FUL"
+    },
+    {
+      "pld_id": "CAMDEN-2022_2805_P",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2023-06-29",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Camden-2022_2805_P"
+    },
+    {
+      "pld_id": "HOUNSLOW-P_2023_3515",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-06-01",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hounslow-P_2023_3515"
+    },
+    {
+      "pld_id": "CAMDEN-2022_0568_P",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-05-30",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Camden-2022_0568_P"
+    },
+    {
+      "pld_id": "BEXLEY-18_00852_FUL",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-04-01",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Bexley-18_00852_FUL"
+    },
+    {
+      "pld_id": "SUTTON-DM2020_00754",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-04-01",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Sutton-DM2020_00754"
+    },
+    {
+      "pld_id": "ENFIELD-16_02314_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2023-03-31",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Enfield-16_02314_FUL"
+    },
+    {
+      "pld_id": "NEWHAM-18_03176_FUL",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2023-03-31",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Newham-18_03176_FUL"
+    },
+    {
+      "pld_id": "SUTTON-DM2022_00278",
+      "source_lifecycle_field": "actual_commencement_date",
+      "effective_date": "2023-03-31",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Sutton-DM2022_00278"
+    },
+    {
+      "pld_id": "HILLINGDON-39207_APP_2020_2188",
+      "source_lifecycle_field": "actual_completion_date",
+      "effective_date": "2023-03-11",
+      "selection_score": 76.8,
+      "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_source/Hillingdon-39207_APP_2020_2188"
+    }
+  ],
+  "accepted_until_target_reached": 150,
+  "rejection_summary": {
+    "existing_manual_corpus_field_date_key": 5334,
+    "missing_or_outside_london_geometry": 2986,
+    "low_value_admin_or_minor_application_type": 20845,
+    "existing_title_date_key": 118,
+    "below_architecture_city_change_signal_threshold": 65784
+  },
+  "rejection_sample_count": 1200,
+  "duplicate_index": {
+    "manual_events_scanned": 53422,
+    "manual_pld_ids": 4208,
+    "manual_field_date_keys": 5921,
+    "prior_packs": [
+      {
+        "label": "round126_london_pld_lifecycle_direct",
+        "path": "tmp/subagents/round126_london_pld_lifecycle_direct/candidates.json",
+        "exists": true,
+        "candidates_scanned": 100,
+        "pld_ids": 93,
+        "field_date_keys": 100
+      },
+      {
+        "label": "round126_london_pld_lifecycle_more",
+        "path": "tmp/subagents/round126_london_pld_lifecycle_more/candidates.json",
+        "exists": true,
+        "candidates_scanned": 80,
+        "pld_ids": 78,
+        "field_date_keys": 80
+      },
+      {
+        "label": "round140_london_pld_lifecycle_more",
+        "path": "tmp/subagents/round140_london_pld_lifecycle_more/candidates.json",
+        "exists": true,
+        "candidates_scanned": 90,
+        "pld_ids": 86,
+        "field_date_keys": 90
+      },
+      {
+        "label": "round147_london_pld_lifecycle_next",
+        "path": "tmp/subagents/round147_london_pld_lifecycle_next/candidates.json",
+        "exists": true,
+        "candidates_scanned": 90,
+        "pld_ids": 89,
+        "field_date_keys": 90
+      },
+      {
+        "label": "round150_london_pld_lifecycle_next2",
+        "path": "tmp/subagents/round150_london_pld_lifecycle_next2/candidates.json",
+        "exists": true,
+        "candidates_scanned": 90,
+        "pld_ids": 90,
+        "field_date_keys": 90
+      },
+      {
+        "label": "round153_london_pld_lifecycle_next3",
+        "path": "tmp/subagents/round153_london_pld_lifecycle_next3/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 114,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round157_london_pld_lifecycle_next4",
+        "path": "tmp/subagents/round157_london_pld_lifecycle_next4/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 121,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round161_london_pld_lifecycle_next5",
+        "path": "tmp/subagents/round161_london_pld_lifecycle_next5/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 145,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round166_london_pld_lifecycle_next6",
+        "path": "tmp/subagents/round166_london_pld_lifecycle_next6/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round172_london_pld_lifecycle_next7",
+        "path": "tmp/subagents/round172_london_pld_lifecycle_next7/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round178_london_pld_lifecycle_next8",
+        "path": "tmp/subagents/round178_london_pld_lifecycle_next8/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round184_london_pld_lifecycle_next9",
+        "path": "tmp/subagents/round184_london_pld_lifecycle_next9/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round190_london_pld_lifecycle_next10",
+        "path": "tmp/subagents/round190_london_pld_lifecycle_next10/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round196_london_pld_lifecycle_next11",
+        "path": "tmp/subagents/round196_london_pld_lifecycle_next11/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round202_london_pld_lifecycle_next12",
+        "path": "tmp/subagents/round202_london_pld_lifecycle_next12/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round208_london_pld_lifecycle_next13",
+        "path": "tmp/subagents/round208_london_pld_lifecycle_next13/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round217_london_pld_lifecycle_next14",
+        "path": "tmp/subagents/round217_london_pld_lifecycle_next14/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 148,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round223_london_pld_lifecycle_next15",
+        "path": "tmp/subagents/round223_london_pld_lifecycle_next15/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round230_london_pld_lifecycle_next16",
+        "path": "tmp/subagents/round230_london_pld_lifecycle_next16/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round238_london_pld_lifecycle_next17",
+        "path": "tmp/subagents/round238_london_pld_lifecycle_next17/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round243_london_pld_lifecycle_next18",
+        "path": "tmp/subagents/round243_london_pld_lifecycle_next18/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round248_london_pld_lifecycle_next19",
+        "path": "tmp/subagents/round248_london_pld_lifecycle_next19/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round253_london_pld_lifecycle_next20",
+        "path": "tmp/subagents/round253_london_pld_lifecycle_next20/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round261_london_pld_lifecycle_next21",
+        "path": "tmp/subagents/round261_london_pld_lifecycle_next21/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round266_london_pld_lifecycle_next22",
+        "path": "tmp/subagents/round266_london_pld_lifecycle_next22/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round272_london_pld_lifecycle_next23",
+        "path": "tmp/subagents/round272_london_pld_lifecycle_next23/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round276_london_pld_lifecycle_next24",
+        "path": "tmp/subagents/round276_london_pld_lifecycle_next24/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round284_london_pld_lifecycle_next25",
+        "path": "tmp/subagents/round284_london_pld_lifecycle_next25/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round288_london_pld_lifecycle_next26",
+        "path": "tmp/subagents/round288_london_pld_lifecycle_next26/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round298_london_pld_lifecycle_next27",
+        "path": "tmp/subagents/round298_london_pld_lifecycle_next27/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round301_london_pld_lifecycle_next28",
+        "path": "tmp/subagents/round301_london_pld_lifecycle_next28/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round306_london_pld_lifecycle_next29",
+        "path": "tmp/subagents/round306_london_pld_lifecycle_next29/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round311_london_pld_lifecycle_next30",
+        "path": "tmp/subagents/round311_london_pld_lifecycle_next30/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round316_london_pld_lifecycle_next31",
+        "path": "tmp/subagents/round316_london_pld_lifecycle_next31/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round323_london_pld_lifecycle_next32",
+        "path": "tmp/subagents/round323_london_pld_lifecycle_next32/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round327_london_pld_lifecycle_next33",
+        "path": "tmp/subagents/round327_london_pld_lifecycle_next33/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 149,
+        "field_date_keys": 150
+      },
+      {
+        "label": "round328_london_pld_lifecycle_next34",
+        "path": "tmp/subagents/round328_london_pld_lifecycle_next34/candidates.json",
+        "exists": true,
+        "candidates_scanned": 150,
+        "pld_ids": 150,
+        "field_date_keys": 150
+      }
+    ]
+  },
+  "dedupe_basis": "Live data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json plus all discovered London PLD lifecycle scratch packs through round328, explicitly including round126 direct/more, round140, round147, round150, round153, round157, round161, round166, round172, round178, round184, round190, round196, round202, round208, round217, round223, round230, round238, round243, round248, round253, round261, round266, round272, round276, round284, round288, round298, round301, round306, round311, round316, round323, round327, and round328, scanned for PLD ids, source-record/source-url/date-field/date keys, source-date-field/date keys, and title/date keys.",
+  "selected_by_lifecycle_field": {
+    "actual_completion_date": 14,
+    "actual_commencement_date": 136
+  },
+  "selected_by_borough": {
+    "Camden": 8,
+    "Southwark": 4,
+    "Harrow": 3,
+    "Islington": 5,
+    "Hillingdon": 8,
+    "Kensington and Chelsea": 2,
+    "Haringey": 5,
+    "Ealing": 18,
+    "Greenwich": 4,
+    "Bromley": 6,
+    "Croydon": 4,
+    "Brent": 4,
+    "Newham": 8,
+    "Lambeth": 8,
+    "Westminster": 4,
+    "Barking and Dagenham": 1,
+    "Bexley": 3,
+    "Redbridge": 9,
+    "Merton": 3,
+    "Richmond upon Thames": 8,
+    "City of London": 1,
+    "Hounslow": 4,
+    "Hackney": 4,
+    "Enfield": 2,
+    "London Borough of Southwark": 1,
+    "Havering": 1,
+    "Sutton": 3,
+    "Barnet": 1,
+    "Tower Hamlets": 2,
+    "Hammersmith and Fulham": 1,
+    "Kingston upon Thames": 5,
+    "Wandsworth": 3,
+    "Lewisham": 6,
+    "Waltham Forest": 1
+  },
+  "selected_date_range": {
+    "min": "2009-02-26",
+    "max": "2017-11-13"
+  },
+  "selected_score_range": {
+    "min": 78,
+    "max": 78
+  },
+  "caveats": [
+    "Candidates are source-reported administrative lifecycle records only; source planning documents and site-specific evidence are needed before treating them as construction start, completion, opening, occupation, final built form, or wider-result records.",
+    "Exact source row/date-field/date duplicates already present in the live manual corpus or prior PLD lifecycle packs through round328 were excluded.",
+    "London Datastore licence is Not Specified for this source, so the pack retains factual metadata and attribution only."
+  ]
+}

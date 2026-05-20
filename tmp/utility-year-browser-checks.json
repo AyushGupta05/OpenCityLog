@@ -1,0 +1,438 @@
+{
+  "results": [
+    {
+      "lens": "utilities-capacity",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2022&lens=utilities-capacity&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-capacity",
+      "stateYear": 2022,
+      "timelineYear": "2022",
+      "detailYearLoaded": 2022,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 2628,
+      "guideFlows": 2600,
+      "exposureAreas": 0,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Power",
+          "count": "4.5k"
+        },
+        {
+          "label": "Water",
+          "count": "1k"
+        },
+        {
+          "label": "Telecoms",
+          "count": "0"
+        },
+        {
+          "label": "Gas",
+          "count": "0"
+        },
+        {
+          "label": "Drainage",
+          "count": "0"
+        },
+        {
+          "label": "District energy",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-capacity",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2024&lens=utilities-capacity&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-capacity",
+      "stateYear": 2024,
+      "timelineYear": "2024",
+      "detailYearLoaded": 2024,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 2642,
+      "guideFlows": 2600,
+      "exposureAreas": 0,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Power",
+          "count": "4.7k"
+        },
+        {
+          "label": "Water",
+          "count": "1k"
+        },
+        {
+          "label": "Telecoms",
+          "count": "0"
+        },
+        {
+          "label": "Gas",
+          "count": "0"
+        },
+        {
+          "label": "Drainage",
+          "count": "0"
+        },
+        {
+          "label": "District energy",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-capacity",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2026&lens=utilities-capacity&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-capacity",
+      "stateYear": 2024,
+      "timelineYear": "2024",
+      "detailYearLoaded": 2024,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 2642,
+      "guideFlows": 2600,
+      "exposureAreas": 0,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Power",
+          "count": "4.7k"
+        },
+        {
+          "label": "Water",
+          "count": "1k"
+        },
+        {
+          "label": "Telecoms",
+          "count": "0"
+        },
+        {
+          "label": "Gas",
+          "count": "0"
+        },
+        {
+          "label": "Drainage",
+          "count": "0"
+        },
+        {
+          "label": "District energy",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-resilience",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2022&lens=utilities-resilience&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-resilience",
+      "stateYear": 2022,
+      "timelineYear": "2022",
+      "detailYearLoaded": 2022,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 2150,
+      "guideFlows": 2100,
+      "exposureAreas": 4,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Water network",
+          "count": "1k"
+        },
+        {
+          "label": "Power network",
+          "count": "4.5k"
+        },
+        {
+          "label": "Telecoms network",
+          "count": "0"
+        },
+        {
+          "label": "Gas network",
+          "count": "0"
+        },
+        {
+          "label": "Drainage network",
+          "count": "0"
+        },
+        {
+          "label": "District energy",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-resilience",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2024&lens=utilities-resilience&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-resilience",
+      "stateYear": 2024,
+      "timelineYear": "2024",
+      "detailYearLoaded": 2024,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 2156,
+      "guideFlows": 2100,
+      "exposureAreas": 4,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Water network",
+          "count": "1k"
+        },
+        {
+          "label": "Power network",
+          "count": "4.7k"
+        },
+        {
+          "label": "Telecoms network",
+          "count": "0"
+        },
+        {
+          "label": "Gas network",
+          "count": "0"
+        },
+        {
+          "label": "Drainage network",
+          "count": "0"
+        },
+        {
+          "label": "District energy",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-resilience",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2026&lens=utilities-resilience&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-resilience",
+      "stateYear": 2024,
+      "timelineYear": "2024",
+      "detailYearLoaded": 2024,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 2156,
+      "guideFlows": 2100,
+      "exposureAreas": 4,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Water network",
+          "count": "1k"
+        },
+        {
+          "label": "Power network",
+          "count": "4.7k"
+        },
+        {
+          "label": "Telecoms network",
+          "count": "0"
+        },
+        {
+          "label": "Gas network",
+          "count": "0"
+        },
+        {
+          "label": "Drainage network",
+          "count": "0"
+        },
+        {
+          "label": "District energy",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-works",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2022&lens=utilities-works&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-works",
+      "stateYear": 2022,
+      "timelineYear": "2022",
+      "detailYearLoaded": 2022,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 1472,
+      "guideFlows": 1450,
+      "exposureAreas": 0,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Utility works (all)",
+          "count": "48"
+        },
+        {
+          "label": "Planned works",
+          "count": "0"
+        },
+        {
+          "label": "Repair",
+          "count": "0"
+        },
+        {
+          "label": "Failure",
+          "count": "0"
+        },
+        {
+          "label": "Permit / consents",
+          "count": "0"
+        },
+        {
+          "label": "Reinstatement quality",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-works",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2024&lens=utilities-works&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-works",
+      "stateYear": 2024,
+      "timelineYear": "2024",
+      "detailYearLoaded": 2024,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 1486,
+      "guideFlows": 1450,
+      "exposureAreas": 0,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Utility works (all)",
+          "count": "234"
+        },
+        {
+          "label": "Planned works",
+          "count": "0"
+        },
+        {
+          "label": "Repair",
+          "count": "0"
+        },
+        {
+          "label": "Failure",
+          "count": "0"
+        },
+        {
+          "label": "Permit / consents",
+          "count": "0"
+        },
+        {
+          "label": "Reinstatement quality",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    },
+    {
+      "lens": "utilities-works",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2026&lens=utilities-works&event=official-2024-grand-central&smoke=utility-years",
+      "activeLens": "utilities-works",
+      "stateYear": 2024,
+      "timelineYear": "2024",
+      "detailYearLoaded": 2024,
+      "utilityNetworkFeatures": 5468,
+      "guideFeatures": 1486,
+      "guideFlows": 1450,
+      "exposureAreas": 0,
+      "renderedNetwork": 0,
+      "renderedAssets": 0,
+      "renderedGuideFlow": 0,
+      "renderedTrace": 0,
+      "layerRows": [
+        {
+          "label": "Utility works (all)",
+          "count": "234"
+        },
+        {
+          "label": "Planned works",
+          "count": "0"
+        },
+        {
+          "label": "Repair",
+          "count": "0"
+        },
+        {
+          "label": "Failure",
+          "count": "0"
+        },
+        {
+          "label": "Permit / consents",
+          "count": "0"
+        },
+        {
+          "label": "Reinstatement quality",
+          "count": "0"
+        }
+      ],
+      "status": ""
+    }
+  ],
+  "messages": [
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x2f8c0213b600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x2f8c0213b600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x2f8c0213b600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x2f8c0213b600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15842/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15844/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    }
+  ]
+}

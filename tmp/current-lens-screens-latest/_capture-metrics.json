@@ -1,0 +1,205 @@
+[
+  {
+    "lens": "transport-speed",
+    "selectedYear": "2024",
+    "activeLens": "transport",
+    "guide": 1576,
+    "styles": {
+      "study_area": 1,
+      "range_ring": 3,
+      "transport_thread": 1550,
+      "transport": 22
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "transport-access",
+    "selectedYear": "2024",
+    "activeLens": "transport",
+    "guide": 2213,
+    "styles": {
+      "study_area": 1,
+      "access_fabric": 2190,
+      "transport": 22
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "transport-reliability",
+    "selectedYear": "2024",
+    "activeLens": "transport",
+    "guide": 1276,
+    "styles": {
+      "study_area": 1,
+      "range_ring": 3,
+      "transport_thread": 1250,
+      "transport": 22
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "planning-pressure",
+    "selectedYear": "2024",
+    "activeLens": "built_environment",
+    "guide": 1061,
+    "styles": {
+      "study_area": 1,
+      "street_thread": 1050,
+      "node": 10
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "planning-delta",
+    "selectedYear": "2024",
+    "activeLens": "built_environment",
+    "guide": 1,
+    "styles": {
+      "study_area": 1
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "planning-parcels",
+    "selectedYear": "2024",
+    "activeLens": "built_environment",
+    "guide": 1,
+    "styles": {
+      "study_area": 1
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "civic-access-gaps",
+    "selectedYear": "2024",
+    "activeLens": "civic_services",
+    "guide": 1480,
+    "styles": {
+      "study_area": 1,
+      "range_ring": 3,
+      "street_thread": 1450,
+      "node": 10,
+      "detail": 16
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "civic-catchment",
+    "selectedYear": "2024",
+    "activeLens": "civic_services",
+    "guide": 139,
+    "styles": {
+      "study_area": 1,
+      "catchment_patch": 120,
+      "node": 10,
+      "detail": 8
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "civic-demand",
+    "selectedYear": "2024",
+    "activeLens": "civic_services",
+    "guide": 1219,
+    "styles": {
+      "study_area": 1,
+      "demand_surface": 1200,
+      "node": 10,
+      "detail": 8
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "economy-vitality",
+    "selectedYear": "2024",
+    "activeLens": "economy",
+    "guide": 1555,
+    "styles": {
+      "study_area": 1,
+      "street_thread": 1550,
+      "node": 2,
+      "detail": 2
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "economy-land-use",
+    "selectedYear": "2024",
+    "activeLens": "economy",
+    "guide": 5001,
+    "styles": {
+      "study_area": 1,
+      "land_use_tile": 5000
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "economy-gravity",
+    "selectedYear": "2024",
+    "activeLens": "economy",
+    "guide": 29,
+    "styles": {
+      "study_area": 1,
+      "flow": 11,
+      "node": 9,
+      "detail": 8
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "utilities-capacity",
+    "selectedYear": "2024",
+    "activeLens": "utilities",
+    "guide": 2223,
+    "styles": {
+      "study_area": 1,
+      "range_ring": 3,
+      "street_thread": 2200,
+      "node": 10,
+      "detail": 9
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "utilities-resilience",
+    "selectedYear": "2024",
+    "activeLens": "utilities",
+    "guide": 1724,
+    "styles": {
+      "study_area": 1,
+      "range_ring": 3,
+      "street_thread": 1700,
+      "node": 10,
+      "detail": 10
+    },
+    "detailLoaded": true,
+    "errors": []
+  },
+  {
+    "lens": "utilities-works",
+    "selectedYear": "2024",
+    "activeLens": "utilities",
+    "guide": 1168,
+    "styles": {
+      "study_area": 1,
+      "utility_work_thread": 1150,
+      "node": 8,
+      "detail": 9
+    },
+    "detailLoaded": true,
+    "errors": []
+  }
+]

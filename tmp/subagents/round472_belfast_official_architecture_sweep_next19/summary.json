@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round472_belfast_official_architecture_sweep_next19",
+  "accepted_count": 19,
+  "rejected_count": 9,
+  "point_backed_count": 19,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2024-04-03",
+    "end": "2024-10-25"
+  },
+  "sources": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "caveats": [
+    "All accepted candidates are administrative planning-decision records, not construction/completion/opening evidence.",
+    "All accepted candidates are point-backed by official Easting/Northing fields; WGS84 latitude/longitude uses the repo's established lightweight Belfast review transform and is approximate.",
+    "No accepted candidate uses invented coordinates or generic geocoding.",
+    "Rejected official pages include duplicates, out-of-scope locations, future/undated leads, geometry-ref-only route/area leads and status-only heritage sources.",
+    "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
+  ],
+  "outputs": [
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\candidates.json",
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\rejected.json",
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\validation_report.json",
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\source_audit.json",
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\summary.json",
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\readback.json",
+    "tmp\\subagents\\round472_belfast_official_architecture_sweep_next19\\notes.md"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "round357_belfast_official_architecture_sweep_next5.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round357_belfast_official_architecture_sweep_next5",
+  "candidate_count": 0,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": null,
+    "max": null
+  },
+  "source_ids": [],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents JSON paths containing Belfast/HARNI/Round332/Round340/Round347/Round353 context"
+  },
+  "prior_file_count": 193,
+  "candidates": []
+}

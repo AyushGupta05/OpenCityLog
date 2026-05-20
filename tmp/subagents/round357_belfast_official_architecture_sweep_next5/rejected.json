@@ -1,0 +1,427 @@
+{
+  "schema_version": "round357_belfast_official_architecture_sweep_next5.rejected.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round357_belfast_official_architecture_sweep_next5",
+  "rejected_count": 10,
+  "rejected": [
+    {
+      "key": "peaceplus_current_programme_page",
+      "city_id": "belfast",
+      "title": "Belfast PEACEPLUS current programme page",
+      "date": "2026-05-20",
+      "category": "mutable_programme_page_or_duplicate",
+      "reason": "The current PEACEPLUS page is useful discovery context, but the architecture-related capital leads were already represented by Round332 or Round340, or were not yet source-stated as a distinct award, works-start, completion or opening milestone.",
+      "source_id": "bcc-peaceplus-programme-page-round357",
+      "source_name": "PEACEPLUS",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/peaceplus",
+      "source_type": "official council programme page",
+      "screened_terms": [
+        "Reconnected Belfast",
+        "Access to the Hills",
+        "construction partners",
+        "Community Regeneration and Transformation"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual programme metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Reconnected Belfast",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Reconnected Belfast plans were officially launched"
+        },
+        {
+          "term": "Access to the Hills",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Black Mountain and Upper Whiterock pathway was reported in development"
+        }
+      ]
+    },
+    {
+      "key": "peaceplus_international_day_showcase",
+      "city_id": "belfast",
+      "title": "PEACEPLUS City Hall showcase and Access to the Hills artwork reference",
+      "date": "2025-09-22",
+      "category": "programme_event_context_only",
+      "reason": "The page documents a City Hall showcase and says an artwork will be placed in the Belfast Hills later. It does not provide a source-stated installation, opening, works-start or completed public-space milestone.",
+      "source_id": "bcc-peaceplus-showcase-2025-09-22-round357",
+      "source_name": "PEACEPLUS projects to end racism and build peace showcased at City Hall to mark International Day of Peace",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/peaceplus-projects-to-end-racism-and-build-peace-s",
+      "source_type": "official council news page",
+      "screened_terms": [
+        "Access to the Hills",
+        "Belfast Hills",
+        "International Day of Peace",
+        "PEACEPLUS"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual event and programme metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Access to the Hills",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Black Mountain and Upper Whiterock pathway was reported in development"
+        },
+        {
+          "term": "PEACEPLUS",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Annadale Open Space PEACEPLUS capital project was unveiled"
+        }
+      ]
+    },
+    {
+      "key": "sandy_row_hub_coffee_blythefield_bentham",
+      "city_id": "belfast",
+      "title": "Sandy Row arts hub, Coffee Culture, open-space and Bentham Drive leads",
+      "date": "2026-02-18",
+      "category": "duplicate_existing_event",
+      "reason": "Sandy Row Arts and Digital Hub, Coffee Culture, Sandy Row Open Space/Blythefield Park and Bentham Drive sensory equipment are already represented in the current manual corpus and prior Belfast packs.",
+      "source_id": "bcc-sandy-row-arts-digital-hub-open-2026-round357",
+      "source_name": "Boost for Sandy Row as new Arts & Digital Hub opens",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "source_type": "official council news page",
+      "screened_terms": [
+        "Sandy Row Arts",
+        "Coffee Culture",
+        "Sandy Row Open Space",
+        "Blythefield Park",
+        "Bentham Drive"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual opening and project metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Sandy Row Arts",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sandy Row Arts and Digital Hub letter-of-offer amendment was recorded"
+        },
+        {
+          "term": "Coffee Culture",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Coffee Culture works-commencement status was recorded"
+        },
+        {
+          "term": "Sandy Row Open Space",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sandy Row Open Space Project was reported in the 2026 project pipeline"
+        },
+        {
+          "term": "Blythefield Park",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Sandy Row Open Space Project was reported in the 2026 project pipeline"
+        },
+        {
+          "term": "Bentham Drive",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Civic planning approval at Lands: To The East Of The Westlink (A12); South Of (Nos.127-9) And Including..."
+        }
+      ]
+    },
+    {
+      "key": "cathedral_gardens_start_and_memorial",
+      "city_id": "belfast",
+      "title": "Cathedral Gardens works-start and Belfast Blitz Memorial scope",
+      "date": "2026-01-05",
+      "category": "duplicate_existing_event",
+      "reason": "Cathedral Gardens approval, works-start and Belfast Blitz Memorial design/scope records are already represented in the current manual corpus and prior Belfast packs.",
+      "source_id": "bcc-cathedral-gardens-works-start-2026-round357",
+      "source_name": "Cathedral Gardens transformation gets underway",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/cathedral-gardens-transformation-gets-underway",
+      "source_type": "official council news page",
+      "screened_terms": [
+        "Cathedral Gardens",
+        "Belfast Blitz Memorial",
+        "work has started",
+        "spring 2027"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual works-start metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Cathedral Gardens",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Cathedral Gardens reopened as an interim family-friendly public space"
+        },
+        {
+          "term": "Belfast Blitz Memorial",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Belfast Blitz Memorial was listed within Cathedral Gardens redevelopment scope"
+        }
+      ]
+    },
+    {
+      "key": "ardoyne_youth_hub_sod_cut",
+      "city_id": "belfast",
+      "title": "Ardoyne youth hub works-start milestone",
+      "date": "2026-03-30",
+      "category": "duplicate_existing_event",
+      "reason": "The Executive Office sod-cut / works-underway milestone for the Ardoyne Youth Enterprises hub is already present in the current manual corpus and earlier Belfast candidate packs.",
+      "source_id": "teo-ardoyne-youth-hub-sod-cut-2026-round357",
+      "source_name": "First Minister and deputy First Minister cut sod at new purpose-built youth hub",
+      "publisher": "The Executive Office",
+      "source_url": "https://www.executiveoffice-ni.gov.uk/news/first-minister-and-deputy-first-minister-cut-sod-new-purpose-built-youth-hub",
+      "source_type": "official executive news page",
+      "screened_terms": [
+        "Ardoyne youth hub",
+        "former Ardoyne shops",
+        "Crumlin Road",
+        "work is now underway"
+      ],
+      "license": "Northern Ireland public-sector website terms; factual milestone metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "The Executive Office",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "Ardoyne youth hub",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Ardoyne Youth Enterprises hub tender status was recorded"
+        },
+        {
+          "term": "former Ardoyne shops",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Ardoyne youth hub works-start milestone was marked"
+        },
+        {
+          "term": "Crumlin Road",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Crumlin Road Gaol opened as a visitor attraction"
+        }
+      ]
+    },
+    {
+      "key": "albertbridge_carnforth_development_brief",
+      "city_id": "belfast",
+      "title": "Albertbridge Road / Carnforth Street development brief publication",
+      "date": "2026-02-02",
+      "category": "duplicate_existing_event",
+      "reason": "The DfC development-brief publication milestone is already represented in the current manual corpus from Round124, and later tail rounds retained it as a duplicate.",
+      "source_id": "dfc-albertbridge-carnforth-development-brief-2026-round357",
+      "source_name": "269-283 Albertbridge Road and 2 Carnforth Street, Belfast - development brief",
+      "publisher": "Department for Communities",
+      "source_url": "https://www.communities-ni.gov.uk/publications/269-283-albertbridge-road-and-2-carnforth-street-belfast-development-brief",
+      "source_type": "official department publication page",
+      "screened_terms": [
+        "269-283 Albertbridge Road",
+        "2 Carnforth Street",
+        "development brief"
+      ],
+      "license": "Crown copyright / public-sector information terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for Communities",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "269-283 Albertbridge Road",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "269-283 Albertbridge Road and 2 Carnforth Street development brief was published"
+        },
+        {
+          "term": "2 Carnforth Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "269-283 Albertbridge Road and 2 Carnforth Street development brief was published"
+        },
+        {
+          "term": "development brief",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "294-296 Crumlin Road development brief was published"
+        }
+      ]
+    },
+    {
+      "key": "st_andrews_square_west_stopping_up",
+      "city_id": "belfast",
+      "title": "St Andrews Square West stopping-up order",
+      "date": "2026-04-20",
+      "category": "not_architecture_or_city_change_atlas_fit",
+      "reason": "The DfI order is official and dated, but it is a short roads-legislation record and does not identify a building, public-building delivery, heritage/listing action, conservation works, planning decision or programme delivery milestone suitable for the architecture atlas.",
+      "source_id": "dfi-st-andrews-square-west-stopping-up-2026-round357",
+      "source_name": "The St Andrews Square West, Belfast (Stopping-Up) Order (Northern Ireland) 2026",
+      "publisher": "Department for Infrastructure",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/st-andrews-square-west-belfast-stopping-order-northern-ireland-2026",
+      "source_type": "official department roads-legislation publication page",
+      "screened_terms": [
+        "St Andrews Square West",
+        "Stopping-Up Order",
+        "SR 2026 No. 27"
+      ],
+      "license": "Crown copyright / public-sector information terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for Infrastructure",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": []
+    },
+    {
+      "key": "march_planning_approval_cluster",
+      "city_id": "belfast",
+      "title": "March 2026 Planning Committee architecture approval cluster",
+      "date": "2026-03-10",
+      "category": "duplicate_existing_event",
+      "reason": "Mount Masonic Hall / 45 Park Avenue, Cabin Hill, Harberton, Mays Meadow and Redcar Street were already screened in Round353 and have matching current-corpus or prior-pack coverage.",
+      "source_id": "bcc-planning-committee-march-2026-approvals-round357",
+      "source_name": "New residential developments in east Belfast and grade A office block approved at council's Planning Committee",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/new-residential-developments-in-east-belfast-and-g",
+      "source_type": "official council planning news page",
+      "screened_terms": [
+        "45 Park Avenue",
+        "Cabin Hill",
+        "Harberton",
+        "Mays Meadow",
+        "Redcar Street"
+      ],
+      "license": "Belfast City Council website copyright and terms; factual approval metadata retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "45 Park Avenue",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Mixed Use planning approval at Lands to the north of 41-43 Park Avenue Belfast and to the south of 45 Park A..."
+        },
+        {
+          "term": "Cabin Hill",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Residential planning approval LA04/2017/1682/F: Proposed development of 33 dwellings, garages and all other associated site works. Dwellings comprise of 16No..."
+        },
+        {
+          "term": "Harberton",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Residential planning approval LA04/2016/0200/F: Erection of 48 No. Dwellings including garages and landscaping (amendments to Z/2012/0645/RM)"
+        },
+        {
+          "term": "Mays Meadow",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Allstate Northern Ireland opened its Mays Meadow headquarters"
+        },
+        {
+          "term": "Redcar Street",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Residential planning approval at 1-5 Redcar Street Belfast BT6 9BP."
+        }
+      ]
+    },
+    {
+      "key": "dfc_hed_list_changes_page",
+      "city_id": "belfast",
+      "title": "DfC HED changes-to-list publication page",
+      "date": "2026-05-20",
+      "category": "no_new_safe_row_in_this_pass",
+      "reason": "Recent Belfast HED/list-change leads visible from prior rounds were already screened or ingested. This pass did not isolate a further distinct Belfast HB26 row with a safe date, status and geometry.",
+      "source_id": "dfc-hed-list-changes-page-round357",
+      "source_name": "Changes to the List of Buildings of special architectural or historic interest",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://www.communities-ni.gov.uk/publications/changes-list-buildings-special-architectural-or-historic-interest",
+      "source_type": "official department publication page",
+      "screened_terms": [
+        "All Saints",
+        "Former Nurses Home",
+        "Knock Burial Ground",
+        "Victoria College",
+        "HB26"
+      ],
+      "license": "Crown copyright / Department for Communities terms; factual publication metadata retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for Communities Historic Environment Division",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "All Saints",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "All Saints' Church proposed listing consultation was reported"
+        },
+        {
+          "term": "Former Nurses Home",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "civic/community/public-facility planning approval LA04/2016/1543/RM: Phase 3 reserved matters application site clearance and decontamination including demolition of unlisted fo..."
+        },
+        {
+          "term": "Knock Burial Ground",
+          "file": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+          "title": "DfC HED March 2026 Record Only row for Knock Burial Ground"
+        },
+        {
+          "term": "Victoria College",
+          "file": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+          "title": "DfC HED March 2026 Record Only row for Victoria College swimming pool"
+        },
+        {
+          "term": "HB26",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "HARNI spatial layer recorded Heritage at Risk status for 76-88 Royal Avenue and 104 North Street, Belfast"
+        }
+      ]
+    },
+    {
+      "key": "hed_buildings_layer",
+      "city_id": "belfast",
+      "title": "HED historic-building spatial layer",
+      "date": "2026-05-20",
+      "category": "supporting_endpoint_only",
+      "reason": "The ArcGIS layer remains useful for HB references and point geometry, but this pass did not identify a non-duplicate Belfast list-status change needing HED geometry support.",
+      "source_id": "dfc-hed-historic-buildings-arcgis-round357",
+      "source_name": "Historic Building Details / HED Buildings Database ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division / nidirect",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1",
+      "source_type": "official HED historic-building spatial layer",
+      "screened_terms": [
+        "HB26",
+        "historic building",
+        "Belfast"
+      ],
+      "license": "Crown copyright / public-sector information terms; factual spatial endpoint metadata retained for audit.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Department for Communities Historic Environment Division / nidirect",
+      "accessed_at": "2026-05-20",
+      "transformation_method": "Round357 official-source exhaustion screen; lead was checked against the current manual corpus and prior Belfast packs before being retained as a reject/audit row.",
+      "duplicate_or_overlap_hits": [
+        {
+          "term": "HB26",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "HARNI spatial layer recorded Heritage at Risk status for 76-88 Royal Avenue and 104 North Street, Belfast"
+        },
+        {
+          "term": "historic building",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "HED Buildings Database recorded listed status for Frames Snooker Hall, 2/14 Little Donegall Street"
+        },
+        {
+          "term": "Belfast",
+          "file": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+          "title": "Belfast Zoo entrance, visitor centre and shop facility was built"
+        }
+      ]
+    }
+  ],
+  "rejected_category_counts": {
+    "mutable_programme_page_or_duplicate": 1,
+    "programme_event_context_only": 1,
+    "duplicate_existing_event": 5,
+    "not_architecture_or_city_change_atlas_fit": 1,
+    "no_new_safe_row_in_this_pass": 1,
+    "supporting_endpoint_only": 1
+  }
+}

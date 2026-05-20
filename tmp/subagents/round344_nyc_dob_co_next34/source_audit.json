@@ -1,0 +1,298 @@
+{
+  "schema_version": "round344.nyc_dob_co_next34_source_audit.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "audit_scope": "Official NYC Open Data legacy DOB Certificate Of Occupancy source audit for Bims-5 candidate ingestion.",
+  "sources": [
+    {
+      "source_id": "nyc-dob-certificate-of-occupancy-bs8b-p36w",
+      "canonical_source_id": "nyc-dob-certificate-of-occupancy",
+      "dataset_id": "bs8b-p36w",
+      "source_name": "NYC Open Data: DOB Certificate Of Occupancy",
+      "publisher": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_url": "https://data.cityofnewyork.us/Housing-Development/DOB-Certificate-Of-Occupancy/bs8b-p36w",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/bs8b-p36w.json",
+      "metadata_url": "https://data.cityofnewyork.us/api/views/bs8b-p36w",
+      "source_type": "official NYC Open Data Socrata dataset",
+      "description": "A Certificate of Occupancy (CO) states a building's legal use and/or type of permitted occupancy. New buildings must have a CO, and existing buildings must have a current or amended CO when there is a change in use, egress or type of occupancy. No one may legally occupy a building until the Department has issued a Certificate of Occupancy or Temporary Certificate of Occupancy. The Department issues a final Certificate of Occupancy when the completed work matches the submitted plans for new buildings or major alterations. It issues a Letter of Completion for minor alterations to properties. These documents confirm the work complies with all applicable laws, all paperwork has been completed, all fees owed to the Department have been paid, all relevant violations have been resolved and all necessary approvals have been received from other City Agencies. This dataset contains all Certificates of Occupancy issued from 7/12/2012 to March 2021. PDFs of the actual COs are viewable in www.nyc.gov/bis. For COs issued since March 2021, see <a href=\"https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Certificate-of-Occupancy/pkdm-hqz6\">DOB NOW: Certificate of Occupancy</a> dataset.",
+      "attribution": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "provenance": "official",
+      "rows_updated_at_utc": "2026-05-16T20:36:20.000Z",
+      "publication_date_utc": "2017-07-11T21:58:44.000Z",
+      "update_frequency": "Daily",
+      "license": "No dataset-specific license field exposed in Socrata metadata checked during this run; NYC Open Data Terms of Use / NYC.gov Terms of Use apply.",
+      "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "accessed_at": "2026-05-20",
+      "confidence": "documented",
+      "method": "Round344 queried the official NYC Open Data legacy DOB Certificate Of Occupancy API, filtered and grouped issued rows, screened duplicates, and retained row-level provenance.",
+      "transformation_method": "Round344 queried the official NYC Open Data legacy DOB Certificate Of Occupancy API, filtered and grouped issued rows, screened duplicates, and retained row-level provenance.",
+      "limitations": "Legacy CO issuance is an administrative/legal DOB record. It is not actual occupancy, public opening, completion for all spaces, construction completion, final built form, safety outcome, or affordability outcome. Coordinates are DOB/Open Data geocoded address points.",
+      "reliability": "strong for issued legacy CO administrative status; usable with caveats for city-change milestones",
+      "coverage_years_checked": "2008-01-01 through 2026-05-20",
+      "published_coverage_note": "Dataset description says legacy CO coverage is primarily 2012-07-12 through March 2021; this pass retained legacy candidates only through 2021-03-31.",
+      "geographic_scope": "New York City legacy DOB certificate-of-occupancy records with address, BIN, BBL, and latitude/longitude fields when geocoded.",
+      "granularity": "One legacy DOB certificate-of-occupancy job/item row; repeated temporary CO rows can occur for one job and address.",
+      "key_fields_for_events": [
+        "job_number",
+        "job_type",
+        "c_o_issue_date",
+        "bin_number",
+        "borough",
+        "house_number",
+        "street_name",
+        "block",
+        "lot",
+        "postcode",
+        "pr_dwelling_unit",
+        "ex_dwelling_unit",
+        "application_status_raw",
+        "filing_status_raw",
+        "item_number",
+        "issue_type",
+        "latitude",
+        "longitude",
+        "community_board",
+        "council_district",
+        "census_tract",
+        "bin",
+        "bbl",
+        "nta"
+      ],
+      "source_date_fields": [
+        "c_o_issue_date"
+      ],
+      "geometry_fields": [
+        "latitude",
+        "longitude",
+        "location",
+        "bbl",
+        "bin",
+        "bin_number"
+      ],
+      "accepted_candidate_count": 200,
+      "required_caveats": [
+        "Legacy CO issuance is an administrative/legal record, not actual occupancy, public opening, completion for all spaces, construction completion, final built form, safety outcome, or affordability outcome.",
+        "Legacy coverage does not support pre-2012 CO discovery even though the requested scan window begins in 2008.",
+        "For records after March 2021, DOB NOW CO is the preferred source.",
+        "Temporary CO rows can recur for the same project and were grouped before candidate selection."
+      ],
+      "ingestion_recommendation": "Append only with row-level source URL, DOB job number, item/issue type, date field, coordinates, terms note, and limitations."
+    }
+  ],
+  "selection_summary": {
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "legacy_preferred_end_date": "2021-03-31",
+    "target_count": 200,
+    "candidate_pool_before_selection": 4522,
+    "candidate_count": 200,
+    "eligible_headroom_after_retained_candidates": 4322,
+    "retained_less_than_target_reason": null,
+    "duplicate_screening": {
+      "files_read": 43,
+      "tokens": 207295,
+      "source_date_keys": 117618,
+      "screened_files": [
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+        "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+        "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+        "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+        "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+        "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+        "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+        "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+        "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+        "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+        "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+        "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+        "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+        "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+        "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+        "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+        "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+        "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+        "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+        "tmp/subagents/round211_nyc_dob_co_next11/candidates.json",
+        "tmp/subagents/round219_nyc_dob_co_next12/candidates.json",
+        "tmp/subagents/round225_nyc_dob_co_next13/candidates.json",
+        "tmp/subagents/round232_nyc_dob_co_next14/candidates.json",
+        "tmp/subagents/round242_nyc_dob_co_next15/candidates.json",
+        "tmp/subagents/round247_nyc_dob_co_next16/candidates.json",
+        "tmp/subagents/round250_nyc_dob_co_next17/candidates.json",
+        "tmp/subagents/round256_nyc_dob_co_next18/candidates.json",
+        "tmp/subagents/round264_nyc_dob_co_next19/candidates.json",
+        "tmp/subagents/round267_nyc_dob_co_next20/candidates.json",
+        "tmp/subagents/round273_nyc_dob_co_next21/candidates.json",
+        "tmp/subagents/round278_nyc_dob_co_next22/candidates.json",
+        "tmp/subagents/round289_nyc_dob_co_next23/candidates.json",
+        "tmp/subagents/round300_nyc_dob_co_next24/candidates.json",
+        "tmp/subagents/round303_nyc_dob_co_next25/candidates.json",
+        "tmp/subagents/round308_nyc_dob_co_next26/candidates.json",
+        "tmp/subagents/round313_nyc_dob_co_next27/candidates.json",
+        "tmp/subagents/round318_nyc_dob_co_next28/candidates.json",
+        "tmp/subagents/round322_nyc_dob_co_next29/candidates.json",
+        "tmp/subagents/round326_nyc_dob_co_next30/candidates.json",
+        "tmp/subagents/round330_nyc_dob_co_next31/candidates.json",
+        "tmp/subagents/round335_nyc_dob_co_next32/candidates.json",
+        "tmp/subagents/round339_nyc_dob_co_next33/candidates.json"
+      ],
+      "missing_required_files": [],
+      "manual_event_count": 54914
+    },
+    "fetched_counts": {
+      "legacy_rows_fetched": 142076,
+      "legacy_grouped_rows": 52945
+    },
+    "rejected_counts": {
+      "existing_legacy_co_or_job_identifier": 5179,
+      "legacy_below_high_signal_threshold": 30822,
+      "legacy_post_dob_now_coverage_period": 12422
+    },
+    "selected_summary": {
+      "by_source_dataset_id": {
+        "bs8b-p36w": 200
+      },
+      "by_year": {
+        "2013": 22,
+        "2014": 46,
+        "2015": 34,
+        "2016": 38,
+        "2017": 47,
+        "2018": 13
+      },
+      "by_borough": {
+        "Bronx": 35,
+        "Brooklyn": 31,
+        "Manhattan": 8,
+        "Queens": 119,
+        "Staten Island": 7
+      },
+      "by_co_type": {
+        "Final": 200
+      },
+      "by_job_type": {
+        "NB": 200
+      },
+      "date_range": {
+        "start": "2013-02-19",
+        "end": "2018-04-12"
+      },
+      "dwelling_units": {
+        "min": 1,
+        "median": 1,
+        "max": 1
+      },
+      "by_status": {
+        "Issued": 200
+      },
+      "by_source_status": {
+        "bs8b-p36w|Issued": 200
+      },
+      "by_source_date_field": {
+        "bs8b-p36w|c_o_issue_date": 200
+      }
+    },
+    "independent_validation": {
+      "schema_version": "round344.nyc_dob_co_next34_validation.v1",
+      "ok": true,
+      "checked_at": "2026-05-20T00:00:00Z",
+      "accessed_at": "2026-05-20",
+      "validator": "scripts/fetch_round344_nyc_dob_co_next34_candidates.js standalone validation artifact",
+      "errors": [],
+      "checks": {
+        "candidate_count": 200,
+        "summary_candidate_count": 200,
+        "required_provenance_fields": [
+          "city_id",
+          "candidate_id",
+          "event_id",
+          "date",
+          "effective_date",
+          "title",
+          "summary",
+          "observed_change",
+          "address",
+          "borough",
+          "latitude",
+          "longitude",
+          "geometry",
+          "source_id",
+          "source_ids",
+          "source_name",
+          "publisher",
+          "source_url",
+          "source_api_url",
+          "source_record_id",
+          "source_type",
+          "source_dataset_id",
+          "source_date_field",
+          "license",
+          "license_url",
+          "license_or_terms_note",
+          "accessed_at",
+          "confidence",
+          "geometry_source",
+          "geometry_precision",
+          "attribution",
+          "limitations",
+          "transformation_method",
+          "source_row_ref",
+          "source_fields"
+        ],
+        "date_window": {
+          "start": "2008-01-01",
+          "end": "2026-05-20"
+        },
+        "legacy_preferred_end_date": "2021-03-31",
+        "date_range": {
+          "start": "2013-02-19",
+          "end": "2018-04-12"
+        },
+        "unique_event_ids": 200,
+        "unique_candidate_ids": 200,
+        "unique_source_record_keys": 200,
+        "unique_source_date_keys": 200,
+        "unique_source_url_date_keys": 200,
+        "unique_address_date_keys": 200,
+        "nyc_coordinate_bounds_valid": true,
+        "screened_files_count": 43,
+        "screened_files_read": 43,
+        "screened_files_missing": [],
+        "required_round278_screened": true,
+        "required_round289_screened": true,
+        "required_round300_screened": true,
+        "required_round303_screened": true,
+        "required_round308_screened": true,
+        "required_round313_screened": true,
+        "required_round318_screened": true,
+        "required_round322_screened": true,
+        "required_round326_screened": true,
+        "required_round330_screened": true,
+        "required_round335_screened": true,
+        "required_round339_screened": true,
+        "manual_corpus_screened": true,
+        "prior_source_date_keys_checked": 117618,
+        "prior_identifier_tokens_checked": 207295,
+        "no_overlap_with_screened_corpus_and_prior_packs": true,
+        "by_source_dataset_id": {
+          "bs8b-p36w": 200
+        },
+        "by_borough": {
+          "Bronx": 35,
+          "Brooklyn": 31,
+          "Manhattan": 8,
+          "Queens": 119,
+          "Staten Island": 7
+        },
+        "by_source_date_field": {
+          "bs8b-p36w|c_o_issue_date": 200
+        },
+        "source_audit_count": 1
+      }
+    }
+  },
+  "caveat": "CO rows are legal/admin records. Do not present them as actual occupancy, public opening, completion for all spaces, construction completion, final built form, safety outcome, or affordability outcome."
+}

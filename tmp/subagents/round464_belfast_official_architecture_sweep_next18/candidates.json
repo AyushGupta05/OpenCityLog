@@ -1,0 +1,955 @@
+[
+  {
+    "id": "bfs_arch_round464_ravenhill_avenue_flood_alleviation_complete_2023",
+    "event_id": "bfs_arch_round464_ravenhill_avenue_flood_alleviation_complete_2023",
+    "city_id": "belfast",
+    "title": "Ravenhill Avenue flood-alleviation project was reported complete",
+    "summary": "Northern Ireland Water's 13 December 2023 official news page announced completion of a flood-alleviation project in the Ravenhill Avenue area of south Belfast.",
+    "observed_change": "Official source-published completion milestone for a Belfast drainage/flood-alleviation infrastructure project.",
+    "event_type": "official_infrastructure_completion",
+    "category": "architecture_utility_infrastructure",
+    "date": "2023-12-13",
+    "effective_date": "2023-12-13",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "niwater-ravenhill-avenue-flood-alleviation-complete-2023-round464",
+    "source_name": "GBP7 Million Ravenhill Avenue Flood Alleviation Project Complete",
+    "publisher": "Northern Ireland Water",
+    "source_url": "https://www.niwater.com/about-us/news/2023/7-million-ravenhill-avenue-flood-alleviation-project-complete",
+    "source_type": "official NI Water news page",
+    "source_record_id": "NI Water news page, 13 December 2023: Ravenhill Avenue flood-alleviation project complete",
+    "source_date_field": "official NI Water news page date",
+    "source_date_value": "2023-12-13",
+    "license": "Northern Ireland Water website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.niwater.com/site-information",
+    "terms": "https://www.niwater.com/site-information",
+    "publisher_terms_url": "https://www.niwater.com/site-information",
+    "attribution": "Northern Ireland Water",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "evidence_basis": [
+      "Official NI Water page gives the project name, Belfast area and publication/completion context.",
+      "No reusable source coordinate or works polygon was exposed by the page in this sweep."
+    ],
+    "limitations": [
+      "Geometry_ref only; not ready for the current point-only corpus without a source-backed coordinate, route, asset point, or project boundary.",
+      "This candidate records source-reported completion of infrastructure works only. It does not carry flooding, water-quality, capacity, environmental, customer, economic, development-support, or causality claims.",
+      "The source identifies an area rather than a surveyed asset location; use as a review lead until an official project map or asset coordinate is found."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "type": "source_stated_project_area",
+      "label": "Ravenhill Avenue area, south Belfast",
+      "precision": "Area-level official source location only; no source-backed point or works boundary extracted in Round464",
+      "source_url": "https://www.niwater.com/about-us/news/2023/7-million-ravenhill-avenue-flood-alleviation-project-complete"
+    },
+    "address_ref": "Ravenhill Avenue area, south Belfast",
+    "point_corpus_ready": false,
+    "latitude": null,
+    "longitude": null,
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source",
+        "href": "https://www.niwater.com/about-us/news/2023/7-million-ravenhill-avenue-flood-alleviation-project-complete"
+      },
+      {
+        "rel": "terms",
+        "href": "https://www.niwater.com/site-information"
+      }
+    ],
+    "duplicate_check_terms": [
+      "Ravenhill Avenue Flood Alleviation Project Complete",
+      "7 Million Ravenhill Avenue Flood Alleviation Project Complete",
+      "Northern Ireland Water Ravenhill Avenue"
+    ],
+    "duplicate_review": "No accepted live/manual event or prior official sweep candidate was found for this exact NI Water Ravenhill Avenue completion milestone. It remains geometry_ref-only."
+  },
+  {
+    "id": "bfs_arch_round464_upper_crescent_guest_house_lbc_2024",
+    "event_id": "bfs_arch_round464_upper_crescent_guest_house_lbc_2024",
+    "city_id": "belfast",
+    "title": "14-15 Upper Crescent guest-house alterations listed-building consent was approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2023/4327/LBC at 14 & 15 Upper Crescent, Belfast, BT7 1NT. Proposal text: Internal alterations to facilitate use as an 8-bedroom luxury guest house incorporating associated wellness centre, sensory garden, conferencing facilities, dining areas and reception. Alteration to dormers to rear as previously approved.",
+    "observed_change": "Official planning-statistics row records a listed-building consent approval for internal alterations at 14 and 15 Upper Crescent.",
+    "event_type": "planning_decision_listed_building_consent",
+    "category": "architecture_heritage_admin",
+    "date": "2024-04-23",
+    "effective_date": "2024-04-23",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2023/4327/LBC; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:4502",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "23-Apr-2024",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 333626,
+    "northing": 372934,
+    "source_easting": 333626,
+    "source_northing": 372934,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.590396,
+    "longitude": -5.920369,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.920369,
+        54.590396
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2023/4327/LBC",
+      "related_app_ids": [],
+      "DateReceived": "02-Nov-2023",
+      "DateValid": "02-Nov-2023",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Listed Building Consents",
+      "Classification": "Local",
+      "StatsCategory": "Other",
+      "Proposal": "Internal alterations to facilitate use as an 8-bedroom luxury guest house incorporating associated wellness centre, sensory garden, conferencing facilities, dining areas and reception. Alteration to dormers to rear as previously approved.",
+      "SiteAddress": "14 & 15 Upper Crescent, Belfast, BT7 1NT",
+      "Easting": "333,626",
+      "Northing": "372,934",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "23-Apr-2024",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 4502
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Planning/listed-building consent is an administrative decision only; it does not confirm works started, works completed, opening, occupation, business operation, visitor numbers, or heritage outcome.",
+      "The row supports the application decision date and official grid reference only; it is not a surveyed building footprint or curtilage boundary."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_upper_crescent_guest_house_lbc_2024",
+      "LA04/2023/4327/LBC",
+      "14 & 15 Upper Crescent, Belfast, BT7 1NT",
+      "Internal alterations to facilitate use as an 8-bedroom luxury guest house incorporating associated wellness centre, sensory garden, conferencing facilities, dining areas and reception. Alteration to dormers to rear as previously approved."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_st_brides_primary_partial_demolition_consent_2024",
+    "event_id": "bfs_arch_round464_st_brides_primary_partial_demolition_consent_2024",
+    "city_id": "belfast",
+    "title": "St Bride's Primary School partial-demolition consent was approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2023/3144/DCA at St Bride's Primary School Derryvolgie Avenue, Belfast, BT9 6FP. Proposal text: Part demolition of the existing school building and removal of 3 no. temporary classrooms on the Derryvolgie Ave campus",
+    "observed_change": "Official planning-statistics row records consent for part demolition of the existing school building and removal of temporary classrooms at St Bride's Primary School.",
+    "event_type": "planning_decision_demolition_consent",
+    "category": "architecture_civic_admin",
+    "date": "2024-06-21",
+    "effective_date": "2024-06-21",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2023/3144/DCA; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:2596",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "21-Jun-2024",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 333020,
+    "northing": 372102,
+    "source_easting": 333020,
+    "source_northing": 372102,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.582901,
+    "longitude": -5.929692,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.929692,
+        54.582901
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2023/3144/DCA",
+      "related_app_ids": [],
+      "DateReceived": "26-Apr-2023",
+      "DateValid": "26-Apr-2023",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Other consents",
+      "Classification": "Local",
+      "StatsCategory": "Other",
+      "Proposal": "Part demolition of the existing school building and removal of 3 no. temporary classrooms on the Derryvolgie Ave campus",
+      "SiteAddress": "St Bride's Primary School Derryvolgie Avenue, Belfast, BT9 6FP",
+      "Easting": "333,020",
+      "Northing": "372,102",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "21-Jun-2024",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 2596
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Consent is not evidence that demolition occurred, classrooms were removed, replacement works started, the school estate changed in operation, or any education outcome followed.",
+      "The point is derived from the official easting/northing for the application row and should be treated as an approximate site navigation point."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_st_brides_primary_partial_demolition_consent_2024",
+      "LA04/2023/3144/DCA",
+      "St Bride's Primary School Derryvolgie Avenue, Belfast, BT9 6FP",
+      "Part demolition of the existing school building and removal of 3 no. temporary classrooms on the Derryvolgie Ave campus"
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_hospital_road_admin_building_apartment_change_2024",
+    "event_id": "bfs_arch_round464_hospital_road_admin_building_apartment_change_2024",
+    "city_id": "belfast",
+    "title": "1 Hospital Road administration-building apartment-change approval was recorded",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2024/0874/F at 1 Hospital Road, Belfast, BT8 8JP.. Proposal text: Change of use of Front Portion of Lower Ground Floor of Administration Building into 2 Apartments (Amendment to planning permission LA04/2022/2098/F).",
+    "observed_change": "Official planning-statistics rows record full permission and listed-building consent for a lower-ground-floor change of use in the administration building at 1 Hospital Road.",
+    "event_type": "planning_decision_change_of_use",
+    "category": "architecture_heritage_admin",
+    "date": "2024-08-22",
+    "effective_date": "2024-08-22",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2024/0874/F; RELATED_APP_ID:LA04/2024/0877/LBC; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:9048; RELATED_ROW:9049",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "22-Aug-2024",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 333784,
+    "northing": 368159,
+    "source_easting": 333784,
+    "source_northing": 368159,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.547378,
+    "longitude": -5.917938,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.917938,
+        54.547378
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2024/0874/F",
+      "related_app_ids": [
+        "LA04/2024/0877/LBC"
+      ],
+      "DateReceived": "20-May-2024",
+      "DateValid": "20-May-2024",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Change of Use",
+      "Proposal": "Change of use of Front Portion of Lower Ground Floor of Administration Building into 2 Apartments (Amendment to planning permission LA04/2022/2098/F).",
+      "SiteAddress": "1 Hospital Road, Belfast, BT8 8JP.",
+      "Easting": "333,784",
+      "Northing": "368,159",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "22-Aug-2024",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 9048
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "The event records permission and listed-building consent only. It does not confirm conversion works, completion, occupation, residential delivery, or reuse outcome.",
+      "The source point comes from the planning-statistics easting/northing and is not a surveyed footprint or listed-building boundary."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_hospital_road_admin_building_apartment_change_2024",
+      "LA04/2024/0874/F",
+      "LA04/2024/0877/LBC",
+      "1 Hospital Road, Belfast, BT8 8JP.",
+      "Change of use of Front Portion of Lower Ground Floor of Administration Building into 2 Apartments (Amendment to planning permission LA04/2022/2098/F)."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_highfield_community_centre_garden_approval_2024",
+    "event_id": "bfs_arch_round464_highfield_community_centre_garden_approval_2024",
+    "city_id": "belfast",
+    "title": "Highfield Community Centre community-garden works were approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2024/1486/F at Green space adjacent to Highfield Community Centre.. Proposal text: Community garden consisting of level changes, paladin fencing, landscaping, raised planter beds, polytunnels, container/storage unit, picnic tables and associated works.",
+    "observed_change": "Official planning-statistics row records approval for a community garden beside Highfield Community Centre, including level changes, fencing, landscaping, planters, polytunnels, storage and seating.",
+    "event_type": "planning_decision_public_realm_civic",
+    "category": "architecture_civic_admin",
+    "date": "2024-11-21",
+    "effective_date": "2024-11-21",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2024/1486/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:11695",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "21-Nov-2024",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 330827,
+    "northing": 374684,
+    "source_easting": 330827,
+    "source_northing": 374684,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.606162,
+    "longitude": -5.963431,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.963431,
+        54.606162
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2024/1486/F",
+      "related_app_ids": [],
+      "DateReceived": "28-Aug-2024",
+      "DateValid": "28-Aug-2024",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Civic",
+      "Proposal": "Community garden consisting of level changes, paladin fencing, landscaping, raised planter beds, polytunnels, container/storage unit, picnic tables and associated works.",
+      "SiteAddress": "Green space adjacent to Highfield Community Centre.",
+      "Easting": "330,827",
+      "Northing": "374,684",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "21-Nov-2024",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 11695
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Approval is not evidence that the garden, storage, polytunnels, fencing, seating, or associated works were built, opened, maintained, or used.",
+      "The source point is an approximate navigation point from official planning-statistics easting/northing, not a measured garden boundary."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_highfield_community_centre_garden_approval_2024",
+      "LA04/2024/1486/F",
+      "Green space adjacent to Highfield Community Centre.",
+      "Community garden consisting of level changes, paladin fencing, landscaping, raised planter beds, polytunnels, container/storage unit, picnic tables and associated works."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_fairholme_assisted_living_refurbishment_approval_2025",
+    "event_id": "bfs_arch_round464_fairholme_assisted_living_refurbishment_approval_2025",
+    "city_id": "belfast",
+    "title": "Fairholme assisted-living accommodation refurbishment was approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2024/0503/F at Fairholme, 29 Annadale Avenue, Belfast, BT7 3JJ. Proposal text: Refurbishment of existing residential assisted living accommodation (to convert 40No. 1 Bedroom bedsits into 30No. 1 Bedroom Apartments), parking provision and associated landscape works.",
+    "observed_change": "Official planning-statistics row records approval for refurbishment of existing assisted-living accommodation at Fairholme, Annadale Avenue.",
+    "event_type": "planning_decision_refurbishment",
+    "category": "architecture_housing_admin",
+    "date": "2025-01-21",
+    "effective_date": "2025-01-21",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2024/0503/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:7261",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "21-Jan-2025",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 334572,
+    "northing": 370938,
+    "source_easting": 334572,
+    "source_northing": 370938,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.572414,
+    "longitude": -5.905815,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.905815,
+        54.572414
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2024/0503/F",
+      "related_app_ids": [],
+      "DateReceived": "15-Mar-2024",
+      "DateValid": "15-Mar-2024",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Residential",
+      "Proposal": "Refurbishment of existing residential assisted living accommodation (to convert 40No. 1 Bedroom bedsits into 30No. 1 Bedroom Apartments), parking provision and associated landscape works.",
+      "SiteAddress": "Fairholme, 29 Annadale Avenue, Belfast, BT7 3JJ",
+      "Easting": "334,572",
+      "Northing": "370,938",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "21-Jan-2025",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 7261
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Approval does not confirm construction, completion, occupation, housing delivery, care provision, affordability, resident outcomes, or service change.",
+      "Coordinates are transformed from the official planning-statistics easting/northing and are not a building footprint or red-line site boundary."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_fairholme_assisted_living_refurbishment_approval_2025",
+      "LA04/2024/0503/F",
+      "Fairholme, 29 Annadale Avenue, Belfast, BT7 3JJ",
+      "Refurbishment of existing residential assisted living accommodation (to convert 40No. 1 Bedroom bedsits into 30No. 1 Bedroom Apartments), parking provision and associated landscape works."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_duncairn_gardens_church_kitchen_extension_2025",
+    "event_id": "bfs_arch_round464_duncairn_gardens_church_kitchen_extension_2025",
+    "city_id": "belfast",
+    "title": "Duncairn Gardens church kitchen extension and boundary wall were approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2024/1720/F at 150-156 Duncairn Gardens, Belfast, BT15 2GN. Proposal text: Kitchen extension to rear of church and new boundary wall to front.",
+    "observed_change": "Official planning-statistics row records approval for a rear kitchen extension to a church and a new front boundary wall at 150-156 Duncairn Gardens.",
+    "event_type": "planning_decision_civic_extension",
+    "category": "architecture_civic_admin",
+    "date": "2025-02-20",
+    "effective_date": "2025-02-20",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2024/1720/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:12929",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "20-Feb-2025",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 333561,
+    "northing": 375888,
+    "source_easting": 333561,
+    "source_northing": 375888,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.617009,
+    "longitude": -5.921369,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.921369,
+        54.617009
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2024/1720/F",
+      "related_app_ids": [],
+      "DateReceived": "14-Oct-2024",
+      "DateValid": "14-Oct-2024",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Civic",
+      "Proposal": "Kitchen extension to rear of church and new boundary wall to front.",
+      "SiteAddress": "150-156 Duncairn Gardens, Belfast, BT15 2GN",
+      "Easting": "333,561",
+      "Northing": "375,888",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "20-Feb-2025",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 12929
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Approval is not evidence that the kitchen extension or boundary wall was built, opened, occupied, funded, or associated with any community outcome.",
+      "The coordinate is an approximate point derived from official easting/northing; it is not a measured church or wall footprint."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_duncairn_gardens_church_kitchen_extension_2025",
+      "LA04/2024/1720/F",
+      "150-156 Duncairn Gardens, Belfast, BT15 2GN",
+      "Kitchen extension to rear of church and new boundary wall to front."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_lombard_street_office_to_short_lets_approval_2025",
+    "event_id": "bfs_arch_round464_lombard_street_office_to_short_lets_approval_2025",
+    "city_id": "belfast",
+    "title": "1-3 Lombard Street office-to-short-term-let conversion was approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2024/1073/F at 1-3 Lombard Street (2 High Street), Belfast, BT1 1RB (amended address). Proposal text: Change of use of the second, third, fourth, fifth and sixth floors from office use to 26no. short term let apartments with associated building works.",
+    "observed_change": "Official planning-statistics row records approval for changing upper floors at 1-3 Lombard Street from office use to short-term let apartments with associated building works.",
+    "event_type": "planning_decision_change_of_use",
+    "category": "architecture_commercial_residential_admin",
+    "date": "2025-02-24",
+    "effective_date": "2025-02-24",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2024/1073/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:9551",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "24-Feb-2025",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 333916,
+    "northing": 374352,
+    "source_easting": 333916,
+    "source_northing": 374352,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.603171,
+    "longitude": -5.915908,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.915908,
+        54.603171
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2024/1073/F",
+      "related_app_ids": [],
+      "DateReceived": "05-Jun-2024",
+      "DateValid": "05-Jun-2024",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Change of Use",
+      "Proposal": "Change of use of the second, third, fourth, fifth and sixth floors from office use to 26no. short term let apartments with associated building works.",
+      "SiteAddress": "1-3 Lombard Street (2 High Street), Belfast, BT1 1RB (amended address)",
+      "Easting": "333,916",
+      "Northing": "374,352",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "24-Feb-2025",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 9551
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Approval is not evidence of conversion works, completion, operation, occupancy, tourism demand, housing-market effect, or economic outcome.",
+      "The point is derived from official application easting/northing and is not a surveyed footprint or internal layout."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_lombard_street_office_to_short_lets_approval_2025",
+      "LA04/2024/1073/F",
+      "1-3 Lombard Street (2 High Street), Belfast, BT1 1RB (amended address)",
+      "Change of use of the second, third, fourth, fifth and sixth floors from office use to 26no. short term let apartments with associated building works."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_andersonstown_social_club_extensions_approval_2025",
+    "event_id": "bfs_arch_round464_andersonstown_social_club_extensions_approval_2025",
+    "city_id": "belfast",
+    "title": "Andersonstown Social Club extension works were approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2022/0929/F at Andersonstown Social Club South Link Andersonstown Belfast BT11 8GX. Proposal text: Proposed alterations to existing Social Club to provide extensions to Main Hall, lounge with new external entrance, bar with covered seated patio area, smoking area and boundary wall removal.",
+    "observed_change": "Official planning-statistics row records approval for extensions and alterations to Andersonstown Social Club.",
+    "event_type": "planning_decision_civic_extension",
+    "category": "architecture_civic_admin",
+    "date": "2025-03-27",
+    "effective_date": "2025-03-27",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2022/0929/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:961",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "27-Mar-2025",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 330160,
+    "northing": 371491,
+    "source_easting": 330160,
+    "source_northing": 371491,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.577396,
+    "longitude": -5.973692,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.973692,
+        54.577396
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2022/0929/F",
+      "related_app_ids": [],
+      "DateReceived": "20-Apr-2022",
+      "DateValid": "18-May-2022",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Civic",
+      "Proposal": "Proposed alterations to existing Social Club to provide extensions to Main Hall, lounge with new external entrance, bar with covered seated patio area, smoking area and boundary wall removal.",
+      "SiteAddress": "Andersonstown Social Club South Link Andersonstown Belfast BT11 8GX",
+      "Easting": "330,160",
+      "Northing": "371,491",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "27-Mar-2025",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 961
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Approval is not evidence that the hall, lounge, bar, entrance, patio, smoking area, or boundary-wall works were built, opened, occupied, or linked to any social outcome.",
+      "The source point is transformed from official planning-statistics easting/northing and is not a surveyed site boundary."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_andersonstown_social_club_extensions_approval_2025",
+      "LA04/2022/0929/F",
+      "Andersonstown Social Club South Link Andersonstown Belfast BT11 8GX",
+      "Proposed alterations to existing Social Club to provide extensions to Main Hall, lounge with new external entrance, bar with covered seated patio area, smoking area and boundary wall removal."
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round464_springbank_road_factory_office_approval_2025",
+    "event_id": "bfs_arch_round464_springbank_road_factory_office_approval_2025",
+    "city_id": "belfast",
+    "title": "3 Springbank Road production factory and offices were approved",
+    "summary": "Department for Infrastructure, Northern Ireland's 2024-2025 planning-statistics dataset records Approved for LA04/2023/3372/F at 3 Springbank Road, Belfast, BT17 0QL. Proposal text: New production factory and associated offices and associated parking",
+    "observed_change": "Official planning-statistics row records approval for a new production factory with associated offices and parking at 3 Springbank Road.",
+    "event_type": "planning_decision_industrial_building",
+    "category": "architecture_industrial_admin",
+    "date": "2025-03-31",
+    "effective_date": "2025-03-31",
+    "effective_date_range": null,
+    "date_precision": "day",
+    "source_id": "dfi-planning-statistics-2024-25-round464",
+    "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+    "publisher": "Department for Infrastructure, Northern Ireland",
+    "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+    "source_type": "official annual planning-statistics CSV release",
+    "source_record_id": "APP_ID:LA04/2023/3372/F; FILE:data/raw/planning_statistics/planning-statistics-2024-25-dataset.csv; ROW:2610",
+    "source_date_field": "DecisionIssuedDate",
+    "source_date_value": "31-Mar-2025",
+    "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "terms": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "easting": 327254,
+    "northing": 370545,
+    "source_easting": 327254,
+    "source_northing": 370545,
+    "coordinate_reference_system": "Northern Ireland planning-statistics Easting/Northing",
+    "coordinate_conversion": "Approximate established Belfast transform: longitude = -5.93 + (easting - 333000) / 65000; latitude = 54.6 + (northing - 374000) / 111000.",
+    "latitude": 54.568874,
+    "longitude": -6.0184,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -6.0184,
+        54.568874
+      ]
+    },
+    "geometry_ref": null,
+    "geometry_source": "Source-backed planning-statistics Easting/Northing converted to WGS84 for review.",
+    "geometry_precision": "Approximate site/address point from official application row, not a surveyed footprint, legal red-line boundary, curtilage, room, wall or works extent.",
+    "point_corpus_ready": true,
+    "source_fields": {
+      "ID": "LA04/2023/3372/F",
+      "related_app_ids": [],
+      "DateReceived": "28-Apr-2023",
+      "DateValid": "28-Apr-2023",
+      "Authority": "Belfast",
+      "LPA19CD": "N13000004",
+      "LPA19NM": "Belfast LPA",
+      "AppType": "Full",
+      "Classification": "Local",
+      "StatsCategory": "Commercial",
+      "Proposal": "New production factory and associated offices and associated parking",
+      "SiteAddress": "3 Springbank Road, Belfast, BT17 0QL",
+      "Easting": "327,254",
+      "Northing": "370,545",
+      "StatusAt31Mar": "Approved",
+      "Decision_Withdrawal": "Approved",
+      "DecisionIssuedDate": "31-Mar-2025",
+      "source_file_name": "planning-statistics-2024-25-dataset.csv",
+      "source_row_number": 2610
+    },
+    "evidence_basis": [
+      "Official DfI planning-statistics row supplies application ID, decision status, decision date, site address, proposal text and Easting/Northing.",
+      "The candidate is modelled as an observed administrative planning-decision milestone only."
+    ],
+    "limitations": [
+      "Approval is not evidence that a factory, offices, parking, production activity, employment, output, or economic impact was delivered.",
+      "The coordinate is transformed from the official easting/northing in the planning-statistics row and should be treated as an approximate site point."
+    ],
+    "method": "Round464 official/public Belfast architecture sweep after Round452. Accepted DfI planning-statistics rows only when the application row supplied an official easting/northing coordinate reference and the milestone is described as an administrative planning decision, not built completion. Accepted one NI Water completion record as geometry_ref-only because the official source documents a Belfast infrastructure completion but does not provide a reusable point coordinate. Rejected high-profile official web records when already present in the live/manual corpus or prior Belfast packs, outside Belfast, or lacking a source-supported point for the current point-only corpus. No prediction, simulation, causality, service-performance, health, environmental, economic or capacity outcome claim is carried.",
+    "transformation_method": "scripts/fetch_round464_belfast_official_architecture_sweep_next18_candidates.js#round464OfficialArchitectureSweepNext18",
+    "provenance_links": [
+      {
+        "rel": "primary_source_page",
+        "href": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics"
+      },
+      {
+        "rel": "license",
+        "href": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round464_springbank_road_factory_office_approval_2025",
+      "LA04/2023/3372/F",
+      "3 Springbank Road, Belfast, BT17 0QL",
+      "New production factory and associated offices and associated parking"
+    ],
+    "duplicate_review": "APP_ID was absent from accepted live/manual records and prior official sweep candidate outputs checked by the Round464 duplicate scan. Earlier round131 rejection-only appearances were treated as non-accepted prior work because the 2024-25 decision row now provides the approved decision milestone.",
+    "duplicate_scan_hits": []
+  }
+]

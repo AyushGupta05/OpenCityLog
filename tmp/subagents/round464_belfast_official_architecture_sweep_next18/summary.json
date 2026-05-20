@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round464_belfast_official_architecture_sweep_next18",
+  "accepted_count": 10,
+  "rejected_count": 13,
+  "point_backed_count": 9,
+  "geometry_ref_only_count": 1,
+  "date_range": {
+    "start": "2023-12-13",
+    "end": "2025-03-31"
+  },
+  "sources": [
+    "Department for Infrastructure, Northern Ireland",
+    "Northern Ireland Water"
+  ],
+  "caveats": [
+    "Planning-statistics candidates are administrative decision records only, not construction/completion/opening evidence.",
+    "Point coordinates are source-supported by official Easting/Northing fields but WGS84 latitude/longitude uses the repo's established lightweight Belfast transform; points are approximate navigation geometry.",
+    "NI Water Ravenhill is geometry_ref-only and should stay out of the point-only corpus until an official source coordinate or boundary is found.",
+    "No prediction, simulation, causality, outcome, capacity or impact claim is made."
+  ],
+  "outputs": [
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\candidates.json",
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\rejected.json",
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\validation_report.json",
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\source_audit.json",
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\summary.json",
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\readback.json",
+    "tmp\\subagents\\round464_belfast_official_architecture_sweep_next18\\notes.md"
+  ]
+}

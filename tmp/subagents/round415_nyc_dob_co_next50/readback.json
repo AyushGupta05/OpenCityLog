@@ -1,0 +1,102 @@
+{
+  "schema_version": "round415.nyc_dob_co_next50_readback.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "readback_at": "2026-05-20T00:00:00Z",
+  "ok": true,
+  "candidate_count": 200,
+  "date_range": {
+    "start": "2016-03-04",
+    "end": "2019-08-20"
+  },
+  "source_ids": [
+    "nyc-dob-certificate-of-occupancy",
+    "nyc-dob-certificate-of-occupancy-bs8b-p36w"
+  ],
+  "source_record_id_sample": [
+    "job 420932334 / Socrata row row-pntz~9mqk~w2kh / item 001 / issue Final",
+    "job 321208929 / Socrata row row-yv32-ef67~niw4 / item 001 / issue Final",
+    "job 321090699 / Socrata row row-6sem~wi9g_gvtx / item 001 / issue Final",
+    "job 200267941 / Socrata row row-z9gd_3uyu_gu4i / item 025 / issue Final",
+    "job 220351063 / Socrata row row-mez3.fdcx~3vsj / item 005 / issue Final"
+  ],
+  "source_url_sample": [
+    "https://data.cityofnewyork.us/resource/bs8b-p36w/row-pntz~9mqk~w2kh.json",
+    "https://data.cityofnewyork.us/resource/bs8b-p36w/row-yv32-ef67~niw4.json",
+    "https://data.cityofnewyork.us/resource/bs8b-p36w/row-6sem~wi9g_gvtx.json",
+    "https://data.cityofnewyork.us/resource/bs8b-p36w/row-z9gd_3uyu_gu4i.json",
+    "https://data.cityofnewyork.us/resource/bs8b-p36w/row-mez3.fdcx~3vsj.json"
+  ],
+  "checks": {
+    "all_expected_files_present": true,
+    "json_files_parse": true,
+    "candidate_count_matches": true,
+    "target_count_met": true,
+    "validation_ok": true,
+    "no_validation_errors": true,
+    "source_dataset_only_bs8b_p36w": true,
+    "accessed_at_2026_05_20": true,
+    "required_round412_screened": true,
+    "title_date_screening_recorded": true,
+    "no_overlap_with_prior_packs": true,
+    "source_audit_present": true,
+    "rejected_report_present": true,
+    "no_candidate_overclaim_terms": true
+  },
+  "file_checks": [
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/candidates.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 1691008
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/source_audit.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 15654
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/summary.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 19489
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/rejected.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 1475227
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/validation.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 3370
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/validation_report.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 1324
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/notes.md",
+      "exists": true,
+      "parse_ok": null,
+      "size_bytes": 3039
+    },
+    {
+      "path": "tmp/subagents/round415_nyc_dob_co_next50/readback.json",
+      "exists": true,
+      "parse_ok": true,
+      "size_bytes": 220
+    }
+  ],
+  "validation_error_count": 0,
+  "caveats": [
+    "Readback confirms this pack contains certificate/admin records only.",
+    "The pack does not infer design quality, actual occupancy, construction completion, outcomes, impacts, causation, or unobserved construction details."
+  ],
+  "self_validation_note": "readback.json is written once before this final readback pass, then overwritten with this final result."
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "round332_belfast_official_architecture_sweep_next.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round332_belfast_official_architecture_sweep_next",
+  "candidate_count": 2,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2024-09-20",
+    "max": "2024-09-20"
+  },
+  "source_ids": [
+    "bcc-peaceplus-projects-unveiled-2024-round332",
+    "bcc-peaceplus-project-page-round332"
+  ],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents JSON paths containing Belfast/HARNI/Round296/Round310 context"
+  },
+  "prior_file_count": 169,
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "event_id": "round332_belfast_annadale_open_space_peaceplus_capital_project_unveiled_2024",
+      "date": "2024-09-20",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/community capital works",
+      "title": "Annadale Open Space PEACEPLUS capital project was unveiled",
+      "summary": "Belfast City Council's 20 September 2024 PEACEPLUS news page recorded Annadale Open Space among five local areas where capital works and activity projects were included in the PEACEPLUS Local Action Plan.",
+      "observed_change": "A documented council programme milestone identified Annadale Open Space as a PEACEPLUS community regeneration capital-project location.",
+      "area": "Annadale Embankment",
+      "latitude": 54.5746,
+      "longitude": -5.9124,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9124,
+          54.5746
+        ]
+      },
+      "geometry_ref": "Annadale Embankment",
+      "geometry_source": "Approximate point on Annadale Embankment from the council-stated project location; no official project polygon was exposed by the source pages.",
+      "geometry_precision": "Approximate project-location point, not a surveyed works boundary, playpark layout, community-facility footprint, pathway line, or land parcel.",
+      "source_ids": [
+        "bcc-peaceplus-projects-unveiled-2024-round332",
+        "bcc-peaceplus-project-page-round332"
+      ],
+      "source_name": "Transformative Belfast PEACEPLUS projects unveiled during Good Relations Week",
+      "source_url": "https://www.belfastcity.gov.uk/News/Transformative-Belfast-PEACEPLUS-projects-unveiled",
+      "source_record_id": "PEACEPLUS news page, 20 September 2024: Annadale Open Space capital works/activity project",
+      "source_type": "official council news page",
+      "source_date_field": "News page date",
+      "source_date_value": "2024-09-20",
+      "publisher": "Belfast City Council",
+      "license": "Belfast City Council website copyright and terms; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "community open-space capital project inclusion",
+      "milestone_type": "capital_project_inclusion_unveiled",
+      "architect": "Belfast City Council, PEACEPLUS programme partners, and local project teams; designer and construction partners not named in the cited source pages.",
+      "limitations": "This is a programme-inclusion and project-unveiling record. It does not document planning approval, construction start, handover, opening, final design, as-built layout, public access, or a completed open-space condition.",
+      "caveats": "Use as an administrative programme milestone only. Keep it separate from approvals, starts, completions, openings and final built form.",
+      "duplicate_check_note": "Searched the current manual corpus and Belfast prior packs for Annadale Open Space, PEACEPLUS and Annadale Embankment. Existing records cover Annadale community-centre, Annadale Avenue planning rows and Lagan Gateway/Annadale works, but not this PEACEPLUS Annadale Open Space programme-inclusion milestone.",
+      "source_audit_note": "Official Belfast City Council pages are suitable for cautious programme-inclusion metadata. The source pages state project names and programme context but do not expose project polygons, row-level contract data, final design documents or completion records.",
+      "transformation_method": "Round332 manual official-source sweep; source pages were fetched for availability and markers, candidate terms were checked against the current manual corpus and prior Belfast packs, and two distinct non-duplicate programme milestones were normalized with approximate point geometry."
+    },
+    {
+      "city_id": "belfast",
+      "event_id": "round332_belfast_distillery_street_peaceplus_capital_project_unveiled_2024",
+      "date": "2024-09-20",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/community capital works",
+      "title": "Distillery Street PEACEPLUS capital project was unveiled",
+      "summary": "Belfast City Council's 20 September 2024 PEACEPLUS news page recorded Distillery Street among five local areas where capital works and activity projects were included in the PEACEPLUS Local Action Plan.",
+      "observed_change": "A documented council programme milestone identified Distillery Street as a PEACEPLUS community regeneration capital-project location.",
+      "area": "Distillery Street",
+      "latitude": 54.5949,
+      "longitude": -5.9487,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9487,
+          54.5949
+        ]
+      },
+      "geometry_ref": "Distillery Street",
+      "geometry_source": "Approximate point on Distillery Street from the council-stated project location; no official project polygon was exposed by the source pages.",
+      "geometry_precision": "Approximate street-location point, not a surveyed natural-play area, path alignment, lighting inventory, entrance works boundary, or land parcel.",
+      "source_ids": [
+        "bcc-peaceplus-projects-unveiled-2024-round332",
+        "bcc-peaceplus-project-page-round332"
+      ],
+      "source_name": "Transformative Belfast PEACEPLUS projects unveiled during Good Relations Week",
+      "source_url": "https://www.belfastcity.gov.uk/News/Transformative-Belfast-PEACEPLUS-projects-unveiled",
+      "source_record_id": "PEACEPLUS news page, 20 September 2024: Distillery Street capital works/activity project",
+      "source_type": "official council news page",
+      "source_date_field": "News page date",
+      "source_date_value": "2024-09-20",
+      "publisher": "Belfast City Council",
+      "license": "Belfast City Council website copyright and terms; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "community public-realm capital project inclusion",
+      "milestone_type": "capital_project_inclusion_unveiled",
+      "architect": "Belfast City Council, PEACEPLUS programme partners, and local project teams; designer and construction partners not named in the cited source pages.",
+      "limitations": "This is a programme-inclusion and project-unveiling record. It does not document planning approval, construction start, handover, opening, final design, as-built layout, public access, or a completed public-realm condition.",
+      "caveats": "Use as an administrative programme milestone only. Keep it separate from approvals, starts, completions, openings and final built form.",
+      "duplicate_check_note": "Searched the current manual corpus and Belfast prior packs for Distillery Street and PEACEPLUS. Existing hits are unrelated planning rows at 28 Distillery Street, not this PEACEPLUS public-realm/community-zone programme-inclusion milestone.",
+      "source_audit_note": "Official Belfast City Council pages are suitable for cautious programme-inclusion metadata. The source pages state project names and programme context but do not expose project polygons, row-level contract data, final design documents or completion records.",
+      "transformation_method": "Round332 manual official-source sweep; source pages were fetched for availability and markers, candidate terms were checked against the current manual corpus and prior Belfast packs, and two distinct non-duplicate programme milestones were normalized with approximate point geometry."
+    }
+  ]
+}

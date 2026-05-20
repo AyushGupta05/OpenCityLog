@@ -1,0 +1,30 @@
+{
+  "schema_version": "round310_belfast_official_architecture_tail.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round310_belfast_official_architecture_tail",
+  "candidate_count": 0,
+  "source_ids": [
+    "bcc-current-planning-applications-round310",
+    "ni-planning-portal-public-register-round310",
+    "bcc-planning-committee-2026-05-19-round310",
+    "bcc-hed-listing-structures-report-2026-05-19-round310",
+    "bcc-hed-listing-structures-appendix-2026-05-19-round310",
+    "dfc-hed-changes-to-list-buildings-round310",
+    "dfc-hed-historic-buildings-arcgis-round310",
+    "bcc-city-centre-major-projects-round310",
+    "bcc-cathedral-gardens-round310",
+    "dfi-planning-statistics-2016-2025-round310"
+  ],
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents JSON paths containing belfast or harni, plus cross-city round130 heritage-designations rows with Belfast records"
+  },
+  "scope_note": "No new clean, geometry-backed Belfast official architecture candidate survived duplicate and source-quality screening in this Round310 pass.",
+  "candidates": []
+}

@@ -1,0 +1,745 @@
+{
+  "schema_version": "bims-rejected-records/v0.1",
+  "generated_at": "2026-05-20",
+  "selected_rejections": [],
+  "screening_summary": {
+    "total_certificate_records": 5686,
+    "in_date_scope": 5657,
+    "outside_date_scope": 29,
+    "duplicate_certificate_or_source_record": 144,
+    "not_architecture_or_public_realm": 466,
+    "art_equipment_or_signage_only": 522,
+    "missing_nyc_location_text": 202,
+    "available_after_basic_filters": 4444,
+    "not_seeded_for_round408": 4408
+  },
+  "sampled_screening_rejections": [
+    {
+      "certificate_number": "28679",
+      "effective_date": "2023-12-21",
+      "subject": "the installation of security cameras, Bowery Bay Wastewater Resource Recovery Facility, 43-01 Berrian Boulevard, Astoria, Queens",
+      "reasons": [
+        "art/equipment/signage-only pattern"
+      ]
+    },
+    {
+      "certificate_number": "28680",
+      "effective_date": "2023-12-21",
+      "subject": "the minor modifications to the rehabilitation of a façade, Engine Company 46, 460 Cross Bronx Expressway, Bronx",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28681",
+      "effective_date": "2023-12-21",
+      "subject": "the minor modifications to the construction of Andrew Haswell Green Park, Phase IIB, including the reconstruction of the pavilion roof, East 60th Street to East 63rd Street between the FDR Drive and the East River, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28682",
+      "effective_date": "2024-01-16",
+      "subject": "the removal and temporary storage of Enlightenment and Arms of the City of New York (1940) by Rene Paul Chambellan, Manhattan Detention Complex, 125 White Street, White Street between Baxter Street and Centre Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28683",
+      "effective_date": "2024-01-16",
+      "subject": "the removal and temporary storage of The Judgement of Pao Kung and The Judgement of Solomon (1989) by Richard Haas, Manhattan Detention Complex, 125 White Street, Baxter Street façade, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28684",
+      "effective_date": "2024-01-16",
+      "subject": "the removal and temporary storage of The Seven Columns of the Temple of Wisdom and Solomon's Throne (1992) by Kit-Yin Snyder, Manhattan Detention Complex, White Street between Baxter Street and Centre Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28685",
+      "effective_date": "2024-01-16",
+      "subject": "the removal of Immigration on the Lower East Side of New York (1989) by Richard Haas, Manhattan Detention Complex, 125 White Street, Baxter Street façade, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28686",
+      "effective_date": "2024-01-16",
+      "subject": "the removal of Upright (1992) by Kit-Yin Snyder, Manhattan Detention Complex, White Street between Baxter Street and Centre Street, 125 White Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28687",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of the 154th Street Pump Station, Powell's Cove Boulevard between 154th Street and 154th Place, Whitestone, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28688",
+      "effective_date": "2024-01-16",
+      "subject": "the design of prototypical short bus shelters for installation on narrow sidewalks citywide",
+      "reasons": [
+        "not architecture/public realm review language",
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28689",
+      "effective_date": "2024-01-16",
+      "subject": "the installation of distinctive light poles, Jumel Terrace, West 160th Street, St. Nicholas Avenue, and West 162nd Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28690",
+      "effective_date": "2024-01-16",
+      "subject": "the design of prototypical bus shelters for installation on narrow sidewalks citywide",
+      "reasons": [
+        "not architecture/public realm review language",
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28691",
+      "effective_date": "2024-01-16",
+      "subject": "the minor modifications to the installation of commemorative markers (Harlem Heritage Markers), Hudson River, 125th Street to 162nd Street, and the Bronx River, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28692",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of Baseball Field #7, Juniper Valley Park, Juniper Boulevard South near 74th Street, Middle Village, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28693",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of Boerum Park, adjacent to P.S. 373, west of Hoyt Street between Warren Street and Baltic Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28694",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of Frank D. O'Connor Playground, Woodside Avenue, 78th Street, and Broadway, Woodside, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28695",
+      "effective_date": "2024-01-16",
+      "subject": "the relocation of the Annadale Memorial (1953) within the park perimeter, as part of the reconstruction of Annadale Green, Annadale Green, Jefferson Boulevard and Annadale Road, North Railroad Street, Staten Island",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28696",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of Annadale Green, Jefferson Boulevard and Annadale Road, North Railroad Street, Staten Island",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28697",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of Haffen Park, Burke Avenue, Ely Avenue, Hammersley Avenue, and Gunther Avenue, Bronx",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28698",
+      "effective_date": "2024-01-16",
+      "subject": "the installation of electric vehicle charging stations, Pier 36 (Basketball City), 299 South Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28699",
+      "effective_date": "2024-01-16",
+      "subject": "the installation of signage (Sephora), CityPoint, 1 Dekalb Avenue (445 Albee Square West), Albee Square West between Albee Square and Willoughby Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28700",
+      "effective_date": "2024-01-16",
+      "subject": "the reconstruction of Dinosaur Playground, Riverside Park, west of Riverside Drive between West 96th Street and West 98th Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28701",
+      "effective_date": "2024-01-16",
+      "subject": "the installation of The Feeling is Mutual by Justin Valdes, Arverne Community Library, 312 Beach 54th Street, Arverne, Queens",
+      "reasons": [
+        "art/equipment/signage-only pattern"
+      ]
+    },
+    {
+      "certificate_number": "28702",
+      "effective_date": "2024-01-16",
+      "subject": "the installation of Wings of Everchange 易之翼 by Jennifer Wen Ma, 70 Mulberry Street, Manhattan",
+      "reasons": [
+        "art/equipment/signage-only pattern"
+      ]
+    },
+    {
+      "certificate_number": "28704",
+      "effective_date": "2024-01-26",
+      "subject": "the removal and replacement of a rooftop condensing unit, Rochdale Village Community Library, 169-09 137th Avenue, Jamaica, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28705",
+      "effective_date": "2024-01-26",
+      "subject": "the addition of a sign as part of the construction of a low level outlet system and an overlook, including a boat launch, and adjacent site work, Schoharie Reservoir, adjacent to Route 990V, Gilboa, Schoharie County",
+      "reasons": [
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28706",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of rooftop equipment, exhaust fans, and roll-up doors, Final Settling Facility, Port Richmond Wastewater Resource Recovery Facility, 1801 Richmond Terrace, Staten Island",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28707",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of storefront signage (Mets Team Store), Citi Field, 120-01 Roosevelt Avenue, Flushing Meadows Corona Park, Corona, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28708",
+      "effective_date": "2024-01-26",
+      "subject": "the minor modifications to the installation of a storefront and signage (Nike), 625 Atlantic Avenue, Brooklyn",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "28709",
+      "effective_date": "2024-01-26",
+      "subject": "the minor modifications to the installation of louvers and rooftop mechanical equipment (Nike), 625 Atlantic Avenue, Brooklyn",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "28710",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of rooftop mechanical equipment, 335 Adams Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28711",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of a generator, Engine Company 254, 901 Avenue U, Brooklyn",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "28712",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of prototypical signage, Forest Hills Library, 108-19 71st Avenue, Forest Hills, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28713",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of prototypical signage, Seaside Library, 116-15 Rockaway Beach Boulevard, Rockaway Park, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28714",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of prototypical signage, South Hollis Library, 204-01 Hollis Avenue South, Hollis, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28715",
+      "effective_date": "2024-01-26",
+      "subject": "the removal and replacement of a cooling tower, Queens Central Library, 89-11 Merrick Boulevard, Jamaica, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28716",
+      "effective_date": "2024-01-26",
+      "subject": "the installation of prototypical signage, Bay Terrace Community Library, 18-36 Bell Boulevard, Bayside, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28717",
+      "effective_date": "2024-02-12",
+      "subject": "the installation of Un(Common) Grounds (previously Un(Common) Threads) by Borinquen Gallo, 40th Police Precinct, East 149th Street and St. Ann's Avenue, Bronx",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28718",
+      "effective_date": "2024-02-12",
+      "subject": "the installation of Costume by Ornaghi & Prestinari, Bush Terminal Industrial Campus (Made in NY), between 41st Street, 1st Avenue, and 44th Street, and the waterfront, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28719",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of a community center, 70 Mulberry Street at Bayard Street, Manhattan",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "28720",
+      "effective_date": "2024-02-12",
+      "subject": "the construction of streetscape improvements, East Tremont Avenue, Devoe Avenue, and East 177th Street, between Boston Road and Bronx Park Avenue, Bronx",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "28721",
+      "effective_date": "2024-02-12",
+      "subject": "the construction of an open space (Gateway to Greenpoint), Greenpoint Avenue and Kingsland Avenue, adjacent to Newtown Creek Wastewater Resource Recovery Facility, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28722",
+      "effective_date": "2024-02-12",
+      "subject": "the rehabilitation of the Upper Effluent Chamber as part of the Kensico-Eastview Connection Project, Kensico Reservoir, 19 Westlake Drive, Mount Pleasant, Westchester County",
+      "reasons": [
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28723",
+      "effective_date": "2024-02-12",
+      "subject": "the refacing of the Cross River Dam, Maple Avenue and Reservoir Road, Katonah, Westchester County",
+      "reasons": [
+        "not architecture/public realm review language",
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28724",
+      "effective_date": "2024-02-12",
+      "subject": "the refacing of the Croton Falls Dam, Hemlock Dam Road and Samantha Lane, Carmel, Putnam County",
+      "reasons": [
+        "not architecture/public realm review language",
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28725",
+      "effective_date": "2024-02-12",
+      "subject": "the replacement of rooftop mechanical units, Reeves Great Hall, Fred P. Pomerantz Center, Fashion Institute of Technology, 300 Seventh Avenue, Manhattan",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "28726",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of four bridges over the Shore Belt Parkway at Sheepshead Bay Road, Ocean Avenue, Bedford Avenue, and Nostrand Avenue, Brooklyn",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "28727",
+      "effective_date": "2024-02-12",
+      "subject": "the design of prototypical short bus shelters for installation on narrow sidewalks citywide",
+      "reasons": [
+        "not architecture/public realm review language",
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "28728",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of the East 14th Street Pedestrian Bridge over the Belt Parkway, between Shore Parkway and Voorhies Avenue, Brooklyn",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "28729",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of Augustus Saint-Gaudens Playground, adjacent to P.S. 40, Second Avenue, between East 19th Street and East 20th Street, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28730",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of East Springfield Playground, adjacent to P.S. 147, 115th Road, between 218th Street and 219th Street, Cambria Heights, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28731",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of St. Michael's Playground, adjacent to the Brooklyn-Queens Expressway between 30th Avenue and 31st Avenue, Astoria, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28732",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of electrical vault buildings, Flushing Meadows Corona Park, Corona, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28733",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of Umma Park, Woodruff Avenue and Ocean Avenue, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28734",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of Esdale Bridge over Ambergill Pond, west edge of the Ravine, Prospect Park, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28735",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of a storefront, as part of Phase II of the construction of CityPoint, 445 Albee Square West, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28736",
+      "effective_date": "2024-02-12",
+      "subject": "the installation of emergency generators, Hunts Point Food Distribution Center, 600 Food Center Drive, Bronx",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "28737",
+      "effective_date": "2024-02-12",
+      "subject": "the construction of Residential Building 3 for the construction of a residential building, streetscape, and plazas, as part Phase I of Willets Point, 38-02 126th Lane, Willets Point, Corona, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28738",
+      "effective_date": "2024-02-12",
+      "subject": "the minor modifications to the construction of Buildings 2A and 2B and a central plaza, as Phase II of the construction of four mixed-use residential towers, a light manufacturing facility, a central plaza open space, and adjacent site work",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28739",
+      "effective_date": "2024-02-12",
+      "subject": "the minor modifications to the streetscape as part of Phase I of the construction of a residential building, streetscape, and plazas, 126th Street and Roosevelt Avenue, Willets Point, Corona, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28740",
+      "effective_date": "2024-02-12",
+      "subject": "the rehabilitation of the esplanade, Harlem River Greenway, as part of the Manhattan Waterfront Greenway, Harlem River Drive between East 135th Street and East 145th Street, Manhattan",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "28741",
+      "effective_date": "2024-02-12",
+      "subject": "the construction of streetscape improvements, including an El-Fence, Park Avenue Crossover, Park Avenue Westbound and Eastbound between Ryerson Street and Classon Avenue, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28742",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of West 85th Street Playground (Abraham and Joseph Spector Playground), Central Park West and West 85th Street, Central Park, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "28743",
+      "effective_date": "2024-02-12",
+      "subject": "the reconstruction of a multipurpose play area and playground and construction of a dog run as Phase III of the reconstruction of Commodore Barry Park, Flushing Avenue, North Elliot Place, Park Avenue, and Navy Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29885",
+      "effective_date": "2025-01-31",
+      "subject": "the installation of transformers, Biological Nutrient Removal Building, and installation of rooftop equipment, Pump and Blower Building, 26th Ward Wastewater Resource Recovery Facility, 12266 Flatlands Avenue, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29886",
+      "effective_date": "2025-01-31",
+      "subject": "the minor modifications to the installation of a storefront and signage (Nike), 625 Atlantic Avenue, Brooklyn",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "29887",
+      "effective_date": "2025-01-31",
+      "subject": "the reinstallation of a conduit support system as part of the DEP Wastewater Resiliency Program, Final Settling Tanks, Hunts Point Wastewater Resource Recovery Facility, 1270 Ryawa Avenue, Bronx",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29888",
+      "effective_date": "2025-01-31",
+      "subject": "the replacement of rooftop mechanical units, 1700 Bathgate Avenue, Bronx",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "29889",
+      "effective_date": "2025-02-24",
+      "subject": "the installation of photovoltaic panels and electrical equipment, Wards Island Wastewater Resource Recovery Facility, Wards Island, Manhattan",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29890",
+      "effective_date": "2025-02-24",
+      "subject": "the long-term installation of Sooner or Later (2022) by Mark di Suvero, the Brooklyn Museum, 200 Eastern Parkway, Brooklyn",
+      "reasons": [
+        "not architecture/public realm review language",
+        "art/equipment/signage-only pattern"
+      ]
+    },
+    {
+      "certificate_number": "29891",
+      "effective_date": "2025-02-24",
+      "subject": "the construction of a natural stormwater management system, including the reconstruction of a stormwater detention wetland, stormwater channels and floodplains, stabilization of inlets and streams, and adjacent site work, Arden Heights Wood",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "29892",
+      "effective_date": "2025-02-24",
+      "subject": "the reconstruction of the Brooklyn Detention Complex, 275 Atlantic Avenue, Brooklyn",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "29893",
+      "effective_date": "2025-02-24",
+      "subject": "the rehabilitation of the Washington Heights Health Center, including reconstruction of the roof, 600 West 168th Street, Manhattan",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "29894",
+      "effective_date": "2025-02-24",
+      "subject": "the reconstruction of the plaza, including the removal of a distinctive sidewalk, 60 Centre Street, Thomas Paine Park, Manhattan",
+      "reasons": [
+        "art/equipment/signage-only pattern"
+      ]
+    },
+    {
+      "certificate_number": "29895",
+      "effective_date": "2025-02-24",
+      "subject": "the installation of vents as part of the reconstruction of the coastline (East Side Coastal Resiliency) and East River Park, including the construction of three bridges, a comfort station, two recreation centers, and two gate houses, East R",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29896",
+      "effective_date": "2025-02-24",
+      "subject": "the construction of a high level outlet system and adjacent site work, Gilboa Dam, Schoharie Reservoir, adjacent to Route 990V, Schoharie County",
+      "reasons": [
+        "missing explicit NYC borough text"
+      ]
+    },
+    {
+      "certificate_number": "29897",
+      "effective_date": "2025-02-24",
+      "subject": "the reconstruction of a storage building for use as an administrative office and locker room facility, Queens Repair Yard, 177-11 109th Avenue, Jamaica, Queens",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "29898",
+      "effective_date": "2025-02-24",
+      "subject": "the construction of a greenway and daylighting of Tibbetts Brook, between West 230th Street and Hester and Piero's Mill Pond, Van Cortlandt Park, Bronx",
+      "reasons": [
+        "duplicate certificate/source_record_id"
+      ]
+    },
+    {
+      "certificate_number": "29899",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Flushing #4 Municipal Parking Field, below the Northern Boulevard bridge between College Point Boulevard an",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29900",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Bensonhurst #2 Municipal Parking Field, 1 Bay 26th Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29901",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Brighton Beach Municipal Parking Field, 3162 Brighton 4th Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29902",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, College Point Municipal Parking Field, 121-26 14th Avenue, College Point, Queens",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "29903",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Ditmars #2 Municipal Parking Field, 22-70 33rd Street, Astoria, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29904",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Ferry Terminal South #1 Municipal Parking Field, 1 Bay Street, Staten Island",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29905",
+      "effective_date": "2025-02-24",
+      "subject": "the Minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Rockaway Park Municipal Parking Field, 248 Beach 116th Street, Far Rockaway, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29906",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Sheepshead Bay #1 Municipal Parking Field, 2602 East 17th Street, Brooklyn",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29907",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Steinway #1 Municipal Parking Field, 38-02 30th Avenue, Astoria, Queens",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "29908",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, Steinway #2 Municipal Parking Field, Steinway Street between 31st Avenue and Broadway, Astoria, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    },
+    {
+      "certificate_number": "29909",
+      "effective_date": "2025-02-24",
+      "subject": "the minor modifications to the installation of electric vehicle chargers (PowerCharge) including an electrical switchgear enclosure, White Plains Road Municipal Parking Field, 2071 White Plains Road, Bronx",
+      "reasons": [
+        "not architecture/public realm review language"
+      ]
+    },
+    {
+      "certificate_number": "29910",
+      "effective_date": "2025-02-24",
+      "subject": "the removal of distinctive sidewalk pavers at pedestrian ramps, Greenpoint Avenue between 44th Street and 47th Street, Sunnyside, Queens",
+      "reasons": [
+        "available but not selected for clean round408 pack"
+      ]
+    }
+  ],
+  "note": "The full PDC certificate pool is much larger than this clean next3 pack; sampled screening rejections are representative, while selected_rejections lists every seeded record dropped from round408."
+}

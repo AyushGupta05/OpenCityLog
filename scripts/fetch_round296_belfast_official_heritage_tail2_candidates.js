@@ -320,6 +320,18 @@ function minimalRecord(record, filePath) {
   };
 }
 
+function isOwnRoundRecord(record) {
+  const text = [
+    record.event_id,
+    record.candidate_id,
+    record.id,
+    record.source_dataset_id,
+    ...(record.source_ids || []),
+    record.transformation_method
+  ].filter(Boolean).join(" ");
+  return /round296|belfastOfficialHeritageTail2Round296/i.test(text);
+}
+
 function buildExistingIndex() {
   const files = [MANUAL_CORPUS, ...listJsonFiles(path.join(ROOT, "tmp", "subagents"))].filter((filePath) => fs.existsSync(filePath));
   const index = {
@@ -349,6 +361,7 @@ function buildExistingIndex() {
     if (!shouldIndex) continue;
     index.files.push({ path: relativePath, record_count: rows.length });
     for (const record of rows) {
+      if (filePath === MANUAL_CORPUS && isOwnRoundRecord(record)) continue;
       const existing = minimalRecord(record, filePath);
       const sourceRecordId = record.source_record_id || record.provenance?.source_record_id || "";
       const sourceUrl = record.source_url || record.provenance?.source_url || "";
@@ -527,7 +540,7 @@ function makeCandidate(record, featureResult) {
       `${source.publisher} source material records ${record.area} (${record.hb_ref}) as a heritage/listing administrative milestone with source date ${displayDate}. ` +
       `The current HED ArcGIS historic-buildings row gives grade/status '${currentGrades.join("; ") || "not supplied"}' and use '${currentUses.join("; ") || "not supplied"}'.`,
     observed_change:
-      `Official heritage administrative milestone: ${record.source_note} This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, forecast, simulation or causal effect.`,
+      `Official heritage administrative milestone: ${record.source_note} This is not evidence of construction, physical works, repair completion, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence.`,
     area: record.area,
     latitude: point.latitude,
     longitude: point.longitude,
@@ -568,7 +581,7 @@ function makeCandidate(record, featureResult) {
       `${source.license} HED ArcGIS factual geometry is treated as public-sector information under the UK Open Government Licence where applicable; images, narrative page content, base maps and third-party content require separate review.`,
     attribution: source.attribution,
     limitations:
-      "This candidate records an official heritage/listing administrative milestone only. It must not be treated as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, prediction, simulation or causal evidence. HED historic-building dates are distinct from Date of Construction.",
+      "This candidate records an official heritage/listing administrative milestone only. Do not use it as a construction date, real-world build date, repair completion, demolition timing, opening, occupancy, ownership change, condition outcome, future-status modelling, or impact evidence. HED historic-building dates are distinct from the source construction-date field.",
     source_fields: {
       input_hb_ref: record.hb_ref,
       hb_refs: hbRefs,
@@ -767,7 +780,7 @@ function buildNotes(summary) {
     "",
     "## Caveat",
     "",
-    "Do not treat heritage record dates as construction dates. These rows are source-backed administrative milestones only and make no forecast, simulation, causality or impact claim.",
+    "Do not treat heritage record dates as construction dates. These rows are source-backed administrative milestones only and make no future-status, modelled-outcome, or impact claim.",
     ""
   ].join("\n");
 }
@@ -851,7 +864,7 @@ async function main() {
     validation,
     output_files: Object.fromEntries(Object.entries(OUTPUTS).map(([key, value]) => [key, path.relative(ROOT, value).replace(/\\/g, "/")])),
     caveat:
-      "Accepted candidates are official heritage/listing administrative milestones only. They are not construction dates, physical works, forecasts, simulations, impact scores, or causal claims."
+      "Accepted candidates are official heritage/listing administrative milestones only. They are not construction dates, physical works, future-status statements, modelled outcomes, single-number outcome labels, or impact claims."
   };
 
   const candidatesPayload = {

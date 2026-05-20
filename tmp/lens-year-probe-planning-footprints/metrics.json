@@ -1,0 +1,128 @@
+[
+  {
+    "lens": "planning-delta",
+    "year": 2022,
+    "selected": "Adelaide Street upgrade was reported completed",
+    "selectedYear": 2022,
+    "detailYearLoaded": 2022,
+    "guideFeatures": 2862,
+    "planningFootprints": 2861,
+    "renderedGuide": 0,
+    "colors": {
+      "#d8583f": 1777,
+      "#c98667": 649,
+      "#8f9494": 170,
+      "#e7b454": 170,
+      "#d87965": 65,
+      "#d99175": 15,
+      "#8460a8": 9,
+      "#d84a2d": 6
+    },
+    "mapZoom": 14.191,
+    "screenshotHash": "03c6cb6972f2e01b"
+  },
+  {
+    "lens": "planning-delta",
+    "year": 2024,
+    "selected": "Belfast Grand Central Station opened",
+    "selectedYear": 2024,
+    "detailYearLoaded": 2024,
+    "guideFeatures": 3647,
+    "planningFootprints": 3646,
+    "renderedGuide": 0,
+    "colors": {
+      "#d8583f": 1765,
+      "#c98667": 1095,
+      "#e7b454": 390,
+      "#8f9494": 309,
+      "#8460a8": 37,
+      "#d87965": 37,
+      "#d99175": 9,
+      "#d84a2d": 4
+    },
+    "mapZoom": 14.191,
+    "screenshotHash": "3a513074ddb5a7c3"
+  },
+  {
+    "lens": "planning-delta",
+    "year": 2026,
+    "selected": "2-4 Bruce Street office-alteration development application was advertised",
+    "selectedYear": 2026,
+    "detailYearLoaded": 2026,
+    "guideFeatures": 3405,
+    "planningFootprints": 3404,
+    "renderedGuide": 0,
+    "colors": {
+      "#c98667": 2449,
+      "#e7b454": 313,
+      "#8f9494": 222,
+      "#d8583f": 163,
+      "#d87965": 145,
+      "#8460a8": 74,
+      "#d99175": 20,
+      "#d84a2d": 18
+    },
+    "mapZoom": 14.191,
+    "screenshotHash": "4f1a94f69452a4f2"
+  },
+  {
+    "lens": "planning-parcels",
+    "year": 2022,
+    "selected": "Adelaide Street upgrade was reported completed",
+    "selectedYear": 2022,
+    "detailYearLoaded": 2022,
+    "guideFeatures": 1597,
+    "planningFootprints": 1596,
+    "renderedGuide": 0,
+    "colors": {
+      "#7fa780": 1134,
+      "#f4c762": 169,
+      "#d95a94": 157,
+      "#ee7477": 67,
+      "#866bb8": 38,
+      "#b8b6a8": 31
+    },
+    "mapZoom": 14.191,
+    "screenshotHash": "44f0cd9444523621"
+  },
+  {
+    "lens": "planning-parcels",
+    "year": 2024,
+    "selected": "Belfast Grand Central Station opened",
+    "selectedYear": 2024,
+    "detailYearLoaded": 2024,
+    "guideFeatures": 1901,
+    "planningFootprints": 1900,
+    "renderedGuide": 1956,
+    "colors": {
+      "#7fa780": 1192,
+      "#d95a94": 288,
+      "#f4c762": 284,
+      "#866bb8": 60,
+      "#ee7477": 42,
+      "#b8b6a8": 34
+    },
+    "mapZoom": 14.191,
+    "screenshotHash": "ffd5f2c48c703beb"
+  },
+  {
+    "lens": "planning-parcels",
+    "year": 2026,
+    "selected": "2-4 Bruce Street office-alteration development application was advertised",
+    "selectedYear": 2026,
+    "detailYearLoaded": 2026,
+    "guideFeatures": 582,
+    "planningFootprints": 581,
+    "renderedGuide": 0,
+    "colors": {
+      "#d95a94": 159,
+      "#f4c762": 148,
+      "#ee7477": 102,
+      "#7fa780": 93,
+      "#866bb8": 51,
+      "#b8b6a8": 28
+    },
+    "mapZoom": 14.191,
+    "screenshotHash": "2cc06a840c290b3b"
+  }
+]

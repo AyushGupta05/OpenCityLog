@@ -1,0 +1,366 @@
+{
+  "schema_version": "round309.nyc_hpd_affordable_housing_next16_summary.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "output_files": [
+    "tmp/subagents/round309_nyc_hpd_affordable_housing_next16/candidates.json",
+    "tmp/subagents/round309_nyc_hpd_affordable_housing_next16/source_audit.json",
+    "tmp/subagents/round309_nyc_hpd_affordable_housing_next16/summary.json",
+    "tmp/subagents/round309_nyc_hpd_affordable_housing_next16/notes.md",
+    "tmp/subagents/round309_nyc_hpd_affordable_housing_next16/rejected.json",
+    "tmp/subagents/round309_nyc_hpd_affordable_housing_next16/validation.json"
+  ],
+  "source_id": "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+  "dataset_id": "hg8x-zxpr",
+  "source_url": "https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Building/hg8x-zxpr",
+  "api_endpoint": "https://data.cityofnewyork.us/resource/hg8x-zxpr.json",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "candidate_count": 200,
+  "target_count": 200,
+  "selected_summary": {
+    "by_year": {
+      "2014": 10,
+      "2015": 7,
+      "2016": 34,
+      "2017": 69,
+      "2018": 6,
+      "2019": 39,
+      "2020": 7,
+      "2021": 7,
+      "2023": 1,
+      "2024": 5,
+      "2025": 8,
+      "2026": 7
+    },
+    "by_borough": {
+      "Manhattan": 51,
+      "Brooklyn": 95,
+      "Bronx": 36,
+      "Queens": 12,
+      "Staten Island": 6
+    },
+    "by_date_field": {
+      "building_completion_date": 200
+    },
+    "by_reporting_construction_type": {
+      "Preservation": 200
+    },
+    "by_extended_affordability_status": {
+      "Yes": 200
+    },
+    "by_prevailing_wage_status": {
+      "Non Prevailing Wage": 200
+    },
+    "date_range": {
+      "start": "2014-01-21",
+      "end": "2026-02-02"
+    },
+    "total_or_counted_units": {
+      "min": 6,
+      "median": 8,
+      "max": 12
+    }
+  },
+  "selection_summary": {
+    "fetched_source_rows": 7374,
+    "eligible_after_required_fields_and_duplicate_screening": 1953,
+    "retained_less_than_target_reason": null,
+    "headroom_after_this_candidate_pack": 1753,
+    "duplicate_screening": {
+      "max_screening_round": 304,
+      "explicit_hpd_candidate_packs": [
+        "tmp/subagents/round213_nyc_hpd_affordable_housing_next/candidates.json",
+        "tmp/subagents/round221_nyc_hpd_affordable_housing_next2/candidates.json",
+        "tmp/subagents/round229_nyc_hpd_affordable_housing_next3/candidates.json",
+        "tmp/subagents/round234_nyc_hpd_affordable_housing_next4/candidates.json",
+        "tmp/subagents/round236_nyc_hpd_affordable_housing_next5/candidates.json",
+        "tmp/subagents/round241_nyc_hpd_affordable_housing_next6/candidates.json",
+        "tmp/subagents/round246_nyc_hpd_affordable_housing_next7/candidates.json",
+        "tmp/subagents/round251_nyc_hpd_affordable_housing_next8/candidates.json",
+        "tmp/subagents/round255_nyc_hpd_affordable_housing_next9/candidates.json",
+        "tmp/subagents/round263_nyc_hpd_affordable_housing_next10/candidates.json",
+        "tmp/subagents/round269_nyc_hpd_affordable_housing_next11/candidates.json",
+        "tmp/subagents/round275_nyc_hpd_affordable_housing_next12/candidates.json",
+        "tmp/subagents/round283_nyc_hpd_affordable_housing_next13/candidates.json",
+        "tmp/subagents/round292_nyc_hpd_affordable_housing_next14/candidates.json",
+        "tmp/subagents/round304_nyc_hpd_affordable_housing_next15/candidates.json"
+      ],
+      "files_read": 237,
+      "candidate_files_considered_through_round304": 236,
+      "hpd_rows_indexed": 8754,
+      "event_ids": 5449,
+      "source_record_ids": 10860,
+      "source_date_keys": 5449,
+      "source_urls": 5431,
+      "screened_files_with_hpd_rows": [
+        "data\\manual_drops\\architecture_milestones\\architecture_milestones_2008_2026.json",
+        "tmp\\subagents\\round115_nyc_development_records_codex\\candidates.json",
+        "tmp\\subagents\\round116_nyc_public_projects_official\\candidates.json",
+        "tmp\\subagents\\round118_nyc_hpd_parks_official\\candidates.json",
+        "tmp\\subagents\\round213_nyc_hpd_affordable_housing_next\\candidates.json",
+        "tmp\\subagents\\round221_nyc_hpd_affordable_housing_next2\\candidates.json",
+        "tmp\\subagents\\round229_nyc_hpd_affordable_housing_next3\\candidates.json",
+        "tmp\\subagents\\round234_nyc_hpd_affordable_housing_next4\\candidates.json",
+        "tmp\\subagents\\round236_nyc_hpd_affordable_housing_next5\\candidates.json",
+        "tmp\\subagents\\round241_nyc_hpd_affordable_housing_next6\\candidates.json",
+        "tmp\\subagents\\round246_nyc_hpd_affordable_housing_next7\\candidates.json",
+        "tmp\\subagents\\round251_nyc_hpd_affordable_housing_next8\\candidates.json",
+        "tmp\\subagents\\round255_nyc_hpd_affordable_housing_next9\\candidates.json",
+        "tmp\\subagents\\round263_nyc_hpd_affordable_housing_next10\\candidates.json",
+        "tmp\\subagents\\round269_nyc_hpd_affordable_housing_next11\\candidates.json",
+        "tmp\\subagents\\round275_nyc_hpd_affordable_housing_next12\\candidates.json",
+        "tmp\\subagents\\round283_nyc_hpd_affordable_housing_next13\\candidates.json",
+        "tmp\\subagents\\round292_nyc_hpd_affordable_housing_next14\\candidates.json",
+        "tmp\\subagents\\round304_nyc_hpd_affordable_housing_next15\\candidates.json"
+      ]
+    },
+    "ranking": "Source date priority is applied first: building_completion_date rows, then project_completion_date rows, then project_start_date rows. Round309 is the next HPD pass after Round304; source date fields remain explicit, and project_start_date rows are retained only as official HPD administrative production-start milestones, not completion, occupancy, construction-finish, or tenant move-in records. Within each date-field tier, new-construction rows are preferred before unit-count score, senior/supportive text signals, and newer dates.",
+    "rejected_count": 5421,
+    "rejected_by_reason": {
+      "duplicate_hpd_source_row_or_event": 5421
+    }
+  },
+  "metadata": {
+    "name": "Affordable Housing Production by Building",
+    "id": "hg8x-zxpr",
+    "provenance": "official",
+    "attribution": "Department of Housing Preservation and Development (HPD)",
+    "rows_updated_at_utc": "2026-05-19T14:48:04.000Z",
+    "publication_date_utc": "2021-05-18T19:42:18.000Z",
+    "license": null,
+    "columns": [
+      {
+        "field_name": "project_id",
+        "name": "Project ID",
+        "data_type": "text"
+      },
+      {
+        "field_name": "project_name",
+        "name": "Project Name",
+        "data_type": "text"
+      },
+      {
+        "field_name": "project_start_date",
+        "name": "Project Start Date",
+        "data_type": "calendar_date"
+      },
+      {
+        "field_name": "project_completion_date",
+        "name": "Project Completion Date",
+        "data_type": "calendar_date"
+      },
+      {
+        "field_name": "building_id",
+        "name": "Building ID",
+        "data_type": "number"
+      },
+      {
+        "field_name": "house_number",
+        "name": "Number",
+        "data_type": "text"
+      },
+      {
+        "field_name": "street_name",
+        "name": "Street",
+        "data_type": "text"
+      },
+      {
+        "field_name": "borough",
+        "name": "Borough",
+        "data_type": "text"
+      },
+      {
+        "field_name": "postcode",
+        "name": "Postcode",
+        "data_type": "number"
+      },
+      {
+        "field_name": "bbl",
+        "name": "BBL",
+        "data_type": "number"
+      },
+      {
+        "field_name": "bin",
+        "name": "BIN",
+        "data_type": "number"
+      },
+      {
+        "field_name": "community_board",
+        "name": "Community Board",
+        "data_type": "text"
+      },
+      {
+        "field_name": "council_district",
+        "name": "Council District",
+        "data_type": "number"
+      },
+      {
+        "field_name": "census_tract",
+        "name": "Census Tract",
+        "data_type": "text"
+      },
+      {
+        "field_name": "neighborhood_tabulation_area",
+        "name": "NTA - Neighborhood Tabulation Area",
+        "data_type": "text"
+      },
+      {
+        "field_name": "latitude",
+        "name": "Latitude",
+        "data_type": "number"
+      },
+      {
+        "field_name": "longitude",
+        "name": "Longitude",
+        "data_type": "number"
+      },
+      {
+        "field_name": "latitude_internal",
+        "name": "Latitude (Internal)",
+        "data_type": "number"
+      },
+      {
+        "field_name": "longitude_internal",
+        "name": "Longitude (Internal)",
+        "data_type": "number"
+      },
+      {
+        "field_name": "building_completion_date",
+        "name": "Building Completion Date",
+        "data_type": "calendar_date"
+      },
+      {
+        "field_name": "reporting_construction_type",
+        "name": "Reporting Construction Type",
+        "data_type": "text"
+      },
+      {
+        "field_name": "extended_affordability_status",
+        "name": "Extended Affordability Only",
+        "data_type": "text"
+      },
+      {
+        "field_name": "prevailing_wage_status",
+        "name": "Prevailing Wage Status",
+        "data_type": "text"
+      },
+      {
+        "field_name": "extremely_low_income_units",
+        "name": "Extremely Low Income Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "very_low_income_units",
+        "name": "Very Low Income Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "low_income_units",
+        "name": "Low Income Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "moderate_income_units",
+        "name": "Moderate Income Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "middle_income_units",
+        "name": "Middle Income Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "other_income_units",
+        "name": "Other Income Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "studio_units",
+        "name": "Studio Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "_1_br_units",
+        "name": "1-BR Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "_2_br_units",
+        "name": "2-BR Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "_3_br_units",
+        "name": "3-BR Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "_4_br_units",
+        "name": "4-BR Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "_5_br_units",
+        "name": "5-BR Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "_6_br_units",
+        "name": "6-BR+ Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "unknown_br_units",
+        "name": "Unknown-BR Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "counted_rental_units",
+        "name": "Counted Rental Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "counted_homeownership_units",
+        "name": "Counted Homeownership Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "all_counted_units",
+        "name": "All Counted Units",
+        "data_type": "number"
+      },
+      {
+        "field_name": "total_units",
+        "name": "Total Units",
+        "data_type": "number"
+      }
+    ]
+  },
+  "caveats": [
+    "HPD Affordable Housing Production by Building is housing-program/administrative delivery evidence, not a complete citywide construction inventory or full building-completion survey.",
+    "Source date fields are kept explicit and are not treated as DOB certificate dates, first occupancy, tenant move-in, ribbon cutting, or later neighborhood-outcome records.",
+    "Coordinates are source geocoded points and should not be displayed as exact building footprints or project boundaries.",
+    "Round309 project_start_date rows are official HPD administrative production-start milestones only; they are not completion, occupancy, construction-finish, or tenant move-in records.",
+    "Extended Affordability Only = Yes rows are administrative affordability-extension completion records, not independent evidence of new construction, full rehabilitation scope, occupancy, or tenant move-in.",
+    "NYC Open Data Terms of Use / NYC.gov Terms of Use apply because no dataset-specific license field was exposed in the checked metadata."
+  ],
+  "validation": {
+    "status": "passed",
+    "checked_at": "2026-05-20T00:00:00Z",
+    "checks": [
+      "required provenance fields",
+      "unique event_id and candidate_id",
+      "unique source/date keys",
+      "date window",
+      "NYC coordinate bounds",
+      "no parks source records",
+      "no overlap with live corpus or HPD candidate packs through round304, including round229, round234, round236, round241, round246, round251, round255, round263, round269, round275, round283, round292, and round304"
+    ],
+    "candidate_count": 200,
+    "unique_event_ids": 200,
+    "unique_source_date_keys": 200
+  }
+}

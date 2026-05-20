@@ -50,11 +50,11 @@
   "dedupe": {
     "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
     "prior_file_count": 155,
-    "prior_record_count": 50848,
+    "prior_record_count": 50870,
     "prior_files": [
       {
         "path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
-        "record_count": 48006
+        "record_count": 48028
       },
       {
         "path": "tmp/subagents/belfast_arch_candidates_round100.json",
@@ -703,5 +703,5 @@
     "validation": "tmp/subagents/round296_belfast_official_heritage_tail2/validation.json",
     "validationReport": "tmp/subagents/round296_belfast_official_heritage_tail2/validation_report.json"
   },
-  "caveat": "Accepted candidates are official heritage/listing administrative milestones only. They are not construction dates, physical works, forecasts, simulations, impact scores, or causal claims."
+  "caveat": "Accepted candidates are official heritage/listing administrative milestones only. They are not construction dates, physical works, future-status statements, modelled outcomes, single-number outcome labels, or impact claims."
 }

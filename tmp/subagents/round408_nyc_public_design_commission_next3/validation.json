@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "generated_at": "2026-05-20",
+  "script": "scripts/fetch_round408_nyc_public_design_commission_next3_candidates.js",
+  "input_files": {
+    "certificate_records": "tmp/subagents/round124_nyc_public_design_commission/pdc_certificate_records.json",
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "generated_nyc_atlas": "web/data/city-atlas/cities/nyc/events.json",
+    "prior_candidate_files": [
+      "tmp/subagents/round124_nyc_public_design_commission/candidates.json",
+      "tmp/subagents/round126_nyc_pdc_more_design_review/candidates.json",
+      "tmp/subagents/round295_nyc_public_design_commission_next/candidates.json",
+      "tmp/subagents/round403_nyc_public_design_commission_next2/candidates.json"
+    ]
+  }
+}

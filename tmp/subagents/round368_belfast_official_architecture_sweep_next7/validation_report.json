@@ -1,0 +1,24 @@
+{
+  "schema_version": "round368_belfast_official_architecture_sweep_next7.validation_report.v1",
+  "generated_at": "2026-05-20",
+  "round_id": "round368_belfast_official_architecture_sweep_next7",
+  "status": "passed",
+  "summary": "JSON parsed, required candidate provenance fields were present, candidate dates stayed within 2008-01-01 to 2026-05-20, overclaim language was not found in accepted candidate assertion fields, duplicate terms were absent from the current manual corpus and prior Belfast packs, declared counts matched actual counts, and generated files remained under the owned Round368 folder.",
+  "candidate_count": 3,
+  "source_audit_count": 8,
+  "rejected_count": 11,
+  "dedupe_terms_checked": [
+    "la04/2026/0393/f",
+    "tq fleadh campsite",
+    "la04/2025/1661/f",
+    "pontoon clement wilson park",
+    "north city business centre",
+    "220-256 york street",
+    "northgate business park",
+    "duncairn business park",
+    "2 edlingham street"
+  ],
+  "commands_run": [
+    "node inline validation script over tmp/subagents/round368_belfast_official_architecture_sweep_next7 JSON files and current manual/prior Belfast corpus"
+  ]
+}

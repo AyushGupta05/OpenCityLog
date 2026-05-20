@@ -1,0 +1,58 @@
+{
+  "schema_version": "round390_belfast_official_architecture_sweep_next11.readback.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "ok": true,
+  "output_dir": "tmp/subagents/round390_belfast_official_architecture_sweep_next11",
+  "script_path": "scripts/fetch_round390_belfast_official_architecture_sweep_next11_candidates.js",
+  "files": [
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/candidates.json",
+      "bytes": 23349,
+      "sha256": "670f7d1fe51ddb3b201f3bf47a5822cac66e323a2d5ee084a2c967fe21fd9492"
+    },
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/source_audit.json",
+      "bytes": 28465,
+      "sha256": "2a73577b5c6f296e4a4074532accbb4dc19602118c7f300d25a1b871d612fcd0"
+    },
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/summary.json",
+      "bytes": 3022,
+      "sha256": "dcbe13fd1eefd17a1e9e1d6b2332e7a1c7bc099ba39ffc68418e99df09565a45"
+    },
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/rejected.json",
+      "bytes": 20141,
+      "sha256": "d4eb9d8d42a194f0945ee19971d99a8b73fea9d5097bc046e398b353907f5c85"
+    },
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/validation.json",
+      "bytes": 648,
+      "sha256": "96df3d4f54749b6701480d4db5abfd4482331373ffa267e737c5871b2aeb4c5f"
+    },
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/validation_report.json",
+      "bytes": 3152,
+      "sha256": "991cfd355de9ce348a1ff678355cc54b89820d98f843c71a1855ce84aca01afd"
+    },
+    {
+      "file": "tmp/subagents/round390_belfast_official_architecture_sweep_next11/notes.md",
+      "bytes": 5065,
+      "sha256": "078923a43b85cdaea8aab0cee2deeb6b21c159cd891a5844c65db84c39c13a86"
+    }
+  ],
+  "parsed_counts": {
+    "candidates": 4,
+    "sources": 10,
+    "rejected": 7
+  },
+  "candidate_ids": [
+    "round390_belfast_lagan_ped_cycle_bridge_procurement_next_stage_2025_04_17",
+    "round390_belfast_hill_street_experimental_pedestrianisation_2025_12_04",
+    "round390_belfast_gasworks_raphael_cromac_implemented_scheme_recorded_2026_05_19",
+    "round390_belfast_loft_lines_completed_form_recorded_2026_05_19"
+  ],
+  "validation_errors": [],
+  "validation_warnings": []
+}

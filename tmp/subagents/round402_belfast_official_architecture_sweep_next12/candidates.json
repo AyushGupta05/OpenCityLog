@@ -1,0 +1,331 @@
+{
+  "accessed_at": "2026-05-20",
+  "candidates": [
+    {
+      "accessed_at": "2026-05-20",
+      "address_or_location": "Elmgrove Primary School, Avoniel Road / Beersbridge Road area, Belfast BT5",
+      "area": "Elmgrove Primary School / East Belfast",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "category": "education building / school capital works",
+      "city_id": "belfast",
+      "confidence": "documented",
+      "date": "2021-04-28",
+      "date_precision": "day",
+      "duplicate_check_note": "Live corpus already includes Elmgrove planning approvals and a later official-opening event, but no matched 2021 Department of Education first-sod/construction-start event was found.",
+      "duplicate_check_terms": [
+        "Work begins on new GBP12.6 million East Belfast Primary School",
+        "Elmgrove Primary School construction-start",
+        "cut the first sod Elmgrove Primary School",
+        "28 April 2021 Elmgrove Primary School",
+        "Woodvale Elmgrove Primary School"
+      ],
+      "effective_date": "2021-04-28",
+      "event_id": "bfs_arch_round402_elmgrove_primary_first_sod_2021",
+      "event_type": "construction_start_marked",
+      "geometry": {
+        "coordinates": [
+          -5.882138,
+          54.597883
+        ],
+        "type": "Point"
+      },
+      "geometry_precision": "Approximate school-site point, not a measured works footprint, listed-building footprint or construction boundary.",
+      "geometry_ref": "Manual corpus/prior DfI planning-statistics geocode for Elmgrove Primary School and Nursery Unit, Avoniel Road, Belfast BT5 4SF.",
+      "geometry_source": "Reused approximate school-site point from prior Belfast planning-statistics/manual-corpus records; source news page does not publish a geometry.",
+      "latitude": 54.597883,
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "limitations": "This records the source-published sod-cut/construction-start stage only. It is not evidence of completion, opening, occupancy, educational outcomes, regeneration effects or final as-built condition; later Elmgrove opening records are separate lifecycle evidence.",
+      "longitude": -5.882138,
+      "milestone_type": "first_sod",
+      "observed_change": "A documented sod-cut milestone placed the Elmgrove Primary School capital project in a construction-start stage.",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_date_field": "Date published",
+      "source_date_value": "2021-04-28",
+      "source_ids": [
+        "de-elmgrove-primary-first-sod-2021-round402"
+      ],
+      "source_name": "Work begins on new GBP12.6 million East Belfast Primary School",
+      "source_record_id": "Department of Education news page, Date published 28 April 2021",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/work-begins-new-ps126-million-east-belfast-primary-school",
+      "summary": "The Department of Education recorded on 28 April 2021 that the minister cut the first sod for a new Elmgrove Primary School build in East Belfast.",
+      "title": "Elmgrove Primary School construction-start milestone was marked",
+      "transformation_method": "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js: manual official-source extraction, duplicate screen against manual corpus and prior sweep packs, source marker validation, approximate point reuse from prior official geocode."
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "address_or_location": "Belfast Harbour Marina, near Abercorn Basin and Queen's Quay, Belfast",
+      "area": "Belfast Harbour Marina / Queen's Island waterfront",
+      "attribution": "Belfast Harbour Notice to Mariners No.19 of 2025 cited as the official source for the works notice.",
+      "category": "harbour / marina infrastructure",
+      "city_id": "belfast",
+      "confidence": "documented",
+      "date": "2025-10-14",
+      "date_precision": "day",
+      "duplicate_check_note": "No live-corpus or earlier Belfast sweep hit was found for Belfast Harbour Marina expansion, pontoon installation or Notice to Mariners No.19 of 2025.",
+      "duplicate_check_terms": [
+        "Belfast Harbour Marina Expansion Works",
+        "No.19 of 2025 Marina Expansion Works",
+        "Belfast Harbour Marina pontoon installation",
+        "Marina Expansion Works Belfast Harbour Marina",
+        "14th October 2025 Belfast Harbour Marina"
+      ],
+      "effective_date": "2025-10-14",
+      "effective_date_range": {
+        "basis": "Notice to Mariners works window",
+        "end": "2026-01",
+        "precision": "month",
+        "start": "2025-11"
+      },
+      "event_id": "bfs_arch_round402_belfast_harbour_marina_expansion_notice_2025",
+      "event_type": "works_notice_issued",
+      "geometry": {
+        "coordinates": [
+          -5.9126,
+          54.6092
+        ],
+        "type": "Point"
+      },
+      "geometry_precision": "Approximate marina point, not a measured pontoon, piling, exclusion-zone or harbour-estate boundary.",
+      "geometry_ref": "Curated approximate marina point near Belfast Harbour Marina / Abercorn Basin.",
+      "geometry_source": "Approximate point from named marina location because the Notice to Mariners does not publish a coordinate or mapped works polygon.",
+      "latitude": 54.6092,
+      "license": "Belfast Harbour website copyright/terms; official notice cited for provenance, not reused as open data",
+      "license_url": "https://www.belfast-harbour.co.uk/terms-conditions/",
+      "limitations": "This records an official navigation notice and scheduled works window only. It is not evidence that the works were completed, opened, occupied, altered harbour capacity, or remained unchanged after later notices.",
+      "longitude": -5.9126,
+      "milestone_type": "notice_to_mariners",
+      "observed_change": "An official harbour notice documented a marina expansion works window, including piling, pontoon installation and associated marine construction activities.",
+      "publisher": "Belfast Harbour",
+      "source_date_field": "notice date",
+      "source_date_value": "2025-10-14",
+      "source_ids": [
+        "belfast-harbour-marina-expansion-notice-2025-round402"
+      ],
+      "source_name": "No.19 of 2025 - Marina Expansion Works - Belfast Harbour Marina",
+      "source_record_id": "Belfast Harbour Notice to Mariners No.19 of 2025, dated 14 October 2025",
+      "source_type": "official harbour authority notice to mariners PDF",
+      "source_url": "https://www.belfast-harbour.co.uk/wp-content/uploads/2025/10/No.19-of-2025-%E2%80%93-Marina-Expansion-Belfast-Harbour-Marina.pdf",
+      "summary": "Belfast Harbour Notice to Mariners No.19 of 2025, dated 14 October 2025, recorded marina expansion works at Belfast Harbour Marina with a November 2025 to January 2026 works window.",
+      "title": "Belfast Harbour Marina expansion works notice was issued",
+      "transformation_method": "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js: official PDF notice extraction with pypdf, marker validation, duplicate screen against manual corpus and prior sweep packs, approximate marina point."
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "address_or_location": "Former Ulidia Resource Centre, Somerset Street, Ballynafoy, Belfast BT7 2GS",
+      "area": "Former Ulidia Resource Centre / Somerset Street and Cross Parade",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "category": "education building / school capital works",
+      "city_id": "belfast",
+      "confidence": "documented",
+      "date": "2025-10-21",
+      "date_precision": "day",
+      "duplicate_check_note": "Live corpus includes Ulidia/Scoil an Droichid planning approval and renewal records, but no matched 2025 Department of Education next-phase construction milestone was found.",
+      "duplicate_check_terms": [
+        "Scoil an Droichid next phase of construction",
+        "Education Minister marks next phase of construction work at Scoil an Droichid",
+        "former Ulidia Resource Centre 21 October 2025",
+        "Connolly & Fee Scoil an Droichid",
+        "Scoil an Droichid Primary School and Nursery Unit"
+      ],
+      "effective_date": "2025-10-21",
+      "event_id": "bfs_arch_round402_scoil_an_droichid_next_phase_2025",
+      "event_type": "construction_phase_marked",
+      "geometry": {
+        "coordinates": [
+          -5.902292,
+          54.581622
+        ],
+        "type": "Point"
+      },
+      "geometry_precision": "Approximate site point, not a measured school building, nursery, hard-play, access or construction boundary.",
+      "geometry_ref": "Prior DfI planning-statistics geocode for LA04/2024/0475/F at Ulidia Resource Centre, Somerset Street, Ballynafoy, Belfast BT7 2GS.",
+      "geometry_source": "Reused approximate source-derived planning-statistics point for the former Ulidia Resource Centre site; source news page does not publish a coordinate.",
+      "latitude": 54.581622,
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "limitations": "This records a next-phase construction milestone only. Prior Ulidia/Scoil an Droichid planning approvals exist as separate records; this event does not evidence completion, opening, occupancy, educational outcomes or final as-built condition.",
+      "longitude": -5.902292,
+      "milestone_type": "next_phase",
+      "observed_change": "A documented ministerial site visit placed the Scoil an Droichid Primary School and Nursery Unit project in a next-phase construction stage.",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_date_field": "Date published",
+      "source_date_value": "2025-10-21",
+      "source_ids": [
+        "de-scoil-an-droichid-next-phase-2025-round402"
+      ],
+      "source_name": "Education Minister marks next phase of construction work at Scoil an Droichid Primary School and Nursery Unit",
+      "source_record_id": "Department of Education news page, Date published 21 October 2025",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-marks-next-phase-construction-work-scoil-droichid-primary-school-and-nursery-unit",
+      "summary": "The Department of Education recorded on 21 October 2025 that the minister visited the Scoil an Droichid school site and formally marked the next phase of its capital construction project.",
+      "title": "Scoil an Droichid construction next-phase milestone was marked",
+      "transformation_method": "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js: manual official-source extraction, duplicate screen against manual corpus and prior sweep packs, source marker validation, approximate official planning geocode reuse."
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "address_or_location": "Our Lady of Lourdes Primary School, Park Lodge, 700 Antrim Road, Belfast BT15 5GQ",
+      "area": "Our Lady of Lourdes Primary School / Antrim Road",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "category": "education building / school enhancement programme",
+      "city_id": "belfast",
+      "confidence": "documented",
+      "date": "2026-04-29",
+      "date_precision": "day",
+      "duplicate_check_note": "No live-corpus or prior Belfast sweep hit was found for a 2026 Our Lady of Lourdes Belfast construction-stage progression milestone.",
+      "duplicate_check_terms": [
+        "Our Lady of Lourdes Primary School Belfast construction stage",
+        "Our Lady of Lourdes Primary School Belfast school enhancement",
+        "29 April 2026 Our Lady of Lourdes Primary School Belfast",
+        "Our Lady of Lourdes Primary School progress to construction stage",
+        "Park Lodge 700 Antrim Road construction stage"
+      ],
+      "effective_date": "2026-04-29",
+      "event_id": "bfs_arch_round402_our_lady_of_lourdes_construction_stage_release_2026",
+      "event_type": "construction_stage_release",
+      "geometry": {
+        "coordinates": [
+          -5.936437,
+          54.645092
+        ],
+        "type": "Point"
+      },
+      "geometry_precision": "Approximate school point, not a measured enhancement-works footprint, block, classroom, access, or site boundary.",
+      "geometry_ref": "Education Authority school directory point for Our Lady of Lourdes PS [Belfast], 700 Antrim Road.",
+      "geometry_source": "Approximate school-location point from Education Authority directory; the Department of Education announcement does not publish a project geometry.",
+      "latitude": 54.645092,
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "limitations": "This is a programme-stage announcement naming the school for construction-stage progression. It does not document physical site works starting, specify the built scope for this school, document completion, or state final as-built condition.",
+      "longitude": -5.936437,
+      "milestone_type": "programme_stage",
+      "observed_change": "A documented Department of Education programme-stage announcement named Our Lady of Lourdes Primary School Belfast for construction-stage progression.",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_date_field": "Date published",
+      "source_date_value": "2026-04-29",
+      "source_ids": [
+        "de-schools-progress-construction-stage-2026-round402"
+      ],
+      "source_name": "Education Minister announces school building projects to progress to construction stage",
+      "source_record_id": "Department of Education news page, Date published 29 April 2026; named school enhancement project",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-announces-school-building-projects-progress-construction-stage",
+      "summary": "The Department of Education recorded on 29 April 2026 that Our Lady of Lourdes Primary School Belfast was among school enhancement projects moving to construction stage.",
+      "title": "Our Lady of Lourdes Primary School was named for construction-stage progression",
+      "transformation_method": "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js: manual official-source extraction, duplicate screen against manual corpus and prior sweep packs, source marker validation, approximate Education Authority school point."
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "address_or_location": "St Bride's Primary School, 36 Derryvolgie Avenue, Belfast BT9 6FP",
+      "area": "St Bride's Primary School / Derryvolgie Avenue",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "category": "education building / school enhancement programme",
+      "city_id": "belfast",
+      "confidence": "documented",
+      "date": "2026-04-29",
+      "date_precision": "day",
+      "duplicate_check_note": "Live corpus includes St Bride's planning approvals from 2024, but no matched 2026 Department of Education construction-stage progression milestone was found.",
+      "duplicate_check_terms": [
+        "St Bride's Primary School construction stage",
+        "St Bride's Primary School Belfast school enhancement",
+        "29 April 2026 St Bride's Primary School Belfast",
+        "St Bride's Primary School progress to construction stage",
+        "36 Derryvolgie Avenue construction stage"
+      ],
+      "effective_date": "2026-04-29",
+      "event_id": "bfs_arch_round402_st_brides_construction_stage_release_2026",
+      "event_type": "construction_stage_release",
+      "geometry": {
+        "coordinates": [
+          -5.943729,
+          54.579096
+        ],
+        "type": "Point"
+      },
+      "geometry_precision": "Approximate school point, not a measured enhancement-works footprint, extension, classroom block, access, or site boundary.",
+      "geometry_ref": "Education Authority school directory point for St Bride's PS NU [Belfast], 36 Derryvolgie Avenue.",
+      "geometry_source": "Approximate school-location point from Education Authority directory; the Department of Education announcement does not publish a project geometry.",
+      "latitude": 54.579096,
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "limitations": "This is a programme-stage announcement naming the school for construction-stage progression. Existing corpus records cover St Bride's planning approval; this event does not document physical site works starting, document completion, or state final as-built condition.",
+      "longitude": -5.943729,
+      "milestone_type": "programme_stage",
+      "observed_change": "A documented Department of Education programme-stage announcement named St Bride's Primary School, Belfast for construction-stage progression.",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_date_field": "Date published",
+      "source_date_value": "2026-04-29",
+      "source_ids": [
+        "de-schools-progress-construction-stage-2026-round402"
+      ],
+      "source_name": "Education Minister announces school building projects to progress to construction stage",
+      "source_record_id": "Department of Education news page, Date published 29 April 2026; named school enhancement project",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-announces-school-building-projects-progress-construction-stage",
+      "summary": "The Department of Education recorded on 29 April 2026 that St Bride's Primary School, Belfast was among school enhancement projects moving to construction stage.",
+      "title": "St Bride's Primary School was named for construction-stage progression",
+      "transformation_method": "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js: manual official-source extraction, duplicate screen against manual corpus and prior sweep packs, source marker validation, approximate Education Authority school point."
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "address_or_location": "Glenwood Primary School, 4-22 Upper Riga Street, Belfast BT13 3GW",
+      "area": "Glenwood Primary School / Upper Riga Street",
+      "attribution": "Contains public sector information from the Department of Education, Northern Ireland, licensed under the Open Government Licence v3.0 unless otherwise stated.",
+      "category": "education building / school capital works",
+      "city_id": "belfast",
+      "confidence": "documented",
+      "date": "2026-05-13",
+      "date_precision": "day",
+      "duplicate_check_note": "Live corpus includes Glenwood planning approval records, but no matched 2026 Department of Education construction-start/sod-cut milestone was found.",
+      "duplicate_check_terms": [
+        "Education Minister marks start of construction at Glenwood Primary School",
+        "Glenwood Primary School construction began in February 2026",
+        "13 May 2026 Glenwood Primary School",
+        "Bell Contracts Limited Glenwood Primary School",
+        "Hamilton Architects Glenwood Primary School"
+      ],
+      "effective_date": "2026-05-13",
+      "effective_date_range": {
+        "basis": "Source says construction began in February 2026 and page was published on 13 May 2026.",
+        "end": "2026-05-13",
+        "precision": "month_to_day",
+        "start": "2026-02"
+      },
+      "event_id": "bfs_arch_round402_glenwood_primary_construction_start_2026",
+      "event_type": "construction_start_marked",
+      "geometry": {
+        "coordinates": [
+          -5.95646,
+          54.60544
+        ],
+        "type": "Point"
+      },
+      "geometry_precision": "Approximate school-site point, not a measured listed-building, new-block, contractor compound or works boundary.",
+      "geometry_ref": "Manual corpus/prior Belfast Planning Committee geocode for Glenwood Primary School, 4-22 Upper Riga Street.",
+      "geometry_source": "Reused approximate school-site point from prior Belfast Planning Committee/manual-corpus record; source news page does not publish a geometry.",
+      "latitude": 54.60544,
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "limitations": "This records the source-published construction-start/sod-cut stage only. Existing corpus records cover Glenwood planning approvals; this event does not evidence completion, opening, occupancy, educational outcomes or final as-built condition.",
+      "longitude": -5.95646,
+      "milestone_type": "first_sod",
+      "observed_change": "A documented sod-cut milestone placed the Glenwood Primary School refurbishment-and-new-block project in a construction-start stage.",
+      "publisher": "Department of Education, Northern Ireland",
+      "source_date_field": "Date published",
+      "source_date_value": "2026-05-13",
+      "source_ids": [
+        "de-glenwood-primary-first-sod-2026-round402"
+      ],
+      "source_name": "Education Minister marks start of construction at Glenwood Primary School",
+      "source_record_id": "Department of Education news page, Date published 13 May 2026",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-marks-start-construction-glenwood-primary-school",
+      "summary": "The Department of Education recorded on 13 May 2026 that the minister cut the first sod for a Glenwood Primary School capital construction project, and stated that construction began in February 2026.",
+      "title": "Glenwood Primary School construction-start milestone was marked",
+      "transformation_method": "scripts\\fetch_round402_belfast_official_architecture_sweep_next12_candidates.js: manual official-source extraction, duplicate screen against manual corpus and prior sweep packs, source marker validation, approximate official planning geocode reuse."
+    }
+  ],
+  "generated_at": "2026-05-20",
+  "round_id": "round402_belfast_official_architecture_sweep_next12"
+}

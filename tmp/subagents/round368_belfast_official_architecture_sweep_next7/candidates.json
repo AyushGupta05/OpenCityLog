@@ -1,0 +1,178 @@
+{
+  "schema_version": "round368_belfast_official_architecture_sweep_next7.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round368_belfast_official_architecture_sweep_next7",
+  "candidate_count": 3,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2026-04-08",
+    "max": "2026-05-19"
+  },
+  "source_ids": [
+    "dfe-north-belfast-business-centre-investment-2026-round368",
+    "bcc-planning-committee-20260519-tq-fleadh-campsite-round368",
+    "bcc-planning-committee-20260519-shaws-bridge-pontoon-round368"
+  ],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "manual corpus plus tmp/subagents Belfast architecture/HED/HARNI/planning/public-realm/official sweep packs through Round361, with direct rg checks for application references, named sites, titles, and source URLs"
+  },
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "event_id": "round368_belfast_north_city_business_centre_property_acquisition_announced_2026_04_08",
+      "date": "2026-04-08",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/public investment/property acquisition",
+      "title": "North Belfast business-centre property acquisition was announced",
+      "summary": "The Department for the Economy announced on 8 April 2026 that a GBP3.75 million Local Growth Fund investment had enabled North City Business Centre to purchase three North Belfast properties for future community-based facilities and expanded workspace.",
+      "observed_change": "A documented public-investment and property-acquisition milestone was recorded for three named North Belfast business-centre sites.",
+      "area": "220-256 York Street; Northgate Business Park, Duncairn Gardens; Units A and B Duncairn Business Park, 2 Edlingham Street",
+      "latitude": 54.6107,
+      "longitude": -5.9309,
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -5.9287,
+            54.6048
+          ],
+          [
+            -5.9324,
+            54.6134
+          ],
+          [
+            -5.9317,
+            54.6139
+          ]
+        ]
+      },
+      "geometry_ref": "Three DfE-listed North Belfast property addresses",
+      "geometry_source": "Approximate multipoint from the source-listed addresses; York Street, Duncairn Gardens and Edlingham Street points were checked with public geocoding/Nominatim on 2026-05-20 and manually placed as address/street-context points.",
+      "geometry_precision": "Approximate multi-site navigation points only, not surveyed ownership parcels, building footprints, refurbishment extents, lease boundaries, entrances, or interior workspace areas.",
+      "source_ids": [
+        "dfe-north-belfast-business-centre-investment-2026-round368"
+      ],
+      "source_name": "Major investment to drive economic development in North Belfast",
+      "source_url": "https://www.economy-ni.gov.uk/news/major-investment-drive-economic-development-north-belfast",
+      "source_record_id": "Department for the Economy news page, 8 April 2026; North City Business Centre property acquisition",
+      "source_type": "official Northern Ireland department news page",
+      "source_date_field": "Date published",
+      "source_date_value": "2026-04-08",
+      "publisher": "Department for the Economy",
+      "license": "Northern Ireland public-sector website terms/Crown copyright apply; factual project metadata and source URLs retained for audit.",
+      "license_url": "https://www.nidirect.gov.uk/crown-copyright",
+      "attribution": "Department for the Economy",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "public-sector funded business/community workspace acquisition",
+      "milestone_type": "public_investment_and_property_acquisition_announced",
+      "architect": "Not stated by the cited Department for the Economy source.",
+      "limitations": "This records the official funding/property-acquisition announcement only. It does not document planning permission, design approval, construction or refurbishment start, completion, opening, tenant occupation, job creation, community-use delivery, exact ownership boundaries, or economic outcomes. The source says two sites are intended for extensive refurbishment/restructuring over coming years; those future works require separate dated evidence.",
+      "caveats": "Use as a pre-development/acquisition milestone for named built-environment assets, not as evidence that the buildings have already been transformed or brought into new use.",
+      "duplicate_check_note": "Searched the current manual corpus and tmp/subagents Belfast packs for North City Business Centre, 220-256 York Street, Northgate Business Park, Duncairn Business Park, Edlingham Street, GBP3.75m, and the source title. No matching Belfast candidate or manual event was found.",
+      "source_audit_note": "The official department page is strong for announcement date, funding amount, acquisition purpose, named properties and publisher attribution. It is weaker for geometry and delivery stage because it does not provide parcel geometry, planning records, contract awards, or works-start dates.",
+      "transformation_method": "Round368 official/public source sweep; source page was opened and candidate terms were checked with rg against the current manual corpus and prior Belfast sweep packs. The surviving lead was normalized with multi-site approximate geometry, provenance, license caveats and no-outcome wording."
+    },
+    {
+      "city_id": "belfast",
+      "event_id": "round368_belfast_titanic_quarter_fleadh_campsite_recommended_2026_05_19",
+      "date": "2026-05-19",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/tourism temporary facilities",
+      "title": "Titanic Quarter Fleadh campsite application was recommended for approval",
+      "summary": "A Belfast City Council Planning Committee officer report for 19 May 2026 recommended approval, subject to conditions and delegated follow-up, for application LA04/2026/0393/F: a temporary caravan, campervan and motorhome site with ancillary facilities on vacant hardstanding in Titanic Quarter for Fleadh Cheoil na hEireann visitor accommodation.",
+      "observed_change": "A documented planning-committee recommendation milestone was recorded for a temporary built-environment/tourism facility in Titanic Quarter.",
+      "area": "Titanic Quarter lands between Hamilton Road, Queens Road and Sydenham Road, near Belfast Metropolitan College and Titanic Hotel",
+      "latitude": 54.6058,
+      "longitude": -5.9068,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9068,
+          54.6058
+        ]
+      },
+      "geometry_ref": "Vacant hardstanding in Titanic Quarter, immediately north-east/east/south-east of Belfast Metropolitan College and approximately 150m south-east of Titanic Hotel",
+      "geometry_source": "Approximate point manually offset east/south-east from Belfast Metropolitan College Titanic Quarter Campus geocoding, using the source-described roads and site relationship.",
+      "geometry_precision": "Approximate site centroid only, not a surveyed red-line boundary, pitch layout, access point, temporary structure, container, generator compound, utility connection, or event-operation area.",
+      "source_ids": [
+        "bcc-planning-committee-20260519-tq-fleadh-campsite-round368"
+      ],
+      "source_name": "LA04/2026/0393/F - TQ Fleadh campsite",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127806/LA04%202026%200393%20F%20-%20TQ%20Fleadh%20campsite.pdf",
+      "source_record_id": "LA04/2026/0393/F; Belfast Planning Committee item 9b, 19 May 2026",
+      "source_type": "official council planning committee development-management report",
+      "source_date_field": "Committee Meeting Date",
+      "source_date_value": "2026-05-19",
+      "publisher": "Belfast City Council",
+      "license": "Belfast City Council public committee-document terms; factual planning metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "temporary event visitor accommodation and ancillary site facilities",
+      "milestone_type": "planning_committee_recommendation",
+      "architect": "Not applicable/not stated by the planning report; agent listed as TSA Planning.",
+      "limitations": "This is an officer report and recommendation, not a final committee minute, issued decision notice, works start, campsite opening, visitor-use record, permanent tourism facility, or event-outcome claim. The report states delegated authority was requested to resolve final Environmental Health response and condition wording. The draft condition limits the temporary use to Fleadh Cheoil na hEireann purposes and requires reinstatement after the temporary permission expires.",
+      "caveats": "Display as a recommended planning-stage event only until minutes or a decision notice confirm the final decision. Do not count as operational accommodation or permanent infrastructure.",
+      "duplicate_check_note": "Searched the manual corpus and Belfast prior packs for LA04/2026/0393/F, TQ Fleadh campsite, caravan/campervan/motorhome, Hamilton Road, Queens Road, Sydenham Road and Titanic Quarter. No duplicate manual or prior-candidate event was found.",
+      "source_audit_note": "The official council report is strong for application reference, committee date, proposal description, site description, recommendation and applicant/agent. It is caveated because the report is recommendation-stage and notes an outstanding Environmental Health final response/delegated-authority step.",
+      "transformation_method": "Round368 official planning-committee sweep; the 19 May 2026 agenda and PDF report were opened, candidate terms were checked with rg against the current manual corpus and prior Belfast packs, and the surviving lead was normalized with approximate point geometry, provenance, license caveats and no-completion wording."
+    },
+    {
+      "city_id": "belfast",
+      "event_id": "round368_belfast_shaws_bridge_pontoon_recommended_2026_05_19",
+      "date": "2026-05-19",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/blue-green infrastructure",
+      "title": "Shaws Bridge floating pontoon application was recommended for approval",
+      "summary": "A Belfast City Council Planning Committee officer report for 19 May 2026 recommended approval, subject to condition and delegated follow-up, for application LA04/2025/1661/F: installing a new floating pontoon to replace the closed wooden jetty on the River Lagan in Clement Wilson Park near Shaws Bridge.",
+      "observed_change": "A documented planning-committee recommendation milestone was recorded for replacement recreational water-access infrastructure in Clement Wilson Park.",
+      "area": "River bank approximately 150m north east of Shaws Bridge Car Park, Clement Wilson Park",
+      "latitude": 54.5535,
+      "longitude": -5.9528,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9528,
+          54.5535
+        ]
+      },
+      "geometry_ref": "River Lagan bank approximately 150m north-east of Shaws Bridge Car Park, Belfast BT9 5YN",
+      "geometry_source": "Approximate point offset north-east from public geocoding/Nominatim result for Shaws Bridge Car Park, using the source-stated distance and direction.",
+      "geometry_precision": "Approximate riverbank navigation point only, not a surveyed pontoon alignment, steel pile location, gangway, plinth, bank works area, construction compound, or hydrological boundary.",
+      "source_ids": [
+        "bcc-planning-committee-20260519-shaws-bridge-pontoon-round368"
+      ],
+      "source_name": "LA04/2025/1661/F Pontoon Clement Wilson Park",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127808/LA04-2025-1661-F%20Pontoon%20Clement%20Wilson%20Park.pdf",
+      "source_record_id": "LA04/2025/1661/F; Belfast Planning Committee item 9d, 19 May 2026",
+      "source_type": "official council planning committee development-management report",
+      "source_date_field": "Committee Meeting Date",
+      "source_date_value": "2026-05-19",
+      "publisher": "Belfast City Council",
+      "license": "Belfast City Council public committee-document terms; factual planning metadata and source URLs retained for audit.",
+      "license_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "attribution": "Belfast City Council",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "recreational water-access infrastructure",
+      "milestone_type": "planning_committee_recommendation",
+      "architect": "Not applicable/not stated by the planning report; applicant listed as DfI Rivers and agent as Construction and Procurement Delivery.",
+      "limitations": "This is an officer report and recommendation, not a final committee minute, issued decision notice, installation, reopening, works start, year-round access record, or water-sports-use outcome. The report states HED consultation response was outstanding and delegated authority was sought for non-substantive matters. Geometry is approximate and the report text contains inconsistent application-ID footer text on later pages, so the headline application reference LA04/2025/1661/F is retained.",
+      "caveats": "Display as a recommended planning-stage event only until minutes or a decision notice confirm the final decision. Keep separate from any later physical installation or opening of the pontoon.",
+      "duplicate_check_note": "Searched the manual corpus and Belfast prior packs for LA04/2025/1661/F, Shaws Bridge, Clement Wilson Park, floating pontoon, wooden jetty, River Lagan and water sports. No matching manual or prior-candidate event was found; older Shaws Bridge/Barnett Demesne playground records are separate.",
+      "source_audit_note": "The official council report is strong for application reference, committee date, site description, proposal description, consultees and recommendation. It is caveated because the report is recommendation-stage and HED consultation remained outstanding.",
+      "transformation_method": "Round368 official planning-committee sweep; the 19 May 2026 agenda and PDF report were opened, candidate terms were checked with rg against the current manual corpus and prior Belfast packs, and the surviving lead was normalized with approximate point geometry, provenance, license caveats and no-completion wording."
+    }
+  ]
+}

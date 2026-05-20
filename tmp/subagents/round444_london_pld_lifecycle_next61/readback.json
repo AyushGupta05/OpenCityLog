@@ -1,0 +1,112 @@
+{
+  "ok": true,
+  "read_at": "2026-05-20T00:00:00Z",
+  "task": "round444_london_pld_lifecycle_next61",
+  "files": {
+    "candidates.json": {
+      "exists": true,
+      "bytes": 1755018
+    },
+    "source_audit.json": {
+      "exists": true,
+      "bytes": 4590
+    },
+    "summary.json": {
+      "exists": true,
+      "bytes": 49952
+    },
+    "notes.md": {
+      "exists": true,
+      "bytes": 2081
+    },
+    "rejected.json": {
+      "exists": true,
+      "bytes": 529724
+    },
+    "validation.json": {
+      "exists": true,
+      "bytes": 1226
+    },
+    "validation_report.json": {
+      "exists": true,
+      "bytes": 6912
+    },
+    "strict_duplicate_audit.json": {
+      "exists": true,
+      "bytes": 459
+    },
+    "readback.json": {
+      "exists": true,
+      "bytes": 3700
+    }
+  },
+  "candidate_count": 150,
+  "date_range": {
+    "min": "2010-02-01",
+    "max": "2012-12-22"
+  },
+  "source_ids": [
+    "gla-planning-datahub-applications",
+    "london-planning-datahub-api/core"
+  ],
+  "source_audit_count": 2,
+  "rejection_count": 100776,
+  "validation_ok": true,
+  "validation_report_ok": true,
+  "lifecycle_field_mix": {
+    "actual_completion_date": 149,
+    "actual_commencement_date": 1
+  },
+  "selected_by_borough": {
+    "Islington": 2,
+    "Kensington and Chelsea": 3,
+    "Barnet": 3,
+    "Richmond upon Thames": 4,
+    "Sutton": 5,
+    "Camden": 10,
+    "Harrow": 5,
+    "City of London": 9,
+    "Hammersmith and Fulham": 3,
+    "Ealing": 16,
+    "Tower Hamlets": 3,
+    "Newham": 6,
+    "Croydon": 5,
+    "Westminster": 8,
+    "Lewisham": 12,
+    "Hackney": 18,
+    "Greenwich": 2,
+    "Royal Borough of Kingston (LA Code)": 1,
+    "Southwark": 4,
+    "Barking and Dagenham": 1,
+    "Brent": 4,
+    "Wandsworth": 4,
+    "Bexley": 4,
+    "Kingston upon Thames": 4,
+    "Merton": 2,
+    "Hounslow": 4,
+    "Bromley": 1,
+    "Haringey": 1,
+    "Redbridge": 1,
+    "Hillingdon": 1,
+    "Waltham Forest": 2,
+    "Lambeth": 1,
+    "Enfield": 1
+  },
+  "dedupe_basis": "Live data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json plus all discovered London PLD lifecycle scratch packs through round439, explicitly including round126 direct/more, round140, round147, round150, round153, round157, round161, round166, round172, round178, round184, round190, round196, round202, round208, round217, round223, round230, round238, round243, round248, round253, round261, round266, round272, round276, round284, round288, round298, round301, round306, round311, round316, round323, round327, round328, round333, round338, round343, round348, round350, round354, round358, round362, round365, round369, round373, round377, round380, round384, round387, round393, round398, round404, round410, round416, round421, round425, round428, round432, round436, and round439, scanned for PLD ids, source URL/source record ids, source-record/source-url/date-field/date keys, source-date-field/date keys, and title/date keys.",
+  "caveats": [
+    "Candidates are source-reported administrative lifecycle records only; source planning documents and site-specific evidence are needed before treating them as construction start, completion, opening, occupation, final built form, or wider-result records.",
+    "Exact source row/date-field/date duplicates already present in the live manual corpus or prior PLD lifecycle packs through round439 were excluded.",
+    "London Datastore licence is Not Specified for this source, so the pack retains factual metadata and attribution only."
+  ],
+  "readback_checks": [
+    "all requested output files parsed",
+    "candidate counts agree across candidates, summary, validation, and validation_report",
+    "source audit includes PLD dataset and API source ids",
+    "notes retain administrative lifecycle caveat",
+    "candidate aliases include id, method, planning_reference, status, decision, and lifecycle_milestone",
+    "dedupe basis includes PLD lifecycle packs through round439",
+    "round439 prior PLD lifecycle pack was scanned",
+    "strict duplicate audit found no event id, source_url/source_record_id, or title/date overlap",
+    "readback file exists after final write"
+  ]
+}

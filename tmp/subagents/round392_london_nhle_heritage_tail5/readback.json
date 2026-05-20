@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "passed": true,
+  "files": {
+    "candidates.json": {
+      "exists": true,
+      "size_bytes": 1585,
+      "json_readback_ok": true
+    },
+    "source_audit.json": {
+      "exists": true,
+      "size_bytes": 21959,
+      "json_readback_ok": true
+    },
+    "summary.json": {
+      "exists": true,
+      "size_bytes": 8464,
+      "json_readback_ok": true
+    },
+    "rejected.json": {
+      "exists": true,
+      "size_bytes": 380253,
+      "json_readback_ok": true
+    },
+    "notes.md": {
+      "exists": true,
+      "size_bytes": 1134
+    },
+    "validation.json": {
+      "exists": true,
+      "size_bytes": 460,
+      "json_readback_ok": true
+    }
+  },
+  "pack_type": "exhaustion",
+  "candidate_count": 0,
+  "summary_candidate_count": 0,
+  "metadata_candidate_count": 0,
+  "source_rows_fetched": 3609,
+  "source_rows_fetched_by_source": {
+    "national_heritage_list_for_england_nhle": 3408,
+    "historic_england_de_designated_sites": 201
+  },
+  "source_names": [
+    "National Heritage List for England (NHLE) open data",
+    "Historic England De-designated sites"
+  ],
+  "event_source_publishers": [
+    "Historic England"
+  ],
+  "supporting_boundary_source": {
+    "source_name": "ONS Regions December 2024 Boundaries EN BFC",
+    "publisher": "Office for National Statistics / Esri ArcGIS service",
+    "url": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Regions_December_2024_Boundaries_EN_BFC/FeatureServer/0",
+    "filter": "RGN24CD='E12000007'",
+    "use": "London region spatial inclusion test only, not event evidence."
+  },
+  "rejected_reason_counts": {
+    "existing_corpus_or_prior_pack_nhle_key": 3261,
+    "outside_ons_london_region": 347,
+    "existing_source_key": 1
+  },
+  "critical_interpretation_note": "These records are administrative heritage designation, listing, inscription, certificate/status-start or expiry, de-designation/removal, or amendment rows only. They are not evidence of construction, completion, demolition, opening, occupation, repair, condition, impact, prediction, simulation, or causation."
+}

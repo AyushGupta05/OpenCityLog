@@ -1,0 +1,480 @@
+{
+  "schema_version": "round376_belfast_official_architecture_sweep_next9.summary.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round376_belfast_official_architecture_sweep_next9",
+  "accepted_candidates": 2,
+  "candidate_count": 2,
+  "rejected_detail_count": 9,
+  "emitted_date_range": {
+    "min": "2025-01-15",
+    "max": "2026-05-11"
+  },
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "counts_by_year": {
+    "2025": 1,
+    "2026": 1
+  },
+  "counts_by_source_id": {
+    "bcc-giants-park-development-agreement-2025-round376": 1,
+    "clanmil-loftlines-dargan-house-first-residents-2026-round376": 1
+  },
+  "counts_by_milestone_type": {
+    "development_agreement_announced_by_landowner": 1,
+    "first_residents_reported_by_project_owner": 1
+  },
+  "sources_checked": 11,
+  "source_ids_checked": [
+    "clanmil-loftlines-dargan-house-first-residents-2026-round376",
+    "bcc-giants-park-development-agreement-2025-round376",
+    "bcc-belfast-agenda-progress-dargan-house-recheck-round376",
+    "bcc-physical-programme-update-2025-recheck-round376",
+    "bcc-live-major-applications-2025-05-06-recheck-round376",
+    "dfc-belfast-development-briefs-recheck-round376",
+    "dfi-active-travel-public-realm-recheck-round376",
+    "dfc-hed-list-changes-recheck-round376",
+    "bcc-regeneration-peaceplus-nrf-recheck-round376",
+    "bcc-strand-arts-centre-recheck-round376",
+    "bcc-housing-led-regeneration-recheck-round376"
+  ],
+  "dedupe": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_file_count": 602,
+    "prior_files_sample": [
+      {
+        "path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "bytes": 221125695
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round11.js",
+        "bytes": 45591
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round12.js",
+        "bytes": 49163
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round13.js",
+        "bytes": 26081
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round14.js",
+        "bytes": 25835
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round15.js",
+        "bytes": 26362
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round16.js",
+        "bytes": 26980
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round17.js",
+        "bytes": 27336
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260517_round18.js",
+        "bytes": 26545
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round100.js",
+        "bytes": 11672
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round101.js",
+        "bytes": 11856
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round102.js",
+        "bytes": 12691
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round103.js",
+        "bytes": 11736
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round104.js",
+        "bytes": 11530
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round105.js",
+        "bytes": 12833
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round19.js",
+        "bytes": 27089
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round20.js",
+        "bytes": 26895
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round21.js",
+        "bytes": 27177
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round22.js",
+        "bytes": 27467
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round23.js",
+        "bytes": 26944
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round24.js",
+        "bytes": 27303
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round25.js",
+        "bytes": 27187
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round26.js",
+        "bytes": 26303
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round27.js",
+        "bytes": 25958
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round28.js",
+        "bytes": 25951
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round29.js",
+        "bytes": 25887
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round30.js",
+        "bytes": 26019
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round31.js",
+        "bytes": 26468
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round32.js",
+        "bytes": 26053
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round33.js",
+        "bytes": 26415
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round34.js",
+        "bytes": 26573
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round35.js",
+        "bytes": 26012
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round36.js",
+        "bytes": 25702
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round37.js",
+        "bytes": 26113
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round38.js",
+        "bytes": 25300
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round39.js",
+        "bytes": 25836
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round40.js",
+        "bytes": 25712
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round41.js",
+        "bytes": 27943
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round42.js",
+        "bytes": 26266
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round43.js",
+        "bytes": 26623
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round44.js",
+        "bytes": 26945
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round45.js",
+        "bytes": 25975
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round46.js",
+        "bytes": 26371
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round47.js",
+        "bytes": 25859
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round48.js",
+        "bytes": 26734
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round49.js",
+        "bytes": 25584
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round50.js",
+        "bytes": 27296
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round51.js",
+        "bytes": 26466
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round52.js",
+        "bytes": 26790
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round53.js",
+        "bytes": 26863
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round54.js",
+        "bytes": 27544
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round55.js",
+        "bytes": 27231
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round56.js",
+        "bytes": 29468
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round57.js",
+        "bytes": 26881
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round58.js",
+        "bytes": 27346
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round59.js",
+        "bytes": 26012
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round60.js",
+        "bytes": 26131
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round61.js",
+        "bytes": 26643
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round62.js",
+        "bytes": 26882
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round63.js",
+        "bytes": 27122
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round64.js",
+        "bytes": 27565
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round65.js",
+        "bytes": 27223
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round66.js",
+        "bytes": 26300
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round67.js",
+        "bytes": 27159
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round68.js",
+        "bytes": 26996
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round69.js",
+        "bytes": 26396
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round70.js",
+        "bytes": 27916
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round71.js",
+        "bytes": 26924
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round72.js",
+        "bytes": 27749
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round73.js",
+        "bytes": 54962
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round74.js",
+        "bytes": 5574
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round75.js",
+        "bytes": 5759
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round76.js",
+        "bytes": 5762
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round77.js",
+        "bytes": 5763
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round78.js",
+        "bytes": 5605
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round79.js",
+        "bytes": 21155
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round80.js",
+        "bytes": 3470
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round81.js",
+        "bytes": 4310
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round82.js",
+        "bytes": 11917
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round83.js",
+        "bytes": 3743
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round84.js",
+        "bytes": 7954
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round85.js",
+        "bytes": 3080
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round86.js",
+        "bytes": 3853
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round87.js",
+        "bytes": 9937
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round88.js",
+        "bytes": 2890
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round89.js",
+        "bytes": 4488
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round90.js",
+        "bytes": 13616
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round91.js",
+        "bytes": 11504
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round92.js",
+        "bytes": 9991
+      },
+      {
+        "path": "scripts/append_architecture_batch_20260518_round93.js",
+        "bytes": 13739
+      }
+    ],
+    "candidate_overlap_terms_with_hits": [
+      "round376_belfast_dargan_house_first_residents_2026_05_11",
+      "dargan house welcomed first residents at loftlines",
+      "first residents move into historic loftlines development",
+      "clanmil-loftlines-dargan-house-first-residents-2026-round376",
+      "loft lines construction started in titanic quarter",
+      "loft lines",
+      "la04/2021/2280/f",
+      "queen's island / titanic quarter",
+      "titanic quarter belfast",
+      "round376_belfast_giants_park_development_agreement_2025_01_15",
+      "giant's park adventure-park development agreement was announced",
+      "major new adventure park moves a step closer as part of gbp100 million giant's park development",
+      "bcc-giants-park-development-agreement-2025-round376",
+      "north foreshore/giant's park adventure park application was current",
+      "la04/2024/2145/f",
+      "north foreshore",
+      "giant's park",
+      "dargan road"
+    ]
+  },
+  "validation": {
+    "schema_version": "round376_belfast_official_architecture_sweep_next9.validation.v1",
+    "generated_at": "2026-05-20",
+    "round_id": "round376_belfast_official_architecture_sweep_next9",
+    "status": "passed",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "checks": {
+      "json_payloads_constructed": true,
+      "required_candidate_fields": {
+        "status": "passed"
+      },
+      "date_window_scan": {
+        "status": "passed",
+        "start": "2008-01-01",
+        "end": "2026-05-20"
+      },
+      "belfast_coordinate_sanity": {
+        "status": "passed"
+      },
+      "confidence_values": {
+        "status": "passed"
+      },
+      "source_audit_present": {
+        "status": "passed"
+      },
+      "dedupe_against_manual_and_prior_belfast_packs": {
+        "status": "passed",
+        "prior_file_count": 602
+      },
+      "overclaim_scan": {
+        "status": "passed"
+      },
+      "candidate_cap_50": {
+        "status": "passed",
+        "candidate_count": 2
+      }
+    }
+  },
+  "output_files": {
+    "candidates": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/candidates.json",
+    "sourceAudit": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/source_audit.json",
+    "rejected": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/rejected.json",
+    "summary": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/summary.json",
+    "notes": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/notes.md",
+    "validation": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/validation.json",
+    "validationReport": "tmp/subagents/round376_belfast_official_architecture_sweep_next9/validation_report.json"
+  },
+  "conclusion": "Round376 added two cautious, provenance-rich Belfast built-environment candidates: Dargan House first residents and Giant's Park development-agreement announcement."
+}

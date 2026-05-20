@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "year": "2022",
+      "selectedYear": 2022,
+      "guide": 140,
+      "patches": 120,
+      "nodes": 19,
+      "hash": "ffc0547cf0d8"
+    },
+    {
+      "year": "2024",
+      "selectedYear": 2024,
+      "guide": 139,
+      "patches": 120,
+      "nodes": 18,
+      "hash": "4a852a24d3b3"
+    },
+    {
+      "year": "2026",
+      "selectedYear": 2026,
+      "guide": 1,
+      "patches": 0,
+      "nodes": 0,
+      "hash": "04d7b76f1cba"
+    }
+  ],
+  "unchanged": false
+}

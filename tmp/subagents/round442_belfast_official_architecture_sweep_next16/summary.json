@@ -1,0 +1,59 @@
+{
+  "accepted_ids": [
+    "bfs_arch_round442_musgrave_neurology_unit_sod_cutting_2010",
+    "bfs_arch_round442_rvh_critical_care_centre_topping_out_2011",
+    "bfs_arch_round442_rvh_macmillan_information_centre_opening_2010"
+  ],
+  "accessed_at": "2026-05-20",
+  "candidate_count": 3,
+  "candidate_date_range": {
+    "end": "2011-12-15",
+    "start": "2010-11-01"
+  },
+  "caveats": [
+    "Accepted records are source-specific administrative/opening/construction milestones only.",
+    "No unsourced coordinates were introduced; all accepted records use source-stated hospital/site references instead of invented points.",
+    "Official pages that duplicated existing delivered-stage events were retained in rejected.json, not as new events."
+  ],
+  "date_window": {
+    "end": "2026-05-20",
+    "start": "2008-01-01"
+  },
+  "duplicate_scan_file_count": 2195,
+  "generated_at": "2026-05-20",
+  "point_backed_count": 0,
+  "rejected_count": 6,
+  "rejected_ids": [
+    "round442_reject_belfast_zoo_visitor_centre_insufficient_actual_date",
+    "round442_reject_black_mountain_shared_space_duplicate",
+    "round442_reject_horatios_garden_official_opening_near_duplicate",
+    "round442_reject_ionad_na_fuiseoige_duplicate",
+    "round442_reject_nie_networks_sustainable_energy_lab_duplicate",
+    "round442_reject_sandy_row_arts_digital_hub_duplicate"
+  ],
+  "rejected_publishers": [
+    "Belfast City Council",
+    "Belfast Health and Social Care Trust",
+    "Department for Communities, Northern Ireland",
+    "Queen's University Belfast"
+  ],
+  "round_id": "round442_belfast_official_architecture_sweep_next16",
+  "search_queries_checked": [
+    "site:belfasttrust.hscni.net \"Topping Out Ceremony\" \"Critical Care Centre\"",
+    "site:belfasttrust.hscni.net \"Sod-Cutting Ceremony\" \"Neurology Unit\"",
+    "site:belfasttrust.hscni.net \"New Macmillan Information Centre Opens\"",
+    "site:belfasttrust.hscni.net Belfast Trust \"opens\" \"new\" \"centre\"",
+    "site:communities-ni.gov.uk/news Belfast \"officially opened\" \"new\" \"centre\"",
+    "site:belfastcity.gov.uk/news Belfast \"officially opened\" \"new\" \"building\"",
+    "prior local corpus scan: data/manual_drops, data/derived/2026, web/data/city-atlas/cities/belfast, tmp/subagents"
+  ],
+  "source_publishers": [
+    "Belfast Health and Social Care Trust"
+  ],
+  "source_urls": [
+    "https://belfasttrust.hscni.net/2010/11/01/new-macmillan-information-centre-opens/",
+    "https://belfasttrust.hscni.net/2010/12/13/sod-cutting-ceremony-at-new-neurology-unit/",
+    "https://belfasttrust.hscni.net/2011/12/15/topping-out-ceremony-at-critical-care-centre/"
+  ],
+  "validation_ok": true
+}

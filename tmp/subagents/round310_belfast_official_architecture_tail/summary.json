@@ -1,0 +1,247 @@
+{
+  "schema_version": "round310_belfast_official_architecture_tail.summary.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round310_belfast_official_architecture_tail",
+  "accepted_candidates": 0,
+  "candidate_count": 0,
+  "rejected_detail_count": 10,
+  "emitted_date_range": {
+    "min": null,
+    "max": null
+  },
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "sources_checked": 10,
+  "source_ids_checked": [
+    "bcc-current-planning-applications-round310",
+    "ni-planning-portal-public-register-round310",
+    "bcc-planning-committee-2026-05-19-round310",
+    "bcc-hed-listing-structures-report-2026-05-19-round310",
+    "bcc-hed-listing-structures-appendix-2026-05-19-round310",
+    "dfc-hed-changes-to-list-buildings-round310",
+    "dfc-hed-historic-buildings-arcgis-round310",
+    "bcc-city-centre-major-projects-round310",
+    "bcc-cathedral-gardens-round310",
+    "dfi-planning-statistics-2016-2025-round310"
+  ],
+  "lead_count_by_category": {
+    "duplicate_prior_record_and_no_official_point": 2,
+    "duplicate_or_mutable_current_list": 2,
+    "duplicate_prior_committee_record": 2,
+    "duplicate_project_page_status": 2,
+    "exhausted_prior_planning_tail": 1,
+    "source_checked_no_stable_export": 1
+  },
+  "source_mix_rejected": {
+    "dfc-hed-changes-to-list-buildings-round310": 2,
+    "bcc-current-planning-applications-round310": 2,
+    "bcc-hed-listing-structures-report-2026-05-19-round310": 1,
+    "bcc-hed-listing-structures-appendix-2026-05-19-round310": 1,
+    "bcc-city-centre-major-projects-round310": 1,
+    "bcc-cathedral-gardens-round310": 1,
+    "dfi-planning-statistics-2016-2025-round310": 1,
+    "ni-planning-portal-public-register-round310": 1
+  },
+  "dedupe": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_file_count": 163,
+    "prior_record_count": 81490,
+    "prior_files_sample": [
+      {
+        "path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "record_count": 49674
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round100.json",
+        "record_count": 3
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round101.json",
+        "record_count": 4
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round102.json",
+        "record_count": 0
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round103_civic.json",
+        "record_count": 1
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round103_culture.json",
+        "record_count": 3
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round103_heritage.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round104_civic.json",
+        "record_count": 4
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round104_institutions.json",
+        "record_count": 2
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round105_council_public_realm.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round105_heritage_restoration.json",
+        "record_count": 7
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round105_institutions_culture.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round106_health_education_civic.json",
+        "record_count": 6
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round106_hed_listings.json",
+        "record_count": 4
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round107_council_publicrealm_heritage.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round108_council_early_years.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round108_hed_institutions_retry.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round110_official.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round72.json",
+        "record_count": 18
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round73_extra.json",
+        "record_count": 20
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round75.json",
+        "record_count": 20
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round80.json",
+        "record_count": 18
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round82.json",
+        "record_count": 13
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round84.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round87.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round90.json",
+        "record_count": 1
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round92.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round94.json",
+        "record_count": 8
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round95.json",
+        "record_count": 15
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round96.json",
+        "record_count": 12
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round97.json",
+        "record_count": 9
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round98.json",
+        "record_count": 9
+      },
+      {
+        "path": "tmp/subagents/belfast_arch_candidates_round99.json",
+        "record_count": 4
+      },
+      {
+        "path": "tmp/subagents/round112_belfast_official_sources.json",
+        "record_count": 9
+      },
+      {
+        "path": "tmp/subagents/round113_belfast_official_candidates.json",
+        "record_count": 6
+      },
+      {
+        "path": "tmp/subagents/round114_belfast_planning_portal_architecture_records.json",
+        "record_count": 10
+      },
+      {
+        "path": "tmp/subagents/round115_belfast_hed_planning_official/belfast_hed_planning_candidates_round115.json",
+        "record_count": 12
+      },
+      {
+        "path": "tmp/subagents/round115_belfast_public_projects_codex/candidates.json",
+        "record_count": 31
+      },
+      {
+        "path": "tmp/subagents/round116_belfast_heritage_projects/candidates.json",
+        "record_count": 15
+      },
+      {
+        "path": "tmp/subagents/round116_belfast_planning_official/candidates.json",
+        "record_count": 12
+      }
+    ],
+    "indexed_application_refs": 14222,
+    "indexed_hb_family_keys": 153,
+    "indexed_source_record_ids": 51896
+  },
+  "validation": {
+    "schema_version": "round310_belfast_official_architecture_tail.validation.v1",
+    "generated_at": "2026-05-20",
+    "accessed_at": "2026-05-20",
+    "city_id": "belfast",
+    "round_id": "round310_belfast_official_architecture_tail",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "checked": {
+      "required_rejected_provenance": true,
+      "candidates_zero_for_exhaustion": true,
+      "source_audit_present": true,
+      "date_window": "2008-01-01..2026-05-20",
+      "dedupe_against_current_manual_and_prior_belfast_packs": true,
+      "overclaim_wording_scan": true
+    }
+  },
+  "output_files": {
+    "candidates": "tmp/subagents/round310_belfast_official_architecture_tail/candidates.json",
+    "sourceAudit": "tmp/subagents/round310_belfast_official_architecture_tail/source_audit.json",
+    "summary": "tmp/subagents/round310_belfast_official_architecture_tail/summary.json",
+    "notes": "tmp/subagents/round310_belfast_official_architecture_tail/notes.md",
+    "rejected": "tmp/subagents/round310_belfast_official_architecture_tail/rejected.json",
+    "validation": "tmp/subagents/round310_belfast_official_architecture_tail/validation.json",
+    "validationReport": "tmp/subagents/round310_belfast_official_architecture_tail/validation_report.json"
+  },
+  "conclusion": "Exhausted for Round310: official sources checked did not yield a clean new Belfast architecture row after dedupe and source-quality screening."
+}

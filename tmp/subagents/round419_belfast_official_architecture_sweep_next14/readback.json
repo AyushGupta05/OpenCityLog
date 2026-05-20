@@ -1,0 +1,72 @@
+{
+  "schema_version": "round419_belfast_official_architecture_sweep_next14.readback.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round419_belfast_official_architecture_sweep_next14",
+  "ok": true,
+  "output_files": [
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\candidates.json",
+      "bytes": 16545,
+      "sha256": "bd8235365982cbd850f68de65cc9bee24f963c28bcd6ee9bc611e33ce27bfa14",
+      "parse_ok": true,
+      "schema_version": "round419_belfast_official_architecture_sweep_next14.candidates.v1",
+      "count": 3
+    },
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\source_audit.json",
+      "bytes": 35742,
+      "sha256": "7abb0e9d834e036320ef0f8a064a03d3f7a60944eb5c80c12cb44fc1740252af",
+      "parse_ok": true,
+      "schema_version": "round419_belfast_official_architecture_sweep_next14.source_audit.v1",
+      "count": 14
+    },
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\summary.json",
+      "bytes": 2449,
+      "sha256": "2bb4a1c55bf1df95c8b2d5e4274d786d17fd7e0ea02ac1cbb7e53a6b34cfb89b",
+      "parse_ok": true,
+      "schema_version": "round419_belfast_official_architecture_sweep_next14.summary.v1",
+      "count": null
+    },
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\rejected.json",
+      "bytes": 67472,
+      "sha256": "ec2f88ea9fcf795bd3a2de808dcae1b34d1443bb4bc5cd81b13720d199cccc9d",
+      "parse_ok": true,
+      "schema_version": "round419_belfast_official_architecture_sweep_next14.rejected.v1",
+      "count": 11
+    },
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\validation.json",
+      "bytes": 60742,
+      "sha256": "62cf30eb2721a45fd218c429ff108b07725715ed6b2547706b7ffc486ec9ab8c",
+      "parse_ok": true,
+      "schema_version": "round419_belfast_official_architecture_sweep_next14.validation.v1",
+      "count": null
+    },
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\validation_report.json",
+      "bytes": 1774,
+      "sha256": "6cb51f9e49ab62fc76fc39a1f48f0f8122649d828c092b1028323f6c3226fd9a",
+      "parse_ok": true,
+      "schema_version": "round419_belfast_official_architecture_sweep_next14.validation_report.v1",
+      "count": null
+    },
+    {
+      "file": "tmp\\subagents\\round419_belfast_official_architecture_sweep_next14\\notes.md",
+      "bytes": 3769,
+      "sha256": "b15e63b042a13f830546e7289062ce05db443ed0bf52192de30c57a83b8e6b34",
+      "parse_ok": true,
+      "schema_version": null,
+      "count": null
+    }
+  ],
+  "parsed_counts": {
+    "candidates": 3,
+    "rejected": 11,
+    "source_audit_sources": 14,
+    "validation_ok": true
+  }
+}

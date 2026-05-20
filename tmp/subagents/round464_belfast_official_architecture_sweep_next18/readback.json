@@ -1,0 +1,46 @@
+{
+  "round_id": "round464_belfast_official_architecture_sweep_next18",
+  "accepted_event_ids": [
+    "bfs_arch_round464_ravenhill_avenue_flood_alleviation_complete_2023",
+    "bfs_arch_round464_upper_crescent_guest_house_lbc_2024",
+    "bfs_arch_round464_st_brides_primary_partial_demolition_consent_2024",
+    "bfs_arch_round464_hospital_road_admin_building_apartment_change_2024",
+    "bfs_arch_round464_highfield_community_centre_garden_approval_2024",
+    "bfs_arch_round464_fairholme_assisted_living_refurbishment_approval_2025",
+    "bfs_arch_round464_duncairn_gardens_church_kitchen_extension_2025",
+    "bfs_arch_round464_lombard_street_office_to_short_lets_approval_2025",
+    "bfs_arch_round464_andersonstown_social_club_extensions_approval_2025",
+    "bfs_arch_round464_springbank_road_factory_office_approval_2025"
+  ],
+  "rejected_ids": [
+    "bfs_arch_round464_reject_sandy_row_arts_digital_hub_duplicate_2026",
+    "bfs_arch_round464_reject_qub_reboot_gaming_hub_duplicate_2024",
+    "bfs_arch_round464_reject_qub_seamus_heaney_duplicate_2024",
+    "bfs_arch_round464_reject_qub_ireach_duplicate_2024",
+    "bfs_arch_round464_reject_ulster_virtual_production_duplicate_2022",
+    "bfs_arch_round464_reject_studio_ulster_opening_duplicate_2025",
+    "bfs_arch_round464_reject_grand_central_duplicate_2024",
+    "bfs_arch_round464_reject_belfast_harbour_city_quays_duplicate",
+    "bfs_arch_round464_reject_niwater_kinnegar_out_of_scope_2024",
+    "bfs_arch_round464_reject_old_see_house_duplicate_2016",
+    "bfs_arch_round464_reject_doh_ulster_hospital_out_of_scope",
+    "bfs_arch_round464_reject_dfc_harni_no_new_point_rows",
+    "bfs_arch_round464_reject_lockhouse_strand_prior_candidates"
+  ],
+  "point_backed_event_ids": [
+    "bfs_arch_round464_upper_crescent_guest_house_lbc_2024",
+    "bfs_arch_round464_st_brides_primary_partial_demolition_consent_2024",
+    "bfs_arch_round464_hospital_road_admin_building_apartment_change_2024",
+    "bfs_arch_round464_highfield_community_centre_garden_approval_2024",
+    "bfs_arch_round464_fairholme_assisted_living_refurbishment_approval_2025",
+    "bfs_arch_round464_duncairn_gardens_church_kitchen_extension_2025",
+    "bfs_arch_round464_lombard_street_office_to_short_lets_approval_2025",
+    "bfs_arch_round464_andersonstown_social_club_extensions_approval_2025",
+    "bfs_arch_round464_springbank_road_factory_office_approval_2025"
+  ],
+  "geometry_ref_only_event_ids": [
+    "bfs_arch_round464_ravenhill_avenue_flood_alleviation_complete_2023"
+  ],
+  "point_corpus_ready": false,
+  "validation_ok": true
+}

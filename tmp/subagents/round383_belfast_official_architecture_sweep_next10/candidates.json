@@ -1,0 +1,117 @@
+{
+  "schema_version": "round383_belfast_official_architecture_sweep_next10.candidates.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round383_belfast_official_architecture_sweep_next10",
+  "candidate_count": 1,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2026-03-23",
+    "max": "2026-03-23"
+  },
+  "source_ids": [
+    "dfi-dublin-botanic-active-travel-preliminary-engagement-2026-round383"
+  ],
+  "deduped_against": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_belfast_pack_rule": "All tmp/subagents and scripts files with Belfast/architecture or recent Belfast sweep names were screened; exact candidate terms were checked with rg.",
+    "prior_file_count": 424
+  },
+  "candidates": [
+    {
+      "city_id": "belfast",
+      "event_id": "round383_belfast_dublin_botanic_active_travel_prelim_engagement_2026_03_23",
+      "date": "2026-03-23",
+      "date_precision": "day",
+      "bucket": "planning/development/architecture/public-realm/active-travel",
+      "category": "public realm / active travel",
+      "title": "Dublin Road and Botanic Avenue active-travel preliminary engagement opened",
+      "summary": "Department for Infrastructure consultation page published on 23 March 2026 opened preliminary engagement for pedestrian and cycling improvements along Dublin Road, Shaftesbury Square and Botanic Avenue. The source describes a proposed Belfast Cycling Network route with a 3m cycle track, pedestrian footway changes, controlled crossings and Botanic Avenue public-realm improvements.",
+      "observed_change": "An official DfI consultation source recorded a preliminary engagement milestone for a proposed active-travel and public-realm corridor between Dublin Road and Botanic Avenue.",
+      "area": "Dublin Road / Shaftesbury Square / Botanic Avenue corridor",
+      "address_or_location": "Dublin Road, Shaftesbury Square and Botanic Avenue, Belfast",
+      "latitude": 54.5902,
+      "longitude": -5.9303,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.9303,
+          54.5902
+        ]
+      },
+      "geometry_ref": "Approximate corridor midpoint near Shaftesbury Square / Botanic Avenue.",
+      "geometry_source": "Manual approximate point derived from source-stated Dublin Road, Shaftesbury Square and Botanic Avenue corridor; not a surveyed route alignment.",
+      "geometry_precision": "approximate_corridor_midpoint",
+      "source_ids": [
+        "dfi-dublin-botanic-active-travel-preliminary-engagement-2026-round383"
+      ],
+      "source_name": "Dublin Road and Botanic Avenue Pedestrian and Cycling Improvements - Preliminary Engagement",
+      "source_url": "https://www.infrastructure-ni.gov.uk/consultations/dublin-road-and-botanic-avenue-pedestrian-and-cycling-improvements-preliminary-engagement",
+      "source_record_id": "DfI consultation page, published/opened 2026-03-23, closed 2026-04-10",
+      "source_type": "official department consultation page",
+      "source_date_field": "Consultation page opening/publication date",
+      "source_date_value": "2026-03-23",
+      "publisher": "Department for Infrastructure",
+      "license": "Crown copyright; DfI states reusable Crown copyright material on its site is available under the Open Government Licence, excluding logos and other exemptions.",
+      "license_url": "https://www.infrastructure-ni.gov.uk/articles/crown-copyright-infrastructure",
+      "attribution": "Department for Infrastructure",
+      "accessed_at": "2026-05-20",
+      "source_retrieved_at": "2026-05-20",
+      "confidence": "documented",
+      "project_type": "active-travel / public-realm corridor proposal",
+      "milestone_type": "preliminary_engagement_opened",
+      "architect": "Department for Infrastructure and scheme design team; the cited source does not name an architect.",
+      "limitations": "This is a preliminary engagement/proposal-stage record. It does not document statutory approval, final traffic order, works start, construction, completion, opening, usage, safety effects, modal shift, exact route geometry or as-built public realm.",
+      "caveats": "Use as an official consultation milestone only and keep separate from later statutory consultation, order, construction-start, completion or opening records.",
+      "duplicate_check_terms": [
+        "Dublin Road and Botanic Avenue",
+        "Botanic Avenue Pedestrian",
+        "Scheme No5",
+        "Shaftesbury Square",
+        "Belfast Cycling Network Delivery Plan"
+      ],
+      "duplicate_check_note": "Searched the manual corpus, prior Belfast candidate packs and Belfast scripts for the exact source title, Dublin Road and Botanic Avenue, Botanic Avenue pedestrian/cycling, Scheme No5 and related corridor terms. Existing hits were generic Dublin Road/Shaftesbury Square building or heritage records; no exact prior DfI active-travel preliminary-engagement row was found.",
+      "source_audit_note": "Official DfI page is suitable for the source-stated consultation milestone and proposed corridor scope. Physical delivery should wait for later DfI or council evidence.",
+      "transformation_method": "Round383 manual official/public sweep: DfI consultation page read; approximate corridor midpoint assigned; duplicate terms screened against manual corpus, tmp/subagents and scripts; fields normalized to Bims candidate format with proposal-stage caveats.",
+      "duplicate_or_overlap_hits": {
+        "total_unique_paths": 8,
+        "by_term": {
+          "Dublin Road and Botanic Avenue": {
+            "hit_count": 0,
+            "sample_paths": []
+          },
+          "Botanic Avenue Pedestrian": {
+            "hit_count": 0,
+            "sample_paths": []
+          },
+          "Scheme No5": {
+            "hit_count": 0,
+            "sample_paths": []
+          },
+          "Shaftesbury Square": {
+            "hit_count": 8,
+            "sample_paths": [
+              "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+              "tmp/subagents/belfast_arch_candidates_round105_heritage_restoration.json",
+              "tmp/subagents/belfast_arch_candidates_round73_extra.json",
+              "tmp/subagents/round115_belfast_public_projects_codex/candidates.json",
+              "tmp/subagents/round128_belfast_harni_spatial/candidates.json",
+              "tmp/subagents/round131_belfast_planning_statistics/candidates.json",
+              "tmp/subagents/round134_belfast_planning_statistics_deep/candidates.json",
+              "tmp/subagents/round281_belfast_official_planning_tail2/candidates.json"
+            ]
+          },
+          "Belfast Cycling Network Delivery Plan": {
+            "hit_count": 0,
+            "sample_paths": []
+          }
+        },
+        "interpretation": "Exact source-title and scheme-name terms were absent; generic Shaftesbury Square/Dublin Road hits were prior building, planning or heritage records rather than this DfI active-travel preliminary engagement."
+      }
+    }
+  ]
+}

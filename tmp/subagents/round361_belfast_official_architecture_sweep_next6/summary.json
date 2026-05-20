@@ -1,0 +1,45 @@
+{
+  "schema_version": "round361_belfast_official_architecture_sweep_next6.summary.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round361_belfast_official_architecture_sweep_next6",
+  "result": "one_candidate_emitted",
+  "candidate_count": 1,
+  "rejected_count": 8,
+  "source_audit_count": 7,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "accepted_date_range": {
+    "min": "2026-03-05",
+    "max": "2026-03-05"
+  },
+  "accepted_titles": [
+    "Weavers' Hall topping-out milestone was reported"
+  ],
+  "sources_checked": [
+    "Queen's University Belfast: Queen's and GRAHAM top-off Ireland's largest Passivhaus student accommodation",
+    "Queen's University Belfast: Weavers' Hall accommodation page",
+    "Queen's University Belfast Estates Directorate: Projects at Construction Stage",
+    "Queen's University Belfast Estates Directorate: Completed Projects",
+    "Belfast City Council / HED: Belfast Planning Committee HED listing notifications, 19 May 2026",
+    "Belfast City Council: current planning applications and recent 2026 Planning Committee packs",
+    "Queen's University Belfast / Belfast Region City Deal: Momentum One Zero construction-start sources",
+    "Belfast City Council: PEACEPLUS and Neighbourhood Regeneration Fund tail pages"
+  ],
+  "dedupe_notes": [
+    "Existing corpus contains the 2024 Weavers' Hall construction/enabling works start but not the Queen's 5 March 2026 topping-out/top-off milestone.",
+    "Existing corpus or prior Belfast packs already cover May 2026 HED listing notifications, Queen's completed-project rows, Momentum One Zero construction start, and 2026 live-planning rows checked in this pass.",
+    "Future Weavers' Hall opening/occupation language remains watchlist context only."
+  ],
+  "verification": {
+    "json_parse": "passed",
+    "required_candidate_fields": "passed",
+    "date_window_scan": "passed",
+    "overclaim_scan": "passed",
+    "dedupe_event_id_absent_from_manual": "passed",
+    "source_url_check": "passed_with_warning_qub_node_fetch_403_but_web_open_confirmed"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "stats": {
+    "sourceFeatures": 39,
+    "cells": 19,
+    "rendered": 987,
+    "sample": {
+      "type": "Feature",
+      "properties": {
+        "kind": "surface_cell",
+        "lens_id": "civic-catchment",
+        "surface_style": "catchment_patch",
+        "intensity": 0.521,
+        "color": "#2a84a6",
+        "event_id": "planning-planning-planning-statistics-2024-25-dataset-csv-10266",
+        "source_id": "ni-planning-statistics",
+        "score": 0.725
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -5.9377159,
+              54.5940275
+            ],
+            [
+              -5.9336849,
+              54.5940275
+            ],
+            [
+              -5.9336849,
+              54.5963789
+            ],
+            [
+              -5.9377159,
+              54.5963789
+            ],
+            [
+              -5.9377159,
+              54.5940275
+            ]
+          ]
+        ]
+      }
+    },
+    "zoom": 13.523878957798047,
+    "visibility": "visible"
+  },
+  "pageErrors": [],
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x5f54029e4000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x5f54029e4000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x5f54029e4000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x5f54029e4000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    }
+  ],
+  "actionable": []
+}

@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round477_belfast_official_architecture_sweep_next20",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "sources_checked": [
+    {
+      "source_id": "dfi-planning-statistics-2024-25-round477",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_dataset_url": "https://www.infrastructure-ni.gov.uk/system/files/2025-06/planning-statistics-2024-25-dataset.csv",
+      "source_type": "official annual planning-statistics CSV release",
+      "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+      "publisher_terms_url": "https://www.infrastructure-ni.gov.uk/terms-and-conditions",
+      "coverage_years": "2024-2025",
+      "geographic_scope": "Belfast planning authority rows in Northern Ireland planning statistics",
+      "granularity": "application-level administrative planning or statutory-consent decision with source Easting/Northing",
+      "reliability": "strong for administrative decision evidence; not physical-start, physical-completion or opening evidence",
+      "local_file": "data\\raw\\planning_statistics\\planning-statistics-2024-25-dataset.csv",
+      "local_file_sha256": "d0d91d1a3485183fd5bc047785d71044c71283dcd3460f43604bfe172fbcbf20",
+      "accepted_records": 20,
+      "accepted_app_ids": [
+        "LA04/2024/0841/F",
+        "LA04/2024/1508/F",
+        "LA04/2024/0367/F",
+        "LA04/2024/0611/F",
+        "LA04/2024/1362/F",
+        "LA04/2024/1572/F",
+        "LA04/2023/3238/F",
+        "LA04/2024/1120/LBC",
+        "LA04/2024/0875/LBC",
+        "LA04/2023/4143/F",
+        "LA04/2023/2338/F",
+        "LA04/2024/1126/LBC",
+        "LA04/2024/1626/LBC",
+        "LA04/2024/1768/LBC",
+        "LA04/2024/1414/F",
+        "LA04/2024/1438/F",
+        "LA04/2024/1524/F",
+        "LA04/2023/4240/F",
+        "LA04/2024/1516/F",
+        "LA04/2023/4607/F"
+      ],
+      "accepted_related_app_ids": [
+        "LA04/2024/1509/DCA",
+        "LA04/2024/1618/LBC",
+        "LA04/2024/1517/LBC"
+      ],
+      "disposition": "accepted curated residual Belfast planning/statutory-consent rows with official Easting/Northing after manual/corpus/prior-pack duplicate review through Round472"
+    },
+    {
+      "source_id": "round477-reject-university_road_same_address_prior_context_2024",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "same_address_prior_context_not_promoted",
+      "reason": "The 2024 listed-building-consent row is point-backed, but the same 7 University Road address is already represented in the manual/prior Belfast architecture corpus for an earlier planning event. It was retained separately to keep the promoted next20 set strict."
+    },
+    {
+      "source_id": "round477-reject-private_domestic_minor_rows",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "not_architecture_atlas_priority",
+      "reason": "The DfI CSV contains many point-backed Belfast rows for individual dwelling extensions, garages, dormers, boundary walls and minor domestic demolitions. These were not promoted to this official architecture atlas pack."
+    },
+    {
+      "source_id": "round477-reject-bus_shelter_street_furniture_rows",
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "source_type": "official annual planning-statistics CSV release",
+      "disposition": "not_architecture_atlas_priority",
+      "reason": "Several DfI planning-statistics rows have source points but concern bus shelters, signs or street furniture rather than an architecture/building consent milestone for this pack."
+    },
+    {
+      "source_id": "round477-reject-harni_hed_status_only_no_new_physical_change",
+      "source_name": "Historic Environment Division GIS Data",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "source_type": "official ArcGIS feature service",
+      "disposition": "source_status_only",
+      "reason": "HED spatial layers are strong for official heritage status and location, but status/listing/visit dates do not document a new physical architecture-change milestone for this point-event pack."
+    },
+    {
+      "source_id": "round477-reject-assembly_rooms_page_only_round472_boundary",
+      "source_name": "Council agrees to purchase Assembly Rooms as city centre regeneration continues",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/News/Council-agrees-to-purchase-Assembly-Rooms-as-city",
+      "source_type": "official council news page",
+      "disposition": "page_only_or_duplicate_prior_review",
+      "reason": "Belfast City Council's Assembly Rooms page remains a property/future-use lead already handled at the Round472 boundary; it does not add a new source-backed point event for this pack."
+    },
+    {
+      "source_id": "round477-reject-niwater_shore_road_geometry_ref_only_round472_boundary",
+      "source_name": "Next phase of Shore Road sewer relining works gets underway",
+      "publisher": "Northern Ireland Water",
+      "source_url": "https://www.niwater.com/about-us/news/2025/next-phase-of-shore-road-sewer-relining-works-gets-underway",
+      "source_type": "official NI Water news page",
+      "disposition": "geometry_ref_only_not_point_ready",
+      "reason": "NI Water's Shore Road relining source describes an area/route rather than a reusable official point or boundary; Round477 keeps it out of the point-only promoted set."
+    },
+    {
+      "source_id": "round477-reject-qub_weavers_hall_future_duplicate_round472_boundary",
+      "source_name": "Weavers' Hall",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/accommodation/student-accommodation/new-development/",
+      "source_type": "official university accommodation page",
+      "disposition": "future_or_duplicate_not_accepted",
+      "reason": "The official QUB page is a future/duplicate planning-context lead already reviewed at Round472; it was not treated as a distinct completed observed change or point-ready administrative event here."
+    }
+  ],
+  "search_queries_checked": [
+    "local DfI planning-statistics 2024-25 Belfast residual APP_ID scan after Round472 accepted-pack dedupe",
+    "local duplicate scan: data/manual_drops/architecture_milestones plus prior tmp Belfast candidates through round472",
+    "source review: DfI planning activity statistics and 2024/25 annual dataset",
+    "source review: Belfast City Council official project/news page-only leads already rejected at the Round472 boundary",
+    "source review: HED/HARNI heritage feature service status-only rows",
+    "source review: NI Water official page geometry-ref-only utility lead"
+  ],
+  "duplicate_scan": {
+    "roots": [
+      "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "tmp/subagents Belfast accepted candidate packs through round472"
+    ],
+    "files_checked": 96,
+    "app_id_count": 1852,
+    "source_record_id_count": 1851,
+    "event_id_count": 3554,
+    "url_count": 58097,
+    "sampled_chars": 4998709,
+    "note": "Duplicate scan is conservative and text-based over the manual architecture corpus and prior accepted Belfast candidate packs through Round472; generated web/data atlas outputs are not treated as source-of-truth blockers."
+  },
+  "source_assessment": [
+    {
+      "source_name": "Northern Ireland planning statistics 2024/25 annual dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "reliability": "strong for administrative decision evidence; not physical-start, physical-completion or opening evidence",
+      "required_caveat": "Rows support administrative planning/statutory-consent evidence only. They do not demonstrate built completion, opening, occupation, service delivery or outcomes.",
+      "ingestion_recommendation": "Point-backed review candidates may be promoted only if the atlas accepts planning/statutory-consent milestones and carries the administrative-status limitations inline."
+    },
+    {
+      "source_name": "Belfast City Council project/news pages",
+      "publisher": "Belfast City Council",
+      "reliability": "usable with caveats",
+      "required_caveat": "Council pages can document starts/completions/acquisitions but often lack reusable source points or duplicate existing corpus events.",
+      "ingestion_recommendation": "Use as project evidence only where source dates and geometry are adequate; otherwise retain as page-only/review leads."
+    },
+    {
+      "source_name": "Historic Environment Division GIS Data",
+      "publisher": "Department for Communities Historic Environment Division",
+      "reliability": "strong for heritage status/location; risky for physical-change dating",
+      "required_caveat": "Status/listing dates and visit dates are not construction, repair or completion dates.",
+      "ingestion_recommendation": "Do not emit physical-change candidates from status-only HED rows without a separate dated works source."
+    },
+    {
+      "source_name": "Northern Ireland Water project/news pages",
+      "publisher": "Northern Ireland Water",
+      "reliability": "usable with caveats",
+      "required_caveat": "Route/area works pages must not be promoted to point events without an official point or boundary.",
+      "ingestion_recommendation": "Retain geometry-ref-only utility leads separately unless source-backed point geometry is exposed."
+    }
+  ],
+  "caveats": [
+    "All accepted candidates are administrative planning/statutory-consent records, not physical start, completion, opening or occupation evidence.",
+    "All accepted candidates are point-backed by official Easting/Northing fields; WGS84 latitude/longitude uses the repo's established lightweight Belfast review transform and is approximate.",
+    "No accepted candidate uses invented coordinates or generic geocoding.",
+    "Rejected official pages and rows include duplicates, lower-priority domestic rows, street-furniture rows, page-only leads, geometry-ref-only route/area leads and status-only heritage sources.",
+    "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "summaries": [
+    {
+      "year": 2022,
+      "visibleText": "3503",
+      "layersCount": "7/7 on",
+      "lensDataState": "Cells + footprints + 1441 sites",
+      "lensDetailYearLoaded": 2022,
+      "guideStats": {
+        "cells": 2288,
+        "renderedCells": 2368,
+        "byStatus": {
+          "completed": 792,
+          "uncertain": 153,
+          "demolished": 125,
+          "permitted": 121,
+          "proposed": 32,
+          "construction": 5,
+          "unknown": 1060
+        },
+        "center": [
+          -5.928271999999993,
+          54.59364200000002
+        ],
+        "zoom": 14.682164350375034
+      }
+    },
+    {
+      "year": 2024,
+      "visibleText": "4794",
+      "layersCount": "7/7 on",
+      "lensDataState": "Cells + footprints + 1483 sites",
+      "lensDetailYearLoaded": 2024,
+      "guideStats": {
+        "cells": 2325,
+        "renderedCells": 2411,
+        "byStatus": {
+          "completed": 611,
+          "demolished": 180,
+          "permitted": 131,
+          "construction": 17,
+          "uncertain": 165,
+          "planned": 40,
+          "unknown": 1181
+        },
+        "center": [
+          -5.939100000000053,
+          54.594300000000004
+        ],
+        "zoom": 14.682141041714779
+      }
+    },
+    {
+      "year": 2026,
+      "visibleText": "2399",
+      "layersCount": "7/7 on",
+      "lensDataState": "Cells + footprints + 144 sites",
+      "lensDetailYearLoaded": 2026,
+      "guideStats": {
+        "cells": 2627,
+        "renderedCells": 2725,
+        "byStatus": {
+          "uncertain": 139,
+          "permitted": 50,
+          "demolished": 138,
+          "planned": 31,
+          "construction": 17,
+          "completed": 129,
+          "proposed": 84,
+          "unknown": 2039
+        },
+        "center": [
+          -5.93240000000003,
+          54.593699999999984
+        ],
+        "zoom": 14.682162295835058
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x304c001aae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x304c001aae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x304c001aae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "type": "warning",
+      "text": "[.WebGL-0x304c001aae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    }
+  ],
+  "actionable": []
+}

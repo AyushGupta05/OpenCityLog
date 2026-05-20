@@ -1,0 +1,285 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round402_belfast_official_architecture_sweep_next12",
+  "sources": [
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "The page contains anticipated completion wording and ministerial value statements; Round402 uses only the documented start-stage facts and does not infer outcomes.",
+      "content_type": "text/html; charset=UTF-8",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Department of Education capital-build milestone for Elmgrove Primary School, Belfast.",
+      "key_fields_used": [
+        "Date published",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "linked_candidate_ids": [
+        "bfs_arch_round402_elmgrove_primary_first_sod_2021"
+      ],
+      "marker_terms_checked": [
+        "Work begins on new",
+        "East Belfast Primary School",
+        "Date published",
+        "28 April 2021",
+        "Elmgrove Primary School",
+        "cut the first sod",
+        "construction work"
+      ],
+      "publisher": "Department of Education, Northern Ireland",
+      "recommendation": "accept_for_candidate_pack_with_limitations",
+      "reliability": "High for the source-published construction-start/sod-cut milestone and named project scope.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "de-elmgrove-primary-first-sod-2021-round402",
+      "source_name": "Work begins on new GBP12.6 million East Belfast Primary School",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/work-begins-new-ps126-million-east-belfast-primary-school",
+      "temporal_coverage": "2021-04-28"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "The source states anticipated completion in 2026; Round402 records only the 2025 next-phase milestone and does not claim completion, opening or education outcomes.",
+      "content_type": "text/html; charset=UTF-8",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Department of Education capital-project progress milestone for Scoil an Droichid Primary School and Nursery Unit, Belfast.",
+      "key_fields_used": [
+        "Date published",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "linked_candidate_ids": [
+        "bfs_arch_round402_scoil_an_droichid_next_phase_2025"
+      ],
+      "marker_terms_checked": [
+        "Scoil an Droichid",
+        "Date published",
+        "21 October 2025",
+        "next phase of construction",
+        "former Ulidia Resource Centre",
+        "Connolly & Fee"
+      ],
+      "publisher": "Department of Education, Northern Ireland",
+      "recommendation": "accept_for_candidate_pack_with_limitations",
+      "reliability": "High for the source-published site visit, progress-stage wording, project scope and former Ulidia Resource Centre location.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "de-scoil-an-droichid-next-phase-2025-round402",
+      "source_name": "Education Minister marks next phase of construction work at Scoil an Droichid Primary School and Nursery Unit",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-marks-next-phase-construction-work-scoil-droichid-primary-school-and-nursery-unit",
+      "temporal_coverage": "2025-10-21"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "A Notice to Mariners records planned works and exclusion arrangements; it is not completion/opening evidence and should be checked against later harbour notices for changes.",
+      "content_type": "application/pdf",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Notice to Mariners covering Belfast Harbour Marina expansion works, including piling, pontoon installation and associated marine construction activities.",
+      "key_fields_used": [
+        "notice date",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Belfast Harbour website copyright/terms; official notice cited for provenance, not reused as open data",
+      "license_url": "https://www.belfast-harbour.co.uk/terms-conditions/",
+      "linked_candidate_ids": [
+        "bfs_arch_round402_belfast_harbour_marina_expansion_notice_2025"
+      ],
+      "marker_terms_checked": [
+        "No.19 of 2025",
+        "Marina Expansion Works",
+        "Belfast Harbour Marina",
+        "pontoon installation",
+        "January 2026",
+        "14th October 2025"
+      ],
+      "publisher": "Belfast Harbour",
+      "recommendation": "accept_for_candidate_pack_with_limitations",
+      "reliability": "High for navigation-safety notice date, works window and described marine works.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "belfast-harbour-marina-expansion-notice-2025-round402",
+      "source_name": "No.19 of 2025 - Marina Expansion Works - Belfast Harbour Marina",
+      "source_type": "official harbour authority notice to mariners PDF",
+      "source_url": "https://www.belfast-harbour.co.uk/wp-content/uploads/2025/10/No.19-of-2025-%E2%80%93-Marina-Expansion-Belfast-Harbour-Marina.pdf",
+      "temporal_coverage": "2025-10-14"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "This is a programme-stage announcement, not evidence that site works had physically started or that later works were completed.",
+      "content_type": "text/html; charset=UTF-8",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Department of Education announcement that named major works and school enhancement projects, including two Belfast primary schools, progress to construction stage.",
+      "key_fields_used": [
+        "Date published",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "linked_candidate_ids": [
+        "bfs_arch_round402_our_lady_of_lourdes_construction_stage_release_2026",
+        "bfs_arch_round402_st_brides_construction_stage_release_2026"
+      ],
+      "marker_terms_checked": [
+        "Date published",
+        "29 April 2026",
+        "progress to construction stage",
+        "Our Lady of Lourdes Primary School Belfast",
+        "St Bride",
+        "school enhancement projects"
+      ],
+      "publisher": "Department of Education, Northern Ireland",
+      "recommendation": "accept_for_candidate_pack_with_limitations",
+      "reliability": "High for the source-published administrative release-to-construction-stage milestone and school names.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "de-schools-progress-construction-stage-2026-round402",
+      "source_name": "Education Minister announces school building projects to progress to construction stage",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-announces-school-building-projects-progress-construction-stage",
+      "temporal_coverage": "2026-04-29"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "The source includes anticipated completion in 2028; Round402 records only the 2026 construction-start milestone and does not claim completion/opening or outcomes.",
+      "content_type": "text/html; charset=UTF-8",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Department of Education capital-project sod-cut/start-stage milestone for Glenwood Primary School, Belfast.",
+      "key_fields_used": [
+        "Date published",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "linked_candidate_ids": [
+        "bfs_arch_round402_glenwood_primary_construction_start_2026"
+      ],
+      "marker_terms_checked": [
+        "Glenwood Primary School",
+        "Date published",
+        "13 May 2026",
+        "cut the first sod",
+        "Construction began in February 2026",
+        "Bell Contracts Limited"
+      ],
+      "publisher": "Department of Education, Northern Ireland",
+      "recommendation": "accept_for_candidate_pack_with_limitations",
+      "reliability": "High for the source-published sod-cut, construction-began date and named design/contractor team.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "de-glenwood-primary-first-sod-2026-round402",
+      "source_name": "Education Minister marks start of construction at Glenwood Primary School",
+      "source_type": "official government news page",
+      "source_url": "https://www.education-ni.gov.uk/news/education-minister-marks-start-construction-glenwood-primary-school",
+      "temporal_coverage": "2026-05-13"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "Do not ingest from the search snippet alone; requires a live official archive or another official record.",
+      "content_type": "text/html; charset=UTF-8",
+      "fetch_ok": false,
+      "fetch_status": 404,
+      "geographic_scope": "Indexed Department of Education result for McArthur Hall refurbishment at Methodist College.",
+      "key_fields_used": [
+        "Date published",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "linked_candidate_ids": [],
+      "marker_terms_checked": [],
+      "publisher": "Department of Education, Northern Ireland",
+      "recommendation": "audit_or_reject_only_do_not_ingest_as_candidate",
+      "reliability": "Potentially high if source can be recovered, but Round402 rejected it because the official URL returned HTTP 404 during validation.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "de-methodist-college-mcarthur-hall-2016-search-only-round402",
+      "source_name": "Work begins on GBP4million project at Methodist College",
+      "source_type": "official government news page indexed by web search, currently not fetchable",
+      "source_url": "https://www.education-ni.gov.uk/news/work-begins-ps4million-project-methodist-college",
+      "temporal_coverage": "2016-12-15"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "Rejected as duplicate because Lockhouse garden opening, redevelopment start and planning-stage records are already in the live corpus.",
+      "content_type": "text/html; charset=utf-8",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Lockhouse / LORAG shared-space redevelopment works-start source.",
+      "key_fields_used": [
+        "Date",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Belfast City Council website terms; cited for audit only",
+      "license_url": "https://www.belfastcity.gov.uk/terms-and-conditions",
+      "linked_candidate_ids": [],
+      "marker_terms_checked": [],
+      "publisher": "Belfast City Council",
+      "recommendation": "audit_or_reject_only_do_not_ingest_as_candidate",
+      "reliability": "High for source date and project-stage description.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "bcc-lockhouse-work-begins-2024-duplicate-round402",
+      "source_name": "Work begins on GBP2.9m shared space project in south Belfast",
+      "source_type": "official council news page",
+      "source_url": "https://www.belfastcity.gov.uk/News/Work-begins-on-%C2%A32-9m-shared-space-project-in-south",
+      "temporal_coverage": "2024-05-01"
+    },
+    {
+      "accessed_at": "2026-05-20",
+      "caveats": "Rejected as duplicate because Assembly Rooms agreement/completion/repair-stage records are already in the live corpus and prior sweeps.",
+      "content_type": "text/html; charset=utf-8",
+      "fetch_ok": true,
+      "fetch_status": 200,
+      "geographic_scope": "Assembly Rooms acquisition completion source.",
+      "key_fields_used": [
+        "Date",
+        "project/site name",
+        "publisher",
+        "source URL",
+        "project-stage wording",
+        "location text"
+      ],
+      "license": "Belfast City Council website terms; cited for audit only",
+      "license_url": "https://www.belfastcity.gov.uk/terms-and-conditions",
+      "linked_candidate_ids": [],
+      "marker_terms_checked": [],
+      "publisher": "Belfast City Council",
+      "recommendation": "audit_or_reject_only_do_not_ingest_as_candidate",
+      "reliability": "High for source date and acquisition description.",
+      "round_id": "round402_belfast_official_architecture_sweep_next12",
+      "source_id": "bcc-assembly-rooms-purchase-2025-duplicate-round402",
+      "source_name": "Council purchases Belfast's historic Assembly Rooms",
+      "source_type": "official council news page",
+      "source_url": "https://www.belfastcity.gov.uk/News/Council-purchases-Belfast-s-historic-Assembly-Room",
+      "temporal_coverage": "2025-10-24"
+    }
+  ]
+}

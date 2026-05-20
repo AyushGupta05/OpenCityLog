@@ -1,0 +1,194 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round464_belfast_official_architecture_sweep_next18",
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "sources_checked": [
+    {
+      "source_id": "dfi-planning-statistics-2024-25-round464",
+      "source_name": "Northern Ireland planning activity statistics 2024-25 dataset",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "source_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+      "source_type": "official annual planning-statistics CSV release",
+      "license": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0 where applicable.",
+      "publisher_terms_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": "2024-2025",
+      "geographic_scope": "Belfast planning authority rows in Northern Ireland planning statistics",
+      "granularity": "application-level administrative planning decision with source Easting/Northing",
+      "reliability": "strong for administrative decision evidence; not physical-completion evidence",
+      "local_file": "data\\raw\\planning_statistics\\planning-statistics-2024-25-dataset.csv",
+      "local_file_sha256": "d0d91d1a3485183fd5bc047785d71044c71283dcd3460f43604bfe172fbcbf20",
+      "accepted_records": 9,
+      "disposition": "accepted selected residual Belfast application rows with source Easting/Northing after duplicate review"
+    },
+    {
+      "source_id": "niwater-ravenhill-avenue-flood-alleviation-complete-2023-round464",
+      "source_name": "GBP7 Million Ravenhill Avenue Flood Alleviation Project Complete",
+      "publisher": "Northern Ireland Water",
+      "source_url": "https://www.niwater.com/about-us/news/2023/7-million-ravenhill-avenue-flood-alleviation-project-complete",
+      "source_type": "official NI Water news page",
+      "license": "Northern Ireland Water website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+      "license_url": "https://www.niwater.com/site-information",
+      "attribution": "Northern Ireland Water",
+      "publisher_terms_url": "https://www.niwater.com/site-information",
+      "coverage_years": "2023",
+      "geographic_scope": "Ravenhill Avenue area, south Belfast",
+      "granularity": "area-level project completion; no source coordinate extracted",
+      "reliability": "strong for completion/source-date evidence; geometry_ref-only for atlas review",
+      "accepted_records": 1,
+      "disposition": "accepted as geometry_ref-only Belfast infrastructure completion evidence; not point-corpus-ready"
+    },
+    {
+      "source_id": "round464-reject-sandy_row_arts_digital_hub_duplicate_2026",
+      "source_name": "Boost for Sandy Row as new Arts & Digital Hub opens",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/news/boost-for-sandy-row-as-new-arts-digital-hub-opens",
+      "source_type": "official council news page",
+      "disposition": "duplicate",
+      "reason": "Already present in the live Belfast event corpus and noted as a duplicate in Round442/Round452; not re-emitted."
+    },
+    {
+      "source_id": "round464-reject-qub_reboot_gaming_hub_duplicate_2024",
+      "source_name": "Groundbreaking games hub to 'console' geeks at Queen's",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2024/new-games-hub-launch.html",
+      "source_type": "official university news page",
+      "disposition": "duplicate",
+      "reason": "The Reboot gaming hub already appears in the manual/live Belfast architecture corpus and prior tmp candidate packs."
+    },
+    {
+      "source_id": "round464-reject-qub_seamus_heaney_duplicate_2024",
+      "source_name": "New chapter for the Seamus Heaney Centre at Queen's as it opens landmark building",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2024/new-chapter-for-seamus-heaney-centre.html",
+      "source_type": "official university news page",
+      "disposition": "duplicate",
+      "reason": "Already represented in the manual/live corpus and earlier Belfast public-project packs; no new source-supported point was added here."
+    },
+    {
+      "source_id": "round464-reject-qub_ireach_duplicate_2024",
+      "source_name": "Significant progress made on Queen's innovation centres in 2024",
+      "publisher": "Queen's University Belfast",
+      "source_url": "https://www.qub.ac.uk/about/belfast-region-city-deal/news/significant-progress-made-on-Queens-innovation-centres-in-2024.html",
+      "source_type": "official university project/news page",
+      "disposition": "duplicate",
+      "reason": "iREACH planning approval and construction-start milestones already appear in the live corpus and Round431/Round372/Round353 prior sweep materials."
+    },
+    {
+      "source_id": "round464-reject-ulster_virtual_production_duplicate_2022",
+      "source_name": "Lyons launches GBP1.6m Virtual Production Studio at Ulster University",
+      "publisher": "Department for the Economy, Northern Ireland",
+      "source_url": "https://www.economy-ni.gov.uk/news/lyons-launches-ps16m-virtual-production-studio-ulster-university",
+      "source_type": "official department news page",
+      "disposition": "duplicate",
+      "reason": "The Department for the Economy / Ulster University virtual-production studio launch is already present in the live corpus/source registry."
+    },
+    {
+      "source_id": "round464-reject-studio_ulster_opening_duplicate_2025",
+      "source_name": "Titanic Sinks Tonight showcases Studio Ulster's cutting-edge virtual production and skills development",
+      "publisher": "Ulster University",
+      "source_url": "https://www.ulster.ac.uk/news/2026/february/titanic-sinks-tonight-showcases-studio-ulsters-cutting-edge-virtual-production-and-skills-development",
+      "source_type": "official university news page",
+      "disposition": "duplicate",
+      "reason": "Studio Ulster official-opening evidence is already in the live Belfast corpus; this sweep found no newer, distinct point-backed architecture event."
+    },
+    {
+      "source_id": "round464-reject-grand_central_duplicate_2024",
+      "source_name": "Belfast Grand Central Station - Enabling Work",
+      "publisher": "Translink",
+      "source_url": "https://www.translink.co.uk/about-translink/media/press-releases/bgcsupdates/bgcsworks",
+      "source_type": "official transport operator project page",
+      "disposition": "duplicate",
+      "reason": "Translink Grand Central / Great Victoria Street / York Street station milestones are already present in the live corpus and source registry."
+    },
+    {
+      "source_id": "round464-reject-belfast_harbour_city_quays_duplicate",
+      "source_name": "Approval granted for GBP60m City Quays 5 Development",
+      "publisher": "Belfast Harbour Commissioners",
+      "source_url": "https://www.belfast-harbour.co.uk/news/approval-granted-for-60m-city-quays-5-development/",
+      "source_type": "official harbour news page",
+      "disposition": "duplicate",
+      "reason": "City Quays, Harbour Studios and related Belfast Harbour milestones are already extensively represented in the live corpus and earlier official sweep packs."
+    },
+    {
+      "source_id": "round464-reject-niwater_kinnegar_out_of_scope_2024",
+      "source_name": "Lagan Group Completes Wastewater Contract at Kinnegar for NI Water",
+      "publisher": "Northern Ireland Water",
+      "source_url": "https://www.niwater.com/about-us/news/2024/lagan-group-completes-wastewater-contract-at-kinnegar-for-ni-water",
+      "source_type": "official NI Water news page",
+      "disposition": "out_of_scope_location",
+      "reason": "Official NI Water source concerns Kinnegar, Holywood/County Down. It serves parts of East Belfast but the works location is outside the Belfast city corpus boundary for this round."
+    },
+    {
+      "source_id": "round464-reject-old_see_house_duplicate_2016",
+      "source_name": "New mental health services resource centre to benefit Belfast Trust patients",
+      "publisher": "Department of Health, Northern Ireland",
+      "source_url": "https://www.health-ni.gov.uk/news/new-mental-health-services-resource-centre-benefit-belfast-trust-patients-oneill",
+      "source_type": "official department news page",
+      "disposition": "duplicate",
+      "reason": "The Department of Health opening record is already represented in the live/manual Belfast corpus; no new source coordinate was needed."
+    },
+    {
+      "source_id": "round464-reject-doh_ulster_hospital_out_of_scope",
+      "source_name": "Minister Swann Opens GBP115m Ulster Hospital's New Acute Services Block",
+      "publisher": "Department of Health, Northern Ireland",
+      "source_url": "https://www.health-ni.gov.uk/news/minister-swann-opens-ps115m-ulster-hospitals-new-acute-services-block",
+      "source_type": "official department news page",
+      "disposition": "out_of_scope_location",
+      "reason": "Official Department of Health records are in Dundonald, outside the Belfast city scope used for this corpus round."
+    },
+    {
+      "source_id": "round464-reject-dfc_harni_no_new_point_rows",
+      "source_name": "Historic Environment Division GIS Data",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "source_type": "official ArcGIS feature service",
+      "disposition": "source_exhausted_or_status_only",
+      "reason": "Current HARNI/HED ArcGIS layers provide official point/status rows but prior sweep/manifests already cover Belfast HARNI status gaps; Date_Added/status fields are not physical construction or repair dates."
+    },
+    {
+      "source_id": "round464-reject-lockhouse_strand_prior_candidates",
+      "source_name": "Work begins on GBP2.9m shared space project in south Belfast",
+      "publisher": "Belfast City Council",
+      "source_url": "https://www.belfastcity.gov.uk/News/Work-begins-on-%C2%A32-9m-shared-space-project-in-south",
+      "source_type": "official council news page",
+      "disposition": "duplicate_prior_tmp_pack",
+      "reason": "Lockhouse planning/start evidence and Strand Arts Centre restoration-in-progress evidence already appear in earlier Belfast public-project candidate packs; not re-emitted."
+    }
+  ],
+  "search_queries_checked": [
+    "site:belfastcity.gov.uk Belfast \"opened\" \"2026\" \"building\" \"Belfast City Council\"",
+    "site:belfastcity.gov.uk \"work underway\" \"Strand Arts Centre\" Belfast \"2025\"",
+    "site:communities-ni.gov.uk Belfast \"officially opened\" \"2025\" \"building\"",
+    "site:health-ni.gov.uk Belfast \"officially opened\" \"Belfast City Hospital\" \"new\"",
+    "site:qub.ac.uk Belfast \"officially opened\" \"2025\" \"Queen's University\"",
+    "site:ulster.ac.uk Belfast campus \"officially opened\" \"2025\"",
+    "site:translink.co.uk Belfast \"officially opened\" \"new\" \"station\" \"2025\"",
+    "site:belfast-harbour.co.uk Belfast \"opened\" \"2025\" \"new\" \"building\"",
+    "site:niwater.com Belfast \"completed\" \"2024\" \"NI Water\"",
+    "DfI planning-statistics 2024-25 local CSV scan for Belfast APP_ID rows with source Easting/Northing and no accepted live/prior candidate match",
+    "local duplicate scan: data/manual_drops, data/derived/2026, web/data/city-atlas/cities/belfast, tmp/subagents through round452"
+  ],
+  "duplicate_scan": {
+    "roots": [
+      "data/manual_drops",
+      "data/derived/2026",
+      "web\\data\\city-atlas\\cities\\belfast",
+      "tmp\\subagents"
+    ],
+    "files_checked": 2365,
+    "app_id_count": 14229,
+    "url_count": 91281,
+    "note": "Duplicate scan is conservative and text-based. Accepted APP_IDs were absent from accepted live/manual records and prior official sweep candidates; prior rejection-only appearances were not treated as duplicates."
+  },
+  "caveats": [
+    "Planning-statistics candidates are administrative decision records only, not construction/completion/opening evidence.",
+    "Point coordinates are source-supported by official Easting/Northing fields but WGS84 latitude/longitude uses the repo's established lightweight Belfast transform; points are approximate navigation geometry.",
+    "NI Water Ravenhill is geometry_ref-only and should stay out of the point-only corpus until an official source coordinate or boundary is found.",
+    "No prediction, simulation, causality, outcome, capacity or impact claim is made."
+  ]
+}

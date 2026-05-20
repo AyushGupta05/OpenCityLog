@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "passed": true,
+  "files": {
+    "candidates.json": {
+      "exists": true,
+      "size_bytes": 1786,
+      "json_readback_ok": true
+    },
+    "rejected.json": {
+      "exists": true,
+      "size_bytes": 370301,
+      "json_readback_ok": true
+    },
+    "validation_report.json": {
+      "exists": true,
+      "size_bytes": 559,
+      "json_readback_ok": true
+    },
+    "source_audit.json": {
+      "exists": true,
+      "size_bytes": 21948,
+      "json_readback_ok": true
+    },
+    "summary.json": {
+      "exists": true,
+      "size_bytes": 8518,
+      "json_readback_ok": true
+    },
+    "readback.json": {
+      "exists": true,
+      "size_bytes": 2771
+    },
+    "notes.md": {
+      "exists": true,
+      "size_bytes": 1215
+    }
+  },
+  "pack_type": "exhaustion",
+  "candidate_count": 0,
+  "accepted_count": 0,
+  "point_backed_count": 0,
+  "date_range": {
+    "start": null,
+    "end": null
+  },
+  "source_rows_fetched": 3609,
+  "source_rows_fetched_by_source": {
+    "national_heritage_list_for_england_nhle": 3408,
+    "historic_england_de_designated_sites": 201
+  },
+  "source_names": [
+    "National Heritage List for England (NHLE) open data",
+    "Historic England De-designated sites"
+  ],
+  "event_source_publishers": [
+    "Historic England"
+  ],
+  "rejected_reason_counts": {
+    "existing_corpus_or_prior_pack_nhle_key": 3262,
+    "outside_ons_london_region": 347
+  },
+  "duplicate_screening": {
+    "manual_corpus_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "corpus_events_scanned": 71226,
+    "prior_candidate_pack_files_scanned": 497,
+    "explicit_prior_tail_pack_checked": "tmp/subagents/round392_london_nhle_heritage_tail5/candidates.json",
+    "existing_event_ids_seen": 125981,
+    "existing_source_keys_seen": 84717,
+    "existing_nhle_date_keys_seen": 2428,
+    "dedupe_key": "NHLE ListEntry or de-designated OriginalListEntryNumber/ARTICLEUID + canonical source date field + administrative date",
+    "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior Historic England/NHLE London heritage packs through round392, for event IDs, source keys, exact NHLE ListEntry/date-field/date keys, and de-designated OriginalListEntryNumber/date keys. Rejected files and raw query captures were not treated as accepted candidate packs."
+  },
+  "critical_interpretation_note": "These records are administrative heritage designation, listing, inscription, certificate/status-start or expiry, de-designation/removal, or amendment rows only. They are not evidence of construction, completion, demolition, opening, occupation, repair, condition, impact, prediction, simulation, or causation."
+}

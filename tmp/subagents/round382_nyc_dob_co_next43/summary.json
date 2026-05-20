@@ -1,0 +1,520 @@
+{
+  "schema_version": "round382.nyc_dob_co_next43_summary.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "output_files": [
+    "tmp/subagents/round382_nyc_dob_co_next43/candidates.json",
+    "tmp/subagents/round382_nyc_dob_co_next43/source_audit.json",
+    "tmp/subagents/round382_nyc_dob_co_next43/summary.json",
+    "tmp/subagents/round382_nyc_dob_co_next43/notes.md",
+    "tmp/subagents/round382_nyc_dob_co_next43/rejected.json",
+    "tmp/subagents/round382_nyc_dob_co_next43/validation.json",
+    "tmp/subagents/round382_nyc_dob_co_next43/validation_report.md"
+  ],
+  "candidate_count": 200,
+  "selected_summary": {
+    "by_source_dataset_id": {
+      "bs8b-p36w": 200
+    },
+    "by_year": {
+      "2015": 2,
+      "2016": 116,
+      "2017": 82
+    },
+    "by_borough": {
+      "Bronx": 11,
+      "Brooklyn": 108,
+      "Manhattan": 2,
+      "Queens": 78,
+      "Staten Island": 1
+    },
+    "by_co_type": {
+      "Final": 200
+    },
+    "by_job_type": {
+      "A1": 200
+    },
+    "date_range": {
+      "start": "2015-12-23",
+      "end": "2017-08-10"
+    },
+    "dwelling_units": {
+      "min": 2,
+      "median": 2,
+      "max": 2
+    },
+    "by_status": {
+      "Issued": 200
+    },
+    "by_source_status": {
+      "bs8b-p36w|Issued": 200
+    },
+    "by_source_date_field": {
+      "bs8b-p36w|c_o_issue_date": 200
+    }
+  },
+  "source_ids": [
+    "nyc-dob-certificate-of-occupancy-bs8b-p36w",
+    "nyc-dob-certificate-of-occupancy"
+  ],
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "legacy_preferred_end_date": "2021-03-31",
+  "source_mix": {
+    "bs8b-p36w": 200
+  },
+  "selection_summary": {
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "legacy_preferred_end_date": "2021-03-31",
+    "target_count": 200,
+    "candidate_pool_before_selection": 2720,
+    "candidate_count": 200,
+    "eligible_headroom_after_retained_candidates": 2520,
+    "retained_less_than_target_reason": null,
+    "duplicate_screening": {
+      "files_read": 52,
+      "tokens": 230920,
+      "source_date_keys": 130706,
+      "screened_files": [
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+        "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+        "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+        "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+        "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+        "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+        "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+        "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+        "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+        "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+        "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+        "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+        "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+        "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+        "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+        "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+        "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+        "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+        "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+        "tmp/subagents/round211_nyc_dob_co_next11/candidates.json",
+        "tmp/subagents/round219_nyc_dob_co_next12/candidates.json",
+        "tmp/subagents/round225_nyc_dob_co_next13/candidates.json",
+        "tmp/subagents/round232_nyc_dob_co_next14/candidates.json",
+        "tmp/subagents/round242_nyc_dob_co_next15/candidates.json",
+        "tmp/subagents/round247_nyc_dob_co_next16/candidates.json",
+        "tmp/subagents/round250_nyc_dob_co_next17/candidates.json",
+        "tmp/subagents/round256_nyc_dob_co_next18/candidates.json",
+        "tmp/subagents/round264_nyc_dob_co_next19/candidates.json",
+        "tmp/subagents/round267_nyc_dob_co_next20/candidates.json",
+        "tmp/subagents/round273_nyc_dob_co_next21/candidates.json",
+        "tmp/subagents/round278_nyc_dob_co_next22/candidates.json",
+        "tmp/subagents/round289_nyc_dob_co_next23/candidates.json",
+        "tmp/subagents/round300_nyc_dob_co_next24/candidates.json",
+        "tmp/subagents/round303_nyc_dob_co_next25/candidates.json",
+        "tmp/subagents/round308_nyc_dob_co_next26/candidates.json",
+        "tmp/subagents/round313_nyc_dob_co_next27/candidates.json",
+        "tmp/subagents/round318_nyc_dob_co_next28/candidates.json",
+        "tmp/subagents/round322_nyc_dob_co_next29/candidates.json",
+        "tmp/subagents/round326_nyc_dob_co_next30/candidates.json",
+        "tmp/subagents/round330_nyc_dob_co_next31/candidates.json",
+        "tmp/subagents/round335_nyc_dob_co_next32/candidates.json",
+        "tmp/subagents/round339_nyc_dob_co_next33/candidates.json",
+        "tmp/subagents/round344_nyc_dob_co_next34/candidates.json",
+        "tmp/subagents/round349_nyc_dob_co_next35/candidates.json",
+        "tmp/subagents/round356_nyc_dob_co_next36/candidates.json",
+        "tmp/subagents/round360_nyc_dob_co_next37/candidates.json",
+        "tmp/subagents/round364_nyc_dob_co_next38/candidates.json",
+        "tmp/subagents/round367_nyc_dob_co_next39/candidates.json",
+        "tmp/subagents/round371_nyc_dob_co_next40/candidates.json",
+        "tmp/subagents/round375_nyc_dob_co_next41/candidates.json",
+        "tmp/subagents/round379_nyc_dob_co_next42/candidates.json"
+      ],
+      "missing_required_files": [],
+      "manual_event_count": 60536
+    },
+    "fetched_counts": {
+      "legacy_rows_fetched": 142076,
+      "legacy_grouped_rows": 52945
+    },
+    "rejected_counts": {
+      "existing_legacy_co_or_job_identifier": 6981,
+      "legacy_below_high_signal_threshold": 30822,
+      "legacy_post_dob_now_coverage_period": 12422
+    },
+    "selected_summary": {
+      "by_source_dataset_id": {
+        "bs8b-p36w": 200
+      },
+      "by_year": {
+        "2015": 2,
+        "2016": 116,
+        "2017": 82
+      },
+      "by_borough": {
+        "Bronx": 11,
+        "Brooklyn": 108,
+        "Manhattan": 2,
+        "Queens": 78,
+        "Staten Island": 1
+      },
+      "by_co_type": {
+        "Final": 200
+      },
+      "by_job_type": {
+        "A1": 200
+      },
+      "date_range": {
+        "start": "2015-12-23",
+        "end": "2017-08-10"
+      },
+      "dwelling_units": {
+        "min": 2,
+        "median": 2,
+        "max": 2
+      },
+      "by_status": {
+        "Issued": 200
+      },
+      "by_source_status": {
+        "bs8b-p36w|Issued": 200
+      },
+      "by_source_date_field": {
+        "bs8b-p36w|c_o_issue_date": 200
+      }
+    },
+    "independent_validation": {
+      "schema_version": "round382.nyc_dob_co_next43_validation.v1",
+      "ok": true,
+      "checked_at": "2026-05-20T00:00:00Z",
+      "accessed_at": "2026-05-20",
+      "validator": "scripts/fetch_round382_nyc_dob_co_next43_candidates.js standalone validation artifact",
+      "errors": [],
+      "checks": {
+        "candidate_count": 200,
+        "summary_candidate_count": 200,
+        "required_provenance_fields": [
+          "city_id",
+          "candidate_id",
+          "event_id",
+          "date",
+          "effective_date",
+          "title",
+          "summary",
+          "observed_change",
+          "address",
+          "borough",
+          "latitude",
+          "longitude",
+          "geometry",
+          "source_id",
+          "source_ids",
+          "source_name",
+          "publisher",
+          "source_url",
+          "source_api_url",
+          "source_record_id",
+          "source_type",
+          "source_dataset_id",
+          "source_date_field",
+          "license",
+          "license_url",
+          "license_or_terms_note",
+          "accessed_at",
+          "confidence",
+          "geometry_source",
+          "geometry_precision",
+          "attribution",
+          "limitations",
+          "transformation_method",
+          "source_row_ref",
+          "source_fields"
+        ],
+        "date_window": {
+          "start": "2008-01-01",
+          "end": "2026-05-20"
+        },
+        "legacy_preferred_end_date": "2021-03-31",
+        "date_range": {
+          "start": "2015-12-23",
+          "end": "2017-08-10"
+        },
+        "unique_event_ids": 200,
+        "unique_candidate_ids": 200,
+        "unique_source_record_keys": 200,
+        "unique_source_date_keys": 200,
+        "unique_source_url_date_keys": 200,
+        "unique_address_date_keys": 200,
+        "nyc_coordinate_bounds_valid": true,
+        "screened_files_count": 52,
+        "screened_files_read": 52,
+        "screened_files_missing": [],
+        "required_round278_screened": true,
+        "required_round289_screened": true,
+        "required_round300_screened": true,
+        "required_round303_screened": true,
+        "required_round308_screened": true,
+        "required_round313_screened": true,
+        "required_round318_screened": true,
+        "required_round322_screened": true,
+        "required_round326_screened": true,
+        "required_round330_screened": true,
+        "required_round335_screened": true,
+        "required_round339_screened": true,
+        "required_round344_screened": true,
+        "required_round349_screened": true,
+        "required_round356_screened": true,
+        "required_round360_screened": true,
+        "required_round364_screened": true,
+        "required_round367_screened": true,
+        "required_round371_screened": true,
+        "required_round375_screened": true,
+        "required_round379_screened": true,
+        "manual_corpus_screened": true,
+        "prior_source_date_keys_checked": 130706,
+        "prior_identifier_tokens_checked": 230920,
+        "no_overlap_with_screened_corpus_and_prior_packs": true,
+        "by_source_dataset_id": {
+          "bs8b-p36w": 200
+        },
+        "by_borough": {
+          "Bronx": 11,
+          "Brooklyn": 108,
+          "Manhattan": 2,
+          "Queens": 78,
+          "Staten Island": 1
+        },
+        "by_source_date_field": {
+          "bs8b-p36w|c_o_issue_date": 200
+        },
+        "source_audit_count": 1
+      }
+    }
+  },
+  "caveats": [
+    "CO issuance date is an administrative date from the DOB row.",
+    "Coordinates are source geocoded points, not parcel or footprint geometry.",
+    "License/terms notes are NYC Open Data / NYC.gov terms with DOB attribution; verify terms before broader redistribution."
+  ],
+  "sample_candidates": [
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_320976770_final_2015_12_23",
+      "date": "2015-12-23",
+      "borough": "Brooklyn",
+      "address": "1335 41 STREET",
+      "job_number": "320976770",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-khqp~xgea_aud2.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_320311578_final_2015_12_29",
+      "date": "2015-12-29",
+      "borough": "Brooklyn",
+      "address": "459 8 ST",
+      "job_number": "320311578",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-ypje~jjxy.7ry7.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_320846395_final_2016_01_19",
+      "date": "2016-01-19",
+      "borough": "Brooklyn",
+      "address": "241 8TH STREET",
+      "job_number": "320846395",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-begp.mis5~m7u2.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_220368616_final_2016_01_20",
+      "date": "2016-01-20",
+      "borough": "Bronx",
+      "address": "1877 RANDALL AVENUE",
+      "job_number": "220368616",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-zyms-wc8g.a25i.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_320696270_final_2016_01_20",
+      "date": "2016-01-20",
+      "borough": "Brooklyn",
+      "address": "1019 47 STREET",
+      "job_number": "320696270",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-idep_skit-dpne.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_421013450_final_2016_01_21",
+      "date": "2016-01-21",
+      "borough": "Queens",
+      "address": "169 BEACH 114 STREET",
+      "job_number": "421013450",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-d7ky_e7ra.7g39.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_320866871_final_2016_01_22",
+      "date": "2016-01-22",
+      "borough": "Brooklyn",
+      "address": "599 SIXTH AVE",
+      "job_number": "320866871",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-e686.k9e2_aqrq.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_421059963_final_2016_01_27",
+      "date": "2016-01-27",
+      "borough": "Queens",
+      "address": "109-20 111 STREET",
+      "job_number": "421059963",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-h5x6_t6ve.3mkf.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_320950654_final_2016_02_01",
+      "date": "2016-02-01",
+      "borough": "Brooklyn",
+      "address": "539 6 AVENUE",
+      "job_number": "320950654",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-9nt7_gsdt~9rfe.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_421049154_final_2016_02_01",
+      "date": "2016-02-01",
+      "borough": "Queens",
+      "address": "128-35 INWOOD STREET",
+      "job_number": "421049154",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-9k2n_kipi-4w3g.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_420090868_final_2016_02_05",
+      "date": "2016-02-05",
+      "borough": "Queens",
+      "address": "107-11 128 ST",
+      "job_number": "420090868",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-mybi-prc6~m8yd.json"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round382_legacy_420903678_final_2016_02_08",
+      "date": "2016-02-08",
+      "borough": "Queens",
+      "address": "130-15 130 STREET",
+      "job_number": "420903678",
+      "issue_type": "Final",
+      "source_url": "https://data.cityofnewyork.us/resource/bs8b-p36w/row-apsw~4wuj_w5cw.json"
+    }
+  ],
+  "independent_validation": {
+    "schema_version": "round382.nyc_dob_co_next43_validation.v1",
+    "ok": true,
+    "checked_at": "2026-05-20T00:00:00Z",
+    "accessed_at": "2026-05-20",
+    "validator": "scripts/fetch_round382_nyc_dob_co_next43_candidates.js standalone validation artifact",
+    "errors": [],
+    "checks": {
+      "candidate_count": 200,
+      "summary_candidate_count": 200,
+      "required_provenance_fields": [
+        "city_id",
+        "candidate_id",
+        "event_id",
+        "date",
+        "effective_date",
+        "title",
+        "summary",
+        "observed_change",
+        "address",
+        "borough",
+        "latitude",
+        "longitude",
+        "geometry",
+        "source_id",
+        "source_ids",
+        "source_name",
+        "publisher",
+        "source_url",
+        "source_api_url",
+        "source_record_id",
+        "source_type",
+        "source_dataset_id",
+        "source_date_field",
+        "license",
+        "license_url",
+        "license_or_terms_note",
+        "accessed_at",
+        "confidence",
+        "geometry_source",
+        "geometry_precision",
+        "attribution",
+        "limitations",
+        "transformation_method",
+        "source_row_ref",
+        "source_fields"
+      ],
+      "date_window": {
+        "start": "2008-01-01",
+        "end": "2026-05-20"
+      },
+      "legacy_preferred_end_date": "2021-03-31",
+      "date_range": {
+        "start": "2015-12-23",
+        "end": "2017-08-10"
+      },
+      "unique_event_ids": 200,
+      "unique_candidate_ids": 200,
+      "unique_source_record_keys": 200,
+      "unique_source_date_keys": 200,
+      "unique_source_url_date_keys": 200,
+      "unique_address_date_keys": 200,
+      "nyc_coordinate_bounds_valid": true,
+      "screened_files_count": 52,
+      "screened_files_read": 52,
+      "screened_files_missing": [],
+      "required_round278_screened": true,
+      "required_round289_screened": true,
+      "required_round300_screened": true,
+      "required_round303_screened": true,
+      "required_round308_screened": true,
+      "required_round313_screened": true,
+      "required_round318_screened": true,
+      "required_round322_screened": true,
+      "required_round326_screened": true,
+      "required_round330_screened": true,
+      "required_round335_screened": true,
+      "required_round339_screened": true,
+      "required_round344_screened": true,
+      "required_round349_screened": true,
+      "required_round356_screened": true,
+      "required_round360_screened": true,
+      "required_round364_screened": true,
+      "required_round367_screened": true,
+      "required_round371_screened": true,
+      "required_round375_screened": true,
+      "required_round379_screened": true,
+      "manual_corpus_screened": true,
+      "prior_source_date_keys_checked": 130706,
+      "prior_identifier_tokens_checked": 230920,
+      "no_overlap_with_screened_corpus_and_prior_packs": true,
+      "by_source_dataset_id": {
+        "bs8b-p36w": 200
+      },
+      "by_borough": {
+        "Bronx": 11,
+        "Brooklyn": 108,
+        "Manhattan": 2,
+        "Queens": 78,
+        "Staten Island": 1
+      },
+      "by_source_date_field": {
+        "bs8b-p36w|c_o_issue_date": 200
+      },
+      "source_audit_count": 1
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "round376_belfast_official_architecture_sweep_next9.validation_report.v1",
+  "generated_at": "2026-05-20",
+  "round_id": "round376_belfast_official_architecture_sweep_next9",
+  "validation": {
+    "schema_version": "round376_belfast_official_architecture_sweep_next9.validation.v1",
+    "generated_at": "2026-05-20",
+    "round_id": "round376_belfast_official_architecture_sweep_next9",
+    "status": "passed",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "checks": {
+      "json_payloads_constructed": true,
+      "required_candidate_fields": {
+        "status": "passed"
+      },
+      "date_window_scan": {
+        "status": "passed",
+        "start": "2008-01-01",
+        "end": "2026-05-20"
+      },
+      "belfast_coordinate_sanity": {
+        "status": "passed"
+      },
+      "confidence_values": {
+        "status": "passed"
+      },
+      "source_audit_present": {
+        "status": "passed"
+      },
+      "dedupe_against_manual_and_prior_belfast_packs": {
+        "status": "passed",
+        "prior_file_count": 602
+      },
+      "overclaim_scan": {
+        "status": "passed"
+      },
+      "candidate_cap_50": {
+        "status": "passed",
+        "candidate_count": 2
+      }
+    }
+  }
+}

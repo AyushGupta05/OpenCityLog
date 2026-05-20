@@ -1,0 +1,24 @@
+{
+  "schema_version": "round383_belfast_official_architecture_sweep_next10.summary.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round383_belfast_official_architecture_sweep_next10",
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "event_id": "round383_belfast_dublin_botanic_active_travel_prelim_engagement_2026_03_23",
+      "date": "2026-03-23",
+      "title": "Dublin Road and Botanic Avenue active-travel preliminary engagement opened",
+      "source_ids": [
+        "dfi-dublin-botanic-active-travel-preliminary-engagement-2026-round383"
+      ],
+      "confidence": "documented",
+      "major_caveat": "This is a preliminary engagement/proposal-stage record. It does not document statutory approval, final traffic order, works start, construction, completion, opening, usage, safety effects, modal shift, exact route geometry or as-built public realm."
+    }
+  ],
+  "sources_checked": 13,
+  "rejected_count": 12,
+  "prior_file_count": 424,
+  "validation_ok": true
+}

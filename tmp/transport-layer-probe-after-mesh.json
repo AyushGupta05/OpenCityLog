@@ -1,0 +1,31 @@
+[
+  {
+    "lens": "transport-speed",
+    "guideThreads": 2577,
+    "rendered": 0,
+    "colors": {
+      "#6dbc5a": 1034,
+      "#f2ad2f": 782,
+      "#e95a35": 301,
+      "#2d9f57": 246,
+      "#bb1e2d": 169,
+      "#0f8d95": 45
+    },
+    "selected": "Belfast Grand Central Station opened",
+    "zoom": 13.896
+  },
+  {
+    "lens": "transport-reliability",
+    "guideThreads": 2448,
+    "rendered": 0,
+    "colors": {
+      "#248b94": 1161,
+      "#ef9c1a": 534,
+      "#898b8e": 459,
+      "#ed3f2b": 282,
+      "#7a3b97": 12
+    },
+    "selected": "Belfast Grand Central Station opened",
+    "zoom": 13.86
+  }
+]

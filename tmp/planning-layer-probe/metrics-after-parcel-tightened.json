@@ -1,0 +1,36 @@
+[
+  {
+    "lens": "planning-delta",
+    "activeAspect": "planning-delta",
+    "year": 2024,
+    "guides": 3647,
+    "planningFootprints": 3646,
+    "renderedGuide": 3769,
+    "colors": {
+      "#d8583f": 1765,
+      "#c98667": 1095,
+      "#e7b454": 390,
+      "#8f9494": 309,
+      "#8460a8": 37,
+      "#d87965": 37,
+      "#d99175": 9,
+      "#d84a2d": 4
+    }
+  },
+  {
+    "lens": "planning-parcels",
+    "activeAspect": "planning-parcels",
+    "year": 2024,
+    "guides": 1901,
+    "planningFootprints": 1900,
+    "renderedGuide": 2000,
+    "colors": {
+      "#7fa780": 1192,
+      "#d95a94": 288,
+      "#f4c762": 284,
+      "#866bb8": 60,
+      "#ee7477": 42,
+      "#b8b6a8": 34
+    }
+  }
+]

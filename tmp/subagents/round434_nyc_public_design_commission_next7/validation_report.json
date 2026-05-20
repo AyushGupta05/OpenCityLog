@@ -1,0 +1,89 @@
+{
+  "schema_version": "bims-validation-report/v0.1",
+  "round": "round434",
+  "task": "nyc_public_design_commission_next7_candidates",
+  "generated_at": "2026-05-20",
+  "status": "PASS",
+  "candidate_count": 36,
+  "date_range": {
+    "start": "2025-05-27",
+    "end": "2026-01-28"
+  },
+  "certificate_numbers": [
+    "30007",
+    "30008",
+    "30009",
+    "30013",
+    "30016",
+    "30017",
+    "30018",
+    "30019",
+    "30020",
+    "30021",
+    "30022",
+    "30023",
+    "30024",
+    "30025",
+    "30027",
+    "30028",
+    "30035",
+    "30038",
+    "30040",
+    "30045",
+    "30046",
+    "30048",
+    "30051",
+    "30052",
+    "30053",
+    "30054",
+    "30056",
+    "30057",
+    "30058",
+    "30079",
+    "30084",
+    "30101",
+    "30109",
+    "30205",
+    "30225",
+    "30294"
+  ],
+  "checks": [
+    {
+      "name": "required_candidate_fields",
+      "ok": true,
+      "detail": "Required provenance, source, date, confidence, and transformation fields are present."
+    },
+    {
+      "name": "date_scope",
+      "ok": true,
+      "detail": "2008-01-01 through 2026-05-20"
+    },
+    {
+      "name": "official_pdc_urls",
+      "ok": true,
+      "detail": "Selected source URLs are nyc.gov PDC PDF links."
+    },
+    {
+      "name": "duplicate_screening",
+      "ok": true,
+      "detail": "Certificate/source/title/date keys are unique in this pack after live and prior-pack screening."
+    },
+    {
+      "name": "overclaim_guard",
+      "ok": true,
+      "detail": "Candidate-authored fields avoid prediction, causation, opening, operation, completion, and outcome claims."
+    },
+    {
+      "name": "source_page_checks",
+      "ok": true,
+      "detail": "Official index/terms pages were fetched for citation metadata."
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "caveats": [
+    "Administrative PDC design-review records only; no construction, opening, completion, operation, impact, or causation claim is made.",
+    "PDC certificates provide location text rather than official GIS geometry; this pack preserves geometry_ref and does not add coordinates.",
+    "Explicit PDF reuse license was not found; NYC.gov terms are carried as the applicable terms reference."
+  ]
+}

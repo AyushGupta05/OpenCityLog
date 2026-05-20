@@ -1,0 +1,488 @@
+{
+  "generated_at": "2026-05-20T00:00:00Z",
+  "source_audits": [
+    {
+      "source_id": "historic-england-nhle-open-data-round315-tail4",
+      "stable_id": "historic-england-nhle-open-data-round315-tail4",
+      "source_name": "National Heritage List for England (NHLE) open data",
+      "publisher": "Historic England",
+      "url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "source_url": "https://historicengland.org.uk/listing/the-list/data-downloads/",
+      "api_catalogue_url": "https://www.api.gov.uk/he/national-heritage-list-for-england-nhle/",
+      "api_endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/National_Heritage_List_for_England_NHLE_v02_VIEW/FeatureServer",
+      "source_type": "official Historic England ArcGIS FeatureServer",
+      "license": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "license_or_terms_note": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "attribution": "Historic England; Contains Ordnance Survey data Crown copyright and database right 2026.",
+      "accessed_at": "2026-05-20",
+      "date_or_date_range": {
+        "start": "2008-01-01",
+        "end": "2026-05-20"
+      },
+      "coverage_years_checked": "2008-01-01 through 2026-05-20",
+      "update_frequency": "The API catalogue states that NHLE data is updated daily.",
+      "geographic_scope": "England source layers; features filtered to the ONS London region E12000007.",
+      "geometry_ref": "Official NHLE layer geometries filtered inside the ONS London region boundary E12000007.",
+      "granularity": "One NHLE source row and one explicit administrative source date field.",
+      "method": "Queried the official NHLE FeatureServer layers and date fields listed below, filtered rows to ONS London region geometry, and deduped against the manual corpus plus prior candidate packs.",
+      "confidence": "documented source audit",
+      "limitations": "NHLE rows support administrative heritage dates only. They do not by themselves document physical works, access, condition, ownership, or broader outcome evidence.",
+      "layers_checked": [
+        {
+          "layer_id": 0,
+          "layer_name": "Listed Building points",
+          "source_date_field": "ListDate",
+          "record_type": "nhle_listed_building_designation"
+        },
+        {
+          "layer_id": 0,
+          "layer_name": "Listed Building points",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_listed_building_amendment"
+        },
+        {
+          "layer_id": 3,
+          "layer_name": "Listed Building polygons",
+          "source_date_field": "ListDate",
+          "record_type": "nhle_listed_building_designation"
+        },
+        {
+          "layer_id": 3,
+          "layer_name": "Listed Building polygons",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_listed_building_amendment"
+        },
+        {
+          "layer_id": 1,
+          "layer_name": "Building Preservation Notice points",
+          "source_date_field": "BPNStart",
+          "record_type": "nhle_building_preservation_notice_start"
+        },
+        {
+          "layer_id": 1,
+          "layer_name": "Building Preservation Notice points",
+          "source_date_field": "BPNExpire",
+          "record_type": "nhle_building_preservation_notice_expiry"
+        },
+        {
+          "layer_id": 4,
+          "layer_name": "Building Preservation Notices polygons",
+          "source_date_field": "BPNStart",
+          "record_type": "nhle_building_preservation_notice_start"
+        },
+        {
+          "layer_id": 4,
+          "layer_name": "Building Preservation Notices polygons",
+          "source_date_field": "BPNExpire",
+          "record_type": "nhle_building_preservation_notice_expiry"
+        },
+        {
+          "layer_id": 2,
+          "layer_name": "Certificate of Immunity points",
+          "source_date_field": "COIStart",
+          "record_type": "nhle_certificate_of_immunity_start"
+        },
+        {
+          "layer_id": 2,
+          "layer_name": "Certificate of Immunity points",
+          "source_date_field": "COIExpire",
+          "record_type": "nhle_certificate_of_immunity_expiry"
+        },
+        {
+          "layer_id": 5,
+          "layer_name": "Certificate of Immunity polygons",
+          "source_date_field": "COIStart",
+          "record_type": "nhle_certificate_of_immunity_start"
+        },
+        {
+          "layer_id": 5,
+          "layer_name": "Certificate of Immunity polygons",
+          "source_date_field": "COIExpire",
+          "record_type": "nhle_certificate_of_immunity_expiry"
+        },
+        {
+          "layer_id": 6,
+          "layer_name": "Scheduled Monuments",
+          "source_date_field": "SchedDate",
+          "record_type": "nhle_scheduled_monument_designation"
+        },
+        {
+          "layer_id": 6,
+          "layer_name": "Scheduled Monuments",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_scheduled_monument_amendment"
+        },
+        {
+          "layer_id": 7,
+          "layer_name": "Parks and Gardens",
+          "source_date_field": "RegDate",
+          "record_type": "nhle_registered_park_garden_designation"
+        },
+        {
+          "layer_id": 7,
+          "layer_name": "Parks and Gardens",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_registered_park_garden_amendment"
+        },
+        {
+          "layer_id": 8,
+          "layer_name": "Battlefields",
+          "source_date_field": "RegDate",
+          "record_type": "nhle_registered_battlefield_designation"
+        },
+        {
+          "layer_id": 8,
+          "layer_name": "Battlefields",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_registered_battlefield_amendment"
+        },
+        {
+          "layer_id": 9,
+          "layer_name": "Protected Wreck Sites",
+          "source_date_field": "DesigDate",
+          "record_type": "nhle_protected_wreck_designation"
+        },
+        {
+          "layer_id": 9,
+          "layer_name": "Protected Wreck Sites",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_protected_wreck_amendment"
+        },
+        {
+          "layer_id": 10,
+          "layer_name": "World Heritage Sites",
+          "source_date_field": "InscrDate",
+          "record_type": "nhle_world_heritage_site_inscription"
+        },
+        {
+          "layer_id": 10,
+          "layer_name": "World Heritage Sites",
+          "source_date_field": "AmendDate",
+          "record_type": "nhle_world_heritage_site_amendment"
+        }
+      ],
+      "key_fields": [
+        "OBJECTID",
+        "ListEntry",
+        "Name",
+        "Grade",
+        "ListDate",
+        "AmendDate",
+        "BPNStart",
+        "BPNExpire",
+        "COIStart",
+        "COIExpire",
+        "SchedDate",
+        "RegDate",
+        "DesigDate",
+        "InscrDate",
+        "hyperlink",
+        "NGR",
+        "Easting",
+        "Northing",
+        "geometry"
+      ],
+      "reliability": "strong for official NHLE administrative source dates, with interpretation caveats",
+      "records_reviewed": 3408,
+      "candidate_count": 0,
+      "required_caveats": [
+        "NHLE date fields used here are administrative designation, listing, inscription, notice/certificate start or expiry, or amendment dates, not construction dates.",
+        "NHLE point and polygon geometries locate heritage assets for atlas use but do not define construction areas, curtilage, condition, ownership, access, or outcomes.",
+        "The API catalogue page has its own start date, while the individual NHLE rows carry older administrative dates; this pack uses row-level administrative date fields only.",
+        "Use factual metadata and source URLs; list-entry page narrative text, images, and map products require separate terms review before broader redistribution."
+      ],
+      "ingestion_recommendation": "Append only as documented heritage-administrative change events after the main appender re-checks corpus duplicates."
+    },
+    {
+      "source_id": "historic-england-de-designated-sites",
+      "stable_id": "historic-england-de-designated-sites",
+      "source_name": "Historic England De-designated sites",
+      "publisher": "Historic England",
+      "url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "source_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
+      "api_item_url": "https://www.arcgis.com/sharing/rest/content/items/8836370be44f4916b9ba7d350df24902",
+      "api_endpoint": "https://services-eu1.arcgis.com/ZOdPfBS3aqqDYPUQ/arcgis/rest/services/Delisted/FeatureServer",
+      "source_type": "official Historic England ArcGIS FeatureServer",
+      "license": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "license_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+      "license_or_terms_note": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+      "attribution": "Historic England; Contains Ordnance Survey data Crown copyright and database right 2026.",
+      "accessed_at": "2026-05-20",
+      "date_or_date_range": {
+        "start": "2008-01-01",
+        "end": "2026-05-20"
+      },
+      "coverage_years_checked": "2008-01-01 through 2026-05-20",
+      "update_frequency": "ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.",
+      "geographic_scope": "England source layer; features filtered to the ONS London region E12000007.",
+      "geometry_ref": "Official de-designated-site polygon geometries filtered inside the ONS London region boundary E12000007.",
+      "granularity": "One de-designated source row and the DateRemovedFromList administrative field.",
+      "method": "Queried the official de-designated sites FeatureServer DateRemovedFromList field, filtered rows to ONS London region geometry, and deduped against the manual corpus plus prior candidate packs.",
+      "confidence": "documented source audit",
+      "limitations": "DateRemovedFromList supports an administrative removal date only. It does not by itself document physical works, access, condition, ownership, or broader outcome evidence.",
+      "layers_checked": [
+        {
+          "layer_id": 0,
+          "layer_name": "De-designated sites",
+          "source_date_field": "DateRemovedFromList",
+          "record_type": "nhle_de_designation_removal"
+        }
+      ],
+      "key_fields": [
+        "OBJECTID",
+        "ARTICLEUID",
+        "ARTICLEVERSIONNAME",
+        "HERITAGECATEGORYDESCRIPTION",
+        "DateRemovedFromList",
+        "DecisionText",
+        "DDRType",
+        "OriginalListEntryNumber",
+        "geometry"
+      ],
+      "reliability": "strong for official Historic England de-designation/removal administrative dates, with interpretation caveats",
+      "records_reviewed": 201,
+      "candidate_count": 0,
+      "required_caveats": [
+        "DateRemovedFromList is a heritage-administrative de-designation/removal date, not a demolition, construction, repair, opening, occupation, condition, or outcome date.",
+        "The de-designated polygon or representative point is for atlas location only and is not evidence of current physical condition or work extent.",
+        "The dataset states it covers complete removals from the NHLE since 4 April 2011 and excludes partial delisting, removal of part of an area, and duplicate-entry removals."
+      ],
+      "ingestion_recommendation": "Append only as documented heritage-administrative change events after the main appender re-checks corpus duplicates."
+    }
+  ],
+  "supporting_boundary_source": {
+    "source_name": "ONS Regions December 2024 Boundaries EN BFC",
+    "publisher": "Office for National Statistics / Esri ArcGIS service",
+    "url": "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Regions_December_2024_Boundaries_EN_BFC/FeatureServer/0",
+    "filter": "RGN24CD='E12000007'",
+    "use": "London region spatial inclusion test only, not event evidence."
+  },
+  "summary": {
+    "generated_at": "2026-05-20T00:00:00Z",
+    "worker_scope": "round315 London Historic England/NHLE heritage-designation tail4",
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "source_rows_fetched": 3609,
+    "source_rows_fetched_by_source": {
+      "national_heritage_list_for_england_nhle": 3408,
+      "historic_england_de_designated_sites": 201
+    },
+    "candidate_count": 0,
+    "pack_type": "exhaustion",
+    "exhaustion_note": "No clean deduped London NHLE or de-designated administrative rows remained after scanning the manual architecture corpus and prior candidate packs through round305.",
+    "date_range": {
+      "start": null,
+      "end": null
+    },
+    "record_type_mix": {},
+    "source_date_field_mix": {},
+    "designation_type_mix": {},
+    "source_layer_mix": {},
+    "query_counts": [
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 0,
+        "layer_name": "Listed Building points",
+        "source_date_field": "ListDate",
+        "rows_fetched_in_london_bbox": 1203,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 0,
+        "layer_name": "Listed Building points",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 372,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 3,
+        "layer_name": "Listed Building polygons",
+        "source_date_field": "ListDate",
+        "rows_fetched_in_london_bbox": 1203,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 3,
+        "layer_name": "Listed Building polygons",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 372,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 1,
+        "layer_name": "Building Preservation Notice points",
+        "source_date_field": "BPNStart",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 1,
+        "layer_name": "Building Preservation Notice points",
+        "source_date_field": "BPNExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 4,
+        "layer_name": "Building Preservation Notices polygons",
+        "source_date_field": "BPNStart",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 4,
+        "layer_name": "Building Preservation Notices polygons",
+        "source_date_field": "BPNExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 2,
+        "layer_name": "Certificate of Immunity points",
+        "source_date_field": "COIStart",
+        "rows_fetched_in_london_bbox": 97,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 2,
+        "layer_name": "Certificate of Immunity points",
+        "source_date_field": "COIExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 5,
+        "layer_name": "Certificate of Immunity polygons",
+        "source_date_field": "COIStart",
+        "rows_fetched_in_london_bbox": 97,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 5,
+        "layer_name": "Certificate of Immunity polygons",
+        "source_date_field": "COIExpire",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 6,
+        "layer_name": "Scheduled Monuments",
+        "source_date_field": "SchedDate",
+        "rows_fetched_in_london_bbox": 26,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 6,
+        "layer_name": "Scheduled Monuments",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 7,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 7,
+        "layer_name": "Parks and Gardens",
+        "source_date_field": "RegDate",
+        "rows_fetched_in_london_bbox": 20,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 7,
+        "layer_name": "Parks and Gardens",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 5,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 8,
+        "layer_name": "Battlefields",
+        "source_date_field": "RegDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 8,
+        "layer_name": "Battlefields",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 9,
+        "layer_name": "Protected Wreck Sites",
+        "source_date_field": "DesigDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 9,
+        "layer_name": "Protected Wreck Sites",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 10,
+        "layer_name": "World Heritage Sites",
+        "source_date_field": "InscrDate",
+        "rows_fetched_in_london_bbox": 0,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "National Heritage List for England (NHLE)",
+        "layer_id": 10,
+        "layer_name": "World Heritage Sites",
+        "source_date_field": "AmendDate",
+        "rows_fetched_in_london_bbox": 6,
+        "candidate_count_after_dedupe": 0
+      },
+      {
+        "source": "Historic England De-designated sites",
+        "layer_id": 0,
+        "layer_name": "De-designated sites",
+        "source_date_field": "DateRemovedFromList",
+        "rows_fetched_in_london_bbox": 201,
+        "candidate_count_after_dedupe": 0
+      }
+    ],
+    "rejected_reason_counts": {
+      "existing_corpus_or_prior_pack_nhle_key": 3261,
+      "outside_ons_london_region": 347,
+      "existing_source_key": 1
+    },
+    "duplicate_screening": {
+      "manual_corpus_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+      "corpus_events_scanned": 50422,
+      "prior_candidate_pack_files_scanned": 358,
+      "existing_event_ids_seen": 85591,
+      "existing_source_keys_seen": 58438,
+      "existing_nhle_date_keys_seen": 2273,
+      "dedupe_key": "NHLE ListEntry + canonical source date field + administrative date",
+      "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior Historic England/NHLE London heritage packs through round305, for event IDs, source keys, exact NHLE ListEntry/date-field/date keys, and de-designated OriginalListEntryNumber/date keys. Rejected files and raw query captures were not treated as accepted candidate packs."
+    },
+    "critical_interpretation_note": "These records are administrative heritage designation, listing, inscription, certificate/status-start or expiry, de-designation/removal, or amendment rows only. They are not evidence of construction, completion, demolition, opening, occupation, repair, condition, or broader outcome evidence.",
+    "candidate_ids": []
+  }
+}

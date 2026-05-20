@@ -1,0 +1,53 @@
+{
+  "schema_version": "round438.nyc_dob_now_next24_validation.v1",
+  "generated_at": "2026-05-20T00:00:00Z",
+  "accessed_at": "2026-05-20",
+  "ok": true,
+  "passed": true,
+  "validator": "scripts/fetch_round438_nyc_dob_now_next24_candidates.js",
+  "checked_files": [
+    "tmp/subagents/round438_nyc_dob_now_next24/candidates.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/source_audit.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/summary.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/rejected.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/validation.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/validation_report.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/readback.json",
+    "tmp/subagents/round438_nyc_dob_now_next24/notes.md"
+  ],
+  "checks": {
+    "candidate_count": 200,
+    "target_count": 200,
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-20"
+    },
+    "date_range": {
+      "start": "2021-07-09",
+      "end": "2026-05-11"
+    },
+    "unique_ids": 200,
+    "unique_candidate_ids": 200,
+    "unique_event_ids": 200,
+    "unique_source_record_ids": 200,
+    "unique_title_date_keys": 200,
+    "source_ids": [
+      "nyc-dob-filings-permits",
+      "nyc-dob-now-build-approved-permits-rbx6-tga4",
+      "nyc-dob-now-build-job-application-filings-w9ak-ipjd"
+    ],
+    "json_parse_ok": true,
+    "readback_ok": true,
+    "validation_report_ok": true,
+    "required_round429_screened": true,
+    "required_round435_screened": true,
+    "manual_corpus_contains_round429": true,
+    "no_overlap_with_screened_corpus_and_prior_packs": true,
+    "no_source_record_or_source_url_overlap_with_prior_packs": true,
+    "no_title_date_overlap_with_prior_packs": true,
+    "no_prediction_or_causation_language": true,
+    "notes_present": true
+  },
+  "errors": [],
+  "warnings": []
+}

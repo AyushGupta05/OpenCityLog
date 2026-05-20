@@ -1,0 +1,362 @@
+[
+  {
+    "id": "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016",
+    "event_id": "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016",
+    "city_id": "belfast",
+    "title": "Royal Victoria Hospital outpatient pharmacy opened during July 2016",
+    "summary": "Belfast Health and Social Care Trust's 2016-17 annual report records that the RVH outpatient pharmacy was officially opened in July 2016 and was located on Level 2 of the Royal Victoria Hospital.",
+    "observed_change": "Official source-published month-level opening milestone for an outpatient pharmacy inside the Royal Victoria Hospital.",
+    "event_type": "facility_opening_official",
+    "category": "architecture_public_estate",
+    "date": "2016-07-31",
+    "effective_date": "2016-07-31",
+    "effective_date_range": {
+      "start": "2016-07-01",
+      "end": "2016-07-31",
+      "precision": "month",
+      "basis": "Belfast Trust annual report says the pharmacy was officially opened in July 2016; exact day not stated."
+    },
+    "source_id": "belfast-trust-rvh-outpatient-pharmacy-july-2016-round452",
+    "source_name": "Belfast Trust Annual Report 2016-17",
+    "publisher": "Belfast Health and Social Care Trust",
+    "source_url": "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf",
+    "source_type": "official health trust annual report PDF",
+    "source_record_id": "belfast-trust-annual-report-2016-17-rvh-outpatient-pharmacy-july-2016",
+    "source_date_field": "annual-report text",
+    "source_date_value": "2016-07",
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "terms": "https://belfasttrust.hscni.net/copyright/",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "attribution": "Belfast Health and Social Care Trust",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "evidence_basis": [
+      "Official Trust annual report identifies the RVH outpatient pharmacy and month of opening.",
+      "Official PDF URL was reachable during this sweep; PDF text evidence was checked from the search-indexed official document snippet because this script does not extract compressed PDF text."
+    ],
+    "limitations": [
+      "Exact opening day is not stated in the annual report; this candidate uses the month end for sortable effective_date and carries the full month range.",
+      "This records an internal hospital facility opening only, not construction completion, pharmacy performance, patient outcome, capacity, cost, or wider estate-change evidence.",
+      "No official coordinate, room footprint or floorplan was extracted; geometry_ref only, not ready for the current point-only corpus."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "type": "source_stated_internal_hospital_location",
+      "label": "Level 2, Royal Victoria Hospital outpatient pharmacy, Belfast",
+      "precision": "source-stated internal hospital location only; no official coordinate or footprint extracted in Round452",
+      "source_url": "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf"
+    },
+    "address_ref": "Level 2, Royal Victoria Hospital, Belfast",
+    "point_corpus_ready": false,
+    "method": "Manual official/public Belfast architecture sweep after Round442. Accepted only source-published facts from official public or public-estate institutional sources. Lab, training-suite and hospital-unit records are treated as observed facility milestones only. No construction completion, capacity, service-performance, health, education, economic, causality or impact claim is carried unless directly stated as the narrow source milestone.",
+    "transformation_method": "scripts/fetch_round452_belfast_official_architecture_sweep_next17_candidates.js#manualOfficialPublicArchitectureSweepRound452",
+    "provenance_links": [
+      {
+        "rel": "primary_source",
+        "href": "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf"
+      },
+      {
+        "rel": "terms",
+        "href": "https://belfasttrust.hscni.net/copyright/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round452_rvh_outpatient_pharmacy_opening_2016",
+      "belfast-trust-annual-report-2016-17-rvh-outpatient-pharmacy-july-2016",
+      "RVH outpatient pharmacy",
+      "outpatient pharmacy was officially opened in July 2016"
+    ],
+    "duplicate_review": "No accepted live/manual event or prior official sweep candidate matched this RVH outpatient pharmacy opening. A broad annual-report-only rejection note in an older tmp pack was reviewed and treated as non-accepted prior work.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016",
+    "event_id": "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016",
+    "city_id": "belfast",
+    "title": "Belfast City Hospital Post-Anaesthetic Care Unit opened during October 2016",
+    "summary": "Belfast Health and Social Care Trust's 2016-17 annual report records that a Post-Anaesthetic Care Unit (PACU) was opened in Belfast City Hospital in October 2016.",
+    "observed_change": "Official source-published month-level opening milestone for a Post-Anaesthetic Care Unit inside Belfast City Hospital.",
+    "event_type": "facility_opening_official",
+    "category": "architecture_public_estate",
+    "date": "2016-10-31",
+    "effective_date": "2016-10-31",
+    "effective_date_range": {
+      "start": "2016-10-01",
+      "end": "2016-10-31",
+      "precision": "month",
+      "basis": "Belfast Trust annual report says the unit was opened in October 2016; exact day not stated."
+    },
+    "source_id": "belfast-trust-bch-pacu-october-2016-round452",
+    "source_name": "Belfast Trust Annual Report 2016-17",
+    "publisher": "Belfast Health and Social Care Trust",
+    "source_url": "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf",
+    "source_type": "official health trust annual report PDF",
+    "source_record_id": "belfast-trust-annual-report-2016-17-bch-post-anaesthetic-care-unit-october-2016",
+    "source_date_field": "annual-report text",
+    "source_date_value": "2016-10",
+    "license": "Belfast Health and Social Care Trust website copyright/disclaimer; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://belfasttrust.hscni.net/copyright/",
+    "terms": "https://belfasttrust.hscni.net/copyright/",
+    "publisher_terms_url": "https://belfasttrust.hscni.net/copyright/",
+    "attribution": "Belfast Health and Social Care Trust",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "evidence_basis": [
+      "Official Trust annual report identifies the PACU and month of opening.",
+      "Official PDF URL was reachable during this sweep; PDF text evidence was checked from the search-indexed official document snippet because this script does not extract compressed PDF text."
+    ],
+    "limitations": [
+      "Exact opening day is not stated in the annual report; this candidate uses the month end for sortable effective_date and carries the full month range.",
+      "This records an internal hospital unit opening only, not construction completion, clinical performance, patient outcome, capacity, cost, or wider estate-change evidence.",
+      "No official coordinate, room footprint or floorplan was extracted; geometry_ref only, not ready for the current point-only corpus."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "type": "source_stated_internal_hospital_location",
+      "label": "Post-Anaesthetic Care Unit, Belfast City Hospital, Belfast",
+      "precision": "source-stated hospital location only; no official coordinate or footprint extracted in Round452",
+      "source_url": "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf"
+    },
+    "address_ref": "Belfast City Hospital, Belfast",
+    "point_corpus_ready": false,
+    "method": "Manual official/public Belfast architecture sweep after Round442. Accepted only source-published facts from official public or public-estate institutional sources. Lab, training-suite and hospital-unit records are treated as observed facility milestones only. No construction completion, capacity, service-performance, health, education, economic, causality or impact claim is carried unless directly stated as the narrow source milestone.",
+    "transformation_method": "scripts/fetch_round452_belfast_official_architecture_sweep_next17_candidates.js#manualOfficialPublicArchitectureSweepRound452",
+    "provenance_links": [
+      {
+        "rel": "primary_source",
+        "href": "https://belfasttrust.hscni.net/download/27/annual-reports/849/belfast-trust-annual-report-16-17.pdf"
+      },
+      {
+        "rel": "terms",
+        "href": "https://belfasttrust.hscni.net/copyright/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round452_bch_post_anaesthetic_care_unit_opening_2016",
+      "belfast-trust-annual-report-2016-17-bch-post-anaesthetic-care-unit-october-2016",
+      "Post-Anaesthetic Care Unit",
+      "PACU was opened in Belfast City Hospital"
+    ],
+    "duplicate_review": "No accepted live/manual event or prior official sweep candidate matched this BCH PACU opening. A broad annual-report-only rejection note in an older tmp pack was reviewed and treated as non-accepted prior work.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round452_qub_keysight_mmwave_lab_opening_2018",
+    "event_id": "bfs_arch_round452_qub_keysight_mmwave_lab_opening_2018",
+    "city_id": "belfast",
+    "title": "Queen's University Belfast Keysight millimetre-wave research lab opened",
+    "summary": "Queen's University Belfast reported on 24 April 2018 that a Keysight millimetre-wave research lab had opened in collaboration with Queen's and was located in the Centre for Wireless Innovation at ECIT.",
+    "observed_change": "Official source-published opening milestone for a named university research laboratory.",
+    "event_type": "facility_opening_official",
+    "category": "architecture_public_estate",
+    "date": "2018-04-24",
+    "effective_date": "2018-04-24",
+    "effective_date_range": {
+      "start": "2018-04-24",
+      "end": "2018-04-24",
+      "precision": "day",
+      "basis": "Official university news page date."
+    },
+    "source_id": "qub-keysight-mmwave-lab-opening-2018-round452",
+    "source_name": "New Keysight Millimeter-Wave research lab opened at Queen's University Belfast",
+    "publisher": "Queen's University Belfast",
+    "source_url": "https://www.qub.ac.uk/News/Allnews/2018/NewKeysightMillimeter-WaveresearchlabopenedatQueensUniversityBelfast.html",
+    "source_type": "official university news page",
+    "source_record_id": "qub-news-2018-04-24-keysight-millimeter-wave-research-lab",
+    "source_date_field": "official university news date",
+    "source_date_value": "2018-04-24",
+    "license": "Queen's University Belfast website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.qub.ac.uk/Legal/",
+    "terms": "https://www.qub.ac.uk/Legal/",
+    "publisher_terms_url": "https://www.qub.ac.uk/Legal/",
+    "attribution": "Queen's University Belfast",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "evidence_basis": [
+      "Official QUB page identifies the lab opening date and the Centre for Wireless Innovation/ECIT location.",
+      "The page was fetched and source markers were verified by this script."
+    ],
+    "limitations": [
+      "This records the opening of a research lab only, not building completion, public access, research output, economic benefit or broader estate impact.",
+      "No official coordinate or building footprint was extracted; geometry_ref only, not ready for the current point-only corpus."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "type": "source_stated_university_lab_reference",
+      "label": "Keysight millimetre-wave research lab, Centre for Wireless Innovation, ECIT, Queen's University Belfast",
+      "precision": "source-stated centre/lab reference only; no official coordinate or footprint extracted in Round452",
+      "source_url": "https://www.qub.ac.uk/News/Allnews/2018/NewKeysightMillimeter-WaveresearchlabopenedatQueensUniversityBelfast.html"
+    },
+    "address_ref": "Centre for Wireless Innovation, ECIT, Queen's University Belfast",
+    "point_corpus_ready": false,
+    "method": "Manual official/public Belfast architecture sweep after Round442. Accepted only source-published facts from official public or public-estate institutional sources. Lab, training-suite and hospital-unit records are treated as observed facility milestones only. No construction completion, capacity, service-performance, health, education, economic, causality or impact claim is carried unless directly stated as the narrow source milestone.",
+    "transformation_method": "scripts/fetch_round452_belfast_official_architecture_sweep_next17_candidates.js#manualOfficialPublicArchitectureSweepRound452",
+    "provenance_links": [
+      {
+        "rel": "primary_source",
+        "href": "https://www.qub.ac.uk/News/Allnews/2018/NewKeysightMillimeter-WaveresearchlabopenedatQueensUniversityBelfast.html"
+      },
+      {
+        "rel": "terms",
+        "href": "https://www.qub.ac.uk/Legal/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round452_qub_keysight_mmwave_lab_opening_2018",
+      "qub-news-2018-04-24-keysight-millimeter-wave-research-lab",
+      "Keysight Millimeter-Wave research lab",
+      "Keysight millimetre-wave research lab",
+      "Centre for Wireless Innovation"
+    ],
+    "duplicate_review": "No accepted live/manual event, source URL, source record, or prior Belfast official sweep candidate matched this Keysight lab opening.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round452_qub_agriplas_lab_opening_2019",
+    "event_id": "bfs_arch_round452_qub_agriplas_lab_opening_2019",
+    "city_id": "belfast",
+    "title": "Queen's University Belfast Centre for Plasma in Agri-Food opened",
+    "summary": "Queen's University Belfast reported on 14 June 2019 that the Centre for Plasma in Agri-Food, also called AgriPlas, was officially opened in the new Biological Sciences building.",
+    "observed_change": "Official source-published opening milestone for a named university research centre/laboratory.",
+    "event_type": "facility_opening_official",
+    "category": "architecture_public_estate",
+    "date": "2019-06-14",
+    "effective_date": "2019-06-14",
+    "effective_date_range": {
+      "start": "2019-06-14",
+      "end": "2019-06-14",
+      "precision": "day",
+      "basis": "Official university news page date and opening text."
+    },
+    "source_id": "qub-agriplas-lab-opening-2019-round452",
+    "source_name": "Centre for Plasma in Agri-Food official opening at Queen's University Belfast",
+    "publisher": "Queen's University Belfast",
+    "source_url": "https://www.qub.ac.uk/Research/GRI/TheInstituteforGlobalFoodSecurity/institute-for-global-security-news/NewsArchive2019/WondertechnologytotransformfarmingfoodproductionandmitigateAMRpioneeredbyIGFS.html",
+    "source_type": "official university research news page",
+    "source_record_id": "qub-research-2019-06-14-agriplas-centre-opening",
+    "source_date_field": "official university news date and opening text",
+    "source_date_value": "2019-06-14",
+    "license": "Queen's University Belfast website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.qub.ac.uk/Legal/",
+    "terms": "https://www.qub.ac.uk/Legal/",
+    "publisher_terms_url": "https://www.qub.ac.uk/Legal/",
+    "attribution": "Queen's University Belfast",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "evidence_basis": [
+      "Official QUB page identifies the centre/lab, official opening date and new Biological Sciences building location.",
+      "The page was fetched and source markers were verified by this script."
+    ],
+    "limitations": [
+      "This records the official opening of a university research centre/lab only.",
+      "The source includes research and technology claims; this candidate does not carry those future-facing or outcome claims.",
+      "No official coordinate or building footprint was extracted; geometry_ref only, not ready for the current point-only corpus."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "type": "source_stated_university_lab_reference",
+      "label": "Centre for Plasma in Agri-Food (AgriPlas), new Biological Sciences building, Queen's University Belfast",
+      "precision": "source-stated building/lab reference only; no official coordinate or footprint extracted in Round452",
+      "source_url": "https://www.qub.ac.uk/Research/GRI/TheInstituteforGlobalFoodSecurity/institute-for-global-security-news/NewsArchive2019/WondertechnologytotransformfarmingfoodproductionandmitigateAMRpioneeredbyIGFS.html"
+    },
+    "address_ref": "new Biological Sciences building, Queen's University Belfast",
+    "point_corpus_ready": false,
+    "method": "Manual official/public Belfast architecture sweep after Round442. Accepted only source-published facts from official public or public-estate institutional sources. Lab, training-suite and hospital-unit records are treated as observed facility milestones only. No construction completion, capacity, service-performance, health, education, economic, causality or impact claim is carried unless directly stated as the narrow source milestone.",
+    "transformation_method": "scripts/fetch_round452_belfast_official_architecture_sweep_next17_candidates.js#manualOfficialPublicArchitectureSweepRound452",
+    "provenance_links": [
+      {
+        "rel": "primary_source",
+        "href": "https://www.qub.ac.uk/Research/GRI/TheInstituteforGlobalFoodSecurity/institute-for-global-security-news/NewsArchive2019/WondertechnologytotransformfarmingfoodproductionandmitigateAMRpioneeredbyIGFS.html"
+      },
+      {
+        "rel": "terms",
+        "href": "https://www.qub.ac.uk/Legal/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round452_qub_agriplas_lab_opening_2019",
+      "qub-research-2019-06-14-agriplas-centre-opening",
+      "AgriPlas",
+      "Centre for Plasma in Agri-Food"
+    ],
+    "duplicate_review": "No accepted live/manual event, source URL, source record, or prior Belfast official sweep candidate matched this AgriPlas opening.",
+    "duplicate_scan_hits": []
+  },
+  {
+    "id": "bfs_arch_round452_belfast_met_aviation_suite_launch_2019",
+    "event_id": "bfs_arch_round452_belfast_met_aviation_suite_launch_2019",
+    "city_id": "belfast",
+    "title": "Belfast Met Aviation Suite launched at Castlereagh campus",
+    "summary": "Belfast Metropolitan College reported on 14 October 2019 that it had launched an Aviation Suite at the college's Castlereagh campus in East Belfast.",
+    "observed_change": "Official source-published launch milestone for a named training suite on a public college campus.",
+    "event_type": "facility_opening_official",
+    "category": "architecture_public_estate",
+    "date": "2019-10-14",
+    "effective_date": "2019-10-14",
+    "effective_date_range": {
+      "start": "2019-10-14",
+      "end": "2019-10-14",
+      "precision": "day",
+      "basis": "Official college news page date."
+    },
+    "source_id": "belfast-met-aviation-suite-launch-2019-round452",
+    "source_name": "Belfast Met Launch New Aviation Suite",
+    "publisher": "Belfast Metropolitan College",
+    "source_url": "https://www.belfastmet.ac.uk/about-us/news/belfast-met-launch-new-aviation-suite/",
+    "source_type": "official further-education college news page",
+    "source_record_id": "belfast-met-news-2019-10-14-aviation-suite-launch",
+    "source_date_field": "official college news date",
+    "source_date_value": "2019-10-14",
+    "license": "Belfast Metropolitan College website copyright/terms; factual citation metadata and source URL retained, no page text or media reproduced.",
+    "license_url": "https://www.belfastmet.ac.uk/about-us/corporate-information/terms-of-use/",
+    "terms": "https://www.belfastmet.ac.uk/about-us/corporate-information/terms-of-use/",
+    "publisher_terms_url": "https://www.belfastmet.ac.uk/about-us/corporate-information/terms-of-use/",
+    "attribution": "Belfast Metropolitan College",
+    "accessed_at": "2026-05-20",
+    "retrieved_at": "2026-05-20",
+    "confidence": "documented",
+    "evidence_basis": [
+      "Official Belfast Met page identifies the suite launch date and Castlereagh campus location.",
+      "The page was fetched and source markers were verified by this script."
+    ],
+    "limitations": [
+      "This records a training-suite launch only, not campus-wide renewal, course outcomes, learner outcomes or economic impact.",
+      "No official coordinate or room/building footprint was extracted; geometry_ref only, not ready for the current point-only corpus."
+    ],
+    "geometry": null,
+    "geometry_ref": {
+      "type": "source_stated_college_campus_facility_reference",
+      "label": "Aviation Suite, Belfast Met Castlereagh campus, East Belfast",
+      "precision": "source-stated campus/facility reference only; no official coordinate or footprint extracted in Round452",
+      "source_url": "https://www.belfastmet.ac.uk/about-us/news/belfast-met-launch-new-aviation-suite/"
+    },
+    "address_ref": "Belfast Met Castlereagh campus, East Belfast",
+    "point_corpus_ready": false,
+    "method": "Manual official/public Belfast architecture sweep after Round442. Accepted only source-published facts from official public or public-estate institutional sources. Lab, training-suite and hospital-unit records are treated as observed facility milestones only. No construction completion, capacity, service-performance, health, education, economic, causality or impact claim is carried unless directly stated as the narrow source milestone.",
+    "transformation_method": "scripts/fetch_round452_belfast_official_architecture_sweep_next17_candidates.js#manualOfficialPublicArchitectureSweepRound452",
+    "provenance_links": [
+      {
+        "rel": "primary_source",
+        "href": "https://www.belfastmet.ac.uk/about-us/news/belfast-met-launch-new-aviation-suite/"
+      },
+      {
+        "rel": "terms",
+        "href": "https://www.belfastmet.ac.uk/about-us/corporate-information/terms-of-use/"
+      }
+    ],
+    "duplicate_check_terms": [
+      "bfs_arch_round452_belfast_met_aviation_suite_launch_2019",
+      "belfast-met-news-2019-10-14-aviation-suite-launch",
+      "Belfast Met Launch New Aviation Suite",
+      "Aviation Suite",
+      "belfast-met-launch-new-aviation-suite"
+    ],
+    "duplicate_review": "No accepted live/manual event, source URL, source record, or prior Belfast official sweep candidate matched this Belfast Met Aviation Suite launch.",
+    "duplicate_scan_hits": []
+  }
+]
