@@ -488,7 +488,7 @@ button { font-family: inherit; }
   position: absolute;
   left: calc(100vw - 652px);
   right: auto;
-  top: 410px;
+  top: clamp(180px, 38vh, 410px);
   width: 224px;
   z-index: 306;
   padding: 12px;

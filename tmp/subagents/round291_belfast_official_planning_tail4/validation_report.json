@@ -1,0 +1,54 @@
+{
+  "schema_version": "round291_belfast_official_planning_tail4.validation_report.v1",
+  "generated_at": "2026-05-20",
+  "accessed_at": "2026-05-20",
+  "city_id": "belfast",
+  "round_id": "round291_belfast_official_planning_tail4",
+  "validation_ok": true,
+  "accepted_candidates": 9,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-20"
+  },
+  "emitted_date_range": {
+    "min": "2016-08-22",
+    "max": "2025-01-30"
+  },
+  "source_mix": {
+    "Department for Infrastructure, Northern Ireland": 9
+  },
+  "audited_source_mix": {
+    "Belfast City Council": 1,
+    "Department for Communities Historic Environment Division": 1,
+    "Department for Infrastructure, Northern Ireland": 1
+  },
+  "checks": {
+    "required_provenance": true,
+    "date_window": "2008-01-01..2026-05-20",
+    "belfast_coordinate_sanity": true,
+    "unique_event_ids": true,
+    "unique_source_date_keys": true,
+    "unique_title_date_keys": true,
+    "no_overlap_against_current_corpus_and_prior_belfast_packs": true,
+    "overclaim_wording_scan": true
+  },
+  "errors": [],
+  "warnings": [],
+  "dedupe": {
+    "manual_corpus": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+    "prior_file_count": 75,
+    "prior_record_count": 48315,
+    "indexed_application_ids": 1882,
+    "indexed_event_ids": 48052,
+    "indexed_source_record_date_keys": 47581,
+    "indexed_source_url_date_keys": 26388,
+    "indexed_title_date_keys": 45701,
+    "includes_round270": true,
+    "includes_round281": true,
+    "includes_round286": true
+  },
+  "caveat": "This is an internal harvest validation report. It confirms candidate-pack provenance and dedupe checks; it does not validate construction, opening, completion, delivery, impact, or causation.",
+  "source_date_field_mix": {
+    "DecisionIssuedDate": 9
+  }
+}
