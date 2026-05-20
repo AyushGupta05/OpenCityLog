@@ -3553,7 +3553,7 @@
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: "street_thread",
+          flow_style: lens.id === "utilities-works" ? "utility_work_thread" : "street_thread",
           event_id: nearestEvent?.id || "",
           intensity: Number(gapIntensity.toFixed(2)),
           color: civicGapStreetColor(gapIntensity, serviceDensity, rank),
@@ -3778,18 +3778,23 @@
   function utilityWorksStatusColor(status, type, event, road) {
     const seed = stableUnit(`${status}:${type}:${event?.id || ""}:${road?.properties?.source_id || road?.properties?.id || ""}`);
     if (status === "repair") {
-      if (type === "water" && seed < 0.58) return "#248b94";
-      if (type === "telecoms" && seed < 0.72) return "#774a92";
-      if (seed < 0.48) return "#e8a620";
-      if (seed < 0.66) return "#d66a3a";
-      if (seed < 0.82) return "#248b94";
+      if (type === "water" && seed < 0.72) return "#248b94";
+      if (type === "telecoms" && seed < 0.74) return "#774a92";
+      if (seed < 0.28) return "#e8a620";
+      if (seed < 0.46) return "#d66a3a";
+      if (seed < 0.76) return "#248b94";
       return "#774a92";
     }
-    if (type === "water") return seed < 0.72 ? "#248b94" : "#4f8f50";
+    if (type === "water") return seed < 0.76 ? "#248b94" : "#4f8f50";
     if (type === "telecoms") return "#774a92";
     if (type === "drainage") return seed < 0.64 ? "#4f8f50" : "#248b94";
-    if (type === "gas") return seed < 0.62 ? "#d66a3a" : "#e8a620";
-    if (type === "electricity") return seed < 0.58 ? "#e8a620" : "#d66a3a";
+    if (type === "gas") return seed < 0.42 ? "#d66a3a" : "#248b94";
+    if (type === "electricity") {
+      if (seed < 0.36) return "#e8a620";
+      if (seed < 0.64) return "#248b94";
+      if (seed < 0.82) return "#d66a3a";
+      return "#774a92";
+    }
     return utilityWorksTypeColor(type, event, road);
   }
 
