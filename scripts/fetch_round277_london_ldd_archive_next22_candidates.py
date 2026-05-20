@@ -26,20 +26,25 @@ def build_round_replacements():
         "scripts/fetch_round271_london_ldd_archive_next21_candidates.py": SCRIPT_PATH,
         "tmp/subagents/round271_london_ldd_archive_next21": OUT_DIR.as_posix(),
         "Round 271 London LDD archive next21 candidates": "Round 277 London LDD archive next22 candidates",
+        "2026-05-19": ACCESSED_AT,
+        "a administrative": "an administrative",
         "selected completion, started, or permission milestone dates": (
-            "selected permission, commencement, or completion milestone dates"
+            "selected permission milestone dates"
         ),
         "selected completion, work-start, or permission milestone records": (
-            "selected permission, commencement, or completion milestone records"
+            "selected permission milestone records"
         ),
         "selected permission milestone dates": (
-            "selected permission milestone dates from the current next22 pass"
+            "selected permission milestone dates"
         ),
         "selected permission milestone records": (
-            "selected permission milestone records from the current next22 pass"
+            "selected permission milestone records"
         ),
         "selected LDD `Permission Date`": (
             "selected LDD `Permission Date`, with commencement/completion fields retained as source caveats"
+        ),
+        "sorted by milestone priority, signal score, milestone date, and source row": (
+            "sorted by signal score, permission date, and source row"
         ),
         "same fields inside the round271 batch scan": "same fields inside the round277 batch scan",
         "duplicate inside round271 batch scan": "duplicate inside round277 batch scan",
