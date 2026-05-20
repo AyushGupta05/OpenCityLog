@@ -1398,9 +1398,9 @@
           source: "basemap",
           paint: {
             "raster-fade-duration": 180,
-            "raster-saturation": -0.72,
-            "raster-contrast": -0.1,
-            "raster-brightness-min": 0.54,
+            "raster-saturation": -0.82,
+            "raster-contrast": -0.16,
+            "raster-brightness-min": 0.66,
             "raster-brightness-max": 1,
           },
         }],
@@ -1914,12 +1914,12 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#fffdf7",
-        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0.2, 0.2, 0.42, 1, 0.72],
+        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0.14, 0.2, 0.32, 1, 0.58],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.7, ["*", transportActivityExpression(), 1.4]], transportRankExpression()],
-          13, ["*", ["+", 1.15, ["*", transportActivityExpression(), 2.35]], transportRankExpression()],
-          16, ["*", ["+", 1.7, ["*", transportActivityExpression(), 3.45]], transportRankExpression()],
+          9, ["*", ["+", 0.5, ["*", transportActivityExpression(), 1.0]], transportRankExpression()],
+          13, ["*", ["+", 0.82, ["*", transportActivityExpression(), 1.65]], transportRankExpression()],
+          16, ["*", ["+", 1.15, ["*", transportActivityExpression(), 2.55]], transportRankExpression()],
         ],
         "line-blur": 0.16,
       },
@@ -1940,14 +1940,14 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#c81f2d",
-        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.06, 1, 0.14],
+        "line-opacity": ["interpolate", ["linear"], transportActivityExpression(), 0, 0, 0.45, 0.035, 1, 0.08],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.8, ["*", transportActivityExpression(), 1.7]], transportRankExpression()],
-          13, ["*", ["+", 1.25, ["*", transportActivityExpression(), 2.6]], transportRankExpression()],
-          16, ["*", ["+", 1.8, ["*", transportActivityExpression(), 3.8]], transportRankExpression()],
+          9, ["*", ["+", 0.54, ["*", transportActivityExpression(), 1.15]], transportRankExpression()],
+          13, ["*", ["+", 0.9, ["*", transportActivityExpression(), 1.85]], transportRankExpression()],
+          16, ["*", ["+", 1.24, ["*", transportActivityExpression(), 2.75]], transportRankExpression()],
         ],
-        "line-blur": 0.55,
+        "line-blur": 0.4,
       },
     });
   }
@@ -2005,6 +2005,10 @@
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.2, 1, 0.62],
           ["==", ["get", "surface_style"], "land_use_tile"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.28, 1, 0.78],
+          ["==", ["get", "lens_id"], "civic-demand"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.46],
+          ["==", ["get", "lens_id"], "civic-catchment"],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 1, 0.42],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 1, 0.58],
         ],
       },
@@ -3541,7 +3545,7 @@
       const serviceDensity = eventDensityIntensity(point, events, 980);
       const rank = Number(road.properties?.rank || 1);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const gapIntensity = clamp01(0.22 + (1 - serviceDensity) * 0.32 + proximity * 0.24 + Math.min(0.14, rank * 0.035));
+      const gapIntensity = clamp01(0.15 + (1 - serviceDensity) * 0.24 + proximity * 0.2 + Math.min(0.12, rank * 0.032));
       if (gapIntensity < 0.34 && rank < 1.5) continue;
       features.push({
         type: "Feature",
@@ -3551,7 +3555,7 @@
           flow_style: "street_thread",
           event_id: nearestEvent?.id || "",
           intensity: Number(gapIntensity.toFixed(2)),
-          color: guideFlowColor(lens, nearestEvent || {}, 0, gapIntensity),
+          color: civicGapStreetColor(gapIntensity, serviceDensity, rank),
           score: Number((gapIntensity + proximity * 0.08 + stableUnit(`gap:${road.properties?.source_id || road.properties?.id || ""}`) * 0.1).toFixed(3)),
         },
         geometry: road.geometry,
@@ -3560,6 +3564,15 @@
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
       .slice(0, 1450);
+  }
+
+  function civicGapStreetColor(intensity, serviceDensity, rank) {
+    if (serviceDensity > 0.44 && intensity < 0.56) return "#0f8d95";
+    if (rank <= 1.4 && serviceDensity > 0.28) return "#348f67";
+    if (intensity > 0.72) return "#ed4a2e";
+    if (intensity > 0.56) return "#ef8f21";
+    if (intensity > 0.42) return "#e4b33c";
+    return "#348f67";
   }
 
   function economyVitalityStreetFeatures(center, lens) {
@@ -4260,9 +4273,9 @@
         "line-opacity": ["interpolate", ["linear"], activity, 0, 0.36, 0.2, 0.56, 1, 0.86],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.34, ["*", activity, 0.62]], rank],
-          13, ["*", ["+", 0.58, ["*", activity, 1.08]], rank],
-          16, ["*", ["+", 0.88, ["*", activity, 1.62]], rank],
+          9, ["*", ["+", 0.26, ["*", activity, 0.46]], rank],
+          13, ["*", ["+", 0.48, ["*", activity, 0.82]], rank],
+          16, ["*", ["+", 0.72, ["*", activity, 1.26]], rank],
         ],
         "line-dasharray": [1.35, 1.15],
       };
@@ -4280,9 +4293,9 @@
         "line-opacity": ["interpolate", ["linear"], activity, 0, 0.32, 0.2, 0.52, 1, 0.82],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.38, ["*", activity, 1.02]], rank],
-          13, ["*", ["+", 0.72, ["*", activity, 1.68]], rank],
-          16, ["*", ["+", 1.1, ["*", activity, 2.36]], rank],
+          9, ["*", ["+", 0.3, ["*", activity, 0.72]], rank],
+          13, ["*", ["+", 0.56, ["*", activity, 1.18]], rank],
+          16, ["*", ["+", 0.86, ["*", activity, 1.76]], rank],
         ],
         "line-dasharray": [2.2, 1],
       };
@@ -4299,9 +4312,9 @@
       "line-opacity": ["interpolate", ["linear"], activity, 0, 0.52, 0.2, 0.74, 1, 0.94],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        9, ["*", ["+", 0.48, ["*", activity, 1.25]], rank],
-        13, ["*", ["+", 0.94, ["*", activity, 2.26]], rank],
-        16, ["*", ["+", 1.38, ["*", activity, 3.52]], rank],
+        9, ["*", ["+", 0.34, ["*", activity, 0.9]], rank],
+        13, ["*", ["+", 0.62, ["*", activity, 1.55]], rank],
+        16, ["*", ["+", 0.98, ["*", activity, 2.5]], rank],
       ],
       "line-dasharray": [1, 0.0001],
     };
