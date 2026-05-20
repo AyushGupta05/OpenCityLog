@@ -4744,14 +4744,15 @@
     const year = currentTimelineYear();
     const sourceEvents = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "civic_services" && event.lngLat);
+    const candidates = civicCatchmentCandidates(center, radiusM, lens, sourceEvents, year);
+    const selected = selectCivicCatchmentCandidates(center, candidates, lens, 110);
     const coverageFeatures = civicCoverageCellPatchFeatures(center, radiusM, lens, sourceEvents, year);
     if (coverageFeatures.length >= 12) {
-      return coverageFeatures
+      const backdropFeatures = civicCatchmentServiceCellFeatures(center, radiusM, lens, selected);
+      return [...coverageFeatures, ...backdropFeatures]
         .sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0))
         .slice(0, guideCellLimit(lens.id));
     }
-    const candidates = civicCatchmentCandidates(center, radiusM, lens, sourceEvents, year);
-    const selected = selectCivicCatchmentCandidates(center, candidates, lens, 110);
     const sectorFeatures = civicCatchmentSectorFeatures(center, radiusM, lens, selected);
     if (sectorFeatures.length >= 4) return sectorFeatures;
     const fallbackSources = sourceEvents.map((event) => ({
