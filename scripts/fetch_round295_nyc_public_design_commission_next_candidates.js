@@ -872,7 +872,9 @@ async function main() {
       if (name === "current_meetings_page") {
         sourcePages[name].mentions_may_18_2026 = /May\s+18|5\/18\/26/i.test(result.text);
         sourcePages[name].may_18_2026_minutes_link_present =
-          /href=["'][^"']*(?:5-18-26|05-18-26|5%2F18%2F26|05%2F18%2F26)[^"']*["']/i.test(result.text);
+          /href=["'][^"']*(?:5-18-26|05-18-26)[^"']*(?:minutes|certificates)[^"']*\.pdf["']/i.test(
+            result.text
+          );
       }
     } catch (error) {
       sourcePages[name] = { url, ok: false, error: error.message, checked_at: ACCESS_DATE };

@@ -3553,7 +3553,7 @@
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: lens.id === "utilities-works" ? "utility_work_thread" : "street_thread",
+          flow_style: "street_thread",
           event_id: nearestEvent?.id || "",
           intensity: Number(gapIntensity.toFixed(2)),
           color: civicGapStreetColor(gapIntensity, serviceDensity, rank),
@@ -3601,7 +3601,7 @@
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: "street_thread",
+          flow_style: lens.id === "utilities-works" ? "utility_work_thread" : "street_thread",
           event_id: nearestEvent?.id || "",
           intensity: Number(intensity.toFixed(2)),
           color: economyVitalityGuideColor(nearestEvent, road, intensity),
@@ -3706,7 +3706,7 @@
         properties: {
           kind: "flow",
           lens_id: lens.id,
-          flow_style: "street_thread",
+          flow_style: lens.id === "utilities-works" ? "utility_work_thread" : "street_thread",
           event_id: nearestEvent?.id || "",
           intensity: Number(intensity.toFixed(2)),
           color: utilityNetworkGuideColor(lens, nearestEvent, road, intensity),
@@ -3755,9 +3755,9 @@
     if (/reinstate|resurface|restore/.test(text)) return "#4f8f50";
     if (/repair|replace|upgrade/.test(text)) return utilityWorksStatusColor("repair", type, event, road);
     if (/planned|programme|program|scheme|maintenance|works|utility/.test(text)) return utilityWorksStatusColor("planned", type, event, road);
-    if (type === "water") return "#248b94";
-    if (type === "telecoms") return "#774a92";
-    if (type === "electricity") return "#e8a620";
+    if (type === "water" || type === "telecoms" || type === "electricity" || type === "gas" || type === "drainage") {
+      return utilityWorksStatusColor("asset", type, event, road);
+    }
     return intensity > 0.66 ? "#d66a3a" : "#8c7460";
   }
 
@@ -3784,6 +3784,18 @@
       if (seed < 0.46) return "#d66a3a";
       if (seed < 0.76) return "#248b94";
       return "#774a92";
+    }
+    if (status === "asset") {
+      if (type === "water") return "#248b94";
+      if (type === "telecoms") return "#774a92";
+      if (type === "drainage") return seed < 0.58 ? "#248b94" : "#4f8f50";
+      if (type === "gas") return seed < 0.52 ? "#d66a3a" : "#e8a620";
+      if (type === "electricity") {
+        if (seed < 0.42) return "#e8a620";
+        if (seed < 0.66) return "#248b94";
+        if (seed < 0.84) return "#d66a3a";
+        return "#774a92";
+      }
     }
     if (type === "water") return seed < 0.76 ? "#248b94" : "#4f8f50";
     if (type === "telecoms") return "#774a92";

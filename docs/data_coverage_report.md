@@ -1,23 +1,23 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T03:12:38Z
+Generated: 2026-05-20T03:25:55Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
-| Belfast, Northern Ireland | 32460 | 152 | 15 | 2007-2026 | transport 17118, built_environment 13141, utilities 851 | 67540 |
-| London, England | 208291 | 181 | 102 | 1801-2026 | built_environment 89008, civic_services 53367, transport 37842 | 0 |
+| Belfast, Northern Ireland | 32562 | 152 | 15 | 2007-2026 | transport 17118, built_environment 13243, utilities 851 | 67438 |
+| London, England | 208453 | 181 | 102 | 1801-2026 | built_environment 89170, civic_services 53367, transport 37842 | 0 |
 | New York City, New York | 53493 | 78 | 122 | 1797-2026 | built_environment 35081, environment 9000, transport 6510 | 46507 |
 
 ## Belfast, Northern Ireland
 
-Backed events: 32460. Unique event IDs: 32460. Duplicate IDs: 0.
+Backed events: 32562. Unique event IDs: 32562. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | OpenStreetMap extracts via Overpass API | 17965 | 2007-2026 | transport 17114, utilities 851 | usable_with_caveats |
-| Northern Ireland planning activity statistics | 12818 | 2016-2025 | built_environment 11471, civic_services 675, economy 672 | usable_with_caveats |
+| Northern Ireland planning activity statistics | 12920 | 2016-2025 | built_environment 11573, civic_services 675, economy 672 | usable_with_caveats |
 | Belfast architecture and major project public pages | 928 | 2008-2026 | built_environment 928 | usable_with_caveats |
 | Defence Heritage Record ArcGIS layer | 161 | 2017-2026 | built_environment 161 | usable_with_caveats |
 | Heritage at Risk in Northern Ireland Belfast records | 113 | 2008-2025 | built_environment 113 | usable_with_caveats |
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 15.
 
 ## London, England
 
-Backed events: 208291. Unique event IDs: 208291. Duplicate IDs: 0.
+Backed events: 208453. Unique event IDs: 208453. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -45,7 +45,7 @@ Backed events: 208291. Unique event IDs: 208291. Duplicate IDs: 0.
 | Planning London Datahub - planning applications | 13974 | 2008-2026 | built_environment 13974 | usable_with_caveats |
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13875 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
-| Planning permissions on the London Development Database (LDD) | 11280 | 2008-2020 | built_environment 11220, civic_services 44, transport 12 | usable_with_caveats |
+| Planning permissions on the London Development Database (LDD) | 11442 | 2008-2020 | built_environment 11382, civic_services 44, transport 12 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning Data: Tree Preservation Zones | 1168 | 1951-2025 | built_environment 1168 | usable_with_caveats |

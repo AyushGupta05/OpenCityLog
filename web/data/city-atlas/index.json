@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-20T03:10:18Z",
+  "generated_at": "2026-05-20T03:22:10Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 32460,
+      "event_count": 32562,
       "source_count": 167,
       "availability_status": "mvp_partial",
       "artifact_paths": {
@@ -25,7 +25,7 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 208291,
+      "event_count": 208453,
       "source_count": 285,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
@@ -66,11 +66,11 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-20T03:12:38Z",
+  "coverage_report_generated_at": "2026-05-20T03:25:55Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 294244,
-    "total_unique_events": 294244,
+    "total_events": 294508,
+    "total_unique_events": 294508,
     "duplicate_event_id_count": 0,
     "active_source_count": 411,
     "source_catalog_only_count": 239,
