@@ -1,6 +1,6 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T03:25:55Z
+Generated: 2026-05-20T03:31:00Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
@@ -8,7 +8,7 @@ This report counts source-backed records emitted into `web/data/city-atlas`. It 
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 32562 | 152 | 15 | 2007-2026 | transport 17118, built_environment 13243, utilities 851 | 67438 |
 | London, England | 208453 | 181 | 102 | 1801-2026 | built_environment 89170, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 53493 | 78 | 122 | 1797-2026 | built_environment 35081, environment 9000, transport 6510 | 46507 |
+| New York City, New York | 53729 | 78 | 122 | 1797-2026 | built_environment 35294, environment 9018, transport 6515 | 46271 |
 
 ## Belfast, Northern Ireland
 
@@ -54,11 +54,11 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 53493. Unique event IDs: 53493. Duplicate IDs: 0.
+Backed events: 53729. Unique event IDs: 53729. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
-| NYC DOB construction filings and permits | 6029 | 2008-2026 | built_environment 6029 | usable_with_caveats |
+| NYC DOB construction filings and permits | 6229 | 2008-2026 | built_environment 6229 | usable_with_caveats |
 | HPD affordable housing production by project and building | 5229 | 2014-2026 | built_environment 5229 | usable_with_caveats |
 | NYC Open Data LPC Permit Application Information | 5051 | 2008-2026 | environment 2900, built_environment 1854, transport 268 | usable_with_caveats |
 | NYC Open Data: DOB Certificate Of Occupancy | 4577 | 2012-2026 | built_environment 4577 | usable_with_caveats |

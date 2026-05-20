@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-20T03:22:10Z",
+  "generated_at": "2026-05-20T03:28:26Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
@@ -43,7 +43,7 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 53493,
+      "event_count": 53729,
       "source_count": 200,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
@@ -66,15 +66,15 @@
     "availability_schema": "schemas/availability.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-20T03:25:55Z",
+  "coverage_report_generated_at": "2026-05-20T03:31:00Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 294508,
-    "total_unique_events": 294508,
+    "total_events": 294744,
+    "total_unique_events": 294744,
     "duplicate_event_id_count": 0,
     "active_source_count": 411,
     "source_catalog_only_count": 239,
-    "source_year_layer_row_count": 2228,
+    "source_year_layer_row_count": 2230,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

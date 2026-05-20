@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-05-20T00:00:00Z",
   "reason_counts": {
-    "existing_corpus_or_prior_pack_nhle_key": 1471,
+    "existing_corpus_or_prior_pack_nhle_key": 1477,
     "outside_ons_london_region": 157,
     "duplicate_within_round": 2
   },

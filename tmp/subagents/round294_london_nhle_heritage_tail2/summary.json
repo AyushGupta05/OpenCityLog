@@ -6,7 +6,7 @@
     "end": "2026-05-20"
   },
   "source_rows_fetched": 1736,
-  "candidate_count": 106,
+  "candidate_count": 100,
   "date_range": {
     "start": "2008-01-01",
     "end": "2026-04-09"
@@ -16,13 +16,11 @@
     "nhle_registered_park_garden_designation": 6,
     "nhle_registered_park_garden_amendment": 4,
     "nhle_scheduled_monument_amendment": 4,
-    "nhle_listed_building_designation": 6,
     "nhle_certificate_of_immunity_start": 82
   },
   "source_date_field_mix": {
     "AmendDate": 12,
     "RegDate": 6,
-    "ListDate": 6,
     "COIStart": 82
   },
   "designation_type_mix": {
@@ -30,14 +28,12 @@
     "registered park/garden designation": 6,
     "registered park/garden list-entry amendment": 4,
     "scheduled monument list-entry amendment": 4,
-    "listed-building designation": 6,
     "certificate of immunity start": 82
   },
   "source_layer_mix": {
     "10 World Heritage Sites": 4,
     "7 Parks and Gardens": 10,
     "6 Scheduled Monuments": 4,
-    "0 Listed Building points": 6,
     "2 Certificate of Immunity points": 82
   },
   "query_counts": [
@@ -46,7 +42,7 @@
       "layer_name": "Listed Building points",
       "source_date_field": "ListDate",
       "rows_fetched_in_london_bbox": 1203,
-      "candidate_count_after_dedupe": 6
+      "candidate_count_after_dedupe": 0
     },
     {
       "layer_id": 0,
@@ -141,17 +137,17 @@
     }
   ],
   "rejected_reason_counts": {
-    "existing_corpus_or_prior_pack_nhle_key": 1471,
+    "existing_corpus_or_prior_pack_nhle_key": 1477,
     "outside_ons_london_region": 157,
     "duplicate_within_round": 2
   },
   "duplicate_screening": {
     "manual_corpus_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
-    "corpus_events_scanned": 47120,
+    "corpus_events_scanned": 47356,
     "prior_candidate_pack_files_scanned": 339,
-    "existing_event_ids_seen": 79819,
-    "existing_source_keys_seen": 54728,
-    "existing_nhle_date_keys_seen": 1802,
+    "existing_event_ids_seen": 80055,
+    "existing_source_keys_seen": 54764,
+    "existing_nhle_date_keys_seen": 1808,
     "dedupe_key": "NHLE ListEntry + canonical source date field + administrative date",
     "screening_note": "Scanned the manual architecture corpus and candidate-like tmp/subagents JSON packs, including prior Historic England/NHLE London heritage packs through round215, for event IDs, source keys, and exact NHLE ListEntry/date-field/date keys. Rejected files and raw query captures were not treated as accepted candidate packs."
   },
@@ -170,15 +166,10 @@
     "london-nhle-round294-scheduled-monuments-amenddate-1002069-20160307",
     "london-nhle-round294-parks-and-gardens-regdate-1449184-20170904",
     "london-nhle-round294-parks-and-gardens-amenddate-1000807-20191016",
-    "london-nhle-round294-listed-building-points-listdate-1468338-20200423",
-    "london-nhle-round294-listed-building-points-listdate-1469984-20200710",
-    "london-nhle-round294-listed-building-points-listdate-1468320-20200818",
     "london-nhle-round294-parks-and-gardens-regdate-1466074-20200818",
     "london-nhle-round294-parks-and-gardens-regdate-1468840-20200818",
     "london-nhle-round294-parks-and-gardens-regdate-1469254-20200818",
     "london-nhle-round294-parks-and-gardens-regdate-1465310-20201211",
-    "london-nhle-round294-listed-building-points-listdate-1473089-20210303",
-    "london-nhle-round294-listed-building-points-listdate-1471239-20210315",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1477241-20210917",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1474618-20211005",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1477609-20211029",
@@ -186,7 +177,6 @@
     "london-nhle-round294-certificate-of-immunity-points-coistart-1477704-20211029",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1477715-20211029",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1477871-20211029",
-    "london-nhle-round294-listed-building-points-listdate-1477362-20211123",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1475123-20211130",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1478547-20220110",
     "london-nhle-round294-certificate-of-immunity-points-coistart-1478862-20220110",

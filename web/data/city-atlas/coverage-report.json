@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-20T03:25:55Z",
+  "generated_at": "2026-05-20T03:31:00Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 294508,
-    "total_unique_events": 294508,
+    "total_events": 294744,
+    "total_unique_events": 294744,
     "duplicate_event_id_count": 0,
     "active_source_count": 411,
     "source_catalog_only_count": 239,
-    "source_year_layer_row_count": 2228,
+    "source_year_layer_row_count": 2230,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -14992,7 +14992,7 @@
       "source_title": "NYC DOB construction filings and permits",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 246
+      "event_count": 251
     },
     {
       "city_id": "nyc",
@@ -15000,7 +15000,7 @@
       "source_title": "NYC DOB construction filings and permits",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 718
+      "event_count": 763
     },
     {
       "city_id": "nyc",
@@ -15008,7 +15008,7 @@
       "source_title": "NYC DOB construction filings and permits",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 919
+      "event_count": 970
     },
     {
       "city_id": "nyc",
@@ -15016,7 +15016,7 @@
       "source_title": "NYC DOB construction filings and permits",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 978
+      "event_count": 1023
     },
     {
       "city_id": "nyc",
@@ -15024,7 +15024,7 @@
       "source_title": "NYC DOB construction filings and permits",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 1042
+      "event_count": 1077
     },
     {
       "city_id": "nyc",
@@ -15032,7 +15032,7 @@
       "source_title": "NYC DOB construction filings and permits",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 678
+      "event_count": 697
     },
     {
       "city_id": "nyc",
@@ -16768,13 +16768,61 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 4
+      "event_count": 6
     },
     {
       "city_id": "nyc",
       "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2024,
+      "layer": "environment",
+      "event_count": 15
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2024,
+      "layer": "transport",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2025,
+      "layer": "built_environment",
+      "event_count": 10
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2025,
+      "layer": "environment",
+      "event_count": 4
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2025,
+      "layer": "transport",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2026,
+      "layer": "built_environment",
+      "event_count": 12
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates",
+      "year": 2026,
       "layer": "environment",
       "event_count": 3
     },
@@ -16782,41 +16830,9 @@
       "city_id": "nyc",
       "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
       "source_title": "NYC Public Design Commission meeting minutes and certificates",
-      "year": 2024,
-      "layer": "transport",
-      "event_count": 2
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "source_title": "NYC Public Design Commission meeting minutes and certificates",
-      "year": 2025,
-      "layer": "built_environment",
-      "event_count": 6
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "source_title": "NYC Public Design Commission meeting minutes and certificates",
-      "year": 2025,
-      "layer": "environment",
-      "event_count": 1
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "source_title": "NYC Public Design Commission meeting minutes and certificates",
-      "year": 2026,
-      "layer": "built_environment",
-      "event_count": 5
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "source_title": "NYC Public Design Commission meeting minutes and certificates",
       "year": 2026,
       "layer": "transport",
-      "event_count": 1
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -38282,8 +38298,8 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 53493,
-      "unique_event_count": 53493,
+      "event_count": 53729,
+      "unique_event_count": 53729,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 200,
@@ -38291,8 +38307,8 @@
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 53493,
-        "gap_events": 46507,
+        "backed_event_count": 53729,
+        "gap_events": 46271,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -38474,23 +38490,23 @@
         "2018": 2855,
         "2019": 3467,
         "2020": 3132,
-        "2021": 2948,
-        "2022": 3675,
-        "2023": 4313,
-        "2024": 4412,
-        "2025": 4375,
-        "2026": 2729
+        "2021": 2953,
+        "2022": 3720,
+        "2023": 4364,
+        "2024": 4473,
+        "2025": 4418,
+        "2026": 2760
       },
       "event_counts_by_layer": {
-        "built_environment": 35081,
+        "built_environment": 35294,
         "civic_services": 2870,
         "economy": 29,
-        "environment": 9000,
-        "transport": 6510,
+        "environment": 9018,
+        "transport": 6515,
         "utilities": 3
       },
       "event_counts_by_confidence": {
-        "documented": 53493
+        "documented": 53729
       },
       "event_counts_by_year_layer": [
         {
@@ -39936,7 +39952,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 2293
+          "event_count": 2298
         },
         {
           "year": 2021,
@@ -39956,7 +39972,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2771
+          "event_count": 2816
         },
         {
           "year": 2022,
@@ -39981,7 +39997,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 3345
+          "event_count": 3396
         },
         {
           "year": 2023,
@@ -40001,7 +40017,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 3407
+          "event_count": 3454
         },
         {
           "year": 2024,
@@ -40016,17 +40032,17 @@
         {
           "year": 2024,
           "layer": "environment",
-          "event_count": 381
+          "event_count": 393
         },
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 464
+          "event_count": 466
         },
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 3444
+          "event_count": 3483
         },
         {
           "year": 2025,
@@ -40041,17 +40057,17 @@
         {
           "year": 2025,
           "layer": "environment",
-          "event_count": 458
+          "event_count": 461
         },
         {
           "year": 2025,
           "layer": "transport",
-          "event_count": 435
+          "event_count": 436
         },
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 1644
+          "event_count": 1670
         },
         {
           "year": 2026,
@@ -40061,12 +40077,12 @@
         {
           "year": 2026,
           "layer": "environment",
-          "event_count": 448
+          "event_count": 451
         },
         {
           "year": 2026,
           "layer": "transport",
-          "event_count": 592
+          "event_count": 594
         }
       ],
       "source_year_layer_rows": [
@@ -45804,7 +45820,7 @@
           "source_title": "NYC DOB construction filings and permits",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 246
+          "event_count": 251
         },
         {
           "city_id": "nyc",
@@ -45812,7 +45828,7 @@
           "source_title": "NYC DOB construction filings and permits",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 718
+          "event_count": 763
         },
         {
           "city_id": "nyc",
@@ -45820,7 +45836,7 @@
           "source_title": "NYC DOB construction filings and permits",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 919
+          "event_count": 970
         },
         {
           "city_id": "nyc",
@@ -45828,7 +45844,7 @@
           "source_title": "NYC DOB construction filings and permits",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 978
+          "event_count": 1023
         },
         {
           "city_id": "nyc",
@@ -45836,7 +45852,7 @@
           "source_title": "NYC DOB construction filings and permits",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 1042
+          "event_count": 1077
         },
         {
           "city_id": "nyc",
@@ -45844,7 +45860,7 @@
           "source_title": "NYC DOB construction filings and permits",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 678
+          "event_count": 697
         },
         {
           "city_id": "nyc",
@@ -47580,13 +47596,61 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 4
+          "event_count": 6
         },
         {
           "city_id": "nyc",
           "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2024,
+          "layer": "environment",
+          "event_count": 15
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2024,
+          "layer": "transport",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2025,
+          "layer": "built_environment",
+          "event_count": 10
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2025,
+          "layer": "environment",
+          "event_count": 4
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2025,
+          "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2026,
+          "layer": "built_environment",
+          "event_count": 12
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates",
+          "year": 2026,
           "layer": "environment",
           "event_count": 3
         },
@@ -47594,41 +47658,9 @@
           "city_id": "nyc",
           "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "source_title": "NYC Public Design Commission meeting minutes and certificates",
-          "year": 2024,
-          "layer": "transport",
-          "event_count": 2
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "source_title": "NYC Public Design Commission meeting minutes and certificates",
-          "year": 2025,
-          "layer": "built_environment",
-          "event_count": 6
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "source_title": "NYC Public Design Commission meeting minutes and certificates",
-          "year": 2025,
-          "layer": "environment",
-          "event_count": 1
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "source_title": "NYC Public Design Commission meeting minutes and certificates",
-          "year": 2026,
-          "layer": "built_environment",
-          "event_count": 5
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "source_title": "NYC Public Design Commission meeting minutes and certificates",
           "year": 2026,
           "layer": "transport",
-          "event_count": 1
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -48662,7 +48694,7 @@
           "provider": "NYC Department of Buildings, via NYC Open Data",
           "reliability": "usable_with_caveats",
           "licence": "NYC Open Data / NYC.gov terms; dataset-specific metadata applies.",
-          "event_count": 6029,
+          "event_count": 6229,
           "years": [
             2008,
             2009,
@@ -48687,10 +48719,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 6029
+            "built_environment": 6229
           },
           "confidence_counts": {
-            "documented": 6029
+            "documented": 6229
           },
           "coverage_status": "events_emitted"
         },
@@ -50043,6 +50075,45 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "title": "NYC Public Design Commission meeting minutes and certificates",
+          "provider": "New York City Public Design Commission",
+          "reliability": "usable_with_caveats",
+          "licence": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+          "event_count": 108,
+          "years": [
+            2008,
+            2010,
+            2012,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2008,
+          "last_year": 2026,
+          "layer_counts": {
+            "built_environment": 68,
+            "civic_services": 1,
+            "environment": 27,
+            "transport": 11,
+            "utilities": 1
+          },
+          "confidence_counts": {
+            "documented": 108
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "nyc-dcp-zap-project-data",
           "title": "Zoning Application Portal project data",
           "provider": "New York City Department of City Planning",
@@ -50094,45 +50165,6 @@
           "last_year": 2026,
           "layer_counts": {
             "built_environment": 72
-          },
-          "confidence_counts": {
-            "documented": 72
-          },
-          "coverage_status": "events_emitted"
-        },
-        {
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "title": "NYC Public Design Commission meeting minutes and certificates",
-          "provider": "New York City Public Design Commission",
-          "reliability": "usable_with_caveats",
-          "licence": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
-          "event_count": 72,
-          "years": [
-            2008,
-            2010,
-            2012,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "first_year": 2008,
-          "last_year": 2026,
-          "layer_counts": {
-            "built_environment": 55,
-            "civic_services": 1,
-            "environment": 9,
-            "transport": 6,
-            "utilities": 1
           },
           "confidence_counts": {
             "documented": 72

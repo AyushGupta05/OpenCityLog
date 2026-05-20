@@ -124,6 +124,17 @@ def extract_keys(row):
     if entries and field and date:
         for entry in entries:
             keys.add(f"{entry}|{field}|{date}")
+    if entries and not field and date:
+        lower_text = text.lower()
+        listdate_like = (
+            "listdate" in lower_text
+            or "was listed" in lower_text
+            or "listed-building designation" in lower_text
+            or "statutory listed" in lower_text
+        )
+        if listdate_like and "amenddate" not in lower_text and "heritage at risk" not in lower_text:
+            for entry in entries:
+                keys.add(f"{entry}|ListDate|{date}")
     source_row = row.get("source_row") if isinstance(row, dict) else None
     for item in [row, source_row]:
         if not isinstance(item, dict):
