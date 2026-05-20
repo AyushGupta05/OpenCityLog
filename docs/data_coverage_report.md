@@ -1,6 +1,6 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-20T02:07:00Z
+Generated: 2026-05-20T02:11:10Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
@@ -8,7 +8,7 @@ This report counts source-backed records emitted into `web/data/city-atlas`. It 
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 32154 | 152 | 15 | 2007-2026 | transport 17118, built_environment 12835, utilities 851 | 67846 |
 | London, England | 206641 | 181 | 102 | 1801-2026 | built_environment 87358, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 51739 | 78 | 122 | 1797-2026 | built_environment 33995, environment 8413, transport 6447 | 48261 |
+| New York City, New York | 51939 | 78 | 122 | 1797-2026 | built_environment 34061, environment 8536, transport 6456 | 48061 |
 
 ## Belfast, Northern Ireland
 
@@ -54,14 +54,14 @@ Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
-Backed events: 51739. Unique event IDs: 51739. Duplicate IDs: 0.
+Backed events: 51939. Unique event IDs: 51939. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
 | NYC DOB construction filings and permits | 6029 | 2008-2026 | built_environment 6029 | usable_with_caveats |
 | HPD affordable housing production by project and building | 4873 | 2014-2026 | built_environment 4873 | usable_with_caveats |
+| NYC Open Data LPC Permit Application Information | 4251 | 2008-2026 | environment 2436, built_environment 1588, transport 214 | usable_with_caveats |
 | NYC Open Data: DOB Certificate Of Occupancy | 4179 | 2012-2026 | built_environment 4179 | usable_with_caveats |
-| NYC Open Data LPC Permit Application Information | 4051 | 2008-2026 | environment 2313, built_environment 1522, transport 205 | usable_with_caveats |
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | DOB Permit Issuance | 2380 | 2004-2020 | built_environment 2380 | usable_with_caveats |
 | DOB NOW: Certificate of Occupancy | 2354 | 2021-2026 | built_environment 2354 | usable_with_caveats |
