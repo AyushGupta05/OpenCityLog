@@ -235,7 +235,14 @@ def write_validation_report(validation):
     report_path = str(VALIDATION_REPORT_PATH)
     if report_path not in output_files:
         output_files.append(report_path)
+    summary["validation"] = {
+        "ok": validation["ok"],
+        "path": str(VALIDATION_PATH),
+        "warnings": validation.get("warnings", []),
+        "issues": validation.get("issues", []),
+    }
     summary["validation_report"] = report_path
+    summary = apply_replacements(summary)
     write_json(SUMMARY_PATH, summary)
 
     issues = validation.get("issues", [])

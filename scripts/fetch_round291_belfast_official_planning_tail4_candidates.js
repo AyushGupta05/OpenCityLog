@@ -73,8 +73,7 @@ function buildPlanningCandidates(index) {`
   );
 
   transformed = transformed.replace(
-    `    seenApps.add(record.appIdKey);
-    seenSourceDate.add(sourceDateKey);`,
+    /    seenApps\.add\(record\.appIdKey\);\r?\n    seenSourceDate\.add\(sourceDateKey\);/,
     `    const round291ResidualReason = round291ResidualRejectionReason(record);
     if (round291ResidualReason) {
       addRejection(rejected, rejectionCounts, round291ResidualReason, record, {
@@ -89,6 +88,10 @@ function buildPlanningCandidates(index) {`
     seenApps.add(record.appIdKey);
     seenSourceDate.add(sourceDateKey);`
   );
+
+  if (!transformed.includes("const round291ResidualReason = round291ResidualRejectionReason(record);")) {
+    throw new Error("Round291 residual gate insertion failed");
+  }
 
   transformed = transformed.replace(
     "main().catch((error) => {",

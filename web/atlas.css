@@ -488,7 +488,7 @@ button { font-family: inherit; }
   position: absolute;
   left: calc(100vw - 652px);
   right: auto;
-  top: clamp(180px, 38vh, 410px);
+  top: 410px;
   width: 224px;
   z-index: 306;
   padding: 12px;
@@ -697,6 +697,12 @@ button { font-family: inherit; }
 .lens-symbol.diamond-muted,
 .lens-symbol.bolt-muted {
   opacity: 0.58;
+}
+
+@media (max-height: 900px) {
+  .map-lens {
+    top: 160px;
+  }
 }
 .layers-list {
   padding: 6px;
