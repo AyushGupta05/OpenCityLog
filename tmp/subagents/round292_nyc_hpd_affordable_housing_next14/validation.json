@@ -60,7 +60,7 @@
     ]
   },
   "warnings": [
-    "Manual corpus currently contains 156 same-round Round292 HPD rows; validation excluded those same-round rows from prior-duplicate checks for idempotent regeneration after concurrent append."
+    "Manual corpus currently contains 156 same-round Round292 HPD rows; validator excluded them from prior-duplicate checks for idempotent regeneration after concurrent append."
   ],
   "errors": []
 }
