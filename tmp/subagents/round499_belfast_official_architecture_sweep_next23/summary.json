@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-05-20",
+  "round_id": "round499_belfast_official_architecture_sweep_next23",
+  "accepted_count": 23,
+  "rejected_count": 11,
+  "point_backed_count": 23,
+  "geometry_ref_only_count": 0,
+  "date_range": {
+    "start": "2024-07-18",
+    "end": "2024-12-23"
+  },
+  "sources": [
+    "Department for Infrastructure, Northern Ireland"
+  ],
+  "source_mix": {
+    "source_types": {
+      "official annual planning-statistics CSV release": 23
+    },
+    "categories": {
+      "architecture_heritage_hospitality_admin": 1,
+      "architecture_mixed_use_residential_commercial_admin": 1,
+      "architecture_heritage_commercial_admin": 5,
+      "architecture_commercial_healthcare_admin": 1,
+      "architecture_education_admin": 2,
+      "architecture_healthcare_commercial_admin": 1,
+      "architecture_hospitality_residential_admin": 1,
+      "architecture_commercial_admin": 3,
+      "architecture_civic_admin": 1,
+      "architecture_heritage_civic_admin": 1,
+      "architecture_residential_civic_admin": 1,
+      "architecture_healthcare_civic_admin": 1,
+      "architecture_student_accommodation_admin": 1,
+      "architecture_hospitality_commercial_admin": 1,
+      "architecture_heritage_public_estate_admin": 1,
+      "architecture_cultural_civic_admin": 1
+    },
+    "event_types": {
+      "planning_decision_change_of_use": 7,
+      "planning_decision_mixed_use_change": 1,
+      "planning_decision_school_extension": 1,
+      "planning_decision_listed_building_consent": 5,
+      "planning_decision_listed_building_alterations": 1,
+      "planning_decision_commercial_extension": 1,
+      "planning_decision_building_services_alteration": 2,
+      "planning_decision_external_alteration": 1,
+      "planning_decision_residential_conversion": 1,
+      "planning_decision_care_home_alterations": 1,
+      "planning_decision_building_extension": 1,
+      "planning_decision_school_modular_unit": 1
+    }
+  },
+  "caveats": [
+    "All accepted candidates are administrative planning/statutory-consent records, not physical start, completion, opening or occupation evidence.",
+    "All accepted candidates are point-backed by official Easting/Northing fields converted from EPSG:29902 TM65 / Irish Grid to WGS84 using explicit CRS parameters.",
+    "No accepted candidate uses invented coordinates or generic geocoding.",
+    "Rejected official pages and rows include duplicate-project consents, lower-priority fixture or rooftop-PV-only changes, minor domestic rows, sign/advertisement/display rows, page-only leads, geometry-ref-only route/area leads and status-only heritage sources.",
+    "No prediction, simulation, causality, service-performance, capacity, health, education, environmental, economic or heritage-condition outcome claim is made."
+  ],
+  "outputs": [
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\candidates.json",
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\rejected.json",
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\validation_report.json",
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\source_audit.json",
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\summary.json",
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\readback.json",
+    "tmp\\subagents\\round499_belfast_official_architecture_sweep_next23\\notes.md"
+  ]
+}
