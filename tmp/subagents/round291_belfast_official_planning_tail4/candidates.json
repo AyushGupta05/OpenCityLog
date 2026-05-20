@@ -138,7 +138,7 @@
         "ok": true,
         "http_status": 200,
         "final_url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
-        "elapsed_ms": 28,
+        "elapsed_ms": 26,
         "bytes": 54858,
         "content_sha256": "57fb91a77a3ca8c30475fa368d217ba904c67687585fc66ea68be9013bbe21d1",
         "error": null

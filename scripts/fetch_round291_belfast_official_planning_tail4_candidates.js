@@ -73,27 +73,9 @@ function buildPlanningCandidates(index) {`
   );
 
   transformed = transformed.replace(
-    `    if (!quality.reasons.length || quality.score < 39) {
-      addRejection(rejected, rejectionCounts, "below_round291_tail_quality_gate", record, {
-        tail_score: quality.score,
-        base_score: quality.base_score,
-        quality_reasons: quality.reasons,
-        base_signals: quality.base_signals
-      });
-      continue;
-    }
-
-    seenApps.add(record.appIdKey);`,
-    `    if (!quality.reasons.length || quality.score < 39) {
-      addRejection(rejected, rejectionCounts, "below_round291_tail_quality_gate", record, {
-        tail_score: quality.score,
-        base_score: quality.base_score,
-        quality_reasons: quality.reasons,
-        base_signals: quality.base_signals
-      });
-      continue;
-    }
-    const round291ResidualReason = round291ResidualRejectionReason(record);
+    `    seenApps.add(record.appIdKey);
+    seenSourceDate.add(sourceDateKey);`,
+    `    const round291ResidualReason = round291ResidualRejectionReason(record);
     if (round291ResidualReason) {
       addRejection(rejected, rejectionCounts, round291ResidualReason, record, {
         tail_score: quality.score,
@@ -104,7 +86,8 @@ function buildPlanningCandidates(index) {`
       continue;
     }
 
-    seenApps.add(record.appIdKey);`
+    seenApps.add(record.appIdKey);
+    seenSourceDate.add(sourceDateKey);`
   );
 
   transformed = transformed.replace(
