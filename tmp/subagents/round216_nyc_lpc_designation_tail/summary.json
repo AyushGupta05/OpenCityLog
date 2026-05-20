@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "task": "Round216 NYC LPC individual landmark/designation tail from official Open Data",
+  "start_date": "2008-01-01",
+  "end_date": "2026-05-19",
+  "candidate_count": 1,
+  "candidate_date_range": {
+    "min": "2013-07-23",
+    "max": "2013-07-23"
+  },
+  "target_candidate_cap": 80,
+  "record_type_mix": {
+    "individual landmark designation amendment/modification": 1
+  },
+  "by_source_dataset": {
+    "ncre-qhxs": 1
+  },
+  "by_year": {
+    "2013": 1
+  },
+  "rows_reviewed": {
+    "ncre-qhxs amendment/modification accepted rows": 2,
+    "buis-pvji amended individual landmark rows": 1,
+    "buis-pvji designated individual landmark rows": 288,
+    "ncre-qhxs designated individual landmark rows": 363,
+    "ncre-qhxs calendared audit-only rows": 3
+  },
+  "groups_reviewed": {
+    "ncre amendment/modification accepted": 2,
+    "buis amended individual-landmark site status": 1,
+    "buis designated individual landmark tail": 287,
+    "ncre designated individual landmark tail": 286
+  },
+  "eligible_groups_reviewed": 576,
+  "remaining_high_signal_headroom_after_dedupe": 0,
+  "duplicate_screen": {
+    "manual_corpus_events": 32044,
+    "prior_pack_paths_read": [
+      "tmp\\subagents\\nyc_arch_candidates_round103_landmarks.json",
+      "tmp\\subagents\\nyc_arch_candidates_round107_lpc_more_designations.json",
+      "tmp\\subagents\\nyc_arch_candidates_round110_lpc.json",
+      "tmp\\subagents\\round115_nyc_lpc_fuller_official\\round115_nyc_lpc_fuller_candidates.json",
+      "tmp\\subagents\\round115_nyc_lpc_individual_official\\round115_nyc_lpc_individual_candidates.json",
+      "tmp\\subagents\\round120_nyc_lpc_designations_more\\candidates.json",
+      "tmp\\subagents\\round122_nyc_lpc_permits_designations\\candidates.json",
+      "tmp\\subagents\\round138_nyc_lpc_individual_landmark_gaps\\candidates.json",
+      "tmp\\subagents\\round142_nyc_lpc_designation_gaps\\candidates.json"
+    ],
+    "missing_prior_pack_paths": [],
+    "existing_full_lp_tokens_seen": 367,
+    "existing_base_lp_tokens_seen": 367,
+    "exact_source_records_seen": 5153,
+    "source_urls_seen": 5115
+  },
+  "rejected": {
+    "same LPC base LP/name already represented near this source date (manual corpus)": 2,
+    "exact source_record_id already present in corpus or prior LPC designation pack": 552,
+    "same title/date already present in corpus or prior LPC designation pack": 1,
+    "base LP number already present in corpus or prior LPC designation pack": 20,
+    "calendar/proposed row audited but not emitted as final designation or amendment": 3
+  },
+  "caveat": "Round216 emits only unique official LPC designation/amendment records. Designation and amendment dates are administrative preservation-status dates, not evidence of construction, completion, opening, condition, owner action, or causation."
+}

@@ -1,0 +1,50 @@
+# Round 130 Provenance Gap Review
+
+Date: 2026-05-19
+Reviewer: Worker E
+Scope: `data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json`, `config/source_inventory.json`, and current architecture fetch/append scripts.
+
+## Current coverage snapshot
+
+- The architecture corpus is already large and uneven by city: `nyc` 8,169 events, `london` 3,790, `belfast` 1,349.
+- Belfast is still the weakest official-data city. Its event mix is dominated by `belfast-architecture-public-pages` (912 events), with much thinner use of canonical registers such as `ni-planning-portal-public-register` (21), `dfc-hed-nidirect-buildings` (22), and `qub_estates_completed` (16).
+- London and NYC already have stronger registry-style coverage from `historic-england-nhle`, GLA Planning Datahub, HPD, DOB, Parks, LPC, and NYC capital trackers.
+- Existing fetch scripts already cover some later-stage official families, especially:
+  - `fetch_round128_belfast_harni_spatial_candidates.js`
+  - `fetch_round129_london_ldd_archive_more_candidates.py`
+  - `fetch_round128_nyc_capital_projects_dashboard_candidates.js`
+  - `fetch_round127_nyc_dot_public_realm_candidates.js`
+  - `fetch_round117_nyc_dob_bulk_candidates.js`
+
+## Recommended next official source families
+
+Priority is ordered by likely incremental value over current coverage, not by ease.
+
+| Priority | City | Source family | URL / API | Licence / terms | Likely date field | Likely geometry field | Expected yield | Why it is still worth ingesting | Caveats |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Belfast | NI Planning Portal public register | https://planningregister.planningsystemni.gov.uk/list-search | Terms review required; public-register access is official, but documents can include third-party copyright and personal data | Validated date, received date, decision date, appeal date, status date | Address/site text; sometimes map geometry or enough location detail to derive a site centroid | High | Best canonical source for Belfast planning IDs, exact administrative dates, and status normalization; useful for replacing duplicate minute/news/page variants | Do not treat register dates as construction or opening dates; raw attachments should stay out of public outputs unless rights/privacy are cleared |
+| 2 | Belfast | Housing Land Availability Monitor viewer plus annual summary reports | https://www.belfastcity.gov.uk/Planning-and-building-control/Planning/Development-plan-and-policy/Monitoring | Not clearly open. Viewer carries OSNI/LPS copyright restrictions and says IP may not be further shared without permission | Monitor year snapshot as of `1 April` each year | Monitored housing site polygons in the viewer | High | Adds structured site polygons and yearly housing-land status that Belfast currently lacks; useful for evidence-backed development-capacity and site-history records | Snapshot monitor data is not itself a construction event; export/redistribution constraints are stricter than OGL data |
+| 3 | Belfast | Employment Land Monitor viewer plus annual summary reports | https://www.belfastcity.gov.uk/Planning-and-building-control/Planning/Development-plan-and-policy/Monitoring | Not clearly open; same OSNI/LPS viewer caveats likely apply | Monitor year snapshot as of `31 March` each year | Employment land/site polygons in the viewer | Medium to high | High-value supplement for industrial/commercial land-change evidence, especially where current corpus leans too hard on narrative project pages | More a land-supply/status source than a delivery source; keep year semantics explicit |
+| 4 | Belfast | Listed Buildings Northern Ireland (OpenDataNI / HED) | https://admin.opendatani.gov.uk/dataset/listed-buildings-northern-ireland | UK Open Government Licence v3.0 | Designation/listing metadata in the dataset; if date fields are absent in the GeoJSON, pair with record IDs and HED pages | Point geometry derived from the designated listed area centroid | Medium | Strong official geometry and stable IDs for Belfast listed-building and heritage-adaptive-reuse events; materially better than hand-geocoded heritage references alone | Point geometry is centroid-only, not the listed boundary; designation date is not a works date |
+| 5 | Belfast | TPO and Conservation Area viewer | https://www.belfastcity.gov.uk/planning-and-building-control/planning/development-plan-and-policy/supplementary-planning-guidance/tree-preservation-orders | Viewer/OSNI terms likely restrictive; use as citation/discovery unless an exportable layer is confirmed | TPO order date or conservation-area designation date if exposed in viewer fields | Conservation-area polygons, TPO polygons/points | Medium | Useful for qualifying heritage/public-realm/tree-related planning cases and for reducing false claims about development constraints | Designation/protection status is not a physical change event; likely not suitable for unrestricted redistribution |
+| 6 | Belfast | eTendersNI / Find a Tender capital works notices | https://etendersni.gov.uk/epps/notices/viewPublishedNotices.do and https://www.find-tender.service.gov.uk/ | Notice pages are official procurement records, but rights/format reuse should be reviewed notice-by-notice | Notice publication date, contract award date, contract period | Usually named site/address only; geometry must usually be derived from location text | Medium | Good for public-project starts, award milestones, and scheme naming where council/news pages are vague; especially useful for transport, civic, and health capital works | Procurement award does not prove works started or completed; duplicate risk is high across prior-information, tender, award, and variation notices |
+| 7 | London | Planning Inspectorate Appeals Casework Portal | https://acp.planninginspectorate.gov.uk/ and https://www.gov.uk/appeal-planning-inspectorate | GOV.UK site content is typically Crown copyright/OGL, but attached appeal documents can contain third-party copyright | Appeal start, decision date, status date | Site address / postcode; sometimes mapped location in case materials | Medium | London already has strong application coverage but still light appeal coverage; appeal decisions help resolve whether refusals/conditions later changed | Appeal documents are mixed-rights and can restate local-planning records; do not duplicate the same case across local authority and Inspectorate records without a clear dedupe key |
+| 8 | London | Brownfield land register / Planning Data + London Datastore brownfield layers | https://www.planning.data.gov.uk/dataset/brownfield-land and https://data.london.gov.uk/dataset/brownfield_register/ | OGL v3.0 on Planning Data and London Datastore brownfield register pages | Register entry/update date; planning-permission-status fields | Site polygons | Medium | Adds structured site polygons and permission-status categories for London development sites not well represented by one-off project pages; useful for borough-wide gap-filling and duplicate checks | Brownfield registration is capacity/planning evidence, not proof of delivery; some London boundaries are indicative only and need borough confirmation |
+| 9 | NYC | DCP Facilities Database (FacDB) | https://data.cityofnewyork.us/City-Government/Facilities-Database-Shapefile/2fpa-bnsx/about | Public NYC Open Data dataset; follow portal attribution and note the published analytical limitations | Dataset vintage / annual update date; not a reliable project-effective date | Facility point geometry | Medium | Good geometry anchor and dedupe spine for schools, libraries, hospitals, cultural facilities, and other public sites already appearing in manual milestone pages | This is not an event register. Use it to improve geometry and institutional naming, not to claim openings or completions |
+| 10 | NYC | City Owned and Leased Properties (COLP) | NYC Open Data COLP metadata and borough extracts, e.g. https://data.cityofnewyork.us/api/views/c2g8-ercv/files/2ae70659-99cb-4d9d-8fba-af9c45f97a64?download=true&filename=colp_metadata.pdf | Public NYC Open Data dataset; subject to portal metadata and city disclaimer | Dataset publication/update date; sometimes property record timestamps depending on extract | Tax-lot geometry | Medium | Useful for public/civic property footprint grounding and ownership context, especially where manual events rely on broad location text | Current-use/ownership records are not construction milestones; multiple uses can exist on one lot, so duplicate handling must be strict |
+
+## Source types to avoid or heavily down-rank
+
+- Repackaged architecture-magazine, awards, or developer-marketing pages when an official planning, heritage, procurement, or estates record exists.
+- Live "current applications" or "major applications" pages without archiving the retrieval date and query scope. They are useful discovery aids, not stable evidence on their own.
+- Committee minutes, agenda packs, and officer reports that merely restate the same planning application already captured from the canonical register.
+- Procurement notice chains treated as multiple separate city-change events when they are really one scheme moving through tender, award, and contract-variation stages.
+- Heritage-at-risk status rows treated as physical repair/completion evidence. HARNI and similar designations are status observations, not works logs.
+- Institution timeline/history pages without stable project IDs, exact dates, or precise site references.
+- OSM edit dates or manually interpreted imagery dates presented as real-world completion dates.
+
+## Highest-value gap summary
+
+- Belfast still has the clearest official-data gap. The next pass should favor canonical register and map-viewer families over more institutional/public-project pages.
+- London needs selective expansion, mainly where appeal outcomes or brownfield/site-status layers materially improve date semantics or geometry.
+- NYC is already better covered for dated project records; the best remaining value is in geometry and institutional-anchor datasets, not more generic press pages.

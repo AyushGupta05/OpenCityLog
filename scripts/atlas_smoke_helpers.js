@@ -52,6 +52,14 @@ async function atlasState(page) {
     const map = atlas?.state?.map;
     const center = map?.getCenter?.();
     const layerVisible = (id) => Boolean(map?.getLayer?.(id)) && map.getLayoutProperty(id, "visibility") !== "none";
+    const renderedLayerCount = (id) => {
+      if (!map?.getLayer?.(id)) return 0;
+      try {
+        return map.queryRenderedFeatures({ layers: [id] }).length;
+      } catch {
+        return 0;
+      }
+    };
     const markerStats = { transportPinCount: 0, visibleTransportPinCount: 0 };
     for (const [id, marker] of atlas?.state?.markers || []) {
       const event = atlas?.state?.eventById?.get(id);
@@ -81,6 +89,9 @@ async function atlasState(page) {
       visibleText: document.querySelector("#tlVisible")?.textContent.trim() || "",
       totalText: document.querySelector("#tlTotal")?.textContent.trim() || "",
       layersCount: document.querySelector("#layersCount")?.textContent.trim() || "",
+      activeLens: document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-lens") || "",
+      lensDataState: document.querySelector("#lensDataState")?.textContent.trim() || "",
+      lensLegendText: document.querySelector("#lensLegend")?.textContent.trim() || "",
       transportOn: document.querySelector(".layer-row[data-layer='transport']")?.getAttribute("data-on") || "",
       detailTitle: document.querySelector(".detail-title")?.textContent.trim() || "",
       detailOpen: !document.querySelector("#detailInner")?.hasAttribute("hidden"),
@@ -106,8 +117,28 @@ async function atlasState(page) {
       lensEventFeatureCount: atlas?.state?.lensEventFeatureCount || 0,
       lensHeatmapVisible: layerVisible("lens-heatmap"),
       lensPointsVisible: layerVisible("lens-current-points"),
+      lensBuiltFootprintsVisible: layerVisible("lens-built-footprints-fill"),
+      lensBuiltSitesVisible: layerVisible("lens-built-site-icons"),
+      lensCivicIconsVisible: layerVisible("lens-civic-icons"),
+      lensEconomyIconsVisible: layerVisible("lens-economy-icons"),
+      lensUtilitiesIconsVisible: layerVisible("lens-utilities-icons"),
+      lensPlanningCellsVisible: layerVisible("lens-planning-cells-fill"),
+      lensCivicCoverageVisible: layerVisible("lens-civic-coverage-fill"),
+      lensCivicFacilitiesVisible: layerVisible("lens-civic-facility-icons"),
+      lensEconomyCellsVisible: layerVisible("lens-economy-cells-fill"),
+      lensEconomyFrontageVisible: layerVisible("lens-economy-frontage"),
+      lensUtilityTraceVisible: layerVisible("lens-utilities-trace"),
+      lensUtilityAssetsVisible: layerVisible("lens-utility-asset-icons"),
+      lensPlanningCellsRendered: renderedLayerCount("lens-planning-cells-fill"),
+      lensCivicCoverageRendered: renderedLayerCount("lens-civic-coverage-fill"),
+      lensEconomyCellsRendered: renderedLayerCount("lens-economy-cells-fill"),
+      lensEconomyFrontageRendered: renderedLayerCount("lens-economy-frontage"),
+      lensUtilityTraceRendered: renderedLayerCount("lens-utilities-trace"),
+      lensDetailYearLoaded: atlas?.state?.lensDetailYearLoaded || null,
       transportRoadVisible: layerVisible("lens-transport-roads"),
+      transportRoadRendered: renderedLayerCount("lens-transport-roads"),
       transportRoadYearLoaded: atlas?.state?.transportRoadYearLoaded || null,
+      transportRoadFeatureCount: atlas?.state?.transportRoadFeatureCount ?? null,
       pinCount: pins.length,
       visiblePinCount: pins.filter((pin) => pin.inViewport).length,
       transportPinCount: markerStats.transportPinCount,

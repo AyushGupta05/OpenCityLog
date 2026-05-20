@@ -26,6 +26,53 @@ function assert(condition, message) {
   if (!condition) failures.push(message);
 }
 
+const LENS_DETAIL_SITE_LAYERS = new Set(["planning_cell", "civic_coverage_cell", "economy_activity_cell", "economy_frontage", "civic_facility", "utility_trace", "utility_asset"]);
+const LENS_DETAIL_BAD_SOURCE_PATTERN = /\buk[-_\s]?hpi\b|\bhpi monthly\b|house[-_\s]?price[-_\s]?index|uk[-_\s]?house[-_\s]?price[-_\s]?index|market[-_\s]?trend|lon-extra-uk-house-price-index/i;
+const LENS_DETAIL_BAD_PRECISION_PATTERN = /\bborough aggregate\b|\baggregate,\s*not\b|\barea\/city reference\b|\bcitywide\b|\bnot an exact event geometry\b|^(approximate\s+)?district(?:-extension)?(?:\s+approximate|\s+centroid)?\b|^(approximate\s+)?neighbou?rhood(?:\s+approximate|\s+centroid)?\b|^(rail[-\s])?corridor(?:\s+approximate|\s+centroid)?\b|^(multiple sites|multi[-\s]?site|programme approximate)\b/i;
+const REQUIRED_LENS_DETAIL_EVENT_IDS = {
+  belfast: {
+    2022: ["bfs_arch_aster_house_student_accommodation_completion_2022"],
+  },
+  london: {
+    2020: ["lon_arch_poplar_works_opening_2020"],
+    2021: ["lon_arch_one_park_drive_residential_opening_2021"],
+  },
+  nyc: {
+    2019: ["nyc_arch_35_hudson_yards_completion_2019"],
+  },
+};
+
+function lensDetailSiteText(feature) {
+  const props = feature.properties || {};
+  return {
+    source: String(props.source_ids || ""),
+    precision: [
+    props.geometry_precision,
+    props.geometry_precision_mix,
+    ].filter(Boolean).join(" "),
+  };
+}
+
+function hasNonSiteLensDetail(feature) {
+  const siteText = lensDetailSiteText(feature);
+  return LENS_DETAIL_SITE_LAYERS.has(feature.properties?.layer)
+    && (LENS_DETAIL_BAD_SOURCE_PATTERN.test(siteText.source) || LENS_DETAIL_BAD_PRECISION_PATTERN.test(siteText.precision));
+}
+
+function lensDetailEventIds(features) {
+  const ids = new Set();
+  for (const feature of features || []) {
+    for (const field of ["event_ids_all", "event_ids"]) {
+      String(feature.properties?.[field] || "")
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean)
+        .forEach((id) => ids.add(id));
+    }
+  }
+  return ids;
+}
+
 const atlasIndexPath = "web/data/city-atlas/index.json";
 const atlas = readJson(atlasIndexPath);
 
@@ -52,7 +99,7 @@ if (atlas) {
     const lensOverlays = paths.lens_overlays ? readJson(paths.lens_overlays) : null;
     const transportRoadBase = paths.transport_roads_base ? readJson(paths.transport_roads_base) : null;
 
-    for (const key of ["lens_overlays", "transport_roads_base", "transport_roads_template"]) {
+    for (const key of ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"]) {
       assert(paths[key], `City ${city.city_id} is missing required artifact_paths.${key}.`);
     }
     if (paths.lens_overlays) assert(exists(paths.lens_overlays), `City ${city.city_id} lens overlay artifact is missing: ${paths.lens_overlays}`);
@@ -106,6 +153,36 @@ if (atlas) {
             assert(Number(roadYear.metadata?.year) === Number(year), `City ${city.city_id} transport_roads_${year} metadata year mismatch.`);
             assert(/not measured traffic/i.test(String(roadYear.metadata?.caveat || "")), `City ${city.city_id} transport_roads_${year} must caveat traffic intensity.`);
             assert((roadYear.features || []).every((feature) => feature.properties?.layer === "traffic_road" && Number.isFinite(Number(feature.properties?.transport_activity))), `City ${city.city_id} transport_roads_${year} features need traffic_road layer and numeric transport_activity.`);
+          }
+        }
+      }
+
+      if (paths.lens_detail_template) {
+        assert(paths.lens_detail_template.includes("{year}"), `City ${city.city_id} lens_detail_template must include {year}.`);
+        for (const year of eventsManifest.event_years || (eventsManifest.chunks || []).map((chunk) => chunk.year)) {
+          const detailPath = paths.lens_detail_template.replace("{year}", String(year));
+          assert(exists(detailPath), `City ${city.city_id} required lens detail artifact is missing for ${year}: ${detailPath}`);
+          const lensDetail = exists(detailPath) ? readJson(detailPath) : null;
+          if (lensDetail) {
+            const layers = new Set((lensDetail.features || []).map((feature) => feature.properties?.layer).filter(Boolean));
+            assert(lensDetail.type === "FeatureCollection", `City ${city.city_id} lens_detail_${year} must be a GeoJSON FeatureCollection.`);
+            assert(Number(lensDetail.metadata?.year) === Number(year), `City ${city.city_id} lens_detail_${year} metadata year mismatch.`);
+            assert(/evidence grids/i.test((lensDetail.metadata?.caveats || []).join(" ")), `City ${city.city_id} lens_detail_${year} must caveat derived evidence grids.`);
+            assert(/no capacity data is inferred/i.test((lensDetail.metadata?.caveats || []).join(" ")), `City ${city.city_id} lens_detail_${year} must not imply utility capacity.`);
+            assert(/excluded from site-like lens geometry/i.test((lensDetail.metadata?.caveats || []).join(" ")), `City ${city.city_id} lens_detail_${year} must disclose aggregate/non-site exclusions.`);
+            assert(
+              ["planning_cell", "civic_coverage_cell", "economy_activity_cell", "economy_frontage", "civic_facility", "utility_trace", "utility_asset"].some((layer) => layers.has(layer)) || (lensDetail.features || []).length === 0,
+              `City ${city.city_id} lens_detail_${year} must include recognized lens-detail layers or be honestly empty.`,
+            );
+            assert((lensDetail.features || []).every((feature) => feature.properties?.category && Number.isInteger(Number(feature.properties?.year))), `City ${city.city_id} lens_detail_${year} features need category and year.`);
+            assert(!(lensDetail.features || []).some(hasNonSiteLensDetail), `City ${city.city_id} lens_detail_${year} must not render aggregate/statistical/non-site records as lens geometry.`);
+            const requiredIds = REQUIRED_LENS_DETAIL_EVENT_IDS[city.city_id]?.[year] || [];
+            if (requiredIds.length) {
+              const emittedIds = lensDetailEventIds(lensDetail.features || []);
+              for (const eventId of requiredIds) {
+                assert(emittedIds.has(eventId), `City ${city.city_id} lens_detail_${year} must preserve source-backed approximate site event ${eventId}.`);
+              }
+            }
           }
         }
       }

@@ -120,6 +120,10 @@ function generatedArtifactPaths(root, cityOutputDir) {
     if (hasTransportRoadYears) {
       artifactPaths.transport_roads_template = toPosix(path.join(relativeFromRoot(root, cityOutputDir), "transport_roads_{year}.geojson"));
     }
+    const hasLensDetailYears = fs.readdirSync(cityOutputDir).some((name) => /^lens_detail_\d{4}\.geojson$/.test(name));
+    if (hasLensDetailYears) {
+      artifactPaths.lens_detail_template = toPosix(path.join(relativeFromRoot(root, cityOutputDir), "lens_detail_{year}.geojson"));
+    }
   }
   return artifactPaths;
 }

@@ -1,0 +1,66 @@
+[
+  {
+    "source_id": "nyc-ddc-press-index-2024-2026",
+    "source_name": "NYC Department of Design and Construction press release index and linked official milestone pages",
+    "publisher": "NYC Department of Design and Construction",
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2024/press-releases.page",
+    "source_type": "official agency press release index and detail pages",
+    "accessed_at": "2026-05-19",
+    "coverage_years_checked": "Targeted 2024, 2025, and 2026 DDC index entries within 2008-01-01 through 2026-05-19.",
+    "geographic_scope": "New York City",
+    "granularity": "Named public building, civic facility, cultural facility, library branch, resilience project, or public-realm capital milestone.",
+    "date_fields_observed": "Press release index date and, where opened, detail-page date/milestone language.",
+    "geometry_fields_observed": "Named facility, street address, park/project area, or neighborhood; no parcel polygon or authoritative project boundary was extracted in this scratch pass.",
+    "license_or_terms_note": "NYC.gov terms of use apply: https://www.nyc.gov/home/terms-of-use.page. This scratch pack uses factual metadata only and retains publisher attribution, source URL, and retrieval date.",
+    "reliability": "strong for official agency milestone dates and project names; usable with caveats for geometry because points are manually placed from facility addresses or named project areas.",
+    "required_caveats": [
+      "Treat openings, reopenings, completions, groundbreakings, and approvals as source-reported milestones only.",
+      "Do not infer service outcomes, safety outcomes, climate-risk reduction, neighborhood effects, usage, occupancy, or causation from the milestone.",
+      "Groundbreaking and construction-start records are not completion records.",
+      "Representative points for linear/coastal/resilience work must be replaced by project polygons or linework before production use."
+    ],
+    "ingestion_recommendation": "Candidate-review ready; promote only after URL-level duplicate checks against DDC, library, resilience, and public-building packs and geometry replacement where applicable."
+  },
+  {
+    "source_id": "nyc-library-official-capital-pages",
+    "source_name": "NYPL, Brooklyn Public Library, and Queens Public Library official press/news pages linked from DDC or library sites",
+    "publisher": "NYC public library systems",
+    "source_url": "https://www.nyc.gov/site/ddc/about/press-releases/2025/press-releases.page",
+    "source_type": "official library press release/news page or DDC index link to official library page",
+    "accessed_at": "2026-05-19",
+    "coverage_years_checked": "Targeted 2024-2026 branch opening and reopening milestones not sourced from SCA, DOB, HPD, LPC, Parks tracker, or PDC packs.",
+    "geographic_scope": "New York City public library branches in Brooklyn, Queens, Manhattan, Bronx, and Staten Island where found.",
+    "granularity": "Named branch-level milestone.",
+    "date_fields_observed": "Official page date or DDC index date for linked official library pages.",
+    "geometry_fields_observed": "Branch address/name; geometry is approximate branch address point.",
+    "license_or_terms_note": "Library website terms/copyright apply. This scratch pack uses brief factual metadata, source URLs, and attribution only.",
+    "reliability": "strong for branch opening/reopening milestones; not a construction-permit or occupancy source.",
+    "required_caveats": [
+      "Branch reopening does not prove all construction scopes are complete unless explicitly stated.",
+      "Facility opening does not imply library usage, access equity, educational outcomes, or causal neighborhood impacts.",
+      "Coordinates are approximate address points."
+    ],
+    "ingestion_recommendation": "Useful supplement to agency capital pages; dedupe against earlier library and DDC scratch packs before import."
+  },
+  {
+    "source_id": "nyc-edc-hh-resilience-official-pages",
+    "source_name": "NYCEDC and NYC Health + Hospitals official resilience and public-facility pages",
+    "publisher": "NYC Economic Development Corporation and NYC Health + Hospitals",
+    "source_url": "https://edc.nyc/press-release/nycedc-and-nyc-health-hospitals-celebrate-completion-floodwall-nyc-health-hospitals-metropolitan",
+    "source_type": "official public authority/municipal health system press release",
+    "accessed_at": "2026-05-19",
+    "coverage_years_checked": "Targeted official resilience/public building milestones through 2026-05-19.",
+    "geographic_scope": "New York City",
+    "granularity": "Named campus or project-area milestone.",
+    "date_fields_observed": "Press release date and title/body milestone language.",
+    "geometry_fields_observed": "Hospital campus, waterfront segment, or named project area; representative point only in this scratch pass.",
+    "license_or_terms_note": "Official publisher site terms apply; retain factual metadata, URL, attribution, and retrieval date.",
+    "reliability": "strong for official milestone dates; geometry and outcome interpretation require caveats.",
+    "required_caveats": [
+      "Floodwall or resilience milestone pages do not prove avoided damage, health outcomes, or causal climate benefits.",
+      "Campus/project-area point geometry is not an engineering boundary.",
+      "Some EDC pages are summary pages; verify detail pages before production import."
+    ],
+    "ingestion_recommendation": "Use as documented observed-change candidates with strict non-causal language and follow-up geometry work."
+  }
+]

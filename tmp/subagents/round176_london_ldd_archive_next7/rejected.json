@@ -1,0 +1,5020 @@
+{
+  "generated_at": "2026-05-19",
+  "task": "round176_london_ldd_archive_next7_candidates",
+  "sample_limit": 500,
+  "rejected_sample_count": 500,
+  "exclusion_counts": {
+    "below score threshold": 32974,
+    "minor/domestic row below large-development override": 25489,
+    "missing or outside 2008-2026 permission/started/completed date window": 11579,
+    "below architecture/public/large-development signal threshold": 9552,
+    "existing corpus or previous LDD candidate workbook row": 6728,
+    "administrative-only/minor planning row below high-signal override": 2528,
+    "alteration/extension row below score threshold": 1195,
+    "existing corpus or previous LDD candidate title/date": 119,
+    "duplicate inside round176 batch scan": 60,
+    "missing or outside Greater London LDD point range": 1
+  },
+  "rejected_sample": [
+    {
+      "excel_row": 3,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "00/00066/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Building To Rear Of 83, Longbridge Road"
+    },
+    {
+      "excel_row": 5,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "01/00030/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Maybells Farm, Ripple Road"
+    },
+    {
+      "excel_row": 6,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "01/00426/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 2, Groveway"
+    },
+    {
+      "excel_row": 7,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "01/00458/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Depot And 99, Sparsholt Road"
+    },
+    {
+      "excel_row": 8,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "01/00716/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Outbuildings Rear Of 93 - 95, High Road"
+    },
+    {
+      "excel_row": 9,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0200489",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "Units A-D Abbey Wharf Industrial Estate, Kingsbridge Road"
+    },
+    {
+      "excel_row": 10,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "02/00519/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "The Pipers Ph, Amesbury Road"
+    },
+    {
+      "excel_row": 11,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0200598",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-04-15",
+      "current_permission_status": "Completed",
+      "title_label": "79, Bennetts Castle Lane"
+    },
+    {
+      "excel_row": 12,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00008/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "145 - 207, Bevan Avenue"
+    },
+    {
+      "excel_row": 13,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0300166",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-04-25",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 329, Hedgemans Road"
+    },
+    {
+      "excel_row": 14,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00224/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "60 - 78, Abbey Road"
+    },
+    {
+      "excel_row": 15,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0300248",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "1, Strathfield Gardens"
+    },
+    {
+      "excel_row": 16,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00363/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 149, Padnall Road"
+    },
+    {
+      "excel_row": 17,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00429/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "92, Longbridge Road"
+    },
+    {
+      "excel_row": 18,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0300434",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Morland Road Day Hospital, Morland Road"
+    },
+    {
+      "excel_row": 19,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00479/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Bentry Playing Fields, Lockwell Road"
+    },
+    {
+      "excel_row": 20,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00700/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "43, Rutland Gardens"
+    },
+    {
+      "excel_row": 21,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0300792",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent, 53, St Johns Road"
+    },
+    {
+      "excel_row": 22,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0300914",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "15-17, Glebe Road"
+    },
+    {
+      "excel_row": 23,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00919/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Former Allotments At Rear & 212-216, Reede Road"
+    },
+    {
+      "excel_row": 24,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00932/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "89, Broad Street"
+    },
+    {
+      "excel_row": 25,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "03/00997/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "60, Upney Lane"
+    },
+    {
+      "excel_row": 26,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "0400015",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-05-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 13, Boleyn Gardens"
+    },
+    {
+      "excel_row": 27,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00046/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-01-12",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 9, Fir Tree Walk"
+    },
+    {
+      "excel_row": 28,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00104/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "49, Temple Avenue"
+    },
+    {
+      "excel_row": 30,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00191/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Marks Gate Clinic, Lawn Farm Grove"
+    },
+    {
+      "excel_row": 31,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00258/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Car Park Site At 169 - 171, Church Elm Lane"
+    },
+    {
+      "excel_row": 32,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00291/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "77, Cecil Road"
+    },
+    {
+      "excel_row": 33,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00361/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-09-19",
+      "current_permission_status": "Completed",
+      "title_label": "16, Chittys Lane"
+    },
+    {
+      "excel_row": 34,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00386/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "123/123a, Broad Street"
+    },
+    {
+      "excel_row": 35,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00400/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "34, St Awdrys Road"
+    },
+    {
+      "excel_row": 36,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00423/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 2, Rowe Gardens"
+    },
+    {
+      "excel_row": 37,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00443/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "14, Becontree Avenue"
+    },
+    {
+      "excel_row": 38,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00472/REM",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "South East Corner Of, Crown Street"
+    },
+    {
+      "excel_row": 40,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00538/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-06-29",
+      "current_permission_status": "Completed",
+      "title_label": "177, Howard Road"
+    },
+    {
+      "excel_row": 41,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00543/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To 2, Groveway"
+    },
+    {
+      "excel_row": 42,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00608/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Site Of The Clevelands, Waterings And Bloomfields, Church Road"
+    },
+    {
+      "excel_row": 43,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00661/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Maybells Depot, Ripple Road"
+    },
+    {
+      "excel_row": 44,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00672/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "98-178, Abbey Road"
+    },
+    {
+      "excel_row": 45,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00759/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-07-16",
+      "current_permission_status": "Completed",
+      "title_label": "Land To The Rear Of 22, Manor Road"
+    },
+    {
+      "excel_row": 46,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00779/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "316, Dagenham Road"
+    },
+    {
+      "excel_row": 47,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00793/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-23",
+      "current_permission_status": "Completed",
+      "title_label": "Adjacent To 1 Grand Parade, Oxlow Lane"
+    },
+    {
+      "excel_row": 48,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00884/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "75, River Road"
+    },
+    {
+      "excel_row": 49,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00922/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-31",
+      "current_permission_status": "Completed",
+      "title_label": "606a, Longbridge Road"
+    },
+    {
+      "excel_row": 50,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/00929/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 191, Western Avenue"
+    },
+    {
+      "excel_row": 51,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01018/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Garden Land Of The Tolgate Hotel Ph, High Road"
+    },
+    {
+      "excel_row": 52,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01036/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "117a, Salisbury Avenue"
+    },
+    {
+      "excel_row": 53,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01067/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Garage, R/O 79, Cecil Avenue"
+    },
+    {
+      "excel_row": 54,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01130/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining 114, Victoria Road"
+    },
+    {
+      "excel_row": 55,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01173/REM",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Solignum Limited, Chequers Lane"
+    },
+    {
+      "excel_row": 56,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01178/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "189, Oxlow Lane"
+    },
+    {
+      "excel_row": 57,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "04/01202/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "132, Mill Lane"
+    },
+    {
+      "excel_row": 59,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00017/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining 42, Limbourne Avenue"
+    },
+    {
+      "excel_row": 60,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00029/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "17-19, Sheppey Road"
+    },
+    {
+      "excel_row": 61,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00032/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "4, Rookery Crescent"
+    },
+    {
+      "excel_row": 62,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00056/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-04-09",
+      "current_permission_status": "Completed",
+      "title_label": "87, Salisbury Avenue"
+    },
+    {
+      "excel_row": 63,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00070/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-01-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To 17, Horace Avenue"
+    },
+    {
+      "excel_row": 64,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00078/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Allotments, Digby Gardens"
+    },
+    {
+      "excel_row": 65,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00125/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "103, St Awdrys Road"
+    },
+    {
+      "excel_row": 66,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00151/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent, 185, Oxlow Lane"
+    },
+    {
+      "excel_row": 67,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00210/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-05-06",
+      "current_permission_status": "Completed",
+      "title_label": "3, Station Road"
+    },
+    {
+      "excel_row": 68,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00261/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "34, Foxlands Crescent"
+    },
+    {
+      "excel_row": 69,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00285/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "167, Howard Road"
+    },
+    {
+      "excel_row": 70,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00298/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-10-12",
+      "current_permission_status": "Completed",
+      "title_label": "Land To The Rear Of 63, Manor Road"
+    },
+    {
+      "excel_row": 71,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00299/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-01-23",
+      "current_permission_status": "Completed",
+      "title_label": "120, Glenny Road"
+    },
+    {
+      "excel_row": 72,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00322/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "184, Billet Road"
+    },
+    {
+      "excel_row": 73,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00368/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-06-17",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To, 103, Oglethorpe Road"
+    },
+    {
+      "excel_row": 74,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00373/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-19",
+      "current_permission_status": "Completed",
+      "title_label": "71, Fitzstephen Road"
+    },
+    {
+      "excel_row": 75,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00402/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Between 17-19, Horsebridge Close"
+    },
+    {
+      "excel_row": 76,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00417/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent, 162-168, Shafter Road"
+    },
+    {
+      "excel_row": 77,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00438/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "444, Whalebone Lane North"
+    },
+    {
+      "excel_row": 78,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00458/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "623a, Rainham Road South"
+    },
+    {
+      "excel_row": 79,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00463/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-31",
+      "current_permission_status": "Completed",
+      "title_label": "69, Roycraft Avenue"
+    },
+    {
+      "excel_row": 80,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00472/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-06-23",
+      "current_permission_status": "Completed",
+      "title_label": "16a, Porters Avenue"
+    },
+    {
+      "excel_row": 81,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00491/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "271, Porters Avenue"
+    },
+    {
+      "excel_row": 83,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00494/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "27, Calverley Crescent"
+    },
+    {
+      "excel_row": 84,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00514/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-07-09",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining 22, Eastfield Road"
+    },
+    {
+      "excel_row": 86,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00568/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Allotments Near, D'Arcy Gardens"
+    },
+    {
+      "excel_row": 88,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00641/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-10",
+      "current_permission_status": "Completed",
+      "title_label": "473, Rainham Road South"
+    },
+    {
+      "excel_row": 89,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00708/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "603, Heathway"
+    },
+    {
+      "excel_row": 90,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00718/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining 266, Rugby Road"
+    },
+    {
+      "excel_row": 92,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00757/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "106, Wilmington Gardens"
+    },
+    {
+      "excel_row": 93,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00773/REG3",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Faircross Community College, Hulse Avenue"
+    },
+    {
+      "excel_row": 94,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00821/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land To Side 81, Roycraft Avenue"
+    },
+    {
+      "excel_row": 95,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00828/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "46, Fourth Avenue"
+    },
+    {
+      "excel_row": 99,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/00953/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "56, Lichfield Road"
+    },
+    {
+      "excel_row": 100,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01011/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-04-04",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 2, Beam Avenue"
+    },
+    {
+      "excel_row": 101,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01076/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "18, Thorpe Road"
+    },
+    {
+      "excel_row": 102,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01122/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining 151, Ford Road"
+    },
+    {
+      "excel_row": 103,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01160/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "7, Beech Gardens"
+    },
+    {
+      "excel_row": 104,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01189/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Education Department, Garage Site, Eastbrook Avenue"
+    },
+    {
+      "excel_row": 105,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01205/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Kingsbridge Residential Home, Wheelers Cross"
+    },
+    {
+      "excel_row": 106,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01208/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "142, Morley Road"
+    },
+    {
+      "excel_row": 107,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01227/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "York House, Frizlands Lane"
+    },
+    {
+      "excel_row": 108,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01230/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-05-09",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining 2, Malpas Road"
+    },
+    {
+      "excel_row": 109,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01271/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-08-18",
+      "current_permission_status": "Lapsed",
+      "title_label": "Ibis Hotel, Highbridge Road"
+    },
+    {
+      "excel_row": 110,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01272/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-03-11",
+      "current_permission_status": "Lapsed",
+      "title_label": "Etap Hotel, Highbridge Road"
+    },
+    {
+      "excel_row": 111,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01274/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "Etrcl Site, Choats Road"
+    },
+    {
+      "excel_row": 112,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "05/01280/REM",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "West Corner Of, Hindmans Way"
+    },
+    {
+      "excel_row": 113,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00011/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 85, Ford Road"
+    },
+    {
+      "excel_row": 114,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00022/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 8, Boleyn Gardens"
+    },
+    {
+      "excel_row": 115,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00040/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-02-02",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 2, Sisley Road"
+    },
+    {
+      "excel_row": 116,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00085/REG3",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "45 - 65, Axe Street"
+    },
+    {
+      "excel_row": 117,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00118/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "189a, Wilmington Gardens"
+    },
+    {
+      "excel_row": 119,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00140/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-10",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 125, Bradfield Drive"
+    },
+    {
+      "excel_row": 120,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00146/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 171, Second Avenue"
+    },
+    {
+      "excel_row": 121,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00153/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 96, Clemence Road"
+    },
+    {
+      "excel_row": 122,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00154/REG3",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "89, Axe Street"
+    },
+    {
+      "excel_row": 124,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00185/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "1, Ashbrook Road"
+    },
+    {
+      "excel_row": 126,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00220/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "1, Surrey Road"
+    },
+    {
+      "excel_row": 127,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00231/REM",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Town Square, Phase 1, Clockhouse Avenue"
+    },
+    {
+      "excel_row": 128,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00235/OUT",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "The Church Elm Ph And 214-216, Heathway"
+    },
+    {
+      "excel_row": 130,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00294/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "63, Temple Avenue"
+    },
+    {
+      "excel_row": 131,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00297/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-12-02",
+      "current_permission_status": "Completed",
+      "title_label": "Unit 5 New England Estate (C1988) (Formerly Frogmore Estate), Gascoigne Road"
+    },
+    {
+      "excel_row": 132,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00316/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-08-08",
+      "current_permission_status": "Completed",
+      "title_label": "179, Ivyhouse Road"
+    },
+    {
+      "excel_row": 133,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00317/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 159, Downing Road"
+    },
+    {
+      "excel_row": 134,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00322/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Garden Land Forming Part Of 55, Dewey Road"
+    },
+    {
+      "excel_row": 135,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00328/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 108, Alderman Avenue"
+    },
+    {
+      "excel_row": 136,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00350/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "103, Gainsborough Road"
+    },
+    {
+      "excel_row": 137,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00389/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "Fishing Smack Public House, Abbey Road"
+    },
+    {
+      "excel_row": 138,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00394/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "451, Porters Avenue"
+    },
+    {
+      "excel_row": 139,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00402/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-18",
+      "current_permission_status": "Completed",
+      "title_label": "Land Rear Of 1-8 Beadles Parade, Rainham Road South"
+    },
+    {
+      "excel_row": 140,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00435/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "223, New Road"
+    },
+    {
+      "excel_row": 141,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00458/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-04-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 27, Padnall Road"
+    },
+    {
+      "excel_row": 143,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00485/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "2, Rosslyn Road"
+    },
+    {
+      "excel_row": 144,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00488/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-10-28",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 3, Estbrook Drive"
+    },
+    {
+      "excel_row": 145,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00527/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 61, Philip Avenue"
+    },
+    {
+      "excel_row": 146,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00556/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "415, Whalebone Lane North"
+    },
+    {
+      "excel_row": 147,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00575/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "184, Oval Road South"
+    },
+    {
+      "excel_row": 148,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00588/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Lyons Site, Kingsbridge Road"
+    },
+    {
+      "excel_row": 149,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00616/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "78, Hatfield Road"
+    },
+    {
+      "excel_row": 150,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00637/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "J A Symes, Town Quay"
+    },
+    {
+      "excel_row": 151,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00639/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "778, Dagenham Road"
+    },
+    {
+      "excel_row": 152,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00651/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "2, River Road"
+    },
+    {
+      "excel_row": 153,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00658/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "168, High Road"
+    },
+    {
+      "excel_row": 155,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00677/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-31",
+      "current_permission_status": "Completed",
+      "title_label": "222, Stamford Road"
+    },
+    {
+      "excel_row": 156,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00688/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-06-02",
+      "current_permission_status": "Completed",
+      "title_label": "16, Cecil Avenue"
+    },
+    {
+      "excel_row": 157,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00700/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "219, Morley Road"
+    },
+    {
+      "excel_row": 158,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00703/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "48, Temple Avenue"
+    },
+    {
+      "excel_row": 159,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00734/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To 19, Charlecote Road"
+    },
+    {
+      "excel_row": 161,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00766/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-02-01",
+      "current_permission_status": "Completed",
+      "title_label": "237-241, High Road"
+    },
+    {
+      "excel_row": 163,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00820/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Etrcl Site, Choats Road"
+    },
+    {
+      "excel_row": 164,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00821/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-20",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 193, Gorseway"
+    },
+    {
+      "excel_row": 165,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00822/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "77, Faircross Avenue"
+    },
+    {
+      "excel_row": 166,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00844/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-01",
+      "current_permission_status": "Completed",
+      "title_label": "19, Gordon Road"
+    },
+    {
+      "excel_row": 167,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00875/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-30",
+      "current_permission_status": "Completed",
+      "title_label": "146, Lodge Avenue"
+    },
+    {
+      "excel_row": 168,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00876/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-12-03",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 2, Freshwater Road"
+    },
+    {
+      "excel_row": 169,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00889/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-04-14",
+      "current_permission_status": "Completed",
+      "title_label": "19, St Erkenwald Road"
+    },
+    {
+      "excel_row": 170,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00890/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Riverside Works, Hertford Road"
+    },
+    {
+      "excel_row": 171,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00907/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-01-23",
+      "current_permission_status": "Completed",
+      "title_label": "114, Becontree Avenue"
+    },
+    {
+      "excel_row": 172,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00914/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 177, Wilmington Gardens"
+    },
+    {
+      "excel_row": 173,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00917/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-09-03",
+      "current_permission_status": "Completed",
+      "title_label": "Baden Powell Close"
+    },
+    {
+      "excel_row": 174,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00926/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-02-13",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 13, Lawn Farm Grove"
+    },
+    {
+      "excel_row": 175,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00929/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-20",
+      "current_permission_status": "Completed",
+      "title_label": "12, Porters Avenue"
+    },
+    {
+      "excel_row": 176,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00933/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "17 Rowallan Parade, Green Lane"
+    },
+    {
+      "excel_row": 177,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00934/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-13",
+      "current_permission_status": "Completed",
+      "title_label": "1030, Green Lane"
+    },
+    {
+      "excel_row": 178,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00937/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 15, Thatches Grove"
+    },
+    {
+      "excel_row": 179,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00945/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-10-01",
+      "current_permission_status": "Completed",
+      "title_label": "77, Fanshawe Avenue"
+    },
+    {
+      "excel_row": 180,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00947/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "156, Wood Lane"
+    },
+    {
+      "excel_row": 181,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00983/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-02-24",
+      "current_permission_status": "Completed",
+      "title_label": "483, Rainham Road South"
+    },
+    {
+      "excel_row": 182,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/00989/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Rear Of Premises, 798, Green Lane"
+    },
+    {
+      "excel_row": 183,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01006/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-05-08",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 477, Rainham Road South"
+    },
+    {
+      "excel_row": 184,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01007/OUT",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "186, Goresbrook Road"
+    },
+    {
+      "excel_row": 185,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01015/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Property Adjacent To The Roundhouse, Lodge Avenue"
+    },
+    {
+      "excel_row": 186,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01036/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-26",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 70, Thatches Grove"
+    },
+    {
+      "excel_row": 187,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01047/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-05-15",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 107, Kingston Hill Road"
+    },
+    {
+      "excel_row": 188,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01069/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-05-19",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 14, Bainbridge Road"
+    },
+    {
+      "excel_row": 189,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01094/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Forming Part Of 1, Bolewyn Gardens"
+    },
+    {
+      "excel_row": 190,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01111/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "157, St Awdrys Road"
+    },
+    {
+      "excel_row": 191,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01116/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "17, Lawn Farm Grove"
+    },
+    {
+      "excel_row": 192,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01121/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-17",
+      "current_permission_status": "Completed",
+      "title_label": "7, Brook Avenue"
+    },
+    {
+      "excel_row": 194,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01183/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-01-23",
+      "current_permission_status": "Completed",
+      "title_label": "88, Shirley Gardens"
+    },
+    {
+      "excel_row": 195,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01197/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "107, Lindsey Road"
+    },
+    {
+      "excel_row": 196,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01198/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "3a, Hewett Road"
+    },
+    {
+      "excel_row": 197,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01208/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-25",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 192, Ballards Road"
+    },
+    {
+      "excel_row": 198,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01223/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "211, Hunters Hall Road"
+    },
+    {
+      "excel_row": 199,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01228/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "92, Wedderburn Road"
+    },
+    {
+      "excel_row": 200,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01230/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "Robin Hood Public House, 807-829, Longbridge Road"
+    },
+    {
+      "excel_row": 201,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "06/01233/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "87, Chaplin Road"
+    },
+    {
+      "excel_row": 204,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00003/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "12-14, Hunters Hall Road"
+    },
+    {
+      "excel_row": 205,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00018/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 126, Beam Avenue"
+    },
+    {
+      "excel_row": 206,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00039/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-02-25",
+      "current_permission_status": "Completed",
+      "title_label": "39, Stone Close"
+    },
+    {
+      "excel_row": 207,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00060/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "54, Victoria Road"
+    },
+    {
+      "excel_row": 208,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00070/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-04-21",
+      "current_permission_status": "Completed",
+      "title_label": "29, Charlotte Road"
+    },
+    {
+      "excel_row": 209,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00079/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-19",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 45, Thames Road"
+    },
+    {
+      "excel_row": 210,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00097/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-03-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 157, Downing Road"
+    },
+    {
+      "excel_row": 211,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00120/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-31",
+      "current_permission_status": "Completed",
+      "title_label": "412-414, Dagenham Road"
+    },
+    {
+      "excel_row": 212,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00136/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "Site Of Fishing Smack, 92, Abbey Road"
+    },
+    {
+      "excel_row": 213,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00160/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-02-12",
+      "current_permission_status": "Completed",
+      "title_label": "1, Rosehatch Lane"
+    },
+    {
+      "excel_row": 214,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00175/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-10",
+      "current_permission_status": "Completed",
+      "title_label": "7, Whiting Avenue"
+    },
+    {
+      "excel_row": 215,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00200/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-11",
+      "current_permission_status": "Completed",
+      "title_label": "34, Highland Avenue"
+    },
+    {
+      "excel_row": 216,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00269/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "39, River Road"
+    },
+    {
+      "excel_row": 217,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00283/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "279, Oxlow Lane"
+    },
+    {
+      "excel_row": 218,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00297/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "10, Gurney Close"
+    },
+    {
+      "excel_row": 219,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00298/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-05",
+      "current_permission_status": "Completed",
+      "title_label": "89-91a, Broad Street"
+    },
+    {
+      "excel_row": 220,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00403/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "The Old School House, Goresbrook Road"
+    },
+    {
+      "excel_row": 221,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00416/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-06-09",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 52, Albany Road"
+    },
+    {
+      "excel_row": 223,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00443/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-06-04",
+      "current_permission_status": "Completed",
+      "title_label": "Rear Of 1, St Chads Road"
+    },
+    {
+      "excel_row": 224,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00463/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-23",
+      "current_permission_status": "Completed",
+      "title_label": "17, Romsey Road"
+    },
+    {
+      "excel_row": 225,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00464/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-26",
+      "current_permission_status": "Completed",
+      "title_label": "11a, Stanley Avenue"
+    },
+    {
+      "excel_row": 226,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00482/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-08-17",
+      "current_permission_status": "Completed",
+      "title_label": "62, Urswick Road"
+    },
+    {
+      "excel_row": 227,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00496/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Rear Of 3, Station Road"
+    },
+    {
+      "excel_row": 228,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00499/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Westbury Arms, Ripple Road"
+    },
+    {
+      "excel_row": 229,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00546/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-01-29",
+      "current_permission_status": "Completed",
+      "title_label": "73, Wilmington Gardens"
+    },
+    {
+      "excel_row": 231,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00582/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-12-08",
+      "current_permission_status": "Completed",
+      "title_label": "490, Heathway"
+    },
+    {
+      "excel_row": 232,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00606/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "49, Canberra Crescent"
+    },
+    {
+      "excel_row": 233,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00615/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land And Buildings Forming Part Of 20, Strathfield Gardens"
+    },
+    {
+      "excel_row": 234,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00627/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "14, Sterry Road"
+    },
+    {
+      "excel_row": 235,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00639/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-14",
+      "current_permission_status": "Completed",
+      "title_label": "380, Ripple Road"
+    },
+    {
+      "excel_row": 236,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00641/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "26, Rosslyn Road"
+    },
+    {
+      "excel_row": 238,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00762/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Old School House, Collier Row Road"
+    },
+    {
+      "excel_row": 239,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00770/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-05",
+      "current_permission_status": "Completed",
+      "title_label": "100, Salisbury Avenue"
+    },
+    {
+      "excel_row": 240,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00784/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Forming Part Of 133, Beam Avenue"
+    },
+    {
+      "excel_row": 242,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00898/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-05-22",
+      "current_permission_status": "Completed",
+      "title_label": "441, Porters Avenue"
+    },
+    {
+      "excel_row": 243,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00906/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "279, Oxlow Lane"
+    },
+    {
+      "excel_row": 244,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00913/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "574, Rainham Road South"
+    },
+    {
+      "excel_row": 245,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00926/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "33, Dunkeld Road"
+    },
+    {
+      "excel_row": 246,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00932/REG3",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2008-04-25",
+      "current_permission_status": "Superseded",
+      "title_label": "61, Naseby Road"
+    },
+    {
+      "excel_row": 248,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00941/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-01-30",
+      "current_permission_status": "Completed",
+      "title_label": "1, Beansland Grove"
+    },
+    {
+      "excel_row": 249,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/00960/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-03-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 116, Ford Road"
+    },
+    {
+      "excel_row": 252,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01016/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Superseded",
+      "title_label": "30, Donne Road"
+    },
+    {
+      "excel_row": 253,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01019/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-07-17",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 35, Shafter Road"
+    },
+    {
+      "excel_row": 254,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01048/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-19",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 21, Shafter Road"
+    },
+    {
+      "excel_row": 255,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01071/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-07-28",
+      "current_permission_status": "Completed",
+      "title_label": "66, Parsloes Avenue"
+    },
+    {
+      "excel_row": 256,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01072/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-06-03",
+      "current_permission_status": "Completed",
+      "title_label": "197, Oxlow Lane"
+    },
+    {
+      "excel_row": 257,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01125/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-02-14",
+      "current_permission_status": "Lapsed",
+      "title_label": "14, Meadow Walk"
+    },
+    {
+      "excel_row": 258,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01139/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-06-16",
+      "current_permission_status": "Completed",
+      "title_label": "83, Valence Wood Road"
+    },
+    {
+      "excel_row": 259,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01144/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-01-01",
+      "current_permission_status": "Completed",
+      "title_label": "382, Ripple Road"
+    },
+    {
+      "excel_row": 260,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01147/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-23",
+      "current_permission_status": "Completed",
+      "title_label": "85, Ellerton Road"
+    },
+    {
+      "excel_row": 261,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01149/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-03-01",
+      "current_permission_status": "Completed",
+      "title_label": "Faircross Garage, Faircross Avenue"
+    },
+    {
+      "excel_row": 262,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01155/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-05-06",
+      "current_permission_status": "Completed",
+      "title_label": "The Kingdom Hall, Stanley Avenue"
+    },
+    {
+      "excel_row": 263,
+      "reason": "missing or outside 2008-2026 permission/started/completed date window",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01157/FUL",
+      "selected_milestone_type": "",
+      "selected_milestone_date": "",
+      "current_permission_status": "Lapsed",
+      "title_label": "1, Park Drive"
+    },
+    {
+      "excel_row": 264,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01195/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-11-16",
+      "current_permission_status": "Completed",
+      "title_label": "114, Westminster Gardens"
+    },
+    {
+      "excel_row": 265,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01218/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-02-21",
+      "current_permission_status": "Lapsed",
+      "title_label": "588, Rainham Road South"
+    },
+    {
+      "excel_row": 269,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01354/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-08-02",
+      "current_permission_status": "Completed",
+      "title_label": "Parsloes Avenue Garages, Parsloes Avenue"
+    },
+    {
+      "excel_row": 271,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01363/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-02",
+      "current_permission_status": "Completed",
+      "title_label": "363, Heathway"
+    },
+    {
+      "excel_row": 272,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01380/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-04-01",
+      "current_permission_status": "Lapsed",
+      "title_label": "30, Goresbrook Road"
+    },
+    {
+      "excel_row": 273,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01385/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-05-07",
+      "current_permission_status": "Completed",
+      "title_label": "28, Surrey Road"
+    },
+    {
+      "excel_row": 274,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01399/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-02-27",
+      "current_permission_status": "Lapsed",
+      "title_label": "17, Warren Terrace"
+    },
+    {
+      "excel_row": 275,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "07/01428/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "65, Temple Avenue"
+    },
+    {
+      "excel_row": 276,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00022/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-01-01",
+      "current_permission_status": "Completed",
+      "title_label": "157 - 159, Broad Street"
+    },
+    {
+      "excel_row": 277,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00023/OUT",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-03-03",
+      "current_permission_status": "Superseded",
+      "title_label": "17, Norton Road"
+    },
+    {
+      "excel_row": 278,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00027/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-05-26",
+      "current_permission_status": "Completed",
+      "title_label": "13, Woodward Road"
+    },
+    {
+      "excel_row": 279,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00073/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-02",
+      "current_permission_status": "Completed",
+      "title_label": "7, Felhurst Crescent"
+    },
+    {
+      "excel_row": 282,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00107/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent Frizland Depot, Junction Of, Rainham Road North"
+    },
+    {
+      "excel_row": 283,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00146/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-12-01",
+      "current_permission_status": "Completed",
+      "title_label": "30, Donne Road"
+    },
+    {
+      "excel_row": 284,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00157/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-07-30",
+      "current_permission_status": "Completed",
+      "title_label": "54, Naseby Road"
+    },
+    {
+      "excel_row": 285,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00160/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-04-24",
+      "current_permission_status": "Lapsed",
+      "title_label": "29, Kingsmill Road"
+    },
+    {
+      "excel_row": 286,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00173/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-03-10",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Forming Part Of 146, Keir Hardie Way"
+    },
+    {
+      "excel_row": 287,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00179/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-11-25",
+      "current_permission_status": "Completed",
+      "title_label": "2, Durham Road"
+    },
+    {
+      "excel_row": 289,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00300/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-06-01",
+      "current_permission_status": "Completed",
+      "title_label": "48, Campden Crescent"
+    },
+    {
+      "excel_row": 291,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00310/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-07-31",
+      "current_permission_status": "Lapsed",
+      "title_label": "211 - 213, Salisbury Avenue"
+    },
+    {
+      "excel_row": 292,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00318/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-02",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 57, Keir Hardie Way"
+    },
+    {
+      "excel_row": 294,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00331/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "60, East Road"
+    },
+    {
+      "excel_row": 295,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00428/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-08-02",
+      "current_permission_status": "Completed",
+      "title_label": "16, Wellington Drive"
+    },
+    {
+      "excel_row": 296,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00435/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-01-29",
+      "current_permission_status": "Completed",
+      "title_label": "12, Blithbury Road"
+    },
+    {
+      "excel_row": 297,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00459/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-03-27",
+      "current_permission_status": "Completed",
+      "title_label": "157, St Awdrys Road"
+    },
+    {
+      "excel_row": 298,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00469/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-03-31",
+      "current_permission_status": "Superseded",
+      "title_label": "Premier Inn, Highbridge Road"
+    },
+    {
+      "excel_row": 300,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00486/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-06-19",
+      "current_permission_status": "Lapsed",
+      "title_label": "44, Blackborne Road"
+    },
+    {
+      "excel_row": 301,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00570/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-06-29",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 11, Shafter Road"
+    },
+    {
+      "excel_row": 303,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00688/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-07-31",
+      "current_permission_status": "Superseded",
+      "title_label": "Raydons House, Raydons Road"
+    },
+    {
+      "excel_row": 304,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00724/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-05-26",
+      "current_permission_status": "Completed",
+      "title_label": "800, Green Lane"
+    },
+    {
+      "excel_row": 307,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00784/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-09-23",
+      "current_permission_status": "Completed",
+      "title_label": "59, Jasmine Road"
+    },
+    {
+      "excel_row": 308,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00799/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-07-16",
+      "current_permission_status": "Completed",
+      "title_label": "73, Padnall Road"
+    },
+    {
+      "excel_row": 309,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00801/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-07-16",
+      "current_permission_status": "Completed",
+      "title_label": "75, Padnall Road"
+    },
+    {
+      "excel_row": 310,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00827/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-08-14",
+      "current_permission_status": "Completed",
+      "title_label": "60, High Road"
+    },
+    {
+      "excel_row": 311,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00841/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-01-30",
+      "current_permission_status": "Lapsed",
+      "title_label": "52, Warrington Road"
+    },
+    {
+      "excel_row": 312,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00869/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-01-28",
+      "current_permission_status": "Lapsed",
+      "title_label": "20, Manor Road"
+    },
+    {
+      "excel_row": 313,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00878/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-01-28",
+      "current_permission_status": "Lapsed",
+      "title_label": "43, Bradfield Drive"
+    },
+    {
+      "excel_row": 315,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00912/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-02-14",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 85, Clementhorpe Road"
+    },
+    {
+      "excel_row": 316,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00963/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-05-13",
+      "current_permission_status": "Completed",
+      "title_label": "582, Rainham Road South"
+    },
+    {
+      "excel_row": 317,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00978/REM",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-09-21",
+      "current_permission_status": "Completed",
+      "title_label": "17, Norton Road"
+    },
+    {
+      "excel_row": 318,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/00984/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-07-01",
+      "current_permission_status": "Completed",
+      "title_label": "Adj To 936, Green Lane"
+    },
+    {
+      "excel_row": 319,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01015/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-09-24",
+      "current_permission_status": "Superseded",
+      "title_label": "5, Providence Place"
+    },
+    {
+      "excel_row": 320,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01028/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-07-17",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 29, Shafter Road"
+    },
+    {
+      "excel_row": 322,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01087/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2008-10-01",
+      "current_permission_status": "Completed",
+      "title_label": "197, Hunters Hall Road"
+    },
+    {
+      "excel_row": 323,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01100/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-10-06",
+      "current_permission_status": "Lapsed",
+      "title_label": "603a, Heathway"
+    },
+    {
+      "excel_row": 324,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01101/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-01-27",
+      "current_permission_status": "Completed",
+      "title_label": "22, Thorpe Road"
+    },
+    {
+      "excel_row": 325,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01163/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-01-11",
+      "current_permission_status": "Completed",
+      "title_label": "243, Oxlow Lane"
+    },
+    {
+      "excel_row": 326,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01173/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-09",
+      "current_permission_status": "Completed",
+      "title_label": "416, Dagenham Road"
+    },
+    {
+      "excel_row": 327,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01184/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-11-20",
+      "current_permission_status": "Lapsed",
+      "title_label": "796 - 806, Dagenham Road"
+    },
+    {
+      "excel_row": 328,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01210/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2009-09-20",
+      "current_permission_status": "Completed",
+      "title_label": "48a, Meadow Road"
+    },
+    {
+      "excel_row": 330,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01240/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-10-10",
+      "current_permission_status": "Lapsed",
+      "title_label": "223, Reede Road"
+    },
+    {
+      "excel_row": 332,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01261/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-11-12",
+      "current_permission_status": "Lapsed",
+      "title_label": "37, Beam Avenue"
+    },
+    {
+      "excel_row": 335,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01331/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-01-07",
+      "current_permission_status": "Lapsed",
+      "title_label": "425, Becontree Avenue"
+    },
+    {
+      "excel_row": 336,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01333/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2008-12-03",
+      "current_permission_status": "Lapsed",
+      "title_label": "79, Fanshawe Avenue"
+    },
+    {
+      "excel_row": 337,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01402/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-07-10",
+      "current_permission_status": "Lapsed",
+      "title_label": "36, Station Parade"
+    },
+    {
+      "excel_row": 338,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01409/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-01-07",
+      "current_permission_status": "Lapsed",
+      "title_label": "195, Halbutt Street"
+    },
+    {
+      "excel_row": 339,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01422/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-02-23",
+      "current_permission_status": "Lapsed",
+      "title_label": "44 - 48, Freshwater Road"
+    },
+    {
+      "excel_row": 340,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01426/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "Old Essex Works, Ripple Road"
+    },
+    {
+      "excel_row": 342,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "08/01433/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-10-06",
+      "current_permission_status": "Completed",
+      "title_label": "Garage Site At 1, East Park Close"
+    },
+    {
+      "excel_row": 343,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00003/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "51, Hainault Road"
+    },
+    {
+      "excel_row": 344,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00070/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-03-11",
+      "current_permission_status": "Superseded",
+      "title_label": "12, Aldersey Gardens"
+    },
+    {
+      "excel_row": 345,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00075/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-03-30",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 51, Thatches Grove"
+    },
+    {
+      "excel_row": 346,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00114/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-11-30",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land At And To The Rear Of 26 - 28, High Road"
+    },
+    {
+      "excel_row": 347,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00138/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-31",
+      "current_permission_status": "Completed",
+      "title_label": "122a, Longbridge Road"
+    },
+    {
+      "excel_row": 349,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00202/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "55, Manor Road"
+    },
+    {
+      "excel_row": 350,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00207/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-22",
+      "current_permission_status": "Completed",
+      "title_label": "225, Reede Road"
+    },
+    {
+      "excel_row": 351,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00358/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-02-05",
+      "current_permission_status": "Completed",
+      "title_label": "279, Oxlow Lane"
+    },
+    {
+      "excel_row": 353,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00405/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-07-31",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 59, Naseby Road"
+    },
+    {
+      "excel_row": 354,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00409/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-04-01",
+      "current_permission_status": "Completed",
+      "title_label": "621, Rainham Road South"
+    },
+    {
+      "excel_row": 355,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00445/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2010-04-15",
+      "current_permission_status": "Lapsed",
+      "title_label": "33, Muggeridge Road"
+    },
+    {
+      "excel_row": 357,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00522/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-08-31",
+      "current_permission_status": "Completed",
+      "title_label": "Robin Hood Ph, 807 - 829, Longbridge Road"
+    },
+    {
+      "excel_row": 358,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00546/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-08-31",
+      "current_permission_status": "Completed",
+      "title_label": "Raydons House, Raydons Road"
+    },
+    {
+      "excel_row": 359,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00555/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-08-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 45, Whalebone Lane South"
+    },
+    {
+      "excel_row": 360,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00593/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-09-28",
+      "current_permission_status": "Superseded",
+      "title_label": "Land Froming Part Of 794, Dagenham Road"
+    },
+    {
+      "excel_row": 362,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00608/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-31",
+      "current_permission_status": "Completed",
+      "title_label": "11, Dunbar Gardens"
+    },
+    {
+      "excel_row": 363,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00647/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-01-14",
+      "current_permission_status": "Completed",
+      "title_label": "93 - 95, High Road"
+    },
+    {
+      "excel_row": 365,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00676/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-10-26",
+      "current_permission_status": "Lapsed",
+      "title_label": "108, Hurstbourne Gardens"
+    },
+    {
+      "excel_row": 366,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00689/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 1, First Avenue"
+    },
+    {
+      "excel_row": 367,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00726",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-07-02",
+      "current_permission_status": "Completed",
+      "title_label": "60, Cecil Avenue"
+    },
+    {
+      "excel_row": 371,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00781/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2009-12-07",
+      "current_permission_status": "Superseded",
+      "title_label": "3, 5 & 7, Parsloes Avenue"
+    },
+    {
+      "excel_row": 373,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00844/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-09-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 1, Newhouse Avenue"
+    },
+    {
+      "excel_row": 374,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00846/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2010-01-19",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Forming Part Of 77, Woodbridge Road"
+    },
+    {
+      "excel_row": 375,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00858/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To 1a, Essex Road"
+    },
+    {
+      "excel_row": 377,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00860/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-07",
+      "current_permission_status": "Completed",
+      "title_label": "Rogers Road Depot, Rogers Road"
+    },
+    {
+      "excel_row": 378,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00925/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "14, Rusholme Avenue"
+    },
+    {
+      "excel_row": 379,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00933/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-06-30",
+      "current_permission_status": "Completed",
+      "title_label": "47, Saville Road"
+    },
+    {
+      "excel_row": 380,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00941/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-07-05",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 215, Padnall Road"
+    },
+    {
+      "excel_row": 381,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00946/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "67-73, Longbridge Road"
+    },
+    {
+      "excel_row": 384,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00991/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-08-05",
+      "current_permission_status": "Completed",
+      "title_label": "Garages Rear Of 39 -49, Charlton Crescent"
+    },
+    {
+      "excel_row": 385,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00992/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-08-05",
+      "current_permission_status": "Completed",
+      "title_label": "Garage Site Rear Of 7-17, Charlton Crescent"
+    },
+    {
+      "excel_row": 386,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00993/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-04-20",
+      "current_permission_status": "Completed",
+      "title_label": "Garages Rear Of 11 - 27, Alderman Avenue"
+    },
+    {
+      "excel_row": 387,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00994/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-04-23",
+      "current_permission_status": "Completed",
+      "title_label": "Garages Rear Of 101-113, Roycraft Avenue"
+    },
+    {
+      "excel_row": 388,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/00995/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-02-10",
+      "current_permission_status": "Completed",
+      "title_label": "Garages Rear Of 72-104, Curzon Crescent"
+    },
+    {
+      "excel_row": 389,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01000/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2010-09-15",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Forming Part Of 35, Haydon Road"
+    },
+    {
+      "excel_row": 390,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01002/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-01-12",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 590, Goresbrook Road"
+    },
+    {
+      "excel_row": 391,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01007/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-02-15",
+      "current_permission_status": "Completed",
+      "title_label": "13, Ripple Road"
+    },
+    {
+      "excel_row": 392,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01008/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-03-02",
+      "current_permission_status": "Completed",
+      "title_label": "Garages, Highland Avenue"
+    },
+    {
+      "excel_row": 393,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01014/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-08-25",
+      "current_permission_status": "Completed",
+      "title_label": "794, Dagenham Road"
+    },
+    {
+      "excel_row": 394,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01018/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-31",
+      "current_permission_status": "Completed",
+      "title_label": "5b, High Road"
+    },
+    {
+      "excel_row": 395,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01019/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-07",
+      "current_permission_status": "Completed",
+      "title_label": "5, High Road"
+    },
+    {
+      "excel_row": 396,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01033/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-01-24",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 2, Bevan Avenue"
+    },
+    {
+      "excel_row": 397,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "09/01038/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-08-24",
+      "current_permission_status": "Completed",
+      "title_label": "434, Lodge Avenue"
+    },
+    {
+      "excel_row": 398,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00019/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-06-15",
+      "current_permission_status": "Completed",
+      "title_label": "13, Claridge Road"
+    },
+    {
+      "excel_row": 399,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00170/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-01-17",
+      "current_permission_status": "Completed",
+      "title_label": "90, Park Avenue"
+    },
+    {
+      "excel_row": 400,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00172/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-31",
+      "current_permission_status": "Completed",
+      "title_label": "Bru-Stir House, Freshwater Road"
+    },
+    {
+      "excel_row": 401,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00185/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-10-26",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 5, Burnside Road"
+    },
+    {
+      "excel_row": 402,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00194/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-08-13",
+      "current_permission_status": "Completed",
+      "title_label": "279, Oxlow Lane"
+    },
+    {
+      "excel_row": 403,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00202/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-09-06",
+      "current_permission_status": "Completed",
+      "title_label": "Garage Site Between 67 And 69, Beamway"
+    },
+    {
+      "excel_row": 404,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00232/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-09-14",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 32, Cowbridge Lane"
+    },
+    {
+      "excel_row": 405,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00240/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-10-04",
+      "current_permission_status": "Completed",
+      "title_label": "93, Movers Lane"
+    },
+    {
+      "excel_row": 406,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00271/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2011-03-24",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Behind Cross Keys Ph, Crown Street"
+    },
+    {
+      "excel_row": 408,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00321/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-12-31",
+      "current_permission_status": "Completed",
+      "title_label": "8, St Chads Road"
+    },
+    {
+      "excel_row": 409,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00322/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-09-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 1, Muggeridge Road"
+    },
+    {
+      "excel_row": 410,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00335/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-07-14",
+      "current_permission_status": "Completed",
+      "title_label": "Garden Land Of 28, St Georges Road"
+    },
+    {
+      "excel_row": 412,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00354/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-07-06",
+      "current_permission_status": "Completed",
+      "title_label": "4, Rosslyn Road"
+    },
+    {
+      "excel_row": 414,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00433/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-06-07",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 143, Bevan Avenue"
+    },
+    {
+      "excel_row": 416,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00445/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-07-28",
+      "current_permission_status": "Completed",
+      "title_label": "81, Rogers Road"
+    },
+    {
+      "excel_row": 418,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00474/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-03-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land And Buildings Forming Part Of 3, Gordon Road"
+    },
+    {
+      "excel_row": 419,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00509/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-11-26",
+      "current_permission_status": "Completed",
+      "title_label": "Land And Garage Forming Part Of 55, Grafton Road"
+    },
+    {
+      "excel_row": 420,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00544/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-06-28",
+      "current_permission_status": "Completed",
+      "title_label": "Alfreds Gardens Garages, Alfreds Gardens"
+    },
+    {
+      "excel_row": 421,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00556/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2010-08-17",
+      "current_permission_status": "Lapsed",
+      "title_label": "107, Lindsey Road"
+    },
+    {
+      "excel_row": 422,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00574/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-08-17",
+      "current_permission_status": "Completed",
+      "title_label": "143, Beccles Drive"
+    },
+    {
+      "excel_row": 424,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00602/OUT",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2011-06-14",
+      "current_permission_status": "Lapsed",
+      "title_label": "8, Norton Road"
+    },
+    {
+      "excel_row": 425,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00619/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "61, Naseby Road"
+    },
+    {
+      "excel_row": 426,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00629/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "Rear Extension At 107, Ripple Road"
+    },
+    {
+      "excel_row": 428,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00740/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-11-01",
+      "current_permission_status": "Completed",
+      "title_label": "William Street Quarter"
+    },
+    {
+      "excel_row": 429,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00746/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2011-03-11",
+      "current_permission_status": "Lapsed",
+      "title_label": "8, Norton Road"
+    },
+    {
+      "excel_row": 430,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00759/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2011-08-15",
+      "current_permission_status": "Lapsed",
+      "title_label": "101 Allotment Gardens, Crescent Road"
+    },
+    {
+      "excel_row": 434,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00861/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-02-18",
+      "current_permission_status": "Completed",
+      "title_label": "Part Of 172, Canonsleigh Road"
+    },
+    {
+      "excel_row": 435,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00936/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-03-27",
+      "current_permission_status": "Lapsed",
+      "title_label": "43, Hedgemans Road"
+    },
+    {
+      "excel_row": 436,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00962/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-01-24",
+      "current_permission_status": "Completed",
+      "title_label": "919, Green Lane"
+    },
+    {
+      "excel_row": 437,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00972/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2011-08-26",
+      "current_permission_status": "Lapsed",
+      "title_label": "139-167, Church Elm Lane"
+    },
+    {
+      "excel_row": 438,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/00983/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-06-21",
+      "current_permission_status": "Completed",
+      "title_label": "Thornhill Gardens Garages, Thornhill Gardens"
+    },
+    {
+      "excel_row": 439,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/01001/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "157 - 159, Broad Street"
+    },
+    {
+      "excel_row": 442,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/01045/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-04-05",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 58, Crescent Road"
+    },
+    {
+      "excel_row": 443,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "10/01077/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2010-10-29",
+      "current_permission_status": "Completed",
+      "title_label": "7-8, Princess Parade, New Road"
+    },
+    {
+      "excel_row": 446,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00003/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-02-28",
+      "current_permission_status": "Completed",
+      "title_label": "Yard 4, Choats Road"
+    },
+    {
+      "excel_row": 447,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00080/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-07-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 133, Beam Avenue"
+    },
+    {
+      "excel_row": 448,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00113/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2019-03-29",
+      "current_permission_status": "Completed",
+      "title_label": "588, Rainham Road South"
+    },
+    {
+      "excel_row": 449,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00144/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-11-27",
+      "current_permission_status": "Completed",
+      "title_label": "2, Donne Road"
+    },
+    {
+      "excel_row": 450,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00153/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-06-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 35, East Road"
+    },
+    {
+      "excel_row": 452,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00181/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-03-23",
+      "current_permission_status": "Superseded",
+      "title_label": "The Harrow Ph, Ripple Road"
+    },
+    {
+      "excel_row": 454,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00344/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-06-22",
+      "current_permission_status": "Completed",
+      "title_label": "7, Weylond Road"
+    },
+    {
+      "excel_row": 455,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00349/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-09-13",
+      "current_permission_status": "Completed",
+      "title_label": "85, Ellerton Road"
+    },
+    {
+      "excel_row": 456,
+      "reason": "administrative-only/minor planning row below high-signal override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00374/CLU_E",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2011-07-08",
+      "current_permission_status": "Completed",
+      "title_label": "19, Park Avenue"
+    },
+    {
+      "excel_row": 457,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00394/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-03-07",
+      "current_permission_status": "Lapsed",
+      "title_label": "49, East Street"
+    },
+    {
+      "excel_row": 459,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00407/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-02-02",
+      "current_permission_status": "Lapsed",
+      "title_label": "The Short Blue, 207, Bastable Avenue"
+    },
+    {
+      "excel_row": 460,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00452/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-03-20",
+      "current_permission_status": "Completed",
+      "title_label": "157-159, North Street"
+    },
+    {
+      "excel_row": 462,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00471/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2017-08-01",
+      "current_permission_status": "Completed",
+      "title_label": "1, Henshawe Road"
+    },
+    {
+      "excel_row": 464,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00494/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-09-16",
+      "current_permission_status": "Completed",
+      "title_label": "Railway Hotel, Shafter Road"
+    },
+    {
+      "excel_row": 465,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00507/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "762, Dagenham Road"
+    },
+    {
+      "excel_row": 466,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00513/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-03-22",
+      "current_permission_status": "Completed",
+      "title_label": "37, Ellerton Road"
+    },
+    {
+      "excel_row": 467,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00527/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-06-07",
+      "current_permission_status": "Completed",
+      "title_label": "Adj To 82, Grosvenor Road"
+    },
+    {
+      "excel_row": 468,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00528/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-11-02",
+      "current_permission_status": "Completed",
+      "title_label": "12, Aldersey Gardens"
+    },
+    {
+      "excel_row": 469,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00533/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-02-01",
+      "current_permission_status": "Completed",
+      "title_label": "2, Calverley Crescent"
+    },
+    {
+      "excel_row": 470,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00564/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-03-28",
+      "current_permission_status": "Lapsed",
+      "title_label": "Units 6 & 8, Maybells Industrial Estate, Ripple Road"
+    },
+    {
+      "excel_row": 472,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00571/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-03-29",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Adjacent To 951, Green Lane"
+    },
+    {
+      "excel_row": 473,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00689/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-09-25",
+      "current_permission_status": "Completed",
+      "title_label": "Adj To 129, Bevan Avenue"
+    },
+    {
+      "excel_row": 475,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00721/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-01-31",
+      "current_permission_status": "Completed",
+      "title_label": "684a, Becontree Avenue"
+    },
+    {
+      "excel_row": 479,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00817/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-12-23",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 66, Parsloes Avenue"
+    },
+    {
+      "excel_row": 481,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00838/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-11-09",
+      "current_permission_status": "Completed",
+      "title_label": "796-806, Dagenham Road"
+    },
+    {
+      "excel_row": 482,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00839/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-08-23",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 51, Hainault Road"
+    },
+    {
+      "excel_row": 483,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00848/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-07-18",
+      "current_permission_status": "Completed",
+      "title_label": "Part Of 19, Shafter Road"
+    },
+    {
+      "excel_row": 484,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00893/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-12-22",
+      "current_permission_status": "Completed",
+      "title_label": "Adj To 20, Eastfield Road"
+    },
+    {
+      "excel_row": 485,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00914/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-03-26",
+      "current_permission_status": "Lapsed",
+      "title_label": "425, Becontree Avenue"
+    },
+    {
+      "excel_row": 486,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/00936/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-02-04",
+      "current_permission_status": "Completed",
+      "title_label": "21, Trefgarne Road"
+    },
+    {
+      "excel_row": 489,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "11/01040/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-10-01",
+      "current_permission_status": "Completed",
+      "title_label": "45, Thames Road"
+    },
+    {
+      "excel_row": 491,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00042/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-02-26",
+      "current_permission_status": "Completed",
+      "title_label": "The Old Vicarage, Crown Street"
+    },
+    {
+      "excel_row": 492,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00075/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-04-01",
+      "current_permission_status": "Completed",
+      "title_label": "201, Oxlow Lane"
+    },
+    {
+      "excel_row": 493,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00121/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-11-02",
+      "current_permission_status": "Lapsed",
+      "title_label": "Premier Lodge, Highbridge Road"
+    },
+    {
+      "excel_row": 494,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00130/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-05-22",
+      "current_permission_status": "Lapsed",
+      "title_label": "54, Victoria Road"
+    },
+    {
+      "excel_row": 495,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00136/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-02-03",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 1, Boleyn Gardens"
+    },
+    {
+      "excel_row": 499,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00182/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-04-08",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 41, Cotesmore Gardens"
+    },
+    {
+      "excel_row": 501,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00191/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-04-24",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining, 74, Vincent Road"
+    },
+    {
+      "excel_row": 502,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00193/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-11-06",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 139, Woodbridge Road"
+    },
+    {
+      "excel_row": 503,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00313/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-11-15",
+      "current_permission_status": "Lapsed",
+      "title_label": "168, High Road"
+    },
+    {
+      "excel_row": 505,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00336/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-06-29",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 20, Manor Road"
+    },
+    {
+      "excel_row": 506,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00365/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-01-10",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjoining, 14, Brook Avenue"
+    },
+    {
+      "excel_row": 507,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00469/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-02-01",
+      "current_permission_status": "Completed",
+      "title_label": "684a, Becontree Avenue"
+    },
+    {
+      "excel_row": 509,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00506/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-06-06",
+      "current_permission_status": "Completed",
+      "title_label": "76a, Wood Lane"
+    },
+    {
+      "excel_row": 511,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00572/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2012-09-30",
+      "current_permission_status": "Completed",
+      "title_label": "281, Becontree Avenue"
+    },
+    {
+      "excel_row": 512,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00591/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2012-10-10",
+      "current_permission_status": "Superseded",
+      "title_label": "300, Ripple Road"
+    },
+    {
+      "excel_row": 513,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00671/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-05-04",
+      "current_permission_status": "Completed",
+      "title_label": "115, Marlborough Road"
+    },
+    {
+      "excel_row": 514,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00707/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-07-10",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 16, Kingston Hill Avenue"
+    },
+    {
+      "excel_row": 515,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00730/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-11-22",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land Adjacent To 33, Gordon Road"
+    },
+    {
+      "excel_row": 516,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00762/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-04-15",
+      "current_permission_status": "Completed",
+      "title_label": "Rima House, Ripple Road"
+    },
+    {
+      "excel_row": 518,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00794/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-06-04",
+      "current_permission_status": "Completed",
+      "title_label": "The Lawns, Rainham Road North"
+    },
+    {
+      "excel_row": 519,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00831/FUL",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2017-07-10",
+      "current_permission_status": "Started",
+      "title_label": "26 And 28 And Land To The Rear, High Road"
+    },
+    {
+      "excel_row": 520,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00835/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-07-24",
+      "current_permission_status": "Completed",
+      "title_label": "Former Abbey Quilting Ltd, Selinas Lane"
+    },
+    {
+      "excel_row": 523,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00946/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-03-20",
+      "current_permission_status": "Superseded",
+      "title_label": "Crooked Billet Public House, Billet Road"
+    },
+    {
+      "excel_row": 524,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00947/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2018-03-30",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent 38, Glenmore Way"
+    },
+    {
+      "excel_row": 525,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00993/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-10-04",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land At 67, Oval Road North"
+    },
+    {
+      "excel_row": 526,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/00994/OUT",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-02-05",
+      "current_permission_status": "Superseded",
+      "title_label": "2, Reede Way"
+    },
+    {
+      "excel_row": 528,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/01006/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-09-06",
+      "current_permission_status": "Completed",
+      "title_label": "300, Ripple Road"
+    },
+    {
+      "excel_row": 529,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/01017/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2013-12-04",
+      "current_permission_status": "Completed",
+      "title_label": "1148, Green Lane"
+    },
+    {
+      "excel_row": 530,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/01029/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-03-04",
+      "current_permission_status": "Completed",
+      "title_label": "369 - 371, Ripple Road"
+    },
+    {
+      "excel_row": 531,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "12/01041/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-08-02",
+      "current_permission_status": "Lapsed",
+      "title_label": "46, Albany Road"
+    },
+    {
+      "excel_row": 533,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00001/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "The Harrow Ph, Ripple Road"
+    },
+    {
+      "excel_row": 534,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00002/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2018-01-22",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 98, Netherfield Gardens"
+    },
+    {
+      "excel_row": 535,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00027/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-06-26",
+      "current_permission_status": "Completed",
+      "title_label": "All Saints School, Terling Road"
+    },
+    {
+      "excel_row": 539,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00128/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-11-29",
+      "current_permission_status": "Completed",
+      "title_label": "Garage Block Adjacent To 1, Back Lane"
+    },
+    {
+      "excel_row": 541,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00179/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-10-22",
+      "current_permission_status": "Lapsed",
+      "title_label": "929, Green Lane"
+    },
+    {
+      "excel_row": 543,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00303/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2017-09-01",
+      "current_permission_status": "Completed",
+      "title_label": "Land At Rear Of 201, Oxlow Lane"
+    },
+    {
+      "excel_row": 545,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00378/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-12-18",
+      "current_permission_status": "Completed",
+      "title_label": "Barking Magistrates Court"
+    },
+    {
+      "excel_row": 546,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00510/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-08-18",
+      "current_permission_status": "Completed",
+      "title_label": "699, Rainham Road South"
+    },
+    {
+      "excel_row": 547,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00518/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-01-04",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 19, Ellerton Road"
+    },
+    {
+      "excel_row": 548,
+      "reason": "administrative-only/minor planning row below high-signal override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00560/CLU_P",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-09-10",
+      "current_permission_status": "Superseded",
+      "title_label": "149-151, Broad Street"
+    },
+    {
+      "excel_row": 550,
+      "reason": "alteration/extension row below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00628/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2013-11-26",
+      "current_permission_status": "Lapsed",
+      "title_label": "Morrisons Supermarket, 402, Wood Lane"
+    },
+    {
+      "excel_row": 553,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00670/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-03-24",
+      "current_permission_status": "Completed",
+      "title_label": "55, Cannington Road"
+    },
+    {
+      "excel_row": 554,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00677/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-08-10",
+      "current_permission_status": "Completed",
+      "title_label": "Land Forming Part Of 35, Haydon Road"
+    },
+    {
+      "excel_row": 557,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00779/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-06-03",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 133, Woodbridge Road"
+    },
+    {
+      "excel_row": 559,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00803/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-10-23",
+      "current_permission_status": "Completed",
+      "title_label": "68, Saville Road"
+    },
+    {
+      "excel_row": 560,
+      "reason": "administrative-only/minor planning row below high-signal override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00814/REM",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-05-05",
+      "current_permission_status": "Completed",
+      "title_label": "Hedgecock Centre"
+    },
+    {
+      "excel_row": 562,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00864/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2016-03-09",
+      "current_permission_status": "Superseded",
+      "title_label": "207, Reede Road"
+    },
+    {
+      "excel_row": 564,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/00973/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-06-12",
+      "current_permission_status": "Completed",
+      "title_label": "63, Manor Road"
+    },
+    {
+      "excel_row": 566,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/01087/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2019-03-29",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To 50, Blake Avenue"
+    },
+    {
+      "excel_row": 567,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/01096/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-05-20",
+      "current_permission_status": "Lapsed",
+      "title_label": "Bull Public House 2-4, North Street"
+    },
+    {
+      "excel_row": 568,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/01098/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-03-16",
+      "current_permission_status": "Completed",
+      "title_label": "Land At 80, Keir Hardie Way"
+    },
+    {
+      "excel_row": 571,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/01151/PRIOR",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-03-03",
+      "current_permission_status": "Lapsed",
+      "title_label": "160, London Road"
+    },
+    {
+      "excel_row": 572,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/01152/PRIOR",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-02-18",
+      "current_permission_status": "Lapsed",
+      "title_label": "25a, Longbridge Road"
+    },
+    {
+      "excel_row": 573,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "13/01155/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-12-12",
+      "current_permission_status": "Completed",
+      "title_label": "The Crooked Billet, Billet Road"
+    },
+    {
+      "excel_row": 574,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00059/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-10-14",
+      "current_permission_status": "Superseded",
+      "title_label": "223, Reede Road"
+    },
+    {
+      "excel_row": 576,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00167/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-06-04",
+      "current_permission_status": "Completed",
+      "title_label": "Sanofi Aventis"
+    },
+    {
+      "excel_row": 578,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00263/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2017-12-01",
+      "current_permission_status": "Completed",
+      "title_label": "St Georges Church, Rogers Road"
+    },
+    {
+      "excel_row": 579,
+      "reason": "administrative-only/minor planning row below high-signal override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00269/CLU_E",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-05-20",
+      "current_permission_status": "Completed",
+      "title_label": "112, Upney Lane"
+    },
+    {
+      "excel_row": 580,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00288/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-10-13",
+      "current_permission_status": "Lapsed",
+      "title_label": "The Britannia Ph, Church Road"
+    },
+    {
+      "excel_row": 582,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00306/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-09-23",
+      "current_permission_status": "Completed",
+      "title_label": "Former Mayesbrook Home For The Aged, Bevan Avenue"
+    },
+    {
+      "excel_row": 583,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00323/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-06-10",
+      "current_permission_status": "Completed",
+      "title_label": "Adj To 22, Rowdowns Road"
+    },
+    {
+      "excel_row": 584,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00326/FUL",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2018-05-09",
+      "current_permission_status": "Started",
+      "title_label": "1146a, Green Lane"
+    },
+    {
+      "excel_row": 585,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00336/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-09-01",
+      "current_permission_status": "Completed",
+      "title_label": "465, Whalebone Lane North"
+    },
+    {
+      "excel_row": 586,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00379/PRIOR",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-05-23",
+      "current_permission_status": "Lapsed",
+      "title_label": "Peep House, 7, Back Lane"
+    },
+    {
+      "excel_row": 587,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00388/PRIOR",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-06-24",
+      "current_permission_status": "Lapsed",
+      "title_label": "1a, High Road"
+    },
+    {
+      "excel_row": 588,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00392/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-12-08",
+      "current_permission_status": "Lapsed",
+      "title_label": "Adj To 183, Oxlow Lane"
+    },
+    {
+      "excel_row": 590,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00464/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2017-04-24",
+      "current_permission_status": "Completed",
+      "title_label": "6 - 8, Thames Road"
+    },
+    {
+      "excel_row": 593,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00527/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-10-14",
+      "current_permission_status": "Completed",
+      "title_label": "79, Downing Road"
+    },
+    {
+      "excel_row": 594,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00585/FUL",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2018-01-05",
+      "current_permission_status": "Started",
+      "title_label": "68, Whalebone Grove"
+    },
+    {
+      "excel_row": 595,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00614/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-08-14",
+      "current_permission_status": "Completed",
+      "title_label": "Richard Blackburn House, 34, Carnation Close"
+    },
+    {
+      "excel_row": 596,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00615/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-08-14",
+      "current_permission_status": "Completed",
+      "title_label": "Thames View Lodge, 37, Hockley Mews"
+    },
+    {
+      "excel_row": 598,
+      "reason": "administrative-only/minor planning row below high-signal override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00679/CLU_E",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2014-09-09",
+      "current_permission_status": "Completed",
+      "title_label": "5, Wedderburn Road"
+    },
+    {
+      "excel_row": 602,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00795/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-01-11",
+      "current_permission_status": "Completed",
+      "title_label": "Amenity Green To The South Of, Margaret Bondfield Avenue"
+    },
+    {
+      "excel_row": 603,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00796/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-11-26",
+      "current_permission_status": "Completed",
+      "title_label": "Former Garage Compound And Part Of Amenity Green, Earls Walk"
+    },
+    {
+      "excel_row": 604,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00797/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-02-01",
+      "current_permission_status": "Completed",
+      "title_label": "New Bungalow Development, Stansgate Road"
+    },
+    {
+      "excel_row": 605,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00798/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-09-01",
+      "current_permission_status": "Not started",
+      "title_label": "St Chads Church, St Chads Road"
+    },
+    {
+      "excel_row": 606,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00863/FUL",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2018-02-01",
+      "current_permission_status": "Started",
+      "title_label": "Rear Of 81, Movers Lane"
+    },
+    {
+      "excel_row": 608,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00918/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2014-12-11",
+      "current_permission_status": "Lapsed",
+      "title_label": "Land At 471, Rainham Road South"
+    },
+    {
+      "excel_row": 613,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/00999/FUL",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2017-12-01",
+      "current_permission_status": "Started",
+      "title_label": "57, Aldborough Road"
+    },
+    {
+      "excel_row": 614,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01005/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-06-14",
+      "current_permission_status": "Completed",
+      "title_label": "10, Spurling Road"
+    },
+    {
+      "excel_row": 615,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01097/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2018-04-06",
+      "current_permission_status": "Completed",
+      "title_label": "Land Adjacent To 25-27, Eldred Road"
+    },
+    {
+      "excel_row": 616,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01154/REG3",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-12-01",
+      "current_permission_status": "Completed",
+      "title_label": "Garages At Rear Of 359, Porters Avenue"
+    },
+    {
+      "excel_row": 617,
+      "reason": "below architecture/public/large-development signal threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01167/CLU_E",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-01-09",
+      "current_permission_status": "Completed",
+      "title_label": "206, High Road"
+    },
+    {
+      "excel_row": 619,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01225/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-12-19",
+      "current_permission_status": "Completed",
+      "title_label": "32, Movers Lane"
+    },
+    {
+      "excel_row": 620,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01231/PRIOFF",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-09-01",
+      "current_permission_status": "Completed",
+      "title_label": "3 - 9, Cambridge Road"
+    },
+    {
+      "excel_row": 621,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01269/FUL",
+      "selected_milestone_type": "started",
+      "selected_milestone_date": "2018-01-03",
+      "current_permission_status": "Started",
+      "title_label": "62a, Suffolk Road"
+    },
+    {
+      "excel_row": 623,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01367/OUT",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-05-01",
+      "current_permission_status": "Superseded",
+      "title_label": "Adj To 11, Stamford Road"
+    },
+    {
+      "excel_row": 624,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01371/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-06-09",
+      "current_permission_status": "Lapsed",
+      "title_label": "Abbey Wharf Industrial Estate, Kingsbridge Road"
+    },
+    {
+      "excel_row": 625,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01376/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-09-04",
+      "current_permission_status": "Completed",
+      "title_label": "40, Thames Road"
+    },
+    {
+      "excel_row": 626,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01397/PRIOFF",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-05-20",
+      "current_permission_status": "Completed",
+      "title_label": "Quayside House, 13 Town Quaywharf, Abbey Road"
+    },
+    {
+      "excel_row": 627,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01418/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-12-08",
+      "current_permission_status": "Superseded",
+      "title_label": "487, Rainham Road South"
+    },
+    {
+      "excel_row": 629,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "14/01429/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2017-10-06",
+      "current_permission_status": "Completed",
+      "title_label": "Eastbrook Close"
+    },
+    {
+      "excel_row": 630,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00004/PRIOFF",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2018-03-30",
+      "current_permission_status": "Completed",
+      "title_label": "New Enterprise House 149 - 151, High Road"
+    },
+    {
+      "excel_row": 631,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00005/PRIOFF",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-02-20",
+      "current_permission_status": "Lapsed",
+      "title_label": "12 Town Quay Wharf, Wharf Abbey Road"
+    },
+    {
+      "excel_row": 632,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00144/PRIOFF",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-03-31",
+      "current_permission_status": "Completed",
+      "title_label": "Wigham House, 16 - 30, Wakering Road"
+    },
+    {
+      "excel_row": 634,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00236/PRIRET",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2015-08-20",
+      "current_permission_status": "Completed",
+      "title_label": "72, Whalebone Lane South"
+    },
+    {
+      "excel_row": 635,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00264/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-09-01",
+      "current_permission_status": "Completed",
+      "title_label": "56, Crescent Road"
+    },
+    {
+      "excel_row": 636,
+      "reason": "below score threshold",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00265/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2017-09-12",
+      "current_permission_status": "Completed",
+      "title_label": "Rear Of 199, Oxlow Lane"
+    },
+    {
+      "excel_row": 637,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00354/FUL",
+      "selected_milestone_type": "permission",
+      "selected_milestone_date": "2015-10-06",
+      "current_permission_status": "Superseded",
+      "title_label": "Land At 2, St Awdrys Road"
+    },
+    {
+      "excel_row": 638,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00362/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2018-03-30",
+      "current_permission_status": "Completed",
+      "title_label": "New Enterprise House 149 - 151, High Road"
+    },
+    {
+      "excel_row": 639,
+      "reason": "minor/domestic row below large-development override",
+      "planning_authority": "Barking and Dagenham",
+      "borough_reference": "15/00385/FUL",
+      "selected_milestone_type": "completion",
+      "selected_milestone_date": "2016-07-07",
+      "current_permission_status": "Completed",
+      "title_label": "17 - 19, Sheppey Road"
+    }
+  ]
+}

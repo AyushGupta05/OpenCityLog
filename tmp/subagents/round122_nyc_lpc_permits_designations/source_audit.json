@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-05-19",
+  "audit_scope": "Official NYC LPC permit/application/designation-adjacent records for Bims-5 candidate discovery, with the existing designated/calendared buildings/sites dataset excluded from candidate extraction.",
+  "sources": [
+    {
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_name": "LPC Permit Application Information",
+      "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+      "official": true,
+      "source_url": "https://data.cityofnewyork.us/Housing-Development/LPC-Permit-Application-Information/dpm2-m9mq",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/dpm2-m9mq.json",
+      "metadata_url": "https://data.cityofnewyork.us/api/views/dpm2-m9mq",
+      "source_type": "Official open data permit/application rows for work submitted to and processed by LPC at landmark sites and historic districts.",
+      "description_from_metadata": "Contains information pertaining to permit applications for work to landmark sites submitted to and processed by LPC.",
+      "license_or_terms_note": "Dataset metadata licenseId/license is null. NYC Open Data Terms of Use and NYC.gov Terms of Use apply; public datasets are provided for informational purposes and may be updated, corrected, or refreshed by the submitting agency.",
+      "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "attribution": "Landmarks Preservation Commission (LPC) / NYC Open Data",
+      "coverage_years_observed_in_dataset": {
+        "start": 2004,
+        "end": 2026
+      },
+      "target_window_used": "issue_date >= 2008-01-01 and issue_date < 2026-05-20",
+      "rows_updated_at_utc": "2026-05-18T14:08:18Z",
+      "accessed_at": "2026-05-19",
+      "key_fields": [
+        "docket",
+        "regulation_number",
+        "regulation_type",
+        "address",
+        "borough",
+        "block",
+        "lot",
+        "lmnametype",
+        "worktypes",
+        "received_date",
+        "issue_date",
+        "expiration_date",
+        "community_board",
+        "latitude",
+        "longitude"
+      ],
+      "geographic_scope": "New York City landmark properties, individual/interior/scenic landmarks, and historic districts represented in LPC permit/application rows.",
+      "granularity": "One permit/application regulation row; some regulation numbers may have related application history outside this dataset.",
+      "reliability": "usable_with_caveats",
+      "required_caveats": [
+        "Issue date is an administrative action date, not a construction start or completion date.",
+        "Regulation type and WorkTypes describe LPC permit/application processing categories and should not be promoted to physical outcome claims.",
+        "Coordinates are row point/geocode fields and should not be treated as exact work geometry or landmark boundaries.",
+        "Rows may be updated, corrected, or refreshed after the access date.",
+        "Transfer of Development Rights regulation-type rows should not be treated as completed private transfers without independent supporting records."
+      ],
+      "ingestion_recommendation": "Ingest selected rows as documented LPC administrative events only, retaining regulation_number, issue_date, address/BBL, landmark context, WorkTypes, coordinates, source URL, and explicit non-completion caveats."
+    },
+    {
+      "source_id": "nyc-lpc-permit-types-page",
+      "source_name": "LPC Permit Types",
+      "publisher": "NYC Landmarks Preservation Commission",
+      "official": true,
+      "source_url": "https://www.nyc.gov/site/lpc/applications/permit-types.page",
+      "source_type": "Official explanatory page for LPC permit categories and review levels.",
+      "accessed_at": "2026-05-19",
+      "license_or_terms_note": "NYC.gov Terms of Use apply.",
+      "license_url": "https://www.nyc.gov/main/terms-of-use",
+      "reliability": "strong_context_source",
+      "key_points_used": [
+        "LPC issues permits for work on landmark properties.",
+        "Permit types are categorized as staff-level permits, Commission-level review, or post-approval actions.",
+        "Certificate of Appropriateness is Commission-level review; Permit for Minor Work and Certificate of No Effect are staff-level permits."
+      ],
+      "required_caveats": [
+        "Used only to interpret permit categories; candidate row facts come from dpm2-m9mq."
+      ],
+      "ingestion_recommendation": "Use as documentation/context in source briefs, not as row-level event evidence."
+    },
+    {
+      "source_id": "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
+      "source_name": "Designated and Calendared Buildings and Sites",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "official": true,
+      "source_url": "https://data.cityofnewyork.us/d/ncre-qhxs",
+      "source_type": "Official designated/calendared heritage status dataset.",
+      "accessed_at": "2026-05-19",
+      "use_in_this_round": "Excluded from candidate extraction because the task requested records not already covered by the existing designated/calendared sites source.",
+      "reliability": "usable_with_caveats",
+      "required_caveats": [
+        "Designation/calendaring rows document legal or administrative heritage status, not permit activity or physical work."
+      ]
+    }
+  ],
+  "selection_summary": {
+    "candidate_count": 17,
+    "selection_basis": "Curated official dpm2-m9mq rows with issue_date in the target window, non-null latitude/longitude, clear WorkTypes, and additive regulation types not represented by the designated/calendared source.",
+    "selected_regulation_types": [
+      "Commission Denial",
+      "Commission Binding Report",
+      "Transfer of Development Rights",
+      "Permit for Minor Work"
+    ],
+    "excluded": [
+      "Rows from ncre-qhxs designated/calendared buildings/sites.",
+      "Rows without coordinates.",
+      "Rows whose only useful date was outside 2008-01-01 through 2026-05-19.",
+      "Rows where the event would require claiming physical construction/completion from administrative data."
+    ]
+  }
+}

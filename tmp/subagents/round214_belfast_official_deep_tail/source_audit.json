@@ -1,0 +1,727 @@
+{
+  "schema_version": "round214.belfast_official_deep_tail.source_audit.v1",
+  "generated_at": "2026-05-19",
+  "city_id": "belfast",
+  "audit": [
+    {
+      "source_id": "bcc-assembly-rooms-purchase-agreed-round214",
+      "source_name": "Council agrees to purchase Assembly Rooms as city centre regeneration continues",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/News/Council-agrees-to-purchase-Assembly-Rooms-as-city",
+      "final_url": "https://www.belfastcity.gov.uk/News/Council-agrees-to-purchase-Assembly-Rooms-as-city",
+      "source_type": "official council news page",
+      "source_family": "BCC strategic heritage acquisition",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 148,
+        "content_sha256": "9455cc46881a45e519176cdcc1ea8722933c9420d68e9687ec40775fe96ffd15",
+        "bytes": 35227,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-clanmil-inner-northwest-round214",
+      "source_name": "Belfast city centre car parks and vacant land set to be transformed into new homes",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-city-centre-car-parks-and-vacant-land-set",
+      "final_url": "https://www.belfastcity.gov.uk/news/belfast-city-centre-car-parks-and-vacant-land-set",
+      "source_type": "official council news page",
+      "source_family": "BCC inner north west housing-led regeneration",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 110,
+        "content_sha256": "634cf23d7613ae483d74efa2a7f006aab400f303f53a7790a6967d36d9d1ccf7",
+        "bytes": 36763,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-development-partner-search-round214",
+      "source_name": "Council seeks development partner to boost city population through GBP630million housing-led regeneration opportunity",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/news/council-seeks-development-partner-to-boost-city-po",
+      "final_url": "https://www.belfastcity.gov.uk/news",
+      "source_type": "official council news page",
+      "source_family": "BCC housing-led regeneration procurement",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 410,
+        "content_sha256": "2e103ada2e771ff6db10b33040c6ab8c3270e2c63458379c8f7949fa946071dc",
+        "bytes": 54778,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-future-city-house-programme-minutes-round214",
+      "source_name": "Agenda item - Future City Centre Vacancy Programme",
+      "publisher": "Belfast City Council",
+      "url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=86313",
+      "final_url": "https://minutes.belfastcity.gov.uk/mgAi.aspx?ID=86313",
+      "source_type": "official council committee minutes page",
+      "source_family": "BCC committee minutes",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 419,
+        "content_sha256": "9fd6215dbd6e4ff124cc7dc6e781c7ca8e1fb831a3a96beda4ab3afd8b0e9c48",
+        "bytes": 42505,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-graham-delivery-partner-round214",
+      "source_name": "Belfast City Council appoints GRAHAM as delivery partner for GBP630m housing-led regeneration programme",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/News/Belfast-City-Council-appoints-GRAHAM-as-delivery-p",
+      "final_url": "https://www.belfastcity.gov.uk/News/Belfast-City-Council-appoints-GRAHAM-as-delivery-p",
+      "source_type": "official council news page",
+      "source_family": "BCC housing-led regeneration delivery partner",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 95,
+        "content_sha256": "5ae6f2159f1506aaf2dabf9b7ba92895067086a0f713d58e464e3ae23e203ab5",
+        "bytes": 36319,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-historic-areas-spg-planning-news-round214",
+      "source_name": "Council agrees supplementary planning guidance for historic areas of Belfast",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/News/Council-agrees-supplementary-planning-guidance-for",
+      "final_url": "https://www.belfastcity.gov.uk/News/Council-agrees-supplementary-planning-guidance-for",
+      "source_type": "official council planning news page",
+      "source_family": "BCC planning committee news",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 36,
+        "content_sha256": "d143b22dbe9b9103b2b45692ecd4e88a91ebbb3aab23dfc8444d05f5dae847df",
+        "bytes": 33788,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-place-based-growth-proposition-round214",
+      "source_name": "Belfast pushes for fair share of regional regeneration funding ahead of Budget Statement",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-pushes-for-fair-share-of-regional-regenera",
+      "final_url": "https://www.belfastcity.gov.uk/news/belfast-pushes-for-fair-share-of-regional-regenera",
+      "source_type": "official council news page",
+      "source_family": "BCC place-based growth proposition",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 269,
+        "content_sha256": "8aece553d6feae096101fa5ee14bd9a1b062c30d5610e8fa910b0a2af351bfa6",
+        "bytes": 36370,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-sailortown-titanic-bridge-design-team-round214",
+      "source_name": "Belfast City Council appoints design team to develop Sailortown to Titanic Quarter bridge",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-city-council-appoints-design-team-to-devel",
+      "final_url": "https://www.belfastcity.gov.uk/news/belfast-city-council-appoints-design-team-to-devel",
+      "source_type": "official council news page",
+      "source_family": "BCC waterfront active-travel bridge design",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page or committee/minutes record; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 68,
+        "content_sha256": "5ae55b5f029bd4b72afe8bf27efd69c2042f2fd3c09656190c52475260baad1e",
+        "bytes": 33649,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-advance-regional-prosperity-round214",
+      "source_name": "Belfast Harbour launches transformative five-year strategy with GBP313m investment programme",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-transformative-five-year-strategy-with-313m-investment-programme/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-transformative-five-year-strategy-with-313m-investment-programme/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour strategy",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 754,
+        "content_sha256": "3d4582cfd72906fd59b7cff15107dace4ba856518d7ea472bf678033eafd0237",
+        "bytes": 266399,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-4-application-round214",
+      "source_name": "Belfast Harbour submits planning application for new residential development at City Quays",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/city-quays-4-residential-development/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/city-quays-4-residential-development/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour City Quays residential",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 699,
+        "content_sha256": "2c4ba3f6149d4216f51569817677666966a4c3924c2ddb848b9c58e3854f83ac",
+        "bytes": 256647,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-5-approval-round214",
+      "source_name": "Approval granted for GBP60m City Quays 5 Development",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/approval-granted-for-60m-city-quays-5-development/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/approval-granted-for-60m-city-quays-5-development/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour City Quays development",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 740,
+        "content_sha256": "b7473bd48db53cb8eaa85e01dcce6bfd302b7d515a313cf1cb97234df7a853af",
+        "bytes": 273508,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-affordable-application-round214",
+      "source_name": "Belfast Harbour submits planning application for new affordable housing scheme at City Quays",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/planning-application-affordable-housing-city-quays/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/planning-application-affordable-housing-city-quays/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour City Quays affordable housing",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 654,
+        "content_sha256": "e3f989dc95f8ce841f3fdc4cf660e5d14b5eb8d3f9bec2a8a56e95d60af981f3",
+        "bytes": 257594,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-city-quays-gardens-start-round214",
+      "source_name": "Belfast Harbour Begins Work on GBP3m First Phase of City Quays Gardens",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/city-quays-gardens-work-commences/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/city-quays-gardens-work-commences/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour City Quays public realm",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 660,
+        "content_sha256": "7cd6c94211ef6fc8396994244c1cef28dee8520b8f619ad60c5420b19dbabd1c",
+        "bytes": 258283,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-clarendon-wharf-application-round214",
+      "source_name": "Belfast Harbour submits planning application for Clarendon Wharf residential development",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-submits-planning-application-for-clarendon-wharf-residential-development/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-submits-planning-application-for-clarendon-wharf-residential-development/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour Clarendon Wharf",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 697,
+        "content_sha256": "08d75e0de95f332daf9735fc96db13c6b080d0dd2926fedb65311c478745174b",
+        "bytes": 259842,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-clarendon-wharf-masterplan-round214",
+      "source_name": "Belfast Harbour announces residential masterplan for Clarendon Wharf",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour Clarendon Wharf",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 692,
+        "content_sha256": "4e097bd1bebc258c15ea684ba434e26e82b480b4b71b4d1b71bbea100629a447",
+        "bytes": 261905,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-d3-works-commence-round214",
+      "source_name": "Work commences on Belfast Harbour's largest ever port investment project",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/work-commences-on-belfast-harbours-largest-ever-port-investment-project-to-create-new-cruise-and-offshore-wind-energy-terminal/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/work-commences-on-belfast-harbours-largest-ever-port-investment-project-to-create-new-cruise-and-offshore-wind-energy-terminal/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour D3 deepwater terminal",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 667,
+        "content_sha256": "ba9f8ea88033c43f56024fb8a5b32e650c6721aef356ba9a23147295b1156717",
+        "bytes": 264166,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-draft-masterplan-consultation-round214",
+      "source_name": "Belfast Harbour launches consultation on 2050 Draft Masterplan",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-consultation-on-groundbreaking-2050-draft-masterplan-that-will-support-nis-economy-for-future-generations/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-launches-consultation-on-groundbreaking-2050-draft-masterplan-that-will-support-nis-economy-for-future-generations/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour masterplan",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 714,
+        "content_sha256": "7ce269c76818548eb24d37ade4d08ee856f5d1bb3089bf7136253d75bdd6dc15",
+        "bytes": 265422,
+        "error": null
+      }
+    },
+    {
+      "source_id": "belfast-harbour-mobile-crane-arrival-round214",
+      "source_name": "New GBP4.5m harbour mobile crane arrives in Belfast Harbour",
+      "publisher": "Belfast Harbour Commissioners",
+      "url": "https://www.belfast-harbour.co.uk/news/new-4-5m-harbour-mobile-crane-arrives-in-belfast-harbour-enhancing-the-ports-cargo-handling-capabilities/",
+      "final_url": "https://www.belfast-harbour.co.uk/news/new-4-5m-harbour-mobile-crane-arrives-in-belfast-harbour-enhancing-the-ports-cargo-handling-capabilities/",
+      "source_type": "official Belfast Harbour news page",
+      "source_family": "Belfast Harbour port infrastructure",
+      "license": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
+      "license_url": "https://www.belfast-harbour.co.uk/policies/",
+      "attribution": "Attribute Belfast Harbour Commissioners.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Official news or strategy page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast Harbour Estate, or named Belfast project area.",
+      "granularity": "Source page, committee item, news item, named development phase, planning-application milestone, design-team milestone, or strategy/masterplan milestone.",
+      "key_fields": [
+        "title",
+        "publication, meeting, article or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents a physical works or equipment-arrival milestone.",
+        "Do not infer completion, occupation, final design, legal planning outcome, usage, regeneration impact, environmental outcome, affordability outcome or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes, bridge alignments or works extents."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy and source-family review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 645,
+        "content_sha256": "af6535b15524404d5f89b414c4396a21ff9dcd5c50220abb124b2726ee68b1ce",
+        "bytes": 258554,
+        "error": null
+      }
+    }
+  ]
+}

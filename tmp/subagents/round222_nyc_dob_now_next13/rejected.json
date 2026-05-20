@@ -1,0 +1,4015 @@
+{
+  "schema_version": "round222.nyc_dob_now_next13_rejections.v1",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "rejected_counts": {
+    "duplicate_permit_row_in_source": 27447,
+    "existing_job_or_permit_record": 8440,
+    "duplicate_base_job_in_permit_query": 16205,
+    "invalid_or_outside_nyc_permit_geometry": 2,
+    "below_high_signal_scale_threshold": 10237,
+    "no_joined_application_row": 128862
+  },
+  "sample_rejections": [
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01090940-I1",
+      "work_permit": "X01090940-I1-GC-CX",
+      "source_record_id": "X01090940-I1-GC-CX:1:104316211",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01090940-I1",
+      "work_permit": "X01090940-I1-GC-CX",
+      "source_record_id": "X01090940-I1-GC-CX:1:104316211",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01334180-I1",
+      "work_permit": "Q01334180-I1-GC",
+      "source_record_id": "Q01334180-I1-GC:1:113953115",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01334180-I1",
+      "work_permit": "Q01334180-I1-GC",
+      "source_record_id": "Q01334180-I1-GC:1:113953115",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01152650-S6",
+      "work_permit": "M01152650-S6-FO",
+      "source_record_id": "M01152650-S6-FO:1:133334677",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01355801-I1",
+      "work_permit": "M01355801-I1-GC-CX",
+      "source_record_id": "M01355801-I1-GC-CX:1:150383454",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01231645-S2",
+      "work_permit": "M01231645-S2-SE",
+      "source_record_id": "M01231645-S2-SE:1:185011978",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01247347-I1",
+      "work_permit": "M01247347-I1-GC",
+      "source_record_id": "M01247347-I1-GC:1:197855278",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00645815-S4",
+      "work_permit": "M00645815-S4-ST",
+      "source_record_id": "M00645815-S4-ST:1:233426054",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q00615868-I1",
+      "work_permit": "Q00615868-I1-GC-CX",
+      "source_record_id": "Q00615868-I1-GC-CX:1:284489742",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01331754-S4",
+      "work_permit": "X01331754-S4-FO-EA",
+      "source_record_id": "X01331754-S4-FO-EA:1:300427614",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354800-I1",
+      "work_permit": "Q01354800-I1-GC-CX",
+      "source_record_id": "Q01354800-I1-GC-CX:1:311734879",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354800-I1",
+      "work_permit": "Q01354800-I1-GC-CX",
+      "source_record_id": "Q01354800-I1-GC-CX:1:311734879",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01323100-I1",
+      "work_permit": "B01323100-I1-ST",
+      "source_record_id": "B01323100-I1-ST:1:318504494",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00700442-S3",
+      "work_permit": "B00700442-S3-ST",
+      "source_record_id": "B00700442-S3-ST:1:337409723",
+      "note": "B00700442 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00805009-I1",
+      "work_permit": "X00805009-I1-GC",
+      "source_record_id": "X00805009-I1-GC:1:349291727",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01233556-I1",
+      "work_permit": "B01233556-I1-GC",
+      "source_record_id": "B01233556-I1-GC:1:468390951",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01356401-I1",
+      "work_permit": "Q01356401-I1-GC-CX",
+      "source_record_id": "Q01356401-I1-GC-CX:1:510786015",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01312475-I1",
+      "work_permit": "M01312475-I1-GC",
+      "source_record_id": "M01312475-I1-GC:1:554715771",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01267145-I1",
+      "work_permit": "Q01267145-I1-GC-CX",
+      "source_record_id": "Q01267145-I1-GC-CX:1:665204550",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01267145-I1",
+      "work_permit": "Q01267145-I1-GC-CX",
+      "source_record_id": "Q01267145-I1-GC-CX:1:665204550",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01152650-S5",
+      "work_permit": "M01152650-S5-ST",
+      "source_record_id": "M01152650-S5-ST:1:680912345",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-FO",
+      "source_record_id": "S01273036-I1-FO:1:688135860",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-FO",
+      "source_record_id": "S01273036-I1-FO:1:688135860",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00700442-S6",
+      "work_permit": "B00700442-S6-GC",
+      "source_record_id": "B00700442-S6-GC:1:782162546",
+      "note": "B00700442 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01282658-I1",
+      "work_permit": "B01282658-I1-GC-CX",
+      "source_record_id": "B01282658-I1-GC-CX:1:793911812",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01197755-I1",
+      "work_permit": "Q01197755-I1-GC",
+      "source_record_id": "Q01197755-I1-GC:1:819924542",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208250-S5",
+      "work_permit": "X01208250-S5-GC",
+      "source_record_id": "X01208250-S5-GC:1:840396211",
+      "note": "X01208250 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01258450-I1",
+      "work_permit": "Q01258450-I1-GC-CX",
+      "source_record_id": "Q01258450-I1-GC-CX:1:875236540",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01273997-S4",
+      "work_permit": "X01273997-S4-FO-EA",
+      "source_record_id": "X01273997-S4-FO-EA:1:877577735",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01385962-I1",
+      "work_permit": "Q01385962-I1-GC-CX",
+      "source_record_id": "Q01385962-I1-GC-CX:1:896364359",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01321632-I1",
+      "work_permit": "M01321632-I1-GC-CX",
+      "source_record_id": "M01321632-I1-GC-CX:1:918187008",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01361694-I1",
+      "work_permit": "Q01361694-I1-GC-CX",
+      "source_record_id": "Q01361694-I1-GC-CX:1:967536009",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00542739-I1",
+      "work_permit": "B00542739-I1-GC-CX",
+      "source_record_id": "B00542739-I1-GC-CX:1:967781873",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01097777-S3",
+      "work_permit": "X01097777-S3-ST",
+      "source_record_id": "X01097777-S3-ST:1:992777724",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-GC",
+      "source_record_id": "S01273036-I1-GC:1:167576475",
+      "note": "S01273036 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-GC",
+      "source_record_id": "S01273036-I1-GC:1:167576475",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-GC",
+      "source_record_id": "S01273036-I1-GC:1:167576475",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00700442-I1",
+      "work_permit": "B00700442-I1-GC",
+      "source_record_id": "B00700442-I1-GC:1:177165396",
+      "note": "B00700442 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01373557-I1",
+      "work_permit": "Q01373557-I1-GC",
+      "source_record_id": "Q01373557-I1-GC:1:205175814",
+      "note": "Q01373557 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01362651-I1",
+      "work_permit": "M01362651-I1-MS",
+      "source_record_id": "M01362651-I1-MS:1:235628712",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01287567-S1",
+      "work_permit": "B01287567-S1-SE",
+      "source_record_id": "B01287567-S1-SE:1:236568880",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01362651-I1",
+      "work_permit": "M01362651-I1-GC",
+      "source_record_id": "M01362651-I1-GC:1:238535484",
+      "note": "M01362651 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01362651-I1",
+      "work_permit": "M01362651-I1-GC",
+      "source_record_id": "M01362651-I1-GC:1:238535484",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01367596-I1",
+      "work_permit": "M01367596-I1-GC-CX",
+      "source_record_id": "M01367596-I1-GC-CX:1:246721927",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01255387-I1",
+      "work_permit": "B01255387-I1-GC",
+      "source_record_id": "B01255387-I1-GC:1:249082533",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01268437-S1",
+      "work_permit": "B01268437-S1-SE",
+      "source_record_id": "B01268437-S1-SE:1:271711793",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00883757-S6",
+      "work_permit": "X00883757-S6-GC-CX",
+      "source_record_id": "X00883757-S6-GC-CX:1:359823305",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00568902-I1",
+      "work_permit": "B00568902-I1-GC",
+      "source_record_id": "B00568902-I1-GC:1:370575644",
+      "note": "B00568902 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q08031880-I1",
+      "work_permit": "Q08031880-I1-GC",
+      "source_record_id": "Q08031880-I1-GC:1:400269115",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q08031880-I1",
+      "work_permit": "Q08031880-I1-GC",
+      "source_record_id": "Q08031880-I1-GC:1:400269115",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01317209-I1",
+      "work_permit": "S01317209-I1-GC-CX",
+      "source_record_id": "S01317209-I1-GC-CX:1:424061350",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01317209-I1",
+      "work_permit": "S01317209-I1-GC-CX",
+      "source_record_id": "S01317209-I1-GC-CX:1:424061350",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-ST",
+      "source_record_id": "S01273036-I1-ST:1:451963673",
+      "note": "S01273036 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-ST",
+      "source_record_id": "S01273036-I1-ST:1:451963673",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01273036-I1",
+      "work_permit": "S01273036-I1-ST",
+      "source_record_id": "S01273036-I1-ST:1:451963673",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01172127-S1",
+      "work_permit": "B01172127-S1-GC-CX",
+      "source_record_id": "B01172127-S1-GC-CX:1:474490529",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01172127-S1",
+      "work_permit": "B01172127-S1-GC-CX",
+      "source_record_id": "B01172127-S1-GC-CX:1:474490529",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01172127-S1",
+      "work_permit": "B01172127-S1-GC-CX",
+      "source_record_id": "B01172127-S1-GC-CX:1:474490529",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01172127-S1",
+      "work_permit": "B01172127-S1-GC-CX",
+      "source_record_id": "B01172127-S1-GC-CX:1:474490529",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01172127-S1",
+      "work_permit": "B01172127-S1-GC-CX",
+      "source_record_id": "B01172127-S1-GC-CX:1:474490529",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01385280-I1",
+      "work_permit": "B01385280-I1-ST",
+      "source_record_id": "B01385280-I1-ST:1:536448338",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00542742-I1",
+      "work_permit": "B00542742-I1-GC-CX",
+      "source_record_id": "B00542742-I1-GC-CX:1:555738958",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01266074-I1",
+      "work_permit": "Q01266074-I1-GC",
+      "source_record_id": "Q01266074-I1-GC:1:630644402",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01127079-S2",
+      "work_permit": "Q01127079-S2-FO-EA",
+      "source_record_id": "Q01127079-S2-FO-EA:1:645972599",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01362651-I1",
+      "work_permit": "M01362651-I1-ST",
+      "source_record_id": "M01362651-I1-ST:1:652343908",
+      "note": "M01362651 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01362651-I1",
+      "work_permit": "M01362651-I1-ST",
+      "source_record_id": "M01362651-I1-ST:1:652343908",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01393437-I1",
+      "work_permit": "B01393437-I1-GC-CX",
+      "source_record_id": "B01393437-I1-GC-CX:1:667102798",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01127079-S3",
+      "work_permit": "Q01127079-S3-ST",
+      "source_record_id": "Q01127079-S3-ST:1:683883952",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00953304-I1",
+      "work_permit": "X00953304-I1-GC-CX",
+      "source_record_id": "X00953304-I1-GC-CX:1:723716045",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00953304-I1",
+      "work_permit": "X00953304-I1-GC-CX",
+      "source_record_id": "X00953304-I1-GC-CX:1:723716045",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01311297-S3",
+      "work_permit": "B01311297-S3-SE",
+      "source_record_id": "B01311297-S3-SE:1:773569339",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01360693-I1",
+      "work_permit": "B01360693-I1-GC",
+      "source_record_id": "B01360693-I1-GC:1:791494549",
+      "note": "B01360693 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01242193-I1",
+      "work_permit": "Q01242193-I1-GC",
+      "source_record_id": "Q01242193-I1-GC:1:813055432",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01231645-S1",
+      "work_permit": "M01231645-S1-FO-EA",
+      "source_record_id": "M01231645-S1-FO-EA:1:823523692",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01377375-I1",
+      "work_permit": "S01377375-I1-GC-CX",
+      "source_record_id": "S01377375-I1-GC-CX:1:832733481",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01377375-I1",
+      "work_permit": "S01377375-I1-GC-CX",
+      "source_record_id": "S01377375-I1-GC-CX:1:832733481",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208796-S2",
+      "work_permit": "X01208796-S2-ST",
+      "source_record_id": "X01208796-S2-ST:1:867242084",
+      "note": "X01208796 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01201429-I1",
+      "work_permit": "M01201429-I1-ST",
+      "source_record_id": "M01201429-I1-ST:1:883005025",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01300570-S3",
+      "work_permit": "M01300570-S3-ST",
+      "source_record_id": "M01300570-S3-ST:1:890836426",
+      "note": "M01300570 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01255159-Z1",
+      "work_permit": "Q01255159-Z1-SE",
+      "source_record_id": "Q01255159-Z1-SE:1:946179982",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01311297-S2",
+      "work_permit": "B01311297-S2-ST",
+      "source_record_id": "B01311297-S2-ST:1:132736731",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01361173-I1",
+      "work_permit": "M01361173-I1-GC",
+      "source_record_id": "M01361173-I1-GC:1:136028855",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B08031877-S1",
+      "work_permit": "B08031877-S1-GC-CX",
+      "source_record_id": "B08031877-S1-GC-CX:1:158394213",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B08031877-S1",
+      "work_permit": "B08031877-S1-GC-CX",
+      "source_record_id": "B08031877-S1-GC-CX:1:158394213",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01325890-I1",
+      "work_permit": "X01325890-I1-GC",
+      "source_record_id": "X01325890-I1-GC:1:185236205",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01349551-S1",
+      "work_permit": "M01349551-S1-GC-CX",
+      "source_record_id": "M01349551-S1-GC-CX:1:187823134",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01299346-S2",
+      "work_permit": "M01299346-S2-GC-CX",
+      "source_record_id": "M01299346-S2-GC-CX:1:193913869",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-GC",
+      "source_record_id": "S01146721-I1-GC:1:198919800",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-GC",
+      "source_record_id": "S01146721-I1-GC:1:198919800",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353301-I1",
+      "work_permit": "Q01353301-I1-GC-CX",
+      "source_record_id": "Q01353301-I1-GC-CX:1:254723262",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353301-I1",
+      "work_permit": "Q01353301-I1-GC-CX",
+      "source_record_id": "Q01353301-I1-GC-CX:1:254723262",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01331261-I1",
+      "work_permit": "Q01331261-I1-GC-CX",
+      "source_record_id": "Q01331261-I1-GC-CX:1:277155501",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01331261-I1",
+      "work_permit": "Q01331261-I1-GC-CX",
+      "source_record_id": "Q01331261-I1-GC-CX:1:277155501",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01386648-I1",
+      "work_permit": "M01386648-I1-GC-CX",
+      "source_record_id": "M01386648-I1-GC-CX:1:362303416",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353301-I1",
+      "work_permit": "Q01353301-I1-FO-EA",
+      "source_record_id": "Q01353301-I1-FO-EA:1:362938356",
+      "note": "Q01353301 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353301-I1",
+      "work_permit": "Q01353301-I1-FO-EA",
+      "source_record_id": "Q01353301-I1-FO-EA:1:362938356",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353301-I1",
+      "work_permit": "Q01353301-I1-FO-EA",
+      "source_record_id": "Q01353301-I1-FO-EA:1:362938356",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01359520-I1",
+      "work_permit": "B01359520-I1-GC",
+      "source_record_id": "B01359520-I1-GC:1:396934609",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-ST",
+      "source_record_id": "S01146721-I1-ST:1:402095331",
+      "note": "S01146721 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-ST",
+      "source_record_id": "S01146721-I1-ST:1:402095331",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-ST",
+      "source_record_id": "S01146721-I1-ST:1:402095331",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01318529-I1",
+      "work_permit": "M01318529-I1-GC",
+      "source_record_id": "M01318529-I1-GC:1:442124121",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-FO",
+      "source_record_id": "S01146721-I1-FO:1:467184449",
+      "note": "S01146721 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-FO",
+      "source_record_id": "S01146721-I1-FO:1:467184449",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01146721-I1",
+      "work_permit": "S01146721-I1-FO",
+      "source_record_id": "S01146721-I1-FO:1:467184449",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01355852-I1",
+      "work_permit": "M01355852-I1-ST",
+      "source_record_id": "M01355852-I1-ST:1:468658846",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01294322-S3",
+      "work_permit": "M01294322-S3-FO",
+      "source_record_id": "M01294322-S3-FO:1:486765980",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01399460-I1",
+      "work_permit": "B01399460-I1-GC-CX",
+      "source_record_id": "B01399460-I1-GC-CX:1:534180059",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01276709-I1",
+      "work_permit": "B01276709-I1-GC",
+      "source_record_id": "B01276709-I1-GC:1:538908787",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01107599-I1",
+      "work_permit": "B01107599-I1-ST",
+      "source_record_id": "B01107599-I1-ST:1:595688479",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01352230-I1",
+      "work_permit": "M01352230-I1-GC",
+      "source_record_id": "M01352230-I1-GC:1:602537147",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208084-S5",
+      "work_permit": "X01208084-S5-GC",
+      "source_record_id": "X01208084-S5-GC:1:610468421",
+      "note": "X01208084 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01383550-I1",
+      "work_permit": "B01383550-I1-GC",
+      "source_record_id": "B01383550-I1-GC:1:644582151",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01331619-I1",
+      "work_permit": "X01331619-I1-GC",
+      "source_record_id": "X01331619-I1-GC:1:644918987",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01386023-I1",
+      "work_permit": "Q01386023-I1-GC",
+      "source_record_id": "Q01386023-I1-GC:1:693132175",
+      "note": "Q01386023 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01099138-I1",
+      "work_permit": "X01099138-I1-GC-CX",
+      "source_record_id": "X01099138-I1-GC-CX:1:823570281",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00706931-S2",
+      "work_permit": "B00706931-S2-SE",
+      "source_record_id": "B00706931-S2-SE:1:841761084",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01381092-S1",
+      "work_permit": "X01381092-S1-GC",
+      "source_record_id": "X01381092-S1-GC:1:845368748",
+      "note": "X01381092 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01107599-I1",
+      "work_permit": "B01107599-I1-GC",
+      "source_record_id": "B01107599-I1-GC:1:891316030",
+      "note": "B01107599 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01107599-I1",
+      "work_permit": "B01107599-I1-GC",
+      "source_record_id": "B01107599-I1-GC:1:891316030",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01294322-S1",
+      "work_permit": "M01294322-S1-SE",
+      "source_record_id": "M01294322-S1-SE:1:958826575",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208265-S1",
+      "work_permit": "X01208265-S1-ST",
+      "source_record_id": "X01208265-S1-ST:1:969181587",
+      "note": "X01208265 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01381656-S1",
+      "work_permit": "B01381656-S1-ST",
+      "source_record_id": "B01381656-S1-ST:1:975929660",
+      "note": "B01381656 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01317230-I1",
+      "work_permit": "S01317230-I1-GC-CX",
+      "source_record_id": "S01317230-I1-GC-CX:1:977078124",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01317230-I1",
+      "work_permit": "S01317230-I1-GC-CX",
+      "source_record_id": "S01317230-I1-GC-CX:1:977078124",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01399166-I1",
+      "work_permit": "B01399166-I1-MS",
+      "source_record_id": "B01399166-I1-MS:1:988537359",
+      "note": "B01399166 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00560052-S2",
+      "work_permit": "B00560052-S2-SE",
+      "source_record_id": "B00560052-S2-SE:1:105779838",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-EA",
+      "source_record_id": "Q01274767-I1-EA:1:148713370",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-EA",
+      "source_record_id": "Q01274767-I1-EA:1:148713370",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-FO-EA",
+      "source_record_id": "Q01294198-I1-FO-EA:1:195364423",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-FO-EA",
+      "source_record_id": "Q01294198-I1-FO-EA:1:195364423",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00908750-S1",
+      "work_permit": "M00908750-S1-GC-CX",
+      "source_record_id": "M00908750-S1-GC-CX:1:195590801",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00908750-S1",
+      "work_permit": "M00908750-S1-GC-CX",
+      "source_record_id": "M00908750-S1-GC-CX:1:195590801",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01327807-I1",
+      "work_permit": "Q01327807-I1-GC-CX",
+      "source_record_id": "Q01327807-I1-GC-CX:1:208526627",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01327807-I1",
+      "work_permit": "Q01327807-I1-GC-CX",
+      "source_record_id": "Q01327807-I1-GC-CX:1:208526627",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01273471-S8",
+      "work_permit": "B01273471-S8-GC",
+      "source_record_id": "B01273471-S8-GC:1:228608806",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01282153-I1",
+      "work_permit": "M01282153-I1-ST",
+      "source_record_id": "M01282153-I1-ST:1:233600883",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01273471-I1",
+      "work_permit": "B01273471-I1-GC",
+      "source_record_id": "B01273471-I1-GC:1:256266805",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01250990-I1",
+      "work_permit": "B01250990-I1-GC-CX",
+      "source_record_id": "B01250990-I1-GC-CX:1:367010699",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287132-I1",
+      "work_permit": "Q01287132-I1-GC-CX",
+      "source_record_id": "Q01287132-I1-GC-CX:1:384492404",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287132-I1",
+      "work_permit": "Q01287132-I1-GC-CX",
+      "source_record_id": "Q01287132-I1-GC-CX:1:384492404",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-GC",
+      "source_record_id": "Q01274767-I1-GC:1:396871047",
+      "note": "Q01274767 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-GC",
+      "source_record_id": "Q01274767-I1-GC:1:396871047",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-GC",
+      "source_record_id": "Q01274767-I1-GC:1:396871047",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01212075-S1",
+      "work_permit": "X01212075-S1-SE",
+      "source_record_id": "X01212075-S1-SE:1:398777507",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354394-I1",
+      "work_permit": "Q01354394-I1-FO-EA",
+      "source_record_id": "Q01354394-I1-FO-EA:1:464655848",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354394-I1",
+      "work_permit": "Q01354394-I1-FO-EA",
+      "source_record_id": "Q01354394-I1-FO-EA:1:464655848",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00583331-I1",
+      "work_permit": "M00583331-I1-GC-CX",
+      "source_record_id": "M00583331-I1-GC-CX:1:484943958",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01309119-S6",
+      "work_permit": "X01309119-S6-FO-EA",
+      "source_record_id": "X01309119-S6-FO-EA:1:501715233",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01366465-I1",
+      "work_permit": "M01366465-I1-GC",
+      "source_record_id": "M01366465-I1-GC:1:525692709",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01212075-I1",
+      "work_permit": "X01212075-I1-GC-CX",
+      "source_record_id": "X01212075-I1-GC-CX:1:533021377",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01212075-I1",
+      "work_permit": "X01212075-I1-GC-CX",
+      "source_record_id": "X01212075-I1-GC-CX:1:533021377",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01212075-I1",
+      "work_permit": "X01212075-I1-GC-CX",
+      "source_record_id": "X01212075-I1-GC-CX:1:533021377",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01104623-S2",
+      "work_permit": "M01104623-S2-ST",
+      "source_record_id": "M01104623-S2-ST:1:565307107",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01163066-I1",
+      "work_permit": "Q01163066-I1-GC",
+      "source_record_id": "Q01163066-I1-GC:1:565471003",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01181269-I1",
+      "work_permit": "M01181269-I1-GC",
+      "source_record_id": "M01181269-I1-GC:1:588641372",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01344638-I1",
+      "work_permit": "Q01344638-I1-GC",
+      "source_record_id": "Q01344638-I1-GC:1:645804002",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01344638-I1",
+      "work_permit": "Q01344638-I1-GC",
+      "source_record_id": "Q01344638-I1-GC:1:645804002",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01187442-I1",
+      "work_permit": "M01187442-I1-GC",
+      "source_record_id": "M01187442-I1-GC:1:655189664",
+      "note": "M01187442 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-FO",
+      "source_record_id": "Q01274767-I1-FO:1:693173368",
+      "note": "Q01274767 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-FO",
+      "source_record_id": "Q01274767-I1-FO:1:693173368",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-FO",
+      "source_record_id": "Q01274767-I1-FO:1:693173368",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-ST",
+      "source_record_id": "Q01294198-I1-ST:1:712614153",
+      "note": "Q01294198 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-ST",
+      "source_record_id": "Q01294198-I1-ST:1:712614153",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-ST",
+      "source_record_id": "Q01294198-I1-ST:1:712614153",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01294705-S6",
+      "work_permit": "X01294705-S6-FO-EA",
+      "source_record_id": "X01294705-S6-FO-EA:1:728597382",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01380966-I1",
+      "work_permit": "M01380966-I1-GC",
+      "source_record_id": "M01380966-I1-GC:1:750692863",
+      "note": "M01380966 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01225575-S6",
+      "work_permit": "X01225575-S6-SE",
+      "source_record_id": "X01225575-S6-SE:1:756108008",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01294705-I1",
+      "work_permit": "X01294705-I1-GC",
+      "source_record_id": "X01294705-I1-GC:1:785781451",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01271644-I1",
+      "work_permit": "B01271644-I1-ST",
+      "source_record_id": "B01271644-I1-ST:1:796279504",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01325234-I1",
+      "work_permit": "X01325234-I1-GC-CX",
+      "source_record_id": "X01325234-I1-GC-CX:1:816917419",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01294705-S7",
+      "work_permit": "X01294705-S7-ST",
+      "source_record_id": "X01294705-S7-ST:1:863164347",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01213395-S5",
+      "work_permit": "M01213395-S5-GC-CX",
+      "source_record_id": "M01213395-S5-GC-CX:1:874806598",
+      "note": "M01213395 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01213395-S5",
+      "work_permit": "M01213395-S5-GC-CX",
+      "source_record_id": "M01213395-S5-GC-CX:1:874806598",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01213395-S5",
+      "work_permit": "M01213395-S5-GC-CX",
+      "source_record_id": "M01213395-S5-GC-CX:1:874806598",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q08019384-I1",
+      "work_permit": "Q08019384-I1-GC-CX",
+      "source_record_id": "Q08019384-I1-GC-CX:1:927979359",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q08019384-I1",
+      "work_permit": "Q08019384-I1-GC-CX",
+      "source_record_id": "Q08019384-I1-GC-CX:1:927979359",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01273997-S7",
+      "work_permit": "X01273997-S7-SE",
+      "source_record_id": "X01273997-S7-SE:1:995105585",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-ST",
+      "source_record_id": "Q01287597-I1-ST:1:117931289",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-ST",
+      "source_record_id": "Q01287597-I1-ST:1:117931289",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01068178-S5",
+      "work_permit": "Q01068178-S5-FO",
+      "source_record_id": "Q01068178-S5-FO:1:128527494",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321686-I1",
+      "work_permit": "S01321686-I1-GC-CX",
+      "source_record_id": "S01321686-I1-GC-CX:1:138702038",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321686-I1",
+      "work_permit": "S01321686-I1-GC-CX",
+      "source_record_id": "S01321686-I1-GC-CX:1:138702038",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01373458-I1",
+      "work_permit": "B01373458-I1-GC-CX",
+      "source_record_id": "B01373458-I1-GC-CX:1:160817229",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01253993-S4",
+      "work_permit": "B01253993-S4-ST",
+      "source_record_id": "B01253993-S4-ST:1:170737082",
+      "note": "B01253993 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01225983-S3",
+      "work_permit": "B01225983-S3-ST",
+      "source_record_id": "B01225983-S3-ST:1:175738913",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01370741-I1",
+      "work_permit": "M01370741-I1-ST",
+      "source_record_id": "M01370741-I1-ST:1:221310093",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00863644-I1",
+      "work_permit": "B00863644-I1-GC",
+      "source_record_id": "B00863644-I1-GC:1:229618655",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01220348-I1",
+      "work_permit": "Q01220348-I1-GC-CX",
+      "source_record_id": "Q01220348-I1-GC-CX:1:235610319",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01220348-I1",
+      "work_permit": "Q01220348-I1-GC-CX",
+      "source_record_id": "Q01220348-I1-GC-CX:1:235610319",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01009515-I1",
+      "work_permit": "B01009515-I1-GC",
+      "source_record_id": "B01009515-I1-GC:1:253590455",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01009515-I1",
+      "work_permit": "B01009515-I1-GC",
+      "source_record_id": "B01009515-I1-GC:1:253590455",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01221950-I1",
+      "work_permit": "Q01221950-I1-GC-CX",
+      "source_record_id": "Q01221950-I1-GC-CX:1:255257022",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01364988-I1",
+      "work_permit": "M01364988-I1-GC",
+      "source_record_id": "M01364988-I1-GC:1:296979138",
+      "note": "M01364988 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01380896-I1",
+      "work_permit": "M01380896-I1-GC",
+      "source_record_id": "M01380896-I1-GC:1:302309827",
+      "note": "M01380896 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01241582-S2",
+      "work_permit": "B01241582-S2-FO-EA",
+      "source_record_id": "B01241582-S2-FO-EA:1:309137319",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01257038-S5",
+      "work_permit": "M01257038-S5-ST",
+      "source_record_id": "M01257038-S5-ST:1:332187271",
+      "note": "M01257038 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01234679-I1",
+      "work_permit": "M01234679-I1-GC",
+      "source_record_id": "M01234679-I1-GC:1:332966106",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01225983-S2",
+      "work_permit": "B01225983-S2-FO-EA",
+      "source_record_id": "B01225983-S2-FO-EA:1:386632850",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01253993-S2",
+      "work_permit": "B01253993-S2-SE",
+      "source_record_id": "B01253993-S2-SE:1:457534981",
+      "note": "B01253993 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-ST",
+      "source_record_id": "Q01274767-I1-ST:1:481277625",
+      "note": "Q01274767 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-ST",
+      "source_record_id": "Q01274767-I1-ST:1:481277625",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01274767-I1",
+      "work_permit": "Q01274767-I1-ST",
+      "source_record_id": "Q01274767-I1-ST:1:481277625",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01255159-I1",
+      "work_permit": "Q01255159-I1-GC",
+      "source_record_id": "Q01255159-I1-GC:1:510292471",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01266123-I1",
+      "work_permit": "M01266123-I1-GC",
+      "source_record_id": "M01266123-I1-GC:1:574480269",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01276709-S3",
+      "work_permit": "B01276709-S3-ST",
+      "source_record_id": "B01276709-S3-ST:1:594221789",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01276709-S2",
+      "work_permit": "B01276709-S2-FO",
+      "source_record_id": "B01276709-S2-FO:1:631485467",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208235-S1",
+      "work_permit": "X01208235-S1-ST",
+      "source_record_id": "X01208235-S1-ST:1:648563091",
+      "note": "X01208235 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01082579-I1",
+      "work_permit": "B01082579-I1-GC-CX",
+      "source_record_id": "B01082579-I1-GC-CX:1:670444106",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01359396-I1",
+      "work_permit": "B01359396-I1-GC-CX",
+      "source_record_id": "B01359396-I1-GC-CX:1:678458175",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01338820-I1",
+      "work_permit": "S01338820-I1-GC",
+      "source_record_id": "S01338820-I1-GC:1:680051365",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01338820-I1",
+      "work_permit": "S01338820-I1-GC",
+      "source_record_id": "S01338820-I1-GC:1:680051365",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01351016-S3",
+      "work_permit": "M01351016-S3-ST",
+      "source_record_id": "M01351016-S3-ST:1:681017407",
+      "note": "M01351016 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01127079-I1",
+      "work_permit": "Q01127079-I1-GC",
+      "source_record_id": "Q01127079-I1-GC:1:727031630",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01199698-I1",
+      "work_permit": "X01199698-I1-GC-CX",
+      "source_record_id": "X01199698-I1-GC-CX:1:749092173",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01338823-I1",
+      "work_permit": "S01338823-I1-GC",
+      "source_record_id": "S01338823-I1-GC:1:749412957",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01338823-I1",
+      "work_permit": "S01338823-I1-GC",
+      "source_record_id": "S01338823-I1-GC:1:749412957",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01370741-I1",
+      "work_permit": "M01370741-I1-GC",
+      "source_record_id": "M01370741-I1-GC:1:753419629",
+      "note": "M01370741 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01370741-I1",
+      "work_permit": "M01370741-I1-GC",
+      "source_record_id": "M01370741-I1-GC:1:753419629",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01370351-I1",
+      "work_permit": "Q01370351-I1-GC-CX",
+      "source_record_id": "Q01370351-I1-GC-CX:1:756108978",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01253993-I1",
+      "work_permit": "B01253993-I1-GC",
+      "source_record_id": "B01253993-I1-GC:1:769089039",
+      "note": "B01253993 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01390119-S1",
+      "work_permit": "B01390119-S1-GC",
+      "source_record_id": "B01390119-S1-GC:1:779165912",
+      "note": "B01390119 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01315352-S1",
+      "work_permit": "Q01315352-S1-ST",
+      "source_record_id": "Q01315352-S1-ST:1:802330962",
+      "note": "Q01315352 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01313104-S2",
+      "work_permit": "B01313104-S2-ST",
+      "source_record_id": "B01313104-S2-ST:1:802469500",
+      "note": "B01313104 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01104623-S3",
+      "work_permit": "M01104623-S3-SE",
+      "source_record_id": "M01104623-S3-SE:1:821942278",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-EA",
+      "source_record_id": "Q01287597-I1-EA:1:831977616",
+      "note": "Q01287597 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-EA",
+      "source_record_id": "Q01287597-I1-EA:1:831977616",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-EA",
+      "source_record_id": "Q01287597-I1-EA:1:831977616",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01009515-I1",
+      "work_permit": "B01009515-I1-MS",
+      "source_record_id": "B01009515-I1-MS:1:869099373",
+      "note": "B01009515 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01009515-I1",
+      "work_permit": "B01009515-I1-MS",
+      "source_record_id": "B01009515-I1-MS:1:869099373",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01009515-I1",
+      "work_permit": "B01009515-I1-MS",
+      "source_record_id": "B01009515-I1-MS:1:869099373",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354394-I1",
+      "work_permit": "Q01354394-I1-GC-CX",
+      "source_record_id": "Q01354394-I1-GC-CX:1:893917548",
+      "note": "Q01354394 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354394-I1",
+      "work_permit": "Q01354394-I1-GC-CX",
+      "source_record_id": "Q01354394-I1-GC-CX:1:893917548",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01354394-I1",
+      "work_permit": "Q01354394-I1-GC-CX",
+      "source_record_id": "Q01354394-I1-GC-CX:1:893917548",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208235-S5",
+      "work_permit": "X01208235-S5-GC",
+      "source_record_id": "X01208235-S5-GC:1:900487447",
+      "note": "X01208235 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q00793701-I1",
+      "work_permit": "Q00793701-I1-ST",
+      "source_record_id": "Q00793701-I1-ST:1:907325238",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01146471-I1",
+      "work_permit": "M01146471-I1-GC",
+      "source_record_id": "M01146471-I1-GC:1:931470241",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01253801-I1",
+      "work_permit": "M01253801-I1-GC",
+      "source_record_id": "M01253801-I1-GC:1:985607756",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01127079-S1",
+      "work_permit": "Q01127079-S1-SE",
+      "source_record_id": "Q01127079-S1-SE:1:986859636",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01236760-I1",
+      "work_permit": "M01236760-I1-GC-CX",
+      "source_record_id": "M01236760-I1-GC-CX:1:993964978",
+      "note": "M01236760 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01068178-S6",
+      "work_permit": "Q01068178-S6-ST",
+      "source_record_id": "Q01068178-S6-ST:1:994758711",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01375210-I1",
+      "work_permit": "B01375210-I1-GC",
+      "source_record_id": "B01375210-I1-GC:1:131325530",
+      "note": "B01375210 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-GC",
+      "source_record_id": "Q01287597-I1-GC:1:133506081",
+      "note": "Q01287597 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-GC",
+      "source_record_id": "Q01287597-I1-GC:1:133506081",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-GC",
+      "source_record_id": "Q01287597-I1-GC:1:133506081",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228843-I1",
+      "work_permit": "S01228843-I1-FO",
+      "source_record_id": "S01228843-I1-FO:1:184391718",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228843-I1",
+      "work_permit": "S01228843-I1-FO",
+      "source_record_id": "S01228843-I1-FO:1:184391718",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01225983-S1",
+      "work_permit": "B01225983-S1-SE",
+      "source_record_id": "B01225983-S1-SE:1:210851797",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228898-I1",
+      "work_permit": "S01228898-I1-GC-CX",
+      "source_record_id": "S01228898-I1-GC-CX:1:241196008",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228898-I1",
+      "work_permit": "S01228898-I1-GC-CX",
+      "source_record_id": "S01228898-I1-GC-CX:1:241196008",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01364781-S1",
+      "work_permit": "B01364781-S1-ST",
+      "source_record_id": "B01364781-S1-ST:1:266277708",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01225575-S9",
+      "work_permit": "X01225575-S9-FO",
+      "source_record_id": "X01225575-S9-FO:1:270418728",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01197447-S4",
+      "work_permit": "X01197447-S4-SE",
+      "source_record_id": "X01197447-S4-SE:1:272911300",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01091625-I1",
+      "work_permit": "Q01091625-I1-GC-CX",
+      "source_record_id": "Q01091625-I1-GC-CX:1:338988615",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01091625-I1",
+      "work_permit": "Q01091625-I1-GC-CX",
+      "source_record_id": "Q01091625-I1-GC-CX:1:338988615",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01309119-S7",
+      "work_permit": "X01309119-S7-SE",
+      "source_record_id": "X01309119-S7-SE:1:342857040",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01303045-I1",
+      "work_permit": "B01303045-I1-GC-CX",
+      "source_record_id": "B01303045-I1-GC-CX:1:354895883",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01241582-S3",
+      "work_permit": "B01241582-S3-ST",
+      "source_record_id": "B01241582-S3-ST:1:424434154",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228898-I1",
+      "work_permit": "S01228898-I1-FO",
+      "source_record_id": "S01228898-I1-FO:1:427743151",
+      "note": "S01228898 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228898-I1",
+      "work_permit": "S01228898-I1-FO",
+      "source_record_id": "S01228898-I1-FO:1:427743151",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228898-I1",
+      "work_permit": "S01228898-I1-FO",
+      "source_record_id": "S01228898-I1-FO:1:427743151",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01365934-I1",
+      "work_permit": "S01365934-I1-GC-CX",
+      "source_record_id": "S01365934-I1-GC-CX:1:430869969",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01365934-I1",
+      "work_permit": "S01365934-I1-GC-CX",
+      "source_record_id": "S01365934-I1-GC-CX:1:430869969",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q08019383-I1",
+      "work_permit": "Q08019383-I1-GC-CX",
+      "source_record_id": "Q08019383-I1-GC-CX:1:437032963",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q08019383-I1",
+      "work_permit": "Q08019383-I1-GC-CX",
+      "source_record_id": "Q08019383-I1-GC-CX:1:437032963",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00749798-I1",
+      "work_permit": "X00749798-I1-ST",
+      "source_record_id": "X00749798-I1-ST:1:447231070",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01166430-I1",
+      "work_permit": "Q01166430-I1-GC-CX",
+      "source_record_id": "Q01166430-I1-GC-CX:1:460063767",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-GC",
+      "source_record_id": "Q01279959-I1-GC:1:463189167",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-GC",
+      "source_record_id": "Q01279959-I1-GC:1:463189167",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01253993-S7",
+      "work_permit": "B01253993-S7-FO",
+      "source_record_id": "B01253993-S7-FO:1:463251020",
+      "note": "B01253993 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01098062-S7",
+      "work_permit": "X01098062-S7-SE",
+      "source_record_id": "X01098062-S7-SE:1:466959430",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-MS",
+      "source_record_id": "Q01279959-I1-MS:1:512171987",
+      "note": "Q01279959 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-MS",
+      "source_record_id": "Q01279959-I1-MS:1:512171987",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-MS",
+      "source_record_id": "Q01279959-I1-MS:1:512171987",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00737602-S9",
+      "work_permit": "M00737602-S9-FO",
+      "source_record_id": "M00737602-S9-FO:1:539480755",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228843-I1",
+      "work_permit": "S01228843-I1-GC-CX",
+      "source_record_id": "S01228843-I1-GC-CX:1:651842066",
+      "note": "S01228843 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228843-I1",
+      "work_permit": "S01228843-I1-GC-CX",
+      "source_record_id": "S01228843-I1-GC-CX:1:651842066",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01228843-I1",
+      "work_permit": "S01228843-I1-GC-CX",
+      "source_record_id": "S01228843-I1-GC-CX:1:651842066",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-FO-EA",
+      "source_record_id": "Q01279959-I1-FO-EA:1:687674713",
+      "note": "Q01279959 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-FO-EA",
+      "source_record_id": "Q01279959-I1-FO-EA:1:687674713",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-FO-EA",
+      "source_record_id": "Q01279959-I1-FO-EA:1:687674713",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01354880-I1",
+      "work_permit": "B01354880-I1-GC-CX",
+      "source_record_id": "B01354880-I1-GC-CX:1:704530693",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01354880-I1",
+      "work_permit": "B01354880-I1-GC-CX",
+      "source_record_id": "B01354880-I1-GC-CX:1:704530693",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01208796-S3",
+      "work_permit": "X01208796-S3-SE",
+      "source_record_id": "X01208796-S3-SE:1:729803348",
+      "note": "X01208796 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01188248-I1",
+      "work_permit": "M01188248-I1-GC",
+      "source_record_id": "M01188248-I1-GC:1:743973654",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01275923-S4",
+      "work_permit": "X01275923-S4-SE",
+      "source_record_id": "X01275923-S4-SE:1:753456294",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-S2",
+      "work_permit": "Q01294198-S2-SE",
+      "source_record_id": "Q01294198-S2-SE:1:764008812",
+      "note": "Q01294198 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01383780-S3",
+      "work_permit": "M01383780-S3-GC",
+      "source_record_id": "M01383780-S3-GC:1:820633169",
+      "note": "M01383780 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01295370-S5",
+      "work_permit": "B01295370-S5-ST",
+      "source_record_id": "B01295370-S5-ST:1:840181005",
+      "note": "B01295370 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01375210-S2",
+      "work_permit": "B01375210-S2-ST",
+      "source_record_id": "B01375210-S2-ST:1:864667675",
+      "note": "B01375210 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01381611-I1",
+      "work_permit": "Q01381611-I1-GC-CX",
+      "source_record_id": "Q01381611-I1-GC-CX:1:865141733",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01233836-S5",
+      "work_permit": "X01233836-S5-ST",
+      "source_record_id": "X01233836-S5-ST:1:877819351",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-FO",
+      "source_record_id": "Q01287597-I1-FO:1:896043332",
+      "note": "Q01287597 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-FO",
+      "source_record_id": "Q01287597-I1-FO:1:896043332",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01287597-I1",
+      "work_permit": "Q01287597-I1-FO",
+      "source_record_id": "Q01287597-I1-FO:1:896043332",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01197447-I1",
+      "work_permit": "X01197447-I1-GC",
+      "source_record_id": "X01197447-I1-GC:1:981570143",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01184911-I1",
+      "work_permit": "M01184911-I1-GC",
+      "source_record_id": "M01184911-I1-GC:1:991709950",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01383125-S3",
+      "work_permit": "M01383125-S3-ST",
+      "source_record_id": "M01383125-S3-ST:1:993877999",
+      "note": "M01383125 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01395380-I1",
+      "work_permit": "Q01395380-I1-GC-CX",
+      "source_record_id": "Q01395380-I1-GC-CX:1:996053579",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01376994-I1",
+      "work_permit": "M01376994-I1-ST",
+      "source_record_id": "M01376994-I1-ST:1:117301181",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321690-I1",
+      "work_permit": "S01321690-I1-FO-EA",
+      "source_record_id": "S01321690-I1-FO-EA:1:135937103",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321690-I1",
+      "work_permit": "S01321690-I1-FO-EA",
+      "source_record_id": "S01321690-I1-FO-EA:1:135937103",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01237500-S1",
+      "work_permit": "M01237500-S1-ST",
+      "source_record_id": "M01237500-S1-ST:1:194747830",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321690-I1",
+      "work_permit": "S01321690-I1-GC-CX",
+      "source_record_id": "S01321690-I1-GC-CX:1:211335331",
+      "note": "S01321690 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321690-I1",
+      "work_permit": "S01321690-I1-GC-CX",
+      "source_record_id": "S01321690-I1-GC-CX:1:211335331",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321690-I1",
+      "work_permit": "S01321690-I1-GC-CX",
+      "source_record_id": "S01321690-I1-GC-CX:1:211335331",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01208799-I1",
+      "work_permit": "B01208799-I1-GC",
+      "source_record_id": "B01208799-I1-GC:1:220364334",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01367993-S4",
+      "work_permit": "B01367993-S4-ST",
+      "source_record_id": "B01367993-S4-ST:1:239225144",
+      "note": "B01367993 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00975648-S1",
+      "work_permit": "X00975648-S1-EA",
+      "source_record_id": "X00975648-S1-EA:1:262215824",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01359296-I1",
+      "work_permit": "M01359296-I1-GC-CX",
+      "source_record_id": "M01359296-I1-GC-CX:1:262487538",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329941-I1",
+      "work_permit": "Q01329941-I1-FO-EA",
+      "source_record_id": "Q01329941-I1-FO-EA:1:279081918",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329941-I1",
+      "work_permit": "Q01329941-I1-FO-EA",
+      "source_record_id": "Q01329941-I1-FO-EA:1:279081918",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00975648-S1",
+      "work_permit": "X00975648-S1-FO",
+      "source_record_id": "X00975648-S1-FO:1:284865978",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q00970689-I1",
+      "work_permit": "Q00970689-I1-GC-CX",
+      "source_record_id": "Q00970689-I1-GC-CX:1:289252053",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01197447-S2",
+      "work_permit": "X01197447-S2-ST",
+      "source_record_id": "X01197447-S2-ST:1:290840280",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360491-I1",
+      "work_permit": "S01360491-I1-GC-CX",
+      "source_record_id": "S01360491-I1-GC-CX:1:305623832",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360491-I1",
+      "work_permit": "S01360491-I1-GC-CX",
+      "source_record_id": "S01360491-I1-GC-CX:1:305623832",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01260398-I1",
+      "work_permit": "Q01260398-I1-FO-EA",
+      "source_record_id": "Q01260398-I1-FO-EA:1:325258233",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01260398-I1",
+      "work_permit": "Q01260398-I1-FO-EA",
+      "source_record_id": "Q01260398-I1-FO-EA:1:325258233",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01339997-I1",
+      "work_permit": "X01339997-I1-GC-CX",
+      "source_record_id": "X01339997-I1-GC-CX:1:364508603",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01331754-S5",
+      "work_permit": "X01331754-S5-SE",
+      "source_record_id": "X01331754-S5-SE:1:367521478",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01343609-S1",
+      "work_permit": "M01343609-S1-ST",
+      "source_record_id": "M01343609-S1-ST:1:381203202",
+      "note": "M01343609 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01270656-I1",
+      "work_permit": "Q01270656-I1-GC",
+      "source_record_id": "Q01270656-I1-GC:1:401934646",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00939208-I1",
+      "work_permit": "B00939208-I1-ST",
+      "source_record_id": "B00939208-I1-ST:1:405509113",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01238971-I1",
+      "work_permit": "B01238971-I1-GC-CX",
+      "source_record_id": "B01238971-I1-GC-CX:1:408715154",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329941-I1",
+      "work_permit": "Q01329941-I1-GC-CX",
+      "source_record_id": "Q01329941-I1-GC-CX:1:432132018",
+      "note": "Q01329941 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329941-I1",
+      "work_permit": "Q01329941-I1-GC-CX",
+      "source_record_id": "Q01329941-I1-GC-CX:1:432132018",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329941-I1",
+      "work_permit": "Q01329941-I1-GC-CX",
+      "source_record_id": "Q01329941-I1-GC-CX:1:432132018",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01194047-S5",
+      "work_permit": "B01194047-S5-GC",
+      "source_record_id": "B01194047-S5-GC:1:455017874",
+      "note": "B01194047 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01281118-I1",
+      "work_permit": "M01281118-I1-GC",
+      "source_record_id": "M01281118-I1-GC:1:519763400",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01281287-S2",
+      "work_permit": "B01281287-S2-ST",
+      "source_record_id": "B01281287-S2-ST:1:529346259",
+      "note": "B01281287 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-ST",
+      "source_record_id": "Q01279959-I1-ST:1:557202930",
+      "note": "Q01279959 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-ST",
+      "source_record_id": "Q01279959-I1-ST:1:557202930",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279959-I1",
+      "work_permit": "Q01279959-I1-ST",
+      "source_record_id": "Q01279959-I1-ST:1:557202930",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01242440-I1",
+      "work_permit": "M01242440-I1-GC",
+      "source_record_id": "M01242440-I1-GC:1:571235579",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01172349-I1",
+      "work_permit": "X01172349-I1-GC-CX",
+      "source_record_id": "X01172349-I1-GC-CX:1:572284680",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01368057-I1",
+      "work_permit": "B01368057-I1-GC-CX",
+      "source_record_id": "B01368057-I1-GC-CX:1:578961471",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01229901-S6",
+      "work_permit": "B01229901-S6-SE",
+      "source_record_id": "B01229901-S6-SE:1:581566982",
+      "note": "B01229901 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01303171-I1",
+      "work_permit": "B01303171-I1-GC-CX",
+      "source_record_id": "B01303171-I1-GC-CX:1:624410795",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-FO",
+      "source_record_id": "Q01305094-I1-FO:1:652997081",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-FO",
+      "source_record_id": "Q01305094-I1-FO:1:652997081",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01270656-I1",
+      "work_permit": "Q01270656-I1-FO-EA",
+      "source_record_id": "Q01270656-I1-FO-EA:1:664968422",
+      "note": "Q01270656 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01270656-I1",
+      "work_permit": "Q01270656-I1-FO-EA",
+      "source_record_id": "Q01270656-I1-FO-EA:1:664968422",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-EA",
+      "source_record_id": "Q01301191-I1-EA:1:734064533",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-EA",
+      "source_record_id": "Q01301191-I1-EA:1:734064533",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321692-I1",
+      "work_permit": "S01321692-I1-GC-CX",
+      "source_record_id": "S01321692-I1-GC-CX:1:737077672",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321692-I1",
+      "work_permit": "S01321692-I1-GC-CX",
+      "source_record_id": "S01321692-I1-GC-CX:1:737077672",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321692-I1",
+      "work_permit": "S01321692-I1-FO-EA",
+      "source_record_id": "S01321692-I1-FO-EA:1:772904268",
+      "note": "S01321692 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321692-I1",
+      "work_permit": "S01321692-I1-FO-EA",
+      "source_record_id": "S01321692-I1-FO-EA:1:772904268",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321692-I1",
+      "work_permit": "S01321692-I1-FO-EA",
+      "source_record_id": "S01321692-I1-FO-EA:1:772904268",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01391709-I1",
+      "work_permit": "M01391709-I1-MS",
+      "source_record_id": "M01391709-I1-MS:1:795391453",
+      "note": "M01391709 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00749798-I1",
+      "work_permit": "X00749798-I1-GC",
+      "source_record_id": "X00749798-I1-GC:1:808743061",
+      "note": "X00749798 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00749798-I1",
+      "work_permit": "X00749798-I1-GC",
+      "source_record_id": "X00749798-I1-GC:1:808743061",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01319285-I1",
+      "work_permit": "M01319285-I1-GC-CX",
+      "source_record_id": "M01319285-I1-GC-CX:1:824016604",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360496-I1",
+      "work_permit": "S01360496-I1-GC-CX",
+      "source_record_id": "S01360496-I1-GC-CX:1:828839849",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360496-I1",
+      "work_permit": "S01360496-I1-GC-CX",
+      "source_record_id": "S01360496-I1-GC-CX:1:828839849",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01365784-I1",
+      "work_permit": "Q01365784-I1-MS",
+      "source_record_id": "Q01365784-I1-MS:1:833354312",
+      "note": "Q01365784 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01197447-S3",
+      "work_permit": "X01197447-S3-FO-EA",
+      "source_record_id": "X01197447-S3-FO-EA:1:910926943",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321686-I1",
+      "work_permit": "S01321686-I1-FO-EA",
+      "source_record_id": "S01321686-I1-FO-EA:1:915143003",
+      "note": "S01321686 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321686-I1",
+      "work_permit": "S01321686-I1-FO-EA",
+      "source_record_id": "S01321686-I1-FO-EA:1:915143003",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01321686-I1",
+      "work_permit": "S01321686-I1-FO-EA",
+      "source_record_id": "S01321686-I1-FO-EA:1:915143003",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00611166-Z4",
+      "work_permit": "B00611166-Z4-ST",
+      "source_record_id": "B00611166-Z4-ST:1:918687365",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01362111-I1",
+      "work_permit": "M01362111-I1-GC-CX",
+      "source_record_id": "M01362111-I1-GC-CX:1:931747131",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01376994-I1",
+      "work_permit": "M01376994-I1-GC",
+      "source_record_id": "M01376994-I1-GC:1:950073099",
+      "note": "M01376994 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01376994-I1",
+      "work_permit": "M01376994-I1-GC",
+      "source_record_id": "M01376994-I1-GC:1:950073099",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01297210-S1",
+      "work_permit": "M01297210-S1-ST",
+      "source_record_id": "M01297210-S1-ST:1:970982857",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01013014-I1",
+      "work_permit": "B01013014-I1-GC",
+      "source_record_id": "B01013014-I1-GC:1:984910852",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-GC",
+      "source_record_id": "Q01294198-I1-GC:1:110663311",
+      "note": "Q01294198 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-GC",
+      "source_record_id": "Q01294198-I1-GC:1:110663311",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-GC",
+      "source_record_id": "Q01294198-I1-GC:1:110663311",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01375334-I1",
+      "work_permit": "M01375334-I1-GC",
+      "source_record_id": "M01375334-I1-GC:1:124211768",
+      "note": "M01375334 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00730176-I1",
+      "work_permit": "B00730176-I1-GC",
+      "source_record_id": "B00730176-I1-GC:1:157183998",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00908759-S1",
+      "work_permit": "M00908759-S1-GC-CX",
+      "source_record_id": "M00908759-S1-GC-CX:1:158312434",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00908759-S1",
+      "work_permit": "M00908759-S1-GC-CX",
+      "source_record_id": "M00908759-S1-GC-CX:1:158312434",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279622-S3",
+      "work_permit": "Q01279622-S3-FO",
+      "source_record_id": "Q01279622-S3-FO:1:194905458",
+      "note": "Q01279622 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01254685-I1",
+      "work_permit": "X01254685-I1-GC",
+      "source_record_id": "X01254685-I1-GC:1:196112514",
+      "note": "X01254685 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01388396-I1",
+      "work_permit": "M01388396-I1-GC",
+      "source_record_id": "M01388396-I1-GC:1:202294813",
+      "note": "M01388396 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01081523-S4",
+      "work_permit": "B01081523-S4-ST",
+      "source_record_id": "B01081523-S4-ST:1:206644525",
+      "note": "B01081523 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00947932-I1",
+      "work_permit": "M00947932-I1-GC-CX",
+      "source_record_id": "M00947932-I1-GC-CX:1:281006511",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00955169-S6",
+      "work_permit": "B00955169-S6-SE",
+      "source_record_id": "B00955169-S6-SE:1:319804374",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01307238-S1",
+      "work_permit": "B01307238-S1-ST",
+      "source_record_id": "B01307238-S1-ST:1:346393160",
+      "note": "B01307238 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01015978-I1",
+      "work_permit": "M01015978-I1-GC-CX",
+      "source_record_id": "M01015978-I1-GC-CX:1:350278257",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01015978-I1",
+      "work_permit": "M01015978-I1-GC-CX",
+      "source_record_id": "M01015978-I1-GC-CX:1:350278257",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M00862772-I1",
+      "work_permit": "M00862772-I1-GC",
+      "source_record_id": "M00862772-I1-GC:1:399746153",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00568902-S3",
+      "work_permit": "B00568902-S3-ST",
+      "source_record_id": "B00568902-S3-ST:1:482437613",
+      "note": "B00568902 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329751-I1",
+      "work_permit": "Q01329751-I1-FO-EA",
+      "source_record_id": "Q01329751-I1-FO-EA:1:521339493",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329751-I1",
+      "work_permit": "Q01329751-I1-FO-EA",
+      "source_record_id": "Q01329751-I1-FO-EA:1:521339493",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01397101-I1",
+      "work_permit": "Q01397101-I1-MS",
+      "source_record_id": "Q01397101-I1-MS:1:521898564",
+      "note": "Q01397101 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01343571-I1",
+      "work_permit": "X01343571-I1-ST",
+      "source_record_id": "X01343571-I1-ST:1:529611503",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01113703-S2",
+      "work_permit": "B01113703-S2-GC",
+      "source_record_id": "B01113703-S2-GC:1:554571535",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01113703-S2",
+      "work_permit": "B01113703-S2-GC",
+      "source_record_id": "B01113703-S2-GC:1:554571535",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00611202-Z5",
+      "work_permit": "B00611202-Z5-ST",
+      "source_record_id": "B00611202-Z5-ST:1:554715168",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01294705-S8",
+      "work_permit": "X01294705-S8-SE",
+      "source_record_id": "X01294705-S8-SE:1:621984379",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01343571-I1",
+      "work_permit": "X01343571-I1-EA",
+      "source_record_id": "X01343571-I1-EA:1:627908539",
+      "note": "X01343571 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01343571-I1",
+      "work_permit": "X01343571-I1-EA",
+      "source_record_id": "X01343571-I1-EA:1:627908539",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01241582-S1",
+      "work_permit": "B01241582-S1-SE",
+      "source_record_id": "B01241582-S1-SE:1:635229555",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-MS",
+      "source_record_id": "Q01294198-I1-MS:1:662744316",
+      "note": "Q01294198 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-MS",
+      "source_record_id": "Q01294198-I1-MS:1:662744316",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01294198-I1",
+      "work_permit": "Q01294198-I1-MS",
+      "source_record_id": "Q01294198-I1-MS:1:662744316",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329751-I1",
+      "work_permit": "Q01329751-I1-GC-CX",
+      "source_record_id": "Q01329751-I1-GC-CX:1:690299850",
+      "note": "Q01329751 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329751-I1",
+      "work_permit": "Q01329751-I1-GC-CX",
+      "source_record_id": "Q01329751-I1-GC-CX:1:690299850",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01329751-I1",
+      "work_permit": "Q01329751-I1-GC-CX",
+      "source_record_id": "Q01329751-I1-GC-CX:1:690299850",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01318098-I1",
+      "work_permit": "S01318098-I1-GC-CX",
+      "source_record_id": "S01318098-I1-GC-CX:1:761697447",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01318098-I1",
+      "work_permit": "S01318098-I1-GC-CX",
+      "source_record_id": "S01318098-I1-GC-CX:1:761697447",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01371976-S4",
+      "work_permit": "M01371976-S4-ST",
+      "source_record_id": "M01371976-S4-ST:1:827780204",
+      "note": "M01371976 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279622-S4",
+      "work_permit": "Q01279622-S4-SE",
+      "source_record_id": "Q01279622-S4-SE:1:869581787",
+      "note": "Q01279622 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01358481-I1",
+      "work_permit": "B01358481-I1-GC-CX",
+      "source_record_id": "B01358481-I1-GC-CX:1:873706256",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00568902-S4",
+      "work_permit": "B00568902-S4-FO",
+      "source_record_id": "B00568902-S4-FO:1:926769473",
+      "note": "B00568902 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01308545-I1",
+      "work_permit": "Q01308545-I1-GC-CX",
+      "source_record_id": "Q01308545-I1-GC-CX:1:984037472",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01295694-I1",
+      "work_permit": "Q01295694-I1-GC-CX",
+      "source_record_id": "Q01295694-I1-GC-CX:1:995236322",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01295694-I1",
+      "work_permit": "Q01295694-I1-GC-CX",
+      "source_record_id": "Q01295694-I1-GC-CX:1:995236322",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-FO-EA",
+      "source_record_id": "Q01191420-I1-FO-EA:1:139915946",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-FO-EA",
+      "source_record_id": "Q01191420-I1-FO-EA:1:139915946",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-GC",
+      "source_record_id": "Q01265512-I1-GC:1:192243159",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-GC",
+      "source_record_id": "Q01265512-I1-GC:1:192243159",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01350538-I1",
+      "work_permit": "S01350538-I1-GC-CX",
+      "source_record_id": "S01350538-I1-GC-CX:1:203293723",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01350538-I1",
+      "work_permit": "S01350538-I1-GC-CX",
+      "source_record_id": "S01350538-I1-GC-CX:1:203293723",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01306117-I1",
+      "work_permit": "B01306117-I1-GC-CX",
+      "source_record_id": "B01306117-I1-GC-CX:1:220645304",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S00527927-I1",
+      "work_permit": "S00527927-I1-GC-CX",
+      "source_record_id": "S00527927-I1-GC-CX:1:225047789",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S00527927-I1",
+      "work_permit": "S00527927-I1-GC-CX",
+      "source_record_id": "S00527927-I1-GC-CX:1:225047789",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01347519-I1",
+      "work_permit": "M01347519-I1-ST",
+      "source_record_id": "M01347519-I1-ST:1:230844388",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01229901-S2",
+      "work_permit": "B01229901-S2-FO",
+      "source_record_id": "B01229901-S2-FO:1:318794250",
+      "note": "B01229901 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-FO",
+      "source_record_id": "Q01301191-I1-FO:1:356273294",
+      "note": "Q01301191 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-FO",
+      "source_record_id": "Q01301191-I1-FO:1:356273294",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-FO",
+      "source_record_id": "Q01301191-I1-FO:1:356273294",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01195246-S5",
+      "work_permit": "M01195246-S5-ST",
+      "source_record_id": "M01195246-S5-ST:1:427169106",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q00970690-I1",
+      "work_permit": "Q00970690-I1-GC-CX",
+      "source_record_id": "Q00970690-I1-GC-CX:1:514618836",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01350547-I1",
+      "work_permit": "S01350547-I1-GC-CX",
+      "source_record_id": "S01350547-I1-GC-CX:1:529337828",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01350547-I1",
+      "work_permit": "S01350547-I1-GC-CX",
+      "source_record_id": "S01350547-I1-GC-CX:1:529337828",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-MS",
+      "source_record_id": "Q01305094-I1-MS:1:536307496",
+      "note": "Q01305094 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-MS",
+      "source_record_id": "Q01305094-I1-MS:1:536307496",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-MS",
+      "source_record_id": "Q01305094-I1-MS:1:536307496",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01235022-I1",
+      "work_permit": "M01235022-I1-GC",
+      "source_record_id": "M01235022-I1-GC:1:537008434",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00902739-I1",
+      "work_permit": "B00902739-I1-GC",
+      "source_record_id": "B00902739-I1-GC:1:550507690",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B00757177-S3",
+      "work_permit": "B00757177-S3-FO",
+      "source_record_id": "B00757177-S3-FO:1:574551916",
+      "note": "B00757177 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01291290-S4",
+      "work_permit": "B01291290-S4-ST",
+      "source_record_id": "B01291290-S4-ST:1:606025810",
+      "note": "B01291290 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01250647-I1",
+      "work_permit": "M01250647-I1-ST",
+      "source_record_id": "M01250647-I1-ST:1:611486402",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-ST",
+      "source_record_id": "Q01265512-I1-ST:1:614210930",
+      "note": "Q01265512 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-ST",
+      "source_record_id": "Q01265512-I1-ST:1:614210930",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-ST",
+      "source_record_id": "Q01265512-I1-ST:1:614210930",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01320656-I1",
+      "work_permit": "M01320656-I1-GC-CX",
+      "source_record_id": "M01320656-I1-GC-CX:1:646336755",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279622-I1",
+      "work_permit": "Q01279622-I1-GC-CX",
+      "source_record_id": "Q01279622-I1-GC-CX:1:646387040",
+      "note": "Q01279622 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01097644-I1",
+      "work_permit": "X01097644-I1-GC",
+      "source_record_id": "X01097644-I1-GC:1:661241083",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01284550-I1",
+      "work_permit": "Q01284550-I1-GC-CX",
+      "source_record_id": "Q01284550-I1-GC-CX:1:670198842",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01229901-I1",
+      "work_permit": "B01229901-I1-GC",
+      "source_record_id": "B01229901-I1-GC:1:676143502",
+      "note": "B01229901 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-GC",
+      "source_record_id": "Q01191420-I1-GC:1:679929236",
+      "note": "Q01191420 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-GC",
+      "source_record_id": "Q01191420-I1-GC:1:679929236",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-GC",
+      "source_record_id": "Q01191420-I1-GC:1:679929236",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01163470-I1",
+      "work_permit": "B01163470-I1-GC-CX",
+      "source_record_id": "B01163470-I1-GC-CX:1:680915446",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01163470-I1",
+      "work_permit": "B01163470-I1-GC-CX",
+      "source_record_id": "B01163470-I1-GC-CX:1:680915446",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-ST",
+      "source_record_id": "Q01305094-I1-ST:1:689518617",
+      "note": "Q01305094 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-ST",
+      "source_record_id": "Q01305094-I1-ST:1:689518617",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01305094-I1",
+      "work_permit": "Q01305094-I1-ST",
+      "source_record_id": "Q01305094-I1-ST:1:689518617",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01378701-I1",
+      "work_permit": "M01378701-I1-GC-CX",
+      "source_record_id": "M01378701-I1-GC-CX:1:692458867",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "M01195246-S6",
+      "work_permit": "M01195246-S6-FO",
+      "source_record_id": "M01195246-S6-FO:1:728299374",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01279622-S5",
+      "work_permit": "Q01279622-S5-ST",
+      "source_record_id": "Q01279622-S5-ST:1:731608989",
+      "note": "Q01279622 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01229901-S3",
+      "work_permit": "B01229901-S3-ST",
+      "source_record_id": "B01229901-S3-ST:1:733280218",
+      "note": "B01229901 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-ST",
+      "source_record_id": "Q01191420-I1-ST:1:735002792",
+      "note": "Q01191420 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-ST",
+      "source_record_id": "Q01191420-I1-ST:1:735002792",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01191420-I1",
+      "work_permit": "Q01191420-I1-ST",
+      "source_record_id": "Q01191420-I1-ST:1:735002792",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-FO-EA",
+      "source_record_id": "Q01265512-I1-FO-EA:1:742092116",
+      "note": "Q01265512 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-FO-EA",
+      "source_record_id": "Q01265512-I1-FO-EA:1:742092116",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-FO-EA",
+      "source_record_id": "Q01265512-I1-FO-EA:1:742092116",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353933-I1",
+      "work_permit": "Q01353933-I1-GC-CX",
+      "source_record_id": "Q01353933-I1-GC-CX:1:806624617",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01353933-I1",
+      "work_permit": "Q01353933-I1-GC-CX",
+      "source_record_id": "Q01353933-I1-GC-CX:1:806624617",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-GC",
+      "source_record_id": "Q01301191-I1-GC:1:824745803",
+      "note": "Q01301191 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-GC",
+      "source_record_id": "Q01301191-I1-GC:1:824745803",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-GC",
+      "source_record_id": "Q01301191-I1-GC:1:824745803",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00781730-I1",
+      "work_permit": "X00781730-I1-GC",
+      "source_record_id": "X00781730-I1-GC:1:833757109",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-MS",
+      "source_record_id": "Q01265512-I1-MS:1:872983032",
+      "note": "Q01265512 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-MS",
+      "source_record_id": "Q01265512-I1-MS:1:872983032",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01265512-I1",
+      "work_permit": "Q01265512-I1-MS",
+      "source_record_id": "Q01265512-I1-MS:1:872983032",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01395397-I1",
+      "work_permit": "B01395397-I1-GC",
+      "source_record_id": "B01395397-I1-GC:1:897261930",
+      "note": "B01395397 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01284975-I1",
+      "work_permit": "B01284975-I1-GC",
+      "source_record_id": "B01284975-I1-GC:1:915376724",
+      "note": "B01284975 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01297964-I1",
+      "work_permit": "B01297964-I1-GC-CX",
+      "source_record_id": "B01297964-I1-GC-CX:1:925931302",
+      "note": "B01297964 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01297964-I1",
+      "work_permit": "B01297964-I1-GC-CX",
+      "source_record_id": "B01297964-I1-GC-CX:1:925931302",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X00950331-I1",
+      "work_permit": "X00950331-I1-GC",
+      "source_record_id": "X00950331-I1-GC:1:933601984",
+      "note": "X00950331 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-ST",
+      "source_record_id": "Q01301191-I1-ST:1:943737891",
+      "note": "Q01301191 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-ST",
+      "source_record_id": "Q01301191-I1-ST:1:943737891",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01301191-I1",
+      "work_permit": "Q01301191-I1-ST",
+      "source_record_id": "Q01301191-I1-ST:1:943737891",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01192936-S1",
+      "work_permit": "B01192936-S1-GC",
+      "source_record_id": "B01192936-S1-GC:1:994286107",
+      "note": "B01192936 already retained from permit query"
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01208799-S9",
+      "work_permit": "B01208799-S9-ST",
+      "source_record_id": "B01208799-S9-ST:1:137299720",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01204273-I1",
+      "work_permit": "B01204273-I1-GC-CX",
+      "source_record_id": "B01204273-I1-GC-CX:1:166726489",
+      "note": "B01204273 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360812-I1",
+      "work_permit": "S01360812-I1-FO",
+      "source_record_id": "S01360812-I1-FO:1:180320607",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360812-I1",
+      "work_permit": "S01360812-I1-FO",
+      "source_record_id": "S01360812-I1-FO:1:180320607",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01230197-S6",
+      "work_permit": "Q01230197-S6-SE",
+      "source_record_id": "Q01230197-S6-SE:1:191736973",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01090941-I1",
+      "work_permit": "X01090941-I1-GC-CX",
+      "source_record_id": "X01090941-I1-GC-CX:1:204807445",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01090941-I1",
+      "work_permit": "X01090941-I1-GC-CX",
+      "source_record_id": "X01090941-I1-GC-CX:1:204807445",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S00526657-I1",
+      "work_permit": "S00526657-I1-GC-CX",
+      "source_record_id": "S00526657-I1-GC-CX:1:207316974",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S00526657-I1",
+      "work_permit": "S00526657-I1-GC-CX",
+      "source_record_id": "S00526657-I1-GC-CX:1:207316974",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "X01233373-I1",
+      "work_permit": "X01233373-I1-GC",
+      "source_record_id": "X01233373-I1-GC:1:218219883",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01370892-I1",
+      "work_permit": "B01370892-I1-GC-CX",
+      "source_record_id": "B01370892-I1-GC-CX:1:218548204",
+      "note": ""
+    },
+    {
+      "reason": "existing_job_or_permit_record",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "Q01197853-S1",
+      "work_permit": "Q01197853-S1-SE",
+      "source_record_id": "Q01197853-S1-SE:1:234809047",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_base_job_in_permit_query",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360812-I1",
+      "work_permit": "S01360812-I1-ST",
+      "source_record_id": "S01360812-I1-ST:1:291300636",
+      "note": "S01360812 already retained from permit query"
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360812-I1",
+      "work_permit": "S01360812-I1-ST",
+      "source_record_id": "S01360812-I1-ST:1:291300636",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "S01360812-I1",
+      "work_permit": "S01360812-I1-ST",
+      "source_record_id": "S01360812-I1-ST:1:291300636",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01392916-I1",
+      "work_permit": "B01392916-I1-GC-CX",
+      "source_record_id": "B01392916-I1-GC-CX:1:306072703",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01331163-S3",
+      "work_permit": "B01331163-S3-GC-CX",
+      "source_record_id": "B01331163-S3-GC-CX:1:311204107",
+      "note": ""
+    },
+    {
+      "reason": "duplicate_permit_row_in_source",
+      "source_dataset_id": "rbx6-tga4",
+      "job_filing_number": "B01331163-S3",
+      "work_permit": "B01331163-S3-GC-CX",
+      "source_record_id": "B01331163-S3-GC-CX:1:311204107",
+      "note": ""
+    }
+  ]
+}

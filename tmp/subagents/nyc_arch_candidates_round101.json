@@ -1,0 +1,164 @@
+[
+  {
+    "event_id": "nyc_arch_borough_hall_skyscraper_historic_district_designated_2011",
+    "city": "New York City",
+    "title": "Borough Hall Skyscraper Historic District was designated",
+    "summary": "NYC Landmarks Preservation Commission map materials record the Borough Hall Skyscraper Historic District, LP-2449, as designated on September 13, 2011 in Downtown Brooklyn.",
+    "effective_date": "2011-09-13",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9908,
+        40.6937
+      ]
+    },
+    "source_name": "Borough Hall Skyscraper Historic District map",
+    "publisher": "New York City Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/assets/lpc/downloads/pdf/maps/HistoricDistrictMaps/Brooklyn/boro_hall_map.pdf",
+    "source_type": "official agency historic district map",
+    "source_record_id": "lpc-borough-hall-skyscraper-historic-district-lp-2449",
+    "source_date_field": "LPC map states Designated: September 13, 2011.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The effective date is the LPC designation date shown on the official map. The point is an approximate representative marker near Borough Hall and is not the historic district boundary, tax-lot geometry, or a surveyed building footprint.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date, LP number, borough, and district name from the official map; assigned an approximate district point near Borough Hall; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source/LP-number matches against the manual corpus and NYC architecture candidate rounds 94-100.",
+    "category": "planning/development/architecture/historic-district-designation"
+  },
+  {
+    "event_id": "nyc_arch_riverside_west_end_extension_i_designated_2012",
+    "city": "New York City",
+    "title": "Riverside-West End Historic District Extension I was designated",
+    "summary": "NYC Landmarks Preservation Commission map materials record Riverside-West End Historic District Extension I, LP-02463, as designated on June 26, 2012 on the Upper West Side.",
+    "effective_date": "2012-06-26",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9802,
+        40.7856
+      ]
+    },
+    "source_name": "Riverside-West End Historic District Extension I map",
+    "publisher": "New York City Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/assets/lpc/downloads/pdf/maps/HistoricDistrictMaps/Manhattan/Riverside_West_End_Extension_I.pdf",
+    "source_type": "official agency historic district map",
+    "source_record_id": "lpc-riverside-west-end-historic-district-extension-i-lp-2463",
+    "source_date_field": "LPC map states Designated: June 26, 2012.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The effective date is the LPC designation date shown on the official map. The point is an approximate representative marker within the Upper West Side extension area and is not the historic district boundary, tax-lot geometry, or a surveyed building footprint.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date, LP number, borough, and district-extension name from the official map; assigned an approximate district point near West End Avenue in the extension area; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source/LP-number matches against the manual corpus and NYC architecture candidate rounds 94-100.",
+    "category": "planning/development/architecture/historic-district-designation"
+  },
+  {
+    "event_id": "nyc_arch_west_end_collegiate_extension_designated_2013",
+    "city": "New York City",
+    "title": "West End-Collegiate Historic District Extension was designated",
+    "summary": "NYC Landmarks Preservation Commission map materials record the West End-Collegiate Historic District Extension, LP-2462, as designated on June 25, 2013 on the Upper West Side.",
+    "effective_date": "2013-06-25",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9826,
+        40.7809
+      ]
+    },
+    "source_name": "West End-Collegiate Historic District Extension map",
+    "publisher": "New York City Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/assets/lpc/downloads/pdf/maps/HistoricDistrictMaps/Manhattan/West_End_Collegiate_Extension.pdf",
+    "source_type": "official agency historic district map",
+    "source_record_id": "lpc-west-end-collegiate-historic-district-extension-lp-2462",
+    "source_date_field": "LPC map states Designated: June 25, 2013.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The effective date is the LPC designation date shown on the official map. The point is an approximate representative marker within the West End-Collegiate extension area and is not the historic district boundary, tax-lot geometry, or a surveyed building footprint.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date, LP number, borough, and district-extension name from the official map; assigned an approximate district point near West End Avenue in the extension area; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source/LP-number matches against the manual corpus and NYC architecture candidate rounds 94-100.",
+    "category": "planning/development/architecture/historic-district-designation"
+  },
+  {
+    "event_id": "nyc_arch_crown_heights_north_iii_historic_district_designated_2015",
+    "city": "New York City",
+    "title": "Crown Heights North III Historic District was designated",
+    "summary": "NYC Landmarks Preservation Commission map materials record the Crown Heights North III Historic District, LP-2489, as designated on March 24, 2015 in Brooklyn.",
+    "effective_date": "2015-03-24",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9432,
+        40.6756
+      ]
+    },
+    "source_name": "Crown Heights North III Historic District map",
+    "publisher": "New York City Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/assets/lpc/downloads/pdf/maps/HistoricDistrictMaps/Brooklyn/CrownHeightsNorth_III_FINALMAP.pdf",
+    "source_type": "official agency historic district map",
+    "source_record_id": "lpc-crown-heights-north-iii-historic-district-lp-2489",
+    "source_date_field": "LPC map states Designated: March 24, 2015.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The effective date is the LPC designation date shown on the official map. The point is an approximate representative marker in Crown Heights North III and is not the historic district boundary, tax-lot geometry, or a surveyed building footprint.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date, LP number, borough, and district name from the official map; assigned an approximate district point near the Brooklyn Avenue and Kingston Avenue portion of the district; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source/LP-number matches against the manual corpus and NYC architecture candidate rounds 94-100.",
+    "category": "planning/development/architecture/historic-district-designation"
+  },
+  {
+    "event_id": "nyc_arch_riverside_west_end_extension_ii_designated_2015",
+    "city": "New York City",
+    "title": "Riverside-West End Historic District Extension II was designated",
+    "summary": "NYC Landmarks Preservation Commission map materials record Riverside-West End Historic District Extension II, LP-02464, as designated on June 23, 2015 on the Upper West Side.",
+    "effective_date": "2015-06-23",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9718,
+        40.7969
+      ]
+    },
+    "source_name": "Riverside-West End Historic District Extension II map",
+    "publisher": "New York City Landmarks Preservation Commission",
+    "source_url": "https://www.nyc.gov/assets/lpc/downloads/pdf/maps/HistoricDistrictMaps/Manhattan/Riverside_West_End_Extension_II.pdf",
+    "source_type": "official agency historic district map",
+    "source_record_id": "lpc-riverside-west-end-historic-district-extension-ii-lp-2464",
+    "source_date_field": "LPC map states Designated: June 23, 2015.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The effective date is the LPC designation date shown on the official map. The point is an approximate representative marker within the Upper West Side extension area and is not the historic district boundary, tax-lot geometry, or a surveyed building footprint.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date, LP number, borough, and district-extension name from the official map; assigned an approximate district point near West End Avenue in the extension area; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source/LP-number matches against the manual corpus and NYC architecture candidate rounds 94-100.",
+    "category": "planning/development/architecture/historic-district-designation"
+  },
+  {
+    "event_id": "nyc_arch_park_slope_historic_district_extension_ii_designated_2016",
+    "city": "New York City",
+    "title": "Park Slope Historic District Extension II was designated",
+    "summary": "NYC Landmarks Preservation Commission map materials record Park Slope Historic District Extension II, LP-02558, as designated on April 12, 2016 in Brooklyn.",
+    "effective_date": "2016-04-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9752,
+        40.6749
+      ]
+    },
+    "source_name": "Park Slope Historic District Extension II map",
+    "publisher": "New York City Landmarks Preservation Commission",
+    "source_url": "https://www1.nyc.gov/assets/lpc/downloads/pdf/maps/HistoricDistrictMaps/Brooklyn/Park_Slope_HD_EXT_II.pdf",
+    "source_type": "official agency historic district map",
+    "source_record_id": "lpc-park-slope-historic-district-extension-ii-lp-2558",
+    "source_date_field": "LPC map states Designated: April 12, 2016.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "NYC.gov public agency PDF; citation-only factual metadata, no source text or images reproduced.",
+    "attribution": "New York City Landmarks Preservation Commission",
+    "confidence": "documented",
+    "limitations": "The effective date is the LPC designation date shown on the official map. The point is an approximate representative marker in the Park Slope extension area and is not the historic district boundary, tax-lot geometry, or a surveyed building footprint.",
+    "transformation_method": "Manual source review on 2026-05-18; extracted the LPC designation date, LP number, borough, and district-extension name from the official map; assigned an approximate district point near northern Park Slope; checked event_id, source_url plus source_record_id, source_record_id alone, source_url alone, and semantic title/source/LP-number matches against the manual corpus and NYC architecture candidate rounds 94-100.",
+    "category": "planning/development/architecture/historic-district-designation"
+  }
+]

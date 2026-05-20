@@ -1,0 +1,77 @@
+﻿{
+    "value":  [
+                  {
+                      "the_geom":  {
+                                       "type":  "Point",
+                                       "coordinates":  [
+                                                           -73.9797709759486,
+                                                           40.68636229295726
+                                                       ]
+                                   },
+                      "bin_number":  "3331754",
+                      "bbl":  "3001741201",
+                      "boroughid":  "BK",
+                      "block":  "174",
+                      "lot":  "1201",
+                      "lp_number":  "LP-02696",
+                      "lm_name":  "Public School 15 Annex",
+                      "pluto_addr":  "362 SCHERMERHORN STREET",
+                      "desig_addr":  "362 Schermerhorn Street",
+                      "lm_type":  "Individual Landmark",
+                      "boundaries":  "Block \u0026 Lot",
+                      "most_curre":  "1",
+                      "status":  "CALENDARED",
+                      "last_actio":  "CALENDARED",
+                      "caldate":  "2025-12-02T00:00:00.000"
+                  },
+                  {
+                      "the_geom":  {
+                                       "type":  "Point",
+                                       "coordinates":  [
+                                                           -73.99579087355882,
+                                                           40.75006052113858
+                                                       ]
+                                   },
+                      "bin_number":  "1013530",
+                      "bbl":  "1007540034",
+                      "boroughid":  "MN",
+                      "block":  "754",
+                      "lot":  "34",
+                      "lp_number":  "LP-02695",
+                      "lm_name":  "Lithuanian Alliance Building",
+                      "pluto_addr":  "307 WEST 30 STREET",
+                      "desig_addr":  "307 West 30th Street",
+                      "lm_type":  "Individual Landmark",
+                      "boundaries":  "Block \u0026 Lot",
+                      "most_curre":  "1",
+                      "status":  "CALENDARED",
+                      "last_actio":  "CALENDARED",
+                      "caldate":  "2025-12-02T00:00:00.000"
+                  },
+                  {
+                      "the_geom":  {
+                                       "type":  "Point",
+                                       "coordinates":  [
+                                                           -73.98509292124966,
+                                                           40.71594733353751
+                                                       ]
+                                   },
+                      "bin_number":  "1079661",
+                      "bbl":  "1003410026",
+                      "boroughid":  "MN",
+                      "block":  "341",
+                      "lot":  "26",
+                      "lp_number":  "LP-02694",
+                      "lm_name":  "Church of Saint Mary",
+                      "pluto_addr":  "440 GRAND STREET",
+                      "desig_addr":  "440 Grand Street",
+                      "lm_type":  "Individual Landmark",
+                      "boundaries":  "Block \u0026 Lot",
+                      "most_curre":  "1",
+                      "status":  "CALENDARED",
+                      "last_actio":  "CALENDARED",
+                      "caldate":  "2025-12-02T00:00:00.000"
+                  }
+              ],
+    "Count":  3
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "source_id": "bcc-planning-committee-minutes-round122",
+    "source_name": "Belfast City Council Planning Committee agendas, minutes and agenda-item pages",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/ieListMeetings.aspx?CId=167",
+    "source_type": "official local authority planning committee agendas, minutes and agenda-item pages",
+    "accessed_at": "2026-05-19",
+    "license_or_terms_note": "Belfast City Council public committee pages are subject to council website copyright and terms. Candidate artifacts store factual metadata, short paraphrases and URLs only; do not republish substantial page text without reuse review.",
+    "coverage_years_checked": "Targeted 2016-2025 committee pages, with retained records from 2016, 2018, 2019, 2022 and 2023.",
+    "geographic_scope": "Belfast City Council planning authority area.",
+    "key_fields_used": [
+      "committee meeting date",
+      "agenda item title",
+      "application reference",
+      "site address/location",
+      "proposal description",
+      "committee action",
+      "conditions/Section 76 caveat where stated"
+    ],
+    "reliability": "strong for committee date, application reference, proposal description and recorded committee action",
+    "date_caveats": "Planning Committee dates are administrative decision or recommendation milestones. They are not construction starts, completion dates, occupation dates or proof that a proposal was built.",
+    "geometry_caveats": "Committee pages normally provide addresses, not reusable site polygons. Coordinates in candidates are approximate site, street or block points.",
+    "ingestion_recommendation": "Use as planning-decision events with clear decision-type labels. Reconcile final decision notice dates, Section 76 execution and red-line geometry against the NI Planning Portal before production import."
+  },
+  {
+    "source_id": "bcc-planning-committee-report-pdfs-round122",
+    "source_name": "Belfast City Council Planning Committee officer report PDFs",
+    "publisher": "Belfast City Council",
+    "source_url": "https://minutes.belfastcity.gov.uk/",
+    "source_type": "official local authority planning committee report PDFs linked from agenda pages",
+    "accessed_at": "2026-05-19",
+    "license_or_terms_note": "Belfast City Council public PDFs are subject to council website copyright and terms. This pack cites URLs and paraphrases factual metadata only.",
+    "coverage_years_checked": "Targeted officer report PDFs linked from selected 2016, 2018, 2019 and 2022 Planning Committee pages.",
+    "geographic_scope": "Application-specific Belfast planning sites.",
+    "key_fields_used": [
+      "application ID",
+      "committee meeting date",
+      "proposal",
+      "location",
+      "referral route",
+      "recommendation",
+      "planning considerations"
+    ],
+    "reliability": "strong for officer report metadata and planning-assessment context, with the final committee action taken from minutes where possible",
+    "date_caveats": "Officer report dates may be report or meeting dates and can differ from final decision-notice dates.",
+    "geometry_caveats": "PDF location plans are not extracted here as reusable geometry; approximate points should be replaced by portal or GIS geometry if selected.",
+    "ingestion_recommendation": "Keep report PDFs as supporting evidence for proposal scope, but treat minutes/decision notices as the primary decision source."
+  },
+  {
+    "source_id": "ni-planning-portal-followup-round122",
+    "source_name": "Northern Ireland Planning Portal public register",
+    "publisher": "Department for Infrastructure and Northern Ireland planning authorities",
+    "source_url": "https://planningregister.planningsystemni.gov.uk/simple-search",
+    "source_type": "official planning application register",
+    "accessed_at": "2026-05-19",
+    "license_or_terms_note": "Planning Portal public-access terms and copyright limitations apply. Use factual identifiers and link users to the portal rather than reproducing application documents.",
+    "coverage_years_checked": "Identified as follow-up lookup source for the retained application references; no bulk portal extraction was performed in this partial pass.",
+    "geographic_scope": "Northern Ireland planning register; Belfast records by LA04 reference.",
+    "key_fields_used": [
+      "application reference for future lookup",
+      "decision notice date",
+      "application status",
+      "easting/northing or map point",
+      "documents index"
+    ],
+    "reliability": "strong when each application is looked up directly",
+    "date_caveats": "Portal dates can include received, valid, advertised, decided, appealed and document dates. Do not treat them as built-environment completion dates.",
+    "geometry_caveats": "Portal points are planning-register locations and may not equal surveyed boundaries or built footprints.",
+    "ingestion_recommendation": "Use in the next pass to confirm final issued decision dates, Section 76 status and geometry for retained candidates."
+  },
+  {
+    "source_id": "manual-address-geocode-round122",
+    "source_name": "Manual address/block geocoding with Nominatim-assisted checks",
+    "publisher": "OpenStreetMap contributors / manual researcher",
+    "source_url": "https://nominatim.openstreetmap.org/",
+    "source_type": "geocoding aid for approximate candidate coordinates",
+    "accessed_at": "2026-05-19",
+    "license_or_terms_note": "Nominatim uses OpenStreetMap data, which is available under the Open Database License. Coordinates here are used only as approximate candidate triage points and should be replaced by authoritative planning geometry before production import.",
+    "coverage_years_checked": "Not applicable; address lookup performed for selected Belfast candidate locations.",
+    "geographic_scope": "Approximate address, street or block points in Belfast.",
+    "key_fields_used": [
+      "latitude",
+      "longitude",
+      "display name where a result was returned"
+    ],
+    "reliability": "usable with caveats for triage points only",
+    "date_caveats": "Geocoding has no relationship to planning effective dates.",
+    "geometry_caveats": "Returned points may be street centroids, venue points or approximate address matches. Manual points were used where Nominatim did not return a suitable result.",
+    "ingestion_recommendation": "Do not treat these coordinates as authoritative geometry. Replace with NI Planning Portal, council GIS or digitised red-line geometry before production map display."
+  }
+]

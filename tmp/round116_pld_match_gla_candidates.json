@@ -1,0 +1,233 @@
+[
+    {
+        "query":  "Macbean Street London",
+        "hits":  {
+                     "lpa_name":  "Greenwich",
+                     "decision":  "Approved",
+                     "postcode":  null,
+                     "description":  "Request for an Environmental Impact Assessment Scoping Opinion under Regulation 15 of the Town and Country Planning (Environmental Impact Assessment) Regulations 2017 (as amended). The proposed development involves a phased, mixed-use project encompassing five buildings (Blocks A-D and F) ranging from 7 to 23 stories in height. Additionally, two of the blocks will have a one-story basement level. It will incorporate commercial (Class C3) and educational (Class E) uses, alongside approximately 895 purpose-built student accommodation beds (Use Class Sui Generis), 450 co-living units (Use Class Sui Generis), and 105 residential units (Use Class C3). The proposal includes public realm, communal open spaces, landscaping, designated blue-badge resident parking, and ancillary infrastructure. The proposal involves demolition of all existing buildings except the Electric Works building (Block E), which will be refurbished.",
+                     "street_name":  null,
+                     "site_name":  "Land Bounded by Beresford Street and Macbean Street, Woolwich, London, SE18 6BG",
+                     "decision_date":  "23/07/2024",
+                     "valid_date":  "29/04/2024",
+                     "url_planning_app":  "https://planning.royalgreenwich.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=_GRNW_DCAPR_120008\u0026activeTab=summary",
+                     "lpa_app_no":  "24/1426/EIA",
+                     "centroid":  {
+                                      "lon":  0.06871,
+                                      "lat":  51.491301
+                                  },
+                     "id":  "Greenwich-24_1426_EIA",
+                     "site_number":  null
+                 }
+    },
+    {
+        "query":  "South Grove Site C Walthamstow",
+        "hits":  null
+    },
+    {
+        "query":  "Richmond House Westminster London",
+        "hits":  {
+                     "lpa_name":  "Lambeth",
+                     "decision":  "Approved",
+                     "postcode":  null,
+                     "description":  "Observations on a proposed development in the adjoining borough of Westminster with respect to a request for a scoping opinion under Regulation 15 of The Town and Country Planning (Environmental Impact Assessment) Regulations 2017 for the House of Commons Northern Estate Programme (site bounded by Bridge Street, Parliament\rStreet, Richmond Terrace and Victoria Embankment) at House Of Commons Palace Of Westminster, Parliament Square, London, SW1A 0AA. (LB of Westminster reference: 19/01464/EIASCO).",
+                     "street_name":  "ADJOINING BOROUGH OBSERVATIONS PSEUDO STREET",
+                     "site_name":  "Adjoining Borough Observations Within Westminster",
+                     "decision_date":  "01/05/2019",
+                     "valid_date":  "27/02/2019",
+                     "url_planning_app":  null,
+                     "lpa_app_no":  "19/00743/OBS",
+                     "centroid":  {
+                                      "lon":  -7.55716,
+                                      "lat":  49.766807
+                                  },
+                     "id":  "Lambeth-19_00743_OBS",
+                     "site_number":  ""
+                 }
+    },
+    {
+        "query":  "Former Poplar Bus Depot Leven Road",
+        "hits":  [
+                     {
+                         "lpa_name":  "Tower Hamlets",
+                         "decision":  null,
+                         "postcode":  "E14 0LN",
+                         "description":  "Submission of Details pursuant to Condition 9a (Land Contamination - Remediation Scheme) of Planning Permission PA/19/02148 dated 14/10/2020. ",
+                         "street_name":  null,
+                         "site_name":  "Former Poplar Bus Depot, Leven Road, London, E14 0LN",
+                         "decision_date":  null,
+                         "valid_date":  "17/05/2022",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "PA/22/00907/NC",
+                         "centroid":  {
+                                          "lon":  -7.55716,
+                                          "lat":  49.766807
+                                      },
+                         "id":  "Tower_Hamlets-PA_22_00907_NC",
+                         "site_number":  null
+                     },
+                     {
+                         "lpa_name":  "Tower Hamlets",
+                         "decision":  null,
+                         "postcode":  "E14 0LN",
+                         "description":  "Application for Non-Material amendments to planning permission ref: PA/19/02148  Dated 14/10/2020 to revise Condition 2 to reflect updated plans and elevations. Non Material amendment(s) Sought: Introduction of fire protected lobbies, additional risers, doors and escape routes to comply with fire regulationsIntroduction of an additional external staircase to Level 01Introduction of commercial refuse and cycle stores and changes to commercial floorspace layoutIncrease in external wall thickness to the retained tram shed wallsElevational changes including extending balconies, window location changes and materials changesChange of use of the residents lounge on Level 01 to commercialIncrease in affordable workspace to 22%.",
+                         "street_name":  null,
+                         "site_name":  "Former Poplar Bus Depot, Leven Road, London, E14 0LN",
+                         "decision_date":  null,
+                         "valid_date":  "13/03/2023",
+                         "url_planning_app":  "https://development.towerhamlets.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR140578\u0026activeTab=summary",
+                         "lpa_app_no":  "PA/23/00476/NC",
+                         "centroid":  {
+                                          "lon":  -0.006869,
+                                          "lat":  51.516872
+                                      },
+                         "id":  "Tower_Hamlets-PA_23_00476_NC",
+                         "site_number":  null
+                     },
+                     {
+                         "lpa_name":  "Tower Hamlets",
+                         "decision":  null,
+                         "postcode":  null,
+                         "description":  "Submission of details pursuant to condition nos. 18 parts i (Green Procurement Plan) and j (Detailed drawings of proposed Artwork) of planning permission ref: PA/19/02148, Dated 14/10/2020.",
+                         "street_name":  null,
+                         "site_name":  "Former Poplar Bus Depot, Leven Road, London, E14 0LN",
+                         "decision_date":  null,
+                         "valid_date":  "14/02/2023",
+                         "url_planning_app":  "https://development.towerhamlets.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR140436\u0026activeTab=summary",
+                         "lpa_app_no":  "PA/23/00348",
+                         "centroid":  {
+                                          "lon":  -0.006869,
+                                          "lat":  51.516872
+                                      },
+                         "id":  "Tower_Hamlets-PA_23_00348",
+                         "site_number":  null
+                     }
+                 ]
+    },
+    {
+        "query":  "Score Centre Leyton London",
+        "hits":  [
+                     {
+                         "lpa_name":  "Waltham Forest",
+                         "decision":  "Approved",
+                         "postcode":  null,
+                         "description":  "Submission of details pursuant to condition 7 (Detailed Construction Logistics Plan Plan) attached to planning permission reference 212178.                                                                           ",
+                         "street_name":  null,
+                         "site_name":  "The Score Centre, 100 Oliver Road, Leyton, London, E10 5JY",
+                         "decision_date":  "09/05/2023",
+                         "valid_date":  "24/05/2022",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "221417",
+                         "centroid":  {
+                                          "lon":  -7.55716,
+                                          "lat":  49.766807
+                                      },
+                         "id":  "Waltham_Forest-221417",
+                         "site_number":  null
+                     },
+                     {
+                         "lpa_name":  "Waltham Forest",
+                         "decision":  "Approved",
+                         "postcode":  null,
+                         "description":  "Submission of details pursuant to condition 13 (Construction Environmental Management Plan) attached to planning permission reference 212178., with respect to Phase 1 (Blocks C\u0026D) only.                                                                                           ",
+                         "street_name":  null,
+                         "site_name":  "The Score Centre, 100 Oliver Road, Leyton, London, E10 5JY",
+                         "decision_date":  "10/11/2022",
+                         "valid_date":  "24/06/2022",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "221869",
+                         "centroid":  {
+                                          "lon":  -7.55716,
+                                          "lat":  49.766807
+                                      },
+                         "id":  "Waltham_Forest-221869",
+                         "site_number":  null
+                     },
+                     {
+                         "lpa_name":  "Waltham Forest",
+                         "decision":  "Approved",
+                         "postcode":  null,
+                         "description":  "Submission of details pursuant to condition 27 (Carbon dioxide emissions) attached to planning permission reference 212178, granted 27/10/2021.",
+                         "street_name":  null,
+                         "site_name":  "The Score Centre, 100 Oliver Road, Leyton, London, E10 5JY",
+                         "decision_date":  "21/02/2024",
+                         "valid_date":  "05/12/2023",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "232977",
+                         "centroid":  {
+                                          "lon":  -7.55716,
+                                          "lat":  49.766807
+                                      },
+                         "id":  "Waltham_Forest-232977",
+                         "site_number":  null
+                     }
+                 ]
+    },
+    {
+        "query":  "Former Kew Biothane Plant Kew",
+        "hits":  [
+                     {
+                         "lpa_name":  "Richmond",
+                         "decision":  "Approved",
+                         "postcode":  "TW9 4BZ",
+                         "description":  "Non material amendment to conditions U0183166 (Formerly U0079733 Approved drawings) of 18/3310/NMA and U0079738 (BREEAM for Non-Housing) of planning permission 18/3310/FUL to allow for changes to internal layout, balcony design and depth, fenestration and facades including materials, canopy, north alley width, massing of top floor and provision of BREEAM design stage certificate prior to above ground works",
+                         "street_name":  "Melliss Avenue",
+                         "site_name":  "FORMER KEW BIOTHANE PLANT",
+                         "decision_date":  "06/05/2025",
+                         "valid_date":  "18/03/2025",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "PA25/0763",
+                         "centroid":  {
+                                          "lon":  -0.276598,
+                                          "lat":  51.478665
+                                      },
+                         "id":  "Richmond-PA25_0763",
+                         "site_number":  null
+                     },
+                     {
+                         "lpa_name":  "Richmond",
+                         "decision":  "Approved",
+                         "postcode":  "TW9 4BZ",
+                         "description":  "Details pursuant to condition U0079767 - Noise and Vibration Construction Method (Part B Only), of planning permission 18/3310/FUL.",
+                         "street_name":  "MELLISS AVENUE",
+                         "site_name":  "FORMER KEW BIOTHANE PLANT",
+                         "decision_date":  "31/07/2025",
+                         "valid_date":  "01/07/2025",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "PA25/2250",
+                         "centroid":  {
+                                          "lon":  "-0.2765756",
+                                          "lat":  "51.4786654"
+                                      },
+                         "id":  "Richmond-PA25_2250",
+                         "site_number":  null
+                     },
+                     {
+                         "lpa_name":  "Richmond",
+                         "decision":  "Approved",
+                         "postcode":  "TW9 4BZ",
+                         "description":  "Notice of substantial implementation on 9th October 2025 under Schedule 1, Paragraph 14.3 of the Section 106 agreement associated with planning permission 18/3310/FUL.",
+                         "street_name":  "MELLISS AVENUE",
+                         "site_name":  "FORMER KEW BIOTHANE PLANT",
+                         "decision_date":  "03/11/2025",
+                         "valid_date":  "21/10/2025",
+                         "url_planning_app":  null,
+                         "lpa_app_no":  "PA25/3856",
+                         "centroid":  {
+                                          "lon":  -0.276612,
+                                          "lat":  51.478665
+                                      },
+                         "id":  "Richmond-PA25_3856",
+                         "site_number":  null
+                     }
+                 ]
+    },
+    {
+        "query":  "Former HM Site Southall",
+        "hits":  null
+    },
+    {
+        "query":  "Albany Park Hertford Road Ealing",
+        "hits":  null
+    }
+]

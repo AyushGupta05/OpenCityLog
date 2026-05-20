@@ -1,0 +1,47 @@
+[
+  {
+    "source_id": "mhclg-called-in-decisions",
+    "source_name": "Planning applications: called-in decisions and recovered appeals",
+    "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+    "url": "https://www.gov.uk/government/collections/planning-applications-called-in-decisions-and-recovered-appeals",
+    "source_type": "official GOV.UK collection of Secretary of State called-in decisions and recovered appeals",
+    "license_and_attribution": "Open Government Licence v3.0 except where otherwise stated; attribute public sector information to GOV.UK / MHCLG / Planning Casework Unit.",
+    "coverage_years": "Relevant queried records span 2014-2026 on live GOV.UK pages; the collection says pre-2018 decisions are also available through National Archives routes.",
+    "update_frequency": "Decision-specific publication and collection updates.",
+    "geographic_scope": "England; candidates filtered to sites in Greater London.",
+    "key_fields": ["case reference", "site address", "decision date", "publication date", "decision type", "proposal summary", "decision PDF or collection listing"],
+    "reliability": "strong for administrative decision existence, date, source URL, and case reference; weaker for older collection-log-only records where full PDFs are no longer linked.",
+    "required_caveats": "Secretary of State called-in and recovered appeal decisions are planning-process milestones only. They do not evidence construction start, completion, occupation, opening, built design quality, or effects.",
+    "ingestion_recommendation": "Ingest candidates with live decision pages first. For collection-log-only 2014 items, retrieve archived/FOI decision letters before promoting to the main corpus."
+  },
+  {
+    "source_id": "pins-hs2-phase-one-planning-appeals",
+    "source_name": "HS2 Phase One Planning Forum planning appeal decisions",
+    "publisher": "High Speed Two (HS2) Limited / Planning Inspectorate / GOV.UK",
+    "url": "https://www.gov.uk/government/publications/hs2-phase-one-planning-forum-planning-appeal-decisions",
+    "source_type": "official GOV.UK page for Schedule 17 appeal decision notices",
+    "license_and_attribution": "GOV.UK page under OGL v3.0 except where otherwise stated; decision PDFs should be checked for document-specific restrictions.",
+    "coverage_years": "Published 2020, updated through 2024, with HS2 Phase One appeal documents.",
+    "update_frequency": "Document-specific updates.",
+    "geographic_scope": "HS2 Phase One route; candidates filtered to London borough entries such as Camden and Hillingdon.",
+    "key_fields": ["appeal reference", "decision document title", "borough/site descriptor", "publication/update date", "decision PDF"],
+    "reliability": "usable with caveats for administrative Schedule 17 appeal milestones; document-level effective dates need PDF extraction for production use.",
+    "required_caveats": "Schedule 17 appeal decisions are administrative route/works-control milestones, not evidence of construction, route use, completion, or impact outcomes.",
+    "ingestion_recommendation": "Use as a supporting planning-admin source after extracting each decision PDF date and exact works-location description."
+  },
+  {
+    "source_id": "planning-inspectorate-appeal-decisions",
+    "source_name": "Planning Inspectorate appeal decision PDFs",
+    "publisher": "Planning Inspectorate",
+    "url": "https://acp.planninginspectorate.gov.uk/",
+    "source_type": "official Planning Inspectorate appeal case/document portal",
+    "license_and_attribution": "Official public-sector appeal decision PDFs; reuse should be checked against GOV.UK/OGL terms and any document-specific restrictions before redistribution.",
+    "coverage_years": "Queried examples include 2024-2025 appeal decisions; portal coverage varies by appeal type and migration state.",
+    "update_frequency": "Case/document-specific publication.",
+    "geographic_scope": "England; candidates filtered to London addresses.",
+    "key_fields": ["appeal reference", "site address", "decision date", "LPA application reference", "decision outcome", "proposal description", "inspector"],
+    "reliability": "strong for individual appeal decision date, address, outcome, and reference when PDF is directly accessible.",
+    "required_caveats": "Ordinary appeal decisions are administrative milestones, often minor or condition-specific, and should not be over-weighted as major city-change evidence unless linked to a material architectural or heritage change.",
+    "ingestion_recommendation": "Use selectively for architecture-related decisions with clear site coordinates and proposal text; retain direct PDF URL and appeal reference."
+  }
+]

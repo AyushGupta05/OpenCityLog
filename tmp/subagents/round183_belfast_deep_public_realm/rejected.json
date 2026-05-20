@@ -1,0 +1,68 @@
+{
+  "schema_version": "round183.belfast_deep_public_realm.rejected.v1",
+  "generated_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "rejected_count": 6,
+  "rejected": [
+    {
+      "seed_key": "marrowbone_millennium_park_reopening_2023",
+      "title": "Marrowbone Millennium Park reopened after redevelopment",
+      "date": "2023-10-27",
+      "source_url": "https://www.belfastcity.gov.uk/News/Marrowbone-Millennium-Park-reopens-following-multi",
+      "reasons": [
+        "already_present_in_current_corpus_as_marrowbone_millennium_park_reopening_2023"
+      ],
+      "rejected_stage": "manual_source_audit"
+    },
+    {
+      "seed_key": "dr_pitt_memorial_park_reopening_2024",
+      "title": "Dr Pitt Memorial Park reopened after redevelopment",
+      "date": "2024-06-04",
+      "source_url": "https://www.belfastcity.gov.uk/News/East-Belfast-park-reopens-following-%C2%A31-7-million-r",
+      "reasons": [
+        "already_present_in_current_corpus_as_dr_pitt_memorial_park_reopening_2024"
+      ],
+      "rejected_stage": "manual_source_audit"
+    },
+    {
+      "seed_key": "black_mountain_shared_space_opening_2024",
+      "title": "Black Mountain Shared Space officially opened",
+      "date": "2024-09-18",
+      "source_url": "https://www.belfastcity.gov.uk/News/%C2%A37-million-shared-community-space-opens-at-Belfast",
+      "reasons": [
+        "already_present_in_current_corpus_as_black_mountain_shared_space_opening_2024"
+      ],
+      "rejected_stage": "manual_source_audit"
+    },
+    {
+      "seed_key": "templemore_baths_restoration_opening_2023",
+      "title": "Templemore Baths restoration and expansion completed",
+      "date": "2023",
+      "source_url": "https://www.belfastcity.gov.uk/Business-and-investment/Transforming-leisure-services/Templemore-Baths-restoration",
+      "reasons": [
+        "already_present_in_current_corpus_as_templemore_baths_restoration_opening_2023"
+      ],
+      "rejected_stage": "manual_source_audit"
+    },
+    {
+      "seed_key": "city_quays_gardens_launch_2025",
+      "title": "City Quays Gardens opened",
+      "date": "2025",
+      "source_url": "https://www.belfastcity.gov.uk/city-centre/major-projects",
+      "reasons": [
+        "already_present_in_current_corpus_as_city_quays_gardens_launch_2025"
+      ],
+      "rejected_stage": "manual_source_audit"
+    },
+    {
+      "seed_key": "springvale_park_opening_2023",
+      "title": "Springvale Park opened in west Belfast",
+      "date": "2023-08-23",
+      "source_url": "https://www.belfastcity.gov.uk/Business-and-investment/Physical-investment/Projects-delivered-in-partnership/SEUPB-PEACE-programme/PEACE-IV-Shared-Spaces/Forth-Meadow-Community-Greenway-project",
+      "reasons": [
+        "already_present_in_current_corpus_as_springvale_park_opening_2023"
+      ],
+      "rejected_stage": "manual_source_audit"
+    }
+  ]
+}

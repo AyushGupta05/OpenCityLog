@@ -1,0 +1,122 @@
+[
+  {
+    "event_id": "bfs_arch_qub_sonic_arts_refurbishment_completion_2025",
+    "city": "Belfast",
+    "title": "Sonic Arts Research Centre refurbishment completed",
+    "summary": "Queen's University Belfast Estates Directorate records the Sonic Arts Research Centre project as completed in December 2025 after refurbishment and reconfiguration of ground and first floor space in the existing Sonic Arts building, including new teaching, postgraduate, office and performance spaces.",
+    "effective_date_range": {
+      "start": "2025-12-01",
+      "end": "2025-12-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9375431,
+        54.5806406
+      ]
+    },
+    "source_name": "Completed Projects",
+    "publisher": "Queen's University Belfast",
+    "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/CompletedProjects/",
+    "source_type": "official institutional completed-projects page",
+    "source_record_id": "qub-estates-completed-projects-sonic-arts-research-centre-2025-12",
+    "source_date_field": "The Queen's Estates completed-projects page lists 'Completed: December 2025' for the Sonic Arts Research Centre section.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Source-specific Queen's University Belfast website copyright and terms; factual metadata and source URL only, no page text or media reproduced.",
+    "attribution": "Queen's University Belfast Estates Directorate completed-projects page.",
+    "confidence": "documented",
+    "limitations": "The source gives month-level completion only, not an exact completion day. The record covers refurbishment and reconfiguration inside an existing building, not original construction, course provision or research activity. Point geometry is an approximate building point.",
+    "transformation_method": "Selected from the Queen's University Belfast Estates Directorate completed-projects page; screened against the manual architecture milestone file and candidate rounds 94-100 by event_id, source URL plus record ID, record ID, source URL and semantic title/source terms. The month-level completion field was normalised to an effective date range, and the point was manually geocoded from the Sonic Arts Research Centre building location.",
+    "category": "education_cultural_facility_completion"
+  },
+  {
+    "event_id": "bfs_arch_qub_nursing_midwifery_mbc_refurbishment_completion_2025",
+    "city": "Belfast",
+    "title": "Queen's Nursing and Midwifery MBC refurbishment completed",
+    "summary": "Queen's University Belfast Estates Directorate records the Nursing and Midwifery project as completed in October 2025 after refurbishment of ground and second floor spaces in the Medical Biology Centre, including a new entrance, student and staff spaces, clinical skills wards, meeting space and lecture theatre upgrades.",
+    "effective_date_range": {
+      "start": "2025-10-01",
+      "end": "2025-10-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9404,
+        54.5845
+      ]
+    },
+    "source_name": "Completed Projects",
+    "publisher": "Queen's University Belfast",
+    "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/CompletedProjects/",
+    "source_type": "official institutional completed-projects page",
+    "source_record_id": "qub-estates-completed-projects-nursing-midwifery-2025-10",
+    "source_date_field": "The Queen's Estates completed-projects page lists 'Completed: October 2025' for the Nursing and Midwifery section.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Source-specific Queen's University Belfast website copyright and terms; factual metadata and source URL only, no page text or media reproduced.",
+    "attribution": "Queen's University Belfast Estates Directorate completed-projects page.",
+    "confidence": "documented",
+    "limitations": "The source gives month-level completion only, not an exact completion day. The mapped point is for the Medical Biology Centre works; the source also notes an associated School of Pharmacy reorganisation in the McClay Building, which is not mapped as this event. Room footprints and detailed internal boundaries are not source-supplied.",
+    "transformation_method": "Selected from the Queen's University Belfast Estates Directorate completed-projects page; screened against the manual architecture milestone file and candidate rounds 94-100 by event_id, source URL plus record ID, record ID, source URL and semantic title/source terms. The month-level completion field was normalised to an effective date range, and the point was manually placed at the Medical Biology Centre campus location.",
+    "category": "health_education_facility_refurbishment_completion"
+  },
+  {
+    "event_id": "bfs_arch_qub_biomedical_library_expansion_completion_2021",
+    "city": "Belfast",
+    "title": "MBC Biomedical Library interim expansion completed",
+    "summary": "Queen's University Belfast Estates Directorate records the MBC Biomedical Library interim expansion as completed in September 2021 after refurbishment and extension of the library into former Student Computer Centre space, with a new reception area and study rooms.",
+    "effective_date_range": {
+      "start": "2021-09-01",
+      "end": "2021-09-30"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9404,
+        54.5845
+      ]
+    },
+    "source_name": "Completed Projects",
+    "publisher": "Queen's University Belfast",
+    "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/CompletedProjects/",
+    "source_type": "official institutional completed-projects page",
+    "source_record_id": "qub-estates-completed-projects-mbc-biomedical-library-2021-09",
+    "source_date_field": "The Queen's Estates completed-projects page lists 'Completed: September 2021' for the MBC Biomedical Library interim expansion section.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Source-specific Queen's University Belfast website copyright and terms; factual metadata and source URL only, no page text or media reproduced.",
+    "attribution": "Queen's University Belfast Estates Directorate completed-projects page.",
+    "confidence": "documented",
+    "limitations": "The source gives month-level completion only, not an exact completion day. The record covers an internal library expansion in an existing university medical building, not a new standalone building or later library service changes. Point geometry is an approximate Medical Biology Centre building point.",
+    "transformation_method": "Selected from the Queen's University Belfast Estates Directorate completed-projects page; screened against the manual architecture milestone file and candidate rounds 94-100 by event_id, source URL plus record ID, record ID, source URL and semantic title/source terms. The month-level completion field was normalised to an effective date range, and the point was manually placed at the Medical Biology Centre campus location.",
+    "category": "education_library_facility_completion"
+  },
+  {
+    "event_id": "bfs_arch_qub_ashby_cafe_learning_hub_completion_2019",
+    "city": "Belfast",
+    "title": "Ashby Cafe and Learning Hub completed",
+    "summary": "Queen's University Belfast Estates Directorate records the Ashby Cafe and Learning Hub project as completed in October 2019 after refurbishment of the former Ashby cafe and kitchen into a multi-use student hub with communal kitchen space and group study rooms.",
+    "effective_date_range": {
+      "start": "2019-10-01",
+      "end": "2019-10-31"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.9408,
+        54.582
+      ]
+    },
+    "source_name": "Completed Projects",
+    "publisher": "Queen's University Belfast",
+    "source_url": "https://www.qub.ac.uk/directorates/EstatesDirectorate/CapitalDevelopmentProgramme/CompletedProjects/",
+    "source_type": "official institutional completed-projects page",
+    "source_record_id": "qub-estates-completed-projects-ashby-cafe-learning-hub-2019-10",
+    "source_date_field": "The Queen's Estates completed-projects page lists 'Completed: October 2019' for the Ashby Cafe and Learning Hub section.",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Source-specific Queen's University Belfast website copyright and terms; factual metadata and source URL only, no page text or media reproduced.",
+    "attribution": "Queen's University Belfast Estates Directorate completed-projects page.",
+    "confidence": "documented",
+    "limitations": "The source gives month-level completion only, not an exact completion day. The record covers an internal student hub refurbishment below the Stranmillis Road entrance to the Ashby Tower, not wider Ashby Building works or later teaching activity. Point geometry is an approximate Ashby Building point.",
+    "transformation_method": "Selected from the Queen's University Belfast Estates Directorate completed-projects page; screened against the manual architecture milestone file and candidate rounds 94-100 by event_id, source URL plus record ID, record ID, source URL and semantic title/source terms. The month-level completion field was normalised to an effective date range, and the point was reused from the existing curated Ashby Building campus context.",
+    "category": "education_student_facility_completion"
+  }
+]

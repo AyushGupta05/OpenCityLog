@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-05-19T00:00:00Z",
+  "task": "Round163 NYC LPC Permit Application Information next2 candidate pack",
+  "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+  "source_dataset_id": "dpm2-m9mq",
+  "start_date": "2008-01-01",
+  "end_date": "2026-05-19",
+  "rows_fetched": 213359,
+  "collapsed_regulation_numbers": 211791,
+  "eligible_before_cap": 34693,
+  "candidate_count": 200,
+  "date_range": {
+    "start": "2008-01-22",
+    "end": "2026-05-06"
+  },
+  "by_year": {
+    "2008": 10,
+    "2009": 10,
+    "2010": 10,
+    "2011": 10,
+    "2012": 10,
+    "2013": 10,
+    "2014": 10,
+    "2015": 10,
+    "2016": 10,
+    "2017": 10,
+    "2018": 12,
+    "2019": 10,
+    "2020": 10,
+    "2021": 10,
+    "2022": 10,
+    "2023": 10,
+    "2024": 12,
+    "2025": 16,
+    "2026": 10
+  },
+  "by_regulation_type": {
+    "Certificate of Appropriateness": 86,
+    "Authorization to Proceed": 6,
+    "Certificate of No Effect": 64,
+    "Miscellaneous - Amendment": 1,
+    "Staff Binding Report": 9,
+    "Commission Advisory Report": 1,
+    "Permit for Minor Work": 3,
+    "Status Update Letter": 29,
+    "Commission Binding Report": 1
+  },
+  "by_bucket": {
+    "heritage_permit_new_building": 28,
+    "heritage_permit_addition": 161,
+    "heritage_permit_structural_scope": 9,
+    "heritage_permit_facade_restoration": 2
+  },
+  "by_borough": {
+    "Brooklyn": 64,
+    "Manhattan": 124,
+    "Bronx": 3,
+    "Queens": 8,
+    "Staten Island": 1
+  },
+  "dedupe_inputs": {
+    "scanned_files": [
+      "data\\manual_drops\\architecture_milestones\\architecture_milestones_2008_2026.json",
+      "tmp/subagents/round116_nyc_lpc_permits_official/candidates.json",
+      "tmp/subagents/round122_nyc_lpc_permits_designations/candidates.json",
+      "tmp/subagents/round130_heritage_designations_more/candidates.json",
+      "tmp/subagents/round138_nyc_lpc_individual_landmark_gaps/candidates.json",
+      "tmp/subagents/round142_nyc_lpc_designation_gaps/candidates.json",
+      "tmp/subagents/round154_nyc_lpc_permit_deep/candidates.json",
+      "tmp/subagents/round159_nyc_lpc_permit_next/candidates.json"
+    ],
+    "missing_optional_files": [
+      "tmp/subagents/round163_nyc_lpc_permit_next2/candidates.json"
+    ],
+    "existing_record_ids": 10545,
+    "existing_title_date_keys": 10413,
+    "existing_source_urls": 10392
+  },
+  "selection": {
+    "max_candidates": 200,
+    "minimum_score": 16,
+    "balance_rule": "First pass selected at most 10 candidates per issue year and at most 4 candidates per regulation type per year; second pass filled remaining capacity by score.",
+    "caveat": "Administrative LPC permit/application processing only; no construction, completion, compliance, condition, outcome, causality, or geometry-of-work claim is made."
+  }
+}

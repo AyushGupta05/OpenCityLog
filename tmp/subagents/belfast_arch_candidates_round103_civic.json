@@ -1,0 +1,32 @@
+[
+  {
+    "city_id": "belfast",
+    "event_id": "bfs_arch_belfast_entries_phase2_completion_2024",
+    "date": "2024-03-31",
+    "date_precision": "fiscal_year",
+    "bucket": "planning/development/architecture/public realm",
+    "title": "Belfast Entries Project Phase 2 was completed",
+    "summary": "Belfast City Council's 2023-24 performance report recorded completion of Phase 2 of the Belfast Entries Project; the council project page identifies College Street Mews, High Street Entry, Patterson's Place and Sugarhouse Entry as the Phase 2 entries and describes maintenance, artwork, lighting, interpretive signage and paving works.",
+    "observed_change": "A second group of city-centre entries had completed public-realm, lighting, interpretive-signage and paving works during the 2023-24 reporting year.",
+    "area": "College Street Mews / High Street Entry / Patterson's Place / Sugarhouse Entry, Belfast city centre",
+    "latitude": 54.6003,
+    "longitude": -5.9277,
+    "source_ids": [
+      "belfast-architecture-public-pages"
+    ],
+    "source_name": "Belfast City Council",
+    "source_url": "https://www.belfastcity.gov.uk/Documents/Performance-Improvement-Self-Assessment-Report/Corporate-performance-2023-24",
+    "source_record_id": "bcc-corporate-performance-2023-24-belfast-entries-phase2",
+    "source_retrieved_at": "2026-05-18",
+    "source_date_field": "2023-24 corporate-performance completion statement; report published September 2024",
+    "source_dataset_id": "belfast-architecture-public-pages",
+    "confidence": "documented",
+    "architect": "Belfast City Council, AECOM, Daisy Chain Inc, Form Native, and Belfast Entries project team",
+    "project_type": "city-centre entry public-realm improvements",
+    "geometry_source": "Approximate midpoint curated from the named Phase 2 city-centre entries; Belfast City Council project page supplies named entries but not a GIS boundary.",
+    "geometry_precision": "Approximate multi-site midpoint, not a measured public-realm boundary or individual entry footprint.",
+    "limitations": "The performance report gives fiscal-year completion rather than a day-level opening date. Sugarhouse Entry is already represented as a separate reopening event, so this candidate should be reviewed as a broader Phase 2 public-realm completion and not double-counted as a second Sugarhouse-only milestone.",
+    "duplicate_check_note": "Searched existing architecture milestones, tmp/subagents candidate files, scripts and docs for event_id, 'Belfast Entries', 'Phase 2 of Belfast Entries Project', 'College Street Mews', 'High Street Entry', 'Patterson's Place', 'Sugarhouse Entry' and 'belfast-entries-phase2'. Existing corpus contains a Sugarhouse Entry reopening event but no broader Phase 2 completion event.",
+    "source_audit_note": "Official Belfast City Council performance page provides the completion statement and publication context; official Belfast Entries Project page corroborates the Phase 2 scope and works. License terms are source-specific council web terms, so the candidate stores only factual metadata and source URLs."
+  }
+]

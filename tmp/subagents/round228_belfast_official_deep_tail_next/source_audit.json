@@ -1,0 +1,432 @@
+{
+  "schema_version": "round228.belfast_official_deep_tail_next.source_audit.v1",
+  "generated_at": "2026-05-19",
+  "city_id": "belfast",
+  "audit": [
+    {
+      "source_id": "bcc-bloomberg-mayors-challenge-award-round228",
+      "source_name": "Belfast secures $1 million from Bloomberg Philanthropies Mayors Challenge 2025-2026 to help transform alleyways",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-secures-%241-million-from-bloomberg-philanth",
+      "final_url": "https://www.belfastcity.gov.uk/news/belfast-secures-%241-million-from-bloomberg-philanth",
+      "source_type": "official council news page",
+      "source_family": "BCC alleyway transformation programme",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page, current planning list or project page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 71,
+        "final_url": "https://www.belfastcity.gov.uk/news/belfast-secures-%241-million-from-bloomberg-philanth",
+        "content_sha256": "fc5b5abab97fe5a03d1ad35285f79fac6d68fab11127772f977c410d353ef32c",
+        "bytes": 35959,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-bloomberg-mayors-challenge-finalist-round228",
+      "source_name": "Belfast selected as a global finalist in Bloomberg Philanthropies 2025 Mayors Challenge",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/news/belfast-selected-as-a-global-finalist-in-bloomberg",
+      "final_url": "https://www.belfastcity.gov.uk/news",
+      "source_type": "official council news page",
+      "source_family": "BCC alleyway transformation programme",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page, current planning list or project page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 490,
+        "final_url": "https://www.belfastcity.gov.uk/news",
+        "content_sha256": "17f1c15f2abdecacba9825c592092fd48beae325404ee3cb3c105cbc965a7acc",
+        "bytes": 54778,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-city-centre-major-projects-round228",
+      "source_name": "Major projects in Belfast city centre",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/city-centre/major-projects",
+      "final_url": "https://www.belfastcity.gov.uk/city-centre/major-projects",
+      "source_type": "official council project status page",
+      "source_family": "BCC city-centre major projects current status page",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page, current planning list or project page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 92,
+        "final_url": "https://www.belfastcity.gov.uk/city-centre/major-projects",
+        "content_sha256": "3169e0f9596dfb60ee1c5ec4ba05df9e802170980c87f85f38a9bd20d5c31488",
+        "bytes": 34728,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-current-planning-applications-round228",
+      "source_name": "Current planning applications",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "final_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "source_type": "official council current planning application list",
+      "source_family": "BCC current planning applications list",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page, current planning list or project page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 137,
+        "final_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+        "content_sha256": "aea4ac6189904b8f136b71988c7a8f683628e8c4b28d85e3103dd65e3ba8ad53",
+        "bytes": 53495,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-nature-towns-cities-funding-round228",
+      "source_name": "Belfast to receive over GBP850k of National Lottery funding to help connect people with nature",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/News/Belfast-to-receive-over-%C2%A3850K-of-National-Lottery",
+      "final_url": "https://www.belfastcity.gov.uk/News/Belfast-to-receive-over-%C2%A3850K-of-National-Lottery",
+      "source_type": "official council news page",
+      "source_family": "BCC nature recovery / green-blue infrastructure funding",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page, current planning list or project page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 65,
+        "final_url": "https://www.belfastcity.gov.uk/News/Belfast-to-receive-over-%C2%A3850K-of-National-Lottery",
+        "content_sha256": "40f638b6f28e0aa4c8e64f88ee9a27594c9c41dd0c85d36f4963fa69c3587dfe",
+        "bytes": 36319,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-queens-quay-grey-to-green-round228",
+      "source_name": "Queen's Quay goes from grey to green",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/News/Queen-s-Quay-goes-from-grey-to-green",
+      "final_url": "https://www.belfastcity.gov.uk/News/Queen-s-Quay-goes-from-grey-to-green",
+      "source_type": "official council news page",
+      "source_family": "BCC Grey to Green / Maritime Mile public realm",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Council page, current planning list or project page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 216,
+        "final_url": "https://www.belfastcity.gov.uk/News/Queen-s-Quay-goes-from-grey-to-green",
+        "content_sha256": "ba864a5b1bb29cce8cd01888e3dd5789f098d0947a9bbd0a0d4f36ebdd56bf30",
+        "bytes": 36845,
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfc-antrim-road-public-realm-investment-round228",
+      "source_name": "Minister Hargey announces GBP482k investment for Antrim Road, Belfast",
+      "publisher": "Department for Communities, Northern Ireland",
+      "url": "https://www.communities-ni.gov.uk/news/minister-hargey-announces-ps482k-investment-antrim-road-belfast",
+      "final_url": "https://www.communities-ni.gov.uk/news/minister-hargey-announces-ps482k-investment-antrim-road-belfast",
+      "source_type": "official department regeneration news page",
+      "source_family": "DfC Antrim Road public realm scheme",
+      "license": "Crown copyright / UK Open Government Licence v3.0 where applicable to public-sector information; publication attachments, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Communities.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Departmental news or publication page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 175,
+        "final_url": "https://www.communities-ni.gov.uk/news/minister-hargey-announces-ps482k-investment-antrim-road-belfast",
+        "content_sha256": "f7d8a851825ff36ba17fd9224ba0fce61ed86041948c34fa00820368b58c7457",
+        "bytes": 53054,
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfc-duncairn-gardens-development-study-round228",
+      "source_name": "Publication of the Duncairn Gardens Development Study for Belfast",
+      "publisher": "Department for Communities, Northern Ireland",
+      "url": "https://www.communities-ni.gov.uk/news/publication-duncairn-gardens-development-study-belfast",
+      "final_url": "https://www.communities-ni.gov.uk/news/publication-duncairn-gardens-development-study-belfast",
+      "source_type": "official department regeneration news page",
+      "source_family": "DfC Duncairn Gardens development study",
+      "license": "Crown copyright / UK Open Government Licence v3.0 where applicable to public-sector information; publication attachments, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Communities.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Departmental news or publication page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 21,
+        "final_url": "https://www.communities-ni.gov.uk/news/publication-duncairn-gardens-development-study-belfast",
+        "content_sha256": "02f11f2421d4d38175e3f493b648c8ca8719eb68d8362affdd8bde71e8f70a42",
+        "bytes": 53075,
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfi-ravenhill-ormeau-embankment-consultation-round228",
+      "source_name": "Ravenhill Road and Ormeau Embankment Pedestrian and Cycling Improvements - Statutory Consultation",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "url": "https://www.infrastructure-ni.gov.uk/consultations/ravenhill-road-and-ormeau-embankment-pedestrian-and-cycling-improvements-statutory-consultation",
+      "final_url": "https://www.infrastructure-ni.gov.uk/consultations/ravenhill-road-and-ormeau-embankment-pedestrian-and-cycling-improvements-statutory-consultation",
+      "source_type": "official department active-travel consultation page",
+      "source_family": "DfI active-travel statutory consultation",
+      "license": "Crown copyright / UK Open Government Licence v3.0 where applicable to public-sector information; publication attachments, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Infrastructure.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Departmental news or consultation page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 16,
+        "final_url": "https://www.infrastructure-ni.gov.uk/consultations/ravenhill-road-and-ormeau-embankment-pedestrian-and-cycling-improvements-statutory-consultation",
+        "content_sha256": "024cf2cad51a3df8fcff9bc0055ec6f7f87bcbdfda846b333fc8a2b269b439a9",
+        "bytes": 41535,
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfi-sydenham-greenway-funding-round228",
+      "source_name": "Kimmins announces over GBP1m for seven greenway projects",
+      "publisher": "Department for Infrastructure, Northern Ireland",
+      "url": "https://www.infrastructure-ni.gov.uk/news/kimmins-announces-over-ps1m-seven-greenway-projects",
+      "final_url": "https://www.infrastructure-ni.gov.uk/news/kimmins-announces-over-ps1m-seven-greenway-projects",
+      "source_type": "official department active-travel news page",
+      "source_family": "DfI active-travel greenway funding",
+      "license": "Crown copyright / UK Open Government Licence v3.0 where applicable to public-sector information; publication attachments, images, maps, logos and embedded third-party material require source-level rights review before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Infrastructure.",
+      "coverage_years": "Selected official Belfast records dated between 2008-01-01 and 2026-05-19.",
+      "update_frequency": "Departmental news or consultation page; may be updated by publisher.",
+      "geographic_scope": "Belfast city, Belfast city centre, Belfast neighbourhoods, Belfast Harbour/Maritime Mile, or named project/application area.",
+      "granularity": "Source page, news item, current planning row, programme funding milestone, project status item, development study, or public-realm/active-travel scheme milestone.",
+      "key_fields": [
+        "title",
+        "publication, advertised, meeting or source-reported milestone date",
+        "publisher",
+        "source URL",
+        "source record text/application reference",
+        "license/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use as administrative/source-reported evidence only unless the source explicitly documents physical works or opening.",
+        "Do not infer completion, occupation, final design, planning outcome, usage, regeneration impact, environmental outcome, funding drawdown or causation.",
+        "Representative points are not surveyed boundaries, parcels, footprints, routes or works extents.",
+        "Mutable current planning pages require later verification against the NI Planning Portal for production import."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after taxonomy, duplicate and license review.",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 51,
+        "final_url": "https://www.infrastructure-ni.gov.uk/news/kimmins-announces-over-ps1m-seven-greenway-projects",
+        "content_sha256": "d6a08013f47ecc2d991e6a5357f97411797a162f4e3f9c19cd3adb90af392258",
+        "bytes": 39386,
+        "error": null
+      }
+    }
+  ],
+  "retrieval_summary": {
+    "audited_source_urls": 10,
+    "retrieved_ok": 10,
+    "retrieval_failures": []
+  }
+}

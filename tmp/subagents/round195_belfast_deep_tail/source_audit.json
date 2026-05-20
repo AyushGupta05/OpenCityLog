@@ -1,0 +1,319 @@
+{
+  "schema_version": "round195.belfast_deep_tail.source_audit.v1",
+  "generated_at": "2026-05-19",
+  "city_id": "belfast",
+  "audit": [
+    {
+      "source_id": "bcc-belfastwifi-round195",
+      "source_name": "BelfastWiFi",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/belfastwifi",
+      "source_type": "official council digital infrastructure/status page",
+      "source_family": "BCC regeneration/digital infrastructure pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.belfastcity.gov.uk/belfastwifi",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 111,
+        "content_sha256": "c108c363efd620fc4c5475f7e4cea486bebb3975da478eac21af34758ef09f30",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-cathedral-gardens-round195",
+      "source_name": "Cathedral Gardens",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/cathedralgardens",
+      "source_type": "official council project/status page",
+      "source_family": "BCC physical investment project pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.belfastcity.gov.uk/cathedralgardens",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 83,
+        "content_sha256": "4fad327c1923acefba16282bcb29f608f138f46be8957de4a3de7532dccc26db",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-future-city-centre-programme-round195",
+      "source_name": "Future City Centre Programme",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/futurecity",
+      "source_type": "official council regeneration/status page",
+      "source_family": "BCC regeneration pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.belfastcity.gov.uk/futurecity",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 178,
+        "content_sha256": "85f3fbd968a3298f95c3fcd7f10c24ee182732a2fa772745be9c2e6081f7438e",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-giants-park-round195",
+      "source_name": "Giant's Park - North Foreshore",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/giantspark",
+      "source_type": "official council project/status page",
+      "source_family": "BCC physical investment project pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.belfastcity.gov.uk/giantspark",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 140,
+        "content_sha256": "87493bb63522a67dcb787b5c7da94ca8a1b514def0b4fabd0756c1265f80440b",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-open-linked-data-round195",
+      "source_name": "Open and linked data",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/Open-and-linked-data",
+      "source_type": "official council open data page",
+      "source_family": "BCC open data pages",
+      "license": "UK Open Government Licence v3.0 for listed open datasets where the page states OGL terms; verify dataset-specific metadata before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.belfastcity.gov.uk/Open-and-linked-data",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 135,
+        "content_sha256": "741a03d7c548bfc830333c3e5dc462030c427b08934946b3e829b1b0d3804605",
+        "error": null
+      }
+    },
+    {
+      "source_id": "bcc-vacant-to-vibrant-round195",
+      "source_name": "Vacant to Vibrant scheme",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/vacanttovibrant",
+      "source_type": "official council grant/status page",
+      "source_family": "BCC regeneration/grant pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from Belfast City Council.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.belfastcity.gov.uk/vacanttovibrant",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 137,
+        "content_sha256": "2a1d449c99197cbe2559450e2756ac12411c659e1f49c448abe4275045cd8f6c",
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfc-five-cs-screening-round195",
+      "source_name": "The Five Cs Public Realm Project - screening",
+      "publisher": "Department for Communities, Northern Ireland",
+      "url": "https://www.communities-ni.gov.uk/publications/five-cs-public-realm-project-screening",
+      "source_type": "official department screening publication page",
+      "source_family": "DfC public realm/screening pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and attachments before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Communities.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.communities-ni.gov.uk/publications/five-cs-public-realm-project-screening",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 81,
+        "content_sha256": "83a393c1850b0b000dc9ec806d747b19f59442dec13a663d0a60bd373af7a987",
+        "error": null
+      }
+    },
+    {
+      "source_id": "dfc-mag-living-high-streets-round195",
+      "source_name": "Launch of the MAG Living High Streets initiative - in pictures",
+      "publisher": "Department for Communities, Northern Ireland",
+      "url": "https://www.communities-ni.gov.uk/galleries/launch-mag-living-high-streets-initiative-pictures",
+      "source_type": "official department gallery/news page",
+      "source_family": "DfC architecture and built environment pages",
+      "license": "UK Open Government Licence v3.0 where applicable to public-sector information; verify image-specific rights before production import.",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "attribution": "Contains public sector information from the Department for Communities.",
+      "coverage_years": "Source-specific Belfast project, status, screening, programme or initiative records within 2008-01-01 to 2026-05-19 where a source-stated date or current-status retrieval date is present.",
+      "update_frequency": "Project/status page; may be updated by publisher.",
+      "geographic_scope": "Belfast named site, street cluster, city-centre area, venue, or distributed council programme.",
+      "granularity": "Site, street cluster, project page, programme-level status, or administrative publication record.",
+      "key_fields": [
+        "source page title",
+        "publication/status/date field",
+        "named place/project/programme",
+        "publisher",
+        "source URL",
+        "licence/attribution"
+      ],
+      "reliability_assessment": "usable with caveats",
+      "required_caveats": [
+        "Use source-reported dates as administrative, observed, works-start, publication, or current-status dates only.",
+        "Approximate candidate geometry must be reviewed before production import.",
+        "Do not infer causation, impacts, usage, vacancy outcomes, access quality, construction completion, or final design from status/screening/programme records."
+      ],
+      "ingestion_recommendation": "Candidate-level ingestion after duplicate, timing, and geometry review.",
+      "final_url": "https://www.communities-ni.gov.uk/galleries/launch-mag-living-high-streets-initiative-pictures",
+      "retrieval": {
+        "retrieved_at": "2026-05-19",
+        "http_status": 200,
+        "ok": true,
+        "elapsed_ms": 80,
+        "content_sha256": "4cdbf7b7cd3d17189b18b95513763da2a2c0948ca6f1bb060d87b8ddf07f9c3b",
+        "error": null
+      }
+    }
+  ]
+}

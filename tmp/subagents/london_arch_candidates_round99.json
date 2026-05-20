@@ -1,0 +1,164 @@
+[
+  {
+    "event_id": "lon_arch_queen_elizabeth_ii_garden_opening_2026",
+    "city": "London",
+    "title": "Queen Elizabeth II Garden opened in The Regent's Park",
+    "summary": "The Royal Parks recorded the Queen Elizabeth II Garden in The Regent's Park being opened by HRH The Princess Royal on 21 April 2026.",
+    "effective_date": "2026-04-21",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.151228,
+        51.528483
+      ]
+    },
+    "source_name": "Queen Elizabeth II: A Life in Gardens",
+    "publisher": "The Royal Parks",
+    "source_url": "https://www.royalparks.org.uk/read-watch-listen/queen-elizabeth-ii-life-gardens",
+    "source_type": "official public-park institution page",
+    "source_record_id": "royal-parks-queen-elizabeth-ii-garden-opening-2026-04-21",
+    "source_date_field": "article text states the new garden at The Regent's Park was opened on 21 April 2026",
+    "source_retrieved_at": "2026-05-18",
+    "license": "The Royal Parks website copyright and terms apply to page content; factual metadata only. Approximate point derived from public postcode/address geocoding; OpenStreetMap/Postcodes.io attribution applies where used.",
+    "attribution": "The Royal Parks; geocoding by Postcodes.io/OpenStreetMap contributors.",
+    "confidence": "documented",
+    "limitations": "Records the formal garden opening, not the full design, planting list, construction history, or visitor-management arrangements. Geometry is an approximate point for the Broad Walk/Chester Road garden location, not a measured two-acre boundary.",
+    "transformation_method": "Extracted the stated opening date and named garden from The Royal Parks page; located the garden from The Royal Parks location description and public postcode/address geocoding; screened against the manual corpus and rounds 94-98 by event_id, source URL, source_record_id, and title/source terms.",
+    "category": "architecture/public_realm"
+  },
+  {
+    "event_id": "lon_arch_roehampton_dorothy_buchanan_building_opening_2026",
+    "city": "London",
+    "title": "University of Roehampton opened the Dorothy Buchanan Building",
+    "summary": "The University of Roehampton recorded the 27 February 2026 opening event for the Dorothy Buchanan Building, the new home for its Sustainable Engineering and Technology Centre.",
+    "effective_date": "2026-02-27",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.246918,
+        51.455142
+      ]
+    },
+    "source_name": "University of Roehampton unveils new Dorothy Buchanan Building for engineering and technology",
+    "publisher": "University of Roehampton",
+    "source_url": "https://www.roehampton.ac.uk/news/2026/march/university-of-roehampton-unveils-dorothy-buchanan-building-for-engineering-and-technology/",
+    "source_type": "official university news page",
+    "source_record_id": "roehampton-dorothy-buchanan-building-opening-2026-02-27",
+    "source_date_field": "article text states the opening event was held on 27 February 2026",
+    "source_retrieved_at": "2026-05-18",
+    "license": "University of Roehampton website copyright applies to page content; factual metadata only. Geocoded point derived from Postcodes.io/OpenStreetMap data, ODbL attribution applies where used.",
+    "attribution": "University of Roehampton; geocoding by Postcodes.io/OpenStreetMap contributors.",
+    "confidence": "documented",
+    "limitations": "Records the official opening event for the Dorothy Buchanan Building, not the start of teaching, every internal facility, or later programme outcomes. Geometry is an approximate Roehampton campus point, not a measured building footprint.",
+    "transformation_method": "Extracted the opening event date, building name, and education-estate scope from the university news page; geocoded the Roehampton campus address to a WGS84 point; screened against the manual corpus and rounds 94-98 by event_id, source URL, source_record_id, and title/source terms.",
+    "category": "architecture/education_estate"
+  },
+  {
+    "event_id": "lon_arch_new_addington_community_diagnostic_centre_opening_2026",
+    "city": "London",
+    "title": "New Addington Community Diagnostic Centre opened",
+    "summary": "Croydon Health Services NHS Trust recorded the official opening of a new Community Diagnostic Centre in New Addington on 16 January 2026.",
+    "effective_date": "2026-01-16",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.015791,
+        51.340603
+      ]
+    },
+    "source_name": "Health and Social Care Secretary opens multi-million pound Community Diagnostic Centre in New Addington",
+    "publisher": "Croydon Health Services NHS Trust",
+    "source_url": "https://www.croydonhealthservices.nhs.uk/trust-news/health-and-social-care-secretary-opens-multimillion-pound-community-diagnostic-centre-in-new-addington-7647/",
+    "source_type": "official NHS trust news page",
+    "source_record_id": "croydon-new-addington-cdc-opening-2026-01-16",
+    "source_date_field": "news post date and official-opening text dated 16 January 2026",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Croydon Health Services NHS Trust website copyright applies to page content; factual metadata only. Geocoded point derived from Postcodes.io/OpenStreetMap data, ODbL attribution applies where used.",
+    "attribution": "Croydon Health Services NHS Trust; geocoding by Postcodes.io/OpenStreetMap contributors.",
+    "confidence": "documented",
+    "limitations": "Records the official opening of the New Addington diagnostic centre, not all diagnostic-service changes across Croydon or patient outcomes. Geometry is an approximate point for the New Addington site, not a measured clinical floor or site boundary.",
+    "transformation_method": "Extracted the official opening date, facility name, and NHS estate context from the trust news page; geocoded the New Addington site postcode to a WGS84 point; screened against the manual corpus and rounds 94-98 by event_id, source URL, source_record_id, and title/source terms.",
+    "category": "architecture/health_estate"
+  },
+  {
+    "event_id": "lon_arch_st_andrew_apostle_school_building_opening_2025",
+    "city": "London",
+    "title": "St Andrew the Apostle School opened its new building",
+    "summary": "Barnet Education and Learning Service recorded St Andrew the Apostle School's new building being officially opened on 28 November 2025.",
+    "effective_date": "2025-11-28",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.153126,
+        51.625416
+      ]
+    },
+    "source_name": "St Andrew the Apostle School New Building Grand Opening",
+    "publisher": "Barnet Education and Learning Service",
+    "source_url": "https://www.bels.org.uk/post/st-andrew-the-apostle-school-new-building-grand-opening",
+    "source_type": "official local education service news page",
+    "source_record_id": "bels-st-andrew-apostle-school-building-opening-2025-11-28",
+    "source_date_field": "article text states the new school building was officially opened on 28 November 2025",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Barnet Education and Learning Service website copyright applies to page content; factual metadata only. Geocoded point derived from public postcode/address data; Postcodes.io/OpenStreetMap attribution applies where used.",
+    "attribution": "Barnet Education and Learning Service; geocoding by Postcodes.io/OpenStreetMap contributors.",
+    "confidence": "documented",
+    "limitations": "Records the formal opening of the new school building, not the school's original establishment, temporary accommodation history, or every item in the campus project. Geometry is an approximate North London Business Park school point based on public address/postcode data, not a measured footprint.",
+    "transformation_method": "Extracted the official opening date and new-building context from the Barnet Education and Learning Service news page; geocoded the school's North London Business Park address/postcode to a WGS84 point; screened against the manual corpus and rounds 94-98 by event_id, source URL, source_record_id, and title/source terms.",
+    "category": "architecture/education_estate"
+  },
+  {
+    "event_id": "lon_arch_wandsworth_homelessness_assessment_hub_opening_2026",
+    "city": "London",
+    "title": "Wandsworth Homelessness Assessment Hub opened on Lavender Hill",
+    "summary": "Wandsworth Council recorded the official opening of a new 11-bed Homelessness Assessment Hub in Lavender Hill on 12 March 2026.",
+    "effective_date": "2026-03-12",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.16035,
+        51.464526
+      ]
+    },
+    "source_name": "New hub strengthens support for Wandsworth residents facing homelessness",
+    "publisher": "Wandsworth Borough Council",
+    "source_url": "https://www.wandsworth.gov.uk/news/news-march-2026/new-hub-strengthens-support-for-wandsworth-residents-facing-homelessness/",
+    "source_type": "official borough council news page",
+    "source_record_id": "wandsworth-homelessness-assessment-hub-opening-2026-03-12",
+    "source_date_field": "published date and officially-opened-today wording dated 12 March 2026",
+    "source_retrieved_at": "2026-05-18",
+    "license": "Wandsworth Borough Council website copyright and terms apply; factual metadata only. Geocoded point derived from Postcodes.io/OpenStreetMap data, ODbL attribution applies where used.",
+    "attribution": "Wandsworth Borough Council; geocoding by Postcodes.io/OpenStreetMap contributors.",
+    "confidence": "documented",
+    "limitations": "Records the official opening of the Lavender Hill assessment hub, not the 2024 planning decision, service commissioning history, or individual housing outcomes. Geometry is an approximate address point for 201-203 Lavender Hill/SW11 5TB, not a measured internal layout or parcel boundary.",
+    "transformation_method": "Extracted the official opening date, hub name, and civic/social-infrastructure scope from Wandsworth Council's news page; geocoded the Lavender Hill hub address to a WGS84 point; screened against the manual corpus and rounds 94-98 by event_id, source URL, source_record_id, and title/source terms.",
+    "category": "architecture/civic_social_infrastructure"
+  },
+  {
+    "event_id": "lon_arch_brooke_house_acton_opening_2026",
+    "city": "London",
+    "title": "Brooke House women-only housing development opened in Acton",
+    "summary": "L&Q recorded Brooke House in Acton officially opening on 24 March 2026 as a 15-storey block with 102 affordable homes.",
+    "effective_date": "2026-03-24",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.280505,
+        51.503606
+      ]
+    },
+    "source_name": "UK's first women-only housing development officially opens in Acton",
+    "publisher": "L&Q Group",
+    "source_url": "https://www.lqgroup.org.uk/media-centre/news/uks-first-women-only-housing-development-officially-opens-in-acton",
+    "source_type": "official housing association news page",
+    "source_record_id": "lq-brooke-house-acton-opening-2026-03-24",
+    "source_date_field": "published date 25 March 2026 and article text stating the opening was on 24 March",
+    "source_retrieved_at": "2026-05-18",
+    "license": "L&Q website copyright and terms apply to page content; factual metadata only. Geocoded point derived from public postcode/address data; Postcodes.io/OpenStreetMap attribution applies where used.",
+    "attribution": "L&Q Group; geocoding by Postcodes.io/OpenStreetMap contributors.",
+    "confidence": "documented",
+    "limitations": "Records the official opening of Brooke House, not the full planning history, resident allocation process, or earlier topping-out/completion milestones. Geometry is an approximate Gunnersbury Lane/Acton point, not a measured tower footprint or estate boundary.",
+    "transformation_method": "Extracted the opening date, housing-development name, and built form from L&Q's official news page; geocoded the Brooke House/Gunnersbury Lane site to a WGS84 point; screened against the manual corpus and rounds 94-98 by event_id, source URL, source_record_id, and title/source terms.",
+    "category": "architecture/affordable_housing"
+  }
+]

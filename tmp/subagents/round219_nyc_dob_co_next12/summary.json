@@ -1,0 +1,295 @@
+{
+  "schema_version": "round219.nyc_dob_co_next12_summary.v1",
+  "generated_at": "2026-05-19T00:00:00Z",
+  "accessed_at": "2026-05-19",
+  "output_files": [
+    "tmp/subagents/round219_nyc_dob_co_next12/candidates.json",
+    "tmp/subagents/round219_nyc_dob_co_next12/source_audit.json",
+    "tmp/subagents/round219_nyc_dob_co_next12/summary.json",
+    "tmp/subagents/round219_nyc_dob_co_next12/notes.md",
+    "tmp/subagents/round219_nyc_dob_co_next12/rejected.json"
+  ],
+  "candidate_count": 200,
+  "selected_summary": {
+    "by_source_dataset_id": {
+      "bs8b-p36w": 100,
+      "pkdm-hqz6": 100
+    },
+    "by_year": {
+      "2012": 10,
+      "2013": 8,
+      "2014": 8,
+      "2015": 6,
+      "2016": 12,
+      "2017": 15,
+      "2018": 10,
+      "2019": 9,
+      "2020": 12,
+      "2021": 10,
+      "2022": 17,
+      "2023": 41,
+      "2024": 31,
+      "2025": 11
+    },
+    "by_borough": {
+      "Bronx": 27,
+      "Brooklyn": 53,
+      "Manhattan": 31,
+      "Queens": 75,
+      "Staten Island": 14
+    },
+    "by_co_type": {
+      "Final": 182,
+      "Temporary": 17,
+      "Initial": 1
+    },
+    "by_job_type": {
+      "NB": 64,
+      "A1": 36,
+      "NEW BUILDING": 76,
+      "New Building": 24
+    },
+    "date_range": {
+      "start": "2012-07-12",
+      "end": "2025-05-13"
+    },
+    "dwelling_units": {
+      "min": 2,
+      "median": 49,
+      "max": 134
+    }
+  },
+  "source_ids": [
+    "nyc-dob-now-certificate-of-occupancy-pkdm-hqz6",
+    "nyc-dob-certificate-of-occupancy-bs8b-p36w",
+    "nyc-dob-certificate-of-occupancy"
+  ],
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19"
+  },
+  "legacy_preferred_end_date": "2021-03-31",
+  "legacy_vs_dob_now_mix": {
+    "dob_now": 100,
+    "legacy": 100
+  },
+  "selection_summary": {
+    "date_window": {
+      "start": "2008-01-01",
+      "end": "2026-05-19"
+    },
+    "legacy_preferred_end_date": "2021-03-31",
+    "target_count": 200,
+    "candidate_pool_before_balancing": 9093,
+    "candidate_count": 200,
+    "eligible_headroom_after_retained_candidates": 8893,
+    "retained_less_than_target_reason": null,
+    "duplicate_screening": {
+      "files_read": 21,
+      "tokens": 116641,
+      "source_date_keys": 69957,
+      "screened_files": [
+        "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+        "tmp/subagents/round117_nyc_dob_co_high_signal/candidates.json",
+        "tmp/subagents/round117_nyc_dob_filings_permits/candidates.json",
+        "tmp/subagents/round117_nyc_local_dob_bulk/candidates.json",
+        "tmp/subagents/round119_nyc_dob_legacy_bulk/candidates.json",
+        "tmp/subagents/round133_nyc_official_architecture/candidates.json",
+        "tmp/subagents/round136_nyc_dob_now_more/candidates.json",
+        "tmp/subagents/round143_nyc_dob_now_even_more/candidates.json",
+        "tmp/subagents/round149_nyc_dob_now_next/candidates.json",
+        "tmp/subagents/round152_nyc_dob_now_next2/candidates.json",
+        "tmp/subagents/round155_nyc_dob_co_next/candidates.json",
+        "tmp/subagents/round160_nyc_dob_co_next2/candidates.json",
+        "tmp/subagents/round164_nyc_dob_co_next3/candidates.json",
+        "tmp/subagents/round169_nyc_dob_co_next4/candidates.json",
+        "tmp/subagents/round175_nyc_dob_co_next5/candidates.json",
+        "tmp/subagents/round181_nyc_dob_co_next6/candidates.json",
+        "tmp/subagents/round187_nyc_dob_co_next7/candidates.json",
+        "tmp/subagents/round193_nyc_dob_co_next8/candidates.json",
+        "tmp/subagents/round199_nyc_dob_co_next9/candidates.json",
+        "tmp/subagents/round205_nyc_dob_co_next10/candidates.json",
+        "tmp/subagents/round211_nyc_dob_co_next11/candidates.json"
+      ],
+      "manual_event_count": 33296
+    },
+    "fetched_counts": {
+      "dob_now_rows_fetched": 75796,
+      "dob_now_grouped_rows": 23907,
+      "legacy_rows_fetched": 142076,
+      "legacy_grouped_rows": 52945
+    },
+    "rejected_counts": {
+      "dob_now_below_high_signal_threshold_or_renewal": 20566,
+      "existing_dob_now_co_or_job_identifier": 2059,
+      "legacy_below_high_signal_threshold": 30822,
+      "existing_legacy_co_or_job_identifier": 1890,
+      "legacy_post_dob_now_coverage_period": 12422
+    },
+    "selected_summary": {
+      "by_source_dataset_id": {
+        "bs8b-p36w": 100,
+        "pkdm-hqz6": 100
+      },
+      "by_year": {
+        "2012": 10,
+        "2013": 8,
+        "2014": 8,
+        "2015": 6,
+        "2016": 12,
+        "2017": 15,
+        "2018": 10,
+        "2019": 9,
+        "2020": 12,
+        "2021": 10,
+        "2022": 17,
+        "2023": 41,
+        "2024": 31,
+        "2025": 11
+      },
+      "by_borough": {
+        "Bronx": 27,
+        "Brooklyn": 53,
+        "Manhattan": 31,
+        "Queens": 75,
+        "Staten Island": 14
+      },
+      "by_co_type": {
+        "Final": 182,
+        "Temporary": 17,
+        "Initial": 1
+      },
+      "by_job_type": {
+        "NB": 64,
+        "A1": 36,
+        "NEW BUILDING": 76,
+        "New Building": 24
+      },
+      "date_range": {
+        "start": "2012-07-12",
+        "end": "2025-05-13"
+      },
+      "dwelling_units": {
+        "min": 2,
+        "median": 49,
+        "max": 134
+      }
+    }
+  },
+  "caveats": [
+    "Certificate of occupancy legal/admin milestone only.",
+    "Not actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal evidence.",
+    "Coordinates are DOB/Open Data geocoded address points.",
+    "License/terms notes are NYC Open Data / NYC.gov terms with DOB attribution; verify terms before broader redistribution."
+  ],
+  "sample_candidates": [
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_210068727_final_2012_07_12",
+      "date": "2012-07-12",
+      "address": "780 PROSPECT AVENUE",
+      "borough": "Bronx",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 210068727 / Socrata row row-kk3w_v3ai-ax4t / item 004 / issue Final",
+      "job_number": "210068727"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_320024763_final_2012_08_07",
+      "date": "2012-08-07",
+      "address": "1534 PROSPECT PLACE",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 320024763 / Socrata row row-zngi-q92g_7gbx / item 001 / issue Final",
+      "job_number": "320024763"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_220083567_final_2012_09_12",
+      "date": "2012-09-12",
+      "address": "220 WEST 167 STREET",
+      "borough": "Bronx",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 220083567 / Socrata row row-k537~ghtf~cc4n / item 002 / issue Final",
+      "job_number": "220083567"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_302393755_final_2012_09_13",
+      "date": "2012-09-13",
+      "address": "2011 OCEAN AVENUE",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 302393755 / Socrata row row-big2-jk62~9sr8 / item 001 / issue Final",
+      "job_number": "302393755"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_301943529_final_2012_09_19",
+      "date": "2012-09-19",
+      "address": "74 GRAND AVENUE",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 301943529 / Socrata row row-3t4s~qf9c.zbfe / item 001 / issue Final",
+      "job_number": "301943529"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_110021146_temporary_2012_09_21",
+      "date": "2012-09-21",
+      "address": "344 AMSTERDAM AVENUE",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 110021146 / Socrata row row-4szn.m3fx_2deh / item 012 / issue Temporary",
+      "job_number": "110021146"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_110439712_final_2012_09_27",
+      "date": "2012-09-27",
+      "address": "203 WEST 146 STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 110439712 / Socrata row row-grh2-erm4~cu6u / item 005 / issue Final",
+      "job_number": "110439712"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_200970707_final_2012_09_28",
+      "date": "2012-09-28",
+      "address": "3044 THIRD AVENUE",
+      "borough": "Bronx",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 200970707 / Socrata row row-j925_yg6r_zy3q / item 011 / issue Final",
+      "job_number": "200970707"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_103721386_final_2012_11_21",
+      "date": "2012-11-21",
+      "address": "29 JOHN STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 103721386 / Socrata row row-zyjz_d5km~ayzw / item 026 / issue Final",
+      "job_number": "103721386"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_104746090_final_2012_12_07",
+      "date": "2012-12-07",
+      "address": "210 LAFAYETTE STREET",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 104746090 / Socrata row row-55nu_g3uk~epsj / item 007 / issue Final",
+      "job_number": "104746090"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_120210360_final_2013_01_11",
+      "date": "2013-01-11",
+      "address": "2081 MADISON AVENUE",
+      "borough": "Manhattan",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 120210360 / Socrata row row-mswh_aaec_qgib / item 005 / issue Final",
+      "job_number": "120210360"
+    },
+    {
+      "candidate_id": "nyc_dob_co_round219_legacy_320048408_final_2013_02_19",
+      "date": "2013-02-19",
+      "address": "1166 ELTON STREET",
+      "borough": "Brooklyn",
+      "source_dataset_id": "bs8b-p36w",
+      "source_record_id": "job 320048408 / Socrata row row-fpar~qq2q-c5rs / item 002 / issue Final",
+      "job_number": "320048408"
+    }
+  ]
+}

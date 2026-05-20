@@ -1,0 +1,46 @@
+# Round278 NYC DOB CO Next22 Candidate Pack
+
+Generated 200 certificate-of-occupancy candidates on 2026-05-20.
+
+## Scope
+
+- Official NYC Open Data DOB NOW Certificate of Occupancy (`pkdm-hqz6`) rows.
+- Official NYC Open Data legacy DOB Certificate Of Occupancy (`bs8b-p36w`) rows.
+- Date window: 2008-01-01 through 2026-05-20. Legacy candidates were limited to the dataset's stated pre-DOB-NOW period through 2021-03-31.
+
+## Counts
+
+- Candidates retained: 200
+- DOB NOW retained: 100
+- Legacy retained: 100
+- DOB NOW rows fetched: 75796
+- Legacy rows fetched: 142076
+- Duplicate/reject samples recorded: 69888
+
+## Selection
+
+- Required CO issued status, row-level date, in-city coordinates, source row identifiers, and DOB/NYC Open Data provenance.
+- Preferred final or initial DOB NOW CO rows and final legacy CO rows; renewal-only DOB NOW rows were rejected as noisy repeat signals.
+- Retained NB/New Building and Alteration CO/A1 rows with at least 25 source-reported dwelling units or a source-row civic/public text signal.
+- Grouped repeated rows by DOB job/base job, BIN, and normalized address before selecting the best CO milestone for that group.
+
+## Duplicate Screening
+
+Screened 31 files, 155721 identifier tokens, and 92746 source-date keys, including the live manual corpus and prior DOB/CO candidate packs for rounds 117, 119, 133, 136, 143, 149, 152, 155, 160, 164, 169, 175, 181, 187, 193, 199, 205, 211, 219, 225, 232, 242, 247, 250, 256, 264, 267, and 273.
+
+## Caveats
+
+- A CO row is a legal/admin DOB record. It is not actual occupancy, public opening, project completion for all spaces, construction completion, final built form, safety outcome, affordability outcome, or causal evidence.
+- Dwelling-unit counts and job/CO type labels are source row values and may be corrected or superseded.
+- Coordinates are DOB/Open Data geocoded points, not surveyed footprints or parcel boundaries.
+- Keep DOB and NYC Open Data attribution with row-level Socrata URLs.
+
+## Independent Validation
+
+- Required provenance fields present: true.
+- Unique event IDs: 200.
+- Unique source/date keys: 200.
+- Date window valid: true (2008-01-01 through 2026-05-20).
+- NYC coordinate bounds valid: true.
+- No exact event/source/date/source-URL/identifier overlap with the screened corpus and prior CO packs, including rounds 225, 232, 242, 247, 250, 256, 264, 267, and 273.
+- Status mix: bs8b-p36w|Issued=100, pkdm-hqz6|CO Issued=100.

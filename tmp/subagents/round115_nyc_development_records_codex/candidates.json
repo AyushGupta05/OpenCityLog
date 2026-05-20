@@ -1,0 +1,1751 @@
+﻿{
+    "schema_version":  "round115-subagent-candidate-list-v1",
+    "created_at":  "2026-05-19",
+    "subagent":  "codex",
+    "scope":  "NYC official non-LPC architecture/planning/built-environment records, 2008-01-01 through 2026-05-19",
+    "source_families":  [
+                            {
+                                "name":  "Zoning Application Portal (ZAP) - Project Data",
+                                "dataset_id":  "hgx4-8ukb",
+                                "publisher":  "NYC Department of City Planning (DCP)",
+                                "page":  "https://data.cityofnewyork.us/d/hgx4-8ukb"
+                            },
+                            {
+                                "name":  "DOB Certificate Of Occupancy",
+                                "dataset_id":  "bs8b-p36w",
+                                "publisher":  "NYC Department of Buildings (DOB)",
+                                "page":  "https://data.cityofnewyork.us/d/bs8b-p36w"
+                            },
+                            {
+                                "name":  "DOB NOW: Certificate of Occupancy",
+                                "dataset_id":  "pkdm-hqz6",
+                                "publisher":  "NYC Department of Buildings (DOB)",
+                                "page":  "https://data.cityofnewyork.us/d/pkdm-hqz6"
+                            },
+                            {
+                                "name":  "Affordable Housing Production by Building",
+                                "dataset_id":  "hg8x-zxpr",
+                                "publisher":  "NYC Department of Housing Preservation and Development (HPD)",
+                                "page":  "https://data.cityofnewyork.us/d/hg8x-zxpr"
+                            },
+                            {
+                                "name":  "Capital Project Tracker",
+                                "dataset_id":  "4hcv-tc5r",
+                                "publisher":  "NYC Department of Parks and Recreation (DPR)",
+                                "page":  "https://data.cityofnewyork.us/d/4hcv-tc5r"
+                            }
+                        ],
+    "license_terms":  {
+                          "open_data_terms":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                          "nycgov_terms":  "https://www.nyc.gov/home/terms-of-use.page",
+                          "note":  "NYC Open Data terms state that users agree to NYC.gov Terms plus additional agency terms, and that agency publishers remain authoritative for data quality."
+                      },
+    "duplicate_check":  {
+                            "inspected":  "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
+                            "method":  "Avoided LPC/designation rows and favored official row-level DCP, DOB, HPD, and DPR records not already represented as curated page milestones where visible."
+                        },
+    "candidates":  [
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2021K0450",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2021K0450",
+                           "title":  "DCP ZAP completed project: Herkimer-Williams",
+                           "date":  "2026-02-04",
+                           "date_range":  {
+                                              "filed":  "2025-05-01",
+                                              "approved":  "2025-12-18",
+                                              "completed":  "2026-02-04"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "community_district":  "K05",
+                                            "address_or_site":  "Herkimer-Williams"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2021K0450",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZR; ZM; ZS; PC; ZS; LD",
+                                                   "ulurp_numbers":  "N250284ZRK; C250285ZMK; C250287ZSK; C250288PCK; C250286AZSK; 260017LDK",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "EIS - Project Completed",
+                                                   "project_brief":  "Broadway Junction Partners LLC is requesting actions to facilitate 1.23 million sf of new development: rezoning from M1-2 to C6-4/M1-6, Large Scale General Development Special Permits for bulk, height, envelope modifications, and to move floor area, a special permit to allow certain Use Groups, Text Amendment to map MIH and modify LSGD ownership definition requirements, and Combination Acquisition and Site Selection by the City with co-applicants, EDC and DCAS. Located in the Community District5"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2023M0207",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2023M0207",
+                           "title":  "DCP ZAP completed project: 70 Hudson Yards (ERY, DIB \u0026 Office Chair Certs)",
+                           "date":  "2026-02-03",
+                           "date_range":  {
+                                              "filed":  null,
+                                              "approved":  "2026-01-06",
+                                              "completed":  "2026-02-03"
+                                          },
+                           "location":  {
+                                            "borough":  "Manhattan",
+                                            "community_district":  "M04",
+                                            "address_or_site":  "70 Hudson Yards (ERY, DIB \u0026 Office Chair Certs)"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2023M0207",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZC; ZC; ZC; LD; LD; LD",
+                                                   "ulurp_numbers":  "260151ZCM; 260152ZCM; 260153ZCM; 260021LDM; 260022LDM; 260023LDM",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "ZC - Project Completed",
+                                                   "project_brief":  "This is a private application for three Chairperson certifications for (1) a transfer of development rights from the Eastern Rail Yards (ERY) pursuant to ZR 93-34, (2) a contribution to the HY District Improvement Bonus (DIB) pursuant to ZR 93-31, (3) and an office use certification pursuant to ZR 93-131 to facilitate an approximately 948,000-square-foot commercial development in Hudson Yards, Community Board 4, Manhattan."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2021R0271",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2021R0271",
+                           "title":  "DCP ZAP completed project: Jenna Lane - Modification",
+                           "date":  "2026-01-29",
+                           "date_range":  {
+                                              "filed":  "2025-04-15",
+                                              "approved":  "2026-01-29",
+                                              "completed":  "2026-01-29"
+                                          },
+                           "location":  {
+                                            "borough":  "Staten Island",
+                                            "community_district":  "R02",
+                                            "address_or_site":  "Jenna Lane - Modification"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2021R0271",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZA",
+                                                   "ulurp_numbers":  "M930529BZAR",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Active",
+                                                   "current_milestone":  "ZA - Final Letter Sent",
+                                                   "project_brief":  "This is a private application, submitted by Michael Schneider, seeking a non-ULURP modification to previously approved SNAD Authorizations pursuant to ZR Sections 105-421 and 105-423 for the removal of trees and the modification of topographic features (N 930529 ZAR) to facilitate development of a single-family home at Block 870, Lot 269 along Jenna Lane in an R1-1 Zoning District within the Special Natural Area District (SNAD) in the Todt Hill neighborhood of Staten Island CD 2."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2025M0346",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2025M0346",
+                           "title":  "DCP ZAP completed project: 110 E 16th Street Special Permits Renewal",
+                           "date":  "2026-01-21",
+                           "date_range":  {
+                                              "filed":  "2025-09-17",
+                                              "approved":  "2026-01-09",
+                                              "completed":  "2026-01-21"
+                                          },
+                           "location":  {
+                                            "borough":  "Manhattan",
+                                            "community_district":  "M05",
+                                            "address_or_site":  "110 E 16th Street Special Permits Renewal"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2025M0346",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "CM; CM",
+                                                   "ulurp_numbers":  "260093CMM; 260094CMM",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "CM - Project Completed",
+                                                   "project_brief":  "Private application by East 16th Street Owner LLC for the second renewal of two special permits previously granted by CPC to establish a plan for the continuing maintenance of the (Former) Century Association Building, an individual landmark located at 109-111 East 15th Street, to facilitate the development of a new mixed-use building at 110-112 East 16th Street in the Union Square neighborhood of Manhattan Community District 5."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2023R0384",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2023R0384",
+                           "title":  "DCP ZAP completed project: 150 Flagg Place",
+                           "date":  "2026-01-13",
+                           "date_range":  {
+                                              "filed":  "2024-02-06",
+                                              "approved":  "2026-01-02",
+                                              "completed":  "2026-01-13"
+                                          },
+                           "location":  {
+                                            "borough":  "Staten Island",
+                                            "community_district":  "R02",
+                                            "address_or_site":  "150 Flagg Place"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2023R0384",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZA; ZA; LD",
+                                                   "ulurp_numbers":  "240261ZAR; 240262ZAR; 240352LDR",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "ZA - Project Completed",
+                                                   "project_brief":  "A private applicant, Frank Canterino, seeks two Zoning Authorizations pursuant to ZR 105-422 and ZR 105-432 to facilitate the development of a two-story single-family home at 150 Flagg Place in an R1-2 district within the Special Natural Area District in the Todt Hill neighborhood of Staten Island’s Community District 2."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2023R0383",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2023R0383",
+                           "title":  "DCP ZAP completed project: 142 Flagg Place",
+                           "date":  "2026-01-06",
+                           "date_range":  {
+                                              "filed":  "2024-02-06",
+                                              "approved":  "2026-01-06",
+                                              "completed":  "2026-01-06"
+                                          },
+                           "location":  {
+                                            "borough":  "Staten Island",
+                                            "community_district":  "R02",
+                                            "address_or_site":  "142 Flagg Place"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2023R0383",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZA; ZA; LD",
+                                                   "ulurp_numbers":  "240258ZAR; 240259ZAR; 240351LDR",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "ZA - Project Completed",
+                                                   "project_brief":  "A private applicant, Frank Canterino, seeks two Zoning Authorizations pursuant to ZR 105-422 and ZR 105-434 to facilitate the development of a two-story single-family home at 142 Flagg Place in an R1-2 district within the Special Natural Area District in the Todt Hill neighborhood of Staten Island\u0027s Community District 2."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2018Q0491",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2018Q0491",
+                           "title":  "DCP ZAP completed project: Halletts North",
+                           "date":  "2025-12-30",
+                           "date_range":  {
+                                              "filed":  "2021-12-17",
+                                              "approved":  "2022-09-29",
+                                              "completed":  "2025-12-30"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "community_district":  "Q01",
+                                            "address_or_site":  "Halletts North"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2018Q0491",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZM; ZR; ZS; ZC; ZA; ZA; LD; ZA",
+                                                   "ulurp_numbers":  "220196ZMQ; 220197ZRQ; 220198ZSQ; N220199ZCQ; N220200ZAQ; N220202ZAQ; N220164LDQ; 220353ZAQ",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "EIS - Project Completed",
+                                                   "project_brief":  "A private application by Astoria Owners LLC to pursue a ZM from M1-1 to R7-3/C2-4, a ZR to Appendix F to map an MIH area, a ZS pursuant to ZR 62-837(a) to waive height, setback, and tower regulations, a ZA to modify the WPAA and allow for phased development of the open space, a ZC pursuant to ZR 62-81, and an amendment to the City Map to demap a portion of 3rd St to facilitate a 987,000sf mixed use development with 1,400 units and 42,208sf of open space at 3-15 26th Ave in Astoria, CD 1, Queens."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:P2018X0270",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "P2018X0270",
+                           "title":  "DCP ZAP completed project: 893 Eagle Avenue Rezoning",
+                           "date":  "2025-12-30",
+                           "date_range":  {
+                                              "filed":  null,
+                                              "approved":  "2023-09-12",
+                                              "completed":  "2025-12-30"
+                                          },
+                           "location":  {
+                                            "borough":  "Bronx",
+                                            "community_district":  "X03",
+                                            "address_or_site":  "893 Eagle Avenue Rezoning"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=P2018X0270",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZM; ZR; ZS; LD",
+                                                   "ulurp_numbers":  "220334ZMX; N220335ZRX; 220336ZSX; N220393LDX",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "EAS - Project Completed",
+                                                   "project_brief":  "A series of ULURP and non-ULURP actions to facilitate the development of a new eleven-story plus cellar and sub-cellar 55,324 sf community facility building with 83 affordable and supportive housing units with counseling offices and multipurpose rooms to serve the building\u0027s residents is being sought by Housing Options and Geriatric Association Resources, Inc. (H.O.G.A.R., Inc.) at 893 Eagle Avenue in the Morrisania neighborhood of Bronx Community District 3."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2025R0255",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2025R0255",
+                           "title":  "DCP ZAP completed project: 16 Callan Avenue Pool and Patio",
+                           "date":  "2025-12-23",
+                           "date_range":  {
+                                              "filed":  "2025-08-15",
+                                              "approved":  "2025-12-12",
+                                              "completed":  "2025-12-23"
+                                          },
+                           "location":  {
+                                            "borough":  "Staten Island",
+                                            "community_district":  "R02",
+                                            "address_or_site":  "16 Callan Avenue Pool and Patio"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2025R0255",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZA",
+                                                   "ulurp_numbers":  "260057ZAR",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "ZA - Project Completed",
+                                                   "project_brief":  "This is a private application by Ilber Pilku seeking a Special Natural Area District (NA-1) authorization for a ‘Modification of Topographic Features on Tier I Sites’ pursuant to ZR 105-421 to facilitate the development of a pool and patio at 18 Callan Avenue (Block 878, Lots 35) in the Todt Hill neighborhood of Staten Island’s Community District 2."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dcp-zap:hgx4-8ukb:2023R0314",
+                           "source_family":  "DCP ZAP project data",
+                           "stable_source_row_id":  "2023R0314",
+                           "title":  "DCP ZAP completed project: 47 Farview Place SNAD Authorization",
+                           "date":  "2025-12-23",
+                           "date_range":  {
+                                              "filed":  "2024-11-22",
+                                              "approved":  "2025-12-17",
+                                              "completed":  "2025-12-23"
+                                          },
+                           "location":  {
+                                            "borough":  "Staten Island",
+                                            "community_district":  "R02",
+                                            "address_or_site":  "47 Farview Place SNAD Authorization"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/hgx4-8ukb",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hgx4-8ukb.json?project_id=2023R0314",
+                           "source_publisher":  "NYC Department of City Planning (DCP), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "ZAP records document a zoning/planning application milestone, approval, completion, or administrative status. They do not prove construction start, completion, occupancy, architectural quality, public benefit, or causal effects.",
+                           "why_not_overclaiming":  "The candidate states only that DCP recorded the project/action as completed or approved, using DCP dates and action identifiers; it avoids claiming the proposed development was built or produced outcomes.",
+                           "evidence_fields":  {
+                                                   "actions":  "ZA; ZA; LD",
+                                                   "ulurp_numbers":  "N250127ZAR; N250128ZAR; 250129LDR",
+                                                   "public_status":  "Completed",
+                                                   "project_status":  "Complete",
+                                                   "current_milestone":  "ZA - CPC Public Meeting - Vote",
+                                                   "project_brief":  "SNAD Authorizations pursuant to ZR 105-421 and ZR 105-425 to facilitate the development of a new two-story single-family house with an inground pool and a circular driveway is being sought by a private applicant at 47 Fairview Place in the Todt Hill neighborhood of Community District 2, Staten Island in an R1-1 Zoning District within the Special Natural Area (SNAD)."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:210181337:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "210181337",
+                           "title":  "DOB final certificate of occupancy for 1940 TURNBULL AVENUE",
+                           "date":  "2026-05-15",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Bronx",
+                                            "address":  "1940 TURNBULL AVENUE",
+                                            "postcode":  "10473",
+                                            "block":  "03672",
+                                            "lot":  "00030",
+                                            "bbl":  "2036720001",
+                                            "bin":  "2130573"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.822911,
+                                               "longitude":  -73.857365
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=210181337",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "NB",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "154",
+                                                   "existing_dwelling_units":  null
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:321385700:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "321385700",
+                           "title":  "DOB final certificate of occupancy for 29 HURON STREET",
+                           "date":  "2026-05-14",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "address":  "29 HURON STREET",
+                                            "postcode":  "11222",
+                                            "block":  "02520",
+                                            "lot":  "07501",
+                                            "bbl":  null,
+                                            "bin":  "3428521"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.732482,
+                                               "longitude":  -73.960811
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=321385700",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "NB",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "171",
+                                                   "existing_dwelling_units":  null
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:123773504:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "123773504",
+                           "title":  "DOB final certificate of occupancy for 34 EAST 32 ST",
+                           "date":  "2026-04-27",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Manhattan",
+                                            "address":  "34 EAST 32 ST",
+                                            "postcode":  "10016",
+                                            "block":  "00861",
+                                            "lot":  "00052",
+                                            "bbl":  "1008610052",
+                                            "bin":  "1016995"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.746324,
+                                               "longitude":  -73.98355
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=123773504",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "A1",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "117",
+                                                   "existing_dwelling_units":  "117"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:421133464:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "421133464",
+                           "title":  "DOB final certificate of occupancy for 143-58 38 AVENUE",
+                           "date":  "2026-04-21",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "address":  "143-58 38 AVENUE",
+                                            "postcode":  "11354",
+                                            "block":  "05022",
+                                            "lot":  "00031",
+                                            "bbl":  null,
+                                            "bin":  "4625016"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.762478,
+                                               "longitude":  -73.823613
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=421133464",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "NB",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "175",
+                                                   "existing_dwelling_units":  null
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:121187214:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "121187214",
+                           "title":  "DOB final certificate of occupancy for 112 WEST 25TH STREET",
+                           "date":  "2026-04-21",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Manhattan",
+                                            "address":  "112 WEST 25TH STREET",
+                                            "postcode":  "10001",
+                                            "block":  "00800",
+                                            "lot":  "00049",
+                                            "bbl":  "1008000049",
+                                            "bin":  "1014986"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.744461,
+                                               "longitude":  -73.992544
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=121187214",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "NB",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "341",
+                                                   "existing_dwelling_units":  null
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:320627103:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "320627103",
+                           "title":  "DOB final certificate of occupancy for 85 COMMERCIAL STREET",
+                           "date":  "2026-04-16",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "address":  "85 COMMERCIAL STREET",
+                                            "postcode":  "11222",
+                                            "block":  "02472",
+                                            "lot":  "07505",
+                                            "bbl":  "3024720410",
+                                            "bin":  "3428896"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.737454,
+                                               "longitude":  -73.956406
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=320627103",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "NB",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "240",
+                                                   "existing_dwelling_units":  null
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-co:bs8b-p36w:321197085:Final",
+                           "source_family":  "DOB Certificate Of Occupancy",
+                           "stable_source_row_id":  "321197085",
+                           "title":  "DOB final certificate of occupancy for 138 WILLOUGHBY STREET",
+                           "date":  "2026-04-10",
+                           "date_range":  null,
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "address":  "138 WILLOUGHBY STREET",
+                                            "postcode":  "11201",
+                                            "block":  "00149",
+                                            "lot":  "07502",
+                                            "bbl":  "3001497502",
+                                            "bin":  "3396962"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.692069,
+                                               "longitude":  -73.983135
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/bs8b-p36w",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/bs8b-p36w.json?job_number=321197085",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "A final certificate of occupancy is an official DOB record for permitted occupancy/use at a building/job. It is not by itself a design assessment, opening date, construction timeline, affordability record, or causal impact claim.",
+                           "why_not_overclaiming":  "The candidate reports the DOB CO issuance event and basic job/address fields only; it does not infer broader urban outcomes or exact construction completion beyond the certificate date.",
+                           "evidence_fields":  {
+                                                   "job_type":  "NB",
+                                                   "issue_type":  "Final",
+                                                   "proposed_dwelling_units":  "483",
+                                                   "existing_dwelling_units":  null
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000093612:3428521-0000015",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000093612",
+                           "title":  "DOB NOW final CO issued for 29 HURON STREET",
+                           "date":  "2026-04-29",
+                           "date_range":  {
+                                              "submitted":  "2026-04-29",
+                                              "issuance_text":  "05/14/26  3:48:54 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "BROOKLYN",
+                                            "address":  "29 HURON STREET",
+                                            "postcode":  "11222",
+                                            "block":  "2520",
+                                            "lot":  "7501",
+                                            "bbl":  null,
+                                            "bin":  "3428521"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.732493,
+                                               "longitude":  -73.960685
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000093612",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "321385700",
+                                                   "job_type":  "NEW BUILDING",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "3428521-0000015",
+                                                   "number_of_dwelling_units":  "171"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000092737:2130757-0000006",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000092737",
+                           "title":  "DOB NOW final CO issued for 1351 JEROME AVENUE",
+                           "date":  "2026-04-28",
+                           "date_range":  {
+                                              "submitted":  "2026-04-28",
+                                              "issuance_text":  "05/14/26  7:39:38 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "BRONX",
+                                            "address":  "1351 JEROME AVENUE",
+                                            "postcode":  "10452",
+                                            "block":  "2856",
+                                            "lot":  "141",
+                                            "bbl":  "2028560141",
+                                            "bin":  "2130757"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.839368,
+                                               "longitude":  -73.918501
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000092737",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "X00729880",
+                                                   "job_type":  "New Building",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "2130757-0000006",
+                                                   "number_of_dwelling_units":  "247"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000093511:1091044-0000022",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000093511",
+                           "title":  "DOB NOW final CO issued for 200 EAST 83 STREET",
+                           "date":  "2026-04-24",
+                           "date_range":  {
+                                              "submitted":  "2026-04-24",
+                                              "issuance_text":  "04/30/26  4:06:37 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "MANHATTAN",
+                                            "address":  "200 EAST 83 STREET",
+                                            "postcode":  "10028",
+                                            "block":  "1528",
+                                            "lot":  "7501",
+                                            "bbl":  "1015287501",
+                                            "bin":  "1091044"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.77655,
+                                               "longitude":  -73.955629
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000093511",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "121205356",
+                                                   "job_type":  "NEW BUILDING",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "1091044-0000022",
+                                                   "number_of_dwelling_units":  "86"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000091653:3337061-0000006",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000091653",
+                           "title":  "DOB NOW final CO issued for 195 COZINE AVENUE",
+                           "date":  "2026-04-22",
+                           "date_range":  {
+                                              "submitted":  "2026-04-22",
+                                              "issuance_text":  "05/12/26  4:24:44 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "BROOKLYN",
+                                            "address":  "195 COZINE AVENUE",
+                                            "postcode":  "11207",
+                                            "block":  "4393",
+                                            "lot":  "1",
+                                            "bbl":  "3043930001",
+                                            "bin":  "3337061"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.655071,
+                                               "longitude":  -73.88519
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000091653",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "B00932176",
+                                                   "job_type":  "Alteration CO",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "3337061-0000006",
+                                                   "number_of_dwelling_units":  "63"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000093090:2001084-0000015",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000093090",
+                           "title":  "DOB NOW final CO issued for 414 GERARD AVENUE",
+                           "date":  "2026-04-16",
+                           "date_range":  {
+                                              "submitted":  "2026-04-16",
+                                              "issuance_text":  "05/11/26 12:59:38 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "BRONX",
+                                            "address":  "414 GERARD AVENUE",
+                                            "postcode":  "10451",
+                                            "block":  "2350",
+                                            "lot":  "1",
+                                            "bbl":  "2023500001",
+                                            "bin":  "2001084"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.817116,
+                                               "longitude":  -73.929962
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000093090",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "220613735",
+                                                   "job_type":  "NEW BUILDING",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "2001084-0000015",
+                                                   "number_of_dwelling_units":  "206"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000092971:4440249-0000002",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000092971",
+                           "title":  "DOB NOW final CO issued for 20-28 SEAGIRT BOULEVARD",
+                           "date":  "2026-04-14",
+                           "date_range":  {
+                                              "submitted":  "2026-04-14",
+                                              "issuance_text":  "04/29/26  3:49:43 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "QUEENS",
+                                            "address":  "20-28 SEAGIRT BOULEVARD",
+                                            "postcode":  "11691",
+                                            "block":  "15780",
+                                            "lot":  "20",
+                                            "bbl":  "4157800020",
+                                            "bin":  "4440249"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.595199,
+                                               "longitude":  -73.755538
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000092971",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "Q00878740",
+                                                   "job_type":  "Alteration CO",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "4440249-0000002",
+                                                   "number_of_dwelling_units":  "126"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000092800:3396260-0000006",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000092800",
+                           "title":  "DOB NOW final CO issued for 953 DEAN STREET",
+                           "date":  "2026-04-13",
+                           "date_range":  {
+                                              "submitted":  "2026-04-13",
+                                              "issuance_text":  "04/22/26  4:02:37 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "BROOKLYN",
+                                            "address":  "953 DEAN STREET",
+                                            "postcode":  "11238",
+                                            "block":  "1134",
+                                            "lot":  "96",
+                                            "bbl":  "3011340096",
+                                            "bin":  "3396260"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.678176,
+                                               "longitude":  -73.958301
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000092800",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "B00684789",
+                                                   "job_type":  "New Building",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "3396260-0000006",
+                                                   "number_of_dwelling_units":  "240"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000092841:2130573-0000008",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000092841",
+                           "title":  "DOB NOW final CO issued for 1940 TURNBULL AVENUE",
+                           "date":  "2026-04-13",
+                           "date_range":  {
+                                              "submitted":  "2026-04-13",
+                                              "issuance_text":  "05/15/26  2:17:17 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "BRONX",
+                                            "address":  "1940 TURNBULL AVENUE",
+                                            "postcode":  "10473",
+                                            "block":  "3672",
+                                            "lot":  "30",
+                                            "bbl":  "2036720030",
+                                            "bin":  "2130573"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.822884,
+                                               "longitude":  -73.857564
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000092841",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "210181337",
+                                                   "job_type":  "NEW BUILDING",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "2130573-0000008",
+                                                   "number_of_dwelling_units":  "154"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000092696:4625016-0000004",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000092696",
+                           "title":  "DOB NOW final CO issued for 143-58 38 AVENUE",
+                           "date":  "2026-04-09",
+                           "date_range":  {
+                                              "submitted":  "2026-04-09",
+                                              "issuance_text":  "04/21/26  8:58:51 AM"
+                                          },
+                           "location":  {
+                                            "borough":  "QUEENS",
+                                            "address":  "143-58 38 AVENUE",
+                                            "postcode":  "11354",
+                                            "block":  "5022",
+                                            "lot":  "31",
+                                            "bbl":  "4050220031",
+                                            "bin":  "4625016"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.762478,
+                                               "longitude":  -73.823613
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000092696",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "421133464",
+                                                   "job_type":  "NEW BUILDING",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "4625016-0000004",
+                                                   "number_of_dwelling_units":  "175"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-dob-now-co:pkdm-hqz6:CO-000092586:4624475-0000009",
+                           "source_family":  "DOB NOW Certificate of Occupancy",
+                           "stable_source_row_id":  "CO-000092586",
+                           "title":  "DOB NOW final CO issued for 18-26 REDFERN AVENUE",
+                           "date":  "2026-04-08",
+                           "date_range":  {
+                                              "submitted":  "2026-04-08",
+                                              "issuance_text":  "04/29/26  3:41:15 PM"
+                                          },
+                           "location":  {
+                                            "borough":  "QUEENS",
+                                            "address":  "18-26 REDFERN AVENUE",
+                                            "postcode":  "11691",
+                                            "block":  "15528",
+                                            "lot":  "7501",
+                                            "bbl":  null,
+                                            "bin":  "4624475"
+                                        },
+                           "coordinates":  null,
+                           "source_url":  "https://data.cityofnewyork.us/d/pkdm-hqz6",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/pkdm-hqz6.json?application_number=CO-000092586",
+                           "source_publisher":  "NYC Department of Buildings (DOB), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "DOB NOW issuance date is provided as a text timestamp in this dataset; submitted_date is used for API filtering. Certificate records do not describe architectural merit, construction impacts, or whether all units are occupied.",
+                           "why_not_overclaiming":  "The row is used as evidence of a DOB NOW CO issuance/status only, with the text issuance timestamp preserved rather than converted into unsupported claims.",
+                           "evidence_fields":  {
+                                                   "job_filing_name":  "Q00540608",
+                                                   "job_type":  "New Building",
+                                                   "c_of_o_status":  "CO Issued",
+                                                   "c_of_o_filing_type":  "Final",
+                                                   "c_of_o_number":  "4624475-0000009",
+                                                   "number_of_dwelling_units":  "177"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:69677:1004916",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "69677:1004916",
+                           "title":  "HPD affordable housing building completion: 2069 BRUCKNER at 1017 OLMSTEAD AVENUE",
+                           "date":  "2026-01-29",
+                           "date_range":  {
+                                              "project_start":  "2023-06-28",
+                                              "project_completion":  null,
+                                              "building_completion":  "2026-01-29"
+                                          },
+                           "location":  {
+                                            "borough":  "Bronx",
+                                            "address":  "1017 OLMSTEAD AVENUE",
+                                            "postcode":  "10472",
+                                            "bbl":  "2037970033",
+                                            "bin":  "2000000"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.827586,
+                                               "longitude":  -73.853196
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=1004916\u0026project_id=69677",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "265",
+                                                   "total_units":  "265"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:76716:998857",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "76716:998857",
+                           "title":  "HPD affordable housing building completion: 2224 CROPSEY AVENUE AND 2230 CROPSEY AVENUE at 2224 CROPSEY AVENUE",
+                           "date":  "2026-01-06",
+                           "date_range":  {
+                                              "project_start":  "2025-03-25",
+                                              "project_completion":  "2026-01-06",
+                                              "building_completion":  "2026-01-06"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "address":  "2224 CROPSEY AVENUE",
+                                            "postcode":  "11214",
+                                            "bbl":  "3064710008",
+                                            "bin":  "3429031"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.59685,
+                                               "longitude":  -73.998192
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=998857\u0026project_id=76716",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "107",
+                                                   "total_units":  "107"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:68482:992149",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "68482:992149",
+                           "title":  "HPD affordable housing building completion: 3118 WEBSTER AVE at 3118 WEBSTER AVENUE",
+                           "date":  "2025-12-23",
+                           "date_range":  {
+                                              "project_start":  "2024-01-30",
+                                              "project_completion":  null,
+                                              "building_completion":  "2025-12-23"
+                                          },
+                           "location":  {
+                                            "borough":  "Bronx",
+                                            "address":  "3118 WEBSTER AVENUE",
+                                            "postcode":  "10467",
+                                            "bbl":  "2033570007",
+                                            "bin":  "2000000"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.8716,
+                                               "longitude":  -73.876319
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=992149\u0026project_id=68482",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "109",
+                                                   "total_units":  "109"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:69620:989393",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "69620:989393",
+                           "title":  "HPD affordable housing building completion: 1184 RIVER PHASE 2 at 1160 RIVER AVENUE",
+                           "date":  "2025-12-12",
+                           "date_range":  {
+                                              "project_start":  "2021-11-04",
+                                              "project_completion":  "2025-12-12",
+                                              "building_completion":  "2025-12-12"
+                                          },
+                           "location":  {
+                                            "borough":  "Bronx",
+                                            "address":  "1160 RIVER AVENUE",
+                                            "postcode":  "10452",
+                                            "bbl":  "2024887501",
+                                            "bin":  "2130367"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.834619,
+                                               "longitude":  -73.921932
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=989393\u0026project_id=69620",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "250",
+                                                   "total_units":  "250"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:63764:1000227",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "63764:1000227",
+                           "title":  "HPD affordable housing building completion: CONEY ISLAND PHASE 2 at 1607 SURF AVENUE",
+                           "date":  "2025-12-04",
+                           "date_range":  {
+                                              "project_start":  "2021-12-22",
+                                              "project_completion":  "2025-12-04",
+                                              "building_completion":  "2025-12-04"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "address":  "1607 SURF AVENUE",
+                                            "postcode":  "11224",
+                                            "bbl":  null,
+                                            "bin":  null
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.575401,
+                                               "longitude":  -73.983636
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=1000227\u0026project_id=63764",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "376",
+                                                   "total_units":  "376"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:70725:1014040",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "70725:1014040",
+                           "title":  "HPD affordable housing building completion: BROADWAY TRIANGLE SITE C at 88 THROOP AVENUE",
+                           "date":  "2025-11-18",
+                           "date_range":  {
+                                              "project_start":  "2022-06-30",
+                                              "project_completion":  "2025-11-18",
+                                              "building_completion":  "2025-11-18"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "address":  "88 THROOP AVENUE",
+                                            "postcode":  "11206",
+                                            "bbl":  "3022690025",
+                                            "bin":  "3429305"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.702032,
+                                               "longitude":  -73.946078
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=1014040\u0026project_id=70725",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "140",
+                                                   "total_units":  "140"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:62191:975739",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "62191:975739",
+                           "title":  "HPD affordable housing building completion: NORTH COVE at 3875 9 AVENUE",
+                           "date":  "2025-10-23",
+                           "date_range":  {
+                                              "project_start":  "2023-01-27",
+                                              "project_completion":  null,
+                                              "building_completion":  "2025-10-23"
+                                          },
+                           "location":  {
+                                            "borough":  "Manhattan",
+                                            "address":  "3875 9 AVENUE",
+                                            "postcode":  "10034",
+                                            "bbl":  "1021880001",
+                                            "bin":  "1089192"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.86403,
+                                               "longitude":  -73.916804
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=975739\u0026project_id=62191",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "611",
+                                                   "total_units":  "611"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:76318:1014854",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "76318:1014854",
+                           "title":  "HPD affordable housing building completion: 2-21 MALT DRIVE APARTMENTS at 2026-02-21T00:00:00.000 MALT DRIVE",
+                           "date":  "2025-10-21",
+                           "date_range":  {
+                                              "project_start":  "2024-07-12",
+                                              "project_completion":  "2025-10-21",
+                                              "building_completion":  "2025-10-21"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "address":  "2026-02-21T00:00:00.000 MALT DRIVE",
+                                            "postcode":  "11101",
+                                            "bbl":  "4000110001",
+                                            "bin":  "4623739"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.739953,
+                                               "longitude":  -73.958786
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=1014854\u0026project_id=76318",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "244",
+                                                   "total_units":  "811"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:70082:1000221",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "70082:1000221",
+                           "title":  "HPD affordable housing building completion: ROCKAWAY VILLAGE PHASE 4 at 1605 VILLAGE LANE",
+                           "date":  "2025-10-15",
+                           "date_range":  {
+                                              "project_start":  "2021-12-29",
+                                              "project_completion":  "2025-10-15",
+                                              "building_completion":  "2025-10-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "address":  "1605 VILLAGE LANE",
+                                            "postcode":  "11691",
+                                            "bbl":  "4155377501",
+                                            "bin":  "4624528"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.606446,
+                                               "longitude":  -73.752314
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=1000221\u0026project_id=70082",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "129",
+                                                   "total_units":  "129"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-hpd-affordable-building:hg8x-zxpr:69565:1004583",
+                           "source_family":  "HPD Affordable Housing Production by Building",
+                           "stable_source_row_id":  "69565:1004583",
+                           "title":  "HPD affordable housing building completion: WSFSSH. 97 W 169TH STREET at 97 WEST 169 STREET",
+                           "date":  "2025-10-15",
+                           "date_range":  {
+                                              "project_start":  "2023-06-28",
+                                              "project_completion":  "2025-10-15",
+                                              "building_completion":  "2025-10-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Bronx",
+                                            "address":  "97 WEST 169 STREET",
+                                            "postcode":  "10452",
+                                            "bbl":  null,
+                                            "bin":  null
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.839538,
+                                               "longitude":  -73.923177
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/hg8x-zxpr",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/hg8x-zxpr.json?building_id=1004583\u0026project_id=69565",
+                           "source_publisher":  "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "HPD production rows count buildings/units toward City housing plans from 2014 onward. They are not a full building permit record, do not cover all housing, and do not prove design quality, resident occupancy, affordability duration beyond program rules, or neighborhood effects.",
+                           "why_not_overclaiming":  "The candidate treats the row as a documented HPD production/completion record with counted units, not as proof of total housing supply, displacement, affordability outcomes, or architectural impact.",
+                           "evidence_fields":  {
+                                                   "reporting_construction_type":  "New Construction",
+                                                   "all_counted_units":  "105",
+                                                   "total_units":  "105"
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:10394",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "10394",
+                           "title":  "NYC Parks completed capital project: Greenwood Playground Handball Courts Reconstruction and Pickleball Court Construction",
+                           "date":  "2026-04-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-03-01",
+                                              "construction_actual_completion":  "2026-04-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "park_or_site":  "Fort Hamilton Parkway, Greenwood Avenue, East 5th Street",
+                                            "parkid":  "B130",
+                                            "fmsid":  "846 P-207GWHB"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.650354,
+                                               "longitude":  -73.976298
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=10394",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-207GWHB",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$999,000",
+                                                   "summary":  "This project will reconstruct the handball courts and construct pickleball courts at Greenwood Playground."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:8919",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "8919",
+                           "title":  "NYC Parks completed capital project: Bushwick Inlet Park Motiva Parcel Remediation and Passive Seating Area Construction",
+                           "date":  "2026-04-01",
+                           "date_range":  {
+                                              "construction_start":  "2024-03-01",
+                                              "construction_actual_completion":  "2026-04-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "park_or_site":  "Franklin Street, Kent Avenue, East River, Quay Street",
+                                            "parkid":  "B529",
+                                            "fmsid":  "846 P-2GPWB25"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.725314,
+                                               "longitude":  -73.958008
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=8919",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-2GPWB25",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$9,818,000",
+                                                   "summary":  "This project will construct a new passive seating area in Bushwick Inlet Park."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:8822",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "8822",
+                           "title":  "NYC Parks completed capital project: Inwood Hill Park Ballfields 1, 2 \u0026 4 Reconstruction and Ballfield 1 Lighting Installation",
+                           "date":  "2026-04-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-03-01",
+                                              "construction_actual_completion":  "2026-04-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Manhattan",
+                                            "park_or_site":  "Seaman Avenue and Isham Street",
+                                            "parkid":  "M042",
+                                            "fmsid":  "846 P-3INHILL"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.871401,
+                                               "longitude":  -73.920677
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=8822",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-3INHILL",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$7,533,000",
+                                                   "summary":  "This project will reconstruct ballfields 1, 2 and 4 and install new lighting in ballfield 1 at Inwood Hill Park."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:10433",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "10433",
+                           "title":  "NYC Parks completed capital project: Annadale Green Reconstruction",
+                           "date":  "2026-04-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-04-01",
+                                              "construction_actual_completion":  "2026-04-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Staten Island",
+                                            "park_or_site":  "Jefferson Boulevard and Annadale Road",
+                                            "parkid":  "R080",
+                                            "fmsid":  "846 P-503ANNA"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.541449,
+                                               "longitude":  -74.177634
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=10433",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-503ANNA",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$2,500,000",
+                                                   "summary":  "This project will reconstruct the passive park and sidewalks at Annadale Green."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:1915111",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "1915111",
+                           "title":  "NYC Parks completed capital project: Southern Fields Limited Scope Synthetic Turf Reconstruction",
+                           "date":  "2026-04-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-12-01",
+                                              "construction_actual_completion":  "2026-04-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "park_or_site":  null,
+                                            "parkid":  "Q096E",
+                                            "fmsid":  "846 P-410SFTF"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.6655101,
+                                               "longitude":  -73.8212316
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=1915111",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-410SFTF",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$1,381,000",
+                                                   "summary":  "This project will include construction fencing, temporary tree, and site protection measures, saw cutting, excavation, and removal of existing synthetic turf system, clearing and reconstruction of drainage structures and drain lines, broken stone, aggregates, concrete pavement and foundation materials, and installation of new synthetic turf system."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:1570111",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "1570111",
+                           "title":  "NYC Parks completed capital project: Crocheron Park Path Reconstruction",
+                           "date":  "2026-04-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-12-01",
+                                              "construction_actual_completion":  "2026-04-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "park_or_site":  null,
+                                            "parkid":  "Q012",
+                                            "fmsid":  "846 P-4CROCHP"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.771442,
+                                               "longitude":  -73.768049
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=1570111",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-4CROCHP",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$1,163,000",
+                                                   "summary":  "This project will reconstruct paths in Crocheron Park."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:9819",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "9819",
+                           "title":  "NYC Parks completed capital project: Owl\u0027s Head Park Basketball Courts and Playground Reconstruction",
+                           "date":  "2026-03-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-02-01",
+                                              "construction_actual_completion":  "2026-03-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Brooklyn",
+                                            "park_or_site":  "Shore Parkway, Shore Road, Colonial Road, 68th Street",
+                                            "parkid":  "B066",
+                                            "fmsid":  "846 P-210OWLH"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.6400456,
+                                               "longitude":  -74.0314741
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=9819",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-210OWLH",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$8,000,000",
+                                                   "summary":  "This project will reconstruct the basketball courts and playground at Owl\u0027s Head Park."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:1763111",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "1763111",
+                           "title":  "NYC Parks completed capital project: Alley Pond Park Path Reconstruction",
+                           "date":  "2026-03-01",
+                           "date_range":  {
+                                              "construction_start":  "2026-02-01",
+                                              "construction_actual_completion":  "2026-03-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "park_or_site":  null,
+                                            "parkid":  "Q001",
+                                            "fmsid":  "846 P-4SPRNGF"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.7561037,
+                                               "longitude":  -73.7469242
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=1763111",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-4SPRNGF",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$732,000",
+                                                   "summary":  "This project will reconstruct the paths surrounding the parking lot at 76th Avenue and Springfield Boulevard at Alley Pond Park."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:1744111",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "1744111",
+                           "title":  "NYC Parks completed capital project: Baisley Pond Park 157th Street Playground Multipurpose Play Area Reconstruction",
+                           "date":  "2026-03-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-11-01",
+                                              "construction_actual_completion":  "2026-03-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "park_or_site":  null,
+                                            "parkid":  "Q005",
+                                            "fmsid":  "846 P-412P157"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.6759979,
+                                               "longitude":  -73.7864795
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=1744111",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-412P157",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$680,000",
+                                                   "summary":  "This project will reconstruct the multipurpose play area at 157th Street Playground in Baisley Pond Park."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       },
+                       {
+                           "id":  "nyc-parks-capital:4hcv-tc5r:9591",
+                           "source_family":  "NYC Parks Capital Project Tracker",
+                           "stable_source_row_id":  "9591",
+                           "title":  "NYC Parks completed capital project: Lt. Michael R. Davidson Playground Construction",
+                           "date":  "2026-03-01",
+                           "date_range":  {
+                                              "construction_start":  "2025-03-01",
+                                              "construction_actual_completion":  "2026-03-01",
+                                              "last_updated":  "2026-05-15"
+                                          },
+                           "location":  {
+                                            "borough":  "Queens",
+                                            "park_or_site":  "50th Street and 39th Avenue",
+                                            "parkid":  "Q516",
+                                            "fmsid":  "846 P-4PHIPPS"
+                                        },
+                           "coordinates":  {
+                                               "latitude":  40.748685,
+                                               "longitude":  -73.913515
+                                           },
+                           "source_url":  "https://data.cityofnewyork.us/d/4hcv-tc5r",
+                           "source_api_query":  "https://data.cityofnewyork.us/resource/4hcv-tc5r.json?trackerid=9591",
+                           "source_publisher":  "NYC Department of Parks and Recreation (DPR), via NYC Open Data",
+                           "license_terms_url":  "https://opendata.cityofnewyork.us/overview/#termsofuse",
+                           "confidence":  "documented",
+                           "limitations":  "Parks tracker records capital project phases and completion dates for DPR-managed work. It does not guarantee exact public opening date, final as-built scope, maintenance condition, usage levels, or community outcomes.",
+                           "why_not_overclaiming":  "The candidate reports completed construction/reconstruction tracked by DPR with its phase/date fields; it avoids claiming benefits, causation, or condition beyond the tracker status.",
+                           "evidence_fields":  {
+                                                   "fmsid":  "846 P-4PHIPPS",
+                                                   "currentphase":  "completed",
+                                                   "totalfunding":  "$5,112,000",
+                                                   "summary":  "This project will construct Lt. Michael R. Davidson Playground."
+                                               },
+                           "retrieved_at":  "2026-05-19"
+                       }
+                   ]
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Meeting Minutes 2-14-22 REVISED 1.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Meeting Minutes 2-14-22 REVISED 1.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Certificates 5-24-21.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Certificates 5-24-21.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Meeting Minutes 6-21-21.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Meeting Minutes 6-21-21.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Meeting Minutes 7-19-21.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Meeting Minutes 7-19-21.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Meeting Minutes 9-20-21.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Meeting Minutes 9-20-21.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Meeting Minutes 10-18-21.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Meeting Minutes 10-18-21.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/11-15-21-certificates_REV 2.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/11-15-21-certificates_REV 2.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/Meeting Minutes 12-13-21.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/Meeting Minutes 12-13-21.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes- 4-15-19-2.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/meeting-minutes- 4-15-19-2.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-20-19-Public Agenda-2.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/5-20-19-Public Agenda-2.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Certificates 7-15-19.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/Certificates 7-15-19.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-8-22-16 REVISED.pdf",
+    "stage": "download",
+    "error": "InvalidURL(\"URL can't contain control characters. '/assets/designcommission/downloads/pdf/meeting-minutes-8-22-16 REVISED.pdf' (found at least ' ')\")"
+  },
+  {
+    "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-5-22-17.pdf",
+    "stage": "download",
+    "error": "<HTTPError 404: 'Not Found'>"
+  }
+]

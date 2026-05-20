@@ -5,7 +5,7 @@ const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "di
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
 const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]);
 const EVIDENCE_KINDS = new Set(["source_url", "local_file", "changeset", "source_record"]);
-const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "transport_roads_base", "transport_roads_template"];
+const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"];
 const BELFAST_REQUIRED_OVERLAY_ARTIFACTS = ["detail_layers", ...REQUIRED_OVERLAY_ARTIFACTS];
 const GEOMETRY_TYPES = new Set([
   "Point",
@@ -16,6 +16,21 @@ const GEOMETRY_TYPES = new Set([
   "MultiPolygon",
   "GeometryCollection",
 ]);
+const LENS_DETAIL_SITE_LAYERS = new Set(["planning_cell", "civic_coverage_cell", "economy_activity_cell", "economy_frontage", "civic_facility", "utility_trace", "utility_asset"]);
+const LENS_DETAIL_BAD_SOURCE_PATTERN = /\buk[-_\s]?hpi\b|\bhpi monthly\b|house[-_\s]?price[-_\s]?index|uk[-_\s]?house[-_\s]?price[-_\s]?index|market[-_\s]?trend|lon-extra-uk-house-price-index/i;
+const LENS_DETAIL_BAD_PRECISION_PATTERN = /\bborough aggregate\b|\baggregate,\s*not\b|\barea\/city reference\b|\bcitywide\b|\bnot an exact event geometry\b|^(approximate\s+)?district(?:-extension)?(?:\s+approximate|\s+centroid)?\b|^(approximate\s+)?neighbou?rhood(?:\s+approximate|\s+centroid)?\b|^(rail[-\s])?corridor(?:\s+approximate|\s+centroid)?\b|^(multiple sites|multi[-\s]?site|programme approximate)\b/i;
+const REQUIRED_LENS_DETAIL_EVENT_IDS = {
+  belfast: {
+    2022: ["bfs_arch_aster_house_student_accommodation_completion_2022"],
+  },
+  london: {
+    2020: ["lon_arch_poplar_works_opening_2020"],
+    2021: ["lon_arch_one_park_drive_residential_opening_2021"],
+  },
+  nyc: {
+    2019: ["nyc_arch_35_hudson_yards_completion_2019"],
+  },
+};
 
 function parseArgs(argv) {
   const args = {
@@ -269,6 +284,44 @@ function validateGeoJsonArtifact(failures, root, artifactPath, label, expectedCi
   return payload;
 }
 
+function lensDetailSiteText(feature) {
+  const props = feature.properties || {};
+  return {
+    source: String(props.source_ids || ""),
+    precision: [
+    props.geometry_precision,
+    props.geometry_precision_mix,
+    ].filter(Boolean).join(" "),
+  };
+}
+
+function validateLensDetailSemantics(failures, label, features) {
+  for (const feature of features || []) {
+    const layer = feature.properties?.layer;
+    if (!LENS_DETAIL_SITE_LAYERS.has(layer)) continue;
+    const siteText = lensDetailSiteText(feature);
+    assert(
+      failures,
+      !LENS_DETAIL_BAD_SOURCE_PATTERN.test(siteText.source) && !LENS_DETAIL_BAD_PRECISION_PATTERN.test(siteText.precision),
+      `${label} contains aggregate/statistical/non-site record in ${layer}: ${feature.properties?.id || feature.properties?.event_ids_all || feature.properties?.event_ids || "<unknown>"}`,
+    );
+  }
+}
+
+function validateRequiredLensDetailEvents(failures, label, payload, requiredIds) {
+  if (!requiredIds?.length) return;
+  const emittedIds = new Set();
+  for (const feature of payload.features || []) {
+    for (const field of ["event_ids_all", "event_ids"]) {
+      const ids = String(feature.properties?.[field] || "").split(",").map((item) => item.trim()).filter(Boolean);
+      ids.forEach((id) => emittedIds.add(id));
+    }
+  }
+  for (const eventId of requiredIds) {
+    assert(failures, emittedIds.has(eventId), `${label} must preserve source-backed approximate site event ${eventId} in derived lens geometry`);
+  }
+}
+
 function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex) {
   const cityId = citySummary.city_id;
   const summaryPaths = citySummary.artifact_paths || {};
@@ -283,7 +336,7 @@ function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eve
       assert(failures, summaryPaths[key] === cityPaths[key], `${cityId} artifact_paths.${key} differs between index and city artifact`);
     }
   }
-  for (const key of advertisedKeys.filter((item) => item !== "transport_roads_template")) {
+  for (const key of advertisedKeys.filter((item) => !["transport_roads_template", "lens_detail_template"].includes(item))) {
     const artifactPath = summaryPaths[key] || cityPaths[key];
     if (artifactPath) validateGeoJsonArtifact(failures, root, artifactPath, `${cityId} ${key}`, cityId);
   }
@@ -297,6 +350,42 @@ function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eve
     const sampleYears = [...new Set([years[0], years[Math.floor(years.length / 2)], years[years.length - 1]].filter(Number.isInteger))];
     for (const year of sampleYears) {
       validateGeoJsonArtifact(failures, root, template.replace("{year}", String(year)), `${cityId} transport_roads_${year}`, cityId);
+    }
+  }
+  const lensTemplate = summaryPaths.lens_detail_template || cityPaths.lens_detail_template;
+  if (lensTemplate) {
+    assert(failures, lensTemplate.includes("{year}"), `${cityId} lens_detail_template must include {year}`);
+    const years = (eventsIndex.event_years || []).map(Number).filter(Number.isInteger);
+    for (const year of years) {
+      const artifactPath = lensTemplate.replace("{year}", String(year));
+      assert(failures, fs.existsSync(resolve(root, artifactPath)), `${cityId} missing lens detail overlay for ${year}: ${artifactPath}`);
+    }
+    const sampleYears = [...new Set([years[0], years[Math.floor(years.length / 2)], years[years.length - 1]].filter(Number.isInteger))];
+    for (const year of sampleYears) {
+      const payload = validateGeoJsonArtifact(failures, root, lensTemplate.replace("{year}", String(year)), `${cityId} lens_detail_${year}`, cityId);
+      if (!payload) continue;
+      const layers = new Set((payload.features || []).map((feature) => feature.properties?.layer).filter(Boolean));
+      assert(
+        failures,
+        ["planning_cell", "civic_coverage_cell", "economy_activity_cell", "economy_frontage", "civic_facility", "utility_trace", "utility_asset"].some((layer) => layers.has(layer)) || (payload.features || []).length === 0,
+        `${cityId} lens_detail_${year} must expose recognized lens-detail feature layers or be honestly empty`,
+      );
+      assert(
+        failures,
+        /evidence grids/i.test((payload.metadata?.caveats || []).join(" ")),
+        `${cityId} lens_detail_${year} must caveat derived evidence grids`,
+      );
+      assert(
+        failures,
+        /excluded from site-like lens geometry/i.test((payload.metadata?.caveats || []).join(" ")),
+        `${cityId} lens_detail_${year} must disclose aggregate/non-site exclusions`,
+      );
+      validateLensDetailSemantics(failures, `${cityId} lens_detail_${year}`, payload.features || []);
+    }
+    const requiredByYear = REQUIRED_LENS_DETAIL_EVENT_IDS[cityId] || {};
+    for (const [yearText, requiredIds] of Object.entries(requiredByYear)) {
+      const payload = validateGeoJsonArtifact(failures, root, lensTemplate.replace("{year}", yearText), `${cityId} lens_detail_${yearText}`, cityId);
+      if (payload) validateRequiredLensDetailEvents(failures, `${cityId} lens_detail_${yearText}`, payload, requiredIds);
     }
   }
 }

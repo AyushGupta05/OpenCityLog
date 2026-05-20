@@ -1,0 +1,76 @@
+{
+  "schema_version": "round130.belfast_official_more.source_audit.v1",
+  "created_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "city_id": "belfast",
+  "scope": "Belfast / Northern Ireland official architecture and built-environment change data, 2008-2026, beyond already-used HARNI and planning-committee sources where possible.",
+  "recommendation": "Use DfC/HED Scheduled Zones Date_added rows as heritage-designation/source-register milestones only. Candidate output is suitable for main-agent review and duplicate screening before integration.",
+  "source_audits": [
+    {
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_name": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://admin.opendatani.gov.uk/dataset/scheduled-historic-monument-areas",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/10",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "license_or_terms_note": "OpenDataNI lists the Scheduled Historic Monument Areas dataset under the UK Open Government Licence (OGL).",
+      "coverage_years_checked": "Belfast Scheduled Zones rows with Date_added from 2008-01-01 through 2026-05-19.",
+      "update_frequency": "OpenDataNI Scheduled Historic Monument Areas page says quarterly; HED ESRI REST API page says monthly. Use accessed_at and current service metadata for each release.",
+      "geographic_scope": "Belfast district Scheduled Zones polygon records in the HED ArcGIS service.",
+      "key_fields_used": "SMNO, TOWNLAND, EDITED_TYP, DC, BFILE, COMMENTS, Date_added, OBJECTID and polygon geometry.",
+      "reliability": "strong for official heritage scheduled-zone register/source dates; usable with caveats for city-change events",
+      "required_caveats": "Treat Date_added as a designation/register/source-maintenance date. Do not infer construction, repair, excavation, condition, public access, development impact or causality.",
+      "ingestion_recommendation": "Recommended as a distinct non-HARNI official source for heritage-designation milestones. Keep as built-environment/heritage evidence and expose polygon geometry as source geometry_ref if integrated."
+    },
+    {
+      "source_id": "dfc-hed-esri-rest-api",
+      "source_name": "Historic Environment Division ESRI REST API",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://admin.opendatani.gov.uk/dataset/historic-environment-division-esri-rest-api",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "license_or_terms_note": "OpenDataNI lists the HED ESRI REST API under the UK Open Government Licence (OGL).",
+      "coverage_years_checked": "Service metadata and layers checked on 2026-05-19.",
+      "update_frequency": "Monthly according to OpenDataNI HED ESRI REST API metadata.",
+      "geographic_scope": "Northern Ireland HED public GIS layers including Scheduled Zones.",
+      "key_fields_used": "Layer metadata, layer names, fields, source update statement.",
+      "reliability": "strong for official GIS snapshot metadata",
+      "required_caveats": "The service is an authoritative public snapshot but not a legal declaration document; retrieve original scheduling declarations for legal boundary or decision-critical use.",
+      "ingestion_recommendation": "Use as the row-level API for fetching Scheduled Zones; preserve layer URL and OBJECTID query for each candidate."
+    }
+  ],
+  "sources_checked": [
+    {
+      "source_name": "NI Planning Portal public register / Belfast planning pages",
+      "publisher": "Department for Infrastructure / Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning",
+      "result": "Checked. Existing round126 and main corpus already cover Belfast Planning Committee/current/development-control records heavily; no distinct high-yield, non-overlapping row source selected for this worker."
+    },
+    {
+      "source_name": "Belfast City Council public realm/regeneration project pages",
+      "publisher": "Belfast City Council",
+      "url": "https://www.belfastcity.gov.uk/business-and-investment/physical-investment",
+      "result": "Checked. Existing round124/round125/main sources already cover many civic/public-realm project milestones; no separate bulk dataset with row IDs and dates was found in this pass."
+    },
+    {
+      "source_name": "HARNI / HED Heritage at Risk ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division",
+      "url": "https://apps.communities-ni.gov.uk/HARNI/",
+      "result": "Checked. Already ingested by round128 using Date_Added rows, so not reused."
+    },
+    {
+      "source_name": "Listed Buildings, Northern Ireland ArcGIS feature service",
+      "publisher": "Department for Communities via OpenDataNI / ArcGIS",
+      "url": "https://www.arcgis.com/home/item.html?id=073026f2b3e64c3d9bcddd5b6ccb15fb",
+      "result": "Checked. Official and licensed, but the public feature fields expose construction era/current grade rather than a row-level listing date, so it is weaker for 2008-2026 observed change candidates."
+    },
+    {
+      "source_name": "Scheduled Historic Monument Areas / HED Scheduled Zones",
+      "publisher": "Department for Communities Historic Environment Division",
+      "url": "https://admin.opendatani.gov.uk/dataset/scheduled-historic-monument-areas",
+      "result": "Selected. Distinct official polygon layer with Date_added, SMNO, type, townland and stable OBJECTID row references."
+    }
+  ]
+}

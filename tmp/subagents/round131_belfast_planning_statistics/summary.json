@@ -1,0 +1,71 @@
+{
+  "schema_version": "round131.belfast_planning_statistics.summary.v1",
+  "created_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "city_id": "belfast",
+  "source_id": "ni-planning-statistics",
+  "input_rows": 155331,
+  "accepted_candidates": 640,
+  "rejected_rows": 154691,
+  "detailed_rejection_rows": 18936,
+  "eligible_before_cap": 640,
+  "candidate_cap": 700,
+  "min_score": 120,
+  "date_window": {
+    "start": "2008-01-01",
+    "end": "2026-05-19",
+    "source_date_field": "DecisionIssuedDate"
+  },
+  "counts_by_year": {
+    "2016": 76,
+    "2017": 97,
+    "2018": 79,
+    "2019": 34,
+    "2020": 53,
+    "2021": 66,
+    "2022": 68,
+    "2023": 81,
+    "2024": 68,
+    "2025": 18
+  },
+  "counts_by_bucket": {
+    "planning/approved/architecture/civic_community": 53,
+    "planning/approved/architecture/commercial": 55,
+    "planning/approved/architecture/demolition_redevelopment": 200,
+    "planning/approved/architecture/heritage_or_listed_building": 76,
+    "planning/approved/architecture/high_signal_other": 1,
+    "planning/approved/architecture/industrial": 3,
+    "planning/approved/architecture/mixed_use": 187,
+    "planning/approved/architecture/other_built_environment": 1,
+    "planning/approved/architecture/residential": 64
+  },
+  "counts_by_category": {
+    "Change of Use": 30,
+    "Civic": 50,
+    "Commercial": 71,
+    "Industrial": 9,
+    "Mixed Use": 290,
+    "Other": 42,
+    "Residential": 148
+  },
+  "counts_by_status": {
+    "Approved": 640
+  },
+  "counts_by_classification": {
+    "Local": 440,
+    "Major": 200
+  },
+  "counts_by_app_type": {
+    "Full": 592,
+    "Listed Building Consents": 32,
+    "Outline": 12,
+    "Reserved Matters": 4
+  },
+  "rejection_counts": {
+    "below_high_signal_architecture_threshold": 10709,
+    "not_approved": 8223,
+    "not_belfast": 135755,
+    "outside_belfast_coordinate_envelope": 4
+  },
+  "caveat": "Planning approvals are administrative records and are not proof of construction, opening, completion, demolition completion, occupation, delivery, or causal outcomes."
+}

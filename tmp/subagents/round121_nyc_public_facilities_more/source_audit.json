@@ -1,0 +1,64 @@
+{
+  "pack_id": "round121_nyc_public_facilities_more",
+  "generated_at": "2026-05-19",
+  "source_audits": [
+    {
+      "source_id": "qpl_official_news",
+      "source_name": "Queens Public Library official news pages",
+      "publisher": "Queens Public Library",
+      "source_url": "https://www.queenslibrary.org/about-us/news-media",
+      "source_type": "official library news page",
+      "accessed_at": "2026-05-19",
+      "coverage_years_checked": "2026 targeted search",
+      "geographic_scope": "Queens, New York City",
+      "date_fields_observed": "page/news date",
+      "geometry_fields_observed": "facility name and address in page context; no GIS geometry",
+      "license_or_terms_note": "Official Queens Public Library webpage; reuse of text/images is subject to QPL site terms/copyright. Candidate pack uses factual metadata and attribution only.",
+      "reliability": "High for announced library milestone and publication date; not a parcel or construction-permit record.",
+      "required_caveats": [
+        "Treat opening/reopening date as an observed administrative milestone.",
+        "Use separate source records for parcel boundaries or detailed construction dates if needed."
+      ],
+      "ingestion_recommendation": "Ingest as documented library facility milestone with approximate address-point geometry."
+    },
+    {
+      "source_id": "bpl_official_press",
+      "source_name": "Brooklyn Public Library official press releases",
+      "publisher": "Brooklyn Public Library",
+      "source_url": "https://www.bklynlibrary.org/media/press",
+      "source_type": "official library press release",
+      "accessed_at": "2026-05-19",
+      "coverage_years_checked": "2026 targeted search",
+      "geographic_scope": "Brooklyn, New York City",
+      "date_fields_observed": "press release publication date and event text",
+      "geometry_fields_observed": "facility name and address in page context; no GIS geometry",
+      "license_or_terms_note": "Official Brooklyn Public Library webpage; reuse of text/images is subject to BPL site terms/copyright. Candidate pack uses factual metadata and attribution only.",
+      "reliability": "High for announced library milestone; detailed construction records require a companion source.",
+      "required_caveats": [
+        "Groundbreaking is not completion.",
+        "Planned design features from the page should remain distinct from observed completed work."
+      ],
+      "ingestion_recommendation": "Ingest as documented library groundbreaking milestone with address-point geometry and construction-status caveat."
+    },
+    {
+      "source_id": "nychh_official_press",
+      "source_name": "NYC Health + Hospitals official press releases",
+      "publisher": "NYC Health + Hospitals",
+      "source_url": "https://www.nychealthandhospitals.org/pressrelease/",
+      "source_type": "official public hospital press release",
+      "accessed_at": "2026-05-19",
+      "coverage_years_checked": "2025-2026 targeted search",
+      "geographic_scope": "New York City public hospital and Gotham Health facilities",
+      "date_fields_observed": "press release date",
+      "geometry_fields_observed": "facility name and address/campus context; no room-level geometry",
+      "license_or_terms_note": "Official NYC Health + Hospitals webpage; reuse of text/images is subject to NYC Health + Hospitals site terms/copyright. Candidate pack uses factual metadata and attribution only.",
+      "reliability": "High for announced facility, suite, and room milestones; not a clinical outcome or utilization source.",
+      "required_caveats": [
+        "Record only observed facility or room changes.",
+        "Do not infer health outcomes, access changes, or service impacts from facility openings.",
+        "Geometry is an address/campus point, not a room or suite footprint."
+      ],
+      "ingestion_recommendation": "Ingest as documented public health facility architecture/interior milestone with strict non-outcome caveats."
+    }
+  ]
+}

@@ -166,6 +166,8 @@ def generated_artifact_paths(city: str, city_dir: Path) -> dict[str, str]:
             artifacts[key] = f"web/data/city-atlas/cities/{city}/{filename}"
     if city_dir.exists() and any(re.fullmatch(r"transport_roads_\d{4}\.geojson", item.name) for item in city_dir.iterdir()):
         artifacts["transport_roads_template"] = f"web/data/city-atlas/cities/{city}/transport_roads_{{year}}.geojson"
+    if city_dir.exists() and any(re.fullmatch(r"lens_detail_\d{4}\.geojson", item.name) for item in city_dir.iterdir()):
+        artifacts["lens_detail_template"] = f"web/data/city-atlas/cities/{city}/lens_detail_{{year}}.geojson"
     return artifacts
 
 

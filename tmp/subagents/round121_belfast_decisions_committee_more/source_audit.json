@@ -1,0 +1,62 @@
+{
+  "schema_version": "round121.belfast_decisions_committee_more.source_audit.v1",
+  "created_at": "2026-05-19",
+  "source_audits": [
+    {
+      "source_id": "bcc-live-major-applications-2026-04-14",
+      "source_name": "Live Major Applications not previously considered by Committee at 14.04.26",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s127191/Live%20Major%20Applications%20not%20previously%20considered%20by%20Committee%2014.04.26.pdf",
+      "source_type": "official local authority live/current major planning applications PDF",
+      "accessed_at": "2026-05-19",
+      "coverage_note": "Reviewed the April 2026 live-major list for Belfast architecture, housing, education, care, infrastructure, public-realm, harbour and community-facility applications that were not found in the seed milestone file or Belfast round118-120 packs by application reference.",
+      "license_or_terms_note": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
+      "reliability": "High for application reference, location, proposal text, Date Valid, Target Date and status as listed in the official current-major-applications PDF.",
+      "date_caveats": "The Date Valid field is an application-process date, not a permission, construction, completion, occupation or opening date.",
+      "geometry_caveats": "The PDF gives addresses and broad site descriptions but not reusable surveyed coordinates or red-line boundaries. Coordinates in this pack are approximate triage points from address lookup or existing local atlas context.",
+      "ingestion_recommendation": "Use as application-stage records only. Show as current/under-consideration records and do not count as approved, built or occupied changes."
+    },
+    {
+      "source_id": "bcc-planning-decisions-issued-september-2025",
+      "source_name": "Planning decisions issued September 2025",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/%28S%283qdrrx55b2e0haysa1mzjm2y%29%29/documents/s123787/Planning%2520decisions%2520issued%2520September%25202025.pdf",
+      "source_type": "official local authority planning decisions-issued PDF",
+      "accessed_at": "2026-05-19",
+      "coverage_note": "Reviewed the September 2025 decisions-issued list for architecture-related non-duplicate permissions, listed-building consents and condition/variation decisions.",
+      "license_or_terms_note": "Belfast City Council public PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
+      "reliability": "High for application reference, location, proposal text and decision status as listed in the monthly decisions-issued PDF.",
+      "date_caveats": "This pass uses month precision from the monthly decisions-issued PDF where a row-level decision day was not separately extracted. A Planning Portal follow-up should confirm exact decision-notice dates.",
+      "geometry_caveats": "The PDF gives addresses but not reusable coordinates or site polygons. Coordinates are approximate address/site points.",
+      "ingestion_recommendation": "Use as month-precision planning-decision milestones unless Planning Portal validation supplies exact decision-issued dates and better geometry."
+    },
+    {
+      "source_id": "bcc-planning-decisions-issued-february-2026",
+      "source_name": "Planning decisions issued February 2026",
+      "publisher": "Belfast City Council",
+      "source_url": "https://minutes.belfastcity.gov.uk/documents/s126465/Planning%20decisions%20issued%20February%202026.pdf",
+      "source_type": "official local authority planning decisions-issued PDF",
+      "accessed_at": "2026-05-19",
+      "coverage_note": "Reviewed the February 2026 decisions-issued list for architecture-related non-duplicate permissions and listed-building consents.",
+      "license_or_terms_note": "Belfast City Council public PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
+      "reliability": "High for application reference, location, proposal text and decision status as listed in the monthly decisions-issued PDF.",
+      "date_caveats": "This pass uses month precision from the monthly decisions-issued PDF where a row-level decision day was not separately extracted. A Planning Portal follow-up should confirm exact decision-notice dates.",
+      "geometry_caveats": "The PDF gives addresses but not reusable coordinates or site polygons. Coordinates are approximate address/site points.",
+      "ingestion_recommendation": "Use as month-precision planning-decision milestones unless Planning Portal validation supplies exact decision-issued dates and better geometry."
+    },
+    {
+      "source_id": "osm-nominatim-address-geocoding-round121",
+      "source_name": "OpenStreetMap Nominatim address search",
+      "publisher": "OpenStreetMap contributors / Nominatim",
+      "source_url": "https://nominatim.openstreetmap.org/",
+      "source_type": "non-official geometry aid used only for approximate address/site points",
+      "accessed_at": "2026-05-19",
+      "coverage_note": "Used only to place approximate WGS84 point coordinates for candidate triage where Belfast City Council PDFs supplied addresses but not coordinates.",
+      "license_or_terms_note": "OpenStreetMap data is available under ODbL. Any production use of OSM-derived coordinates should include OSM attribution and comply with ODbL requirements.",
+      "reliability": "Usable with caveats for approximate site navigation points; not authoritative planning geometry.",
+      "date_caveats": "OSM/geocoding dates are not event dates and must not be used as evidence of real-world change.",
+      "geometry_caveats": "Address search results may snap to streets, named premises, campuses or nearby features. Replace with NI Planning Portal easting/northing or red-line geometry before production import where possible.",
+      "ingestion_recommendation": "Treat only as interim geometry_source support, not as source evidence for the planning records."
+    }
+  ]
+}

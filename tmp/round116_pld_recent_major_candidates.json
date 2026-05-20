@@ -1,0 +1,2806 @@
+[
+    {
+        "lpa_name":  "Camden",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T17:01:19.960Z",
+        "decision":  "Approved",
+        "postcode":  "NW8 6HY",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  83
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "description":  "Demolition of 7 x existing garages and related structures and replacement with 2 x new two storey semi-detached houses, creation of new lightwells, associated works.  \r\n\r\n\r\n",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Avenue Road",
+        "site_name":  null,
+        "decision_date":  "13/05/2026",
+        "valid_date":  "05/07/2024",
+        "url_planning_app":  "https://planningrecords.camden.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2024/2785/P",
+        "lpa_app_no":  "2024/2785/P",
+        "centroid":  {
+                         "lon":  -0.17319,
+                         "lat":  51.541216
+                     },
+        "id":  "Camden-2024_2785_P",
+        "site_number":  "95",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Enfield",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-13T20:06:56.621Z",
+        "decision":  "Approved",
+        "postcode":  "EN1 1HQ",
+        "application_details":  {
+                                    "scheme_name":  "Powerleague Enfield - Padel",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "description":  "Replacement of 2 x football pitches with 4 x padel courts, involving enclosure broads, synthetic playing surface, canopies, floodlighting and associated works.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Great Cambridge Road",
+        "site_name":  "Edmonton Upper School, Powerleague",
+        "decision_date":  "13/05/2026",
+        "valid_date":  "03/03/2026",
+        "url_planning_app":  "\u003center PA URL here\u003e",
+        "lpa_app_no":  "26/00420/FUL",
+        "centroid":  {
+                         "lon":  -0.066502,
+                         "lat":  51.635798
+                     },
+        "id":  "Enfield-26_00420_FUL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T14:50:02.323Z",
+        "decision":  "Approved",
+        "postcode":  "SW17 8HN",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  9.88
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "description":  "Erection of a single-storey rear/side ground floor extension, conversion from single dwelling house into two self-contained flats (1 x3-bedroom and 1 x 2-bedroom), provision of refuse and cycle storage to front of property.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Lucien Road",
+        "site_name":  null,
+        "decision_date":  "13/05/2026",
+        "valid_date":  "12/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0730",
+        "lpa_app_no":  "2026/0730",
+        "centroid":  {
+                         "lon":  -0.156663,
+                         "lat":  51.428722
+                     },
+        "id":  "Wandsworth-2026_0730",
+        "site_number":  "32",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:02.624Z",
+        "decision":  "Approved",
+        "postcode":  "SE27 9RB",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Part change of use of the ground floor to provide a residential unit involving the erection single storey ground floor rear extension.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Gipsy Road",
+        "site_name":  "",
+        "decision_date":  "13/05/2026",
+        "valid_date":  "16/07/2024",
+        "url_planning_app":  null,
+        "lpa_app_no":  "24/02221/FUL",
+        "centroid":  {
+                         "lon":  -0.087065,
+                         "lat":  51.427382
+                     },
+        "id":  "Lambeth-24_02221_FUL",
+        "site_number":  "230",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T21:04:33.505Z",
+        "decision":  "Approved",
+        "postcode":  "N17 0NU",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  272.57
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "description":  "Erection of a two-storey side and rear extension, formation of rear roof dormer and the change of use of the property from an existing small HMO for up to 6 residents (Class C4 Use) to a large HMO for up to 12 residents (sui-generis use)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Lansdowne Road",
+        "site_name":  "221 Lansdowne Road, Tottenham, London, N17 0NU",
+        "decision_date":  "13/05/2026",
+        "valid_date":  "25/11/2025",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iTu000001Zo9R",
+        "lpa_app_no":  "HGY/2025/3262",
+        "centroid":  {
+                         "lon":  -0.056112,
+                         "lat":  51.600184
+                     },
+        "id":  "Haringey-HGY_2025_3262",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T21:04:33.227Z",
+        "decision":  "Approved",
+        "postcode":  "N4 1BQ",
+        "description":  "Loft extension including the erection of a rear dormer, front rooflights and rear roof terrace.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  29
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Mattison Road",
+        "site_name":  "First Floor Flat, 97 Mattison Road, Hornsey, London, N4 1BQ",
+        "decision_date":  "13/05/2026",
+        "valid_date":  "12/12/2025",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iTu000001Y1yn",
+        "lpa_app_no":  "HGY/2025/3143",
+        "centroid":  {
+                         "lon":  -0.100084,
+                         "lat":  51.579864
+                     },
+        "id":  "Haringey-HGY_2025_3143",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-12T13:40:02.947Z",
+        "decision":  "Approved",
+        "postcode":  "SW11 1RD",
+        "application_details":  {
+                                    "scheme_name":  "52B Aliwal Road",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  10
+                                                                }
+                                },
+        "description":  "Erection of a single storey side and rear extension.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Aliwal Road",
+        "site_name":  "Flat Ground Floor B",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "06/02/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0412",
+        "lpa_app_no":  "2026/0412",
+        "centroid":  {
+                         "lon":  -0.169599,
+                         "lat":  51.461037
+                     },
+        "id":  "Wandsworth-2026_0412",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Redbridge",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T00:00:41.315Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "scheme_name":  "222 - 224 High Road",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  724.3
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  9
+                                                            }
+                                },
+        "description":  "Demolish existing building.  Erection of four storey building to create commercial unit at ground floor and nine (nine x 1-bedroom) residential units at first, second and third floor levels, with associated car parking, cycle and refuse storage.  (summary)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "High Road",
+        "site_name":  "DEVELOPMENT AT 222 TO 224",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "07/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "0363/26",
+        "centroid":  {
+                         "lon":  0.077451,
+                         "lat":  51.559653
+                     },
+        "id":  "Redbridge-0363_26",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Islington",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T00:00:06.529Z",
+        "decision":  "Approved",
+        "postcode":  "N19 4EU",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  26
+                                                                }
+                                },
+        "description":  "Erection of mansard roof extension.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Bavaria Road",
+        "site_name":  null,
+        "decision_date":  "12/05/2026",
+        "valid_date":  "02/02/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "P2026/0173/FUL",
+        "centroid":  {
+                         "lon":  -0.121763,
+                         "lat":  51.565772
+                     },
+        "id":  "Islington-P2026_0173_FUL",
+        "site_number":  "45",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:15.588Z",
+        "decision":  "Approved",
+        "postcode":  "SW4 9PA",
+        "application_details":  {
+                                    "scheme_name":  "Iqra VA Primary School",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Installation of 2no. air conditioning condensers at lower roof level.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Park Hill",
+        "site_name":  "Iqra VA Primary School",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "04/02/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00362/RG3",
+        "centroid":  {
+                         "lon":  -0.130046,
+                         "lat":  51.455242
+                     },
+        "id":  "Lambeth-26_00362_RG3",
+        "site_number":  "",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Kingston",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T17:01:12.410Z",
+        "decision":  "Approved",
+        "postcode":  "KT2 5BD",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Demolition of existing dwelling and erection of 1no. two storey detached dwelling",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Lower Ham Road",
+        "site_name":  "Far End",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "17/02/2026",
+        "url_planning_app":  "https://publicaccess.kingston.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=T7NV9BNHLOF00",
+        "lpa_app_no":  "25/03280/FUL",
+        "centroid":  {
+                         "lon":  -0.307374,
+                         "lat":  51.425321
+                     },
+        "id":  "Kingston-25_03280_FUL",
+        "site_number":  "107",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  "Change of Use",
+        "last_updated":  "2026-05-13T21:04:13.197Z",
+        "decision":  "Approved",
+        "postcode":  "N22 5DX",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  217.1
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Change of use of mixed-use building comprising existing ground floor shop (Use Class E) and first floor flat (Use Class C3) to 6-bed 6-person House in Multiple Occupation (HMO) (Use Class C4). Loft conversion with erection of hip-to-gable roof extension and rear dormer roof extension, erection of double storey side extension, and erection of double storey rear extension inc. associated cycle parking and bin storage (extensions approved under application ref: HGY/2025/0025). (AMENDED DESCRIPTION)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Eldon Road",
+        "site_name":  "47 Eldon Road, Wood Green, London, N22 5DX",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "05/03/2026",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iP200000H1LVF",
+        "lpa_app_no":  "HGY/2026/0634",
+        "centroid":  {
+                         "lon":  -0.096638,
+                         "lat":  51.600912
+                     },
+        "id":  "Haringey-HGY_2026_0634",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Barnet",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:15.665Z",
+        "decision":  "Approved",
+        "postcode":  "HA8 7EJ",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  93
+                                                                }
+                                },
+        "description":  "Change of use of ground floor accommodation from Class E (office) to Class F1 (religious instruction/worship) for a temporary period of 1 years (Retrospective Application)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "High Street",
+        "site_name":  "Ground Floor",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "23/02/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/0700/RCU",
+        "centroid":  {
+                         "lon":  -0.278054,
+                         "lat":  51.610055
+                     },
+        "id":  "Barnet-26_0700_RCU",
+        "site_number":  "54, 58",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:20.808Z",
+        "decision":  "Approved",
+        "postcode":  "SW4 6HA",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  13.75
+                                                                }
+                                },
+        "description":  "Erection of a single storey, detached garden room for use as a home office.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Edgeley Road",
+        "site_name":  "Elmhurst Mansions",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "17/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00708/FUL",
+        "centroid":  {
+                         "lon":  -0.13553,
+                         "lat":  51.466561
+                     },
+        "id":  "Lambeth-26_00708_FUL",
+        "site_number":  "193",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:34.356Z",
+        "decision":  "Approved",
+        "postcode":  "W9 1RS",
+        "description":  "Erection of rear extension at second floor level with a third-floor roof terrace positioned above including associated railings and screening.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  47.46
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Maida Vale",
+        "site_name":  "Flat 7",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "28/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/07523/FULL",
+        "centroid":  {
+                         "lon":  -0.181615,
+                         "lat":  51.529207
+                     },
+        "id":  "Westminster-25_07523_FULL",
+        "site_number":  "34",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Camden",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T10:51:21.558Z",
+        "decision":  "Approved",
+        "postcode":  "NW5 2NX",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  14.25
+                                                                }
+                                },
+        "description":  "Erection of a single storey side and rear extension, re-construction of rear garden boundary wall, replacement of a ground floor rear window with an access door, replacement of a side door with a window, insertion of two rooflights and reinstatement of front sash windows.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Leverton Street",
+        "site_name":  "Flat A  ",
+        "decision_date":  "12/05/2026",
+        "valid_date":  "02/02/2026",
+        "url_planning_app":  "https://planningrecords.camden.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0413/P",
+        "lpa_app_no":  "2026/0413/P",
+        "centroid":  {
+                         "lon":  -0.139653,
+                         "lat":  51.55309
+                     },
+        "id":  "Camden-2026_0413_P",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-11T11:30:04.472Z",
+        "decision":  "Approved",
+        "postcode":  "SW12 9JE",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  28
+                                                                }
+                                },
+        "description":  "Alterations including erection of hip to gable side roof extension and rear roof \r\nextension.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Cornford Grove",
+        "site_name":  "Flat 2",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "16/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0872",
+        "lpa_app_no":  "2026/0872",
+        "centroid":  {
+                         "lon":  -0.146669,
+                         "lat":  51.440713
+                     },
+        "id":  "Wandsworth-2026_0872",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Havering",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T04:00:06.059Z",
+        "decision":  "Approved",
+        "postcode":  "RM11 2LD",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  350
+                                                                }
+                                },
+        "description":  "Change of use from a car showroom (sui generis) to a cafe (Use Class E(b)), single storey detached office (Class E) and minor external works required to facilitate the operation of the premises",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Hornchurch",
+        "site_name":  "69-71 Butts Green Road",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "16/03/2026",
+        "url_planning_app":  "http://development.havering.gov.uk/OcellaWeb/planningDetails?reference=P0127.26",
+        "lpa_app_no":  "P0127.26",
+        "centroid":  {
+                         "lon":  0.218953,
+                         "lat":  51.571486
+                     },
+        "id":  "Havering-P0127.26",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:04.275Z",
+        "decision":  "Approved",
+        "postcode":  "SW16 2NU",
+        "application_details":  {
+                                    "scheme_name":  "Highview Roof Extension",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  209
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "description":  "Erection of additional storey to provide 2 additional flats.\rRe-consultation due amended plans recieved:\r- 3rd floor layout modified \r- 2nd floor elevational changes",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Development Control Pseudo Street",
+        "site_name":  "18 - 26 Romeyn Road",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "22/01/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/00075/FUL",
+        "centroid":  {
+                         "lon":  -0.118359,
+                         "lat":  51.434237
+                     },
+        "id":  "Lambeth-25_00075_FUL",
+        "site_number":  "",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Newham",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T04:01:03.756Z",
+        "decision":  "Approved",
+        "postcode":  "E13 9PR",
+        "application_details":  {
+                                    "scheme_name":  "56B Boundary Road",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  122
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Demolition of existing single storey workshop and change of use of land to residential and construct new 3 bedroom 3 storey dwelling house with the alterations to the existing hipped roof formation at no. 182 Sutton Court Road.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Boundary Road",
+        "site_name":  "",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "07/07/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/01125/FUL",
+        "centroid":  {
+                         "lon":  0.038031,
+                         "lat":  51.528231
+                     },
+        "id":  "Newham-25_01125_FUL",
+        "site_number":  "56B",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Other house holder developments",
+        "last_updated":  "2026-05-12T16:50:04.044Z",
+        "decision":  "Approved",
+        "postcode":  "SW18 4NP",
+        "application_details":  {
+                                    "scheme_name":  "Proposed Single Storey Rear/ Side Extension",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  15
+                                                                }
+                                },
+        "description":  "Alterations including erection of single-storey rear/side extension.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Kimber Road",
+        "site_name":  "Flat Ground Floor",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0755",
+        "lpa_app_no":  "2026/0755",
+        "centroid":  {
+                         "lon":  -0.191346,
+                         "lat":  51.448758
+                     },
+        "id":  "Wandsworth-2026_0755",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Camden",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T10:51:26.712Z",
+        "decision":  "Approved",
+        "postcode":  "NW1 9AY",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "The proposed upgrade of a telecommunications base station comprising the removal of 3 no existing antennas and replacement with 3 no new antennas, the removal of 6 no existing Remote Radio Heads (RRH) and replacement with 6 no new RRH and the addition of 2 no dishes together with the internal upgrade of existing equipment room and ancillary development thereto on the rooftop of Church Studios with a new proposed height of 31.33m AGL.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Camden Park Road",
+        "site_name":  "Church Studios ",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "02/03/2026",
+        "url_planning_app":  "https://planningrecords.camden.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0817/P",
+        "lpa_app_no":  "2026/0817/P",
+        "centroid":  {
+                         "lon":  -0.129275,
+                         "lat":  51.546936
+                     },
+        "id":  "Camden-2026_0817_P",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-11T14:30:03.777Z",
+        "decision":  "Approved",
+        "postcode":  "SW12 8JJ",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  19.7
+                                                                }
+                                },
+        "description":  "Alterations including erection of an extension above part of the two-storey back addition, and formation of a roof terrace with a 1.7m high obscured glazed screen above the two-storey back addition.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Chestnut Grove",
+        "site_name":  "Flat First And Second Floors A",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "16/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0905",
+        "lpa_app_no":  "2026/0905",
+        "centroid":  {
+                         "lon":  -0.155523,
+                         "lat":  51.44668
+                     },
+        "id":  "Wandsworth-2026_0905",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Brent",
+        "development_type":  "Other house holder developments",
+        "last_updated":  "2026-05-12T08:04:56.995Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  16.7
+                                                                }
+                                },
+        "description":  "Demolition of existing rear dormer and proposed rear dormer extension and dormer extension to rear outrigger to first floor flat",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "8A Temple Road, London, NW2 6QB",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "09/03/2026",
+        "url_planning_app":  "https://pa.brent.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR_176735\u0026activeTab=summary",
+        "lpa_app_no":  "26/0580",
+        "centroid":  {
+                         "lon":  -0.222445,
+                         "lat":  51.559508
+                     },
+        "id":  "Brent-26_0580",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hillingdon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:00:12.007Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Erection of a roof extension with raise in existing rear roof ridge to create a second-floor extension with one additional guest room and ancillary hotel facilities to the existing hotel",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  92
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "CHURCH ROAD",
+        "site_name":  "FOUNTAIN HOUSE HOTEL, 116-118",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "21/11/2025",
+        "url_planning_app":  "http://planning.hillingdon.gov.uk/OcellaWeb/planningDetails?reference=7772/APP/2025/2955",
+        "lpa_app_no":  "7772/APP/2025/2955",
+        "centroid":  {
+                         "lon":  -0.419151,
+                         "lat":  51.516157
+                     },
+        "id":  "Hillingdon-7772_APP_2025_2955",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Tower Hamlets",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-13T20:02:36.668Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Removal of the existing non compliant external courtyard staircase and installation of a new compliant steel staircase providing safe access from the roof to the courtyard. The new staircase will be positioned to avoid obstructing fire exit doors and will be painted black to match the removed original.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "Bancroft Local History And Archives Library, 277 Bancroft Road, London, E1 4DQ",
+        "decision_date":  "11/05/2026",
+        "valid_date":  "23/03/2026",
+        "url_planning_app":  "https://development.towerhamlets.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR149845\u0026activeTab=summary",
+        "lpa_app_no":  "PA/26/00100/NC",
+        "centroid":  {
+                         "lon":  -0.042374,
+                         "lat":  51.523819
+                     },
+        "id":  "Tower_Hamlets-PA_26_00100_NC",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Islington",
+        "development_type":  null,
+        "last_updated":  "2026-05-09T00:00:08.827Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Hybrid planning application for the phased redevelopment of the New Barnsbury Estate comprising:\r\nPhased demolition of all existing buildings and structures, site preparation and enabling works (including excavation), and phased construction of 711 residential units (Use Class C3), nursery (Use Class E), and local community floorspace (Use Class F2) within 12 buildings ranging in height from 3-21 storeys (plus basements). Hard and soft landscaping works including public open space access and highway alterations, car and cycle parking provision are also proposed alongside all other associated ancillary works (No Matters Reserved for future approval (the \u0027\u0027detailed element\u0027\u0027)); and \r\n\r\nOutline application for: site preparation and enabling works (including excavation) and the phased construction of buildings up to 10 storeys (plus basements) to provide up to 405 residential units (Use Class C3) and up to 1,500sqm GEA flexible commercial, business and service floorspace (Use Class E). Hard and soft landscaping works including public open space, access and highway alterations, car and cycle parking provision are also proposed alongside all other associated ancillary works (All Matters Reserved for future approval (the \u0027\u0027outline element\u0027\u0027))",
+        "application_details":  {
+                                    "scheme_name":  "New Barnsbury Estate",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  124993
+                                                                }
+                                },
+        "application_type_full":  "Outline planning permission: Some matters reserved",
+        "street_name":  "Barnsbury Estate",
+        "site_name":  "Street Record",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "27/06/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "P2025/1765/OUT",
+        "centroid":  {
+                         "lon":  -0.111228,
+                         "lat":  51.535874
+                     },
+        "id":  "Islington-P2025_1765_OUT",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Other listed building consents (alter-extend)",
+        "last_updated":  "2026-05-11T13:20:04.288Z",
+        "decision":  "Approved",
+        "postcode":  "SW17 0YF",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Installation of roof mounted photovoltaic panels.",
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Springfield Drive",
+        "site_name":  "Storey Building Springfield University Hospital",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "26/11/2025",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2025/4096",
+        "lpa_app_no":  "2025/4096",
+        "centroid":  {
+                         "lon":  -0.170193,
+                         "lat":  51.436829
+                     },
+        "id":  "Wandsworth-2025_4096",
+        "site_number":  "7",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-11T13:20:04.514Z",
+        "decision":  "Approved",
+        "postcode":  "SW17 0YF",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Installation of roof mounted solar photovoltaic panels. ",
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Springfield Drive",
+        "site_name":  "Storey Building Springfield University Hospital",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "26/11/2025",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2025/4093",
+        "lpa_app_no":  "2025/4093",
+        "centroid":  {
+                         "lon":  -0.170193,
+                         "lat":  51.436829
+                     },
+        "id":  "Wandsworth-2025_4093",
+        "site_number":  "7",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Enfield",
+        "development_type":  "Minor retail and service",
+        "last_updated":  "2026-05-13T20:08:52.648Z",
+        "decision":  "Approved",
+        "postcode":  "N14 4EY",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "description":  "Single storey rear extension, with increase in height to existing rear extension and Erection of rear boundary wall with railings and gate to a maximum height of 1.9m.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Bramley Road",
+        "site_name":  null,
+        "decision_date":  "08/05/2026",
+        "valid_date":  "26/03/2026",
+        "url_planning_app":  "\u003center PA URL here\u003e",
+        "lpa_app_no":  "26/00678/FUL",
+        "centroid":  {
+                         "lon":  -0.134823,
+                         "lat":  51.646786
+                     },
+        "id":  "Enfield-26_00678_FUL",
+        "site_number":  "73",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:22.116Z",
+        "decision":  "Approved",
+        "postcode":  "SW2 1DQ",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  30
+                                                                }
+                                },
+        "description":  "Erection of a rear dormer roof extension and installation of 3 roof lights to the front roof slope  - First Floor Flat.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Morval Road",
+        "site_name":  "",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "09/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00747/FUL",
+        "centroid":  {
+                         "lon":  -0.111673,
+                         "lat":  51.456108
+                     },
+        "id":  "Lambeth-26_00747_FUL",
+        "site_number":  "28",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:17.370Z",
+        "decision":  "Approved",
+        "postcode":  "SW12 9NZ",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  21
+                                                                }
+                                },
+        "description":  "Erection of a rear dormer extension including three roof lights to the front roof slope and two roof lights to the bay turret roof (Flat B).",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Englewood Road",
+        "site_name":  "",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "16/02/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00483/FUL",
+        "centroid":  {
+                         "lon":  -0.145751,
+                         "lat":  51.453082
+                     },
+        "id":  "Lambeth-26_00483_FUL",
+        "site_number":  "12",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Croydon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:10:02.553Z",
+        "decision":  "Approved",
+        "postcode":  "SE19 3LQ",
+        "description":  "Alterations and erection of a single storey rear extension.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  15
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Beulah Hill",
+        "site_name":  "",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "01/12/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/03852/FUL",
+        "centroid":  {
+                         "lon":  -0.087481,
+                         "lat":  51.410518
+                     },
+        "id":  "Croydon-25_03852_FUL",
+        "site_number":  "7A",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "City of London",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:46.466Z",
+        "decision":  "Approved",
+        "postcode":  "EC1A 4JA",
+        "description":  "Installation of new glazed office entrance and associated works including external ramp, replacement railings and external lighting.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  28
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Aldersgate Street",
+        "site_name":  "Aldersgate House",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "17/03/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/00374/FULL",
+        "centroid":  {
+                         "lon":  -0.097625,
+                         "lat":  51.520115
+                     },
+        "id":  "City_of_London-25_00374_FULL",
+        "site_number":  "135, 137",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "City of London",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:55.368Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Installation of a canopy, planting, louvers and digital display, together with alterations to fenestration, to the entrance on Peter\u0027s Hill.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "City of London School\r107 Queen Victoria Street\rLondon\rEC4V 3AL\r",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "22/12/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/01800/FULL",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "City_of_London-25_01800_FULL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:39.894Z",
+        "decision":  "Approved",
+        "postcode":  "W1K 2JD",
+        "description":  "General refurbishment and M\u0026E upgrade of the office building. (Linked to 25/07809/LBC)",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  1.25
+                                                                }
+                                },
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Park Street",
+        "site_name":  "",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "28/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/07808/FULL",
+        "centroid":  {
+                         "lon":  -0.153653,
+                         "lat":  51.509428
+                     },
+        "id":  "Westminster-25_07808_FULL",
+        "site_number":  "34",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:39.958Z",
+        "decision":  "Approved",
+        "postcode":  "W1K 2JD",
+        "description":  "General refurbishment and M\u0026E upgrade of the office building. (Linked to 25/07808/FULL)",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  1.25
+                                                                }
+                                },
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Park Street",
+        "site_name":  "",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "28/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/07809/LBC",
+        "centroid":  {
+                         "lon":  -0.153653,
+                         "lat":  51.509428
+                     },
+        "id":  "Westminster-25_07809_LBC",
+        "site_number":  "34",
+        "status":  "Lapsed"
+    },
+    {
+        "lpa_name":  "Lewisham",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T09:03:07.693Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Change of use and reconfiguration of 192 Evelyn Street SE8 from office (Class E) and one self-contained flat (C3) into two self-contained flats (C3), together with the provision of cycle parking and bin storage, external alterations to the elevations to include the replacement of window and the installation of doors to the rear elevation, formation of staircase access to the side elevation, new railings, courtyard and boundaray treatment at the front and all associated works.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  183.5
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  3
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "192 EVELYN STREET, LONDON, SE8 5DB",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "10/11/2025",
+        "url_planning_app":  "https://planning.lewisham.gov.uk/online-applications/applicationDetails.do?keyVal=_LEWIS_DCAPR_129931\u0026activeTab=summary",
+        "lpa_app_no":  "DC/25/142008",
+        "centroid":  {
+                         "lon":  -0.033583,
+                         "lat":  51.484617
+                     },
+        "id":  "Lewisham-DC_25_142008",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "City of London",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:53.450Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Change of use from restaurant/cafe/office reception lobby (Sui Generis)  to restaurant/cafe and/or ancillary drinking establishment (Sui Generis) with an associated external seating area for the siting of 7 tables and 20 chairs at ground floor in association with 3rd floor bar and 4th floor restaurant.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  25
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "3 Devonshire Row\r150 Bishopsgate\rLondon\rEC2M 4AF",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "19/12/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/01666/FULL",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "City_of_London-25_01666_FULL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hillingdon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:00:13.224Z",
+        "decision":  "Approved",
+        "postcode":  "HA4 8NL",
+        "description":  "Erection of new dwellinghouse to side of existing dwellinghouse, erection of front dormer to existing dwellinghouse.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  81.5
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "RUISLIP",
+        "site_name":  "23 GREEN WALK",
+        "decision_date":  "08/05/2026",
+        "valid_date":  "16/12/2025",
+        "url_planning_app":  "http://planning.hillingdon.gov.uk/OcellaWeb/planningDetails?reference=79822/APP/2025/3106",
+        "lpa_app_no":  "79822/APP/2025/3106",
+        "centroid":  {
+                         "lon":  -0.416278,
+                         "lat":  51.574046
+                     },
+        "id":  "Hillingdon-79822_APP_2025_3106",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Redbridge",
+        "development_type":  null,
+        "last_updated":  "2026-05-08T00:00:35.908Z",
+        "decision":  "Approved",
+        "postcode":  "IG2 7RH",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Installation of 4no. new Electric Vehicle (EV) Chargers. Decommissioning of 1no. fuel pump and the reduction of the fuel canopy size. Remove Car wash. Minor alterations to existing parking arrangements, kerb lines, infrastructure and associated hard landscaping works. (Summary).",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Eastern Avenue",
+        "site_name":  "SERVICE AND PETROL STATION",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "28/01/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "0170/26",
+        "centroid":  {
+                         "lon":  0.085418,
+                         "lat":  51.574224
+                     },
+        "id":  "Redbridge-0170_26",
+        "site_number":  "711",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Richmond",
+        "development_type":  null,
+        "last_updated":  "2026-05-08T00:01:04.113Z",
+        "decision":  "Closed",
+        "postcode":  "SW13 9JJ",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  320
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "description":  "Demolition of the existing building and erection of two new three bedroomed dwellings.",
+        "application_type_full":  "Full planning \u0026 demolition in a conservation area",
+        "street_name":  "Glentham Road",
+        "site_name":  null,
+        "decision_date":  "07/05/2026",
+        "valid_date":  "04/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "PA26/0333",
+        "centroid":  {
+                         "lon":  -0.236327,
+                         "lat":  51.486663
+                     },
+        "id":  "Richmond-PA26_0333",
+        "site_number":  "60",
+        "status":  "Closed"
+    },
+    {
+        "lpa_name":  "Hackney",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-12T08:37:31.571Z",
+        "decision":  "Approved",
+        "postcode":  "E5 8DY",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  3.5
+                                                                }
+                                },
+        "description":  "Conversion to office,\u0026nbsp; and erection of an external toilet.\u0026nbsp;",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Clarence Road",
+        "site_name":  "Land To The Rear Of 126-132",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "01/08/2023",
+        "url_planning_app":  "https://developmentandhousing.hackney.gov.uk//planning/index.html?fa=getApplication\u0026id=76943",
+        "lpa_app_no":  "2023/1767",
+        "centroid":  {
+                         "lon":  -0.055859,
+                         "lat":  51.553125
+                     },
+        "id":  "Hackney-2023_1767",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Croydon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:06:58.100Z",
+        "decision":  "",
+        "postcode":  "SE25 4PP",
+        "description":  "Conversion of two ground floor shops with flat accommodation above (Use Class Sui Generis) to form single ground floor commercial/business/service units (Use Class E) and three (3) self-contained flats (Use Clas C3) above with associated amenity, cycle storage, off-street vehicle parking and waste storage spaces; Including associated erection of part single/two-storey rear/side infill extension (following demolition of existing rear addition),  plus erection of dormer extensions to rear of main roofslopes and over outriggers, formation of single rooftop amenity space at loft level and two (2) at first floor level with glazed balustrades or high wall boundary treatments, and alterations including replacement of shopfront and window openings and installation of door and window openings.\r",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  101.2
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Portland Road",
+        "site_name":  "Market Parade",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "28/07/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/00276/FUL",
+        "centroid":  {
+                         "lon":  -0.068008,
+                         "lat":  51.395235
+                     },
+        "id":  "Croydon-25_00276_FUL",
+        "site_number":  "9",
+        "status":  ""
+    },
+    {
+        "lpa_name":  "City of London",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:50.946Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Change of use of building from restaurant and office to hotel use, with associated external alterations to the facades, blue/green roofs, solar PV panels, and replacement rooftop plant.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  3026
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "17 Godliman Street\rLondon\rEC4V 5BD\r",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "10/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/01394/FULL",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "City_of_London-25_01394_FULL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T21:04:13.197Z",
+        "decision":  "Approved",
+        "postcode":  "N8 9ER",
+        "description":  "Erection of single-storey side infill extension. Alterations to existing rear extension",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Dickenson Road",
+        "site_name":  "Ground Floor Flat, 27 Dickenson Road, Hornsey, London, N8 9ER",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "12/03/2026",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iP200000H4f1B",
+        "lpa_app_no":  "HGY/2026/0712",
+        "centroid":  {
+                         "lon":  -0.118774,
+                         "lat":  51.575815
+                     },
+        "id":  "Haringey-HGY_2026_0712",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Newham",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T04:01:02.933Z",
+        "decision":  "Approved",
+        "postcode":  "E7 9NP",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  682
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  10
+                                                            }
+                                },
+        "description":  "Demolition of the existing building and the construction of a three storey building to provide 8 x residential flats comprising of 1 x studio flat, 1 x 1 bed flat, 4 x 2 bed flats and 2 x 3 bed flats, including associated landscaping, access, car and cycle parking and refuse and recycling provision.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Upton Lane",
+        "site_name":  "",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "07/06/2024",
+        "url_planning_app":  null,
+        "lpa_app_no":  "24/01217/FUL",
+        "centroid":  {
+                         "lon":  0.022461,
+                         "lat":  51.540929
+                     },
+        "id":  "Newham-24_01217_FUL",
+        "site_number":  "236, 238",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Southwark",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:18.173Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Listed building consent for alterations including partial demolition and extension to the existing building to create additional Class E office floor space; to include extension and reconfiguration at roof level and the rear, creation associated amenity terraces, facade alterations including replacement shopfronts, replacement/ additional plant and plant enclosures, and other works associated with the development.",
+        "application_details":  {
+                                    "scheme_name":  "Delta House",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  547
+                                                                }
+                                },
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  null,
+        "site_name":  "Delta House\r175 - 177 Borough High Street\rSouthwark\rSE1 1HR\r",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "18/09/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/AP/2677",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "Southwark-25_AP_2677",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Barnet",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:23.933Z",
+        "decision":  "Approved",
+        "postcode":  "EN5 3DJ",
+        "application_details":  {
+                                    "scheme_name":  "3480 - Barnet Discharge Lounge ",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Installation of a new external side entrance door to the Patient Discharge Lounge",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Wellhouse Lane",
+        "site_name":  "Barnet General Hospital",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "12/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/0927/FUL",
+        "centroid":  {
+                         "lon":  -0.214647,
+                         "lat":  51.650643
+                     },
+        "id":  "Barnet-26_0927_FUL",
+        "site_number":  "",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Southwark",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:07.483Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  9450.5
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  244
+                                                            }
+                                },
+        "description":  "Demolition of existing building and erection of a building comprising commercial floorspace (Class E), Purpose built student accommodation bedrooms and amenity space (sui generis), refuse and bike stores, internal and external plant, and external landscaping.\r\rFor information: \r- proposed building is part 19 storeys with additional rooftop lift/overrun/enclosure plus basement (62.8m AOD, 59.9m above ground), part 18 storeys (58.3m AOD, 55.4m above ground) and part 3 storeys (14.7m AOD, 11.8m above ground). \r \rThe development as a whole comprises:\r- 243 student bedrooms;\r- 1,504sqm GIA of flexible commercial, business, service floorspace (Class E)\r",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "Coburg House\r63-67 Newington Causeway\rLondon\rSouthwark\rSE1 6LS\r",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "16/01/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "24/AP/3621",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "Southwark-24_AP_3621",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T21:04:28.605Z",
+        "decision":  "Approved",
+        "postcode":  "N17 0JD",
+        "description":  "Demolition of existing buildings on site and the erection of a part three, part two storey building facing Chalgrove Road to provide a flat and duplex, with 4 x part two, part single storey mews houses to the rear (6 dwellings in total).",
+        "application_details":  {
+                                    "scheme_name":  "Chalgrove Mews",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  496.4
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  6
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Chalgrove Road",
+        "site_name":  "Land adjacent to 46 Chalgrove Road, Tottenham, London, N17 0JD",
+        "decision_date":  "07/05/2026",
+        "valid_date":  "23/12/2024",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iTu000000hpDl",
+        "lpa_app_no":  "HGY/2024/3046",
+        "centroid":  {
+                         "lon":  -0.057543,
+                         "lat":  51.601633
+                     },
+        "id":  "Haringey-HGY_2024_3046",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Islington",
+        "development_type":  null,
+        "last_updated":  "2026-05-07T00:00:34.001Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Proposed telecommunications base station upgrades including removal and replacement of 1no. equipment cabinet, addition of 1no. wall mounted cabinet, installation of a GPS node and new handrails on rooftop. [Linked to listing building consent ref: P2026/3999/LBC]",
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Essex Road",
+        "site_name":  "Street Record",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "13/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "P2026/0398/FUL",
+        "centroid":  {
+                         "lon":  -0.098505,
+                         "lat":  51.53913
+                     },
+        "id":  "Islington-P2026_0398_FUL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-07T08:00:06.671Z",
+        "decision":  "Approved",
+        "postcode":  "SW15 1PF",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  191.2
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  3
+                                                            }
+                                },
+        "description":  "Alterations including erection of a mansard extension to the main rear roof; Formation of a roof terrace with 1.7m high obscured glazed side screens and 1.1m high safety rail above part of the 3-storey back addition; Erection of a single storey rear and side extension with alterations to existing basement in connection with conversion to 1 x 3-bed and 2 x 1-bed flats. Associated cycle and refuse storage",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Norroy Road",
+        "site_name":  null,
+        "decision_date":  "06/05/2026",
+        "valid_date":  "30/01/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0409",
+        "lpa_app_no":  "2026/0409",
+        "centroid":  {
+                         "lon":  -0.217312,
+                         "lat":  51.461988
+                     },
+        "id":  "Wandsworth-2026_0409",
+        "site_number":  "8",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Islington",
+        "development_type":  null,
+        "last_updated":  "2026-05-07T00:00:33.853Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Upgrade of existing telecommunications base station comprising the removal and replacement of 1no equipment cabinet, addition of 1no wall mounted cabinet with installation of a GPS node and ancillary development thereto including new handrails on the rooftop [Linked to Full application ref: P2026/0398/FUL].",
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Essex Road",
+        "site_name":  "Street Record",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "13/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "P2026/0399/LBC",
+        "centroid":  {
+                         "lon":  -0.098505,
+                         "lat":  51.53913
+                     },
+        "id":  "Islington-P2026_0399_LBC",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Southwark",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:09.437Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Partial demolition of the viaduct structure, remodelling and refurbishment and change of use of existing arches within the viaduct structure to flexible office, retail, gymnasium and restaurant uses (Class E) and flexible cultural, drinking establishment, live music venue, nightclub, cinema, and theatre uses (Sui Generis); construction of two buildings (ground plus-12 storey plus plant and ground plus 15-storey plus plant) for flexible office and indoor sport and recreation facilities (Class E); associated landscaping, new public realm, creation of new entrances and frontages, cycle parking, highways works, plant and equipment and all other associated works.",
+        "application_details":  {
+                                    "scheme_name":  "Timber Square Phase II",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  51895
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "Timber Square (Phase 2)\r63 Ewer Street\rLondon\rSE1 0NR\r",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "26/02/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/AP/0524",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "Southwark-25_AP_0524",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:06:10.317Z",
+        "decision":  "Approved",
+        "postcode":  "NW8 8BA",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  10.13
+                                                                }
+                                },
+        "description":  "Erection of rear single storey rear extension at ground floor level with new side window to Miles Place.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Broadley Street",
+        "site_name":  "Flat 1",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "11/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/01289/FULL",
+        "centroid":  {
+                         "lon":  -0.171085,
+                         "lat":  51.521427
+                     },
+        "id":  "Westminster-26_01289_FULL",
+        "site_number":  "125",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-11T13:20:04.075Z",
+        "decision":  "Approved",
+        "postcode":  "SW11 5PX",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  38.09
+                                                                }
+                                },
+        "description":  "Alterations including erection of mansard roof extension (with French doors and safety railings) ;  roof extension above part of the two-storey rear addition; and the installation of AC unit.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Taybridge Road",
+        "site_name":  "Flat 2",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "26/11/2025",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2025/4254",
+        "lpa_app_no":  "2025/4254",
+        "centroid":  {
+                         "lon":  -0.151919,
+                         "lat":  51.463574
+                     },
+        "id":  "Wandsworth-2025_4254",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Brent",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-12T08:05:00.666Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Proposed single-storey rear outbuilding for use as home office to ground floor flat",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "60B Cavendish Road, London, NW6 7XP",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "11/03/2026",
+        "url_planning_app":  "https://pa.brent.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR_176775\u0026activeTab=summary",
+        "lpa_app_no":  "26/0617",
+        "centroid":  {
+                         "lon":  -0.207664,
+                         "lat":  51.543205
+                     },
+        "id":  "Brent-26_0617",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T21:04:13.197Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  368
+                                                                }
+                                },
+        "description":  "Erection of a two storey modular office \u0026 welfare unit to replace existing building, including reconfiguration of existing car parking layout.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Watermead Way",
+        "site_name":  "Land rear of 45 to 49 Garman Road, Watermead Way, Tottenham, London",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "11/03/2026",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iP200000H3oEb",
+        "lpa_app_no":  "HGY/2026/0681",
+        "centroid":  {
+                         "lon":  -0.049429,
+                         "lat":  51.603921
+                     },
+        "id":  "Haringey-HGY_2026_0681",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Croydon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:09:47.557Z",
+        "decision":  "Approved",
+        "postcode":  "SE25 4QB",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  58
+                                                                }
+                                },
+        "description":  "Demolition of the existing rear storage area and construction of a single storey rear extension to accommodate a storage and kitchen area.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Portland Road",
+        "site_name":  "",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "31/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/03540/FUL",
+        "centroid":  {
+                         "lon":  -0.066519,
+                         "lat":  51.392027
+                     },
+        "id":  "Croydon-25_03540_FUL",
+        "site_number":  "216",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Croydon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:09:31.066Z",
+        "decision":  "",
+        "postcode":  "CR7 7JH",
+        "description":  "Change of use from large HMO (use class Sui Generis) and self contained flat (use class C3) to 5 x self contained flats (use class C3), erection of part one, part-two storey rear/side extension, 2x dormer roof extensions on rear roof slope with associated amenity, cycle parking and waste storage spaces, and associated alterations including landscaping.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  275.9
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  5
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Brigstock Road",
+        "site_name":  "",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "22/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/03230/FUL",
+        "centroid":  {
+                         "lon":  -0.104056,
+                         "lat":  51.397083
+                     },
+        "id":  "Croydon-25_03230_FUL",
+        "site_number":  "61",
+        "status":  ""
+    },
+    {
+        "lpa_name":  "Enfield",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-13T20:10:00.111Z",
+        "decision":  "Approved",
+        "postcode":  "EN4 0DP",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "description":  "Addition of windows at first floor front elevation of the existing office at rear.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Cockfosters Road",
+        "site_name":  null,
+        "decision_date":  "06/05/2026",
+        "valid_date":  "12/03/2026",
+        "url_planning_app":  "\u003center PA URL here\u003e",
+        "lpa_app_no":  "26/00799/FUL",
+        "centroid":  {
+                         "lon":  -0.147789,
+                         "lat":  51.649617
+                     },
+        "id":  "Enfield-26_00799_FUL",
+        "site_number":  "108A",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Haringey",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T21:04:13.197Z",
+        "decision":  "Approved",
+        "postcode":  "N15 3PL",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  28
+                                                                }
+                                },
+        "description":  "Erection of L-shaped dormer extension to 1st floor Unit (HMO)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "West Green Road",
+        "site_name":  "Flat A, 443 West Green Road, Tottenham, London, N15 3PL",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "https://publicregister.haringey.gov.uk/pr/s/detail/a0iP200000H3S1B",
+        "lpa_app_no":  "HGY/2026/0675",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "Haringey-HGY_2026_0675",
+        "site_number":  null,
+        "status":  "Application Under Consideration"
+    },
+    {
+        "lpa_name":  "Barnet",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:07.624Z",
+        "decision":  "Approved",
+        "postcode":  "NW4 2QP",
+        "description":  "Erection of a garden shed",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Shirehall Close",
+        "site_name":  "",
+        "decision_date":  "06/05/2026",
+        "valid_date":  "13/01/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/0115/RCU",
+        "centroid":  {
+                         "lon":  -0.214868,
+                         "lat":  51.581334
+                     },
+        "id":  "Barnet-26_0115_RCU",
+        "site_number":  "16",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-05T17:40:04.066Z",
+        "decision":  "Approved",
+        "postcode":  "SW17 0PG",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  28
+                                                                }
+                                },
+        "description":  "Alterations including erection of mansard roof extension to main rear roof (with french doors and safety railings) and roof extension above two storey back addition.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Garratt Lane",
+        "site_name":  "Flat First Floor",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0970",
+        "lpa_app_no":  "2026/0970",
+        "centroid":  {
+                         "lon":  -0.181961,
+                         "lat":  51.433227
+                     },
+        "id":  "Wandsworth-2026_0970",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-05T17:20:03.418Z",
+        "decision":  "Approved",
+        "postcode":  "SW18 4QX",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  8.16
+                                                                }
+                                },
+        "description":  "Alterations including erection of single-storey outbuilding in rear garden. ",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Strathville Road",
+        "site_name":  null,
+        "decision_date":  "05/05/2026",
+        "valid_date":  "06/01/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2025/4528",
+        "lpa_app_no":  "2025/4528",
+        "centroid":  {
+                         "lon":  -0.195845,
+                         "lat":  51.441966
+                     },
+        "id":  "Wandsworth-2025_4528",
+        "site_number":  "29",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Islington",
+        "development_type":  null,
+        "last_updated":  "2026-05-06T00:00:39.295Z",
+        "decision":  "Approved",
+        "postcode":  "N19 3TS",
+        "description":  "Erection of a replacement single-storey garden outbuilding",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  14.5
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Whitehall Park",
+        "site_name":  null,
+        "decision_date":  "05/05/2026",
+        "valid_date":  "23/01/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "P2025/3647/FUL",
+        "centroid":  {
+                         "lon":  -0.136282,
+                         "lat":  51.569573
+                     },
+        "id":  "Islington-P2025_3647_FUL",
+        "site_number":  "15",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Camden",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-06T10:51:25.066Z",
+        "decision":  "Approved",
+        "postcode":  "NW6 5JA",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  8.65
+                                                                }
+                                },
+        "description":  "Demolition of two existing garden sheds and erection of a detached garden office in rear garden.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Greville Road",
+        "site_name":  "Flat A  ",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "https://planningrecords.camden.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0929/P",
+        "lpa_app_no":  "2026/0929/P",
+        "centroid":  {
+                         "lon":  -0.188215,
+                         "lat":  51.536162
+                     },
+        "id":  "Camden-2026_0929_P",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-11T20:01:08.325Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  17.6
+                                                                }
+                                },
+        "description":  "Erection of a single storey ground floor side extension with a courtyard.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "239 Cavendish Road\rLondon\rLambeth\rSW12 0BP",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "11/02/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00371/FUL",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "Lambeth-26_00371_FUL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-11T20:01:22.893Z",
+        "decision":  "Approved",
+        "postcode":  "SW2 4HF",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  30
+                                                                }
+                                },
+        "description":  "Erection of rear and side dormers together with the installation of 2 rooflights to the front roof slope (to Flat B).",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Kirkstall Road",
+        "site_name":  "",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "17/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00856/FUL",
+        "centroid":  {
+                         "lon":  -0.130309,
+                         "lat":  51.442828
+                     },
+        "id":  "Lambeth-26_00856_FUL",
+        "site_number":  "58",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Kingston",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T17:01:14.886Z",
+        "decision":  "Approved",
+        "postcode":  "KT3 5HF",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "description":  "Demolition of shed and rear sunrooms. Erection of single storey rear extension, hip to gable and rear dormer roof extensions to facilitate loft conversion. Conversion of the single dwelling house into 2nos self-contained flats with the provision of refuse and cycle storage",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Bazalgette Gardens",
+        "site_name":  null,
+        "decision_date":  "05/05/2026",
+        "valid_date":  "27/01/2026",
+        "url_planning_app":  "https://publicaccess.kingston.gov.uk/online-applications/applicationDetails.do?activeTab=summary\u0026keyVal=T86UH0NHLU300",
+        "lpa_app_no":  "26/00002/FUL",
+        "centroid":  {
+                         "lon":  -0.266973,
+                         "lat":  51.394021
+                     },
+        "id":  "Kingston-26_00002_FUL",
+        "site_number":  "35",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hackney",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-12T08:37:13.245Z",
+        "decision":  "Approved",
+        "postcode":  "E9 7HD",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  7.5
+                                                                }
+                                },
+        "description":  "Erection of a single storey rear extension at first floor level; restoration of\u0026nbsp; front door; replacement of cement roof tiles with slate;\u0026nbsp; repair works to the rear facade",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "VICTORIA PARK ROAD",
+        "site_name":  "First Floor And Second Floor Flat",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "04/02/2026",
+        "url_planning_app":  "https://developmentandhousing.hackney.gov.uk//planning/index.html?fa=getApplication\u0026id=84573",
+        "lpa_app_no":  "2026/0235",
+        "centroid":  {
+                         "lon":  -0.043834,
+                         "lat":  51.538195
+                     },
+        "id":  "Hackney-2026_0235",
+        "site_number":  "180",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Lambeth",
+        "development_type":  null,
+        "last_updated":  "2026-05-11T20:01:16.204Z",
+        "decision":  "Approved",
+        "postcode":  "SE1 8XX",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Application for Full Planning Permission for the erection of temporary staircase on the Royal Festival Hall riverside terrace down to Queen\u0027s Walk, in connection with the Southbank Centre\u0027s 75th Anniversary.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Belvedere Road",
+        "site_name":  "The Southbank Centre",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00759/FUL",
+        "centroid":  {
+                         "lon":  -0.116187,
+                         "lat":  51.505864
+                     },
+        "id":  "Lambeth-26_00759_FUL",
+        "site_number":  "",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Brent",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-12T08:04:47.084Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Demolition of existing rear extension and proposed single storey rear and side infill extension to the shop.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  16.48
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "116 Chamberlayne Road, London, NW10 3JP",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "13/02/2026",
+        "url_planning_app":  "https://pa.brent.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR_176104\u0026activeTab=summary",
+        "lpa_app_no":  "26/0023",
+        "centroid":  {
+                         "lon":  -0.22036,
+                         "lat":  51.535314
+                     },
+        "id":  "Brent-26_0023",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Brent",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-12T08:04:53.339Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  88
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "description":  "Demolition of existing side garage, store and conservatory and proposed two storey side extension, single storey rear infill extension, rear outbuilding, replacement of 2x rear dormer windows with 1x window and installation of 1x front rooflight to the dwellinghouse.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "49 Manor Drive, Wembley, HA9 8EB",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "08/02/2026",
+        "url_planning_app":  "https://pa.brent.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR_176423\u0026activeTab=summary",
+        "lpa_app_no":  "26/0304",
+        "centroid":  {
+                         "lon":  -0.286028,
+                         "lat":  51.559357
+                     },
+        "id":  "Brent-26_0304",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Enfield",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T20:09:35.817Z",
+        "decision":  "Approved",
+        "postcode":  "EN1 4EA",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "description":  "Sub-division of site and construction of single storey dwelling house at side, involving single storey side extension to original dwelling with demolition of existing side extension and rear garage.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Linden Gardens",
+        "site_name":  null,
+        "decision_date":  "05/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "\u003center PA URL here\u003e",
+        "lpa_app_no":  "26/00770/FUL",
+        "centroid":  {
+                         "lon":  -0.059333,
+                         "lat":  51.663574
+                     },
+        "id":  "Enfield-26_00770_FUL",
+        "site_number":  "126",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Enfield",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-13T20:09:10.814Z",
+        "decision":  "Approved",
+        "postcode":  "EN1 1BJ",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0.0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Part-conversion of rear of Office (Use Class E(c) Other appropriate services in a commercial, business or service locally) to self-contained flat (Use Class C3).",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "St Marks Road",
+        "site_name":  "Ground Floor",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "\u003center PA URL here\u003e",
+        "lpa_app_no":  "26/00704/FUL",
+        "centroid":  {
+                         "lon":  -0.068713,
+                         "lat":  51.641913
+                     },
+        "id":  "Enfield-26_00704_FUL",
+        "site_number":  "127",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Tower Hamlets",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-13T20:02:38.406Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  2.16
+                                                                }
+                                },
+        "description":  "Enlargement of one existing window to create a new door and erection of new external balcony to an existing residential apartment, Studio 6, on the rear elevation of the existing building facing Limehouse Cut to match other existing balconies on the building.",
+        "application_type_full":  "Full planning \u0026 demolition in a conservation area",
+        "street_name":  null,
+        "site_name":  "Studio 6, 46 Morris Road, London, E14 6NQ",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  "https://development.towerhamlets.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR150081\u0026activeTab=summary",
+        "lpa_app_no":  "PA/26/00309/NC",
+        "centroid":  {
+                         "lon":  -0.015686,
+                         "lat":  51.518622
+                     },
+        "id":  "Tower_Hamlets-PA_26_00309_NC",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Havering",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T04:00:12.049Z",
+        "decision":  "Approved",
+        "postcode":  "RM13 8ND",
+        "description":  "Continuation of temporary use of the outbuilding as a residential unit for occupants of the main house during extensive approved demolition and construction works to the main dwelling.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Rainham",
+        "site_name":  "131 Betterton Road",
+        "decision_date":  "05/05/2026",
+        "valid_date":  "02/12/2025",
+        "url_planning_app":  "http://development.havering.gov.uk/OcellaWeb/planningDetails?reference=P1532.25",
+        "lpa_app_no":  "P1532.25",
+        "centroid":  {
+                         "lon":  0.181026,
+                         "lat":  51.531028
+                     },
+        "id":  "Havering-P1532.25",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hounslow",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-01T13:30:07.033Z",
+        "decision":  "Approved",
+        "postcode":  "W4 2LB",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  12
+                                                                }
+                                },
+        "description":  "Erection of a single storey rear extension to the ground floor flat.  ",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Cornwall Grove",
+        "site_name":  "Flat Ground Floor",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "04/03/2026",
+        "url_planning_app":  "https://planningandbuilding.hounslow.gov.uk/NECSWS/ES/Presentation/Planning/OnlinePlanning/OnlinePlanningOverview?applicationNumber=P/2026/0554",
+        "lpa_app_no":  "P/2026/0554",
+        "centroid":  {
+                         "lon":  -0.25163,
+                         "lat":  51.488367
+                     },
+        "id":  "Hounslow-P_2026_0554",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "OPDC",
+        "development_type":  null,
+        "last_updated":  "2026-05-02T00:00:15.227Z",
+        "decision":  "Approved",
+        "postcode":  "W3 0TJ",
+        "description":  "Alterations to increase the eaves and ridge height of the existing building (Use Class B8) to facilitate the introduction of a new floor, creating additional usable space for storage and ancillary office space, together with the installation of new windows",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  null,
+        "decision_date":  "01/05/2026",
+        "valid_date":  "10/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/0055/FULOPDC",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "OPDC-26_0055_FULOPDC",
+        "site_number":  null,
+        "status":  "Closed"
+    },
+    {
+        "lpa_name":  "Bexley",
+        "development_type":  null,
+        "last_updated":  "2026-05-07T20:01:21.644Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  66
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Conversion of existing garage to self-contained residential unit with erection of a first floor.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "Garage Adjacent To\r194 Erith Road\rBexleyheath\rKent\rDA7 6HT\r",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "09/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/00367/FUL",
+        "centroid":  {
+                         "lon":  -7.55716,
+                         "lat":  49.766807
+                     },
+        "id":  "Bexley-26_00367_FUL",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Havering",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T04:00:05.521Z",
+        "decision":  "Approved",
+        "postcode":  "RM5 3AX",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Part retrospective application for the conversion of two storey dwelling into 1 x 3-bed and 1 x 2-bed self contained dwellings both with associated amenity space including patio and outbuilding to rear, replacement front porch, roof alterations, cycle store and refuse store to front, refuse store to rear, and demolition of canopies to side and rear",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Romford",
+        "site_name":  "1 Dover Close",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "29/01/2026",
+        "url_planning_app":  "http://development.havering.gov.uk/OcellaWeb/planningDetails?reference=P0066.26",
+        "lpa_app_no":  "P0066.26",
+        "centroid":  {
+                         "lon":  0.165795,
+                         "lat":  51.58953
+                     },
+        "id":  "Havering-P0066.26",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:36.888Z",
+        "decision":  "Approved",
+        "postcode":  "W1S 4QB",
+        "description":  "Partial demolition and rebuilding to replace existing fourth floor to both 25 Old Bond Street and 15 Albemarle Street including the re-provision of a terrace along the Old Bond Street frontage at fourth floor level; Partial demolition at rear of 15 and 16 Albemarle Street and rear extension to 25 Old Bond Street and erection of replacement albeit enlarged accommodation at rear ground to fourth floor level; Creation of green roof, insect piles and plant enclosure at new roof level with associated access; Enlargement of existing terrace at rear first floor level; Installation of replacement windows; Shopfront alterations; associated external alterations; Internal alterations throughout. All in connection with the use of the buildings for retail (Class E (a)) purposes with ancillary back of house office, meeting rooms, showroom with bar/hospitality, VIP lounge and gallery spaces.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  991
+                                                                }
+                                },
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Old Bond Street",
+        "site_name":  "",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "23/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/07665/FULL",
+        "centroid":  {
+                         "lon":  -0.141591,
+                         "lat":  51.509426
+                     },
+        "id":  "Westminster-25_07665_FULL",
+        "site_number":  "25",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hackney",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-12T08:37:13.785Z",
+        "decision":  "Approved",
+        "postcode":  "E9 6JP",
+        "description":  "Replacement of pitched roof to the rear addition with a mansard-style roof with dormer windows, erection of roof extensions to the front and rear of the existing property and creation of roof terraces to form 2 self contained residential units (Use Class C3)",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  111
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  2
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "HOMERTON HIGH STREET",
+        "site_name":  null,
+        "decision_date":  "01/05/2026",
+        "valid_date":  "08/08/2025",
+        "url_planning_app":  "https://developmentandhousing.hackney.gov.uk//planning/index.html?fa=getApplication\u0026id=83256",
+        "lpa_app_no":  "2025/1118",
+        "centroid":  {
+                         "lon":  -0.047531,
+                         "lat":  51.548185
+                     },
+        "id":  "Hackney-2025_1118",
+        "site_number":  "33B",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Brent",
+        "development_type":  "Major all other major developments",
+        "last_updated":  "2026-05-12T08:02:13.095Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "application_details":  {
+                                    "scheme_name":  null,
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  null
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "description":  "Demolition of existing building and basements and replacement with mixed-use development incorporating 22 storey building and 3 basements, comprising: flexible light industrial (Use Class E(g)(iii))/B8 employment space (in accordance with Part 3 of Schedule 2 (Class V) of The Town and Country Planning (General Permitted Development) (England) Order 2015 (as amended)); Use Class C1 Hotel (including ancillary gym, spa and swimming pool); Use Class F.1 Conference Centre; Use Class F.2 community hall; basement car parking accessed from Oxgate Lane; cycle parking; internal service yard; coach drop-off lay-by; management and back of house areas; plant; roof garden and outdoor terraces; public realm improvements and associated works, subject to Deed of Agreement dated 27 April 2026 under Section 106 of Town and Country Planning Act, 1990 as amended.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "403-405 Edgware Road, Cricklewood, London, NW2 6LN",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "09/02/2021",
+        "url_planning_app":  "https://pa.brent.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR_152957\u0026activeTab=summary",
+        "lpa_app_no":  "20/4143",
+        "centroid":  {
+                         "lon":  -0.229688,
+                         "lat":  51.568043
+                     },
+        "id":  "Brent-20_4143",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hillingdon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:00:13.980Z",
+        "decision":  "Approved",
+        "postcode":  "HA4 6LA",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  0
+                                                                }
+                                },
+        "description":  "Erection of an outbuilding to rear garden (Retrospective application)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "RUISLIP",
+        "site_name":  "159 WEST END ROAD",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "06/03/2026",
+        "url_planning_app":  "http://planning.hillingdon.gov.uk/OcellaWeb/planningDetails?reference=79937/APP/2026/472",
+        "lpa_app_no":  "79937/APP/2026/472",
+        "centroid":  {
+                         "lon":  -0.41703,
+                         "lat":  51.566089
+                     },
+        "id":  "Hillingdon-79937_APP_2026_472",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Southwark",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:01:34.939Z",
+        "decision":  "Approved",
+        "postcode":  "SE15 2JB",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  10.6
+                                                                }
+                                },
+        "description":  "Erection of a single-storey rear extension to the existing end-of-terrace building at 62a Lausanne Road",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Lausanne Road",
+        "site_name":  "",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "16/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "26/AP/0364",
+        "centroid":  {
+                         "lon":  -0.052217,
+                         "lat":  51.470503
+                     },
+        "id":  "Southwark-26_AP_0364",
+        "site_number":  "62A",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hackney",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-12T08:33:18.388Z",
+        "decision":  "Approved",
+        "postcode":  "N16 5TR",
+        "description":  "Extension to existing basement with new front and rear lightwells, erection of two storey rear extension, an additional floor and erection of roof extension to facilitate change of use from C3 to a school (Class F1)",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  1132
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  0
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "STAMFORD HILL",
+        "site_name":  null,
+        "decision_date":  "01/05/2026",
+        "valid_date":  "09/01/2026",
+        "url_planning_app":  "https://developmentandhousing.hackney.gov.uk//planning/index.html?fa=getApplication\u0026id=84349",
+        "lpa_app_no":  "2025/2762",
+        "centroid":  {
+                         "lon":  -0.073371,
+                         "lat":  51.571543
+                     },
+        "id":  "Hackney-2025_2762",
+        "site_number":  "101",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hounslow",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-12T15:10:11.397Z",
+        "decision":  "Approved",
+        "postcode":  "TW3 1QT",
+        "description":  "Erection of a mixed-use building comprising commercial floorspace (Use Class E(a), (b), (c), (e) and (g)(i)) at ground and basement levels, and seven residential units (Use Class C3) at first and second floors, with associated amenity space, refuse and cycle storage and public realm improvements following the demolition of the existing buildings.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  1396
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  8
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  "High Street",
+        "site_name":  null,
+        "decision_date":  "01/05/2026",
+        "valid_date":  "21/10/2025",
+        "url_planning_app":  "https://planningandbuilding.hounslow.gov.uk/NECSWS/ES/Presentation/Planning/OnlinePlanning/OnlinePlanningOverview?applicationNumber=P/2025/3100",
+        "lpa_app_no":  "P/2025/3100",
+        "centroid":  {
+                         "lon":  -0.358262,
+                         "lat":  51.469532
+                     },
+        "id":  "Hounslow-P_2025_3100",
+        "site_number":  "115",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Brent",
+        "development_type":  "Major dwellings",
+        "last_updated":  "2026-05-12T08:04:18.792Z",
+        "decision":  "Approved",
+        "postcode":  null,
+        "description":  "Proposed erection of a residential building with associated parking, highways works, landscaping, refuse and cycle stores",
+        "application_details":  {
+                                    "scheme_name":  null,
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  235
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "application_type_full":  "Full planning permission",
+        "street_name":  null,
+        "site_name":  "2 Forty Lane, Wembley, HA9 9EB",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "07/03/2025",
+        "url_planning_app":  "https://pa.brent.gov.uk/online-applications/applicationDetails.do?keyVal=DCAPR_172233\u0026activeTab=summary",
+        "lpa_app_no":  "25/0492",
+        "centroid":  {
+                         "lon":  -0.265791,
+                         "lat":  51.5661
+                     },
+        "id":  "Brent-25_0492",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:03:58.990Z",
+        "decision":  "Approved",
+        "postcode":  "W1F 9BH",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  53.3
+                                                                }
+                                },
+        "description":  "Erection of single storey roof extension to provide additional Class E floorspace; replacement of windows with double glazed timber framed windows and replacement shopfront doors; and raising height of chimney stacks at 49 Beak Street [SITE INCLUDES 49 BEAK STREET].",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Marshall Street",
+        "site_name":  "",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "20/06/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/03688/FULL",
+        "centroid":  {
+                         "lon":  -0.137525,
+                         "lat":  51.512653
+                     },
+        "id":  "Westminster-25_03688_FULL",
+        "site_number":  "54",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Islington",
+        "development_type":  null,
+        "last_updated":  "2026-05-14T00:00:44.041Z",
+        "decision":  "Approved",
+        "postcode":  "N5 1TA",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  20
+                                                                }
+                                },
+        "description":  "Erection of rear dormer roof extension, installation of skylights to front and side roofslopes, and PV solar panels to side roofslope.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Highbury Hill",
+        "site_name":  null,
+        "decision_date":  "01/05/2026",
+        "valid_date":  "11/03/2026",
+        "url_planning_app":  null,
+        "lpa_app_no":  "P2026/0622/FUL",
+        "centroid":  {
+                         "lon":  -0.103231,
+                         "lat":  51.556211
+                     },
+        "id":  "Islington-P2026_0622_FUL",
+        "site_number":  "103",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Hillingdon",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T22:00:07.156Z",
+        "decision":  "Approved",
+        "postcode":  "UB3 1AQ",
+        "application_details":  {
+                                    "scheme_name":  "Quba Masjid \u0026 Education Centre",
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  750
+                                                                }
+                                },
+        "description":  "Erection of a 4 storey side extension to an existing building. The extension involves the demolition of Unit B and change of use from Industrial (Class B8) to Local Community Use (Class F1).",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "GOLDEN CRESCENT",
+        "site_name":  "UNIT B \u0026 C",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "29/05/2025",
+        "url_planning_app":  "http://planning.hillingdon.gov.uk/OcellaWeb/planningDetails?reference=44330/APP/2025/1493",
+        "lpa_app_no":  "44330/APP/2025/1493",
+        "centroid":  {
+                         "lon":  -0.422865,
+                         "lat":  51.508761
+                     },
+        "id":  "Hillingdon-44330_APP_2025_1493",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Westminster",
+        "development_type":  null,
+        "last_updated":  "2026-05-13T20:04:36.948Z",
+        "decision":  "Approved",
+        "postcode":  "W1S 4QB",
+        "description":  "Partial demolition and rebuilding to replace existing fourth floor to both 25 Old Bond Street and 15 Albemarle Street including the re-provision of a terrace along the Old Bond Street frontage at fourth floor level; Partial demolition at rear of 15 and 16 Albemarle Street and rear extension to 25 Old Bond Street and erection of replacement albeit enlarged accommodation at rear ground to fourth floor level; Creation of green roof, insect piles and plant enclosure at new roof level with associated access; Enlargement of existing terrace at rear first floor level; Installation of replacement windows; Shopfront alterations; associated external and internal alterations throughout.",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  991
+                                                                }
+                                },
+        "application_type_full":  "Full planning \u0026 listed building consent",
+        "street_name":  "Old Bond Street",
+        "site_name":  "",
+        "decision_date":  "01/05/2026",
+        "valid_date":  "23/10/2025",
+        "url_planning_app":  null,
+        "lpa_app_no":  "25/07666/LBC",
+        "centroid":  {
+                         "lon":  -0.141591,
+                         "lat":  51.509426
+                     },
+        "id":  "Westminster-25_07666_LBC",
+        "site_number":  "25",
+        "status":  "Lapsed"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-01T08:00:07.909Z",
+        "decision":  "Approved",
+        "postcode":  "SW18 5NP",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  90
+                                                                }
+                                },
+        "description":  "RECONSULTATION: Erection of a single storey side/rear extension and reinstatement of existing railings above the ground floor extension",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Elsenham Street",
+        "site_name":  "Flat Ground Floor",
+        "decision_date":  "30/04/2026",
+        "valid_date":  "04/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0329",
+        "lpa_app_no":  "2026/0329",
+        "centroid":  {
+                         "lon":  -0.204996,
+                         "lat":  51.440515
+                     },
+        "id":  "Wandsworth-2026_0329",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-01T08:00:09.486Z",
+        "decision":  "Approved",
+        "postcode":  "SW17 8AH",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  88.8
+                                                                }
+                                },
+        "description":  "Alterations including erection of a single-storey side and rear extension. ",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Carminia Road",
+        "site_name":  "Flat Ground Floor 1",
+        "decision_date":  "30/04/2026",
+        "valid_date":  "09/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0931",
+        "lpa_app_no":  "2026/0931",
+        "centroid":  {
+                         "lon":  -0.149282,
+                         "lat":  51.439082
+                     },
+        "id":  "Wandsworth-2026_0931",
+        "site_number":  null,
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor all other minor developments",
+        "last_updated":  "2026-05-01T08:00:08.888Z",
+        "decision":  "Approved",
+        "postcode":  "SW18 3DD",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  186
+                                                                }
+                                },
+        "description":  "Alterations including erection of dormer roof extension to main rear roof and single storey rear extension in connection with enlargement of existing Large HMO (Sui Generis) from 7 bedrooms to 9 bedrooms.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Earlsfield Road",
+        "site_name":  "Arun Lodge",
+        "decision_date":  "30/04/2026",
+        "valid_date":  "04/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0697",
+        "lpa_app_no":  "2026/0697",
+        "centroid":  {
+                         "lon":  -0.183303,
+                         "lat":  51.448004
+                     },
+        "id":  "Wandsworth-2026_0697",
+        "site_number":  "123",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-01T08:00:08.724Z",
+        "decision":  "Approved",
+        "postcode":  "SW18 5PB",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  37
+                                                                }
+                                },
+        "description":  "Alterations including erection of a roof extension (with french doors and safety railing) to the main rear roof, erection of an extension above part of the two-storey back addition. (AMENDED DESCRIPTION)",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Revelstoke Road",
+        "site_name":  null,
+        "decision_date":  "30/04/2026",
+        "valid_date":  "13/02/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0643",
+        "lpa_app_no":  "2026/0643",
+        "centroid":  {
+                         "lon":  -0.199679,
+                         "lat":  51.439984
+                     },
+        "id":  "Wandsworth-2026_0643",
+        "site_number":  "74",
+        "status":  "Approved"
+    },
+    {
+        "lpa_name":  "Wandsworth",
+        "development_type":  "Minor dwellings",
+        "last_updated":  "2026-05-01T08:00:09.649Z",
+        "decision":  "Approved",
+        "postcode":  "SW11 1QS",
+        "application_details":  {
+                                    "non_residential_details":  {
+                                                                    "total_gia_gained":  100.3
+                                                                },
+                                    "residential_details":  {
+                                                                "total_no_proposed_residential_units":  1
+                                                            }
+                                },
+        "description":  "Alterations including erection of a single storey side and rear extension.",
+        "application_type_full":  "Full planning permission",
+        "street_name":  "Barnard Road",
+        "site_name":  null,
+        "decision_date":  "30/04/2026",
+        "valid_date":  "09/03/2026",
+        "url_planning_app":  "http://planning.wandsworth.gov.uk/Northgate/PlanningExplorer/DisplayAppDetails.aspx?AppNo=2026/0934",
+        "lpa_app_no":  "2026/0934",
+        "centroid":  {
+                         "lon":  -0.166734,
+                         "lat":  51.462116
+                     },
+        "id":  "Wandsworth-2026_0934",
+        "site_number":  "10",
+        "status":  "Approved"
+    }
+]

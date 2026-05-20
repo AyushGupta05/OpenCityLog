@@ -50,8 +50,8 @@ function cameraMatches(before, after) {
   assert(initial.bimsAtlasApi, "BimsAtlas compatibility API is missing.");
   assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
   assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
-  assert(initial.lensEventFeatureCount > 0, "Event-derived lens source did not receive current timeline records.");
-  assert(initial.lensHeatmapVisible && initial.lensPointsVisible, "Event heatmap and current-year lens point overlays are not visible.");
+  assert(initial.activeLens === "transport", "Transport should be the default active map lens.");
+  assert(/Transport/.test(initial.lensLegendText) && /activity/i.test(initial.lensLegendText), "Transport lens legend did not render.");
   assert(initial.transportRoadVisible, "Transport road lens should be visible while the transport layer is enabled.");
   assert(initial.transportRoadYearLoaded === Number(initial.year), "Transport road lens did not load the current timeline year.");
   assert(initial.compareOpen === "false", "Compare panel should start closed.");
@@ -70,7 +70,7 @@ function cameraMatches(before, after) {
     { timeout: 10000 }
   );
   const afterPinClick = await atlasState(page);
-  assert(afterPinClick.detailTitle === "York Street rail station opened", "Clicking a map pin did not update the evidence detail panel.");
+  assert(afterPinClick.detailTitle.includes("York Street"), "Clicking a York Street map pin did not update the evidence detail panel.");
   assert(afterPinClick.activePin?.text.includes("York Street"), "Clicked map pin did not become the active event.");
 
   const grandCentralTitle = "Belfast Grand Central Station opened";
@@ -91,6 +91,62 @@ function cameraMatches(before, after) {
   assert(afterListClick.activePin?.text.includes("Belfast Grand Central"), "Changelog selection did not sync to the map pin.");
   await page.locator("#searchInput").fill("");
   await page.waitForFunction(() => !window.BimsAtlas?.state?.search, null, { timeout: 10000 });
+  const beforeLensSwitch = await atlasState(page);
+  assert(beforeLensSwitch.activeLens === "transport", "Atlas should start on the transport map lens.");
+  assert(beforeLensSwitch.lensDetailYearLoaded === null, "Transport lens should not eagerly load non-transport lens detail overlays.");
+
+  const lensChecks = [
+    { id: "built_environment", layer: "lens-planning-cells-fill", visible: "lensPlanningCellsVisible", rendered: "lensPlanningCellsRendered", legend: /Planning & Built|Cells/i },
+    { id: "civic_services", layer: "lens-civic-coverage-fill", visible: "lensCivicCoverageVisible", rendered: "lensCivicCoverageRendered", legend: /Civic Services|facility|Coverage/i },
+    { id: "economy", layer: "lens-economy-frontage", visible: "lensEconomyCellsVisible", rendered: "lensEconomyFrontageRendered", legend: /Economy|frontage|activity/i },
+    { id: "utilities", layer: "lens-utilities-trace", visible: "lensUtilityTraceVisible", rendered: "lensUtilityTraceRendered", legend: /Utilities|trace|asset/i },
+    { id: "transport", layer: "lens-transport-roads", visible: "transportRoadVisible", count: "transportRoadFeatureCount", legend: /Transport|activity/i },
+  ];
+  for (const check of lensChecks) {
+    await page.locator(`.lens-choice[data-lens='${check.id}']`).click();
+    await page.waitForFunction(
+      (id) => window.BimsAtlas?.state?.activeLens === id,
+      check.id,
+      { timeout: 10000 }
+    );
+    if (check.count) {
+      await page.waitForFunction(
+        (field) => Number(window.BimsAtlas?.state?.[field] || 0) > 0,
+        check.count,
+        { timeout: 15000 }
+      );
+    } else {
+      await page.waitForFunction(
+        (layerId) => {
+          const map = window.BimsAtlas?.state?.map;
+          if (!map?.getLayer(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
+          try {
+            return map.queryRenderedFeatures({ layers: [layerId] }).length > 0;
+          } catch {
+            return false;
+          }
+        },
+        check.layer,
+        { timeout: 15000 }
+      );
+    }
+    const lensState = await atlasState(page);
+    assert(lensState.activeLens === check.id, `Map lens did not switch to ${check.id}.`);
+    assert(lensState[check.visible], `${check.id} map lens did not show its expected overlay layer.`);
+    if (check.count) {
+      assert(lensState[check.count] > 0, `${check.id} map lens did not load source-backed features.`);
+    } else {
+      assert(lensState[check.rendered] > 0, `${check.id} map lens did not render source-backed features in the viewport.`);
+    }
+    assert(check.legend.test(lensState.lensLegendText), `${check.id} legend did not update: ${lensState.lensLegendText}`);
+    if (check.id !== "transport") {
+      assert(lensState.lensDetailYearLoaded === Number(lensState.year), `${check.id} detail lens did not load the current timeline year.`);
+    } else {
+      assert(lensState.lensDetailYearLoaded === null, "Transport lens should unload non-transport lens detail overlays.");
+    }
+    const lensScreenshot = await page.screenshot({ path: path.join(outputDir, `atlas-lens-${check.id}.png`), fullPage: false });
+    assertDetailedPng(lensScreenshot, assert, `${check.id} lens screenshot`);
+  }
 
   await page.locator(".layer-row[data-layer='transport']").click();
   await page.waitForFunction(
@@ -101,7 +157,7 @@ function cameraMatches(before, after) {
   const afterFilterOff = await atlasState(page);
   assert(afterFilterOff.layersCount === "5/6 on", "Layer click did not update the active layer count.");
   assert(afterFilterOff.transportOn === "false", "Transport layer did not toggle off.");
-  assert(afterFilterOff.lensHeatmapVisible && !afterFilterOff.transportRoadVisible, "Layer filter did not update heatmap/transport lens visibility.");
+  assert(!afterFilterOff.transportRoadVisible && /Layer off/i.test(afterFilterOff.lensLegendText), "Layer filter did not hide the transport lens and update the legend.");
   assert(afterFilterOff.pinCount > 0 && afterFilterOff.transportPinCount === 0, "Transport layer filter did not remove transport map pins.");
 
   await page.locator(".layer-row[data-layer='transport']").click();
@@ -168,7 +224,7 @@ function cameraMatches(before, after) {
   assert(afterTimeline.year !== "2024", "Timeline scrub did not change the selected year.");
   assert(afterTimeline.pinCount > 0 && afterTimeline.visiblePinCount > 0, "Timeline scrub did not keep map events visible.");
   assert(cameraMatches(beforeTimeline, afterTimeline), "Timeline scrub moved the map camera instead of preserving the current viewport.");
-  assert(afterTimeline.lensHeatmapVisible && afterTimeline.lensPointsVisible, "Timeline scrub hid the event lens overlays.");
+  assert(afterTimeline.transportRoadVisible, "Timeline scrub hid the active transport lens overlay.");
   assert(afterTimeline.transportRoadYearLoaded === Number(afterTimeline.year), "Timeline scrub did not swap the transport lens to the selected year.");
 
   const screenshot = await page.screenshot({ path: path.join(outputDir, "paper-atlas-browser-smoke.png"), fullPage: false });

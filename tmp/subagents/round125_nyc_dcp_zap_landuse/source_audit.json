@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-05-19",
+  "scope": "Official NYC DCP ZAP/land-use source audit for observed-change candidates, 2008-01-01 through 2026-05-19.",
+  "sources": [
+    {
+      "source_id": "nyc-dcp-zap-project-data",
+      "source_name": "Zoning Application Portal (ZAP) - Project Data",
+      "publisher": "NYC Department of City Planning",
+      "url": "https://data.cityofnewyork.us/d/hgx4-8ukb",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/hgx4-8ukb.json",
+      "license_and_attribution": "NYC Open Data Terms of Use; cite NYC Department of City Planning and the dataset name.",
+      "coverage_years": "Queried for official milestone/status dates from 2008-01-01 through 2026-05-19; dataset includes older and current ZAP project rows.",
+      "update_frequency": "Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.",
+      "geographic_scope_and_granularity": "NYC land-use project/application rows; geometry requires BBL or project-detail joins.",
+      "key_fields": [
+        "project_id",
+        "project_name",
+        "project_brief",
+        "actions",
+        "ulurp_numbers",
+        "ceqr_number",
+        "approval_date",
+        "completed_date",
+        "current_milestone",
+        "current_milestone_date",
+        "public_status"
+      ],
+      "reliability_assessment": "strong for administrative project status, action identifiers, and milestone dates; usable with caveats for project descriptions.",
+      "required_caveats": "Do not treat approval, adoption, certification, or completion in ZAP as evidence of physical construction, opening, occupancy, or outcomes.",
+      "ingestion_recommendation": "Use as the primary cited source for land-use application milestones; store project_id as source_record_id and preserve source_date_field."
+    },
+    {
+      "source_id": "nyc-dcp-zap-bbl",
+      "source_name": "Zoning Application Portal (ZAP) - BBL",
+      "publisher": "NYC Department of City Planning",
+      "url": "https://data.cityofnewyork.us/d/2iga-a6mk",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/2iga-a6mk.json",
+      "license_and_attribution": "NYC Open Data Terms of Use; cite NYC Department of City Planning and the dataset name.",
+      "coverage_years": "Current project-to-BBL association table queried on 2026-05-19.",
+      "update_frequency": "Maintained with ZAP data; verify current catalog metadata for production ingestion.",
+      "geographic_scope_and_granularity": "ZAP project to validated borough/block/lot rows.",
+      "key_fields": [
+        "project_id",
+        "bbl",
+        "validated",
+        "validated_borough",
+        "validated_block",
+        "validated_lot",
+        "validated_date"
+      ],
+      "reliability_assessment": "strong when validated='TRUE'; review manually when BBLs are missing or unvalidated.",
+      "required_caveats": "Associated BBLs are not the same as official project footprint polygons or built-form boundaries.",
+      "ingestion_recommendation": "Use as the official geometry bridge for ZAP rows; retain BBL count and validation metadata."
+    },
+    {
+      "source_id": "nyc-dcp-pluto",
+      "source_name": "Primary Land Use Tax Lot Output (PLUTO)",
+      "publisher": "NYC Department of City Planning",
+      "url": "https://data.cityofnewyork.us/d/64uk-42ks",
+      "api_endpoint": "https://data.cityofnewyork.us/resource/64uk-42ks.json",
+      "license_and_attribution": "NYC Open Data Terms of Use; cite NYC Department of City Planning and the dataset name.",
+      "coverage_years": "Current tax-lot snapshot queried on 2026-05-19.",
+      "update_frequency": "DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.",
+      "geographic_scope_and_granularity": "NYC tax lot, with BBL, address, and representative latitude/longitude.",
+      "key_fields": [
+        "bbl",
+        "address",
+        "borough",
+        "block",
+        "lot",
+        "latitude",
+        "longitude"
+      ],
+      "reliability_assessment": "usable with caveats for representative map points.",
+      "required_caveats": "PLUTO coordinates are current lot reference points and are not historical footprints or official land-use action polygons.",
+      "ingestion_recommendation": "Use for candidate triage map points only when project-specific official geometry is unavailable."
+    }
+  ]
+}

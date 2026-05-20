@@ -1,0 +1,612 @@
+{
+  "schema_version": "round156.belfast_official_heritage_tail.source_audit.v1",
+  "generated_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "city_id": "belfast",
+  "scope": "Official DfC/HED/OpenDataNI ArcGIS heritage and building-status sources for Belfast, focusing on rows not already exhausted by Belfast planning-statistics work and prior HARNI/Scheduled Zone packs.",
+  "recommendation": "Emit Defence Heritage date_visited rows and the small Industrial Heritage INSERTDATE tail as source-observation candidates only. Do not force listed-building/current-register snapshots without row-level modern event dates.",
+  "source_audits": [
+    {
+      "source_id": "dfc-hed-esri-rest-api",
+      "source_name": "Historic Environment Division GIS Data FeatureServer",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://admin.opendatani.gov.uk/dataset/historic-environment-division-esri-rest-api",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "license_or_terms_note": "OpenDataNI/HED public GIS factual data is treated as public sector information under the UK Open Government Licence where applicable; images, logos, base maps and third-party content are excluded.",
+      "coverage_years_checked": "HED public GIS layers checked on 2026-05-19; service metadata reported current update published 2026-05-06 during this pass.",
+      "update_frequency": "Monthly according to HED service/OpenDataNI metadata.",
+      "geographic_scope": "Northern Ireland public HED GIS layers; Belfast rows scoped by layer Council/LGD/DC fields where present or by local Belfast boundary for point layers without LGD.",
+      "key_fields_used": "Layer metadata, row OBJECTID/reference fields, date_visited, INSERTDATE, UPDATEDATE, Date_Added, Date_added, current grade/status fields and geometries.",
+      "reliability": "strong for official register/source rows; usable with caveats for city-change candidate events",
+      "required_caveats": "The service is an authoritative public snapshot for HED map-viewer use, not a legal declaration document or physical-works observation. Preserve accessed_at and row URL for review.",
+      "ingestion_recommendation": "Use only rows with defensible row-level source dates/status observations. Keep legal/admin/source-maintenance caveats attached to every event."
+    },
+    {
+      "source_id": "dfc-hed-defence-heritage-belfast-round156",
+      "source_name": "Defence Heritage Record ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://www.communities-ni.gov.uk/articles/defence-heritage",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/4",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "license_or_terms_note": "DfC/HED factual public data reused with OGL attribution where applicable; publication images, base maps, logos and third-party material are excluded.",
+      "coverage_years_checked": "Belfast-scoped Defence Heritage rows with date_visited from 2008-01-01 through 2026-05-19.",
+      "update_frequency": "HED GIS service is monthly; DfC describes the Defence Heritage Record survey project as 2020-2024 with records available through the map viewer.",
+      "geographic_scope": "Belfast point records selected from Defence Heritage by point-in-local-Belfast-boundary because the layer does not expose LGD/Council fields.",
+      "key_fields_used": "OBJECTID, dhr_number, site_name, county, townland, site_type, period, general_history, Site_Description, associated_dhr, associated_dhr_description, smr_reference, smr_further_info, hb_reference, hb_further_info, condition, condition_detail, visibility, land_use, land_use_details, existing_protection, Other_Sources, date_visited, grid_ref, Site_Visited",
+      "reliability": "strong for official defence-heritage register/condition observations; usable with caveats for city-change events",
+      "required_caveats": "date_visited is a source/register observation date. Site_Visited can be yes/no/null, so do not overstate fieldwork. Condition text is not proof of construction, demolition timing, repair completion, vacancy, occupancy, ownership change, final outcome or causation.",
+      "ingestion_recommendation": "Recommended as Belfast heritage/building-status tail candidates with explicit source-observation caveats and row-level OBJECTID/DHR provenance.",
+      "row_counts": {
+        "source_id": "dfc-hed-defence-heritage-belfast-round156",
+        "total_source_rows_seen": 4601,
+        "belfast_date_window_rows_before_dedupe": 161,
+        "emitted_candidates": 161,
+        "duplicate_rejects": 0,
+        "emitted_date_range": {
+          "min": "2017-02-24",
+          "max": "2026-03-24"
+        },
+        "emitted_by_year": {
+          "2017": 1,
+          "2021": 102,
+          "2022": 56,
+          "2024": 1,
+          "2026": 1
+        },
+        "emitted_by_condition": {
+          "substantial_remains": 48,
+          "traces_only": 45,
+          "no_visible_remains": 52,
+          "some_remains": 15,
+          "missing": 1
+        },
+        "emitted_by_site_visited_flag": {
+          "yes": 124,
+          "no": 36,
+          "missing": 1
+        },
+        "source_date_field": "date_visited"
+      }
+    },
+    {
+      "source_id": "dfc-hed-industrial-heritage-belfast-round156",
+      "source_name": "Industrial Heritage Records ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://www.communities-ni.gov.uk/articles/industrial-archaeology",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/2",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "license_or_terms_note": "DfC/HED factual public data reused with OGL attribution where applicable; publication images, base maps, logos and third-party material are excluded.",
+      "coverage_years_checked": "Belfast-scoped Industrial Heritage rows with INSERTDATE or UPDATEDATE from 2008-01-01 through 2026-05-19.",
+      "update_frequency": "HED GIS service is monthly; DfC notes the Industrial Heritage Record is largely a record of industry-related sites compiled from historic maps and survey sources.",
+      "geographic_scope": "Belfast point records selected from Industrial Heritage Records by point-in-local-Belfast-boundary because the layer does not expose LGD/Council fields.",
+      "key_fields_used": "OBJECTID, MIAID, CO, TD, IHR, LOCATION, GRIDREF, X_TYPE, INSERTDATE, UPDATEDATE",
+      "reliability": "strong for official source/register inserted/update dates; limited for real-world change without corroboration",
+      "required_caveats": "INSERTDATE/UPDATEDATE are register maintenance fields and must not be treated as construction, demolition, closure, occupancy, ownership, condition outcome or causal evidence.",
+      "ingestion_recommendation": "Recommended only for the small dated Belfast inserted-date tail. Most Industrial Heritage rows are rejected because they lack 2008-2026 row-level dates.",
+      "row_counts": {
+        "source_id": "dfc-hed-industrial-heritage-belfast-round156",
+        "total_source_rows_seen": 15772,
+        "belfast_date_window_rows_before_dedupe": 3,
+        "emitted_candidates": 3,
+        "duplicate_rejects": 0,
+        "emitted_date_range": {
+          "min": "2024-10-03",
+          "max": "2024-10-03"
+        },
+        "emitted_by_year": {
+          "2024": 3
+        },
+        "source_date_fields": [
+          "INSERTDATE",
+          "UPDATEDATE"
+        ]
+      }
+    },
+    {
+      "source_id": "dfc-harni-belfast",
+      "source_name": "Heritage at Risk in Northern Ireland ArcGIS layer",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://apps.communities-ni.gov.uk/HARNI/",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/3",
+      "license": "UK Open Government Licence (OGL) / HARNI site terms caveat",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years_checked": "Belfast HARNI rows with Date_Added from 2008-01-01 through 2026-05-19.",
+      "update_frequency": "Record-specific HARNI updates through HED.",
+      "geographic_scope": "Belfast HARNI rows where LGD='Belfast'.",
+      "key_fields_used": "OBJECTID, HB_Ref, BHARNI_Ref, Address, Category, Ownership, Date_Added, LGD, County, Main_ID",
+      "reliability": "strong for official HARNI register/status dates; already exhausted in prior packs",
+      "required_caveats": "Date_Added is a heritage risk/register date, not construction, repair completion, vacancy, occupancy, demolition timing, ownership change, condition outcome or causal evidence.",
+      "ingestion_recommendation": "Do not emit in round156. Prior rounds 128 and 141/manual corpus already cover this source.",
+      "row_counts": {
+        "total_rows_seen": 199,
+        "eligible_date_rows": 93,
+        "candidate_decision": "not_emitted_prior_rounds_exhausted",
+        "rejection_reason": "HARNI has Date_Added, but Belfast HARNI rows were already covered by round128 and round141/manual-corpus dedupe. This round records it as checked rather than forcing duplicates.",
+        "sample_rows": [
+          {
+            "OBJECTID": 467,
+            "BHARNI_Ref": "26/16/001",
+            "HB_Ref": "HB26/16/005 A",
+            "Address": "Wilmont House",
+            "Category": "Heritage at Risk",
+            "Date_Added": "23/09/2013",
+            "Date_Added_iso": "2013-09-23"
+          },
+          {
+            "OBJECTID": 471,
+            "BHARNI_Ref": "26/50/025",
+            "HB_Ref": "HB26/50/181",
+            "Address": "58-66 Royal Avenue, Belfast",
+            "Category": "Demolished",
+            "Date_Added": "24/02/2014",
+            "Date_Added_iso": "2014-02-24"
+          },
+          {
+            "OBJECTID": 472,
+            "BHARNI_Ref": "26/50/026",
+            "HB_Ref": "HB26/50/182",
+            "Address": "68-70 Royal Avenue, Belfast",
+            "Category": "Heritage at Risk",
+            "Date_Added": "24/02/2014",
+            "Date_Added_iso": "2014-02-24"
+          },
+          {
+            "OBJECTID": 480,
+            "BHARNI_Ref": "26/50/029",
+            "HB_Ref": "HB26/50/102 F",
+            "Address": "12 College Square North, Belfast, Co Antrim BT1 6AS",
+            "Category": "Heritage at Risk",
+            "Date_Added": "22/05/2017",
+            "Date_Added_iso": "2017-05-22"
+          },
+          {
+            "OBJECTID": 518,
+            "BHARNI_Ref": "26/28/004",
+            "HB_Ref": "HB26/28/019 A",
+            "Address": "15 College Gardens, Belfast",
+            "Category": "Saved",
+            "Date_Added": "10/08/2009",
+            "Date_Added_iso": "2009-08-10"
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "dfc-hed-scheduled-zones-belfast-round130",
+      "source_name": "Scheduled Historic Monument Areas / Scheduled Zones",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://admin.opendatani.gov.uk/dataset/scheduled-historic-monument-areas",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/10",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years_checked": "Belfast Scheduled Zones rows with Date_added from 2008-01-01 through 2026-05-19.",
+      "update_frequency": "Monthly in HED service; OpenDataNI page may list quarterly for dataset exports.",
+      "geographic_scope": "Belfast Scheduled Zones where DC='Belfast'.",
+      "key_fields_used": "OBJECTID, COUNTY, SMNO, TOWNLAND, EDITED_TYP, DC, BFILE, COMMENTS, Date_added, Centroid_X, Centroid_Y",
+      "reliability": "strong for official scheduled-zone source/register dates; already exhausted in prior packs",
+      "required_caveats": "Date_added is a heritage designation/register/source-maintenance date, not construction, excavation, repair, demolition, opening, condition or causal evidence.",
+      "ingestion_recommendation": "Do not emit in round156. Prior round130/manual corpus already covers the dated Belfast rows.",
+      "row_counts": {
+        "total_rows_seen": 44,
+        "eligible_date_rows": 7,
+        "candidate_decision": "not_emitted_prior_rounds_exhausted",
+        "rejection_reason": "Scheduled Zones has Date_added, but Belfast dated rows were already covered by round130/manual-corpus dedupe. This round records it as checked rather than forcing duplicates.",
+        "sample_rows": [
+          {
+            "OBJECTID": 6397,
+            "SMNO": "009:032",
+            "TOWNLAND": "BALLYDOLLAGHAN",
+            "EDITED_TYP": "Mound",
+            "Date_added": 1240272000000,
+            "Date_added_iso": "2009-04-21"
+          },
+          {
+            "OBJECTID": 6717,
+            "SMNO": "061:024",
+            "TOWNLAND": "SKEGONEILL",
+            "EDITED_TYP": "Fundamental Bench Mark",
+            "Date_added": 1303344000000,
+            "Date_added_iso": "2011-04-21"
+          },
+          {
+            "OBJECTID": 8447,
+            "SMNO": "009:MULTIPLE",
+            "TOWNLAND": "Ballynahatty",
+            "EDITED_TYP": "Henge and Passage Grave and Prehistoric Ritual Landscape",
+            "Date_added": 1553212800000,
+            "Date_added_iso": "2019-03-22"
+          },
+          {
+            "OBJECTID": 8448,
+            "SMNO": "060:501",
+            "TOWNLAND": "Edenderry",
+            "EDITED_TYP": "Chimeny Stack",
+            "Date_added": 1553212800000,
+            "Date_added_iso": "2019-03-22"
+          },
+          {
+            "OBJECTID": 9249,
+            "SMNO": "004:017",
+            "TOWNLAND": "Ballymacarrett",
+            "EDITED_TYP": "WWII PILLBOX",
+            "Date_added": 1616716800000,
+            "Date_added_iso": "2021-03-26"
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "dfc-hed-historic-buildings-listed-buildings",
+      "source_name": "Historic Buildings Record / Listed Buildings Northern Ireland",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://admin.opendatani.gov.uk/tl/dataset/listed-buildings-northern-ireland",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/1",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years_checked": "Belfast listed-building rows checked on 2026-05-19.",
+      "update_frequency": "Monthly according to OpenDataNI listed-buildings page.",
+      "geographic_scope": "Belfast rows where Council='Belfast'.",
+      "key_fields_used": "OBJECTID_1, HB_ref, CurrentGra, Address, Extent, Date_Const, CurrentUse, FormerUse, Vernacular, Thatched, Derelict, Townland, Council, TxtIGRef, ChkSS, MainID, ObjectID, BU_ID",
+      "reliability": "strong for current listed-building snapshot; reject for 2008-2026 event candidates without a row-level listing/change date",
+      "required_caveats": "Current grade/current use/derelict fields are a snapshot. Date_Const is construction-era metadata, not a modern listing/status-change date.",
+      "ingestion_recommendation": "Audit-only for this round. Do not force candidates until a row-level listing/revision/status date is available.",
+      "row_counts": {
+        "total_rows_seen": 1763,
+        "candidate_decision": "not_emitted_no_defensible_2008_2026_event_date",
+        "rejection_reason": "Historic Buildings/Listed Buildings rows expose CurrentGra, CurrentUse, Derelict, Date_Const and Second Survey flags, but no public row-level listing/status/change date in the 2008-2026 window. Date_Const is a construction era and is not a modern event date.",
+        "sample_rows": [
+          {
+            "OBJECTID_1": 443,
+            "HB_ref": "HB19/20/001",
+            "CurrentGra": "B1",
+            "Address": "Manor Lodge Care Home 5 The Manor Blacks Road Dunmurry BT10 0NB",
+            "Date_Const": "1860 - 1879",
+            "CurrentUse": "Residential Home",
+            "Derelict": "No",
+            "Council": "Belfast"
+          },
+          {
+            "OBJECTID_1": 444,
+            "HB_ref": "HB19/20/011",
+            "CurrentGra": "B2",
+            "Address": "St. Colman's Church of Ireland Church Avenue Dunmurry Lisburn County Antrim BT28 2DT",
+            "Date_Const": "1900 - 1919",
+            "CurrentUse": "Church",
+            "Derelict": "No",
+            "Council": "Belfast"
+          },
+          {
+            "OBJECTID_1": 445,
+            "HB_ref": "HB19/21/007",
+            "CurrentGra": "B+",
+            "Address": "140 Upper Dunmurry Lane Dunmurry Co. Antrim BT17 0HE",
+            "Date_Const": "1900 - 1919",
+            "CurrentUse": "Religious House",
+            "Derelict": "No",
+            "Council": "Belfast"
+          },
+          {
+            "OBJECTID_1": 523,
+            "HB_ref": "HB25/09/001",
+            "CurrentGra": "B1",
+            "Address": "St. John the Evangelist Church of Ireland 397 Castlereagh Road Belfast County Down BT5 6AB",
+            "Date_Const": "1940 - 1959",
+            "CurrentUse": "Church",
+            "Derelict": "No",
+            "Council": "Belfast"
+          },
+          {
+            "OBJECTID_1": 524,
+            "HB_ref": "HB25/10/001",
+            "CurrentGra": "B+",
+            "Address": "St. Finnian's Church of Ireland Cregagh Park Belfast County Antrim BT6 9LF",
+            "Date_Const": "1920 - 1939",
+            "CurrentUse": "Church",
+            "Derelict": "No",
+            "Council": "Belfast"
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "dfc-hed-historic-parks-gardens-demesnes",
+      "source_name": "Historic Parks, Gardens and Demesnes",
+      "publisher": "Department for Communities Historic Environment Division",
+      "source_url": "https://www.communities-ni.gov.uk/services/historic-environment-map-viewer",
+      "api_endpoint": "https://services2.arcgis.com/BdBkthNLO9mzGAMO/ArcGIS/rest/services/Historic_Environment_Division_GIS_Data/FeatureServer/9",
+      "license": "UK Open Government Licence (OGL)",
+      "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years_checked": "Belfast rows checked on 2026-05-19.",
+      "update_frequency": "HED GIS service is monthly.",
+      "geographic_scope": "Belfast rows where COUNCIL='BELFAST'.",
+      "key_fields_used": "OBJECTID, REF_NO, SITE, STATUS, Grade, COUNCIL, CF_HB, CF_SMR",
+      "reliability": "strong for current register geography; reject for 2008-2026 event candidates without row-level dates",
+      "required_caveats": "Status and grade are current snapshot fields in the public layer; no row-level date supports a 2008-2026 event candidate.",
+      "ingestion_recommendation": "Audit-only for this round.",
+      "row_counts": {
+        "total_rows_seen": 22,
+        "candidate_decision": "not_emitted_no_defensible_2008_2026_event_date",
+        "rejection_reason": "Historic Parks, Gardens and Demesnes rows expose status, grade and council, but no row-level designation/change/status date in the public ArcGIS fields.",
+        "sample_rows": [
+          {
+            "OBJECTID": 68,
+            "REF_NO": "AN-116",
+            "SITE": "BALLYDRAIN (MALONE GOLF CLUB)",
+            "STATUS": "SUPPLEMENTARY",
+            "Grade": "B",
+            "COUNCIL": "BELFAST"
+          },
+          {
+            "OBJECTID": 70,
+            "REF_NO": "AN-068",
+            "SITE": "WILMONT (SIR THOMAS AND LADY DIXON PARK)",
+            "STATUS": "REGISTER",
+            "Grade": "A",
+            "COUNCIL": "BELFAST"
+          },
+          {
+            "OBJECTID": 73,
+            "REF_NO": "AN-162",
+            "SITE": "OAK HILL",
+            "STATUS": "SUPPLEMENTARY",
+            "Grade": "B",
+            "COUNCIL": "BELFAST"
+          },
+          {
+            "OBJECTID": 74,
+            "REF_NO": "AN-053",
+            "SITE": "MALONE HOUSE (BARNETT DEMESNE)",
+            "STATUS": "REGISTER",
+            "Grade": "A",
+            "COUNCIL": "BELFAST"
+          },
+          {
+            "OBJECTID": 75,
+            "REF_NO": "D-006",
+            "SITE": "BELVOIR (FOREST PARK)",
+            "STATUS": "REGISTER",
+            "Grade": "A",
+            "COUNCIL": "BELFAST"
+          }
+        ]
+      }
+    }
+  ],
+  "sources_checked": {
+    "harni": {
+      "total_rows_seen": 199,
+      "eligible_date_rows": 93,
+      "candidate_decision": "not_emitted_prior_rounds_exhausted",
+      "rejection_reason": "HARNI has Date_Added, but Belfast HARNI rows were already covered by round128 and round141/manual-corpus dedupe. This round records it as checked rather than forcing duplicates.",
+      "sample_rows": [
+        {
+          "OBJECTID": 467,
+          "BHARNI_Ref": "26/16/001",
+          "HB_Ref": "HB26/16/005 A",
+          "Address": "Wilmont House",
+          "Category": "Heritage at Risk",
+          "Date_Added": "23/09/2013",
+          "Date_Added_iso": "2013-09-23"
+        },
+        {
+          "OBJECTID": 471,
+          "BHARNI_Ref": "26/50/025",
+          "HB_Ref": "HB26/50/181",
+          "Address": "58-66 Royal Avenue, Belfast",
+          "Category": "Demolished",
+          "Date_Added": "24/02/2014",
+          "Date_Added_iso": "2014-02-24"
+        },
+        {
+          "OBJECTID": 472,
+          "BHARNI_Ref": "26/50/026",
+          "HB_Ref": "HB26/50/182",
+          "Address": "68-70 Royal Avenue, Belfast",
+          "Category": "Heritage at Risk",
+          "Date_Added": "24/02/2014",
+          "Date_Added_iso": "2014-02-24"
+        },
+        {
+          "OBJECTID": 480,
+          "BHARNI_Ref": "26/50/029",
+          "HB_Ref": "HB26/50/102 F",
+          "Address": "12 College Square North, Belfast, Co Antrim BT1 6AS",
+          "Category": "Heritage at Risk",
+          "Date_Added": "22/05/2017",
+          "Date_Added_iso": "2017-05-22"
+        },
+        {
+          "OBJECTID": 518,
+          "BHARNI_Ref": "26/28/004",
+          "HB_Ref": "HB26/28/019 A",
+          "Address": "15 College Gardens, Belfast",
+          "Category": "Saved",
+          "Date_Added": "10/08/2009",
+          "Date_Added_iso": "2009-08-10"
+        }
+      ]
+    },
+    "scheduledZones": {
+      "total_rows_seen": 44,
+      "eligible_date_rows": 7,
+      "candidate_decision": "not_emitted_prior_rounds_exhausted",
+      "rejection_reason": "Scheduled Zones has Date_added, but Belfast dated rows were already covered by round130/manual-corpus dedupe. This round records it as checked rather than forcing duplicates.",
+      "sample_rows": [
+        {
+          "OBJECTID": 6397,
+          "SMNO": "009:032",
+          "TOWNLAND": "BALLYDOLLAGHAN",
+          "EDITED_TYP": "Mound",
+          "Date_added": 1240272000000,
+          "Date_added_iso": "2009-04-21"
+        },
+        {
+          "OBJECTID": 6717,
+          "SMNO": "061:024",
+          "TOWNLAND": "SKEGONEILL",
+          "EDITED_TYP": "Fundamental Bench Mark",
+          "Date_added": 1303344000000,
+          "Date_added_iso": "2011-04-21"
+        },
+        {
+          "OBJECTID": 8447,
+          "SMNO": "009:MULTIPLE",
+          "TOWNLAND": "Ballynahatty",
+          "EDITED_TYP": "Henge and Passage Grave and Prehistoric Ritual Landscape",
+          "Date_added": 1553212800000,
+          "Date_added_iso": "2019-03-22"
+        },
+        {
+          "OBJECTID": 8448,
+          "SMNO": "060:501",
+          "TOWNLAND": "Edenderry",
+          "EDITED_TYP": "Chimeny Stack",
+          "Date_added": 1553212800000,
+          "Date_added_iso": "2019-03-22"
+        },
+        {
+          "OBJECTID": 9249,
+          "SMNO": "004:017",
+          "TOWNLAND": "Ballymacarrett",
+          "EDITED_TYP": "WWII PILLBOX",
+          "Date_added": 1616716800000,
+          "Date_added_iso": "2021-03-26"
+        }
+      ]
+    },
+    "historicBuildings": {
+      "total_rows_seen": 1763,
+      "candidate_decision": "not_emitted_no_defensible_2008_2026_event_date",
+      "rejection_reason": "Historic Buildings/Listed Buildings rows expose CurrentGra, CurrentUse, Derelict, Date_Const and Second Survey flags, but no public row-level listing/status/change date in the 2008-2026 window. Date_Const is a construction era and is not a modern event date.",
+      "sample_rows": [
+        {
+          "OBJECTID_1": 443,
+          "HB_ref": "HB19/20/001",
+          "CurrentGra": "B1",
+          "Address": "Manor Lodge Care Home 5 The Manor Blacks Road Dunmurry BT10 0NB",
+          "Date_Const": "1860 - 1879",
+          "CurrentUse": "Residential Home",
+          "Derelict": "No",
+          "Council": "Belfast"
+        },
+        {
+          "OBJECTID_1": 444,
+          "HB_ref": "HB19/20/011",
+          "CurrentGra": "B2",
+          "Address": "St. Colman's Church of Ireland Church Avenue Dunmurry Lisburn County Antrim BT28 2DT",
+          "Date_Const": "1900 - 1919",
+          "CurrentUse": "Church",
+          "Derelict": "No",
+          "Council": "Belfast"
+        },
+        {
+          "OBJECTID_1": 445,
+          "HB_ref": "HB19/21/007",
+          "CurrentGra": "B+",
+          "Address": "140 Upper Dunmurry Lane Dunmurry Co. Antrim BT17 0HE",
+          "Date_Const": "1900 - 1919",
+          "CurrentUse": "Religious House",
+          "Derelict": "No",
+          "Council": "Belfast"
+        },
+        {
+          "OBJECTID_1": 523,
+          "HB_ref": "HB25/09/001",
+          "CurrentGra": "B1",
+          "Address": "St. John the Evangelist Church of Ireland 397 Castlereagh Road Belfast County Down BT5 6AB",
+          "Date_Const": "1940 - 1959",
+          "CurrentUse": "Church",
+          "Derelict": "No",
+          "Council": "Belfast"
+        },
+        {
+          "OBJECTID_1": 524,
+          "HB_ref": "HB25/10/001",
+          "CurrentGra": "B+",
+          "Address": "St. Finnian's Church of Ireland Cregagh Park Belfast County Antrim BT6 9LF",
+          "Date_Const": "1920 - 1939",
+          "CurrentUse": "Church",
+          "Derelict": "No",
+          "Council": "Belfast"
+        }
+      ]
+    },
+    "parks": {
+      "total_rows_seen": 22,
+      "candidate_decision": "not_emitted_no_defensible_2008_2026_event_date",
+      "rejection_reason": "Historic Parks, Gardens and Demesnes rows expose status, grade and council, but no row-level designation/change/status date in the public ArcGIS fields.",
+      "sample_rows": [
+        {
+          "OBJECTID": 68,
+          "REF_NO": "AN-116",
+          "SITE": "BALLYDRAIN (MALONE GOLF CLUB)",
+          "STATUS": "SUPPLEMENTARY",
+          "Grade": "B",
+          "COUNCIL": "BELFAST"
+        },
+        {
+          "OBJECTID": 70,
+          "REF_NO": "AN-068",
+          "SITE": "WILMONT (SIR THOMAS AND LADY DIXON PARK)",
+          "STATUS": "REGISTER",
+          "Grade": "A",
+          "COUNCIL": "BELFAST"
+        },
+        {
+          "OBJECTID": 73,
+          "REF_NO": "AN-162",
+          "SITE": "OAK HILL",
+          "STATUS": "SUPPLEMENTARY",
+          "Grade": "B",
+          "COUNCIL": "BELFAST"
+        },
+        {
+          "OBJECTID": 74,
+          "REF_NO": "AN-053",
+          "SITE": "MALONE HOUSE (BARNETT DEMESNE)",
+          "STATUS": "REGISTER",
+          "Grade": "A",
+          "COUNCIL": "BELFAST"
+        },
+        {
+          "OBJECTID": 75,
+          "REF_NO": "D-006",
+          "SITE": "BELVOIR (FOREST PARK)",
+          "STATUS": "REGISTER",
+          "Grade": "A",
+          "COUNCIL": "BELFAST"
+        }
+      ]
+    },
+    "sitesAndMonuments": {
+      "total_rows_seen": 18508,
+      "candidate_decision": "not_emitted_no_modern_event_date",
+      "rejection_reason": "Sites and Monuments Record rows expose type, period, protection and grid reference, but no row-level 2008-2026 source date/status-change field in the public layer."
+    },
+    "archaeologicalPotential": {
+      "total_rows_seen": 1,
+      "candidate_decision": "not_emitted_no_row_level_event_date",
+      "rejection_reason": "Areas of Archaeological Potential rows expose category/address/LGD, but no row-level date/status-change field."
+    },
+    "significantInterest": {
+      "total_rows_seen": 0,
+      "candidate_decision": "not_emitted_no_row_level_event_date",
+      "rejection_reason": "Areas of Significant Archaeological Interest rows expose category/LGD, but no row-level date/status-change field."
+    },
+    "battlesites": {
+      "total_rows_seen": 324,
+      "candidate_decision": "not_emitted_no_modern_event_date",
+      "rejection_reason": "Battlesites rows are historic-place records and do not expose a row-level 2008-2026 architecture/status-change date."
+    },
+    "wrecks": {
+      "total_rows_seen": 383,
+      "candidate_decision": "not_emitted_out_of_scope_for_architecture_tail",
+      "rejection_reason": "Ship and Aircraft Wrecks expose loss dates and condition, but are maritime/aviation wreck records rather than Belfast architecture/building-status rows for this candidate pack."
+    }
+  },
+  "caveat": "Heritage register/status dates are legal/admin/source-maintenance observations, not construction, repair completion, vacancy, occupancy, demolition timing, ownership change, condition outcome or causal evidence unless separately sourced."
+}
