@@ -17,6 +17,11 @@ const SOURCES = [
     utilityType: "electricity",
     sourceName: "OpenStreetMap power-grid features via local derived extract",
   },
+  {
+    path: path.join(ROOT, "data", "derived", "2026", "belfast_ni_utility_context_osm_2026.geojson"),
+    utilityType: "mixed",
+    sourceName: "OpenStreetMap telecom, gas, and drainage utility context via local derived extract",
+  },
 ];
 
 function readJson(filePath) {
@@ -38,8 +43,18 @@ function geometryClass(geometry) {
 }
 
 function utilityRole(utilityType, props) {
+  if (props.network_role) return String(props.network_role).toLowerCase();
   if (utilityType === "electricity") {
     return String(props.power || props.route || props.operator || "power_asset").toLowerCase();
+  }
+  if (utilityType === "telecoms") {
+    return String(props.telecom || props.communication || props["tower:type"] || props.man_made || "telecom_context").toLowerCase();
+  }
+  if (utilityType === "gas") {
+    return String(props.pipeline || props.substance || props.utility || "gas_context").toLowerCase();
+  }
+  if (utilityType === "drainage") {
+    return String(props.waterway || props.pipeline || props.man_made || "drainage_context").toLowerCase();
   }
   if (props.waterway) return String(props.waterway).toLowerCase();
   if (props.water) return String(props.water).toLowerCase();
@@ -62,6 +77,19 @@ function assetPriority(utilityType, role, geometry, props) {
     if (numericVoltage(props) >= 33000) return 2;
     return 1;
   }
+  if (utilityType === "telecoms") {
+    if (/exchange|central_office|data_center/.test(role)) return 4;
+    if (/communication|mast|tower/.test(role)) return 3;
+    return 2;
+  }
+  if (utilityType === "gas") {
+    if (/substation|station|plant|pipeline/.test(role)) return 4;
+    return 2;
+  }
+  if (utilityType === "drainage") {
+    if (/wastewater|sewerage|storm_drain|station|plant/.test(role)) return 4;
+    return 2;
+  }
   if (/pump|reservoir|works|tank|station/.test(role)) return 4;
   return 1;
 }
@@ -75,6 +103,21 @@ function rankFor(utilityType, role, geometry, props) {
     if (/tower/.test(role)) return 2;
     return 1;
   }
+  if (utilityType === "telecoms") {
+    if (/exchange|central_office|data_center/.test(role)) return 5;
+    if (/communication|mast|tower/.test(role)) return 3;
+    if (geomClass === "line") return 3;
+    return 2;
+  }
+  if (utilityType === "gas") {
+    if (/pipeline|substation|station|plant/.test(role)) return geomClass === "line" ? 4 : 3;
+    return 2;
+  }
+  if (utilityType === "drainage") {
+    if (/wastewater|sewerage|storm_drain/.test(role)) return 4;
+    if (/drain|ditch|sewer/.test(role)) return geomClass === "line" ? 3 : 2;
+    return 2;
+  }
   if (/river|canal|reservoir|dock|basin/.test(role)) return 4;
   if (/stream|drain|ditch|water/.test(role)) return geomClass === "line" ? 2 : 1;
   return 1;
@@ -83,6 +126,9 @@ function rankFor(utilityType, role, geometry, props) {
 function intensityFor(utilityType, role, geometry, props) {
   const rank = rankFor(utilityType, role, geometry, props);
   if (utilityType === "electricity" && numericVoltage(props) >= 110000) return 1;
+  if (utilityType === "telecoms" && /exchange|central_office|data_center/.test(role)) return 0.88;
+  if (utilityType === "gas" && /pipeline|substation|station|plant/.test(role)) return 0.78;
+  if (utilityType === "drainage" && /wastewater|sewerage|storm_drain/.test(role)) return 0.82;
   if (/substation|generator|plant|reservoir|river|canal|dock/.test(role)) return 0.82;
   if (geometryClass(geometry) === "line") return Math.min(0.86, 0.36 + rank * 0.12);
   if (geometryClass(geometry) === "area") return Math.min(0.72, 0.28 + rank * 0.1);
@@ -95,34 +141,44 @@ function normaliseFeature(feature, source, index) {
   if (!geometry) return null;
   const geomClass = geometryClass(geometry);
   if (geomClass === "unknown") return null;
+  const utilityType = source.utilityType === "mixed" ? String(props.utility_type || "") : source.utilityType;
+  if (!utilityType) return null;
   const sourceId = props.source_id || props.id || `${source.utilityType}-${index}`;
-  const role = utilityRole(source.utilityType, props);
+  const role = utilityRole(utilityType, props);
   const name = props.name || props.operator || role.replace(/_/g, " ");
-  const rank = rankFor(source.utilityType, role, geometry, props);
+  const rank = rankFor(utilityType, role, geometry, props);
+  const labelByType = {
+    electricity: "Power",
+    water: "Water",
+    telecoms: "Telecoms",
+    gas: "Gas",
+    drainage: "Drainage",
+    district_energy: "District energy",
+  };
   return {
     type: "Feature",
-    id: `${source.utilityType}-${sourceId}`,
+    id: `${utilityType}-${sourceId}`,
     properties: {
-      id: `utility-network-${CITY_ID}-${OBSERVED_YEAR}-${source.utilityType}-${index}`,
+      id: `utility-network-${CITY_ID}-${OBSERVED_YEAR}-${utilityType}-${index}`,
       layer: "utility_network",
       category: "utilities",
-      utility_type: source.utilityType,
+      utility_type: utilityType,
       network_role: role,
       network_geometry: geomClass,
-      asset_priority: assetPriority(source.utilityType, role, geometry, props),
-      title: `${source.utilityType === "electricity" ? "Power" : "Water"} ${role.replace(/_/g, " ")} context`,
+      asset_priority: assetPriority(utilityType, role, geometry, props),
+      title: `${labelByType[utilityType] || "Utility"} ${role.replace(/_/g, " ")} context`,
       name: name || "",
       source_id: sourceId,
-      source_name: source.sourceName,
-      publisher: "OpenStreetMap contributors",
-      source_url: osmUrl(sourceId),
-      source_type: "open geospatial extract",
-      license: "ODbL-1.0",
+      source_name: props.source_name || source.sourceName,
+      publisher: props.publisher || "OpenStreetMap contributors",
+      source_url: props.source_url || osmUrl(sourceId),
+      source_type: props.source_type || "open geospatial extract",
+      license: props.license || "ODbL-1.0",
       observed_year: OBSERVED_YEAR,
       context_year: OBSERVED_YEAR,
       confidence: "inferred",
       rank,
-      intensity: Number(intensityFor(source.utilityType, role, geometry, props).toFixed(3)),
+      intensity: Number(intensityFor(utilityType, role, geometry, props).toFixed(3)),
       caveat: "Current OSM mapped context; not a confirmed installation date, capacity measurement, or service-availability claim.",
     },
     geometry,
@@ -158,6 +214,7 @@ function main() {
         "OSM mapped visibility is not a confirmed installation/opening date.",
         "The artifact does not contain measured utility capacity, outage state, or service availability.",
         "Water features include mapped waterways/water bodies where available; they are context geometry, not surveyed water-main records.",
+        "Telecoms, gas, and drainage records are current OSM tagged context. Where only asset points exist, frontend traces are nearest mapped-street guides, not surveyed utility routes.",
       ],
     },
     features,

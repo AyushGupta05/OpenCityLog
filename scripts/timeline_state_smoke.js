@@ -9,10 +9,41 @@ const {
 } = require("./atlas_smoke_helpers");
 
 async function scrubTo(page, ratio) {
+  const before = await atlasState(page);
   const scrub = await page.locator("#tlScrub").boundingBox();
   assert(scrub, "Timeline scrub element is missing.");
   await page.mouse.click(scrub.x + scrub.width * ratio, scrub.y + scrub.height / 2);
-  await page.waitForTimeout(650);
+  await page.waitForFunction(
+    (oldYear) => {
+      const atlas = window.BimsAtlas;
+      const pins = [...document.querySelectorAll(".pin")];
+      const visiblePins = pins.filter((pin) => {
+        const rect = pin.getBoundingClientRect();
+        return rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight;
+      }).length;
+      return atlas?.state
+        && String(atlas.state.year) !== oldYear
+        && document.querySelector("#appStatus")?.textContent.trim() === ""
+        && pins.length > 0
+        && visiblePins > 0
+        && (document.querySelector(".detail-title")?.textContent.trim().length || 0) > 8;
+    },
+    before.year,
+    { timeout: 15000 }
+  );
+  await page.waitForTimeout(950);
+  await page.waitForFunction(
+    () => {
+      const pins = [...document.querySelectorAll(".pin")];
+      const visiblePins = pins.filter((pin) => {
+        const rect = pin.getBoundingClientRect();
+        return rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight;
+      });
+      return visiblePins.length > 0 && visiblePins.some((pin) => pin.getAttribute("data-active") === "true");
+    },
+    null,
+    { timeout: 10000 }
+  );
   return atlasState(page);
 }
 
