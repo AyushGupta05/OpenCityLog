@@ -2723,13 +2723,13 @@
           ["==", ["get", "surface_style"], "catchment_area"],
           ["case",
             ["==", ["get", "lens_id"], "civic-catchment"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 0.58, 0.29, 1, 0.42],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.58, 0.38, 1, 0.56],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.58, 0.34, 1, 0.46],
           ],
           ["==", ["get", "surface_style"], "catchment_backdrop"],
           ["case",
             ["==", ["get", "lens_id"], "civic-catchment"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.04, 0.6, 0.1, 1, 0.16],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.014, 0.6, 0.038, 1, 0.066],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.6, 0.25, 1, 0.36],
           ],
           ["==", ["get", "surface_style"], "catchment_patch"],
@@ -2787,18 +2787,18 @@
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case", ["==", ["get", "lens_id"], "planning-pressure"], 0.3, ["==", ["get", "lens_id"], "planning-delta"], 0.44, ["==", ["get", "lens_id"], "planning-parcels"], 0.68, 0.7],
           ["==", ["get", "surface_style"], "catchment_area"],
-          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.42, 0.72],
+          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.66, 0.72],
           ["==", ["get", "surface_style"], "catchment_backdrop"],
-          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.16, 0.58],
+          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.1, 0.58],
           ["==", ["get", "surface_style"], "catchment_patch"], 0.5,
           ["==", ["get", "surface_style"], "land_use_tile"], 0.58,
           0.52,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.48, ["==", ["get", "surface_style"], "access_fabric"], 0.14, ["==", ["get", "surface_style"], "demand_surface"], 0.12, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
-          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.82, ["==", ["get", "surface_style"], "access_fabric"], 0.26, ["==", ["get", "surface_style"], "demand_surface"], 0.26, ["==", ["get", "surface_style"], "planning_footprint"], 0.76, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.58, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.18, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
-          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.1, ["==", ["get", "surface_style"], "access_fabric"], 0.38, ["==", ["get", "surface_style"], "demand_surface"], 0.44, ["==", ["get", "surface_style"], "planning_footprint"], 1.18, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.76, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
+          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.48, ["==", ["get", "surface_style"], "access_fabric"], 0.14, ["==", ["get", "surface_style"], "demand_surface"], 0.12, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.38, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.04, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
+          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.82, ["==", ["get", "surface_style"], "access_fabric"], 0.26, ["==", ["get", "surface_style"], "demand_surface"], 0.26, ["==", ["get", "surface_style"], "planning_footprint"], 0.9, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.08, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
+          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.1, ["==", ["get", "surface_style"], "access_fabric"], 0.38, ["==", ["get", "surface_style"], "demand_surface"], 0.44, ["==", ["get", "surface_style"], "planning_footprint"], 1.25, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.44, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.12, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
         ],
       },
     });
@@ -2835,12 +2835,12 @@
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": "#fffdf6",
-        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.14, 1, 0.42],
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.54],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.05, 1, 3.2],
-          13, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.9, 1, 5.55],
-          16, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.7, 1, 7.2],
+          9, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.35, 1, 4.55],
+          13, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.65, 1, 8.7],
+          16, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.65, 1, 11.2],
         ],
       },
     });
@@ -2858,12 +2858,12 @@
           "service_outer", "#a8cfd1",
           "#5aaeb5",
         ],
-        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.32, 1, 0.76],
+        "line-opacity": ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.38, 1, 0.82],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 2.25],
-          13, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.16, 1, 4.25],
-          16, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.7, 1, 5.95],
+          9, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 2.9],
+          13, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.72, 1, 6.25],
+          16, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.65, 1, 8.35],
         ],
       },
     });
@@ -2887,6 +2887,8 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.28,
           ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.24,
           ["==", ["get", "flow_style"], "catchment_street_seam"], 0.64,
+          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]], 0.96,
+          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.34,
           ["==", ["get", "flow_style"], "transport_backbone"], 0.9,
           ["==", ["get", "flow_style"], "transport_thread"], 0.56,
           ["==", ["get", "flow_style"], "utility_capacity_trace"],
@@ -2939,9 +2941,9 @@
         "line-width": [
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2, 1, 7],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.5, 1, 10.8],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1, 1, 3.6],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.1, 1, 4.4],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.8, 1, 6.2],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
@@ -2973,9 +2975,9 @@
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.02, 1, 3.05],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.9, 1, 7.55],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.25, 1, 8.3],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.02, 1, 3.35],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 2.15],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.1, 1, 8.8],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -3079,9 +3081,13 @@
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.14, 1, 0.34],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.46, 1, 0.78],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 0.9],
           ["==", ["get", "flow_style"], "transport_service_tick"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 0.96],
+          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.86, 1, 1],
+          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.16, 1, 0.42],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "interrupted"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 0.98],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "planned"]],
@@ -3154,9 +3160,9 @@
         "line-width": [
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.8, 1, 4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.25, 1, 6.4],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.75],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.35],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 4.05],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
@@ -3172,7 +3178,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.72],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.12],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 1.62],
           ["==", ["get", "flow_style"], "transport_service_tick"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.25],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "interrupted"]],
@@ -3188,9 +3194,9 @@
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.44, 1, 1.72],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.55, 1, 5.12],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.85, 1, 5.85],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.88],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 1.22],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.75, 1, 6.1],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -3418,8 +3424,6 @@
       filter: [
         "all",
         ["==", ["get", "kind"], "node"],
-        ["!=", ["get", "node_style"], "transport"],
-        ["!=", ["get", "node_style"], "transport_route"],
         ["!=", ["get", "node_style"], "utility_trace"],
         ["!=", ["get", "node_style"], "civic_anchor"],
         ["!=", ["get", "node_style"], "planning_document"],
@@ -3429,9 +3433,9 @@
       paint: {
         "circle-radius": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "node_style"], "transport_route"], 4.2, ["all", ["==", ["get", "node_style"], "transport"], ["match", ["get", "lens_id"], ["transport-speed", "transport-reliability"], true, false]], 4.5, ["==", ["get", "node_style"], "transport"], 3.8, 4.5],
-          14, ["case", ["==", ["get", "node_style"], "transport_route"], 7, ["all", ["==", ["get", "node_style"], "transport"], ["match", ["get", "lens_id"], ["transport-speed", "transport-reliability"], true, false]], 7.8, ["==", ["get", "node_style"], "transport"], 6.4, 7.5],
-          17, ["case", ["==", ["get", "node_style"], "transport_route"], 9.8, ["all", ["==", ["get", "node_style"], "transport"], ["match", ["get", "lens_id"], ["transport-speed", "transport-reliability"], true, false]], 10.6, ["==", ["get", "node_style"], "transport"], 9.2, 11],
+          10, ["case", ["==", ["get", "node_style"], "transport_route"], 5.2, ["all", ["==", ["get", "node_style"], "transport"], ["match", ["get", "lens_id"], ["transport-speed", "transport-reliability"], true, false]], 5, ["==", ["get", "node_style"], "transport"], 3.8, 4.5],
+          14, ["case", ["==", ["get", "node_style"], "transport_route"], 8.6, ["all", ["==", ["get", "node_style"], "transport"], ["match", ["get", "lens_id"], ["transport-speed", "transport-reliability"], true, false]], 8.4, ["==", ["get", "node_style"], "transport"], 6.4, 7.5],
+          17, ["case", ["==", ["get", "node_style"], "transport_route"], 11.8, ["all", ["==", ["get", "node_style"], "transport"], ["match", ["get", "lens_id"], ["transport-speed", "transport-reliability"], true, false]], 11.4, ["==", ["get", "node_style"], "transport"], 9.2, 11],
         ],
         "circle-color": [
           "case",
@@ -6487,10 +6491,29 @@
         .sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0));
       if (territoryBackdrops.length >= 8 && (capacityFeatures.length >= 120 || roadBlockFeatures.length >= 160)) {
         const limit = Math.min(640, guideCellLimit(lens.id));
-        const territoryLimit = Math.min(48, territoryBackdrops.length);
-        const evidenceLimit = Math.max(36, Math.min(54, Math.floor(limit * 0.08), coverageFeatures.length));
-        const roadCellLimit = Math.max(150, Math.min(240, Math.floor(limit * 0.38), roadBlockFeatures.length));
-        const capacityLimit = Math.max(0, Math.min(92, limit - territoryLimit - evidenceLimit - roadCellLimit, capacityFeatures.length));
+        const territoryLimit = Math.min(24, territoryBackdrops.length);
+        const evidenceLimit = Math.max(36, Math.min(58, Math.floor(limit * 0.09), coverageFeatures.length));
+        const fabricLimit = Math.max(120, Math.min(190, Math.floor(limit * 0.28), fabricFeatures.length));
+        const roadCellLimit = Math.max(240, Math.min(310, Math.floor(limit * 0.48), roadBlockFeatures.length));
+        const capacityLimit = Math.max(0, Math.min(42, limit - territoryLimit - evidenceLimit - fabricLimit - roadCellLimit, capacityFeatures.length));
+        const fabricCells = distributeSurfaceCellsByGrid(fabricFeatures, center, fabricLimit, 176).map((feature) => {
+          const props = feature.properties || {};
+          const sublayerId = props.sublayer_id || props.service_type || "civic_services";
+          const serviceColor = civicCatchmentSublayerFillColor(sublayerId);
+          const intensity = clamp01(0.12 + Number(props.intensity || 0.45) * 0.38);
+          return {
+            ...feature,
+            properties: {
+              ...props,
+              surface_style: "catchment_area",
+              render_rank: 2,
+              intensity: Number(intensity.toFixed(3)),
+              color: serviceColor,
+              service_color: serviceColor,
+              context: props.context || "source_backed_service_cell_fabric",
+            },
+          };
+        });
         const capacityCells = distributeSurfaceCellsByGrid(capacityFeatures, center, capacityLimit, 205).map((feature) => {
           const props = feature.properties || {};
           const sublayerId = props.sublayer_id || props.service_type || "civic_services";
@@ -6509,9 +6532,7 @@
             },
           };
         });
-        const serviceCells = roadBlockFeatures
-          .sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0))
-          .slice(0, roadCellLimit)
+        const serviceCells = distributeSurfaceCellsByGrid(roadBlockFeatures, center, roadCellLimit, 126)
           .map((feature) => {
           const props = feature.properties || {};
           const sublayerId = props.sublayer_id || props.service_type || "civic_services";
@@ -6521,7 +6542,7 @@
             ...feature,
             properties: {
               ...props,
-              surface_style: "catchment_backdrop",
+              surface_style: "catchment_area",
               render_rank: props.render_rank || 5,
               intensity: Number((intensity * 0.88).toFixed(3)),
               color: serviceColor,
@@ -6555,12 +6576,13 @@
             ...feature,
             properties: {
               ...feature.properties,
-              surface_style: "catchment_area",
+              surface_style: "catchment_backdrop",
               render_rank: 0,
-              intensity: Number((0.2 + Number(feature.properties?.intensity || 0.45) * 0.38).toFixed(3)),
+              intensity: Number((0.04 + Number(feature.properties?.intensity || 0.45) * 0.14).toFixed(3)),
               context: feature.properties?.context || "source_backed_service_territory",
             },
           })),
+          ...fabricCells,
           ...capacityCells,
           ...serviceCells,
           ...evidencePatches,
@@ -7802,7 +7824,7 @@
     const year = currentTimelineYear();
     const sourceEvents = lensEventsForYear(currentTimelineYear())
       .filter((event) => event.category === "economy" && event.lngLat);
-    const maxDistance = radiusM * 3.05;
+    const maxDistance = radiusM * 2.45;
     const features = [];
     for (const building of buildings) {
       const props = building.properties || {};
@@ -7862,7 +7884,7 @@
     const roads = state.detailRoadFeatures || [];
     if (!roads.length) return [];
     const year = currentTimelineYear();
-    const maxDistance = radiusM * 1.08;
+    const maxDistance = radiusM * 1.18;
     const features = [];
     for (const road of roads) {
       const props = road.properties || {};
@@ -7870,7 +7892,7 @@
       if (Number(props.visible_year || 9999) > year) continue;
       const rank = Number(props.rank || 1);
       if (geometryDistanceToPointMeters(road.geometry, center, 5) > maxDistance + 80) continue;
-      const samples = geometryCoordinateSamples(road.geometry, rank >= 3 ? 8 : 5);
+      const samples = geometryCoordinateSamples(road.geometry, rank >= 3 ? 11 : 7);
       if (!samples.length) continue;
       for (const sample of samples) {
         const distance = lngLatDistanceMeters(center, sample);
@@ -7880,14 +7902,14 @@
         const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
         const seed = stableUnit(`land-use-road:${props.source_id || props.id || ""}:${sample[0].toFixed(5)}:${sample[1].toFixed(5)}`);
         const score = clamp01(0.22 + proximity * 0.26 + density * 0.34 + Math.min(0.14, rank * 0.032) + seed * 0.08);
-        if (score < 0.32 && rank < 2.5) continue;
+        if (score < 0.27 && rank < 2.2) continue;
         const angle = geometryLineAngleNearPoint(road.geometry, sample) + (seed - 0.5) * 0.08;
-        const halfLong = Math.max(7.5, Math.min(16.5, 8 + rank * 1.2 + seed * 4.2));
-        const halfShort = Math.max(4.6, Math.min(9.2, 4.8 + rank * 0.55 + (1 - seed) * 1.6));
-        const sideCount = rank >= 3 || density > 0.24 ? 2 : 1;
+        const halfLong = Math.max(4.8, Math.min(11.8, 5.6 + rank * 0.9 + seed * 2.8));
+        const halfShort = Math.max(3.2, Math.min(6.8, 3.4 + rank * 0.42 + (1 - seed) * 1.1));
+        const sideCount = rank >= 2.6 || density > 0.2 ? 2 : 1;
         for (let sideIndex = 0; sideIndex < sideCount; sideIndex += 1) {
           const side = sideCount === 1 ? (seed > 0.5 ? 1 : -1) : sideIndex === 0 ? -1 : 1;
-          const offsetM = side * (9.5 + rank * 1.8 + seed * 5.5);
+          const offsetM = side * (7.4 + rank * 1.35 + seed * 4.1);
           const alongM = (stableUnit(`land-use-road-along:${props.source_id || props.id || ""}:${sideIndex}:${sample[0]}`) - 0.5) * 7;
           const tilePoint = offsetLngLat(sample, Math.cos(angle) * alongM - Math.sin(angle) * offsetM, Math.sin(angle) * alongM + Math.cos(angle) * offsetM);
           if (lngLatDistanceMeters(center, tilePoint) > maxDistance) continue;
@@ -7911,7 +7933,7 @@
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 380);
+      .slice(0, 720);
   }
 
   function geometryLineAngleNearPoint(geometry, point) {
@@ -7973,23 +7995,24 @@
     const heightM = lngLatDistanceMeters([center[0], bounds.minLat], [center[0], bounds.maxLat]);
     const safeArea = Math.max(24, Number(area || widthM * heightM * 0.55 || 80));
     const angle = footprintLongestEdgeAngle(geometry) + (seed - 0.5) * 0.06;
-    if (widthM < 32 || heightM < 32 || safeArea < 900) {
+    const longM = Math.max(widthM, heightM);
+    if ((widthM < 26 && heightM < 26) || (longM < 42 && safeArea < 520)) {
       return [{
         point,
         geometry,
       }];
     }
-    const targetM = safeArea > 10000 ? 28 : safeArea > 4200 ? 24 : safeArea > 1600 ? 20 : 16;
-    const cols = Math.max(1, Math.min(10, Math.round(widthM / targetM)));
-    const rows = Math.max(1, Math.min(10, Math.round(heightM / targetM)));
+    const targetM = safeArea > 10000 ? 18 : safeArea > 4200 ? 16 : safeArea > 1600 ? 14 : 12;
+    const cols = Math.max(1, Math.min(16, Math.ceil(widthM / targetM)));
+    const rows = Math.max(1, Math.min(16, Math.ceil(heightM / targetM)));
     if (cols === 1 && rows === 1) {
       return [{
         point,
         geometry,
       }];
     }
-    const halfWidth = Math.max(5.4, Math.min(19, (widthM / cols) * (0.38 + seed * 0.04)));
-    const halfHeight = Math.max(5.1, Math.min(18, (heightM / rows) * (0.37 + (1 - seed) * 0.04)));
+    const halfWidth = Math.max(3.6, Math.min(11.5, (widthM / cols) * (0.31 + seed * 0.035)));
+    const halfHeight = Math.max(3.4, Math.min(10.8, (heightM / rows) * (0.31 + (1 - seed) * 0.035)));
     const tiles = [];
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
@@ -9133,8 +9156,8 @@
   }
 
   function transportSpeedThreadColor(pressure, activity, rank) {
-    if (pressure >= 0.88 || (activity >= 0.92 && rank >= 3.4)) return "#b91f32";
-    if (pressure >= 0.72 || (activity >= 0.84 && rank >= 3.2)) return "#d63b32";
+    if (pressure >= 0.78 || (activity >= 0.86 && rank >= 3.2)) return "#b91f32";
+    if (pressure >= 0.62 || (activity >= 0.74 && rank >= 2.8)) return "#e3422e";
     if (pressure >= 0.5) return "#ef9f1a";
     if (pressure >= 0.29) return "#54aa63";
     return "#1f9a75";
@@ -9494,7 +9517,7 @@
       const named = Number(props.corridor_named || 0) > 0 && !transportGenericCorridorKey(props.corridor_key);
       const prominentStatus = ["delayed", "interrupted", "planned"].includes(status);
       const speedProminent = lens.id === "transport-speed"
-        && ["#b91f32", "#e3422e", "#ef9f1a"].includes(String(props.color || "").toLowerCase())
+        && ["#b91f32", "#e3422e", "#d63b32", "#ef9f1a"].includes(String(props.color || "").toLowerCase())
         && (named || rank >= 2 || Number(props.activity || 0) >= 0.5);
       const reliabilityProminent = lens.id === "transport-reliability"
         && ((prominentStatus && (named || rank >= 2.15 || routeLengthM >= 190)) || (status === "reliable" && rank >= 2.8 && routeLengthM >= 48));
@@ -9511,7 +9534,9 @@
       const corridorKey = named
         ? String(props.corridor_key || "corridor")
         : `rank-${Math.round(rank)}:angle-${props.angle_bucket ?? "0"}`;
-      const groupKey = `${corridorKey}|${statusKey}|${props.source_kind || "activity"}`;
+      const groupKey = lens.id === "transport-speed"
+        ? `${corridorKey}|${statusKey}`
+        : `${corridorKey}|${statusKey}|${props.source_kind || "activity"}`;
       if (!groups.has(groupKey)) groups.set(groupKey, []);
       groups.get(groupKey).push(feature);
     }
@@ -9524,7 +9549,7 @@
         continue;
       }
       const sequences = groupFeatures.flatMap((feature) => geometryLineCoordinateSequences(feature.geometry));
-      const merged = mergeTransportLineSequences(sequences, lens.id === "transport-reliability" ? 24 : 30);
+      const merged = mergeTransportLineSequences(sequences, lens.id === "transport-reliability" ? 24 : 46);
       const mergedLengthM = merged.reduce((sum, sequence) => sum + geometryLineLengthMeters({ type: "LineString", coordinates: sequence }), 0);
       if (!merged.length || mergedLengthM < 120) {
         residual.push(...groupFeatures);
@@ -9559,8 +9584,8 @@
       });
     }
 
-    const residualTarget = lens.id === "transport-reliability" ? 140 : 820;
-    const residualMinLength = lens.id === "transport-reliability" ? 80 : 30;
+    const residualTarget = lens.id === "transport-reliability" ? 140 : 540;
+    const residualMinLength = lens.id === "transport-reliability" ? 80 : 44;
     const residualSelected = residual
       .filter((feature) => {
         const props = feature.properties || {};
@@ -9586,6 +9611,12 @@
           && rank < 2.15
           && Number(props.activity || 0) < 0.34
           && length < 150) return false;
+        if (lens.id === "transport-speed") {
+          const pressure = Number(props.speed_pressure || 0);
+          const activity = Number(props.activity || 0);
+          if (!named && rank < 2 && pressure < 0.3 && activity < 0.22) return false;
+          if (!named && length < 72 && pressure < 0.42 && rank < 2.4) return false;
+        }
         return length >= residualMinLength || rank >= 1.55 || Number(props.activity || 0) >= 0.28 || Number(props.corridor_named || 0) > 0;
       })
       .sort((a, b) => {
@@ -9639,7 +9670,7 @@
   function transportSpeedBandKey(color) {
     const text = String(color || "").toLowerCase();
     if (text === "#b91f32") return "speed-stop";
-    if (text === "#e3422e") return "speed-low";
+    if (text === "#e3422e" || text === "#d63b32") return "speed-low";
     if (text === "#ef9f1a") return "speed-medium";
     if (text === "#42a85c") return "speed-open";
     return "speed-free";
@@ -9929,7 +9960,7 @@
           geometry: clippedGeometry,
         });
       }
-      if (coverageIntensity > 0.22 && (stopDensity > 0.06 || civicDensity > 0.08 || rank >= 1.55 || studyCore > 0.35)) {
+      if (coverageIntensity > 0.29 && (stopDensity > 0.1 || civicDensity > 0.12 || rank >= 2.05 || studyCore > 0.46)) {
         const coverageStyle = civicAccessCoverageStyle(coverageIntensity, stopDensity, civicDensity);
         coverageFeatures.push({
           type: "Feature",
@@ -9970,8 +10001,8 @@
         geometry: clippedGeometry,
       });
     }
-    const selectedNetwork = distributedCivicAccessRoadFlows(networkFeatures, center, 360, { bucketCount: 42, perBucket: 3, minSpacingM: 72 });
-    const selectedCoverage = distributedCivicAccessRoadFlows(coverageFeatures, center, 520, { bucketCount: 42, perBucket: 3, minSpacingM: 68 });
+    const selectedNetwork = distributedCivicAccessRoadFlows(networkFeatures, center, 320, { bucketCount: 42, perBucket: 3, minSpacingM: 76 });
+    const selectedCoverage = distributedCivicAccessRoadFlows(coverageFeatures, center, 330, { bucketCount: 42, perBucket: 2, minSpacingM: 92 });
     const selectedSeams = distributedCivicAccessGapSeams(seamFeatures, center);
     return [
       ...selectedNetwork,
@@ -12124,7 +12155,7 @@
           .slice(0, 6),
       ]
       : [...anchorCandidates, ...detailCandidates, ...eventCandidates];
-    const selected = selectEconomyGravityCandidates(center, candidatePool, lens, anchorCandidates.length >= 8 ? 22 : 24);
+    const selected = selectEconomyGravityCandidates(center, candidatePool, lens, anchorCandidates.length >= 8 ? 18 : 22);
     if (!selected.length) {
       const fallback = nearbyLensEventAnchors(center, lens, {
         maxDistance,
@@ -12322,19 +12353,39 @@
     const angle = Math.atan2(dy, dx);
     const seed = stableUnit(`${item?.sourceId || ""}:${item?.eventId || ""}:${item?.sector || ""}:${index}`);
     const laneOffset = (laneIndex - (laneCount - 1) / 2) * Math.min(48, 18 + distance * 0.014);
-    const sectorSign = item?.sublayerId === "office" || item?.sublayerId === "visitor" ? -1 : 1;
-    const orbitSign = Math.sin(angle * 1.55 + seed * 5.6) >= 0 ? 1 : -1;
-    const bendMagnitude = Math.min(distance * (0.08 + seed * 0.05 + clamp01(item?.intensity || 0.45) * 0.04), 340);
-    const bend = bendMagnitude * sectorSign * orbitSign + laneOffset;
-    const hubSpread = Math.min(64, 22 + distance * 0.012);
+    const sectorBias = {
+      economy: -0.12,
+      office: 0.1,
+      hospitality: 0.2,
+      visitor: -0.18,
+      night: 0.28,
+      markets: -0.24,
+    }[item?.sublayerId || item?.sector || "economy"] || 0;
+    const bucketSize = Math.PI / 4;
+    const gatewayAngle = Math.round((angle + sectorBias) / bucketSize) * bucketSize
+      + sectorBias * 0.7
+      + (seed - 0.5) * 0.2;
+    const signedDelta = Math.atan2(Math.sin(gatewayAngle - angle), Math.cos(gatewayAngle - angle));
+    const orbitSign = signedDelta >= 0 ? 1 : -1;
+    const bendMagnitude = Math.min(distance * (0.16 + seed * 0.055 + clamp01(item?.intensity || 0.45) * 0.065), 520);
+    const bend = bendMagnitude * orbitSign + laneOffset;
+    const hubSpread = Math.min(104, 34 + distance * 0.019);
     const laneSpread = (laneIndex - (laneCount - 1) / 2) * 12;
-    const sx = Math.cos(angle + sectorSign * 0.72 + (seed - 0.5) * 0.38) * hubSpread * 0.52 + px * laneSpread;
-    const sy = Math.sin(angle + sectorSign * 0.72 + (seed - 0.5) * 0.38) * hubSpread * 0.52 + py * laneSpread;
-    const c1 = [sx + (dx - sx) * 0.24 + px * bend * 0.46, sy + (dy - sy) * 0.24 + py * bend * 0.46];
-    const c2 = [sx + (dx - sx) * 0.76 + px * bend * 0.6, sy + (dy - sy) * 0.76 + py * bend * 0.6];
+    const sx = Math.cos(gatewayAngle) * hubSpread * 0.62 + px * laneSpread;
+    const sy = Math.sin(gatewayAngle) * hubSpread * 0.62 + py * laneSpread;
+    const gatewayPull = Math.min(420, distance * 0.34);
+    const approachPull = Math.min(260, distance * 0.2);
+    const c1 = [
+      sx + Math.cos(gatewayAngle) * gatewayPull + px * bend * 0.28,
+      sy + Math.sin(gatewayAngle) * gatewayPull + py * bend * 0.28,
+    ];
+    const c2 = [
+      dx - Math.cos(angle) * approachPull + px * bend * 0.7,
+      dy - Math.sin(angle) * approachPull + py * bend * 0.7,
+    ];
     const coords = [];
-    for (let i = 0; i <= 34; i += 1) {
-      const t = i / 34;
+    for (let i = 0; i <= 40; i += 1) {
+      const t = i / 40;
       const inv = 1 - t;
       const x = inv * inv * inv * sx
         + 3 * inv * inv * t * c1[0]
@@ -17009,7 +17060,7 @@
       "planning-delta": 3.75,
       "planning-parcels": 3.75,
       "civic-access-gaps": 6.15,
-      "civic-catchment": 4.85,
+      "civic-catchment": 6.15,
       "civic-demand": 6.15,
       "economy-vitality": 5.05,
       "economy-land-use": 2.9,
