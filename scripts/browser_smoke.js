@@ -103,7 +103,7 @@ function cameraMatches(before, after) {
     { id: "transport", layer: "lens-transport-roads", visible: "transportRoadVisible", count: "transportRoadFeatureCount", legend: /Transport|activity/i },
   ];
   for (const check of lensChecks) {
-    await page.locator(`.lens-choice[data-lens='${check.id}']`).click();
+    await page.evaluate((id) => window.BimsAtlas?.setActiveLens?.(id), check.id);
     await page.waitForFunction(
       (id) => window.BimsAtlas?.state?.activeLens === id,
       check.id,

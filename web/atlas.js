@@ -2705,15 +2705,15 @@
           ["==", ["get", "surface_style"], "access_fabric"],
           ["case",
             ["==", ["get", "fabric_shape"], "isochrone_band"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.55, 0.25, 1, 0.38],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.018, 0.58, 0.07, 1, 0.13],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 0.55, 0.32, 1, 0.5],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.014, 0.58, 0.048, 1, 0.085],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.34, 0.24, 0.64, 0.46, 1, 0.68],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.34, 0.28, 0.64, 0.5, 1, 0.68],
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case",
             ["==", ["get", "lens_id"], "planning-pressure"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.055, 0.55, 0.13, 1, 0.24],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.045, 0.5, 0.105, 1, 0.22],
             ["==", ["get", "lens_id"], "planning-delta"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.45, 0.24, 1, 0.42],
             ["==", ["get", "lens_id"], "planning-parcels"],
@@ -2723,13 +2723,13 @@
           ["==", ["get", "surface_style"], "catchment_area"],
           ["case",
             ["==", ["get", "lens_id"], "civic-catchment"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.58, 0.38, 1, 0.56],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.58, 0.3, 1, 0.44],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.58, 0.34, 1, 0.46],
           ],
           ["==", ["get", "surface_style"], "catchment_backdrop"],
           ["case",
             ["==", ["get", "lens_id"], "civic-catchment"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.014, 0.6, 0.038, 1, 0.066],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.09, 0.6, 0.15, 1, 0.24],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.6, 0.25, 1, 0.36],
           ],
           ["==", ["get", "surface_style"], "catchment_patch"],
@@ -2779,26 +2779,32 @@
           ["==", ["get", "surface_style"], "access_fabric"],
           ["case",
             ["==", ["get", "fabric_shape"], "isochrone_band"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.2, 1, 0.42],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.004, 1, 0.018],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.32, 1, 0.66],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.006, 1, 0.022],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 0.58, 0.22, 1, 0.34],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.58, 0.36, 1, 0.58],
           ["==", ["get", "surface_style"], "planning_footprint"],
-          ["case", ["==", ["get", "lens_id"], "planning-pressure"], 0.3, ["==", ["get", "lens_id"], "planning-delta"], 0.44, ["==", ["get", "lens_id"], "planning-parcels"], 0.68, 0.7],
+          ["case",
+            ["==", ["get", "lens_id"], "planning-pressure"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.55, 0.28, 1, 0.4],
+            ["==", ["get", "lens_id"], "planning-delta"], 0.44,
+            ["==", ["get", "lens_id"], "planning-parcels"], 0.68,
+            0.7,
+          ],
           ["==", ["get", "surface_style"], "catchment_area"],
-          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.66, 0.72],
+          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.52, 0.72],
           ["==", ["get", "surface_style"], "catchment_backdrop"],
-          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.1, 0.58],
+          ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.26, 0.58],
           ["==", ["get", "surface_style"], "catchment_patch"], 0.5,
           ["==", ["get", "surface_style"], "land_use_tile"], 0.58,
           0.52,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.48, ["==", ["get", "surface_style"], "access_fabric"], 0.14, ["==", ["get", "surface_style"], "demand_surface"], 0.12, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.38, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.04, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
-          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.82, ["==", ["get", "surface_style"], "access_fabric"], 0.26, ["==", ["get", "surface_style"], "demand_surface"], 0.26, ["==", ["get", "surface_style"], "planning_footprint"], 0.9, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.08, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
-          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.1, ["==", ["get", "surface_style"], "access_fabric"], 0.38, ["==", ["get", "surface_style"], "demand_surface"], 0.44, ["==", ["get", "surface_style"], "planning_footprint"], 1.25, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.44, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.12, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
+          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.62, ["==", ["get", "surface_style"], "access_fabric"], 0.1, ["==", ["get", "surface_style"], "demand_surface"], 0.16, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.32, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
+          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.02, ["==", ["get", "surface_style"], "access_fabric"], 0.2, ["==", ["get", "surface_style"], "demand_surface"], 0.36, ["==", ["get", "surface_style"], "planning_footprint"], 0.9, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.92, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.18, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
+          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.34, ["==", ["get", "surface_style"], "access_fabric"], 0.3, ["==", ["get", "surface_style"], "demand_surface"], 0.56, ["==", ["get", "surface_style"], "planning_footprint"], 1.25, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.22, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
         ],
       },
     });
@@ -2877,14 +2883,14 @@
         "line-color": "#fff7e8",
         "line-opacity": [
           "case",
-          ["==", ["get", "flow_style"], "economy_gravity_arc"], 0.84,
-          ["==", ["get", "flow_style"], "economy_gravity_thread"], 0.58,
+          ["==", ["get", "flow_style"], "economy_gravity_arc"], 0.62,
+          ["==", ["get", "flow_style"], "economy_gravity_thread"], 0.32,
           ["==", ["get", "flow_style"], "economy_current_ribbon"], 0.74,
           ["==", ["get", "flow_style"], "economy_before_ribbon"], 0.5,
           ["==", ["get", "flow_style"], "economy_churn_tick"], 0.82,
           ["==", ["get", "flow_style"], "planning_pressure_spine"], 0.58,
-          ["==", ["get", "flow_style"], "planning_pressure_edge"], 0.44,
-          ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.28,
+          ["==", ["get", "flow_style"], "planning_pressure_edge"], 0.5,
+          ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.34,
           ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.24,
           ["==", ["get", "flow_style"], "catchment_street_seam"], 0.64,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]], 0.96,
@@ -2921,7 +2927,16 @@
           ],
           ["==", ["get", "flow_style"], "demand_displacement"], 0.6,
           ["==", ["get", "flow_style"], "access_network"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.44, 1, 0.72],
+          [
+            "case",
+            ["==", ["get", "access_mode"], "walk"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.2, 1, 0.48],
+            ["==", ["get", "access_mode"], "bus"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
+            ["==", ["get", "access_mode"], "rail"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.3, 1, 0.64],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.24, 1, 0.54],
+          ],
           ["==", ["get", "flow_style"], "gap_high"], 0.84,
           ["==", ["get", "flow_style"], "gap_medium"], 0.78,
           ["==", ["get", "flow_style"], "gap_low"], 0.68,
@@ -2941,9 +2956,9 @@
         "line-width": [
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.5, 1, 10.8],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.8, 1, 8.7],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.1, 1, 4.4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.85, 1, 3.2],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.8, 1, 6.2],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
@@ -2953,27 +2968,27 @@
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.9, 1, 5.8],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.15, 1, 3.65],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.18, 1, 3.85],
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 2.35],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 2.45],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 2.15],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 3.35],
           ["==", ["get", "flow_style"], "transport_service_tick"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.1, 1, 4.15],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "interrupted"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.85, 1, 5.2],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.5, 1, 4.25],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "planned"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.55, 1, 4.4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.25, 1, 3.55],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "delayed"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.38, 1, 4.1],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.08, 1, 3.25],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "inferred"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 3.2],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.92, 1, 2.45],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.05, 1, 5.6],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.62, 1, 4.7],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.02, 1, 3.05],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.35],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.25, 1, 8.3],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
@@ -3022,7 +3037,16 @@
           ["==", ["get", "flow_style"], "demand_displacement"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.5, 1, 5.1],
           ["==", ["get", "flow_style"], "access_network"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.55, 1, 4.35],
+          [
+            "case",
+            ["==", ["get", "access_mode"], "walk"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.1],
+            ["==", ["get", "access_mode"], "bus"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.12, 1, 3.2],
+            ["==", ["get", "access_mode"], "rail"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.22, 1, 3.55],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.98, 1, 2.9],
+          ],
           ["==", ["get", "flow_style"], "gap_high"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.35, 1, 3.9],
           ["==", ["get", "flow_style"], "gap_medium"],
@@ -3063,9 +3087,9 @@
         "line-opacity": [
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 1],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.36, 1, 0.7],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.82],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.22, 1, 0.45],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.66, 1, 0.96],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
@@ -3073,13 +3097,13 @@
           ["==", ["get", "flow_style"], "economy_churn_tick"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 1],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.48, 1, 0.88],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.88],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 0.72],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.78],
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.16, 1, 0.38],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.48],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.14, 1, 0.34],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.14, 1, 0.38],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 0.9],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -3087,7 +3111,7 @@
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.86, 1, 1],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.16, 1, 0.42],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "interrupted"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 0.98],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "planned"]],
@@ -3134,7 +3158,16 @@
           ["==", ["get", "flow_style"], "demand_displacement"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.55, 1, 0.94],
           ["==", ["get", "flow_style"], "access_network"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.84],
+          [
+            "case",
+            ["==", ["get", "access_mode"], "walk"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.38, 1, 0.74],
+            ["==", ["get", "access_mode"], "bus"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 0.96],
+            ["==", ["get", "access_mode"], "rail"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 1],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.48, 1, 0.84],
+          ],
           ["==", ["get", "flow_style"], "gap_high"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.7, 1, 1],
           ["==", ["get", "flow_style"], "gap_medium"],
@@ -3160,9 +3193,9 @@
         "line-width": [
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.25, 1, 6.4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.95, 1, 5.35],
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.35],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.25, 1, 1.05],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 4.05],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
@@ -3170,33 +3203,33 @@
           ["==", ["get", "flow_style"], "economy_churn_tick"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.05, 1, 3.9],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 3.1],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.92, 1, 3.35],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.44, 1, 1.7],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.56, 1, 2.02],
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.2, 1, 0.68],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.24, 1, 0.82],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.72],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.78],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 1.62],
           ["==", ["get", "flow_style"], "transport_service_tick"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.25],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "interrupted"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 2.85],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.66, 1, 2.35],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "planned"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.55],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 2.05],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "delayed"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 2.35],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 1.9],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "inferred"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.48, 1, 1.8],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.36, 1, 1.38],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.1, 1, 3.85],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 3.05],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.44, 1, 1.72],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.32, 1, 1.32],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.85, 1, 5.85],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 1.22],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.6],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.75, 1, 6.1],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -3241,7 +3274,16 @@
           ["==", ["get", "flow_style"], "demand_displacement"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 3.3],
           ["==", ["get", "flow_style"], "access_network"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 3.05],
+          [
+            "case",
+            ["==", ["get", "access_mode"], "walk"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.4, 1, 1.7],
+            ["==", ["get", "access_mode"], "bus"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 3.05],
+            ["==", ["get", "access_mode"], "rail"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.92, 1, 3.35],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 2.34],
+          ],
           ["==", ["get", "flow_style"], "gap_high"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.66, 1, 2.55],
           ["==", ["get", "flow_style"], "gap_medium"],
@@ -3326,7 +3368,7 @@
         "text-opacity": [
           "case",
           ["==", ["get", "flow_style"], "economy_gravity_arc"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.76],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.86],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.88],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 0.94],
@@ -3444,11 +3486,13 @@
         ],
         "circle-opacity": [
           "case",
+          ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0,
           ["==", ["get", "node_style"], "transport_route"], 0.96,
           0.92,
         ],
         "circle-stroke-width": [
           "case",
+          ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0,
           ["==", ["get", "node_style"], "transport_route"], 1.8,
           ["==", ["get", "node_style"], "transport"], 2.2,
           2.2,
@@ -3531,15 +3575,63 @@
         ],
         "icon-size": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["case", ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.46, ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.46, ["==", ["get", "node_style"], "transport"], 0.34, ["==", ["get", "node_style"], "transport_route"], 0.48, ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.62, ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 0.58, ["==", ["get", "node_style"], "civic_anchor"], 0.48, ["==", ["get", "node_style"], "planning_document"], 0.4, ["==", ["get", "node_style"], "economy_anchor"], 0.5, ["==", ["get", "node_style"], "economy_notice"], 0.5, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-capacity"]], 0.42, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-resilience"]], 0.56, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 0.5, 0.42],
-          13, ["case", ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.66, ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.68, ["==", ["get", "node_style"], "transport"], 0.5, ["==", ["get", "node_style"], "transport_route"], 0.7, ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.86, ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 0.82, ["==", ["get", "node_style"], "civic_anchor"], 0.7, ["==", ["get", "node_style"], "planning_document"], 0.58, ["==", ["get", "node_style"], "economy_anchor"], 0.72, ["==", ["get", "node_style"], "economy_notice"], 0.72, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-capacity"]], 0.62, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-resilience"]], 0.82, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 0.74, 0.58],
-          16, ["case", ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.86, ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.88, ["==", ["get", "node_style"], "transport"], 0.68, ["==", ["get", "node_style"], "transport_route"], 0.92, ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.08, ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 1.02, ["==", ["get", "node_style"], "civic_anchor"], 0.92, ["==", ["get", "node_style"], "planning_document"], 0.8, ["==", ["get", "node_style"], "economy_anchor"], 0.95, ["==", ["get", "node_style"], "economy_notice"], 0.95, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-capacity"]], 0.82, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-resilience"]], 1.12, ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 1.02, 0.78],
+          9, ["case",
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.62,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.62,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.46,
+            ["==", ["get", "node_style"], "transport"], 0.34,
+            ["==", ["get", "node_style"], "transport_route"], 0.48,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.72,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.62,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 0.58,
+            ["==", ["get", "node_style"], "civic_anchor"], 0.48,
+            ["==", ["get", "node_style"], "planning_document"], 0.4,
+            ["==", ["get", "node_style"], "economy_anchor"], 0.5,
+            ["==", ["get", "node_style"], "economy_notice"], 0.5,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-capacity"]], 0.42,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-resilience"]], 0.56,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 0.5,
+            0.42],
+          13, ["case",
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.88,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.9,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.68,
+            ["==", ["get", "node_style"], "transport"], 0.5,
+            ["==", ["get", "node_style"], "transport_route"], 0.7,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.96,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.86,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 0.82,
+            ["==", ["get", "node_style"], "civic_anchor"], 0.7,
+            ["==", ["get", "node_style"], "planning_document"], 0.58,
+            ["==", ["get", "node_style"], "economy_anchor"], 0.72,
+            ["==", ["get", "node_style"], "economy_notice"], 0.72,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-capacity"]], 0.62,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-resilience"]], 0.82,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 0.74,
+            0.58],
+          16, ["case",
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 1.1,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 1.16,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.88,
+            ["==", ["get", "node_style"], "transport"], 0.68,
+            ["==", ["get", "node_style"], "transport_route"], 0.92,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 1.18,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.08,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 1.02,
+            ["==", ["get", "node_style"], "civic_anchor"], 0.92,
+            ["==", ["get", "node_style"], "planning_document"], 0.8,
+            ["==", ["get", "node_style"], "economy_anchor"], 0.95,
+            ["==", ["get", "node_style"], "economy_notice"], 0.95,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-capacity"]], 0.82,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-resilience"]], 1.12,
+            ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 1.02,
+            0.78],
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
         "text-field": [
           "case",
-          ["all", ["==", ["get", "lens_id"], "civic-access-gaps"], ["==", ["get", "node_style"], "civic_anchor"], [">=", ["to-number", ["get", "intensity"], 0], 0.54]],
+          ["all", ["==", ["get", "lens_id"], "civic-access-gaps"], ["==", ["get", "node_style"], "civic_anchor"], ["<=", ["to-number", ["get", "label_rank"], 999], 9], [">=", ["to-number", ["get", "intensity"], 0], 0.58]],
           ["get", "label"],
           "",
         ],
@@ -4030,13 +4122,7 @@
 
   function utilityNetworkContextDashExpression() {
     const mode = activeMapLens().id;
-    if (mode === "utilities-capacity") {
-      return [
-        "case",
-        [">=", ["to-number", ["get", "intensity"], 0.45], 0.78], ["literal", [1, 0.0001]],
-        ["literal", [2.2, 0.95]],
-      ];
-    }
+    if (mode === "utilities-capacity") return [1, 0.0001];
     if (mode === "utilities-resilience") return [2.8, 1.25];
     if (mode === "utilities-works") return [2.8, 1.3];
     return [1, 0.0001];
@@ -4517,15 +4603,14 @@
       }
       ctx.stroke();
     } else if (shape === "transport-stop") {
-      ctx.fillStyle = "#fffdf7";
       ctx.beginPath();
       ctx.roundRect?.(10, 10, 28, 28, 5);
       if (!ctx.roundRect) ctx.rect(10, 10, 28, 28);
       ctx.fill();
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 4;
+      ctx.strokeStyle = "rgba(32,28,23,0.24)";
+      ctx.lineWidth = 2.4;
       ctx.stroke();
-      ctx.strokeStyle = color;
+      ctx.strokeStyle = "#fffdf7";
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.rect(16, 15, 16, 18);
@@ -4536,7 +4621,7 @@
       ctx.moveTo(28, 33);
       ctx.lineTo(28, 36);
       ctx.stroke();
-      ctx.fillStyle = color;
+      ctx.fillStyle = "#fffdf7";
       ctx.beginPath();
       ctx.arc(19, 29, 1.8, 0, Math.PI * 2);
       ctx.arc(29, 29, 1.8, 0, Math.PI * 2);
@@ -5044,97 +5129,19 @@
   }
 
   function guideFlowDashExpression(lens = activeMapLens()) {
-    if (lens?.id === "civic-access-gaps") {
-      return [
-        "case",
-        ["==", ["get", "flow_role"], "gap_tick"], ["literal", [1, 0.0001]],
-        ["==", ["get", "flow_style"], "gap_high"], ["literal", [0.95, 0.86]],
-        ["==", ["get", "flow_style"], "gap_medium"], ["literal", [1.18, 0.92]],
-        ["==", ["get", "flow_style"], "gap_low"], ["literal", [1.35, 1.05]],
-        ["literal", [1.45, 1.05]],
-      ];
-    }
-    if (lens?.id === "transport-speed") {
-      return [
-        "case",
-        ["==", ["get", "flow_style"], "transport_backbone"], ["literal", [1, 0.0001]],
-        ["==", ["get", "source_kind"], "context"], ["literal", [0.65, 1.05]],
-        ["literal", [2.2, 1.15]],
-      ];
-    }
-    if (lens?.id === "transport-reliability") {
-      return [
-        "case",
-        ["==", ["get", "flow_style"], "transport_service_tick"], ["literal", [1, 0.0001]],
-        ["==", ["get", "reliability_status"], "reliable"], ["literal", [1, 0.0001]],
-        ["==", ["get", "reliability_status"], "delayed"], ["literal", [4.2, 1.25]],
-        ["==", ["get", "reliability_status"], "interrupted"], ["literal", [0.7, 0.75]],
-        ["==", ["get", "reliability_status"], "planned"], ["literal", [1.0, 1.35]],
-        ["==", ["get", "reliability_status"], "inferred"], ["literal", [1.6, 1.45]],
-        ["literal", [3.4, 1.2]],
-      ];
-    }
-    if (lens?.id === "transport-access") {
-      return [
-        "case",
-        ["==", ["get", "access_mode"], "bus"], ["literal", [2.6, 1.25]],
-        ["==", ["get", "access_mode"], "rail"], ["literal", [1.2, 1.1]],
-        ["==", ["get", "access_mode"], "ferry"], ["literal", [1.4, 1.15]],
-        ["==", ["get", "access_mode"], "cycle"], ["literal", [2.1, 0.9]],
-        ["literal", [1, 0.0001]],
-      ];
-    }
-    if (lens?.id === "economy-vitality") {
-      return [
-        "case",
-        ["==", ["get", "flow_style"], "economy_before_ribbon"], ["literal", [1.2, 0.85]],
-        ["==", ["get", "flow_style"], "economy_churn_tick"], ["literal", [0.35, 0.9]],
-        ["literal", [1, 0.0001]],
-      ];
-    }
-    if (lens?.id === "economy-gravity") {
-      return [
-        "case",
-        ["==", ["get", "flow_style"], "economy_gravity_thread"], ["literal", [2.6, 1.15]],
-        ["<=", ["to-number", ["get", "source_count"], 1], 1], ["literal", [4.2, 1.2]],
-        ["literal", [1, 0.0001]],
-      ];
-    }
-    if (lens?.id === "utilities-resilience") {
-      return [
-        "case",
-        ["==", ["get", "flow_style"], "utility_primary"], ["literal", [1, 0.0001]],
-        ["==", ["get", "flow_style"], "utility_backup"], ["literal", [3.2, 1.35]],
-        ["==", ["get", "flow_style"], "utility_inferred"], ["literal", [0.9, 1.15]],
-        ["literal", [2.8, 1.35]],
-      ];
-    }
-    if (lens?.id === "utilities-capacity") {
-      return [
-        "case",
-        ["==", ["get", "utility_type"], "electricity"], ["literal", [1, 0.0001]],
-        ["==", ["get", "utility_type"], "water"], ["literal", [3.1, 1.05]],
-        ["==", ["get", "utility_type"], "telecoms"], ["literal", [2.4, 0.9]],
-        ["==", ["get", "utility_type"], "gas"], ["literal", [1.2, 0.82]],
-        ["==", ["get", "utility_type"], "drainage"], ["literal", [4.2, 1.15]],
-        ["==", ["get", "utility_type"], "district_energy"], ["literal", [0.72, 1.25]],
-        ["match", ["get", "flow_role"], ["utility_network", "utility_network_derived"], true, false], ["literal", [2.2, 0.9]],
-        [">=", ["to-number", ["get", "intensity"], 0.5], 0.72], ["literal", [1, 0.0001]],
-        ["literal", [2.35, 1.05]],
-      ];
-    }
-    if (lens?.id === "utilities-works") {
-      return [
-        "case",
-        ["==", ["get", "works_status"], "planned"], ["literal", [1, 0.0001]],
-        ["==", ["get", "works_status"], "repair"], ["literal", [1.05, 0.42]],
-        ["==", ["get", "works_status"], "failure"], ["literal", [2.8, 1.15]],
-        ["==", ["get", "works_status"], "permit"], ["literal", [0.38, 1.08]],
-        ["==", ["get", "works_status"], "reinstatement"], ["literal", [3.7, 1.32]],
-        ["literal", [2, 1.15]],
-      ];
-    }
-    return [1, 0.01];
+    const staticDashByLens = {
+      "civic-access-gaps": [1.35, 1.05],
+      "civic-catchment": [3.4, 1.2],
+      "economy-vitality": [1, 0.0001],
+      "economy-gravity": [1, 0.0001],
+      "transport-speed": [1, 0.0001],
+      "transport-access": [1, 0.0001],
+      "transport-reliability": [1, 0.0001],
+      "utilities-capacity": [1, 0.0001],
+      "utilities-resilience": [2.8, 1.35],
+      "utilities-works": [1, 0.0001],
+    };
+    return staticDashByLens[lens?.id] || [1, 0.0001];
   }
 
   function guideCellLayerFilter(lens = activeMapLens()) {
@@ -5180,22 +5187,22 @@
           [
             "all",
             ["==", ["get", "flow_style"], "planning_pressure_spine"],
-            [">=", ["to-number", ["get", "intensity"], 0], 0.6],
+            [">=", ["to-number", ["get", "intensity"], 0], 0.56],
           ],
           [
             "all",
             ["==", ["get", "flow_style"], "planning_pressure_edge"],
-            [">=", ["to-number", ["get", "intensity"], 0], 0.35],
+            [">=", ["to-number", ["get", "intensity"], 0], 0.28],
           ],
           [
             "all",
             ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
-            [">=", ["to-number", ["get", "intensity"], 0], 0.35],
+            [">=", ["to-number", ["get", "intensity"], 0], 0.24],
           ],
           [
             "all",
             ["==", ["get", "flow_style"], "planning_pressure_trace"],
-            [">=", ["to-number", ["get", "intensity"], 0], 0.2],
+            [">=", ["to-number", ["get", "intensity"], 0], 0.16],
           ],
         ],
       ];
@@ -5896,7 +5903,7 @@
 
   function guideCellLimit(lensId) {
     if (lensId === "transport-access") return 6500;
-    if (lensId === "planning-pressure") return 3200;
+    if (lensId === "planning-pressure") return 4400;
     if (lensId === "planning-delta") return 2200;
     if (lensId === "planning-parcels") return 4300;
     if (lensId === "economy-land-use") return 4600;
@@ -5913,8 +5920,8 @@
       .filter((event) => event.category === "transport" && event.lngLat);
     const bands = transportAccessIsochroneBands(center, radiusM, lens, anchors, transportStops, sourceEvents);
     const cells = [];
-    const stepM = 70;
-    const extentM = radiusM * 2.45;
+    const stepM = 62;
+    const extentM = radiusM * 2.42;
     let row = 0;
     for (let dy = -extentM; dy <= extentM; dy += stepM * 0.82) {
       const rowOffset = row % 2 ? stepM * 0.5 : 0;
@@ -5931,25 +5938,25 @@
         const angle = Math.atan2(dy, dx);
         const anchorSeed = stableUnit(`${nearestRoad?.id || ""}:${Math.round((nearestRoad?.point?.[0] || center[0]) * 10000)}`);
         const streetReach = nearestRoad
-          ? 1.14 + nearestRoad.activity * 0.78 + Math.min(0.3, nearestRoad.rank * 0.07)
-          : 1.02;
+          ? 0.98 + nearestRoad.activity * 0.62 + Math.min(0.24, nearestRoad.rank * 0.055)
+          : 0.86;
         const directionalReach = 1
           + Math.sin(angle * 2.2 + anchorSeed * Math.PI * 2) * 0.24
           + Math.cos(angle * 4.4 + anchorSeed * Math.PI) * 0.14
           + Math.sin(angle * 7.1 + stopDensity * Math.PI * 2) * 0.08;
-        const reachM = Math.max(radiusM * 0.92, radiusM * streetReach * directionalReach + roadBoost * 460 + stopBoost * 720 + eventBoost * 220);
-        const offNetworkPenalty = nearestRoad ? Math.max(0, nearestRoad.distance - 90) / 13 : 18;
-        const radialMinutes = 11 + Math.pow(radial / Math.max(1, extentM), 1.06) * 64;
+        const reachM = Math.max(radiusM * 0.88, radiusM * streetReach * directionalReach + roadBoost * 380 + stopBoost * 600 + eventBoost * 180);
+        const offNetworkPenalty = nearestRoad ? Math.max(0, nearestRoad.distance - 78) / 11.2 : 20;
+        const radialMinutes = 12 + Math.pow(radial / Math.max(1, extentM), 1.1) * 66;
         const networkMinutes = 8.5
           + Math.pow(radial / Math.max(1, reachM), 1.12) * 64
           + Math.max(0, radial - reachM) / 18;
         const angularNoise = Math.sin(angle * 5.5 + anchorSeed * Math.PI * 2) * 2.2
           + Math.cos(angle * 8.3 - anchorSeed * Math.PI) * 1.4;
-        const minutes = Math.max(5, networkMinutes * 0.86 + radialMinutes * 0.14 + offNetworkPenalty + angularNoise + 4.5
-          - roadBoost * 6.2
-          - stopBoost * 10.5
-          - eventBoost * 3.1);
-        if (minutes > 94) continue;
+        const minutes = Math.max(5, networkMinutes * 0.87 + radialMinutes * 0.13 + offNetworkPenalty + angularNoise + 5.6
+          - roadBoost * 4.8
+          - stopBoost * 8.2
+          - eventBoost * 2.2);
+        if (minutes > 92) continue;
         const intensity = clamp01(1 - (minutes - 8) / 86);
         cells.push({
           type: "Feature",
@@ -6032,15 +6039,33 @@
       }
       return clamp01(score);
     };
+    const directionalRadialShift = (vectors, angle, targetRadius, radialSpread, angularReach) => {
+      let weightedShift = 0;
+      let totalWeight = 0;
+      for (const vector of vectors) {
+        if (!Number.isFinite(vector.distance)) continue;
+        const angular = angularDistanceRadians(angle, vector.angle);
+        if (angular > angularReach) continue;
+        const radial = Math.abs(vector.distance - targetRadius);
+        if (radial > radialSpread) continue;
+        const angleWeight = 1 - angular / angularReach;
+        const radialWeight = 1 - radial / radialSpread;
+        const weight = angleWeight * radialWeight * vector.strength;
+        const shift = Math.max(-0.3, Math.min(0.3, (vector.distance - targetRadius) / Math.max(1, targetRadius)));
+        weightedShift += shift * weight;
+        totalWeight += weight;
+      }
+      return totalWeight ? Math.max(-0.24, Math.min(0.24, weightedShift / totalWeight)) : 0;
+    };
     const bands = [
-      { minutes: 68, radius: extentM * 1.02, intensity: 0.16 },
-      { minutes: 58, radius: extentM * 0.86, intensity: 0.32 },
-      { minutes: 44, radius: extentM * 0.69, intensity: 0.52 },
-      { minutes: 30, radius: extentM * 0.52, intensity: 0.72 },
-      { minutes: 18, radius: extentM * 0.35, intensity: 0.96 },
+      { minutes: 72, radius: extentM * 1.08, intensity: 0.16 },
+      { minutes: 60, radius: extentM * 0.9, intensity: 0.32 },
+      { minutes: 45, radius: extentM * 0.69, intensity: 0.52 },
+      { minutes: 30, radius: extentM * 0.51, intensity: 0.72 },
+      { minutes: 15, radius: extentM * 0.32, intensity: 0.94 },
     ];
-    return bands.map((band, bandIndex) => {
-      const ring = [];
+    const bandRings = bands.map((band, bandIndex) => {
+      const radii = [];
       for (let i = 0; i <= steps; i += 1) {
         const angle = (i / steps) * Math.PI * 2;
         const roadScore = directionalScore(roadVectors, angle, extentM * 1.25, 0.46);
@@ -6048,21 +6073,46 @@
         const eventScore = directionalScore(eventVectors, angle, extentM * 0.95, 0.34);
         const roadEdge = directionalBandScore(roadVectors, angle, band.radius, extentM * 0.24, 0.32);
         const stopEdge = directionalBandScore(stopVectors, angle, band.radius, extentM * 0.2, 0.28);
+        const roadShift = directionalRadialShift(roadVectors, angle, band.radius, extentM * 0.34, 0.28);
+        const stopShift = directionalRadialShift(stopVectors, angle, band.radius, extentM * 0.28, 0.24);
+        const eventShift = directionalRadialShift(eventVectors, angle, band.radius, extentM * 0.3, 0.22);
         const seed = stableUnit(`${lens.id}:${band.minutes}:${i}`);
-        const fineGrain = Math.sin(angle * 5 + seed * Math.PI * 2) * 0.028
-          + Math.cos(angle * 9 - seed * Math.PI) * 0.018
-          + Math.sin(angle * 13 + roadEdge * Math.PI * 2) * 0.018;
-        const accessStretch = 0.8
-          + roadScore * 0.08
-          + stopScore * 0.06
-          + roadEdge * 0.26
-          + stopEdge * 0.18
-          + eventScore * 0.07
+        const fineGrain = Math.sin(angle * 5 + seed * Math.PI * 2) * 0.046
+          + Math.cos(angle * 9 - seed * Math.PI) * 0.03
+          + Math.sin(angle * 13 + roadEdge * Math.PI * 2) * 0.034;
+        const warmTightness = band.minutes <= 15 ? 0.95 : band.minutes <= 30 ? 0.98 : 1;
+        const accessStretch = 0.7
+          + roadScore * 0.14
+          + stopScore * 0.1
+          + roadEdge * 0.48
+          + stopEdge * 0.34
+          + eventScore * 0.06
+          + roadShift * 0.42
+          + stopShift * 0.28
+          + eventShift * 0.12
           + fineGrain;
-        const outerTaper = bandIndex < 2 ? 1 - Math.max(0, stopScore - 0.55) * 0.05 : 1;
-        const radius = band.radius * Math.max(0.68, Math.min(1.22, accessStretch * outerTaper));
-        ring.push(offsetLngLat(center, Math.cos(angle) * radius, Math.sin(angle) * radius));
+        const offNetworkTaper = 1 - Math.max(0, 0.42 - roadScore - stopScore * 0.85) * (band.minutes <= 30 ? 0.28 : 0.18);
+        const outerTaper = bandIndex < 2 ? 1 - Math.max(0, stopScore - 0.55) * 0.04 : 1;
+        const radius = band.radius * Math.max(0.62, Math.min(1.32, accessStretch * warmTightness * offNetworkTaper * outerTaper));
+        radii.push(radius);
       }
+      return { band, bandIndex, radii, ring: [] };
+    });
+    for (let i = 0; i <= steps; i += 1) {
+      for (let index = bandRings.length - 2; index >= 0; index -= 1) {
+        const minGapM = extentM * (0.034 + index * 0.002);
+        bandRings[index].radii[i] = Math.max(bandRings[index].radii[i], bandRings[index + 1].radii[i] + minGapM);
+      }
+    }
+    for (const bandRing of bandRings) {
+      bandRing.radii[steps] = bandRing.radii[0];
+      bandRing.ring = bandRing.radii.map((radius, i) => {
+        const angle = (i / steps) * Math.PI * 2;
+        return offsetLngLat(center, Math.cos(angle) * radius, Math.sin(angle) * radius);
+      });
+    }
+    return bandRings.map(({ band, bandIndex, ring }, index) => {
+      const innerRing = bandRings[index + 1]?.ring;
       return {
         type: "Feature",
         properties: {
@@ -6077,7 +6127,7 @@
           stop_density: Number(clamp01(stopVectors.length / 56).toFixed(3)),
           score: Number((1 - bandIndex * 0.12).toFixed(3)),
         },
-        geometry: { type: "Polygon", coordinates: [ring] },
+        geometry: { type: "Polygon", coordinates: innerRing ? [ring, innerRing.slice().reverse()] : [ring] },
       };
     });
   }
@@ -6113,7 +6163,7 @@
       const eventDensity = eventDensityIntensity(point, sourceEvents, radiusM * 1.15);
       const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
       const stopLine = transportStopLinesNearGeometry(feature.geometry, stops, rank >= 3 ? 86 : 72);
-      const mode = stopLine && Number(stopLine.primaryScore || 0) >= 0.45
+      const mode = stopLine && Number(stopLine.primaryScore || 0) >= 0.18
         ? (stopLine.primaryMode || "bus")
         : transportAccessNetworkMode(props);
       const seed = stableUnit(`${props.source_id || props.id || ""}:access-network`);
@@ -6172,7 +6222,7 @@
 
   function transportAccessNetworkColor(mode, intensity = 0.5) {
     if (mode === "rail") return intensity > 0.62 ? "#72539a" : "#8762a7";
-    if (mode === "bus") return intensity > 0.62 ? "#2e79b5" : "#4f96c7";
+    if (mode === "bus") return intensity > 0.62 ? "#1f73b8" : "#3f8fc8";
     if (mode === "ferry") return "#2f8fa4";
     if (mode === "cycle") return "#2f9658";
     return intensity > 0.62 ? "#258f8f" : "#6aaeb2";
@@ -6267,9 +6317,9 @@
         const cellDy = dy + (seedY - 0.5) * stepM * 0.1;
         const cellCenter = offsetLngLat(center, cellDx, cellDy);
         const tightDensity = eventDensityIntensity(cellCenter, evidenceEvents, kernelM);
-        const broadDensity = eventDensityIntensity(cellCenter, evidenceEvents, radiusM * 0.78);
-        const driverDensity = civicDemandDriverDensity(cellCenter, pressureDrivers, radiusM * 0.6);
-        const driverBroadDensity = civicDemandDriverDensity(cellCenter, pressureDrivers, radiusM * 1.05);
+        const broadDensity = eventDensityIntensity(cellCenter, evidenceEvents, radiusM * 0.68);
+        const driverDensity = civicDemandDriverDensity(cellCenter, pressureDrivers, radiusM * 0.46);
+        const driverBroadDensity = civicDemandDriverDensity(cellCenter, pressureDrivers, radiusM * 0.86);
         const serviceDensity = eventDensityIntensity(cellCenter, serviceAnchors, radiusM * 0.32);
         const angle = Math.atan2(cellDy, cellDx);
         const boundaryNoise = Math.max(0.68, Math.min(1.08,
@@ -6289,27 +6339,27 @@
         const nearestService = nearestGuideEvent(cellCenter, serviceAnchors, radiusM * 0.42);
         const eventBoost = nearestEvent ? Math.max(0, 1 - lngLatDistanceMeters(cellCenter, nearestEvent.lngLat) / (radiusM * 0.72)) : 0;
         const driverBoost = nearestDriver ? Math.max(0, 1 - lngLatDistanceMeters(cellCenter, nearestDriver.lngLat) / (radiusM * 0.5)) * Math.max(0.24, Number(nearestDriver.demandWeight || 0.5)) : 0;
-        const selectedPressure = Math.pow(Math.max(0, 1 - distance / (radiusM * 0.46)), 1.72);
+        const selectedPressure = Math.pow(Math.max(0, 1 - distance / (radiusM * 0.48)), 1.72);
         const crossAxis = Math.abs(cellDx * axisSin - cellDy * axisCos);
         const alongAxis = Math.abs(cellDx * axisCos + cellDy * axisSin);
-        const civicAxisPressure = Math.max(0, 1 - crossAxis / (radiusM * 0.16)) * Math.max(0, 1 - alongAxis / (radiusM * 0.96));
+        const civicAxisPressure = Math.max(0, 1 - crossAxis / (radiusM * 0.17)) * Math.max(0, 1 - alongAxis / (radiusM * 1.08));
         const serviceGap = Math.max(0, 0.5 - serviceDensity);
         const densityLift = Math.pow(Math.max(0, tightDensity), 0.72);
-        const serviceRelief = serviceDensity * 0.38;
-        const rawIntensity = 0.05
-          + densityLift * 0.28
-          + broadDensity * 0.08
-          + driverDensity * 0.36
-          + driverBroadDensity * 0.08
-          + driverBoost * 0.12
-          + eventBoost * 0.05
-          + selectedPressure * 0.04
-          + civicAxisPressure * 0.27
-          + serviceGap * 0.12
-          + radial * 0.035
+        const serviceRelief = serviceDensity * 0.34;
+        const rawIntensity = 0.035
+          + densityLift * 0.34
+          + broadDensity * 0.07
+          + driverDensity * 0.34
+          + driverBroadDensity * 0.05
+          + driverBoost * 0.1
+          + eventBoost * 0.06
+          + selectedPressure * 0.045
+          + civicAxisPressure * 0.25
+          + serviceGap * 0.08
+          + radial * 0.025
           - serviceRelief;
-        const edgeCap = 0.34 + radial * 0.26 + driverDensity * 0.21 + driverBoost * 0.05 + civicAxisPressure * 0.06;
-        const evidenceBoost = nearestService?.currentContext ? -0.03 : 0.035;
+        const edgeCap = 0.32 + radial * 0.22 + driverDensity * 0.2 + driverBoost * 0.08 + civicAxisPressure * 0.18 + selectedPressure * 0.02;
+        const evidenceBoost = nearestService?.currentContext ? -0.06 : 0.04;
         const intensity = clamp01(Math.min(rawIntensity + evidenceBoost + (seed - 0.5) * 0.025, edgeCap));
         const color = civicDemandSurfaceColor(intensity, serviceDensity, driverDensity, selectedPressure, seed, nearestService);
         const serviceSurplus = Math.max(0, serviceDensity - driverDensity - selectedPressure * 0.4);
@@ -6336,7 +6386,7 @@
           },
           geometry: civicDemandPressureCellPolygon(
             cellCenter,
-            stepM * (0.43 + intensity * 0.045 + seed * 0.04),
+            stepM * (0.4 + intensity * 0.045 + seed * 0.03),
             axisAngle + (row % 2 ? 0.03 : -0.02),
             seed,
             intensity,
@@ -6387,7 +6437,7 @@
       if (!Object.prototype.hasOwnProperty.call(categoryWeight, event.category)) continue;
       pushEvent(event, "year_event");
     }
-    for (const [index, anchor] of nearbyTransportRoadAnchors(center, radiusM * 1.55, 90).entries()) {
+    for (const [index, anchor] of nearbyTransportRoadAnchors(center, radiusM * 1.55, 58).entries()) {
       candidates.push({
         id: `transport-road-demand-${anchor.id || index}`,
         title: "Transport access corridor",
@@ -6395,7 +6445,7 @@
         confidence: "documented",
         lngLat: anchor.point,
         demandRole: "transport_context",
-        demandWeight: 0.46 + clamp01(anchor.activity || 0) * 0.42 + Math.min(0.14, Number(anchor.rank || 1) * 0.035),
+        demandWeight: 0.3 + clamp01(anchor.activity || 0) * 0.28 + Math.min(0.08, Number(anchor.rank || 1) * 0.022),
       });
     }
     return candidates
@@ -6413,22 +6463,22 @@
       const driverWeight = Math.max(0.18, Number(driver.demandWeight || 0.5));
       score += Math.max(0, 1 - distance / kernelM) * confidenceWeight * driverWeight;
     }
-    return clamp01(score * 0.14);
+    return clamp01(score * 0.105);
   }
 
   function civicDemandSurfaceColor(intensity, serviceDensity, driverDensity, selectedPressure, seed = 0, nearestService = null) {
     const surplus = serviceDensity - driverDensity - selectedPressure * 0.4;
-    if ((surplus > 0.24 || serviceDensity > driverDensity + 0.13) && intensity < 0.42) {
-      if (surplus > 0.48) return "#359c98";
-      return seed > 0.72 ? "#65ada7" : "#91c7be";
+    if ((surplus > 0.32 || serviceDensity > driverDensity + 0.18) && intensity < 0.38) {
+      if (surplus > 0.52) return "#2f9997";
+      return seed > 0.68 ? "#5fb0a9" : "#91cbc1";
     }
-    if (nearestService?.currentContext && serviceDensity > 0.44 && intensity < 0.32 && seed > 0.58) return "#a3ccc4";
-    if (intensity > 0.9) return "#cf3d4d";
-    if (intensity > 0.74) return "#e56f5a";
-    if (intensity > 0.53) return "#eea463";
-    if (intensity > 0.34) return seed > 0.68 ? "#e5cf91" : "#e9bd78";
-    if (intensity > 0.18) return "#95c9bf";
-    if (intensity > 0.08) return "#c3d9d2";
+    if (nearestService?.currentContext && serviceDensity > 0.44 && intensity < 0.3 && seed > 0.58) return "#a3ccc4";
+    if (intensity > 0.84) return "#c83a49";
+    if (intensity > 0.66) return "#e46256";
+    if (intensity > 0.48) return "#ee9b60";
+    if (intensity > 0.29) return seed > 0.68 ? "#e3cd88" : "#edbd77";
+    if (intensity > 0.16) return "#8fc8be";
+    if (intensity > 0.07) return "#bddbd2";
     return "#edf0ea";
   }
 
@@ -7755,6 +7805,13 @@
     return colors[layerId] || colors.civic_services;
   }
 
+  function demandDisplacementColor(layerId, sourceKind = "event") {
+    if (sourceKind === "event") return "#75418d";
+    if (layerId === "libraries") return "#79419d";
+    if (layerId === "safety") return "#825184";
+    return "#6d5595";
+  }
+
   function civicCatchmentSublayerFillColor(layerId) {
     const colors = {
       civic_services: "#8dbb98",
@@ -7780,11 +7837,11 @@
   }
 
   function accessBandColor(minutes) {
-    if (minutes <= 15) return "#df7764";
-    if (minutes <= 27) return "#efaa62";
-    if (minutes <= 42) return "#dfd27b";
-    if (minutes <= 58) return "#95cbaa";
-    return "#b8d8c3";
+    if (minutes <= 15) return "#e98572";
+    if (minutes <= 30) return "#efbf7b";
+    if (minutes <= 45) return "#ddd98b";
+    if (minutes <= 60) return "#a8d3bd";
+    return "#c6dfda";
   }
 
   function densityGridCells(center, extentM, lens, stepM = 110) {
@@ -8143,7 +8200,7 @@
       .filter((feature) => feature.properties?.layer === "planning_cell" && feature.geometry && Number(feature.properties?.visible_year || 9999) <= year)
       .map((feature) => ({ feature, point: geometryToLngLat(feature.geometry) }))
       .filter((item) => item.point);
-    const maxDistance = radiusM * (lens.id === "planning-parcels" ? 1.18 : lens.id === "planning-delta" ? 1.04 : lens.id === "planning-pressure" ? 1.04 : 1.9);
+    const maxDistance = radiusM * (lens.id === "planning-parcels" ? 1.18 : lens.id === "planning-delta" ? 1.04 : lens.id === "planning-pressure" ? 1.34 : 1.9);
     const features = lens.id === "planning-parcels"
       ? planningParcelStageCellFeatures(center, radiusM, lens, planningAnchors, false)
       : [];
@@ -8157,16 +8214,18 @@
       const area = Number(props.footprint_area_m2 || 0);
       if (area && area < (lens.id === "planning-parcels" ? 12 : 14)) continue;
       const seed = stableUnit(`${props.source_id || ""}:${point[0]?.toFixed(5) || ""}:${point[1]?.toFixed(5) || ""}`);
-      const nearest = nearestPlanningAnchor(point, planningAnchors, lens.id === "planning-parcels" ? 260 : lens.id === "planning-pressure" ? 520 : 158);
+      const nearest = nearestPlanningAnchor(point, planningAnchors, lens.id === "planning-parcels" ? 260 : lens.id === "planning-pressure" ? 700 : 158);
       const recency = clamp01((year - Number(props.visible_year || year - 12) + 1) / 14);
       const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
       const planningIntensity = Number(nearest?.feature?.properties?.intensity || 0);
       const areaBoost = lens.id === "planning-parcels"
         ? Math.min(0.08, Math.sqrt(Math.max(20, area || 90)) / 420)
-        : Math.min(0.16, Math.sqrt(Math.max(20, area || 90)) / 260);
-      const statusBoost = nearest ? (lens.id === "planning-parcels" ? 0.08 : lens.id === "planning-pressure" ? 0.24 : 0.2) : 0;
+        : lens.id === "planning-pressure"
+          ? Math.min(0.18, Math.sqrt(Math.max(20, area || 90)) / 240)
+          : Math.min(0.16, Math.sqrt(Math.max(20, area || 90)) / 260);
+      const statusBoost = nearest ? (lens.id === "planning-parcels" ? 0.08 : lens.id === "planning-pressure" ? 0.28 : 0.2) : 0;
       const intensity = lens.id === "planning-pressure"
-        ? clamp01(0.16 + proximity * 0.16 + planningIntensity * 0.34 + statusBoost * 0.58 + areaBoost * 0.52 + recency * 0.035)
+        ? clamp01(0.18 + proximity * 0.18 + planningIntensity * 0.38 + statusBoost * 0.56 + areaBoost * 0.56 + recency * 0.04)
         : lens.id === "planning-parcels"
           ? clamp01(0.16 + proximity * 0.16 + planningIntensity * 0.28 + statusBoost + areaBoost + recency * 0.04)
           : clamp01(0.18 + proximity * 0.22 + planningIntensity * 0.36 + statusBoost + areaBoost + recency * 0.06);
@@ -8176,12 +8235,12 @@
       tiles.forEach((tile, tileIndex) => {
         if (!tile.geometry) return;
         const tilePoint = tile.point || point;
-        const tileNearest = tileIndex ? (nearestPlanningAnchor(tilePoint, planningAnchors, lens.id === "planning-parcels" ? 260 : lens.id === "planning-pressure" ? 560 : 180) || nearest) : nearest;
+        const tileNearest = tileIndex ? (nearestPlanningAnchor(tilePoint, planningAnchors, lens.id === "planning-parcels" ? 260 : lens.id === "planning-pressure" ? 760 : 180) || nearest) : nearest;
         const tileSeed = stableUnit(`${props.source_id || ""}:${tileIndex}:${tilePoint?.[0]?.toFixed(5) || ""}:${tilePoint?.[1]?.toFixed(5) || ""}`);
         const tileIntensity = lens.id === "planning-parcels"
           ? clamp01(intensity * 0.86 + (tileNearest ? 0.07 : 0) + tileSeed * 0.035)
           : lens.id === "planning-pressure"
-            ? clamp01(intensity * 0.86 + (tileNearest ? 0.045 : 0) + tileSeed * 0.025)
+            ? clamp01(intensity * 0.92 + (tileNearest ? 0.06 : 0) + tileSeed * 0.03)
             : intensity;
         const nearestProps = tileNearest?.feature?.properties || nearest?.feature?.properties || null;
         const stageMatch = lens.id === "planning-parcels"
@@ -8538,9 +8597,9 @@
       const intensity = clamp01(Number(renderIntensity ?? planningProps?.intensity ?? 0.45));
       if (intensity > 0.82) return "#d98166";
       if (intensity > 0.64) return "#e9a26a";
-      if (intensity > 0.46) return "#e5c092";
-      if (intensity > 0.3) return "#d7b7a4";
-      return "#c7c4b8";
+      if (intensity > 0.46) return "#e5b56d";
+      if (intensity > 0.3) return "#d4b79a";
+      return "#b9c6c7";
     }
     if (lensId === "planning-delta") {
       if (status === "demolished") return "#8f9494";
@@ -8987,8 +9046,8 @@
     const buckets = new Map();
     const layerCounts = new Map();
     for (const item of candidates.sort((a, b) => b.score - a.score)) {
-      if (selected.length >= 18) break;
-      const bucket = transportAngleBucket(center, item.point, 18);
+      if (selected.length >= 20) break;
+      const bucket = transportAngleBucket(center, item.point, 20);
       const bucketCount = buckets.get(bucket) || 0;
       const layerCount = layerCounts.get(item.layerId) || 0;
       if (bucketCount >= 2) continue;
@@ -9013,7 +9072,7 @@
           event_id: item.eventId,
           source_id: item.sourceId,
           intensity: Number(intensity.toFixed(2)),
-          color: civicServiceSublayerColor(item.layerId),
+          color: demandDisplacementColor(item.layerId, item.sourceKind),
           edge_offset: Number(((index % 3) - 1).toFixed(2)),
           score: Number(item.score.toFixed(3)),
         },
@@ -9039,18 +9098,18 @@
     const px = -uy;
     const py = ux;
     const seed = stableUnit(`demand-flow:${event?.id || ""}:${index}`);
-    const lineLength = Math.max(260, Math.min(780, distance * (0.34 + seed * 0.18)));
+    const lineLength = Math.max(340, Math.min(1050, distance * (0.45 + seed * 0.22)));
     const midDistance = Math.max(
       220,
-      Math.min(maxDistance * 0.94, distance * (0.42 + seed * 0.32)),
+      Math.min(maxDistance * 0.94, distance * (0.38 + seed * 0.36)),
     );
-    const laneOffset = ((index % 5) - 2) * 46 + (seed - 0.5) * 86;
+    const laneOffset = ((index % 5) - 2) * 56 + (seed - 0.5) * 98;
     const startDistance = Math.max(120, midDistance - lineLength * 0.5);
     const endDistance = Math.min(maxDistance * 0.98, midDistance + lineLength * 0.5);
-    const endSplay = (seed - 0.5) * 92;
+    const endSplay = (seed - 0.5) * 118;
     const start = offsetLngLat(center, ux * startDistance + px * laneOffset, uy * startDistance + py * laneOffset);
     const end = offsetLngLat(center, ux * endDistance + px * (laneOffset + endSplay), uy * endDistance + py * (laneOffset + endSplay));
-    const bend = (index % 2 ? -1 : 1) * (0.08 + seed * 0.05);
+    const bend = (index % 2 ? -1 : 1) * (0.1 + seed * 0.06);
     return curvedLine(start, end, bend);
   }
 
@@ -9137,11 +9196,11 @@
       ? Math.min(0.24, 0.08 + ((distance - radiusM * 2.12) / Math.max(1, radiusM * 1.8)) * 0.16) * (rank >= 4 && activity >= 0.64 ? 0.38 : 1)
       : 0;
     return clamp01(
-      activity * 0.35
-      + eventDensity * 0.13
-      + Math.max(0, corePressure) * 0.3
-      + Math.max(0, nearPressure) * 0.09
-      + rankPressure * 0.1
+      activity * 0.37
+      + eventDensity * 0.1
+      + Math.max(0, corePressure) * 0.22
+      + Math.max(0, nearPressure) * 0.1
+      + rankPressure * 0.11
       + lengthSignal
       - outerPenalty,
     );
@@ -9150,16 +9209,21 @@
   function transportSpeedRouteCandidate({ activity, distance, named, pressure, rank, radiusM, routeLengthM }) {
     if (rank >= 3) return routeLengthM >= 10 || pressure >= 0.32;
     if (rank >= 2) return named || pressure >= 0.24 || distance < radiusM * 3.1 || (activity >= 0.14 && routeLengthM >= 62);
-    if (!named) return false;
+    if (!named) {
+      if (distance <= radiusM * 0.95 && routeLengthM >= 24) return true;
+      if (distance <= radiusM * 1.72 && routeLengthM >= 38 && pressure >= 0.17) return true;
+      if (distance <= radiusM * 2.35 && routeLengthM >= 66 && activity >= 0.2) return true;
+      return false;
+    }
     if (distance > radiusM * 2.12) return false;
     return pressure >= 0.38 || (activity >= 0.44 && routeLengthM >= 72) || (distance < radiusM * 1.5 && routeLengthM >= 82);
   }
 
   function transportSpeedThreadColor(pressure, activity, rank) {
-    if (pressure >= 0.78 || (activity >= 0.86 && rank >= 3.2)) return "#b91f32";
-    if (pressure >= 0.62 || (activity >= 0.74 && rank >= 2.8)) return "#e3422e";
+    if (pressure >= 0.84 || (activity >= 0.92 && rank >= 3.2)) return "#b91f32";
+    if (pressure >= 0.68 || (activity >= 0.8 && rank >= 2.8)) return "#e3422e";
     if (pressure >= 0.5) return "#ef9f1a";
-    if (pressure >= 0.29) return "#54aa63";
+    if (pressure >= 0.26) return "#54aa63";
     return "#1f9a75";
   }
 
@@ -9184,7 +9248,7 @@
       const named = transportNamedCorridor(props);
       const eventDensity = eventDensityIntensity(point, events, 760);
       if (rank < 2) {
-        const innerLink = distance <= radiusM * 1.72 && routeLengthM >= 56;
+        const innerLink = distance <= radiusM * 1.72 && routeLengthM >= 32;
         const namedInner = named && distance <= radiusM * 2.72 && routeLengthM >= 44;
         const observedContext = eventDensity >= 0.055 && routeLengthM >= 58;
         if (!innerLink && !namedInner && !observedContext) continue;
@@ -9225,7 +9289,7 @@
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 1180);
+      .slice(0, 1680);
   }
 
   function transportNetworkStreetFeatures(center, lens) {
@@ -9268,9 +9332,9 @@
       if (lens.id === "transport-reliability") {
         const lineSignal = reliabilityStopLine ? Math.min(0.38, Number(reliabilityStopLine.primaryScore || 0) * 0.18) : 0;
         const serviceSignal = reliabilityStopDensity + lineSignal + (rank >= 3 ? 0.12 : 0);
-        if (rank < 2 && (!reliabilityStopLine || routeLengthM < 86 || Number(reliabilityStopLine.primaryScore || 0) < 0.42)) continue;
-        if (rank < 2.3 && routeLengthM < 150 && serviceSignal < 0.34) continue;
-        if (rank < 2.7 && routeLengthM < 72 && serviceSignal < 0.44) continue;
+        if (rank < 2 && (!reliabilityStopLine || routeLengthM < 70 || Number(reliabilityStopLine.primaryScore || 0) < 0.34)) continue;
+        if (rank < 2.3 && routeLengthM < 112 && serviceSignal < 0.29) continue;
+        if (rank < 2.7 && routeLengthM < 54 && serviceSignal < 0.38) continue;
       }
       if (rank < 1.4 && distance > radiusM * 2.45 && activity < 0.2) continue;
       if (rank < 2 && distance > radiusM * 3.3 && activity < 0.3) continue;
@@ -9359,8 +9423,8 @@
       const routeLengthM = geometryLineLengthMeters(road.geometry);
       const rank = Number(props.rank || 1);
       const eventDensity = eventDensityIntensity(point, events, lens.id === "transport-reliability" ? 980 : 880);
-      if (lens.id === "transport-reliability" && rank < 2 && routeLengthM < 320) continue;
-      if (lens.id === "transport-reliability" && rank < 2.3 && routeLengthM < 120) continue;
+      if (lens.id === "transport-reliability" && rank < 2 && routeLengthM < 230 && eventDensity < 0.08) continue;
+      if (lens.id === "transport-reliability" && rank < 2.3 && routeLengthM < 88) continue;
       if (rank < 1.3 && eventDensity < 0.07 && distance > radiusM * 2.15) continue;
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
       const activity = clamp01(0.1 + eventDensity * 0.54 + proximity * 0.16 + Math.min(0.16, rank * 0.045));
@@ -9407,9 +9471,9 @@
   }
 
   function distributedTransportThreadFeatures(features, lens) {
-    const target = lens.id === "transport-reliability" ? 760 : lens.id === "transport-speed" ? 2260 : 1820;
-    const perBucket = lens.id === "transport-reliability" ? 28 : lens.id === "transport-speed" ? 92 : 78;
-    const perCorridor = lens.id === "transport-reliability" ? 12 : lens.id === "transport-speed" ? 58 : 46;
+    const target = lens.id === "transport-reliability" ? 1040 : lens.id === "transport-speed" ? 2260 : 1820;
+    const perBucket = lens.id === "transport-reliability" ? 38 : lens.id === "transport-speed" ? 92 : 78;
+    const perCorridor = lens.id === "transport-reliability" ? 16 : lens.id === "transport-speed" ? 58 : 46;
     const selected = [];
     const selectedIds = new Set();
     const bucketCounts = new Map();
@@ -9455,9 +9519,9 @@
   }
 
   function promoteTransportBackboneFeatures(features, lens) {
-    const limit = lens.id === "transport-reliability" ? 360 : lens.id === "transport-speed" ? 660 : 560;
-    const perBucket = lens.id === "transport-reliability" ? 12 : lens.id === "transport-speed" ? 32 : 26;
-    const perCorridor = lens.id === "transport-reliability" ? 9 : lens.id === "transport-speed" ? 22 : 18;
+    const limit = lens.id === "transport-reliability" ? 430 : lens.id === "transport-speed" ? 660 : 560;
+    const perBucket = lens.id === "transport-reliability" ? 16 : lens.id === "transport-speed" ? 32 : 26;
+    const perCorridor = lens.id === "transport-reliability" ? 12 : lens.id === "transport-speed" ? 22 : 18;
     const backboneIds = new Set();
     const bucketCounts = new Map();
     const corridorCounts = new Map();
@@ -9549,9 +9613,9 @@
         continue;
       }
       const sequences = groupFeatures.flatMap((feature) => geometryLineCoordinateSequences(feature.geometry));
-      const merged = mergeTransportLineSequences(sequences, lens.id === "transport-reliability" ? 24 : 46);
+      const merged = mergeTransportLineSequences(sequences, lens.id === "transport-reliability" ? 34 : 68);
       const mergedLengthM = merged.reduce((sum, sequence) => sum + geometryLineLengthMeters({ type: "LineString", coordinates: sequence }), 0);
-      if (!merged.length || mergedLengthM < 120) {
+      if (!merged.length || mergedLengthM < (lens.id === "transport-reliability" ? 88 : 120)) {
         residual.push(...groupFeatures);
         continue;
       }
@@ -9584,8 +9648,8 @@
       });
     }
 
-    const residualTarget = lens.id === "transport-reliability" ? 140 : 540;
-    const residualMinLength = lens.id === "transport-reliability" ? 80 : 44;
+    const residualTarget = lens.id === "transport-reliability" ? 240 : 1120;
+    const residualMinLength = lens.id === "transport-reliability" ? 54 : 30;
     const residualSelected = residual
       .filter((feature) => {
         const props = feature.properties || {};
@@ -9598,24 +9662,24 @@
         if (lens.id === "transport-reliability"
           && prominentStatus
           && !named
-          && rank < 2.15
-          && length < 240) return false;
+          && rank < 1.95
+          && length < 180) return false;
         if (lens.id === "transport-reliability"
           && !prominentStatus
           && !named
-          && rank < 2.2
-          && Number(props.activity || 0) < 0.42
-          && length < 180) return false;
+          && rank < 1.95
+          && Number(props.activity || 0) < 0.34
+          && length < 128) return false;
         if (lens.id === "transport-reliability"
           && props.reliability_status === "reliable"
-          && rank < 2.15
-          && Number(props.activity || 0) < 0.34
-          && length < 150) return false;
+          && rank < 1.95
+          && Number(props.activity || 0) < 0.3
+          && length < 110) return false;
         if (lens.id === "transport-speed") {
           const pressure = Number(props.speed_pressure || 0);
           const activity = Number(props.activity || 0);
-          if (!named && rank < 2 && pressure < 0.3 && activity < 0.22) return false;
-          if (!named && length < 72 && pressure < 0.42 && rank < 2.4) return false;
+          if (!named && rank < 1.35 && pressure < 0.18 && activity < 0.18) return false;
+          if (!named && length < 46 && pressure < 0.34 && rank < 2.4) return false;
         }
         return length >= residualMinLength || rank >= 1.55 || Number(props.activity || 0) >= 0.28 || Number(props.corridor_named || 0) > 0;
       })
@@ -10001,8 +10065,8 @@
         geometry: clippedGeometry,
       });
     }
-    const selectedNetwork = distributedCivicAccessRoadFlows(networkFeatures, center, 320, { bucketCount: 42, perBucket: 3, minSpacingM: 76 });
-    const selectedCoverage = distributedCivicAccessRoadFlows(coverageFeatures, center, 330, { bucketCount: 42, perBucket: 2, minSpacingM: 92 });
+    const selectedNetwork = distributedCivicAccessRoadFlows(networkFeatures, center, 170, { bucketCount: 36, perBucket: 2, minSpacingM: 112 });
+    const selectedCoverage = distributedCivicAccessRoadFlows(coverageFeatures, center, 145, { bucketCount: 36, perBucket: 1, minSpacingM: 138 });
     const selectedSeams = distributedCivicAccessGapSeams(seamFeatures, center);
     return [
       ...selectedNetwork,
@@ -10147,6 +10211,7 @@
     const seen = new Set();
     const pushAnchor = (point, event = null, props = {}, sourceKind = "detail") => {
       if (!point) return;
+      if (sourceKind !== "osm" && civicAccessAdministrativeServiceRecord(event, props)) return;
       const distance = lngLatDistanceMeters(center, point);
       if (!Number.isFinite(distance) || distance > maxDistance) return;
       const layerId = civicServiceSublayerKey(props, event);
@@ -10159,13 +10224,14 @@
       const rank = Number(props.rank || 1);
       const eventCount = Number(props.event_count || 1);
       const named = props.label || props.name || event?.title;
+      const contextBoost = sourceKind === "osm" ? 0.16 : sourceKind === "detail" ? 0.04 : 0;
       const intensity = clamp01(
-        0.28
+        0.3
         + proximity * 0.3
         + Math.min(0.22, rank * 0.045)
         + Math.min(0.16, eventCount * 0.022)
-        + (sourceKind === "event" ? 0.08 : 0)
-        + (named ? 0.04 : 0),
+        + contextBoost * 0.45
+        + (named ? 0.06 : 0),
       );
       candidates.push({
         point,
@@ -10178,8 +10244,9 @@
         distance,
         intensity,
         score: intensity * 0.54
-          + proximity * 0.28
-          + (sourceKind === "detail" ? 0.08 : sourceKind === "event" ? 0.1 : 0)
+          + proximity * 0.24
+          + contextBoost
+          + Math.min(0.12, rank * 0.026)
           + stableUnit(`${sourceId}:${layerId}`) * 0.06,
       });
     };
@@ -10196,6 +10263,22 @@
       pushAnchor(geometryToLngLat(feature.geometry), null, props, "osm");
     }
     return candidates.sort((a, b) => b.score - a.score);
+  }
+
+  function civicAccessAdministrativeServiceRecord(event = null, props = {}) {
+    const text = [
+      props.title,
+      props.label,
+      props.name,
+      props.summary,
+      props.service_type,
+      event?.title,
+      event?.summary,
+      event?.shortDescription,
+      ...(event?.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (!text) return false;
+    return /civic planning approval|planning approval|planning permission|section 54|condition variation|temporary planning permission|retrospective|telecom|telecommunications|monopole|antenna|wraparound cabinet|equipment cabinet|streetpole|street pole/.test(text);
   }
 
   function civicAccessServiceAnchorDensity(point, anchors, radiusM = 620) {
@@ -10237,10 +10320,10 @@
 
   function distributedCivicAccessGapSeams(features, center) {
     const targetByStyle = {
-      gap_high: 190,
-      gap_medium: 280,
-      gap_low: 150,
-      gap_adequate: 36,
+      gap_high: 72,
+      gap_medium: 112,
+      gap_low: 62,
+      gap_adequate: 18,
     };
     const selected = [];
     const styleCounts = new Map();
@@ -10258,8 +10341,8 @@
       const ring = Math.floor(distance / 260);
       const bucket = `${transportAngleBucket(center, point, 40)}:${ring}:${style}`;
       const bucketCount = bucketCounts.get(bucket) || 0;
-      if (bucketCount >= (style === "gap_high" ? 3 : style === "gap_medium" ? 4 : 3)) continue;
-      const minSpacing = style === "gap_high" ? 54 : style === "gap_medium" ? 54 : 72;
+      if (bucketCount >= (style === "gap_high" ? 2 : style === "gap_medium" ? 2 : 1)) continue;
+      const minSpacing = style === "gap_high" ? 104 : style === "gap_medium" ? 118 : 156;
       if (selectedPoints.some((item) => item.style === style && lngLatDistanceMeters(item.point, point) < minSpacing)) continue;
       selected.push(feature);
       selectedPoints.push({ point, style });
@@ -10272,9 +10355,9 @@
   function civicAccessGapTickGuideFeatures(seamFeatures, lens) {
     const ticks = [];
     const targetByStyle = {
-      gap_high: 260,
-      gap_medium: 300,
-      gap_low: 110,
+      gap_high: 82,
+      gap_medium: 88,
+      gap_low: 28,
     };
     const countByStyle = new Map();
     const routes = seamFeatures
@@ -10297,8 +10380,8 @@
       for (const sequence of sequences) {
         const lengthM = geometryLineLengthMeters({ type: "LineString", coordinates: sequence });
         if (lengthM < 48) continue;
-        const spacing = style === "gap_high" ? 118 : style === "gap_medium" ? 142 : 196;
-        const routeLimit = style === "gap_high" ? 3 : style === "gap_medium" ? 2 : 1;
+          const spacing = style === "gap_high" ? 174 : style === "gap_medium" ? 210 : 260;
+          const routeLimit = style === "gap_high" ? 2 : style === "gap_medium" ? 1 : 1;
         const tickCount = Math.max(1, Math.min(routeLimit, Math.floor(lengthM / spacing)));
         for (let index = 0; index < tickCount; index += 1) {
           if ((countByStyle.get(style) || 0) >= target) break;
@@ -10800,15 +10883,15 @@
       .filter((event) => event.category === "built_environment" && event.lngLat);
     if (!roads.length || !events.length) return [];
     const radiusM = Number(lens.radiusM || 800);
-    const maxDistance = radiusM * 1.08;
-    const clipRadiusM = radiusM * 1.02;
+    const maxDistance = radiusM * 1.56;
+    const clipRadiusM = radiusM * 1.45;
     const anchors = planningPressureAnchorFeatures(currentTimelineYear())
-      .filter((anchor) => lngLatDistanceMeters(center, anchor.point) <= maxDistance + 180);
+      .filter((anchor) => lngLatDistanceMeters(center, anchor.point) <= maxDistance + 260);
     const features = [];
     features.push(...planningPressureCellEdgeFeatures(center, lens, anchors, maxDistance, clipRadiusM));
     for (const road of roads) {
       const roadDistance = geometryDistanceToPointMeters(road.geometry, center, 8);
-      if (!Number.isFinite(roadDistance) || roadDistance > maxDistance + 80) continue;
+      if (!Number.isFinite(roadDistance) || roadDistance > maxDistance + 160) continue;
       const rank = Number(road.properties?.rank || 1);
       const clippedGeometry = clipLineGeometryToRadius(road.geometry, center, clipRadiusM);
       if (!clippedGeometry) continue;
@@ -10817,28 +10900,28 @@
       const distance = Math.min(maxDistance, geometryDistanceToPointMeters(clippedGeometry, center, 8));
       if (!Number.isFinite(distance) || distance > maxDistance) continue;
       const routeLengthM = geometryLineLengthMeters(clippedGeometry);
-      if (routeLengthM < (rank >= 3 ? 26 : 44)) continue;
-      const influence = planningPressureAnchorInfluence(point, anchors, rank >= 3 ? 620 : 520);
-      const nearestEvent = influence.event || nearestGuideEvent(point, events, 760);
-      const eventDensity = eventDensityIntensity(point, events, 760);
+      if (routeLengthM < (rank >= 3 ? 18 : 30)) continue;
+      const influence = planningPressureAnchorInfluence(point, anchors, rank >= 3 ? 880 : 720);
+      const nearestEvent = influence.event || nearestGuideEvent(point, events, 1020);
+      const eventDensity = eventDensityIntensity(point, events, 1050);
       const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
-      const rankBoost = Math.min(0.13, Math.max(0, rank - 1) * 0.038);
-      const lengthBoost = Math.min(0.1, routeLengthM / 2600);
+      const rankBoost = Math.min(0.16, Math.max(0, rank - 1) * 0.045);
+      const lengthBoost = Math.min(0.12, routeLengthM / 2350);
       const sourceKey = road.properties?.source_id || road.properties?.id || `${point[0].toFixed(5)}:${point[1].toFixed(5)}`;
       const seed = stableUnit(`${sourceKey}:${lens.id}`);
-      const anchorSignal = Math.pow(clamp01(influence.intensity), 1.55);
+      const anchorSignal = Math.pow(clamp01(influence.intensity), 1.42);
       const intensity = clamp01(
-        0.2
-        + anchorSignal * 0.44
-        + eventDensity * 0.16
-        + proximity * 0.15
+        0.12
+        + anchorSignal * 0.38
+        + eventDensity * 0.15
+        + proximity * 0.12
         + rankBoost
-        + lengthBoost
-        + seed * 0.025
+        + lengthBoost * 0.82
+        + seed * 0.02
       );
-      if (intensity < 0.16 && rank < 2 && !influence.anchor) continue;
-      if (intensity < 0.14) continue;
-      const flowStyle = intensity > 0.72 || (rank >= 4 && intensity > 0.62)
+      if (intensity < 0.13 && rank < 2 && !influence.anchor) continue;
+      if (intensity < 0.12) continue;
+      const flowStyle = intensity > 0.78 || (rank >= 4 && intensity > 0.68)
         ? "planning_pressure_spine"
         : intensity > 0.42
           ? "planning_pressure_edge"
@@ -10862,9 +10945,9 @@
         geometry: clippedGeometry,
       });
     }
-    return distributePlanningPressureSegments(features, 2200, center)
+    return distributePlanningPressureSegments(features, 3200, center)
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 2200);
+      .slice(0, 3200);
   }
 
   function planningPressureCellEdgeFeatures(center, lens, anchors, maxDistance, clipRadiusM = maxDistance) {
@@ -10874,22 +10957,22 @@
         anchor,
         distance: lngLatDistanceMeters(center, anchor.point),
       }))
-      .filter((item) => item.distance <= maxDistance * 1.08)
+      .filter((item) => item.distance <= maxDistance * 1.16)
       .sort((a, b) =>
         (b.anchor.intensity + Math.min(0.3, b.anchor.eventCount * 0.025)) -
         (a.anchor.intensity + Math.min(0.3, a.anchor.eventCount * 0.025))
       )
-      .slice(0, 1500);
+      .slice(0, 1900);
     for (const { anchor, distance } of sorted) {
       const rings = geometryPolygonCoordinateRings(anchor.feature?.geometry);
       if (!rings.length) continue;
       const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
       const eventBoost = Math.min(0.2, anchor.eventCount * 0.024);
-      const intensity = clamp01(0.18 + anchor.intensity * 0.54 + proximity * 0.14 + eventBoost * 0.96);
-      if (intensity < 0.16) continue;
+      const intensity = clamp01(0.12 + anchor.intensity * 0.46 + proximity * 0.1 + eventBoost * 0.62);
+      if (intensity < 0.1) continue;
       for (const ring of rings.slice(0, 1)) {
-        for (const segment of planningPressureRoadSegments({ type: "LineString", coordinates: ring }, 54)) {
-          if (segment.lengthM < 9) continue;
+        for (const segment of planningPressureRoadSegments({ type: "LineString", coordinates: ring }, 46)) {
+          if (segment.lengthM < 7) continue;
           const clippedGeometry = clipLineGeometryToRadius(segment.geometry, center, clipRadiusM);
           if (!clippedGeometry) continue;
           const sourceKey = `${anchor.props?.id || anchor.eventId || "planning-cell"}:${segment.index}`;
@@ -11068,10 +11151,10 @@
   }
 
   function planningPressureGuideColor(intensity) {
-    if (intensity > 0.84) return "#b91f32";
-    if (intensity > 0.68) return "#d85a3f";
-    if (intensity > 0.5) return "#ee9d39";
-    if (intensity > 0.34) return "#81b0a7";
+    if (intensity > 0.82) return "#b91f32";
+    if (intensity > 0.58) return "#d85a3f";
+    if (intensity > 0.42) return "#ee8d35";
+    if (intensity > 0.3) return "#e0b463";
     return "#77a8bd";
   }
 
@@ -12155,7 +12238,7 @@
           .slice(0, 6),
       ]
       : [...anchorCandidates, ...detailCandidates, ...eventCandidates];
-    const selected = selectEconomyGravityCandidates(center, candidatePool, lens, anchorCandidates.length >= 8 ? 18 : 22);
+    const selected = selectEconomyGravityCandidates(center, candidatePool, lens, anchorCandidates.length >= 8 ? 18 : 20);
     if (!selected.length) {
       const fallback = nearbyLensEventAnchors(center, lens, {
         maxDistance,
@@ -12185,7 +12268,7 @@
     }
     const features = [];
     selected.forEach((item, index) => {
-      const laneCount = !item.isContextAnchor && (item.eventCount >= 5 || item.sourceCount >= 3 || item.intensity > 0.72) ? 2 : 1;
+      const laneCount = !item.isContextAnchor && (item.eventCount >= 8 || item.sourceCount >= 4 || item.intensity > 0.82) ? 2 : 1;
       for (let lane = 0; lane < laneCount; lane += 1) {
         const laneIntensity = clamp01(item.intensity * (lane === 0 ? 1 : 0.72) + Math.min(0.12, item.eventCount * 0.018));
         features.push({
@@ -12314,6 +12397,7 @@
   }
 
   function selectEconomyGravityCandidates(center, candidates, lens, limit) {
+    const economyGravity = lens?.id === "economy-gravity";
     const selected = [];
     const sectorCounts = new Map();
     const bucketCounts = new Map();
@@ -12322,25 +12406,29 @@
       .sort((a, b) => b.score - a.score || b.distance - a.distance);
     for (const item of sorted) {
       if (selected.length >= limit) break;
-      const sectorLimit = item.sublayerId === "economy" ? 8 : item.isContextAnchor ? 5 : 6;
+      const sectorLimit = economyGravity
+        ? (item.sublayerId === "economy" ? 4 : item.isContextAnchor ? 3 : 4)
+        : item.sublayerId === "economy" ? 8 : item.isContextAnchor ? 5 : 6;
       if ((sectorCounts.get(item.sublayerId) || 0) >= sectorLimit) continue;
       const bucket = transportAngleBucket(center, item.point, 30);
-      if ((bucketCounts.get(bucket) || 0) >= 3) continue;
+      if ((bucketCounts.get(bucket) || 0) >= (economyGravity ? 2 : 3)) continue;
       const minSpacing = item.distance < 600 ? 80 : 112;
       if (selected.some((existing) => existing.sublayerId === item.sublayerId && lngLatDistanceMeters(existing.point, item.point) < minSpacing)) continue;
       selected.push(item);
       sectorCounts.set(item.sublayerId, (sectorCounts.get(item.sublayerId) || 0) + 1);
       bucketCounts.set(bucket, (bucketCounts.get(bucket) || 0) + 1);
     }
-    if (selected.length >= Math.min(15, limit)) return selected;
+    if (selected.length >= Math.min(economyGravity ? 12 : 15, limit)) return selected;
     const selectedKeys = new Set(selected.map((item) => `${item.eventId}:${item.sourceId}:${item.distance.toFixed(0)}`));
     for (const item of sorted) {
       if (selected.length >= limit) break;
       const key = `${item.eventId}:${item.sourceId}:${item.distance.toFixed(0)}`;
       if (selectedKeys.has(key)) continue;
+      if (economyGravity && (sectorCounts.get(item.sublayerId) || 0) >= 4) continue;
       if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < 72)) continue;
       selected.push(item);
       selectedKeys.add(key);
+      sectorCounts.set(item.sublayerId, (sectorCounts.get(item.sublayerId) || 0) + 1);
     }
     return selected;
   }
@@ -12366,22 +12454,23 @@
       + sectorBias * 0.7
       + (seed - 0.5) * 0.2;
     const signedDelta = Math.atan2(Math.sin(gatewayAngle - angle), Math.cos(gatewayAngle - angle));
-    const orbitSign = signedDelta >= 0 ? 1 : -1;
+    const fallbackSign = stableUnit(`${item?.sourceId || ""}:${item?.eventId || ""}:orbit:${index}`) < 0.5 ? -1 : 1;
+    const orbitSign = Math.abs(signedDelta) > 0.12 ? (signedDelta >= 0 ? 1 : -1) : fallbackSign;
     const bendMagnitude = Math.min(distance * (0.16 + seed * 0.055 + clamp01(item?.intensity || 0.45) * 0.065), 520);
     const bend = bendMagnitude * orbitSign + laneOffset;
-    const hubSpread = Math.min(104, 34 + distance * 0.019);
+    const hubSpread = Math.min(78, 28 + distance * 0.014);
     const laneSpread = (laneIndex - (laneCount - 1) / 2) * 12;
     const sx = Math.cos(gatewayAngle) * hubSpread * 0.62 + px * laneSpread;
     const sy = Math.sin(gatewayAngle) * hubSpread * 0.62 + py * laneSpread;
-    const gatewayPull = Math.min(420, distance * 0.34);
-    const approachPull = Math.min(260, distance * 0.2);
+    const gatewayPull = Math.min(280, distance * 0.22);
+    const approachPull = Math.min(210, distance * 0.16);
     const c1 = [
-      sx + Math.cos(gatewayAngle) * gatewayPull + px * bend * 0.28,
-      sy + Math.sin(gatewayAngle) * gatewayPull + py * bend * 0.28,
+      sx + Math.cos(gatewayAngle) * gatewayPull + px * bend * 0.24,
+      sy + Math.sin(gatewayAngle) * gatewayPull + py * bend * 0.24,
     ];
     const c2 = [
-      dx - Math.cos(angle) * approachPull + px * bend * 0.7,
-      dy - Math.sin(angle) * approachPull + py * bend * 0.7,
+      dx - Math.cos(angle) * approachPull + px * bend * 0.52,
+      dy - Math.sin(angle) * approachPull + py * bend * 0.52,
     ];
     const coords = [];
     for (let i = 0; i <= 40; i += 1) {
@@ -12555,13 +12644,13 @@
     const buckets = new Map();
     const layerCounts = new Map();
     for (const item of civicAccessServiceAnchorCandidates(center, Number(lens.radiusM || 1500), year)) {
-      if (selected.length >= 26) break;
-      const bucket = transportAngleBucket(center, item.point, 26);
+      if (selected.length >= 12) break;
+      const bucket = transportAngleBucket(center, item.point, 24);
       const bucketCount = buckets.get(bucket) || 0;
       const layerCount = layerCounts.get(item.layerId) || 0;
-      if (bucketCount >= 2) continue;
-      if (layerCount >= 6) continue;
-      if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < 150)) continue;
+      if (bucketCount >= 1) continue;
+      if (layerCount >= 3) continue;
+      if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < 230)) continue;
       selected.push(item);
       buckets.set(bucket, bucketCount + 1);
       layerCounts.set(item.layerId, layerCount + 1);
@@ -12670,7 +12759,7 @@
         event_id: "",
         title: item.props.label || "Economy anchor",
         label: truncate(item.props.label || economyGravitySectorLabel(item.sublayerId), 30),
-        label_detail: `${economyGravitySectorLabel(item.sublayerId)} / OSM context`,
+        label_detail: economyGravitySectorLabel(item.sublayerId),
         label_rank: index + 1,
         sublayer_id: item.sublayerId,
         intensity: Number(item.intensity.toFixed(2)),
@@ -13182,8 +13271,8 @@
     if (!routes.length) return [];
     const radiusM = Number(lens.radiusM || 800);
     const maxDistance = radiusM * (lens.id === "transport-reliability" ? 3.65 : 3.95);
-    const limit = lens.id === "transport-reliability" ? 58 : 88;
-    const minSpacingM = lens.id === "transport-reliability" ? 188 : 132;
+    const limit = lens.id === "transport-reliability" ? 58 : 46;
+    const minSpacingM = lens.id === "transport-reliability" ? 188 : 220;
     const bucketCounts = new Map();
     const selected = transportRouteStopNodeItems(center, lens, routes, maxDistance);
     for (const item of selected) {
@@ -13200,7 +13289,7 @@
         if (distance > maxDistance) continue;
         const bucket = transportAngleBucket(center, point, 36);
         const bucketCount = bucketCounts.get(bucket) || 0;
-        if (bucketCount >= (lens.id === "transport-speed" ? 5 : 6)) continue;
+        if (bucketCount >= (lens.id === "transport-speed" ? 3 : 6)) continue;
         const tooClose = selected.some((item) => lngLatDistanceMeters(item.point, point) < minSpacingM);
         if (tooClose) continue;
         selected.push({
@@ -13285,15 +13374,15 @@
         sourceId: props.source_id || "",
       });
     }
-    const limit = lens.id === "transport-speed" ? 34 : 26;
-    const minSpacingM = lens.id === "transport-speed" ? 205 : 245;
+    const limit = lens.id === "transport-speed" ? 22 : 26;
+    const minSpacingM = lens.id === "transport-speed" ? 280 : 245;
     const selected = [];
     const bucketCounts = new Map();
     for (const item of candidates.sort((a, b) => b.score - a.score)) {
       if (selected.length >= limit) break;
       const bucket = transportAngleBucket(center, item.point, 38);
       const bucketCount = bucketCounts.get(bucket) || 0;
-      if (bucketCount >= (lens.id === "transport-speed" ? 3 : 2)) continue;
+      if (bucketCount >= (lens.id === "transport-speed" ? 2 : 2)) continue;
       if (selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < minSpacingM)) continue;
       selected.push(item);
       bucketCounts.set(bucket, bucketCount + 1);
@@ -13358,12 +13447,12 @@
     if (!stops.length) return [];
     const selected = [];
     const buckets = new Map();
-    const minSpacingM = 185;
+    const minSpacingM = 210;
     for (const stop of stops) {
-      if (selected.length >= 38) break;
-      const bucket = transportAngleBucket(center, stop.point, 40);
+      if (selected.length >= 30) break;
+      const bucket = transportAngleBucket(center, stop.point, 36);
       const bucketCount = buckets.get(bucket) || 0;
-      if (bucketCount >= 3) continue;
+      if (bucketCount >= 2) continue;
       if (selected.some((item) => lngLatDistanceMeters(item.point, stop.point) < minSpacingM)) continue;
       selected.push(stop);
       buckets.set(bucket, bucketCount + 1);
@@ -13400,6 +13489,7 @@
     for (const feature of state.lensDetailFeatures) {
       const props = feature.properties || {};
       if (!detailLayers.includes(props.layer)) continue;
+      if (lens.id === "civic-access-gaps" && civicAccessAdministrativeServiceRecord(null, props)) continue;
       if (Number(props.visible_year || 9999) > currentTimelineYear()) continue;
       const point = geometryToLngLat(feature.geometry);
       if (!point) continue;
@@ -13484,7 +13574,7 @@
   }
 
   function detailNodeLimit(lensId) {
-    if (lensId === "planning-pressure") return 52;
+    if (lensId === "planning-pressure") return 86;
     if (lensId === "civic-access-gaps") return 18;
     if (lensId === "civic-catchment" || lensId === "civic-demand") return 18;
     if (lensId === "economy-gravity") return 18;
@@ -13495,7 +13585,7 @@
 
   function distributedDetailNodeCandidates(center, candidates, lens) {
     const buckets = new Map();
-    const bucketCount = lens.id === "civic-access-gaps" ? 20 : 16;
+    const bucketCount = lens.id === "planning-pressure" ? 42 : lens.id === "civic-access-gaps" ? 20 : 16;
     for (const item of candidates) {
       const angle = Math.atan2(item.point[1] - center[1], item.point[0] - center[0]);
       const bucket = Math.floor(((angle + Math.PI) / (Math.PI * 2)) * bucketCount);
@@ -14135,20 +14225,20 @@
           [
             "interpolate", ["linear"], activity,
             0, "#148f63",
-            0.42, "#42a85c",
-            0.68, "#ef9f1a",
+            0.48, "#42a85c",
+            0.74, "#ef9f1a",
             1, "#e3422e",
           ],
           [
             "interpolate", ["linear"], activity,
             0, "#148f63",
-            0.28, "#42a85c",
-            0.5, "#ef9f1a",
-            0.74, "#e3422e",
+            0.34, "#42a85c",
+            0.58, "#ef9f1a",
+            0.82, "#e3422e",
             1, "#b91f32",
           ],
         ],
-        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.035, 0.22, 0.075, 0.52, 0.14, 1, 0.22], rankVisibility],
+        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.028, 0.22, 0.064, 0.52, 0.12, 1, 0.19], rankVisibility],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
           9, ["*", ["+", 0.18, ["*", activity, 0.36]], rank],
@@ -14393,7 +14483,7 @@
       els.activeLensCard.style.setProperty("--lens-accent", accent);
     }
     if (els.lensFab) {
-      els.lensFab.hidden = ["economy-vitality", "civic-catchment", "planning-pressure", "planning-delta", "planning-parcels"].includes(lens.id);
+      els.lensFab.hidden = true;
     }
     els.layersPanel?.style.setProperty("--lens-accent", accent);
     if (els.layersPanel) els.layersPanel.dataset.lens = lens.id;
@@ -14421,7 +14511,7 @@
 
   function renderMapStudyChip(lens = activeMapLens()) {
     if (!els.mapStudyChip || !els.mapStudyChipText || !lens) return;
-    const showChip = Boolean(state.selectedEvent?.lngLat) && ["transport-speed", "transport-access", "economy-vitality", "economy-land-use", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
+    const showChip = Boolean(state.selectedEvent?.lngLat);
     els.mapStudyChip.hidden = !showChip;
     if (!showChip) return;
     els.mapStudyChip.style.setProperty("--lens-accent", lens.accent || LAYER_BY_ID.get(lens.category || lens.layerId)?.color || "#1b7a85");
@@ -14479,6 +14569,10 @@
     }
     if (lens.id === "economy-vitality") {
       els.lensLegend.innerHTML = renderEconomyVitalityLegend(lens, status);
+      return;
+    }
+    if (lens.id === "economy-gravity") {
+      els.lensLegend.innerHTML = renderEconomyGravityLegend(lens, status);
       return;
     }
     if (lens.id === "civic-catchment") {
@@ -14661,6 +14755,42 @@
       redevelopment: "hatch",
       uncertainty: "dashed",
     }[id] || "document";
+  }
+
+  function renderEconomyGravityLegend(lens, status) {
+    const sectorRows = lens.layers.map((layer) => `
+      <div class="gravity-sector-row">
+        <i style="--gravity-color:${escapeAttr(layer.color)}"></i>
+        <span>${escapeHtml(layer.label)}</span>
+      </div>
+    `).join("");
+    return `
+      <div class="gravity-legend-card">
+        <div class="gravity-legend-title">
+          <strong>Flows (current)</strong>
+        </div>
+        <div class="gravity-legend-section">
+          <span>Band = flow strength</span>
+          <small>Opacity = confidence</small>
+          <div class="gravity-band-scale" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+          <div class="gravity-scale-labels"><span>Low</span><span>High</span></div>
+        </div>
+        <div class="gravity-legend-section">
+          <span>Sectors</span>
+          <div class="gravity-sector-list">${sectorRows}</div>
+        </div>
+        <div class="gravity-legend-section">
+          <span>Confidence</span>
+          <div class="gravity-confidence-row observed"><i></i><b>Observed</b></div>
+          <div class="gravity-confidence-row inferred"><i></i><b>Inferred</b></div>
+          <div class="gravity-confidence-row low"><i></i><b>Low confidence</b></div>
+        </div>
+        <div class="gravity-study-row"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
+        ${status.empty ? `<div class="lens-legend-note" data-empty="true">${escapeHtml(status.note || lens.caveat)}</div>` : ""}
+      </div>
+    `;
   }
 
   function renderEconomyVitalityLegend(lens, status) {
@@ -16937,6 +17067,8 @@
     const preferred = events.find((e) => e.id === "official-2024-grand-central")
       || events.find((e) => /Belfast Grand Central Station opened/i.test(e.title || ""))
       || events.find((e) => GRAND_CENTRAL_EVENT_IDS.has(e.id));
+    const lensMatched = events.find((e) => e.category === state.activeLens && e.confidence === "documented")
+      || events.find((e) => e.category === state.activeLens);
     const nearestToCamera = opts.keepCamera && state.mapReady
       ? events
         .filter((event) => event.lngLat)
@@ -16944,7 +17076,10 @@
         .sort((a, b) => a.distance - b.distance)[0]?.event
       : null;
     const documented = events.find((e) => e.confidence === "documented");
-    const first = preferred || nearestToCamera || documented || events[0];
+    const cameraAware = opts.keepCamera
+      ? (nearestToCamera || lensMatched)
+      : (lensMatched || nearestToCamera);
+    const first = preferred || cameraAware || documented || events[0];
     if (first) await selectEvent(first.id, { silent: true, ...opts });
   }
 
@@ -17064,10 +17199,10 @@
       "civic-demand": 6.15,
       "economy-vitality": 5.05,
       "economy-land-use": 2.9,
-      "economy-gravity": 6.15,
-      "utilities-capacity": 4.85,
-      "utilities-resilience": 4.95,
-      "utilities-works": 4.65,
+      "economy-gravity": 7.45,
+      "utilities-capacity": 6.15,
+      "utilities-resilience": 7.45,
+      "utilities-works": 6.15,
     };
     const lat = Number(lngLat?.[1] || mapCenter()[1]) * Math.PI / 180;
     const maxZoomByLens = {
