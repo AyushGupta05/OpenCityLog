@@ -1,0 +1,32 @@
+[
+  {
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-reliability-corridor-pass\\transport-reliability-2022.png",
+    "hash": "d38b2e7b9824fb30",
+    "mean": [
+      229.43,
+      229.76,
+      227.24
+    ],
+    "colored_ratio": 0.1561
+  },
+  {
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-reliability-corridor-pass\\transport-reliability-2024.png",
+    "hash": "c71b161e521a13a0",
+    "mean": [
+      227.52,
+      228.64,
+      225.44
+    ],
+    "colored_ratio": 0.1822
+  },
+  {
+    "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-reliability-corridor-pass\\transport-reliability-2026.png",
+    "hash": "17b2db9da6ab0b47",
+    "mean": [
+      228.26,
+      225.69,
+      219.81
+    ],
+    "colored_ratio": 0.2178
+  }
+]

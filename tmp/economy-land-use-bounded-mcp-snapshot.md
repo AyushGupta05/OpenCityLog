@@ -1,0 +1,55 @@
+- generic [active] [ref=e1] [box=0,0,1920,1080]:
+  - link "Skip to changelog" [ref=e2] [cursor=pointer] [box=16,-48,123,32]:
+    - /url: "#eventList"
+  - generic [ref=e3] [box=0,0,1920,1080]:
+    - generic "OpenCityLog real city basemap" [ref=e4] [box=0,0,1920,1080]:
+      - generic [box=0,0,1920,0]
+      - generic [box=0,0,1920,0]
+    - generic [ref=e13] [box=16,16,1888,52]:
+      - generic [ref=e14] [box=33,29,217,26]
+      - button "Belfast" [ref=e19] [cursor=pointer] [box=266,26,82,32]
+      - generic [ref=e23] [box=360,26,380,32]
+      - button "Methodology" [ref=e25] [cursor=pointer] [box=1428,26,117,32]
+      - button "Changelog" [pressed] [ref=e29] [cursor=pointer] [box=1558,26,104,32]
+      - button "Compare" [ref=e33] [cursor=pointer] [box=1674,26,95,32]
+      - button "Share view" [ref=e37] [cursor=pointer] [box=1781,26,32,32]
+      - button "Toggle theme" [ref=e43] [cursor=pointer] [box=1825,26,32,32]
+      - generic [ref=e46] [box=1869,31,22,22]: OC
+    - generic [ref=e750] [box=318,92,145,34]:
+      - generic [ref=e751] [box=329,101,103,16]: Study area 800 m
+      - img [ref=e752] [box=440,103,12,12]
+    - generic [ref=e47] [box=16,76,260,578]:
+      - generic [ref=e48] [box=17,77,258,98]
+      - generic [ref=e54] [box=17,175,258,37]
+      - generic "Map lens" [box=1285,487,224,417]
+      - generic [ref=e65] [box=17,212,258,215]
+      - generic [ref=e90] [box=17,427,258,226]
+    - region "Source-backed records" [ref=e98] [box=16,430,260,454]:
+      - generic [ref=e99] [box=17,431,258,54]
+      - generic [ref=e104] [box=17,485,258,51]: Belfast records in 2024. Timeline, layer, confidence, and inferred filters apply.
+      - list [ref=e105] [box=17,536,258,313]
+      - button "Show 24 more records" [ref=e6058] [cursor=pointer] [box=17,849,258,34]
+    - region "Observed record counts" [box=352,72,620,167]:
+      - generic [box=353,73,618,54]
+      - group "Compare years" [box=353,127,618,53]
+      - paragraph [box=353,180,618,58]: OpenStreetMap remains the current orientation basemap. These are logged record counts, not a causal impact estimate.
+    - generic "Map tools" [ref=e107] [box=1392,794,72,40]:
+      - button "Recenter map" [ref=e108] [cursor=pointer] [box=1396,798,32,32]
+      - button "Toggle tilted view" [ref=e112] [cursor=pointer] [box=1428,798,32,32]
+    - generic [ref=e6059] [box=1525,85,378,798]:
+      - generic [ref=e6060] [box=1525,85,378,140]
+      - generic [ref=e6077] [box=1525,225,378,658]
+    - button "Proposal Lens" [ref=e127] [cursor=pointer] [box=1367,844,141,40]:
+      - text: Proposal Lens
+      - img [ref=e129] [box=1483,859,10,10]
+    - generic [ref=e131] [box=16,888,1888,176]:
+      - text: Evidence timeline
+      - generic [ref=e132] [box=35,907,1850,36]
+      - generic [ref=e144] [box=35,951,1850,99]
+    - generic [box=0,0,1920,1080]:
+      - generic [box=270,44,1380,1016]
+    - generic [box=0,0,1920,1080]:
+      - button "Close" [box=1810,24,78,32]
+      - generic [box=516,0,880,1186]
+    - generic [box=936,919,48,37]:
+      - generic [box=952,929,8,17]: ●

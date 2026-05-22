@@ -1,0 +1,152 @@
+{
+  "transport-speed": {
+    "year": 2024,
+    "activeLens": "transport",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 1060,
+    "detailCount": 0,
+    "zoom": 14.132454015741153,
+    "loaded": true
+  },
+  "transport-access": {
+    "year": 2024,
+    "activeLens": "transport",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 2972,
+    "detailCount": 0,
+    "zoom": 13.801980811720782,
+    "loaded": true
+  },
+  "transport-reliability": {
+    "year": 2024,
+    "activeLens": "transport",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 578,
+    "detailCount": 0,
+    "zoom": 13.848150993153707,
+    "loaded": true
+  },
+  "planning-pressure": {
+    "year": 2024,
+    "activeLens": "built_environment",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 11628,
+    "detailCount": 1837,
+    "zoom": 14.523878957798047,
+    "loaded": true
+  },
+  "planning-delta": {
+    "year": 2024,
+    "activeLens": "built_environment",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 1580,
+    "detailCount": 1837,
+    "zoom": 14.768297685464493,
+    "loaded": true
+  },
+  "planning-parcels": {
+    "year": 2024,
+    "activeLens": "built_environment",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 2998,
+    "detailCount": 1837,
+    "zoom": 15.009305784968289,
+    "loaded": true
+  },
+  "civic-access-gaps": {
+    "year": 2024,
+    "activeLens": "civic_services",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 3301,
+    "detailCount": 1837,
+    "zoom": 13.848150993153707,
+    "loaded": true
+  },
+  "civic-catchment": {
+    "year": 2024,
+    "activeLens": "civic_services",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 902,
+    "detailCount": 1837,
+    "zoom": 14.19075265630582,
+    "loaded": true
+  },
+  "civic-demand": {
+    "year": 2024,
+    "activeLens": "civic_services",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 3943,
+    "detailCount": 1837,
+    "zoom": 13.848150993153707,
+    "loaded": true
+  },
+  "economy-vitality": {
+    "year": 2024,
+    "activeLens": "economy",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 744,
+    "detailCount": 1837,
+    "zoom": 14.132454015741153,
+    "loaded": true
+  },
+  "economy-land-use": {
+    "year": 2024,
+    "activeLens": "economy",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 4601,
+    "detailCount": 1837,
+    "zoom": 14.932684503365376,
+    "loaded": true
+  },
+  "economy-gravity": {
+    "year": 2024,
+    "activeLens": "economy",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 44,
+    "detailCount": 1837,
+    "zoom": 13.848150993153707,
+    "loaded": true
+  },
+  "utilities-capacity": {
+    "year": 2024,
+    "activeLens": "utilities",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 2481,
+    "detailCount": 1837,
+    "zoom": 14.19075265630582,
+    "loaded": true
+  },
+  "utilities-resilience": {
+    "year": 2024,
+    "activeLens": "utilities",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 2169,
+    "detailCount": 1837,
+    "zoom": 14.161308878413339,
+    "loaded": true
+  },
+  "utilities-works": {
+    "year": 2024,
+    "activeLens": "utilities",
+    "selectedEventId": "official-2024-grand-central",
+    "selectedTitle": "Belfast Grand Central Station opened",
+    "guideCount": 1978,
+    "detailCount": 1837,
+    "zoom": 14.251506687384916,
+    "loaded": true
+  }
+}

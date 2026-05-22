@@ -1,0 +1,18 @@
+{
+  "year": 2026,
+  "zoom": 13.848172247273988,
+  "flowCount": 627,
+  "byStatus": {
+    "delayed": 340,
+    "interrupted": 132,
+    "planned": 45,
+    "reliable": 100,
+    "inferred": 10
+  },
+  "bySource": {
+    "stop_line_derived": 11,
+    "activity": 129,
+    "corridor_trace": 149,
+    "transport_service_tick": 338
+  }
+}

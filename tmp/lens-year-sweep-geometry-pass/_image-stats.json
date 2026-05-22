@@ -1,0 +1,98 @@
+[
+  {
+    "lens": "civic-catchment",
+    "year": 2022,
+    "colored_ratio": 0.05,
+    "avg_saturation": 0.07,
+    "nonwhite_ratio": 0.931,
+    "bytes": 1684717
+  },
+  {
+    "lens": "civic-catchment",
+    "year": 2024,
+    "colored_ratio": 0.101,
+    "avg_saturation": 0.085,
+    "nonwhite_ratio": 0.946,
+    "bytes": 1734704
+  },
+  {
+    "lens": "civic-catchment",
+    "year": 2026,
+    "colored_ratio": 0.052,
+    "avg_saturation": 0.069,
+    "nonwhite_ratio": 0.952,
+    "bytes": 1724864
+  },
+  {
+    "lens": "planning-pressure",
+    "year": 2022,
+    "colored_ratio": 0.078,
+    "avg_saturation": 0.079,
+    "nonwhite_ratio": 0.947,
+    "bytes": 1801998
+  },
+  {
+    "lens": "planning-pressure",
+    "year": 2024,
+    "colored_ratio": 0.098,
+    "avg_saturation": 0.084,
+    "nonwhite_ratio": 0.957,
+    "bytes": 1935886
+  },
+  {
+    "lens": "planning-pressure",
+    "year": 2026,
+    "colored_ratio": 0.067,
+    "avg_saturation": 0.069,
+    "nonwhite_ratio": 0.943,
+    "bytes": 1811681
+  },
+  {
+    "lens": "transport-speed",
+    "year": 2022,
+    "colored_ratio": 0.028,
+    "avg_saturation": 0.034,
+    "nonwhite_ratio": 0.998,
+    "bytes": 1789850
+  },
+  {
+    "lens": "transport-speed",
+    "year": 2024,
+    "colored_ratio": 0.07,
+    "avg_saturation": 0.054,
+    "nonwhite_ratio": 0.997,
+    "bytes": 1876404
+  },
+  {
+    "lens": "transport-speed",
+    "year": 2026,
+    "colored_ratio": 0.17,
+    "avg_saturation": 0.1,
+    "nonwhite_ratio": 0.998,
+    "bytes": 1901075
+  },
+  {
+    "lens": "utilities-works",
+    "year": 2022,
+    "colored_ratio": 0.025,
+    "avg_saturation": 0.031,
+    "nonwhite_ratio": 0.937,
+    "bytes": 1738373
+  },
+  {
+    "lens": "utilities-works",
+    "year": 2024,
+    "colored_ratio": 0.039,
+    "avg_saturation": 0.035,
+    "nonwhite_ratio": 0.935,
+    "bytes": 1802331
+  },
+  {
+    "lens": "utilities-works",
+    "year": 2026,
+    "colored_ratio": 0.043,
+    "avg_saturation": 0.038,
+    "nonwhite_ratio": 0.939,
+    "bytes": 1796956
+  }
+]

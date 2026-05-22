@@ -1,0 +1,78 @@
+{
+  "2022": {
+    "hash": "69880f5af5e47d38",
+    "mean": [
+      229.25,
+      229.16,
+      226.52
+    ],
+    "colored_ratio": 0.0207,
+    "year": 2022,
+    "zoom": 13.848174301813964,
+    "flowCount": 346,
+    "byStatus": {
+      "interrupted": 79,
+      "delayed": 163,
+      "reliable": 61,
+      "planned": 33,
+      "inferred": 10
+    },
+    "bySource": {
+      "activity": 130,
+      "stop_line_derived": 7,
+      "context": 3,
+      "corridor_trace": 58,
+      "transport_service_tick": 148
+    }
+  },
+  "2024": {
+    "hash": "7133e10ed6873f4f",
+    "mean": [
+      227.13,
+      227.55,
+      224.25
+    ],
+    "colored_ratio": 0.0475,
+    "year": 2024,
+    "zoom": 13.848150993153707,
+    "flowCount": 516,
+    "byStatus": {
+      "interrupted": 45,
+      "reliable": 181,
+      "planned": 59,
+      "delayed": 217,
+      "inferred": 14
+    },
+    "bySource": {
+      "activity": 124,
+      "stop_line_derived": 16,
+      "corridor_trace": 111,
+      "transport_service_tick": 265
+    }
+  },
+  "2026": {
+    "hash": "9de09a837c1e3e6b",
+    "mean": [
+      230.22,
+      230.22,
+      228.01
+    ],
+    "colored_ratio": 0.0045,
+    "year": 2026,
+    "zoom": 13.848172247273988,
+    "flowCount": 627,
+    "byStatus": {
+      "delayed": 340,
+      "interrupted": 132,
+      "planned": 45,
+      "reliable": 100,
+      "inferred": 10
+    },
+    "bySource": {
+      "stop_line_derived": 11,
+      "activity": 129,
+      "corridor_trace": 149,
+      "transport_service_tick": 338
+    }
+  }
+}

@@ -1,0 +1,733 @@
+{
+  "results": [
+    {
+      "lens": "transport-speed",
+      "year": 2022,
+      "stats": {
+        "activeAspect": "transport-speed",
+        "timelineYear": "2022",
+        "visible": "3503",
+        "layers": "6/6 on",
+        "mapZoom": 13.896,
+        "mapCenter": [
+          -5.925504,
+          54.591985
+        ],
+        "rendered": {
+          "flow": 307,
+          "flowCase": 307,
+          "flowArrow": 11,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 54,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "transport_backbone": 27,
+          "transport_thread": 280
+        },
+        "flowRoles": {
+          "(none)": 307
+        },
+        "cellStyles": {},
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "transport-speed",
+      "year": 2024,
+      "stats": {
+        "activeAspect": "transport-speed",
+        "timelineYear": "2024",
+        "visible": "5142",
+        "layers": "6/6 on",
+        "mapZoom": 13.896,
+        "mapCenter": [
+          -5.936332,
+          54.592643
+        ],
+        "rendered": {
+          "flow": 760,
+          "flowCase": 761,
+          "flowArrow": 91,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 71,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "transport_backbone": 138,
+          "transport_thread": 622
+        },
+        "flowRoles": {
+          "(none)": 760
+        },
+        "cellStyles": {},
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "transport-speed",
+      "year": 2026,
+      "stats": {
+        "activeAspect": "transport-speed",
+        "timelineYear": "2026",
+        "visible": "2399",
+        "layers": "6/6 on",
+        "mapZoom": 13.896,
+        "mapCenter": [
+          -5.929632,
+          54.592043
+        ],
+        "rendered": {
+          "flow": 994,
+          "flowCase": 996,
+          "flowArrow": 174,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 78,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "transport_backbone": 303,
+          "transport_thread": 691
+        },
+        "flowRoles": {
+          "(none)": 994
+        },
+        "cellStyles": {},
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "economy-vitality",
+      "year": 2022,
+      "stats": {
+        "activeAspect": "economy-vitality",
+        "timelineYear": "2022",
+        "visible": "3503",
+        "layers": "6/6 on",
+        "mapZoom": 13.92,
+        "mapCenter": [
+          -5.925551,
+          54.592013
+        ],
+        "rendered": {
+          "flow": 800,
+          "flowCase": 801,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 0,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 27,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "economy_current_ribbon": 623,
+          "economy_churn_tick": 79,
+          "economy_before_ribbon": 98
+        },
+        "flowRoles": {
+          "(none)": 800
+        },
+        "cellStyles": {},
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "economy-vitality",
+      "year": 2024,
+      "stats": {
+        "activeAspect": "economy-vitality",
+        "timelineYear": "2024",
+        "visible": "5142",
+        "layers": "6/6 on",
+        "mapZoom": 13.92,
+        "mapCenter": [
+          -5.936379,
+          54.592671
+        ],
+        "rendered": {
+          "flow": 768,
+          "flowCase": 769,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 0,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 34,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "economy_current_ribbon": 625,
+          "economy_churn_tick": 81,
+          "economy_before_ribbon": 62
+        },
+        "flowRoles": {
+          "(none)": 768
+        },
+        "cellStyles": {},
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "economy-vitality",
+      "year": 2026,
+      "stats": {
+        "activeAspect": "economy-vitality",
+        "timelineYear": "2026",
+        "visible": "2399",
+        "layers": "6/6 on",
+        "mapZoom": 13.92,
+        "mapCenter": [
+          -5.929679,
+          54.592071
+        ],
+        "rendered": {
+          "flow": 744,
+          "flowCase": 744,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 0,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "economy_current_ribbon": 626,
+          "economy_churn_tick": 81,
+          "economy_before_ribbon": 37
+        },
+        "flowRoles": {
+          "(none)": 744
+        },
+        "cellStyles": {},
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "civic-demand",
+      "year": 2022,
+      "stats": {
+        "activeAspect": "civic-demand",
+        "timelineYear": "2022",
+        "visible": "3503",
+        "layers": "6/6 on",
+        "mapZoom": 13.505,
+        "mapCenter": [
+          -5.924644,
+          54.59147
+        ],
+        "rendered": {
+          "flow": 22,
+          "flowCase": 22,
+          "flowArrow": 18,
+          "cellFill": 4070,
+          "cellLine": 4070,
+          "node": 0,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 39
+        },
+        "flowStyles": {
+          "demand_displacement": 22
+        },
+        "flowRoles": {
+          "(none)": 22
+        },
+        "cellStyles": {
+          "demand_surface": 4070
+        },
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "civic-demand",
+      "year": 2024,
+      "stats": {
+        "activeAspect": "civic-demand",
+        "timelineYear": "2024",
+        "visible": "5142",
+        "layers": "6/6 on",
+        "mapZoom": 13.505,
+        "mapCenter": [
+          -5.935472,
+          54.592128
+        ],
+        "rendered": {
+          "flow": 21,
+          "flowCase": 21,
+          "flowArrow": 18,
+          "cellFill": 3987,
+          "cellLine": 3987,
+          "node": 0,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 31
+        },
+        "flowStyles": {
+          "demand_displacement": 21
+        },
+        "flowRoles": {
+          "(none)": 21
+        },
+        "cellStyles": {
+          "demand_surface": 3987
+        },
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "civic-demand",
+      "year": 2026,
+      "stats": {
+        "activeAspect": "civic-demand",
+        "timelineYear": "2026",
+        "visible": "2399",
+        "layers": "6/6 on",
+        "mapZoom": 13.505,
+        "mapCenter": [
+          -5.928772,
+          54.591528
+        ],
+        "rendered": {
+          "flow": 19,
+          "flowCase": 19,
+          "flowArrow": 18,
+          "cellFill": 4148,
+          "cellLine": 4148,
+          "node": 0,
+          "utilityNetwork": 0,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "demand_displacement": 19
+        },
+        "flowRoles": {
+          "(none)": 19
+        },
+        "cellStyles": {
+          "demand_surface": 4148
+        },
+        "utilityTypes": {},
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "utilities-capacity",
+      "year": 2022,
+      "stats": {
+        "activeAspect": "utilities-capacity",
+        "timelineYear": "2022",
+        "visible": "3503",
+        "layers": "6/6 on",
+        "mapZoom": 14.023,
+        "mapCenter": [
+          -5.925737,
+          54.592124
+        ],
+        "rendered": {
+          "flow": 2252,
+          "flowCase": 2253,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 3,
+          "utilityNetwork": 8,
+          "utilityAssets": 9,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_capacity_trace": 2252
+        },
+        "flowRoles": {
+          "utility_network_derived": 2244,
+          "utility_network": 6,
+          "capacity_risk": 2
+        },
+        "cellStyles": {},
+        "utilityTypes": {
+          "water": 6,
+          "electricity": 2
+        },
+        "utilityAssetTypes": {
+          "(none)": 9
+        }
+      }
+    },
+    {
+      "lens": "utilities-capacity",
+      "year": 2024,
+      "stats": {
+        "activeAspect": "utilities-capacity",
+        "timelineYear": "2024",
+        "visible": "5142",
+        "layers": "6/6 on",
+        "mapZoom": 14.022,
+        "mapCenter": [
+          -5.936565,
+          54.592782
+        ],
+        "rendered": {
+          "flow": 2149,
+          "flowCase": 2150,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 8,
+          "utilityNetwork": 17,
+          "utilityAssets": 10,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_capacity_trace": 2149
+        },
+        "flowRoles": {
+          "utility_network_derived": 1667,
+          "capacity_risk": 476,
+          "utility_network": 6
+        },
+        "cellStyles": {},
+        "utilityTypes": {
+          "water": 15,
+          "electricity": 2
+        },
+        "utilityAssetTypes": {
+          "(none)": 10
+        }
+      }
+    },
+    {
+      "lens": "utilities-capacity",
+      "year": 2026,
+      "stats": {
+        "activeAspect": "utilities-capacity",
+        "timelineYear": "2026",
+        "visible": "2399",
+        "layers": "6/6 on",
+        "mapZoom": 14.023,
+        "mapCenter": [
+          -5.929865,
+          54.592182
+        ],
+        "rendered": {
+          "flow": 2242,
+          "flowCase": 2243,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 8,
+          "utilityNetwork": 12,
+          "utilityAssets": 18,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_capacity_trace": 2242
+        },
+        "flowRoles": {
+          "utility_network_derived": 1382,
+          "capacity_risk": 854,
+          "utility_network": 6
+        },
+        "cellStyles": {},
+        "utilityTypes": {
+          "water": 10,
+          "electricity": 2
+        },
+        "utilityAssetTypes": {
+          "(none)": 18
+        }
+      }
+    },
+    {
+      "lens": "utilities-resilience",
+      "year": 2022,
+      "stats": {
+        "activeAspect": "utilities-resilience",
+        "timelineYear": "2022",
+        "visible": "3503",
+        "layers": "6/6 on",
+        "mapZoom": 13.945,
+        "mapCenter": [
+          -5.925597,
+          54.592041
+        ],
+        "rendered": {
+          "flow": 1569,
+          "flowCase": 1570,
+          "flowArrow": 0,
+          "cellFill": 8,
+          "cellLine": 8,
+          "node": 5,
+          "utilityNetwork": 18,
+          "utilityAssets": 9,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_inferred": 419,
+          "utility_backup": 680,
+          "utility_primary": 470
+        },
+        "flowRoles": {
+          "street_context": 1551,
+          "utility_network": 18
+        },
+        "cellStyles": {
+          "utility_outage_area": 8
+        },
+        "utilityTypes": {
+          "water": 14,
+          "electricity": 4
+        },
+        "utilityAssetTypes": {
+          "(none)": 9
+        }
+      }
+    },
+    {
+      "lens": "utilities-resilience",
+      "year": 2024,
+      "stats": {
+        "activeAspect": "utilities-resilience",
+        "timelineYear": "2024",
+        "visible": "5142",
+        "layers": "6/6 on",
+        "mapZoom": 13.945,
+        "mapCenter": [
+          -5.936425,
+          54.592699
+        ],
+        "rendered": {
+          "flow": 1562,
+          "flowCase": 1562,
+          "flowArrow": 0,
+          "cellFill": 7,
+          "cellLine": 7,
+          "node": 6,
+          "utilityNetwork": 15,
+          "utilityAssets": 16,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_inferred": 265,
+          "utility_backup": 677,
+          "utility_primary": 620
+        },
+        "flowRoles": {
+          "street_context": 1549,
+          "utility_network": 13
+        },
+        "cellStyles": {
+          "utility_outage_area": 7
+        },
+        "utilityTypes": {
+          "water": 14,
+          "electricity": 1
+        },
+        "utilityAssetTypes": {
+          "(none)": 16
+        }
+      }
+    },
+    {
+      "lens": "utilities-resilience",
+      "year": 2026,
+      "stats": {
+        "activeAspect": "utilities-resilience",
+        "timelineYear": "2026",
+        "visible": "2399",
+        "layers": "6/6 on",
+        "mapZoom": 13.945,
+        "mapCenter": [
+          -5.929725,
+          54.592099
+        ],
+        "rendered": {
+          "flow": 1568,
+          "flowCase": 1570,
+          "flowArrow": 0,
+          "cellFill": 8,
+          "cellLine": 8,
+          "node": 3,
+          "utilityNetwork": 11,
+          "utilityAssets": 22,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_backup": 798,
+          "utility_inferred": 129,
+          "utility_primary": 641
+        },
+        "flowRoles": {
+          "street_context": 1558,
+          "utility_network": 10
+        },
+        "cellStyles": {
+          "utility_outage_area": 8
+        },
+        "utilityTypes": {
+          "water": 8,
+          "electricity": 3
+        },
+        "utilityAssetTypes": {
+          "(none)": 22
+        }
+      }
+    },
+    {
+      "lens": "utilities-works",
+      "year": 2022,
+      "stats": {
+        "activeAspect": "utilities-works",
+        "timelineYear": "2022",
+        "visible": "3503",
+        "layers": "6/6 on",
+        "mapZoom": 14.132,
+        "mapCenter": [
+          -5.925923,
+          54.592236
+        ],
+        "rendered": {
+          "flow": 2411,
+          "flowCase": 2413,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 5,
+          "utilityNetwork": 6,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_work_thread": 2411
+        },
+        "flowRoles": {
+          "street_context": 2398,
+          "utility_network": 6,
+          "source_trace": 7
+        },
+        "cellStyles": {},
+        "utilityTypes": {
+          "water": 6
+        },
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "utilities-works",
+      "year": 2024,
+      "stats": {
+        "activeAspect": "utilities-works",
+        "timelineYear": "2024",
+        "visible": "5142",
+        "layers": "6/6 on",
+        "mapZoom": 14.132,
+        "mapCenter": [
+          -5.936751,
+          54.592894
+        ],
+        "rendered": {
+          "flow": 2423,
+          "flowCase": 2423,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 6,
+          "utilityNetwork": 13,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_work_thread": 2423
+        },
+        "flowRoles": {
+          "street_context": 2400,
+          "source_trace": 10,
+          "utility_network": 13
+        },
+        "cellStyles": {},
+        "utilityTypes": {
+          "water": 11,
+          "electricity": 2
+        },
+        "utilityAssetTypes": {}
+      }
+    },
+    {
+      "lens": "utilities-works",
+      "year": 2026,
+      "stats": {
+        "activeAspect": "utilities-works",
+        "timelineYear": "2026",
+        "visible": "2399",
+        "layers": "6/6 on",
+        "mapZoom": 14.132,
+        "mapCenter": [
+          -5.930051,
+          54.592294
+        ],
+        "rendered": {
+          "flow": 2385,
+          "flowCase": 2386,
+          "flowArrow": 0,
+          "cellFill": 0,
+          "cellLine": 0,
+          "node": 5,
+          "utilityNetwork": 6,
+          "utilityAssets": 0,
+          "economyFrontage": 0,
+          "civicCoverage": 0
+        },
+        "flowStyles": {
+          "utility_work_thread": 2385
+        },
+        "flowRoles": {
+          "street_context": 2364,
+          "utility_network": 6,
+          "source_trace": 15
+        },
+        "cellStyles": {},
+        "utilityTypes": {
+          "water": 6
+        },
+        "utilityAssetTypes": {}
+      }
+    }
+  ],
+  "actionable": [],
+  "pageErrors": []
+}

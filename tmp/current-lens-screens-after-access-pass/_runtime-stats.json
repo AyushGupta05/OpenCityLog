@@ -1,0 +1,399 @@
+[
+  {
+    "lens": "civic-access-gaps",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\civic-access-gaps.png",
+    "activeLens": "civic_services",
+    "activeAspect": "civic-access-gaps",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 3301,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "flow|access_network||": 513,
+      "flow|service_walk||": 610,
+      "flow|service_bus||": 306,
+      "flow|service_outer||": 11,
+      "flow|gap_high||": 599,
+      "flow|gap_medium||": 909,
+      "flow|gap_low||": 261,
+      "node|transport||": 38,
+      "node|civic_anchor||": 42,
+      "node|||": 10
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 2247,
+      "lens-guide-flow": 2246,
+      "lens-guide-node": 1,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "civic-catchment",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\civic-catchment.png",
+    "activeLens": "civic_services",
+    "activeAspect": "civic-catchment",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 902,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "surface_cell|catchment_area||": 191,
+      "surface_cell|catchment_backdrop||": 240,
+      "flow|catchment_street_seam||": 423,
+      "node|civic_anchor||": 28,
+      "node|||": 10,
+      "node|detail||": 8
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 502,
+      "lens-guide-cell-line": 502,
+      "lens-guide-flow-case": 406,
+      "lens-guide-flow": 406,
+      "lens-guide-node": 10,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "civic-demand",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\civic-demand.png",
+    "activeLens": "civic_services",
+    "activeAspect": "civic-demand",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 3943,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "surface_cell|demand_surface||": 3871,
+      "flow|demand_displacement||": 18,
+      "node|civic_anchor||": 52
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 3977,
+      "lens-guide-cell-line": 3977,
+      "lens-guide-flow-case": 21,
+      "lens-guide-flow": 21,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "economy-gravity",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\economy-gravity.png",
+    "activeLens": "economy",
+    "activeAspect": "economy-gravity",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 44,
+    "by": {
+      "study_area|||": 1,
+      "flow|economy_gravity_arc||": 22,
+      "node|economy_anchor||": 13,
+      "node|detail||": 8
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 47,
+      "lens-guide-flow": 47,
+      "lens-guide-node": 13,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "economy-land-use",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\economy-land-use.png",
+    "activeLens": "economy",
+    "activeAspect": "economy-land-use",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 4601,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|land_use_tile||": 4600
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 3301,
+      "lens-guide-cell-line": 3301,
+      "lens-guide-flow-case": 0,
+      "lens-guide-flow": 0,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "economy-vitality",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\economy-vitality.png",
+    "activeLens": "economy",
+    "activeAspect": "economy-vitality",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 744,
+    "by": {
+      "study_area|||": 1,
+      "flow|economy_churn_tick||": 74,
+      "flow|economy_before_ribbon||": 58,
+      "flow|economy_current_ribbon||": 596,
+      "node|economy_notice||": 7,
+      "node|detail||": 8
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 788,
+      "lens-guide-flow": 788,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "planning-delta",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\planning-delta.png",
+    "activeLens": "built_environment",
+    "activeAspect": "planning-delta",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 1580,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|planning_footprint||": 1579
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 1632,
+      "lens-guide-cell-line": 1632,
+      "lens-guide-flow-case": 0,
+      "lens-guide-flow": 0,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "planning-parcels",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\planning-parcels.png",
+    "activeLens": "built_environment",
+    "activeAspect": "planning-parcels",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 2998,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|planning_footprint||": 2862,
+      "parcel_hatch|||": 135
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 2720,
+      "lens-guide-cell-line": 2721,
+      "lens-guide-flow-case": 0,
+      "lens-guide-flow": 0,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "planning-pressure",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\planning-pressure.png",
+    "activeLens": "built_environment",
+    "activeAspect": "planning-pressure",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 11628,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "surface_cell|planning_footprint||": 4600,
+      "flow|planning_pressure_spine||": 6982,
+      "flow|planning_pressure_edge||": 1,
+      "flow|planning_pressure_cell_edge||": 17,
+      "node|planning_document||": 26
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 4074,
+      "lens-guide-cell-line": 4074,
+      "lens-guide-flow-case": 4791,
+      "lens-guide-flow": 4779,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "transport-access",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\transport-access.png",
+    "activeLens": "transport",
+    "activeAspect": "transport-access",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 2972,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|access_fabric||isochrone_band": 5,
+      "surface_cell|access_fabric||access_cell": 2234,
+      "flow|access_network|bus|": 165,
+      "flow|access_network|walk|": 523,
+      "node|transport||": 44
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 2421,
+      "lens-guide-cell-line": 2421,
+      "lens-guide-flow-case": 701,
+      "lens-guide-flow": 701,
+      "lens-guide-node": 42,
+      "lens-transport-roads": 2462,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "transport-reliability",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\transport-reliability.png",
+    "activeLens": "transport",
+    "activeAspect": "transport-reliability",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 578,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 3,
+      "flow|transport_thread||": 140,
+      "flow|transport_backbone||": 111,
+      "flow|transport_service_tick||": 265,
+      "node|transport_route||": 26,
+      "node|transport||": 32
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 500,
+      "lens-guide-flow": 500,
+      "lens-guide-node": 53,
+      "lens-transport-roads": 696,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "transport-speed",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\transport-speed.png",
+    "activeLens": "transport",
+    "activeAspect": "transport-speed",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 1060,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 3,
+      "flow|transport_thread||": 820,
+      "flow|transport_backbone||": 148,
+      "node|transport_route||": 88
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 856,
+      "lens-guide-flow": 856,
+      "lens-guide-node": 71,
+      "lens-transport-roads": 616,
+      "lens-utility-network": 0,
+      "lens-utility-network-case": 0
+    }
+  },
+  {
+    "lens": "utilities-capacity",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\utilities-capacity.png",
+    "activeLens": "utilities",
+    "activeAspect": "utilities-capacity",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 2481,
+    "by": {
+      "study_area|||": 1,
+      "flow|utility_capacity_trace||": 2389,
+      "node|||": 10,
+      "node|utility_trace||": 81
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 2212,
+      "lens-guide-flow": 2212,
+      "lens-guide-node": 8,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 24,
+      "lens-utility-network-case": 24
+    }
+  },
+  {
+    "lens": "utilities-resilience",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\utilities-resilience.png",
+    "activeLens": "utilities",
+    "activeAspect": "utilities-resilience",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 2169,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|utility_outage_area||": 4,
+      "flow|utility_primary||": 682,
+      "flow|utility_backup||": 1015,
+      "flow|utility_inferred||": 353,
+      "node|||": 10,
+      "node|utility_trace||": 104
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 8,
+      "lens-guide-cell-line": 8,
+      "lens-guide-flow-case": 1658,
+      "lens-guide-flow": 1658,
+      "lens-guide-node": 6,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 24,
+      "lens-utility-network-case": 24
+    }
+  },
+  {
+    "lens": "utilities-works",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-after-access-pass\\utilities-works.png",
+    "activeLens": "utilities",
+    "activeAspect": "utilities-works",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 1978,
+    "by": {
+      "study_area|||": 1,
+      "flow|utility_work_thread||": 1945,
+      "node|||": 8,
+      "node|utility_trace||": 24
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-cell-line": 0,
+      "lens-guide-flow-case": 1892,
+      "lens-guide-flow": 1892,
+      "lens-guide-node": 6,
+      "lens-transport-roads": 0,
+      "lens-utility-network": 23,
+      "lens-utility-network-case": 23
+    }
+  }
+]

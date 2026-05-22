@@ -1,0 +1,317 @@
+[
+  {
+    "lens": "transport-speed",
+    "reference": {
+      "colored_ratio": 0.075,
+      "avg_saturation": 0.043,
+      "red_orange": 1791,
+      "yellow": 217,
+      "green": 570,
+      "teal_blue": 188,
+      "purple": 17
+    },
+    "current": {
+      "colored_ratio": 0.066,
+      "avg_saturation": 0.051,
+      "red_orange": 1981,
+      "yellow": 63,
+      "green": 285,
+      "teal_blue": 105,
+      "purple": 0
+    }
+  },
+  {
+    "lens": "transport-access",
+    "reference": {
+      "colored_ratio": 0.161,
+      "avg_saturation": 0.091,
+      "red_orange": 4048,
+      "yellow": 1567,
+      "green": 0,
+      "teal_blue": 308,
+      "purple": 36
+    },
+    "current": {
+      "colored_ratio": 0.216,
+      "avg_saturation": 0.114,
+      "red_orange": 5651,
+      "yellow": 1336,
+      "green": 2,
+      "teal_blue": 1013,
+      "purple": 0
+    }
+  },
+  {
+    "lens": "transport-reliability",
+    "reference": {
+      "colored_ratio": 0.026,
+      "avg_saturation": 0.03,
+      "red_orange": 552,
+      "yellow": 9,
+      "green": 22,
+      "teal_blue": 363,
+      "purple": 10
+    },
+    "current": {
+      "colored_ratio": 0.046,
+      "avg_saturation": 0.037,
+      "red_orange": 792,
+      "yellow": 15,
+      "green": 0,
+      "teal_blue": 888,
+      "purple": 9
+    }
+  },
+  {
+    "lens": "planning-pressure",
+    "reference": {
+      "colored_ratio": 0.094,
+      "avg_saturation": 0.061,
+      "red_orange": 3358,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 107,
+      "purple": 1
+    },
+    "current": {
+      "colored_ratio": 0.078,
+      "avg_saturation": 0.082,
+      "red_orange": 2857,
+      "yellow": 1,
+      "green": 1,
+      "teal_blue": 18,
+      "purple": 0
+    }
+  },
+  {
+    "lens": "planning-delta",
+    "reference": {
+      "colored_ratio": 0.109,
+      "avg_saturation": 0.065,
+      "red_orange": 3902,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 57,
+      "purple": 52
+    },
+    "current": {
+      "colored_ratio": 0.154,
+      "avg_saturation": 0.084,
+      "red_orange": 5607,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 33,
+      "purple": 25
+    }
+  },
+  {
+    "lens": "planning-parcels",
+    "reference": {
+      "colored_ratio": 0.129,
+      "avg_saturation": 0.07,
+      "red_orange": 4026,
+      "yellow": 34,
+      "green": 52,
+      "teal_blue": 239,
+      "purple": 208
+    },
+    "current": {
+      "colored_ratio": 0.112,
+      "avg_saturation": 0.067,
+      "red_orange": 3495,
+      "yellow": 170,
+      "green": 4,
+      "teal_blue": 28,
+      "purple": 4
+    }
+  },
+  {
+    "lens": "civic-access-gaps",
+    "reference": {
+      "colored_ratio": 0.026,
+      "avg_saturation": 0.03,
+      "red_orange": 585,
+      "yellow": 3,
+      "green": 41,
+      "teal_blue": 322,
+      "purple": 27
+    },
+    "current": {
+      "colored_ratio": 0.013,
+      "avg_saturation": 0.028,
+      "red_orange": 171,
+      "yellow": 0,
+      "green": 1,
+      "teal_blue": 314,
+      "purple": 3
+    }
+  },
+  {
+    "lens": "civic-catchment",
+    "reference": {
+      "colored_ratio": 0.097,
+      "avg_saturation": 0.071,
+      "red_orange": 2957,
+      "yellow": 154,
+      "green": 2,
+      "teal_blue": 442,
+      "purple": 37
+    },
+    "current": {
+      "colored_ratio": 0.1,
+      "avg_saturation": 0.084,
+      "red_orange": 3506,
+      "yellow": 12,
+      "green": 0,
+      "teal_blue": 166,
+      "purple": 24
+    }
+  },
+  {
+    "lens": "civic-demand",
+    "reference": {
+      "colored_ratio": 0.205,
+      "avg_saturation": 0.093,
+      "red_orange": 6868,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 682,
+      "purple": 14
+    },
+    "current": {
+      "colored_ratio": 0.182,
+      "avg_saturation": 0.085,
+      "red_orange": 6505,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 199,
+      "purple": 9
+    }
+  },
+  {
+    "lens": "economy-vitality",
+    "reference": {
+      "colored_ratio": 0.057,
+      "avg_saturation": 0.041,
+      "red_orange": 1278,
+      "yellow": 2,
+      "green": 2,
+      "teal_blue": 165,
+      "purple": 498
+    },
+    "current": {
+      "colored_ratio": 0.056,
+      "avg_saturation": 0.04,
+      "red_orange": 1163,
+      "yellow": 1,
+      "green": 3,
+      "teal_blue": 479,
+      "purple": 417
+    }
+  },
+  {
+    "lens": "economy-land-use",
+    "reference": {
+      "colored_ratio": 0.137,
+      "avg_saturation": 0.076,
+      "red_orange": 4246,
+      "yellow": 1,
+      "green": 0,
+      "teal_blue": 452,
+      "purple": 217
+    },
+    "current": {
+      "colored_ratio": 0.148,
+      "avg_saturation": 0.068,
+      "red_orange": 3945,
+      "yellow": 18,
+      "green": 1,
+      "teal_blue": 1309,
+      "purple": 173
+    }
+  },
+  {
+    "lens": "economy-gravity",
+    "reference": {
+      "colored_ratio": 0.031,
+      "avg_saturation": 0.03,
+      "red_orange": 779,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 247,
+      "purple": 139
+    },
+    "current": {
+      "colored_ratio": 0.051,
+      "avg_saturation": 0.038,
+      "red_orange": 1288,
+      "yellow": 8,
+      "green": 4,
+      "teal_blue": 405,
+      "purple": 170
+    }
+  },
+  {
+    "lens": "utilities-capacity",
+    "reference": {
+      "colored_ratio": 0.046,
+      "avg_saturation": 0.04,
+      "red_orange": 1136,
+      "yellow": 5,
+      "green": 0,
+      "teal_blue": 561,
+      "purple": 2
+    },
+    "current": {
+      "colored_ratio": 0.036,
+      "avg_saturation": 0.043,
+      "red_orange": 984,
+      "yellow": 60,
+      "green": 6,
+      "teal_blue": 285,
+      "purple": 7
+    }
+  },
+  {
+    "lens": "utilities-resilience",
+    "reference": {
+      "colored_ratio": 0.04,
+      "avg_saturation": 0.035,
+      "red_orange": 750,
+      "yellow": 8,
+      "green": 0,
+      "teal_blue": 674,
+      "purple": 42
+    },
+    "current": {
+      "colored_ratio": 0.038,
+      "avg_saturation": 0.039,
+      "red_orange": 475,
+      "yellow": 41,
+      "green": 0,
+      "teal_blue": 828,
+      "purple": 53
+    }
+  },
+  {
+    "lens": "utilities-works",
+    "reference": {
+      "colored_ratio": 0.021,
+      "avg_saturation": 0.027,
+      "red_orange": 659,
+      "yellow": 0,
+      "green": 0,
+      "teal_blue": 104,
+      "purple": 18
+    },
+    "current": {
+      "colored_ratio": 0.031,
+      "avg_saturation": 0.033,
+      "red_orange": 936,
+      "yellow": 15,
+      "green": 0,
+      "teal_blue": 177,
+      "purple": 0
+    }
+  }
+]

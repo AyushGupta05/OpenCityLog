@@ -1,0 +1,19 @@
+{
+  "year": 2022,
+  "zoom": 13.848174301813964,
+  "flowCount": 346,
+  "byStatus": {
+    "interrupted": 79,
+    "delayed": 163,
+    "reliable": 61,
+    "planned": 33,
+    "inferred": 10
+  },
+  "bySource": {
+    "activity": 130,
+    "stop_line_derived": 7,
+    "context": 3,
+    "corridor_trace": 58,
+    "transport_service_tick": 148
+  }
+}

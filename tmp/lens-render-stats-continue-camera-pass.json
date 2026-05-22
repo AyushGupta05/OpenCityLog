@@ -1,0 +1,343 @@
+{
+  "results": [
+    {
+      "lens": "transport-speed",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\transport-speed.png",
+      "zoom": 14.132,
+      "features": 1078,
+      "styles": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 820,
+        "transport_backbone": 166,
+        "transport_route": 88
+      },
+      "sublayers": {},
+      "renderedCells": 0,
+      "renderedFlow": 829,
+      "renderedNodes": 73
+    },
+    {
+      "lens": "transport-access",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\transport-access.png",
+      "zoom": 13.802,
+      "features": 2972,
+      "styles": {
+        "study_area": 1,
+        "access_fabric": 2239,
+        "access_network": 688,
+        "transport": 44
+      },
+      "sublayers": {
+        "transport_stops": 44
+      },
+      "renderedCells": 2421,
+      "renderedFlow": 701,
+      "renderedNodes": 42
+    },
+    {
+      "lens": "transport-reliability",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\transport-reliability.png",
+      "zoom": 14.09,
+      "features": 1025,
+      "styles": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 520,
+        "transport_backbone": 160,
+        "transport_service_tick": 283,
+        "transport_route": 26,
+        "transport": 32
+      },
+      "sublayers": {},
+      "renderedCells": 0,
+      "renderedFlow": 813,
+      "renderedNodes": 44
+    },
+    {
+      "lens": "planning-pressure",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\planning-pressure.png",
+      "zoom": 14.524,
+      "features": 8842,
+      "styles": {
+        "study_area": 1,
+        "range_ring": 1,
+        "planning_footprint": 3600,
+        "planning_pressure_spine": 1257,
+        "planning_pressure_edge": 2860,
+        "planning_pressure_cell_edge": 1095,
+        "planning_pressure_trace": 2,
+        "planning_document": 26
+      },
+      "sublayers": {
+        "built_environment": 1767,
+        "completions": 2182,
+        "uncertainty": 327,
+        "redevelopment": 4405,
+        "objections": 42,
+        "vacant_sites": 117
+      },
+      "renderedCells": 3585,
+      "renderedFlow": 1968,
+      "renderedNodes": 0
+    },
+    {
+      "lens": "planning-delta",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\planning-delta.png",
+      "zoom": 14.768,
+      "features": 1580,
+      "styles": {
+        "study_area": 1,
+        "planning_footprint": 1579
+      },
+      "sublayers": {
+        "completed": 534,
+        "demolished": 208,
+        "permitted": 309,
+        "unknown": 498,
+        "construction": 30
+      },
+      "renderedCells": 1632,
+      "renderedFlow": 0,
+      "renderedNodes": 0
+    },
+    {
+      "lens": "planning-parcels",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\planning-parcels.png",
+      "zoom": 15.009,
+      "features": 2998,
+      "styles": {
+        "study_area": 1,
+        "planning_footprint": 2862,
+        "parcel_hatch": 135
+      },
+      "sublayers": {
+        "completed": 1442,
+        "permitted": 969,
+        "demolished": 326,
+        "proposed": 19,
+        "construction": 42,
+        "unknown": 199
+      },
+      "renderedCells": 2720,
+      "renderedFlow": 0,
+      "renderedNodes": 0
+    },
+    {
+      "lens": "civic-access-gaps",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\civic-access-gaps.png",
+      "zoom": 13.848,
+      "features": 812,
+      "styles": {
+        "study_area": 1,
+        "range_ring": 1,
+        "access_network": 160,
+        "service_walk": 57,
+        "service_bus": 183,
+        "gap_high": 96,
+        "gap_medium": 134,
+        "gap_low": 90,
+        "transport": 38,
+        "civic_anchor": 42,
+        "node": 10
+      },
+      "sublayers": {
+        "coverage": 38,
+        "health": 9,
+        "libraries": 3,
+        "council": 16,
+        "civic_services": 7,
+        "leisure": 6,
+        "safety": 1
+      },
+      "renderedCells": 0,
+      "renderedFlow": 448,
+      "renderedNodes": 1
+    },
+    {
+      "lens": "civic-catchment",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\civic-catchment.png",
+      "zoom": 14.191,
+      "features": 680,
+      "styles": {
+        "study_area": 1,
+        "range_ring": 1,
+        "catchment_backdrop": 42,
+        "catchment_area": 590,
+        "civic_anchor": 28,
+        "node": 10,
+        "detail": 8
+      },
+      "sublayers": {
+        "health": 178,
+        "safety": 21,
+        "council": 163,
+        "civic_services": 137,
+        "leisure": 124,
+        "libraries": 47
+      },
+      "renderedCells": 689,
+      "renderedFlow": 0,
+      "renderedNodes": 10
+    },
+    {
+      "lens": "civic-demand",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\civic-demand.png",
+      "zoom": 13.848,
+      "features": 3943,
+      "styles": {
+        "study_area": 1,
+        "range_ring": 1,
+        "demand_surface": 3871,
+        "demand_displacement": 18,
+        "civic_anchor": 52
+      },
+      "sublayers": {
+        "demand_grid": 3871,
+        "displacement": 18,
+        "civic_services": 38,
+        "health": 5,
+        "libraries": 2,
+        "council": 5,
+        "safety": 2
+      },
+      "renderedCells": 3977,
+      "renderedFlow": 21,
+      "renderedNodes": 0
+    },
+    {
+      "lens": "economy-vitality",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\economy-vitality.png",
+      "zoom": 14.132,
+      "features": 744,
+      "styles": {
+        "study_area": 1,
+        "economy_churn_tick": 74,
+        "economy_before_ribbon": 58,
+        "economy_current_ribbon": 596,
+        "economy_notice": 7,
+        "detail": 8
+      },
+      "sublayers": {
+        "footfall": 136,
+        "openings": 16,
+        "economy": 461,
+        "spend": 122
+      },
+      "renderedCells": 0,
+      "renderedFlow": 788,
+      "renderedNodes": 0
+    },
+    {
+      "lens": "economy-land-use",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\economy-land-use.png",
+      "zoom": 14.933,
+      "features": 4601,
+      "styles": {
+        "study_area": 1,
+        "land_use_tile": 4600
+      },
+      "sublayers": {},
+      "renderedCells": 3301,
+      "renderedFlow": 0,
+      "renderedNodes": 0
+    },
+    {
+      "lens": "economy-gravity",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\economy-gravity.png",
+      "zoom": 13.848,
+      "features": 44,
+      "styles": {
+        "study_area": 1,
+        "economy_gravity_arc": 22,
+        "economy_anchor": 13,
+        "detail": 8
+      },
+      "sublayers": {
+        "visitor": 9,
+        "hospitality": 11,
+        "markets": 6,
+        "office": 7,
+        "economy": 9,
+        "night": 1
+      },
+      "renderedCells": 0,
+      "renderedFlow": 47,
+      "renderedNodes": 13
+    },
+    {
+      "lens": "utilities-capacity",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\utilities-capacity.png",
+      "zoom": 14.191,
+      "features": 2481,
+      "styles": {
+        "study_area": 1,
+        "utility_capacity_trace": 2389,
+        "node": 10,
+        "utility_trace": 81
+      },
+      "sublayers": {},
+      "renderedCells": 0,
+      "renderedFlow": 2212,
+      "renderedNodes": 8
+    },
+    {
+      "lens": "utilities-resilience",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\utilities-resilience.png",
+      "zoom": 14.161,
+      "features": 2169,
+      "styles": {
+        "study_area": 1,
+        "utility_outage_area": 4,
+        "utility_primary": 682,
+        "utility_backup": 1015,
+        "utility_inferred": 353,
+        "node": 10,
+        "utility_trace": 104
+      },
+      "sublayers": {},
+      "renderedCells": 8,
+      "renderedFlow": 1658,
+      "renderedNodes": 6
+    },
+    {
+      "lens": "utilities-works",
+      "year": 2024,
+      "file": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\current-lens-screens-live-pass\\utilities-works.png",
+      "zoom": 14.252,
+      "features": 3595,
+      "styles": {
+        "study_area": 1,
+        "utility_work_thread": 3562,
+        "node": 8,
+        "utility_trace": 24
+      },
+      "sublayers": {
+        "planned": 1791,
+        "permit": 197,
+        "repair": 1240,
+        "failure": 320,
+        "reinstatement": 29
+      },
+      "renderedCells": 0,
+      "renderedFlow": 2802,
+      "renderedNodes": 6
+    }
+  ],
+  "pageErrors": [],
+  "actionable": []
+}

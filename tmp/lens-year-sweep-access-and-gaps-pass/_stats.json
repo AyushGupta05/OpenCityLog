@@ -1,0 +1,191 @@
+[
+  {
+    "lens": "transport-access",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-access-and-gaps-pass\\transport-access\\transport-access-2022.png",
+    "activeLens": "transport",
+    "activeAspect": "transport-access",
+    "year": 2022,
+    "selected": "bfs_arch_adelaide_street_upgrade_completed_2022",
+    "guideCount": 2964,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|access_fabric||isochrone_band": 5,
+      "surface_cell|access_fabric||access_cell": 2599,
+      "flow|access_network|bus|": 85,
+      "flow|access_network|walk|": 230,
+      "node|transport||": 44
+    },
+    "roles": {
+      "access_network": 315
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 1012,
+      "lens-guide-flow": 0,
+      "lens-guide-coverage-flow": 0,
+      "lens-guide-node": 42,
+      "lens-transport-roads": 1273
+    }
+  },
+  {
+    "lens": "transport-access",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-access-and-gaps-pass\\transport-access\\transport-access-2024.png",
+    "activeLens": "transport",
+    "activeAspect": "transport-access",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 2972,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|access_fabric||isochrone_band": 5,
+      "surface_cell|access_fabric||access_cell": 2234,
+      "flow|access_network|bus|": 165,
+      "flow|access_network|walk|": 523,
+      "node|transport||": 44
+    },
+    "roles": {
+      "access_network": 688
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 2421,
+      "lens-guide-flow": 701,
+      "lens-guide-coverage-flow": 0,
+      "lens-guide-node": 42,
+      "lens-transport-roads": 2462
+    }
+  },
+  {
+    "lens": "transport-access",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-access-and-gaps-pass\\transport-access\\transport-access-2026.png",
+    "activeLens": "transport",
+    "activeAspect": "transport-access",
+    "year": 2026,
+    "selected": "bfs_arch_2_4_bruce_street_structural_bracing_advertised_2026",
+    "guideCount": 2698,
+    "by": {
+      "study_area|||": 1,
+      "surface_cell|access_fabric||isochrone_band": 5,
+      "surface_cell|access_fabric||access_cell": 2174,
+      "flow|access_network|bus|": 210,
+      "flow|access_network|rail|": 2,
+      "flow|access_network|walk|": 261,
+      "flow|access_network|cycle|": 1,
+      "node|transport||": 44
+    },
+    "roles": {
+      "access_network": 474
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 1013,
+      "lens-guide-flow": 0,
+      "lens-guide-coverage-flow": 0,
+      "lens-guide-node": 43,
+      "lens-transport-roads": 4384
+    }
+  },
+  {
+    "lens": "civic-access-gaps",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-access-and-gaps-pass\\civic-access-gaps\\civic-access-gaps-2022.png",
+    "activeLens": "civic_services",
+    "activeAspect": "civic-access-gaps",
+    "year": 2022,
+    "selected": "bfs_arch_adelaide_street_upgrade_completed_2022",
+    "guideCount": 1031,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "flow|access_network||": 156,
+      "flow|service_walk||": 202,
+      "flow|service_bus||": 58,
+      "flow|service_outer||": 2,
+      "flow|gap_high||": 12,
+      "flow|gap_medium||": 285,
+      "flow|gap_low||": 222,
+      "node|transport||": 38,
+      "node|civic_anchor||": 44,
+      "node|||": 10
+    },
+    "roles": {
+      "access_network": 156,
+      "coverage": 262,
+      "gap_seam": 311,
+      "gap_tick": 208
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-flow": 662,
+      "lens-guide-coverage-flow": 253,
+      "lens-guide-node": 2,
+      "lens-transport-roads": 0
+    }
+  },
+  {
+    "lens": "civic-access-gaps",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-access-and-gaps-pass\\civic-access-gaps\\civic-access-gaps-2024.png",
+    "activeLens": "civic_services",
+    "activeAspect": "civic-access-gaps",
+    "year": 2024,
+    "selected": "official-2024-grand-central",
+    "guideCount": 1666,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "flow|access_network||": 289,
+      "flow|service_walk||": 274,
+      "flow|service_bus||": 131,
+      "flow|service_outer||": 6,
+      "flow|gap_high||": 111,
+      "flow|gap_medium||": 516,
+      "flow|gap_low||": 247,
+      "node|transport||": 38,
+      "node|civic_anchor||": 42,
+      "node|||": 10
+    },
+    "roles": {
+      "access_network": 289,
+      "coverage": 411,
+      "gap_seam": 480,
+      "gap_tick": 394
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-flow": 1152,
+      "lens-guide-coverage-flow": 410,
+      "lens-guide-node": 1,
+      "lens-transport-roads": 0
+    }
+  },
+  {
+    "lens": "civic-access-gaps",
+    "screenshot": "C:\\Users\\ayush\\dev\\Bims-5\\tmp\\lens-year-sweep-access-and-gaps-pass\\civic-access-gaps\\civic-access-gaps-2026.png",
+    "activeLens": "civic_services",
+    "activeAspect": "civic-access-gaps",
+    "year": 2026,
+    "selected": "bfs_arch_2_4_bruce_street_structural_bracing_advertised_2026",
+    "guideCount": 1880,
+    "by": {
+      "study_area|||": 1,
+      "range_ring|||": 1,
+      "flow|access_network||": 360,
+      "flow|service_walk||": 406,
+      "flow|service_bus||": 114,
+      "flow|gap_medium||": 571,
+      "flow|gap_high||": 110,
+      "flow|gap_low||": 253,
+      "node|transport||": 38,
+      "node|civic_anchor||": 26
+    },
+    "roles": {
+      "access_network": 360,
+      "coverage": 520,
+      "gap_seam": 482,
+      "gap_tick": 452
+    },
+    "rendered": {
+      "lens-guide-cell-fill": 0,
+      "lens-guide-flow": 1334,
+      "lens-guide-coverage-flow": 539,
+      "lens-guide-node": 0,
+      "lens-transport-roads": 0
+    }
+  }
+]

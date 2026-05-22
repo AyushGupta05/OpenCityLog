@@ -1,0 +1,879 @@
+{
+  "generatedAt": "2026-05-22T10:01:32.782Z",
+  "results": [
+    {
+      "lens": "transport-speed",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=transport-speed&year=2022&bust=year-sweep-transport-speed-2022-1779443984665",
+      "year": 2022,
+      "zoom": 14.132,
+      "features": 534,
+      "renderedCells": 0,
+      "renderedFlow": 339,
+      "renderedNodes": 59,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 393,
+        "transport_backbone": 49,
+        "transport_route": 88
+      }
+    },
+    {
+      "lens": "transport-speed",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=transport-speed&year=2024&bust=year-sweep-transport-speed-2024-1779443988261",
+      "year": 2024,
+      "zoom": 14.132,
+      "features": 1078,
+      "renderedCells": 0,
+      "renderedFlow": 829,
+      "renderedNodes": 73,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 820,
+        "transport_backbone": 166,
+        "transport_route": 88
+      }
+    },
+    {
+      "lens": "transport-speed",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=transport-speed&year=2026&bust=year-sweep-transport-speed-2026-1779443992305",
+      "year": 2026,
+      "zoom": 14.132,
+      "features": 1204,
+      "renderedCells": 0,
+      "renderedFlow": 1084,
+      "renderedNodes": 79,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 820,
+        "transport_backbone": 292,
+        "transport_route": 88
+      }
+    },
+    {
+      "lens": "transport-reliability",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=transport-reliability&year=2022&bust=year-sweep-transport-reliability-2022-1779443996405",
+      "year": 2022,
+      "zoom": 14.09,
+      "features": 1108,
+      "renderedCells": 0,
+      "renderedFlow": 585,
+      "renderedNodes": 40,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 520,
+        "transport_backbone": 145,
+        "transport_service_tick": 381,
+        "transport_route": 26,
+        "transport": 32
+      }
+    },
+    {
+      "lens": "transport-reliability",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=transport-reliability&year=2024&bust=year-sweep-transport-reliability-2024-1779443999257",
+      "year": 2024,
+      "zoom": 14.09,
+      "features": 1025,
+      "renderedCells": 0,
+      "renderedFlow": 813,
+      "renderedNodes": 44,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 520,
+        "transport_backbone": 160,
+        "transport_service_tick": 283,
+        "transport_route": 26,
+        "transport": 32
+      }
+    },
+    {
+      "lens": "transport-reliability",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=transport-reliability&year=2026&bust=year-sweep-transport-reliability-2026-1779444002767",
+      "year": 2026,
+      "zoom": 14.09,
+      "features": 1130,
+      "renderedCells": 0,
+      "renderedFlow": 1095,
+      "renderedNodes": 52,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 3,
+        "transport_thread": 520,
+        "transport_backbone": 176,
+        "transport_service_tick": 372,
+        "transport_route": 26,
+        "transport": 32
+      }
+    },
+    {
+      "lens": "planning-pressure",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-pressure&year=2022&bust=year-sweep-planning-pressure-2022-1779444006709",
+      "year": 2022,
+      "zoom": 14.524,
+      "features": 8136,
+      "renderedCells": 2835,
+      "renderedFlow": 2204,
+      "renderedNodes": 0,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "planning_footprint": 2861,
+        "planning_pressure_spine": 1532,
+        "planning_pressure_edge": 2702,
+        "planning_pressure_cell_edge": 1013,
+        "planning_document": 26
+      }
+    },
+    {
+      "lens": "planning-pressure",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-pressure&year=2024&bust=year-sweep-planning-pressure-2024-1779444011448",
+      "year": 2024,
+      "zoom": 14.524,
+      "features": 8842,
+      "renderedCells": 3585,
+      "renderedFlow": 1968,
+      "renderedNodes": 0,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "planning_footprint": 3600,
+        "planning_pressure_spine": 1257,
+        "planning_pressure_edge": 2860,
+        "planning_pressure_cell_edge": 1095,
+        "planning_pressure_trace": 2,
+        "planning_document": 26
+      }
+    },
+    {
+      "lens": "planning-pressure",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-pressure&year=2026&bust=year-sweep-planning-pressure-2026-1779444017271",
+      "year": 2026,
+      "zoom": 14.524,
+      "features": 7996,
+      "renderedCells": 3363,
+      "renderedFlow": 903,
+      "renderedNodes": 0,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "planning_footprint": 3404,
+        "planning_pressure_spine": 451,
+        "planning_pressure_edge": 2690,
+        "planning_pressure_cell_edge": 332,
+        "planning_pressure_trace": 1092,
+        "planning_document": 25
+      }
+    },
+    {
+      "lens": "planning-delta",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-delta&year=2022&bust=year-sweep-planning-delta-2022-1779444020561",
+      "year": 2022,
+      "zoom": 14.768,
+      "features": 1568,
+      "renderedCells": 1603,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "planning_footprint": 1567
+      }
+    },
+    {
+      "lens": "planning-delta",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-delta&year=2024&bust=year-sweep-planning-delta-2024-1779444023964",
+      "year": 2024,
+      "zoom": 14.768,
+      "features": 1580,
+      "renderedCells": 1632,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "planning_footprint": 1579
+      }
+    },
+    {
+      "lens": "planning-delta",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-delta&year=2026&bust=year-sweep-planning-delta-2026-1779444027820",
+      "year": 2026,
+      "zoom": 14.768,
+      "features": 1747,
+      "renderedCells": 1811,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "planning_footprint": 1746
+      }
+    },
+    {
+      "lens": "planning-parcels",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-parcels&year=2022&bust=year-sweep-planning-parcels-2022-1779444030874",
+      "year": 2022,
+      "zoom": 15.009,
+      "features": 3495,
+      "renderedCells": 2500,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "planning_footprint": 2852,
+        "parcel_hatch": 642
+      }
+    },
+    {
+      "lens": "planning-parcels",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-parcels&year=2024&bust=year-sweep-planning-parcels-2024-1779444033874",
+      "year": 2024,
+      "zoom": 15.009,
+      "features": 2998,
+      "renderedCells": 2720,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "planning_footprint": 2862,
+        "parcel_hatch": 135
+      }
+    },
+    {
+      "lens": "planning-parcels",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=planning-parcels&year=2026&bust=year-sweep-planning-parcels-2026-1779444036904",
+      "year": 2026,
+      "zoom": 15.009,
+      "features": 5595,
+      "renderedCells": 3041,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "planning_footprint": 3335,
+        "parcel_hatch": 2259
+      }
+    },
+    {
+      "lens": "civic-access-gaps",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-access-gaps&year=2022&bust=year-sweep-civic-access-gaps-2022-1779444039777",
+      "year": 2022,
+      "zoom": 13.848,
+      "features": 760,
+      "renderedCells": 0,
+      "renderedFlow": 388,
+      "renderedNodes": 2,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "access_network": 131,
+        "service_walk": 32,
+        "service_bus": 208,
+        "gap_high": 83,
+        "gap_medium": 134,
+        "gap_low": 78,
+        "transport": 38,
+        "civic_anchor": 44,
+        "node": 10
+      }
+    },
+    {
+      "lens": "civic-access-gaps",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-access-gaps&year=2024&bust=year-sweep-civic-access-gaps-2024-1779444042694",
+      "year": 2024,
+      "zoom": 13.848,
+      "features": 812,
+      "renderedCells": 0,
+      "renderedFlow": 448,
+      "renderedNodes": 1,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "access_network": 160,
+        "service_walk": 57,
+        "service_bus": 183,
+        "gap_high": 96,
+        "gap_medium": 134,
+        "gap_low": 90,
+        "transport": 38,
+        "civic_anchor": 42,
+        "node": 10
+      }
+    },
+    {
+      "lens": "civic-access-gaps",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-access-gaps&year=2026&bust=year-sweep-civic-access-gaps-2026-1779444045936",
+      "year": 2026,
+      "zoom": 13.848,
+      "features": 776,
+      "renderedCells": 0,
+      "renderedFlow": 466,
+      "renderedNodes": 0,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "access_network": 160,
+        "service_walk": 108,
+        "service_bus": 132,
+        "gap_high": 96,
+        "gap_medium": 134,
+        "gap_low": 80,
+        "transport": 38,
+        "civic_anchor": 26
+      }
+    },
+    {
+      "lens": "civic-catchment",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-catchment&year=2022&bust=year-sweep-civic-catchment-2022-1779444049354",
+      "year": 2022,
+      "zoom": 14.191,
+      "features": 589,
+      "renderedCells": 13,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "catchment_area": 210,
+        "catchment_backdrop": 330,
+        "civic_anchor": 28,
+        "node": 10,
+        "detail": 9
+      }
+    },
+    {
+      "lens": "civic-catchment",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-catchment&year=2024&bust=year-sweep-civic-catchment-2024-1779444051360",
+      "year": 2024,
+      "zoom": 14.191,
+      "features": 588,
+      "renderedCells": 2,
+      "renderedFlow": 0,
+      "renderedNodes": 1,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "catchment_area": 210,
+        "catchment_backdrop": 330,
+        "civic_anchor": 28,
+        "node": 10,
+        "detail": 8
+      }
+    },
+    {
+      "lens": "civic-catchment",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-catchment&year=2026&bust=year-sweep-civic-catchment-2026-1779444053720",
+      "year": 2026,
+      "zoom": 14.191,
+      "features": 494,
+      "renderedCells": 1,
+      "renderedFlow": 0,
+      "renderedNodes": 0,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "catchment_area": 134,
+        "catchment_backdrop": 330,
+        "civic_anchor": 28
+      }
+    },
+    {
+      "lens": "civic-demand",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-demand&year=2022&bust=year-sweep-civic-demand-2022-1779444056038",
+      "year": 2022,
+      "zoom": 13.848,
+      "features": 4011,
+      "renderedCells": 4043,
+      "renderedFlow": 22,
+      "renderedNodes": 0,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "demand_surface": 3938,
+        "demand_displacement": 18,
+        "civic_anchor": 53
+      }
+    },
+    {
+      "lens": "civic-demand",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-demand&year=2024&bust=year-sweep-civic-demand-2024-1779444059475",
+      "year": 2024,
+      "zoom": 13.848,
+      "features": 3943,
+      "renderedCells": 3977,
+      "renderedFlow": 21,
+      "renderedNodes": 0,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "demand_surface": 3871,
+        "demand_displacement": 18,
+        "civic_anchor": 52
+      }
+    },
+    {
+      "lens": "civic-demand",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=civic-demand&year=2026&bust=year-sweep-civic-demand-2026-1779444063858",
+      "year": 2026,
+      "zoom": 13.848,
+      "features": 4060,
+      "renderedCells": 4123,
+      "renderedFlow": 19,
+      "renderedNodes": 0,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "range_ring": 1,
+        "demand_surface": 4006,
+        "demand_displacement": 18,
+        "civic_anchor": 34
+      }
+    },
+    {
+      "lens": "utilities-capacity",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-capacity&year=2022&bust=year-sweep-utilities-capacity-2022-1779444067764",
+      "year": 2022,
+      "zoom": 14.191,
+      "features": 2590,
+      "renderedCells": 0,
+      "renderedFlow": 0,
+      "renderedNodes": 3,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "utility_capacity_trace": 2518,
+        "node": 5,
+        "utility_trace": 66
+      }
+    },
+    {
+      "lens": "utilities-capacity",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-capacity&year=2024&bust=year-sweep-utilities-capacity-2024-1779444070270",
+      "year": 2024,
+      "zoom": 14.191,
+      "features": 2481,
+      "renderedCells": 0,
+      "renderedFlow": 0,
+      "renderedNodes": 8,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "utility_capacity_trace": 2389,
+        "node": 10,
+        "utility_trace": 81
+      }
+    },
+    {
+      "lens": "utilities-capacity",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-capacity&year=2026&bust=year-sweep-utilities-capacity-2026-1779444073054",
+      "year": 2026,
+      "zoom": 14.191,
+      "features": 2581,
+      "renderedCells": 0,
+      "renderedFlow": 0,
+      "renderedNodes": 8,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "utility_capacity_trace": 2477,
+        "node": 10,
+        "utility_trace": 93
+      }
+    },
+    {
+      "lens": "utilities-resilience",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-resilience&year=2022&bust=year-sweep-utilities-resilience-2022-1779444076011",
+      "year": 2022,
+      "zoom": 14.161,
+      "features": 2162,
+      "renderedCells": 5,
+      "renderedFlow": 0,
+      "renderedNodes": 5,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "utility_outage_area": 4,
+        "utility_primary": 508,
+        "utility_backup": 954,
+        "utility_inferred": 588,
+        "node": 10,
+        "utility_trace": 97
+      }
+    },
+    {
+      "lens": "utilities-resilience",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-resilience&year=2024&bust=year-sweep-utilities-resilience-2024-1779444078515",
+      "year": 2024,
+      "zoom": 14.161,
+      "features": 2169,
+      "renderedCells": 5,
+      "renderedFlow": 486,
+      "renderedNodes": 6,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "utility_outage_area": 4,
+        "utility_primary": 682,
+        "utility_backup": 1015,
+        "utility_inferred": 353,
+        "node": 10,
+        "utility_trace": 104
+      }
+    },
+    {
+      "lens": "utilities-resilience",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-resilience&year=2026&bust=year-sweep-utilities-resilience-2026-1779444082019",
+      "year": 2026,
+      "zoom": 14.161,
+      "features": 2219,
+      "renderedCells": 9,
+      "renderedFlow": 0,
+      "renderedNodes": 3,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "utility_outage_area": 4,
+        "utility_primary": 690,
+        "utility_backup": 1135,
+        "utility_inferred": 225,
+        "node": 10,
+        "utility_trace": 154
+      }
+    },
+    {
+      "lens": "utilities-works",
+      "requestedYear": 2022,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-works&year=2022&bust=year-sweep-utilities-works-2022-1779444085190",
+      "year": 2022,
+      "zoom": 14.252,
+      "features": 3733,
+      "renderedCells": 0,
+      "renderedFlow": 0,
+      "renderedNodes": 5,
+      "visibleText": "3503",
+      "counts": {
+        "study_area": 1,
+        "utility_work_thread": 3713,
+        "node": 7,
+        "utility_trace": 12
+      }
+    },
+    {
+      "lens": "utilities-works",
+      "requestedYear": 2024,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-works&year=2024&bust=year-sweep-utilities-works-2024-1779444087384",
+      "year": 2024,
+      "zoom": 14.252,
+      "features": 3595,
+      "renderedCells": 0,
+      "renderedFlow": 0,
+      "renderedNodes": 6,
+      "visibleText": "5142",
+      "counts": {
+        "study_area": 1,
+        "utility_work_thread": 3562,
+        "node": 8,
+        "utility_trace": 24
+      }
+    },
+    {
+      "lens": "utilities-works",
+      "requestedYear": 2026,
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&lens=utilities-works&year=2026&bust=year-sweep-utilities-works-2026-1779444090075",
+      "year": 2026,
+      "zoom": 14.252,
+      "features": 3724,
+      "renderedCells": 0,
+      "renderedFlow": 0,
+      "renderedNodes": 6,
+      "visibleText": "2399",
+      "counts": {
+        "study_area": 1,
+        "utility_work_thread": 3684,
+        "node": 8,
+        "utility_trace": 31
+      }
+    }
+  ],
+  "pageErrors": [],
+  "actionable": [
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15845/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10428.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15841/10426.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10429.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15840/10427.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "pt: AJAXError: Failed to fetch (0): https://tile.openstreetmap.org/15/15846/10430.png\n    at https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:10310\n    at Generator.throw (<anonymous>)\n    at a (https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js:42:192)"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Failed to fetch"
+    }
+  ]
+}
