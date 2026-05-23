@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-05-23T00:00:00Z",
+  "candidate_count": 7,
+  "candidate_ids": [
+    "round632_current_planning_la04_2023_4069_f_2026_05_22",
+    "round632_current_planning_la04_2024_2032_o_2026_05_22",
+    "round632_current_planning_la04_2025_1865_lbc_2026_05_22",
+    "round632_current_planning_la04_2026_0384_f_2026_05_22",
+    "round632_current_planning_la04_2026_0701_f_2026_05_22",
+    "round632_current_planning_la04_2026_0787_lbc_2026_05_22",
+    "round632_current_planning_la04_2026_0855_dca_2026_05_22"
+  ],
+  "source_record_ids": [
+    "Belfast current planning applications: LA04/2023/4069/F; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2024/2032/O; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2025/1865/LBC; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0384/F; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0701/F; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0787/LBC; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0855/DCA; advertised 2026-05-22"
+  ],
+  "passed": true
+}

@@ -34,8 +34,8 @@ function writeJson(filePath, payload) {
         if (!["EPERM", "EACCES", "EEXIST"].includes(renameError.code)) {
           throw renameError;
         }
-        fs.copyFileSync(tmpPath, filePath);
-        fs.unlinkSync(tmpPath);
+        fs.rmSync(filePath, { force: true });
+        fs.renameSync(tmpPath, filePath);
       }
       return;
     } catch (error) {

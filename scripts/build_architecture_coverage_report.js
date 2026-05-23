@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const GENERATED_AT = process.env.BIMS_DATA_GENERATED_AT || "2026-05-20T00:00:00Z";
+const GENERATED_AT = process.env.BIMS_DATA_GENERATED_AT || "2026-05-23T00:00:00Z";
 const INVENTORY_PATH = path.join(ROOT, "config", "architecture_source_inventory.json");
 const MILESTONES_PATH = path.join(
   ROOT,
@@ -20,7 +20,10 @@ function readJson(filePath) {
 
 function writeFile(filePath, body) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, body, "utf8");
+  const tempPath = `${filePath}.${process.pid}.tmp`;
+  fs.writeFileSync(tempPath, body, "utf8");
+  fs.rmSync(filePath, { force: true });
+  fs.renameSync(tempPath, filePath);
 }
 
 function increment(object, key, amount = 1) {

@@ -11974,7 +11974,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute Greater London Authority / Planning London Datahub and the relevant London Planning Authority.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: valid_date, decision_date, actual_commencement_date, actual_completion_date, last_updated. Geometry fields: centroid, wgs84_polygon. Row id fields: id, lpa_app_no, url_planning_app. Event types: planning_application, planning_decision, construction_start, completion.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: valid_date, decision_date, actual_commencement_date, actual_completion_date, last_updated. Geometry fields: centroid, wgs84_polygon. Row id fields: id, lpa_app_no, url_planning_app. Event types: planning_application, planning_decision, construction_start, completion.",
       "caveats": [
         "Planning applications, decisions, commencement fields and completion fields are administrative/source-reported milestones.",
         "Planning approval is not construction. PLD lifecycle fields should not be framed as opening, occupation, final built form, or outcome evidence.",
@@ -12055,7 +12055,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute Greater London Authority / London Datastore.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: permission_date, commencement_date, completion_date, decision_date. Geometry fields: easting, northing, site_address, borough. Row id fields: application_id, borough_reference, site_name. Event types: planning_decision, construction_start, completion.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: permission_date, commencement_date, completion_date, decision_date. Geometry fields: easting, northing, site_address, borough. Row id fields: application_id, borough_reference, site_name. Event types: planning_decision, construction_start, completion.",
       "caveats": [
         "LDD is an archive of selected permissions and monitoring records, not a full application-level source after PLD replaced it.",
         "Completion fields are source-reported administrative monitoring fields and should be labelled as such.",
@@ -12133,7 +12133,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: entry-date, start-date, end-date. Geometry fields: geometry, point. Row id fields: entity, reference, listed-building. Event types: listed_building_change.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: entry-date, start-date, end-date. Geometry fields: geometry, point. Row id fields: entity, reference, listed-building. Event types: listed_building_change.",
       "caveats": [
         "Listed-building geometry records administrative designation or data-maintenance state, not a construction event.",
         "Dates may reflect dataset/entity lifecycle dates rather than real-world building change dates.",
@@ -12206,7 +12206,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Contains Historic England Data licensed under the Open Government Licence v3.0.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: dateListed, dateAmended, dateRemoved, lastUpdated. Geometry fields: x, y, geometry, point, polygon. Row id fields: ListEntry, ListEntryNumber, OBJECTID. Event types: listed_building_change.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: dateListed, dateAmended, dateRemoved, lastUpdated. Geometry fields: x, y, geometry, point, polygon. Row id fields: ListEntry, ListEntryNumber, OBJECTID. Event types: listed_building_change.",
       "caveats": [
         "Heritage-list updates are legal/administrative heritage records, not evidence of refurbishment, demolition or public opening.",
         "Heritage at Risk status is risk/condition context and should not be counted as built change.",
@@ -12284,7 +12284,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute the relevant London borough planning authority and preserve application reference/source URL.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: validated_date, decision_date, committee_date, document_date. Geometry fields: site_address, planning red line where available, application map where available. Row id fields: application_reference, document_id, committee_item_id. Event types: planning_application, planning_decision, heritage_permit, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: validated_date, decision_date, committee_date, document_date. Geometry fields: site_address, planning red line where available, application map where available. Row id fields: application_reference, document_id, committee_item_id. Event types: planning_application, planning_decision, heritage_permit, demolition.",
       "caveats": [
         "Borough portals are source-of-record for documents but have heterogeneous schemas, fragile URLs and personal-data risks.",
         "Planning reports are evidence of committee process and stated recommendations/decisions only.",
@@ -12363,7 +12363,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Filing Date, Issuance Date, Expiration Date. Geometry fields: BOROUGH, Bin #, Block, Lot, House #, Street Name, Zip Code. Row id fields: Job #, Permit Sequence #, Permit Type, Permit Subtype. Event types: permit_issued, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Filing Date, Issuance Date, Expiration Date. Geometry fields: BOROUGH, Bin #, Block, Lot, House #, Street Name, Zip Code. Row id fields: Job #, Permit Sequence #, Permit Type, Permit Subtype. Event types: permit_issued, demolition.",
       "caveats": [
         "Permit issuance is an administrative permit milestone, not construction start, completion or legal occupancy.",
         "Address/BIN/BBL fields require geocoding or parcel joins for geometry.",
@@ -12445,7 +12445,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Pre- Filing Date, Latest Action Date, Fully Paid, Assigned, Approved, Fully Permitted. Geometry fields: Borough, House #, Street Name, Block, Lot, Bin #. Row id fields: Job #, Doc #, Bin #. Event types: planning_application, planning_decision, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Pre- Filing Date, Latest Action Date, Fully Paid, Assigned, Approved, Fully Permitted. Geometry fields: Borough, House #, Street Name, Block, Lot, Bin #. Row id fields: Job #, Doc #, Bin #. Event types: planning_application, planning_decision, demolition.",
       "caveats": [
         "DOB job filings are administrative applications and status records, not evidence that work occurred.",
         "Legacy BIS and DOB NOW schemas overlap and need deduplication by job number/address/date.",
@@ -12528,7 +12528,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Filing Date, Latest Action Date, Approved Date, Paid Date. Geometry fields: House No, Street Name, Borough, Block, LOT, Bin. Row id fields: Job Filing Number, Bin, Block, LOT. Event types: planning_application, planning_decision, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Filing Date, Latest Action Date, Approved Date, Paid Date. Geometry fields: House No, Street Name, Borough, Block, LOT, Bin. Row id fields: Job Filing Number, Bin, Block, LOT. Event types: planning_application, planning_decision, demolition.",
       "caveats": [
         "DOB NOW filing status is administrative. It does not by itself evidence construction start, completion or opening.",
         "DOB NOW records should be linked to approved permits and certificates for lifecycle views.",
@@ -12610,7 +12610,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Issued Date, Filing Date, Expiration Date. Geometry fields: House No, Street Name, Borough, Block, LOT, Bin. Row id fields: Job Filing Number, Work Permit, Sequence Number. Event types: permit_issued, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Issued Date, Filing Date, Expiration Date. Geometry fields: House No, Street Name, Borough, Block, LOT, Bin. Row id fields: Job Filing Number, Work Permit, Sequence Number. Event types: permit_issued, demolition.",
       "caveats": [
         "Approved permit rows are permit-administration records, not evidence that work started or was completed.",
         "Electrical, elevator and limited alteration permits may be represented in separate datasets.",
@@ -12689,7 +12689,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: C_O_ISSUE_DATE. Geometry fields: LATITUDE, LONGITUDE, LOCATION, BIN_NUMBER, BBL. Row id fields: JOB_NUMBER, ITEM_NUMBER, BIN_NUMBER, BBL. Event types: completion, opening.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: C_O_ISSUE_DATE. Geometry fields: LATITUDE, LONGITUDE, LOCATION, BIN_NUMBER, BBL. Row id fields: JOB_NUMBER, ITEM_NUMBER, BIN_NUMBER, BBL. Event types: completion, opening.",
       "caveats": [
         "A certificate of occupancy is legal occupancy evidence, not a complete construction narrative or public opening notice.",
         "Temporary and final certificate types must remain distinct.",
@@ -12766,7 +12766,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of Buildings and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: SUBMITTED DATE, C OF O ISSUANCE DATE. Geometry fields: latitude, longitude, BBL, BIN, HOUSE NO, STREET NAME. Row id fields: JOB FILING NAME, APPLICATION NUMBER, C OF O NUMBER. Event types: completion, opening.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: SUBMITTED DATE, C OF O ISSUANCE DATE. Geometry fields: latitude, longitude, BBL, BIN, HOUSE NO, STREET NAME. Row id fields: JOB FILING NAME, APPLICATION NUMBER, C OF O NUMBER. Event types: completion, opening.",
       "caveats": [
         "DOB NOW certificates are administrative occupancy records, not general opening announcements.",
         "DOB NOW and legacy CO coverage must be deduplicated.",
@@ -12844,7 +12844,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Landmarks Preservation Commission.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: application_date, issued_date, expiration_date. Geometry fields: borough, block, lot, address, landmark_or_district. Row id fields: permit_application_number, docket_number, address. Event types: heritage_permit, listed_building_change.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: application_date, issued_date, expiration_date. Geometry fields: borough, block, lot, address, landmark_or_district. Row id fields: permit_application_number, docket_number, address. Event types: heritage_permit, listed_building_change.",
       "caveats": [
         "LPC permits authorize or document review of work at designated properties; they are not completion or construction-outcome records.",
         "Pre-2016 records may require records access rather than portal search.",
@@ -12922,7 +12922,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Department of City Planning and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: current_milestone_date, current_envmilestone_date, app_filed_date, noticed_date, certified_referred, adopted_date. Geometry fields: borough, community_district, related BBL rows from 2iga-a6mk. Row id fields: project_id, ulurp_numbers, ceqr_number. Event types: planning_application, planning_decision.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: current_milestone_date, current_envmilestone_date, app_filed_date, noticed_date, certified_referred, adopted_date. Geometry fields: borough, community_district, related BBL rows from 2iga-a6mk. Row id fields: project_id, ulurp_numbers, ceqr_number. Event types: planning_application, planning_decision.",
       "caveats": [
         "ZAP tracks land-use process milestones; it is not evidence of construction, completion or outcomes.",
         "Some projects affect areas not expressible as a single BBL geometry.",
@@ -13002,7 +13002,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC Public Design Commission and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: review_date, meeting_date, submission_year. Geometry fields: borough, project_address, agency, park_or_site_name. Row id fields: project_id, submission_id, project_name. Event types: planning_decision, heritage_permit.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: review_date, meeting_date, submission_year. Geometry fields: borough, project_address, agency, park_or_site_name. Row id fields: project_id, submission_id, project_name. Event types: planning_decision, heritage_permit.",
       "caveats": [
         "Design Commission review is a design-review milestone, not construction approval, funding commitment, completion or opening.",
         "Geometry often needs project-address or agency/site geocoding.",
@@ -13079,7 +13079,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute NYC HPD and NYC Open Data.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: project_start_date, project_completion_date, reporting_construction_type. Geometry fields: borough, block, lot, building_id, house_number, street_name, postcode. Row id fields: project_id, building_id, bbl. Event types: construction_start, completion.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: project_start_date, project_completion_date, reporting_construction_type. Geometry fields: borough, block, lot, building_id, house_number, street_name, postcode. Row id fields: project_id, building_id, bbl. Event types: construction_start, completion.",
       "caveats": [
         "HPD production records describe housing-program milestones and should not be used as universal NYC construction completion records.",
         "Construction start/completion field names and definitions must be preserved in event summaries.",
@@ -13159,7 +13159,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Contains public sector information from the Department for Infrastructure licensed under the Open Government Licence v3.0.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: DateReceived, DecisionIssuedDate, ValidDate, reporting_period. Geometry fields: Council, postcode, site_address, grid_reference. Row id fields: ApplicationReference, PlanningPortalReference, row_number. Event types: planning_application, planning_decision.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: DateReceived, DecisionIssuedDate, ValidDate, reporting_period. Geometry fields: Council, postcode, site_address, grid_reference. Row id fields: ApplicationReference, PlanningPortalReference, row_number. Event types: planning_application, planning_decision.",
       "caveats": [
         "Planning statistics are administrative application/decision records, not construction, completion, occupation or public-opening evidence.",
         "Annual/quarterly statistical fields may be month/period precision rather than exact application-event dates.",
@@ -13238,7 +13238,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute the Northern Ireland Planning Portal and relevant planning authority.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Date Valid, Decision Issued Date, Committee Date, Received Date. Geometry fields: site_address, map_point, application_site_boundary where available. Row id fields: application_reference, portal_reference. Event types: planning_application, planning_decision, heritage_permit, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Date Valid, Decision Issued Date, Committee Date, Received Date. Geometry fields: site_address, map_point, application_site_boundary where available. Row id fields: application_reference, portal_reference. Event types: planning_application, planning_decision, heritage_permit, demolition.",
       "caveats": [
         "Portal application and decision dates are planning-process dates, not evidence of works or completion.",
         "Portal documents can contain personal data or third-party copyright.",
@@ -13316,7 +13316,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute Belfast City Council.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: advertised_date, date_valid, committee_date. Geometry fields: site_address, location_text. Row id fields: application_reference, list_row. Event types: planning_application, planning_decision.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: advertised_date, date_valid, committee_date. Geometry fields: site_address, location_text. Row id fields: application_reference, list_row. Event types: planning_application, planning_decision.",
       "caveats": [
         "The current list is not a historical backfile and should not be used as full 2008-2026 coverage.",
         "Advertised or valid dates are not approvals, works starts, completions or openings.",
@@ -13390,7 +13390,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute Belfast City Council.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: meeting_date, agenda_publication_date, decision_date. Geometry fields: site_address, report_location_text, application_reference. Row id fields: committee_item_id, application_reference, meeting_id. Event types: planning_decision, heritage_permit, demolition.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: meeting_date, agenda_publication_date, decision_date. Geometry fields: site_address, report_location_text, application_reference. Row id fields: committee_item_id, application_reference, meeting_id. Event types: planning_decision, heritage_permit, demolition.",
       "caveats": [
         "Committee approval or refusal is an administrative planning milestone only.",
         "Committee packs can include applicant claims, consultees and personal data; summaries must avoid copying sensitive text.",
@@ -13467,7 +13467,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Contains public sector information from the Department for Communities / Historic Environment Division.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Date of Listing, Date of De-listing, last_updated. Geometry fields: X, Y, grid_reference, point, polygon where available. Row id fields: HB Ref No, MainID, OBJECTID. Event types: listed_building_change.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Date of Listing, Date of De-listing, last_updated. Geometry fields: X, Y, grid_reference, point, polygon where available. Row id fields: HB Ref No, MainID, OBJECTID. Event types: listed_building_change.",
       "caveats": [
         "Listing or de-listing is an administrative heritage change, not a refurbishment, demolition or opening event.",
         "Coordinate precision may reflect register geometry rather than surveyed building footprint.",
@@ -13544,7 +13544,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Contains public sector information from the Department for Communities / Historic Environment Division.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: Date_Added, Date_Removed, last_updated. Geometry fields: X, Y, grid_reference, point. Row id fields: BHARNI_Ref, HB_Ref, OBJECTID, Main_ID. Event types: listed_building_change.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: Date_Added, Date_Removed, last_updated. Geometry fields: X, Y, grid_reference, point. Row id fields: BHARNI_Ref, HB_Ref, OBJECTID, Main_ID. Event types: listed_building_change.",
       "caveats": [
         "Heritage at Risk records describe register/risk status, not construction, refurbishment or demolition.",
         "Risk status should not be counted as architecture delivery.",
@@ -13621,7 +13621,7 @@
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
       "attribution_text": "Attribute the named public body or official project owner shown on each source page.",
-      "provenance_notes": "2008-01-01 through 2026-05-20. Frozen architecture priority source. Date fields: published_date, opened_date, completed_date, works_start_date, committee_date. Geometry fields: site_name, address, project_location_text, representative point. Row id fields: source_url, page_slug, project_name. Event types: construction_start, opening, completion, demolition, planning_decision.",
+      "provenance_notes": "2008-01-01 through 2026-05-23. Frozen architecture priority source. Date fields: published_date, opened_date, completed_date, works_start_date, committee_date. Geometry fields: site_name, address, project_location_text, representative point. Row id fields: source_url, page_slug, project_name. Event types: construction_start, opening, completion, demolition, planning_decision.",
       "caveats": [
         "Official project pages support only the milestone they state, such as a published opening or works-start notice.",
         "Forward-looking project descriptions, funding statements and anticipated dates must not be treated as delivered outcomes.",
@@ -13678,6 +13678,235 @@
           "Add source-specific terms and retrieval timestamps to every manual candidate pack."
         ]
       }
+    },
+    {
+      "source_id": "belfast-city-council-current-planning-applications-2026-05-22",
+      "title": "Belfast City Council: Current planning applications",
+      "provider": "Belfast City Council",
+      "source_family": "planning_applications",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council website terms and copyright apply; OSM geocoding data is copyright OpenStreetMap contributors under ODbL.",
+      "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Council current-applications page; content changes as applications open and close for comment.",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected Belfast City Council current-planning application rows advertised from 2026-2026 in appended architecture candidate packs. Date fields: advertised_on. Sample source row ids: Belfast current planning applications: LA04/2023/4069/F; advertised 2026-05-22, Belfast current planning applications: LA04/2024/2032/O; advertised 2026-05-22, Belfast current planning applications: LA04/2025/1865/LBC; advertised 2026-05-22, Belfast current planning applications: LA04/2026/0384/F; advertised 2026-05-22, Belfast current planning applications: LA04/2026/0701/F; advertised 2026-05-22, Belfast current planning applications: LA04/2026/0787/LBC; advertised 2026-05-22, Belfast current planning applications: LA04/2026/0855/DCA; advertised 2026-05-22. Dynamic architecture milestone source synced from data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json.",
+      "caveats": [
+        "Current-planning rows are administrative advertisement/application records. They do not evidence planning permission, construction start, construction completion, public opening, legal occupancy, final built form, or wider effects.",
+        "Geometry note: Approximate OSM/Nominatim road-intersection point derived from London Road and Lismore Street road results; not a surveyed application boundary or building footprint.; Approximate OSM/Nominatim Ormeau Park point; not the surveyed bandstand footprint or consent boundary.; Approximate OSM/Nominatim Rosemary Street road point; not a surveyed application boundary or building footprint.",
+        "Licence or terms require source-level review before redistribution or formal analytical reuse.",
+        "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      ],
+      "architecture_milestone_source": {
+        "bucket": "planning/development/residential",
+        "temporal_granularity": "advertised_on",
+        "spatial_granularity": "Approximate OSM/Nominatim road-intersection point derived from London Road and Lismore Street road results; not a surveyed application boundary or building footprint.; Approximate OSM/Nominatim Ormeau Park point; not the surveyed bandstand footprint or consent boundary.; Approximate OSM/Nominatim Rosemary Street road point; not a surveyed application boundary or building footprint.",
+        "source_date_fields": [
+          "advertised_on"
+        ],
+        "retrieved_at": "2026-05-23"
+      },
+      "retrieved_at": "2026-05-23"
+    },
+    {
+      "source_id": "london-planning-datahub-api-core",
+      "title": "Planning London Datahub applications API",
+      "provider": "Greater London Authority / London borough planning authorities",
+      "source_family": "planning_applications",
+      "city_ids": [
+        "london"
+      ],
+      "licence": "Not Specified on London Datastore dataset page checked 2026-05-20; source URLs and factual row metadata retained pending fuller reuse review.",
+      "licence_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2025
+      },
+      "update_frequency": "PLD API / borough planning-feed lifecycle fields; historic backfill and field completeness vary by borough.",
+      "url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Greater London Authority / London borough planning authorities.",
+      "provenance_notes": "Selected Planning London Datahub administrative lifecycle rows from 2008-2025 in appended architecture candidate packs. Date fields: actual_completion_date; actual_commencement_date where populated by the PLD/borough feed.. Sample source row ids: PLD:Croydon-07_04855_P; LPA:07/04855/P, PLD:Havering-P1194.06; LPA:P1194.06, PLD:Redbridge-2309_04A; LPA:2309/04A, PLD:Lambeth-07_02940_FUL; LPA:07/02940/FUL, PLD:Bromley-04_04706_FULL2; LPA:04/04706/FULL2, PLD:Hackney-2006_1525; LPA:2006/1525, PLD:Merton-05_P2963; LPA:05/P2963, PLD:Ealing-P_2007_0909; LPA:P/2007/0909. Dynamic architecture milestone source synced from data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json.",
+      "caveats": [
+        "PLD actual_commencement_date and actual_completion_date are source-reported administrative lifecycle fields from borough planning feeds. They are not direct evidence of construction start, construction completion, public opening, occupation, final built form, design quality, safety, affordability, or outcome effects.",
+        "Geometry note: Row-level PLD point or polygon-derived representative point; not a surveyed building footprint.",
+        "Licence or terms require source-level review before redistribution or formal analytical reuse.",
+        "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      ],
+      "architecture_milestone_source": {
+        "bucket": "planning/development/lifecycle",
+        "temporal_granularity": "actual_completion_date; actual_commencement_date where populated by the PLD/borough feed.",
+        "spatial_granularity": "Row-level PLD point or polygon-derived representative point; not a surveyed building footprint.",
+        "source_date_fields": [
+          "actual_completion_date",
+          "actual_commencement_date"
+        ],
+        "retrieved_at": "2026-05-20"
+      },
+      "retrieved_at": "2026-05-20"
+    },
+    {
+      "source_id": "nyc-dob-now-build-approved-permits-rbx6-tga4",
+      "title": "NYC Open Data: DOB NOW: Build - Approved Permits",
+      "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_family": "building_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; Socrata metadata for the checked DOB views does not expose a dataset-specific license field.",
+      "licence_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2026
+      },
+      "update_frequency": "NYC Open Data operating dataset; publisher-updated.",
+      "url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings (DOB), via NYC Open Data.",
+      "provenance_notes": "Selected DOB NOW administrative permit and filing rows from 2021-2026 in Round596 NYC DOB NOW Next53 candidates. Date fields: issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number. Sample source row ids: B00503956-I1-GC:1:966649256, B00479909-I1-GC:1:910936831, Q00477568-I1-GC:1:285277374, B00478529-I1-GC:1:136371350, Q00501469-I1-GC:1:963913306, B00477718-I1-GC-CX:1:604245613, B00503642-I1-GC-CX:1:454532546, Q00534498-I1-GC:1:619316027. Dynamic architecture milestone source synced from data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json.",
+      "caveats": [
+        "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
+        "Geometry note: DOB/Open Data geocoded address point; not a surveyed entrance, parcel polygon, building footprint, or work footprint",
+        "Licence or terms require source-level review before redistribution or formal analytical reuse.",
+        "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      ],
+      "architecture_milestone_source": {
+        "bucket": "planning/development/architecture/building_permits",
+        "temporal_granularity": "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number",
+        "spatial_granularity": "DOB/Open Data geocoded address point; not a surveyed entrance, parcel polygon, building footprint, or work footprint",
+        "source_date_fields": [
+          "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number"
+        ],
+        "retrieved_at": "2026-05-20"
+      },
+      "retrieved_at": "2026-05-20"
+    },
+    {
+      "source_id": "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
+      "title": "NYC Open Data: DOB NOW: Build - Job Application Filings",
+      "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_family": "building_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; Socrata metadata for the checked DOB views does not expose a dataset-specific license field.",
+      "licence_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2026
+      },
+      "update_frequency": "NYC Open Data operating dataset; publisher-updated.",
+      "url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Job-Application-Filings/w9ak-ipjd",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Department of Buildings (DOB), via NYC Open Data.",
+      "provenance_notes": "Selected DOB NOW administrative permit and filing rows from 2021-2026 in Round596 NYC DOB NOW Next53 candidates. Date fields: issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number. Sample source row ids: B00503956-I1-GC:1:966649256, B00479909-I1-GC:1:910936831, Q00477568-I1-GC:1:285277374, B00478529-I1-GC:1:136371350, Q00501469-I1-GC:1:963913306, B00477718-I1-GC-CX:1:604245613, B00503642-I1-GC-CX:1:454532546, Q00534498-I1-GC:1:619316027. Dynamic architecture milestone source synced from data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json.",
+      "caveats": [
+        "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
+        "Geometry note: DOB/Open Data geocoded address point; not a surveyed entrance, parcel polygon, building footprint, or work footprint",
+        "Licence or terms require source-level review before redistribution or formal analytical reuse.",
+        "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      ],
+      "architecture_milestone_source": {
+        "bucket": "planning/development/architecture/building_permits",
+        "temporal_granularity": "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number",
+        "spatial_granularity": "DOB/Open Data geocoded address point; not a surveyed entrance, parcel polygon, building footprint, or work footprint",
+        "source_date_fields": [
+          "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number"
+        ],
+        "retrieved_at": "2026-05-20"
+      },
+      "retrieved_at": "2026-05-20"
+    },
+    {
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "title": "NYC Open Data: LPC Permit Application Information",
+      "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_family": "heritage_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use",
+      "licence_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+      "coverage_years": {
+        "start": 2008,
+        "end": 2025
+      },
+      "update_frequency": "NYC Open Data operating dataset; publisher-updated.",
+      "url": "https://data.cityofnewyork.us/Housing-Development/LPC-Permit-Application-Information/dpm2-m9mq",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute NYC Landmarks Preservation Commission / NYC Open Data.",
+      "provenance_notes": "Selected LPC administrative permit/application rows from 2008-2025 in appended architecture candidate packs. Date fields: issue_date. Sample source row ids: PMW-08-6090, PMW-08-6341, PMW-08-6355, CNE-08-6401, PMW-08-6336, CNE-08-6499, PMW-08-6498, CNE-08-6532. Dynamic architecture milestone source synced from data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json.",
+      "caveats": [
+        "LPC permit/application rows are administrative preservation records. They do not evidence construction start, construction completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry.",
+        "Geometry note: Official row point/geocode for the permit address or parcel context; not the geometry of proposed work and not a landmark boundary.",
+        "Licence or terms require source-level review before redistribution or formal analytical reuse.",
+        "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      ],
+      "architecture_milestone_source": {
+        "bucket": "planning/development/architecture/historic-preservation",
+        "temporal_granularity": "issue_date",
+        "spatial_granularity": "Official row point/geocode for the permit address or parcel context; not the geometry of proposed work and not a landmark boundary.",
+        "source_date_fields": [
+          "issue_date"
+        ],
+        "retrieved_at": "2026-05-23"
+      },
+      "retrieved_at": "2026-05-23"
+    },
+    {
+      "source_id": "belfast-city-council-current-planning-applications-2026-05-15-22",
+      "title": "Belfast City Council: Current planning applications",
+      "provider": "Belfast City Council",
+      "source_family": "planning_applications",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Belfast City Council website terms and copyright apply; OSM geocoding data is copyright OpenStreetMap contributors under ODbL.",
+      "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026
+      },
+      "update_frequency": "Council current-applications page; content changes as applications open and close for comment.",
+      "url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Belfast City Council.",
+      "provenance_notes": "Selected Belfast City Council current-planning application rows advertised from 2026-2026 in appended architecture candidate packs. Date fields: advertised_on. Sample source row ids: Belfast current planning applications: LA04/2024/1411/F; advertised 2026-05-15, Belfast current planning applications: LA04/2026/0074/F; advertised 2026-05-15, Belfast current planning applications: LA04/2026/0243/F; advertised 2026-05-15, Belfast current planning applications: LA04/2026/0782/F; advertised 2026-05-15, Belfast current planning applications: LA04/2026/0809/F; advertised 2026-05-15, Belfast current planning applications: LA04/2026/0810/DCA; advertised 2026-05-15, Belfast current planning applications: LA04/2025/2140/F; advertised 2026-05-22, Belfast current planning applications: LA04/2026/0750/F; advertised 2026-05-22. Dynamic architecture milestone source synced from data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json.",
+      "caveats": [
+        "Current-planning rows are administrative advertisement/application records. They do not evidence planning permission, construction start, construction completion, public opening, legal occupancy, final built form, or wider effects.",
+        "Geometry note: Approximate OSM/Nominatim Fortwilliam Park road point; not a surveyed school-site boundary or building footprint.; Approximate OSM/Nominatim Kings Square point; not a surveyed application boundary or building footprint.; Approximate OSM/Nominatim Windsor Avenue road point; not a surveyed court footprint or application boundary.",
+        "Licence or terms require source-level review before redistribution or formal analytical reuse.",
+        "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      ],
+      "architecture_milestone_source": {
+        "bucket": "planning/development/education",
+        "temporal_granularity": "advertised_on",
+        "spatial_granularity": "Approximate OSM/Nominatim Fortwilliam Park road point; not a surveyed school-site boundary or building footprint.; Approximate OSM/Nominatim Kings Square point; not a surveyed application boundary or building footprint.; Approximate OSM/Nominatim Windsor Avenue road point; not a surveyed court footprint or application boundary.",
+        "source_date_fields": [
+          "advertised_on"
+        ],
+        "retrieved_at": "2026-05-23"
+      },
+      "retrieved_at": "2026-05-23"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Architecture Change Atlas Methodology
 
-This pass covers London, New York City, and Belfast from `2008-01-01` through `2026-05-20`. It treats records as observed administrative or documented milestones. Planning approval is not construction, permit issuance is not completion, and a source-reported project intention is not a delivered outcome.
+This pass covers London, New York City, and Belfast from `2008-01-01` through `2026-05-23`. It treats records as observed administrative or documented milestones. Planning approval is not construction, permit issuance is not completion, and a source-reported project intention is not a delivered outcome.
 
 ## Source Freeze
 

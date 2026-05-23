@@ -4,10 +4,10 @@
   "generated_at": "2026-05-20T00:00:00Z",
   "target_scope": {
     "start_date": "2008-01-01",
-    "end_date": "2026-05-20",
+    "end_date": "2026-05-23",
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
-  "source_count": 435,
+  "source_count": 439,
   "sources": [
     {
       "source_id": "barts-whipps-cross-stage2",
@@ -7661,6 +7661,163 @@
       "caveats": [
         "Project page contains forward-looking opening and benefit claims; only the consultation-stage milestone should be ingested. Replace or supplement with Planning Portal application reference once submitted.",
         "Project pages and consultation notices are civic/project-stage milestones, not planning decisions, construction starts, completion, opening, future benefits, or outcome evidence."
+      ],
+      "priority_inventory_source": false
+    },
+    {
+      "source_id": "belfast-city-council-current-planning-applications-2026-05-15-22",
+      "title": "Belfast City Council: Current planning applications",
+      "publisher": "Belfast City Council",
+      "source_family": "planning/development/education",
+      "city_ids": [
+        "belfast"
+      ],
+      "access": {
+        "api_url": null,
+        "csv_url": null,
+        "portal_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+        "docs_url": "https://www.belfastcity.gov.uk/terms-conditions",
+        "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications"
+      },
+      "coverage": {
+        "years": {
+          "start": 2026,
+          "end": 2026
+        },
+        "observed_years": [
+          2026
+        ],
+        "update_frequency": "Council current-applications page; content changes as applications open and close for comment.",
+        "geography": "Approximate OSM/Nominatim Fortwilliam Park road point; not a surveyed school-site boundary or building footprint.; Approximate OSM/Nominatim Kings Square point; not a surveyed application boundary or building footprint.; Approximate OSM/Nominatim Windsor Avenue road point; not a surveyed court footprint or application boundary.",
+        "temporal_granularity": "advertised_on"
+      },
+      "legal": {
+        "licence": "Belfast City Council website terms and copyright apply; OSM geocoding data is copyright OpenStreetMap contributors under ODbL.",
+        "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
+        "attribution_text": "Attribute Belfast City Council.",
+        "redistribution_caveat": "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      },
+      "data_shape": {
+        "date_fields": [
+          "advertised_on"
+        ],
+        "geometry_fields": [
+          "latitude",
+          "longitude",
+          "area",
+          "geometry_source",
+          "geometry_precision"
+        ],
+        "row_id_fields": [
+          "source_record_id",
+          "source_url",
+          "event_id"
+        ],
+        "status_fields": [
+          "bucket",
+          "confidence",
+          "project_type"
+        ],
+        "sample_record_ids": [
+          "Belfast current planning applications: LA04/2024/1411/F; advertised 2026-05-15",
+          "Belfast current planning applications: LA04/2025/2140/F; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2026/0074/F; advertised 2026-05-15",
+          "Belfast current planning applications: LA04/2026/0243/F; advertised 2026-05-15",
+          "Belfast current planning applications: LA04/2026/0750/F; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2026/0782/F; advertised 2026-05-15",
+          "Belfast current planning applications: LA04/2026/0809/F; advertised 2026-05-15",
+          "Belfast current planning applications: LA04/2026/0810/DCA; advertised 2026-05-15"
+        ]
+      },
+      "event_types": [
+        "demolition",
+        "planning_decision"
+      ],
+      "event_count": 10,
+      "confidence_counts": {
+        "documented": 10
+      },
+      "caveats": [
+        "Current-planning rows are administrative advertisement/application records. They do not evidence planning permission, construction start, construction completion, public opening, legal occupancy, final built form, or wider effects.",
+        "This is an advertised application row, not planning permission, construction start, construction completion, opening, occupation, final built form, or outcome evidence. Geometry is approximate from OSM/Nominatim address or road results and is not a surveyed application boundary."
+      ],
+      "priority_inventory_source": false
+    },
+    {
+      "source_id": "belfast-city-council-current-planning-applications-2026-05-22",
+      "title": "Belfast City Council: Current planning applications",
+      "publisher": "Belfast City Council",
+      "source_family": "planning/development/residential",
+      "city_ids": [
+        "belfast"
+      ],
+      "access": {
+        "api_url": null,
+        "csv_url": null,
+        "portal_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+        "docs_url": "https://www.belfastcity.gov.uk/terms-conditions",
+        "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications"
+      },
+      "coverage": {
+        "years": {
+          "start": 2026,
+          "end": 2026
+        },
+        "observed_years": [
+          2026
+        ],
+        "update_frequency": "Council current-applications page; content changes as applications open and close for comment.",
+        "geography": "Approximate OSM/Nominatim road-intersection point derived from London Road and Lismore Street road results; not a surveyed application boundary or building footprint.; Approximate OSM/Nominatim Ormeau Park point; not the surveyed bandstand footprint or consent boundary.; Approximate OSM/Nominatim Rosemary Street road point; not a surveyed application boundary or building footprint.",
+        "temporal_granularity": "advertised_on"
+      },
+      "legal": {
+        "licence": "Belfast City Council website terms and copyright apply; OSM geocoding data is copyright OpenStreetMap contributors under ODbL.",
+        "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
+        "attribution_text": "Attribute Belfast City Council.",
+        "redistribution_caveat": "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      },
+      "data_shape": {
+        "date_fields": [
+          "advertised_on"
+        ],
+        "geometry_fields": [
+          "latitude",
+          "longitude",
+          "area",
+          "geometry_source",
+          "geometry_precision"
+        ],
+        "row_id_fields": [
+          "source_record_id",
+          "source_url",
+          "event_id"
+        ],
+        "status_fields": [
+          "bucket",
+          "confidence",
+          "project_type"
+        ],
+        "sample_record_ids": [
+          "Belfast current planning applications: LA04/2023/4069/F; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2024/2032/O; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2025/1865/LBC; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2026/0384/F; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2026/0701/F; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2026/0787/LBC; advertised 2026-05-22",
+          "Belfast current planning applications: LA04/2026/0855/DCA; advertised 2026-05-22"
+        ]
+      },
+      "event_types": [
+        "listed_building_change",
+        "planning_decision"
+      ],
+      "event_count": 7,
+      "confidence_counts": {
+        "documented": 7
+      },
+      "caveats": [
+        "Current-planning rows are administrative advertisement/application records. They do not evidence planning permission, construction start, construction completion, public opening, legal occupancy, final built form, or wider effects.",
+        "This is an advertised application row, not planning permission, construction start, construction completion, opening, occupation, final built form, or outcome evidence. Geometry is approximate from OSM/Nominatim address or road results and is not a surveyed application boundary."
       ],
       "priority_inventory_source": false
     },
@@ -15611,9 +15768,9 @@
         "construction_start",
         "planning_decision"
       ],
-      "event_count": 15289,
+      "event_count": 18889,
       "confidence_counts": {
-        "documented": 15289
+        "documented": 18889
       },
       "caveats": [
         "PLD actual_commencement_date and actual_completion_date are source-reported administrative or applicant/local-authority lifecycle fields from borough planning feeds and may be unevenly populated or interpreted across authorities. This row is an administrative planning feed record only; use source planning documents and site-specific evidence for construction start, construction completion, opening, occupation, current use, design quality, service-result statements, or final built form. Do not infer delivery of a wider masterplan or proposal outcome from this lifecycle row alone. Geometry is a PLD point or polygon-derived representative point for atlas navigation and may not be the precise building footprint or phase boundary. The London Datastore licence entry for the applications source is Not Specified; keep attribution/source URLs and review terms before redistributing source data at bulk scale. This event is retained as an observed, source-backed milestone only; broader design, delivery, usage, safety, affordability, regeneration, or outcome claims are not inferred.",
@@ -18225,6 +18382,103 @@
       "caveats": [
         "The LDD recorded significant planning permissions and development progress; it is not a direct opening, occupation, usage, or outcome source. Completion date is source-supplied and has no single formal definition; do not overstate it as public opening or full occupation. Planning permission, work-start, and construction-completion dates must remain separate event types. Coordinates are point locations from LDD Easting/Northing fields; they are not footprints or precise entrance locations. Figures relate to permission gains/losses and can differ from descriptions, especially phased schemes or split permissions. Local planning authority records should be checked before promoting any candidate to canonical event status. Use selected rows as candidate development-completion records with visible provenance, source row references, coordinates caveats, and no claim of opening/occupation/outcomes. This is an LDD archived planning/development completion-status record, not direct evidence of public opening, occupation, current use, service delivery, design quality, local outcomes, or causation. The LDD notes all data was supplied by planning authorities and may be updated/corrected; consult the relevant local planning authority for definitive planning documents. Completed Date has no formal single definition in the LDD notes; it may normally be a building-control completion certificate date, or a planning-authority judgement that the permission is complete or ready for occupation. Coordinates are source point locations converted from British National Grid and should not be used as footprints or precise entrances. Figures describe losses/gains associated with the permission and may not describe unaffected uses on the site.",
         "This is an archived LDD planning/development completion-status record. Completed Date has no formal single definition in the LDD notes and may reflect a building-control completion certificate or planning-authority judgement. It is not evidence of public opening, occupation, current use, service delivery, final built form, design quality, local outcomes, or outcome relationships. Some rows may represent phases, outline permissions, reserved matters, variations, or administrative updates. This event is retained as an observed, source-backed milestone only; broader design, delivery, usage, safety, affordability, regeneration, or outcome claims are not inferred."
+      ],
+      "priority_inventory_source": false
+    },
+    {
+      "source_id": "london-planning-datahub-api-core",
+      "title": "Planning London Datahub applications API",
+      "publisher": "Greater London Authority / London borough planning authorities",
+      "source_family": "planning/development/lifecycle",
+      "city_ids": [
+        "london"
+      ],
+      "access": {
+        "api_url": null,
+        "csv_url": null,
+        "portal_url": "https://planningdata.london.gov.uk/api-guest/applications/_search",
+        "docs_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+        "source_url": "https://planningdata.london.gov.uk/api-guest/applications/_search"
+      },
+      "coverage": {
+        "years": {
+          "start": 2008,
+          "end": 2025
+        },
+        "observed_years": [
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "update_frequency": "PLD API / borough planning-feed lifecycle fields; historic backfill and field completeness vary by borough.",
+        "geography": "Row-level PLD point or polygon-derived representative point; not a surveyed building footprint.",
+        "temporal_granularity": "actual_completion_date; actual_commencement_date where populated by the PLD/borough feed."
+      },
+      "legal": {
+        "licence": "Not Specified on London Datastore dataset page checked 2026-05-20; source URLs and factual row metadata retained pending fuller reuse review.",
+        "licence_url": "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+        "attribution_text": "Attribute Greater London Authority / London borough planning authorities.",
+        "redistribution_caveat": "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      },
+      "data_shape": {
+        "date_fields": [
+          "actual_commencement_date",
+          "actual_completion_date"
+        ],
+        "geometry_fields": [
+          "latitude",
+          "longitude",
+          "area",
+          "geometry_source",
+          "geometry_precision"
+        ],
+        "row_id_fields": [
+          "source_record_id",
+          "source_url",
+          "event_id"
+        ],
+        "status_fields": [
+          "bucket",
+          "confidence",
+          "project_type"
+        ],
+        "sample_record_ids": [
+          "PLD:Bromley-04_04706_FULL2; LPA:04/04706/FULL2",
+          "PLD:Croydon-07_04855_P; LPA:07/04855/P",
+          "PLD:Ealing-P_2007_0909; LPA:P/2007/0909",
+          "PLD:Hackney-2006_1525; LPA:2006/1525",
+          "PLD:Havering-P1194.06; LPA:P1194.06",
+          "PLD:Lambeth-07_02940_FUL; LPA:07/02940/FUL",
+          "PLD:Merton-05_P2963; LPA:05/P2963",
+          "PLD:Redbridge-2309_04A; LPA:2309/04A"
+        ]
+      },
+      "event_types": [
+        "completion",
+        "construction_start"
+      ],
+      "event_count": 3600,
+      "confidence_counts": {
+        "documented": 3600
+      },
+      "caveats": [
+        "PLD actual_commencement_date and actual_completion_date are source-reported administrative lifecycle fields from borough planning feeds. They are not direct evidence of construction start, construction completion, public opening, occupation, final built form, design quality, safety, affordability, or outcome effects.",
+        "PLD actual_commencement_date and actual_completion_date are source-reported administrative or applicant/local-authority lifecycle fields from borough planning feeds and may be unevenly populated or interpreted across authorities.,This row is an administrative planning feed record only; use source planning documents and site-specific evidence for construction start, construction completion, opening, occupation, current use, design quality, service-result statements, or final built form.,Do not infer delivery of a wider masterplan or proposal outcome from this lifecycle row alone.,Geometry is a PLD point or polygon-derived representative point for atlas navigation and may not be the precise building footprint or phase boundary.,The London Datastore licence entry for the applications source is Not Specified; keep attribution/source URLs and review terms before redistributing source data at bulk scale."
       ],
       "priority_inventory_source": false
     },
@@ -21260,9 +21514,9 @@
         "permit_issued",
         "planning_decision"
       ],
-      "event_count": 18429,
+      "event_count": 19264,
       "confidence_counts": {
-        "documented": 18429
+        "documented": 19264
       },
       "caveats": [
         "Application fields are proposed/source-reported and may be amended; legacy fields can include inconsistent or extreme values. The job filing itself is not completion or occupancy evidence. Use as supporting provenance for selected permit rows, not as a standalone completion claim. This is an administrative permit-issuance record. It is not evidence of construction start, construction completion, opening, legal occupancy, actual occupancy, design quality, safety condition, affordability, neighborhood outcome, or outcome effect. Linked job-application scale fields are source-reported proposed/application attributes and may be amended; legacy DOB rows can contain data-entry anomalies, so extreme scale values were screened and raw fields are retained for review.",
@@ -21330,22 +21584,22 @@
           "project_type"
         ],
         "sample_record_ids": [
-          "B00485736-I1-GC:1:237956017",
+          "B00477718-I1-GC-CX:1:604245613",
+          "B00478529-I1-GC:1:136371350",
+          "B00479909-I1-GC:1:910936831",
           "B00503642-I1-GC-CX:1:454532546",
-          "B00526841-I1-GC:1:901546875",
-          "B00555041-I1-GC:1:228382435",
-          "Q00481865-I1-GC:1:903743526",
-          "Q00520872-I1-GC:1:467348975",
-          "Q00538342-I1-GC:1:829752805",
-          "Q00562486-I1-GC:1:121193028"
+          "B00503956-I1-GC:1:966649256",
+          "Q00477568-I1-GC:1:285277374",
+          "Q00501469-I1-GC:1:963913306",
+          "Q00534498-I1-GC:1:619316027"
         ]
       },
       "event_types": [
         "permit_issued"
       ],
-      "event_count": 200,
+      "event_count": 1035,
       "confidence_counts": {
-        "documented": 200
+        "documented": 1035
       },
       "caveats": [
         "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
@@ -21413,22 +21667,22 @@
           "project_type"
         ],
         "sample_record_ids": [
-          "B00485736-I1-GC:1:237956017",
+          "B00477718-I1-GC-CX:1:604245613",
+          "B00478529-I1-GC:1:136371350",
+          "B00479909-I1-GC:1:910936831",
           "B00503642-I1-GC-CX:1:454532546",
-          "B00526841-I1-GC:1:901546875",
-          "B00555041-I1-GC:1:228382435",
-          "Q00481865-I1-GC:1:903743526",
-          "Q00520872-I1-GC:1:467348975",
-          "Q00538342-I1-GC:1:829752805",
-          "Q00562486-I1-GC:1:121193028"
+          "B00503956-I1-GC:1:966649256",
+          "Q00477568-I1-GC:1:285277374",
+          "Q00501469-I1-GC:1:963913306",
+          "Q00534498-I1-GC:1:619316027"
         ]
       },
       "event_types": [
         "permit_issued"
       ],
-      "event_count": 200,
+      "event_count": 1035,
       "confidence_counts": {
-        "documented": 200
+        "documented": 1035
       },
       "caveats": [
         "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
@@ -22582,6 +22836,101 @@
       "caveats": [
         "Issue date is an administrative action date, not a construction start or completion date. Regulation type and WorkTypes describe LPC permit/application processing categories and should not be promoted to physical outcome claims. Coordinates are row point/geocode fields and should not be treated as exact work geometry or landmark boundaries. Rows may be updated, corrected, or refreshed after the access date. Transfer of Development Rights regulation-type rows should not be treated as completed private transfers without independent supporting records. Ingest selected rows as documented LPC administrative events only, retaining regulation_number, issue_date, address/BBL, landmark context, WorkTypes, coordinates, source URL, and explicit non-completion caveats. LPC permit/application rows are administrative records. They do not by themselves document construction start, completion, compliance sign-off, physical condition, preservation outcome, or outcome effects. WorkTypes are source category text, not a full scope narrative; rows may be corrected after retrieval.",
         "LPC permit/application processing is an administrative preservation action. It is not construction start, completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry evidence. WorkTypes are source category text and may summarize rather than fully describe the scope; rows can be refreshed or corrected after retrieval. This event is retained as an observed, source-backed milestone only; broader design, delivery, usage, safety, affordability, regeneration, or outcome claims are not inferred."
+      ],
+      "priority_inventory_source": false
+    },
+    {
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "title": "NYC Open Data: LPC Permit Application Information",
+      "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+      "source_family": "planning/development/architecture/historic-preservation",
+      "city_ids": [
+        "nyc"
+      ],
+      "access": {
+        "api_url": null,
+        "csv_url": null,
+        "portal_url": "https://data.cityofnewyork.us/Housing-Development/LPC-Permit-Application-Information/dpm2-m9mq",
+        "docs_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+        "source_url": "https://data.cityofnewyork.us/Housing-Development/LPC-Permit-Application-Information/dpm2-m9mq"
+      },
+      "coverage": {
+        "years": {
+          "start": 2008,
+          "end": 2025
+        },
+        "observed_years": [
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "update_frequency": "NYC Open Data operating dataset; publisher-updated.",
+        "geography": "Official row point/geocode for the permit address or parcel context; not the geometry of proposed work and not a landmark boundary.",
+        "temporal_granularity": "issue_date"
+      },
+      "legal": {
+        "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use",
+        "licence_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+        "attribution_text": "Attribute NYC Landmarks Preservation Commission / NYC Open Data.",
+        "redistribution_caveat": "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      },
+      "data_shape": {
+        "date_fields": [
+          "issue_date"
+        ],
+        "geometry_fields": [
+          "latitude",
+          "longitude",
+          "area",
+          "geometry_source",
+          "geometry_precision"
+        ],
+        "row_id_fields": [
+          "source_record_id",
+          "source_url",
+          "event_id"
+        ],
+        "status_fields": [
+          "bucket",
+          "confidence",
+          "project_type"
+        ],
+        "sample_record_ids": [
+          "CNE-08-6401",
+          "CNE-08-6499",
+          "CNE-08-6532",
+          "PMW-08-6090",
+          "PMW-08-6336",
+          "PMW-08-6341",
+          "PMW-08-6355",
+          "PMW-08-6498"
+        ]
+      },
+      "event_types": [
+        "permit_issued"
+      ],
+      "event_count": 3400,
+      "confidence_counts": {
+        "documented": 3400
+      },
+      "caveats": [
+        "LPC permit/application processing is an administrative preservation action. It is not construction start, completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry evidence. WorkTypes are source category text and may summarize rather than fully describe the scope; rows can be refreshed or corrected after retrieval.",
+        "LPC permit/application rows are administrative preservation records. They do not evidence construction start, construction completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry."
       ],
       "priority_inventory_source": false
     },

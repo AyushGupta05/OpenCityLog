@@ -23,6 +23,93 @@ function cameraMatches(before, after) {
     && Math.abs(before.mapBearing - after.mapBearing) < 0.05;
 }
 
+async function waitForGuideSignal(page, check) {
+  if (!check.guideLayer) return;
+  await page.waitForFunction(
+    ({ layerId, flowStyles, surfaceStyles, minRendered, minGuideFeatures }) => {
+      const state = window.BimsAtlas?.state;
+      const map = state?.map;
+      if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
+      let rendered = 0;
+      try {
+        rendered = map.queryRenderedFeatures({ layers: [layerId] }).length;
+      } catch {
+        return false;
+      }
+      const guide = state?.lensGuideFeatureCache?.features || [];
+      const guideMatches = guide.filter((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === state.activeAspect
+          && (!flowStyles.length || flowStyles.includes(props.flow_style))
+          && (!surfaceStyles.length || surfaceStyles.includes(props.surface_style));
+      }).length;
+      return rendered >= minRendered && guideMatches >= minGuideFeatures;
+    },
+    {
+      layerId: check.guideLayer,
+      flowStyles: check.guideFlowStyles || [],
+      surfaceStyles: check.guideSurfaceStyles || [],
+      minRendered: check.minGuideRendered || 1,
+      minGuideFeatures: check.minGuideFeatures || 1,
+    },
+    { timeout: 20000 }
+  );
+}
+
+async function assertAspectCopy(page, aspectId, { required = [], forbidden = [] } = {}) {
+  await page.evaluate((id) => window.BimsAtlas?.setActiveAspect?.(id), aspectId);
+  await page.waitForFunction(
+    (id) => window.BimsAtlas?.state?.activeAspect === id,
+    aspectId,
+    { timeout: 10000 }
+  );
+  const state = await atlasState(page);
+  const visibleCopy = `${state.lensLegendText}\n${state.bodyText}`;
+  for (const pattern of required) {
+    assert(pattern.test(visibleCopy), `${aspectId} did not expose expected provenance-safe copy: ${pattern}`);
+  }
+  for (const pattern of forbidden) {
+    assert(!pattern.test(visibleCopy), `${aspectId} exposed overclaiming or stale copy: ${pattern}`);
+  }
+}
+
+async function assertGapWarningForAspect(page, { year, aspect, patterns = [] }) {
+  await page.evaluate(async ({ targetYear, targetAspect }) => {
+    await window.BimsAtlas?.setYear?.(targetYear);
+    await window.BimsAtlas?.setActiveAspect?.(targetAspect);
+  }, { targetYear: year, targetAspect: aspect });
+  await page.waitForFunction(
+    ({ targetYear, targetAspect }) => Number(window.BimsAtlas?.state?.year) === targetYear
+      && window.BimsAtlas?.state?.activeAspect === targetAspect
+      && /No source-backed/i.test(document.querySelector("#lensLegend")?.textContent || ""),
+    { targetYear: year, targetAspect: aspect },
+    { timeout: 20000 }
+  );
+  const state = await atlasState(page);
+  const legendText = state.lensLegendText.replace(/\s+/g, " ");
+  assert(/No source-backed/i.test(legendText), `${aspect} ${year} did not expose a no-source-backed warning in the lens legend.`);
+  assert(new RegExp(String(year)).test(legendText), `${aspect} warning did not name the selected year ${year}: ${legendText}`);
+  for (const pattern of patterns) {
+    assert(pattern.test(legendText), `${aspect} ${year} warning did not match ${pattern}: ${legendText}`);
+  }
+}
+
+async function assertNoGapWarningForAspect(page, year, aspectId) {
+  await page.evaluate(async ({ targetYear, targetAspect }) => {
+    await window.BimsAtlas?.setYear?.(targetYear);
+    await window.BimsAtlas?.setActiveAspect?.(targetAspect);
+  }, { targetYear: year, targetAspect: aspectId });
+  await page.waitForFunction(
+    ({ targetYear, targetAspect }) => Number(window.BimsAtlas?.state?.year) === targetYear
+      && window.BimsAtlas?.state?.activeAspect === targetAspect
+      && !/No source-backed/i.test(document.querySelector("#lensLegend")?.textContent || ""),
+    { targetYear: year, targetAspect: aspectId },
+    { timeout: 20000 }
+  );
+  const state = await atlasState(page);
+  assert(!/No source-backed/i.test(state.lensLegendText), `${aspectId} ${year} retained a stale no-source-backed warning.`);
+}
+
 (async () => {
   ensureOutputDir();
   const browser = await chromium.launch({ headless: true });
@@ -51,7 +138,7 @@ function cameraMatches(before, after) {
   assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
   assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
   assert(initial.activeLens === "transport", "Transport should be the default active map lens.");
-  assert(/Transport/.test(initial.lensLegendText) && /activity/i.test(initial.lensLegendText), "Transport lens legend did not render.");
+  assert(/Flow-proxy|Road flow proxy/i.test(initial.lensLegendText), "Transport lens legend did not render the flow-proxy copy.");
   assert(initial.transportRoadVisible, "Transport road lens should be visible while the transport layer is enabled.");
   assert(initial.transportRoadYearLoaded === Number(initial.year), "Transport road lens did not load the current timeline year.");
   assert(initial.compareOpen === "false", "Compare panel should start closed.");
@@ -95,12 +182,104 @@ function cameraMatches(before, after) {
   assert(beforeLensSwitch.activeLens === "transport", "Atlas should start on the transport map lens.");
   assert(beforeLensSwitch.lensDetailYearLoaded === null, "Transport lens should not eagerly load non-transport lens detail overlays.");
 
+  const aspectChecks = [
+    { id: "transport-speed", guideLayer: "lens-guide-flow", guideFlowStyles: ["transport_thread", "transport_backbone"], minGuideRendered: 4, minGuideFeatures: 20 },
+    { id: "transport-access", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["access_fabric"], minGuideRendered: 20, minGuideFeatures: 20 },
+    { id: "transport-reliability", guideLayer: "lens-guide-flow", guideFlowStyles: ["transport_thread", "transport_backbone", "transport_service_tick"], minGuideRendered: 4, minGuideFeatures: 12 },
+    { id: "planning-pressure", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["planning_footprint"], minGuideRendered: 12, minGuideFeatures: 12 },
+    { id: "planning-delta", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["planning_footprint"], minGuideRendered: 12, minGuideFeatures: 12 },
+    { id: "planning-parcels", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["planning_footprint"], minGuideRendered: 12, minGuideFeatures: 12 },
+    { id: "civic-access-gaps", guideLayer: "lens-guide-flow", guideFlowStyles: ["access_network", "service_walk", "service_bus", "gap_high", "gap_medium", "gap_low"], minGuideRendered: 4, minGuideFeatures: 12 },
+    { id: "civic-catchment", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["catchment_area", "catchment_backdrop", "catchment_patch"], minGuideRendered: 8, minGuideFeatures: 8 },
+    { id: "civic-demand", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["demand_surface"], minGuideRendered: 12, minGuideFeatures: 12 },
+    { id: "economy-vitality", guideLayer: "lens-guide-flow", guideFlowStyles: ["economy_current_ribbon", "economy_before_ribbon", "economy_churn_tick"], minGuideRendered: 4, minGuideFeatures: 12 },
+    { id: "economy-land-use", guideLayer: "lens-guide-cell-fill", guideSurfaceStyles: ["land_use_tile"], minGuideRendered: 20, minGuideFeatures: 20 },
+    { id: "economy-gravity", guideLayer: "lens-guide-flow", guideFlowStyles: ["economy_gravity_arc"], minGuideRendered: 4, minGuideFeatures: 4 },
+    { id: "utilities-capacity", guideLayer: "lens-guide-flow", guideFlowStyles: ["utility_capacity_trace"], minGuideRendered: 4, minGuideFeatures: 12 },
+    { id: "utilities-resilience", guideLayer: "lens-guide-flow", guideFlowStyles: ["utility_primary", "utility_backup", "utility_inferred"], minGuideRendered: 4, minGuideFeatures: 12 },
+    { id: "utilities-works", guideLayer: "lens-guide-flow", guideFlowStyles: ["utility_work_thread"], minGuideRendered: 4, minGuideFeatures: 12 },
+  ];
+  for (const check of aspectChecks) {
+    await page.evaluate((id) => window.BimsAtlas?.setActiveAspect?.(id), check.id);
+    await page.waitForFunction(
+      (id) => window.BimsAtlas?.state?.activeAspect === id,
+      check.id,
+      { timeout: 10000 }
+    );
+    await waitForGuideSignal(page, check);
+  }
+
+  const provenanceCopyChecks = [
+    {
+      id: "transport-speed",
+      required: [/Flow-proxy|Road flow proxy/i],
+      forbidden: [/Speed colors/i, /not live or measured congestion/i],
+    },
+    {
+      id: "transport-access",
+      required: [/Access-proxy/i, /mapped context guides/i],
+      forbidden: [/Isochrone/i, /Door-to-door/i, /\b15 min\b/i],
+    },
+    {
+      id: "transport-reliability",
+      required: [/Lower disruption signal/i, /record\/context signals/i],
+      forbidden: [/Reliable \(on-time\)/i, /Unreliable \(delayed\)/i],
+    },
+    {
+      id: "utilities-capacity",
+      required: [/Utility context/i, /not engineering capacity data/i],
+      forbidden: [/load-risk/i],
+    },
+  ];
+  for (const check of provenanceCopyChecks) {
+    await assertAspectCopy(page, check.id, check);
+  }
+
+  const gapWarningChecks = [
+    { year: 2007, aspect: "planning-delta", patterns: [/planning\/built/i, /mapped context only|not year-specific change evidence/i] },
+    { year: 2007, aspect: "civic-demand", patterns: [/civic/i, /current anchors are context|may post-date/i] },
+    { year: 2026, aspect: "economy-gravity", patterns: [/economy/i, /current anchors are context|may post-date/i] },
+    { year: 2020, aspect: "utilities-capacity", patterns: [/utility/i, /current context may post-date|may post-date/i] },
+  ];
+  for (const check of gapWarningChecks) {
+    await assertGapWarningForAspect(page, check);
+  }
+  const coveredWarningChecks = [
+    { year: 2024, aspect: "planning-delta" },
+    { year: 2024, aspect: "civic-demand" },
+    { year: 2024, aspect: "economy-gravity" },
+    { year: 2024, aspect: "utilities-capacity" },
+  ];
+  for (const check of coveredWarningChecks) {
+    await assertNoGapWarningForAspect(page, check.year, check.aspect);
+  }
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setYear?.(2024);
+    await window.BimsAtlas?.setActiveAspect?.("transport-speed");
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2024
+      && window.BimsAtlas?.state?.activeAspect === "transport-speed",
+    null,
+    { timeout: 20000 }
+  );
+
   const lensChecks = [
     { id: "built_environment", layer: "lens-planning-cells-fill", visible: "lensPlanningCellsVisible", rendered: "lensPlanningCellsRendered", legend: /Planning & Built|Cells/i },
     { id: "civic_services", layer: "lens-civic-coverage-fill", visible: "lensCivicCoverageVisible", rendered: "lensCivicCoverageRendered", legend: /Civic Services|facility|Coverage/i },
     { id: "economy", layer: "lens-economy-frontage", visible: "lensEconomyCellsVisible", rendered: "lensEconomyFrontageRendered", legend: /Economy|frontage|activity/i },
     { id: "utilities", layer: "lens-utilities-trace", visible: "lensUtilityTraceVisible", rendered: "lensUtilityTraceRendered", legend: /Utilities|trace|asset/i },
-    { id: "transport", layer: "lens-transport-roads", visible: "transportRoadVisible", count: "transportRoadFeatureCount", legend: /Transport|activity/i },
+    {
+      id: "transport",
+      layer: "lens-transport-roads",
+      visible: "transportRoadVisible",
+      count: "transportRoadFeatureCount",
+      legend: /Transport|activity/i,
+      guideLayer: "lens-guide-flow",
+      guideFlowStyles: ["transport_thread", "transport_backbone"],
+      minGuideRendered: 4,
+      minGuideFeatures: 20,
+    },
   ];
   for (const check of lensChecks) {
     await page.evaluate((id) => window.BimsAtlas?.setActiveLens?.(id), check.id);
@@ -130,6 +309,7 @@ function cameraMatches(before, after) {
         { timeout: 15000 }
       );
     }
+    await waitForGuideSignal(page, check);
     const lensState = await atlasState(page);
     assert(lensState.activeLens === check.id, `Map lens did not switch to ${check.id}.`);
     assert(lensState[check.visible], `${check.id} map lens did not show its expected overlay layer.`);

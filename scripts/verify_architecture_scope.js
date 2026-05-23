@@ -3,7 +3,7 @@ const path = require("path");
 const { validateValue } = require("./validate_city_atlas_schema");
 
 const TARGET_START = "2008-01-01";
-const TARGET_END = "2026-05-20";
+const TARGET_END = "2026-05-23";
 const REQUIRED_CITIES = new Set(["london", "nyc", "belfast"]);
 const REQUIRED_INVENTORY_SOURCES = [
   "london-pld-applications",

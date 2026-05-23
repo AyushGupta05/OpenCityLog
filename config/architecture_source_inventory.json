@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "architecture_source_inventory",
-  "reviewed_at": "2026-05-20",
+  "reviewed_at": "2026-05-23",
   "target_scope": {
     "start_date": "2008-01-01",
-    "end_date": "2026-05-20",
+    "end_date": "2026-05-23",
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
   "event_type_values": [

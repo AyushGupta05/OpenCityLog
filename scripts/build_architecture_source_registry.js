@@ -18,7 +18,10 @@ function readJson(filePath) {
 
 function writeJson(filePath, payload) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  const tempPath = `${filePath}.${process.pid}.tmp`;
+  fs.writeFileSync(tempPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  fs.rmSync(filePath, { force: true });
+  fs.renameSync(tempPath, filePath);
 }
 
 function compactText(value) {

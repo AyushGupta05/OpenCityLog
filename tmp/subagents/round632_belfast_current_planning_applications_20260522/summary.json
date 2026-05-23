@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-05-23T00:00:00Z",
+  "accessed_at": "2026-05-23",
+  "round_id": "round632_belfast_current_planning_applications_20260522",
+  "source_id": "belfast-city-council-current-planning-applications-2026-05-22",
+  "source_url": "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications",
+  "candidate_count": 7,
+  "manual_corpus_rows_scanned": 99500,
+  "date_range": {
+    "start": "2026-05-22",
+    "end": "2026-05-22"
+  },
+  "by_bucket": {
+    "planning/development/residential": 2,
+    "planning/development/heritage_works": 2,
+    "planning/development/hotel": 1,
+    "planning/development/adaptive_reuse": 1,
+    "planning/development/sports_facility": 1
+  },
+  "caveats": [
+    "Rows are current planning application advertisements only; approval and construction are not claimed.",
+    "Geometry is approximate OSM/Nominatim address or road/park support, not application-boundary evidence.",
+    "The council current-applications page is mutable; application ids, advertised dates and proposal text are retained for traceability."
+  ]
+}

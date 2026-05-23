@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-05-23T00:00:00Z",
+  "candidate_count": 10,
+  "candidate_ids": [
+    "round639_current_planning_la04_2024_1411_f_2026_05_15",
+    "round639_current_planning_la04_2025_2140_f_2026_05_22",
+    "round639_current_planning_la04_2026_0074_f_2026_05_15",
+    "round639_current_planning_la04_2026_0243_f_2026_05_15",
+    "round639_current_planning_la04_2026_0750_f_2026_05_22",
+    "round639_current_planning_la04_2026_0782_f_2026_05_15",
+    "round639_current_planning_la04_2026_0809_f_2026_05_15",
+    "round639_current_planning_la04_2026_0810_dca_2026_05_15",
+    "round639_current_planning_la04_2026_0844_f_2026_05_22",
+    "round639_current_planning_la04_2026_0861_f_2026_05_22"
+  ],
+  "source_record_ids": [
+    "Belfast current planning applications: LA04/2024/1411/F; advertised 2026-05-15",
+    "Belfast current planning applications: LA04/2025/2140/F; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0074/F; advertised 2026-05-15",
+    "Belfast current planning applications: LA04/2026/0243/F; advertised 2026-05-15",
+    "Belfast current planning applications: LA04/2026/0750/F; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0782/F; advertised 2026-05-15",
+    "Belfast current planning applications: LA04/2026/0809/F; advertised 2026-05-15",
+    "Belfast current planning applications: LA04/2026/0810/DCA; advertised 2026-05-15",
+    "Belfast current planning applications: LA04/2026/0844/F; advertised 2026-05-22",
+    "Belfast current planning applications: LA04/2026/0861/F; advertised 2026-05-22"
+  ],
+  "passed": true
+}

@@ -1,14 +1,14 @@
 {
   "artifact_kind": "architecture_coverage_report",
-  "generated_at": "2026-05-20T00:00:00Z",
+  "generated_at": "2026-05-23T00:00:00Z",
   "target_scope": {
     "start_date": "2008-01-01",
-    "end_date": "2026-05-20",
+    "end_date": "2026-05-23",
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
   "summary": {
-    "event_count": 94465,
-    "source_count": 435,
+    "event_count": 102317,
+    "source_count": 439,
     "frozen_inventory_source_count": 22,
     "event_years": [
       2008,
@@ -32,18 +32,18 @@
       2026
     ],
     "city_counts": {
-      "belfast": 3806,
-      "london": 30357,
-      "nyc": 60302
+      "belfast": 3823,
+      "london": 33957,
+      "nyc": 64537
     },
     "confidence_counts": {
       "corroborated": 10,
       "disputed": 1,
-      "documented": 94441,
+      "documented": 102293,
       "inferred": 13
     },
     "date_precision_counts": {
-      "day": 93438,
+      "day": 101290,
       "fiscal_year": 1,
       "month": 429,
       "period_end": 1,
@@ -75,69 +75,69 @@
       "2023": 319,
       "2024": 752,
       "2025": 569,
-      "2026": 173
+      "2026": 190
     },
     "london": {
-      "2008": 1877,
-      "2009": 1662,
-      "2010": 1596,
-      "2011": 1803,
-      "2012": 1865,
-      "2013": 1729,
-      "2014": 1995,
-      "2015": 2259,
-      "2016": 2503,
-      "2017": 2463,
-      "2018": 2413,
-      "2019": 2260,
-      "2020": 1260,
-      "2021": 948,
-      "2022": 960,
-      "2023": 1006,
-      "2024": 967,
-      "2025": 689,
+      "2008": 1957,
+      "2009": 1723,
+      "2010": 1661,
+      "2011": 1891,
+      "2012": 1954,
+      "2013": 1813,
+      "2014": 2201,
+      "2015": 2645,
+      "2016": 2913,
+      "2017": 2849,
+      "2018": 2784,
+      "2019": 2713,
+      "2020": 1551,
+      "2021": 1233,
+      "2022": 1252,
+      "2023": 1029,
+      "2024": 981,
+      "2025": 705,
       "2026": 102
     },
     "nyc": {
-      "2008": 1420,
-      "2009": 1300,
-      "2010": 1491,
-      "2011": 1471,
-      "2012": 1798,
-      "2013": 2457,
-      "2014": 2373,
-      "2015": 2567,
-      "2016": 2877,
-      "2017": 3322,
-      "2018": 3210,
-      "2019": 3616,
-      "2020": 3274,
-      "2021": 3673,
-      "2022": 4606,
-      "2023": 5567,
-      "2024": 5970,
-      "2025": 6407,
-      "2026": 2903
+      "2008": 1565,
+      "2009": 1368,
+      "2010": 1589,
+      "2011": 1630,
+      "2012": 1968,
+      "2013": 2627,
+      "2014": 2541,
+      "2015": 2737,
+      "2016": 3047,
+      "2017": 3492,
+      "2018": 3416,
+      "2019": 3962,
+      "2020": 3493,
+      "2021": 4035,
+      "2022": 4997,
+      "2023": 5976,
+      "2024": 6310,
+      "2025": 6779,
+      "2026": 3005
     }
   },
   "city_source_family_counts": {
     "belfast": {
       "documented_milestones": 2453,
-      "heritage": 619,
+      "heritage": 621,
       "other_architecture": 35,
-      "planning_admin": 699
+      "planning_admin": 714
     },
     "london": {
-      "documented_milestones": 28868,
+      "documented_milestones": 32199,
       "heritage": 883,
       "other_architecture": 31,
-      "planning_admin": 575
+      "planning_admin": 844
     },
     "nyc": {
       "documented_milestones": 28529,
       "heritage": 141,
       "other_architecture": 21,
-      "permits": 31192,
+      "permits": 35427,
       "planning_admin": 419
     }
   },
@@ -171,6 +171,14 @@
       "value": 4800
     },
     {
+      "key": "gla-planning-datahub-applications,london-planning-datahub-api-core",
+      "value": 3600
+    },
+    {
+      "key": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "value": 3400
+    },
+    {
       "key": "nyc-dob-certificate-of-occupancy,nyc-dob-now-co-pkdm-hqz6",
       "value": 2332
     },
@@ -191,6 +199,10 @@
       "value": 1041
     },
     {
+      "key": "nyc-dob-filings-permits,nyc-dob-now-build-approved-permits-rbx6-tga4,nyc-dob-now-build-job-application-filings-w9ak-ipjd",
+      "value": 1035
+    },
+    {
       "key": "nyc-architecture-public-pages",
       "value": 1014
     },
@@ -209,18 +221,6 @@
     {
       "key": "historic-england-nhle-amendments-open-data",
       "value": 328
-    },
-    {
-      "key": "nyc-lpc-individual-landmark-sites-buis-pvji",
-      "value": 277
-    },
-    {
-      "key": "nyc-dob-now-co-pkdm-hqz6",
-      "value": 254
-    },
-    {
-      "key": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "value": 252
     }
   ],
   "frozen_inventory_by_city": {

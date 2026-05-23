@@ -3,7 +3,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const TARGET_START = "2008-01-01";
-const TARGET_END = "2026-05-20";
+const TARGET_END = "2026-05-23";
 const MILESTONES_PATH = path.join(
   ROOT,
   "data",
@@ -78,7 +78,7 @@ function main() {
     end_date: TARGET_END,
     interpretation: "Records are evidence of the stated source milestone only. Planning approval is not construction, permit issuance is not completion, and completion/opening is used only where a source explicitly says completed or opened.",
   };
-  payload.last_normalized_at = "2026-05-20";
+  payload.last_normalized_at = "2026-05-23";
 
   const sourceById = new Map((payload.sources || []).map((source) => [source.source_id, source]));
   let changedEvents = 0;

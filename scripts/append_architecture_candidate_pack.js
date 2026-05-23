@@ -19,6 +19,10 @@ const CITY_PREFIX = {
   nyc: "nyc",
 };
 
+const SOURCE_ID_ALIASES = {
+  "london-planning-datahub-api/core": "london-planning-datahub-api-core",
+};
+
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, ""));
 }
@@ -37,6 +41,11 @@ function firstValue(...values) {
     if (text) return text;
   }
   return "";
+}
+
+function normalizeSourceId(value) {
+  const sourceId = compactText(value);
+  return SOURCE_ID_ALIASES[sourceId] || sourceId;
 }
 
 function firstYear(value) {
@@ -83,7 +92,7 @@ function candidateRows(candidateDoc) {
 
 function sourceIdsFor(candidate) {
   const ids = Array.isArray(candidate.source_ids) ? candidate.source_ids : [candidate.source_id];
-  return [...new Set(ids.map(compactText).filter(Boolean))];
+  return [...new Set(ids.map(normalizeSourceId).filter(Boolean))];
 }
 
 function sourceTitle(sourceId, rows) {
@@ -92,6 +101,12 @@ function sourceTitle(sourceId, rows) {
   }
   if (sourceId === "nyc-dob-now-build-job-application-filings-w9ak-ipjd") {
     return "NYC Open Data: DOB NOW: Build - Job Application Filings";
+  }
+  if (sourceId === "london-planning-datahub-api-core") {
+    return "Planning London Datahub applications API";
+  }
+  if (sourceId === "nyc-open-data-lpc-permit-application-information-dpm2-m9mq") {
+    return "NYC Open Data: LPC Permit Application Information";
   }
   return firstValue(rows[0]?.source_name, sourceId);
 }
@@ -110,6 +125,15 @@ function accessUrlFor(sourceId, rows) {
       "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Job-Application-Filings/w9ak-ipjd",
     );
   }
+  if (sourceId === "london-planning-datahub-api-core") {
+    return firstValue(first.source_api_url, "https://planningdata.london.gov.uk/api-guest/applications/_search");
+  }
+  if (sourceId.startsWith("belfast-city-council-current-planning-applications")) {
+    return firstValue(first.source_page_url, first.source_url, "https://www.belfastcity.gov.uk/planning-and-building-control/planning/current-planning-applications");
+  }
+  if (sourceId === "nyc-open-data-lpc-permit-application-information-dpm2-m9mq") {
+    return "https://data.cityofnewyork.us/Housing-Development/LPC-Permit-Application-Information/dpm2-m9mq";
+  }
   return firstValue(first.source_page_url, first.source_url, first.application_source_page_url, first.application_source_url);
 }
 
@@ -120,6 +144,89 @@ function sourceFromRows(sourceId, rows, candidateDoc) {
   const first = rows[0] || {};
   const dateFields = [...new Set(rows.map((row) => compactText(row.source_date_field)).filter(Boolean))].slice(0, 4);
   const geometryNotes = [...new Set(rows.map((row) => compactText(row.geometry_precision)).filter(Boolean))].slice(0, 3);
+  if (sourceId === "london-planning-datahub-api-core") {
+    return {
+      source_id: sourceId,
+      city_ids: [...new Set(rows.map((row) => compactText(row.city_id || row.city)).filter(Boolean))].sort(),
+      title: sourceTitle(sourceId, rows),
+      publisher: "Greater London Authority and London planning authorities",
+      bucket: firstValue(first.bucket, "planning/development/lifecycle"),
+      access_url: accessUrlFor(sourceId, rows),
+      licence: firstValue(
+        first.license,
+        first.source_license,
+        "Not Specified on London Datastore dataset page checked 2026-05-20; factual row metadata and source URLs retained.",
+      ),
+      licence_url: firstValue(
+        first.license_url,
+        "https://data.london.gov.uk/dataset/planning-london-datahub-applications-236qk/",
+      ),
+      coverage_years: {
+        start: minYear,
+        end: maxYear,
+      },
+      time_coverage: `Selected Planning London Datahub administrative lifecycle rows from ${minYear}-${maxYear} in ${candidateDoc.worker || "the architecture candidate pack"}.`,
+      spatial_granularity:
+        geometryNotes.join("; ") || "Row-level PLD centroid; not a surveyed parcel, building footprint, or work-area polygon.",
+      temporal_granularity: dateFields.join("; ") || "PLD actual_commencement_date or actual_completion_date source field.",
+      update_frequency: "Daily publisher-updated Planning London Datahub operating dataset.",
+      retrieved_at: firstValue(candidateDoc.accessed_at, candidateDoc.generated_at, first.accessed_at, "2026-05-20"),
+      limitations:
+        "PLD lifecycle rows are administrative planning records. They do not directly evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
+    };
+  }
+  if (sourceId.startsWith("belfast-city-council-current-planning-applications")) {
+    return {
+      source_id: sourceId,
+      city_ids: [...new Set(rows.map((row) => compactText(row.city_id || row.city)).filter(Boolean))].sort(),
+      title: sourceTitle(sourceId, rows),
+      publisher: firstValue(first.publisher, "Belfast City Council"),
+      bucket: firstValue(first.bucket, "planning/development/current_applications"),
+      access_url: accessUrlFor(sourceId, rows),
+      licence: firstValue(
+        first.license,
+        first.source_license,
+        "Belfast City Council website terms and copyright apply; factual application metadata and source URLs retained.",
+      ),
+      licence_url: firstValue(first.license_url, "https://www.belfastcity.gov.uk/terms-conditions"),
+      coverage_years: {
+        start: minYear,
+        end: maxYear,
+      },
+      time_coverage: `Selected Belfast City Council current-planning application rows advertised from ${minYear}-${maxYear} in appended architecture candidate packs.`,
+      spatial_granularity:
+        geometryNotes.join("; ") || "Approximate OSM/Nominatim address or road point; not a surveyed application boundary.",
+      temporal_granularity: dateFields.join("; ") || "Belfast City Council advertised-on date from current planning applications page.",
+      update_frequency: "Council current-applications page; content changes as applications open and close for comment.",
+      retrieved_at: firstValue(candidateDoc.accessed_at, candidateDoc.generated_at, first.accessed_at, "2026-05-23"),
+      limitations:
+        "Current-planning rows are administrative advertisement/application records. They do not evidence planning permission, construction start, construction completion, public opening, legal occupancy, final built form, or wider effects.",
+    };
+  }
+  if (sourceId === "nyc-open-data-lpc-permit-application-information-dpm2-m9mq") {
+    return {
+      source_id: sourceId,
+      city_ids: [...new Set(rows.map((row) => compactText(row.city_id || row.city)).filter(Boolean))].sort(),
+      title: sourceTitle(sourceId, rows),
+      publisher: firstValue(first.publisher, "NYC Landmarks Preservation Commission / NYC Open Data"),
+      bucket: firstValue(first.bucket, "planning/development/architecture/historic-preservation"),
+      access_url: accessUrlFor(sourceId, rows),
+      licence: firstValue(first.license, first.source_license, "NYC Open Data Terms of Use / NYC.gov Terms of Use"),
+      licence_url: firstValue(first.license_url, "https://opendata.cityofnewyork.us/overview/#termsofuse"),
+      coverage_years: {
+        start: minYear,
+        end: maxYear,
+      },
+      time_coverage: `Selected LPC administrative permit/application rows from ${minYear}-${maxYear} in ${candidateDoc.worker || "the architecture candidate pack"}.`,
+      spatial_granularity:
+        geometryNotes.join("; ") || "Official row point/geocode for the permit address or parcel context; not a landmark boundary or proposed-work geometry.",
+      temporal_granularity: dateFields.join("; ") || "issue_date from the LPC Permit Application Information row.",
+      update_frequency: "NYC Open Data operating dataset; publisher-updated.",
+      retrieved_at: firstValue(candidateDoc.accessed_at, candidateDoc.generated_at, first.accessed_at, "2026-05-23"),
+      limitations:
+        "LPC permit/application rows are administrative preservation records. They do not evidence construction start, construction completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry.",
+    };
+  }
   return {
     source_id: sourceId,
     city_ids: [...new Set(rows.map((row) => compactText(row.city_id || row.city)).filter(Boolean))].sort(),
@@ -145,6 +252,26 @@ function sourceFromRows(sourceId, rows, candidateDoc) {
     limitations:
       "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
   };
+}
+
+function extendSourceCoverage(source, rows, candidateDoc) {
+  const years = rows.map((row) => firstYear(row.date || row.effective_date)).filter(Boolean);
+  if (!years.length) return false;
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
+  const currentStart = Number(source.coverage_years?.start) || minYear;
+  const currentEnd = Number(source.coverage_years?.end) || maxYear;
+  const nextStart = Math.min(currentStart, minYear);
+  const nextEnd = Math.max(currentEnd, maxYear);
+  if (nextStart === currentStart && nextEnd === currentEnd) return false;
+
+  source.coverage_years = { start: nextStart, end: nextEnd };
+  if (source.source_id === "london-planning-datahub-api-core") {
+    source.time_coverage = `Selected Planning London Datahub administrative lifecycle rows from ${nextStart}-${nextEnd} in appended architecture candidate packs.`;
+  } else if (!compactText(source.time_coverage)) {
+    source.time_coverage = `Selected administrative source rows from ${nextStart}-${nextEnd} in ${candidateDoc.worker || "appended architecture candidate packs"}.`;
+  }
+  return true;
 }
 
 function normalizeEvent(candidate, candidateDoc) {
@@ -245,6 +372,7 @@ function appendPack(packPath) {
   const appended = [];
   const skipped = [];
   const rowsBySourceId = new Map();
+  const appendedRowsBySourceId = new Map();
 
   for (const candidate of rows) {
     const event = normalizeEvent(candidate, candidateDoc);
@@ -261,6 +389,7 @@ function appendPack(packPath) {
       if (!sourceById.has(sourceId)) {
         rowsBySourceId.set(sourceId, [...(rowsBySourceId.get(sourceId) || []), candidate]);
       }
+      appendedRowsBySourceId.set(sourceId, [...(appendedRowsBySourceId.get(sourceId) || []), event]);
     }
     milestoneDoc.events.push(event);
     existingEventIds.add(event.event_id);
@@ -273,6 +402,14 @@ function appendPack(packPath) {
       const source = sourceFromRows(sourceId, sourceRows, candidateDoc);
       milestoneDoc.sources.push(source);
       sourceById.set(sourceId, source);
+    }
+  }
+
+  const extendedSources = [];
+  for (const [sourceId, sourceRows] of appendedRowsBySourceId.entries()) {
+    const source = sourceById.get(sourceId);
+    if (source && extendSourceCoverage(source, sourceRows, candidateDoc)) {
+      extendedSources.push(sourceId);
     }
   }
 
@@ -295,6 +432,8 @@ function appendPack(packPath) {
         skipped_count: skipped.length,
         added_source_count: rowsBySourceId.size,
         added_sources: [...rowsBySourceId.keys()].sort(),
+        extended_source_count: extendedSources.length,
+        extended_sources: extendedSources.sort(),
         first_appended_event_id: appended[0] || null,
       },
       null,

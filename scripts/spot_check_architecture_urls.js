@@ -66,7 +66,7 @@ function prioritySourceSamples(inventory) {
 async function checkUrl(sample) {
   const result = {
     ...sample,
-    checked_at: "2026-05-20T00:00:00Z",
+    checked_at: "2026-05-23T00:00:00Z",
     ok: false,
     status: null,
     final_url: null,
@@ -149,7 +149,7 @@ async function main() {
   const failures = assertSpotCheckQuality(summary);
   const payload = {
     artifact_kind: "architecture_url_spot_check",
-    generated_at: "2026-05-20T00:00:00Z",
+    generated_at: "2026-05-23T00:00:00Z",
     target_scope: inventory.target_scope,
     sample_count: results.length,
     summary,

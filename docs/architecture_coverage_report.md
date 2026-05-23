@@ -1,8 +1,8 @@
 # Architecture Coverage Report
 
-Generated: 2026-05-20T00:00:00Z
+Generated: 2026-05-23T00:00:00Z
 
-Target window: 2008-01-01 through 2026-05-20.
+Target window: 2008-01-01 through 2026-05-23.
 
 This report counts source-backed architecture-related administrative and documented milestones. It is not a claim of complete city coverage, construction outcomes, or causal impact.
 
@@ -10,11 +10,11 @@ This report counts source-backed architecture-related administrative and documen
 
 | City | Events | Dominant source families |
 | --- | --- | --- |
-| belfast | 3806 | documented_milestones 2453, heritage 619, other_architecture 35, planning_admin 699 |
-| london | 30357 | documented_milestones 28868, heritage 883, other_architecture 31, planning_admin 575 |
-| nyc | 60302 | documented_milestones 28529, heritage 141, other_architecture 21, permits 31192, planning_admin 419 |
+| belfast | 3823 | documented_milestones 2453, heritage 621, other_architecture 35, planning_admin 714 |
+| london | 33957 | documented_milestones 32199, heritage 883, other_architecture 31, planning_admin 844 |
+| nyc | 64537 | documented_milestones 28529, heritage 141, other_architecture 21, permits 35427, planning_admin 419 |
 
-Total architecture events: 94465. Manual source entries: 435. Frozen priority inventory sources: 22.
+Total architecture events: 102317. Manual source entries: 439. Frozen priority inventory sources: 22.
 
 ## Frozen Priority Sources
 

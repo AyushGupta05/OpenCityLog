@@ -1,0 +1,121 @@
+{
+  "ok": true,
+  "read_at": "2026-05-20T00:00:00Z",
+  "task": "round607_london_pld_lifecycle_next101",
+  "files": {
+    "candidates.json": {
+      "exists": true,
+      "bytes": 1940977
+    },
+    "source_audit.json": {
+      "exists": true,
+      "bytes": 4591
+    },
+    "validation_report.json": {
+      "exists": true,
+      "bytes": 10558
+    },
+    "summary.json": {
+      "exists": true,
+      "bytes": 61458
+    },
+    "rejected.json": {
+      "exists": true,
+      "bytes": 529758
+    },
+    "readback.json": {
+      "exists": true,
+      "bytes": 4693
+    },
+    "validation.json": {
+      "exists": true,
+      "bytes": 1231
+    },
+    "strict_duplicate_audit.json": {
+      "exists": true,
+      "bytes": 461
+    },
+    "notes.md": {
+      "exists": true,
+      "bytes": 2482
+    }
+  },
+  "candidate_count": 150,
+  "date_range": {
+    "min": "2017-09-15",
+    "max": "2019-05-10"
+  },
+  "source_ids": [
+    "gla-planning-datahub-applications",
+    "london-planning-datahub-api-core"
+  ],
+  "source_audit_count": 2,
+  "rejection_count": 111528,
+  "validation_ok": true,
+  "validation_report_ok": true,
+  "lifecycle_field_mix": {
+    "actual_completion_date": 121,
+    "actual_commencement_date": 29
+  },
+  "selected_by_borough": {
+    "Islington": 6,
+    "Waltham Forest": 4,
+    "Greenwich": 4,
+    "Croydon": 7,
+    "City of London": 1,
+    "Barnet": 2,
+    "Ealing": 11,
+    "Lewisham": 10,
+    "Camden": 7,
+    "Hounslow": 3,
+    "Bexley": 4,
+    "Wandsworth": 7,
+    "Brent": 2,
+    "Harrow": 6,
+    "Kingston upon Thames": 5,
+    "Westminster": 9,
+    "Kensington and Chelsea": 8,
+    "Bromley": 1,
+    "Sutton": 8,
+    "Hackney": 3,
+    "Haringey": 2,
+    "Newham": 4,
+    "Richmond upon Thames": 1,
+    "Hillingdon": 2,
+    "Enfield": 1,
+    "Redbridge": 4,
+    "Tower Hamlets": 2,
+    "Merton": 4,
+    "London Borough of Bexley": 2,
+    "Royal Borough of Kingston (LA Code)": 3,
+    "Havering": 3,
+    "London Borough of Barnet": 1,
+    "Southwark": 4,
+    "Lambeth": 3,
+    "Hammersmith and Fulham": 2,
+    "Kingston": 2,
+    "Barking and Dagenham": 2
+  },
+  "dedupe_basis": "Live data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json plus all discovered London PLD lifecycle scratch packs through round606, explicitly including round126 direct/more, round140, round147, round150, round153, round157, round161, round166, round172, round178, round184, round190, round196, round202, round208, round217, round223, round230, round238, round243, round248, round253, round261, round266, round272, round276, round284, round288, round298, round301, round306, round311, round316, round323, round327, round328, round333, round338, round343, round348, round350, round354, round358, round362, round365, round369, round373, round377, round380, round384, round387, round393, round398, round404, round410, round416, round421, round425, round428, round432, round436, round439, round444, round448, round451, round457, round460, round467, round469, round474, round478, round481, round485, round488, round490, round496, round500, round504, round508, round512, round517, round522, round526, round529, round534, round537, round542, round547, round550, round552, round557, round562, round567, round570, round576, round579, round584, round589, round594, round597, round605, and round606, scanned for PLD ids, source URL/source record ids, source-record/source-url/date-field/date keys, source-date-field/date keys, and title/date keys.",
+  "caveats": [
+    "Candidates are source-reported administrative lifecycle records only; source planning documents and site-specific evidence are needed before treating them as construction start, completion, opening, occupation, final built form, or wider-result records.",
+    "Exact source row/date-field/date duplicates already present in the live manual corpus or prior PLD lifecycle packs through round606 were excluded.",
+    "London Datastore licence is Not Specified for this source, so the pack retains factual metadata and attribution only."
+  ],
+  "readback_checks": [
+    "all requested output files parsed",
+    "candidate counts agree across candidates, summary, validation, and validation_report",
+    "source audit includes PLD dataset and API source ids",
+    "notes retain administrative lifecycle caveat",
+    "candidate aliases include category, layer, bucket, id, method, planning_reference, status, decision, and lifecycle_milestone",
+    "dedupe basis includes PLD lifecycle packs through round606",
+    "round606 prior PLD lifecycle pack was scanned",
+    "strict duplicate audit found no event id, source_url/source_record_id, or title/date overlap",
+    "readback file exists after final write",
+    "candidate source row ref aliases present"
+  ],
+  "source_row_ref_alias_count": 150,
+  "round607_postprocess_checks": [
+    "explicit source_row_ref and source_row_refs aliases are present on every promoted candidate"
+  ]
+}

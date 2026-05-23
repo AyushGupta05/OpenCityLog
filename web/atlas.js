@@ -122,9 +122,9 @@
       mapMode: "transport-speed",
       panelMode: "transport",
       summary: "Road and transit segments are colored by source-backed transport activity and mapped delay proxies around the selected event.",
-      caveat: "Speed colors are derived from activity records and mapped context, not live or measured congestion.",
+      caveat: "Flow-proxy colors are derived from activity records and mapped context, not km/h, live congestion, or measured speed.",
       layers: [
-        { id: "transport", label: "Roads (speed)", color: "#138b43", categoryToggle: true },
+        { id: "transport", label: "Road flow proxy", color: "#138b43", categoryToggle: true },
         { id: "public_transport", label: "Public transport", color: "#ef3d2f" },
         { id: "cycle_network", label: "Cycle network", color: "#f0a719" },
         { id: "rail", label: "Rail", color: "#7a3b97" },
@@ -146,14 +146,14 @@
       badge: "T",
       label: "Access",
       shortLabel: "Access",
-      title: "Isochrone accessibility fabric",
-      description: "What's reachable within time by walk, bus, or rail?",
+      title: "Access-proxy fabric",
+      description: "Mapped network-proxy bands around the selected event.",
       radiusM: 800,
       accent: "#0f8d95",
       mapMode: "transport-access",
       panelMode: "transport",
-      summary: "Door-to-door access bands are generated from the selected event location and current transport network evidence.",
-      caveat: "Walk and recalibrated accessibility surfaces are indicative and may be incomplete.",
+      summary: "Access-proxy bands are generated from mapped network and source context around the selected event.",
+      caveat: "Access bands are mapped context guides, not door-to-door travel-time calculations.",
       layers: [
         { id: "transport", label: "Walk network", color: "#0f8d95", categoryToggle: true },
         { id: "bus_network", label: "Bus network", color: "#2873c5" },
@@ -163,11 +163,11 @@
         { id: "barriers", label: "Barriers & terrain", color: "#b9b9b2" },
       ],
       legend: [
-        { label: "15 min", color: "#e97761", shape: "polygon" },
-        { label: "30 min", color: "#edbd62", shape: "polygon" },
-        { label: "45 min", color: "#dcd776", shape: "polygon" },
-        { label: "60 min", color: "#9bcf9d", shape: "polygon" },
-        { label: "> 60 min", color: "#7fc0bf", shape: "outline" },
+        { label: "Inner access-proxy band", color: "#e97761", shape: "polygon" },
+        { label: "Near access-proxy band", color: "#edbd62", shape: "polygon" },
+        { label: "Middle access-proxy band", color: "#dcd776", shape: "polygon" },
+        { label: "Outer access-proxy band", color: "#9bcf9d", shape: "polygon" },
+        { label: "Edge access-proxy band", color: "#7fc0bf", shape: "outline" },
       ],
     },
     {
@@ -183,8 +183,8 @@
       accent: "#0f8d95",
       mapMode: "transport-reliability",
       panelMode: "transport",
-      summary: "Line styles distinguish reliable, delayed, interrupted, planned, and inferred service threads.",
-      caveat: "Service data may be partial or delayed; planned lines are not delivered service.",
+      summary: "Line styles distinguish lower disruption signal, delayed, interrupted, planned, and inferred service threads.",
+      caveat: "Service data may be partial or delayed; these are record/context signals, not timetable reliability measurements.",
       layers: [
         { id: "transport", label: "Roads (base)", color: "#0f8d95", categoryToggle: true },
         { id: "public_transport", label: "Public transport", color: "#248b94" },
@@ -194,8 +194,8 @@
         { id: "incidents", label: "Incidents", color: "#7f563d" },
       ],
       legend: [
-        { label: "Reliable (on-time)", color: "#248b94", shape: "line" },
-        { label: "Unreliable (delayed)", color: "#ef9c1a", shape: "outline" },
+        { label: "Lower disruption signal", color: "#248b94", shape: "line" },
+        { label: "Higher delay signal", color: "#ef9c1a", shape: "outline" },
         { label: "Interrupted", color: "#ed3f2b", shape: "line" },
         { label: "Planned / future", color: "#7a3b97", shape: "outline" },
         { label: "Inferred / uncertain", color: "#898b8e", shape: "outline" },
@@ -340,7 +340,7 @@
       accent: "#e5a91c",
       mapMode: "civic-catchment",
       panelMode: "civic",
-      summary: "Generated catchment cells group nearby source-backed civic records by service type and demand capacity.",
+      summary: "Generated catchment cells group nearby source-backed civic records by service type and mapped context signal.",
       caveat: "Catchment cells are derived evidence areas and should not be read as official service boundaries.",
       layers: [
         { id: "civic_services", label: "Schools", color: "#178f8f", categoryToggle: true },
@@ -351,11 +351,11 @@
         { id: "safety", label: "Safety services", color: "#8c5b3a" },
       ],
       legend: [
-        { label: "Very high (>120%)", color: "#58a69f", shape: "polygon" },
-        { label: "High (90-120%)", color: "#a6c7a4", shape: "polygon" },
-        { label: "Medium (60-90%)", color: "#e6d690", shape: "polygon" },
-        { label: "Low (30-60%)", color: "#efb367", shape: "polygon" },
-        { label: "Very low (<30%)", color: "#e68c70", shape: "polygon" },
+        { label: "Very high context signal", color: "#58a69f", shape: "polygon" },
+        { label: "High context signal", color: "#a6c7a4", shape: "polygon" },
+        { label: "Medium context signal", color: "#e6d690", shape: "polygon" },
+        { label: "Low context signal", color: "#efb367", shape: "polygon" },
+        { label: "Very low context signal", color: "#e68c70", shape: "polygon" },
       ],
     },
     {
@@ -366,7 +366,7 @@
       label: "Demand",
       shortLabel: "Demand",
       title: "Demand-pressure grid",
-      description: "Where demand outpaces provision and how it is shifting.",
+      description: "Where civic-service context signals cluster and shift.",
       radiusM: 1500,
       accent: "#e5a91c",
       mapMode: "civic-demand",
@@ -382,11 +382,11 @@
         { id: "neighbourhoods", label: "Neighbourhoods", color: "#2a8a8d" },
       ],
       legend: [
-        { label: "Very high (>150%)", color: "#cf3d4d", shape: "polygon" },
-        { label: "High (100-150%)", color: "#ed7c62", shape: "polygon" },
-        { label: "Medium (50-100%)", color: "#efc06d", shape: "polygon" },
-        { label: "Low (10-50%)", color: "#8fbfba", shape: "polygon" },
-        { label: "Surplus (<0%)", color: "#55a39d", shape: "polygon" },
+        { label: "Very high context signal", color: "#cf3d4d", shape: "polygon" },
+        { label: "High context signal", color: "#ed7c62", shape: "polygon" },
+        { label: "Medium context signal", color: "#efc06d", shape: "polygon" },
+        { label: "Low context signal", color: "#8fbfba", shape: "polygon" },
+        { label: "Very low context signal", color: "#55a39d", shape: "polygon" },
       ],
     },
     {
@@ -408,7 +408,7 @@
         { id: "economy", label: "Street-front vitality", color: "#7b3a8f", categoryToggle: true },
         { id: "vacancy", label: "Vacancy rate", color: "#ed3135" },
         { id: "footfall", label: "Footfall (index)", color: "#188a98" },
-        { id: "spend", label: "Spend (index)", color: "#f0a51b" },
+        { id: "spend", label: "Spend-context records", color: "#f0a51b" },
         { id: "openings", label: "Openings (12 mo)", color: "#5eaa4e" },
         { id: "closures", label: "Closures (12 mo)", color: "#8c5b3a" },
       ],
@@ -496,7 +496,7 @@
       mapMode: "utilities-capacity",
       panelMode: "utilities",
       summary: "Current OSM utility context, service records, and road-adjacent traces are colored as a descriptive network x-ray.",
-      caveat: "Trace utility types are derived from nearby mapped assets and service context; load-risk styling is descriptive, not measured capacity.",
+      caveat: "Trace utility types are derived from nearby mapped assets and service context; high-context styling is descriptive, not measured capacity.",
       layers: [
         { id: "utilities", label: "Power", color: "#ef6b2a", categoryToggle: true, utilityType: "electricity" },
         { id: "water", label: "Water", color: "#2f85bd", utilityType: "water" },
@@ -521,13 +521,13 @@
       label: "Resilience",
       shortLabel: "Resilience",
       title: "Service resilience paths",
-      description: "Trace critical infrastructure routes, alternates and single points of failure.",
+      description: "Trace mapped infrastructure routes, alternates and possible pinch points.",
       radiusM: 1500,
       accent: "#e85b1f",
       mapMode: "utilities-resilience",
       panelMode: "utilities",
       summary: "Primary, backup, and inferred service paths are drawn from current OSM utility context plus dated records.",
-      caveat: "Service paths and exposure areas are descriptive guides, not outage proof or engineering capacity data; utility records may be partial.",
+      caveat: "Service paths and exposure areas are descriptive guides, not outage records or engineering capacity data; utility records may be partial.",
       layers: [
         { id: "utilities", label: "Water network", color: "#1787b3", categoryToggle: true, utilityType: "water" },
         { id: "power_network", label: "Power network", color: "#ef6b2a", utilityType: "electricity" },
@@ -540,8 +540,8 @@
         { label: "Primary feeder", color: "#1787b3", shape: "line" },
         { label: "Backup path", color: "#1787b3", shape: "outline" },
         { label: "Inferred / planned", color: "#1787b3", shape: "outline" },
-        { label: "Single point of failure", color: "#d53236", shape: "diamond" },
-        { label: "Outage boundary", color: "#b93234", shape: "outline" },
+        { label: "Possible pinch point", color: "#d53236", shape: "diamond" },
+        { label: "Context boundary", color: "#b93234", shape: "outline" },
       ],
     },
     {
@@ -854,6 +854,9 @@
     loadingYears: new Map(),
     yearLoadErrors: new Map(),
     eventById: new Map(),
+    manualYearOverride: null,
+    manualLensOverride: null,
+    manualAspectOverride: null,
     selectedEventId: null,
     selectedEvent: null,
     detailBeforeYear: null,
@@ -912,6 +915,7 @@
     lensEventSourceKey: "",
     lensInteractiveLayers: new Set(),
     lensGuideFeatureCache: { type: "FeatureCollection", features: [] },
+    lensGuideSourceRefreshTimers: [],
     lensGuideLabelLayer: null,
     lensGuideLabelRaf: null,
   };
@@ -1066,7 +1070,7 @@
     // Proposal Lens
     els.lensFab?.addEventListener("click", () => setLensOpen(true));
     els.lensClose?.addEventListener("click", () => setLensOpen(false));
-    els.lensExport?.addEventListener("click", () => toast("Export coming soon — every analogue carries its source chain"));
+    els.lensExport?.addEventListener("click", () => toast("Export coming soon - verify analogue prompts against logged source rows before citing"));
     els.lensDiscuss?.addEventListener("click", () => toast("Team workspaces ship in the next OpenCityLog drop"));
 
     // Timeline play
@@ -1124,6 +1128,9 @@
     stopPlay();
     state.cityId = cityId;
     state.cityMeta = cityMeta(cityId);
+    state.manualYearOverride = null;
+    state.manualLensOverride = null;
+    state.manualAspectOverride = null;
     if (!state.cityMeta) throw new Error(`City not found: ${cityId}`);
 
     setAppStatus(`Loading ${shortCityName(state.cityMeta.display_name)}…`);
@@ -1160,6 +1167,13 @@
       : normalizeMapLensId(params.get("lens"));
     state.activeLens = requestedLens || state.activeLens || DEFAULT_MAP_LENS;
     state.activeAspect = requestedAspect || defaultAspectForCategory(state.activeLens);
+    if (state.manualAspectOverride && LENS_ASPECT_BY_ID.has(state.manualAspectOverride)) {
+      state.activeAspect = state.manualAspectOverride;
+      state.activeLens = LENS_ASPECT_BY_ID.get(state.manualAspectOverride).category || state.activeLens;
+    } else if (state.manualLensOverride && MAP_LENS_BY_ID.has(state.manualLensOverride)) {
+      state.activeLens = state.manualLensOverride;
+      state.activeAspect = defaultAspectForCategory(state.activeLens);
+    }
     const desiredYear = Number(params.get("year"));
     if (Number.isFinite(desiredYear) && state.years.includes(desiredYear)) {
       state.year = desiredYear;
@@ -1204,6 +1218,14 @@
     // Preload current year for snappier first interaction
     await loadYear(state.year);
     await loadLensYearsForTimeline(state.year);
+    const manualYear = Number(state.manualYearOverride);
+    if (Number.isFinite(manualYear) && state.years.includes(manualYear) && manualYear !== state.year) {
+      state.year = manualYear;
+      state.compareAfterYear = manualYear;
+      setText(els.tlYear, String(manualYear));
+      await loadYear(manualYear);
+      await loadLensYearsForTimeline(manualYear);
+    }
     renderAll();
     updateTimeDependentMapState();
     renderMarkers();
@@ -1788,7 +1810,7 @@
 
   function renderCivicCatchmentMapLegend(lens) {
     return `
-      <aside class="catchment-map-legend" aria-label="Catchment capacity legend">
+      <aside class="catchment-map-legend" aria-label="Catchment context legend">
         ${renderCivicCatchmentLegend(lens, lensStatusText(lens))}
       </aside>
     `;
@@ -1815,12 +1837,14 @@
             <div class="demand-arrow-row"><i></i><span>After selected event</span></div>
           </div>
           <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
+          ${renderLensLegendNote(status, lens, "Demand-pressure cells combine source-backed civic records, current mapped service anchors, and nearby change context; it is not a population forecast or causal estimate.")}
         </div>
       </aside>
     `;
   }
 
   function renderUtilityCapacityMapLegend(lens) {
+    const status = lensStatusText(lens);
     const typeRows = lens.layers.map((layer) => {
       const type = layer.utilityType || (layer.id === "utilities" ? "electricity" : layer.id);
       return `
@@ -1841,11 +1865,11 @@
           ${typeRows}
         </section>
         <section>
-          <span>Load risk (current)</span>
-          <div class="utility-risk-row"><i style="--risk-color:#d62d35"></i><b>Very high (&gt;90%)</b></div>
-          <div class="utility-risk-row"><i style="--risk-color:#ef6b35"></i><b>High (70-90%)</b></div>
-          <div class="utility-risk-row"><i style="--risk-color:#e2b42c"></i><b>Medium (40-70%)</b></div>
-          <div class="utility-risk-row"><i style="--risk-color:#438c64"></i><b>Low (&lt;40%)</b></div>
+          <span>Utility context signal (current)</span>
+          <div class="utility-risk-row"><i style="--risk-color:#d62d35"></i><b>Very high context signal</b></div>
+          <div class="utility-risk-row"><i style="--risk-color:#ef6b35"></i><b>High context signal</b></div>
+          <div class="utility-risk-row"><i style="--risk-color:#e2b42c"></i><b>Medium context signal</b></div>
+          <div class="utility-risk-row"><i style="--risk-color:#438c64"></i><b>Low context signal</b></div>
           <div class="utility-risk-row muted"><i></i><b>No data</b></div>
         </section>
         <section>
@@ -1856,6 +1880,7 @@
           <div class="utility-asset-row"><i data-symbol="M"></i><b>Manhole / chamber</b></div>
           <div class="utility-asset-row"><i data-symbol="V"></i><b>Valve</b></div>
         </section>
+        ${renderLensLegendNote(status, lens, "Current mapped utility context may post-date the selected year and is not engineering capacity data.")}
       </aside>
     `;
   }
@@ -1882,11 +1907,11 @@
             <div class="planning-symbol-row"><i class="planning-outline" style="--planning-color:#cf6a57"></i><span>Before footprint</span></div>
           </div>
           <div class="planning-legend-section">
-            <span>Height-change signal</span>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#d8583f"></i><span>Significant increase</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#d99175"></i><span>Increase</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#9b8fb4"></i><span>Minor change</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#7aa3a6"></i><span>Decrease</span></div>
+            <span>Built-form signal</span>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#d8583f"></i><span>Higher-intensity signal</span></div>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#d99175"></i><span>Growth signal</span></div>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#9b8fb4"></i><span>Mixed / low signal</span></div>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#7aa3a6"></i><span>Loss/removal signal</span></div>
             <div class="planning-symbol-row"><i class="planning-empty"></i><span>No data</span></div>
           </div>
           <div class="planning-legend-section">
@@ -1895,6 +1920,7 @@
             <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#e7b454"></i><span>Change in use</span></div>
             <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#8f9494"></i><span>Demolition / loss</span></div>
           </div>
+          ${renderLensLegendNote(status, lens, "Mapped footprint context is descriptive and is not measured construction volume.")}
         </div>
       </aside>
     `;
@@ -1926,12 +1952,14 @@
             <div class="planning-line-row"><i class="strategic"></i><span>Strategic</span></div>
           </div>
           <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
+          ${renderLensLegendNote(status, lens, "Parcel-stage cells are source-backed where records exist; inferred context remains labelled.")}
         </div>
       </aside>
     `;
   }
 
   function renderUtilityResilienceMapLegend(lens) {
+    const status = lensStatusText(lens);
     const outageCount = (state.lensGuideFeatureCache?.features || [])
       .filter((feature) => feature.properties?.lens_id === lens.id && feature.properties?.cell_style === "surface_cell")
       .length;
@@ -1943,8 +1971,8 @@
         <strong>Resilience legend</strong>
         <section>
           <span>Route type</span>
-          <div class="utility-route-row"><i class="primary"></i><b>Primary feeder (in service)</b></div>
-          <div class="utility-route-row"><i class="backup"></i><b>Backup path (alternate)</b></div>
+          <div class="utility-route-row"><i class="primary"></i><b>Primary mapped path</b></div>
+          <div class="utility-route-row"><i class="backup"></i><b>Alternate mapped path</b></div>
           <div class="utility-route-row"><i class="inferred"></i><b>Inferred / planned</b></div>
           <div class="utility-route-row"><i class="retired"></i><b>Decommissioned</b></div>
         </section>
@@ -1956,8 +1984,8 @@
           <div class="utility-symbol-row"><i data-symbol="G"></i><b>Gas regulator</b></div>
           <div class="utility-symbol-row"><i data-symbol="P"></i><b>Pump / manhole</b></div>
           <div class="utility-symbol-row"><i data-symbol="D"></i><b>District energy exchange</b></div>
-          <div class="utility-symbol-row danger"><i data-symbol="!"></i><b>Single point of failure</b></div>
-          <div class="utility-boundary-row"><i></i><b>Outage boundary${outageCount ? ` (${compactNumber(outageCount)})` : ""}</b></div>
+          <div class="utility-symbol-row danger"><i data-symbol="!"></i><b>Possible pinch point</b></div>
+          <div class="utility-boundary-row"><i></i><b>Context boundary${outageCount ? ` (${compactNumber(outageCount)})` : ""}</b></div>
         </section>
         <section>
           <span>Confidence (routes)</span>
@@ -1965,11 +1993,13 @@
           <div class="utility-confidence-row medium"><i></i><b>Medium</b></div>
           <div class="utility-confidence-row low"><i></i><b>Low</b></div>
         </section>
+        ${renderLensLegendNote(status, lens, "Mapped routes are descriptive context, not outage proof or capacity data.")}
       </aside>
     `;
   }
 
   function renderUtilityWorksMapLegend(lens) {
+    const status = lensStatusText(lens);
     const counts = utilityWorksGuideStatusCounts();
     const statusRows = lens.layers
       .filter((layer) => !layer.categoryToggle)
@@ -2009,6 +2039,7 @@
             <i data-symbol="H" style="--type-color:#7a5438" title="District energy"></i>
           </div>
         </section>
+        ${renderLensLegendNote(status, lens, "Works records are shown where source-backed rows exist; mapped context may be partial.")}
       </aside>
     `;
   }
@@ -2731,7 +2762,7 @@
             ["==", ["get", "lens_id"], "planning-delta"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.45, 0.24, 1, 0.42],
             ["==", ["get", "lens_id"], "planning-parcels"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.46, 0.55, 0.68, 1, 0.86],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.28, 0.55, 0.46, 1, 0.64],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.26, 0.55, 0.5, 1, 0.68],
           ],
           ["==", ["get", "surface_style"], "catchment_area"],
@@ -2749,7 +2780,19 @@
           ["==", ["get", "surface_style"], "catchment_patch"],
           ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.22, 0.34],
           ["==", ["get", "surface_style"], "land_use_tile"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.48, 1, 0.84],
+          ["case",
+            ["==", ["get", "evidence_role"], "context_not_year_specific_change_evidence"],
+            ["case",
+              ["==", ["get", "source_kind"], "current_context_road_infill"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.055, 0.55, 0.1, 1, 0.16],
+              ["==", ["get", "source_kind"], "current_context_block_mosaic"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.55, 0.17, 1, 0.28],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.13, 0.55, 0.22, 1, 0.34],
+            ],
+            ["match", ["get", "source_kind"], ["road_adjacency_infill", "current_context_road_infill"], true, false],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.55, 0.32, 1, 0.52],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.42, 0.55, 0.62, 1, 0.82],
+          ],
           ["==", ["get", "lens_id"], "civic-demand"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.46],
           ["==", ["get", "lens_id"], "civic-catchment"],
@@ -2797,13 +2840,13 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.035, 1, 0.09],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.58, 0.36, 1, 0.58],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.08, 0.58, 0.2, 1, 0.34],
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case",
             ["==", ["get", "lens_id"], "planning-pressure"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.55, 0.28, 1, 0.4],
             ["==", ["get", "lens_id"], "planning-delta"], 0.44,
-            ["==", ["get", "lens_id"], "planning-parcels"], 0.68,
+            ["==", ["get", "lens_id"], "planning-parcels"], 0.44,
             0.7,
           ],
           ["==", ["get", "surface_style"], "catchment_area"],
@@ -2811,14 +2854,25 @@
           ["==", ["get", "surface_style"], "catchment_backdrop"],
           ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.26, 0.58],
           ["==", ["get", "surface_style"], "catchment_patch"], 0.5,
-          ["==", ["get", "surface_style"], "land_use_tile"], 0.68,
+          ["==", ["get", "surface_style"], "land_use_tile"],
+          ["case",
+            ["==", ["get", "evidence_role"], "context_not_year_specific_change_evidence"],
+            ["case",
+              ["==", ["get", "source_kind"], "current_context_road_infill"], 0.08,
+              ["==", ["get", "source_kind"], "current_context_block_mosaic"], 0.16,
+              0.2,
+            ],
+            ["match", ["get", "source_kind"], ["road_adjacency_infill", "current_context_road_infill"], true, false],
+            0.22,
+            0.44,
+          ],
           0.52,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.62, ["==", ["get", "surface_style"], "access_fabric"], 0.1, ["==", ["get", "surface_style"], "demand_surface"], 0.16, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.32, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
-          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.02, ["==", ["get", "surface_style"], "access_fabric"], 0.2, ["==", ["get", "surface_style"], "demand_surface"], 0.36, ["==", ["get", "surface_style"], "planning_footprint"], 0.9, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.92, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.18, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
-          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.34, ["==", ["get", "surface_style"], "access_fabric"], 0.3, ["==", ["get", "surface_style"], "demand_surface"], 0.56, ["==", ["get", "surface_style"], "planning_footprint"], 1.25, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.22, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
+          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.62, ["==", ["get", "surface_style"], "access_fabric"], 0.1, ["==", ["get", "surface_style"], "demand_surface"], 0.08, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.32, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
+          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.02, ["==", ["get", "surface_style"], "access_fabric"], 0.2, ["==", ["get", "surface_style"], "demand_surface"], 0.22, ["==", ["get", "surface_style"], "planning_footprint"], 0.9, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.92, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.18, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
+          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.34, ["==", ["get", "surface_style"], "access_fabric"], 0.3, ["==", ["get", "surface_style"], "demand_surface"], 0.34, ["==", ["get", "surface_style"], "planning_footprint"], 1.25, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.22, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
         ],
       },
     });
@@ -3004,9 +3058,9 @@
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.35],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.25, 1, 8.3],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.2, 1, 6.2],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 2.15],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 1.55],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.1, 1, 8.8],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -3109,7 +3163,7 @@
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 0.68],
           ["==", ["get", "flow_style"], "economy_churn_tick"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 1],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.5, 1, 0.82],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 0.88],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
@@ -3211,11 +3265,11 @@
           ["==", ["get", "flow_style"], "economy_gravity_thread"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.25, 1, 1.05],
           ["==", ["get", "flow_style"], "economy_current_ribbon"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 4.05],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.05, 1, 4.75],
           ["==", ["get", "flow_style"], "economy_before_ribbon"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 2.35],
           ["==", ["get", "flow_style"], "economy_churn_tick"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.05, 1, 3.9],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.7, 1, 2.6],
           ["==", ["get", "flow_style"], "planning_pressure_spine"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.92, 1, 3.35],
           ["==", ["get", "flow_style"], "planning_pressure_edge"],
@@ -3241,9 +3295,9 @@
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.32, 1, 1.32],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.85, 1, 5.85],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.3, 1, 4.4],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.6],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.18],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.75, 1, 6.1],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -4846,6 +4900,7 @@
     state.transportRoadFeaturesPathLoaded = null;
     state.transportRoadFeaturesByYear.clear();
     state.transportRoadFeatureLoadsByYear.clear();
+    clearLensGuideSourceRefreshTimers();
     state.transportStopFeaturesPathLoaded = null;
     state.transportStopFeatures = [];
     state.utilityNetworkPathLoaded = null;
@@ -5820,12 +5875,36 @@
       return;
     }
     const collection = lensGuideFeatureCollection();
-    source.setData(collection);
     state.lensGuideFeatureCache = collection;
+    setLensGuideSourceData(collection);
     if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
     else renderLensGuideLabels();
     renderLayers();
     renderTimeline();
+  }
+
+  function setLensGuideSourceData(collection = state.lensGuideFeatureCache) {
+    const source = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
+    if (!source?.setData) return false;
+    source.setData(collection || emptyFeatureCollection());
+    clearLensGuideSourceRefreshTimers();
+    const reapplyLatest = () => {
+      const latestSource = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
+      if (!latestSource?.setData) return;
+      latestSource.setData(state.lensGuideFeatureCache || emptyFeatureCollection());
+      if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
+      state.map?.triggerRepaint?.();
+    };
+    for (const delay of [120, 520, 1200, 2200]) {
+      state.lensGuideSourceRefreshTimers.push(setTimeout(reapplyLatest, delay));
+    }
+    state.map?.once?.("idle", reapplyLatest);
+    return true;
+  }
+
+  function clearLensGuideSourceRefreshTimers() {
+    for (const timer of state.lensGuideSourceRefreshTimers || []) clearTimeout(timer);
+    state.lensGuideSourceRefreshTimers = [];
   }
 
   function lensGuideFeatureCollection() {
@@ -6042,8 +6121,8 @@
     if (lensId === "transport-access") return 6500;
     if (lensId === "planning-pressure") return 4400;
     if (lensId === "planning-delta") return 2200;
-    if (lensId === "planning-parcels") return 4300;
-    if (lensId === "economy-land-use") return 6800;
+    if (lensId === "planning-parcels") return 3400;
+    if (lensId === "economy-land-use") return 4600;
     if (lensId === "civic-demand") return 5600;
     if (lensId === "civic-catchment") return 3200;
     return 180;
@@ -6523,7 +6602,7 @@
           },
           geometry: civicDemandPressureCellPolygon(
             cellCenter,
-            stepM * (0.4 + intensity * 0.045 + seed * 0.03),
+            stepM * (0.47 + intensity * 0.065 + seed * 0.035),
             axisAngle + (row % 2 ? 0.03 : -0.02),
             seed,
             intensity,
@@ -8020,7 +8099,7 @@
       .filter((event) => event.category === "economy" && event.lngLat)
       .filter((event) => economyLandUseSpecificEvent(event));
     const contextOnly = !sourceEvents.length && lensMissingSameCategoryCoverageForYear(lens, year);
-    const maxDistance = radiusM * 2.45;
+    const maxDistance = radiusM * 2.62;
     const features = [];
     for (const building of buildings) {
       const props = building.properties || {};
@@ -8068,11 +8147,13 @@
         });
       });
     }
+    const blockFeatures = economyLandUseBlockMosaicFeatures(features, center, radiusM, lens, sourceEvents, year, { contextOnly });
     const infillFeatures = economyLandUseRoadInfillTiles(center, radiusM, lens, sourceEvents, year, { contextOnly });
-    const limit = guideCellLimit(lens.id);
-    const buildingLimit = Math.max(0, limit - infillFeatures.length);
-    const buildingFeatures = distributeSurfaceCellsByGrid(features, center, buildingLimit, 44);
+    const limit = contextOnly ? Math.min(guideCellLimit(lens.id), 2200) : guideCellLimit(lens.id);
+    const buildingLimit = Math.max(0, limit - infillFeatures.length - blockFeatures.length);
+    const buildingFeatures = distributeSurfaceCellsByGrid(features, center, buildingLimit, contextOnly ? 72 : 38);
     return [
+      ...blockFeatures,
       ...buildingFeatures,
       ...infillFeatures,
     ]
@@ -8101,7 +8182,7 @@
     if (!roads.length) return [];
     const year = Number(yearOverride) || currentTimelineYear();
     const contextOnly = Boolean(options.contextOnly);
-    const maxDistance = radiusM * 1.48;
+    const maxDistance = radiusM * 1.68;
     const features = [];
     for (const road of roads) {
       const props = road.properties || {};
@@ -8109,7 +8190,7 @@
       if (!contextOnly && Number(props.visible_year || 9999) > year) continue;
       const rank = Number(props.rank || 1);
       if (geometryDistanceToPointMeters(road.geometry, center, 5) > maxDistance + 80) continue;
-      const samples = geometryCoordinateSamples(road.geometry, rank >= 3 ? 17 : rank >= 2 ? 13 : 9);
+      const samples = geometryCoordinateSamples(road.geometry, rank >= 3 ? 11 : rank >= 2 ? 9 : 6);
       if (!samples.length) continue;
       for (const sample of samples) {
         const distance = lngLatDistanceMeters(center, sample);
@@ -8121,9 +8202,9 @@
         const score = clamp01(0.18 + proximity * 0.28 + density * 0.34 + Math.min(0.16, rank * 0.038) + seed * 0.08);
         if (score < 0.2 && rank < 1.6) continue;
         const angle = geometryLineAngleNearPoint(road.geometry, sample) + (seed - 0.5) * 0.08;
-        const halfLong = Math.max(4.4, Math.min(10.8, 5.0 + rank * 0.72 + seed * 2.2));
-        const halfShort = Math.max(3.0, Math.min(6.0, 3.1 + rank * 0.34 + (1 - seed) * 0.9));
-        const sideCount = rank >= 1.5 || density > 0.1 ? 2 : 1;
+        const halfLong = Math.max(8.6, Math.min(22.0, 9.4 + rank * 1.35 + seed * 3.9));
+        const halfShort = Math.max(5.6, Math.min(12.4, 5.7 + rank * 0.7 + (1 - seed) * 1.7));
+        const sideCount = rank >= 2.15 || density > 0.18 ? 2 : 1;
         for (let sideIndex = 0; sideIndex < sideCount; sideIndex += 1) {
           const side = sideCount === 1 ? (seed > 0.5 ? 1 : -1) : sideIndex === 0 ? -1 : 1;
           const offsetM = side * (7.4 + rank * 1.35 + seed * 4.1);
@@ -8152,7 +8233,103 @@
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 2400);
+      .slice(0, contextOnly ? 420 : 1120);
+  }
+
+  function economyLandUseBlockMosaicFeatures(tileFeatures, center, radiusM, lens, sourceEvents = [], yearOverride = currentTimelineYear(), options = {}) {
+    if (!tileFeatures.length) return [];
+    const year = Number(yearOverride) || currentTimelineYear();
+    const contextOnly = Boolean(options.contextOnly);
+    const bucketM = 66;
+    const buckets = new Map();
+    for (const feature of tileFeatures) {
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const local = lngLatToLocalMeters(point, center);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const color = String(feature.properties?.color || economyLandUseInfillColor(null, {}, stableUnit(JSON.stringify(point))));
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${color}`;
+      const entry = buckets.get(bucket) || {
+        color,
+        count: 0,
+        sumX: 0,
+        sumY: 0,
+        weight: 0,
+        maxScore: 0,
+        sourceIds: new Set(),
+        eventIds: new Set(),
+        seedKey: bucket,
+        points: [],
+      };
+      const score = Math.max(0.08, Number(feature.properties?.score || feature.properties?.intensity || 0.2));
+      entry.count += 1;
+      entry.sumX += local[0] * score;
+      entry.sumY += local[1] * score;
+      entry.weight += score;
+      entry.maxScore = Math.max(entry.maxScore, score);
+      entry.points.push([local[0], local[1], score]);
+      if (feature.properties?.source_id) entry.sourceIds.add(feature.properties.source_id);
+      if (feature.properties?.event_id) entry.eventIds.add(feature.properties.event_id);
+      buckets.set(bucket, entry);
+    }
+    const features = [];
+    for (const entry of buckets.values()) {
+      if (entry.count < 2 && entry.maxScore < 0.48) continue;
+      const avgX = entry.sumX / Math.max(0.001, entry.weight);
+      const avgY = entry.sumY / Math.max(0.001, entry.weight);
+      const point = offsetLngLat(center, avgX, avgY);
+      if (lngLatDistanceMeters(center, point) > radiusM * 2.54) continue;
+      let xx = 0;
+      let yy = 0;
+      let xy = 0;
+      for (const [x, y, weight] of entry.points) {
+        const dx = x - avgX;
+        const dy = y - avgY;
+        xx += dx * dx * weight;
+        yy += dy * dy * weight;
+        xy += dx * dy * weight;
+      }
+      const seed = stableUnit(`land-use-block:${entry.seedKey}`);
+      const angle = Math.abs(xx - yy) + Math.abs(xy) > 1
+        ? 0.5 * Math.atan2(2 * xy, xx - yy) + (seed - 0.5) * 0.08
+        : (seed - 0.5) * 0.22;
+      const countBoost = Math.sqrt(Math.max(1, entry.count));
+      const intensity = contextOnly
+        ? clamp01(0.16 + entry.maxScore * 0.32 + Math.min(0.12, entry.count * 0.018))
+        : clamp01(0.24 + entry.maxScore * 0.46 + Math.min(0.2, entry.count * 0.028));
+      const halfLong = contextOnly
+        ? Math.max(14, Math.min(30, 13 + countBoost * 3.1 + intensity * 5.2))
+        : Math.max(16, Math.min(38, 16 + countBoost * 4.6 + intensity * 7.2));
+      const halfShort = contextOnly
+        ? Math.max(8, Math.min(19, 7 + countBoost * 2.0 + intensity * 3.8))
+        : Math.max(9, Math.min(24, 8.5 + countBoost * 2.9 + intensity * 4.8));
+      const nearestEvent = economyLandUseSpecificEvent(nearestGuideEvent(point, sourceEvents, 260));
+      features.push({
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "land_use_tile",
+          source_kind: contextOnly ? "current_context_block_mosaic" : "mapped_building_context_block",
+          context_year: contextOnly ? "current_mapped_context" : String(year),
+          evidence_role: contextOnly ? "context_not_year_specific_change_evidence" : "selected_year_context",
+          intensity: Number(intensity.toFixed(3)),
+          color: nearestEvent ? economyLandUseColor(nearestEvent) : entry.color,
+          event_id: nearestEvent?.id || [...entry.eventIds][0] || "",
+          source_id: [...entry.sourceIds].slice(0, 4).join("|"),
+          source_count: entry.sourceIds.size,
+          cell_count: entry.count,
+          score: Number((intensity + entry.maxScore * 0.22 + seed * 0.035).toFixed(3)),
+        },
+        geometry: orientedRectanglePolygon(point, halfLong, halfShort, angle),
+      });
+    }
+    return distributeSurfaceCellsByGrid(
+      features.sort((a, b) => Number(b.properties.score) - Number(a.properties.score)),
+      center,
+      contextOnly ? 360 : 980,
+      contextOnly ? 96 : 74,
+    );
   }
 
   function geometryLineAngleNearPoint(geometry, point) {
@@ -8216,12 +8393,14 @@
     const angle = footprintLongestEdgeAngle(geometry) + (seed - 0.5) * 0.06;
     const longM = Math.max(widthM, heightM);
     if ((widthM < 26 && heightM < 26) || (longM < 42 && safeArea < 520)) {
+      const smallLong = Math.max(8.0, Math.min(16.8, Math.max(longM * 0.58, Math.sqrt(safeArea) * 0.82)));
+      const smallShort = Math.max(5.6, Math.min(11.4, Math.max(Math.min(widthM, heightM) * 0.56, Math.sqrt(safeArea) * 0.5)));
       return [{
         point,
-        geometry,
+        geometry: orientedRectanglePolygon(point, smallLong, smallShort, angle),
       }];
     }
-    const targetM = safeArea > 10000 ? 18 : safeArea > 4200 ? 16 : safeArea > 1600 ? 14 : 12;
+    const targetM = safeArea > 10000 ? 28 : safeArea > 4200 ? 24 : safeArea > 1600 ? 20 : 17;
     const cols = Math.max(1, Math.min(16, Math.ceil(widthM / targetM)));
     const rows = Math.max(1, Math.min(16, Math.ceil(heightM / targetM)));
     if (cols === 1 && rows === 1) {
@@ -8230,8 +8409,8 @@
         geometry,
       }];
     }
-    const halfWidth = Math.max(3.6, Math.min(11.5, (widthM / cols) * (0.31 + seed * 0.035)));
-    const halfHeight = Math.max(3.4, Math.min(10.8, (heightM / rows) * (0.31 + (1 - seed) * 0.035)));
+    const halfWidth = Math.max(6.2, Math.min(17.6, (widthM / cols) * (0.43 + seed * 0.04)));
+    const halfHeight = Math.max(5.6, Math.min(16.2, (heightM / rows) * (0.43 + (1 - seed) * 0.04)));
     const tiles = [];
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
@@ -8361,7 +8540,6 @@
 
   function planningFootprintTileFeatures(center, radiusM, lens) {
     const buildings = state.detailBuildingFeatures || [];
-    if (!buildings.length) return [];
     const year = currentTimelineYear();
     const planningAnchors = (state.lensDetailFeatures || [])
       .filter((feature) => feature.properties?.layer === "planning_cell" && feature.geometry && Number(feature.properties?.visible_year || 9999) <= year)
@@ -8374,9 +8552,16 @@
       && !planningAnchors.length
       && lensMissingSameCategoryCoverageForYear(lens, year);
     const maxDistance = radiusM * (lens.id === "planning-parcels" ? 1.18 : lens.id === "planning-delta" ? 1.04 : lens.id === "planning-pressure" ? 1.34 : 1.9);
+    const hasVisibleBuildings = buildings.some((feature) => Number(feature.properties?.visible_year || 9999) <= year);
     const features = lens.id === "planning-parcels"
-      ? planningParcelStageCellFeatures(center, radiusM, lens, planningAnchors, false)
+      ? [
+        ...planningParcelStageCellFeatures(center, radiusM, lens, planningAnchors, false),
+        ...(!hasVisibleBuildings ? planningDeltaEvidencePointCellFeatures(center, radiusM, lens, planningEvents, []) : []),
+      ]
+      : lens.id === "planning-delta"
+        ? planningDeltaEvidencePointCellFeatures(center, radiusM, lens, planningEvents, planningAnchors)
       : [];
+    if (!buildings.length) return features;
     for (const building of buildings) {
       const props = building.properties || {};
       if (!contextOnly && Number(props.visible_year || 9999) > year) continue;
@@ -8505,6 +8690,67 @@
     if (!withHatches) return selectedCells;
     const hatches = selectedCells.flatMap((feature) => planningParcelHatchFeatures(feature));
     return [...selectedCells, ...hatches];
+  }
+
+  function planningDeltaEvidencePointCellFeatures(center, radiusM, lens, planningEvents, planningAnchors) {
+    const maxDistance = radiusM * 1.18;
+    const anchorCells = planningParcelStageCellFeatures(center, radiusM, lens, planningAnchors, false)
+      .map((feature) => ({
+        ...feature,
+        properties: {
+          ...(feature.properties || {}),
+          source_kind: "source_backed",
+          geometry_basis: "source_planning_cell",
+          evidence_role: "selected_year_planning_cell",
+        },
+      }));
+    const nearbyEvents = planningEvents
+      .map((event) => ({ event, distance: lngLatDistanceMeters(center, event.lngLat) }))
+      .filter((item) => Number.isFinite(item.distance) && item.distance <= maxDistance)
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 80);
+    const sparseReplicaCount = nearbyEvents.length <= 1 ? 3 : nearbyEvents.length <= 3 ? 2 : 1;
+    const eventCells = nearbyEvents
+      .flatMap(({ event, distance }) => {
+        const status = planningStageStatusKey(event);
+        const proximity = 1 - Math.min(maxDistance, distance) / Math.max(1, maxDistance);
+        const sourceBoost = Math.min(0.18, eventSourceCount(event) * 0.035);
+        return Array.from({ length: sparseReplicaCount }, (_, index) => {
+          const seed = stableUnit(`${event.id}:planning-delta-cell:${index}`);
+          const intensity = clamp01(0.28 + proximity * 0.28 + sourceBoost + seed * 0.08 - index * 0.035);
+          const halfWidth = 22 + seed * 18;
+          const halfHeight = 9 + stableUnit(`${event.id}:planning-delta-height:${index}`) * 12;
+          const angle = seed * Math.PI;
+          const offset = sparseReplicaCount > 1
+            ? offsetLngLat(event.lngLat, Math.cos(angle) * index * 26, Math.sin(angle) * index * 18)
+            : event.lngLat;
+          return {
+            type: "Feature",
+            properties: {
+              kind: "surface_cell",
+              lens_id: lens.id,
+              surface_style: "planning_footprint",
+              intensity: Number(intensity.toFixed(3)),
+              color: planningFootprintColor(lens.id, {}, { ...event, lifecycle_status: status, intensity }, offset, intensity),
+              event_id: event.id,
+              planning_status: status,
+              sublayer_id: planningAspectLayerId(status),
+              geometry_basis: "source_event_point_context_cell",
+              source_kind: "source_event_context",
+              context_year: String(currentTimelineYear()),
+              evidence_role: index ? "event_point_context_extent_proxy" : "event_point_context_not_measured_footprint",
+              source_id: (event.sourceIds || []).join(","),
+              cell_index: index + 1,
+              score: Number((intensity + sourceBoost + proximity * 0.12 + seed * 0.05 - index * 0.02).toFixed(3)),
+            },
+            geometry: orientedRectanglePolygon(offset, halfWidth, halfHeight, angle),
+          };
+        });
+      })
+      .filter(Boolean);
+    return [...anchorCells, ...eventCells]
+      .sort((a, b) => Number(b.properties.score || 0) - Number(a.properties.score || 0))
+      .slice(0, Math.min(220, Math.max(12, guideCellLimit(lens.id) / 8)));
   }
 
   function planningParcelInsetGeometry(geometry, center, scale = 0.88) {
@@ -9405,10 +9651,10 @@
   }
 
   function transportSpeedThreadColor(pressure, activity, rank) {
-    if (pressure >= 0.84 || (activity >= 0.92 && rank >= 3.2)) return "#b91f32";
-    if (pressure >= 0.68 || (activity >= 0.8 && rank >= 2.8)) return "#e3422e";
-    if (pressure >= 0.5) return "#ef9f1a";
-    if (pressure >= 0.26) return "#54aa63";
+    if (pressure >= 0.86 || (activity >= 0.94 && rank >= 3.2)) return "#b91f32";
+    if (pressure >= 0.72 || (activity >= 0.84 && rank >= 2.8)) return "#df4b32";
+    if (pressure >= 0.56) return "#e2ad2f";
+    if (pressure >= 0.32) return "#55a760";
     return "#1f9a75";
   }
 
@@ -13222,7 +13468,7 @@
     return selected.map((item, index) => {
       const props = item.props || {};
       const inferred = item.sourceKind === "derived_capacity_trace";
-      const title = props.title || (inferred ? `${utilityTypeLabel(item.type)} capacity trace` : `${utilityTypeLabel(item.type)} utility context`);
+      const title = props.title || (inferred ? `${utilityTypeLabel(item.type)} context trace` : `${utilityTypeLabel(item.type)} utility context`);
       return {
         type: "Feature",
         properties: {
@@ -14921,33 +15167,39 @@
           </div>
         `).join("")}
       </div>
-      <div class="lens-legend-note" data-empty="${status.empty}">${escapeHtml(status.note || lens.caveat)}</div>
+      ${renderLensLegendNote(status, lens)}
     `;
+  }
+
+  function renderLensLegendNote(status = {}, lens = activeMapLens(), fallback = "") {
+    const note = status.note || fallback || lens?.caveat || "";
+    if (!note) return "";
+    return `<div class="lens-legend-note" data-empty="${Boolean(status.empty)}">${escapeHtml(note)}</div>`;
   }
 
   function renderTransportSpeedLegend(lens, status) {
     return `
       <div class="transport-legend-card transport-speed-legend-card">
         <div class="transport-legend-title">
-          <strong>Speed (km/h) legend</strong>
+          <strong>Flow-proxy legend</strong>
           <span>${escapeHtml(status.label)}</span>
         </div>
         <div class="transport-legend-section">
           <div class="transport-legend-items">
-            <div class="transport-line-row"><i class="solid" style="--line-color:#2d9f57"></i><span>&gt; 60 (free flow)</span></div>
-            <div class="transport-line-row"><i class="solid" style="--line-color:#6dbc5a"></i><span>40-60</span></div>
-            <div class="transport-line-row"><i class="solid" style="--line-color:#f2ad2f"></i><span>20-40</span></div>
-            <div class="transport-line-row"><i class="solid" style="--line-color:#e95a35"></i><span>10-20</span></div>
-            <div class="transport-line-row"><i class="solid" style="--line-color:#bb1e2d"></i><span>&lt; 10 (stop / crawl)</span></div>
+            <div class="transport-line-row"><i class="solid" style="--line-color:#2d9f57"></i><span>Free-flow proxy</span></div>
+            <div class="transport-line-row"><i class="solid" style="--line-color:#6dbc5a"></i><span>Lower delay proxy</span></div>
+            <div class="transport-line-row"><i class="solid" style="--line-color:#f2ad2f"></i><span>Moderate flow proxy</span></div>
+            <div class="transport-line-row"><i class="solid" style="--line-color:#e95a35"></i><span>High delay proxy</span></div>
+            <div class="transport-line-row"><i class="solid" style="--line-color:#bb1e2d"></i><span>Severe delay proxy</span></div>
           </div>
         </div>
         <div class="transport-legend-section transport-line-state-section">
-          <div class="transport-line-row"><i class="before"></i><span>Before (inferred)</span></div>
-          <div class="transport-line-row"><i class="current"></i><span>Current (observed)</span></div>
+          <div class="transport-line-row"><i class="before"></i><span>Before context</span></div>
+          <div class="transport-line-row"><i class="current"></i><span>Context index</span></div>
           <div class="transport-line-row"><i class="uncertain"></i><span>Uncertain / partial</span></div>
         </div>
         <div class="transport-transfer-row"><i></i><span>Transfer node</span></div>
-        <div class="lens-legend-note" data-empty="${status.empty}">${escapeHtml(status.empty ? (status.note || lens.caveat) : "Transport speed colors are derived from activity records and mapped context, not live or measured congestion.")}</div>
+        ${renderLensLegendNote(status, lens, "Flow-proxy colors are derived from activity records and mapped context, not km/h, live congestion, or measured speed.")}
       </div>
     `;
   }
@@ -14956,13 +15208,13 @@
     return `
       <div class="transport-legend-card transport-reliability-legend-card">
         <div class="transport-legend-title">
-          <strong>Reliability legend</strong>
+          <strong>Service-signal legend</strong>
           <span>${escapeHtml(status.label)}</span>
         </div>
         <div class="transport-legend-section">
           <div class="transport-legend-items">
-            <div class="transport-line-row"><i class="solid" style="--line-color:#168a94"></i><span>Reliable (on-time)</span></div>
-            <div class="transport-line-row"><i class="delayed" style="--line-color:#ef9c1a"></i><span>Unreliable (delayed)</span></div>
+            <div class="transport-line-row"><i class="solid" style="--line-color:#168a94"></i><span>Lower disruption signal</span></div>
+            <div class="transport-line-row"><i class="delayed" style="--line-color:#ef9c1a"></i><span>Higher delay signal</span></div>
             <div class="transport-line-row"><i class="interrupted" style="--line-color:#ed3f2b"></i><span>Interrupted</span></div>
             <div class="transport-line-row"><i class="planned" style="--line-color:#7a3b97"></i><span>Planned / future</span></div>
             <div class="transport-line-row"><i class="inferred" style="--line-color:#898b8e"></i><span>Inferred / uncertain</span></div>
@@ -14970,13 +15222,13 @@
         </div>
         <div class="transport-transfer-row"><i></i><span>Transfer node</span></div>
         <div class="transport-frequency">
-          <span>Frequency (vehicles / hour)</span>
+          <span>Relative service signal</span>
           <div class="transport-frequency-bars" aria-hidden="true">
             <i></i><i></i><i></i><i></i><i></i>
           </div>
           <div class="transport-frequency-labels"><span>Low</span><span>Med</span><span>High</span></div>
         </div>
-        <div class="lens-legend-note" data-empty="${status.empty}">${escapeHtml(status.empty ? (status.note || lens.caveat) : "Transport service data may be partial or delayed; planned lines are not delivered service.")}</div>
+        ${renderLensLegendNote(status, lens, "Transport service data may be partial or delayed; planned lines are not delivered service.")}
       </div>
     `;
   }
@@ -14987,7 +15239,7 @@
         <div class="lens-legend-head access-gap-title">
           <strong>Access gap seams</strong>
         </div>
-        <div class="lens-legend-summary">Street segments with low service density or long travel time to essential services.</div>
+        <div class="lens-legend-summary">Street segments with low service density or longer mapped access-proxy paths to essential services.</div>
         <div class="access-gap-section">
           <span>Gap seams</span>
           <div class="lens-legend-items">
@@ -15012,7 +15264,7 @@
             <div class="lens-legend-item"><span class="lens-symbol outline muted" style="--legend-color:#9a9a92"></span><span>Rail line</span></div>
           </div>
         </div>
-        <div class="lens-legend-note" data-empty="${status.empty}">${escapeHtml(status.note || lens.caveat)}</div>
+        ${renderLensLegendNote(status, lens)}
       </div>
     `;
   }
@@ -15045,7 +15297,7 @@
           <div class="pressure-drivers">${driverRows}</div>
         </div>
         <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
-        <div class="pressure-legend-note">Not a forecast</div>
+        ${renderLensLegendNote(status, lens, "Not a forecast. Pressure fields combine source-backed records and mapped context; causation is not claimed.")}
       </div>
     `;
   }
@@ -15104,7 +15356,7 @@
           <div class="gravity-confidence-row low"><i></i><b>Low confidence</b></div>
         </div>
         <div class="gravity-study-row"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
-        ${status.empty ? `<div class="lens-legend-note" data-empty="true">${escapeHtml(status.note || lens.caveat)}</div>` : ""}
+        ${renderLensLegendNote(status, lens, "Flows are descriptive current/context signals; causation is not claimed.")}
       </div>
     `;
   }
@@ -15133,6 +15385,7 @@
           <div class="vitality-notice-row"><i style="--notice-color:#5eaa4e"></i><span>Opening</span></div>
           <div class="vitality-notice-row"><i style="--notice-color:#ed3135"></i><span>Closure / vacancy</span></div>
         </div>
+        ${renderLensLegendNote(status, lens, "Ribbons are descriptive frontage context linked to available evidence; they are not forecasts.")}
       </div>
     `;
   }
@@ -15144,22 +15397,22 @@
     return `
       <div class="catchment-legend-card">
         <div class="vitality-legend-title">
-          <strong>Capacity guide</strong>
+          <strong>Service context guide</strong>
           <span>${escapeHtml(status.label)}</span>
         </div>
         <div class="vitality-levels">
-          <div><i style="--vitality-color:#58a69f"></i><span>Very high (&gt;120%)</span></div>
-          <div><i style="--vitality-color:#a6c7a4"></i><span>High (90-120%)</span></div>
-          <div><i style="--vitality-color:#e6d690"></i><span>Medium (60-90%)</span></div>
-          <div><i style="--vitality-color:#efb367"></i><span>Low (30-60%)</span></div>
-          <div><i style="--vitality-color:#e68c70"></i><span>Very low (&lt;30%)</span></div>
+          <div><i style="--vitality-color:#58a69f"></i><span>Very high context signal</span></div>
+          <div><i style="--vitality-color:#a6c7a4"></i><span>High context signal</span></div>
+          <div><i style="--vitality-color:#e6d690"></i><span>Medium context signal</span></div>
+          <div><i style="--vitality-color:#efb367"></i><span>Low context signal</span></div>
+          <div><i style="--vitality-color:#e68c70"></i><span>Very low context signal</span></div>
         </div>
         <div class="vitality-legend-section">
           <strong>Service types</strong>
           ${services}
         </div>
         <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
-        <div class="vitality-legend-note">Derived evidence cells; not official service boundaries.</div>
+        ${renderLensLegendNote(status, lens, "Derived evidence cells; not official service boundaries.")}
       </div>
     `;
   }
@@ -15872,33 +16125,17 @@
 
   function detailEvidenceYears(event) {
     const eventYear = Number(event?.year || state.year);
+    const atlasYear = state.years.includes(Number(state.year)) ? Number(state.year) : eventYear;
     const requestedAfter = Number(state.detailCurrentYear);
-    const lens = activeMapLens();
-    const latestYear = latestLensEvidenceYear(lens, eventYear) || state.years[state.years.length - 1] || eventYear;
     const after = state.years.includes(requestedAfter)
       ? requestedAfter
-      : Math.max(eventYear, latestYear);
+      : atlasYear;
     const previousYears = [...state.years].filter((year) => year < eventYear);
     const requested = Number(state.detailBeforeYear);
     const before = previousYears.includes(requested)
       ? requested
       : previousYears.filter((year) => year <= eventYear - 2).pop() || previousYears.pop() || eventYear;
     return { before, after };
-  }
-
-  function latestLensEvidenceYear(lens = activeMapLens(), minYear = earliestTimelineYear()) {
-    if (!lens) return null;
-    const category = lens.category || lens.layerId || state.activeLens;
-    if (!category || category === "transport") return state.years[state.years.length - 1] || null;
-    if (lens.id !== "economy-land-use") {
-      const metadataYear = [...state.years]
-        .filter((year) => year >= minYear && Number(state.chunks.get(year)?.counts_by_category?.[category] || 0) > 0)
-        .pop();
-      if (metadataYear) return metadataYear;
-    }
-    return [...state.years]
-      .filter((year) => year >= minYear && lensEvidenceEventsForYear(lens, category, year).length)
-      .pop() || null;
   }
 
   function ensureDetailEvidenceLoaded(event) {
@@ -16133,7 +16370,7 @@
         <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
-        <div class="planning-caution stage-caution transport-speed-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution transport-speed-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body transport-speed-detail-body">
         ${ready ? `
@@ -16225,7 +16462,7 @@
           ${sources.length ? `
             <section class="detail-section">
               <h4>Selected event sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> / ${sources.length}</span></h4>
-              ${sources.slice(0, 3).map(renderSourceRow).join("")}
+              ${sources.map(renderSourceRow).join("")}
             </section>
           ` : ""}
 
@@ -16233,7 +16470,7 @@
             <section class="detail-section">
               <h4>Provenance</h4>
               <div class="provenance-grid">
-                ${provenanceFacts.slice(0, 3).map((fact) => `
+                ${provenanceFacts.map((fact) => `
                   <div class="provenance-row">
                     <span>${escapeHtml(fact.label)}</span>
                     <strong>${escapeHtml(fact.value)}</strong>
@@ -16381,7 +16618,7 @@
       .filter((year) => year <= context.currentYear && year >= context.currentYear - 4)
       .slice(-5);
     const trendDefs = [
-      { label: "Roads (speed)", color: "#138b43", values: years.map((year) => timelineCategoryCount("transport", year)) },
+      { label: "Roads (flow proxy)", color: "#138b43", values: years.map((year) => timelineCategoryCount("transport", year)) },
       { label: "Public transport", color: "#ef3b2c", values: years.map((year) => countEventsByTerms(lensEventsForYear(year).filter((event) => event.category === "transport"), ["bus", "rail", "station", "translink", "public transport", "glider"])) },
       { label: "Cycle network", color: "#f2a51a", values: years.map((year) => countEventsByTerms(lensEventsForYear(year).filter((event) => event.category === "transport"), ["cycle", "bike", "cycling"])) },
       { label: "High-delay bands", color: "#e3422e", values: [bandRows.find((row) => row.id === "speed-low")?.beforeSegments || 0, bandRows.find((row) => row.id === "speed-low")?.currentSegments || 0] },
@@ -16455,12 +16692,12 @@
         <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
-        <div class="planning-caution stage-caution utility-capacity-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution utility-capacity-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body utility-capacity-detail-body">
         ${ready ? `
           <section class="detail-section utility-capacity-section">
-            <h4>Capacity evidence change <span>(${context.beforeYear} to ${context.currentYear})</span></h4>
+            <h4>Utility context records <span>(${context.beforeYear} to ${context.currentYear})</span></h4>
             <div class="utility-capacity-table" role="table" aria-label="Utility record change by type">
               <div class="utility-capacity-row utility-capacity-head" role="row">
                 <span>Utility</span>
@@ -16481,7 +16718,7 @@
           </section>
 
           <section class="detail-section utility-capacity-section">
-            <h4>Constrained / at-risk traces <span>(descriptive)</span></h4>
+            <h4>Higher context-signal traces <span>(descriptive)</span></h4>
             <div class="utility-capacity-risk-list">
               ${traceRows.map((row) => `
                 <div class="utility-capacity-risk-row" style="--accent:${escapeAttr(row.color)}">
@@ -16513,7 +16750,7 @@
           ${sources.length ? `
             <section class="detail-section">
               <h4>Selected event sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> / ${sources.length}</span></h4>
-              ${sources.slice(0, 3).map(renderSourceRow).join("")}
+              ${sources.map(renderSourceRow).join("")}
             </section>
           ` : ""}
 
@@ -16521,7 +16758,7 @@
             <section class="detail-section">
               <h4>Provenance</h4>
               <div class="provenance-grid">
-                ${provenanceFacts.slice(0, 3).map((fact) => `
+                ${provenanceFacts.map((fact) => `
                   <div class="provenance-row">
                     <span>${escapeHtml(fact.label)}</span>
                     <strong>${escapeHtml(fact.value)}</strong>
@@ -16532,7 +16769,7 @@
           ` : ""}
         ` : `
           <section class="detail-section">
-            <h4>Capacity evidence change</h4>
+            <h4>Utility context records</h4>
             <div class="lens-evidence-note">Loading source-backed utility context for ${context.beforeYear} and ${context.currentYear}.</div>
           </section>
         `}
@@ -16652,13 +16889,13 @@
             <button type="button" data-filter="stable" data-active="false">No change</button>
           </div>
         ` : renderDetailLensControls(event, context)}
-        <div class="planning-caution stage-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body planning-stage-detail-body">
         ${isParcels ? renderPlanningParcelsPanel(context, statusRows) : renderPlanningDeltaPanel(context, cells, statusRows, delta)}
         <section class="detail-section planning-stage-panel">
           <h4>Prevalence</h4>
-          <p>${escapeHtml(isParcels ? "Built form and land use" : "Building mass and land-use delta")}</p>
+          <p>${escapeHtml(isParcels ? "Built form and land use" : "Footprint and land-use signal")}</p>
           <div class="economy-caution"><span></span><p>OSM mapped visibility may differ from real-world data.</p></div>
           ${missingCoverage}
         </section>
@@ -16673,8 +16910,8 @@
               </div>
             `).join("")}
           </div>
-          ${sources.length ? sources.slice(0, 2).map(renderSourceRow).join("") : ""}
-          ${provenanceFacts.length ? `<div class="provenance-grid">${provenanceFacts.slice(0, 2).map((fact) => `<div class="provenance-row"><span>${escapeHtml(fact.label)}</span><strong>${escapeHtml(fact.value)}</strong></div>`).join("")}</div>` : ""}
+          ${sources.length ? sources.map(renderSourceRow).join("") : ""}
+          ${provenanceFacts.length ? `<div class="provenance-grid">${provenanceFacts.map((fact) => `<div class="provenance-row"><span>${escapeHtml(fact.label)}</span><strong>${escapeHtml(fact.value)}</strong></div>`).join("")}</div>` : ""}
         </section>
       </div>
     `;
@@ -16704,7 +16941,7 @@
           <div><span>Net index</span><strong>${escapeHtml(formatSignedNumber(delta.currentIndex - delta.lossIndex))}</strong></div>
         </div>
         <div class="lens-causality-note">Index values weight nearby planning cells, mapped footprint visibility, and event counts. They are not measured floor area or construction volume.</div>
-        <h4>Height change <span>(by building)</span></h4>
+        <h4>Built-form signal <span>(by nearby cell)</span></h4>
         <div class="planning-stage-table compact">
           ${planningDeltaHeightRows(cells).map((row) => `
             <div class="planning-stage-row" style="--accent:${escapeAttr(row.color)}">
@@ -16713,7 +16950,7 @@
             </div>
           `).join("")}
         </div>
-        <h4>Land-use change <span>(by footprint)</span></h4>
+        <h4>Land-use signal <span>(by nearby cell)</span></h4>
         <div class="planning-stage-table compact">
           ${statusRows.slice(0, 4).map((row) => planningStageTableRow(row, true)).join("")}
         </div>
@@ -16829,10 +17066,10 @@
   function planningDeltaHeightRows(cells) {
     const weighted = cells.reduce((sum, item) => sum + Math.max(1, Number(item.props.event_count || 1)), 0);
     return [
-      { label: "Significant increase (+10 m and above)", color: "#d8583f", count: Math.round(weighted * 0.08) },
-      { label: "Increase (+2 to +10 m)", color: "#d99175", count: Math.round(weighted * 0.18) },
-      { label: "Minor change (+/-2 m)", color: "#9b8fb4", count: Math.round(weighted * 0.44) },
-      { label: "Decrease (-2 to -10 m)", color: "#7aa3a6", count: Math.round(weighted * 0.12) },
+      { label: "Higher-intensity footprint signal", color: "#d8583f", count: Math.round(weighted * 0.08) },
+      { label: "Growth / construction signal", color: "#d99175", count: Math.round(weighted * 0.18) },
+      { label: "Mixed or low-change signal", color: "#9b8fb4", count: Math.round(weighted * 0.44) },
+      { label: "Loss / removal signal", color: "#7aa3a6", count: Math.round(weighted * 0.12) },
       { label: "No data", color: "#b8b6a8", count: Math.max(1, Math.round(weighted * 0.06)) },
     ];
   }
@@ -16849,7 +17086,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Change around this event</div>
-        <div class="planning-detail-subtitle">Associated change, not causal proof</div>
+        <div class="planning-detail-subtitle">Associated change; causation is not claimed</div>
         <div class="planning-change-tabs" role="tablist" aria-label="Change filter">
           <button type="button" data-filter="all" data-active="false">All lenses</button>
           <button type="button" data-filter="changed" data-active="true">With change</button>
@@ -16924,7 +17161,7 @@
         ${sources.length ? `
           <section class="detail-section">
             <h4>Sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> . ${sources.length}</span></h4>
-            ${sources.slice(0, 4).map(renderSourceRow).join("")}
+            ${sources.map(renderSourceRow).join("")}
           </section>
         ` : ""}
 
@@ -16932,7 +17169,7 @@
           <section class="detail-section">
             <h4>Provenance</h4>
             <div class="provenance-grid">
-              ${provenanceFacts.slice(0, 4).map((fact) => `
+              ${provenanceFacts.map((fact) => `
                 <div class="provenance-row">
                   <span>${escapeHtml(fact.label)}</span>
                   <strong>${escapeHtml(fact.value)}</strong>
@@ -17088,10 +17325,10 @@
         <section class="detail-section economy-panel" data-panel-id="context" hidden>
           <h4>Evidence context</h4>
           <p>Frontage ribbons reuse nearest mapped street geometry from source-backed economy records; they are not measured footfall, spend, or vacancy.</p>
-          ${sources.length ? sources.slice(0, 4).map(renderSourceRow).join("") : `<div class="lens-evidence-note">No source rows are attached to the selected event.</div>`}
+          ${sources.length ? sources.map(renderSourceRow).join("") : `<div class="lens-evidence-note">No source rows are attached to the selected event.</div>`}
           ${provenanceFacts.length ? `
             <div class="provenance-grid">
-              ${provenanceFacts.slice(0, 4).map((fact) => `
+              ${provenanceFacts.map((fact) => `
                 <div class="provenance-row">
                   <span>${escapeHtml(fact.label)}</span>
                   <strong>${escapeHtml(fact.value)}</strong>
@@ -17123,28 +17360,22 @@
         const current = aspectLayerEventMatches(context.currentEvents, layer).length;
         const delta = current - before;
         const isVacancyLike = layer.id === "vacancy" || layer.id === "closures";
-        const percentLike = layer.id === "spend";
         const label = {
           vacancy: "Vacancy signals",
           footfall: "Footfall proxy",
-          spend: "Spend proxy",
+          spend: "Spend-context records",
           openings: "Business openings",
           closures: "Business closures",
         }[layer.id] || layer.label;
         return {
           layer,
           label,
-          beforeText: percentLike ? compactCurrencyProxy(before) : compactNumber(before),
-          currentText: percentLike ? compactCurrencyProxy(current) : compactNumber(current),
-          deltaText: percentLike ? `${delta >= 0 ? "+" : "-"}${Math.abs(delta * 8 + (delta ? 3 : 0))}%` : formatSignedNumber(delta),
+          beforeText: compactNumber(before),
+          currentText: compactNumber(current),
+          deltaText: formatSignedNumber(delta),
           positive: isVacancyLike ? delta <= 0 : delta >= 0,
         };
       });
-  }
-
-  function compactCurrencyProxy(value) {
-    const amount = 82 + Number(value || 0) * 14;
-    return `£${compactNumber(amount)}`;
   }
 
   function economyVitalityTopStreets(context) {
@@ -17202,7 +17433,7 @@
         <div class="detail-eyebrow">Change around selected event</div>
         <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
         ${renderDetailLensControls(event, context)}
-        <div class="planning-caution stage-caution land-use-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution land-use-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body economy-land-use-detail-body">
         ${ready ? `
@@ -17266,7 +17497,7 @@
           ${sources.length ? `
             <section class="detail-section">
               <h4>Selected event sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> / ${sources.length}</span></h4>
-              ${sources.slice(0, 3).map(renderSourceRow).join("")}
+              ${sources.map(renderSourceRow).join("")}
             </section>
           ` : ""}
 
@@ -17274,7 +17505,7 @@
             <section class="detail-section">
               <h4>Provenance</h4>
               <div class="provenance-grid">
-                ${provenanceFacts.slice(0, 3).map((fact) => `
+                ${provenanceFacts.map((fact) => `
                   <div class="provenance-row">
                     <span>${escapeHtml(fact.label)}</span>
                     <strong>${escapeHtml(fact.value)}</strong>
@@ -17469,7 +17700,7 @@
         <div class="detail-eyebrow">Diff around selected event</div>
         <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
         ${renderDetailLensControls(event, context)}
-        <div class="planning-caution stage-caution gravity-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution gravity-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body economy-gravity-detail-body">
         <section class="detail-section economy-gravity-summary-section">
@@ -17528,7 +17759,7 @@
         ${sources.length ? `
           <section class="detail-section">
             <h4>Selected event sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> / ${sources.length}</span></h4>
-            ${sources.slice(0, 3).map(renderSourceRow).join("")}
+            ${sources.map(renderSourceRow).join("")}
           </section>
         ` : ""}
 
@@ -17536,7 +17767,7 @@
           <section class="detail-section">
             <h4>Provenance</h4>
             <div class="provenance-grid">
-              ${provenanceFacts.slice(0, 3).map((fact) => `
+              ${provenanceFacts.map((fact) => `
                 <div class="provenance-row">
                   <span>${escapeHtml(fact.label)}</span>
                   <strong>${escapeHtml(fact.value)}</strong>
@@ -17658,7 +17889,7 @@
         <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
-        <div class="planning-caution stage-caution civic-access-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution civic-access-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body civic-access-detail-body">
         ${ready ? `
@@ -17719,7 +17950,7 @@
           ${sources.length ? `
             <section class="detail-section">
               <h4>Selected event sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> / ${sources.length}</span></h4>
-              ${sources.slice(0, 3).map(renderSourceRow).join("")}
+              ${sources.map(renderSourceRow).join("")}
             </section>
           ` : ""}
 
@@ -17727,7 +17958,7 @@
             <section class="detail-section">
               <h4>Provenance</h4>
               <div class="provenance-grid">
-                ${provenanceFacts.slice(0, 3).map((fact) => `
+                ${provenanceFacts.map((fact) => `
                   <div class="provenance-row">
                     <span>${escapeHtml(fact.label)}</span>
                     <strong>${escapeHtml(fact.value)}</strong>
@@ -17953,15 +18184,15 @@
           <button type="button" data-filter="changed" data-active="false">With change</button>
           <button type="button" data-filter="stable" data-active="false">No change</button>
         </div>
-        <div class="planning-caution stage-caution civic-access-caution civic-demand-caution"><span></span><p>Associated nearby change, not causal proof <b>Not a forecast</b></p></div>
+        <div class="planning-caution stage-caution civic-access-caution civic-demand-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
       <div class="detail-body civic-demand-detail-body">
         ${ready ? `
           <section class="detail-section civic-demand-service-section">
-            <h4>Demand vs provision guide <span>(within ${escapeHtml(formatRadius(context.radiusM))})</span></h4>
-            <div class="civic-demand-table" role="table" aria-label="Demand and provision guide by civic service type">
+            <h4>Demand-context guide <span>(within ${escapeHtml(formatRadius(context.radiusM))})</span></h4>
+            <div class="civic-demand-table" role="table" aria-label="Demand-context guide by civic service type">
               <div class="civic-demand-head" role="row">
-                <span>Service</span><span>Before rec.</span><span>Current guide</span><span>Gap</span>
+                <span>Service</span><span>Before rec.</span><span>Context index</span><span>Gap</span>
               </div>
               ${serviceRows.map((row) => `
                 <div class="civic-demand-service-row" role="row" data-change="${row.changed ? "true" : "false"}" style="--accent:${escapeAttr(row.color)}">
@@ -17972,7 +18203,7 @@
                 </div>
               `).join("")}
             </div>
-            <div class="civic-demand-note">Current guide values come from the visible demand cells, displacement flows, and mapped service anchors in this lens. They are descriptive proxy context, not measured service capacity.</div>
+            <div class="civic-demand-note">Index values come from visible demand-context cells, displacement flows, and mapped service anchors in this lens. They are descriptive proxy context, not measured service capacity.</div>
             ${missingCoverage}
           </section>
 
@@ -17985,7 +18216,7 @@
           </section>
 
           <section class="detail-section civic-demand-gap-section">
-            <h4>Capacity gap guide <span>(current mapped cells)</span></h4>
+            <h4>Context-signal band guide <span>(current mapped cells)</span></h4>
             <div class="civic-demand-gap-grid">
               ${renderCivicDemandDonut(gapRows)}
               <div class="civic-demand-gap-list" role="table" aria-label="Demand-pressure cells by guide band">
@@ -18019,7 +18250,7 @@
           ${sources.length ? `
             <section class="detail-section">
               <h4>Selected event sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> / ${sources.length}</span></h4>
-              ${sources.slice(0, 3).map(renderSourceRow).join("")}
+              ${sources.map(renderSourceRow).join("")}
             </section>
           ` : ""}
 
@@ -18027,7 +18258,7 @@
             <section class="detail-section">
               <h4>Provenance</h4>
               <div class="provenance-grid">
-                ${provenanceFacts.slice(0, 3).map((fact) => `
+                ${provenanceFacts.map((fact) => `
                   <div class="provenance-row">
                     <span>${escapeHtml(fact.label)}</span>
                     <strong>${escapeHtml(fact.value)}</strong>
@@ -18038,7 +18269,7 @@
           ` : ""}
         ` : `
           <section class="detail-section">
-            <h4>Demand vs provision guide</h4>
+            <h4>Demand-context guide</h4>
             <div class="lens-evidence-note">Loading source-backed civic context for ${context.beforeYear} and ${context.currentYear}.</div>
           </section>
         `}
@@ -18129,8 +18360,8 @@
         provisionIndex,
         gap,
         beforeText: compactNumber(before),
-        currentGuideText: `${compactNumber(provisionIndex)}%`,
-        gapText: gap > 0 ? `+${compactNumber(gap)}%` : gap < 0 ? `-${compactNumber(Math.abs(gap))}%` : "0%",
+        currentGuideText: `Index ${compactNumber(provisionIndex)}`,
+        gapText: gap > 0 ? `+${compactNumber(gap)} idx` : gap < 0 ? `-${compactNumber(Math.abs(gap))} idx` : "0 idx",
         positive: gap <= 0,
         changed: current !== before || typeFlows.length > 0 || Math.abs(gap) >= 6,
       };
@@ -18314,7 +18545,7 @@
     if (!strongestGap && !strongestService) return "No demand-pressure guide cells are loaded for this selected area and year.";
     const gapText = strongestGap ? `${strongestGap.label.toLowerCase()} cells form the largest current guide band` : "The current guide has limited cell coverage";
     const serviceText = strongestService ? `${strongestService.label.toLowerCase()} has the strongest demand-pressure signal` : "service-specific pressure is not available";
-    return `${gapText}, while ${serviceText}. The guide combines source-backed civic records, current mapped service anchors, and nearby change context; it is not a population forecast or causal estimate.`;
+    return `${gapText}, while ${serviceText}. The guide combines source-backed civic records, current mapped service anchors, and nearby change context; it is a descriptive context index, not a population forecast or causal estimate.`;
   }
 
   function civicDemandSourceLabels(context, selectedSources = []) {
@@ -18348,7 +18579,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Change around this event</div>
-        <div class="planning-detail-subtitle">Associated change, not causal proof</div>
+        <div class="planning-detail-subtitle">Associated change; causation is not claimed</div>
         <div class="civic-detail-tabs" role="tablist" aria-label="Civic service filter">
           <button type="button" data-filter="all" data-active="true">All services</button>
           <button type="button" data-filter="changed" data-active="false">With change</button>
@@ -18385,13 +18616,13 @@
 
         <section class="detail-section civic-service-panel">
           <h4>Prevalence</h4>
-          <p>Civic services coverage</p>
+          <p>Civic service context</p>
           <div class="economy-caution civic-caution"><span></span><p>OSM mapped visibility may differ from real-world data.</p></div>
           ${missingCoverage}
-          <h4>Service type coverage</h4>
+          <h4>Service type context</h4>
           <div class="civic-service-table">
             <div class="civic-service-head">
-              <span></span><span>Within area</span><span>Change</span>
+              <span></span><span>Context index</span><span>Change</span>
             </div>
             ${serviceRows.map((row) => `
               <div class="civic-service-row" style="--accent:${escapeAttr(row.color)}">
@@ -18406,10 +18637,10 @@
         <section class="detail-section civic-context-panel">
           <h4>Evidence context</h4>
           <p>Catchment cells are derived evidence areas around source-backed records and current mapped service anchors; they are not official service boundaries.</p>
-          ${sources.length ? sources.slice(0, 3).map(renderSourceRow).join("") : `<div class="lens-evidence-note">No source rows are attached to the selected event.</div>`}
+          ${sources.length ? sources.map(renderSourceRow).join("") : `<div class="lens-evidence-note">No source rows are attached to the selected event.</div>`}
           ${provenanceFacts.length ? `
             <div class="provenance-grid">
-              ${provenanceFacts.slice(0, 3).map((fact) => `
+              ${provenanceFacts.map((fact) => `
                 <div class="provenance-row">
                   <span>${escapeHtml(fact.label)}</span>
                   <strong>${escapeHtml(fact.value)}</strong>
@@ -18443,7 +18674,7 @@
     return selectCivicCatchmentCandidates(context.center, candidates, context.lens, 54)
       .map((item) => {
         const label = truncate(item.event?.title || item.props?.label || item.props?.title || civicServiceSublayerLabel(item.layerId), 34);
-        const capacity = item.intensity > 0.68 ? "High" : item.intensity > 0.48 ? "Medium" : "Low";
+        const capacity = item.intensity > 0.68 ? "High signal" : item.intensity > 0.48 ? "Medium signal" : "Low signal";
         return {
           label,
           typeLabel: civicServiceSublayerLabel(item.layerId).replace(/s$/, ""),
@@ -18451,7 +18682,7 @@
           changed: !item.currentContext || Boolean(item.event),
           color: civicServiceSublayerColor(item.layerId),
           capacity,
-          tone: capacity.toLowerCase(),
+          tone: capacity.toLowerCase().replace(/\s+/g, "-"),
           layerId: item.layerId,
           intensity: item.intensity,
         };
@@ -18470,7 +18701,7 @@
       return {
         label: layer.label,
         color: layer.color,
-        coverageText: `${coverage}%`,
+        coverageText: `Index ${coverage}`,
         delta: current - before,
       };
     });
@@ -18481,8 +18712,8 @@
     const veryLow = facilities.filter((item) => item.intensity < 0.34).length;
     const baseKm = Math.max(0.4, context.radiusM / 1000);
     return [
-      { label: "Very low capacity", color: "#df7d65", lengthText: `${(veryLow * baseKm * 0.42 + 0.8).toFixed(1)} km` },
-      { label: "Low capacity", color: "#e5b85f", lengthText: `${(low * baseKm * 0.36 + 1.4).toFixed(1)} km` },
+      { label: "Very low context signal", color: "#df7d65", lengthText: `${(veryLow * baseKm * 0.42 + 0.8).toFixed(1)} km` },
+      { label: "Low context signal", color: "#e5b85f", lengthText: `${(low * baseKm * 0.36 + 1.4).toFixed(1)} km` },
     ];
   }
 
@@ -18531,7 +18762,7 @@
         common[2],
       ],
       "transport-access": [
-        { label: "Access radius", value: formatRadius(context.radiusM), hint: "generated isochrone fabric", tone: "teal" },
+        { label: "Access radius", value: formatRadius(context.radiusM), hint: "generated access-proxy fabric", tone: "teal" },
         common[1],
         { label: "Network records", value: compactNumber(context.currentEvents.length), delta: categoryDelta, hint: "walk/bus/rail evidence" },
         common[3],
@@ -18597,7 +18828,7 @@
         common[2],
       ],
       "utilities-capacity": [
-        { label: "Capacity traces", value: detailStatus, hint: "utility trace geometry" },
+        { label: "Context traces", value: detailStatus, hint: "utility trace geometry" },
         common[1],
         common[0],
         common[2],
@@ -19172,6 +19403,8 @@
 
   async function setYear(year) {
     const next = Math.max(state.yearRange[0], Math.min(state.yearRange[1], Math.round(year)));
+    state.manualYearOverride = next;
+    state.detailCurrentYear = null;
     if (next === state.year && state.loadedEvents.has(next)) {
       renderAll();
       updateTimeDependentMapState();
@@ -19408,6 +19641,25 @@
     syncTopline();
   }
 
+  function ensureSelectionFitsActiveLens() {
+    const lens = activeMapLens();
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    if (!category || !state.loadedEvents.has(state.year)) return;
+    const events = visibleEventsForYear(state.year);
+    if (state.selectedEvent?.year === state.year && state.selectedEvent.lngLat) {
+      if (state.selectedEvent.category === category) return;
+      const nearbySameCategory = events.some((event) => event.category === category
+        && event.lngLat
+        && lngLatDistanceMeters(state.selectedEvent.lngLat, event.lngLat) <= lensEffectiveRadiusM(lens) * 1.55);
+      if (nearbySameCategory) return;
+    }
+    const next = events.find((event) => event.category === category && event.confidence === "documented" && event.lngLat)
+      || events.find((event) => event.category === category && event.lngLat);
+    if (!next) return;
+    state.selectedEventId = next.id;
+    state.selectedEvent = next;
+  }
+
   // ---------------------------------------------------------------------------
   // Playback
   // ---------------------------------------------------------------------------
@@ -19455,7 +19707,15 @@
 
   function setActiveLens(lensId) {
     const next = normalizeMapLensId(lensId);
-    if (!next || next === state.activeLens) return;
+    if (!next) return;
+    state.manualLensOverride = next;
+    state.manualAspectOverride = null;
+    if (next === state.activeLens) {
+      updateTimeDependentMapState();
+      focusActiveLensCamera();
+      syncTopline();
+      return;
+    }
     state.activeLens = next;
     state.activeAspect = defaultAspectForCategory(next);
     state.detailRadiusM = null;
@@ -19463,6 +19723,7 @@
     state.detailCurrentYear = null;
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
+    ensureSelectionFitsActiveLens();
     renderLensSwitcher();
     renderAspectSwitcher();
     renderActiveLensHeader();
@@ -19476,8 +19737,16 @@
 
   function setActiveAspect(aspectId) {
     const next = normalizeLensAspectId(aspectId);
-    if (!next || next === state.activeAspect) return;
+    if (!next) return;
     const aspect = LENS_ASPECT_BY_ID.get(next);
+    state.manualAspectOverride = next;
+    state.manualLensOverride = aspect?.category || state.activeLens;
+    if (next === state.activeAspect && (!aspect?.category || aspect.category === state.activeLens)) {
+      updateTimeDependentMapState();
+      focusActiveLensCamera();
+      syncTopline();
+      return;
+    }
     state.activeAspect = next;
     if (aspect?.category && aspect.category !== state.activeLens) {
       state.activeLens = aspect.category;
@@ -19487,6 +19756,7 @@
     state.detailCurrentYear = null;
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
+    ensureSelectionFitsActiveLens();
     renderLensSwitcher();
     renderAspectSwitcher();
     renderActiveLensHeader();
