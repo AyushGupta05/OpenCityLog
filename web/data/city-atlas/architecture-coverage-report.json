@@ -7,8 +7,8 @@
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
   "summary": {
-    "event_count": 94265,
-    "source_count": 433,
+    "event_count": 94465,
+    "source_count": 435,
     "frozen_inventory_source_count": 22,
     "event_years": [
       2008,
@@ -34,16 +34,16 @@
     "city_counts": {
       "belfast": 3806,
       "london": 30357,
-      "nyc": 60102
+      "nyc": 60302
     },
     "confidence_counts": {
       "corroborated": 10,
       "disputed": 1,
-      "documented": 94241,
+      "documented": 94441,
       "inferred": 13
     },
     "date_precision_counts": {
-      "day": 93238,
+      "day": 93438,
       "fiscal_year": 1,
       "month": 429,
       "period_end": 1,
@@ -112,12 +112,12 @@
       "2018": 3210,
       "2019": 3616,
       "2020": 3274,
-      "2021": 3659,
-      "2022": 4568,
-      "2023": 5524,
-      "2024": 5927,
-      "2025": 6362,
-      "2026": 2886
+      "2021": 3673,
+      "2022": 4606,
+      "2023": 5567,
+      "2024": 5970,
+      "2025": 6407,
+      "2026": 2903
     }
   },
   "city_source_family_counts": {
@@ -137,7 +137,7 @@
       "documented_milestones": 28529,
       "heritage": 141,
       "other_architecture": 21,
-      "permits": 30992,
+      "permits": 31192,
       "planning_admin": 419
     }
   },

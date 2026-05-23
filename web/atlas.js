@@ -433,8 +433,8 @@
       accent: "#7b3a8f",
       mapMode: "economy-land-use",
       panelMode: "economy",
-      summary: "Economy evidence cells show active retail, vacancy, office, hospitality, residential conversion, and other use signals.",
-      caveat: "Land-use pulse cells are source-backed activity evidence, not authoritative parcel land-use classifications.",
+      summary: "Mapped context tiles show active retail, vacancy, office, hospitality, residential conversion, and other use signals where evidence is available.",
+      caveat: "Land-use pulse cells mix mapped context with land-use-specific economy records where available; they are not authoritative parcel land-use classifications.",
       layers: [
         { id: "economy", label: "Land-use (current)", color: "#ca3b32", categoryToggle: true },
         { id: "change", label: "Before / current change", color: "#158c97" },
@@ -594,6 +594,7 @@
   const DETAIL_SOURCE_ID = "osm-detail";
   const DETAIL_LENS_LAYER_IDS = [
     "lens-built-footprints-fill",
+    "lens-built-footprints-before",
     "lens-built-footprints-outline",
     "lens-built-footprints-year",
   ];
@@ -856,6 +857,7 @@
     selectedEventId: null,
     selectedEvent: null,
     detailBeforeYear: null,
+    detailCurrentYear: null,
     detailRadiusM: null,
     pendingCameraFocusEventId: null,
     playing: false,
@@ -1174,6 +1176,7 @@
     state.selectedEventId = null;
     state.selectedEvent = null;
     state.detailBeforeYear = null;
+    state.detailCurrentYear = null;
     state.detailRadiusM = null;
     state.pendingCameraFocusEventId = null;
     state.search = "";
@@ -1879,13 +1882,11 @@
             <div class="planning-symbol-row"><i class="planning-outline" style="--planning-color:#cf6a57"></i><span>Before footprint</span></div>
           </div>
           <div class="planning-legend-section">
-            <span>Height change (m)</span>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#6f3a8f"></i><span>+25 and above</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#9b77b4"></i><span>+10 to +25</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#b79dbd"></i><span>+2 to +10</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#a7c4c5"></i><span>-2 to -10</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#347b7f"></i><span>-10 to -25</span></div>
-            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#1f6369"></i><span>-25 and below</span></div>
+            <span>Height-change signal</span>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#d8583f"></i><span>Significant increase</span></div>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#d99175"></i><span>Increase</span></div>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#9b8fb4"></i><span>Minor change</span></div>
+            <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#7aa3a6"></i><span>Decrease</span></div>
             <div class="planning-symbol-row"><i class="planning-empty"></i><span>No data</span></div>
           </div>
           <div class="planning-legend-section">
@@ -2358,12 +2359,33 @@
   function detailBuildingColorExpression() {
     const builtActive = isActiveMapLens("built_environment");
     const pressureActive = activeMapLens()?.id === "planning-pressure";
+    const deltaActive = activeMapLens()?.id === "planning-delta";
     const parcelActive = activeMapLens()?.id === "planning-parcels";
     return [
       "case",
       ["==", ["to-number", ["get", "visible_year"], 0], currentTimelineYear()],
-      pressureActive ? "#c98b75" : parcelActive ? "#c8c0b2" : builtActive ? "#c8472e" : "#b88974",
-      pressureActive || parcelActive ? "#c9c3b4" : builtActive ? "#a9b08f" : "#b8b6a8",
+      pressureActive ? "#c98b75" : parcelActive ? "#c8c0b2" : deltaActive ? "#d8583f" : builtActive ? "#c8472e" : "#b88974",
+      pressureActive || parcelActive || deltaActive ? "#d7c5b8" : builtActive ? "#a9b08f" : "#b8b6a8",
+    ];
+  }
+
+  function builtFootprintFillColorExpression() {
+    const deltaActive = activeMapLens()?.id === "planning-delta";
+    return [
+      "case",
+      ["==", ["to-number", ["get", "visible_year"], 0], currentTimelineYear()],
+      deltaActive ? "#d84a2d" : "#c8472e",
+      deltaActive ? "#d89572" : "#c98667",
+    ];
+  }
+
+  function builtFootprintFillOpacityExpression() {
+    const deltaActive = activeMapLens()?.id === "planning-delta";
+    return [
+      "case",
+      ["==", ["to-number", ["get", "visible_year"], 0], currentTimelineYear()],
+      deltaActive ? 0.42 : 0.36,
+      deltaActive ? 0.13 : 0.18,
     ];
   }
 
@@ -2371,6 +2393,7 @@
     const builtActive = isActiveMapLens("built_environment");
     const transportActive = isActiveMapLens("transport");
     const pressureActive = activeMapLens()?.id === "planning-pressure";
+    const deltaActive = activeMapLens()?.id === "planning-delta";
     const parcelActive = activeMapLens()?.id === "planning-parcels";
     if (state.map.getLayer("detail-buildings-fill")) {
       state.map.setPaintProperty(
@@ -2378,14 +2401,14 @@
         "fill-opacity",
         [
           "interpolate", ["linear"], ["zoom"],
-          10, pressureActive || parcelActive ? 0.025 : builtActive ? 0.1 : 0.03,
-          14, pressureActive ? 0.075 : parcelActive ? 0.045 : builtActive ? 0.2 : 0.08,
-          17, pressureActive ? 0.12 : parcelActive ? 0.07 : builtActive ? 0.3 : 0.14,
+          10, pressureActive || parcelActive ? 0.025 : deltaActive ? 0.035 : builtActive ? 0.1 : 0.03,
+          14, pressureActive ? 0.075 : parcelActive ? 0.045 : deltaActive ? 0.09 : builtActive ? 0.2 : 0.08,
+          17, pressureActive ? 0.12 : parcelActive ? 0.07 : deltaActive ? 0.14 : builtActive ? 0.3 : 0.14,
         ],
       );
     }
     if (state.map.getLayer("detail-buildings-extrusion")) {
-      state.map.setPaintProperty("detail-buildings-extrusion", "fill-extrusion-opacity", pressureActive ? 0.06 : parcelActive ? 0.02 : builtActive ? 0.32 : 0.12);
+      state.map.setPaintProperty("detail-buildings-extrusion", "fill-extrusion-opacity", pressureActive ? 0.06 : parcelActive ? 0.02 : deltaActive ? 0.04 : builtActive ? 0.32 : 0.12);
     }
     if (state.map.getLayer("detail-roads-visible")) {
       state.map.setPaintProperty(
@@ -2402,7 +2425,7 @@
       );
     }
     if (state.map.getLayer("detail-buildings-year-outline")) {
-      state.map.setPaintProperty("detail-buildings-year-outline", "line-opacity", pressureActive ? 0.08 : builtActive ? 0.22 : 0.08);
+      state.map.setPaintProperty("detail-buildings-year-outline", "line-opacity", pressureActive ? 0.08 : deltaActive ? 0.14 : builtActive ? 0.22 : 0.08);
     }
   }
 
@@ -2618,7 +2641,7 @@
           "match", ["get", "lens_id"],
           "economy-land-use", 0.012,
           "planning-pressure", 0.012,
-          "planning-delta", 0.01,
+          "planning-delta", 0.018,
           "planning-parcels", 0.01,
           "utilities-capacity", 0,
           "utilities-resilience", 0,
@@ -2669,7 +2692,7 @@
           ["==", ["get", "lens_id"], "civic-catchment"], 0.58,
           ["==", ["get", "lens_id"], "planning-pressure"], 0.68,
           ["==", ["get", "lens_id"], "planning-parcels"], 0.54,
-          ["==", ["get", "lens_id"], "planning-delta"], 0.48,
+          ["==", ["get", "lens_id"], "planning-delta"], 0.36,
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.52],
         ],
         "line-width": [
@@ -2696,8 +2719,8 @@
           ["==", ["get", "surface_style"], "access_fabric"],
           ["case",
             ["==", ["get", "fabric_shape"], "isochrone_band"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.16, 0.55, 0.32, 1, 0.5],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.014, 0.58, 0.048, 1, 0.085],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.24, 0.55, 0.42, 1, 0.62],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.032, 0.58, 0.09, 1, 0.18],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.34, 0.28, 0.64, 0.5, 1, 0.68],
@@ -2755,7 +2778,7 @@
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case",
             ["==", ["get", "lens_id"], "planning-delta"], ["coalesce", ["get", "color"], "#d87965"],
-            ["==", ["get", "lens_id"], "planning-parcels"], "#fff8e9",
+            ["==", ["get", "lens_id"], "planning-parcels"], ["coalesce", ["get", "color"], "#fff8e9"],
             ["coalesce", ["get", "color"], "#fff7eb"],
           ],
           ["==", ["get", "surface_style"], "catchment_area"], "#fffaf0",
@@ -2770,8 +2793,8 @@
           ["==", ["get", "surface_style"], "access_fabric"],
           ["case",
             ["==", ["get", "fabric_shape"], "isochrone_band"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.32, 1, 0.66],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.006, 1, 0.022],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.42, 1, 0.78],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.035, 1, 0.09],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.58, 0.36, 1, 0.58],
@@ -4369,18 +4392,22 @@
       filter: builtFootprintFilter(),
       layout: { visibility: "none" },
       paint: {
-        "fill-color": [
-          "case",
-          ["==", ["to-number", ["get", "visible_year"], 0], currentTimelineYear()],
-          "#c8472e",
-          "#c98667",
-        ],
-        "fill-opacity": [
-          "case",
-          ["==", ["to-number", ["get", "visible_year"], 0], currentTimelineYear()],
-          0.36,
-          0.18,
-        ],
+        "fill-color": builtFootprintFillColorExpression(),
+        "fill-opacity": builtFootprintFillOpacityExpression(),
+      },
+    });
+    state.map.addLayer({
+      id: "lens-built-footprints-before",
+      type: "line",
+      source: DETAIL_SOURCE_ID,
+      minzoom: 10.8,
+      filter: builtFootprintBeforeFilter(),
+      layout: { visibility: "none", "line-join": "round" },
+      paint: {
+        "line-color": "#cf604c",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.16, 14, 0.44, 17, 0.66],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.25, 14, 0.78, 17, 1.15],
+        "line-dasharray": [1.1, 1.15],
       },
     });
     state.map.addLayer({
@@ -4867,7 +4894,7 @@
     updatePointLensLayer("lens-utilities-icons", "utilities");
     bindLensInteractionLayers();
 
-    const showTransportRoads = isActiveMapLens("transport");
+    const showTransportRoads = isActiveMapLens("transport") && activeMapLens().id !== "transport-access";
     const showTransportBase = showTransportRoads;
     for (const layerId of ["lens-transport-base-case", "lens-transport-base"]) {
       if (!state.map.getLayer(layerId)) continue;
@@ -4960,8 +4987,8 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.006, 0.04) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.008, 0.065) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.006, 0.032) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.018, 0.085) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.012, 0.085) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.035, 0.12) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.006, 0.04) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.018, 0.13) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.006, 0.032) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.018, 0.085) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.045, 0.18) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.035, 0.12) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.03, 0.12) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.02, 0.1) : lensDetailFillOpacity(0.16, 0.5));
@@ -5370,9 +5397,35 @@
       && state.map?.getSource(DETAIL_SOURCE_ID);
     for (const layerId of DETAIL_LENS_LAYER_IDS) {
       if (!state.map?.getLayer(layerId)) continue;
-      const filter = layerId === "lens-built-footprints-year" ? builtFootprintYearFilter() : builtFootprintFilter();
+      const filter = layerId === "lens-built-footprints-year"
+        ? builtFootprintYearFilter()
+        : layerId === "lens-built-footprints-before"
+          ? builtFootprintBeforeFilter()
+          : builtFootprintFilter();
       state.map.setFilter(layerId, filter);
-      state.map.setLayoutProperty(layerId, "visibility", showBuilt ? "visible" : "none");
+      const layerVisible = layerId === "lens-built-footprints-before"
+        ? showBuilt && aspect.id === "planning-delta"
+        : showBuilt;
+      state.map.setLayoutProperty(layerId, "visibility", layerVisible ? "visible" : "none");
+    }
+    if (state.map.getLayer("lens-built-footprints-fill")) {
+      state.map.setPaintProperty("lens-built-footprints-fill", "fill-color", builtFootprintFillColorExpression());
+      state.map.setPaintProperty("lens-built-footprints-fill", "fill-opacity", builtFootprintFillOpacityExpression());
+    }
+    if (state.map.getLayer("lens-built-footprints-before")) {
+      state.map.setPaintProperty("lens-built-footprints-before", "line-color", aspect.id === "planning-delta" ? "#cf6a57" : "#f3c7b8");
+      state.map.setPaintProperty("lens-built-footprints-before", "line-opacity", ["interpolate", ["linear"], ["zoom"], 10, 0.16, 14, aspect.id === "planning-delta" ? 0.5 : 0.32, 17, aspect.id === "planning-delta" ? 0.68 : 0.48]);
+      state.map.setPaintProperty("lens-built-footprints-before", "line-width", ["interpolate", ["linear"], ["zoom"], 10, 0.25, 14, 0.78, 17, 1.15]);
+      state.map.setPaintProperty("lens-built-footprints-before", "line-dasharray", [1.1, 1.15]);
+    }
+    if (state.map.getLayer("lens-built-footprints-outline")) {
+      state.map.setPaintProperty("lens-built-footprints-outline", "line-color", aspect.id === "planning-delta" ? "#e6b09d" : "#f3c7b8");
+      state.map.setPaintProperty("lens-built-footprints-outline", "line-opacity", ["interpolate", ["linear"], ["zoom"], 10, aspect.id === "planning-delta" ? 0.12 : 0.18, 14, aspect.id === "planning-delta" ? 0.28 : 0.42, 17, aspect.id === "planning-delta" ? 0.42 : 0.66]);
+    }
+    if (state.map.getLayer("lens-built-footprints-year")) {
+      state.map.setPaintProperty("lens-built-footprints-year", "line-color", aspect.id === "planning-delta" ? "#8f4a3e" : "#201c17");
+      state.map.setPaintProperty("lens-built-footprints-year", "line-opacity", aspect.id === "planning-delta" ? 0.28 : 0.72);
+      state.map.setPaintProperty("lens-built-footprints-year", "line-width", ["interpolate", ["linear"], ["zoom"], 11, aspect.id === "planning-delta" ? 0.45 : 0.8, 15, aspect.id === "planning-delta" ? 1.1 : 1.7, 17, aspect.id === "planning-delta" ? 1.65 : 2.4]);
     }
   }
 
@@ -5781,7 +5834,7 @@
     const radiusM = lensEffectiveRadiusM(lens);
     const features = [];
     const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
-    const guideAccent = ["civic-access-gaps", "civic-catchment", "planning-pressure"].includes(lens.id) ? "#6e9baa" : accent;
+    const guideAccent = ["civic-access-gaps", "civic-catchment", "planning-pressure", "planning-delta"].includes(lens.id) ? "#6e9baa" : accent;
     features.push({
       type: "Feature",
       properties: {
@@ -8740,10 +8793,10 @@
       if (status === "permitted" || status === "planned" || status === "proposed") return "#d87965";
     }
     if (lensId === "planning-parcels") {
-      if (status === "demolished") return "#c88aa5";
-      if (status === "construction") return "#9d88bd";
-      if (status === "completed") return "#8eb095";
-      if (status === "permitted" || status === "planned") return "#dfc369";
+      if (status === "demolished") return "#d9598e";
+      if (status === "construction") return "#8468b8";
+      if (status === "completed") return "#6f9c7b";
+      if (status === "permitted" || status === "planned") return "#efb24d";
       if (status === "proposed") return "#ee7477";
       return "#c6c0b3";
     }
@@ -14268,12 +14321,32 @@
     ];
   }
 
+  function builtFootprintBeforeFilter() {
+    return [
+      "all",
+      ["==", ["get", "layer"], "building"],
+      ["<=", ["to-number", ["get", "visible_year"], 9999], builtFootprintBeforeYear()],
+    ];
+  }
+
   function builtFootprintYearFilter() {
     return [
       "all",
       ["==", ["get", "layer"], "building"],
       ["==", ["to-number", ["get", "visible_year"], 0], currentTimelineYear()],
     ];
+  }
+
+  function builtFootprintBeforeYear() {
+    const current = currentTimelineYear();
+    if (state.selectedEvent) {
+      const selectedBefore = Number(detailEvidenceYears(state.selectedEvent).before);
+      if (Number.isFinite(selectedBefore)) return Math.min(current, selectedBefore);
+    }
+    const requested = Number(state.detailBeforeYear);
+    if (Number.isFinite(requested) && requested < current) return requested;
+    const previousYears = state.years.filter((year) => year < current);
+    return previousYears.filter((year) => year <= current - 2).pop() || previousYears.pop() || current;
   }
 
   function emptyFeatureCollection() {
@@ -15798,13 +15871,34 @@
   }
 
   function detailEvidenceYears(event) {
-    const current = Number(event?.year || state.year);
-    const previousYears = [...state.years].filter((year) => year < current);
+    const eventYear = Number(event?.year || state.year);
+    const requestedAfter = Number(state.detailCurrentYear);
+    const lens = activeMapLens();
+    const latestYear = latestLensEvidenceYear(lens, eventYear) || state.years[state.years.length - 1] || eventYear;
+    const after = state.years.includes(requestedAfter)
+      ? requestedAfter
+      : Math.max(eventYear, latestYear);
+    const previousYears = [...state.years].filter((year) => year < eventYear);
     const requested = Number(state.detailBeforeYear);
     const before = previousYears.includes(requested)
       ? requested
-      : previousYears.filter((year) => year <= current - 2).pop() || previousYears.pop() || current;
-    return { before, after: current };
+      : previousYears.filter((year) => year <= eventYear - 2).pop() || previousYears.pop() || eventYear;
+    return { before, after };
+  }
+
+  function latestLensEvidenceYear(lens = activeMapLens(), minYear = earliestTimelineYear()) {
+    if (!lens) return null;
+    const category = lens.category || lens.layerId || state.activeLens;
+    if (!category || category === "transport") return state.years[state.years.length - 1] || null;
+    if (lens.id !== "economy-land-use") {
+      const metadataYear = [...state.years]
+        .filter((year) => year >= minYear && Number(state.chunks.get(year)?.counts_by_category?.[category] || 0) > 0)
+        .pop();
+      if (metadataYear) return metadataYear;
+    }
+    return [...state.years]
+      .filter((year) => year >= minYear && lensEvidenceEventsForYear(lens, category, year).length)
+      .pop() || null;
   }
 
   function ensureDetailEvidenceLoaded(event) {
@@ -15890,7 +15984,7 @@
       return `
         <div class="detail-section">
           <h4>Lens Before / After Evidence</h4>
-          <div class="lens-evidence-note">Loading source-backed lens context for ${before} and ${after}.</div>
+          <div class="lens-evidence-note">Loading lens context for ${before} and ${after}.</div>
         </div>`;
     }
     const rows = evidenceRowsForYears(before, after, event);
@@ -15954,9 +16048,12 @@
   }
 
   function renderDetailLensControls(event, context) {
-    const currentYear = Number(event?.year || state.year);
-    const beforeOptions = state.years.filter((year) => year < currentYear);
-    const currentOptions = state.years.length ? state.years : [currentYear];
+    const currentYear = Number(context.currentYear || event?.year || state.year);
+    const eventYear = Number(event?.year || state.year);
+    const beforeOptions = state.years.filter((year) => year < eventYear);
+    const currentOptions = state.years.filter((year) => year >= eventYear).length
+      ? state.years.filter((year) => year >= eventYear)
+      : (state.years.length ? state.years : [currentYear]);
     const radiusOptions = [...new Set([...DETAIL_RADIUS_OPTIONS, Number(context.lens.radiusM || 0), context.radiusM])]
       .filter((value) => Number.isFinite(value) && value > 0)
       .sort((a, b) => a - b);
@@ -15967,7 +16064,7 @@
           <select id="detailBeforeYear" ${beforeOptions.length ? "" : "disabled"}>
             ${beforeOptions.length
               ? beforeOptions.map((year) => `<option value="${year}" ${year === context.beforeYear ? "selected" : ""}>${year}</option>`).join("")
-              : `<option value="${currentYear}">${currentYear}</option>`}
+              : `<option value="${eventYear}">${eventYear}</option>`}
           </select>
         </label>
         <label>
@@ -16001,7 +16098,17 @@
     });
     root?.querySelector("#detailCurrentYear")?.addEventListener("change", (event) => {
       const year = Number(event.target.value);
-      if (Number.isFinite(year)) setYear(year);
+      if (!Number.isFinite(year)) return;
+      state.detailCurrentYear = year;
+      if (Number(state.detailBeforeYear) >= year) state.detailBeforeYear = null;
+      renderDetail();
+      renderTimeline();
+      if (!state.loadedEvents.has(year)) {
+        loadYear(year).finally(() => {
+          renderDetail();
+          renderTimeline();
+        });
+      }
     });
     root?.querySelector("#detailRadius")?.addEventListener("change", (event) => {
       state.detailRadiusM = Number(event.target.value) || null;
@@ -16336,8 +16443,8 @@
     const rows = utilityCapacityTypeRows(context);
     const traceRows = utilityCapacityRiskRows(rows);
     const trendRows = utilityCapacityTrendRows(context, rows);
-    const missingCoverage = activeLensMissingSameCategoryCoverage(context.lens)
-      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
       : "";
     return `
       <div class="detail-head lens-detail-head utility-capacity-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
@@ -16528,8 +16635,8 @@
     const statusRows = planningStageStatusRows(context, cells);
     const delta = planningStageDeltaSummary(context, cells);
     const topBlocks = planningPressureTopBlocks(context);
-    const missingCoverage = activeLensMissingSameCategoryCoverage(context.lens)
-      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
       : "";
     return `
       <div class="detail-head lens-detail-head planning-stage-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
@@ -16592,10 +16699,11 @@
       <section class="detail-section planning-stage-panel">
         <h4>Urban-form change <span>(within ${escapeHtml(formatRadius(context.radiusM))})</span></h4>
         <div class="planning-delta-summary">
-          <div><span>New building mass</span><strong>${escapeHtml(formatSignedNumber(delta.newMass))} m2</strong></div>
-          <div><span>Demolished / lost</span><strong>-${escapeHtml(compactNumber(delta.lostMass))} m2</strong></div>
-          <div><span>Net change</span><strong>${escapeHtml(formatSignedNumber(delta.newMass - delta.lostMass))} m2</strong></div>
+          <div><span>Current footprint index</span><strong>${escapeHtml(formatSignedNumber(delta.currentIndex))}</strong></div>
+          <div><span>Loss / demolition index</span><strong>-${escapeHtml(compactNumber(delta.lossIndex))}</strong></div>
+          <div><span>Net index</span><strong>${escapeHtml(formatSignedNumber(delta.currentIndex - delta.lossIndex))}</strong></div>
         </div>
+        <div class="lens-causality-note">Index values weight nearby planning cells, mapped footprint visibility, and event counts. They are not measured floor area or construction volume.</div>
         <h4>Height change <span>(by building)</span></h4>
         <div class="planning-stage-table compact">
           ${planningDeltaHeightRows(cells).map((row) => `
@@ -16713,8 +16821,8 @@
       .reduce((sum, item) => sum + Math.max(1, Number(item.props.event_count || 1)) * Number(item.props.intensity || 0.45), 0);
     const beforeNear = eventsNear(context.center, context.beforeEvents, context.radiusM * 1.45).length;
     return {
-      newMass: Math.round(currentWeight * 1180 + Math.max(0, context.nearbyCurrent.length - beforeNear) * 420),
-      lostMass: Math.round(lostWeight * 920 + beforeNear * 180),
+      currentIndex: Math.round(currentWeight * 1180 + Math.max(0, context.nearbyCurrent.length - beforeNear) * 420),
+      lossIndex: Math.round(lostWeight * 920 + beforeNear * 180),
     };
   }
 
@@ -16732,6 +16840,9 @@
   function renderPlanningPressureDetail(event, context, confidence, sources, provenanceFacts) {
     const rows = planningPressureDriverRows(context);
     const topBlocks = planningPressureTopBlocks(context);
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
+      : "";
     return `
       <div class="detail-head lens-detail-head planning-pressure-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
         <button class="detail-close" type="button" aria-label="Close">
@@ -16780,6 +16891,7 @@
             <span></span>
             <p>OSM mapped visibility may differ from real-world data.</p>
           </div>
+          ${missingCoverage}
         </section>
 
         <section class="detail-section planning-trend-section">
@@ -16911,6 +17023,9 @@
   function renderEconomyVitalityDetail(event, context, sources, provenanceFacts) {
     const rows = economyVitalityMetricRows(context);
     const topStreets = economyVitalityTopStreets(context);
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
+      : "";
     return `
       <div class="detail-head lens-detail-head economy-vitality-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
         <button class="detail-close" type="button" aria-label="Close">
@@ -16950,10 +17065,11 @@
             `).join("")}
           </div>
           <h4>What this shows</h4>
-          <p>Commercial frontages near the selected event are shown as source-backed proxy ribbons, with openings, closures, and vacancy signals separated from activity context.</p>
+          <p>Commercial frontages near the selected event are shown as mapped ribbons linked to economy records where available, with openings, closures, and vacancy signals separated from activity context.</p>
           <h4>Prevalence</h4>
           <p>${escapeHtml(topStreets.slice(0, 3).map((item) => item.label).join(", ") || "No named frontage segments loaded")}</p>
           <div class="economy-caution"><span></span><p>OSM mapped visibility may differ from real-world data.</p></div>
+          ${missingCoverage}
         </section>
 
         <section class="detail-section economy-panel" data-panel-id="change" hidden>
@@ -17170,7 +17286,7 @@
         ` : `
           <section class="detail-section">
             <h4>Land-use evidence cells</h4>
-            <div class="lens-evidence-note">Loading source-backed lens context for ${context.beforeYear} and ${context.currentYear}.</div>
+            <div class="lens-evidence-note">Loading lens context for ${context.beforeYear} and ${context.currentYear}.</div>
           </section>
         `}
       </div>
@@ -17342,6 +17458,9 @@
     const hasSectorData = rows.some((row) => row.before || row.current);
     const topPairs = economyGravityTopFlowPairs(context, rows, event);
     const sourceLabels = economyGravityContextSourceLabels(context, sources);
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
+      : "";
     return `
       <div class="detail-head lens-detail-head economy-gravity-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
         <button class="detail-close" type="button" aria-label="Close">
@@ -17374,6 +17493,7 @@
           ${hasSectorData
             ? `<div class="lens-causality-note">Nearby sector counts are source-backed; current OSM anchors are context. Causation is not claimed.</div>`
             : `<div class="lens-causality-note">No source-backed economy records match ${context.beforeYear} or ${context.currentYear} within this radius. Current anchors may post-date the selected year.</div>`}
+          ${missingCoverage}
         </section>
 
         <section class="detail-section economy-gravity-explain-section">
@@ -17526,8 +17646,8 @@
     const summaryRows = ready ? civicAccessSummaryRows(context, stats) : [];
     const trendRows = ready ? civicAccessTrendRows(context) : [];
     const sourceLabels = ready ? civicAccessSourceLabels(context, sources) : [];
-    const missingCoverage = activeLensMissingSameCategoryCoverage(context.lens)
-      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
       : "";
     return `
       <div class="detail-head lens-detail-head civic-access-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
@@ -17816,8 +17936,8 @@
     const gapRows = ready ? civicDemandGapRows() : [];
     const shiftRows = ready ? civicDemandShiftRows(context) : [];
     const sourceLabels = ready ? civicDemandSourceLabels(context, sources) : [];
-    const missingCoverage = activeLensMissingSameCategoryCoverage(context.lens)
-      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
       : "";
     return `
       <div class="detail-head lens-detail-head civic-demand-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
@@ -18219,8 +18339,8 @@
     const facilities = civicCatchmentClosestFacilities(context);
     const serviceRows = civicCatchmentServiceRows(context, facilities);
     const edges = civicCatchmentUnderservedEdges(context, facilities);
-    const missingCoverage = activeLensMissingSameCategoryCoverage(context.lens)
-      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
       : "";
     return `
       <div class="detail-head lens-detail-head civic-catchment-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
@@ -18504,6 +18624,9 @@
       const current = aspectLayerEventMatches(context.currentEvents, layer).length;
       return { layer, before, current, delta: current - before };
     });
+    const missingCoverage = lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
+      : "";
     return `
       <div class="detail-section aspect-diff-panel">
         <h4>Change around selected event</h4>
@@ -18521,6 +18644,7 @@
           `).join("")}
         </div>
         <div class="lens-causality-note">Observed records during the same period; causation is not claimed.</div>
+        ${missingCoverage}
       </div>`;
   }
 
@@ -19336,6 +19460,7 @@
     state.activeAspect = defaultAspectForCategory(next);
     state.detailRadiusM = null;
     state.detailBeforeYear = null;
+    state.detailCurrentYear = null;
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     renderLensSwitcher();
@@ -19359,6 +19484,7 @@
     }
     state.detailRadiusM = null;
     state.detailBeforeYear = null;
+    state.detailCurrentYear = null;
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     renderLensSwitcher();

@@ -7,7 +7,7 @@
     "end_date": "2026-05-20",
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
-  "source_count": 433,
+  "source_count": 435,
   "sources": [
     {
       "source_id": "barts-whipps-cross-stage2",
@@ -21260,13 +21260,179 @@
         "permit_issued",
         "planning_decision"
       ],
-      "event_count": 18229,
+      "event_count": 18429,
       "confidence_counts": {
-        "documented": 18229
+        "documented": 18429
       },
       "caveats": [
         "Application fields are proposed/source-reported and may be amended; legacy fields can include inconsistent or extreme values. The job filing itself is not completion or occupancy evidence. Use as supporting provenance for selected permit rows, not as a standalone completion claim. This is an administrative permit-issuance record. It is not evidence of construction start, construction completion, opening, legal occupancy, actual occupancy, design quality, safety condition, affordability, neighborhood outcome, or outcome effect. Linked job-application scale fields are source-reported proposed/application attributes and may be amended; legacy DOB rows can contain data-entry anomalies, so extreme scale values were screened and raw fields are retained for review.",
         "This is an administrative permit-issuance record. It is not evidence of construction start, construction completion, opening, legal occupancy, actual occupancy, design quality, safety condition, affordability, neighborhood outcome, or outcome effect. Linked job-application scale fields are source-reported proposed/application attributes and may be amended; legacy DOB rows can contain data-entry anomalies, so extreme scale values were screened and raw fields are retained for review. This event is retained as an observed, source-backed milestone only; broader design, delivery, usage, safety, affordability, regeneration, or outcome claims are not inferred."
+      ],
+      "priority_inventory_source": false
+    },
+    {
+      "source_id": "nyc-dob-now-build-approved-permits-rbx6-tga4",
+      "title": "NYC Open Data: DOB NOW: Build - Approved Permits",
+      "publisher": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_family": "planning/development/architecture/building_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "access": {
+        "api_url": null,
+        "csv_url": null,
+        "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4",
+        "docs_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+        "source_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4"
+      },
+      "coverage": {
+        "years": {
+          "start": 2021,
+          "end": 2026
+        },
+        "observed_years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "update_frequency": "NYC Open Data operating dataset; publisher-updated.",
+        "geography": "DOB/Open Data geocoded address point; not a surveyed entrance, parcel polygon, building footprint, or work footprint",
+        "temporal_granularity": "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number"
+      },
+      "legal": {
+        "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; Socrata metadata for the checked DOB views does not expose a dataset-specific license field.",
+        "licence_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+        "attribution_text": "Attribute NYC Department of Buildings (DOB), via NYC Open Data.",
+        "redistribution_caveat": "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      },
+      "data_shape": {
+        "date_fields": [
+          "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number"
+        ],
+        "geometry_fields": [
+          "latitude",
+          "longitude",
+          "area",
+          "geometry_source",
+          "geometry_precision"
+        ],
+        "row_id_fields": [
+          "source_record_id",
+          "source_url",
+          "event_id"
+        ],
+        "status_fields": [
+          "bucket",
+          "confidence",
+          "project_type"
+        ],
+        "sample_record_ids": [
+          "B00485736-I1-GC:1:237956017",
+          "B00503642-I1-GC-CX:1:454532546",
+          "B00526841-I1-GC:1:901546875",
+          "B00555041-I1-GC:1:228382435",
+          "Q00481865-I1-GC:1:903743526",
+          "Q00520872-I1-GC:1:467348975",
+          "Q00538342-I1-GC:1:829752805",
+          "Q00562486-I1-GC:1:121193028"
+        ]
+      },
+      "event_types": [
+        "permit_issued"
+      ],
+      "event_count": 200,
+      "confidence_counts": {
+        "documented": 200
+      },
+      "caveats": [
+        "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
+        "DOB NOW permit and job filing rows are administrative records. This candidate records permit issuance only; it is not evidence of construction start, construction completion, public opening, occupancy, final built form, safety, affordability, design quality, or outcome effects. Permit status such as 'Signed-off' is a permit lifecycle field and should not be treated as a certificate of occupancy. Source-reported cost, floor-area, unit, height, story, use, and status fields can be amended by later DOB records. Coordinates are DOB/Open Data geocoded address points, not surveyed parcels, entrances, building footprints, or work limits."
+      ],
+      "priority_inventory_source": false
+    },
+    {
+      "source_id": "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
+      "title": "NYC Open Data: DOB NOW: Build - Job Application Filings",
+      "publisher": "NYC Department of Buildings (DOB), via NYC Open Data",
+      "source_family": "planning/development/architecture/building_permits",
+      "city_ids": [
+        "nyc"
+      ],
+      "access": {
+        "api_url": null,
+        "csv_url": null,
+        "portal_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Job-Application-Filings/w9ak-ipjd",
+        "docs_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+        "source_url": "https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Job-Application-Filings/w9ak-ipjd"
+      },
+      "coverage": {
+        "years": {
+          "start": 2021,
+          "end": 2026
+        },
+        "observed_years": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "update_frequency": "NYC Open Data operating dataset; publisher-updated.",
+        "geography": "DOB/Open Data geocoded address point; not a surveyed entrance, parcel polygon, building footprint, or work footprint",
+        "temporal_granularity": "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number"
+      },
+      "legal": {
+        "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; Socrata metadata for the checked DOB views does not expose a dataset-specific license field.",
+        "licence_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
+        "attribution_text": "Attribute NYC Department of Buildings (DOB), via NYC Open Data.",
+        "redistribution_caveat": "The file stores small factual event metadata, coordinates for atlas navigation, and source URLs. It does not reproduce publisher page text. Review each linked page before redistributing larger excerpts or media."
+      },
+      "data_shape": {
+        "date_fields": [
+          "issued_date from DOB NOW: Build - Approved Permits; filing_date, job_type, and scale fields joined from DOB NOW: Build - Job Application Filings by job_filing_number or DOB NOW base job number"
+        ],
+        "geometry_fields": [
+          "latitude",
+          "longitude",
+          "area",
+          "geometry_source",
+          "geometry_precision"
+        ],
+        "row_id_fields": [
+          "source_record_id",
+          "source_url",
+          "event_id"
+        ],
+        "status_fields": [
+          "bucket",
+          "confidence",
+          "project_type"
+        ],
+        "sample_record_ids": [
+          "B00485736-I1-GC:1:237956017",
+          "B00503642-I1-GC-CX:1:454532546",
+          "B00526841-I1-GC:1:901546875",
+          "B00555041-I1-GC:1:228382435",
+          "Q00481865-I1-GC:1:903743526",
+          "Q00520872-I1-GC:1:467348975",
+          "Q00538342-I1-GC:1:829752805",
+          "Q00562486-I1-GC:1:121193028"
+        ]
+      },
+      "event_types": [
+        "permit_issued"
+      ],
+      "event_count": 200,
+      "confidence_counts": {
+        "documented": 200
+      },
+      "caveats": [
+        "DOB NOW filing and permit rows are administrative records. They do not evidence construction start, construction completion, public opening, legal occupancy, actual occupancy, final built form, design quality, safety, affordability or outcome effects.",
+        "DOB NOW permit and job filing rows are administrative records. This candidate records permit issuance only; it is not evidence of construction start, construction completion, public opening, occupancy, final built form, safety, affordability, design quality, or outcome effects. Permit status such as 'Signed-off' is a permit lifecycle field and should not be treated as a certificate of occupancy. Source-reported cost, floor-area, unit, height, story, use, and status fields can be amended by later DOB records. Coordinates are DOB/Open Data geocoded address points, not surveyed parcels, entrances, building footprints, or work limits."
       ],
       "priority_inventory_source": false
     },
