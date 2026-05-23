@@ -7,7 +7,7 @@
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
   "summary": {
-    "event_count": 104417,
+    "event_count": 104617,
     "source_count": 439,
     "frozen_inventory_source_count": 22,
     "event_years": [
@@ -34,16 +34,16 @@
     "city_counts": {
       "belfast": 3823,
       "london": 34857,
-      "nyc": 65737
+      "nyc": 65937
     },
     "confidence_counts": {
       "corroborated": 10,
       "disputed": 1,
-      "documented": 104393,
+      "documented": 104593,
       "inferred": 13
     },
     "date_precision_counts": {
-      "day": 103390,
+      "day": 103590,
       "fiscal_year": 1,
       "month": 429,
       "period_end": 1,
@@ -99,24 +99,24 @@
       "2026": 102
     },
     "nyc": {
-      "2008": 1589,
-      "2009": 1392,
-      "2010": 1613,
-      "2011": 1678,
-      "2012": 2027,
-      "2013": 2687,
-      "2014": 2589,
-      "2015": 2797,
-      "2016": 3107,
-      "2017": 3552,
-      "2018": 3476,
-      "2019": 4046,
-      "2020": 3553,
-      "2021": 4095,
-      "2022": 5184,
-      "2023": 6138,
-      "2024": 6370,
-      "2025": 6839,
+      "2008": 1593,
+      "2009": 1396,
+      "2010": 1617,
+      "2011": 1686,
+      "2012": 2035,
+      "2013": 2697,
+      "2014": 2597,
+      "2015": 2807,
+      "2016": 3117,
+      "2017": 3562,
+      "2018": 3486,
+      "2019": 4056,
+      "2020": 3563,
+      "2021": 4141,
+      "2022": 5202,
+      "2023": 6148,
+      "2024": 6380,
+      "2025": 6849,
       "2026": 3005
     }
   },
@@ -137,7 +137,7 @@
       "documented_milestones": 28529,
       "heritage": 141,
       "other_architecture": 21,
-      "permits": 36627,
+      "permits": 36827,
       "planning_admin": 419
     }
   },
@@ -172,7 +172,7 @@
     },
     {
       "key": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "value": 4600
+      "value": 4800
     },
     {
       "key": "gla-planning-datahub-applications,london-planning-datahub-api-core",

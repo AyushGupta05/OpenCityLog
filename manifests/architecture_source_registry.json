@@ -22924,9 +22924,9 @@
       "event_types": [
         "permit_issued"
       ],
-      "event_count": 4600,
+      "event_count": 4800,
       "confidence_counts": {
-        "documented": 4600
+        "documented": 4800
       },
       "caveats": [
         "LPC permit/application processing is an administrative preservation action. It is not construction start, completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry evidence. WorkTypes are source category text and may summarize rather than fully describe the scope; rows can be refreshed or corrected after retrieval.",
