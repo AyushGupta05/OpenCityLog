@@ -1,6 +1,6 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-23T18:27:15Z
+Generated: 2026-05-23T18:38:00Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
@@ -8,7 +8,7 @@ This report counts source-backed records emitted into `web/data/city-atlas`. It 
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 33147 | 205 | 31 | 2007-2026 | transport 17118, built_environment 13824, utilities 851 | 66853 |
 | London, England | 224001 | 191 | 101 | 1801-2026 | built_environment 104718, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 94661 | 81 | 122 | 1797-2026 | built_environment 63438, environment 20510, transport 7624 | 5339 |
+| New York City, New York | 94861 | 81 | 122 | 1797-2026 | built_environment 63513, environment 20614, transport 7643 | 5139 |
 
 ## Belfast, Northern Ireland
 
@@ -54,7 +54,7 @@ Catalog-only sources without emitted event rows: 101.
 
 ## New York City, New York
 
-Backed events: 94661. Unique event IDs: 94661. Duplicate IDs: 0.
+Backed events: 94861. Unique event IDs: 94861. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -65,7 +65,7 @@ Backed events: 94661. Unique event IDs: 94661. Duplicate IDs: 0.
 | NYC Open Data: Affordable Housing Production by Building | 7382 | 2014-2026 | built_environment 7382 | usable_with_caveats |
 | DOB Permit Issuance | 7180 | 2004-2025 | built_environment 7180 | usable_with_caveats |
 | NYC Open Data: DOB Permit Issuance | 6400 | 2008-2026 | built_environment 6400 | usable_with_caveats |
-| NYC Open Data: LPC Permit Application Information | 4600 | 2008-2025 | environment 2674, built_environment 1630, transport 248 | usable_with_caveats |
+| NYC Open Data: LPC Permit Application Information | 4800 | 2008-2025 | environment 2778, built_environment 1705, transport 267 | usable_with_caveats |
 | NYC Open Data: DOB NOW: Certificate of Occupancy | 2586 | 2021-2026 | built_environment 2586 | usable_with_caveats |
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |
