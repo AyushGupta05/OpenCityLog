@@ -7,7 +7,7 @@
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
   "summary": {
-    "event_count": 102317,
+    "event_count": 102517,
     "source_count": 439,
     "frozen_inventory_source_count": 22,
     "event_years": [
@@ -34,16 +34,16 @@
     "city_counts": {
       "belfast": 3823,
       "london": 33957,
-      "nyc": 64537
+      "nyc": 64737
     },
     "confidence_counts": {
       "corroborated": 10,
       "disputed": 1,
-      "documented": 102293,
+      "documented": 102493,
       "inferred": 13
     },
     "date_precision_counts": {
-      "day": 101290,
+      "day": 101490,
       "fiscal_year": 1,
       "month": 429,
       "period_end": 1,
@@ -99,24 +99,24 @@
       "2026": 102
     },
     "nyc": {
-      "2008": 1565,
-      "2009": 1368,
-      "2010": 1589,
-      "2011": 1630,
-      "2012": 1968,
-      "2013": 2627,
-      "2014": 2541,
-      "2015": 2737,
-      "2016": 3047,
-      "2017": 3492,
-      "2018": 3416,
-      "2019": 3962,
-      "2020": 3493,
-      "2021": 4035,
-      "2022": 4997,
-      "2023": 5976,
-      "2024": 6310,
-      "2025": 6779,
+      "2008": 1569,
+      "2009": 1372,
+      "2010": 1593,
+      "2011": 1638,
+      "2012": 1978,
+      "2013": 2637,
+      "2014": 2549,
+      "2015": 2747,
+      "2016": 3057,
+      "2017": 3502,
+      "2018": 3426,
+      "2019": 3996,
+      "2020": 3503,
+      "2021": 4045,
+      "2022": 5007,
+      "2023": 6004,
+      "2024": 6320,
+      "2025": 6789,
       "2026": 3005
     }
   },
@@ -137,7 +137,7 @@
       "documented_milestones": 28529,
       "heritage": 141,
       "other_architecture": 21,
-      "permits": 35427,
+      "permits": 35627,
       "planning_admin": 419
     }
   },
@@ -176,7 +176,7 @@
     },
     {
       "key": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "value": 3400
+      "value": 3600
     },
     {
       "key": "nyc-dob-certificate-of-occupancy,nyc-dob-now-co-pkdm-hqz6",
