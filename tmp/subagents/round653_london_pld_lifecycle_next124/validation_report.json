@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "validated_at": "2026-05-23T00:00:00Z",
+  "validator": "Round653 post-append readback validation reconstructed from manual corpus rows.",
+  "candidate_count": 150,
+  "date_range": {
+    "min": "2013-03-31",
+    "max": "2013-10-14"
+  },
+  "lifecycle_field_mix": {
+    "actual_completion_date": 148,
+    "actual_commencement_date": 2
+  },
+  "unique_event_ids": 150,
+  "unique_source_date_keys": 150,
+  "checks": [
+    "150 Round653 rows found in manual corpus",
+    "required source IDs retained",
+    "accessed_at and retrieved_at retained as 2026-05-23",
+    "administrative-only caveats retained in observed_change and limitations"
+  ],
+  "reconstructed_from_manual_corpus": true
+}

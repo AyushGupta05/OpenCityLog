@@ -15768,9 +15768,9 @@
         "construction_start",
         "planning_decision"
       ],
-      "event_count": 18889,
+      "event_count": 19789,
       "confidence_counts": {
-        "documented": 18889
+        "documented": 19789
       },
       "caveats": [
         "PLD actual_commencement_date and actual_completion_date are source-reported administrative or applicant/local-authority lifecycle fields from borough planning feeds and may be unevenly populated or interpreted across authorities. This row is an administrative planning feed record only; use source planning documents and site-specific evidence for construction start, construction completion, opening, occupation, current use, design quality, service-result statements, or final built form. Do not infer delivery of a wider masterplan or proposal outcome from this lifecycle row alone. Geometry is a PLD point or polygon-derived representative point for atlas navigation and may not be the precise building footprint or phase boundary. The London Datastore licence entry for the applications source is Not Specified; keep attribution/source URLs and review terms before redistributing source data at bulk scale. This event is retained as an observed, source-backed milestone only; broader design, delivery, usage, safety, affordability, regeneration, or outcome claims are not inferred.",
@@ -18472,9 +18472,9 @@
         "completion",
         "construction_start"
       ],
-      "event_count": 3600,
+      "event_count": 4500,
       "confidence_counts": {
-        "documented": 3600
+        "documented": 4500
       },
       "caveats": [
         "PLD actual_commencement_date and actual_completion_date are source-reported administrative lifecycle fields from borough planning feeds. They are not direct evidence of construction start, construction completion, public opening, occupation, final built form, design quality, safety, affordability, or outcome effects.",
@@ -22924,9 +22924,9 @@
       "event_types": [
         "permit_issued"
       ],
-      "event_count": 3600,
+      "event_count": 4600,
       "confidence_counts": {
-        "documented": 3600
+        "documented": 4600
       },
       "caveats": [
         "LPC permit/application processing is an administrative preservation action. It is not construction start, completion, compliance sign-off, final physical condition, preservation outcome, or full approved-work geometry evidence. WorkTypes are source category text and may summarize rather than fully describe the scope; rows can be refreshed or corrected after retrieval.",

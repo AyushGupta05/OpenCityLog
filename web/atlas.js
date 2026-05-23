@@ -153,7 +153,7 @@
       mapMode: "transport-access",
       panelMode: "transport",
       summary: "Access-proxy bands are generated from mapped network and source context around the selected event.",
-      caveat: "Access bands are mapped context guides, not door-to-door travel-time calculations.",
+      caveat: "Access bands are mapped context guides, not measured trip times or service claims.",
       layers: [
         { id: "transport", label: "Walk network", color: "#0f8d95", categoryToggle: true },
         { id: "bus_network", label: "Bus network", color: "#2873c5" },
@@ -197,7 +197,7 @@
         { label: "Lower disruption signal", color: "#248b94", shape: "line" },
         { label: "Higher delay signal", color: "#ef9c1a", shape: "outline" },
         { label: "Interrupted", color: "#ed3f2b", shape: "line" },
-        { label: "Planned / future", color: "#7a3b97", shape: "outline" },
+        { label: "Planned / record", color: "#7a3b97", shape: "outline" },
         { label: "Inferred / uncertain", color: "#898b8e", shape: "outline" },
       ],
     },
@@ -496,7 +496,7 @@
       mapMode: "utilities-capacity",
       panelMode: "utilities",
       summary: "Current OSM utility context, service records, and road-adjacent traces are colored as a descriptive network x-ray.",
-      caveat: "Trace utility types are derived from nearby mapped assets and service context; high-context styling is descriptive, not measured capacity.",
+      caveat: "Trace utility types are derived from nearby mapped assets and service context; this high-context styling is not engineering capacity data.",
       layers: [
         { id: "utilities", label: "Power", color: "#ef6b2a", categoryToggle: true, utilityType: "electricity" },
         { id: "water", label: "Water", color: "#2f85bd", utilityType: "water" },
@@ -2750,15 +2750,15 @@
           ["==", ["get", "surface_style"], "access_fabric"],
           ["case",
             ["==", ["get", "fabric_shape"], "isochrone_band"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.24, 0.55, 0.42, 1, 0.62],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.032, 0.58, 0.09, 1, 0.18],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.34, 0.55, 0.56, 1, 0.78],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.06, 0.58, 0.14, 1, 0.28],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.34, 0.28, 0.64, 0.5, 1, 0.68],
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case",
             ["==", ["get", "lens_id"], "planning-pressure"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.045, 0.5, 0.105, 1, 0.22],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.08, 0.5, 0.18, 1, 0.36],
             ["==", ["get", "lens_id"], "planning-delta"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.45, 0.24, 1, 0.42],
             ["==", ["get", "lens_id"], "planning-parcels"],
@@ -2836,15 +2836,15 @@
           ["==", ["get", "surface_style"], "access_fabric"],
           ["case",
             ["==", ["get", "fabric_shape"], "isochrone_band"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.42, 1, 0.78],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.035, 1, 0.09],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.55, 1, 0.88],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.08, 1, 0.18],
           ],
           ["==", ["get", "surface_style"], "demand_surface"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.08, 0.58, 0.2, 1, 0.34],
           ["==", ["get", "surface_style"], "planning_footprint"],
           ["case",
             ["==", ["get", "lens_id"], "planning-pressure"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.55, 0.28, 1, 0.4],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.28, 0.55, 0.42, 1, 0.58],
             ["==", ["get", "lens_id"], "planning-delta"], 0.44,
             ["==", ["get", "lens_id"], "planning-parcels"], 0.44,
             0.7,
@@ -2870,9 +2870,9 @@
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.62, ["==", ["get", "surface_style"], "access_fabric"], 0.1, ["==", ["get", "surface_style"], "demand_surface"], 0.08, ["==", ["get", "surface_style"], "planning_footprint"], 0.26, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.32, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
-          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.02, ["==", ["get", "surface_style"], "access_fabric"], 0.2, ["==", ["get", "surface_style"], "demand_surface"], 0.22, ["==", ["get", "surface_style"], "planning_footprint"], 0.9, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.92, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.18, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
-          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.34, ["==", ["get", "surface_style"], "access_fabric"], 0.3, ["==", ["get", "surface_style"], "demand_surface"], 0.34, ["==", ["get", "surface_style"], "planning_footprint"], 1.25, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.22, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
+          10, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.18, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 0.72, ["==", ["get", "surface_style"], "access_fabric"], 0.18, ["==", ["get", "surface_style"], "demand_surface"], 0.08, ["==", ["get", "surface_style"], "planning_footprint"], 0.34, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.32, ["==", ["get", "surface_style"], "catchment_area"], 0.58, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.08, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.22, ["==", ["get", "surface_style"], "catchment_patch"], 0.28, 0.3],
+          14, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.25, ["==", ["get", "surface_style"], "land_use_tile"], 0.44, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.22, ["==", ["get", "surface_style"], "access_fabric"], 0.36, ["==", ["get", "surface_style"], "demand_surface"], 0.22, ["==", ["get", "surface_style"], "planning_footprint"], 1.08, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.92, ["==", ["get", "surface_style"], "catchment_area"], 0.72, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.18, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.48, ["==", ["get", "surface_style"], "catchment_patch"], 0.58, 0.62],
+          17, ["case", ["==", ["get", "surface_style"], "utility_outage_area"], 1.9, ["==", ["get", "surface_style"], "land_use_tile"], 0.72, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "fabric_shape"], "isochrone_band"]], 1.55, ["==", ["get", "surface_style"], "access_fabric"], 0.52, ["==", ["get", "surface_style"], "demand_surface"], 0.34, ["==", ["get", "surface_style"], "planning_footprint"], 1.48, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.22, ["==", ["get", "surface_style"], "catchment_area"], 1.05, ["all", ["==", ["get", "surface_style"], "catchment_backdrop"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.28, ["==", ["get", "surface_style"], "catchment_backdrop"], 0.7, ["==", ["get", "surface_style"], "catchment_patch"], 0.82, 1.05],
         ],
       },
     });
@@ -15216,7 +15216,7 @@
             <div class="transport-line-row"><i class="solid" style="--line-color:#168a94"></i><span>Lower disruption signal</span></div>
             <div class="transport-line-row"><i class="delayed" style="--line-color:#ef9c1a"></i><span>Higher delay signal</span></div>
             <div class="transport-line-row"><i class="interrupted" style="--line-color:#ed3f2b"></i><span>Interrupted</span></div>
-            <div class="transport-line-row"><i class="planned" style="--line-color:#7a3b97"></i><span>Planned / future</span></div>
+            <div class="transport-line-row"><i class="planned" style="--line-color:#7a3b97"></i><span>Planned / record</span></div>
             <div class="transport-line-row"><i class="inferred" style="--line-color:#898b8e"></i><span>Inferred / uncertain</span></div>
           </div>
         </div>
@@ -16440,7 +16440,7 @@
             <p>${escapeHtml(transportSpeedWhatThisShows(rows))}</p>
             <h4>Prevalence</h4>
             <p>${escapeHtml(sourceLabels.join(", ") || "Transport records and mapped road context")}</p>
-            <div class="economy-caution transport-speed-data-note"><span></span><p>Speed bands are derived from source-backed transport activity and mapped context, not live or measured congestion.</p></div>
+            <div class="economy-caution transport-speed-data-note"><span></span><p>Flow bands are derived from source-backed transport activity and mapped context, not speed or congestion readings.</p></div>
           </section>
 
           <section class="detail-section transport-speed-trend-section">

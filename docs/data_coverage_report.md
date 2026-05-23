@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-23T15:46:48Z
+Generated: 2026-05-23T18:27:15Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 33147 | 205 | 31 | 2007-2026 | transport 17118, built_environment 13824, utilities 851 | 66853 |
-| London, England | 223101 | 191 | 101 | 1801-2026 | built_environment 103818, civic_services 53367, transport 37842 | 0 |
-| New York City, New York | 93661 | 81 | 122 | 1797-2026 | built_environment 63063, environment 19963, transport 7554 | 6339 |
+| London, England | 224001 | 191 | 101 | 1801-2026 | built_environment 104718, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 94661 | 81 | 122 | 1797-2026 | built_environment 63438, environment 20510, transport 7624 | 5339 |
 
 ## Belfast, Northern Ireland
 
@@ -33,11 +33,11 @@ Catalog-only sources without emitted event rows: 31.
 
 ## London, England
 
-Backed events: 223101. Unique event IDs: 223101. Duplicate IDs: 0.
+Backed events: 224001. Unique event IDs: 224001. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
-| Planning London Datahub - planning applications | 28374 | 2008-2026 | built_environment 28374 | usable_with_caveats |
+| Planning London Datahub - planning applications | 29274 | 2008-2026 | built_environment 29274 | usable_with_caveats |
 | Police.uk stop and search custom CSV downloads | 27792 | 2023-2026 | civic_services 27792 | usable_with_caveats |
 | Police.uk crime and outcomes API | 27362 | 1829-2026 | environment 26697, transport 665 | usable_with_caveats |
 | London Fire Brigade incident records | 27002 | 2005-2026 | civic_services 25510, environment 1339, transport 152 | usable_with_caveats |
@@ -48,13 +48,13 @@ Backed events: 223101. Unique event IDs: 223101. Duplicate IDs: 0.
 | Planning permissions on the London Development Database (LDD) | 11442 | 2008-2020 | built_environment 11382, civic_services 44, transport 12 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
-| Planning London Datahub applications API | 3600 | 2008-2025 | built_environment 3600 | usable_with_caveats |
+| Planning London Datahub applications API | 4500 | 2008-2025 | built_environment 4500 | usable_with_caveats |
 
 Catalog-only sources without emitted event rows: 101.
 
 ## New York City, New York
 
-Backed events: 93661. Unique event IDs: 93661. Duplicate IDs: 0.
+Backed events: 94661. Unique event IDs: 94661. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -65,7 +65,7 @@ Backed events: 93661. Unique event IDs: 93661. Duplicate IDs: 0.
 | NYC Open Data: Affordable Housing Production by Building | 7382 | 2014-2026 | built_environment 7382 | usable_with_caveats |
 | DOB Permit Issuance | 7180 | 2004-2025 | built_environment 7180 | usable_with_caveats |
 | NYC Open Data: DOB Permit Issuance | 6400 | 2008-2026 | built_environment 6400 | usable_with_caveats |
-| NYC Open Data: LPC Permit Application Information | 3600 | 2008-2025 | environment 2127, built_environment 1255, transport 178 | usable_with_caveats |
+| NYC Open Data: LPC Permit Application Information | 4600 | 2008-2025 | environment 2674, built_environment 1630, transport 248 | usable_with_caveats |
 | NYC Open Data: DOB NOW: Certificate of Occupancy | 2586 | 2021-2026 | built_environment 2586 | usable_with_caveats |
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |

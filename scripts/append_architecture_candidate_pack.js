@@ -28,7 +28,10 @@ function readJson(filePath) {
 }
 
 function writeJson(filePath, payload) {
-  fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  const dir = path.dirname(filePath);
+  const tmpPath = path.join(dir, `.${path.basename(filePath)}.${process.pid}.tmp`);
+  fs.writeFileSync(tmpPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  fs.renameSync(tmpPath, filePath);
 }
 
 function compactText(value) {

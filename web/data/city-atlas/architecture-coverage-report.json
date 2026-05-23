@@ -7,7 +7,7 @@
     "description": "Working past-18-years window for architecture-related administrative and documented milestones. Records are evidence of the stated source milestone only, not evidence of construction outcomes unless the source explicitly states completion or opening."
   },
   "summary": {
-    "event_count": 102517,
+    "event_count": 104417,
     "source_count": 439,
     "frozen_inventory_source_count": 22,
     "event_years": [
@@ -33,17 +33,17 @@
     ],
     "city_counts": {
       "belfast": 3823,
-      "london": 33957,
-      "nyc": 64737
+      "london": 34857,
+      "nyc": 65737
     },
     "confidence_counts": {
       "corroborated": 10,
       "disputed": 1,
-      "documented": 102493,
+      "documented": 104393,
       "inferred": 13
     },
     "date_precision_counts": {
-      "day": 101490,
+      "day": 103390,
       "fiscal_year": 1,
       "month": 429,
       "period_end": 1,
@@ -81,10 +81,10 @@
       "2008": 1957,
       "2009": 1723,
       "2010": 1661,
-      "2011": 1891,
-      "2012": 1954,
-      "2013": 1813,
-      "2014": 2201,
+      "2011": 2128,
+      "2012": 2237,
+      "2013": 2082,
+      "2014": 2312,
       "2015": 2645,
       "2016": 2913,
       "2017": 2849,
@@ -99,24 +99,24 @@
       "2026": 102
     },
     "nyc": {
-      "2008": 1569,
-      "2009": 1372,
-      "2010": 1593,
-      "2011": 1638,
-      "2012": 1978,
-      "2013": 2637,
-      "2014": 2549,
-      "2015": 2747,
-      "2016": 3057,
-      "2017": 3502,
-      "2018": 3426,
-      "2019": 3996,
-      "2020": 3503,
-      "2021": 4045,
-      "2022": 5007,
-      "2023": 6004,
-      "2024": 6320,
-      "2025": 6789,
+      "2008": 1589,
+      "2009": 1392,
+      "2010": 1613,
+      "2011": 1678,
+      "2012": 2027,
+      "2013": 2687,
+      "2014": 2589,
+      "2015": 2797,
+      "2016": 3107,
+      "2017": 3552,
+      "2018": 3476,
+      "2019": 4046,
+      "2020": 3553,
+      "2021": 4095,
+      "2022": 5184,
+      "2023": 6138,
+      "2024": 6370,
+      "2025": 6839,
       "2026": 3005
     }
   },
@@ -128,16 +128,16 @@
       "planning_admin": 714
     },
     "london": {
-      "documented_milestones": 32199,
+      "documented_milestones": 33082,
       "heritage": 883,
       "other_architecture": 31,
-      "planning_admin": 844
+      "planning_admin": 861
     },
     "nyc": {
       "documented_milestones": 28529,
       "heritage": 141,
       "other_architecture": 21,
-      "permits": 35627,
+      "permits": 36627,
       "planning_admin": 419
     }
   },
@@ -171,12 +171,12 @@
       "value": 4800
     },
     {
-      "key": "gla-planning-datahub-applications,london-planning-datahub-api-core",
-      "value": 3600
+      "key": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "value": 4600
     },
     {
-      "key": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "value": 3600
+      "key": "gla-planning-datahub-applications,london-planning-datahub-api-core",
+      "value": 4500
     },
     {
       "key": "nyc-dob-certificate-of-occupancy,nyc-dob-now-co-pkdm-hqz6",

@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-23T15:46:48Z",
+  "generated_at": "2026-05-23T18:27:15Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 349909,
-    "total_unique_events": 349909,
+    "total_events": 351809,
+    "total_unique_events": 351809,
     "duplicate_event_id_count": 0,
     "active_source_count": 477,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2462,
+    "source_year_layer_row_count": 2467,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -3776,7 +3776,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 931
+      "event_count": 1168
     },
     {
       "city_id": "london",
@@ -3784,7 +3784,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 1016
+      "event_count": 1299
     },
     {
       "city_id": "london",
@@ -3792,7 +3792,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 961
+      "event_count": 1230
     },
     {
       "city_id": "london",
@@ -3800,7 +3800,7 @@
       "source_title": "Planning London Datahub - planning applications",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 1198
+      "event_count": 1309
     },
     {
       "city_id": "london",
@@ -8560,7 +8560,7 @@
       "source_title": "Planning London Datahub applications API",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 88
+      "event_count": 325
     },
     {
       "city_id": "london",
@@ -8568,7 +8568,7 @@
       "source_title": "Planning London Datahub applications API",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 89
+      "event_count": 372
     },
     {
       "city_id": "london",
@@ -8576,7 +8576,7 @@
       "source_title": "Planning London Datahub applications API",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 84
+      "event_count": 353
     },
     {
       "city_id": "london",
@@ -8584,7 +8584,7 @@
       "source_title": "Planning London Datahub applications API",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 206
+      "event_count": 317
     },
     {
       "city_id": "london",
@@ -17776,7 +17776,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2008,
       "layer": "built_environment",
-      "event_count": 47
+      "event_count": 55
     },
     {
       "city_id": "nyc",
@@ -17792,7 +17792,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2008,
       "layer": "environment",
-      "event_count": 85
+      "event_count": 97
     },
     {
       "city_id": "nyc",
@@ -17808,7 +17808,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2009,
       "layer": "built_environment",
-      "event_count": 18
+      "event_count": 23
     },
     {
       "city_id": "nyc",
@@ -17824,7 +17824,15 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2009,
       "layer": "environment",
-      "event_count": 50
+      "event_count": 63
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2009,
+      "layer": "transport",
+      "event_count": 2
     },
     {
       "city_id": "nyc",
@@ -17832,7 +17840,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2010,
       "layer": "built_environment",
-      "event_count": 22
+      "event_count": 27
     },
     {
       "city_id": "nyc",
@@ -17848,7 +17856,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2010,
       "layer": "environment",
-      "event_count": 70
+      "event_count": 85
     },
     {
       "city_id": "nyc",
@@ -17864,7 +17872,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 53
+      "event_count": 67
     },
     {
       "city_id": "nyc",
@@ -17872,7 +17880,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2011,
       "layer": "economy",
-      "event_count": 3
+      "event_count": 4
     },
     {
       "city_id": "nyc",
@@ -17880,61 +17888,13 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2011,
       "layer": "environment",
-      "event_count": 102
+      "event_count": 124
     },
     {
       "city_id": "nyc",
       "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2011,
-      "layer": "transport",
-      "event_count": 9
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2012,
-      "layer": "built_environment",
-      "event_count": 64
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2012,
-      "layer": "environment",
-      "event_count": 102
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2012,
-      "layer": "transport",
-      "event_count": 14
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2013,
-      "layer": "built_environment",
-      "event_count": 50
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2013,
-      "layer": "environment",
-      "event_count": 118
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2013,
       "layer": "transport",
       "event_count": 12
     },
@@ -17942,9 +17902,65 @@
       "city_id": "nyc",
       "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
       "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2012,
+      "layer": "built_environment",
+      "event_count": 70
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2012,
+      "layer": "economy",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2012,
+      "layer": "environment",
+      "event_count": 138
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2012,
+      "layer": "transport",
+      "event_count": 19
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2013,
+      "layer": "built_environment",
+      "event_count": 73
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2013,
+      "layer": "environment",
+      "event_count": 143
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2013,
+      "layer": "transport",
+      "event_count": 14
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2014,
       "layer": "built_environment",
-      "event_count": 58
+      "event_count": 74
     },
     {
       "city_id": "nyc",
@@ -17960,7 +17976,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2014,
       "layer": "environment",
-      "event_count": 100
+      "event_count": 124
     },
     {
       "city_id": "nyc",
@@ -17976,7 +17992,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2015,
       "layer": "built_environment",
-      "event_count": 42
+      "event_count": 62
     },
     {
       "city_id": "nyc",
@@ -17984,7 +18000,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2015,
       "layer": "environment",
-      "event_count": 130
+      "event_count": 158
     },
     {
       "city_id": "nyc",
@@ -17992,7 +18008,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2015,
       "layer": "transport",
-      "event_count": 8
+      "event_count": 10
     },
     {
       "city_id": "nyc",
@@ -18000,7 +18016,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 55
+      "event_count": 70
     },
     {
       "city_id": "nyc",
@@ -18008,7 +18024,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2016,
       "layer": "environment",
-      "event_count": 121
+      "event_count": 155
     },
     {
       "city_id": "nyc",
@@ -18016,7 +18032,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2016,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 5
     },
     {
       "city_id": "nyc",
@@ -18024,7 +18040,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 55
+      "event_count": 74
     },
     {
       "city_id": "nyc",
@@ -18040,7 +18056,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2017,
       "layer": "environment",
-      "event_count": 106
+      "event_count": 136
     },
     {
       "city_id": "nyc",
@@ -18048,7 +18064,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2017,
       "layer": "transport",
-      "event_count": 9
+      "event_count": 10
     },
     {
       "city_id": "nyc",
@@ -18056,7 +18072,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 69
+      "event_count": 94
     },
     {
       "city_id": "nyc",
@@ -18072,7 +18088,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2018,
       "layer": "environment",
-      "event_count": 129
+      "event_count": 153
     },
     {
       "city_id": "nyc",
@@ -18080,7 +18096,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2018,
       "layer": "transport",
-      "event_count": 13
+      "event_count": 14
     },
     {
       "city_id": "nyc",
@@ -18088,95 +18104,95 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 144
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2019,
-      "layer": "economy",
-      "event_count": 1
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2019,
-      "layer": "environment",
-      "event_count": 217
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2019,
-      "layer": "transport",
-      "event_count": 18
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2020,
-      "layer": "built_environment",
-      "event_count": 93
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2020,
-      "layer": "economy",
-      "event_count": 4
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2020,
-      "layer": "environment",
-      "event_count": 126
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2020,
-      "layer": "transport",
-      "event_count": 6
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2021,
-      "layer": "built_environment",
-      "event_count": 139
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2021,
-      "layer": "economy",
-      "event_count": 1
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2021,
-      "layer": "environment",
       "event_count": 162
     },
     {
       "city_id": "nyc",
       "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
       "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2019,
+      "layer": "economy",
+      "event_count": 2
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2019,
+      "layer": "environment",
+      "event_count": 245
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2019,
+      "layer": "transport",
+      "event_count": 21
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2020,
+      "layer": "built_environment",
+      "event_count": 115
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2020,
+      "layer": "economy",
+      "event_count": 5
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2020,
+      "layer": "environment",
+      "event_count": 146
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2020,
+      "layer": "transport",
+      "event_count": 13
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2021,
+      "layer": "built_environment",
+      "event_count": 165
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2021,
+      "layer": "economy",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2021,
+      "layer": "environment",
+      "event_count": 178
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2021,
       "layer": "transport",
-      "event_count": 16
+      "event_count": 24
     },
     {
       "city_id": "nyc",
@@ -18184,7 +18200,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 113
+      "event_count": 176
     },
     {
       "city_id": "nyc",
@@ -18200,7 +18216,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2022,
       "layer": "environment",
-      "event_count": 137
+      "event_count": 235
     },
     {
       "city_id": "nyc",
@@ -18208,7 +18224,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2022,
       "layer": "transport",
-      "event_count": 9
+      "event_count": 25
     },
     {
       "city_id": "nyc",
@@ -18216,7 +18232,15 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 97
+      "event_count": 150
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2023,
+      "layer": "economy",
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -18224,13 +18248,45 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2023,
       "layer": "environment",
-      "event_count": 155
+      "event_count": 226
     },
     {
       "city_id": "nyc",
       "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2023,
+      "layer": "transport",
+      "event_count": 19
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2024,
+      "layer": "built_environment",
+      "event_count": 95
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2024,
+      "layer": "economy",
+      "event_count": 1
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2024,
+      "layer": "environment",
+      "event_count": 124
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+      "source_title": "NYC Open Data: LPC Permit Application Information",
+      "year": 2024,
       "layer": "transport",
       "event_count": 10
     },
@@ -18238,33 +18294,17 @@
       "city_id": "nyc",
       "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
       "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2024,
+      "year": 2025,
       "layer": "built_environment",
-      "event_count": 75
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2024,
-      "layer": "environment",
-      "event_count": 99
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-      "source_title": "NYC Open Data: LPC Permit Application Information",
-      "year": 2024,
-      "layer": "transport",
-      "event_count": 6
+      "event_count": 78
     },
     {
       "city_id": "nyc",
       "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2025,
-      "layer": "built_environment",
-      "event_count": 61
+      "layer": "economy",
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -18272,7 +18312,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2025,
       "layer": "environment",
-      "event_count": 118
+      "event_count": 144
     },
     {
       "city_id": "nyc",
@@ -18280,7 +18320,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2025,
       "layer": "transport",
-      "event_count": 10
+      "event_count": 16
     },
     {
       "city_id": "nyc",
@@ -28257,8 +28297,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 223101,
-      "unique_event_count": 223101,
+      "event_count": 224001,
+      "unique_event_count": 224001,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 292,
@@ -28266,7 +28306,7 @@
       "source_catalog_only_count": 101,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 223101,
+        "backed_event_count": 224001,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -28346,10 +28386,10 @@
         "2008": 3355,
         "2009": 4498,
         "2010": 4426,
-        "2011": 4687,
-        "2012": 4696,
-        "2013": 4533,
-        "2014": 4940,
+        "2011": 4924,
+        "2012": 4979,
+        "2013": 4802,
+        "2014": 5051,
         "2015": 5423,
         "2016": 5698,
         "2017": 7027,
@@ -28364,7 +28404,7 @@
         "2026": 19373
       },
       "event_counts_by_layer": {
-        "built_environment": 103818,
+        "built_environment": 104718,
         "civic_services": 53367,
         "environment": 28071,
         "transport": 37842,
@@ -28372,7 +28412,7 @@
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 223091,
+        "documented": 223991,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -28819,7 +28859,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 3177
+          "event_count": 3414
         },
         {
           "year": 2011,
@@ -28839,7 +28879,7 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 3186
+          "event_count": 3469
         },
         {
           "year": 2012,
@@ -28859,7 +28899,7 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 3029
+          "event_count": 3298
         },
         {
           "year": 2013,
@@ -28879,7 +28919,7 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 3430
+          "event_count": 3541
         },
         {
           "year": 2014,
@@ -29695,7 +29735,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 931
+          "event_count": 1168
         },
         {
           "city_id": "london",
@@ -29703,7 +29743,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 1016
+          "event_count": 1299
         },
         {
           "city_id": "london",
@@ -29711,7 +29751,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 961
+          "event_count": 1230
         },
         {
           "city_id": "london",
@@ -29719,7 +29759,7 @@
           "source_title": "Planning London Datahub - planning applications",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 1198
+          "event_count": 1309
         },
         {
           "city_id": "london",
@@ -34479,7 +34519,7 @@
           "source_title": "Planning London Datahub applications API",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 88
+          "event_count": 325
         },
         {
           "city_id": "london",
@@ -34487,7 +34527,7 @@
           "source_title": "Planning London Datahub applications API",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 89
+          "event_count": 372
         },
         {
           "city_id": "london",
@@ -34495,7 +34535,7 @@
           "source_title": "Planning London Datahub applications API",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 84
+          "event_count": 353
         },
         {
           "city_id": "london",
@@ -34503,7 +34543,7 @@
           "source_title": "Planning London Datahub applications API",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 206
+          "event_count": 317
         },
         {
           "city_id": "london",
@@ -36337,7 +36377,7 @@
           "provider": "Greater London Authority (GLA), London borough planning authorities",
           "reliability": "usable_with_caveats",
           "licence": "Not specified on London Datastore; source-level reuse review required before redistributing full rows.",
-          "event_count": 28374,
+          "event_count": 29274,
           "years": [
             2008,
             2009,
@@ -36362,10 +36402,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 28374
+            "built_environment": 29274
           },
           "confidence_counts": {
-            "documented": 28374
+            "documented": 29274
           },
           "coverage_status": "events_emitted"
         },
@@ -36790,7 +36830,7 @@
           "provider": "Greater London Authority / London borough planning authorities",
           "reliability": "usable_with_caveats",
           "licence": "Not Specified on London Datastore dataset page checked 2026-05-20; source URLs and factual row metadata retained pending fuller reuse review.",
-          "event_count": 3600,
+          "event_count": 4500,
           "years": [
             2008,
             2009,
@@ -36814,10 +36854,10 @@
           "first_year": 2008,
           "last_year": 2025,
           "layer_counts": {
-            "built_environment": 3600
+            "built_environment": 4500
           },
           "confidence_counts": {
-            "documented": 3600
+            "documented": 4500
           },
           "coverage_status": "events_emitted"
         },
@@ -42968,8 +43008,8 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 93661,
-      "unique_event_count": 93661,
+      "event_count": 94661,
+      "unique_event_count": 94661,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
       "source_count": 203,
@@ -42977,8 +43017,8 @@
       "source_catalog_only_count": 122,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 93661,
-        "gap_events": 6339,
+        "backed_event_count": 94661,
+        "gap_events": 5339,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -43147,36 +43187,36 @@
         "2005": 318,
         "2006": 326,
         "2007": 343,
-        "2008": 2033,
-        "2009": 1827,
-        "2010": 2059,
-        "2011": 2122,
-        "2012": 2693,
-        "2013": 3650,
-        "2014": 3754,
-        "2015": 5783,
-        "2016": 4390,
-        "2017": 4851,
-        "2018": 4987,
-        "2019": 5892,
-        "2020": 5227,
-        "2021": 5280,
-        "2022": 6472,
-        "2023": 7557,
-        "2024": 7952,
-        "2025": 8211,
+        "2008": 2053,
+        "2009": 1847,
+        "2010": 2079,
+        "2011": 2162,
+        "2012": 2742,
+        "2013": 3700,
+        "2014": 3794,
+        "2015": 5833,
+        "2016": 4440,
+        "2017": 4901,
+        "2018": 5037,
+        "2019": 5942,
+        "2020": 5277,
+        "2021": 5330,
+        "2022": 6649,
+        "2023": 7691,
+        "2024": 8002,
+        "2025": 8261,
         "2026": 4325
       },
       "event_counts_by_layer": {
-        "built_environment": 63063,
+        "built_environment": 63438,
         "civic_services": 2872,
-        "economy": 206,
-        "environment": 19963,
-        "transport": 7554,
+        "economy": 214,
+        "environment": 20510,
+        "transport": 7624,
         "utilities": 3
       },
       "event_counts_by_confidence": {
-        "documented": 93661
+        "documented": 94661
       },
       "event_counts_by_year_layer": [
         {
@@ -44312,7 +44352,7 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 1007
+          "event_count": 1015
         },
         {
           "year": 2008,
@@ -44327,7 +44367,7 @@
         {
           "year": 2008,
           "layer": "environment",
-          "event_count": 833
+          "event_count": 845
         },
         {
           "year": 2008,
@@ -44337,7 +44377,7 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 890
+          "event_count": 895
         },
         {
           "year": 2009,
@@ -44352,17 +44392,17 @@
         {
           "year": 2009,
           "layer": "environment",
-          "event_count": 749
+          "event_count": 762
         },
         {
           "year": 2009,
           "layer": "transport",
-          "event_count": 73
+          "event_count": 75
         },
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 1138
+          "event_count": 1143
         },
         {
           "year": 2010,
@@ -44377,7 +44417,7 @@
         {
           "year": 2010,
           "layer": "environment",
-          "event_count": 728
+          "event_count": 743
         },
         {
           "year": 2010,
@@ -44387,7 +44427,7 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 1174
+          "event_count": 1188
         },
         {
           "year": 2011,
@@ -44397,22 +44437,22 @@
         {
           "year": 2011,
           "layer": "economy",
-          "event_count": 18
+          "event_count": 19
         },
         {
           "year": 2011,
           "layer": "environment",
-          "event_count": 759
+          "event_count": 781
         },
         {
           "year": 2011,
           "layer": "transport",
-          "event_count": 84
+          "event_count": 87
         },
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 1565
+          "event_count": 1571
         },
         {
           "year": 2012,
@@ -44422,22 +44462,22 @@
         {
           "year": 2012,
           "layer": "economy",
-          "event_count": 15
+          "event_count": 17
         },
         {
           "year": 2012,
           "layer": "environment",
-          "event_count": 790
+          "event_count": 826
         },
         {
           "year": 2012,
           "layer": "transport",
-          "event_count": 233
+          "event_count": 238
         },
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 2232
+          "event_count": 2255
         },
         {
           "year": 2013,
@@ -44452,17 +44492,17 @@
         {
           "year": 2013,
           "layer": "environment",
-          "event_count": 834
+          "event_count": 859
         },
         {
           "year": 2013,
           "layer": "transport",
-          "event_count": 466
+          "event_count": 468
         },
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 2364
+          "event_count": 2380
         },
         {
           "year": 2014,
@@ -44477,7 +44517,7 @@
         {
           "year": 2014,
           "layer": "environment",
-          "event_count": 766
+          "event_count": 790
         },
         {
           "year": 2014,
@@ -44487,7 +44527,7 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 2545
+          "event_count": 2565
         },
         {
           "year": 2015,
@@ -44502,17 +44542,17 @@
         {
           "year": 2015,
           "layer": "environment",
-          "event_count": 2621
+          "event_count": 2649
         },
         {
           "year": 2015,
           "layer": "transport",
-          "event_count": 488
+          "event_count": 490
         },
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 2857
+          "event_count": 2872
         },
         {
           "year": 2016,
@@ -44527,12 +44567,12 @@
         {
           "year": 2016,
           "layer": "environment",
-          "event_count": 884
+          "event_count": 918
         },
         {
           "year": 2016,
           "layer": "transport",
-          "event_count": 478
+          "event_count": 479
         },
         {
           "year": 2016,
@@ -44542,7 +44582,7 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 3388
+          "event_count": 3407
         },
         {
           "year": 2017,
@@ -44557,17 +44597,17 @@
         {
           "year": 2017,
           "layer": "environment",
-          "event_count": 783
+          "event_count": 813
         },
         {
           "year": 2017,
           "layer": "transport",
-          "event_count": 492
+          "event_count": 493
         },
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 3414
+          "event_count": 3439
         },
         {
           "year": 2018,
@@ -44582,17 +44622,17 @@
         {
           "year": 2018,
           "layer": "environment",
-          "event_count": 826
+          "event_count": 850
         },
         {
           "year": 2018,
           "layer": "transport",
-          "event_count": 515
+          "event_count": 516
         },
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 3984
+          "event_count": 4002
         },
         {
           "year": 2019,
@@ -44602,22 +44642,22 @@
         {
           "year": 2019,
           "layer": "economy",
-          "event_count": 3
+          "event_count": 4
         },
         {
           "year": 2019,
           "layer": "environment",
-          "event_count": 955
+          "event_count": 983
         },
         {
           "year": 2019,
           "layer": "transport",
-          "event_count": 563
+          "event_count": 566
         },
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 3565
+          "event_count": 3587
         },
         {
           "year": 2020,
@@ -44627,17 +44667,17 @@
         {
           "year": 2020,
           "layer": "economy",
-          "event_count": 4
+          "event_count": 5
         },
         {
           "year": 2020,
           "layer": "environment",
-          "event_count": 890
+          "event_count": 910
         },
         {
           "year": 2020,
           "layer": "transport",
-          "event_count": 514
+          "event_count": 521
         },
         {
           "year": 2020,
@@ -44647,7 +44687,7 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 3943
+          "event_count": 3969
         },
         {
           "year": 2021,
@@ -44662,17 +44702,17 @@
         {
           "year": 2021,
           "layer": "environment",
-          "event_count": 920
+          "event_count": 936
         },
         {
           "year": 2021,
           "layer": "transport",
-          "event_count": 295
+          "event_count": 303
         },
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 4878
+          "event_count": 4941
         },
         {
           "year": 2022,
@@ -44687,12 +44727,12 @@
         {
           "year": 2022,
           "layer": "environment",
-          "event_count": 959
+          "event_count": 1057
         },
         {
           "year": 2022,
           "layer": "transport",
-          "event_count": 502
+          "event_count": 518
         },
         {
           "year": 2022,
@@ -44702,7 +44742,7 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 5856
+          "event_count": 5909
         },
         {
           "year": 2023,
@@ -44712,22 +44752,22 @@
         {
           "year": 2023,
           "layer": "economy",
-          "event_count": 2
+          "event_count": 3
         },
         {
           "year": 2023,
           "layer": "environment",
-          "event_count": 1047
+          "event_count": 1118
         },
         {
           "year": 2023,
           "layer": "transport",
-          "event_count": 512
+          "event_count": 521
         },
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 6172
+          "event_count": 6192
         },
         {
           "year": 2024,
@@ -44737,22 +44777,22 @@
         {
           "year": 2024,
           "layer": "economy",
-          "event_count": 5
+          "event_count": 6
         },
         {
           "year": 2024,
           "layer": "environment",
-          "event_count": 1102
+          "event_count": 1127
         },
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 515
+          "event_count": 519
         },
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 6449
+          "event_count": 6466
         },
         {
           "year": 2025,
@@ -44762,17 +44802,17 @@
         {
           "year": 2025,
           "layer": "economy",
-          "event_count": 2
+          "event_count": 3
         },
         {
           "year": 2025,
           "layer": "environment",
-          "event_count": 1214
+          "event_count": 1240
         },
         {
           "year": 2025,
           "layer": "transport",
-          "event_count": 510
+          "event_count": 516
         },
         {
           "year": 2026,
@@ -52167,7 +52207,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 47
+          "event_count": 55
         },
         {
           "city_id": "nyc",
@@ -52183,7 +52223,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2008,
           "layer": "environment",
-          "event_count": 85
+          "event_count": 97
         },
         {
           "city_id": "nyc",
@@ -52199,7 +52239,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 18
+          "event_count": 23
         },
         {
           "city_id": "nyc",
@@ -52215,7 +52255,15 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2009,
           "layer": "environment",
-          "event_count": 50
+          "event_count": 63
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2009,
+          "layer": "transport",
+          "event_count": 2
         },
         {
           "city_id": "nyc",
@@ -52223,7 +52271,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 22
+          "event_count": 27
         },
         {
           "city_id": "nyc",
@@ -52239,7 +52287,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2010,
           "layer": "environment",
-          "event_count": 70
+          "event_count": 85
         },
         {
           "city_id": "nyc",
@@ -52255,7 +52303,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 53
+          "event_count": 67
         },
         {
           "city_id": "nyc",
@@ -52263,7 +52311,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2011,
           "layer": "economy",
-          "event_count": 3
+          "event_count": 4
         },
         {
           "city_id": "nyc",
@@ -52271,61 +52319,13 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2011,
           "layer": "environment",
-          "event_count": 102
+          "event_count": 124
         },
         {
           "city_id": "nyc",
           "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2011,
-          "layer": "transport",
-          "event_count": 9
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2012,
-          "layer": "built_environment",
-          "event_count": 64
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2012,
-          "layer": "environment",
-          "event_count": 102
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2012,
-          "layer": "transport",
-          "event_count": 14
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2013,
-          "layer": "built_environment",
-          "event_count": 50
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2013,
-          "layer": "environment",
-          "event_count": 118
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2013,
           "layer": "transport",
           "event_count": 12
         },
@@ -52333,9 +52333,65 @@
           "city_id": "nyc",
           "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2012,
+          "layer": "built_environment",
+          "event_count": 70
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2012,
+          "layer": "economy",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2012,
+          "layer": "environment",
+          "event_count": 138
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2012,
+          "layer": "transport",
+          "event_count": 19
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2013,
+          "layer": "built_environment",
+          "event_count": 73
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2013,
+          "layer": "environment",
+          "event_count": 143
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2013,
+          "layer": "transport",
+          "event_count": 14
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 58
+          "event_count": 74
         },
         {
           "city_id": "nyc",
@@ -52351,7 +52407,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2014,
           "layer": "environment",
-          "event_count": 100
+          "event_count": 124
         },
         {
           "city_id": "nyc",
@@ -52367,7 +52423,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 42
+          "event_count": 62
         },
         {
           "city_id": "nyc",
@@ -52375,7 +52431,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2015,
           "layer": "environment",
-          "event_count": 130
+          "event_count": 158
         },
         {
           "city_id": "nyc",
@@ -52383,7 +52439,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2015,
           "layer": "transport",
-          "event_count": 8
+          "event_count": 10
         },
         {
           "city_id": "nyc",
@@ -52391,7 +52447,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 55
+          "event_count": 70
         },
         {
           "city_id": "nyc",
@@ -52399,7 +52455,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2016,
           "layer": "environment",
-          "event_count": 121
+          "event_count": 155
         },
         {
           "city_id": "nyc",
@@ -52407,7 +52463,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2016,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 5
         },
         {
           "city_id": "nyc",
@@ -52415,7 +52471,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 55
+          "event_count": 74
         },
         {
           "city_id": "nyc",
@@ -52431,7 +52487,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2017,
           "layer": "environment",
-          "event_count": 106
+          "event_count": 136
         },
         {
           "city_id": "nyc",
@@ -52439,7 +52495,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2017,
           "layer": "transport",
-          "event_count": 9
+          "event_count": 10
         },
         {
           "city_id": "nyc",
@@ -52447,7 +52503,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 69
+          "event_count": 94
         },
         {
           "city_id": "nyc",
@@ -52463,7 +52519,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2018,
           "layer": "environment",
-          "event_count": 129
+          "event_count": 153
         },
         {
           "city_id": "nyc",
@@ -52471,7 +52527,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2018,
           "layer": "transport",
-          "event_count": 13
+          "event_count": 14
         },
         {
           "city_id": "nyc",
@@ -52479,95 +52535,95 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 144
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2019,
-          "layer": "economy",
-          "event_count": 1
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2019,
-          "layer": "environment",
-          "event_count": 217
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2019,
-          "layer": "transport",
-          "event_count": 18
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2020,
-          "layer": "built_environment",
-          "event_count": 93
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2020,
-          "layer": "economy",
-          "event_count": 4
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2020,
-          "layer": "environment",
-          "event_count": 126
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2020,
-          "layer": "transport",
-          "event_count": 6
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2021,
-          "layer": "built_environment",
-          "event_count": 139
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2021,
-          "layer": "economy",
-          "event_count": 1
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2021,
-          "layer": "environment",
           "event_count": 162
         },
         {
           "city_id": "nyc",
           "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2019,
+          "layer": "economy",
+          "event_count": 2
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2019,
+          "layer": "environment",
+          "event_count": 245
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2019,
+          "layer": "transport",
+          "event_count": 21
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2020,
+          "layer": "built_environment",
+          "event_count": 115
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2020,
+          "layer": "economy",
+          "event_count": 5
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2020,
+          "layer": "environment",
+          "event_count": 146
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2020,
+          "layer": "transport",
+          "event_count": 13
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2021,
+          "layer": "built_environment",
+          "event_count": 165
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2021,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2021,
+          "layer": "environment",
+          "event_count": 178
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2021,
           "layer": "transport",
-          "event_count": 16
+          "event_count": 24
         },
         {
           "city_id": "nyc",
@@ -52575,7 +52631,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 113
+          "event_count": 176
         },
         {
           "city_id": "nyc",
@@ -52591,7 +52647,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2022,
           "layer": "environment",
-          "event_count": 137
+          "event_count": 235
         },
         {
           "city_id": "nyc",
@@ -52599,7 +52655,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2022,
           "layer": "transport",
-          "event_count": 9
+          "event_count": 25
         },
         {
           "city_id": "nyc",
@@ -52607,7 +52663,15 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 97
+          "event_count": 150
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2023,
+          "layer": "economy",
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -52615,13 +52679,45 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2023,
           "layer": "environment",
-          "event_count": 155
+          "event_count": 226
         },
         {
           "city_id": "nyc",
           "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2023,
+          "layer": "transport",
+          "event_count": 19
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2024,
+          "layer": "built_environment",
+          "event_count": 95
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2024,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2024,
+          "layer": "environment",
+          "event_count": 124
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+          "source_title": "NYC Open Data: LPC Permit Application Information",
+          "year": 2024,
           "layer": "transport",
           "event_count": 10
         },
@@ -52629,33 +52725,17 @@
           "city_id": "nyc",
           "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2024,
+          "year": 2025,
           "layer": "built_environment",
-          "event_count": 75
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2024,
-          "layer": "environment",
-          "event_count": 99
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "source_title": "NYC Open Data: LPC Permit Application Information",
-          "year": 2024,
-          "layer": "transport",
-          "event_count": 6
+          "event_count": 78
         },
         {
           "city_id": "nyc",
           "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2025,
-          "layer": "built_environment",
-          "event_count": 61
+          "layer": "economy",
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -52663,7 +52743,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2025,
           "layer": "environment",
-          "event_count": 118
+          "event_count": 144
         },
         {
           "city_id": "nyc",
@@ -52671,7 +52751,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2025,
           "layer": "transport",
-          "event_count": 10
+          "event_count": 16
         },
         {
           "city_id": "nyc",
@@ -54371,7 +54451,7 @@
           "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
           "reliability": "usable_with_caveats",
           "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use",
-          "event_count": 3600,
+          "event_count": 4600,
           "years": [
             2008,
             2009,
@@ -54395,13 +54475,13 @@
           "first_year": 2008,
           "last_year": 2025,
           "layer_counts": {
-            "built_environment": 1255,
-            "economy": 40,
-            "environment": 2127,
-            "transport": 178
+            "built_environment": 1630,
+            "economy": 48,
+            "environment": 2674,
+            "transport": 248
           },
           "confidence_counts": {
-            "documented": 3600
+            "documented": 4600
           },
           "coverage_status": "events_emitted"
         },
