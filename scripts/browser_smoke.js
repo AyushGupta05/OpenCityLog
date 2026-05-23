@@ -134,9 +134,9 @@ function cameraMatches(before, after) {
     assert(lensState.activeLens === check.id, `Map lens did not switch to ${check.id}.`);
     assert(lensState[check.visible], `${check.id} map lens did not show its expected overlay layer.`);
     if (check.count) {
-      assert(lensState[check.count] > 0, `${check.id} map lens did not load source-backed features.`);
+      assert(lensState[check.count] > 0, `${check.id} map lens did not load inspectable lens features.`);
     } else {
-      assert(lensState[check.rendered] > 0, `${check.id} map lens did not render source-backed features in the viewport.`);
+      assert(lensState[check.rendered] > 0, `${check.id} map lens did not render inspectable lens features in the viewport.`);
     }
     assert(check.legend.test(lensState.lensLegendText), `${check.id} legend did not update: ${lensState.lensLegendText}`);
     if (check.id !== "transport") {

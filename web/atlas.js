@@ -115,7 +115,7 @@
       badge: "T",
       label: "Speed",
       shortLabel: "Speed",
-      title: "Flow-speed network",
+      title: "Flow-proxy network",
       description: "Transport activity bands show where slower-flow proxies cluster.",
       radiusM: 800,
       accent: "#0f8d95",
@@ -132,11 +132,11 @@
         { id: "incidents", label: "Incidents", color: "#7f563d" },
       ],
       legend: [
-        { label: "> 60 (free flow)", color: "#2d9f57", shape: "line" },
-        { label: "40-60", color: "#6dbc5a", shape: "line" },
-        { label: "20-40", color: "#f2ad2f", shape: "line" },
-        { label: "10-20", color: "#e95a35", shape: "line" },
-        { label: "< 10 (stop / crawl)", color: "#bb1e2d", shape: "line" },
+        { label: "Lowest delay proxy", color: "#2d9f57", shape: "line" },
+        { label: "Low delay proxy", color: "#6dbc5a", shape: "line" },
+        { label: "Moderate delay proxy", color: "#f2ad2f", shape: "line" },
+        { label: "High delay proxy", color: "#e95a35", shape: "line" },
+        { label: "Severe delay proxy", color: "#bb1e2d", shape: "line" },
       ],
     },
     {
@@ -489,8 +489,8 @@
       badge: "U",
       label: "Capacity",
       shortLabel: "Capacity",
-      title: "Network capacity x-ray",
-      description: "See where utility assets are constrained or at risk.",
+      title: "Utility context x-ray",
+      description: "See where mapped utility context and work records cluster.",
       radiusM: 800,
       accent: "#6c4a82",
       mapMode: "utilities-capacity",
@@ -506,10 +506,10 @@
         { id: "district_energy", label: "District energy", color: "#7a5438", utilityType: "district_energy" },
       ],
       legend: [
-        { label: "Very high (>90%)", color: "#d62d35", shape: "line" },
-        { label: "High (70-90%)", color: "#ed6b35", shape: "line" },
-        { label: "Medium (40-70%)", color: "#e5b734", shape: "line" },
-        { label: "Low (<40%)", color: "#438c64", shape: "line" },
+        { label: "Very high context signal", color: "#d62d35", shape: "line" },
+        { label: "High context signal", color: "#ed6b35", shape: "line" },
+        { label: "Medium context signal", color: "#e5b734", shape: "line" },
+        { label: "Low context signal", color: "#438c64", shape: "line" },
         { label: "No data", color: "#888", shape: "outline" },
       ],
     },
@@ -682,10 +682,9 @@
     "lens-transport-hotspots",
   ];
 
-  // Curated proposals shown in the Proposal Lens overlay. These are illustrative
-  // historical-analogue cases for the lens; they do not depend on per-city event
-  // chunks loading. Keeping them as a tiny static list lets the lens stay
-  // useful without recomputing analogues from event metadata each request.
+  // Proposal lookup is a lightweight prompt surface only. These entries are not
+  // source-backed analogue evidence, so the panel must not show outcome numbers
+  // or imply predicted, measured, or causal impact.
   const PROPOSALS = [
     {
       id: "p-belfast-glider-northsouth",
@@ -701,9 +700,8 @@
           year: 2018,
           layer: "transport",
           outcomes: [
-            { k: "Daily boardings", v: "30,000" },
-            { k: "Bus speed (peak)", v: "+22%" },
-            { k: "Bus mode share corridor", v: "+5 pts" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
         {
@@ -712,9 +710,8 @@
           year: 2009,
           layer: "transport",
           outcomes: [
-            { k: "Daily entries (Dalston Jn)", v: "38,400" },
-            { k: "Punctuality (PPM)", v: "95.6%" },
-            { k: "Observed ridership difference", v: "+38%" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
         {
@@ -723,17 +720,15 @@
           year: 2011,
           layer: "transport",
           outcomes: [
-            { k: "Observed ridership difference", v: "+12%" },
-            { k: "1km rent uplift", v: "+19%" },
-            { k: "Cycle/bus modal", v: "−4%" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
       ],
       distribution: {
-        "Observed ridership difference": "+12% — +38%",
-        "Rent uplift within 1km": "+8% — +24%",
-        "Bus speed (parallel)": "+4% — +22%",
-        "Local NO₂ change": "−3% — −9%",
+        "Analogue evidence": "Not source-backed in this atlas build",
+        "Use": "Compare proposal text with logged transport changes",
+        "Limit": "No prediction, forecast, or causal effect is claimed",
       },
     },
     {
@@ -750,9 +745,8 @@
           year: 2007,
           layer: "built_environment",
           outcomes: [
-            { k: "Affordable delivered", v: "40%" },
-            { k: "Rent uplift 1km", v: "+38%" },
-            { k: "Office GIA", v: "325k m²" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
         {
@@ -761,9 +755,8 @@
           year: 2012,
           layer: "built_environment",
           outcomes: [
-            { k: "Workspace delivered", v: "150,000 m²" },
-            { k: "Visitor arrivals", v: "850k/yr" },
-            { k: "Affordable %", v: "low" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
         {
@@ -772,17 +765,15 @@
           year: 2014,
           layer: "environment",
           outcomes: [
-            { k: "Annual visitors", v: "8.6M" },
-            { k: "GIA", v: "86,574 m²" },
-            { k: "Adjacent rent change", v: "+25%" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
       ],
       distribution: {
-        "Affordable housing delivered": "9% — 40%",
-        "Rent uplift within 1km (5y)": "+18% — +52%",
-        "Public realm added": "0.4 ha — 10 ha",
-        "Workspace GIA": "82k — 325k m²",
+        "Analogue evidence": "Not source-backed in this atlas build",
+        "Use": "Compare proposal text with logged planning and built changes",
+        "Limit": "No prediction, forecast, or causal effect is claimed",
       },
     },
     {
@@ -799,9 +790,8 @@
           year: 2014,
           layer: "transport",
           outcomes: [
-            { k: "Daily cyclists", v: "13,400" },
-            { k: "Daily growth vs baseline", v: "+345%" },
-            { k: "Cycle KSI rate", v: "−40%" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
         {
@@ -810,9 +800,8 @@
           year: 2005,
           layer: "environment",
           outcomes: [
-            { k: "Corridor air temp", v: "−3.6°C" },
-            { k: "Daily visitors", v: "64,000" },
-            { k: "Adjacent rents", v: "+30–50%" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
         {
@@ -821,17 +810,15 @@
           year: 2020,
           layer: "transport",
           outcomes: [
-            { k: "Cycle counts", v: "+25%" },
-            { k: "Adjacent NO₂", v: "−12%" },
-            { k: "Cyclist KSI", v: "−18%" },
+            { k: "Evidence status", v: "Analogue candidate only" },
+            { k: "Use", v: "Find source rows before citing" },
           ],
         },
       ],
       distribution: {
-        "Daily cyclists growth": "+25% — +345%",
-        "Cyclist KSI change": "−40% — −18%",
-        "Adjacent NO₂": "−12% — −3%",
-        "Bus journey time impact": "+0% — +4%",
+        "Analogue evidence": "Not source-backed in this atlas build",
+        "Use": "Compare proposal text with logged cycling and street changes",
+        "Limit": "No prediction, forecast, or causal effect is claimed",
       },
     },
   ];
@@ -2739,7 +2726,7 @@
           ["==", ["get", "surface_style"], "catchment_patch"],
           ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.22, 0.34],
           ["==", ["get", "surface_style"], "land_use_tile"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.26, 1, 0.64],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.48, 1, 0.84],
           ["==", ["get", "lens_id"], "civic-demand"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.46],
           ["==", ["get", "lens_id"], "civic-catchment"],
@@ -2801,7 +2788,7 @@
           ["==", ["get", "surface_style"], "catchment_backdrop"],
           ["case", ["==", ["get", "lens_id"], "civic-catchment"], 0.26, 0.58],
           ["==", ["get", "surface_style"], "catchment_patch"], 0.5,
-          ["==", ["get", "surface_style"], "land_use_tile"], 0.58,
+          ["==", ["get", "surface_style"], "land_use_tile"], 0.68,
           0.52,
         ],
         "line-width": [
@@ -5154,7 +5141,22 @@
 
   function guideCellLayerFilter(lens = activeMapLens()) {
     const base = ["==", ["get", "kind"], "surface_cell"];
-    if (["civic-catchment", "civic-demand", "planning-pressure"].includes(lens?.id)) return guideSublayerFilter(base, lens);
+    if (lens?.id === "planning-pressure") {
+      const active = activeSublayerIdsForLens(lens);
+      return [
+        "all",
+        base,
+        [
+          "any",
+          ["==", ["get", "source_kind"], "current_context"],
+          ["==", ["get", "evidence_role"], "context_not_year_specific_change_evidence"],
+          active.length
+            ? ["match", ["get", "sublayer_id"], active, true, false]
+            : ["==", ["get", "sublayer_id"], "__none__"],
+        ],
+      ];
+    }
+    if (["civic-catchment", "civic-demand"].includes(lens?.id)) return guideSublayerFilter(base, lens);
     if (lens?.id !== "planning-parcels") return base;
     const activeStatuses = [...state.activeAspectLayers].filter(Boolean);
     return [
@@ -5988,7 +5990,7 @@
     if (lensId === "planning-pressure") return 4400;
     if (lensId === "planning-delta") return 2200;
     if (lensId === "planning-parcels") return 4300;
-    if (lensId === "economy-land-use") return 4600;
+    if (lensId === "economy-land-use") return 6800;
     if (lensId === "civic-demand") return 5600;
     if (lensId === "civic-catchment") return 3200;
     return 180;
@@ -7962,7 +7964,8 @@
     if (!buildings.length) return densityGridCells(center, radiusM * 2.1, lens, 92);
     const year = Number(yearOverride) || currentTimelineYear();
     const sourceEvents = lensEventsForYear(year)
-      .filter((event) => event.category === "economy" && event.lngLat);
+      .filter((event) => event.category === "economy" && event.lngLat)
+      .filter((event) => economyLandUseSpecificEvent(event));
     const contextOnly = !sourceEvents.length && lensMissingSameCategoryCoverageForYear(lens, year);
     const maxDistance = radiusM * 2.45;
     const features = [];
@@ -7975,7 +7978,7 @@
       if (distance > maxDistance) continue;
       const area = Number(props.footprint_area_m2 || 0);
       if (area && area < 16) continue;
-      const nearestEvent = nearestGuideEvent(point, sourceEvents, 290);
+      const nearestEvent = economyLandUseSpecificEvent(nearestGuideEvent(point, sourceEvents, 290));
       const eventDistance = nearestEvent ? lngLatDistanceMeters(point, nearestEvent.lngLat) : Infinity;
       const eventProximity = nearestEvent ? 1 - Math.min(290, eventDistance) / 290 : 0;
       const areaScore = Math.min(0.24, Math.sqrt(Math.max(20, area || 80)) / 220);
@@ -7985,7 +7988,7 @@
       const tiles = economyLandUseBuildingTiles(building.geometry, point, area, seed);
       tiles.forEach((tile, tileIndex) => {
         const tilePoint = tile.point || point;
-        const tileEventCandidate = nearestEvent || nearestGuideEvent(tilePoint, sourceEvents, 220);
+        const tileEventCandidate = nearestEvent || economyLandUseSpecificEvent(nearestGuideEvent(tilePoint, sourceEvents, 220));
         const tileEventDistance = tileEventCandidate?.lngLat ? lngLatDistanceMeters(tilePoint, tileEventCandidate.lngLat) : Infinity;
         const tileEvent = tileEventDistance <= 180 ? tileEventCandidate : null;
         const tileDistance = lngLatDistanceMeters(center, tilePoint);
@@ -8015,14 +8018,29 @@
     const infillFeatures = economyLandUseRoadInfillTiles(center, radiusM, lens, sourceEvents, year, { contextOnly });
     const limit = guideCellLimit(lens.id);
     const buildingLimit = Math.max(0, limit - infillFeatures.length);
+    const buildingFeatures = distributeSurfaceCellsByGrid(features, center, buildingLimit, 44);
     return [
-      ...features
-        .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-        .slice(0, buildingLimit),
+      ...buildingFeatures,
       ...infillFeatures,
     ]
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
       .slice(0, limit);
+  }
+
+  function economyLandUseSpecificEvent(event) {
+    if (!event) return null;
+    const text = [
+      event.id,
+      event.title,
+      event.shortDescription,
+      event.summary,
+      event.area,
+      event.sourceDateField,
+      ...(event.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/\b(planning[-\s]?statistics|statistics[-\s]?dataset|dataset[-\s]?csv|house[-\s]?price|hpi|citywide|aggregate|borough)\b/.test(text)) return null;
+    if (/\b(retail|shop|market|office|business|hospitality|hotel|restaurant|cafe|bar|pub|visitor|tourism|culture|vacan|derelict|commercial|employment|workspace|industrial|warehouse|residential|student)\b/.test(text)) return event;
+    return null;
   }
 
   function economyLandUseRoadInfillTiles(center, radiusM, lens, sourceEvents = [], yearOverride = currentTimelineYear(), options = {}) {
@@ -8030,7 +8048,7 @@
     if (!roads.length) return [];
     const year = Number(yearOverride) || currentTimelineYear();
     const contextOnly = Boolean(options.contextOnly);
-    const maxDistance = radiusM * 1.18;
+    const maxDistance = radiusM * 1.48;
     const features = [];
     for (const road of roads) {
       const props = road.properties || {};
@@ -8038,21 +8056,21 @@
       if (!contextOnly && Number(props.visible_year || 9999) > year) continue;
       const rank = Number(props.rank || 1);
       if (geometryDistanceToPointMeters(road.geometry, center, 5) > maxDistance + 80) continue;
-      const samples = geometryCoordinateSamples(road.geometry, rank >= 3 ? 11 : 7);
+      const samples = geometryCoordinateSamples(road.geometry, rank >= 3 ? 17 : rank >= 2 ? 13 : 9);
       if (!samples.length) continue;
       for (const sample of samples) {
         const distance = lngLatDistanceMeters(center, sample);
         if (distance > maxDistance || distance < 28) continue;
-        const nearestEvent = nearestGuideEvent(sample, sourceEvents, 420);
+        const nearestEvent = economyLandUseSpecificEvent(nearestGuideEvent(sample, sourceEvents, 420));
         const density = sourceEvents.length ? eventDensityIntensity(sample, sourceEvents, 460) : 0;
         const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
         const seed = stableUnit(`land-use-road:${props.source_id || props.id || ""}:${sample[0].toFixed(5)}:${sample[1].toFixed(5)}`);
-        const score = clamp01(0.22 + proximity * 0.26 + density * 0.34 + Math.min(0.14, rank * 0.032) + seed * 0.08);
-        if (score < 0.27 && rank < 2.2) continue;
+        const score = clamp01(0.18 + proximity * 0.28 + density * 0.34 + Math.min(0.16, rank * 0.038) + seed * 0.08);
+        if (score < 0.2 && rank < 1.6) continue;
         const angle = geometryLineAngleNearPoint(road.geometry, sample) + (seed - 0.5) * 0.08;
-        const halfLong = Math.max(4.8, Math.min(11.8, 5.6 + rank * 0.9 + seed * 2.8));
-        const halfShort = Math.max(3.2, Math.min(6.8, 3.4 + rank * 0.42 + (1 - seed) * 1.1));
-        const sideCount = rank >= 2.6 || density > 0.2 ? 2 : 1;
+        const halfLong = Math.max(4.4, Math.min(10.8, 5.0 + rank * 0.72 + seed * 2.2));
+        const halfShort = Math.max(3.0, Math.min(6.0, 3.1 + rank * 0.34 + (1 - seed) * 0.9));
+        const sideCount = rank >= 1.5 || density > 0.1 ? 2 : 1;
         for (let sideIndex = 0; sideIndex < sideCount; sideIndex += 1) {
           const side = sideCount === 1 ? (seed > 0.5 ? 1 : -1) : sideIndex === 0 ? -1 : 1;
           const offsetM = side * (7.4 + rank * 1.35 + seed * 4.1);
@@ -8081,7 +8099,7 @@
     }
     return features
       .sort((a, b) => Number(b.properties.score) - Number(a.properties.score))
-      .slice(0, 720);
+      .slice(0, 2400);
   }
 
   function geometryLineAngleNearPoint(geometry, point) {
@@ -8274,13 +8292,18 @@
       if (seed < 0.92) return "#df8884";
       return "#158c97";
     }
-    if (area > 1800 || height > 18) return seed > 0.34 ? "#158c97" : "#8a8f8a";
+    if (area > 1800 || height > 18) {
+      if (seed < 0.34) return "#ca3b32";
+      if (seed < 0.58) return "#158c97";
+      if (seed < 0.78) return "#f0b342";
+      return "#7b3a8f";
+    }
     if (seed < 0.32) return "#ca3b32";
     if (seed < 0.43) return "#df8884";
     if (seed < 0.66) return "#158c97";
     if (seed < 0.78) return "#7b3a8f";
     if (seed < 0.92) return "#f0b342";
-    return "#8a8f8a";
+    return "#f6e4c2";
   }
 
   function planningFootprintTileFeatures(center, radiusM, lens) {
@@ -8293,7 +8316,7 @@
       .filter((item) => item.point);
     const planningEvents = lensEventsForYear(year)
       .filter((event) => event.category === "built_environment" && event.lngLat);
-    const contextOnly = ["planning-delta", "planning-parcels"].includes(lens.id)
+    const contextOnly = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens.id)
       && !planningEvents.length
       && !planningAnchors.length
       && lensMissingSameCategoryCoverageForYear(lens, year);
@@ -8347,10 +8370,15 @@
             eventId: firstDetailEventId(nearestProps || {}),
           };
         const planningStatus = stageMatch.status || "unknown";
-        const pressureDriver = lens.id === "planning-pressure" ? planningPressureDriverKey(nearestProps || props) : "";
-        const color = contextOnly && !nearestProps && lens.id === "planning-delta"
-          ? "#b8b6a8"
-          : planningFootprintColor(lens.id, props, { ...(nearestProps || {}), lifecycle_status: planningStatus, intensity: tileIntensity }, tilePoint, tileIntensity);
+        const pressureContextOnly = contextOnly && !nearestProps && lens.id === "planning-pressure";
+        const pressureDriver = lens.id === "planning-pressure"
+          ? (pressureContextOnly ? "mapped_context" : planningPressureDriverKey(nearestProps || props))
+          : "";
+        const color = pressureContextOnly
+          ? "#8ca7a0"
+          : contextOnly && !nearestProps && lens.id === "planning-delta"
+            ? "#b8b6a8"
+            : planningFootprintColor(lens.id, props, { ...(nearestProps || {}), lifecycle_status: planningStatus, intensity: tileIntensity }, tilePoint, tileIntensity);
         features.push({
           type: "Feature",
           properties: {
@@ -15406,10 +15434,14 @@
       return { label: `Cells + ${renderableCount} facilities`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
     if (category === "economy") {
-      const count = lensPointCount(category);
-      const renderableCount = lensRenderablePointCount(category);
+      const evidenceEvents = lensEvidenceEventsForYear(lens, category, state.year);
+      const count = evidenceEvents.length;
+      const renderableCount = evidenceEvents.filter(isLensDetailEligibleEvent).length;
       if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
-      if (!renderableCount) return { label: "No site geometry", empty: true, note: "Economy records exist for this year, but only aggregate or non-site geometry is available." };
+      if (!renderableCount) {
+        const recordLabel = lens.id === "economy-land-use" ? "Land-use-specific economy records" : "Economy records";
+        return { label: "No site geometry", empty: true, note: `${recordLabel} exist for this year, but only aggregate or non-site geometry is available.` };
+      }
       if (lens.id === "economy-gravity") {
         const anchorCount = state.economyAnchorFeatures.length;
         return {
@@ -15448,15 +15480,15 @@
     return { label: `${count} records`, empty: false, note: lens.caveat };
   }
 
-  function missingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens) {
+  function missingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
     const label = {
       built_environment: "planning/built",
       civic_services: "civic service",
-      economy: "economy",
+      economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
       utilities: "utility",
       transport: "transport",
     }[category] || String(category || "lens").replace(/_/g, " ");
-    const prefix = `No source-backed ${label} records match ${state.year} for this lens.`;
+    const prefix = `No source-backed ${label} records match ${year} for this lens.`;
     if (category === "built_environment") return `${prefix} Mapped footprints or cells are context only and are not year-specific change evidence.`;
     if (category === "civic_services") return `${prefix} Current OSM civic-service anchors may be shown as context and may post-date the selected year.`;
     if (category === "economy") return `${prefix} Current OSM economy anchors may be shown as context and may post-date the selected year.`;
@@ -15464,18 +15496,18 @@
     return prefix;
   }
 
-  function compactMissingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens) {
+  function compactMissingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
     const label = {
       built_environment: "planning/built",
       civic_services: "civic service",
-      economy: "economy",
+      economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
       utilities: "utility",
     }[category] || "lens";
-    if (category === "built_environment") return `No source-backed ${state.year} ${label} records; mapped context only.`;
-    if (category === "civic_services") return `No source-backed ${state.year} civic records; current anchors are context.`;
-    if (category === "economy") return `No source-backed ${state.year} economy records; current anchors are context.`;
-    if (category === "utilities") return `No source-backed ${state.year} utility records; current context may post-date.`;
-    return `No source-backed ${state.year} records; context only.`;
+    if (category === "built_environment") return `No source-backed ${year} ${label} records; mapped context only.`;
+    if (category === "civic_services") return `No source-backed ${year} civic records; current anchors are context.`;
+    if (category === "economy") return `No source-backed ${year} ${label} records; current anchors are context.`;
+    if (category === "utilities") return `No source-backed ${year} utility records; current context may post-date.`;
+    return `No source-backed ${year} records; context only.`;
   }
 
   function activeLensMissingSameCategoryCoverage(lens = activeMapLens()) {
@@ -15486,7 +15518,7 @@
     if (!lens) return false;
     const category = lens.category || lens.layerId || state.activeLens;
     if (!category || category === "transport") return false;
-    return lensPointCountForYear(category, year) === 0;
+    return lensEvidenceEventsForYear(lens, category, year).length === 0;
   }
 
   function lensPointCount(category) {
@@ -15495,6 +15527,12 @@
 
   function lensPointCountForYear(category, year = state.year) {
     return lensEventsForYear(Number(year) || state.year).filter((event) => event.category === category).length;
+  }
+
+  function lensEvidenceEventsForYear(lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
+    const events = lensEventsForYear(Number(year) || state.year).filter((event) => event.category === category);
+    if (lens?.id === "economy-land-use") return events.filter((event) => economyLandUseSpecificEvent(event));
+    return events;
   }
 
   function lensRenderablePointCount(category) {
@@ -15885,8 +15923,8 @@
     const { before, after } = detailEvidenceYears(event);
     const radiusM = lensEffectiveRadiusM(lens);
     const center = event?.lngLat || mapCenter();
-    const beforeEvents = lensEventsForYear(before).filter((item) => item.category === category);
-    const currentEvents = lensEventsForYear(after).filter((item) => item.category === category);
+    const beforeEvents = lensEvidenceEventsForYear(lens, category, before);
+    const currentEvents = lensEvidenceEventsForYear(lens, category, after);
     const nearbyBefore = eventsNear(center, beforeEvents, radiusM);
     const nearbyCurrent = eventsNear(center, currentEvents, radiusM);
     return {
@@ -15993,9 +16031,9 @@
       <div class="detail-body transport-speed-detail-body">
         ${ready ? `
           <section class="detail-section transport-performance-section">
-            <h4>Transport performance</h4>
+            <h4>Transport proxy summary</h4>
             <div class="transport-performance-tabs" role="tablist" aria-label="Transport performance view">
-              <button type="button" data-panel="speed" data-active="true">Speed</button>
+              <button type="button" data-panel="speed" data-active="true">Flow proxy</button>
               <button type="button" data-panel="access" data-active="false">Access</button>
               <button type="button" data-panel="reliability" data-active="false">Reliability</button>
             </div>
@@ -16011,7 +16049,7 @@
                   </div>
                 `).join("")}
               </div>
-              <h4>Observed segment bands <span>(road + transit)</span></h4>
+              <h4>Mapped segment bands <span>(road + transit)</span></h4>
               <div class="transport-speed-band-table" role="table" aria-label="Transport speed-band segment counts">
                 ${rows.map((row) => `
                   <div class="transport-speed-band-row" role="row" style="--accent:${escapeAttr(row.color)}">
@@ -16062,7 +16100,7 @@
           </section>
 
           <section class="detail-section transport-speed-trend-section">
-            <h4>Speed-band trend <span>(proxy records)</span></h4>
+            <h4>Flow-proxy trend <span>(records)</span></h4>
             <div class="transport-speed-trend-list">
               ${trendRows.map((row) => `
                 <div class="transport-speed-trend-row" style="--accent:${escapeAttr(row.color)}">
@@ -16180,7 +16218,7 @@
     const currentDelay = transportSpeedWeightedMetric(rows, "currentLengthM", "delay");
     return [
       {
-        label: "Speed band proxy",
+        label: "Flow-band proxy",
         before: beforeProxy ? beforeProxy.toFixed(1) : "0",
         current: currentProxy ? currentProxy.toFixed(1) : "0",
         change: transportSpeedSignedDecimal(currentProxy - beforeProxy, 1),
@@ -17071,7 +17109,7 @@
               `).join("")}
             </div>
             <div class="land-use-source-note">
-              <span>${escapeHtml(compactNumber(stats.recordRows))} source-backed nearby economy record${stats.recordRows === 1 ? "" : "s"}</span>
+              <span>${escapeHtml(compactNumber(stats.recordRows))} land-use-specific nearby economy record${stats.recordRows === 1 ? "" : "s"}</span>
               <span>${escapeHtml(compactNumber(stats.sourceRows))} evidence row${stats.sourceRows === 1 ? "" : "s"}</span>
             </div>
           </section>
@@ -17079,7 +17117,7 @@
           <section class="detail-section land-use-explain-section">
             <h4>What this shows</h4>
             <p>${escapeHtml(economyLandUseWhatThisShows(context, rows, stats))}</p>
-            <div class="economy-caution"><span></span><p>Cells combine source-backed economy records with mapped context; they are not authoritative parcel land-use.</p></div>
+            <div class="economy-caution"><span></span><p>Cells use mapped context and, where available, source-backed land-use-specific economy records; they are not authoritative parcel land-use.</p></div>
           </section>
 
           <section class="detail-section land-use-evidence-section">
@@ -17089,8 +17127,8 @@
               <div><span>Sources</span><strong>${escapeHtml(compactNumber(stats.sourceCount))}</strong></div>
               <div><span>Evidence rows</span><strong>${escapeHtml(compactNumber(stats.sourceRows))}</strong></div>
             </div>
-            ${activeLensMissingSameCategoryCoverage(context.lens)
-              ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+            ${lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)
+              ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category, context.currentYear))}</div>`
               : ""}
           </section>
 
@@ -17105,7 +17143,7 @@
                   <strong>${escapeHtml(compactNumber(row.current))}</strong>
                   <em data-positive="${row.positive}">${escapeHtml(formatSignedNumber(row.delta))}</em>
                 </div>
-              `).join("") || `<div class="lens-evidence-note">No loaded source-backed economy records are available for the trend window.</div>`}
+              `).join("") || `<div class="lens-evidence-note">No loaded land-use-specific economy records are available for the trend window.</div>`}
             </div>
           </section>
 
@@ -17238,8 +17276,8 @@
   }
 
   function economyLandUseWhatThisShows(context, rows, stats) {
-    if (!stats.recordRows && activeLensMissingSameCategoryCoverage(context.lens)) {
-      return `No source-backed economy records match ${context.currentYear} for this lens. The visible cells are mapped context and may post-date the selected year.`;
+    if (!stats.recordRows && lensMissingSameCategoryCoverageForYear(context.lens, context.currentYear)) {
+      return `No source-backed land-use-specific economy records match ${context.currentYear} for this lens. The visible cells are mapped context and may post-date the selected year.`;
     }
     const increases = rows.filter((row) => row.delta > 0).sort((a, b) => b.delta - a.delta).slice(0, 2);
     const decreases = rows.filter((row) => row.delta < 0).sort((a, b) => a.delta - b.delta).slice(0, 1);
@@ -18181,6 +18219,9 @@
     const facilities = civicCatchmentClosestFacilities(context);
     const serviceRows = civicCatchmentServiceRows(context, facilities);
     const edges = civicCatchmentUnderservedEdges(context, facilities);
+    const missingCoverage = activeLensMissingSameCategoryCoverage(context.lens)
+      ? `<div class="lens-causality-note">${escapeHtml(missingSameCategoryCoverageNote(context.lens, context.category))}</div>`
+      : "";
     return `
       <div class="detail-head lens-detail-head civic-catchment-detail-head" style="--accent:${context.lens.accent || context.layer.color}">
         <button class="detail-close" type="button" aria-label="Close">
@@ -18226,6 +18267,7 @@
           <h4>Prevalence</h4>
           <p>Civic services coverage</p>
           <div class="economy-caution civic-caution"><span></span><p>OSM mapped visibility may differ from real-world data.</p></div>
+          ${missingCoverage}
           <h4>Service type coverage</h4>
           <div class="civic-service-table">
             <div class="civic-service-head">
@@ -19546,9 +19588,8 @@
         </div>
         <div class="t">${escapeHtml(a.title)}</div>
         <div class="out-list">
-          ${a.outcomes.map((o) => `
-            <div class="out"><span>${escapeHtml(o.k)}</span><span class="val">${escapeHtml(o.v)}</span></div>
-          `).join("")}
+          <div class="out"><span>Evidence status</span><span class="val">Not source-backed in this atlas build</span></div>
+          <div class="out"><span>Use</span><span class="val">Find comparable logged events before citing</span></div>
         </div>
       </div>
     `).join("");
@@ -19556,11 +19597,16 @@
 
   function renderLensOutcomes(proposal) {
     if (!els.lensOutcomes || !proposal) return;
-    els.lensOutcomes.innerHTML = Object.entries(proposal.distribution).map(([k, v]) => `
+    const rows = {
+      "Analogue evidence": "Not source-backed in this atlas build",
+      "Use": "Compare against logged events and source rows before citing",
+      "Limit": "No prediction, forecast, or causal effect is claimed",
+    };
+    els.lensOutcomes.innerHTML = Object.entries(rows).map(([k, v]) => `
       <div class="outcome">
         <div class="lbl">${escapeHtml(k)}</div>
         <div class="v">${escapeHtml(v)}</div>
-        <div class="range">observed across ${proposal.analogs.length} analogs</div>
+        <div class="range">proposal prompt only</div>
       </div>
     `).join("");
   }
