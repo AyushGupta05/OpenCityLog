@@ -4,6 +4,72 @@ const path = require("path");
 const DEFAULT_GENERATED_AT = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 const EVENT_SCHEMA_VERSION = "1.0.0";
 const ATLAS_SCHEMA_VERSION = "1.0.0";
+const BELFAST_AIR_QUALITY_SOURCE_ID = "ni-air-belfast-centre-hourly-2021-2024";
+const BELFAST_AIR_QUALITY_CSV = "belfast_air_quality.csv";
+const BELFAST_CENTRE_STATION = {
+  code: "BEL2",
+  name: "Belfast Centre",
+  label: "Belfast Centre AURN site",
+  coordinates: [-5.928833, 54.59965],
+};
+const BELFAST_AIR_QUALITY_POLLUTANTS = [
+  {
+    key: "o3",
+    label: "Ozone",
+    value: "Belfast Centre/ Ozone",
+    status: "Belfast Centre/ Ozone/ Status",
+    unit: "ug/m3",
+  },
+  {
+    key: "no",
+    label: "Nitric oxide",
+    value: "Belfast Centre/ Nitric oxide",
+    status: "Belfast Centre/ Nitric oxide/ Status",
+    unit: "ug/m3",
+  },
+  {
+    key: "no2",
+    label: "Nitrogen dioxide",
+    value: "Belfast Centre/ Nitrogen dioxide",
+    status: "Belfast Centre/ Nitrogen dioxide/ Status",
+    unit: "ug/m3",
+  },
+  {
+    key: "nox_as_no2",
+    label: "Nitrogen oxides as nitrogen dioxide",
+    value: "Belfast Centre/ Nitrogen oxides as nitrogen dioxide",
+    status: "Belfast Centre/ Nitrogen oxides as nitrogen dioxide/ Status",
+    unit: "ug/m3",
+  },
+  {
+    key: "so2",
+    label: "Sulphur dioxide",
+    value: "Belfast Centre/ Sulphur dioxide",
+    status: "Belfast Centre/ Sulphur dioxide/ Status",
+    unit: "ug/m3",
+  },
+  {
+    key: "co",
+    label: "Carbon monoxide",
+    value: "Belfast Centre/ Carbon monoxide",
+    status: "Belfast Centre/ Carbon monoxide/ Status",
+    unit: "mg/m3",
+  },
+  {
+    key: "pm10",
+    label: "PM10 particulate matter",
+    value: "Belfast Centre/ PM10 particulate matter (Hourly measured)",
+    status: "Belfast Centre/ PM10 particulate matter (Hourly measured)/ Status",
+    unit: "ug/m3",
+  },
+  {
+    key: "pm25",
+    label: "PM2.5 particulate matter",
+    value: "Belfast Centre/ PM2.5 particulate matter (Hourly measured)",
+    status: "Belfast Centre/ PM2.5 particulate matter (Hourly measured)/ Status",
+    unit: "ug/m3",
+  },
+];
 
 function parseArgs(argv) {
   const args = {
@@ -45,6 +111,52 @@ function parseArgs(argv) {
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let value = "";
+  let inQuotes = false;
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
+    if (char === "\"") {
+      if (inQuotes && next === "\"") {
+        value += "\"";
+        index += 1;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === "," && !inQuotes) {
+      row.push(value);
+      value = "";
+    } else if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && next === "\n") index += 1;
+      row.push(value);
+      if (row.some((cell) => String(cell).trim())) rows.push(row);
+      row = [];
+      value = "";
+    } else {
+      value += char;
+    }
+  }
+
+  if (value || row.length) {
+    row.push(value);
+    if (row.some((cell) => String(cell).trim())) rows.push(row);
+  }
+  if (!rows.length) return [];
+
+  const headers = rows.shift().map((header) => String(header).replace(/^\uFEFF/, "").trim());
+  return rows.map((cells) => {
+    const record = {};
+    headers.forEach((header, index) => {
+      record[header] = cells[index] === undefined ? "" : cells[index];
+    });
+    return record;
+  });
 }
 
 function sleep(ms) {
@@ -235,6 +347,194 @@ function validPoint(coordinates) {
     coordinates[0] <= 180 &&
     coordinates[1] >= -90 &&
     coordinates[1] <= 90
+  );
+}
+
+function numericCell(value) {
+  const normalized = String(value || "").replace(/[^0-9.+-]/g, "");
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function isoDateFromDmy(value) {
+  const match = String(value || "").trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!match) return null;
+  const day = Number(match[1]);
+  const month = Number(match[2]);
+  const year = Number(match[3]);
+  if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) return null;
+  if (year < 1700 || month < 1 || month > 12 || day < 1 || day > 31) return null;
+  return `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function roundStat(value) {
+  return Number(value.toFixed(2));
+}
+
+function emptyPollutantStats() {
+  return Object.fromEntries(
+    BELFAST_AIR_QUALITY_POLLUTANTS.map((pollutant) => [
+      pollutant.key,
+      {
+        label: pollutant.label,
+        unit: pollutant.unit,
+        valid_hours: 0,
+        sum: 0,
+        min: null,
+        max: null,
+      },
+    ]),
+  );
+}
+
+function finalizePollutantStats(stats) {
+  const result = {};
+  for (const [key, stat] of Object.entries(stats)) {
+    if (!stat.valid_hours) continue;
+    result[key] = {
+      label: stat.label,
+      unit: stat.unit,
+      valid_hours: stat.valid_hours,
+      mean: roundStat(stat.sum / stat.valid_hours),
+      min: roundStat(stat.min),
+      max: roundStat(stat.max),
+    };
+  }
+  return result;
+}
+
+function summarizeBelfastAirQualityRows(rows) {
+  const byYear = new Map();
+  for (const row of rows) {
+    const isoDate = isoDateFromDmy(row.Date);
+    if (!isoDate) continue;
+    const year = Number(isoDate.slice(0, 4));
+    if (year < 2000 || year > 2026) continue;
+    if (!byYear.has(year)) {
+      byYear.set(year, {
+        year,
+        row_count: 0,
+        start_date: isoDate,
+        end_date: isoDate,
+        pollutants: emptyPollutantStats(),
+      });
+    }
+    const summary = byYear.get(year);
+    summary.row_count += 1;
+    if (isoDate < summary.start_date) summary.start_date = isoDate;
+    if (isoDate > summary.end_date) summary.end_date = isoDate;
+
+    for (const pollutant of BELFAST_AIR_QUALITY_POLLUTANTS) {
+      const value = numericCell(row[pollutant.value]);
+      const status = String(row[pollutant.status] || "");
+      if (value === null || !/^V\b/i.test(status)) continue;
+      const stat = summary.pollutants[pollutant.key];
+      stat.valid_hours += 1;
+      stat.sum += value;
+      stat.min = stat.min === null ? value : Math.min(stat.min, value);
+      stat.max = stat.max === null ? value : Math.max(stat.max, value);
+    }
+  }
+
+  return [...byYear.values()]
+    .map((summary) => ({
+      ...summary,
+      pollutants: finalizePollutantStats(summary.pollutants),
+    }))
+    .filter((summary) => Object.keys(summary.pollutants).length > 0)
+    .sort((a, b) => a.year - b.year);
+}
+
+function eventForBelfastAirQualitySummary(summary, csvRelativePath) {
+  const recordId = `${BELFAST_CENTRE_STATION.code}-${summary.year}`;
+  const pollutantNames = Object.values(summary.pollutants)
+    .map((pollutant) => pollutant.label)
+    .slice(0, 6)
+    .join(", ");
+  return {
+    schema_version: EVENT_SCHEMA_VERSION,
+    city_id: "belfast",
+    record_kind: "event",
+    event_id: `ni_air_belfast_centre_${summary.year}_hourly_observations`,
+    title: `${BELFAST_CENTRE_STATION.name} ${summary.year} monitored air-quality observations`,
+    short_description: sentenceLimit(
+      `Hourly ${BELFAST_CENTRE_STATION.name} monitoring data records valid ${summary.year} observations for ${pollutantNames}.`,
+    ),
+    year: summary.year,
+    effective_date: String(summary.year),
+    effective_date_range: {
+      start: summary.start_date,
+      end: summary.end_date,
+    },
+    date_precision: "year",
+    source_date_field: "Date and Time",
+    category: "environment",
+    lens: "environment",
+    geometry: {
+      type: "Point",
+      coordinates: BELFAST_CENTRE_STATION.coordinates,
+    },
+    affected_area: {
+      label: BELFAST_CENTRE_STATION.label,
+    },
+    source_ids: [BELFAST_AIR_QUALITY_SOURCE_ID],
+    evidence: [
+      {
+        source_id: BELFAST_AIR_QUALITY_SOURCE_ID,
+        label: "Northern Ireland Air download data page",
+        kind: "source_url",
+        url: "https://www.airqualityni.co.uk/download-data",
+        file_path: null,
+        record_id: recordId,
+      },
+      {
+        source_id: BELFAST_AIR_QUALITY_SOURCE_ID,
+        label: "Local Belfast Centre hourly CSV",
+        kind: "local_file",
+        url: null,
+        file_path: csvRelativePath,
+        record_id: recordId,
+      },
+    ],
+    confidence: "documented",
+    affected_signals: ["air_quality", "environment"],
+    explanation: `The local CSV contains hourly observations for ${BELFAST_CENTRE_STATION.name} during ${summary.year}. This is station monitoring evidence, not citywide exposure or outcome evidence.`,
+    caveats: [
+      "One monitoring station cannot represent every neighbourhood in Belfast.",
+      "Hourly observations are monitoring context; do not use them as evidence that a nearby planning, transport, or development event changed air quality.",
+      "Modelled wind fields in the CSV are retained as context only; this event summarizes pollutant measurements.",
+    ],
+    observed_summary: {
+      station_code: BELFAST_CENTRE_STATION.code,
+      station_name: BELFAST_CENTRE_STATION.name,
+      row_count: summary.row_count,
+      date_range: {
+        start: summary.start_date,
+        end: summary.end_date,
+      },
+      pollutants: summary.pollutants,
+    },
+    provenance: {
+      transform: "scripts/build_data.js#eventForBelfastAirQualitySummary",
+      source_path: csvRelativePath,
+      source_record_id: recordId,
+      source_url: "https://www.airqualityni.co.uk/download-data",
+      source_retrieved_at: null,
+      source_dataset_id: "belfast-centre-hourly-air-quality-local-csv",
+      source_basis: "Hourly automatic air-quality monitoring observations from Belfast Centre.",
+      source_date_field: "Date and Time",
+      geometry_source: "Belfast Centre AURN site station coordinate from public monitoring-site metadata.",
+      geometry_precision: "Monitoring-station point for map navigation; not a citywide exposure surface or modelled pollution area.",
+    },
+  };
+}
+
+function loadBelfastAirQualityEvents(root, csvRelativePath = BELFAST_AIR_QUALITY_CSV) {
+  const absolutePath = resolve(root, csvRelativePath);
+  if (!fs.existsSync(absolutePath)) return [];
+  const rows = parseCsv(fs.readFileSync(absolutePath, "utf8"));
+  return summarizeBelfastAirQualityRows(rows).map((summary) =>
+    eventForBelfastAirQualitySummary(summary, toPosix(csvRelativePath)),
   );
 }
 
@@ -553,9 +853,35 @@ function loadBelfastLegacyEvents(root, legacyCatalogPath) {
   };
 }
 
+function loadBelfastEvents(root, legacyCatalogPath) {
+  const legacy = loadBelfastLegacyEvents(root, legacyCatalogPath);
+  const airQualityEvents = loadBelfastAirQualityEvents(root);
+  const events = [...legacy.events, ...airQualityEvents].sort(
+    (a, b) => a.year - b.year || a.event_id.localeCompare(b.event_id),
+  );
+  const migration = legacy.migration
+    ? {
+        ...legacy.migration,
+        source_event_count: (legacy.migration.source_event_count || legacy.events.length) + airQualityEvents.length,
+        normalized_event_count: events.length,
+        additional_source_paths: airQualityEvents.length ? [BELFAST_AIR_QUALITY_CSV] : [],
+        notes: [
+          ...(legacy.migration.notes || []),
+          ...(airQualityEvents.length
+            ? [
+                "Local Belfast Centre hourly air-quality CSV rows are annualized into station-level environment monitoring events.",
+                "Air-quality observations are monitoring context from one station, not citywide exposure or outcome evidence.",
+              ]
+            : []),
+        ],
+      }
+    : null;
+  return { events, migration };
+}
+
 function eventsForCity(root, city, legacyCatalogPath) {
   if (city.city_id === "belfast") {
-    return loadBelfastLegacyEvents(root, legacyCatalogPath);
+    return loadBelfastEvents(root, legacyCatalogPath);
   }
   return {
     events: [],
@@ -821,6 +1147,8 @@ if (require.main === module) {
 
 module.exports = {
   buildAtlas,
+  loadBelfastAirQualityEvents,
   normalizeLegacyBelfastEvent,
   parseArgs,
+  summarizeBelfastAirQualityRows,
 };

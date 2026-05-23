@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-20T20:52:21Z",
+  "generated_at": "2026-05-23T00:00:00Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 341653,
-    "total_unique_events": 341653,
+    "total_events": 341657,
+    "total_unique_events": 341657,
     "duplicate_event_id_count": 0,
-    "active_source_count": 470,
+    "active_source_count": 471,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2362,
+    "source_year_layer_row_count": 2366,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -2384,6 +2384,38 @@
       "source_title": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
       "year": 2023,
       "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni-air-belfast-centre-hourly-2021",
+      "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+      "year": 2021,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni-air-belfast-centre-hourly-2021",
+      "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+      "year": 2022,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni-air-belfast-centre-hourly-2021",
+      "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+      "year": 2023,
+      "layer": "environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni-air-belfast-centre-hourly-2021",
+      "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+      "year": 2024,
+      "layer": "environment",
       "event_count": 1
     },
     {
@@ -18919,17 +18951,17 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 33126,
-      "unique_event_count": 33126,
+      "event_count": 33130,
+      "unique_event_count": 33130,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 233,
-      "active_source_count": 202,
+      "source_count": 234,
+      "active_source_count": 203,
       "source_catalog_only_count": 31,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 33126,
-        "gap_events": 66874,
+        "backed_event_count": 33130,
+        "gap_events": 66870,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -18951,10 +18983,10 @@
         "2018": 2203,
         "2019": 1065,
         "2020": 1588,
-        "2021": 2743,
-        "2022": 3503,
-        "2023": 3006,
-        "2024": 5142,
+        "2021": 2744,
+        "2022": 3504,
+        "2023": 3007,
+        "2024": 5143,
         "2025": 5311,
         "2026": 2399
       },
@@ -18962,13 +18994,14 @@
         "built_environment": 13807,
         "civic_services": 678,
         "economy": 672,
+        "environment": 4,
         "transport": 17118,
         "utilities": 851
       },
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 15158,
+        "documented": 15162,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
@@ -19179,6 +19212,11 @@
         },
         {
           "year": 2021,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "year": 2021,
           "layer": "transport",
           "event_count": 824
         },
@@ -19201,6 +19239,11 @@
           "year": 2022,
           "layer": "economy",
           "event_count": 66
+        },
+        {
+          "year": 2022,
+          "layer": "environment",
+          "event_count": 1
         },
         {
           "year": 2022,
@@ -19229,6 +19272,11 @@
         },
         {
           "year": 2023,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "year": 2023,
           "layer": "transport",
           "event_count": 1247
         },
@@ -19251,6 +19299,11 @@
           "year": 2024,
           "layer": "economy",
           "event_count": 77
+        },
+        {
+          "year": 2024,
+          "layer": "environment",
+          "event_count": 1
         },
         {
           "year": 2024,
@@ -21674,6 +21727,38 @@
         },
         {
           "city_id": "belfast",
+          "source_id": "ni-air-belfast-centre-hourly-2021",
+          "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+          "year": 2021,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni-air-belfast-centre-hourly-2021",
+          "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+          "year": 2022,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni-air-belfast-centre-hourly-2021",
+          "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+          "year": 2023,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni-air-belfast-centre-hourly-2021",
+          "source_title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+          "year": 2024,
+          "layer": "environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
           "source_id": "ni-executive-dfi-casement-round124",
           "source_title": "Mallon announces decision to recommend planning approval for new stadium at Casement Park",
           "year": 2020,
@@ -23759,6 +23844,29 @@
           "last_year": 2026,
           "layer_counts": {
             "built_environment": 4
+          },
+          "confidence_counts": {
+            "documented": 4
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni-air-belfast-centre-hourly-2021",
+          "title": "Belfast Centre hourly air-quality monitoring observations, 2021",
+          "provider": "Northern Ireland Air / Department of Agriculture, Environment and Rural Affairs",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for Northern Ireland Air open data feeds and downloads, unless otherwise stated by the source.",
+          "event_count": 4,
+          "years": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "first_year": 2021,
+          "last_year": 2024,
+          "layer_counts": {
+            "environment": 4
           },
           "confidence_counts": {
             "documented": 4

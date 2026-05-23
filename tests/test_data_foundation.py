@@ -213,6 +213,38 @@ class DataFoundationTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("belfast lens_overlays missing coverage/caveat metadata", completed.stderr)
 
+    def test_build_promotes_local_belfast_air_quality_csv(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root, include_air_quality=True)
+
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+            completed = run_node(root, "scripts/verify_data.js")
+            self.assertIn("Data verification OK", completed.stdout)
+
+            atlas = root / "web" / "data" / "city-atlas" / "cities" / "belfast"
+            index = read_json(atlas / "events.json")
+            self.assertEqual(index["event_count"], 3)
+
+            year_payload = read_json(atlas / "events_2021.json")
+            air_event = next(
+                event
+                for event in year_payload["events"]
+                if event["event_id"] == "ni_air_belfast_centre_2021_hourly_observations"
+            )
+            self.assertEqual(air_event["category"], "environment")
+            self.assertEqual(air_event["source_ids"], ["ni-air-belfast-centre-hourly-2021-2024"])
+            self.assertEqual(air_event["confidence"], "documented")
+            self.assertEqual(air_event["observed_summary"]["station_code"], "BEL2")
+            self.assertEqual(air_event["observed_summary"]["pollutants"]["no2"]["valid_hours"], 2)
+            self.assertIn("one monitoring station", " ".join(air_event["caveats"]).lower())
+
+            availability = read_json(atlas / "availability.json")
+            environment = next(row for row in availability["matrix"] if row["family_id"] == "environment")
+            self.assertEqual(environment["availability"], "partial_local")
+            self.assertEqual(environment["event_count"], 1)
+
 
 def run_node(root: Path, script: str, check: bool = True) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
@@ -228,7 +260,7 @@ def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def write_fixture_project(root: Path, missing_attribution: bool = False) -> None:
+def write_fixture_project(root: Path, missing_attribution: bool = False, include_air_quality: bool = False) -> None:
     (root / "config" / "cities").mkdir(parents=True)
     (root / "data" / "derived" / "2026").mkdir(parents=True)
 
@@ -265,21 +297,55 @@ def write_fixture_project(root: Path, missing_attribution: bool = False) -> None
         ],
         "data_availability": {"summary": "Fixture", "status": "mvp_partial"},
     }
+    if include_air_quality:
+        city["source_families"].append(
+            {
+                "family_id": "environment",
+                "label": "Air quality",
+                "source_ids": ["ni-air-belfast-centre-hourly-2021-2024"],
+                "availability": "partial_local",
+                "years": [2021],
+                "notes": "Station-level monitoring context only.",
+            }
+        )
     write_json(root / "config" / "cities" / "belfast.json", city)
 
+    sources = [
+        source("osm-overpass", ["*"], "osm_history", "" if missing_attribution else "Copyright OpenStreetMap contributors."),
+        source(
+            "belfast-city-council-public-pages",
+            ["belfast"],
+            "civic_services",
+            "Source page: Belfast City Council.",
+        ),
+    ]
+    if include_air_quality:
+        sources.append(
+            source(
+                "ni-air-belfast-centre-hourly-2021-2024",
+                ["belfast"],
+                "environment",
+                "Attribute Department of the Environment Northern Ireland and www.airqualityni.co.uk.",
+            )
+        )
     registry = {
         "schema_version": "1.0.0",
-        "sources": [
-            source("osm-overpass", ["*"], "osm_history", "" if missing_attribution else "Copyright OpenStreetMap contributors."),
-            source(
-                "belfast-city-council-public-pages",
-                ["belfast"],
-                "civic_services",
-                "Source page: Belfast City Council.",
-            ),
-        ],
+        "sources": sources,
     }
     write_json(root / "config" / "source_registry.json", registry)
+
+    if include_air_quality:
+        (root / "belfast_air_quality.csv").write_text(
+            "\n".join(
+                [
+                    'Date,Time,"Belfast Centre/ Nitrogen dioxide","Belfast Centre/ Nitrogen dioxide/ Status","Belfast Centre/ PM2.5 particulate matter (Hourly measured)","Belfast Centre/ PM2.5 particulate matter (Hourly measured)/ Status"',
+                    '01/01/2021,01:00,10.5,"V ug/m3",4.2,"V ug/m3"',
+                    '01/01/2021,02:00,12.5,"V ug/m3",,"N ug/m3"',
+                ]
+            )
+            + "\n",
+            encoding="utf-8",
+        )
 
     legacy = {
         "schemaVersion": "1.0.0",

@@ -6235,6 +6235,42 @@
       ]
     },
     {
+      "source_id": "ni-air-belfast-centre-hourly-2021-2024",
+      "title": "Belfast Centre hourly air-quality monitoring observations, 2021-2024",
+      "provider": "Northern Ireland Air / Department of Agriculture, Environment and Rural Affairs",
+      "source_family": "environment",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Open Government Licence v3.0 for Northern Ireland Air open data feeds and downloads, unless otherwise stated by the source.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2021,
+        "end": 2024,
+        "observed": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "update_frequency": "Source download selected for a fixed 2021-2024 local CSV extract; live service can be queried for other intervals.",
+      "url": "https://www.airqualityni.co.uk/download-data",
+      "local_paths": [
+        "belfast_air_quality.csv"
+      ],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Attribute Department of the Environment Northern Ireland and www.airqualityni.co.uk as the source of Northern Ireland Air information.",
+      "accessed_at": "2026-05-23",
+      "provenance_notes": "Local CSV contains hourly Belfast Centre AURN monitoring observations for 2021-2024. Station-level pollutant measurements are annualized into documented environment monitoring events for the atlas.",
+      "caveats": [
+        "One Belfast Centre monitoring station cannot represent every neighbourhood in Belfast.",
+        "Hourly pollutant observations are monitoring context and must not be used as evidence that a nearby planning, transport, or development event changed air quality.",
+        "Modelled wind fields in the CSV are retained as context only; pollutant statistics should keep measurement/status fields and source date fields."
+      ]
+    },
+    {
       "source_id": "ni-executive-dfi-casement-round124",
       "title": "Mallon announces decision to recommend planning approval for new stadium at Casement Park",
       "provider": "The Northern Ireland Executive / Department for Infrastructure",

@@ -345,24 +345,18 @@
       "family_id": "environment",
       "label": "Air quality, green space, and environmental context",
       "source_ids": [
+        "ni-air-belfast-centre-hourly-2021-2024",
         "opendatani-spatial-ni",
         "belfast-city-council-open-data"
       ],
-      "availability": "planned",
+      "availability": "partial_local",
       "years": [
-        2016,
-        2017,
-        2018,
-        2019,
-        2020,
         2021,
         2022,
         2023,
-        2024,
-        2025,
-        2026
+        2024
       ],
-      "notes": "Useful for observed context. Do not infer causal impacts from proximity alone."
+      "notes": "Belfast Centre 2021-2024 hourly air-quality observations are available locally as station-level monitoring context. Broader years, more monitoring sites, green-space layers, and citywide environment context remain planned. Do not infer causal impacts from proximity alone."
     }
   ],
   "data_availability": {
