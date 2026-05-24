@@ -1,0 +1,1583 @@
+{
+  "schema_version": "bims-pdc-candidates/v0.1",
+  "city_id": "nyc",
+  "created_at": "2026-05-19",
+  "accessed_at": "2026-05-19",
+  "candidate_count": 22,
+  "scope_note": "Partial shortlist of official NYC Public Design Commission design review/project approval milestones. These are approval records only; they do not assert construction, completion, use, or outcomes.",
+  "source_ids": [
+    "nyc-pdc-meeting-minutes-certificates-2008-2026"
+  ],
+  "events": [
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20080107_23048_w69_transfer_bridge_final",
+      "title": "PDC final approval for West 69th Street Transfer Bridge adaptive reuse",
+      "short_description": "NYC PDC recorded final design approval for preservation and adaptive reuse of the West 69th Street Transfer Bridge in Riverside South Park.",
+      "year": 2008,
+      "effective_date": "2008-01-07",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "park_public_realm",
+      "approval_body": "Art Commission of the City of New York",
+      "certificate_number": "23048",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9916,
+          40.7782
+        ]
+      },
+      "affected_area": {
+        "label": "West 69th Street at the Hudson River, Riverside South Park, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20080107.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 23048, adopted 2008-01-07",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20080107.pdf",
+          "record_id": "certificate-23048"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "park_public_realm"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named project.",
+      "caveats": [
+        "This is a design approval milestone, not evidence that construction started or finished.",
+        "Coordinates are an approximate point derived from the location text in the PDC certificate, not official PDC geometry."
+      ],
+      "limitations": [
+        "PDC records describe design review actions and conditions; they do not provide construction status or outcome evidence."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/minutes-20080107.txt",
+        "source_record_id": "23048",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20080107.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC location text: West 69th Street at the Hudson River, Riverside South Park.",
+        "geometry_precision": "approximate project/intersection centroid"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20081208_23350_elmhurst_library_final",
+      "title": "PDC final approval for Elmhurst Community Library replacement",
+      "short_description": "NYC PDC recorded final design approval for construction of the Elmhurst Community Library replacement at 86-01 Broadway.",
+      "year": 2008,
+      "effective_date": "2008-12-08",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "library",
+      "approval_body": "Art Commission of the City of New York",
+      "certificate_number": "23350",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8771,
+          40.7374
+        ]
+      },
+      "affected_area": {
+        "label": "Elmhurst Community Library, 86-01 Broadway, Queens"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20081208.PDF",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 23350, adopted 2008-12-08",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20081208.PDF",
+          "record_id": "certificate-23350"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named library project.",
+      "caveats": [
+        "This is a design approval milestone, not evidence that the library was built or opened.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The approval record does not independently verify completion, opening date, cost, or public-service outcomes."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/minutes-20081208.txt",
+        "source_record_id": "23350",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20081208.PDF",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 86-01 Broadway, Queens.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20100111_23780_allen_pike_malls_final",
+      "title": "PDC final approval for Allen Street and Pike Street Malls Phase II",
+      "short_description": "NYC PDC recorded final design approval for Phase II reconstruction of the Allen Street and Pike Street Malls in Manhattan.",
+      "year": 2010,
+      "effective_date": "2010-01-11",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "streetscape_plaza",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "23780",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9917,
+          40.7144
+        ]
+      },
+      "affected_area": {
+        "label": "Allen Street between Delancey Street and Hester Street, and Pike Street between Madison Street and South Street, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20100111.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 23780, adopted 2010-01-11",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20100111.pdf",
+          "record_id": "certificate-23780"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "streetscape",
+        "plaza"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named public-realm project.",
+      "caveats": [
+        "This is a design approval milestone, not a claim that streetscape work was completed.",
+        "Coordinates represent an approximate midpoint of the named corridor."
+      ],
+      "limitations": [
+        "Linear/corridor geometry has been reduced to a candidate point pending a proper line geometry."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/minutes-20100111.txt",
+        "source_record_id": "23780",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20100111.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC corridor text for Allen Street and Pike Street.",
+        "geometry_precision": "approximate corridor midpoint"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20120109_24340_hudson_park_boulevard_final",
+      "title": "PDC final approval for Hudson Park and Boulevard Phase I",
+      "short_description": "NYC PDC recorded final design approval for Phase I of Hudson Park and Boulevard, including public-realm elements in west Midtown.",
+      "year": 2012,
+      "effective_date": "2012-01-09",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "park_boulevard",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "24340",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9992,
+          40.7542
+        ]
+      },
+      "affected_area": {
+        "label": "10th Avenue and 11th Avenue from West 33rd Street to West 36th Street, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20120109.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 24340, adopted 2012-01-09",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20120109.pdf",
+          "record_id": "certificate-24340"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "park_public_realm"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named park and boulevard project.",
+      "caveats": [
+        "This is a design approval milestone, not a completion record.",
+        "Coordinates represent an approximate midpoint of the named Phase I area."
+      ],
+      "limitations": [
+        "The source describes a bounded area but does not provide GIS geometry."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/minutes-20120109.txt",
+        "source_record_id": "24340",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20120109.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC location text for 10th-11th Avenues and West 33rd-36th Streets.",
+        "geometry_precision": "approximate project-area centroid"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20120806_24536_astor_place_cooper_square_final",
+      "title": "PDC final approval for Astor Place and Cooper Square reconstruction",
+      "short_description": "NYC PDC recorded final design approval for reconstruction of Astor Place and Cooper Square in Manhattan.",
+      "year": 2012,
+      "effective_date": "2012-08-06",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "streetscape_plaza",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "24536",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.991,
+          40.7298
+        ]
+      },
+      "affected_area": {
+        "label": "East 4th Street to East 9th Street between Lafayette Street and Third Avenue, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20120806.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 24536, adopted 2012-08-06",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20120806.pdf",
+          "record_id": "certificate-24536"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "streetscape",
+        "plaza"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named public-space reconstruction.",
+      "caveats": [
+        "This is a design approval milestone, not a record of opening or completion.",
+        "Coordinates are an approximate centroid for the named Astor Place and Cooper Square area."
+      ],
+      "limitations": [
+        "The PDC certificate supplies a project area but no official polygon or line geometry."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/minutes-20120806.txt",
+        "source_record_id": "24536",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20120806.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC project-area text for Astor Place and Cooper Square.",
+        "geometry_precision": "approximate project-area centroid"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20141020_25166_westchester_square_library_prelim",
+      "title": "PDC preliminary approval for Westchester Square Branch Library",
+      "short_description": "NYC PDC recorded preliminary design approval for construction of the Westchester Square Branch of the New York Public Library.",
+      "year": 2014,
+      "effective_date": "2014-10-20",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "preliminary approval",
+      "project_type": "library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "25166",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8425,
+          40.84
+        ]
+      },
+      "affected_area": {
+        "label": "Nine Westchester Square, Bronx"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20141020.PDF",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 25166, adopted 2014-10-20",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20141020.PDF",
+          "record_id": "certificate-25166"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a preliminary design approval milestone for the named library project.",
+      "caveats": [
+        "Preliminary approval is not final approval and does not establish construction or opening.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "A later final approval or construction record should be checked before using this as a project-stage endpoint."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/minutes-20141020.txt",
+        "source_record_id": "25166",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/minutes-20141020.PDF",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for preliminary approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: Nine Westchester Square, Bronx.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20150302_25283_corona_plaza_final",
+      "title": "PDC final approval for Corona Plaza reconstruction",
+      "short_description": "NYC PDC recorded final design approval for the reconstruction of Corona Plaza along Roosevelt Avenue in Queens.",
+      "year": 2015,
+      "effective_date": "2015-03-02",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "plaza",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "25283",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8625,
+          40.7496
+        ]
+      },
+      "affected_area": {
+        "label": "Corona Plaza, south side of Roosevelt Avenue between National Street and 104th Street, Queens"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Minutes_3_2_15.PDF",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 25283, adopted 2015-03-02",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Minutes_3_2_15.PDF",
+          "record_id": "certificate-25283"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "plaza",
+        "streetscape"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named plaza reconstruction.",
+      "caveats": [
+        "This is a design approval milestone, not a completion or usage record.",
+        "Coordinates are an approximate point for the named plaza."
+      ],
+      "limitations": [
+        "The PDC record does not supply formal GIS geometry for the plaza footprint."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/Minutes_3_2_15.txt",
+        "source_record_id": "25283",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/Minutes_3_2_15.PDF",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC location text for Corona Plaza.",
+        "geometry_precision": "approximate plaza centroid"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20170619_26188_east_flatbush_library_final",
+      "title": "PDC final approval for East Flatbush Library reconstruction",
+      "short_description": "NYC PDC recorded final design approval for reconstruction of the East Flatbush Library at 9612 Church Avenue.",
+      "year": 2017,
+      "effective_date": "2017-06-19",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "26188",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9168,
+          40.6571
+        ]
+      },
+      "affected_area": {
+        "label": "East Flatbush Library, 9612 Church Avenue, Brooklyn"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-6-19-2017-3.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 26188, adopted 2017-06-19",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-6-19-2017-3.pdf",
+          "record_id": "certificate-26188"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named library reconstruction.",
+      "caveats": [
+        "This is a design approval milestone, not a record that the library reopened.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The PDC source does not provide construction completion or service-status evidence."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/meeting-minutes-6-19-2017-3.txt",
+        "source_record_id": "26188",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-6-19-2017-3.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 9612 Church Avenue, Brooklyn.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20180917_26750_studio_museum_final",
+      "title": "PDC final approval for Studio Museum in Harlem reconstruction",
+      "short_description": "NYC PDC recorded final design approval for reconstruction of the Studio Museum in Harlem at 144 West 125th Street.",
+      "year": 2018,
+      "effective_date": "2018-09-17",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "cultural_facility",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "26750",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9458,
+          40.8086
+        ]
+      },
+      "affected_area": {
+        "label": "Studio Museum in Harlem, 144 West 125th Street, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-9-17-18-.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 26750, adopted 2018-09-17",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-9-17-18-.pdf",
+          "record_id": "certificate-26750"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "cultural_facility"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named cultural facility.",
+      "caveats": [
+        "This is a design approval milestone, not a construction or opening record.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The PDC record should be paired with separate construction/opening evidence if a built-outcome event is needed."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/meeting-minutes-9-17-18-.txt",
+        "source_record_id": "26750",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-9-17-18-.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 144 West 125th Street, Manhattan.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20190520_27065_charleston_library_final",
+      "title": "PDC final approval for Charleston Branch Library",
+      "short_description": "NYC PDC recorded final design approval for construction of the Charleston Branch Library and adjacent site work on Staten Island.",
+      "year": 2019,
+      "effective_date": "2019-05-20",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "27065",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.228,
+          40.5312
+        ]
+      },
+      "affected_area": {
+        "label": "Tyrellan Avenue and Bricktown Way, Staten Island"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-20-19-Public%20Agenda-2.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 27065, adopted 2019-05-20",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-20-19-Public%20Agenda-2.pdf",
+          "record_id": "certificate-27065"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named library project.",
+      "caveats": [
+        "This is a design approval milestone, not evidence of library opening or service availability.",
+        "Coordinates are an approximate point derived from the PDC location text."
+      ],
+      "limitations": [
+        "The source URL filename includes agenda wording, but the downloaded official PDF text contained certificate records in this worker pass."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/5-20-19-Public%20Agenda-2.txt",
+        "source_record_id": "27065",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-20-19-Public%20Agenda-2.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC location text: Tyrellan Avenue and Bricktown Way, Staten Island.",
+        "geometry_precision": "approximate intersection/project point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20200121_27325_escr_east_river_park_final",
+      "title": "PDC final approval for East Side Coastal Resiliency and East River Park",
+      "short_description": "NYC PDC recorded final design approval for East Side Coastal Resiliency work associated with East River Park and related structures.",
+      "year": 2020,
+      "effective_date": "2020-01-21",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "park_resiliency_public_realm",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "27325",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9754,
+          40.7216
+        ]
+      },
+      "affected_area": {
+        "label": "East River between Montgomery Street and East 25th Street, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-1-21-20.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 27325, adopted 2020-01-21",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-1-21-20.pdf",
+          "record_id": "certificate-27325"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "park_public_realm",
+        "coastal_resiliency"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named coastal resiliency and park project.",
+      "caveats": [
+        "This is a design approval milestone, not a claim that resiliency work was completed or effective.",
+        "Coordinates represent an approximate midpoint for a long project area."
+      ],
+      "limitations": [
+        "The source covers a multi-site corridor; the candidate point should be replaced by line/polygon geometry before production use."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/meeting-minutes-1-21-20.txt",
+        "source_record_id": "27325",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-1-21-20.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC corridor text: East River between Montgomery Street and East 25th Street.",
+        "geometry_precision": "approximate corridor midpoint"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20200121_27359_east_river_waterfront_phase_v_final",
+      "title": "PDC final approval for East River Waterfront Phase V esplanade",
+      "short_description": "NYC PDC recorded final design approval for construction of the East River Waterfront Phase V esplanade between Peck Slip and Catherine Slip.",
+      "year": 2020,
+      "effective_date": "2020-01-21",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "waterfront_esplanade",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "27359",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993,
+          40.7084
+        ]
+      },
+      "affected_area": {
+        "label": "East River Waterfront between Peck Slip and Catherine Slip, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-1-21-20.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 27359, adopted 2020-01-21",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-1-21-20.pdf",
+          "record_id": "certificate-27359"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "waterfront_public_realm"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named waterfront esplanade.",
+      "caveats": [
+        "This is a design approval milestone, not a completion record.",
+        "Coordinates represent an approximate midpoint of the named waterfront segment."
+      ],
+      "limitations": [
+        "The PDC source does not provide formal line geometry for the esplanade segment."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/meeting-minutes-1-21-20.txt",
+        "source_record_id": "27359",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/meeting-minutes-1-21-20.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC corridor text: Peck Slip to Catherine Slip.",
+        "geometry_precision": "approximate waterfront-segment midpoint"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20211213_27951_brooklyn_childrens_museum_garden_final",
+      "title": "PDC final approval for Brooklyn Children's Museum Earth Science Garden",
+      "short_description": "NYC PDC recorded final design approval for reconstruction of a landscaped terrace supporting an exhibit at Brooklyn Children's Museum.",
+      "year": 2021,
+      "effective_date": "2021-12-13",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "cultural_facility",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "27951",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9442,
+          40.6745
+        ]
+      },
+      "affected_area": {
+        "label": "Brooklyn Children's Museum, 145 Brooklyn Avenue, Brooklyn"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/Meeting%20Minutes%2012-13-21.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 27951, adopted 2021-12-13",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/Meeting%20Minutes%2012-13-21.pdf",
+          "record_id": "certificate-27951"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "cultural_facility"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named museum project.",
+      "caveats": [
+        "This is a design approval milestone, not an exhibit opening or completion record.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The certificate does not identify the exact terrace footprint within the museum site."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/Meeting%20Minutes%2012-13-21.txt",
+        "source_record_id": "27951",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/Meeting%20Minutes%2012-13-21.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 145 Brooklyn Avenue, Brooklyn.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20220118_28002_tompkinsville_pier_prelim",
+      "title": "PDC preliminary approval for Tompkinsville Pier and esplanade",
+      "short_description": "NYC PDC recorded preliminary design approval for Tompkinsville Pier, esplanade, and maintenance/operations building at the Stapleton Waterfront.",
+      "year": 2022,
+      "effective_date": "2022-01-18",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "preliminary approval",
+      "project_type": "waterfront_esplanade",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "28002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0736,
+          40.636
+        ]
+      },
+      "affected_area": {
+        "label": "Murray Hulbert Avenue south of Hannah Street at the Stapleton Waterfront, Staten Island"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/1-18-22-Certificates-REV.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 28002, adopted 2022-01-18",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/1-18-22-Certificates-REV.pdf",
+          "record_id": "certificate-28002"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "waterfront_public_realm",
+        "civic_facility"
+      ],
+      "explanation": "The official PDC certificate documents a preliminary design approval milestone for the named waterfront project.",
+      "caveats": [
+        "Preliminary approval is not final approval and does not establish construction or service.",
+        "Coordinates are an approximate point for the named pier/esplanade area."
+      ],
+      "limitations": [
+        "The project includes multiple elements; a future ingest should model the waterfront segment rather than a single point."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/1-18-22-Certificates-REV.txt",
+        "source_record_id": "28002",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/1-18-22-Certificates-REV.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for preliminary approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC location text for Murray Hulbert Avenue south of Hannah Street.",
+        "geometry_precision": "approximate project-area point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20220516_28108_plaza_33_final",
+      "title": "PDC final approval for Plaza 33",
+      "short_description": "NYC PDC recorded final design approval for construction of Plaza 33, including a distinctive sidewalk at West 33rd Street and Seventh Avenue.",
+      "year": 2022,
+      "effective_date": "2022-05-16",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "plaza",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "28108",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9919,
+          40.7508
+        ]
+      },
+      "affected_area": {
+        "label": "West 33rd Street at Seventh Avenue, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-16-22%20Certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 28108, adopted 2022-05-16",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-16-22%20Certificates.pdf",
+          "record_id": "certificate-28108"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "plaza",
+        "streetscape"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named plaza project.",
+      "caveats": [
+        "This is a design approval milestone, not an opening or completion record.",
+        "Coordinates are an approximate point for the named plaza location."
+      ],
+      "limitations": [
+        "The PDC record does not provide a formal plaza boundary."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/5-16-22%20Certificates.txt",
+        "source_record_id": "28108",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/5-16-22%20Certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC location text: West 33rd Street at Seventh Avenue.",
+        "geometry_precision": "approximate plaza point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20230117_28329_douglaston_little_neck_library_final",
+      "title": "PDC final approval for Douglaston-Little Neck Library",
+      "short_description": "NYC PDC recorded final design approval for construction of the Douglaston-Little Neck Library at 249-01 Northern Boulevard.",
+      "year": 2023,
+      "effective_date": "2023-01-17",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "28329",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7413,
+          40.7656
+        ]
+      },
+      "affected_area": {
+        "label": "Douglaston-Little Neck Library, 249-01 Northern Boulevard, Little Neck, Queens"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/1-17-23-Meeting-Minutes-Certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 28329, adopted 2023-01-17",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/1-17-23-Meeting-Minutes-Certificates.pdf",
+          "record_id": "certificate-28329"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named library project.",
+      "caveats": [
+        "This is a design approval milestone, not a construction or opening record.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The source does not provide independent evidence of project completion."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/1-17-23-Meeting-Minutes-Certificates.txt",
+        "source_record_id": "28329",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/1-17-23-Meeting-Minutes-Certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 249-01 Northern Boulevard, Little Neck, Queens.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20230213_28375_high_line_western_rail_yards_prelim_final",
+      "title": "PDC preliminary and final approval for High Line Western Rail Yards reconstruction",
+      "short_description": "NYC PDC recorded preliminary and final design approval for reconstruction of High Line Park at the Western Rail Yards.",
+      "year": 2023,
+      "effective_date": "2023-02-13",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "preliminary and final approval",
+      "project_type": "park_public_realm",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "28375",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0027,
+          40.7556
+        ]
+      },
+      "affected_area": {
+        "label": "High Line Park, Western Rail Yards, West 30th Street, 11th Avenue, West 34th Street, and 12th Avenue, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/2-13-23-Meeting-Minutes-Certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 28375, adopted 2023-02-13",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/2-13-23-Meeting-Minutes-Certificates.pdf",
+          "record_id": "certificate-28375"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "park_public_realm"
+      ],
+      "explanation": "The official PDC certificate documents a preliminary and final design approval milestone for the named High Line project area.",
+      "caveats": [
+        "This is a design approval milestone, not a construction completion record.",
+        "Coordinates are an approximate centroid for the named Western Rail Yards area."
+      ],
+      "limitations": [
+        "The source describes a project area but does not provide a polygon or segment geometry."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/2-13-23-Meeting-Minutes-Certificates.txt",
+        "source_record_id": "28375",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/2-13-23-Meeting-Minutes-Certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for preliminary and final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC project-area text for High Line Western Rail Yards.",
+        "geometry_precision": "approximate project-area centroid"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20240916_28908_queens_museum_facade_final",
+      "title": "PDC final approval for Queens Museum facade rehabilitation",
+      "short_description": "NYC PDC recorded final design approval for rehabilitation of the Queens Museum facade in Flushing Meadows Corona Park.",
+      "year": 2024,
+      "effective_date": "2024-09-16",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "cultural_facility",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "28908",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8469,
+          40.7458
+        ]
+      },
+      "affected_area": {
+        "label": "Queens Museum, 52-01 Grand Central Parkway, Flushing Meadows Corona Park, Queens"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/9-16-24-Meeting-Minutes-Certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 28908, adopted 2024-09-16",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/9-16-24-Meeting-Minutes-Certificates.pdf",
+          "record_id": "certificate-28908"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "cultural_facility"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named museum facade project.",
+      "caveats": [
+        "This is a design approval milestone, not evidence that rehabilitation work was completed.",
+        "Coordinates are an approximate address/site point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The record does not identify the exact facade segments as geometry."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/9-16-24-Meeting-Minutes-Certificates.txt",
+        "source_record_id": "28908",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/9-16-24-Meeting-Minutes-Certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 52-01 Grand Central Parkway, Flushing Meadows Corona Park.",
+        "geometry_precision": "approximate site/address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20250324_29931_canarsie_library_final",
+      "title": "PDC final approval for Canarsie Branch Library reconstruction",
+      "short_description": "NYC PDC recorded final design approval for reconstruction of the Canarsie Branch Library at 1580 Rockaway Parkway.",
+      "year": 2025,
+      "effective_date": "2025-03-24",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "29931",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9026,
+          40.641
+        ]
+      },
+      "affected_area": {
+        "label": "Canarsie Branch Library, 1580 Rockaway Parkway, Brooklyn"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-24-2025-meeting-minutes-certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 29931, adopted 2025-03-24",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-24-2025-meeting-minutes-certificates.pdf",
+          "record_id": "certificate-29931"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named library reconstruction.",
+      "caveats": [
+        "This is a design approval milestone, not evidence that construction was completed.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "No completion, opening, or service-change claim is made."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/3-24-2025-meeting-minutes-certificates.txt",
+        "source_record_id": "29931",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-24-2025-meeting-minutes-certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 1580 Rockaway Parkway, Brooklyn.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20250224_29898_tibbetts_brook_greenway_final",
+      "title": "PDC final approval for Tibbetts Brook greenway and daylighting",
+      "short_description": "NYC PDC recorded final design approval for construction of a greenway and daylighting of Tibbetts Brook in Van Cortlandt Park.",
+      "year": 2025,
+      "effective_date": "2025-02-24",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "final approval",
+      "project_type": "greenway_park",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "29898",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8927,
+          40.8842
+        ]
+      },
+      "affected_area": {
+        "label": "Between West 230th Street and Hester and Piero's Mill Pond, Van Cortlandt Park, Bronx"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/02-24-25-meeting-minutes-certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 29898, adopted 2025-02-24",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/02-24-25-meeting-minutes-certificates.pdf",
+          "record_id": "certificate-29898"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "greenway",
+        "park_public_realm"
+      ],
+      "explanation": "The official PDC certificate documents a final design approval milestone for the named greenway/daylighting project.",
+      "caveats": [
+        "This is a design approval milestone, not evidence that ecological or mobility outcomes occurred.",
+        "Coordinates represent an approximate point for a linear project area."
+      ],
+      "limitations": [
+        "The PDC record describes a corridor but does not provide GIS line geometry."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/02-24-25-meeting-minutes-certificates.txt",
+        "source_record_id": "29898",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/02-24-25-meeting-minutes-certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC corridor text for West 230th Street to Hester and Piero's Mill Pond.",
+        "geometry_precision": "approximate corridor/project centroid"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20250428_29994_schomburg_center_rehab_prelim_final",
+      "title": "PDC preliminary and final approval for Schomburg Center rehabilitation",
+      "short_description": "NYC PDC recorded preliminary and final design approval for rehabilitation of the Schomburg Center for Research in Black Culture.",
+      "year": 2025,
+      "effective_date": "2025-04-28",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "preliminary and final approval",
+      "project_type": "cultural_facility_library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "29994",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9407,
+          40.8146
+        ]
+      },
+      "affected_area": {
+        "label": "Schomburg Center for Research in Black Culture, 515 Malcolm X Boulevard, Manhattan"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/4-28-2025-meeting-minutes-certificates.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 29994, adopted 2025-04-28",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/4-28-2025-meeting-minutes-certificates.pdf",
+          "record_id": "certificate-29994"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "cultural_facility",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a preliminary and final design approval milestone for the named cultural facility.",
+      "caveats": [
+        "This is a design approval milestone, not evidence that rehabilitation work was completed.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "The PDC source does not provide detailed component geometry or a completion date."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/4-28-2025-meeting-minutes-certificates.txt",
+        "source_record_id": "29994",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/4-28-2025-meeting-minutes-certificates.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for preliminary and final approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 515 Malcolm X Boulevard, Manhattan.",
+        "geometry_precision": "approximate address point"
+      }
+    },
+    {
+      "schema_version": "bims-event-candidate/v0.1",
+      "city_id": "nyc",
+      "event_id": "nyc_pdc_20260323_30344_edenwald_library_prelim",
+      "title": "PDC preliminary approval for Edenwald Library reconstruction and addition",
+      "short_description": "NYC PDC recorded preliminary design approval for reconstruction of Edenwald Library, including an addition, at 1255 East 233rd Street.",
+      "year": 2026,
+      "effective_date": "2026-03-23",
+      "effective_date_range": null,
+      "date_precision": "day",
+      "source_date_field": "PDC certificate adoption date",
+      "category": "design_review_approval",
+      "lens": "public_design_commission",
+      "milestone_type": "preliminary approval",
+      "project_type": "library",
+      "approval_body": "Public Design Commission of the City of New York",
+      "certificate_number": "30344",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8417,
+          40.8888
+        ]
+      },
+      "affected_area": {
+        "label": "Edenwald Library, 1255 East 233rd Street, Bronx"
+      },
+      "source_ids": [
+        "nyc-pdc-meeting-minutes-certificates-2008-2026"
+      ],
+      "source_name": "NYC Public Design Commission meeting minutes and certificates",
+      "publisher": "New York City Public Design Commission",
+      "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-23-26-meeting-minutes-certificates-rev.pdf",
+      "source_type": "official_design_review_certificate_pdf",
+      "license": "Official NYC.gov public record; explicit reuse license not stated in the PDF. Treat as citation evidence subject to NYC.gov terms.",
+      "attribution_text": "Source: New York City Public Design Commission.",
+      "evidence": [
+        {
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "label": "Certificate 30344, adopted 2026-03-23",
+          "kind": "source_record",
+          "url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-23-26-meeting-minutes-certificates-rev.pdf",
+          "record_id": "certificate-30344"
+        }
+      ],
+      "confidence": "documented",
+      "affected_signals": [
+        "public_design_review",
+        "library"
+      ],
+      "explanation": "The official PDC certificate documents a preliminary design approval milestone for the named library reconstruction and addition.",
+      "caveats": [
+        "Preliminary approval is not final approval and does not establish construction or opening.",
+        "Coordinates are an approximate address point derived from the PDC certificate location."
+      ],
+      "limitations": [
+        "A later final approval should be checked before treating this as a completed design-review sequence."
+      ],
+      "provenance": {
+        "transform": "Manual extraction from official PDC certificate PDF text; normalized into Bims event-candidate fields.",
+        "source_path": "tmp/subagents/round124_nyc_public_design_commission/texts/3-23-26-meeting-minutes-certificates-rev.txt",
+        "source_record_id": "30344",
+        "source_url": "https://www.nyc.gov/assets/designcommission/downloads/pdf/certificates/3-23-26-meeting-minutes-certificates-rev.pdf",
+        "source_retrieved_at": "2026-05-19",
+        "source_dataset_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+        "source_basis": "Official PDC certificate resolution for preliminary approval.",
+        "source_date_field": "certificate adoption date",
+        "geometry_source": "Manual approximate geocoding from PDC address: 1255 East 233rd Street, Bronx.",
+        "geometry_precision": "approximate address point"
+      }
+    }
+  ]
+}

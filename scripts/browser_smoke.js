@@ -120,7 +120,12 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
 
   await openAtlas(page, atlasUrl);
   await page.waitForFunction(
-    () => window.BimsAtlas?.state?.detailLayerLoaded && window.BimsAtlas?.state?.lensOverlayLoaded,
+    () => {
+      const state = window.BimsAtlas?.state;
+      return state?.lensOverlayLoaded
+        && state?.transportRoadYearLoaded === Number(state?.year)
+        && document.querySelectorAll("#eventList .event-row").length > 0;
+    },
     null,
     { timeout: 45000 }
   );
@@ -135,7 +140,7 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(initial.eventRows > 0 && initial.changelogOpen === "true", "Restored changelog list did not render on desktop.");
   assert(initial.mapTools === 2, "Restored map tools are missing.");
   assert(initial.bimsAtlasApi, "BimsAtlas compatibility API is missing.");
-  assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
+  assert(!initial.detailLayerLoaded && !initial.detailLayerError, `Transport startup should keep OSM-derived detail layers lazy: ${initial.detailLayerError}`);
   assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
   assert(initial.activeLens === "transport", "Transport should be the default active map lens.");
   assert(/Flow-proxy|Road flow proxy/i.test(initial.lensLegendText), "Transport lens legend did not render the flow-proxy copy.");
@@ -180,6 +185,7 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   await page.waitForFunction(() => !window.BimsAtlas?.state?.search, null, { timeout: 10000 });
   const beforeLensSwitch = await atlasState(page);
   assert(beforeLensSwitch.activeLens === "transport", "Atlas should start on the transport map lens.");
+  assert(!beforeLensSwitch.detailLayerLoaded, "Transport lens should not eagerly load heavy OSM-derived detail layers.");
   assert(beforeLensSwitch.lensDetailYearLoaded === null, "Transport lens should not eagerly load non-transport lens detail overlays.");
 
   const aspectChecks = [

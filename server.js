@@ -7,6 +7,7 @@ const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
 const port = Number(process.env.PORT || 5173);
 const proposalResponseCache = new Map();
+const eventDetailCache = new Map();
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
 
@@ -69,6 +70,13 @@ function setProposalCache(key, value) {
   proposalResponseCache.set(key, value);
   while (proposalResponseCache.size > 96) {
     proposalResponseCache.delete(proposalResponseCache.keys().next().value);
+  }
+}
+
+function setEventDetailCache(key, value) {
+  eventDetailCache.set(key, value);
+  while (eventDetailCache.size > 48) {
+    eventDetailCache.delete(eventDetailCache.keys().next().value);
   }
 }
 
@@ -175,6 +183,54 @@ async function handleProposalImpactPost(req, res) {
   }
 }
 
+function safeEventFilePath(city, year) {
+  if (!/^[A-Za-z0-9_-]+$/.test(city)) return null;
+  if (!/^\d{4}$/.test(String(year))) return null;
+  const base = path.resolve(webDir, "data", "city-atlas", "cities");
+  const candidate = path.resolve(base, city, `events_${year}.json`);
+  if (!candidate.startsWith(base + path.sep)) return null;
+  return candidate;
+}
+
+function eventIdFromRecord(record) {
+  const props = record?.properties || record || {};
+  return String(props.event_id || record?.id || props.id || "");
+}
+
+function readEventDetail(city, year, id) {
+  const cacheKey = `${city}:${year}:${id}`;
+  if (eventDetailCache.has(cacheKey)) return eventDetailCache.get(cacheKey);
+  const filePath = safeEventFilePath(city, year);
+  if (!filePath || !fs.existsSync(filePath)) return null;
+  const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  const events = Array.isArray(payload.events)
+    ? payload.events
+    : (Array.isArray(payload.features) ? payload.features : []);
+  const event = events.find((record) => eventIdFromRecord(record) === id) || null;
+  if (event) setEventDetailCache(cacheKey, event);
+  return event;
+}
+
+function handleEventDetailGet(_req, res, requestUrl) {
+  try {
+    const city = String(requestUrl.searchParams.get("city") || "");
+    const year = String(requestUrl.searchParams.get("year") || "");
+    const id = String(requestUrl.searchParams.get("id") || "");
+    if (!city || !year || !id || id.length > 512) {
+      sendJson(res, 400, { ok: false, error: "Missing or invalid event detail parameters" });
+      return;
+    }
+    const event = readEventDetail(city, year, id);
+    if (!event) {
+      sendJson(res, 404, { ok: false, error: "Event not found" });
+      return;
+    }
+    sendJson(res, 200, { ok: true, event });
+  } catch (error) {
+    sendJson(res, 500, { ok: false, error: "Could not load event detail", detail: error.message });
+  }
+}
+
 const server = http.createServer((req, res) => {
   const requestUrl = new URL(req.url, `http://${req.headers.host || `localhost:${port}`}`);
   const pathname = requestUrl.pathname;
@@ -196,6 +252,11 @@ const server = http.createServer((req, res) => {
 
   if (req.method === "GET" && pathname === "/api/proposal-impact/schema") {
     handleProposalImpactSchema(req, res);
+    return;
+  }
+
+  if (req.method === "GET" && pathname === "/api/event-detail") {
+    handleEventDetailGet(req, res, requestUrl);
     return;
   }
 

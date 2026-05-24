@@ -854,6 +854,7 @@
     loadingYears: new Map(),
     yearLoadErrors: new Map(),
     eventById: new Map(),
+    eventDetailLoads: new Map(),
     manualYearOverride: null,
     manualLensOverride: null,
     manualAspectOverride: null,
@@ -1187,6 +1188,7 @@
     state.loadingYears.clear();
     state.yearLoadErrors.clear();
     state.eventById.clear();
+    state.eventDetailLoads.clear();
     state.selectedEventId = null;
     state.selectedEvent = null;
     state.detailBeforeYear = null;
@@ -1215,7 +1217,7 @@
     renderAll();
     initOrUpdateMap();
 
-    // Preload current year for snappier first interaction
+    // Preload the selected year; adjacent comparison years are loaded on demand by the detail/compare panels.
     await loadYear(state.year);
     await loadLensYearsForTimeline(state.year);
     const manualYear = Number(state.manualYearOverride);
@@ -1247,7 +1249,14 @@
       state.loadedEvents.set(numericYear, []);
       return [];
     }
-    const promise = fetchJson(dataPathToUrl(chunk.json_path))
+    const summaryUrl = eventSummaryUrl(chunk);
+    const fullUrl = dataPathToUrl(chunk.json_path);
+    const promise = fetchJson(summaryUrl || fullUrl)
+      .catch((error) => {
+        if (!summaryUrl || summaryUrl === fullUrl) throw error;
+        console.warn(`[atlas] year ${numericYear} summary unavailable; loading full events`, error);
+        return fetchJson(fullUrl);
+      })
       .then((payload) => {
         const arr = Array.isArray(payload?.events) ? payload.events : (Array.isArray(payload?.features) ? payload.features : []);
         const events = arr.map((raw, idx) => normalizeEvent(raw, numericYear, idx));
@@ -1267,20 +1276,27 @@
     return promise;
   }
 
+  function eventSummaryUrl(chunk) {
+    const configured = chunk?.summary_json_path || chunk?.summary_path;
+    if (configured) return dataPathToUrl(configured);
+    return chunk?.json_path
+      ? dataPathToUrl(String(chunk.json_path).replace(/\.json$/i, ".summary.json"))
+      : "";
+  }
+
   async function loadLensYearsForTimeline(year = state.year) {
     const target = currentTimelineYear(year);
-    const start = Math.max(earliestTimelineYear(), target - 2);
-    const years = [];
-    for (let candidate = start; candidate <= target; candidate += 1) {
-      if (state.chunks.has(candidate) || state.years.includes(candidate)) years.push(candidate);
-    }
+    const years = (state.chunks.has(target) || state.years.includes(target)) ? [target] : [];
     await Promise.all(years.map((candidate) => loadYear(candidate)));
   }
 
-  function normalizeEvent(raw, fallbackYear, index) {
+  function normalizeEvent(raw, fallbackYear, index, options = {}) {
     const props = raw.properties || raw;
     const geom = raw.geometry || props.geometry || null;
     const sourceIds = props.source_ids || props.sources || [];
+    const evidenceCount = Number(props.evidence_count);
+    const sourceCount = Number(props.source_count);
+    const caveatCount = Number(props.caveat_count);
     const event = {
       id: String(props.event_id || raw.id || props.id || `${fallbackYear}-${index}`),
       title: cleanTitle(props.title),
@@ -1303,9 +1319,60 @@
       caveats: Array.isArray(props.caveats) ? props.caveats : [],
       provenance: props.provenance || {},
       geometry: geom,
+      evidenceCount: Number.isFinite(evidenceCount) ? evidenceCount : (Array.isArray(props.evidence) ? props.evidence.length : 0),
+      sourceCount: Number.isFinite(sourceCount)
+        ? sourceCount
+        : (Array.isArray(sourceIds) ? sourceIds.filter(Boolean).length : [sourceIds].filter(Boolean).length),
+      caveatCount: Number.isFinite(caveatCount) ? caveatCount : (Array.isArray(props.caveats) ? props.caveats.length : 0),
+      detailsLoaded: options.detailsLoaded === true || props.summary_record !== true,
     };
     event.lngLat = geometryToLngLat(geom);
     return event;
+  }
+
+  function eventDetailUrl(event) {
+    const params = new URLSearchParams({
+      city: state.cityId,
+      year: String(event.year),
+      id: event.id,
+    });
+    return `/api/event-detail?${params.toString()}`;
+  }
+
+  function mergeEventDetail(event) {
+    if (!event?.id) return;
+    state.eventById.set(event.id, event);
+    const events = state.loadedEvents.get(event.year);
+    if (Array.isArray(events)) {
+      const idx = events.findIndex((item) => item.id === event.id);
+      if (idx >= 0) events[idx] = event;
+    }
+    if (state.selectedEventId === event.id) state.selectedEvent = event;
+  }
+
+  function scheduleEventDetailLoad(event) {
+    if (!event || event.detailsLoaded) return;
+    const key = `${state.cityId}:${event.year}:${event.id}`;
+    if (state.eventDetailLoads.has(key)) return;
+    const promise = fetchJson(eventDetailUrl(event))
+      .then((payload) => {
+        if (!payload?.event) return null;
+        const fullEvent = normalizeEvent(payload.event, event.year, 0, { detailsLoaded: true });
+        mergeEventDetail(fullEvent);
+        if (state.selectedEventId === fullEvent.id) {
+          renderDetail();
+          renderEventList();
+          updateLensGuideSource();
+          syncTopline();
+        }
+        return fullEvent;
+      })
+      .catch((error) => {
+        console.warn("[atlas] event detail unavailable", error);
+        return null;
+      })
+      .finally(() => state.eventDetailLoads.delete(key));
+    state.eventDetailLoads.set(key, promise);
   }
 
   function geometryToLngLat(geom) {
@@ -1547,18 +1614,19 @@
     if (!state.map) return;
     const selected = state.selectedEvent?.lngLat ? state.selectedEvent : null;
     const center = mapCenter();
-    const localVisibleEvents = filteredEvents()
+    const eventsForMarkers = filteredEvents();
+    const localVisibleEvents = eventsForMarkers
       .filter((event) => event.lngLat && event.confidence !== "inferred")
       .map((event) => ({ event, distance: lngLatDistanceMeters(center, event.lngLat) }))
       .sort((a, b) => a.distance - b.distance)
       .slice(0, 18)
       .map((item) => item.event);
-    const leadingActiveEvents = filteredEvents()
+    const leadingActiveEvents = eventsForMarkers
       .filter((event) => event.lngLat && event.category === state.activeLens && event.confidence !== "inferred")
       .slice(0, Math.max(12, Math.floor(MAX_MARKERS / 3)));
     const scopedEvents = POINT_LENS_IDS.has(state.activeLens)
       ? lensPointEventsForActiveLens()
-      : filteredEvents().filter((event) => event.lngLat);
+      : eventsForMarkers.filter((event) => event.lngLat);
     const guideDominantAspect = ["civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity"].includes(activeMapLens()?.id);
     const markerCandidates = selected && guideDominantAspect
       ? [selected]
@@ -2164,22 +2232,33 @@
     return configured ? dataPathToUrl(configured) : "";
   }
 
+  function shouldLoadDetailLayers() {
+    const lens = activeMapLens();
+    const category = lens?.category || lens?.layerId || lens?.id;
+    return Boolean(category && category !== "transport" && state.activeLayers.has(category));
+  }
+
   function transportRoadBasePath() {
     const configured = state.cityMeta?.artifact_paths?.transport_roads_base || state.city?.artifact_paths?.transport_roads_base;
     return configured ? dataPathToUrl(configured) : "";
   }
 
   function transportRoadYearPath(year = state.year) {
-    const template = state.cityMeta?.artifact_paths?.transport_roads_template || state.city?.artifact_paths?.transport_roads_template;
+    const slimTemplate = state.cityMeta?.artifact_paths?.transport_roads_slim_template || state.city?.artifact_paths?.transport_roads_slim_template;
+    const template = slimTemplate || state.cityMeta?.artifact_paths?.transport_roads_template || state.city?.artifact_paths?.transport_roads_template;
     const numericYear = currentTimelineYear(year);
-    return template ? dataPathToUrl(String(template).replace("{year}", String(numericYear))) : "";
+    if (!template) return "";
+    const resolved = String(template).replace("{year}", String(numericYear));
+    return dataPathToUrl(slimTemplate ? resolved : resolved.replace(/\.geojson$/i, ".slim.geojson"));
   }
 
   function transportStopsPath() {
+    const configuredSlim = state.cityMeta?.artifact_paths?.transport_stops_slim || state.city?.artifact_paths?.transport_stops_slim;
+    if (configuredSlim) return dataPathToUrl(configuredSlim);
     const configured = state.cityMeta?.artifact_paths?.transport_stops || state.city?.artifact_paths?.transport_stops;
-    if (configured) return dataPathToUrl(configured);
+    if (configured) return dataPathToUrl(String(configured).replace(/\.geojson$/i, ".slim.geojson"));
     return state.cityId
-      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/transport_stops_2026.geojson`)
+      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/transport_stops_2026.slim.geojson`)
       : "";
   }
 
@@ -2215,6 +2294,10 @@
 
   function ensureDetailLayers() {
     if (!state.map || !state.mapReady) return;
+    if (!shouldLoadDetailLayers()) {
+      removeDetailLayers();
+      return;
+    }
     const path = detailLayerPath();
     if (!path) {
       removeDetailLayers();
@@ -5540,34 +5623,21 @@
     }
     if (state.transportRoadFeatureCountPathLoaded === path) return;
     state.transportRoadFeatureCountPathLoaded = path;
-    state.transportRoadFeatureCountYearLoaded = null;
-    state.transportRoadFeatureCount = null;
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
-      .then((payload) => {
-        if (state.transportRoadFeatureCountPathLoaded !== path) return;
-        const features = Array.isArray(payload.features) ? payload.features : [];
-        state.transportRoadFeatureCount = features.length;
-        state.transportRoadFeatureCountYearLoaded = year;
-        state.transportRoadFeaturesPathLoaded = path;
-        state.transportRoadFeatures = features;
-        state.transportRoadFeaturesByYear.set(Number(year), features);
-        updateLensGuideSource();
-        renderLensLegend();
-        renderDetail();
-      })
-      .catch(() => {
-        if (state.transportRoadFeatureCountPathLoaded !== path) return;
-        state.transportRoadFeatureCount = null;
-        state.transportRoadFeatureCountYearLoaded = null;
-        state.transportRoadFeaturesPathLoaded = null;
-        state.transportRoadFeatures = [];
-        renderLensLegend();
-        renderDetail();
-      });
+    const numericYear = Number(year);
+    const cached = state.transportRoadFeaturesByYear.get(numericYear);
+    if (Array.isArray(cached)) {
+      state.transportRoadFeatureCount = cached.length;
+      state.transportRoadFeatureCountYearLoaded = numericYear;
+      state.transportRoadFeaturesPathLoaded = path;
+      state.transportRoadFeatures = cached;
+    } else {
+      state.transportRoadFeatureCount = null;
+      state.transportRoadFeatureCountYearLoaded = null;
+      state.transportRoadFeaturesPathLoaded = null;
+      state.transportRoadFeatures = [];
+    }
+    renderLensLegend();
+    renderDetail();
   }
 
   function transportRoadFeaturesForYear(year = currentTimelineYear()) {
@@ -19271,7 +19341,7 @@
     if (!els.eventList) return;
     const events = filteredEvents();
     const selectedIndex = state.selectedEventId ? events.findIndex((event) => event.id === state.selectedEventId) : -1;
-    const limit = Math.min(events.length, Math.max(EVENT_LIST_BATCH_SIZE, state.eventListLimit, selectedIndex + 1));
+    const limit = Math.min(events.length, Math.max(EVENT_LIST_BATCH_SIZE, state.eventListLimit));
     const selectedEvent = selectedIndex >= 0 ? events[selectedIndex] : null;
     const visible = selectedEvent
       ? [selectedEvent, ...events.filter((event) => event.id !== selectedEvent.id).slice(0, Math.max(0, limit - 1))]
@@ -19321,8 +19391,14 @@
   }
 
   function eventSourceCount(event) {
-    const evidence = Array.isArray(event.evidence) ? event.evidence.length : 0;
-    const sources = Array.isArray(event.sourceIds) ? event.sourceIds.length : 0;
+    const knownEvidenceCount = Number(event?.evidenceCount);
+    const knownSourceCount = Number(event?.sourceCount);
+    const evidence = Number.isFinite(knownEvidenceCount)
+      ? knownEvidenceCount
+      : (Array.isArray(event?.evidence) ? event.evidence.length : 0);
+    const sources = Number.isFinite(knownSourceCount)
+      ? knownSourceCount
+      : (Array.isArray(event?.sourceIds) ? event.sourceIds.length : 0);
     return Math.max(evidence, sources, 1);
   }
 
@@ -19509,6 +19585,7 @@
     if (event.year !== state.year) {
       await setYear(event.year);
     }
+    scheduleEventDetailLoad(event);
     renderDetail();
     renderMapStudyChip();
     renderEventList();
