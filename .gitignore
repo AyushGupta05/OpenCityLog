@@ -13,3 +13,8 @@ node_modules
 .playwright-mcp/
 open-citylog-*.png
 .clawpatch/
+tmp/
+!tmp/reference-images/
+!tmp/reference-images/**
+!tmp/reference-screens/
+!tmp/reference-screens/**
