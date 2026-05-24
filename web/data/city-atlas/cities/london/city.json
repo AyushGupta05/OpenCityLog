@@ -1715,6 +1715,7 @@
       "family_id": "civic_services",
       "label": "Civic Services",
       "source_ids": [
+        "dfe-gias-public-establishment-context",
         "lon-extra-food-hygiene-rating-scheme-api"
       ],
       "availability": "partial_local",
@@ -3154,11 +3155,12 @@
       "family_id": "economy",
       "label": "Economy",
       "source_ids": [
+        "gla-busyness-context-boundaries",
         "gla-economics-datastore",
-        "ons-business-demography",
-        "lon-extra-voa-non-domestic-rating-list-business-floorspace",
         "lon-extra-companies-house-api-and-bulk-data",
-        "lon-hue-workforce-labour-market-and-population"
+        "lon-extra-voa-non-domestic-rating-list-business-floorspace",
+        "lon-hue-workforce-labour-market-and-population",
+        "ons-business-demography"
       ],
       "availability": "partial_local",
       "years": [
@@ -10893,16 +10895,17 @@
       "family_id": "transport",
       "label": "Transport",
       "source_ids": [
-        "lon-extra-planning-data-transport-access-nodes",
+        "lon-extra-bus-open-data-service",
         "lon-extra-naptan-public-transport-stops",
         "lon-extra-national-public-transport-gazetteer",
-        "lon-extra-bus-open-data-service",
         "lon-extra-national-rail-open-data",
-        "lon-extra-rail-data-marketplace",
         "lon-extra-network-rail-open-data-feeds",
         "lon-extra-orr-estimates-of-station-usage",
+        "lon-extra-planning-data-transport-access-nodes",
+        "lon-extra-rail-data-marketplace",
+        "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
         "lon-hue-traffic-counts-and-road-flows",
-        "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire"
+        "tfl-stoppoint-public-context"
       ],
       "availability": "partial_local",
       "years": [
@@ -12093,6 +12096,31 @@
         2026
       ],
       "notes": "1 discovered source(s). Event count contains observed or source-backed event records; source catalog layers stay in sources.json."
+    },
+    {
+      "family_id": "utilities",
+      "label": "Utilities",
+      "source_ids": [
+        "tfl-road-disruptions-utility-works"
+      ],
+      "availability": "partial_local",
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "notes": "Source-backed public context added by scripts/build_london_nyc_public_context.py."
     }
   ],
   "data_availability": {
@@ -12110,12 +12138,12 @@
     "transport_roads_template": "web/data/city-atlas/cities/london/transport_roads_{year}.geojson",
     "lens_detail_template": "web/data/city-atlas/cities/london/lens_detail_{year}.geojson",
     "transport_stops": "web/data/city-atlas/cities/london/transport_stops_2026.geojson",
+    "economy_anchors": "web/data/city-atlas/cities/london/economy_anchors_2026.geojson",
     "economy_anchors_2026": "web/data/city-atlas/cities/london/economy_anchors_2026.geojson",
     "economy_context_2026": "web/data/city-atlas/cities/london/economy_context_2026.geojson",
+    "utility_network": "web/data/city-atlas/cities/london/utility_network_2026.geojson",
     "utility_network_2026": "web/data/city-atlas/cities/london/utility_network_2026.geojson",
     "utility_context_2026": "web/data/city-atlas/cities/london/utility_context_2026.geojson",
-    "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson",
-    "economy_anchors": "web/data/city-atlas/cities/london/economy_anchors_2026.geojson",
-    "utility_network": "web/data/city-atlas/cities/london/utility_network_2026.geojson"
+    "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson"
   }
 }

@@ -12,6 +12,7 @@ import io
 import json
 import math
 import re
+import sys
 import time
 import urllib.error
 import urllib.parse
@@ -85,7 +86,7 @@ def write_json(path: Path, data: Any) -> None:
     text = json.dumps(data, ensure_ascii=False, indent=2, sort_keys=False)
     tmp_path = path.with_name(f"{path.name}.tmp")
     last_error: Exception | None = None
-    for attempt in range(6):
+    for attempt in range(20):
         try:
             tmp_path.write_text(text + "\n", encoding="utf-8")
             tmp_path.replace(path)
@@ -97,7 +98,7 @@ def write_json(path: Path, data: Any) -> None:
                     tmp_path.unlink()
             except OSError:
                 pass
-            time.sleep(0.15 * (attempt + 1))
+            time.sleep(min(3.0, 0.25 * (attempt + 1)))
     raise RuntimeError(f"Failed to write {path}: {last_error}")
 
 
@@ -636,6 +637,8 @@ def context_event(
     affected_signals: list[str],
     caveats: list[str],
     confidence: str = "documented",
+    effective_date: str | None = None,
+    date_precision_value: str = "year",
 ) -> dict[str, Any]:
     return {
         "schema_version": "1.0.0",
@@ -645,8 +648,8 @@ def context_event(
         "title": title,
         "short_description": shorten(summary),
         "year": year,
-        "effective_date": str(year),
-        "date_precision": "year",
+        "effective_date": effective_date or str(year),
+        "date_precision": date_precision_value,
         "source_date_field": source_date_field,
         "category": category,
         "lens": lens,
@@ -1187,6 +1190,159 @@ def build_nyc_economy_context(retrieved_at: str, accessed_at: str) -> tuple[list
                 )
             )
     output_features.sort(key=lambda f: (f["properties"]["name"], f["properties"]["source_record_id"]))
+    events.sort(key=lambda e: (e["year"], e["event_id"]))
+    return output_features, events
+
+
+def fetch_nyc_business_licenses_for_year(year: int, limit: int) -> list[dict[str, Any]]:
+    resource = "w7w3-xahh"
+    base = f"https://data.cityofnewyork.us/resource/{resource}.json"
+    where = (
+        f"license_creation_date between '{year}-01-01T00:00:00' and '{year}-12-31T23:59:59' "
+        "AND latitude IS NOT NULL AND longitude IS NOT NULL"
+    )
+    return fetch_json(
+        url_with_params(
+            base,
+            {
+                "$limit": limit,
+                "$select": ",".join(
+                    [
+                        "license_nbr",
+                        "business_unique_id",
+                        "business_category",
+                        "license_type",
+                        "license_status",
+                        "license_creation_date",
+                        "lic_expir_dd",
+                        "address_borough",
+                        "community_board",
+                        "council_district",
+                        "nta",
+                        "latitude",
+                        "longitude",
+                    ]
+                ),
+                "$order": "license_creation_date ASC, license_nbr ASC",
+                "$where": where,
+            },
+        )
+    )
+
+
+def build_nyc_business_license_context(
+    retrieved_at: str,
+    accessed_at: str,
+    *,
+    per_year_limit: int = 600,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    resource = "w7w3-xahh"
+    output_features: list[dict[str, Any]] = []
+    events: list[dict[str, Any]] = []
+    for year in range(2007, 2027):
+        try:
+            rows = fetch_nyc_business_licenses_for_year(year, per_year_limit)
+        except Exception as exc:
+            print(f"[warn] NYC DCWP issued licenses {year} skipped: {exc}")
+            continue
+        for idx, row in enumerate(rows):
+            license_number = first_present(row, ["license_nbr"], f"{resource}-{year}-{idx}")
+            business_unique_id = first_present(row, ["business_unique_id"], "")
+            record_id = slug("-".join(part for part in (license_number, business_unique_id) if part), f"license-{year}-{idx}")
+            category = first_present(row, ["business_category"], "business license")
+            license_type = first_present(row, ["license_type"], "license")
+            status = first_present(row, ["license_status"], "")
+            borough = first_present(row, ["address_borough"], "NYC")
+            community_board = first_present(row, ["community_board"], "")
+            council_district = first_present(row, ["council_district"], "")
+            nta = first_present(row, ["nta"], "")
+            creation_date = clean_str(row.get("license_creation_date"))[:10] or str(year)
+            expiration_date = clean_str(row.get("lic_expir_dd"))[:10]
+            try:
+                lat = float(row.get("latitude"))
+                lon = float(row.get("longitude"))
+            except (TypeError, ValueError):
+                continue
+            if not in_bounds(lon, lat, NYC_BOUNDS):
+                continue
+            geometry = {"type": "Point", "coordinates": [round(lon, 6), round(lat, 6)]}
+            record_url = socrata_row_url(resource, "license_nbr", license_number)
+            label = f"{category} license context in {borough}"
+            feature_props = {
+                "source_id": f"nyc-dcwp-issued-license:{record_id}",
+                "source_ids": ["nyc-dcwp-issued-business-licenses"],
+                "stable_source_id": record_id,
+                "source_record_id": license_number,
+                "name": label,
+                "context_type": "issued_business_license",
+                "business_category": category,
+                "license_type": license_type,
+                "license_status": status,
+                "license_creation_date": creation_date,
+                "license_expiration_date": expiration_date,
+                "borough": borough,
+                "community_board": community_board,
+                "council_district": council_district,
+                "nta": nta,
+                "category": "economy",
+                "lens": "economy",
+                "sourceName": "NYC DCWP Issued Licenses",
+                "publisher": "NYC Department of Consumer and Worker Protection",
+                "sourceUrl": record_url,
+                "license": NYC_OPEN_DATA_TERMS,
+                "licenseUrl": NYC_OPEN_DATA_TERMS_URL,
+                "retrievedAt": retrieved_at,
+                "accessedAt": accessed_at,
+                "geometrySource": "NYC Open Data latitude/longitude fields from issued license record",
+                "confidence": "documented",
+                "source_kind": "current_context",
+                "evidence_role": "administrative_license_record_context",
+                "visible_year": 2026,
+                "limitations": [
+                    "Issued business license creation date is an administrative license record, not proof of business opening, closure, performance, footfall, or economic impact.",
+                    "Business names, street addresses, phone numbers, and other contact fields are intentionally omitted from the atlas artifact.",
+                    "Coordinates are source-supplied public record points and may be approximate or stale.",
+                ],
+            }
+            output_features.append({"type": "Feature", "geometry": geometry, "properties": feature_props})
+            summary = (
+                f"NYC DCWP records an issued {license_type.lower()} license for {category.lower()} in {borough}. "
+                "This is administrative business-license context only; no economic performance or opening/closure claim is inferred."
+            )
+            events.append(
+                context_event(
+                    city_id="nyc",
+                    event_id=f"nyc_public_context_economy_dcwp_license_{record_id}",
+                    title=f"Issued business license context: {category} in {borough}",
+                    summary=summary,
+                    year=year,
+                    category="economy",
+                    lens="economy",
+                    geometry=geometry,
+                    source_id="nyc-dcwp-issued-business-licenses",
+                    source_label="NYC DCWP issued business license record",
+                    source_url=record_url,
+                    source_record_id=license_number,
+                    accessed_at=accessed_at,
+                    source_date_field="license_creation_date",
+                    geometry_source="NYC Open Data issued-license latitude/longitude",
+                    geometry_precision="source-supplied public record point; not a parcel, frontage, opening date, closure date, or performance measure",
+                    affected_area=", ".join(part for part in (borough, community_board, council_district, nta) if part) or borough,
+                    affected_signals=["economy", "business-license", "commercial-activity-context"],
+                    caveats=[
+                        "Administrative license evidence only; it does not prove business opening, closure, performance, footfall, demand, or causality.",
+                        "Business names, street addresses, phone numbers, and other contact fields are not emitted.",
+                    ],
+                    effective_date=creation_date,
+                    date_precision_value="day" if re.match(r"^\d{4}-\d{2}-\d{2}$", creation_date) else "year",
+                )
+            )
+    output_features.sort(
+        key=lambda f: (
+            f["properties"].get("license_creation_date") or "",
+            f["properties"].get("source_record_id") or "",
+        )
+    )
     events.sort(key=lambda e: (e["year"], e["event_id"]))
     return output_features, events
 
@@ -1819,6 +1975,43 @@ def source_records(accessed_at: str) -> tuple[list[dict[str, Any]], list[dict[st
             attribution="Contains data provided by NYC Open Data and NYC SBS.",
         ),
         build_source_record(
+            source_id="nyc-dcwp-issued-business-licenses",
+            title="NYC DCWP Issued Licenses",
+            publisher="NYC Department of Consumer and Worker Protection",
+            source_family="economy",
+            city_ids=["nyc"],
+            url="https://data.cityofnewyork.us/resource/w7w3-xahh.json",
+            license_name=NYC_OPEN_DATA_TERMS,
+            license_url=NYC_OPEN_DATA_TERMS_URL,
+            accessed_at=accessed_at,
+            source_type="NYC Open Data JSON API",
+            update_frequency="NYC Open Data managed public dataset",
+            fields_available=[
+                "license_nbr",
+                "business_unique_id",
+                "business_category",
+                "license_type",
+                "license_status",
+                "license_creation_date",
+                "lic_expir_dd",
+                "address_borough",
+                "community_board",
+                "council_district",
+                "nta",
+                "latitude",
+                "longitude",
+            ],
+            geometry_type_value="Point from public latitude/longitude fields",
+            temporal_coverage="Issued-license records with license_creation_date from 2007 onward in the sampled atlas context",
+            coverage_years=list(range(2007, 2027)),
+            limitations=[
+                "License creation date is an administrative record date and does not establish business opening, closure, performance, footfall, demand, or economic impact.",
+                "Generated atlas artifacts intentionally omit business names, street addresses, phone numbers, and contact fields.",
+                "Coordinates are source-supplied public record points and may be approximate or stale.",
+            ],
+            attribution="Contains data provided by NYC Open Data and NYC DCWP.",
+        ),
+        build_source_record(
             source_id="nyc-dot-street-construction-permits-current",
             title="NYC DOT Street Construction Permits 2022-present",
             publisher="NYC Department of Transportation",
@@ -1870,52 +2063,56 @@ def source_records(accessed_at: str) -> tuple[list[dict[str, Any]], list[dict[st
 def main() -> None:
     retrieved_at = utc_now()
     accessed_at = today_utc()
+    economy_utilities_only = "--economy-utilities-only" in sys.argv[1:]
 
-    print("[public-context] Fetching London TfL StopPoint context")
-    london_stops = build_london_transport_stops(retrieved_at, accessed_at)
-    write_json(
-        LONDON_DIR / "transport_stops_2026.geojson",
-        feature_collection(
-            london_stops,
-            {
-                "title": "London public transport stop context",
-                "publisher": "Transport for London",
-                "source_url": "https://api.tfl.gov.uk/StopPoint",
-                "license": TFL_LICENSE,
-                "license_url": TFL_LICENSE_URL,
-                "retrieved_at": retrieved_at,
-                "accessed_at": accessed_at,
-                "feature_count": len(london_stops),
-                "limitations": [
-                    "Current context layer for visual and access analysis; it may post-date selected historical replay years.",
-                    "Route counts use source metadata where present and do not represent frequency, speed, or reliability.",
-                ],
-            },
-        ),
-    )
+    if economy_utilities_only:
+        print("[public-context] Economy/utilities-only mode: preserving existing transport stop and civic context artifacts")
+    else:
+        print("[public-context] Fetching London TfL StopPoint context")
+        london_stops = build_london_transport_stops(retrieved_at, accessed_at)
+        write_json(
+            LONDON_DIR / "transport_stops_2026.geojson",
+            feature_collection(
+                london_stops,
+                {
+                    "title": "London public transport stop context",
+                    "publisher": "Transport for London",
+                    "source_url": "https://api.tfl.gov.uk/StopPoint",
+                    "license": TFL_LICENSE,
+                    "license_url": TFL_LICENSE_URL,
+                    "retrieved_at": retrieved_at,
+                    "accessed_at": accessed_at,
+                    "feature_count": len(london_stops),
+                    "limitations": [
+                        "Current context layer for visual and access analysis; it may post-date selected historical replay years.",
+                        "Route counts use source metadata where present and do not represent frequency, speed, or reliability.",
+                    ],
+                },
+            ),
+        )
 
-    print("[public-context] Fetching NYC MTA GTFS stop context")
-    nyc_stops = build_nyc_transport_stops(retrieved_at, accessed_at)
-    write_json(
-        NYC_DIR / "transport_stops_2026.geojson",
-        feature_collection(
-            nyc_stops,
-            {
-                "title": "NYC public transport stop context",
-                "publisher": "Metropolitan Transportation Authority",
-                "source_url": "https://new.mta.info/developers",
-                "license": MTA_LICENSE,
-                "license_url": MTA_LICENSE_URL,
-                "retrieved_at": retrieved_at,
-                "accessed_at": accessed_at,
-                "feature_count": len(nyc_stops),
-                "limitations": [
-                    "Current GTFS static context for visual and access analysis; it may post-date selected historical replay years.",
-                    "Route counts derived from GTFS trips/stop_times do not represent speed or reliability.",
-                ],
-            },
-        ),
-    )
+        print("[public-context] Fetching NYC MTA GTFS stop context")
+        nyc_stops = build_nyc_transport_stops(retrieved_at, accessed_at)
+        write_json(
+            NYC_DIR / "transport_stops_2026.geojson",
+            feature_collection(
+                nyc_stops,
+                {
+                    "title": "NYC public transport stop context",
+                    "publisher": "Metropolitan Transportation Authority",
+                    "source_url": "https://new.mta.info/developers",
+                    "license": MTA_LICENSE,
+                    "license_url": MTA_LICENSE_URL,
+                    "retrieved_at": retrieved_at,
+                    "accessed_at": accessed_at,
+                    "feature_count": len(nyc_stops),
+                    "limitations": [
+                        "Current GTFS static context for visual and access analysis; it may post-date selected historical replay years.",
+                        "Route counts derived from GTFS trips/stop_times do not represent speed or reliability.",
+                    ],
+                },
+            ),
+        )
 
     print("[public-context] Fetching London economy context")
     london_economy_features, london_economy_events = build_london_economy_context(retrieved_at, accessed_at)
@@ -1945,12 +2142,16 @@ def main() -> None:
 
     print("[public-context] Fetching NYC economy context")
     nyc_economy_features, nyc_economy_events = build_nyc_economy_context(retrieved_at, accessed_at)
+    print("[public-context] Fetching NYC DCWP issued business license context")
+    nyc_license_features, nyc_license_events = build_nyc_business_license_context(retrieved_at, accessed_at)
+    nyc_economy_features = nyc_economy_features + nyc_license_features
+    nyc_economy_events = nyc_economy_events + nyc_license_events
     nyc_economy_collection = feature_collection(
         nyc_economy_features,
         {
-            "title": "NYC economy boundary context",
-            "publisher": "NYC Department of Small Business Services",
-            "source_url": "https://data.cityofnewyork.us/resource/7jdm-inj8.geojson",
+            "title": "NYC economy district and issued-license context",
+            "publisher": "NYC Department of Small Business Services; NYC Department of Consumer and Worker Protection",
+            "source_url": "https://data.cityofnewyork.us/resource/7jdm-inj8.geojson; https://data.cityofnewyork.us/resource/w7w3-xahh.json",
             "license": NYC_OPEN_DATA_TERMS,
             "license_url": NYC_OPEN_DATA_TERMS_URL,
             "retrieved_at": retrieved_at,
@@ -1958,8 +2159,9 @@ def main() -> None:
             "feature_count": len(nyc_economy_features),
             "artifact_role": "current economy anchor/context layer",
             "limitations": [
-                "Current commercial district context only; not evidence that a district changed in a selected year.",
-                "No economic impact, footfall, vacancy, or storefront outcome claim is inferred.",
+                "Commercial district and issued-license context only; not evidence that a district or business changed in a selected year unless the source date says so.",
+                "Business-license creation dates are administrative source dates, not proof of opening, closure, performance, footfall, vacancy, or economic impact.",
+                "Business names, street addresses, phone numbers, and contact fields are omitted from the generated atlas artifacts.",
             ],
         },
     )
@@ -1996,12 +2198,15 @@ def main() -> None:
     )
     write_json(LONDON_DIR / "utility_network_2026.geojson", london_utility_collection)
 
-    print("[public-context] Fetching London DfE GIAS civic-service context")
-    london_civic_features, london_civic_events, london_civic_metadata = build_london_civic_gias_context(retrieved_at, accessed_at)
-    write_json(
-        LONDON_DIR / "civic_services_2026.geojson",
-        feature_collection(london_civic_features, london_civic_metadata),
-    )
+    if economy_utilities_only:
+        london_civic_events = []
+    else:
+        print("[public-context] Fetching London DfE GIAS civic-service context")
+        london_civic_features, london_civic_events, london_civic_metadata = build_london_civic_gias_context(retrieved_at, accessed_at)
+        write_json(
+            LONDON_DIR / "civic_services_2026.geojson",
+            feature_collection(london_civic_features, london_civic_metadata),
+        )
 
     print("[public-context] Fetching NYC utility street work permit context")
     nyc_utility_features, nyc_utility_events = build_nyc_utility_events(retrieved_at, accessed_at)
@@ -2068,15 +2273,18 @@ def main() -> None:
         },
         {
             "transport": ["mta-gtfs-static-public-context"],
-            "economy": ["nyc-sbs-business-improvement-districts"],
+            "economy": ["nyc-sbs-business-improvement-districts", "nyc-dcwp-issued-business-licenses"],
             "utilities": ["nyc-dot-street-construction-permits-current", "nyc-dot-street-construction-permits-legacy"],
         },
     )
 
+    london_stop_count = len(london_stops) if not economy_utilities_only else len(read_json(LONDON_DIR / "transport_stops_2026.geojson", {}).get("features") or [])
+    nyc_stop_count = len(nyc_stops) if not economy_utilities_only else len(read_json(NYC_DIR / "transport_stops_2026.geojson", {}).get("features") or [])
+    london_civic_count = len(london_civic_features) if not economy_utilities_only else len(read_json(LONDON_DIR / "civic_services_2026.geojson", {}).get("features") or [])
     print(
         "[public-context] Done: "
-        f"London stops={len(london_stops)}, London economy={len(london_economy_features)}, London utility={len(london_utility_features)}, London civic={len(london_civic_features)}, "
-        f"NYC stops={len(nyc_stops)}, NYC economy={len(nyc_economy_features)}, NYC utility={len(nyc_utility_features)}"
+        f"London stops={london_stop_count}, London economy={len(london_economy_features)}, London utility={len(london_utility_features)}, London civic={london_civic_count}, "
+        f"NYC stops={nyc_stop_count}, NYC economy={len(nyc_economy_features)}, NYC utility={len(nyc_utility_features)}"
     )
 
 

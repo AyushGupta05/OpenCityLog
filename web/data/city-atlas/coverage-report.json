@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-24T15:40:38Z",
+  "generated_at": "2026-05-24T19:19:25Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 354094,
-    "total_unique_events": 354094,
+    "total_events": 370101,
+    "total_unique_events": 370101,
     "duplicate_event_id_count": 0,
-    "active_source_count": 477,
-    "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2467,
+    "active_source_count": 483,
+    "source_catalog_only_count": 257,
+    "source_year_layer_row_count": 2489,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -3596,6 +3596,22 @@
     },
     {
       "city_id": "london",
+      "source_id": "gla-busyness-context-boundaries",
+      "source_title": "GLA Busyness Context boundary layers",
+      "year": 2024,
+      "layer": "economy",
+      "event_count": 933
+    },
+    {
+      "city_id": "london",
+      "source_id": "gla-busyness-context-boundaries",
+      "source_title": "GLA Busyness Context boundary layers",
+      "year": 2026,
+      "layer": "economy",
+      "event_count": 933
+    },
+    {
+      "city_id": "london",
       "source_id": "gla-economics-datastore",
       "source_title": "London Datastore economy datasets (employment, GVA, town centres, high streets)",
       "year": 2020,
@@ -4504,15 +4520,15 @@
       "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 52
+      "event_count": 54
     },
     {
       "city_id": "london",
       "source_id": "historic-england-nhle",
       "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2024,
-      "layer": "transport",
-      "event_count": 3
+      "layer": "environment",
+      "event_count": 1
     },
     {
       "city_id": "london",
@@ -4520,7 +4536,7 @@
       "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 18
+      "event_count": 19
     },
     {
       "city_id": "london",
@@ -4536,7 +4552,7 @@
       "source_title": "National Heritage List for England (NHLE) downloads",
       "year": 2025,
       "layer": "transport",
-      "event_count": 2
+      "event_count": 1
     },
     {
       "city_id": "london",
@@ -5159,7 +5175,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2004,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 1
     },
     {
@@ -5167,7 +5183,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2005,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 1
     },
     {
@@ -5175,7 +5191,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2006,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 3
     },
     {
@@ -5183,7 +5199,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2008,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 2
     },
     {
@@ -5191,7 +5207,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2009,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 7
     },
     {
@@ -5199,7 +5215,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2010,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 5
     },
     {
@@ -5207,7 +5223,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2011,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 6
     },
     {
@@ -5215,7 +5231,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2012,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 7
     },
     {
@@ -5223,7 +5239,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2013,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 1
     },
     {
@@ -5231,7 +5247,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2014,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 3
     },
     {
@@ -5239,7 +5255,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2015,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 10
     },
     {
@@ -5247,7 +5263,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2016,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 26
     },
     {
@@ -5255,7 +5271,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2017,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 33
     },
     {
@@ -5263,7 +5279,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2018,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 71
     },
     {
@@ -5271,7 +5287,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2019,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 124
     },
     {
@@ -5279,7 +5295,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2020,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 76
     },
     {
@@ -5287,7 +5303,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2021,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 123
     },
     {
@@ -5295,7 +5311,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2022,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 335
     },
     {
@@ -5303,7 +5319,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2023,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 767
     },
     {
@@ -5311,7 +5327,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2024,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 2605
     },
     {
@@ -5319,7 +5335,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2025,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 4214
     },
     {
@@ -5327,7 +5343,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2026,
-      "layer": "transport",
+      "layer": "economy",
       "event_count": 1480
     },
     {
@@ -9040,7 +9056,7 @@
       "source_title": "Planning Data certificate of immunity records",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 6
+      "event_count": 8
     },
     {
       "city_id": "london",
@@ -9056,7 +9072,7 @@
       "source_title": "Planning Data certificate of immunity records",
       "year": 2023,
       "layer": "transport",
-      "event_count": 6
+      "event_count": 4
     },
     {
       "city_id": "london",
@@ -9200,15 +9216,7 @@
       "source_title": "Police.uk crime and outcomes API",
       "year": 2023,
       "layer": "environment",
-      "event_count": 6667
-    },
-    {
-      "city_id": "london",
-      "source_id": "police-data-api",
-      "source_title": "Police.uk crime and outcomes API",
-      "year": 2023,
-      "layer": "transport",
-      "event_count": 173
+      "event_count": 6840
     },
     {
       "city_id": "london",
@@ -9216,15 +9224,7 @@
       "source_title": "Police.uk crime and outcomes API",
       "year": 2024,
       "layer": "environment",
-      "event_count": 8930
-    },
-    {
-      "city_id": "london",
-      "source_id": "police-data-api",
-      "source_title": "Police.uk crime and outcomes API",
-      "year": 2024,
-      "layer": "transport",
-      "event_count": 190
+      "event_count": 9120
     },
     {
       "city_id": "london",
@@ -9232,15 +9232,7 @@
       "source_title": "Police.uk crime and outcomes API",
       "year": 2025,
       "layer": "environment",
-      "event_count": 8870
-    },
-    {
-      "city_id": "london",
-      "source_id": "police-data-api",
-      "source_title": "Police.uk crime and outcomes API",
-      "year": 2025,
-      "layer": "transport",
-      "event_count": 250
+      "event_count": 9120
     },
     {
       "city_id": "london",
@@ -9248,15 +9240,7 @@
       "source_title": "Police.uk crime and outcomes API",
       "year": 2026,
       "layer": "environment",
-      "event_count": 2230
-    },
-    {
-      "city_id": "london",
-      "source_id": "police-data-api",
-      "source_title": "Police.uk crime and outcomes API",
-      "year": 2026,
-      "layer": "transport",
-      "event_count": 50
+      "event_count": 2280
     },
     {
       "city_id": "london",
@@ -10260,6 +10244,22 @@
     },
     {
       "city_id": "london",
+      "source_id": "tfl-road-disruptions-utility-works",
+      "source_title": "TfL Road Disruptions API utility works records",
+      "year": 2025,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "tfl-road-disruptions-utility-works",
+      "source_title": "TfL Road Disruptions API utility works records",
+      "year": 2026,
+      "layer": "utilities",
+      "event_count": 26
+    },
+    {
+      "city_id": "london",
       "source_id": "tfl-roads-open-data",
       "source_title": "TfL Roads open data file service",
       "year": 2003,
@@ -10512,15 +10512,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2014,
       "layer": "environment",
-      "event_count": 33
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "4hcv-tc5r",
-      "source_title": "Capital Project Tracker",
-      "year": 2014,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 34
     },
     {
       "city_id": "nyc",
@@ -10560,7 +10552,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2016,
       "layer": "environment",
-      "event_count": 45
+      "event_count": 47
     },
     {
       "city_id": "nyc",
@@ -10568,7 +10560,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2016,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 2
     },
     {
       "city_id": "nyc",
@@ -10584,15 +10576,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2017,
       "layer": "environment",
-      "event_count": 54
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "4hcv-tc5r",
-      "source_title": "Capital Project Tracker",
-      "year": 2017,
-      "layer": "transport",
-      "event_count": 2
+      "event_count": 56
     },
     {
       "city_id": "nyc",
@@ -10608,7 +10592,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2018,
       "layer": "environment",
-      "event_count": 69
+      "event_count": 72
     },
     {
       "city_id": "nyc",
@@ -10616,7 +10600,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2018,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -10632,7 +10616,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2019,
       "layer": "environment",
-      "event_count": 77
+      "event_count": 78
     },
     {
       "city_id": "nyc",
@@ -10640,7 +10624,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2019,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -10656,7 +10640,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2020,
       "layer": "environment",
-      "event_count": 66
+      "event_count": 67
     },
     {
       "city_id": "nyc",
@@ -10664,7 +10648,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2020,
       "layer": "transport",
-      "event_count": 3
+      "event_count": 2
     },
     {
       "city_id": "nyc",
@@ -10680,7 +10664,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2021,
       "layer": "environment",
-      "event_count": 55
+      "event_count": 56
     },
     {
       "city_id": "nyc",
@@ -10688,7 +10672,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2021,
       "layer": "transport",
-      "event_count": 2
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -10704,7 +10688,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2022,
       "layer": "environment",
-      "event_count": 68
+      "event_count": 72
     },
     {
       "city_id": "nyc",
@@ -10712,7 +10696,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2022,
       "layer": "transport",
-      "event_count": 5
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -10728,7 +10712,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2023,
       "layer": "environment",
-      "event_count": 97
+      "event_count": 98
     },
     {
       "city_id": "nyc",
@@ -10736,7 +10720,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2023,
       "layer": "transport",
-      "event_count": 2
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -10776,7 +10760,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2025,
       "layer": "environment",
-      "event_count": 152
+      "event_count": 156
     },
     {
       "city_id": "nyc",
@@ -10784,7 +10768,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2025,
       "layer": "transport",
-      "event_count": 7
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -10800,7 +10784,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2026,
       "layer": "environment",
-      "event_count": 221
+      "event_count": 227
     },
     {
       "city_id": "nyc",
@@ -10808,7 +10792,7 @@
       "source_title": "Capital Project Tracker",
       "year": 2026,
       "layer": "transport",
-      "event_count": 14
+      "event_count": 8
     },
     {
       "city_id": "nyc",
@@ -11248,7 +11232,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2008,
       "layer": "environment",
-      "event_count": 123
+      "event_count": 125
     },
     {
       "city_id": "nyc",
@@ -11256,7 +11240,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2008,
       "layer": "transport",
-      "event_count": 6
+      "event_count": 4
     },
     {
       "city_id": "nyc",
@@ -11264,7 +11248,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2009,
       "layer": "environment",
-      "event_count": 104
+      "event_count": 106
     },
     {
       "city_id": "nyc",
@@ -11272,7 +11256,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2009,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 2
     },
     {
       "city_id": "nyc",
@@ -11328,7 +11312,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2012,
       "layer": "environment",
-      "event_count": 71
+      "event_count": 72
     },
     {
       "city_id": "nyc",
@@ -11336,7 +11320,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2012,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -11360,15 +11344,7 @@
       "source_title": "NYC Permitted Event Information - Historical",
       "year": 2014,
       "layer": "environment",
-      "event_count": 65
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "bkfu-528j",
-      "source_title": "NYC Permitted Event Information - Historical",
-      "year": 2014,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 66
     },
     {
       "city_id": "nyc",
@@ -12888,15 +12864,7 @@
       "source_title": "Parks Properties",
       "year": 1894,
       "layer": "environment",
-      "event_count": 1
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1894,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 2
     },
     {
       "city_id": "nyc",
@@ -13008,15 +12976,7 @@
       "source_title": "Parks Properties",
       "year": 1907,
       "layer": "environment",
-      "event_count": 2
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1907,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -13080,15 +13040,7 @@
       "source_title": "Parks Properties",
       "year": 1914,
       "layer": "environment",
-      "event_count": 6
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1914,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 7
     },
     {
       "city_id": "nyc",
@@ -13248,15 +13200,7 @@
       "source_title": "Parks Properties",
       "year": 1934,
       "layer": "environment",
-      "event_count": 39
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1934,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 40
     },
     {
       "city_id": "nyc",
@@ -13264,15 +13208,7 @@
       "source_title": "Parks Properties",
       "year": 1935,
       "layer": "environment",
-      "event_count": 18
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1935,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 19
     },
     {
       "city_id": "nyc",
@@ -13344,15 +13280,7 @@
       "source_title": "Parks Properties",
       "year": 1944,
       "layer": "environment",
-      "event_count": 5
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1944,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 6
     },
     {
       "city_id": "nyc",
@@ -13456,15 +13384,7 @@
       "source_title": "Parks Properties",
       "year": 1955,
       "layer": "environment",
-      "event_count": 29
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1955,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 30
     },
     {
       "city_id": "nyc",
@@ -13520,15 +13440,7 @@
       "source_title": "Parks Properties",
       "year": 1962,
       "layer": "environment",
-      "event_count": 21
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1962,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 22
     },
     {
       "city_id": "nyc",
@@ -13816,15 +13728,7 @@
       "source_title": "Parks Properties",
       "year": 1997,
       "layer": "environment",
-      "event_count": 49
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "enfh-gkve",
-      "source_title": "Parks Properties",
-      "year": 1997,
-      "layer": "transport",
-      "event_count": 1
+      "event_count": 50
     },
     {
       "city_id": "nyc",
@@ -14024,7 +13928,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2024,
       "layer": "civic_services",
-      "event_count": 57
+      "event_count": 58
     },
     {
       "city_id": "nyc",
@@ -14040,7 +13944,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2024,
       "layer": "transport",
-      "event_count": 9
+      "event_count": 8
     },
     {
       "city_id": "nyc",
@@ -14768,7 +14672,7 @@
       "source_title": "Capital Projects",
       "year": 2015,
       "layer": "civic_services",
-      "event_count": 29
+      "event_count": 31
     },
     {
       "city_id": "nyc",
@@ -14784,7 +14688,7 @@
       "source_title": "Capital Projects",
       "year": 2015,
       "layer": "transport",
-      "event_count": 12
+      "event_count": 10
     },
     {
       "city_id": "nyc",
@@ -14800,7 +14704,7 @@
       "source_title": "Capital Projects",
       "year": 2016,
       "layer": "civic_services",
-      "event_count": 70
+      "event_count": 73
     },
     {
       "city_id": "nyc",
@@ -14816,7 +14720,7 @@
       "source_title": "Capital Projects",
       "year": 2016,
       "layer": "transport",
-      "event_count": 19
+      "event_count": 16
     },
     {
       "city_id": "nyc",
@@ -14832,7 +14736,7 @@
       "source_title": "Capital Projects",
       "year": 2017,
       "layer": "civic_services",
-      "event_count": 82
+      "event_count": 84
     },
     {
       "city_id": "nyc",
@@ -14848,7 +14752,7 @@
       "source_title": "Capital Projects",
       "year": 2017,
       "layer": "transport",
-      "event_count": 21
+      "event_count": 19
     },
     {
       "city_id": "nyc",
@@ -14864,7 +14768,7 @@
       "source_title": "Capital Projects",
       "year": 2018,
       "layer": "civic_services",
-      "event_count": 134
+      "event_count": 136
     },
     {
       "city_id": "nyc",
@@ -14880,7 +14784,7 @@
       "source_title": "Capital Projects",
       "year": 2018,
       "layer": "transport",
-      "event_count": 35
+      "event_count": 33
     },
     {
       "city_id": "nyc",
@@ -14896,7 +14800,7 @@
       "source_title": "Capital Projects",
       "year": 2019,
       "layer": "civic_services",
-      "event_count": 297
+      "event_count": 300
     },
     {
       "city_id": "nyc",
@@ -14912,7 +14816,7 @@
       "source_title": "Capital Projects",
       "year": 2019,
       "layer": "transport",
-      "event_count": 56
+      "event_count": 53
     },
     {
       "city_id": "nyc",
@@ -14928,7 +14832,7 @@
       "source_title": "Capital Projects",
       "year": 2020,
       "layer": "civic_services",
-      "event_count": 134
+      "event_count": 135
     },
     {
       "city_id": "nyc",
@@ -14944,7 +14848,7 @@
       "source_title": "Capital Projects",
       "year": 2020,
       "layer": "transport",
-      "event_count": 23
+      "event_count": 22
     },
     {
       "city_id": "nyc",
@@ -15737,6 +15641,166 @@
       "year": 2026,
       "layer": "built_environment",
       "event_count": 8
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2007,
+      "layer": "economy",
+      "event_count": 593
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2008,
+      "layer": "economy",
+      "event_count": 594
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2009,
+      "layer": "economy",
+      "event_count": 592
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2010,
+      "layer": "economy",
+      "event_count": 597
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2011,
+      "layer": "economy",
+      "event_count": 589
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2012,
+      "layer": "economy",
+      "event_count": 593
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2013,
+      "layer": "economy",
+      "event_count": 591
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2014,
+      "layer": "economy",
+      "event_count": 592
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2015,
+      "layer": "economy",
+      "event_count": 595
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2016,
+      "layer": "economy",
+      "event_count": 593
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2017,
+      "layer": "economy",
+      "event_count": 595
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2018,
+      "layer": "economy",
+      "event_count": 598
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2019,
+      "layer": "economy",
+      "event_count": 591
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2020,
+      "layer": "economy",
+      "event_count": 591
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2021,
+      "layer": "economy",
+      "event_count": 589
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2022,
+      "layer": "economy",
+      "event_count": 588
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2023,
+      "layer": "economy",
+      "event_count": 590
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2024,
+      "layer": "economy",
+      "event_count": 565
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2025,
+      "layer": "economy",
+      "event_count": 558
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dcwp-issued-business-licenses",
+      "source_title": "NYC DCWP Issued Licenses",
+      "year": 2026,
+      "layer": "economy",
+      "event_count": 544
     },
     {
       "city_id": "nyc",
@@ -16652,6 +16716,110 @@
     },
     {
       "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-current",
+      "source_title": "NYC DOT Street Construction Permits 2022-present",
+      "year": 2022,
+      "layer": "utilities",
+      "event_count": 209
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-current",
+      "source_title": "NYC DOT Street Construction Permits 2022-present",
+      "year": 2023,
+      "layer": "utilities",
+      "event_count": 212
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-current",
+      "source_title": "NYC DOT Street Construction Permits 2022-present",
+      "year": 2024,
+      "layer": "utilities",
+      "event_count": 208
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-current",
+      "source_title": "NYC DOT Street Construction Permits 2022-present",
+      "year": 2025,
+      "layer": "utilities",
+      "event_count": 212
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2013,
+      "layer": "utilities",
+      "event_count": 153
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2014,
+      "layer": "utilities",
+      "event_count": 155
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2015,
+      "layer": "utilities",
+      "event_count": 155
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2016,
+      "layer": "utilities",
+      "event_count": 155
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2017,
+      "layer": "utilities",
+      "event_count": 155
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2018,
+      "layer": "utilities",
+      "event_count": 142
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2019,
+      "layer": "utilities",
+      "event_count": 157
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2020,
+      "layer": "utilities",
+      "event_count": 155
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-dot-street-construction-permits-legacy",
+      "source_title": "NYC DOT Street Construction Permits 2013-2021",
+      "year": 2021,
+      "layer": "utilities",
+      "event_count": 156
+    },
+    {
+      "city_id": "nyc",
       "source_id": "nyc-edc-hh-resilience-official-pages",
       "source_title": "nyc-edc-hh-resilience-official-pages",
       "year": 2024,
@@ -17192,7 +17360,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2008,
       "layer": "built_environment",
-      "event_count": 282
+      "event_count": 284
     },
     {
       "city_id": "nyc",
@@ -17216,7 +17384,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2008,
       "layer": "transport",
-      "event_count": 65
+      "event_count": 63
     },
     {
       "city_id": "nyc",
@@ -17224,7 +17392,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2009,
       "layer": "built_environment",
-      "event_count": 267
+      "event_count": 269
     },
     {
       "city_id": "nyc",
@@ -17248,7 +17416,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2009,
       "layer": "transport",
-      "event_count": 68
+      "event_count": 66
     },
     {
       "city_id": "nyc",
@@ -17256,7 +17424,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2010,
       "layer": "built_environment",
-      "event_count": 270
+      "event_count": 272
     },
     {
       "city_id": "nyc",
@@ -17280,7 +17448,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2010,
       "layer": "transport",
-      "event_count": 72
+      "event_count": 70
     },
     {
       "city_id": "nyc",
@@ -17288,7 +17456,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 292
+      "event_count": 294
     },
     {
       "city_id": "nyc",
@@ -17312,7 +17480,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2011,
       "layer": "transport",
-      "event_count": 74
+      "event_count": 72
     },
     {
       "city_id": "nyc",
@@ -17320,7 +17488,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 293
+      "event_count": 294
     },
     {
       "city_id": "nyc",
@@ -17344,7 +17512,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2012,
       "layer": "transport",
-      "event_count": 55
+      "event_count": 54
     },
     {
       "city_id": "nyc",
@@ -17352,7 +17520,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2013,
       "layer": "built_environment",
-      "event_count": 290
+      "event_count": 291
     },
     {
       "city_id": "nyc",
@@ -17360,7 +17528,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2013,
       "layer": "economy",
-      "event_count": 18
+      "event_count": 21
     },
     {
       "city_id": "nyc",
@@ -17376,7 +17544,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2013,
       "layer": "transport",
-      "event_count": 66
+      "event_count": 62
     },
     {
       "city_id": "nyc",
@@ -17392,7 +17560,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2014,
       "layer": "economy",
-      "event_count": 21
+      "event_count": 22
     },
     {
       "city_id": "nyc",
@@ -17408,7 +17576,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2014,
       "layer": "transport",
-      "event_count": 80
+      "event_count": 79
     },
     {
       "city_id": "nyc",
@@ -17424,7 +17592,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2015,
       "layer": "economy",
-      "event_count": 10
+      "event_count": 11
     },
     {
       "city_id": "nyc",
@@ -17440,7 +17608,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2015,
       "layer": "transport",
-      "event_count": 52
+      "event_count": 51
     },
     {
       "city_id": "nyc",
@@ -17448,7 +17616,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 300
+      "event_count": 308
     },
     {
       "city_id": "nyc",
@@ -17472,7 +17640,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2016,
       "layer": "transport",
-      "event_count": 52
+      "event_count": 44
     },
     {
       "city_id": "nyc",
@@ -17480,7 +17648,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 386
+      "event_count": 387
     },
     {
       "city_id": "nyc",
@@ -17504,7 +17672,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2017,
       "layer": "transport",
-      "event_count": 36
+      "event_count": 35
     },
     {
       "city_id": "nyc",
@@ -17512,7 +17680,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2018,
       "layer": "built_environment",
-      "event_count": 371
+      "event_count": 375
     },
     {
       "city_id": "nyc",
@@ -17536,7 +17704,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2018,
       "layer": "transport",
-      "event_count": 45
+      "event_count": 41
     },
     {
       "city_id": "nyc",
@@ -17544,7 +17712,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 386
+      "event_count": 387
     },
     {
       "city_id": "nyc",
@@ -17568,7 +17736,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2019,
       "layer": "transport",
-      "event_count": 62
+      "event_count": 61
     },
     {
       "city_id": "nyc",
@@ -17600,7 +17768,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2021,
       "layer": "built_environment",
-      "event_count": 402
+      "event_count": 404
     },
     {
       "city_id": "nyc",
@@ -17616,7 +17784,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2021,
       "layer": "transport",
-      "event_count": 52
+      "event_count": 50
     },
     {
       "city_id": "nyc",
@@ -17624,7 +17792,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 403
+      "event_count": 409
     },
     {
       "city_id": "nyc",
@@ -17640,7 +17808,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2022,
       "layer": "transport",
-      "event_count": 54
+      "event_count": 48
     },
     {
       "city_id": "nyc",
@@ -17648,7 +17816,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2023,
       "layer": "built_environment",
-      "event_count": 461
+      "event_count": 462
     },
     {
       "city_id": "nyc",
@@ -17672,7 +17840,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2023,
       "layer": "transport",
-      "event_count": 55
+      "event_count": 54
     },
     {
       "city_id": "nyc",
@@ -17680,7 +17848,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 502
+      "event_count": 505
     },
     {
       "city_id": "nyc",
@@ -17688,7 +17856,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2024,
       "layer": "economy",
-      "event_count": 5
+      "event_count": 6
     },
     {
       "city_id": "nyc",
@@ -17704,7 +17872,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2024,
       "layer": "transport",
-      "event_count": 55
+      "event_count": 51
     },
     {
       "city_id": "nyc",
@@ -17712,7 +17880,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 515
+      "event_count": 517
     },
     {
       "city_id": "nyc",
@@ -17736,7 +17904,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2025,
       "layer": "transport",
-      "event_count": 67
+      "event_count": 65
     },
     {
       "city_id": "nyc",
@@ -17744,7 +17912,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 285
+      "event_count": 287
     },
     {
       "city_id": "nyc",
@@ -17752,7 +17920,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2026,
       "layer": "economy",
-      "event_count": 6
+      "event_count": 7
     },
     {
       "city_id": "nyc",
@@ -17768,7 +17936,7 @@
       "source_title": "LPC Permit Application Information",
       "year": 2026,
       "layer": "transport",
-      "event_count": 32
+      "event_count": 29
     },
     {
       "city_id": "nyc",
@@ -17784,7 +17952,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2008,
       "layer": "economy",
-      "event_count": 4
+      "event_count": 6
     },
     {
       "city_id": "nyc",
@@ -17800,7 +17968,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2008,
       "layer": "transport",
-      "event_count": 13
+      "event_count": 11
     },
     {
       "city_id": "nyc",
@@ -17872,7 +18040,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2011,
       "layer": "built_environment",
-      "event_count": 78
+      "event_count": 80
     },
     {
       "city_id": "nyc",
@@ -17896,7 +18064,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2011,
       "layer": "transport",
-      "event_count": 15
+      "event_count": 13
     },
     {
       "city_id": "nyc",
@@ -17904,7 +18072,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2012,
       "layer": "built_environment",
-      "event_count": 83
+      "event_count": 85
     },
     {
       "city_id": "nyc",
@@ -17928,7 +18096,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2012,
       "layer": "transport",
-      "event_count": 24
+      "event_count": 22
     },
     {
       "city_id": "nyc",
@@ -18016,7 +18184,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2016,
       "layer": "built_environment",
-      "event_count": 94
+      "event_count": 95
     },
     {
       "city_id": "nyc",
@@ -18032,7 +18200,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2016,
       "layer": "transport",
-      "event_count": 9
+      "event_count": 8
     },
     {
       "city_id": "nyc",
@@ -18040,7 +18208,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 97
+      "event_count": 99
     },
     {
       "city_id": "nyc",
@@ -18064,7 +18232,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2017,
       "layer": "transport",
-      "event_count": 11
+      "event_count": 9
     },
     {
       "city_id": "nyc",
@@ -18080,7 +18248,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2018,
       "layer": "economy",
-      "event_count": 5
+      "event_count": 6
     },
     {
       "city_id": "nyc",
@@ -18096,7 +18264,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2018,
       "layer": "transport",
-      "event_count": 20
+      "event_count": 19
     },
     {
       "city_id": "nyc",
@@ -18104,7 +18272,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2019,
       "layer": "built_environment",
-      "event_count": 222
+      "event_count": 223
     },
     {
       "city_id": "nyc",
@@ -18112,7 +18280,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2019,
       "layer": "economy",
-      "event_count": 2
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -18128,7 +18296,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2019,
       "layer": "transport",
-      "event_count": 29
+      "event_count": 27
     },
     {
       "city_id": "nyc",
@@ -18176,7 +18344,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2021,
       "layer": "economy",
-      "event_count": 2
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -18192,7 +18360,7 @@
       "source_title": "NYC Open Data: LPC Permit Application Information",
       "year": 2021,
       "layer": "transport",
-      "event_count": 40
+      "event_count": 39
     },
     {
       "city_id": "nyc",
@@ -18536,7 +18704,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2017,
       "layer": "built_environment",
-      "event_count": 4
+      "event_count": 5
     },
     {
       "city_id": "nyc",
@@ -18544,14 +18712,6 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2017,
       "layer": "environment",
-      "event_count": 1
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
-      "year": 2017,
-      "layer": "transport",
       "event_count": 1
     },
     {
@@ -18656,7 +18816,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 6
+      "event_count": 7
     },
     {
       "city_id": "nyc",
@@ -18672,7 +18832,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2024,
       "layer": "transport",
-      "event_count": 4
+      "event_count": 3
     },
     {
       "city_id": "nyc",
@@ -18680,7 +18840,15 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2025,
       "layer": "built_environment",
-      "event_count": 41
+      "event_count": 42
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+      "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+      "year": 2025,
+      "layer": "civic_services",
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -18688,7 +18856,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2025,
       "layer": "environment",
-      "event_count": 44
+      "event_count": 46
     },
     {
       "city_id": "nyc",
@@ -18696,7 +18864,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2025,
       "layer": "transport",
-      "event_count": 11
+      "event_count": 7
     },
     {
       "city_id": "nyc",
@@ -18704,7 +18872,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2026,
       "layer": "built_environment",
-      "event_count": 30
+      "event_count": 35
     },
     {
       "city_id": "nyc",
@@ -18720,7 +18888,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2026,
       "layer": "environment",
-      "event_count": 30
+      "event_count": 33
     },
     {
       "city_id": "nyc",
@@ -18728,7 +18896,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2026,
       "layer": "transport",
-      "event_count": 19
+      "event_count": 11
     },
     {
       "city_id": "nyc",
@@ -18849,6 +19017,22 @@
       "year": 2026,
       "layer": "built_environment",
       "event_count": 3
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-sbs-business-improvement-districts",
+      "source_title": "NYC Business Improvement Districts",
+      "year": 2024,
+      "layer": "economy",
+      "event_count": 76
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "nyc-sbs-business-improvement-districts",
+      "source_title": "NYC Business Improvement Districts",
+      "year": 2026,
+      "layer": "economy",
+      "event_count": 76
     },
     {
       "city_id": "nyc",
@@ -19680,15 +19864,7 @@
       "source_title": "2015 Street Tree Census - Tree Data",
       "year": 2015,
       "layer": "environment",
-      "event_count": 1782
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "uvpi-gqnh",
-      "source_title": "2015 Street Tree Census - Tree Data",
-      "year": 2015,
-      "layer": "transport",
-      "event_count": 18
+      "event_count": 1800
     },
     {
       "city_id": "nyc",
@@ -28297,16 +28473,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 225051,
-      "unique_event_count": 225051,
+      "event_count": 226944,
+      "unique_event_count": 226944,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 292,
-      "active_source_count": 191,
-      "source_catalog_only_count": 101,
+      "source_count": 296,
+      "active_source_count": 193,
+      "source_catalog_only_count": 103,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 225051,
+        "backed_event_count": 226944,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -28399,20 +28575,21 @@
         "2021": 9362,
         "2022": 9229,
         "2023": 23379,
-        "2024": 30688,
-        "2025": 31416,
-        "2026": 19373
+        "2024": 31621,
+        "2025": 31417,
+        "2026": 20332
       },
       "event_counts_by_layer": {
-        "built_environment": 105768,
+        "built_environment": 105773,
         "civic_services": 53367,
-        "environment": 28071,
-        "transport": 37842,
-        "utilities": 3
+        "economy": 11766,
+        "environment": 28735,
+        "transport": 27273,
+        "utilities": 30
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 225041,
+        "documented": 226934,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -28768,7 +28945,7 @@
         },
         {
           "year": 2004,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -28778,8 +28955,13 @@
         },
         {
           "year": 2005,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "year": 2005,
           "layer": "transport",
-          "event_count": 2
+          "event_count": 1
         },
         {
           "year": 2006,
@@ -28788,7 +28970,7 @@
         },
         {
           "year": 2006,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 3
         },
         {
@@ -28813,8 +28995,13 @@
         },
         {
           "year": 2008,
+          "layer": "economy",
+          "event_count": 2
+        },
+        {
+          "year": 2008,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 2
         },
         {
           "year": 2009,
@@ -28828,13 +29015,18 @@
         },
         {
           "year": 2009,
+          "layer": "economy",
+          "event_count": 7
+        },
+        {
+          "year": 2009,
           "layer": "environment",
           "event_count": 102
         },
         {
           "year": 2009,
           "layer": "transport",
-          "event_count": 11
+          "event_count": 4
         },
         {
           "year": 2010,
@@ -28848,13 +29040,18 @@
         },
         {
           "year": 2010,
+          "layer": "economy",
+          "event_count": 5
+        },
+        {
+          "year": 2010,
           "layer": "environment",
           "event_count": 84
         },
         {
           "year": 2010,
           "layer": "transport",
-          "event_count": 15
+          "event_count": 10
         },
         {
           "year": 2011,
@@ -28868,13 +29065,18 @@
         },
         {
           "year": 2011,
+          "layer": "economy",
+          "event_count": 6
+        },
+        {
+          "year": 2011,
           "layer": "environment",
           "event_count": 58
         },
         {
           "year": 2011,
           "layer": "transport",
-          "event_count": 18
+          "event_count": 12
         },
         {
           "year": 2012,
@@ -28888,13 +29090,18 @@
         },
         {
           "year": 2012,
+          "layer": "economy",
+          "event_count": 7
+        },
+        {
+          "year": 2012,
           "layer": "environment",
           "event_count": 62
         },
         {
           "year": 2012,
           "layer": "transport",
-          "event_count": 16
+          "event_count": 9
         },
         {
           "year": 2013,
@@ -28908,13 +29115,18 @@
         },
         {
           "year": 2013,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "year": 2013,
           "layer": "environment",
           "event_count": 73
         },
         {
           "year": 2013,
           "layer": "transport",
-          "event_count": 12
+          "event_count": 11
         },
         {
           "year": 2014,
@@ -28928,13 +29140,18 @@
         },
         {
           "year": 2014,
+          "layer": "economy",
+          "event_count": 3
+        },
+        {
+          "year": 2014,
           "layer": "environment",
           "event_count": 48
         },
         {
           "year": 2014,
           "layer": "transport",
-          "event_count": 13
+          "event_count": 10
         },
         {
           "year": 2015,
@@ -28948,13 +29165,18 @@
         },
         {
           "year": 2015,
+          "layer": "economy",
+          "event_count": 10
+        },
+        {
+          "year": 2015,
           "layer": "environment",
           "event_count": 69
         },
         {
           "year": 2015,
           "layer": "transport",
-          "event_count": 19
+          "event_count": 9
         },
         {
           "year": 2016,
@@ -28968,13 +29190,18 @@
         },
         {
           "year": 2016,
+          "layer": "economy",
+          "event_count": 26
+        },
+        {
+          "year": 2016,
           "layer": "environment",
           "event_count": 94
         },
         {
           "year": 2016,
           "layer": "transport",
-          "event_count": 39
+          "event_count": 13
         },
         {
           "year": 2017,
@@ -28988,13 +29215,18 @@
         },
         {
           "year": 2017,
+          "layer": "economy",
+          "event_count": 33
+        },
+        {
+          "year": 2017,
           "layer": "environment",
           "event_count": 57
         },
         {
           "year": 2017,
           "layer": "transport",
-          "event_count": 41
+          "event_count": 8
         },
         {
           "year": 2018,
@@ -29008,13 +29240,18 @@
         },
         {
           "year": 2018,
+          "layer": "economy",
+          "event_count": 71
+        },
+        {
+          "year": 2018,
           "layer": "environment",
           "event_count": 72
         },
         {
           "year": 2018,
           "layer": "transport",
-          "event_count": 81
+          "event_count": 10
         },
         {
           "year": 2018,
@@ -29033,13 +29270,18 @@
         },
         {
           "year": 2019,
+          "layer": "economy",
+          "event_count": 124
+        },
+        {
+          "year": 2019,
           "layer": "environment",
           "event_count": 76
         },
         {
           "year": 2019,
           "layer": "transport",
-          "event_count": 136
+          "event_count": 12
         },
         {
           "year": 2020,
@@ -29053,13 +29295,18 @@
         },
         {
           "year": 2020,
+          "layer": "economy",
+          "event_count": 76
+        },
+        {
+          "year": 2020,
           "layer": "environment",
           "event_count": 64
         },
         {
           "year": 2020,
           "layer": "transport",
-          "event_count": 4588
+          "event_count": 4512
         },
         {
           "year": 2021,
@@ -29073,13 +29320,18 @@
         },
         {
           "year": 2021,
+          "layer": "economy",
+          "event_count": 123
+        },
+        {
+          "year": 2021,
           "layer": "environment",
           "event_count": 71
         },
         {
           "year": 2021,
           "layer": "transport",
-          "event_count": 4631
+          "event_count": 4508
         },
         {
           "year": 2022,
@@ -29093,18 +29345,23 @@
         },
         {
           "year": 2022,
+          "layer": "economy",
+          "event_count": 335
+        },
+        {
+          "year": 2022,
           "layer": "environment",
           "event_count": 55
         },
         {
           "year": 2022,
           "layer": "transport",
-          "event_count": 4844
+          "event_count": 4509
         },
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 2517
+          "event_count": 2519
         },
         {
           "year": 2023,
@@ -29113,18 +29370,23 @@
         },
         {
           "year": 2023,
+          "layer": "economy",
+          "event_count": 767
+        },
+        {
+          "year": 2023,
           "layer": "environment",
-          "event_count": 6735
+          "event_count": 6908
         },
         {
           "year": 2023,
           "layer": "transport",
-          "event_count": 5466
+          "event_count": 4524
         },
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 3423
+          "event_count": 3425
         },
         {
           "year": 2024,
@@ -29133,13 +29395,18 @@
         },
         {
           "year": 2024,
+          "layer": "economy",
+          "event_count": 3538
+        },
+        {
+          "year": 2024,
           "layer": "environment",
-          "event_count": 9021
+          "event_count": 9212
         },
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 7305
+          "event_count": 4507
         },
         {
           "year": 2024,
@@ -29149,7 +29416,7 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2945
+          "event_count": 2946
         },
         {
           "year": 2025,
@@ -29158,13 +29425,23 @@
         },
         {
           "year": 2025,
+          "layer": "economy",
+          "event_count": 4214
+        },
+        {
+          "year": 2025,
           "layer": "environment",
-          "event_count": 8967
+          "event_count": 9217
         },
         {
           "year": 2025,
           "layer": "transport",
-          "event_count": 8984
+          "event_count": 4519
+        },
+        {
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 1
         },
         {
           "year": 2026,
@@ -29178,18 +29455,23 @@
         },
         {
           "year": 2026,
+          "layer": "economy",
+          "event_count": 2413
+        },
+        {
+          "year": 2026,
           "layer": "environment",
-          "event_count": 2363
+          "event_count": 2413
         },
         {
           "year": 2026,
           "layer": "transport",
-          "event_count": 1604
+          "event_count": 74
         },
         {
           "year": 2026,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 27
         }
       ],
       "source_year_layer_rows": [
@@ -29552,6 +29834,22 @@
           "year": 2023,
           "layer": "transport",
           "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "gla-busyness-context-boundaries",
+          "source_title": "GLA Busyness Context boundary layers",
+          "year": 2024,
+          "layer": "economy",
+          "event_count": 933
+        },
+        {
+          "city_id": "london",
+          "source_id": "gla-busyness-context-boundaries",
+          "source_title": "GLA Busyness Context boundary layers",
+          "year": 2026,
+          "layer": "economy",
+          "event_count": 933
         },
         {
           "city_id": "london",
@@ -30463,15 +30761,15 @@
           "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 52
+          "event_count": 54
         },
         {
           "city_id": "london",
           "source_id": "historic-england-nhle",
           "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2024,
-          "layer": "transport",
-          "event_count": 3
+          "layer": "environment",
+          "event_count": 1
         },
         {
           "city_id": "london",
@@ -30479,7 +30777,7 @@
           "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 18
+          "event_count": 19
         },
         {
           "city_id": "london",
@@ -30495,7 +30793,7 @@
           "source_title": "National Heritage List for England (NHLE) downloads",
           "year": 2025,
           "layer": "transport",
-          "event_count": 2
+          "event_count": 1
         },
         {
           "city_id": "london",
@@ -31118,7 +31416,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2004,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -31126,7 +31424,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2005,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -31134,7 +31432,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2006,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 3
         },
         {
@@ -31142,7 +31440,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2008,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 2
         },
         {
@@ -31150,7 +31448,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2009,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 7
         },
         {
@@ -31158,7 +31456,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2010,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 5
         },
         {
@@ -31166,7 +31464,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2011,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 6
         },
         {
@@ -31174,7 +31472,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2012,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 7
         },
         {
@@ -31182,7 +31480,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2013,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -31190,7 +31488,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2014,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 3
         },
         {
@@ -31198,7 +31496,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2015,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 10
         },
         {
@@ -31206,7 +31504,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2016,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 26
         },
         {
@@ -31214,7 +31512,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2017,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 33
         },
         {
@@ -31222,7 +31520,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2018,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 71
         },
         {
@@ -31230,7 +31528,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2019,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 124
         },
         {
@@ -31238,7 +31536,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2020,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 76
         },
         {
@@ -31246,7 +31544,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2021,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 123
         },
         {
@@ -31254,7 +31552,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2022,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 335
         },
         {
@@ -31262,7 +31560,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2023,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 767
         },
         {
@@ -31270,7 +31568,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2024,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 2605
         },
         {
@@ -31278,7 +31576,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2025,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 4214
         },
         {
@@ -31286,7 +31584,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2026,
-          "layer": "transport",
+          "layer": "economy",
           "event_count": 1480
         },
         {
@@ -34999,7 +35297,7 @@
           "source_title": "Planning Data certificate of immunity records",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 6
+          "event_count": 8
         },
         {
           "city_id": "london",
@@ -35015,7 +35313,7 @@
           "source_title": "Planning Data certificate of immunity records",
           "year": 2023,
           "layer": "transport",
-          "event_count": 6
+          "event_count": 4
         },
         {
           "city_id": "london",
@@ -35159,15 +35457,7 @@
           "source_title": "Police.uk crime and outcomes API",
           "year": 2023,
           "layer": "environment",
-          "event_count": 6667
-        },
-        {
-          "city_id": "london",
-          "source_id": "police-data-api",
-          "source_title": "Police.uk crime and outcomes API",
-          "year": 2023,
-          "layer": "transport",
-          "event_count": 173
+          "event_count": 6840
         },
         {
           "city_id": "london",
@@ -35175,15 +35465,7 @@
           "source_title": "Police.uk crime and outcomes API",
           "year": 2024,
           "layer": "environment",
-          "event_count": 8930
-        },
-        {
-          "city_id": "london",
-          "source_id": "police-data-api",
-          "source_title": "Police.uk crime and outcomes API",
-          "year": 2024,
-          "layer": "transport",
-          "event_count": 190
+          "event_count": 9120
         },
         {
           "city_id": "london",
@@ -35191,15 +35473,7 @@
           "source_title": "Police.uk crime and outcomes API",
           "year": 2025,
           "layer": "environment",
-          "event_count": 8870
-        },
-        {
-          "city_id": "london",
-          "source_id": "police-data-api",
-          "source_title": "Police.uk crime and outcomes API",
-          "year": 2025,
-          "layer": "transport",
-          "event_count": 250
+          "event_count": 9120
         },
         {
           "city_id": "london",
@@ -35207,15 +35481,7 @@
           "source_title": "Police.uk crime and outcomes API",
           "year": 2026,
           "layer": "environment",
-          "event_count": 2230
-        },
-        {
-          "city_id": "london",
-          "source_id": "police-data-api",
-          "source_title": "Police.uk crime and outcomes API",
-          "year": 2026,
-          "layer": "transport",
-          "event_count": 50
+          "event_count": 2280
         },
         {
           "city_id": "london",
@@ -36219,6 +36485,22 @@
         },
         {
           "city_id": "london",
+          "source_id": "tfl-road-disruptions-utility-works",
+          "source_title": "TfL Road Disruptions API utility works records",
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "tfl-road-disruptions-utility-works",
+          "source_title": "TfL Road Disruptions API utility works records",
+          "year": 2026,
+          "layer": "utilities",
+          "event_count": 26
+        },
+        {
+          "city_id": "london",
           "source_id": "tfl-roads-open-data",
           "source_title": "TfL Roads open data file service",
           "year": 2003,
@@ -36450,8 +36732,8 @@
           "first_year": 1829,
           "last_year": 2026,
           "layer_counts": {
-            "environment": 26697,
-            "transport": 665
+            "environment": 27360,
+            "transport": 2
           },
           "confidence_counts": {
             "documented": 27362
@@ -36788,7 +37070,7 @@
           "first_year": 2004,
           "last_year": 2026,
           "layer_counts": {
-            "transport": 9900
+            "economy": 9900
           },
           "confidence_counts": {
             "documented": 9900
@@ -36858,6 +37140,27 @@
           },
           "confidence_counts": {
             "documented": 5100
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "gla-busyness-context-boundaries",
+          "title": "GLA Busyness Context boundary layers",
+          "provider": "Greater London Authority",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0",
+          "event_count": 1866,
+          "years": [
+            2024,
+            2026
+          ],
+          "first_year": 2024,
+          "last_year": 2026,
+          "layer_counts": {
+            "economy": 1866
+          },
+          "confidence_counts": {
+            "documented": 1866
           },
           "coverage_status": "events_emitted"
         },
@@ -37056,9 +37359,9 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 1046,
-            "environment": 3,
-            "transport": 7
+            "built_environment": 1049,
+            "environment": 4,
+            "transport": 3
           },
           "confidence_counts": {
             "documented": 1056
@@ -37342,10 +37645,10 @@
           "first_year": 2020,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 70,
+            "built_environment": 72,
             "civic_services": 3,
             "environment": 26,
-            "transport": 12,
+            "transport": 10,
             "utilities": 1
           },
           "confidence_counts": {
@@ -37535,6 +37838,27 @@
           },
           "confidence_counts": {
             "documented": 42
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "tfl-road-disruptions-utility-works",
+          "title": "TfL Road Disruptions API utility works records",
+          "provider": "Transport for London",
+          "reliability": "usable_with_caveats",
+          "licence": "Transport for London Open Data terms",
+          "event_count": 27,
+          "years": [
+            2025,
+            2026
+          ],
+          "first_year": 2025,
+          "last_year": 2026,
+          "layer_counts": {
+            "utilities": 27
+          },
+          "confidence_counts": {
+            "documented": 27
           },
           "coverage_status": "events_emitted"
         },
@@ -40862,6 +41186,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "dfe-gias-public-establishment-context",
+          "title": "Get Information About Schools public establishment extract",
+          "provider": "Department for Education",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "environment-agency-flood-water",
           "title": "Environment Agency flood, river and environmental data services",
           "provider": "Environment Agency / DEFRA",
@@ -42246,6 +42584,20 @@
           "layer_counts": {},
           "confidence_counts": {},
           "coverage_status": "source_catalog_only"
+        },
+        {
+          "source_id": "tfl-stoppoint-public-context",
+          "title": "TfL StopPoint API",
+          "provider": "Transport for London",
+          "reliability": "usable_with_caveats",
+          "licence": "Transport for London Open Data terms",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
         }
       ],
       "gaps": {
@@ -42401,6 +42753,12 @@
           {
             "source_id": "dfe-gias",
             "title": "Get Information About Schools (GIAS)",
+            "provider": "Department for Education",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "dfe-gias-public-establishment-context",
+            "title": "Get Information About Schools public establishment extract",
             "provider": "Department for Education",
             "reliability": "usable_with_caveats"
           },
@@ -42997,6 +43355,12 @@
             "title": "src_va_east_storehouse_opening",
             "provider": "Victoria and Albert Museum",
             "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "tfl-stoppoint-public-context",
+            "title": "TfL StopPoint API",
+            "provider": "Transport for London",
+            "reliability": "usable_with_caveats"
           }
         ],
         "notes": [
@@ -43008,17 +43372,17 @@
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 95861,
-      "unique_event_count": 95861,
+      "event_count": 109975,
+      "unique_event_count": 109975,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 203,
-      "active_source_count": 81,
-      "source_catalog_only_count": 122,
+      "source_count": 208,
+      "active_source_count": 85,
+      "source_catalog_only_count": 123,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 95861,
-        "gap_events": 4139,
+        "backed_event_count": 109975,
+        "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -43186,37 +43550,37 @@
         "2004": 233,
         "2005": 318,
         "2006": 326,
-        "2007": 343,
-        "2008": 2077,
-        "2009": 1871,
-        "2010": 2103,
-        "2011": 2210,
-        "2012": 2790,
-        "2013": 3760,
-        "2014": 3842,
-        "2015": 5891,
-        "2016": 4500,
-        "2017": 4961,
-        "2018": 5097,
-        "2019": 6092,
-        "2020": 5402,
-        "2021": 5493,
-        "2022": 6717,
-        "2023": 7751,
-        "2024": 8062,
-        "2025": 8321,
-        "2026": 4325
+        "2007": 936,
+        "2008": 2671,
+        "2009": 2463,
+        "2010": 2700,
+        "2011": 2799,
+        "2012": 3383,
+        "2013": 4504,
+        "2014": 4589,
+        "2015": 6641,
+        "2016": 5248,
+        "2017": 5711,
+        "2018": 5837,
+        "2019": 6840,
+        "2020": 6148,
+        "2021": 6238,
+        "2022": 7514,
+        "2023": 8553,
+        "2024": 8911,
+        "2025": 9091,
+        "2026": 4945
       },
       "event_counts_by_layer": {
-        "built_environment": 63902,
-        "civic_services": 2872,
-        "economy": 221,
-        "environment": 21161,
-        "transport": 7702,
-        "utilities": 3
+        "built_environment": 63958,
+        "civic_services": 2887,
+        "economy": 12123,
+        "environment": 21225,
+        "transport": 7555,
+        "utilities": 2227
       },
       "event_counts_by_confidence": {
-        "documented": 95861
+        "documented": 109975
       },
       "event_counts_by_year_layer": [
         {
@@ -43457,12 +43821,7 @@
         {
           "year": 1894,
           "layer": "environment",
-          "event_count": 1
-        },
-        {
-          "year": 1894,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 2
         },
         {
           "year": 1895,
@@ -43542,12 +43901,7 @@
         {
           "year": 1907,
           "layer": "environment",
-          "event_count": 2
-        },
-        {
-          "year": 1907,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 3
         },
         {
           "year": 1908,
@@ -43587,12 +43941,7 @@
         {
           "year": 1914,
           "layer": "environment",
-          "event_count": 6
-        },
-        {
-          "year": 1914,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 7
         },
         {
           "year": 1915,
@@ -43702,22 +44051,12 @@
         {
           "year": 1934,
           "layer": "environment",
-          "event_count": 39
-        },
-        {
-          "year": 1934,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 40
         },
         {
           "year": 1935,
           "layer": "environment",
-          "event_count": 18
-        },
-        {
-          "year": 1935,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 19
         },
         {
           "year": 1936,
@@ -43767,12 +44106,7 @@
         {
           "year": 1944,
           "layer": "environment",
-          "event_count": 5
-        },
-        {
-          "year": 1944,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 6
         },
         {
           "year": 1945,
@@ -43837,12 +44171,7 @@
         {
           "year": 1955,
           "layer": "environment",
-          "event_count": 29
-        },
-        {
-          "year": 1955,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 30
         },
         {
           "year": 1956,
@@ -43882,12 +44211,7 @@
         {
           "year": 1962,
           "layer": "environment",
-          "event_count": 21
-        },
-        {
-          "year": 1962,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 22
         },
         {
           "year": 1963,
@@ -44242,12 +44566,7 @@
         {
           "year": 1997,
           "layer": "environment",
-          "event_count": 49
-        },
-        {
-          "year": 1997,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 50
         },
         {
           "year": 1998,
@@ -44346,13 +44665,18 @@
         },
         {
           "year": 2007,
+          "layer": "economy",
+          "event_count": 593
+        },
+        {
+          "year": 2007,
           "layer": "transport",
           "event_count": 1
         },
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 1020
+          "event_count": 1022
         },
         {
           "year": 2008,
@@ -44362,22 +44686,22 @@
         {
           "year": 2008,
           "layer": "economy",
-          "event_count": 18
+          "event_count": 614
         },
         {
           "year": 2008,
           "layer": "environment",
-          "event_count": 864
+          "event_count": 866
         },
         {
           "year": 2008,
           "layer": "transport",
-          "event_count": 86
+          "event_count": 80
         },
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 902
+          "event_count": 904
         },
         {
           "year": 2009,
@@ -44387,22 +44711,22 @@
         {
           "year": 2009,
           "layer": "economy",
-          "event_count": 24
+          "event_count": 616
         },
         {
           "year": 2009,
           "layer": "environment",
-          "event_count": 778
+          "event_count": 780
         },
         {
           "year": 2009,
           "layer": "transport",
-          "event_count": 76
+          "event_count": 72
         },
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 1148
+          "event_count": 1150
         },
         {
           "year": 2010,
@@ -44412,7 +44736,7 @@
         {
           "year": 2010,
           "layer": "economy",
-          "event_count": 21
+          "event_count": 618
         },
         {
           "year": 2010,
@@ -44422,12 +44746,12 @@
         {
           "year": 2010,
           "layer": "transport",
-          "event_count": 83
+          "event_count": 81
         },
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 1199
+          "event_count": 1203
         },
         {
           "year": 2011,
@@ -44437,7 +44761,7 @@
         {
           "year": 2011,
           "layer": "economy",
-          "event_count": 21
+          "event_count": 610
         },
         {
           "year": 2011,
@@ -44447,12 +44771,12 @@
         {
           "year": 2011,
           "layer": "transport",
-          "event_count": 90
+          "event_count": 86
         },
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 1584
+          "event_count": 1587
         },
         {
           "year": 2012,
@@ -44462,22 +44786,22 @@
         {
           "year": 2012,
           "layer": "economy",
-          "event_count": 18
+          "event_count": 611
         },
         {
           "year": 2012,
           "layer": "environment",
-          "event_count": 855
+          "event_count": 856
         },
         {
           "year": 2012,
           "layer": "transport",
-          "event_count": 243
+          "event_count": 239
         },
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 2278
+          "event_count": 2279
         },
         {
           "year": 2013,
@@ -44487,7 +44811,7 @@
         {
           "year": 2013,
           "layer": "economy",
-          "event_count": 18
+          "event_count": 612
         },
         {
           "year": 2013,
@@ -44497,7 +44821,12 @@
         {
           "year": 2013,
           "layer": "transport",
-          "event_count": 472
+          "event_count": 468
+        },
+        {
+          "year": 2013,
+          "layer": "utilities",
+          "event_count": 153
         },
         {
           "year": 2014,
@@ -44512,17 +44841,22 @@
         {
           "year": 2014,
           "layer": "economy",
-          "event_count": 23
+          "event_count": 616
         },
         {
           "year": 2014,
           "layer": "environment",
-          "event_count": 820
+          "event_count": 822
         },
         {
           "year": 2014,
           "layer": "transport",
-          "event_count": 491
+          "event_count": 488
+        },
+        {
+          "year": 2014,
+          "layer": "utilities",
+          "event_count": 155
         },
         {
           "year": 2015,
@@ -44532,127 +44866,147 @@
         {
           "year": 2015,
           "layer": "civic_services",
-          "event_count": 119
+          "event_count": 121
         },
         {
           "year": 2015,
           "layer": "economy",
-          "event_count": 10
+          "event_count": 606
         },
         {
           "year": 2015,
           "layer": "environment",
-          "event_count": 2679
+          "event_count": 2697
         },
         {
           "year": 2015,
           "layer": "transport",
-          "event_count": 493
+          "event_count": 472
+        },
+        {
+          "year": 2015,
+          "layer": "utilities",
+          "event_count": 155
         },
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 2896
+          "event_count": 2905
         },
         {
           "year": 2016,
           "layer": "civic_services",
-          "event_count": 159
+          "event_count": 162
         },
         {
           "year": 2016,
           "layer": "economy",
-          "event_count": 11
+          "event_count": 604
         },
         {
           "year": 2016,
           "layer": "environment",
-          "event_count": 950
+          "event_count": 952
         },
         {
           "year": 2016,
           "layer": "transport",
-          "event_count": 483
+          "event_count": 469
         },
         {
           "year": 2016,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 156
         },
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 3430
+          "event_count": 3434
         },
         {
           "year": 2017,
           "layer": "civic_services",
-          "event_count": 172
+          "event_count": 174
         },
         {
           "year": 2017,
           "layer": "economy",
-          "event_count": 16
+          "event_count": 611
         },
         {
           "year": 2017,
           "layer": "environment",
-          "event_count": 849
+          "event_count": 851
         },
         {
           "year": 2017,
           "layer": "transport",
-          "event_count": 494
+          "event_count": 486
+        },
+        {
+          "year": 2017,
+          "layer": "utilities",
+          "event_count": 155
         },
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 3458
+          "event_count": 3462
         },
         {
           "year": 2018,
           "layer": "civic_services",
-          "event_count": 224
+          "event_count": 226
         },
         {
           "year": 2018,
           "layer": "economy",
-          "event_count": 8
+          "event_count": 607
         },
         {
           "year": 2018,
           "layer": "environment",
-          "event_count": 885
+          "event_count": 888
         },
         {
           "year": 2018,
           "layer": "transport",
-          "event_count": 522
+          "event_count": 512
+        },
+        {
+          "year": 2018,
+          "layer": "utilities",
+          "event_count": 142
         },
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 4062
+          "event_count": 4064
         },
         {
           "year": 2019,
           "layer": "civic_services",
-          "event_count": 387
+          "event_count": 390
         },
         {
           "year": 2019,
           "layer": "economy",
-          "event_count": 4
+          "event_count": 596
         },
         {
           "year": 2019,
           "layer": "environment",
-          "event_count": 1065
+          "event_count": 1066
         },
         {
           "year": 2019,
           "layer": "transport",
-          "event_count": 574
+          "event_count": 567
+        },
+        {
+          "year": 2019,
+          "layer": "utilities",
+          "event_count": 157
         },
         {
           "year": 2020,
@@ -44662,32 +45016,32 @@
         {
           "year": 2020,
           "layer": "civic_services",
-          "event_count": 253
+          "event_count": 254
         },
         {
           "year": 2020,
           "layer": "economy",
-          "event_count": 5
+          "event_count": 596
         },
         {
           "year": 2020,
           "layer": "environment",
-          "event_count": 983
+          "event_count": 984
         },
         {
           "year": 2020,
           "layer": "transport",
-          "event_count": 530
+          "event_count": 528
         },
         {
           "year": 2020,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 156
         },
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 4042
+          "event_count": 4044
         },
         {
           "year": 2021,
@@ -44697,22 +45051,27 @@
         {
           "year": 2021,
           "layer": "economy",
-          "event_count": 2
+          "event_count": 592
         },
         {
           "year": 2021,
           "layer": "environment",
-          "event_count": 1009
+          "event_count": 1010
         },
         {
           "year": 2021,
           "layer": "transport",
-          "event_count": 319
+          "event_count": 315
+        },
+        {
+          "year": 2021,
+          "layer": "utilities",
+          "event_count": 156
         },
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 4970
+          "event_count": 4976
         },
         {
           "year": 2022,
@@ -44722,27 +45081,27 @@
         {
           "year": 2022,
           "layer": "economy",
-          "event_count": 1
+          "event_count": 589
         },
         {
           "year": 2022,
           "layer": "environment",
-          "event_count": 1093
+          "event_count": 1097
         },
         {
           "year": 2022,
           "layer": "transport",
-          "event_count": 521
+          "event_count": 511
         },
         {
           "year": 2022,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 210
         },
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 5937
+          "event_count": 5938
         },
         {
           "year": 2023,
@@ -44752,32 +45111,37 @@
         {
           "year": 2023,
           "layer": "economy",
-          "event_count": 4
+          "event_count": 594
         },
         {
           "year": 2023,
           "layer": "environment",
-          "event_count": 1144
+          "event_count": 1145
         },
         {
           "year": 2023,
           "layer": "transport",
-          "event_count": 526
+          "event_count": 524
+        },
+        {
+          "year": 2023,
+          "layer": "utilities",
+          "event_count": 212
         },
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 6223
+          "event_count": 6227
         },
         {
           "year": 2024,
           "layer": "civic_services",
-          "event_count": 158
+          "event_count": 159
         },
         {
           "year": 2024,
           "layer": "economy",
-          "event_count": 8
+          "event_count": 650
         },
         {
           "year": 2024,
@@ -44787,37 +45151,47 @@
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 525
+          "event_count": 519
+        },
+        {
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 208
         },
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 6495
+          "event_count": 6498
         },
         {
           "year": 2025,
           "layer": "civic_services",
-          "event_count": 36
+          "event_count": 37
         },
         {
           "year": 2025,
           "layer": "economy",
-          "event_count": 3
+          "event_count": 561
         },
         {
           "year": 2025,
           "layer": "environment",
-          "event_count": 1269
+          "event_count": 1275
         },
         {
           "year": 2025,
           "layer": "transport",
-          "event_count": 518
+          "event_count": 508
+        },
+        {
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 212
         },
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 2915
+          "event_count": 2922
         },
         {
           "year": 2026,
@@ -44827,17 +45201,17 @@
         {
           "year": 2026,
           "layer": "economy",
-          "event_count": 6
+          "event_count": 627
         },
         {
           "year": 2026,
           "layer": "environment",
-          "event_count": 723
+          "event_count": 732
         },
         {
           "year": 2026,
           "layer": "transport",
-          "event_count": 634
+          "event_count": 617
         }
       ],
       "source_year_layer_rows": [
@@ -44943,15 +45317,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2014,
           "layer": "environment",
-          "event_count": 33
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "4hcv-tc5r",
-          "source_title": "Capital Project Tracker",
-          "year": 2014,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 34
         },
         {
           "city_id": "nyc",
@@ -44991,7 +45357,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2016,
           "layer": "environment",
-          "event_count": 45
+          "event_count": 47
         },
         {
           "city_id": "nyc",
@@ -44999,7 +45365,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2016,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 2
         },
         {
           "city_id": "nyc",
@@ -45015,15 +45381,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2017,
           "layer": "environment",
-          "event_count": 54
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "4hcv-tc5r",
-          "source_title": "Capital Project Tracker",
-          "year": 2017,
-          "layer": "transport",
-          "event_count": 2
+          "event_count": 56
         },
         {
           "city_id": "nyc",
@@ -45039,7 +45397,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2018,
           "layer": "environment",
-          "event_count": 69
+          "event_count": 72
         },
         {
           "city_id": "nyc",
@@ -45047,7 +45405,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2018,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -45063,7 +45421,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2019,
           "layer": "environment",
-          "event_count": 77
+          "event_count": 78
         },
         {
           "city_id": "nyc",
@@ -45071,7 +45429,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2019,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -45087,7 +45445,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2020,
           "layer": "environment",
-          "event_count": 66
+          "event_count": 67
         },
         {
           "city_id": "nyc",
@@ -45095,7 +45453,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2020,
           "layer": "transport",
-          "event_count": 3
+          "event_count": 2
         },
         {
           "city_id": "nyc",
@@ -45111,7 +45469,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2021,
           "layer": "environment",
-          "event_count": 55
+          "event_count": 56
         },
         {
           "city_id": "nyc",
@@ -45119,7 +45477,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2021,
           "layer": "transport",
-          "event_count": 2
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -45135,7 +45493,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2022,
           "layer": "environment",
-          "event_count": 68
+          "event_count": 72
         },
         {
           "city_id": "nyc",
@@ -45143,7 +45501,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2022,
           "layer": "transport",
-          "event_count": 5
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -45159,7 +45517,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2023,
           "layer": "environment",
-          "event_count": 97
+          "event_count": 98
         },
         {
           "city_id": "nyc",
@@ -45167,7 +45525,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2023,
           "layer": "transport",
-          "event_count": 2
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -45207,7 +45565,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2025,
           "layer": "environment",
-          "event_count": 152
+          "event_count": 156
         },
         {
           "city_id": "nyc",
@@ -45215,7 +45573,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2025,
           "layer": "transport",
-          "event_count": 7
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -45231,7 +45589,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2026,
           "layer": "environment",
-          "event_count": 221
+          "event_count": 227
         },
         {
           "city_id": "nyc",
@@ -45239,7 +45597,7 @@
           "source_title": "Capital Project Tracker",
           "year": 2026,
           "layer": "transport",
-          "event_count": 14
+          "event_count": 8
         },
         {
           "city_id": "nyc",
@@ -45679,7 +46037,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2008,
           "layer": "environment",
-          "event_count": 123
+          "event_count": 125
         },
         {
           "city_id": "nyc",
@@ -45687,7 +46045,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2008,
           "layer": "transport",
-          "event_count": 6
+          "event_count": 4
         },
         {
           "city_id": "nyc",
@@ -45695,7 +46053,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2009,
           "layer": "environment",
-          "event_count": 104
+          "event_count": 106
         },
         {
           "city_id": "nyc",
@@ -45703,7 +46061,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2009,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 2
         },
         {
           "city_id": "nyc",
@@ -45759,7 +46117,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2012,
           "layer": "environment",
-          "event_count": 71
+          "event_count": 72
         },
         {
           "city_id": "nyc",
@@ -45767,7 +46125,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2012,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -45791,15 +46149,7 @@
           "source_title": "NYC Permitted Event Information - Historical",
           "year": 2014,
           "layer": "environment",
-          "event_count": 65
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "bkfu-528j",
-          "source_title": "NYC Permitted Event Information - Historical",
-          "year": 2014,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 66
         },
         {
           "city_id": "nyc",
@@ -47319,15 +47669,7 @@
           "source_title": "Parks Properties",
           "year": 1894,
           "layer": "environment",
-          "event_count": 1
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1894,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 2
         },
         {
           "city_id": "nyc",
@@ -47439,15 +47781,7 @@
           "source_title": "Parks Properties",
           "year": 1907,
           "layer": "environment",
-          "event_count": 2
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1907,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -47511,15 +47845,7 @@
           "source_title": "Parks Properties",
           "year": 1914,
           "layer": "environment",
-          "event_count": 6
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1914,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 7
         },
         {
           "city_id": "nyc",
@@ -47679,15 +48005,7 @@
           "source_title": "Parks Properties",
           "year": 1934,
           "layer": "environment",
-          "event_count": 39
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1934,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 40
         },
         {
           "city_id": "nyc",
@@ -47695,15 +48013,7 @@
           "source_title": "Parks Properties",
           "year": 1935,
           "layer": "environment",
-          "event_count": 18
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1935,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 19
         },
         {
           "city_id": "nyc",
@@ -47775,15 +48085,7 @@
           "source_title": "Parks Properties",
           "year": 1944,
           "layer": "environment",
-          "event_count": 5
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1944,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 6
         },
         {
           "city_id": "nyc",
@@ -47887,15 +48189,7 @@
           "source_title": "Parks Properties",
           "year": 1955,
           "layer": "environment",
-          "event_count": 29
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1955,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 30
         },
         {
           "city_id": "nyc",
@@ -47951,15 +48245,7 @@
           "source_title": "Parks Properties",
           "year": 1962,
           "layer": "environment",
-          "event_count": 21
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1962,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 22
         },
         {
           "city_id": "nyc",
@@ -48247,15 +48533,7 @@
           "source_title": "Parks Properties",
           "year": 1997,
           "layer": "environment",
-          "event_count": 49
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "enfh-gkve",
-          "source_title": "Parks Properties",
-          "year": 1997,
-          "layer": "transport",
-          "event_count": 1
+          "event_count": 50
         },
         {
           "city_id": "nyc",
@@ -48455,7 +48733,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2024,
           "layer": "civic_services",
-          "event_count": 57
+          "event_count": 58
         },
         {
           "city_id": "nyc",
@@ -48471,7 +48749,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2024,
           "layer": "transport",
-          "event_count": 9
+          "event_count": 8
         },
         {
           "city_id": "nyc",
@@ -49199,7 +49477,7 @@
           "source_title": "Capital Projects",
           "year": 2015,
           "layer": "civic_services",
-          "event_count": 29
+          "event_count": 31
         },
         {
           "city_id": "nyc",
@@ -49215,7 +49493,7 @@
           "source_title": "Capital Projects",
           "year": 2015,
           "layer": "transport",
-          "event_count": 12
+          "event_count": 10
         },
         {
           "city_id": "nyc",
@@ -49231,7 +49509,7 @@
           "source_title": "Capital Projects",
           "year": 2016,
           "layer": "civic_services",
-          "event_count": 70
+          "event_count": 73
         },
         {
           "city_id": "nyc",
@@ -49247,7 +49525,7 @@
           "source_title": "Capital Projects",
           "year": 2016,
           "layer": "transport",
-          "event_count": 19
+          "event_count": 16
         },
         {
           "city_id": "nyc",
@@ -49263,7 +49541,7 @@
           "source_title": "Capital Projects",
           "year": 2017,
           "layer": "civic_services",
-          "event_count": 82
+          "event_count": 84
         },
         {
           "city_id": "nyc",
@@ -49279,7 +49557,7 @@
           "source_title": "Capital Projects",
           "year": 2017,
           "layer": "transport",
-          "event_count": 21
+          "event_count": 19
         },
         {
           "city_id": "nyc",
@@ -49295,7 +49573,7 @@
           "source_title": "Capital Projects",
           "year": 2018,
           "layer": "civic_services",
-          "event_count": 134
+          "event_count": 136
         },
         {
           "city_id": "nyc",
@@ -49311,7 +49589,7 @@
           "source_title": "Capital Projects",
           "year": 2018,
           "layer": "transport",
-          "event_count": 35
+          "event_count": 33
         },
         {
           "city_id": "nyc",
@@ -49327,7 +49605,7 @@
           "source_title": "Capital Projects",
           "year": 2019,
           "layer": "civic_services",
-          "event_count": 297
+          "event_count": 300
         },
         {
           "city_id": "nyc",
@@ -49343,7 +49621,7 @@
           "source_title": "Capital Projects",
           "year": 2019,
           "layer": "transport",
-          "event_count": 56
+          "event_count": 53
         },
         {
           "city_id": "nyc",
@@ -49359,7 +49637,7 @@
           "source_title": "Capital Projects",
           "year": 2020,
           "layer": "civic_services",
-          "event_count": 134
+          "event_count": 135
         },
         {
           "city_id": "nyc",
@@ -49375,7 +49653,7 @@
           "source_title": "Capital Projects",
           "year": 2020,
           "layer": "transport",
-          "event_count": 23
+          "event_count": 22
         },
         {
           "city_id": "nyc",
@@ -50168,6 +50446,166 @@
           "year": 2026,
           "layer": "built_environment",
           "event_count": 8
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2007,
+          "layer": "economy",
+          "event_count": 593
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2008,
+          "layer": "economy",
+          "event_count": 594
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2009,
+          "layer": "economy",
+          "event_count": 592
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2010,
+          "layer": "economy",
+          "event_count": 597
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2011,
+          "layer": "economy",
+          "event_count": 589
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2012,
+          "layer": "economy",
+          "event_count": 593
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2013,
+          "layer": "economy",
+          "event_count": 591
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2014,
+          "layer": "economy",
+          "event_count": 592
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2015,
+          "layer": "economy",
+          "event_count": 595
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2016,
+          "layer": "economy",
+          "event_count": 593
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2017,
+          "layer": "economy",
+          "event_count": 595
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2018,
+          "layer": "economy",
+          "event_count": 598
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2019,
+          "layer": "economy",
+          "event_count": 591
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2020,
+          "layer": "economy",
+          "event_count": 591
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2021,
+          "layer": "economy",
+          "event_count": 589
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2022,
+          "layer": "economy",
+          "event_count": 588
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2023,
+          "layer": "economy",
+          "event_count": 590
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2024,
+          "layer": "economy",
+          "event_count": 565
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2025,
+          "layer": "economy",
+          "event_count": 558
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "source_title": "NYC DCWP Issued Licenses",
+          "year": 2026,
+          "layer": "economy",
+          "event_count": 544
         },
         {
           "city_id": "nyc",
@@ -51083,6 +51521,110 @@
         },
         {
           "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-current",
+          "source_title": "NYC DOT Street Construction Permits 2022-present",
+          "year": 2022,
+          "layer": "utilities",
+          "event_count": 209
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-current",
+          "source_title": "NYC DOT Street Construction Permits 2022-present",
+          "year": 2023,
+          "layer": "utilities",
+          "event_count": 212
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-current",
+          "source_title": "NYC DOT Street Construction Permits 2022-present",
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 208
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-current",
+          "source_title": "NYC DOT Street Construction Permits 2022-present",
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 212
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2013,
+          "layer": "utilities",
+          "event_count": 153
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2014,
+          "layer": "utilities",
+          "event_count": 155
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2015,
+          "layer": "utilities",
+          "event_count": 155
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2016,
+          "layer": "utilities",
+          "event_count": 155
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2017,
+          "layer": "utilities",
+          "event_count": 155
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2018,
+          "layer": "utilities",
+          "event_count": 142
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2019,
+          "layer": "utilities",
+          "event_count": 157
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2020,
+          "layer": "utilities",
+          "event_count": 155
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "source_title": "NYC DOT Street Construction Permits 2013-2021",
+          "year": 2021,
+          "layer": "utilities",
+          "event_count": 156
+        },
+        {
+          "city_id": "nyc",
           "source_id": "nyc-edc-hh-resilience-official-pages",
           "source_title": "nyc-edc-hh-resilience-official-pages",
           "year": 2024,
@@ -51623,7 +52165,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 282
+          "event_count": 284
         },
         {
           "city_id": "nyc",
@@ -51647,7 +52189,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2008,
           "layer": "transport",
-          "event_count": 65
+          "event_count": 63
         },
         {
           "city_id": "nyc",
@@ -51655,7 +52197,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 267
+          "event_count": 269
         },
         {
           "city_id": "nyc",
@@ -51679,7 +52221,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2009,
           "layer": "transport",
-          "event_count": 68
+          "event_count": 66
         },
         {
           "city_id": "nyc",
@@ -51687,7 +52229,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 270
+          "event_count": 272
         },
         {
           "city_id": "nyc",
@@ -51711,7 +52253,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2010,
           "layer": "transport",
-          "event_count": 72
+          "event_count": 70
         },
         {
           "city_id": "nyc",
@@ -51719,7 +52261,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 292
+          "event_count": 294
         },
         {
           "city_id": "nyc",
@@ -51743,7 +52285,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2011,
           "layer": "transport",
-          "event_count": 74
+          "event_count": 72
         },
         {
           "city_id": "nyc",
@@ -51751,7 +52293,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 293
+          "event_count": 294
         },
         {
           "city_id": "nyc",
@@ -51775,7 +52317,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2012,
           "layer": "transport",
-          "event_count": 55
+          "event_count": 54
         },
         {
           "city_id": "nyc",
@@ -51783,7 +52325,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 290
+          "event_count": 291
         },
         {
           "city_id": "nyc",
@@ -51791,7 +52333,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2013,
           "layer": "economy",
-          "event_count": 18
+          "event_count": 21
         },
         {
           "city_id": "nyc",
@@ -51807,7 +52349,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2013,
           "layer": "transport",
-          "event_count": 66
+          "event_count": 62
         },
         {
           "city_id": "nyc",
@@ -51823,7 +52365,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2014,
           "layer": "economy",
-          "event_count": 21
+          "event_count": 22
         },
         {
           "city_id": "nyc",
@@ -51839,7 +52381,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2014,
           "layer": "transport",
-          "event_count": 80
+          "event_count": 79
         },
         {
           "city_id": "nyc",
@@ -51855,7 +52397,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2015,
           "layer": "economy",
-          "event_count": 10
+          "event_count": 11
         },
         {
           "city_id": "nyc",
@@ -51871,7 +52413,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2015,
           "layer": "transport",
-          "event_count": 52
+          "event_count": 51
         },
         {
           "city_id": "nyc",
@@ -51879,7 +52421,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 300
+          "event_count": 308
         },
         {
           "city_id": "nyc",
@@ -51903,7 +52445,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2016,
           "layer": "transport",
-          "event_count": 52
+          "event_count": 44
         },
         {
           "city_id": "nyc",
@@ -51911,7 +52453,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 386
+          "event_count": 387
         },
         {
           "city_id": "nyc",
@@ -51935,7 +52477,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2017,
           "layer": "transport",
-          "event_count": 36
+          "event_count": 35
         },
         {
           "city_id": "nyc",
@@ -51943,7 +52485,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 371
+          "event_count": 375
         },
         {
           "city_id": "nyc",
@@ -51967,7 +52509,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2018,
           "layer": "transport",
-          "event_count": 45
+          "event_count": 41
         },
         {
           "city_id": "nyc",
@@ -51975,7 +52517,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 386
+          "event_count": 387
         },
         {
           "city_id": "nyc",
@@ -51999,7 +52541,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2019,
           "layer": "transport",
-          "event_count": 62
+          "event_count": 61
         },
         {
           "city_id": "nyc",
@@ -52031,7 +52573,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 402
+          "event_count": 404
         },
         {
           "city_id": "nyc",
@@ -52047,7 +52589,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2021,
           "layer": "transport",
-          "event_count": 52
+          "event_count": 50
         },
         {
           "city_id": "nyc",
@@ -52055,7 +52597,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 403
+          "event_count": 409
         },
         {
           "city_id": "nyc",
@@ -52071,7 +52613,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2022,
           "layer": "transport",
-          "event_count": 54
+          "event_count": 48
         },
         {
           "city_id": "nyc",
@@ -52079,7 +52621,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 461
+          "event_count": 462
         },
         {
           "city_id": "nyc",
@@ -52103,7 +52645,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2023,
           "layer": "transport",
-          "event_count": 55
+          "event_count": 54
         },
         {
           "city_id": "nyc",
@@ -52111,7 +52653,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 502
+          "event_count": 505
         },
         {
           "city_id": "nyc",
@@ -52119,7 +52661,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2024,
           "layer": "economy",
-          "event_count": 5
+          "event_count": 6
         },
         {
           "city_id": "nyc",
@@ -52135,7 +52677,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2024,
           "layer": "transport",
-          "event_count": 55
+          "event_count": 51
         },
         {
           "city_id": "nyc",
@@ -52143,7 +52685,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 515
+          "event_count": 517
         },
         {
           "city_id": "nyc",
@@ -52167,7 +52709,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2025,
           "layer": "transport",
-          "event_count": 67
+          "event_count": 65
         },
         {
           "city_id": "nyc",
@@ -52175,7 +52717,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 285
+          "event_count": 287
         },
         {
           "city_id": "nyc",
@@ -52183,7 +52725,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2026,
           "layer": "economy",
-          "event_count": 6
+          "event_count": 7
         },
         {
           "city_id": "nyc",
@@ -52199,7 +52741,7 @@
           "source_title": "LPC Permit Application Information",
           "year": 2026,
           "layer": "transport",
-          "event_count": 32
+          "event_count": 29
         },
         {
           "city_id": "nyc",
@@ -52215,7 +52757,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2008,
           "layer": "economy",
-          "event_count": 4
+          "event_count": 6
         },
         {
           "city_id": "nyc",
@@ -52231,7 +52773,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2008,
           "layer": "transport",
-          "event_count": 13
+          "event_count": 11
         },
         {
           "city_id": "nyc",
@@ -52303,7 +52845,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 78
+          "event_count": 80
         },
         {
           "city_id": "nyc",
@@ -52327,7 +52869,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2011,
           "layer": "transport",
-          "event_count": 15
+          "event_count": 13
         },
         {
           "city_id": "nyc",
@@ -52335,7 +52877,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 83
+          "event_count": 85
         },
         {
           "city_id": "nyc",
@@ -52359,7 +52901,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2012,
           "layer": "transport",
-          "event_count": 24
+          "event_count": 22
         },
         {
           "city_id": "nyc",
@@ -52447,7 +52989,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 94
+          "event_count": 95
         },
         {
           "city_id": "nyc",
@@ -52463,7 +53005,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2016,
           "layer": "transport",
-          "event_count": 9
+          "event_count": 8
         },
         {
           "city_id": "nyc",
@@ -52471,7 +53013,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 97
+          "event_count": 99
         },
         {
           "city_id": "nyc",
@@ -52495,7 +53037,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2017,
           "layer": "transport",
-          "event_count": 11
+          "event_count": 9
         },
         {
           "city_id": "nyc",
@@ -52511,7 +53053,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2018,
           "layer": "economy",
-          "event_count": 5
+          "event_count": 6
         },
         {
           "city_id": "nyc",
@@ -52527,7 +53069,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2018,
           "layer": "transport",
-          "event_count": 20
+          "event_count": 19
         },
         {
           "city_id": "nyc",
@@ -52535,7 +53077,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 222
+          "event_count": 223
         },
         {
           "city_id": "nyc",
@@ -52543,7 +53085,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2019,
           "layer": "economy",
-          "event_count": 2
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -52559,7 +53101,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2019,
           "layer": "transport",
-          "event_count": 29
+          "event_count": 27
         },
         {
           "city_id": "nyc",
@@ -52607,7 +53149,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2021,
           "layer": "economy",
-          "event_count": 2
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -52623,7 +53165,7 @@
           "source_title": "NYC Open Data: LPC Permit Application Information",
           "year": 2021,
           "layer": "transport",
-          "event_count": 40
+          "event_count": 39
         },
         {
           "city_id": "nyc",
@@ -52967,7 +53509,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 4
+          "event_count": 5
         },
         {
           "city_id": "nyc",
@@ -52975,14 +53517,6 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2017,
           "layer": "environment",
-          "event_count": 1
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
-          "year": 2017,
-          "layer": "transport",
           "event_count": 1
         },
         {
@@ -53087,7 +53621,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 6
+          "event_count": 7
         },
         {
           "city_id": "nyc",
@@ -53103,7 +53637,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2024,
           "layer": "transport",
-          "event_count": 4
+          "event_count": 3
         },
         {
           "city_id": "nyc",
@@ -53111,7 +53645,15 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 41
+          "event_count": 42
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+          "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+          "year": 2025,
+          "layer": "civic_services",
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -53119,7 +53661,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2025,
           "layer": "environment",
-          "event_count": 44
+          "event_count": 46
         },
         {
           "city_id": "nyc",
@@ -53127,7 +53669,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2025,
           "layer": "transport",
-          "event_count": 11
+          "event_count": 7
         },
         {
           "city_id": "nyc",
@@ -53135,7 +53677,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 30
+          "event_count": 35
         },
         {
           "city_id": "nyc",
@@ -53151,7 +53693,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2026,
           "layer": "environment",
-          "event_count": 30
+          "event_count": 33
         },
         {
           "city_id": "nyc",
@@ -53159,7 +53701,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2026,
           "layer": "transport",
-          "event_count": 19
+          "event_count": 11
         },
         {
           "city_id": "nyc",
@@ -53280,6 +53822,22 @@
           "year": 2026,
           "layer": "built_environment",
           "event_count": 3
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-sbs-business-improvement-districts",
+          "source_title": "NYC Business Improvement Districts",
+          "year": 2024,
+          "layer": "economy",
+          "event_count": 76
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "nyc-sbs-business-improvement-districts",
+          "source_title": "NYC Business Improvement Districts",
+          "year": 2026,
+          "layer": "economy",
+          "event_count": 76
         },
         {
           "city_id": "nyc",
@@ -54111,15 +54669,7 @@
           "source_title": "2015 Street Tree Census - Tree Data",
           "year": 2015,
           "layer": "environment",
-          "event_count": 1782
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "uvpi-gqnh",
-          "source_title": "2015 Street Tree Census - Tree Data",
-          "year": 2015,
-          "layer": "transport",
-          "event_count": 18
+          "event_count": 1800
         },
         {
           "city_id": "nyc",
@@ -54218,10 +54768,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 6731,
-            "economy": 166,
+            "built_environment": 6771,
+            "economy": 173,
             "environment": 11651,
-            "transport": 1103
+            "transport": 1056
           },
           "confidence_counts": {
             "documented": 19651
@@ -54263,6 +54813,45 @@
           },
           "confidence_counts": {
             "documented": 19264
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-dcwp-issued-business-licenses",
+          "title": "NYC DCWP Issued Licenses",
+          "provider": "NYC Department of Consumer and Worker Protection",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data Terms of Use",
+          "event_count": 11738,
+          "years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2007,
+          "last_year": 2026,
+          "layer_counts": {
+            "economy": 11738
+          },
+          "confidence_counts": {
+            "documented": 11738
           },
           "coverage_status": "events_emitted"
         },
@@ -54475,10 +55064,10 @@
           "first_year": 2008,
           "last_year": 2025,
           "layer_counts": {
-            "built_environment": 2094,
-            "economy": 55,
+            "built_environment": 2102,
+            "economy": 60,
             "environment": 3325,
-            "transport": 326
+            "transport": 313
           },
           "confidence_counts": {
             "documented": 5800
@@ -54624,8 +55213,7 @@
           "first_year": 2015,
           "last_year": 2015,
           "layer_counts": {
-            "environment": 1782,
-            "transport": 18
+            "environment": 1800
           },
           "confidence_counts": {
             "documented": 1800
@@ -54915,8 +55503,8 @@
           "first_year": 1797,
           "last_year": 2002,
           "layer_counts": {
-            "environment": 1580,
-            "transport": 19
+            "environment": 1589,
+            "transport": 10
           },
           "confidence_counts": {
             "documented": 1599
@@ -55003,6 +55591,34 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "nyc-dot-street-construction-permits-legacy",
+          "title": "NYC DOT Street Construction Permits 2013-2021",
+          "provider": "NYC Department of Transportation",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data Terms of Use",
+          "event_count": 1383,
+          "years": [
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021
+          ],
+          "first_year": 2013,
+          "last_year": 2021,
+          "layer_counts": {
+            "utilities": 1383
+          },
+          "confidence_counts": {
+            "documented": 1383
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "bs8b-p36w",
           "title": "DOB Certificate Of Occupancy",
           "provider": "NYC DOB",
@@ -55063,8 +55679,8 @@
           "last_year": 2026,
           "layer_counts": {
             "built_environment": 144,
-            "environment": 1112,
-            "transport": 52
+            "environment": 1138,
+            "transport": 26
           },
           "confidence_counts": {
             "documented": 1308
@@ -55154,9 +55770,9 @@
           "last_year": 2020,
           "layer_counts": {
             "built_environment": 27,
-            "civic_services": 778,
+            "civic_services": 791,
             "environment": 214,
-            "transport": 181
+            "transport": 168
           },
           "confidence_counts": {
             "documented": 1200
@@ -55313,8 +55929,8 @@
           "last_year": 2026,
           "layer_counts": {
             "built_environment": 3,
-            "environment": 925,
-            "transport": 23
+            "environment": 931,
+            "transport": 17
           },
           "confidence_counts": {
             "documented": 951
@@ -55380,9 +55996,32 @@
           "last_year": 2026,
           "layer_counts": {
             "built_environment": 27,
-            "civic_services": 282,
+            "civic_services": 283,
             "environment": 467,
-            "transport": 65
+            "transport": 64
+          },
+          "confidence_counts": {
+            "documented": 841
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-dot-street-construction-permits-current",
+          "title": "NYC DOT Street Construction Permits 2022-present",
+          "provider": "NYC Department of Transportation",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data Terms of Use",
+          "event_count": 841,
+          "years": [
+            2022,
+            2023,
+            2024,
+            2025
+          ],
+          "first_year": 2022,
+          "last_year": 2025,
+          "layer_counts": {
+            "utilities": 841
           },
           "confidence_counts": {
             "documented": 841
@@ -55556,10 +56195,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 117,
-            "civic_services": 3,
-            "environment": 94,
-            "transport": 37,
+            "built_environment": 125,
+            "civic_services": 4,
+            "environment": 99,
+            "transport": 23,
             "utilities": 1
           },
           "confidence_counts": {
@@ -55669,6 +56308,27 @@
           },
           "confidence_counts": {
             "documented": 154
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "nyc-sbs-business-improvement-districts",
+          "title": "NYC Business Improvement Districts",
+          "provider": "NYC Department of Small Business Services",
+          "reliability": "usable_with_caveats",
+          "licence": "NYC Open Data Terms of Use",
+          "event_count": 152,
+          "years": [
+            2024,
+            2026
+          ],
+          "first_year": 2024,
+          "last_year": 2026,
+          "layer_counts": {
+            "economy": 152
+          },
+          "confidence_counts": {
+            "documented": 152
           },
           "coverage_status": "events_emitted"
         },
@@ -57649,6 +58309,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "mta-gtfs-static-public-context",
+          "title": "MTA GTFS static feeds",
+          "provider": "Metropolitan Transportation Authority",
+          "reliability": "usable_with_caveats",
+          "licence": "MTA Developer Data Terms and Conditions",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "mxbm-493w",
           "title": "Georeferenced NYC Zoning Maps",
           "provider": "NYC Open Data / City agency",
@@ -58855,6 +59529,12 @@
             "source_id": "mrjc-v9pm",
             "title": "NYC Flood Vulnerability Index",
             "provider": "NYC Open Data / City agency",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "mta-gtfs-static-public-context",
+            "title": "MTA GTFS static feeds",
+            "provider": "Metropolitan Transportation Authority",
             "reliability": "usable_with_caveats"
           },
           {

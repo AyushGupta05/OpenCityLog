@@ -4811,7 +4811,9 @@
       "family_id": "economy",
       "label": "Economy",
       "source_ids": [
-        "nyc-hue-employment-population-and-census"
+        "nyc-dcwp-issued-business-licenses",
+        "nyc-hue-employment-population-and-census",
+        "nyc-sbs-business-improvement-districts"
       ],
       "availability": "partial_local",
       "years": [
@@ -13939,6 +13941,7 @@
       "family_id": "transport",
       "label": "Transport",
       "source_ids": [
+        "mta-gtfs-static-public-context",
         "nyc-hue-street-network-and-roadway-geometry",
         "nyc-hue-traffic-volume-and-vehicle-composition",
         "nyc-hue-transit-metadata-and-real-time-routes",
@@ -15129,6 +15132,32 @@
         2026
       ],
       "notes": "2 discovered source(s). Event count contains observed or source-backed event records; source catalog layers stay in sources.json."
+    },
+    {
+      "family_id": "utilities",
+      "label": "Utilities",
+      "source_ids": [
+        "nyc-dot-street-construction-permits-current",
+        "nyc-dot-street-construction-permits-legacy"
+      ],
+      "availability": "partial_local",
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "notes": "Source-backed public context added by scripts/build_london_nyc_public_context.py."
     }
   ],
   "data_availability": {
@@ -15146,11 +15175,11 @@
     "transport_roads_template": "web/data/city-atlas/cities/nyc/transport_roads_{year}.geojson",
     "lens_detail_template": "web/data/city-atlas/cities/nyc/lens_detail_{year}.geojson",
     "transport_stops": "web/data/city-atlas/cities/nyc/transport_stops_2026.geojson",
+    "economy_anchors": "web/data/city-atlas/cities/nyc/economy_anchors_2026.geojson",
     "economy_anchors_2026": "web/data/city-atlas/cities/nyc/economy_anchors_2026.geojson",
     "economy_context_2026": "web/data/city-atlas/cities/nyc/economy_context_2026.geojson",
+    "utility_network": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson",
     "utility_network_2026": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson",
-    "utility_context_2026": "web/data/city-atlas/cities/nyc/utility_context_2026.geojson",
-    "economy_anchors": "web/data/city-atlas/cities/nyc/economy_anchors_2026.geojson",
-    "utility_network": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson"
+    "utility_context_2026": "web/data/city-atlas/cities/nyc/utility_context_2026.geojson"
   }
 }

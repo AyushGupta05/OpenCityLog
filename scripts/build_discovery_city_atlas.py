@@ -326,7 +326,7 @@ def category_and_lens(bucket: str, title: str = "") -> tuple[str, str, list[str]
     if any(k in text for k in planning_terms):
         category, lens = "built_environment", "built_environment"
         signals.add("built_environment"); signals.add("buildings")
-    elif any(k in text for k in ["traffic", "transport", "road", "transit", "collision", "bus", "rail", "subway", "cycle", "parking"]):
+    elif any(k in text for k in ["traffic", "transport", "road", "transit", "collision"]) or re.search(r"\b(bus|rail|subway|cycle|parking)\b", text):
         category, lens = "transport", "traffic"
         signals.add("traffic"); signals.add("mobility")
     elif any(k in text for k in ["environment", "air", "flood", "green", "tree", "noise", "climate", "parkland", "parks property", "public realm/parks"]):
@@ -346,7 +346,7 @@ def category_and_lens(bucket: str, title: str = "") -> tuple[str, str, list[str]
         signals.add("built_environment"); signals.add("buildings")
     if any(k in text for k in planning_terms):
         signals.add("built_environment"); signals.add("buildings")
-    if any(k in text for k in ["traffic", "transport", "road", "bus", "rail", "subway"]):
+    if any(k in text for k in ["traffic", "transport", "road"]) or re.search(r"\b(bus|rail|subway)\b", text):
         signals.add("traffic"); signals.add("mobility")
     if any(k in text for k in ["environment", "flood", "air", "tree", "green"]):
         signals.add("green_space")
@@ -400,6 +400,11 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     year = year_from_date(date)
     bucket = item.get("bucket") or item.get("category") or " ".join(str(item.get(k, "")) for k in ["source_hint", "event_seed"])
     category, lens, signals = category_and_lens(bucket, title)
+    raw_source_ids = item.get("source_ids") or []
+    source_key_text = " ".join(str(value) for value in [item.get("source_dataset_id"), *raw_source_ids])
+    if "lon-extra-food-hygiene-rating-scheme-api" in source_key_text:
+        category, lens = "economy", "jobs"
+        signals = sorted(set(signals) | {"jobs", "business", "hospitality", "food-hygiene-context"})
 
     provided_geometry = item.get("geometry") if isinstance(item.get("geometry"), dict) else None
     geometry_source = item.get("geometry_source")
@@ -429,7 +434,6 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             geometry_source = geometry_source or "Atlas reference point selected from city/area keywords because the source seed lacks row-level coordinates."
             geometry_precision = geometry_precision or "Approximate area/city reference marker for map navigation, not an exact event geometry."
 
-    raw_source_ids = item.get("source_ids") or []
     source_ids = [sid for sid in raw_source_ids if sid in source_by_id]
     if not source_ids:
         bucket_token = str(bucket).split("/")[0].split(";")[0].strip().lower()
