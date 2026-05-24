@@ -10,11 +10,11 @@ This report counts source-backed architecture-related administrative and documen
 
 | City | Events | Dominant source families |
 | --- | --- | --- |
-| belfast | 3823 | documented_milestones 2453, heritage 621, other_architecture 35, planning_admin 714 |
-| london | 34857 | documented_milestones 33082, heritage 883, other_architecture 31, planning_admin 861 |
-| nyc | 65937 | documented_milestones 28529, heritage 141, other_architecture 21, permits 36827, planning_admin 419 |
+| belfast | 3858 | documented_milestones 2453, heritage 623, other_architecture 35, planning_admin 747 |
+| london | 35907 | documented_milestones 34123, heritage 883, other_architecture 31, planning_admin 870 |
+| nyc | 66937 | documented_milestones 28529, heritage 141, other_architecture 21, permits 37827, planning_admin 419 |
 
-Total architecture events: 104617. Manual source entries: 439. Frozen priority inventory sources: 22.
+Total architecture events: 106702. Manual source entries: 439. Frozen priority inventory sources: 22.
 
 ## Frozen Priority Sources
 

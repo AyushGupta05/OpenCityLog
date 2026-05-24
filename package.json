@@ -6,6 +6,7 @@
   "scripts": {
     "build:data": "node scripts/build_city_atlas_all.js",
     "ingest:open-sources": "node scripts/run_python.js scripts/expand_london_nyc_events_from_open_sources.py && npm run build:data",
+    "ingest:public-context": "node scripts/run_python.js scripts/build_london_nyc_public_context.py && npm run build:lens-overlays && npm run build:coverage",
     "build:coverage": "node scripts/build_city_coverage_report.js",
     "build:architecture-coverage": "node scripts/build_architecture_coverage_report.js",
     "sync:architecture-registry": "node scripts/sync_architecture_source_registry.js",

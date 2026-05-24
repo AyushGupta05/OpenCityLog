@@ -4,6 +4,7 @@ const path = require("path");
 const DEFAULT_GENERATED_AT = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 const EVENT_SCHEMA_VERSION = "1.0.0";
 const ATLAS_SCHEMA_VERSION = "1.0.0";
+const ARCHITECTURE_MILESTONES = "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json";
 const BELFAST_AIR_QUALITY_SOURCE_ID = "ni-air-belfast-centre-hourly-2021-2024";
 const BELFAST_AIR_QUALITY_CSV = "belfast_air_quality.csv";
 const BELFAST_CENTRE_STATION = {
@@ -270,11 +271,76 @@ function normalizeSourceForArtifact(source, generatedAt) {
   };
 }
 
-function sourceRegistryForCity(registry, cityId, generatedAt) {
-  return registry.sources
+function architecturePackage(root) {
+  const absolutePath = resolve(root, ARCHITECTURE_MILESTONES);
+  if (!fs.existsSync(absolutePath)) return { sources: [], events: [] };
+  const payload = readJson(absolutePath);
+  return {
+    sources: Array.isArray(payload.sources) ? payload.sources : [],
+    events: Array.isArray(payload.events) ? payload.events : [],
+  };
+}
+
+function architectureSourcesForCity(root, cityId) {
+  return architecturePackage(root).sources.filter((source) => sourceAppliesToCity(source, cityId));
+}
+
+function normalizedCoverageYears(value) {
+  const start = Number(value?.start);
+  const end = Number(value?.end);
+  if (Number.isInteger(start) && Number.isInteger(end) && start >= 1700 && end >= start) {
+    return { start, end };
+  }
+  return { start: 1700, end: 2026 };
+}
+
+function normalizeArchitectureSourceForArtifact(source, generatedAt) {
+  const bucket = String(source.bucket || "planning/development/architecture");
+  const caveats = [
+    source.limitations,
+    source.license_or_terms_note,
+    "Architecture corpus source entry; inspect cited source rows and limitations before analytical reuse.",
+  ].filter(Boolean);
+  return normalizeSourceForArtifact(
+    {
+      ...source,
+      provider: source.provider || source.publisher || "Source publisher",
+      source_family: source.source_family || bucket.split("/")[0].replace(/[^a-z0-9_]+/gi, "_").toLowerCase() || "planning",
+      url: source.url || source.access_url || source.metadata_url || "",
+      licence: source.licence || source.license || "Requires source-level licence review",
+      licence_url: source.licence_url || source.license_url || source.url || source.access_url || "",
+      coverage_years: normalizedCoverageYears(source.coverage_years),
+      update_frequency: source.update_frequency || source.time_coverage || "Cadence varies by source; verify publisher metadata.",
+      reliability: source.reliability || "usable_with_caveats",
+      source_confidence: source.source_confidence || "documented",
+      attribution_text: source.attribution_text || source.attribution || source.publisher || source.provider || "See source page",
+      provenance_notes: source.provenance_notes || source.limitations || "Source entry imported from the architecture milestones corpus.",
+      caveats,
+      retrieved_at: source.retrieved_at || source.accessed_at || generatedAt,
+      accessed_at: source.accessed_at || source.retrieved_at || generatedAt,
+    },
+    generatedAt,
+  );
+}
+
+function sourceRegistryForCity(registry, cityId, generatedAt, root) {
+  const byId = new Map();
+  const baseSources = registry.sources
     .filter((source) => sourceAppliesToCity(source, cityId))
     .map((source) => normalizeSourceForArtifact(source, generatedAt))
-    .sort((a, b) => a.source_id.localeCompare(b.source_id));
+  for (const source of baseSources) {
+    byId.set(source.source_id, source);
+  }
+  for (const source of architectureSourcesForCity(root, cityId).map((item) => normalizeArchitectureSourceForArtifact(item, generatedAt))) {
+    if (!byId.has(source.source_id)) {
+      byId.set(source.source_id, source);
+      continue;
+    }
+    const existing = byId.get(source.source_id);
+    existing.caveats = [...new Set([...(existing.caveats || []), ...(source.caveats || [])])];
+    existing.local_paths = [...new Set([...(existing.local_paths || []), ...(source.local_paths || [])])];
+  }
+  return [...byId.values()].sort((a, b) => a.source_id.localeCompare(b.source_id));
 }
 
 function yearRange(start, end) {
@@ -827,6 +893,213 @@ function normalizeLegacyBelfastEvent(event, legacyCatalogPath) {
   };
 }
 
+function sourceIdsForManualArchitectureEvent(event) {
+  const ids = new Set(Array.isArray(event.source_ids) ? event.source_ids.filter(Boolean).map(String) : []);
+  if (event.source_id) ids.add(String(event.source_id));
+  return [...ids];
+}
+
+function geometryForManualArchitectureEvent(event) {
+  if (event.geometry && event.geometry.type === "Point" && validPoint(event.geometry.coordinates)) {
+    const [lng, lat] = event.geometry.coordinates;
+    return { type: "Point", coordinates: [Number(lng.toFixed(6)), Number(lat.toFixed(6))] };
+  }
+  const lat = Number(event.latitude);
+  const lng = Number(event.longitude);
+  if (Number.isFinite(lat) && Number.isFinite(lng)) {
+    return { type: "Point", coordinates: [Number(lng.toFixed(6)), Number(lat.toFixed(6))] };
+  }
+  return null;
+}
+
+function dateFieldsForManualArchitectureEvent(event) {
+  const effectiveDate = String(event.effective_date || event.date || "").trim();
+  const precision = String(event.date_precision || "").trim();
+  const datePrecision = ["day", "month", "year", "range", "unknown"].includes(precision)
+    ? precision
+    : /^\d{4}-\d{2}-\d{2}/.test(effectiveDate)
+      ? "day"
+      : /^\d{4}-\d{2}$/.test(effectiveDate)
+        ? "month"
+        : /^\d{4}$/.test(effectiveDate)
+          ? "year"
+          : "unknown";
+  return {
+    effective_date: effectiveDate || null,
+    effective_date_range: event.effective_date_range || null,
+    date_precision: datePrecision,
+    source_date_field: event.source_date_field || event.source_lifecycle_field || "architecture corpus event date",
+  };
+}
+
+function normalizedYearForManualArchitectureEvent(event, dates) {
+  const year = Number(String(dates.effective_date || event.date || "").slice(0, 4));
+  return Number.isInteger(year) && year >= 1700 && year <= 2026 ? year : null;
+}
+
+function categoryLensSignalsForManualArchitectureEvent(event) {
+  const text = `${event.bucket || ""} ${event.category || ""} ${event.title || ""} ${event.project_type || ""}`.toLowerCase();
+  const signals = new Set(["built_environment", "buildings"]);
+  if (/road|street|transport|parking|cycle|bus|rail/.test(text)) signals.add("mobility");
+  if (/park|garden|tree|green|landscap/.test(text)) signals.add("green_space");
+  if (/school|education|health|community|leisure|library/.test(text)) signals.add("services");
+  return {
+    category: "built_environment",
+    lens: "built_environment",
+    affected_signals: [...signals].sort(),
+  };
+}
+
+function evidenceForManualArchitectureEvent(event, sourceIds, sourcePath) {
+  const primarySource = sourceIds[0] || event.source_id || "belfast-architecture-public-pages";
+  const evidence = [];
+  if (event.source_url) {
+    evidence.push({
+      source_id: primarySource,
+      label: event.source_name || event.publisher || primarySource,
+      kind: "source_url",
+      url: event.source_url,
+      file_path: null,
+      record_id: event.source_record_id || event.candidate_id || event.event_id,
+    });
+  }
+  evidence.push({
+    source_id: primarySource,
+    label: "Architecture milestones corpus",
+    kind: "local_file",
+    url: null,
+    file_path: sourcePath,
+    record_id: event.source_record_id || event.candidate_id || event.event_id,
+  });
+  return evidence;
+}
+
+function normalizeManualBelfastArchitectureEvent(event, sourcePath) {
+  const dates = dateFieldsForManualArchitectureEvent(event);
+  const year = normalizedYearForManualArchitectureEvent(event, dates);
+  const sourceIds = sourceIdsForManualArchitectureEvent(event);
+  const geometry = geometryForManualArchitectureEvent(event);
+  const categorized = categoryLensSignalsForManualArchitectureEvent(event);
+  const area = event.area || event.location_name || event.address || "Belfast";
+  const limitations = event.limitations || "Curated architecture milestone; inspect source row before reuse.";
+  return {
+    schema_version: EVENT_SCHEMA_VERSION,
+    city_id: "belfast",
+    record_kind: "event",
+    event_id: String(event.event_id || event.id),
+    title: String(event.title || "Belfast architecture milestone"),
+    short_description: sentenceLimit(event.summary || event.observed_change || event.title),
+    year,
+    effective_date: dates.effective_date,
+    effective_date_range: dates.effective_date_range,
+    date_precision: dates.date_precision,
+    source_date_field: dates.source_date_field,
+    category: categorized.category,
+    lens: categorized.lens,
+    geometry,
+    affected_area: {
+      label: String(area),
+    },
+    source_ids: sourceIds.length ? sourceIds : ["belfast-architecture-public-pages"],
+    evidence: evidenceForManualArchitectureEvent(event, sourceIds, sourcePath),
+    confidence: ["documented", "corroborated", "inferred", "disputed"].includes(event.confidence) ? event.confidence : "documented",
+    affected_signals: categorized.affected_signals,
+    explanation:
+      event.observed_change ||
+      `The architecture milestones corpus records a source-backed built-environment milestone near ${area}. It is not used as causal or predictive evidence.`,
+    caveats: [
+      limitations,
+      event.license_or_terms_note,
+      "Curated architecture milestone from the manual corpus; preserve source URL, row identifier, retrieval date, and limitations with reuse.",
+    ].filter(Boolean),
+    provenance: {
+      transform: "scripts/build_data.js#normalizeManualBelfastArchitectureEvent",
+      source_path: sourcePath,
+      source_record_id: event.source_record_id || event.candidate_id || event.event_id,
+      source_url: event.source_url || null,
+      source_retrieved_at: event.source_retrieved_at || event.retrieved_at || event.accessed_at || null,
+      source_dataset_id: event.source_dataset_id || event.source_id || sourceIds[0] || null,
+      source_basis: event.source_type || event.project_type || event.category || null,
+      source_date_field: dates.source_date_field,
+      geometry_source:
+        event.geometry_source ||
+        "Manual architecture corpus geometry; use source limitations to interpret precision.",
+      geometry_precision:
+        event.geometry_precision ||
+        "Approximate point for map navigation; not a surveyed application boundary or building footprint.",
+    },
+  };
+}
+
+function planningApplicationDateKey(text, date) {
+  const match = String(text || "").match(/\bLA04[\/-](\d{4})[\/-](\d{3,5})\b/i);
+  if (!match) return null;
+  return `la04-${match[1]}-${match[2]}|${date || ""}`.toLowerCase();
+}
+
+function duplicateKeysForPublicBelfastEvents(events) {
+  const keys = {
+    eventIds: new Set(),
+    sourceRecordIds: new Set(),
+    titleDateKeys: new Set(),
+    planningDateKeys: new Set(),
+  };
+  for (const event of events) {
+    keys.eventIds.add(String(event.event_id || ""));
+    const sourceRecordId = event.provenance?.source_record_id || "";
+    if (sourceRecordId) keys.sourceRecordIds.add(String(sourceRecordId));
+    keys.titleDateKeys.add(`${compactText(event.title).toLowerCase()}\u0000${event.effective_date || ""}`);
+    const planningText = `${event.event_id || ""} ${event.title || ""} ${event.short_description || ""} ${sourceRecordId}`;
+    const planningKey = planningApplicationDateKey(planningText, event.effective_date);
+    if (planningKey) keys.planningDateKeys.add(planningKey);
+  }
+  return keys;
+}
+
+function loadBelfastManualArchitectureEvents(root, existingEvents) {
+  const sourcePath = toPosix(ARCHITECTURE_MILESTONES);
+  const payload = architecturePackage(root);
+  const duplicateKeys = duplicateKeysForPublicBelfastEvents(existingEvents);
+  const events = [];
+  const rejected = [];
+  for (const event of payload.events.filter((item) => item.city_id === "belfast")) {
+    const normalized = normalizeManualBelfastArchitectureEvent(event, sourcePath);
+    const titleDateKey = `${compactText(normalized.title).toLowerCase()}\u0000${normalized.effective_date || ""}`;
+    const planningText = `${event.event_id || ""} ${event.title || ""} ${event.summary || ""} ${event.source_record_id || ""}`;
+    const planningKey = planningApplicationDateKey(planningText, normalized.effective_date);
+    const sourceRecordId = normalized.provenance.source_record_id || "";
+    const reason = !normalized.event_id
+      ? "missing event_id"
+      : !Number.isInteger(normalized.year)
+        ? "missing or invalid effective year"
+        : duplicateKeys.eventIds.has(normalized.event_id)
+          ? "event_id already present in public Belfast atlas"
+          : sourceRecordId && duplicateKeys.sourceRecordIds.has(sourceRecordId)
+            ? "source_record_id already present in public Belfast atlas"
+            : duplicateKeys.titleDateKeys.has(titleDateKey)
+              ? "title/date already present in public Belfast atlas"
+              : planningKey && duplicateKeys.planningDateKeys.has(planningKey)
+                ? "planning application/date already represented in public Belfast atlas"
+                : null;
+    if (reason) {
+      rejected.push({
+        event_id: event.event_id || event.id || null,
+        title: event.title || null,
+        effective_date: normalized.effective_date || null,
+        source_record_id: sourceRecordId || null,
+        reason,
+      });
+      continue;
+    }
+    events.push(normalized);
+    duplicateKeys.eventIds.add(normalized.event_id);
+    if (sourceRecordId) duplicateKeys.sourceRecordIds.add(sourceRecordId);
+    duplicateKeys.titleDateKeys.add(titleDateKey);
+    if (planningKey) duplicateKeys.planningDateKeys.add(planningKey);
+  }
+  return { events, rejected, sourcePath, source_event_count: payload.events.filter((item) => item.city_id === "belfast").length };
+}
+
 function loadBelfastLegacyEvents(root, legacyCatalogPath) {
   const absolute = resolve(root, legacyCatalogPath);
   if (!fs.existsSync(absolute)) return { events: [], migration: null };
@@ -856,15 +1129,22 @@ function loadBelfastLegacyEvents(root, legacyCatalogPath) {
 function loadBelfastEvents(root, legacyCatalogPath) {
   const legacy = loadBelfastLegacyEvents(root, legacyCatalogPath);
   const airQualityEvents = loadBelfastAirQualityEvents(root);
-  const events = [...legacy.events, ...airQualityEvents].sort(
+  const manualArchitecture = loadBelfastManualArchitectureEvents(root, [...legacy.events, ...airQualityEvents]);
+  const events = [...legacy.events, ...airQualityEvents, ...manualArchitecture.events].sort(
     (a, b) => a.year - b.year || a.event_id.localeCompare(b.event_id),
   );
   const migration = legacy.migration
     ? {
         ...legacy.migration,
-        source_event_count: (legacy.migration.source_event_count || legacy.events.length) + airQualityEvents.length,
+        source_event_count:
+          (legacy.migration.source_event_count || legacy.events.length) +
+          airQualityEvents.length +
+          manualArchitecture.source_event_count,
         normalized_event_count: events.length,
-        additional_source_paths: airQualityEvents.length ? [BELFAST_AIR_QUALITY_CSV] : [],
+        additional_source_paths: [
+          ...(airQualityEvents.length ? [BELFAST_AIR_QUALITY_CSV] : []),
+          ...(manualArchitecture.events.length ? [manualArchitecture.sourcePath] : []),
+        ],
         notes: [
           ...(legacy.migration.notes || []),
           ...(airQualityEvents.length
@@ -873,7 +1153,20 @@ function loadBelfastEvents(root, legacyCatalogPath) {
                 "Air-quality observations are monitoring context from one station, not citywide exposure or outcome evidence.",
               ]
             : []),
+          ...(manualArchitecture.events.length
+            ? [
+                "Curated Belfast architecture milestones from the manual corpus are merged into the public Belfast atlas after event/source/date duplicate screening.",
+                `${manualArchitecture.rejected.length} Belfast manual architecture milestone(s) were skipped because an existing public Belfast event already represented the same event, source record, title/date, or planning application/date.`,
+              ]
+            : []),
         ],
+        manual_architecture: {
+          source_path: manualArchitecture.sourcePath,
+          source_event_count: manualArchitecture.source_event_count,
+          normalized_event_count: manualArchitecture.events.length,
+          duplicate_or_invalid_rejected_count: manualArchitecture.rejected.length,
+          rejected_examples: manualArchitecture.rejected.slice(0, 25),
+        },
       }
     : null;
   return { events, migration };
@@ -1102,7 +1395,7 @@ function buildAtlas(args) {
       root,
       outputDir,
       city,
-      sourceRegistryForCity(registry, city.city_id, args.generatedAt),
+      sourceRegistryForCity(registry, city.city_id, args.generatedAt, root),
       args.legacyCatalog,
       args.generatedAt,
     ),

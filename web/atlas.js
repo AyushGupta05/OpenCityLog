@@ -1320,6 +1320,9 @@
     if (geom.type === "LineString" && Array.isArray(geom.coordinates)) {
       return averageRing(geom.coordinates);
     }
+    if ((geom.type === "MultiPolygon" || geom.type === "MultiLineString") && Array.isArray(geom.coordinates)) {
+      return averageNestedCoordinates(geom.coordinates);
+    }
     return null;
   }
   function averageRing(coords) {
@@ -1327,6 +1330,22 @@
     for (const [x, y] of coords) {
       if (Number.isFinite(x) && Number.isFinite(y)) { lng += x; lat += y; n += 1; }
     }
+    return n ? [lng / n, lat / n] : null;
+  }
+
+  function averageNestedCoordinates(coords) {
+    let lng = 0, lat = 0, n = 0;
+    const visit = (value) => {
+      if (!Array.isArray(value)) return;
+      if (value.length >= 2 && Number.isFinite(value[0]) && Number.isFinite(value[1])) {
+        lng += value[0];
+        lat += value[1];
+        n += 1;
+        return;
+      }
+      value.forEach(visit);
+    };
+    visit(coords);
     return n ? [lng / n, lat / n] : null;
   }
 
@@ -8078,6 +8097,11 @@
           properties: {
             kind: "surface_cell",
             lens_id: lens.id,
+            ...(lens.id === "economy-land-use" ? {
+              surface_style: "land_use_tile",
+              source_kind: "source_backed_event_density",
+              evidence_role: "selected_year_context",
+            } : {}),
             intensity: Number(density.toFixed(3)),
             color: surfaceColorForLens(lens.id, density, angle, nearestEvent, lens),
             event_id: nearestEvent?.id || "",
