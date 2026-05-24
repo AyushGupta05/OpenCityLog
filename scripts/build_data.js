@@ -223,6 +223,14 @@ function generatedArtifactPaths(root, cityOutputDir) {
     detail_layers: "detail_layers.geojson",
     lens_overlays: "lens_overlays.geojson",
     transport_roads_base: "transport_roads_base.geojson",
+    transport_stops: "transport_stops_2026.geojson",
+    economy_anchors: "economy_anchors_2026.geojson",
+    economy_anchors_2026: "economy_anchors_2026.geojson",
+    economy_context_2026: "economy_context_2026.geojson",
+    utility_network: "utility_network_2026.geojson",
+    utility_network_2026: "utility_network_2026.geojson",
+    utility_context_2026: "utility_context_2026.geojson",
+    civic_services_context: "civic_services_2026.geojson",
   };
   for (const [key, filename] of Object.entries(knownFiles)) {
     const filePath = path.join(cityOutputDir, filename);
@@ -1273,11 +1281,12 @@ function existingGeneratedCitySummary(root, outputDir, city) {
     event_count: eventsIndex.event_count,
     source_count: sourcesPayload.source_count || (sourcesPayload.sources || []).length,
     availability_status: cityPayload.data_availability?.status || city.data_availability?.status || "unknown",
-    artifact_paths: cityPayload.artifact_paths || {
+    artifact_paths: {
       city: relativeFromRoot(root, cityPath),
       sources: relativeFromRoot(root, sourcesPath),
       events: relativeFromRoot(root, eventsPath),
       availability: relativeFromRoot(root, path.join(cityOutputDir, "availability.json")),
+      ...(cityPayload.artifact_paths || {}),
       ...generatedArtifactPaths(root, cityOutputDir),
     },
   };

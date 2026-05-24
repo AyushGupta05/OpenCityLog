@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","name":"london_transport_roads_1827","metadata":{"schema_version":"1.0.0","city_id":"london","year":1827,"road_source":"data/raw/overpass/london_major_roads_osm_2026.geojson","method":"Road features are colored from nearby source-backed transport records in a rolling three-year window.","caveat":"Transport road colors are activity hotspots, not measured traffic counts or live congestion."},"features":[]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:04cc7b0778de4bb93ceb05f127c193e7ff420bfbc196f7dd5261fd232b837b6f
+size 436

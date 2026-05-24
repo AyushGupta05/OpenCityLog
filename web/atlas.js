@@ -7,6 +7,8 @@
 
   const DEFAULT_CITY = "belfast";
   const DEFAULT_YEAR = 2024;
+  const LENS_MAP_PITCH = 54;
+  const LENS_MAP_BEARING = -12;
   const MAX_MARKERS = 90;
   const EVENT_LIST_BATCH_SIZE = 24;
   const PLAY_RATE_YEARS_PER_SECOND = 1.4;
@@ -876,7 +878,7 @@
     compareAfterYear: null,
     compareEvidenceLoadingKey: "",
     detailEvidenceLoadingKey: "",
-    mapTilted: false,
+    mapTilted: true,
     lensOpen: false,
     methodOpen: false,
     welcomeOpen: false,
@@ -1201,7 +1203,7 @@
     resetActiveAspectLayers();
     state.compareBeforeYear = compareDefaultBeforeYear();
     state.compareAfterYear = state.year;
-    state.mapTilted = false;
+    state.mapTilted = true;
     state.detailLayerError = null;
     state.lensOverlayError = null;
     state.lensEventFeatureCount = 0;
@@ -1539,7 +1541,7 @@
     const zoom = Number(state.city?.default_zoom || 11.5);
 
     if (state.map) {
-      state.map.jumpTo({ center, zoom, pitch: state.mapTilted ? 48 : 0, bearing: state.mapTilted ? -10 : 0 });
+      state.map.jumpTo({ center, zoom, pitch: state.mapTilted ? LENS_MAP_PITCH : 0, bearing: state.mapTilted ? LENS_MAP_BEARING : 0 });
       setTimeout(() => state.map.resize(), 60);
       updateTimeDependentMapState();
       updateMapToolState();
@@ -1573,8 +1575,8 @@
       },
       center,
       zoom,
-      pitch: state.mapTilted ? 48 : 0,
-      bearing: state.mapTilted ? -10 : 0,
+      pitch: state.mapTilted ? LENS_MAP_PITCH : 0,
+      bearing: state.mapTilted ? LENS_MAP_BEARING : 0,
       minZoom: 3,
       maxZoom: 18,
       attributionControl: false,
@@ -1593,6 +1595,7 @@
       state.mapReady = true;
       state.map.resize();
       updateTimeDependentMapState();
+      updateMapToolState();
       renderMarkers();
       focusPendingCameraEvent(0);
     };
@@ -1608,6 +1611,72 @@
     const center = state.city?.default_center;
     if (Array.isArray(center) && center.length === 2) return center;
     return [-5.9301, 54.5973];
+  }
+
+  function sameCategoryEventForLensExists(lens = activeMapLens()) {
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    if (!category) return false;
+    return lensEventsForYear(currentTimelineYear()).some((event) => event.category === category && event.lngLat);
+  }
+
+  function selectedEventMatchesLens(lens = activeMapLens()) {
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    return Boolean(state.selectedEvent?.lngLat && (!category || state.selectedEvent.category === category));
+  }
+
+  function representativeContextPoint(features, scoreFn) {
+    const center = mapCenter();
+    let best = null;
+    for (const feature of features || []) {
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      const distance = lngLatDistanceMeters(center, point);
+      const proximity = 1 - Math.min(distance, 9000) / 9000;
+      const props = feature.properties || {};
+      const score = Number(scoreFn?.(props, feature) || 0) + proximity * 0.36 + stableUnit(`${props.source_id || props.id || ""}:context-center`) * 0.025;
+      if (!best || score > best.score) best = { point, score };
+    }
+    return best?.point || null;
+  }
+
+  function currentContextCenterForLens(lens = activeMapLens()) {
+    if (!lens) return null;
+    if (["economy-vitality", "economy-gravity"].includes(lens.id)) {
+      return representativeContextPoint(
+        state.economyAnchorFeatures,
+        (props) => Number(props.anchor_rank || 1) * 0.18 + economyGravityAnchorPriority(props) * 0.52 + Number(props.intensity || 0.4) * 0.22,
+      );
+    }
+    if (lens.id?.startsWith("utilities-")) {
+      const lineFeatures = (state.utilityNetworkFeatures || []).filter((feature) => ["LineString", "MultiLineString"].includes(feature.geometry?.type));
+      return representativeContextPoint(
+        lineFeatures.length ? lineFeatures : state.utilityNetworkFeatures,
+        (props, feature) => Number(props.rank || 1) * 0.16
+          + Number(props.asset_priority || 0) * 0.08
+          + Number(props.intensity || 0.45) * 0.26
+          + (feature.geometry?.type === "LineString" || feature.geometry?.type === "MultiLineString" ? 1 : 0),
+      );
+    }
+    if (["civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id)) {
+      return representativeContextPoint(
+        state.civicServiceFeatures,
+        (props) => Number(props.rank || props.anchor_rank || 1) * 0.16 + Number(props.intensity || 0.4) * 0.22,
+      );
+    }
+    return null;
+  }
+
+  function activeLensCameraCenter(lens = activeMapLens()) {
+    if (selectedEventMatchesLens(lens)) return state.selectedEvent.lngLat;
+    const contextCenter = currentContextCenterForLens(lens);
+    if (contextCenter && !sameCategoryEventForLensExists(lens)) return contextCenter;
+    return state.selectedEvent?.lngLat || contextCenter || mapCenter();
+  }
+
+  function refocusIfContextDrivenLens() {
+    const lens = activeMapLens();
+    if (selectedEventMatchesLens(lens) || sameCategoryEventForLensExists(lens)) return;
+    if (currentContextCenterForLens(lens)) focusActiveLensCamera(420);
   }
 
   function renderMarkers() {
@@ -1818,7 +1887,7 @@
       top: 82,
       bottom: Math.max(260, size.height - 145),
     };
-    const centerPx = state.map.project(state.selectedEvent?.lngLat || mapCenter());
+    const centerPx = state.map.project(activeLensCameraCenter(activeMapLens()));
     const exclusions = lensGuideLabelExclusions();
     const placed = [];
     const html = [];
@@ -2534,14 +2603,14 @@
         "fill-opacity",
         [
           "interpolate", ["linear"], ["zoom"],
-          10, pressureActive || parcelActive ? 0.025 : deltaActive ? 0.035 : builtActive ? 0.1 : 0.03,
-          14, pressureActive ? 0.075 : parcelActive ? 0.045 : deltaActive ? 0.09 : builtActive ? 0.2 : 0.08,
-          17, pressureActive ? 0.12 : parcelActive ? 0.07 : deltaActive ? 0.14 : builtActive ? 0.3 : 0.14,
+          10, pressureActive ? 0.045 : parcelActive ? 0.025 : deltaActive ? 0.035 : builtActive ? 0.1 : 0.03,
+          14, pressureActive ? 0.13 : parcelActive ? 0.045 : deltaActive ? 0.09 : builtActive ? 0.2 : 0.08,
+          17, pressureActive ? 0.2 : parcelActive ? 0.07 : deltaActive ? 0.14 : builtActive ? 0.3 : 0.14,
         ],
       );
     }
     if (state.map.getLayer("detail-buildings-extrusion")) {
-      state.map.setPaintProperty("detail-buildings-extrusion", "fill-extrusion-opacity", pressureActive ? 0.06 : parcelActive ? 0.02 : deltaActive ? 0.04 : builtActive ? 0.32 : 0.12);
+      state.map.setPaintProperty("detail-buildings-extrusion", "fill-extrusion-opacity", pressureActive ? 0.12 : parcelActive ? 0.02 : deltaActive ? 0.05 : builtActive ? 0.34 : 0.12);
     }
     if (state.map.getLayer("detail-roads-visible")) {
       state.map.setPaintProperty(
@@ -4231,12 +4300,12 @@
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.08,
-        1, 0.36,
+        0, 0.14,
+        1, 0.58,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.2 : 0.72;
-    const low = mode === "utilities-works" ? 0.04 : mode === "utilities-capacity" ? 0.22 : 0.22;
+    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.64 : 0.72;
+    const low = mode === "utilities-works" ? 0.16 : mode === "utilities-capacity" ? 0.22 : 0.22;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, low,
@@ -4256,21 +4325,21 @@
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.035,
-        1, 0.16,
+        0, 0.07,
+        1, 0.26,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.12 : 0.36;
+    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.34 : 0.36;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-      0, mode === "utilities-works" ? 0.02 : 0.08,
+      0, mode === "utilities-works" ? 0.08 : 0.08,
       1, high,
     ];
   }
 
   function utilityNetworkWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.58 : mode === "utilities-works" ? 0.56 : mode === "utilities-capacity" ? 1.18 : 1;
+    const factor = mode === "utilities-resilience" ? 0.74 : mode === "utilities-works" ? 0.92 : mode === "utilities-capacity" ? 1.18 : 1;
     return [
       "interpolate", ["linear"], ["zoom"],
       9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.26, 5, 0.9]],
@@ -4281,7 +4350,7 @@
 
   function utilityNetworkCaseWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.56 : mode === "utilities-capacity" ? 1.24 : mode === "utilities-works" ? 0.64 : 1;
+    const factor = mode === "utilities-resilience" ? 0.72 : mode === "utilities-capacity" ? 1.24 : mode === "utilities-works" ? 0.98 : 1;
     return [
       "interpolate", ["linear"], ["zoom"],
       9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.72, 5, 1.8]],
@@ -5144,16 +5213,16 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.006, 0.04) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.018, 0.13) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.006, 0.032) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.018, 0.085) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.045, 0.18) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.035, 0.12) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.035, 0.18) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.026, 0.16) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.012, 0.06) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.1, 0.38) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.06, 0.24) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.06, 0.18) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.03, 0.12) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.02, 0.1) : lensDetailFillOpacity(0.16, 0.5));
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.08, 0.26) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.04, 0.12) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.04, 0.14) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.015, 0.065) : lensDetailFillOpacity(0.04, 0.16));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.025, 0.12) : lensDetailLineOpacity(0.06, 0.28));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.04, 0.16));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.28) : lensDetailLineOpacity(0.06, 0.28));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
     setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
@@ -5732,6 +5801,7 @@
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "civic_service_anchor")
           : [];
         updateLensGuideSource();
+        refocusIfContextDrivenLens();
         renderLayers();
         renderLensLegend();
         renderDetail();
@@ -5772,6 +5842,7 @@
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "economy_anchor")
           : [];
         updateLensGuideSource();
+        refocusIfContextDrivenLens();
         renderLayers();
         renderLensLegend();
       })
@@ -5827,6 +5898,7 @@
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "utility_network")
           : [];
         updateLensGuideSource();
+        refocusIfContextDrivenLens();
         renderLayers();
         renderLensLegend();
       })
@@ -5998,7 +6070,7 @@
 
   function lensGuideFeatureCollection() {
     const lens = activeMapLens();
-    const center = state.selectedEvent?.lngLat || mapCenter();
+    const center = activeLensCameraCenter(lens);
     const radiusM = lensEffectiveRadiusM(lens);
     const features = [];
     const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
@@ -10962,6 +11034,10 @@
     const clipRadiusM = radiusM * 1.62;
     const anchorCandidates = economyVitalityAnchorCandidates(center, lens, maxDistance * 1.08);
     const features = [];
+    const hasEconomyDetailGeometry = (state.lensDetailFeatures || []).some((feature) => ["economy_frontage", "economy_activity_cell"].includes(feature.properties?.layer));
+    if (!roads.length && !hasEconomyDetailGeometry) {
+      return economyVitalityAnchorContextFeatures(center, lens, anchorCandidates, maxDistance);
+    }
     features.push(...economyVitalityFrontageRibbonFeatures(center, lens, events, beforeEvents, maxDistance, clipRadiusM));
     features.push(...economyVitalityChurnNoticeTicks(center, lens, events, maxDistance, anchorCandidates));
     for (const road of roads) {
@@ -11049,6 +11125,54 @@
       }
     }
     return distributeEconomyVitalityRibbons(features, center, 860);
+  }
+
+  function economyVitalityAnchorContextFeatures(center, lens, anchorCandidates, maxDistance) {
+    const selected = selectEconomyVitalityRibbonSet(
+      (anchorCandidates || [])
+        .sort((a, b) => Number(b.score || 0) - Number(a.score || 0))
+        .slice(0, 180)
+        .map((item, index) => {
+          const seed = stableUnit(`${item.sourceId || item.props?.id || index}:anchor-ribbon`);
+          const angle = Math.atan2(item.point[1] - center[1], item.point[0] - center[0]) + Math.PI / 2 + (seed - 0.5) * 0.52;
+          const halfLengthM = 42 + clamp01(item.intensity || 0.42) * 78 + Math.min(42, Number(item.rank || 1) * 9);
+          const dx = Math.cos(angle) * halfLengthM;
+          const dy = Math.sin(angle) * halfLengthM;
+          const sublayerId = item.sublayerId || "economy";
+          const proximity = 1 - Math.min(item.distance, maxDistance) / Math.max(1, maxDistance);
+          const intensity = clamp01(0.3 + Number(item.intensity || 0.42) * 0.48 + proximity * 0.16);
+          return {
+            type: "Feature",
+            properties: {
+              kind: "flow",
+              lens_id: lens.id,
+              flow_style: "economy_current_ribbon",
+              flow_role: "current_context_anchor",
+              event_id: "",
+              source_id: item.sourceId || item.props?.source_id || item.props?.id || "",
+              sublayer_id: sublayerId,
+              source_kind: "economy_anchor_context",
+              evidence_role: "context_not_year_specific_change_evidence",
+              intensity: Number(intensity.toFixed(2)),
+              color: economyVitalityRibbonColor(item.props || {}, intensity),
+              edge_offset: Number(((seed < 0.5 ? -1 : 1) * 0.56).toFixed(2)),
+              score: Number((Number(item.score || 0) + intensity * 0.32 + seed * 0.04).toFixed(3)),
+            },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                offsetLngLat(item.point, -dx, -dy),
+                offsetLngLat(item.point, dx, dy),
+              ],
+            },
+          };
+        }),
+      center,
+      140,
+      { angleBuckets: 36, ringM: 180, perBucket: 3, minSpacingM: 38 },
+    );
+    const ticks = economyVitalityChurnNoticeTicks(center, lens, [], maxDistance, anchorCandidates).slice(0, 90);
+    return [...ticks, ...selected].sort((a, b) => economyVitalityFeatureSortScore(b) - economyVitalityFeatureSortScore(a));
   }
 
   function economyVitalityAnchorInfluence(point, anchors, kernelM = 300) {
@@ -19614,21 +19738,21 @@
       center: event.lngLat,
       zoom: lensCameraZoom(activeMapLens(), event.lngLat),
       offset: lensCameraOffset(activeMapLens()),
-      pitch: state.mapTilted ? 48 : 0,
-      bearing: state.mapTilted ? -10 : 0,
+      pitch: state.mapTilted ? LENS_MAP_PITCH : 0,
+      bearing: state.mapTilted ? LENS_MAP_BEARING : 0,
       duration,
     });
   }
 
   function focusActiveLensCamera(duration = 420) {
-    const event = state.selectedEvent;
-    if (!event?.lngLat || !state.map || !state.mapReady) return;
+    const center = activeLensCameraCenter(activeMapLens());
+    if (!center || !state.map || !state.mapReady) return;
     state.map.easeTo({
-      center: event.lngLat,
-      zoom: lensCameraZoom(activeMapLens(), event.lngLat),
+      center,
+      zoom: lensCameraZoom(activeMapLens(), center),
       offset: lensCameraOffset(activeMapLens()),
-      pitch: state.mapTilted ? 48 : 0,
-      bearing: state.mapTilted ? -10 : 0,
+      pitch: state.mapTilted ? LENS_MAP_PITCH : 0,
+      bearing: state.mapTilted ? LENS_MAP_BEARING : 0,
       duration,
     });
   }
@@ -19654,7 +19778,7 @@
     return [offsetX, offsetY];
   }
 
-  function lensCameraZoom(lens = activeMapLens(), lngLat = state.selectedEvent?.lngLat || mapCenter()) {
+  function lensCameraZoom(lens = activeMapLens(), lngLat = activeLensCameraCenter(lens)) {
     const radiusM = Math.max(300, lensEffectiveRadiusM(lens));
     const metersPerPixelByLens = {
       "transport-speed": 5.05,
@@ -20022,8 +20146,8 @@
     state.map.easeTo({
       center: mapCenter(),
       zoom: Number(state.city?.default_zoom || 11.5),
-      pitch: state.mapTilted ? 48 : 0,
-      bearing: state.mapTilted ? -10 : 0,
+      pitch: state.mapTilted ? LENS_MAP_PITCH : 0,
+      bearing: state.mapTilted ? LENS_MAP_BEARING : 0,
       duration: 520,
     });
   }
@@ -20032,7 +20156,7 @@
     state.mapTilted = !state.mapTilted;
     updateMapToolState();
     if (!state.map) return;
-    state.map.easeTo({ pitch: state.mapTilted ? 48 : 0, bearing: state.mapTilted ? -10 : 0, duration: 420 });
+    state.map.easeTo({ pitch: state.mapTilted ? LENS_MAP_PITCH : 0, bearing: state.mapTilted ? LENS_MAP_BEARING : 0, duration: 420 });
   }
 
   function updateMapToolState() {

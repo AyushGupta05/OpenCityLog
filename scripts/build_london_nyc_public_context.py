@@ -1919,72 +1919,82 @@ def main() -> None:
 
     print("[public-context] Fetching London economy context")
     london_economy_features, london_economy_events = build_london_economy_context(retrieved_at, accessed_at)
+    london_economy_collection = feature_collection(
+        london_economy_features,
+        {
+            "title": "London economy boundary context",
+            "publisher": "Greater London Authority",
+            "source_url": "https://gis.london.gov.uk/arcgis/rest/services/apps/Busyness_context/MapServer",
+            "license": OGL3,
+            "license_url": OGL3_URL,
+            "retrieved_at": retrieved_at,
+            "accessed_at": accessed_at,
+            "feature_count": len(london_economy_features),
+            "artifact_role": "current economy anchor/context layer",
+            "limitations": [
+                "Current commercial-place context only; not evidence that a place changed in a selected year.",
+                "No economic impact, footfall, vacancy, or frontage claim is inferred.",
+            ],
+        },
+    )
     write_json(
         LONDON_DIR / "economy_context_2026.geojson",
-        feature_collection(
-            london_economy_features,
-            {
-                "title": "London economy boundary context",
-                "publisher": "Greater London Authority",
-                "source_url": "https://gis.london.gov.uk/arcgis/rest/services/apps/Busyness_context/MapServer",
-                "license": OGL3,
-                "license_url": OGL3_URL,
-                "retrieved_at": retrieved_at,
-                "accessed_at": accessed_at,
-                "feature_count": len(london_economy_features),
-                "limitations": [
-                    "Current commercial-place context only; not evidence that a place changed in a selected year.",
-                    "No economic impact, footfall, vacancy, or frontage claim is inferred.",
-                ],
-            },
-        ),
+        london_economy_collection,
     )
+    write_json(LONDON_DIR / "economy_anchors_2026.geojson", london_economy_collection)
 
     print("[public-context] Fetching NYC economy context")
     nyc_economy_features, nyc_economy_events = build_nyc_economy_context(retrieved_at, accessed_at)
+    nyc_economy_collection = feature_collection(
+        nyc_economy_features,
+        {
+            "title": "NYC economy boundary context",
+            "publisher": "NYC Department of Small Business Services",
+            "source_url": "https://data.cityofnewyork.us/resource/7jdm-inj8.geojson",
+            "license": NYC_OPEN_DATA_TERMS,
+            "license_url": NYC_OPEN_DATA_TERMS_URL,
+            "retrieved_at": retrieved_at,
+            "accessed_at": accessed_at,
+            "feature_count": len(nyc_economy_features),
+            "artifact_role": "current economy anchor/context layer",
+            "limitations": [
+                "Current commercial district context only; not evidence that a district changed in a selected year.",
+                "No economic impact, footfall, vacancy, or storefront outcome claim is inferred.",
+            ],
+        },
+    )
     write_json(
         NYC_DIR / "economy_context_2026.geojson",
-        feature_collection(
-            nyc_economy_features,
-            {
-                "title": "NYC economy boundary context",
-                "publisher": "NYC Department of Small Business Services",
-                "source_url": "https://data.cityofnewyork.us/resource/7jdm-inj8.geojson",
-                "license": NYC_OPEN_DATA_TERMS,
-                "license_url": NYC_OPEN_DATA_TERMS_URL,
-                "retrieved_at": retrieved_at,
-                "accessed_at": accessed_at,
-                "feature_count": len(nyc_economy_features),
-                "limitations": [
-                    "Current commercial district context only; not evidence that a district changed in a selected year.",
-                    "No economic impact, footfall, vacancy, or storefront outcome claim is inferred.",
-                ],
-            },
-        ),
+        nyc_economy_collection,
     )
+    write_json(NYC_DIR / "economy_anchors_2026.geojson", nyc_economy_collection)
 
     print("[public-context] Fetching London utility works context")
     london_utility_features, london_utility_events = build_london_utility_events(retrieved_at, accessed_at)
+    london_utility_collection = feature_collection(
+        london_utility_features,
+        {
+            "title": "London utility works context",
+            "publisher": "Transport for London",
+            "source_url": "https://api.tfl.gov.uk/Road/all/Disruption",
+            "license": TFL_LICENSE,
+            "license_url": TFL_LICENSE_URL,
+            "retrieved_at": retrieved_at,
+            "accessed_at": accessed_at,
+            "feature_count": len(london_utility_features),
+            "artifact_role": "current utility works context; not a surveyed utility network",
+            "limitations": [
+                "Current/live road disruption context, not a complete historical utility works archive.",
+                "No utility capacity, reliability, outage, or engineering status is inferred.",
+                "This artifact is named for frontend contract compatibility; features are works/disruption context, not a utility network map.",
+            ],
+        },
+    )
     write_json(
         LONDON_DIR / "utility_context_2026.geojson",
-        feature_collection(
-            london_utility_features,
-            {
-                "title": "London utility works context",
-                "publisher": "Transport for London",
-                "source_url": "https://api.tfl.gov.uk/Road/all/Disruption",
-                "license": TFL_LICENSE,
-                "license_url": TFL_LICENSE_URL,
-                "retrieved_at": retrieved_at,
-                "accessed_at": accessed_at,
-                "feature_count": len(london_utility_features),
-                "limitations": [
-                    "Current/live road disruption context, not a complete historical utility works archive.",
-                    "No utility capacity, reliability, outage, or engineering status is inferred.",
-                ],
-            },
-        ),
+        london_utility_collection,
     )
+    write_json(LONDON_DIR / "utility_network_2026.geojson", london_utility_collection)
 
     print("[public-context] Fetching London DfE GIAS civic-service context")
     london_civic_features, london_civic_events, london_civic_metadata = build_london_civic_gias_context(retrieved_at, accessed_at)
@@ -1995,26 +2005,30 @@ def main() -> None:
 
     print("[public-context] Fetching NYC utility street work permit context")
     nyc_utility_features, nyc_utility_events = build_nyc_utility_events(retrieved_at, accessed_at)
+    nyc_utility_collection = feature_collection(
+        nyc_utility_features,
+        {
+            "title": "NYC utility street work permit context",
+            "publisher": "NYC Department of Transportation",
+            "source_url": "https://data.cityofnewyork.us/resource/tqtj-sjs8.geojson",
+            "license": NYC_OPEN_DATA_TERMS,
+            "license_url": NYC_OPEN_DATA_TERMS_URL,
+            "retrieved_at": retrieved_at,
+            "accessed_at": accessed_at,
+            "feature_count": len(nyc_utility_features),
+            "artifact_role": "current utility works permit context; not a surveyed utility network",
+            "limitations": [
+                "Street construction permit evidence, not a utility network map.",
+                "No utility capacity, reliability, outage, or engineering status is inferred.",
+                "This artifact is named for frontend contract compatibility; features are permit/work-location context, not a utility network map.",
+            ],
+        },
+    )
     write_json(
         NYC_DIR / "utility_context_2026.geojson",
-        feature_collection(
-            nyc_utility_features,
-            {
-                "title": "NYC utility street work permit context",
-                "publisher": "NYC Department of Transportation",
-                "source_url": "https://data.cityofnewyork.us/resource/tqtj-sjs8.geojson",
-                "license": NYC_OPEN_DATA_TERMS,
-                "license_url": NYC_OPEN_DATA_TERMS_URL,
-                "retrieved_at": retrieved_at,
-                "accessed_at": accessed_at,
-                "feature_count": len(nyc_utility_features),
-                "limitations": [
-                    "Street construction permit evidence, not a utility network map.",
-                    "No utility capacity, reliability, outage, or engineering status is inferred.",
-                ],
-            },
-        ),
+        nyc_utility_collection,
     )
+    write_json(NYC_DIR / "utility_network_2026.geojson", nyc_utility_collection)
 
     print("[public-context] Updating event chunks, city manifests, and source manifests")
     upsert_events("london", london_economy_events + london_utility_events + london_civic_events)
@@ -2026,7 +2040,11 @@ def main() -> None:
         "london",
         {
             "transport_stops": "web/data/city-atlas/cities/london/transport_stops_2026.geojson",
+            "economy_anchors": "web/data/city-atlas/cities/london/economy_anchors_2026.geojson",
+            "economy_anchors_2026": "web/data/city-atlas/cities/london/economy_anchors_2026.geojson",
             "economy_context_2026": "web/data/city-atlas/cities/london/economy_context_2026.geojson",
+            "utility_network": "web/data/city-atlas/cities/london/utility_network_2026.geojson",
+            "utility_network_2026": "web/data/city-atlas/cities/london/utility_network_2026.geojson",
             "utility_context_2026": "web/data/city-atlas/cities/london/utility_context_2026.geojson",
             "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson",
         },
@@ -2041,7 +2059,11 @@ def main() -> None:
         "nyc",
         {
             "transport_stops": "web/data/city-atlas/cities/nyc/transport_stops_2026.geojson",
+            "economy_anchors": "web/data/city-atlas/cities/nyc/economy_anchors_2026.geojson",
+            "economy_anchors_2026": "web/data/city-atlas/cities/nyc/economy_anchors_2026.geojson",
             "economy_context_2026": "web/data/city-atlas/cities/nyc/economy_context_2026.geojson",
+            "utility_network": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson",
+            "utility_network_2026": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson",
             "utility_context_2026": "web/data/city-atlas/cities/nyc/utility_context_2026.geojson",
         },
         {

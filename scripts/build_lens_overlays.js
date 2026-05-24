@@ -187,7 +187,39 @@ function nearbyCellKeys(coord, size, radius = 2) {
   return cells;
 }
 
-function loadEvents(city, eventsIndex) {
+function loadSourceMap(paths) {
+  if (!paths.sources) return new Map();
+  const sourcesPath = path.join(rootDir, paths.sources);
+  if (!fs.existsSync(sourcesPath)) return new Map();
+  const payload = readJson(sourcesPath);
+  return new Map((payload.sources || []).map((source) => [source.source_id, source]));
+}
+
+function uniqueValues(values, limit = 12) {
+  const out = [];
+  const seen = new Set();
+  for (const value of values || []) {
+    const text = String(value || "").trim();
+    if (!text || seen.has(text)) continue;
+    seen.add(text);
+    out.push(text);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
+function sourceValueList(sourceIds, sourceById, fields, fallback = "") {
+  return uniqueValues(sourceIds.map((sourceId) => {
+    const source = sourceById.get(sourceId);
+    if (!source) return fallback === "source_id" ? sourceId : "";
+    for (const field of fields) {
+      if (source[field]) return source[field];
+    }
+    return fallback === "source_id" ? sourceId : "";
+  }));
+}
+
+function loadEvents(city, eventsIndex, sourceById = new Map()) {
   const out = [];
   for (const chunk of eventsIndex.chunks || []) {
     if (!chunk.json_path) continue;
@@ -204,6 +236,10 @@ function loadEvents(city, eventsIndex) {
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
       const evidence = Array.isArray(event.evidence) ? event.evidence : [];
       const provenance = event.provenance || {};
+      const sourceUrls = uniqueValues([
+        ...evidence.map((item) => item.url).filter(Boolean),
+        ...sourceValueList(sourceIds, sourceById, ["url", "source_url"]),
+      ], 8);
       const text = [
         event.title,
         event.short_description,
@@ -229,7 +265,11 @@ function loadEvents(city, eventsIndex) {
         category,
         confidence,
         sourceIds,
-        sourceUrls: evidence.map((item) => item.url).filter(Boolean).slice(0, 4),
+        sourceNames: sourceValueList(sourceIds, sourceById, ["title", "provider"], "source_id"),
+        sourceUrls,
+        sourceLicenses: sourceValueList(sourceIds, sourceById, ["licence", "license"]),
+        sourceAttributions: sourceValueList(sourceIds, sourceById, ["attribution_text", "attribution"]),
+        caveats: Array.isArray(event.caveats) ? event.caveats.map(String).filter(Boolean) : [],
         signals,
         text,
         weight: confidenceWeight(confidence),
@@ -662,6 +702,26 @@ function counterText(counts) {
     .join(",");
 }
 
+function setText(values, limit = 8) {
+  return Array.from(values || []).slice(0, limit).join(",");
+}
+
+function firstSetValue(values) {
+  return Array.from(values || [])[0] || "";
+}
+
+function evidenceRoleForLayer(layer) {
+  return {
+    planning_cell: "aggregated_source_event_grid",
+    civic_coverage_cell: "aggregated_civic_service_event_grid",
+    economy_activity_cell: "aggregated_economy_event_grid",
+    economy_frontage: "nearest_mapped_street_context_trace",
+    civic_facility: "source_event_facility_point",
+    utility_trace: "nearest_mapped_street_or_work_location_context_trace",
+    utility_asset: "source_event_or_asset_point",
+  }[layer] || "source_backed_lens_detail";
+}
+
 function addEventToBucket(bucket, event, classification) {
   bucket.count += 1;
   bucket.weight += event.weight || 1;
@@ -675,12 +735,24 @@ function addEventToBucket(bucket, event, classification) {
   for (const id of event.sourceIds || []) {
     if (bucket.sourceIds.size < 12) bucket.sourceIds.add(id);
   }
+  for (const name of event.sourceNames || []) {
+    if (bucket.sourceNames.size < 8) bucket.sourceNames.add(name);
+  }
+  for (const url of event.sourceUrls || []) {
+    if (bucket.sourceUrls.size < 8) bucket.sourceUrls.add(url);
+  }
+  for (const license of event.sourceLicenses || []) {
+    if (bucket.sourceLicenses.size < 8) bucket.sourceLicenses.add(license);
+  }
+  for (const attribution of event.sourceAttributions || []) {
+    if (bucket.sourceAttributions.size < 8) bucket.sourceAttributions.add(attribution);
+  }
+  for (const caveat of event.caveats || []) {
+    if (bucket.caveats.size < 12) bucket.caveats.add(caveat);
+  }
   bucket.eventIdsAll.push(event.id);
   if (bucket.eventIds.length < 10) bucket.eventIds.push(event.id);
   if (bucket.titles.length < 3) bucket.titles.push(event.title);
-  for (const url of event.sourceUrls || []) {
-    if (bucket.sourceUrls.size < 4) bucket.sourceUrls.add(url);
-  }
 }
 
 function meterFactors(refLat) {
@@ -723,8 +795,15 @@ function gridForCoord(coord, sizeM, refLat) {
 
 function detailBaseProperties(cityId, layer, category, year, bucket, representation, caveat) {
   const confidence = dominantKey(bucket.confidenceCounts);
+  const geometryPrecision = dominantKey(bucket.geometryPrecisionCounts, "derived evidence geometry");
+  const caveats = uniqueValues([
+    caveat,
+    ...Array.from(bucket.caveats || []),
+    "Filtered by event effective year; derived geometry is context for source-backed evidence, not a measured outcome surface.",
+  ], 14);
   return {
     id: bucket.id,
+    city_id: cityId,
     layer,
     category,
     year,
@@ -734,15 +813,24 @@ function detailBaseProperties(cityId, layer, category, year, bucket, representat
     confidence_mix: counterText(bucket.confidenceCounts),
     event_count: bucket.count,
     source_count: bucket.sourceIds.size,
-    source_ids: Array.from(bucket.sourceIds).join(","),
+    source_id: firstSetValue(bucket.sourceIds),
+    source_ids: setText(bucket.sourceIds, 12),
+    source_name: setText(bucket.sourceNames, 8),
+    source_url: firstSetValue(bucket.sourceUrls),
+    source_urls: setText(bucket.sourceUrls, 8),
+    license: setText(bucket.sourceLicenses, 8),
+    attribution_text: setText(bucket.sourceAttributions, 8),
+    evidence_role: evidenceRoleForLayer(layer),
     event_ids: bucket.eventIds.join(","),
     event_ids_all: bucket.eventIdsAll.join(","),
-    source_urls: Array.from(bucket.sourceUrls).join(","),
     geometry_precision_mix: counterText(bucket.geometryPrecisionCounts),
+    geometry_precision: geometryPrecision,
     representation,
     timing_note: "Filtered by event effective year. OSM mapped-visibility dates and administrative dates can differ from real-world physical change dates.",
     caveat,
+    caveats,
     generated_from: `web/data/city-atlas/cities/${cityId}/events_${year}.json`,
+    generated_by: "scripts/build_lens_overlays.js",
   };
 }
 
@@ -774,7 +862,11 @@ function buildCellFeatures(city, yearEvents, refLat) {
         secondaryCounts: {},
         geometryPrecisionCounts: {},
         sourceIds: new Set(),
+        sourceNames: new Set(),
         sourceUrls: new Set(),
+        sourceLicenses: new Set(),
+        sourceAttributions: new Set(),
+        caveats: new Set(),
         eventIds: [],
         eventIdsAll: [],
         titles: [],
@@ -828,7 +920,11 @@ function buildPointDetailFeatures(city, yearEvents, category, layer, representat
         title: event.title,
         count: 1,
         sourceIds: new Set(event.sourceIds || []),
+        sourceNames: new Set(event.sourceNames || []),
         sourceUrls: new Set(event.sourceUrls || []),
+        sourceLicenses: new Set(event.sourceLicenses || []),
+        sourceAttributions: new Set(event.sourceAttributions || []),
+        caveats: new Set(event.caveats || []),
         eventIds: [event.id],
         eventIdsAll: [event.id],
         confidenceCounts: { [event.confidence || "documented"]: 1 },
@@ -898,7 +994,11 @@ function buildRoadTraceFeatures(city, yearEvents, roads, category, layer, radius
         secondaryCounts: {},
         geometryPrecisionCounts: {},
         sourceIds: new Set(),
+        sourceNames: new Set(),
         sourceUrls: new Set(),
+        sourceLicenses: new Set(),
+        sourceAttributions: new Set(),
+        caveats: new Set(),
         eventIds: [],
         eventIdsAll: [],
         titles: [],
@@ -1042,11 +1142,12 @@ function buildCity(city) {
   const cityDir = path.dirname(path.join(rootDir, paths.city));
   const cityConfigPath = path.join(rootDir, paths.city);
   const eventsIndex = readJson(path.join(rootDir, paths.events));
+  const sourceById = loadSourceMap(paths);
   const years = (eventsIndex.event_years || (eventsIndex.chunks || []).map((chunk) => Number(chunk.year)))
     .map(Number)
     .filter(Number.isFinite)
     .sort((a, b) => a - b);
-  const events = loadEvents(city, eventsIndex);
+  const events = loadEvents(city, eventsIndex, sourceById);
   const hotspotFeatures = buildHotspotFeatures(city.city_id, events);
   const overlayRelativePath = `web/data/city-atlas/cities/${city.city_id}/lens_overlays.geojson`;
   writeJson(path.join(cityDir, "lens_overlays.geojson"), {

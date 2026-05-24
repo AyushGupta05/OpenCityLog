@@ -26,6 +26,11 @@ const steps = [
     attempts: 3,
   },
   {
+    label: "current context aliases",
+    command: process.execPath,
+    args: ["scripts/sync_current_context_aliases.js"],
+  },
+  {
     label: "city coverage report",
     command: process.execPath,
     args: ["scripts/build_city_coverage_report.js"],

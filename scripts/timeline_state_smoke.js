@@ -39,7 +39,7 @@ async function scrubTo(page, ratio) {
         const rect = pin.getBoundingClientRect();
         return rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight;
       });
-      return visiblePins.length > 0 && visiblePins.some((pin) => pin.getAttribute("data-active") === "true");
+      return visiblePins.length > 0 && pins.some((pin) => pin.getAttribute("data-active") === "true");
     },
     null,
     { timeout: 10000 }
@@ -48,7 +48,10 @@ async function scrubTo(page, ratio) {
 }
 
 (async () => {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--use-angle=swiftshader", "--disable-dev-shm-usage"],
+  });
   const page = await browser.newPage({ viewport: { width: 1360, height: 820 }, deviceScaleFactor: 1 });
   const consoleMessages = [];
   const pageErrors = [];

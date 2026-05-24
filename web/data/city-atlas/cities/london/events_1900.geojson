@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"london","year":1900,"features":[{"type":"Feature","id":"london-milestone-1900-metropolitan-boroughs-created-5","properties":{"city_id":"london","event_id":"london-milestone-1900-metropolitan-boroughs-created-5","title":"Metropolitan boroughs created","short_description":"New local government geography affects historic borough statistics and services.","year":1900,"effective_date":"1900","date_precision":"year","category":"built_environment","lens":"built_environment","confidence":"documented","source_ids":["legislation-uk-london-acts-orders","ons-geoportal-boundaries"],"explanation":"New local government geography affects historic borough statistics and services."},"geometry":{"type":"Point","coordinates":[-0.121132,51.457448]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b637c7bb3239f4dcf7c3a93f359dc1d8fb82521711fb882794c55e6a9732001a
+size 806

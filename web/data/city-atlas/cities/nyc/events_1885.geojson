@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"nyc","year":1885,"features":[{"type":"Feature","id":"nyc_parks_property_170880","properties":{"city_id":"nyc","event_id":"nyc_parks_property_170880","title":"Parks property acquisition: Franz Sigel Park","short_description":"NYC Parks property record for Franz Sigel Park; type Community Park; acres 15.99; waterfront=False.","year":1885,"effective_date":"1885-06-04","date_precision":"day","category":"environment","lens":"green_space","confidence":"documented","source_ids":["enfh-gkve"],"explanation":"Parks property record with acquisition date for Franz Sigel Park."},"geometry":{"type":"Point","coordinates":[-73.926098,40.822638]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb910617145fc58b291c2652b71a7ac8b21c0245fa3c535a554b933c32d099dc
+size 706

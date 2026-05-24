@@ -349,7 +349,7 @@ async function auditCity(browser, args, city) {
   });
   await page.goto(`${args.baseUrl}/atlas?city=${encodeURIComponent(city)}&auditCity=${Date.now()}`, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(
-    (expectedCity) => window.BimsAtlas?.state?.map
+    (expectedCity) => window.BimsAtlas?.state?.mapReady
       && window.BimsAtlas?.state?.cityId === expectedCity
       && window.BimsAtlas?.setYear
       && window.BimsAtlas?.setActiveLens
@@ -376,6 +376,19 @@ async function auditCity(browser, args, city) {
         const features = window.BimsAtlas.state.lensGuideFeatureCache?.features || [];
         return features.some((feature) => feature.properties?.lens_id === aspect);
       }, { aspect }, { timeout: 15000 }).catch(() => {});
+      await page.waitForFunction(({ aspect }) => {
+        const state = window.BimsAtlas?.state || {};
+        if (["economy-vitality", "economy-gravity"].includes(aspect)) {
+          return state.economyAnchorFeaturesPathLoaded === null || (state.economyAnchorFeatures || []).length > 0;
+        }
+        if (String(aspect || "").startsWith("utilities-")) {
+          return state.utilityNetworkFeaturesPathLoaded === null || (state.utilityNetworkFeatures || []).length > 0;
+        }
+        if (["civic-access-gaps", "civic-catchment", "civic-demand"].includes(aspect)) {
+          return state.civicServiceFeaturesPathLoaded === null || (state.civicServiceFeatures || []).length > 0;
+        }
+        return true;
+      }, { aspect }, { timeout: 12000 }).catch(() => {});
       let result = null;
       for (let attempt = 0; attempt < 8; attempt += 1) {
         await page.waitForTimeout(attempt ? 900 : 350);
@@ -414,6 +427,19 @@ async function auditCity(browser, args, city) {
         { year: screenshotYear, category, aspect },
         { timeout: 15000 }
       );
+      await page.waitForFunction(({ aspect }) => {
+        const state = window.BimsAtlas?.state || {};
+        if (["economy-vitality", "economy-gravity"].includes(aspect)) {
+          return state.economyAnchorFeaturesPathLoaded === null || (state.economyAnchorFeatures || []).length > 0;
+        }
+        if (String(aspect || "").startsWith("utilities-")) {
+          return state.utilityNetworkFeaturesPathLoaded === null || (state.utilityNetworkFeatures || []).length > 0;
+        }
+        if (["civic-access-gaps", "civic-catchment", "civic-demand"].includes(aspect)) {
+          return state.civicServiceFeaturesPathLoaded === null || (state.civicServiceFeatures || []).length > 0;
+        }
+        return true;
+      }, { aspect }, { timeout: 12000 }).catch(() => {});
       await page.waitForTimeout(1200);
       await page.screenshot({ path: path.join(screenshotDir, `${aspect}-${screenshotYear}.png`), fullPage: false });
     }
@@ -426,7 +452,10 @@ async function auditCity(browser, args, city) {
 async function main() {
   const args = parseArgs(process.argv);
   fs.mkdirSync(args.outDir, { recursive: true });
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--disable-gpu", "--disable-dev-shm-usage", "--no-sandbox"],
+  });
   const cityReports = [];
   try {
     for (const city of args.cities) {

@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"london","year":1801,"features":[{"type":"Feature","id":"london-milestone-1801-first-modern-census-of-great-britain-0","properties":{"city_id":"london","event_id":"london-milestone-1801-first-modern-census-of-great-britain-0","title":"First modern census of Great Britain","short_description":"Establishes long-run demographic baseline for London growth.","year":1801,"effective_date":"1801","date_precision":"year","category":"built_environment","lens":"built_environment","confidence":"documented","source_ids":["ons-census-api"],"explanation":"Establishes long-run demographic baseline for London growth."},"geometry":{"type":"Point","coordinates":[-0.314372,51.511596]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:83c0a68ffec3b3f2b350f3d846ac6f189dcfe693ba701e35a54fd172618b38f0
+size 741

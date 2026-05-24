@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"nyc","year":1910,"features":[{"type":"Feature","id":"nyc_parks_property_170159","properties":{"city_id":"nyc","event_id":"nyc_parks_property_170159","title":"Parks property acquisition: Milestone Park","short_description":"NYC Parks property record for Milestone Park; type Neighborhood Park; acres 0.476; waterfront=False.","year":1910,"effective_date":"1910-05-28","date_precision":"day","category":"environment","lens":"green_space","confidence":"documented","source_ids":["enfh-gkve"],"explanation":"Parks property record with acquisition date for Milestone Park."},"geometry":{"type":"Point","coordinates":[-73.999388,40.609508]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ac08c2f61a03a3e25855ebd343f1a2898ea8758ffe42e6ca1e09fedd641438dd
+size 703

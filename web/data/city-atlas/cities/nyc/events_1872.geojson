@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"nyc","year":1872,"features":[{"type":"Feature","id":"nyc_parks_property_170870","properties":{"city_id":"nyc","event_id":"nyc_parks_property_170870","title":"Parks property acquisition: Richard Tucker Park","short_description":"NYC Parks property record for Richard Tucker Park; type Triangle/Plaza; acres 0.051; waterfront=False.","year":1872,"effective_date":"1872-06-08","date_precision":"day","category":"environment","lens":"green_space","confidence":"documented","source_ids":["enfh-gkve"],"explanation":"Parks property record with acquisition date for Richard Tucker Park."},"geometry":{"type":"Point","coordinates":[-73.981903,40.773505]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:80ad36091ad4fff29b509ceedc74e0be87f642f5fb87e350f3f4c56babd0ac10
+size 715

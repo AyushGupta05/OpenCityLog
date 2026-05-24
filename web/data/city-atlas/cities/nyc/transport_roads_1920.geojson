@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","name":"nyc_transport_roads_1920","metadata":{"schema_version":"1.0.0","city_id":"nyc","year":1920,"road_source":"data/raw/overpass/nyc_major_roads_osm_2026.geojson","method":"Road features are colored from nearby source-backed transport records in a rolling three-year window.","caveat":"Transport road colors are activity hotspots, not measured traffic counts or live congestion."},"features":[]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4cbda4f8e8b38c94d9abd1dd769cb9bc1b37e3787fe5a378a9e5fb3d4cbaaca
+size 427

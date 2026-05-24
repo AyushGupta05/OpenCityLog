@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"nyc","year":1850,"features":[{"type":"Feature","id":"nyc_parks_property_169200","properties":{"city_id":"nyc","event_id":"nyc_parks_property_169200","title":"Parks property acquisition: Marble Hill Playground","short_description":"NYC Parks property record for Marble Hill Playground; type Playground; acres 1.646; waterfront=False.","year":1850,"effective_date":"1850-07-05","date_precision":"day","category":"environment","lens":"green_space","confidence":"documented","source_ids":["enfh-gkve"],"explanation":"Parks property record with acquisition date for Marble Hill Playground."},"geometry":{"type":"Point","coordinates":[-73.908151,40.877472]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d74ed2ef39ed1bab9597569abbd554400ab64874ddca2b3a88e4722b9ef9e520
+size 720

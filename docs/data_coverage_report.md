@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-24T01:01:15Z
+Generated: 2026-05-24T15:40:38Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 33182 | 205 | 31 | 2007-2026 | transport 17118, built_environment 13859, utilities 851 | 66818 |
-| London, England | 259930 | 194 | 102 | 1801-2026 | built_environment 105768, civic_services 86349, transport 37842 | 0 |
-| New York City, New York | 98237 | 84 | 123 | 1797-2026 | built_environment 63902, environment 21161, transport 7702 | 1763 |
+| London, England | 225051 | 191 | 101 | 1801-2026 | built_environment 105768, civic_services 53367, transport 37842 | 0 |
+| New York City, New York | 95861 | 81 | 122 | 1797-2026 | built_environment 63902, environment 21161, transport 7702 | 4139 |
 
 ## Belfast, Northern Ireland
 
@@ -33,11 +33,10 @@ Catalog-only sources without emitted event rows: 31.
 
 ## London, England
 
-Backed events: 259930. Unique event IDs: 259930. Duplicate IDs: 0.
+Backed events: 225051. Unique event IDs: 225051. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
-| Get Information About Schools public establishment extract | 32982 | 2007-2026 | civic_services 32982 | usable_with_caveats |
 | Planning London Datahub - planning applications | 30324 | 2008-2026 | built_environment 30324 | usable_with_caveats |
 | Police.uk stop and search custom CSV downloads | 27792 | 2023-2026 | civic_services 27792 | usable_with_caveats |
 | Police.uk crime and outcomes API | 27362 | 1829-2026 | environment 26697, transport 665 | usable_with_caveats |
@@ -49,12 +48,13 @@ Backed events: 259930. Unique event IDs: 259930. Duplicate IDs: 0.
 | Planning permissions on the London Development Database (LDD) | 11442 | 2008-2020 | built_environment 11382, civic_services 44, transport 12 | usable_with_caveats |
 | Food Hygiene Rating Scheme API | 9900 | 2004-2026 | transport 9900 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
+| Planning London Datahub applications API | 5100 | 2008-2025 | built_environment 5100 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 102.
+Catalog-only sources without emitted event rows: 101.
 
 ## New York City, New York
 
-Backed events: 98237. Unique event IDs: 98237. Duplicate IDs: 0.
+Backed events: 95861. Unique event IDs: 95861. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -71,5 +71,5 @@ Backed events: 98237. Unique event IDs: 98237. Duplicate IDs: 0.
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |
 | Street Construction Permits (2013-2021) | 1810 | 1904-2025 | transport 1807, built_environment 3 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 123.
+Catalog-only sources without emitted event rows: 122.
 

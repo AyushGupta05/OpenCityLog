@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"nyc","year":1889,"features":[{"type":"Feature","id":"nyc_parks_property_170192","properties":{"city_id":"nyc","event_id":"nyc_parks_property_170192","title":"Parks property acquisition: Msgr. McGolrick Park","short_description":"NYC Parks property record for Msgr. McGolrick Park; type Neighborhood Park; acres 9.134; waterfront=False.","year":1889,"effective_date":"1889-01-28","date_precision":"day","category":"environment","lens":"green_space","confidence":"documented","source_ids":["enfh-gkve"],"explanation":"Parks property record with acquisition date for Msgr. McGolrick Park."},"geometry":{"type":"Point","coordinates":[-73.94315,40.724223]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b51d32c87d53065bfd0b01524c53fd9bb20b44e6d1095e4e8015d4791e6846c2
+size 720

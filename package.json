@@ -20,6 +20,7 @@
     "build:civic-services": "node scripts/build_civic_service_context.js",
     "build:detail-layers": "node scripts/build_osm_detail_layers.js",
     "build:lens-overlays": "node scripts/build_lens_overlays_by_city.js",
+    "build:context-aliases": "node scripts/sync_current_context_aliases.js",
     "build:frontend-slim": "node scripts/build_frontend_slim_assets.js",
     "fetch:city-roads": "node scripts/fetch_city_osm_roads.js",
     "build": "npm run build:events && npm run build:transit && npm run build:data && npm run verify",

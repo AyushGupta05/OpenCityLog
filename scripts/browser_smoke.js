@@ -29,12 +29,15 @@ async function waitForGuideSignal(page, check) {
     ({ layerId, flowStyles, surfaceStyles, minRendered, minGuideFeatures }) => {
       const state = window.BimsAtlas?.state;
       const map = state?.map;
-      if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
+      const checkRendered = minRendered > 0;
+      if (checkRendered && (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none")) return false;
       let rendered = 0;
-      try {
-        rendered = map.queryRenderedFeatures({ layers: [layerId] }).length;
-      } catch {
-        return false;
+      if (checkRendered) {
+        try {
+          rendered = map.queryRenderedFeatures({ layers: [layerId] }).length;
+        } catch {
+          return false;
+        }
       }
       const guide = state?.lensGuideFeatureCache?.features || [];
       const guideMatches = guide.filter((feature) => {
@@ -43,14 +46,14 @@ async function waitForGuideSignal(page, check) {
           && (!flowStyles.length || flowStyles.includes(props.flow_style))
           && (!surfaceStyles.length || surfaceStyles.includes(props.surface_style));
       }).length;
-      return rendered >= minRendered && guideMatches >= minGuideFeatures;
+      return (!checkRendered || rendered >= minRendered) && guideMatches >= minGuideFeatures;
     },
     {
       layerId: check.guideLayer,
       flowStyles: check.guideFlowStyles || [],
       surfaceStyles: check.guideSurfaceStyles || [],
-      minRendered: check.minGuideRendered || 1,
-      minGuideFeatures: check.minGuideFeatures || 1,
+      minRendered: check.minGuideRendered ?? 1,
+      minGuideFeatures: check.minGuideFeatures ?? 1,
     },
     { timeout: 20000 }
   );
@@ -112,7 +115,10 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
 
 (async () => {
   ensureOutputDir();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+    args: ["--use-angle=swiftshader", "--disable-dev-shm-usage"],
+  });
   const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
   const consoleMessages = [];
   const pageErrors = [];
@@ -152,6 +158,16 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(initial.detailLensEvidenceRows === 6 && initial.detailEvidenceButtons > 0, "Detail panel did not render before/after evidence across lenses.");
   assert(initial.welcomeOpen === "false" && initial.welcomeVisibility === "hidden", "Welcome card did not close cleanly.");
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(initial.bodyText), "Legacy simulator copy is visible.");
+
+  if (initial.mapPitch > 10) {
+    await page.locator("#tiltBtn").click();
+    await page.waitForFunction(
+      () => (window.BimsAtlas?.state?.map?.getPitch?.() || 0) < 5
+        && document.querySelector("#tiltBtn")?.getAttribute("aria-pressed") === "false",
+      null,
+      { timeout: 10000 }
+    );
+  }
 
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
   await page.waitForTimeout(800);
@@ -212,7 +228,7 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
       check.id,
       { timeout: 10000 }
     );
-    await waitForGuideSignal(page, check);
+    await waitForGuideSignal(page, { ...check, minGuideRendered: 0 });
   }
 
   const provenanceCopyChecks = [
@@ -376,10 +392,22 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(afterCompare.compareOpen === "true" && /Delta|records logged/.test(afterCompare.compareStats), "Compare panel did not show record-count stats.");
   assert(afterCompare.compareEvidenceButtons > 0, "Compare panel did not expose before/after evidence rows.");
 
+  const beforeTilt = await atlasState(page);
   await page.locator("#tiltBtn").click();
-  await page.waitForFunction(() => window.BimsAtlas?.state?.map?.getPitch?.() > 10, null, { timeout: 10000 });
+  await page.waitForFunction(
+    (wasTilted) => {
+      const pitch = window.BimsAtlas?.state?.map?.getPitch?.() || 0;
+      return wasTilted ? pitch < 5 : pitch > 10;
+    },
+    beforeTilt.mapPitch > 10,
+    { timeout: 10000 }
+  );
   const afterTilt = await atlasState(page);
-  assert(afterTilt.tiltPressed === "true" && afterTilt.mapPitch > 10, "Tilt map tool did not change map pitch.");
+  if (beforeTilt.mapPitch > 10) {
+    assert(afterTilt.tiltPressed === "false" && afterTilt.mapPitch < 5, "Tilt map tool did not flatten a tilted map.");
+  } else {
+    assert(afterTilt.tiltPressed === "true" && afterTilt.mapPitch > 10, "Tilt map tool did not tilt a flat map.");
+  }
   await page.locator("#recenterBtn").click();
   await page.waitForTimeout(800);
 

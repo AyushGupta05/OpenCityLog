@@ -1,1 +1,3 @@
-{"type":"FeatureCollection","schema_version":"1.0.0","city_id":"nyc","year":1831,"features":[{"type":"Feature","id":"nyc_parks_property_169084","properties":{"city_id":"nyc","event_id":"nyc_parks_property_169084","title":"Parks property acquisition: Abingdon Square","short_description":"NYC Parks property record for Abingdon Square; type Triangle/Plaza; acres 0.222; waterfront=False.","year":1831,"effective_date":"1831-04-22","date_precision":"day","category":"environment","lens":"green_space","confidence":"documented","source_ids":["enfh-gkve"],"explanation":"Parks property record with acquisition date for Abingdon Square."},"geometry":{"type":"Point","coordinates":[-74.005448,40.737301]}}]}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b2d2e55072d87977878cea6613bd4b7076ccb253d62d08c38b35e46ba4fcdc5
+size 703
