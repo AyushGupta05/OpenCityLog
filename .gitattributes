@@ -19,3 +19,9 @@ web/data/city-atlas/cities/london/events_2024.json filter=lfs diff=lfs merge=lfs
 web/data/city-atlas/cities/**/*.geojson filter=lfs diff=lfs merge=lfs -text
 web/data/city-atlas/cities/*/events_*.json filter=lfs diff=lfs merge=lfs -text
 data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json filter=lfs diff=lfs merge=lfs -text
+
+# Generated atlas artifacts are intentionally tracked, but they are not
+# reviewer-friendly source. Keep LFS/storage behavior above while preventing
+# desktop Git diff viewers from spawning huge text/rename diff jobs.
+web/data/city-atlas/** -diff
+data/derived/** -diff
