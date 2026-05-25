@@ -36,22 +36,37 @@ const ROAD_FIELDS = [
   "railway",
 ];
 const EVENT_SUMMARY_FIELDS = [
-  "schema_version",
-  "city_id",
-  "record_kind",
   "event_id",
   "title",
   "year",
   "effective_date",
-  "effective_date_range",
   "date_precision",
-  "source_date_field",
   "category",
-  "lens",
-  "source_ids",
   "confidence",
-  "affected_signals",
 ];
+const COMPACT_EVENT_SUMMARY_FIELDS = [
+  "event_id",
+  "title",
+  "year",
+  "category",
+  "confidence",
+  "short_description",
+  "affected_area_label",
+  "lng",
+  "lat",
+  "effective_date",
+  "date_precision",
+  "evidence_count",
+  "source_count",
+  "caveat_count",
+];
+const SUMMARY_TEXT_LIMIT = 96;
+
+function truncateText(value, limit = SUMMARY_TEXT_LIMIT) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (text.length <= limit) return text;
+  return `${text.slice(0, Math.max(0, limit - 1)).trimEnd()}...`;
+}
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -192,18 +207,28 @@ function summarizeEvent(event) {
   }
   const evidence = Array.isArray(event.evidence) ? event.evidence : [];
   const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : Array.isArray(event.sources) ? event.sources : [];
-  const shortDescription = firstText(event.short_description, event.summary, event.explanation);
-  const longSummary = firstText(event.summary, event.explanation, event.short_description);
+  const shortDescription = truncateText(firstText(event.short_description, event.summary, event.explanation));
   if (shortDescription) summary.short_description = shortDescription;
-  if (longSummary && longSummary !== shortDescription) summary.summary = longSummary;
   const point = pointGeometry(event.geometry);
-  if (point) summary.geometry = point;
+  if (point) {
+    summary.lng = point.coordinates[0];
+    summary.lat = point.coordinates[1];
+  }
   const areaLabel = firstText(event.affected_area_label, event.affected_area?.label);
   if (areaLabel) summary.affected_area_label = areaLabel;
   summary.evidence_count = evidence.length;
   summary.source_count = sourceIds.length;
   summary.caveat_count = Array.isArray(event.caveats) ? event.caveats.length : 0;
   return summary;
+}
+
+function compactSummaryEvent(event) {
+  const summary = summarizeEvent(event);
+  const row = COMPACT_EVENT_SUMMARY_FIELDS.map((field) => summary[field] ?? "");
+  while (row.length && (row[row.length - 1] === "" || row[row.length - 1] === null || row[row.length - 1] === undefined)) {
+    row.pop();
+  }
+  return row;
 }
 
 function buildEventSummaries(cityId) {
@@ -222,7 +247,9 @@ function buildEventSummaries(cityId) {
       year: payload.year || Number(file.match(/\d{4}/)?.[0]),
       event_count: events.length,
       summary: true,
-      events: events.map(summarizeEvent),
+      format: "compact-event-summary-v1",
+      fields: COMPACT_EVENT_SUMMARY_FIELDS,
+      events: events.map(compactSummaryEvent),
     };
     const outPath = path.join(cityDir, file.replace(".json", ".summary.json"));
     writeJson(outPath, summaryPayload);
@@ -237,29 +264,65 @@ function buildEventSummaries(cityId) {
   return results;
 }
 
-function main() {
-  const cityIds = fs.readdirSync(citiesDir, { withFileTypes: true })
+function parseArgs(argv) {
+  const options = {
+    cities: [],
+    eventsOnly: false,
+  };
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === "--events-only") {
+      options.eventsOnly = true;
+    } else if (arg === "--city") {
+      const city = argv[i + 1];
+      if (!city) throw new Error("--city requires a city id");
+      options.cities.push(city);
+      i += 1;
+    } else if (arg.startsWith("--city=")) {
+      options.cities.push(arg.slice("--city=".length));
+    } else {
+      throw new Error(`Unknown option: ${arg}`);
+    }
+  }
+  return options;
+}
+
+function availableCityIds() {
+  return fs.readdirSync(citiesDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
     .sort();
-  const results = cityIds.map(buildSlimStops).filter(Boolean);
-  for (const result of results) {
-    const reduction = result.sourceBytes
-      ? Math.round((1 - result.slimBytes / result.sourceBytes) * 100)
-      : 0;
-    console.log(`${result.cityId}: ${result.featureCount} stops, ${reduction}% smaller`);
-  }
-  const roadResults = cityIds.flatMap(buildSlimTransportRoads);
+}
+
+function main() {
+  const options = parseArgs(process.argv.slice(2));
+  const cityIds = options.cities.length ? options.cities : availableCityIds();
+  const available = new Set(availableCityIds());
   for (const cityId of cityIds) {
-    const cityRoads = roadResults.filter((result) => result.cityId === cityId);
-    const sourceBytes = cityRoads.reduce((sum, result) => sum + result.sourceBytes, 0);
-    const slimBytes = cityRoads.reduce((sum, result) => sum + result.slimBytes, 0);
-    const featureCount = cityRoads.reduce((sum, result) => sum + result.featureCount, 0);
-    const reduction = sourceBytes ? Math.round((1 - slimBytes / sourceBytes) * 100) : 0;
-    if (cityRoads.length) {
-      console.log(`${cityId}: ${featureCount} road features across ${cityRoads.length} years, ${reduction}% smaller`);
+    if (!available.has(cityId)) throw new Error(`Unknown city: ${cityId}`);
+  }
+
+  if (!options.eventsOnly) {
+    const results = cityIds.map(buildSlimStops).filter(Boolean);
+    for (const result of results) {
+      const reduction = result.sourceBytes
+        ? Math.round((1 - result.slimBytes / result.sourceBytes) * 100)
+        : 0;
+      console.log(`${result.cityId}: ${result.featureCount} stops, ${reduction}% smaller`);
+    }
+    const roadResults = cityIds.flatMap(buildSlimTransportRoads);
+    for (const cityId of cityIds) {
+      const cityRoads = roadResults.filter((result) => result.cityId === cityId);
+      const sourceBytes = cityRoads.reduce((sum, result) => sum + result.sourceBytes, 0);
+      const slimBytes = cityRoads.reduce((sum, result) => sum + result.slimBytes, 0);
+      const featureCount = cityRoads.reduce((sum, result) => sum + result.featureCount, 0);
+      const reduction = sourceBytes ? Math.round((1 - slimBytes / sourceBytes) * 100) : 0;
+      if (cityRoads.length) {
+        console.log(`${cityId}: ${featureCount} road features across ${cityRoads.length} years, ${reduction}% smaller`);
+      }
     }
   }
+
   const eventResults = cityIds.flatMap(buildEventSummaries);
   for (const result of eventResults) {
     const reduction = result.sourceBytes

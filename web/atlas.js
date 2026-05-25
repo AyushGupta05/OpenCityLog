@@ -839,6 +839,8 @@
     availabilityError: null,
     sources: [],
     sourceById: new Map(),
+    sourcesPath: "",
+    sourcesLoad: null,
     eventsIndex: null,
     chunks: new Map(),                 // year -> chunk metadata
     years: [],
@@ -855,8 +857,10 @@
     loadedEvents: new Map(),           // year -> array of events
     loadingYears: new Map(),
     yearLoadErrors: new Map(),
+    eventFilterCache: new Map(),
     eventById: new Map(),
     eventDetailLoads: new Map(),
+    cityDataReady: false,
     manualYearOverride: null,
     manualLensOverride: null,
     manualAspectOverride: null,
@@ -918,9 +922,11 @@
     lensEventSourceKey: "",
     lensInteractiveLayers: new Set(),
     lensGuideFeatureCache: { type: "FeatureCollection", features: [] },
+    lensGuideSourceKey: "",
     lensGuideSourceRefreshTimers: [],
     lensGuideLabelLayer: null,
     lensGuideLabelRaf: null,
+    searchMapRefreshTimer: null,
   };
 
   const els = {};
@@ -993,16 +999,18 @@
     });
     document.addEventListener("click", () => els.cityMenu?.setAttribute("hidden", ""));
     els.cityMenu?.addEventListener("click", (e) => e.stopPropagation());
+    els.cityMenu?.addEventListener("click", onCityMenuActivate);
+    els.cityMenu?.addEventListener("keydown", onCityMenuKeydown);
 
     // Search
     els.searchInput?.addEventListener("input", () => {
       state.search = els.searchInput.value.trim();
+      clearEventFilterCache();
       renderSearchResults();
       resetEventListLimit();
       renderEventList();
       syncTopline();
-      updateTimeDependentMapState();
-      renderMarkers();
+      scheduleSearchMapRefresh();
     });
     els.searchInput?.addEventListener("focus", () => renderSearchResults());
     els.searchInput?.addEventListener("blur", () => {
@@ -1013,18 +1021,18 @@
     // Layers panel: confidence + inferred toggle
     els.confidenceFilter?.addEventListener("change", async () => {
       state.confidenceFilter = els.confidenceFilter.value;
+      clearEventFilterCache();
       resetEventListLimit();
       renderAll();
-      updateTimeDependentMapState();
-      renderMarkers();
+      scheduleSearchMapRefresh();
       await reconcileSelectionWithFilters({ keepCamera: true });
     });
     els.showInferredToggle?.addEventListener("change", async () => {
       state.showInferred = !!els.showInferredToggle.checked;
+      clearEventFilterCache();
       resetEventListLimit();
       renderAll();
-      updateTimeDependentMapState();
-      renderMarkers();
+      scheduleSearchMapRefresh();
       await reconcileSelectionWithFilters({ keepCamera: true });
     });
 
@@ -1076,6 +1084,12 @@
     els.lensExport?.addEventListener("click", () => toast("Export coming soon - verify analogue prompts against logged source rows before citing"));
     els.lensDiscuss?.addEventListener("click", () => toast("Team workspaces ship in the next OpenCityLog drop"));
 
+    els.layersList?.addEventListener("click", onLayerListActivate);
+    els.layersList?.addEventListener("keydown", onLayerListKeydown);
+    els.eventList?.addEventListener("click", onEventListActivate);
+    els.searchResults?.addEventListener("click", onSearchResultActivate);
+    els.searchResults?.addEventListener("keydown", onSearchResultKeydown);
+
     // Timeline play
     els.playBtn?.addEventListener("click", togglePlay);
 
@@ -1118,6 +1132,101 @@
     });
   }
 
+  function activationKey(event) {
+    return event.key === "Enter" || event.key === " ";
+  }
+
+  function delegatedRow(event, selector, container) {
+    const row = event.target?.closest?.(selector);
+    return row && container?.contains(row) ? row : null;
+  }
+
+  async function activateLayerRow(row) {
+    const categoryId = row.getAttribute("data-layer");
+    const sublayerId = row.getAttribute("data-sublayer");
+    if (categoryId) {
+      if (state.activeLayers.has(categoryId)) state.activeLayers.delete(categoryId);
+      else state.activeLayers.add(categoryId);
+    } else if (sublayerId) {
+      if (state.activeAspectLayers.has(sublayerId)) state.activeAspectLayers.delete(sublayerId);
+      else state.activeAspectLayers.add(sublayerId);
+    }
+    clearEventFilterCache();
+    resetEventListLimit();
+    renderAll();
+    updateTimeDependentMapState();
+    renderMarkers();
+    await reconcileSelectionWithFilters({ keepCamera: false });
+  }
+
+  function onLayerListActivate(event) {
+    const row = delegatedRow(event, ".layer-row", els.layersList);
+    if (row) activateLayerRow(row);
+  }
+
+  function onLayerListKeydown(event) {
+    if (!activationKey(event)) return;
+    const row = delegatedRow(event, ".layer-row", els.layersList);
+    if (!row) return;
+    event.preventDefault();
+    activateLayerRow(row);
+  }
+
+  function onEventListActivate(event) {
+    const row = delegatedRow(event, ".event-row", els.eventList);
+    const id = row?.getAttribute("data-event-id");
+    if (!id) return;
+    selectEvent(id);
+    if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) setChangelogOpen(false);
+  }
+
+  function selectSearchResult(row) {
+    const id = row?.getAttribute("data-event-id");
+    if (!id) return;
+    selectEvent(id);
+    els.searchResults?.setAttribute("hidden", "");
+    if (els.searchInput) els.searchInput.value = "";
+    state.search = "";
+    clearEventFilterCache();
+  }
+
+  function onSearchResultActivate(event) {
+    const row = delegatedRow(event, ".search-row", els.searchResults);
+    if (row) selectSearchResult(row);
+  }
+
+  function onSearchResultKeydown(event) {
+    if (!activationKey(event)) return;
+    const row = delegatedRow(event, ".search-row", els.searchResults);
+    if (!row) return;
+    event.preventDefault();
+    selectSearchResult(row);
+  }
+
+  async function selectCityRow(row) {
+    const id = row?.getAttribute("data-city-id");
+    els.cityMenu?.setAttribute("hidden", "");
+    if (!id || id === state.cityId) return;
+    try {
+      await loadCity(id);
+    } catch (err) {
+      toast(`Failed to load ${id}: ${err.message}`);
+    }
+  }
+
+  function onCityMenuActivate(event) {
+    const row = delegatedRow(event, ".city-row", els.cityMenu);
+    if (row) selectCityRow(row);
+  }
+
+  function onCityMenuKeydown(event) {
+    if (!activationKey(event)) return;
+    const row = delegatedRow(event, ".city-row", els.cityMenu);
+    if (!row) return;
+    event.preventDefault();
+    selectCityRow(row);
+  }
+
   // ---------------------------------------------------------------------------
   // Data loading
   // ---------------------------------------------------------------------------
@@ -1129,8 +1238,10 @@
 
   async function loadCity(cityId) {
     stopPlay();
+    clearSearchMapRefreshTimer();
     state.cityId = cityId;
     state.cityMeta = cityMeta(cityId);
+    state.cityDataReady = false;
     state.manualYearOverride = null;
     state.manualLensOverride = null;
     state.manualAspectOverride = null;
@@ -1139,10 +1250,9 @@
     setAppStatus(`Loading ${shortCityName(state.cityMeta.display_name)}…`);
 
     const paths = state.cityMeta.artifact_paths || {};
-    const [cityDoc, eventsIndex, sourcesDoc, availabilityDoc] = await Promise.all([
+    const [cityDoc, eventsIndex, availabilityDoc] = await Promise.all([
       fetchJson(dataPathToUrl(paths.city)),
       fetchJson(dataPathToUrl(paths.events)),
-      fetchJson(dataPathToUrl(paths.sources)),
       paths.availability
         ? fetchJson(dataPathToUrl(paths.availability)).catch((error) => ({ __error: error }))
         : Promise.resolve(null),
@@ -1153,8 +1263,10 @@
     state.availability = availabilityDoc && !availabilityDoc.__error ? availabilityDoc : null;
     state.availabilityError = availabilityDoc?.__error?.message || null;
     state.chunks = new Map((eventsIndex.chunks || []).map((c) => [Number(c.year), c]));
-    state.sources = sourcesDoc.sources || [];
-    state.sourceById = new Map(state.sources.map((s) => [s.source_id, s]));
+    state.sources = [];
+    state.sourceById = new Map();
+    state.sourcesPath = paths.sources ? dataPathToUrl(paths.sources) : "";
+    state.sourcesLoad = null;
     state.years = (eventsIndex.event_years || [...state.chunks.keys()])
       .map(Number).filter(Number.isFinite).sort((a, b) => a - b);
 
@@ -1189,6 +1301,7 @@
     state.loadedEvents.clear();
     state.loadingYears.clear();
     state.yearLoadErrors.clear();
+    clearEventFilterCache();
     state.eventById.clear();
     state.eventDetailLoads.clear();
     state.selectedEventId = null;
@@ -1208,6 +1321,7 @@
     state.lensOverlayError = null;
     state.lensEventFeatureCount = 0;
     state.lensEventSourceKey = "";
+    state.lensGuideSourceKey = "";
     if (els.searchInput) els.searchInput.value = "";
 
     setText(els.cityNameLabel, shortCityName(state.city.display_name));
@@ -1230,14 +1344,18 @@
       await loadYear(manualYear);
       await loadLensYearsForTimeline(manualYear);
     }
+    state.cityDataReady = true;
     renderAll();
     updateTimeDependentMapState();
     renderMarkers();
     setAppStatus("");
     if (requestedEventId) {
+      await loadSourcesForCurrentCity();
       await selectEvent(requestedEventId, { silent: true });
+    } else if (!state.selectedEvent) {
+      await selectFirstVisibleEvent({ deferSources: true });
+      setTimeout(() => loadSourcesForCurrentCity(), 1800);
     }
-    if (!state.selectedEvent) await selectFirstVisibleEvent();
   }
 
   async function loadYear(year) {
@@ -1261,8 +1379,10 @@
       })
       .then((payload) => {
         const arr = Array.isArray(payload?.events) ? payload.events : (Array.isArray(payload?.features) ? payload.features : []);
-        const events = arr.map((raw, idx) => normalizeEvent(raw, numericYear, idx));
+        const compactFields = Array.isArray(payload?.fields) ? payload.fields : null;
+        const events = arr.map((raw, idx) => normalizeEvent(expandCompactEvent(raw, compactFields), numericYear, idx));
         state.loadedEvents.set(numericYear, events);
+        clearEventFilterCache();
         state.yearLoadErrors.delete(numericYear);
         for (const e of events) state.eventById.set(e.id, e);
         return events;
@@ -1286,6 +1406,41 @@
       : "";
   }
 
+  async function loadSourcesForCurrentCity() {
+    if (state.sources.length || !state.sourcesPath) return state.sources;
+    if (state.sourcesLoad) return state.sourcesLoad;
+    const cityId = state.cityId;
+    const path = state.sourcesPath;
+    state.sourcesLoad = fetchJson(path)
+      .then((sourcesDoc) => {
+        if (state.cityId !== cityId || state.sourcesPath !== path) return state.sources;
+        state.sources = Array.isArray(sourcesDoc.sources) ? sourcesDoc.sources : [];
+        state.sourceById = new Map(state.sources.map((s) => [s.source_id, s]));
+        renderDetail();
+        if (state.methodOpen) renderMethodology();
+        return state.sources;
+      })
+      .catch((error) => {
+        if (state.cityId === cityId && state.sourcesPath === path) {
+          console.warn("[atlas] source metadata unavailable", error);
+        }
+        return state.sources;
+      })
+      .finally(() => {
+        if (state.cityId === cityId && state.sourcesPath === path) state.sourcesLoad = null;
+      });
+    return state.sourcesLoad;
+  }
+
+  function expandCompactEvent(raw, fields) {
+    if (!Array.isArray(raw) || !Array.isArray(fields)) return raw;
+    const record = { summary_record: true };
+    fields.forEach((field, index) => {
+      if (raw[index] !== undefined && raw[index] !== null && raw[index] !== "") record[field] = raw[index];
+    });
+    return record;
+  }
+
   async function loadLensYearsForTimeline(year = state.year) {
     const target = currentTimelineYear(year);
     const years = (state.chunks.has(target) || state.years.includes(target)) ? [target] : [];
@@ -1294,7 +1449,12 @@
 
   function normalizeEvent(raw, fallbackYear, index, options = {}) {
     const props = raw.properties || raw;
-    const geom = raw.geometry || props.geometry || null;
+    const rawLng = Number(props.lng ?? props.longitude);
+    const rawLat = Number(props.lat ?? props.latitude);
+    const pointGeometryFromSummary = Number.isFinite(rawLng) && Number.isFinite(rawLat)
+      ? { type: "Point", coordinates: [rawLng, rawLat] }
+      : null;
+    const geom = raw.geometry || props.geometry || pointGeometryFromSummary;
     const sourceIds = props.source_ids || props.sources || [];
     const evidenceCount = Number(props.evidence_count);
     const sourceCount = Number(props.source_count);
@@ -1624,6 +1784,78 @@
     return Boolean(state.selectedEvent?.lngLat && (!category || state.selectedEvent.category === category));
   }
 
+  function cityLensContextRadiusM() {
+    if (state.cityId === "london") return 16000;
+    if (state.cityId === "nyc") return 19000;
+    return 6200;
+  }
+
+  function representativeLensEvent(events = filteredEvents(), lens = activeMapLens()) {
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    const candidates = (events || []).filter((event) => event?.lngLat && (!category || event.category === category));
+    if (!candidates.length) return null;
+    const pool = (events || []).filter((event) => event?.lngLat);
+    return candidates
+      .map((event) => ({ event, score: representativeLensEventScore(event, lens, pool) }))
+      .sort((a, b) => b.score - a.score || String(a.event.id).localeCompare(String(b.event.id)))[0]?.event || null;
+  }
+
+  function representativeLensEventScore(event, lens = activeMapLens(), pool = filteredEvents()) {
+    if (!event?.lngLat) return -Infinity;
+    if (event.id === "official-2024-grand-central" || GRAND_CENTRAL_EVENT_IDS.has(event.id)) return 999;
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    const sameCategory = (pool || []).filter((candidate) => candidate?.lngLat && (!category || candidate.category === category));
+    const cityCenter = mapCenter();
+    const cityRadius = cityLensContextRadiusM();
+    const distanceToCityCenter = lngLatDistanceMeters(cityCenter, event.lngLat);
+    const centrality = clamp01(1 - distanceToCityCenter / Math.max(1, cityRadius));
+    const radiusM = lensEffectiveRadiusM(lens);
+    const nearbyCategoryDensity = eventDensityIntensity(event.lngLat, sameCategory, Math.max(700, radiusM * 1.45));
+    const nearbyAllDensity = eventDensityIntensity(event.lngLat, pool || [], Math.max(900, radiusM * 1.8));
+    const evidenceWeight = Math.min(0.22, Number(event.evidenceCount || 0) * 0.035)
+      + Math.min(0.12, Number(event.sourceCount || 0) * 0.045);
+    const confidenceWeight = confidenceRank(event.confidence) * 0.035;
+    const lensText = [
+      event.id,
+      event.title,
+      event.shortDescription,
+      event.summary,
+      event.area,
+      ...(event.affectedSignals || []),
+    ].filter(Boolean).join(" ").toLowerCase();
+    const textBoost = representativeLensTextBoost(lens?.id || "", lensText);
+    const cityPenalty = distanceToCityCenter > cityRadius * 1.08 ? -0.28 : 0;
+    return centrality * 0.42
+      + nearbyCategoryDensity * 0.34
+      + nearbyAllDensity * 0.12
+      + evidenceWeight
+      + confidenceWeight
+      + textBoost
+      + cityPenalty
+      + stableUnit(`${state.cityId}:${lens?.id || ""}:${event.id}:representative`) * 0.035;
+  }
+
+  function representativeLensTextBoost(lensId, text) {
+    if (lensId?.startsWith("transport-")) {
+      if (/\b(station|interchange|terminal|transit|rail|metro|subway|bus|cycle|corridor|bridge|street|road)\b/.test(text)) return 0.13;
+      if (/\b(collision|incident|crash)\b/.test(text)) return -0.08;
+    }
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(lensId)) {
+      if (/\b(completed|construction|development|planning|permit|application|masterplan|site|yards|building)\b/.test(text)) return 0.12;
+    }
+    if (lensId?.startsWith("civic-")) {
+      if (/\b(school|library|health|hospital|clinic|leisure|community|fire|police|service|park|opened)\b/.test(text)) return 0.12;
+      if (/\b(illegal fireworks|noise|complaint|request)\b/.test(text)) return -0.07;
+    }
+    if (lensId?.startsWith("economy-")) {
+      if (/\b(bid|business|retail|market|office|commercial|hospitality|hotel|restaurant|culture|visitor|venue)\b/.test(text)) return 0.13;
+    }
+    if (lensId?.startsWith("utilities-")) {
+      if (/\b(utility|utilities|substation|water|sewer|drain|energy|power|electric|road work|street work|permit)\b/.test(text)) return 0.12;
+    }
+    return 0;
+  }
+
   function representativeContextPoint(features, scoreFn) {
     const center = mapCenter();
     let best = null;
@@ -1667,15 +1899,36 @@
   }
 
   function activeLensCameraCenter(lens = activeMapLens()) {
-    if (selectedEventMatchesLens(lens)) return state.selectedEvent.lngLat;
     const contextCenter = currentContextCenterForLens(lens);
-    if (contextCenter && !sameCategoryEventForLensExists(lens)) return contextCenter;
+    const contextLedLenses = new Set([
+      "civic-access-gaps",
+      "civic-catchment",
+      "civic-demand",
+      "economy-vitality",
+      "economy-gravity",
+      "utilities-capacity",
+      "utilities-resilience",
+      "utilities-works",
+    ]);
+    if (contextCenter && contextLedLenses.has(lens?.id)) return contextCenter;
+    if (selectedEventMatchesLens(lens)) return state.selectedEvent.lngLat;
+    if (contextCenter) return contextCenter;
     return state.selectedEvent?.lngLat || contextCenter || mapCenter();
   }
 
   function refocusIfContextDrivenLens() {
     const lens = activeMapLens();
-    if (selectedEventMatchesLens(lens) || sameCategoryEventForLensExists(lens)) return;
+    const contextLedLenses = new Set([
+      "civic-access-gaps",
+      "civic-catchment",
+      "civic-demand",
+      "economy-vitality",
+      "economy-gravity",
+      "utilities-capacity",
+      "utilities-resilience",
+      "utilities-works",
+    ]);
+    if (!contextLedLenses.has(lens?.id) && selectedEventMatchesLens(lens)) return;
     if (currentContextCenterForLens(lens)) focusActiveLensCamera(420);
   }
 
@@ -2712,8 +2965,6 @@
         ensureBuiltFootprintLensLayers();
         addLensDetailLayers();
       }
-      updateLensEventSource();
-      updateLensGuideSource();
       state.lensOverlayLoaded = true;
       state.lensOverlayError = null;
       renderCoverageNote();
@@ -2955,14 +3206,14 @@
             ["==", ["get", "evidence_role"], "context_not_year_specific_change_evidence"],
             ["case",
               ["==", ["get", "source_kind"], "current_context_road_infill"],
-              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.055, 0.55, 0.1, 1, 0.16],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.06, 0.55, 0.13, 1, 0.24],
               ["==", ["get", "source_kind"], "current_context_block_mosaic"],
-              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.55, 0.17, 1, 0.28],
-              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.13, 0.55, 0.22, 1, 0.34],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.1, 0.55, 0.19, 1, 0.32],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 0.55, 0.22, 1, 0.38],
             ],
             ["match", ["get", "source_kind"], ["road_adjacency_infill", "current_context_road_infill"], true, false],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.18, 0.55, 0.32, 1, 0.52],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.42, 0.55, 0.62, 1, 0.82],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.14, 0.55, 0.25, 1, 0.42],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.22, 0.55, 0.38, 1, 0.58],
           ],
           ["==", ["get", "lens_id"], "civic-demand"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.4], 0, 0.12, 1, 0.46],
@@ -4178,9 +4429,9 @@
         ],
         "icon-size": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["*", 0.22, utilityNetworkAssetSizeFactorExpression()],
-          14, ["*", 0.32, utilityNetworkAssetSizeFactorExpression()],
-          16, ["*", 0.45, utilityNetworkAssetSizeFactorExpression()],
+          10, ["*", 0.3, utilityNetworkAssetSizeFactorExpression()],
+          14, ["*", 0.43, utilityNetworkAssetSizeFactorExpression()],
+          16, ["*", 0.6, utilityNetworkAssetSizeFactorExpression()],
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
@@ -4194,7 +4445,7 @@
   function utilityNetworkLineFilter() {
     return ["all",
       ["==", ["get", "layer"], "utility_network"],
-      ["==", ["get", "network_geometry"], "line"],
+      ["match", ["get", "network_geometry"], ["line", "road_context_trace"], true, false],
     ];
   }
 
@@ -4293,19 +4544,19 @@
     if (mode === "utilities-capacity") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.34,
-        1, 0.9,
+        0, 0.44,
+        1, 0.96,
       ];
     }
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.14,
-        1, 0.58,
+        0, 0.22,
+        1, 0.72,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.64 : 0.72;
-    const low = mode === "utilities-works" ? 0.16 : mode === "utilities-capacity" ? 0.22 : 0.22;
+    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.78 : 0.78;
+    const low = mode === "utilities-works" ? 0.24 : mode === "utilities-capacity" ? 0.26 : 0.24;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, low,
@@ -4318,18 +4569,18 @@
     if (mode === "utilities-capacity") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.18,
-        1, 0.52,
+        0, 0.24,
+        1, 0.62,
       ];
     }
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.07,
-        1, 0.26,
+        0, 0.11,
+        1, 0.36,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.34 : 0.36;
+    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.44 : 0.42;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, mode === "utilities-works" ? 0.08 : 0.08,
@@ -4339,23 +4590,23 @@
 
   function utilityNetworkWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.74 : mode === "utilities-works" ? 0.92 : mode === "utilities-capacity" ? 1.18 : 1;
+    const factor = mode === "utilities-resilience" ? 1.28 : mode === "utilities-works" ? 1.42 : mode === "utilities-capacity" ? 1.72 : 1.18;
     return [
       "interpolate", ["linear"], ["zoom"],
-      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.26, 5, 0.9]],
-      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 2.15]],
-      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.96, 5, 3.4]],
+      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.38, 5, 1.2]],
+      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.86, 5, 2.85]],
+      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.28, 5, 4.15]],
     ];
   }
 
   function utilityNetworkCaseWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.72 : mode === "utilities-capacity" ? 1.24 : mode === "utilities-works" ? 0.98 : 1;
+    const factor = mode === "utilities-resilience" ? 1.16 : mode === "utilities-capacity" ? 1.62 : mode === "utilities-works" ? 1.38 : 1.16;
     return [
       "interpolate", ["linear"], ["zoom"],
-      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.72, 5, 1.8]],
-      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.28, 5, 3.6]],
-      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.7, 5, 5.1]],
+      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.92, 5, 2.35]],
+      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.62, 5, 4.35]],
+      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 2.1, 5, 6.0]],
     ];
   }
 
@@ -5088,6 +5339,7 @@
     state.lensEventFeatureCount = 0;
     state.lensEventSourceKey = "";
     state.lensGuideFeatureCache = emptyFeatureCollection();
+    state.lensGuideSourceKey = "";
     renderLensGuideLabels();
   }
 
@@ -5213,21 +5465,21 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.035, 0.18) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.026, 0.16) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.012, 0.06) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.1, 0.38) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.06, 0.24) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.06, 0.18) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.08, 0.34) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.07, 0.3) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.05, 0.22) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.22, 0.66) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.18, 0.54) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.16, 0.48) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.03, 0.12) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.02, 0.1) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.08, 0.26) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.04, 0.12) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.04, 0.14) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.04, 0.18) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.16, 0.44) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.12, 0.34) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.1, 0.3) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.04, 0.16));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.28) : lensDetailLineOpacity(0.06, 0.28));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.18, 0.52) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.08, 0.28) : lensDetailFillOpacity(0.06, 0.22));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.28, 0.66) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.16, 0.42) : lensDetailLineOpacity(0.12, 0.36));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
     setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
-    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 8.8) : lensTraceWidthExpression(2.6, 8.4));
-    setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.35, 4.8) : lensTraceWidthExpression(1.05, 4.9));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.8, 9.8) : lensTraceWidthExpression(2.9, 8.8));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.65, 5.8) : lensTraceWidthExpression(1.2, 5.2));
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
     setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
   }
@@ -5256,9 +5508,9 @@
       state.map.setFilter("lens-utility-network-assets", utilityNetworkAssetFilter());
       state.map.setLayoutProperty("lens-utility-network-assets", "icon-size", [
         "interpolate", ["linear"], ["zoom"],
-        10, ["*", 0.22, utilityNetworkAssetSizeFactorExpression()],
-        14, ["*", 0.32, utilityNetworkAssetSizeFactorExpression()],
-        16, ["*", 0.45, utilityNetworkAssetSizeFactorExpression()],
+        10, ["*", 0.3, utilityNetworkAssetSizeFactorExpression()],
+        14, ["*", 0.43, utilityNetworkAssetSizeFactorExpression()],
+        16, ["*", 0.6, utilityNetworkAssetSizeFactorExpression()],
       ]);
       state.map.setPaintProperty("lens-utility-network-assets", "icon-opacity", utilityNetworkAssetOpacityExpression());
     }
@@ -5481,7 +5733,7 @@
       return [
         "all",
         base,
-        [">=", ["to-number", ["get", "visual_priority"], 0], lens?.id === "utilities-capacity" ? 0.12 : 0.16],
+        [">=", ["to-number", ["get", "visual_priority"], 0], lens?.id === "utilities-capacity" ? 0.06 : 0.08],
       ];
     }
     return guideSublayerFilter(base, lens);
@@ -6011,10 +6263,9 @@
   }
 
   function updateTimeDependentMapState() {
+    if (!state.cityDataReady) return;
     ensureDetailLayers();
     ensureLensOverlays();
-    updateDetailLayerFilters();
-    updateLensOverlayFilters();
   }
 
   function updateLensEventSource() {
@@ -6032,21 +6283,52 @@
     const source = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
     if (!source?.setData) {
       state.lensGuideFeatureCache = emptyFeatureCollection();
+      state.lensGuideSourceKey = "";
       renderLensGuideLabels();
       return;
     }
     const collection = lensGuideFeatureCollection();
     state.lensGuideFeatureCache = collection;
-    setLensGuideSourceData(collection);
-    if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
-    else renderLensGuideLabels();
-    renderLayers();
-    renderTimeline();
+    const changed = setLensGuideSourceData(collection);
+    if (changed) {
+      if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
+      else renderLensGuideLabels();
+      renderLayers();
+      renderTimeline();
+    }
+  }
+
+  function lensGuideSourceKey(collection = state.lensGuideFeatureCache) {
+    const features = collection?.features || [];
+    return [
+      state.cityId,
+      state.activeLens,
+      state.activeAspect,
+      [...state.activeAspectLayers].sort().join(","),
+      currentTimelineYear(),
+      state.selectedEventId || "",
+      Number(state.detailRadiusM || 0),
+      state.confidenceFilter,
+      state.showInferred ? "inferred-on" : "inferred-off",
+      state.search,
+      state.detailBuildingFeatures.length,
+      state.detailRoadFeatures.length,
+      state.transportRoadFeatures?.length || 0,
+      state.transportStopFeatures?.length || 0,
+      state.utilityNetworkFeatures?.length || 0,
+      state.economyAnchorFeatures?.length || 0,
+      state.civicServiceFeatures?.length || 0,
+      state.lensDetailFeatures?.length || 0,
+      features.length,
+    ].join("|");
   }
 
   function setLensGuideSourceData(collection = state.lensGuideFeatureCache) {
     const source = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
     if (!source?.setData) return false;
+    const key = lensGuideSourceKey(collection);
+    if (state.lensGuideSourceKey === key) return false;
+    state.lensGuideSourceKey = key;
     source.setData(collection || emptyFeatureCollection());
     clearLensGuideSourceRefreshTimers();
     const reapplyLatest = () => {
@@ -6056,9 +6338,7 @@
       if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
       state.map?.triggerRepaint?.();
     };
-    for (const delay of [120, 520, 1200, 2200]) {
-      state.lensGuideSourceRefreshTimers.push(setTimeout(reapplyLatest, delay));
-    }
+    state.lensGuideSourceRefreshTimers.push(setTimeout(reapplyLatest, 180));
     state.map?.once?.("idle", reapplyLatest);
     return true;
   }
@@ -10562,8 +10842,10 @@
   }
 
   function civicAccessGapStreetFeatures(center, lens) {
-    const roads = state.detailRoadFeatures || [];
     const year = currentTimelineYear();
+    const roads = (state.detailRoadFeatures || []).length
+      ? state.detailRoadFeatures
+      : transportRoadFeaturesForYear(year);
     const events = lensEventsForYear(year)
       .filter((event) => event.category === "civic_services" && event.lngLat);
     if (!roads.length) return [];
@@ -10577,7 +10859,8 @@
     const networkFeatures = [];
     for (const road of roads) {
       const props = road.properties || {};
-      if (Number(props.visible_year || 9999) > year) continue;
+      const visibleYear = Number(props.visible_year);
+      if (Number.isFinite(visibleYear) && visibleYear > year) continue;
       const clippedGeometry = clipLineGeometryToRadius(road.geometry, center, clipRadiusM);
       if (!clippedGeometry) continue;
       const point = geometryToLngLat(clippedGeometry) || geometryToLngLat(road.geometry);
@@ -10600,7 +10883,7 @@
       const routePriority = Math.min(0.2, rank * 0.04) + Math.min(0.16, routeLengthM / 2300);
       const gapIntensity = clamp01(0.23 + (1 - civicDensity) * 0.36 + (1 - stopDensity) * 0.22 + studyCore * 0.12 + middleRing * 0.08 + routePriority * 0.42 + stable * 0.04);
       const coverageIntensity = clamp01(serviceDensity * 0.48 + stopDensity * 0.28 + civicDensity * 0.12 + studyCore * 0.07 + proximity * 0.05 + Math.min(0.13, rank * 0.026));
-      if (((rank >= 2.05 && (stopDensity > 0.08 || civicDensity > 0.08 || studyCore > 0.25 || routeLengthM > 220)) || stopDensity > 0.22) && routeLengthM > 64 && coverageIntensity > 0.22) {
+      if (((rank >= 1.35 && (stopDensity > 0.05 || civicDensity > 0.05 || studyCore > 0.18 || routeLengthM > 160)) || stopDensity > 0.16) && routeLengthM > 44 && coverageIntensity > 0.17) {
         const transitIntensity = clamp01(coverageIntensity * 0.72 + stopDensity * 0.2 + Math.min(0.12, rank * 0.03));
         networkFeatures.push({
           type: "Feature",
@@ -10621,7 +10904,7 @@
           geometry: clippedGeometry,
         });
       }
-      if (coverageIntensity > 0.29 && (stopDensity > 0.1 || civicDensity > 0.12 || rank >= 2.05 || studyCore > 0.46)) {
+      if (coverageIntensity > 0.2 && (stopDensity > 0.05 || civicDensity > 0.08 || rank >= 1.35 || studyCore > 0.32)) {
         const coverageStyle = civicAccessCoverageStyle(coverageIntensity, stopDensity, civicDensity);
         coverageFeatures.push({
           type: "Feature",
@@ -10662,15 +10945,70 @@
         geometry: clippedGeometry,
       });
     }
-    const selectedNetwork = distributedCivicAccessRoadFlows(networkFeatures, center, 170, { bucketCount: 36, perBucket: 2, minSpacingM: 112 });
-    const selectedCoverage = distributedCivicAccessRoadFlows(coverageFeatures, center, 145, { bucketCount: 36, perBucket: 1, minSpacingM: 138 });
+    const selectedNetwork = distributedCivicAccessRoadFlows(networkFeatures, center, 320, { bucketCount: 48, perBucket: 3, minSpacingM: 72 });
+    const selectedCoverage = distributedCivicAccessRoadFlows(coverageFeatures, center, 260, { bucketCount: 44, perBucket: 2, minSpacingM: 92 });
     const selectedSeams = distributedCivicAccessGapSeams(seamFeatures, center);
+    const fallbackSeams = selectedNetwork.length + selectedCoverage.length + selectedSeams.length < 80
+      ? civicAccessFallbackGuideSeams(center, lens, roads, transportStops, serviceAnchors, events, year, radiusM)
+      : [];
     return [
       ...selectedNetwork,
       ...selectedCoverage,
       ...selectedSeams,
-      ...civicAccessGapTickGuideFeatures(selectedSeams, lens),
+      ...fallbackSeams,
+      ...civicAccessGapTickGuideFeatures([...selectedSeams, ...fallbackSeams], lens),
     ];
+  }
+
+  function civicAccessFallbackGuideSeams(center, lens, roads, transportStops, serviceAnchors, events, year, radiusM) {
+    const maxDistance = radiusM * 1.08;
+    const clipRadiusM = radiusM * 1.06;
+    const candidates = [];
+    for (const road of roads || []) {
+      const props = road.properties || {};
+      const visibleYear = Number(props.visible_year);
+      if (Number.isFinite(visibleYear) && visibleYear > year) continue;
+      const clippedGeometry = clipLineGeometryToRadius(road.geometry, center, clipRadiusM);
+      if (!clippedGeometry) continue;
+      const point = geometryToLngLat(clippedGeometry) || geometryToLngLat(road.geometry);
+      if (!point) continue;
+      const distance = geometryDistanceToPointMeters(clippedGeometry, center, 7);
+      if (!Number.isFinite(distance) || distance > maxDistance) continue;
+      const routeLengthM = geometryLineLengthMeters(clippedGeometry);
+      if (!Number.isFinite(routeLengthM) || routeLengthM < 34) continue;
+      const rank = Number(props.rank || 1);
+      const stopDensity = civicAccessStopDensity(point, transportStops, 520);
+      const civicDensity = civicAccessServiceAnchorDensity(point, serviceAnchors, 700);
+      const nearestEvent = events.length ? nearestGuideEvent(point, events, 980) : null;
+      const studyCore = clamp01(1 - distance / Math.max(1, radiusM * 1.08));
+      const proximity = 1 - Math.min(maxDistance, distance) / maxDistance;
+      const serviceDensity = clamp01(civicDensity * 0.34 + stopDensity * 0.3 + Math.min(0.12, rank * 0.022));
+      const gapIntensity = clamp01(0.28 + (1 - serviceDensity) * 0.36 + studyCore * 0.18 + Math.min(0.16, rank * 0.034) + Math.min(0.12, routeLengthM / 2200));
+      const style = civicAccessGapStyle(gapIntensity, serviceDensity, studyCore);
+      candidates.push({
+        type: "Feature",
+        properties: {
+          kind: "flow",
+          lens_id: lens.id,
+          layer_id: style === "gap_high" || style === "gap_medium" ? "corridors" : "gap_seams",
+          flow_role: "gap_seam",
+          flow_style: style,
+          event_id: nearestEvent?.id || "",
+          source_id: props.source_id || props.id || "",
+          source_kind: "mapped_road_service_context",
+          evidence_role: "current_context_guide_not_access_deprivation",
+          intensity: Number(gapIntensity.toFixed(2)),
+          color: civicGapStreetColor(gapIntensity, serviceDensity, rank, style),
+          service_density: Number(serviceDensity.toFixed(3)),
+          stop_density: Number(stopDensity.toFixed(3)),
+          study_core: Number(studyCore.toFixed(3)),
+          rank,
+          score: Number((gapIntensity + proximity * 0.18 + studyCore * 0.14 + Math.min(0.1, routeLengthM / 2600) + stableUnit(`${props.source_id || props.id || ""}:fallback-gap`) * 0.05).toFixed(3)),
+        },
+        geometry: clippedGeometry,
+      });
+    }
+    return distributedCivicAccessGapSeams(candidates, center).slice(0, 180);
   }
 
   function civicAccessCoverageStyle(coverageIntensity, stopDensity, civicDensity) {
@@ -10917,10 +11255,10 @@
 
   function distributedCivicAccessGapSeams(features, center) {
     const targetByStyle = {
-      gap_high: 72,
-      gap_medium: 112,
-      gap_low: 62,
-      gap_adequate: 18,
+      gap_high: 120,
+      gap_medium: 170,
+      gap_low: 118,
+      gap_adequate: 34,
     };
     const selected = [];
     const styleCounts = new Map();
@@ -10938,8 +11276,8 @@
       const ring = Math.floor(distance / 260);
       const bucket = `${transportAngleBucket(center, point, 40)}:${ring}:${style}`;
       const bucketCount = bucketCounts.get(bucket) || 0;
-      if (bucketCount >= (style === "gap_high" ? 2 : style === "gap_medium" ? 2 : 1)) continue;
-      const minSpacing = style === "gap_high" ? 104 : style === "gap_medium" ? 118 : 156;
+      if (bucketCount >= (style === "gap_high" ? 3 : style === "gap_medium" ? 3 : 2)) continue;
+      const minSpacing = style === "gap_high" ? 72 : style === "gap_medium" ? 86 : 104;
       if (selectedPoints.some((item) => item.style === style && lngLatDistanceMeters(item.point, point) < minSpacing)) continue;
       selected.push(feature);
       selectedPoints.push({ point, style });
@@ -12520,7 +12858,9 @@
     const network = (state.utilityNetworkFeatures || [])
       .filter((feature) => {
         const props = feature.properties || {};
-        return props.layer === "utility_network" && props.network_geometry === "line" && feature.geometry;
+        return props.layer === "utility_network"
+          && ["line", "road_context_trace"].includes(String(props.network_geometry || ""))
+          && feature.geometry;
       });
     if (!network.length) return [];
     const maxDistance = radiusM * (
@@ -13448,7 +13788,7 @@
       center,
       economyGravityAnchorCandidates(center, lens, maxDistance),
       lens,
-      13,
+      22,
     );
     return selected.map((item, index) => ({
       type: "Feature",
@@ -13474,7 +13814,7 @@
     const selected = selectEconomyVitalityAnchorCandidates(
       economyVitalityAnchorCandidates(center, lens, maxDistance * 1.08),
       center,
-      7,
+      18,
     );
     return selected.map((item, index) => {
       const label = item.props.label || economyVitalityLayerLabel(item.sublayerId);
@@ -13556,7 +13896,7 @@
     const sorted = [...candidates].sort((a, b) => b.score - a.score || b.rank - a.rank || a.distance - b.distance);
     for (const item of sorted) {
       if (selected.length >= limit) break;
-      const layerLimit = item.sublayerId === "spend" ? 3 : item.sublayerId === "footfall" ? 3 : 2;
+      const layerLimit = item.sublayerId === "spend" ? 6 : item.sublayerId === "footfall" ? 6 : 4;
       if ((layerCounts.get(item.sublayerId) || 0) >= layerLimit) continue;
       const bucket = transportAngleBucket(center, item.point, 18);
       if ((bucketCounts.get(bucket) || 0) >= 2) continue;
@@ -14687,14 +15027,14 @@
   }
 
   function lensEventsForYear(year) {
+    const key = eventFilterKey("lens", year);
+    if (state.eventFilterCache.has(key)) return state.eventFilterCache.get(key);
     let events = visibleEventsForYear(year).filter((event) => event.lngLat);
     if (state.search) {
       const q = state.search.toLowerCase();
-      events = events.filter((event) =>
-        (event.title || "").toLowerCase().includes(q) ||
-        (event.area || "").toLowerCase().includes(q) ||
-        (event.summary || "").toLowerCase().includes(q));
+      events = events.filter((event) => eventMatchesSearch(event, q));
     }
+    state.eventFilterCache.set(key, events);
     return events;
   }
 
@@ -14892,17 +15232,17 @@
   function transportBaseRoadCasePaint() {
     const mode = activeMapLens().id;
     const rank = transportRankExpression();
-    const opacity = mode === "transport-speed" ? [8, 0.018, 12, 0.055, 16, 0.12]
-      : mode === "transport-reliability" ? [8, 0.03, 12, 0.08, 16, 0.16]
+    const opacity = mode === "transport-speed" ? [8, 0.035, 12, 0.085, 16, 0.18]
+      : mode === "transport-reliability" ? [8, 0.055, 12, 0.13, 16, 0.26]
         : [8, 0.1, 12, 0.24, 16, 0.42];
     return {
       "line-color": "#fffdf7",
       "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        8, ["*", rank, mode === "transport-speed" ? 0.18 : mode === "transport-reliability" ? 0.16 : 0.28],
-        12, ["*", rank, mode === "transport-speed" ? 0.34 : mode === "transport-reliability" ? 0.33 : 0.54],
-        16, ["*", rank, mode === "transport-speed" ? 0.58 : mode === "transport-reliability" ? 0.56 : 0.9],
+        8, ["*", rank, mode === "transport-speed" ? 0.24 : mode === "transport-reliability" ? 0.22 : 0.28],
+        12, ["*", rank, mode === "transport-speed" ? 0.44 : mode === "transport-reliability" ? 0.44 : 0.54],
+        16, ["*", rank, mode === "transport-speed" ? 0.72 : mode === "transport-reliability" ? 0.74 : 0.9],
       ],
       "line-blur": 0.08,
     };
@@ -14934,17 +15274,17 @@
           3, "#d99a36",
           4, "#c8472e",
         ];
-    const opacity = mode === "transport-speed" ? [8, 0.018, 12, 0.05, 16, 0.12]
-      : mode === "transport-reliability" ? [8, 0.03, 12, 0.07, 16, 0.14]
+    const opacity = mode === "transport-speed" ? [8, 0.035, 12, 0.078, 16, 0.17]
+      : mode === "transport-reliability" ? [8, 0.055, 12, 0.12, 16, 0.24]
         : [8, 0.12, 12, 0.28, 16, 0.48];
     return {
       "line-color": color,
       "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.16 : mode === "transport-reliability" ? 0.11 : 0.2],
-        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.3 : mode === "transport-reliability" ? 0.23 : 0.38],
-        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.52 : mode === "transport-reliability" ? 0.42 : 0.68],
+        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.22 : mode === "transport-reliability" ? 0.2 : 0.2],
+        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.4 : mode === "transport-reliability" ? 0.38 : 0.38],
+        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.66 : mode === "transport-reliability" ? 0.64 : 0.68],
       ],
     };
   }
@@ -14984,12 +15324,12 @@
           3, "#88aeb1",
           4, "#9a98ad",
         ],
-        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.018, 0.2, 0.04, 1, 0.095], rankVisibility],
+        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.048, 0.2, 0.095, 1, 0.21], rankVisibility],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.12, ["*", activity, 0.18]], rank],
-          13, ["*", ["+", 0.22, ["*", activity, 0.32]], rank],
-          16, ["*", ["+", 0.34, ["*", activity, 0.52]], rank],
+          9, ["*", ["+", 0.18, ["*", activity, 0.28]], rank],
+          13, ["*", ["+", 0.34, ["*", activity, 0.52]], rank],
+          16, ["*", ["+", 0.54, ["*", activity, 0.82]], rank],
         ],
         "line-dasharray": [1.8, 1.1],
       };
@@ -15015,12 +15355,12 @@
             1, "#b91f32",
           ],
         ],
-        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.028, 0.22, 0.064, 0.52, 0.12, 1, 0.19], rankVisibility],
+        "line-opacity": ["*", ["interpolate", ["linear"], activity, 0, 0.045, 0.22, 0.09, 0.52, 0.17, 1, 0.28], rankVisibility],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.18, ["*", activity, 0.36]], rank],
-          13, ["*", ["+", 0.34, ["*", activity, 0.68]], rank],
-          16, ["*", ["+", 0.56, ["*", activity, 1.08]], rank],
+          9, ["*", ["+", 0.24, ["*", activity, 0.46]], rank],
+          13, ["*", ["+", 0.44, ["*", activity, 0.86]], rank],
+          16, ["*", ["+", 0.72, ["*", activity, 1.34]], rank],
         ],
         "line-dasharray": [1, 0.0001],
       };
@@ -15154,26 +15494,73 @@
     return state.map.getLayoutProperty(layerId, "visibility") !== "none";
   }
 
+  function clearEventFilterCache() {
+    state.eventFilterCache.clear();
+  }
+
+  function eventFilterKey(mode, year) {
+    const events = state.loadedEvents.get(year);
+    return [
+      mode,
+      state.cityId,
+      year,
+      activeLayerIds().join(","),
+      state.confidenceFilter,
+      state.showInferred ? "with-inferred" : "without-inferred",
+      mode === "filtered" || mode === "lens" ? state.search.trim().toLowerCase() : "",
+      events?.length || 0,
+    ].join("|");
+  }
+
+  function eventMatchesSearch(event, query) {
+    if (!query) return true;
+    return (event.title || "").toLowerCase().includes(query)
+      || (event.area || "").toLowerCase().includes(query)
+      || (event.summary || "").toLowerCase().includes(query)
+      || (event.shortDescription || "").toLowerCase().includes(query);
+  }
+
+  function clearSearchMapRefreshTimer() {
+    if (state.searchMapRefreshTimer) clearTimeout(state.searchMapRefreshTimer);
+    state.searchMapRefreshTimer = null;
+  }
+
+  function scheduleSearchMapRefresh() {
+    clearSearchMapRefreshTimer();
+    state.searchMapRefreshTimer = setTimeout(() => {
+      state.searchMapRefreshTimer = null;
+      updateTimeDependentMapState();
+      renderMarkers();
+      reconcileSelectionWithFilters({ keepCamera: true }).catch((error) => {
+        console.warn("[atlas] search selection reconcile failed", error);
+      });
+    }, 180);
+  }
+
   // ---------------------------------------------------------------------------
   // Filtering
   // ---------------------------------------------------------------------------
 
   function visibleEventsForYear(year) {
+    const key = eventFilterKey("visible", year);
+    if (state.eventFilterCache.has(key)) return state.eventFilterCache.get(key);
     const arr = state.loadedEvents.get(year) || [];
-    return arr.filter((e) => state.activeLayers.has(e.category))
+    const events = arr.filter((e) => state.activeLayers.has(e.category))
       .filter((e) => state.confidenceFilter === "all" || e.confidence === state.confidenceFilter)
       .filter((e) => state.showInferred || e.confidence !== "inferred");
+    state.eventFilterCache.set(key, events);
+    return events;
   }
 
   function filteredEvents() {
+    const key = eventFilterKey("filtered", state.year);
+    if (state.eventFilterCache.has(key)) return state.eventFilterCache.get(key);
     let events = visibleEventsForYear(state.year);
     if (state.search) {
       const q = state.search.toLowerCase();
-      events = events.filter((e) =>
-        (e.title || "").toLowerCase().includes(q) ||
-        (e.area || "").toLowerCase().includes(q) ||
-        (e.summary || "").toLowerCase().includes(q));
+      events = events.filter((e) => eventMatchesSearch(e, q));
     }
+    state.eventFilterCache.set(key, events);
     return events;
   }
 
@@ -15225,27 +15612,6 @@
         </div>
       `;
     }).join("");
-
-    els.layersList.querySelectorAll(".layer-row").forEach((row) => {
-      const toggleLayer = async () => {
-        const categoryId = row.getAttribute("data-layer");
-        const sublayerId = row.getAttribute("data-sublayer");
-        if (categoryId) {
-          if (state.activeLayers.has(categoryId)) state.activeLayers.delete(categoryId);
-          else state.activeLayers.add(categoryId);
-        } else if (sublayerId) {
-          if (state.activeAspectLayers.has(sublayerId)) state.activeAspectLayers.delete(sublayerId);
-          else state.activeAspectLayers.add(sublayerId);
-        }
-        resetEventListLimit();
-        renderAll();
-        updateTimeDependentMapState();
-        renderMarkers();
-        await reconcileSelectionWithFilters({ keepCamera: false });
-      };
-      row.addEventListener("click", toggleLayer);
-      addPressHandler(row, toggleLayer);
-    });
 
     const countableLayers = lens.id === "planning-parcels" ? layers.filter((l) => !l.categoryToggle) : layers;
     const onCount = countableLayers.filter((l) => l.categoryToggle ? state.activeLayers.has(l.id) : state.activeAspectLayers.has(l.id)).length;
@@ -19505,13 +19871,6 @@
         </button>`;
     }).join("");
 
-    els.eventList.querySelectorAll(".event-row").forEach((row) => {
-      row.addEventListener("click", () => {
-        const id = row.getAttribute("data-event-id");
-        if (id) selectEvent(id);
-        if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) setChangelogOpen(false);
-      });
-    });
   }
 
   function eventSourceCount(event) {
@@ -19537,10 +19896,9 @@
       return;
     }
     const events = visibleEventsForYear(state.year);
+    const query = q.toLowerCase();
     const matches = events
-      .filter((e) =>
-        (e.title || "").toLowerCase().includes(q.toLowerCase()) ||
-        (e.area || "").toLowerCase().includes(q.toLowerCase()))
+      .filter((e) => eventMatchesSearch(e, query))
       .slice(0, 8);
 
     if (!matches.length) {
@@ -19561,17 +19919,6 @@
           <span class="meta">${m.year}</span>
         </div>`;
     }).join("");
-    els.searchResults.querySelectorAll(".search-row").forEach((row) => {
-      const selectResult = () => {
-        const id = row.getAttribute("data-event-id");
-        selectEvent(id);
-        els.searchResults.setAttribute("hidden", "");
-        els.searchInput.value = "";
-        state.search = "";
-      };
-      row.addEventListener("click", selectResult);
-      addPressHandler(row, selectResult);
-    });
   }
 
   function renderCityMenu() {
@@ -19583,21 +19930,6 @@
         <span class="meta">${escapeHtml(c.country || "")}</span>
       </div>
     `).join("");
-    els.cityMenu.querySelectorAll(".city-row").forEach((row) => {
-      const selectCity = async () => {
-        const id = row.getAttribute("data-city-id");
-        els.cityMenu.setAttribute("hidden", "");
-        if (id && id !== state.cityId) {
-          try {
-            await loadCity(id);
-          } catch (err) {
-            toast(`Failed to load ${id}: ${err.message}`);
-          }
-        }
-      };
-      row.addEventListener("click", selectCity);
-      addPressHandler(row, selectCity);
-    });
   }
 
   function syncTopline() {
@@ -19659,6 +19991,7 @@
     const preferred = events.find((e) => e.id === "official-2024-grand-central")
       || events.find((e) => /Belfast Grand Central Station opened/i.test(e.title || ""))
       || events.find((e) => GRAND_CENTRAL_EVENT_IDS.has(e.id));
+    const representative = representativeLensEvent(events, activeMapLens());
     const lensMatched = events.find((e) => e.category === state.activeLens && e.confidence === "documented")
       || events.find((e) => e.category === state.activeLens);
     const nearestToCamera = opts.keepCamera && state.mapReady
@@ -19669,8 +20002,8 @@
       : null;
     const documented = events.find((e) => e.confidence === "documented");
     const cameraAware = opts.keepCamera
-      ? (nearestToCamera || lensMatched)
-      : (lensMatched || nearestToCamera);
+      ? (nearestToCamera || representative || lensMatched)
+      : (representative || lensMatched || nearestToCamera);
     const first = preferred || cameraAware || documented || events[0];
     if (first) await selectEvent(first.id, { silent: true, ...opts });
   }
@@ -19706,6 +20039,7 @@
     }
     state.selectedEventId = event.id;
     state.selectedEvent = event;
+    if (!opts.deferSources) loadSourcesForCurrentCity();
     if (event.year !== state.year) {
       await setYear(event.year);
     }
@@ -19871,14 +20205,21 @@
     const category = lens?.category || lens?.layerId || state.activeLens;
     if (!category || !state.loadedEvents.has(state.year)) return;
     const events = visibleEventsForYear(state.year);
+    const representative = representativeLensEvent(events, lens);
     if (state.selectedEvent?.year === state.year && state.selectedEvent.lngLat) {
-      if (state.selectedEvent.category === category) return;
+      if (state.selectedEvent.category === category) {
+        if (!representative || representative.id === state.selectedEvent.id) return;
+        const selectedScore = representativeLensEventScore(state.selectedEvent, lens, events);
+        const representativeScore = representativeLensEventScore(representative, lens, events);
+        if (selectedScore >= representativeScore * 0.78) return;
+      }
       const nearbySameCategory = events.some((event) => event.category === category
         && event.lngLat
         && lngLatDistanceMeters(state.selectedEvent.lngLat, event.lngLat) <= lensEffectiveRadiusM(lens) * 1.55);
-      if (nearbySameCategory) return;
+      if (nearbySameCategory && !representative) return;
     }
-    const next = events.find((event) => event.category === category && event.confidence === "documented" && event.lngLat)
+    const next = representative
+      || events.find((event) => event.category === category && event.confidence === "documented" && event.lngLat)
       || events.find((event) => event.category === category && event.lngLat);
     if (!next) return;
     state.selectedEventId = next.id;
@@ -19999,10 +20340,13 @@
     if (open) updateLensHead();
   }
 
-  function setMethodOpen(open) {
+  async function setMethodOpen(open) {
     state.methodOpen = open;
     els.methodOverlay?.setAttribute("data-open", String(open));
-    if (open) renderMethodology();
+    if (open) {
+      renderMethodology();
+      await loadSourcesForCurrentCity();
+    }
   }
 
   function setWelcomeOpen(open) {
