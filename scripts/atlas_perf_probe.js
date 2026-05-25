@@ -148,7 +148,6 @@ async function collectCity(browser, city) {
       ({ targetYear }) => {
         const state = window.BimsAtlas?.state;
         return Number(state?.year) === Number(targetYear)
-          && document.querySelectorAll("#eventList .event-row").length > 0
           && document.querySelector("#appStatus")?.textContent.trim() === "";
       },
       { targetYear }
