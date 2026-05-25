@@ -53,6 +53,15 @@ async function waitForContext(page, aspect) {
     const state = window.BimsAtlas?.state || {};
     const guide = state.lensGuideFeatureCache?.features || [];
     if (!guide.some((feature) => feature.properties?.lens_id === lensAspect)) return false;
+    if (String(lensAspect || "").startsWith("transport-")) {
+      const roadCache = state.transportRoadFeaturesByYear;
+      const roadLoaded = roadCache?.has?.(state.year) || (
+        state.transportRoadFeatureCountYearLoaded === state.year
+        && (state.transportRoadFeatures || []).length > 0
+      );
+      const guideCount = guide.filter((feature) => feature.properties?.lens_id === lensAspect).length;
+      return roadLoaded && guideCount >= (lensAspect === "transport-speed" ? 80 : 40);
+    }
     if (["economy-vitality", "economy-gravity"].includes(lensAspect)) {
       return state.economyAnchorFeaturesPathLoaded === null || (state.economyAnchorFeatures || []).length > 0;
     }
@@ -63,7 +72,7 @@ async function waitForContext(page, aspect) {
       return state.civicServiceFeaturesPathLoaded === null || (state.civicServiceFeatures || []).length > 0;
     }
     return true;
-  }, aspect, { timeout: 25000 }).catch(() => {});
+  }, aspect, { timeout: 45000 }).catch(() => {});
 }
 
 async function captureAspect(args, city, category, aspect) {
@@ -88,7 +97,7 @@ async function captureAspect(args, city, category, aspect) {
       window.BimsAtlas.setActiveAspect(aspect);
     }, { year: args.year, category, aspect });
     await waitForContext(page, aspect);
-    await page.waitForTimeout(1800);
+    await page.waitForTimeout(3600);
     const screenshotDir = path.join(args.outDir, city, "screenshots");
     fs.mkdirSync(screenshotDir, { recursive: true });
     await page.screenshot({ path: path.join(screenshotDir, `${aspect}-${args.year}.png`), fullPage: false });

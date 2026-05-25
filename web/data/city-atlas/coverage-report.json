@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-24T19:19:25Z",
+  "generated_at": "2026-05-24T23:20:22Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 370101,
-    "total_unique_events": 370101,
+    "total_events": 370348,
+    "total_unique_events": 370348,
     "duplicate_event_id_count": 0,
-    "active_source_count": 483,
-    "source_catalog_only_count": 257,
+    "active_source_count": 484,
+    "source_catalog_only_count": 259,
     "source_year_layer_row_count": 2489,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
@@ -9080,7 +9080,7 @@
       "source_title": "Planning Data certificate of immunity records",
       "year": 2024,
       "layer": "built_environment",
-      "event_count": 15
+      "event_count": 16
     },
     {
       "city_id": "london",
@@ -9096,14 +9096,6 @@
       "source_title": "Planning Data certificate of immunity records",
       "year": 2024,
       "layer": "transport",
-      "event_count": 1
-    },
-    {
-      "city_id": "london",
-      "source_id": "planning-data-certificate-of-immunity",
-      "source_title": "Planning Data certificate of immunity records",
-      "year": 2024,
-      "layer": "utilities",
       "event_count": 1
     },
     {
@@ -10345,6 +10337,30 @@
       "year": 2023,
       "layer": "built_environment",
       "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "ukpn-open-streetworks",
+      "source_title": "UK Power Networks Open Streetworks",
+      "year": 2024,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "ukpn-open-streetworks",
+      "source_title": "UK Power Networks Open Streetworks",
+      "year": 2025,
+      "layer": "utilities",
+      "event_count": 8
+    },
+    {
+      "city_id": "london",
+      "source_id": "ukpn-open-streetworks",
+      "source_title": "UK Power Networks Open Streetworks",
+      "year": 2026,
+      "layer": "utilities",
+      "event_count": 238
     },
     {
       "city_id": "london",
@@ -15048,15 +15064,7 @@
       "source_title": "New York City architecture and major project public pages",
       "year": 2022,
       "layer": "built_environment",
-      "event_count": 69
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-architecture-public-pages",
-      "source_title": "New York City architecture and major project public pages",
-      "year": 2022,
-      "layer": "utilities",
-      "event_count": 1
+      "event_count": 70
     },
     {
       "city_id": "nyc",
@@ -18744,7 +18752,7 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2020,
       "layer": "built_environment",
-      "event_count": 7
+      "event_count": 8
     },
     {
       "city_id": "nyc",
@@ -18752,14 +18760,6 @@
       "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
       "year": 2020,
       "layer": "environment",
-      "event_count": 1
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-      "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
-      "year": 2020,
-      "layer": "utilities",
       "event_count": 1
     },
     {
@@ -28473,16 +28473,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 226944,
-      "unique_event_count": 226944,
+      "event_count": 227191,
+      "unique_event_count": 227191,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 296,
-      "active_source_count": 193,
-      "source_catalog_only_count": 103,
+      "source_count": 298,
+      "active_source_count": 194,
+      "source_catalog_only_count": 104,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 226944,
+        "backed_event_count": 227191,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -28575,21 +28575,21 @@
         "2021": 9362,
         "2022": 9229,
         "2023": 23379,
-        "2024": 31621,
-        "2025": 31417,
-        "2026": 20332
+        "2024": 31622,
+        "2025": 31425,
+        "2026": 20570
       },
       "event_counts_by_layer": {
-        "built_environment": 105773,
+        "built_environment": 105774,
         "civic_services": 53367,
         "economy": 11766,
         "environment": 28735,
         "transport": 27273,
-        "utilities": 30
+        "utilities": 276
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 226934,
+        "documented": 227181,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -29386,7 +29386,7 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 3425
+          "event_count": 3426
         },
         {
           "year": 2024,
@@ -29441,7 +29441,7 @@
         {
           "year": 2025,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 9
         },
         {
           "year": 2026,
@@ -29471,7 +29471,7 @@
         {
           "year": 2026,
           "layer": "utilities",
-          "event_count": 27
+          "event_count": 265
         }
       ],
       "source_year_layer_rows": [
@@ -35321,7 +35321,7 @@
           "source_title": "Planning Data certificate of immunity records",
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 15
+          "event_count": 16
         },
         {
           "city_id": "london",
@@ -35337,14 +35337,6 @@
           "source_title": "Planning Data certificate of immunity records",
           "year": 2024,
           "layer": "transport",
-          "event_count": 1
-        },
-        {
-          "city_id": "london",
-          "source_id": "planning-data-certificate-of-immunity",
-          "source_title": "Planning Data certificate of immunity records",
-          "year": 2024,
-          "layer": "utilities",
           "event_count": 1
         },
         {
@@ -36589,6 +36581,30 @@
         },
         {
           "city_id": "london",
+          "source_id": "ukpn-open-streetworks",
+          "source_title": "UK Power Networks Open Streetworks",
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "ukpn-open-streetworks",
+          "source_title": "UK Power Networks Open Streetworks",
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 8
+        },
+        {
+          "city_id": "london",
+          "source_id": "ukpn-open-streetworks",
+          "source_title": "UK Power Networks Open Streetworks",
+          "year": 2026,
+          "layer": "utilities",
+          "event_count": 238
+        },
+        {
+          "city_id": "london",
           "source_id": "westminster-300-harrow-road-project-page",
           "source_title": "300 Harrow Road",
           "year": 2020,
@@ -37499,6 +37515,28 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "ukpn-open-streetworks",
+          "title": "UK Power Networks Open Streetworks",
+          "provider": "UK Power Networks",
+          "reliability": "usable_with_caveats",
+          "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+          "event_count": 247,
+          "years": [
+            2024,
+            2025,
+            2026
+          ],
+          "first_year": 2024,
+          "last_year": 2026,
+          "layer_counts": {
+            "utilities": 247
+          },
+          "confidence_counts": {
+            "documented": 247
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "gla-planning-datahub-listed-building-consent",
           "title": "Planning London Datahub applications API - listed building consent records",
           "provider": "Greater London Authority / London planning authorities",
@@ -37645,11 +37683,10 @@
           "first_year": 2020,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 72,
+            "built_environment": 73,
             "civic_services": 3,
             "environment": 26,
-            "transport": 10,
-            "utilities": 1
+            "transport": 10
           },
           "confidence_counts": {
             "documented": 112
@@ -42460,6 +42497,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "openstreetmap-utility-context",
+          "title": "OpenStreetMap utility context via Overpass API",
+          "provider": "OpenStreetMap contributors",
+          "reliability": "usable_with_caveats",
+          "licence": "ODbL-1.0",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "os-open-map-local",
           "title": "OS OpenMap Local",
           "provider": "Ordnance Survey",
@@ -43303,6 +43354,12 @@
             "reliability": "usable_with_caveats"
           },
           {
+            "source_id": "openstreetmap-utility-context",
+            "title": "OpenStreetMap utility context via Overpass API",
+            "provider": "OpenStreetMap contributors",
+            "reliability": "usable_with_caveats"
+          },
+          {
             "source_id": "os-open-map-local",
             "title": "OS OpenMap Local",
             "provider": "Ordnance Survey",
@@ -43376,9 +43433,9 @@
       "unique_event_count": 109975,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 208,
+      "source_count": 209,
       "active_source_count": 85,
-      "source_catalog_only_count": 123,
+      "source_catalog_only_count": 124,
       "target_coverage_gap": {
         "target_events": 100000,
         "backed_event_count": 109975,
@@ -43572,12 +43629,12 @@
         "2026": 4945
       },
       "event_counts_by_layer": {
-        "built_environment": 63958,
+        "built_environment": 63960,
         "civic_services": 2887,
         "economy": 12123,
         "environment": 21225,
         "transport": 7555,
-        "utilities": 2227
+        "utilities": 2225
       },
       "event_counts_by_confidence": {
         "documented": 109975
@@ -45011,7 +45068,7 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 3630
+          "event_count": 3631
         },
         {
           "year": 2020,
@@ -45036,7 +45093,7 @@
         {
           "year": 2020,
           "layer": "utilities",
-          "event_count": 156
+          "event_count": 155
         },
         {
           "year": 2021,
@@ -45071,7 +45128,7 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 4976
+          "event_count": 4977
         },
         {
           "year": 2022,
@@ -45096,7 +45153,7 @@
         {
           "year": 2022,
           "layer": "utilities",
-          "event_count": 210
+          "event_count": 209
         },
         {
           "year": 2023,
@@ -49853,15 +49910,7 @@
           "source_title": "New York City architecture and major project public pages",
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 69
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-architecture-public-pages",
-          "source_title": "New York City architecture and major project public pages",
-          "year": 2022,
-          "layer": "utilities",
-          "event_count": 1
+          "event_count": 70
         },
         {
           "city_id": "nyc",
@@ -53549,7 +53598,7 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 7
+          "event_count": 8
         },
         {
           "city_id": "nyc",
@@ -53557,14 +53606,6 @@
           "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
           "year": 2020,
           "layer": "environment",
-          "event_count": 1
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "source_title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
-          "year": 2020,
-          "layer": "utilities",
           "event_count": 1
         },
         {
@@ -55860,10 +55901,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 1001,
+            "built_environment": 1002,
             "civic_services": 10,
             "environment": 1,
-            "utilities": 2
+            "utilities": 1
           },
           "confidence_counts": {
             "documented": 1014
@@ -56195,11 +56236,10 @@
           "first_year": 2008,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 125,
+            "built_environment": 126,
             "civic_services": 4,
             "environment": 99,
-            "transport": 23,
-            "utilities": 1
+            "transport": 23
           },
           "confidence_counts": {
             "documented": 252
@@ -58715,6 +58755,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "openstreetmap-utility-context",
+          "title": "OpenStreetMap utility context via Overpass API",
+          "provider": "OpenStreetMap contributors",
+          "reliability": "usable_with_caveats",
+          "licence": "ODbL-1.0",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "p8u6-a6it",
           "title": "Digital Tax Map: Condominiums",
           "provider": "NYC Open Data / City agency",
@@ -59703,6 +59757,12 @@
             "source_id": "nycha-press-pages",
             "title": "NYCHA press release pages",
             "provider": "New York City Housing Authority",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "openstreetmap-utility-context",
+            "title": "OpenStreetMap utility context via Overpass API",
+            "provider": "OpenStreetMap contributors",
             "reliability": "usable_with_caveats"
           },
           {

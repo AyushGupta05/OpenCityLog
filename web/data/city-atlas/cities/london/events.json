@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "city_id": "london",
-  "generated_at": "2026-05-24T19:19:17Z",
-  "event_count": 226944,
+  "generated_at": "2026-05-24T21:24:05Z",
+  "event_count": 227191,
   "event_years": [
     1801,
     1827,
@@ -1909,12 +1909,12 @@
     },
     {
       "year": 2024,
-      "event_count": 31621,
+      "event_count": 31622,
       "json_path": "web/data/city-atlas/cities/london/events_2024.json",
       "path": "web/data/city-atlas/cities/london/events_2024.json",
       "geojson_path": "web/data/city-atlas/cities/london/events_2024.geojson",
       "counts_by_category": {
-        "built_environment": 3425,
+        "built_environment": 3426,
         "civic_services": 10938,
         "economy": 3538,
         "environment": 9212,
@@ -1922,12 +1922,12 @@
         "utilities": 1
       },
       "counts_by_confidence": {
-        "documented": 31620,
+        "documented": 31621,
         "inferred": 1
       },
       "counts_by_category_confidence": {
         "built_environment": {
-          "documented": 3425
+          "documented": 3426
         },
         "civic_services": {
           "documented": 10937,
@@ -1949,7 +1949,7 @@
     },
     {
       "year": 2025,
-      "event_count": 31417,
+      "event_count": 31425,
       "json_path": "web/data/city-atlas/cities/london/events_2025.json",
       "path": "web/data/city-atlas/cities/london/events_2025.json",
       "geojson_path": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -1959,11 +1959,11 @@
         "economy": 4214,
         "environment": 9217,
         "transport": 4519,
-        "utilities": 1
+        "utilities": 9
       },
       "counts_by_confidence": {
         "corroborated": 4,
-        "documented": 31413
+        "documented": 31421
       },
       "counts_by_category_confidence": {
         "built_environment": {
@@ -1984,13 +1984,13 @@
           "documented": 4519
         },
         "utilities": {
-          "documented": 1
+          "documented": 9
         }
       }
     },
     {
       "year": 2026,
-      "event_count": 20332,
+      "event_count": 20570,
       "json_path": "web/data/city-atlas/cities/london/events_2026.json",
       "path": "web/data/city-atlas/cities/london/events_2026.json",
       "geojson_path": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -2000,10 +2000,10 @@
         "economy": 2413,
         "environment": 2413,
         "transport": 74,
-        "utilities": 27
+        "utilities": 265
       },
       "counts_by_confidence": {
-        "documented": 20332
+        "documented": 20570
       },
       "counts_by_category_confidence": {
         "built_environment": {
@@ -2022,7 +2022,7 @@
           "documented": 74
         },
         "utilities": {
-          "documented": 27
+          "documented": 265
         }
       }
     }

@@ -932,6 +932,7 @@
   };
 
   const els = {};
+  const jsonRequestCache = new Map();
 
   // ---------------------------------------------------------------------------
   // Boot
@@ -2875,11 +2876,7 @@
     state.detailFeaturePathLoaded = path;
     state.detailBuildingFeatures = [];
     state.detailRoadFeatures = [];
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    fetchJson(path)
       .then((payload) => {
         if (state.detailFeaturePathLoaded !== path) return;
         const features = Array.isArray(payload.features) ? payload.features : [];
@@ -6091,11 +6088,7 @@
       state.transportRoadFeaturesByYear.set(targetYear, []);
       return;
     }
-    const promise = fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    const promise = fetchJson(path)
       .then((payload) => {
         const features = Array.isArray(payload.features) ? payload.features : [];
         state.transportRoadFeaturesByYear.set(targetYear, features);
@@ -6152,11 +6145,7 @@
     if (state.civicServiceFeaturesPathLoaded === path) return;
     state.civicServiceFeaturesPathLoaded = path;
     state.civicServiceFeatures = [];
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    fetchJson(path)
       .then((payload) => {
         if (state.civicServiceFeaturesPathLoaded !== path) return;
         state.civicServiceFeatures = Array.isArray(payload.features)
@@ -6193,11 +6182,7 @@
     if (state.economyAnchorFeaturesPathLoaded === path) return;
     state.economyAnchorFeaturesPathLoaded = path;
     state.economyAnchorFeatures = [];
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    fetchJson(path)
       .then((payload) => {
         if (state.economyAnchorFeaturesPathLoaded !== path) return;
         state.economyAnchorFeatures = Array.isArray(payload.features)
@@ -6249,11 +6234,7 @@
     if (state.utilityNetworkFeaturesPathLoaded === path) return;
     state.utilityNetworkFeaturesPathLoaded = path;
     state.utilityNetworkFeatures = [];
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    fetchJson(path)
       .then((payload) => {
         if (state.utilityNetworkFeaturesPathLoaded !== path) return;
         state.utilityNetworkFeatures = Array.isArray(payload.features)
@@ -6285,11 +6266,7 @@
     if (state.transportStopFeaturesPathLoaded === path) return;
     state.transportStopFeaturesPathLoaded = path;
     state.transportStopFeatures = [];
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    fetchJson(path)
       .then((payload) => {
         if (state.transportStopFeaturesPathLoaded !== path) return;
         state.transportStopFeatures = Array.isArray(payload.features)
@@ -6349,11 +6326,7 @@
     if (state.lensDetailFeaturePathLoaded === path) return;
     state.lensDetailFeaturePathLoaded = path;
     state.lensDetailFeatures = [];
-    fetch(path, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
-        return response.json();
-      })
+    fetchJson(path)
       .then((payload) => {
         if (state.lensDetailFeaturePathLoaded !== path) return;
         state.lensDetailFeatures = Array.isArray(payload.features) ? payload.features.filter((feature) => feature.geometry) : [];
@@ -20833,10 +20806,33 @@
     return first || DEFAULT_LENS_ASPECT_BY_CATEGORY[DEFAULT_MAP_LENS];
   }
 
-  async function fetchJson(url) {
+  async function fetchJsonNetwork(url) {
     const res = await fetch(url, { cache: "force-cache" });
     if (!res.ok) throw new Error(`${url} → ${res.status}`);
     return res.json();
+  }
+
+  async function fetchJson(url) {
+    const key = jsonCacheKey(url);
+    const bootCache = window.BimsAtlasBoot?.jsonCache;
+    if (bootCache && Object.prototype.hasOwnProperty.call(bootCache, key)) {
+      const payload = bootCache[key];
+      delete bootCache[key];
+      return payload;
+    }
+    if (jsonRequestCache.has(key)) return jsonRequestCache.get(key);
+    const promise = fetchJsonNetwork(url).finally(() => jsonRequestCache.delete(key));
+    jsonRequestCache.set(key, promise);
+    return promise;
+  }
+
+  function jsonCacheKey(url) {
+    try {
+      const parsed = new URL(url, window.location.href);
+      return `${parsed.pathname}${parsed.search}`;
+    } catch (_error) {
+      return String(url || "");
+    }
   }
 
   function setAppStatus(text) {

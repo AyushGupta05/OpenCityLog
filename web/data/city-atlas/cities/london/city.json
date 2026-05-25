@@ -12101,7 +12101,9 @@
       "family_id": "utilities",
       "label": "Utilities",
       "source_ids": [
-        "tfl-road-disruptions-utility-works"
+        "openstreetmap-utility-context",
+        "tfl-road-disruptions-utility-works",
+        "ukpn-open-streetworks"
       ],
       "availability": "partial_local",
       "years": [

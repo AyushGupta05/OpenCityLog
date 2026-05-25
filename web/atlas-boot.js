@@ -14,6 +14,7 @@
     { id: "utilities", color: "#4B6FA9" },
   ];
   const LAYER_BY_ID = new Map(LAYERS.map((layer) => [layer.id, layer]));
+  const jsonCache = Object.create(null);
 
   const $ = (id) => document.getElementById(id);
   const clean = (value) => String(value || "").replace(/\s+/g, " ").trim();
@@ -41,9 +42,21 @@
   }
 
   async function fetchJson(url) {
+    const key = jsonCacheKey(url);
     const res = await fetch(url, { cache: "force-cache" });
     if (!res.ok) throw new Error(`${url} -> ${res.status}`);
-    return res.json();
+    const payload = await res.json();
+    jsonCache[key] = payload;
+    return payload;
+  }
+
+  function jsonCacheKey(url) {
+    try {
+      const parsed = new URL(url, location.href);
+      return `${parsed.pathname}${parsed.search}`;
+    } catch (_error) {
+      return String(url || "");
+    }
   }
 
   function script(src) {
@@ -212,7 +225,15 @@
     renderList(events, clean(city.display_name || city.name || cityId), year);
     renderPins(events, city);
     setText("appStatus", "");
-    window.BimsAtlasBoot = { ready: true, city: cityId, year, eventCount: events.length, readyAt: performance.now(), direct: true };
+    window.BimsAtlasBoot = {
+      ready: true,
+      city: cityId,
+      year,
+      eventCount: events.length,
+      readyAt: performance.now(),
+      direct: true,
+      jsonCache,
+    };
     return true;
   }
 
@@ -252,10 +273,17 @@
       renderList(events, clean(city.display_name || city.name || city.id), year);
       renderPins(events, city);
       setText("appStatus", "");
-      window.BimsAtlasBoot = { ready: true, city: cityMeta.id, year, eventCount: events.length, readyAt: performance.now() };
+      window.BimsAtlasBoot = {
+        ready: true,
+        city: cityMeta.id,
+        year,
+        eventCount: events.length,
+        readyAt: performance.now(),
+        jsonCache,
+      };
     } catch (error) {
       console.warn("[atlas-boot] preview failed; loading full atlas", error);
-      window.BimsAtlasBoot = { ready: false, error: error.message, readyAt: performance.now() };
+      window.BimsAtlasBoot = { ready: false, error: error.message, readyAt: performance.now(), jsonCache };
     } finally {
       setTimeout(loadFullAtlas, window.BimsAtlasBoot?.ready ? 180 : 0);
     }

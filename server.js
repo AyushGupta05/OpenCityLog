@@ -136,7 +136,11 @@ function serveFile(res, filePath) {
     return;
   }
   const ext = path.extname(filePath).toLowerCase();
-  const localAssetCache = ext === ".html" || ext === ".js" || ext === ".css" ? "no-store" : "public, max-age=60";
+  const localAssetCache = ext === ".html"
+    ? "no-store"
+    : [".css", ".geojson", ".jpeg", ".jpg", ".js", ".json", ".png", ".svg", ".webp"].includes(ext)
+      ? "public, max-age=3600"
+      : "public, max-age=60";
   res.writeHead(200, {
     "content-type": mimeTypes[ext] || "application/octet-stream",
     "cache-control": localAssetCache

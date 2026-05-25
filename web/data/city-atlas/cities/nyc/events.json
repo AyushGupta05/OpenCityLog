@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "city_id": "nyc",
-  "generated_at": "2026-05-24T19:19:19Z",
+  "generated_at": "2026-05-24T21:24:56Z",
   "event_count": 109975,
   "event_years": [
     1797,
@@ -3755,19 +3755,19 @@
       "path": "web/data/city-atlas/cities/nyc/events_2020.json",
       "geojson_path": "web/data/city-atlas/cities/nyc/events_2020.geojson",
       "counts_by_category": {
-        "built_environment": 3630,
+        "built_environment": 3631,
         "civic_services": 254,
         "economy": 596,
         "environment": 984,
         "transport": 528,
-        "utilities": 156
+        "utilities": 155
       },
       "counts_by_confidence": {
         "documented": 6148
       },
       "counts_by_category_confidence": {
         "built_environment": {
-          "documented": 3630
+          "documented": 3631
         },
         "civic_services": {
           "documented": 254
@@ -3782,7 +3782,7 @@
           "documented": 528
         },
         "utilities": {
-          "documented": 156
+          "documented": 155
         }
       }
     },
@@ -3831,19 +3831,19 @@
       "path": "web/data/city-atlas/cities/nyc/events_2022.json",
       "geojson_path": "web/data/city-atlas/cities/nyc/events_2022.geojson",
       "counts_by_category": {
-        "built_environment": 4976,
+        "built_environment": 4977,
         "civic_services": 131,
         "economy": 589,
         "environment": 1097,
         "transport": 511,
-        "utilities": 210
+        "utilities": 209
       },
       "counts_by_confidence": {
         "documented": 7514
       },
       "counts_by_category_confidence": {
         "built_environment": {
-          "documented": 4976
+          "documented": 4977
         },
         "civic_services": {
           "documented": 131
@@ -3858,7 +3858,7 @@
           "documented": 511
         },
         "utilities": {
-          "documented": 210
+          "documented": 209
         }
       }
     },

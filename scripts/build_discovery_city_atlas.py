@@ -338,7 +338,7 @@ def category_and_lens(bucket: str, title: str = "") -> tuple[str, str, list[str]
     elif any(k in text for k in ["service", "health", "school", "police", "fire", "public"]):
         category, lens = "civic_services", "services"
         signals.add("services")
-    elif any(k in text for k in ["energy", "utility", "power", "water", "sewer", "waste"]):
+    elif re.search(r"\b(energy|utility|utilities|power|water|sewer|waste)\b", text):
         category, lens = "utilities", "utilities"
         signals.add("utilities")
     else:

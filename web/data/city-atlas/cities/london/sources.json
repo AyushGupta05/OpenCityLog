@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "city_id": "london",
-  "generated_at": "2026-05-24T19:19:13Z",
-  "source_count": 296,
+  "generated_at": "2026-05-24T23:19:54.534Z",
+  "source_count": 298,
   "sources": [
     {
       "source_id": "barts-whipps-cross-stage2",
@@ -468,7 +468,7 @@
       "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "attribution": "Contains public sector information licensed under the Open Government Licence v3.0.",
       "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "Daily public establishment-register CSV",
       "update_frequency": "GIAS public downloads are updated daily when a current extract is available",
       "fields_available": [
@@ -698,7 +698,7 @@
       "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "attribution": "Contains public sector information licensed under the Open Government Licence v3.0.",
       "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "ArcGIS Feature Service",
       "update_frequency": "GLA-managed public context layer; update cadence varies by layer",
       "fields_available": [
@@ -3540,7 +3540,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "london"
@@ -3570,7 +3570,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "environment/imagery",
       "city_ids": [
         "london"
@@ -3601,7 +3601,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "evidence catalog/source family",
       "city_ids": [
         "london"
@@ -3632,7 +3632,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "london"
@@ -3662,7 +3662,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "london"
@@ -3693,7 +3693,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "london"
@@ -3724,7 +3724,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "housing/property market",
       "city_ids": [
         "london"
@@ -3755,7 +3755,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "civic sentiment/consultation",
       "city_ids": [
         "london"
@@ -3786,7 +3786,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "evidence catalog/source family",
       "city_ids": [
         "london"
@@ -3816,7 +3816,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "london"
@@ -3847,7 +3847,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "transport/mobility",
       "city_ids": [
         "london"
@@ -3877,7 +3877,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "transport/mobility",
       "city_ids": [
         "london"
@@ -3907,7 +3907,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "economy/demographics",
       "city_ids": [
         "london"
@@ -4897,6 +4897,61 @@
       "bucket": "planning/development/architecture/public_realm",
       "city_ids": [
         "london"
+      ]
+    },
+    {
+      "source_id": "openstreetmap-utility-context",
+      "title": "OpenStreetMap utility context via Overpass API",
+      "provider": "OpenStreetMap contributors",
+      "publisher": "OpenStreetMap contributors",
+      "source_family": "utilities",
+      "city_ids": [
+        "london"
+      ],
+      "url": "https://overpass-api.de/api/interpreter",
+      "source_url": "https://overpass-api.de/api/interpreter",
+      "licence": "ODbL-1.0",
+      "license": "ODbL-1.0",
+      "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "OpenStreetMap contributors",
+      "attribution_text": "OpenStreetMap contributors",
+      "accessed_at": "2026-05-24",
+      "source_type": "Overpass API extract",
+      "update_frequency": "Current OSM mapped context at retrieval date",
+      "fields_available": [
+        "power",
+        "utility",
+        "pipeline",
+        "substance",
+        "waterway",
+        "man_made",
+        "telecom",
+        "communication",
+        "tower:type",
+        "geometry"
+      ],
+      "expected_geometry_type": "Point/LineString/Polygon",
+      "temporal_coverage": "Current mapped OSM context at retrieval date",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026,
+        "observed": [
+          2026
+        ]
+      },
+      "reliability": "usable_with_caveats",
+      "source_confidence": "inferred",
+      "provenance_notes": "Retrieved by scripts/fetch_city_utility_context_osm.js and appended to the utility current-context alias by scripts/sync_current_context_aliases.js.",
+      "caveats": [
+        "Current OSM mapped utility context; not a confirmed installation/opening date.",
+        "OSM edit timestamps are not used as real-world construction/opening dates.",
+        "Not measured utility capacity, outage, service availability, reliability, or engineering status."
+      ],
+      "limitations": [
+        "Current OSM mapped utility context; not a confirmed installation/opening date.",
+        "OSM edit timestamps are not used as real-world construction/opening dates.",
+        "Not measured utility capacity, outage, service availability, reliability, or engineering status."
       ]
     },
     {
@@ -5970,35 +6025,6 @@
       ]
     },
     {
-      "source_id": "src_city_22_bishopsgate_approval",
-      "title": "22 Bishopsgate approved by Committee",
-      "provider": "City of London Corporation",
-      "source_family": "commercial_tall_building",
-      "url": "https://news.cityoflondon.gov.uk/22-bishopsgate-approved-by-committee/",
-      "licence": "Official corporation news page; retain attribution and extract factual metadata only pending reuse review.",
-      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-      "coverage_years": {
-        "start": 2015,
-        "end": 2015
-      },
-      "update_frequency": "News item; static after publication except page maintenance.",
-      "reliability": "usable_with_caveats",
-      "source_confidence": "documented",
-      "attribution_text": "City of London Corporation",
-      "provenance_notes": "Bucket: commercial_tall_building. Spatial granularity: 22 Bishopsgate, City of London.. Temporal granularity: article date planning permission statement project description.",
-      "caveats": [
-        "Permission does not verify construction/completion/occupation. Use for planning-permission event. Planning permission is not evidence of construction start, completion, occupation or final as-built details."
-      ],
-      "raw_metadata_file": null,
-      "retrieved_at": "2026-05-19",
-      "accessed_at": "2026-05-19",
-      "registry_reviewed_at": "2026-05-19",
-      "bucket": "commercial_tall_building",
-      "city_ids": [
-        "london"
-      ]
-    },
-    {
       "source_id": "src_city_2_finsbury_approval",
       "title": "City Corporation approves third tower in a month as developers back Square Mile's future",
       "provider": "City of London Corporation",
@@ -6017,6 +6043,35 @@
       "provenance_notes": "Bucket: commercial_tall_building. Spatial granularity: 2 Finsbury Avenue / Broadgate, City of London.. Temporal granularity: article date approval statement scheme scope.",
       "caveats": [
         "Planning approval only; construction and opening need separate records. Use for planning-permission event. Planning permission is not evidence of construction start, completion or occupation."
+      ],
+      "raw_metadata_file": null,
+      "retrieved_at": "2026-05-19",
+      "accessed_at": "2026-05-19",
+      "registry_reviewed_at": "2026-05-19",
+      "bucket": "commercial_tall_building",
+      "city_ids": [
+        "london"
+      ]
+    },
+    {
+      "source_id": "src_city_22_bishopsgate_approval",
+      "title": "22 Bishopsgate approved by Committee",
+      "provider": "City of London Corporation",
+      "source_family": "commercial_tall_building",
+      "url": "https://news.cityoflondon.gov.uk/22-bishopsgate-approved-by-committee/",
+      "licence": "Official corporation news page; retain attribution and extract factual metadata only pending reuse review.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2015,
+        "end": 2015
+      },
+      "update_frequency": "News item; static after publication except page maintenance.",
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "City of London Corporation",
+      "provenance_notes": "Bucket: commercial_tall_building. Spatial granularity: 22 Bishopsgate, City of London.. Temporal granularity: article date planning permission statement project description.",
+      "caveats": [
+        "Permission does not verify construction/completion/occupation. Use for planning-permission event. Planning permission is not evidence of construction start, completion, occupation or final as-built details."
       ],
       "raw_metadata_file": null,
       "retrieved_at": "2026-05-19",
@@ -8555,7 +8610,7 @@
       "license_url": "https://tfl.gov.uk/corporate/terms-and-conditions/transport-data-service",
       "attribution": "Contains Transport for London data.",
       "attribution_text": "Contains Transport for London data.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "API",
       "update_frequency": "Current/live road disruption feed",
       "fields_available": [
@@ -8640,7 +8695,7 @@
       "license_url": "https://tfl.gov.uk/corporate/terms-and-conditions/transport-data-service",
       "attribution": "Contains Transport for London data.",
       "attribution_text": "Contains Transport for London data.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "API",
       "update_frequency": "TfL-managed current operational data",
       "fields_available": [
@@ -8762,6 +8817,69 @@
       "bucket": "civic_heritage",
       "city_ids": [
         "london"
+      ]
+    },
+    {
+      "source_id": "ukpn-open-streetworks",
+      "title": "UK Power Networks Open Streetworks",
+      "provider": "UK Power Networks",
+      "publisher": "UK Power Networks",
+      "source_family": "utilities",
+      "city_ids": [
+        "london"
+      ],
+      "url": "https://ukpowernetworks.opendatasoft.com/explore/dataset/ukpn-open-streetworks/",
+      "source_url": "https://ukpowernetworks.opendatasoft.com/explore/dataset/ukpn-open-streetworks/",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Contains UK Power Networks open data licensed under CC BY 4.0.",
+      "attribution_text": "Contains UK Power Networks open data licensed under CC BY 4.0.",
+      "accessed_at": "2026-05-24",
+      "source_type": "Opendatasoft JSON API",
+      "update_frequency": "Refreshed every two hours by the publisher",
+      "fields_available": [
+        "geo_point_2d",
+        "geo_shape",
+        "proj_ref",
+        "permit_ref",
+        "work_stream",
+        "op_zone",
+        "actualstartdate",
+        "highway_authority1",
+        "location",
+        "works_description",
+        "permit_status",
+        "dno",
+        "timestamp",
+        "odp_end_date"
+      ],
+      "expected_geometry_type": "Point/LineString/Polygon from source geo fields",
+      "temporal_coverage": "Current open street and roadworks at retrieval date, with source actualstartdate/estimated-end-date values observed in 2024-2026 records emitted by the adapter.",
+      "coverage_years": {
+        "start": 2024,
+        "end": 2026,
+        "observed": [
+          2024,
+          2025,
+          2026
+        ]
+      },
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "provenance_notes": "Retrieved from the public source URL by scripts/build_london_nyc_public_context.py. Records are used as source-backed context or permit evidence only, with limitations carried into emitted events.",
+      "caveats": [
+        "Current-context open permit/activity feed, not a complete historical utility works archive.",
+        "Not a surveyed electricity network inventory, capacity dataset, reliability evidence, outage record, or completion record.",
+        "Multiple permits can exist for one job according to the publisher's metadata.",
+        "Coverage years reflect source actualstartdate values present in the current open streetworks feed; this is not a complete historical archive."
+      ],
+      "limitations": [
+        "Current-context open permit/activity feed, not a complete historical utility works archive.",
+        "Not a surveyed electricity network inventory, capacity dataset, reliability evidence, outage record, or completion record.",
+        "Multiple permits can exist for one job according to the publisher's metadata.",
+        "Coverage years reflect source actualstartdate values present in the current open streetworks feed; this is not a complete historical archive."
       ]
     },
     {

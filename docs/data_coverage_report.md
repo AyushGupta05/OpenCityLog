@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-24T19:19:25Z
+Generated: 2026-05-24T23:20:22Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |
 | --- | ---: | ---: | ---: | --- | --- | ---: |
 | Belfast, Northern Ireland | 33182 | 205 | 31 | 2007-2026 | transport 17118, built_environment 13859, utilities 851 | 66818 |
-| London, England | 226944 | 193 | 103 | 1801-2026 | built_environment 105773, civic_services 53367, environment 28735 | 0 |
-| New York City, New York | 109975 | 85 | 123 | 1797-2026 | built_environment 63958, environment 21225, economy 12123 | 0 |
+| London, England | 227191 | 194 | 104 | 1801-2026 | built_environment 105774, civic_services 53367, environment 28735 | 0 |
+| New York City, New York | 109975 | 85 | 124 | 1797-2026 | built_environment 63960, environment 21225, economy 12123 | 0 |
 
 ## Belfast, Northern Ireland
 
@@ -33,7 +33,7 @@ Catalog-only sources without emitted event rows: 31.
 
 ## London, England
 
-Backed events: 226944. Unique event IDs: 226944. Duplicate IDs: 0.
+Backed events: 227191. Unique event IDs: 227191. Duplicate IDs: 0.
 
 | Source | Events | Years | Layers | Reliability |
 | --- | ---: | --- | --- | --- |
@@ -50,7 +50,7 @@ Backed events: 226944. Unique event IDs: 226944. Duplicate IDs: 0.
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning London Datahub applications API | 5100 | 2008-2025 | built_environment 5100 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 103.
+Catalog-only sources without emitted event rows: 104.
 
 ## New York City, New York
 
@@ -71,5 +71,5 @@ Backed events: 109975. Unique event IDs: 109975. Duplicate IDs: 0.
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | Affordable Housing Production by Building | 2160 | 2014-2025 | built_environment 2160 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 123.
+Catalog-only sources without emitted event rows: 124.
 

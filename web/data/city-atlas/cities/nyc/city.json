@@ -15138,7 +15138,8 @@
       "label": "Utilities",
       "source_ids": [
         "nyc-dot-street-construction-permits-current",
-        "nyc-dot-street-construction-permits-legacy"
+        "nyc-dot-street-construction-permits-legacy",
+        "openstreetmap-utility-context"
       ],
       "availability": "partial_local",
       "years": [

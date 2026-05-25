@@ -266,6 +266,36 @@ function loadLondonFhrsEconomyAnchors() {
   return features;
 }
 
+function cityOsmUtilityContextPath(cityId) {
+  return path.join(rootDir, "data", "derived", "2026", `${cityId}_utility_context_osm_2026.geojson`);
+}
+
+function loadCityOsmUtilityContext(cityId) {
+  const filePath = cityOsmUtilityContextPath(cityId);
+  if (!fs.existsSync(filePath)) return [];
+  const payload = readJson(filePath);
+  const features = Array.isArray(payload.features) ? payload.features : [];
+  return features.map((feature) => normalizeUtilityFeature({
+    ...feature,
+    properties: {
+      ...(feature.properties || {}),
+      source_ids: unique([...(feature.properties?.source_ids || []), "openstreetmap-utility-context"]),
+      source_name: feature.properties?.source_name || "OpenStreetMap utility context via Overpass API",
+      source_url: feature.properties?.source_url || "https://www.openstreetmap.org/",
+      license: feature.properties?.license || "ODbL-1.0",
+      source_kind: "current_context",
+      evidence_role: "current_osm_context_not_capacity_or_reliability",
+      generated_by: "scripts/sync_current_context_aliases.js#loadCityOsmUtilityContext",
+      caveats: unique([
+        ...(feature.properties?.caveats || []),
+        "Current OSM mapped utility context; not a confirmed installation/opening date.",
+        "OSM edit timestamps are not used as construction/opening dates.",
+        "Not measured capacity, outage, service availability, reliability, or engineering status.",
+      ]),
+    },
+  }));
+}
+
 function normalizeEconomyFeature(feature) {
   const props = feature.properties || {};
   const sector = economySectorFromProps(props);
@@ -461,8 +491,10 @@ function extraAliasFeatures(cityId, spec, normalizedFeatures) {
   if (cityId === "london" && spec.kind === "economy" && spec.to === "economy_anchors_2026.geojson") {
     return loadLondonFhrsEconomyAnchors();
   }
-  if (cityId === "london" && spec.kind === "utility" && spec.to === "utility_network_2026.geojson") {
-    return londonUtilityRoadContextTraces(normalizedFeatures);
+  if (spec.kind === "utility" && spec.to === "utility_network_2026.geojson") {
+    const osmFeatures = loadCityOsmUtilityContext(cityId);
+    if (cityId === "london") return londonUtilityRoadContextTraces(normalizedFeatures).concat(osmFeatures);
+    return osmFeatures;
   }
   return [];
 }
@@ -491,6 +523,7 @@ function syncAlias(cityId, spec) {
         ...(spec.limitations || []),
         ...(extraFeatures.length && spec.kind === "economy" ? ["Additional point anchors come from source-backed administrative food-hygiene/business context and do not claim business opening, closure, demand, performance, or impact."] : []),
         ...(extraFeatures.length && spec.kind === "utility" ? ["Additional road-context traces are nearest mapped street context for utility-work points; they are not surveyed utility alignments, capacity, outage, or reliability evidence."] : []),
+        ...(extraFeatures.length && spec.kind === "utility" ? ["Additional OSM utility context is current mapped context only; OSM edit dates are not used as real-world construction/opening dates."] : []),
       ]),
     },
   };
@@ -520,6 +553,84 @@ function updateCityArtifactPaths(cityId) {
   return payload.artifact_paths;
 }
 
+function upsertCitySource(cityId, record) {
+  const sourcesPath = path.join(citiesRoot, cityId, "sources.json");
+  if (!fs.existsSync(sourcesPath)) return;
+  const payload = readJson(sourcesPath);
+  const sources = Array.isArray(payload.sources) ? payload.sources : [];
+  const byId = new Map(sources.map((source) => [source.source_id, source]));
+  byId.set(record.source_id, { ...(byId.get(record.source_id) || {}), ...record });
+  payload.sources = [...byId.values()].sort((a, b) => String(a.source_id || "").localeCompare(String(b.source_id || "")));
+  payload.source_count = payload.sources.length;
+  payload.generated_at = new Date().toISOString();
+  writeJson(sourcesPath, payload);
+}
+
+function addCitySourceFamilySource(cityId, familyId, sourceId) {
+  const cityPath = path.join(citiesRoot, cityId, "city.json");
+  if (!fs.existsSync(cityPath)) return;
+  const payload = readJson(cityPath);
+  const families = payload.source_families;
+  if (Array.isArray(families)) {
+    let family = families.find((item) => item?.family_id === familyId);
+    if (!family) {
+      family = {
+        family_id: familyId,
+        label: familyId.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()),
+        source_ids: [],
+        availability: "partial_local",
+        years: [2026],
+        notes: "Source-backed current-context layer advertised by scripts/sync_current_context_aliases.js.",
+      };
+      families.push(family);
+    }
+    family.source_ids = unique([...(family.source_ids || []), sourceId]).sort();
+  }
+  writeJson(cityPath, payload);
+}
+
+function updateOsmUtilitySource(cityId) {
+  if (!fs.existsSync(cityOsmUtilityContextPath(cityId))) return;
+  const accessedAt = new Date().toISOString().slice(0, 10);
+  upsertCitySource(cityId, {
+    source_id: "openstreetmap-utility-context",
+    title: "OpenStreetMap utility context via Overpass API",
+    provider: "OpenStreetMap contributors",
+    publisher: "OpenStreetMap contributors",
+    source_family: "utilities",
+    city_ids: [cityId],
+    url: "https://overpass-api.de/api/interpreter",
+    source_url: "https://overpass-api.de/api/interpreter",
+    licence: "ODbL-1.0",
+    license: "ODbL-1.0",
+    licence_url: "https://opendatacommons.org/licenses/odbl/1-0/",
+    license_url: "https://opendatacommons.org/licenses/odbl/1-0/",
+    attribution: "OpenStreetMap contributors",
+    attribution_text: "OpenStreetMap contributors",
+    accessed_at: accessedAt,
+    source_type: "Overpass API extract",
+    update_frequency: "Current OSM mapped context at retrieval date",
+    fields_available: ["power", "utility", "pipeline", "substance", "waterway", "man_made", "telecom", "communication", "tower:type", "geometry"],
+    expected_geometry_type: "Point/LineString/Polygon",
+    temporal_coverage: "Current mapped OSM context at retrieval date",
+    coverage_years: { start: 2026, end: 2026, observed: [2026] },
+    reliability: "usable_with_caveats",
+    source_confidence: "inferred",
+    provenance_notes: "Retrieved by scripts/fetch_city_utility_context_osm.js and appended to the utility current-context alias by scripts/sync_current_context_aliases.js.",
+    caveats: [
+      "Current OSM mapped utility context; not a confirmed installation/opening date.",
+      "OSM edit timestamps are not used as real-world construction/opening dates.",
+      "Not measured utility capacity, outage, service availability, reliability, or engineering status.",
+    ],
+    limitations: [
+      "Current OSM mapped utility context; not a confirmed installation/opening date.",
+      "OSM edit timestamps are not used as real-world construction/opening dates.",
+      "Not measured utility capacity, outage, service availability, reliability, or engineering status.",
+    ],
+  });
+  addCitySourceFamilySource(cityId, "utilities", "openstreetmap-utility-context");
+}
+
 function updateIndexArtifactPaths(pathsByCity) {
   const indexPath = path.join(atlasRoot, "index.json");
   if (!fs.existsSync(indexPath)) return;
@@ -544,6 +655,7 @@ function main() {
   for (const cityId of cityIds) {
     const additions = updateCityArtifactPaths(cityId);
     if (additions) pathsByCity.set(cityId, additions);
+    updateOsmUtilitySource(cityId);
   }
   updateIndexArtifactPaths(pathsByCity);
   console.log("Synced current context aliases and advertised source-backed current-context artifact paths.");

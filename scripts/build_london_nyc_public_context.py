@@ -55,6 +55,10 @@ NYC_OPEN_DATA_TERMS = "NYC Open Data Terms of Use"
 NYC_OPEN_DATA_TERMS_URL = "https://opendata.cityofnewyork.us/overview/#termsofuse"
 OGL3 = "Open Government Licence v3.0"
 OGL3_URL = "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+UKPN_OPEN_STREETWORKS_URL = "https://ukpowernetworks.opendatasoft.com/explore/dataset/ukpn-open-streetworks/"
+UKPN_OPEN_STREETWORKS_RECORDS_URL = "https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-open-streetworks/records"
+UKPN_LICENSE = "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+UKPN_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
 GIAS_DOWNLOAD_BASE = "https://ea-edubase-api-prod.azurewebsites.net/edubase/downloads/public"
 GIAS_PORTAL_URL = "https://www.get-information-schools.service.gov.uk/Downloads"
 
@@ -219,6 +223,29 @@ def point_from_feature(feature: dict[str, Any]) -> tuple[float | None, float | N
         return float(coordinates[0]), float(coordinates[1])
     except (TypeError, ValueError):
         return None, None
+
+
+def geometry_positions(geometry: dict[str, Any] | None) -> list[tuple[float, float]]:
+    if not isinstance(geometry, dict):
+        return []
+    coordinates = geometry.get("coordinates")
+    positions: list[tuple[float, float]] = []
+
+    def collect(value: Any) -> None:
+        if not isinstance(value, list) or not value:
+            return
+        if len(value) >= 2 and isinstance(value[0], (int, float)) and isinstance(value[1], (int, float)):
+            positions.append((float(value[0]), float(value[1])))
+            return
+        for item in value:
+            collect(item)
+
+    collect(coordinates)
+    return positions
+
+
+def geometry_intersects_bounds(geometry: dict[str, Any] | None, bounds: tuple[float, float, float, float]) -> bool:
+    return any(in_bounds(lon, lat, bounds) for lon, lat in geometry_positions(geometry))
 
 
 def source_evidence(
@@ -1444,6 +1471,182 @@ def build_london_utility_events(retrieved_at: str, accessed_at: str) -> tuple[li
     return output_features, events
 
 
+def fetch_ukpn_open_streetworks_records() -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    offset = 0
+    page_size = 100
+    while True:
+        url = url_with_params(
+            UKPN_OPEN_STREETWORKS_RECORDS_URL,
+            {
+                "limit": page_size,
+                "offset": offset,
+                "refine": "dno:LPN",
+            },
+        )
+        data = fetch_json(url)
+        batch = data.get("results") if isinstance(data, dict) else []
+        if not batch:
+            break
+        records.extend(batch)
+        total = int(data.get("total_count") or len(records))
+        offset += len(batch)
+        if offset >= total or len(batch) < page_size:
+            break
+    return records
+
+
+def ukpn_record_geometry(row: dict[str, Any]) -> dict[str, Any] | None:
+    shape = row.get("geo_shape") or {}
+    geometry = shape.get("geometry") if isinstance(shape, dict) and shape.get("type") == "Feature" else shape
+    if isinstance(geometry, dict) and geometry.get("type") and geometry.get("coordinates") is not None:
+        remove_crs(geometry)
+        if geometry_intersects_bounds(geometry, LONDON_BOUNDS):
+            return geometry
+    point = row.get("geo_point_2d") or {}
+    try:
+        lon = float(point.get("lon"))
+        lat = float(point.get("lat"))
+    except (AttributeError, TypeError, ValueError):
+        return None
+    if not in_bounds(lon, lat, LONDON_BOUNDS):
+        return None
+    return {"type": "Point", "coordinates": [round(lon, 6), round(lat, 6)]}
+
+
+def build_london_ukpn_open_streetworks_context(
+    retrieved_at: str,
+    accessed_at: str,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    try:
+        rows = fetch_ukpn_open_streetworks_records()
+    except Exception as exc:
+        print(f"[warn] UKPN Open Streetworks skipped: {exc}")
+        return [], []
+    output_features: list[dict[str, Any]] = []
+    events: list[dict[str, Any]] = []
+    for idx, row in enumerate(rows):
+        geometry = ukpn_record_geometry(row)
+        if not geometry:
+            continue
+        permit_ref = first_present(row, ["permit_ref"], f"ukpn-permit-{idx}")
+        proj_ref = first_present(row, ["proj_ref"], "")
+        record_id = slug("-".join(part for part in (permit_ref, proj_ref) if part), f"ukpn-{idx}")
+        start_date = clean_str(row.get("actualstartdate"))[:10]
+        end_date = clean_str(row.get("odp_end_date"))[:10]
+        try:
+            year = int(start_date[:4]) if start_date else 2026
+        except ValueError:
+            year = 2026
+        if year < 2024 or year > 2026:
+            year = 2026
+        location = first_present(row, ["location"], "London utility works location")
+        works_description = first_present(row, ["works_description"], "Utility works")
+        work_stream = first_present(row, ["work_stream"], "")
+        permit_status = first_present(row, ["permit_status"], "")
+        highway_authority = first_present(row, ["highway_authority1"], "")
+        op_zone = first_present(row, ["op_zone"], "")
+        dno = first_present(row, ["dno"], "LPN")
+        timestamp = first_present(row, ["timestamp"], "")
+        geometry_kind = geometry_type(geometry)
+        network_geometry = "asset" if geometry_kind == "Point" else "line"
+        record_url = url_with_params(
+            UKPN_OPEN_STREETWORKS_RECORDS_URL,
+            {
+                "where": f"permit_ref='{permit_ref.replace(chr(39), chr(39) + chr(39))}'",
+                "limit": 1,
+            },
+        )
+        props = {
+            "source_id": f"ukpn-open-streetworks:{record_id}",
+            "source_ids": ["ukpn-open-streetworks"],
+            "stable_source_id": record_id,
+            "source_record_id": permit_ref,
+            "project_reference": proj_ref,
+            "name": f"{works_description}: {location}",
+            "context_type": "ukpn_open_streetworks",
+            "category": "utilities",
+            "lens": "utilities",
+            "layer": "utility_network",
+            "network_geometry": network_geometry,
+            "network_role": "open_electricity_streetworks_context",
+            "utility_type": "electricity",
+            "work_status": permit_status or "current",
+            "work_stream": work_stream,
+            "location": location,
+            "highway_authority": highway_authority,
+            "op_zone": op_zone,
+            "dno": dno,
+            "actualstartdate": start_date,
+            "odp_end_date": end_date,
+            "data_timestamp": timestamp,
+            "sourceName": "UK Power Networks Open Streetworks",
+            "publisher": "UK Power Networks",
+            "sourceUrl": record_url,
+            "license": UKPN_LICENSE,
+            "licenseUrl": UKPN_LICENSE_URL,
+            "attribution": "Contains UK Power Networks open data licensed under CC BY 4.0.",
+            "retrievedAt": retrieved_at,
+            "accessedAt": accessed_at,
+            "geometrySource": "UKPN Open Streetworks geo_shape/geo_point_2d fields",
+            "geometry_precision": "source streetworks geometry; not a surveyed cable alignment, asset inventory, capacity, outage, or reliability record",
+            "confidence": "documented",
+            "source_kind": "current_context",
+            "evidence_role": "documented_current_streetworks_context_not_capacity",
+            "visible_year": 2026,
+            "rank": 2.75 if network_geometry == "line" else 2.15,
+            "intensity": 0.68 if network_geometry == "line" else 0.54,
+            "visual_priority": 0.82 if network_geometry == "line" else 0.66,
+            "limitations": [
+                "Current open streetworks permit/activity context refreshed by UK Power Networks; not a complete historical utility works archive.",
+                "The source records open permits and activities, not engineering capacity, service reliability, outage, or completion outcomes.",
+                "Multiple permits can exist for one job; duplicate visual context is possible where the source has multiple permit records.",
+            ],
+        }
+        output_features.append({"type": "Feature", "geometry": geometry, "properties": props})
+        summary = (
+            f"UK Power Networks records {works_description.lower()} at {location} "
+            f"under permit {permit_ref}."
+        )
+        events.append(
+            context_event(
+                city_id="london",
+                event_id=f"lon_public_context_utility_ukpn_open_streetworks_{record_id}",
+                title=f"Electricity streetworks context: {location}",
+                summary=summary,
+                year=year,
+                category="utilities",
+                lens="utilities",
+                geometry=geometry,
+                source_id="ukpn-open-streetworks",
+                source_label="UK Power Networks open streetworks record",
+                source_url=record_url,
+                source_record_id=permit_ref,
+                accessed_at=accessed_at,
+                source_date_field="actualstartdate/odp_end_date/timestamp",
+                geometry_source="UKPN Open Streetworks geo_shape/geo_point_2d",
+                geometry_precision="source streetworks geometry; not a surveyed cable alignment, capacity, outage, or reliability record",
+                affected_area=", ".join(part for part in (location, highway_authority, op_zone) if part),
+                affected_signals=["utilities", "electricity", "streetworks", "current-context"],
+                caveats=[
+                    "Current-context streetworks evidence only; it may post-date selected historical replay years.",
+                    "No engineering capacity, reliability, outage, completion, or causal claim is inferred.",
+                    "Multiple permits can exist for one job in the source data.",
+                ],
+                effective_date=start_date or None,
+                date_precision_value="day" if re.match(r"^\d{4}-\d{2}-\d{2}$", start_date) else "year",
+            )
+        )
+    output_features.sort(
+        key=lambda f: (
+            f["properties"].get("actualstartdate") or "",
+            f["properties"].get("source_record_id") or "",
+        )
+    )
+    events.sort(key=lambda e: (e["year"], e["event_id"]))
+    return output_features, events
+
+
 def epsg2263_to_wgs84(easting_ft: float, northing_ft: float) -> tuple[float, float]:
     # NAD83 / New York Long Island (EPSG:2263), inverse Lambert Conformal Conic.
     a = 6378137.0
@@ -1668,13 +1871,13 @@ def build_nyc_utility_events(retrieved_at: str, accessed_at: str) -> tuple[list[
     return output_features, events
 
 
-def upsert_events(city_id: str, events: list[dict[str, Any]]) -> None:
+def upsert_events(city_id: str, events: list[dict[str, Any]], prefixes: tuple[str, ...] | None = None) -> None:
     city_path = CITY_DIR / city_id
     by_year: dict[int, list[dict[str, Any]]] = defaultdict(list)
     for event in events:
         by_year[int(event["year"])].append(event)
 
-    prefixes = GENERATED_EVENT_PREFIXES[city_id]
+    prefixes = prefixes or GENERATED_EVENT_PREFIXES[city_id]
     touched_years = sorted(by_year)
     for year in touched_years:
         path = city_path / f"events_{year}.json"
@@ -1887,6 +2090,44 @@ def source_records(accessed_at: str) -> tuple[list[dict[str, Any]], list[dict[st
                 "Not engineering capacity, service reliability, outage, or live network-status evidence.",
             ],
             attribution="Contains Transport for London data.",
+        ),
+        build_source_record(
+            source_id="ukpn-open-streetworks",
+            title="UK Power Networks Open Streetworks",
+            publisher="UK Power Networks",
+            source_family="utilities",
+            city_ids=["london"],
+            url=UKPN_OPEN_STREETWORKS_URL,
+            license_name=UKPN_LICENSE,
+            license_url=UKPN_LICENSE_URL,
+            accessed_at=accessed_at,
+            source_type="Opendatasoft JSON API",
+            update_frequency="Refreshed every two hours by the publisher",
+            fields_available=[
+                "geo_point_2d",
+                "geo_shape",
+                "proj_ref",
+                "permit_ref",
+                "work_stream",
+                "op_zone",
+                "actualstartdate",
+                "highway_authority1",
+                "location",
+                "works_description",
+                "permit_status",
+                "dno",
+                "timestamp",
+                "odp_end_date",
+            ],
+            geometry_type_value="Point/LineString/Polygon from source geo fields",
+            temporal_coverage="Current open street and roadworks at retrieval date",
+            coverage_years=[2024, 2025, 2026],
+            limitations=[
+                "Current-context open permit/activity feed, not a complete historical utility works archive.",
+                "Not a surveyed electricity network inventory, capacity dataset, reliability evidence, outage record, or completion record.",
+                "Multiple permits can exist for one job according to the publisher's metadata.",
+            ],
+            attribution="Contains UK Power Networks open data licensed under CC BY 4.0.",
         ),
         build_source_record(
             source_id="dfe-gias-public-establishment-context",
@@ -2173,20 +2414,24 @@ def main() -> None:
 
     print("[public-context] Fetching London utility works context")
     london_utility_features, london_utility_events = build_london_utility_events(retrieved_at, accessed_at)
+    print("[public-context] Fetching London UKPN open streetworks context")
+    london_ukpn_features, london_ukpn_events = build_london_ukpn_open_streetworks_context(retrieved_at, accessed_at)
+    london_utility_features = london_utility_features + london_ukpn_features
+    london_utility_events = london_utility_events + london_ukpn_events
     london_utility_collection = feature_collection(
         london_utility_features,
         {
             "title": "London utility works context",
-            "publisher": "Transport for London",
-            "source_url": "https://api.tfl.gov.uk/Road/all/Disruption",
-            "license": TFL_LICENSE,
-            "license_url": TFL_LICENSE_URL,
+            "publisher": "Transport for London; UK Power Networks",
+            "source_url": "https://api.tfl.gov.uk/Road/all/Disruption; https://ukpowernetworks.opendatasoft.com/explore/dataset/ukpn-open-streetworks/",
+            "license": f"{TFL_LICENSE}; {UKPN_LICENSE}",
+            "license_url": f"{TFL_LICENSE_URL}; {UKPN_LICENSE_URL}",
             "retrieved_at": retrieved_at,
             "accessed_at": accessed_at,
             "feature_count": len(london_utility_features),
             "artifact_role": "current utility works context; not a surveyed utility network",
             "limitations": [
-                "Current/live road disruption context, not a complete historical utility works archive.",
+                "Current/live road disruption and open streetworks context, not a complete historical utility works archive.",
                 "No utility capacity, reliability, outage, or engineering status is inferred.",
                 "This artifact is named for frontend contract compatibility; features are works/disruption context, not a utility network map.",
             ],
@@ -2236,7 +2481,11 @@ def main() -> None:
     write_json(NYC_DIR / "utility_network_2026.geojson", nyc_utility_collection)
 
     print("[public-context] Updating event chunks, city manifests, and source manifests")
-    upsert_events("london", london_economy_events + london_utility_events + london_civic_events)
+    london_prefixes = (
+        "lon_public_context_economy_",
+        "lon_public_context_utility_",
+    ) if economy_utilities_only else None
+    upsert_events("london", london_economy_events + london_utility_events + london_civic_events, prefixes=london_prefixes)
     upsert_events("nyc", nyc_economy_events + nyc_utility_events)
     london_sources, nyc_sources = source_records(accessed_at)
     upsert_sources("london", london_sources)
@@ -2256,7 +2505,7 @@ def main() -> None:
         {
             "transport": ["tfl-stoppoint-public-context"],
             "economy": ["gla-busyness-context-boundaries"],
-            "utilities": ["tfl-road-disruptions-utility-works"],
+            "utilities": ["tfl-road-disruptions-utility-works", "ukpn-open-streetworks"],
             "civic_services": ["dfe-gias-public-establishment-context"],
         },
     )

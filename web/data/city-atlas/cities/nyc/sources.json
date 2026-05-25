@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "city_id": "nyc",
-  "generated_at": "2026-05-24T19:19:13Z",
-  "source_count": 208,
+  "generated_at": "2026-05-24T23:19:54.554Z",
+  "source_count": 209,
   "sources": [
     {
       "source_id": "2iga-a6mk",
@@ -2811,7 +2811,7 @@
       "license_url": "https://new.mta.info/developers/terms-and-conditions",
       "attribution": "Contains MTA data.",
       "attribution_text": "Contains MTA data.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "GTFS static downloads",
       "update_frequency": "MTA-managed current static schedule feeds",
       "fields_available": [
@@ -3488,7 +3488,7 @@
       "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
       "attribution": "Contains data provided by NYC Open Data and NYC DCWP.",
       "attribution_text": "Contains data provided by NYC Open Data and NYC DCWP.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "NYC Open Data JSON API",
       "update_frequency": "NYC Open Data managed public dataset",
       "fields_available": [
@@ -3895,7 +3895,7 @@
       "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
       "attribution": "Contains data provided by NYC Open Data and NYC DOT.",
       "attribution_text": "Contains data provided by NYC Open Data and NYC DOT.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "NYC Open Data GeoJSON/API with WKT work-location geometry",
       "update_frequency": "NYC Open Data managed permit feed",
       "fields_available": [
@@ -3950,7 +3950,7 @@
       "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
       "attribution": "Contains data provided by NYC Open Data and NYC DOT.",
       "attribution_text": "Contains data provided by NYC Open Data and NYC DOT.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "NYC Open Data GeoJSON/API with WKT work-location geometry",
       "update_frequency": "Archived NYC Open Data permit feed",
       "fields_available": [
@@ -4138,7 +4138,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "civic sentiment/consultation",
       "city_ids": [
         "nyc"
@@ -4169,7 +4169,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4200,7 +4200,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4231,7 +4231,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4262,7 +4262,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "economy/demographics",
       "city_ids": [
         "nyc"
@@ -4292,7 +4292,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4323,7 +4323,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4354,7 +4354,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4385,7 +4385,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "housing/property market",
       "city_ids": [
         "nyc"
@@ -4416,7 +4416,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "transport/mobility",
       "city_ids": [
         "nyc"
@@ -4447,7 +4447,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "transport/mobility",
       "city_ids": [
         "nyc"
@@ -4478,7 +4478,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "transport/mobility",
       "city_ids": [
         "nyc"
@@ -4509,7 +4509,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "transport/mobility",
       "city_ids": [
         "nyc"
@@ -4540,7 +4540,7 @@
       "raw_metadata_file": "data/evidence-catalog/historical_urban_event_evidence_catalog.json",
       "retrieved_at": null,
       "accessed_at": null,
-      "registry_reviewed_at": "2026-05-24T19:02:16Z",
+      "registry_reviewed_at": "2026-05-24T19:36:10Z",
       "bucket": "planning/development",
       "city_ids": [
         "nyc"
@@ -4891,7 +4891,7 @@
       "license_url": "https://opendata.cityofnewyork.us/overview/#termsofuse",
       "attribution": "Contains data provided by NYC Open Data and NYC SBS.",
       "attribution_text": "Contains data provided by NYC Open Data and NYC SBS.",
-      "accessed_at": "2026-05-24T19:19:13Z",
+      "accessed_at": "2026-05-24",
       "source_type": "NYC Open Data GeoJSON API",
       "update_frequency": "NYC Open Data managed public dataset",
       "fields_available": [
@@ -5454,6 +5454,61 @@
       "bucket": "planning/development/architecture/official_record",
       "city_ids": [
         "nyc"
+      ]
+    },
+    {
+      "source_id": "openstreetmap-utility-context",
+      "title": "OpenStreetMap utility context via Overpass API",
+      "provider": "OpenStreetMap contributors",
+      "publisher": "OpenStreetMap contributors",
+      "source_family": "utilities",
+      "city_ids": [
+        "nyc"
+      ],
+      "url": "https://overpass-api.de/api/interpreter",
+      "source_url": "https://overpass-api.de/api/interpreter",
+      "licence": "ODbL-1.0",
+      "license": "ODbL-1.0",
+      "licence_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "OpenStreetMap contributors",
+      "attribution_text": "OpenStreetMap contributors",
+      "accessed_at": "2026-05-24",
+      "source_type": "Overpass API extract",
+      "update_frequency": "Current OSM mapped context at retrieval date",
+      "fields_available": [
+        "power",
+        "utility",
+        "pipeline",
+        "substance",
+        "waterway",
+        "man_made",
+        "telecom",
+        "communication",
+        "tower:type",
+        "geometry"
+      ],
+      "expected_geometry_type": "Point/LineString/Polygon",
+      "temporal_coverage": "Current mapped OSM context at retrieval date",
+      "coverage_years": {
+        "start": 2026,
+        "end": 2026,
+        "observed": [
+          2026
+        ]
+      },
+      "reliability": "usable_with_caveats",
+      "source_confidence": "inferred",
+      "provenance_notes": "Retrieved by scripts/fetch_city_utility_context_osm.js and appended to the utility current-context alias by scripts/sync_current_context_aliases.js.",
+      "caveats": [
+        "Current OSM mapped utility context; not a confirmed installation/opening date.",
+        "OSM edit timestamps are not used as real-world construction/opening dates.",
+        "Not measured utility capacity, outage, service availability, reliability, or engineering status."
+      ],
+      "limitations": [
+        "Current OSM mapped utility context; not a confirmed installation/opening date.",
+        "OSM edit timestamps are not used as real-world construction/opening dates.",
+        "Not measured utility capacity, outage, service availability, reliability, or engineering status."
       ]
     },
     {
