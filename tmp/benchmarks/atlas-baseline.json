@@ -1,0 +1,185 @@
+{
+  "generatedAt": "2026-05-24T03:34:01.856Z",
+  "results": [
+    {
+      "name": "belfast-default",
+      "url": "http://127.0.0.1:5173/atlas?city=belfast&year=2024",
+      "elapsedMs": 6152,
+      "appStatus": "",
+      "visible": "5143",
+      "total": "5143",
+      "eventRows": 754,
+      "markers": 20,
+      "domNodes": 6641,
+      "jsHeapUsedMB": 0,
+      "jsHeapTotalMB": 0,
+      "resourceCount": 88,
+      "dataResourceCount": 13,
+      "decodedDataMB": 101.4,
+      "transferDataMB": 101.4,
+      "largestData": [
+        {
+          "path": "/data/city-atlas/cities/belfast/detail_layers.geojson",
+          "decodedMB": 28.6,
+          "durationMs": 1851
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/events_2024.json",
+          "decodedMB": 14.8,
+          "durationMs": 161
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/transport_roads_2024.geojson",
+          "decodedMB": 13,
+          "durationMs": 394
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/transport_roads_2024.geojson",
+          "decodedMB": 13,
+          "durationMs": 378
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/transport_roads_2022.geojson",
+          "decodedMB": 12.8,
+          "durationMs": 252
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/events_2022.json",
+          "decodedMB": 9.6,
+          "durationMs": 108
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/events_2023.json",
+          "decodedMB": 8.2,
+          "durationMs": 42
+        },
+        {
+          "path": "/data/city-atlas/cities/belfast/transport_stops_2026.geojson",
+          "decodedMB": 0.9,
+          "durationMs": 4
+        }
+      ],
+      "responses": 97
+    },
+    {
+      "name": "london-default",
+      "url": "http://127.0.0.1:5173/atlas?city=london&year=2024",
+      "elapsedMs": 5291,
+      "appStatus": "",
+      "visible": "33499",
+      "total": "33499",
+      "eventRows": 2875,
+      "markers": 72,
+      "domNodes": 23242,
+      "jsHeapUsedMB": 0,
+      "jsHeapTotalMB": 0,
+      "resourceCount": 43,
+      "dataResourceCount": 10,
+      "decodedDataMB": 318.1,
+      "transferDataMB": 318.1,
+      "largestData": [
+        {
+          "path": "/data/city-atlas/cities/london/events_2024.json",
+          "decodedMB": 125,
+          "durationMs": 497
+        },
+        {
+          "path": "/data/city-atlas/cities/london/events_2023.json",
+          "decodedMB": 70.2,
+          "durationMs": 467
+        },
+        {
+          "path": "/data/city-atlas/cities/london/transport_stops_2026.geojson",
+          "decodedMB": 52.5,
+          "durationMs": 833
+        },
+        {
+          "path": "/data/city-atlas/cities/london/transport_roads_2022.geojson",
+          "decodedMB": 37.5,
+          "durationMs": 512
+        },
+        {
+          "path": "/data/city-atlas/cities/london/events_2022.json",
+          "decodedMB": 32.2,
+          "durationMs": 253
+        },
+        {
+          "path": "/data/city-atlas/cities/london/sources.json",
+          "decodedMB": 0.5,
+          "durationMs": 4
+        },
+        {
+          "path": "/data/city-atlas/cities/london/availability.json",
+          "decodedMB": 0.1,
+          "durationMs": 3
+        },
+        {
+          "path": "/data/city-atlas/cities/london/city.json",
+          "decodedMB": 0.1,
+          "durationMs": 2
+        }
+      ],
+      "responses": 53
+    },
+    {
+      "name": "nyc-default",
+      "url": "http://127.0.0.1:5173/atlas?city=nyc&year=2024",
+      "elapsedMs": 3545,
+      "appStatus": "",
+      "visible": "8346",
+      "total": "8346",
+      "eventRows": 286,
+      "markers": 53,
+      "domNodes": 5427,
+      "jsHeapUsedMB": 0,
+      "jsHeapTotalMB": 0,
+      "resourceCount": 83,
+      "dataResourceCount": 12,
+      "decodedDataMB": 162.9,
+      "transferDataMB": 162.9,
+      "largestData": [
+        {
+          "path": "/data/city-atlas/cities/nyc/events_2024.json",
+          "decodedMB": 34.6,
+          "durationMs": 146
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/events_2023.json",
+          "decodedMB": 27.1,
+          "durationMs": 119
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/transport_stops_2026.geojson",
+          "decodedMB": 24.8,
+          "durationMs": 185
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/events_2022.json",
+          "decodedMB": 23.5,
+          "durationMs": 141
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/transport_roads_2024.geojson",
+          "decodedMB": 17.6,
+          "durationMs": 502
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/transport_roads_2024.geojson",
+          "decodedMB": 17.6,
+          "durationMs": 436
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/transport_roads_2022.geojson",
+          "decodedMB": 17.2,
+          "durationMs": 209
+        },
+        {
+          "path": "/data/city-atlas/cities/nyc/sources.json",
+          "decodedMB": 0.3,
+          "durationMs": 4
+        }
+      ],
+      "responses": 92
+    }
+  ]
+}
