@@ -61,6 +61,7 @@ const COMPACT_EVENT_SUMMARY_FIELDS = [
   "caveat_count",
 ];
 const SUMMARY_TEXT_LIMIT = 96;
+const PREVIEW_EVENT_LIMIT = 60;
 
 function truncateText(value, limit = SUMMARY_TEXT_LIMIT) {
   const text = String(value || "").replace(/\s+/g, " ").trim();
@@ -231,7 +232,32 @@ function compactSummaryEvent(event) {
   return row;
 }
 
-function buildEventSummaries(cityId) {
+function previewPriority(event, index) {
+  const title = String(event.title || event.event_id || event.id || "").toLowerCase();
+  let score = index;
+  if (/grand central|york street/.test(title)) score -= 100000;
+  const confidence = event.confidence || "";
+  if (confidence === "documented") score -= 20000;
+  if (confidence === "corroborated") score -= 22000;
+  if (event.category === "transport") score -= 3000;
+  if (event.geometry || event.lng || event.lat) score -= 2000;
+  const sourceCount = Array.isArray(event.source_ids) ? event.source_ids.length : 0;
+  const evidenceCount = Array.isArray(event.evidence) ? event.evidence.length : 0;
+  score -= Math.min(2000, (sourceCount + evidenceCount) * 120);
+  return score;
+}
+
+function previewEvents(events) {
+  if (events.length <= PREVIEW_EVENT_LIMIT) return events;
+  return events
+    .map((event, index) => ({ event, index, priority: previewPriority(event, index) }))
+    .sort((a, b) => a.priority - b.priority || a.index - b.index)
+    .slice(0, PREVIEW_EVENT_LIMIT)
+    .sort((a, b) => a.index - b.index)
+    .map((item) => item.event);
+}
+
+function buildEventSummaries(cityId, options = {}) {
   const cityDir = path.join(citiesDir, cityId);
   const files = fs.readdirSync(cityDir)
     .filter((name) => /^events_\d{4}\.json$/.test(name))
@@ -251,14 +277,25 @@ function buildEventSummaries(cityId) {
       fields: COMPACT_EVENT_SUMMARY_FIELDS,
       events: events.map(compactSummaryEvent),
     };
+    const preview = previewEvents(events);
+    const previewPayload = {
+      ...summaryPayload,
+      event_count: events.length,
+      preview_count: preview.length,
+      partial: preview.length < events.length,
+      events: preview.map(compactSummaryEvent),
+    };
     const outPath = path.join(cityDir, file.replace(".json", ".summary.json"));
-    writeJson(outPath, summaryPayload);
+    const previewPath = path.join(cityDir, file.replace(".json", ".summary.preview.json"));
+    if (!options.previewOnly) writeJson(outPath, summaryPayload);
+    writeJson(previewPath, previewPayload);
     results.push({
       cityId,
       year: summaryPayload.year,
       eventCount: events.length,
       sourceBytes: fs.statSync(sourcePath).size,
-      summaryBytes: fs.statSync(outPath).size,
+      summaryBytes: fs.existsSync(outPath) ? fs.statSync(outPath).size : 0,
+      previewBytes: fs.statSync(previewPath).size,
     });
   }
   return results;
@@ -268,11 +305,15 @@ function parseArgs(argv) {
   const options = {
     cities: [],
     eventsOnly: false,
+    previewOnly: false,
   };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--events-only") {
       options.eventsOnly = true;
+    } else if (arg === "--preview-only") {
+      options.eventsOnly = true;
+      options.previewOnly = true;
     } else if (arg === "--city") {
       const city = argv[i + 1];
       if (!city) throw new Error("--city requires a city id");
@@ -323,7 +364,7 @@ function main() {
     }
   }
 
-  const eventResults = cityIds.flatMap(buildEventSummaries);
+  const eventResults = cityIds.flatMap((cityId) => buildEventSummaries(cityId, { previewOnly: options.previewOnly }));
   for (const result of eventResults) {
     const reduction = result.sourceBytes
       ? Math.round((1 - result.summaryBytes / result.sourceBytes) * 100)

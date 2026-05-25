@@ -855,9 +855,11 @@
     search: "",
     eventListLimit: EVENT_LIST_BATCH_SIZE,
     loadedEvents: new Map(),           // year -> array of events
+    loadedEventMode: new Map(),
     loadingYears: new Map(),
     yearLoadErrors: new Map(),
     eventFilterCache: new Map(),
+    mapStateRefreshTimer: null,
     eventById: new Map(),
     eventDetailLoads: new Map(),
     cityDataReady: false,
@@ -935,7 +937,8 @@
   // Boot
   // ---------------------------------------------------------------------------
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 
   async function init() {
     if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) {
@@ -1239,6 +1242,7 @@
   async function loadCity(cityId) {
     stopPlay();
     clearSearchMapRefreshTimer();
+    clearMapStateRefreshTimer();
     state.cityId = cityId;
     state.cityMeta = cityMeta(cityId);
     state.cityDataReady = false;
@@ -1299,6 +1303,7 @@
     }
 
     state.loadedEvents.clear();
+    state.loadedEventMode.clear();
     state.loadingYears.clear();
     state.yearLoadErrors.clear();
     clearEventFilterCache();
@@ -1331,71 +1336,93 @@
 
     renderCityMenu();
     renderAll();
+    const initialYearLoad = loadYear(state.year, { preview: true });
     initOrUpdateMap();
 
     // Preload the selected year; adjacent comparison years are loaded on demand by the detail/compare panels.
-    await loadYear(state.year);
-    await loadLensYearsForTimeline(state.year);
+    await initialYearLoad;
     const manualYear = Number(state.manualYearOverride);
     if (Number.isFinite(manualYear) && state.years.includes(manualYear) && manualYear !== state.year) {
       state.year = manualYear;
       state.compareAfterYear = manualYear;
       setText(els.tlYear, String(manualYear));
-      await loadYear(manualYear);
-      await loadLensYearsForTimeline(manualYear);
+      await loadYear(manualYear, { preview: true });
     }
     state.cityDataReady = true;
     renderAll();
-    updateTimeDependentMapState();
-    renderMarkers();
-    setAppStatus("");
     if (requestedEventId) {
       await loadSourcesForCurrentCity();
       await selectEvent(requestedEventId, { silent: true });
     } else if (!state.selectedEvent) {
-      await selectFirstVisibleEvent({ deferSources: true });
+      await selectFirstVisibleEvent({ deferSources: true, deferDetail: true });
       setTimeout(() => loadSourcesForCurrentCity(), 1800);
     }
+    renderFastStaticPins();
+    renderMarkers();
+    setAppStatus("");
+    scheduleTimeDependentMapState(80);
+    scheduleFullYearHydration(state.year);
   }
 
-  async function loadYear(year) {
+  async function loadYear(year, options = {}) {
     const numericYear = Number(year);
     if (!Number.isFinite(numericYear)) return [];
-    if (state.loadedEvents.has(numericYear)) return state.loadedEvents.get(numericYear);
-    if (state.loadingYears.has(numericYear)) return state.loadingYears.get(numericYear);
+    const wantsPreview = options.preview === true;
+    const loadedMode = state.loadedEventMode.get(numericYear);
+    if (state.loadedEvents.has(numericYear) && (wantsPreview || loadedMode === "full")) {
+      return state.loadedEvents.get(numericYear);
+    }
+    const loadKey = `${numericYear}:${wantsPreview ? "preview" : "full"}`;
+    if (state.loadingYears.has(loadKey)) return state.loadingYears.get(loadKey);
 
     const chunk = state.chunks.get(numericYear);
     if (!chunk?.json_path) {
       state.loadedEvents.set(numericYear, []);
+      state.loadedEventMode.set(numericYear, "full");
       return [];
     }
+    const previewUrl = wantsPreview ? eventPreviewUrl(chunk) : "";
     const summaryUrl = eventSummaryUrl(chunk);
     const fullUrl = dataPathToUrl(chunk.json_path);
-    const promise = fetchJson(summaryUrl || fullUrl)
-      .catch((error) => {
-        if (!summaryUrl || summaryUrl === fullUrl) throw error;
-        console.warn(`[atlas] year ${numericYear} summary unavailable; loading full events`, error);
-        return fetchJson(fullUrl);
-      })
+    const urls = [...new Set([previewUrl, summaryUrl, fullUrl].filter(Boolean))];
+    const promise = fetchFirstJson(urls, numericYear)
       .then((payload) => {
         const arr = Array.isArray(payload?.events) ? payload.events : (Array.isArray(payload?.features) ? payload.features : []);
         const compactFields = Array.isArray(payload?.fields) ? payload.fields : null;
         const events = arr.map((raw, idx) => normalizeEvent(expandCompactEvent(raw, compactFields), numericYear, idx));
         state.loadedEvents.set(numericYear, events);
+        state.loadedEventMode.set(numericYear, payload?.partial ? "preview" : "full");
         clearEventFilterCache();
         state.yearLoadErrors.delete(numericYear);
         for (const e of events) state.eventById.set(e.id, e);
+        if (state.selectedEventId && state.eventById.has(state.selectedEventId)) {
+          state.selectedEvent = state.eventById.get(state.selectedEventId);
+        }
         return events;
       })
       .catch((err) => {
         console.warn(`[atlas] year ${numericYear} failed to load`, err);
         state.yearLoadErrors.set(numericYear, err.message || String(err));
         state.loadedEvents.set(numericYear, []);
+        state.loadedEventMode.set(numericYear, "full");
         return [];
       })
-      .finally(() => state.loadingYears.delete(numericYear));
-    state.loadingYears.set(numericYear, promise);
+      .finally(() => state.loadingYears.delete(loadKey));
+    state.loadingYears.set(loadKey, promise);
     return promise;
+  }
+
+  async function fetchFirstJson(urls, year) {
+    let lastError = null;
+    for (const url of urls) {
+      try {
+        return await fetchJson(url);
+      } catch (error) {
+        lastError = error;
+        console.warn(`[atlas] year ${year} unavailable at ${url}; trying fallback`, error);
+      }
+    }
+    throw lastError || new Error(`No event URLs configured for ${year}`);
   }
 
   function eventSummaryUrl(chunk) {
@@ -1404,6 +1431,27 @@
     return chunk?.json_path
       ? dataPathToUrl(String(chunk.json_path).replace(/\.json$/i, ".summary.json"))
       : "";
+  }
+
+  function eventPreviewUrl(chunk) {
+    const configured = chunk?.preview_json_path || chunk?.preview_path;
+    if (configured) return dataPathToUrl(configured);
+    return chunk?.json_path
+      ? dataPathToUrl(String(chunk.json_path).replace(/\.json$/i, ".summary.preview.json"))
+      : "";
+  }
+
+  function scheduleFullYearHydration(year, delay = 3000) {
+    setTimeout(() => {
+      loadYear(year)
+        .then(() => {
+          if (Number(state.year) !== Number(year)) return;
+          renderAll();
+          renderMarkers();
+          scheduleTimeDependentMapState(80);
+        })
+        .catch((error) => console.warn(`[atlas] full year hydration failed for ${year}`, error));
+    }, delay);
   }
 
   async function loadSourcesForCurrentCity() {
@@ -1754,10 +1802,10 @@
       if (state.mapReady) return;
       state.mapReady = true;
       state.map.resize();
-      updateTimeDependentMapState();
       updateMapToolState();
       renderMarkers();
       focusPendingCameraEvent(0);
+      scheduleTimeDependentMapState(80);
     };
     state.map.on("load", onReady);
     state.map.once("idle", onReady);
@@ -1932,8 +1980,70 @@
     if (currentContextCenterForLens(lens)) focusActiveLensCamera(420);
   }
 
+  function clearFastStaticPins() {
+    document.getElementById("staticPinLayer")?.remove();
+  }
+
+  function projectStaticPin(lngLat, viewport) {
+    const center = mapCenter();
+    const zoom = Number(state.city?.default_zoom || 11.5);
+    const scale = 256 * (2 ** zoom);
+    const mercator = ([lng, lat]) => {
+      const sin = Math.sin((Math.max(-85.0511, Math.min(85.0511, lat)) * Math.PI) / 180);
+      return {
+        x: ((lng + 180) / 360) * scale,
+        y: (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * scale,
+      };
+    };
+    const point = mercator(lngLat);
+    const origin = mercator(center);
+    return {
+      x: viewport.width / 2 + point.x - origin.x,
+      y: viewport.height / 2 + point.y - origin.y,
+    };
+  }
+
+  function renderFastStaticPins() {
+    if (!els.map || state.mapReady || !state.cityDataReady) {
+      clearFastStaticPins();
+      return;
+    }
+    const viewport = els.map.getBoundingClientRect();
+    if (!viewport.width || !viewport.height) return;
+    const selected = state.selectedEvent?.lngLat ? state.selectedEvent : null;
+    const events = [selected, ...filteredEvents().filter((event) => event.lngLat && event.id !== selected?.id)]
+      .filter(Boolean)
+      .slice(0, 18);
+    if (!events.length) return;
+
+    clearFastStaticPins();
+    const layer = document.createElement("div");
+    layer.id = "staticPinLayer";
+    layer.className = "static-pin-layer";
+    for (const event of events) {
+      const point = projectStaticPin(event.lngLat, viewport);
+      const x = Math.max(28, Math.min(viewport.width - 28, point.x));
+      const y = Math.max(96, Math.min(viewport.height - 44, point.y));
+      const wrap = document.createElement("div");
+      wrap.className = "pin-wrap";
+      wrap.style.left = `${Math.round(x - 11)}px`;
+      wrap.style.top = `${Math.round(y - 11)}px`;
+      wrap.style.zIndex = markerZIndex(event);
+      wrap.innerHTML = `
+        <div class="pin" data-active="${event.id === state.selectedEventId}" data-lens="${escapeAttr(markerLensToken(event))}" style="--accent:${escapeAttr(markerAccent(event))}" role="button" tabindex="0" aria-pressed="${event.id === state.selectedEventId}" aria-label="${escapeAttr(`${event.title}, ${event.year}`)}">
+          <div class="pin-label">${escapeHtml(truncate(event.title, 60))} Â· ${event.year}</div>
+        </div>`;
+      const selectMarker = () => selectEvent(event.id);
+      wrap.addEventListener("click", selectMarker);
+      addPressHandler(wrap.querySelector(".pin"), selectMarker);
+      layer.appendChild(wrap);
+    }
+    els.map.appendChild(layer);
+  }
+
   function renderMarkers() {
     if (!state.map) return;
+    if (state.mapReady) clearFastStaticPins();
     const selected = state.selectedEvent?.lngLat ? state.selectedEvent : null;
     const center = mapCenter();
     const eventsForMarkers = filteredEvents();
@@ -15525,6 +15635,19 @@
     state.searchMapRefreshTimer = null;
   }
 
+  function clearMapStateRefreshTimer() {
+    if (state.mapStateRefreshTimer) clearTimeout(state.mapStateRefreshTimer);
+    state.mapStateRefreshTimer = null;
+  }
+
+  function scheduleTimeDependentMapState(delay = 80) {
+    clearMapStateRefreshTimer();
+    state.mapStateRefreshTimer = setTimeout(() => {
+      state.mapStateRefreshTimer = null;
+      updateTimeDependentMapState();
+    }, delay);
+  }
+
   function scheduleSearchMapRefresh() {
     clearSearchMapRefreshTimer();
     state.searchMapRefreshTimer = setTimeout(() => {
@@ -20043,7 +20166,13 @@
     if (event.year !== state.year) {
       await setYear(event.year);
     }
-    scheduleEventDetailLoad(event);
+    if (opts.deferDetail) {
+      setTimeout(() => {
+        if (state.selectedEventId === event.id) scheduleEventDetailLoad(event);
+      }, 1500);
+    } else {
+      scheduleEventDetailLoad(event);
+    }
     renderDetail();
     renderMapStudyChip();
     renderEventList();

@@ -84,6 +84,15 @@ button { font-family: inherit; }
   filter: none;
   transition: filter 0.4s ease;
 }
+.static-pin-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.static-pin-layer .pin-wrap {
+  pointer-events: auto;
+}
 [data-theme="dark"] .maplibregl-canvas-container .maplibregl-canvas {
   filter: grayscale(1) invert(0.92) hue-rotate(180deg) contrast(0.9) brightness(0.95);
 }
