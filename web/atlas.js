@@ -858,6 +858,7 @@
     loadedEventMode: new Map(),
     loadingYears: new Map(),
     yearLoadErrors: new Map(),
+    fullYearHydrationTimer: null,
     eventFilterCache: new Map(),
     mapStateRefreshTimer: null,
     eventById: new Map(),
@@ -1244,6 +1245,8 @@
     stopPlay();
     clearSearchMapRefreshTimer();
     clearMapStateRefreshTimer();
+    if (state.fullYearHydrationTimer) clearTimeout(state.fullYearHydrationTimer);
+    state.fullYearHydrationTimer = null;
     state.cityId = cityId;
     state.cityMeta = cityMeta(cityId);
     state.cityDataReady = false;
@@ -1442,8 +1445,10 @@
       : "";
   }
 
-  function scheduleFullYearHydration(year, delay = 3000) {
-    setTimeout(() => {
+  function scheduleFullYearHydration(year, delay = 5500) {
+    if (state.fullYearHydrationTimer) clearTimeout(state.fullYearHydrationTimer);
+    state.fullYearHydrationTimer = setTimeout(() => {
+      state.fullYearHydrationTimer = null;
       loadYear(year)
         .then(() => {
           if (Number(state.year) !== Number(year)) return;
@@ -2876,7 +2881,7 @@
     state.detailFeaturePathLoaded = path;
     state.detailBuildingFeatures = [];
     state.detailRoadFeatures = [];
-    fetchJson(path)
+    fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         if (state.detailFeaturePathLoaded !== path) return;
         const features = Array.isArray(payload.features) ? payload.features : [];
@@ -6088,7 +6093,7 @@
       state.transportRoadFeaturesByYear.set(targetYear, []);
       return;
     }
-    const promise = fetchJson(path)
+    const promise = fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         const features = Array.isArray(payload.features) ? payload.features : [];
         state.transportRoadFeaturesByYear.set(targetYear, features);
@@ -6145,7 +6150,7 @@
     if (state.civicServiceFeaturesPathLoaded === path) return;
     state.civicServiceFeaturesPathLoaded = path;
     state.civicServiceFeatures = [];
-    fetchJson(path)
+    fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         if (state.civicServiceFeaturesPathLoaded !== path) return;
         state.civicServiceFeatures = Array.isArray(payload.features)
@@ -6182,7 +6187,7 @@
     if (state.economyAnchorFeaturesPathLoaded === path) return;
     state.economyAnchorFeaturesPathLoaded = path;
     state.economyAnchorFeatures = [];
-    fetchJson(path)
+    fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         if (state.economyAnchorFeaturesPathLoaded !== path) return;
         state.economyAnchorFeatures = Array.isArray(payload.features)
@@ -6234,7 +6239,7 @@
     if (state.utilityNetworkFeaturesPathLoaded === path) return;
     state.utilityNetworkFeaturesPathLoaded = path;
     state.utilityNetworkFeatures = [];
-    fetchJson(path)
+    fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         if (state.utilityNetworkFeaturesPathLoaded !== path) return;
         state.utilityNetworkFeatures = Array.isArray(payload.features)
@@ -6266,7 +6271,7 @@
     if (state.transportStopFeaturesPathLoaded === path) return;
     state.transportStopFeaturesPathLoaded = path;
     state.transportStopFeatures = [];
-    fetchJson(path)
+    fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         if (state.transportStopFeaturesPathLoaded !== path) return;
         state.transportStopFeatures = Array.isArray(payload.features)
@@ -6326,7 +6331,7 @@
     if (state.lensDetailFeaturePathLoaded === path) return;
     state.lensDetailFeaturePathLoaded = path;
     state.lensDetailFeatures = [];
-    fetchJson(path)
+    fetchJson(path, { cache: "no-store" })
       .then((payload) => {
         if (state.lensDetailFeaturePathLoaded !== path) return;
         state.lensDetailFeatures = Array.isArray(payload.features) ? payload.features.filter((feature) => feature.geometry) : [];
@@ -20067,19 +20072,18 @@
     resetEventListLimit();
     if (state.compareOpen) state.compareAfterYear = next;
     setText(els.tlYear, String(next));
-    updateTimeDependentMapState();
     // de-select if the selected event isn't in the new year
     if (state.selectedEvent && state.selectedEvent.year !== next) {
       state.selectedEventId = null;
       state.selectedEvent = null;
     }
-    await loadYear(next);
-    await loadLensYearsForTimeline(next);
+    await loadYear(next, { preview: true });
     if (state.year !== next) return;
     renderAll();
     updateTimeDependentMapState();
     renderMarkers();
     if (!state.selectedEvent) await selectFirstVisibleEvent({ keepCamera: true });
+    scheduleFullYearHydration(next);
   }
 
   async function selectFirstVisibleEvent(opts = {}) {
@@ -20806,22 +20810,24 @@
     return first || DEFAULT_LENS_ASPECT_BY_CATEGORY[DEFAULT_MAP_LENS];
   }
 
-  async function fetchJsonNetwork(url) {
-    const res = await fetch(url, { cache: "force-cache" });
+  async function fetchJsonNetwork(url, cacheMode = "force-cache") {
+    const res = await fetch(url, { cache: cacheMode });
     if (!res.ok) throw new Error(`${url} → ${res.status}`);
     return res.json();
   }
 
-  async function fetchJson(url) {
-    const key = jsonCacheKey(url);
+  async function fetchJson(url, options = {}) {
+    const cacheMode = options.cache || "force-cache";
+    const key = `${cacheMode}:${jsonCacheKey(url)}`;
     const bootCache = window.BimsAtlasBoot?.jsonCache;
-    if (bootCache && Object.prototype.hasOwnProperty.call(bootCache, key)) {
-      const payload = bootCache[key];
-      delete bootCache[key];
+    const bootKey = jsonCacheKey(url);
+    if (cacheMode !== "no-store" && bootCache && Object.prototype.hasOwnProperty.call(bootCache, bootKey)) {
+      const payload = bootCache[bootKey];
+      delete bootCache[bootKey];
       return payload;
     }
     if (jsonRequestCache.has(key)) return jsonRequestCache.get(key);
-    const promise = fetchJsonNetwork(url).finally(() => jsonRequestCache.delete(key));
+    const promise = fetchJsonNetwork(url, cacheMode).finally(() => jsonRequestCache.delete(key));
     jsonRequestCache.set(key, promise);
     return promise;
   }
