@@ -48,8 +48,8 @@
     "category": {"type": "string"},
     "lens": {"type": "string"},
     "geometry": {
-      "type": ["object", "null"],
-      "description": "GeoJSON geometry in EPSG:4326. Null is allowed when only an affected_area label is available."
+      "type": "object",
+      "description": "GeoJSON geometry in EPSG:4326. Launched atlas events must be spatially inspectable through map geometry and list/evidence paths."
     },
     "affected_area": {
       "type": "object",

@@ -26,6 +26,11 @@ const steps = [
     attempts: 3,
   },
   {
+    label: "15-lens city contract",
+    command: process.execPath,
+    args: ["scripts/build_15_lens_manifest.js"],
+  },
+  {
     label: "city coverage report",
     command: process.execPath,
     args: ["scripts/build_city_coverage_report.js"],

@@ -113,7 +113,7 @@
       category: "transport",
       domain: "Transport Lens",
       badge: "T",
-      label: "Speed",
+      label: "Journey Speed",
       shortLabel: "Speed",
       title: "Flow-proxy network",
       description: "Transport activity bands show where slower-flow proxies cluster.",
@@ -144,7 +144,7 @@
       category: "transport",
       domain: "Transport Lens",
       badge: "T",
-      label: "Access",
+      label: "Access to Transport",
       shortLabel: "Access",
       title: "Access-proxy fabric",
       description: "Mapped network-proxy bands around the selected event.",
@@ -175,8 +175,8 @@
       category: "transport",
       domain: "Transport Lens",
       badge: "T",
-      label: "Reliability",
-      shortLabel: "Reliable",
+      label: "Service Reliability",
+      shortLabel: "Reliability",
       title: "Service reliability threads",
       description: "Which services are running, disrupted, or planned?",
       radiusM: 800,
@@ -206,8 +206,8 @@
       category: "built_environment",
       domain: "Planning & Built Lens",
       badge: "A",
-      label: "Pressure",
-      shortLabel: "Pressure",
+      label: "Planning Activity",
+      shortLabel: "Activity",
       title: "Planning-pressure field",
       description: "Where planning activity and pressure are concentrated right now.",
       radiusM: 800,
@@ -237,8 +237,8 @@
       category: "built_environment",
       domain: "Planning & Built Lens",
       badge: "2",
-      label: "Delta",
-      shortLabel: "Delta",
+      label: "Built Change",
+      shortLabel: "Built",
       title: "Urban-form delta map",
       description: "Change in building mass and land use.",
       radiusM: 800,
@@ -268,8 +268,8 @@
       category: "built_environment",
       domain: "Planning & Built Lens",
       badge: "P",
-      label: "Parcels",
-      shortLabel: "Parcels",
+      label: "Development Sites",
+      shortLabel: "Sites",
       title: "Parcel-stage mosaic",
       description: "Lifecycle stage of parcels and buildings.",
       radiusM: 800,
@@ -301,7 +301,7 @@
       category: "civic_services",
       domain: "Civic Services Lens",
       badge: "B",
-      label: "Access Gaps",
+      label: "Public Service Gaps",
       shortLabel: "Gaps",
       title: "Access gap seams",
       description: "Where mapped service coverage appears weakest.",
@@ -332,8 +332,8 @@
       category: "civic_services",
       domain: "Civic Services Lens",
       badge: "C",
-      label: "Catchment",
-      shortLabel: "Catchment",
+      label: "Service Catchments",
+      shortLabel: "Catchments",
       title: "Service catchment cells",
       description: "Where services are available and how demand is met.",
       radiusM: 1500,
@@ -363,7 +363,7 @@
       category: "civic_services",
       domain: "Civic Services Lens",
       badge: "D",
-      label: "Demand",
+      label: "Service Demand",
       shortLabel: "Demand",
       title: "Demand-pressure grid",
       description: "Where civic-service context signals cluster and shift.",
@@ -394,8 +394,8 @@
       category: "economy",
       domain: "Economy Lens",
       badge: "V",
-      label: "Vitality",
-      shortLabel: "Vitality",
+      label: "High Street Activity",
+      shortLabel: "High Street",
       title: "Street-front vitality ribbons",
       description: "Street-front vitality ribbons. Commercial street frontages colored by vacancy and performance. Ribbon thickness = business density; notices show churn.",
       radiusM: 800,
@@ -456,7 +456,7 @@
       category: "economy",
       domain: "Economy Lens",
       badge: "2",
-      label: "Gravity",
+      label: "Economic Pull",
       shortLabel: "Gravity",
       title: "Economic gravity corridors",
       description: "Flows between activity anchors and economic destinations.",
@@ -487,7 +487,7 @@
       category: "utilities",
       domain: "Utilities Lens",
       badge: "U",
-      label: "Capacity",
+      label: "Utility Capacity",
       shortLabel: "Capacity",
       title: "Utility context x-ray",
       description: "See where mapped utility context and work records cluster.",
@@ -518,7 +518,7 @@
       category: "utilities",
       domain: "Utilities Lens",
       badge: "R",
-      label: "Resilience",
+      label: "Network Resilience",
       shortLabel: "Resilience",
       title: "Service resilience paths",
       description: "Trace mapped infrastructure routes, alternates and possible pinch points.",
@@ -549,7 +549,7 @@
       category: "utilities",
       domain: "Utilities Lens",
       badge: "W",
-      label: "Works",
+      label: "Utility Works",
       shortLabel: "Works",
       title: "Maintenance and disruption timeline map",
       description: "What works are happening where and when?",
@@ -589,6 +589,34 @@
     economy: "economy-vitality",
     utilities: "utilities-capacity",
     environment: "civic-catchment",
+  };
+  const LENS_GROUP_BY_CATEGORY = {
+    built_environment: "planning",
+    transport: "transport",
+    civic_services: "civic",
+    economy: "economy",
+    utilities: "utilities",
+  };
+  const LENS_CATEGORY_BY_GROUP = {
+    planning: "built_environment",
+    transport: "transport",
+    civic: "civic_services",
+    economy: "economy",
+    utilities: "utilities",
+  };
+  const LENS_GROUP_SIGNALS = {
+    planning: new Set(["built_environment", "city_change"]),
+    transport: new Set(["mobility", "traffic"]),
+    civic: new Set(["civic_services", "services"]),
+    economy: new Set(["economic_opportunity", "jobs", "economy"]),
+    utilities: new Set(["utilities", "electricity"]),
+  };
+  const LENS_GROUP_PATTERNS = {
+    planning: /planning|building|permit|zoning|development|architecture|heritage|housing|certificate|design_review|parcel_geometry|listed|brownfield|land[-_\s]?use/i,
+    transport: /transport|transit|traffic|street_network|road|mta|tfl|translink|dft|dot|collisions|journey|bus|rail|cycle/i,
+    civic: /civic|education|healthcare?|public_facilities|service_requests|cultural|libraries|public_housing|demographics|police|food hygiene|fire|school|hospital|clinic/i,
+    economy: /economy|property|food|business|jobs|commercial|retail|valuation|sales|hpi|price|land registry|voa|companies|employment|floor.?space/i,
+    utilities: /utilities|utility|energy|water|electric|power|street.?works|sewer|infrastructure|substation|network|flood/i,
   };
   const POINT_LENS_IDS = new Set(["transport", "built_environment", "civic_services", "economy", "utilities"]);
   const DETAIL_SOURCE_ID = "osm-detail";
@@ -683,147 +711,6 @@
     "lens-transport-hotspots",
   ];
 
-  // Proposal lookup is a lightweight prompt surface only. These entries are not
-  // source-backed analogue evidence, so the panel must not show outcome numbers
-  // or imply predicted, measured, or causal impact.
-  const PROPOSALS = [
-    {
-      id: "p-belfast-glider-northsouth",
-      city: "belfast",
-      title: "Belfast Glider North–South extension",
-      type: "Transit · BRT",
-      decision: "DfI scoping 2026",
-      summary: "Extending the Glider corridor north and south of the city centre to reach North Belfast and the Cathedral Quarter rail interchange.",
-      analogs: [
-        {
-          place: "Belfast",
-          title: "Glider G1/G2 launch",
-          year: 2018,
-          layer: "transport",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-        {
-          place: "London",
-          title: "East London Overground",
-          year: 2009,
-          layer: "transport",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-        {
-          place: "Seoul",
-          title: "Line 9 East extension",
-          year: 2011,
-          layer: "transport",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-      ],
-      distribution: {
-        "Analogue evidence": "Not source-backed in this atlas build",
-        "Use": "Compare proposal text with logged transport changes",
-        "Limit": "No prediction, forecast, or causal effect is claimed",
-      },
-    },
-    {
-      id: "p-belfast-cathedralquarter",
-      city: "belfast",
-      title: "Cathedral Quarter regeneration phase 3",
-      type: "Mixed-use regeneration",
-      decision: "Belfast City Council review 2026",
-      summary: "Continued regeneration of Belfast's Cathedral Quarter with mixed-use development around York Street and the new Ulster University campus.",
-      analogs: [
-        {
-          place: "London",
-          title: "King's Cross Central",
-          year: 2007,
-          layer: "built_environment",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-        {
-          place: "Belfast",
-          title: "Titanic Quarter masterplan",
-          year: 2012,
-          layer: "built_environment",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-        {
-          place: "Seoul",
-          title: "Dongdaemun Design Plaza",
-          year: 2014,
-          layer: "environment",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-      ],
-      distribution: {
-        "Analogue evidence": "Not source-backed in this atlas build",
-        "Use": "Compare proposal text with logged planning and built changes",
-        "Limit": "No prediction, forecast, or causal effect is claimed",
-      },
-    },
-    {
-      id: "p-belfast-cyclenet",
-      city: "belfast",
-      title: "Belfast Cycle Network completion",
-      type: "Cycling · protected lanes",
-      decision: "DfI Cycle Network 2030 draft",
-      summary: "Closing the gaps in the protected cycling network across central and inner Belfast, including segregated lanes on Donegall Pass and the Westlink corridor.",
-      analogs: [
-        {
-          place: "London",
-          title: "Cycle Superhighway CS3",
-          year: 2014,
-          layer: "transport",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-        {
-          place: "Seoul",
-          title: "Cheonggyecheon restoration",
-          year: 2005,
-          layer: "environment",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-        {
-          place: "Berlin",
-          title: "Friedrichshain pop-up bike lanes",
-          year: 2020,
-          layer: "transport",
-          outcomes: [
-            { k: "Evidence status", v: "Analogue candidate only" },
-            { k: "Use", v: "Find source rows before citing" },
-          ],
-        },
-      ],
-      distribution: {
-        "Analogue evidence": "Not source-backed in this atlas build",
-        "Use": "Compare proposal text with logged cycling and street changes",
-        "Limit": "No prediction, forecast, or causal effect is claimed",
-      },
-    },
-  ];
-
   // ---------------------------------------------------------------------------
   // State
   // ---------------------------------------------------------------------------
@@ -835,6 +722,10 @@
     city: null,
     availability: null,
     availabilityError: null,
+    lensManifest: null,
+    lensYearCoverage: null,
+    lensYearCoverageByKey: new Map(),
+    lensYearCoverageError: null,
     sources: [],
     sourceById: new Map(),
     eventsIndex: null,
@@ -848,6 +739,8 @@
     activeAspectLayers: new Set(),
     confidenceFilter: "all",
     showInferred: true,
+    areaFilter: "",
+    areaFilterTimelineLoading: false,
     search: "",
     eventListLimit: EVENT_LIST_BATCH_SIZE,
     loadedEvents: new Map(),           // year -> array of events
@@ -876,10 +769,8 @@
     compareEvidenceLoadingKey: "",
     detailEvidenceLoadingKey: "",
     mapTilted: false,
-    lensOpen: false,
     methodOpen: false,
     welcomeOpen: false,
-    currentProposalId: PROPOSALS[0].id,
     detailLayerLoaded: false,
     detailLayerError: null,
     detailLayerPathLoaded: null,
@@ -940,10 +831,6 @@
     renderLayers();
     renderLensSwitcher();
     renderAspectSwitcher();
-    renderProposalLensList();
-    renderLensOutcomes(currentProposal());
-    renderLensAnalogs(currentProposal());
-    updateLensHead();
     setAppStatus("Loading source-backed city atlas…");
     try {
       await loadIndex();
@@ -961,17 +848,15 @@
       "cityToggle", "cityNameLabel", "cityMenu",
       "searchInput", "searchResults",
       "changelogToggle", "changelogPanel", "eventList", "eventListCount", "eventListMeta", "eventListMore",
+      "exportCsvBtn", "exportGeojsonBtn",
       "compareBtn", "comparePanel", "compareClose", "compareBeforeYear", "compareAfterYear", "compareStats", "compareNote",
       "recenterBtn", "tiltBtn",
       "methodBtn", "shareBtn", "themeBtn",
       "mapStudyChip", "mapStudyChipText",
       "layersPanel", "layersList", "layersCount", "lensSwitcher", "lensAspectSwitcher", "lensLegend", "lensDataState",
       "activeLensCard", "activeLensIcon", "activeLensDomain", "activeLensTitle", "activeLensDescription",
-      "confidenceFilter", "showInferredToggle", "coverageNote",
+      "confidenceFilter", "areaFilterInput", "areaFilterOptions", "showInferredToggle", "coverageNote",
       "detailPanel", "detailEmpty", "detailInner", "emptyCityName",
-      "lensFab", "lensOverlay", "lensClose", "lensTitle", "lensType",
-      "lensDecision", "lensSummary", "lensProposals", "lensAnalogs",
-      "lensOutcomes", "lensExport", "lensDiscuss",
       "methodOverlay", "methodClose", "methodDatasetTable", "methodCities",
       "tlYear", "tlVisible", "tlTotal", "tlCity", "tlLayers",
       "playBtn", "playIcon",
@@ -1016,6 +901,15 @@
       renderMarkers();
       await reconcileSelectionWithFilters({ keepCamera: true });
     });
+    els.areaFilterInput?.addEventListener("input", async () => {
+      state.areaFilter = cleanAreaFilter(els.areaFilterInput.value);
+      resetEventListLimit();
+      ensureAreaFilterTimelineLoaded();
+      renderAll();
+      updateTimeDependentMapState();
+      renderMarkers();
+      await reconcileSelectionWithFilters({ keepCamera: true });
+    });
     els.showInferredToggle?.addEventListener("change", async () => {
       state.showInferred = !!els.showInferredToggle.checked;
       resetEventListLimit();
@@ -1035,6 +929,8 @@
       state.eventListLimit += EVENT_LIST_BATCH_SIZE;
       renderEventList();
     });
+    els.exportCsvBtn?.addEventListener("click", () => exportFilteredCsv());
+    els.exportGeojsonBtn?.addEventListener("click", () => exportFilteredGeojson());
     els.compareBtn?.addEventListener("click", () => setCompareOpen(!state.compareOpen));
     els.compareClose?.addEventListener("click", () => setCompareOpen(false));
     els.compareBeforeYear?.addEventListener("change", () => {
@@ -1054,7 +950,11 @@
       url.searchParams.set("city", state.cityId);
       url.searchParams.set("year", String(state.year));
       url.searchParams.set("lens", state.activeAspect || state.activeLens);
-      await copyText(url.toString(), "Permalink copied - view shared with city and year");
+      state.areaFilter ? url.searchParams.set("area", state.areaFilter) : url.searchParams.delete("area");
+      state.search ? url.searchParams.set("q", state.search) : url.searchParams.delete("q");
+      state.confidenceFilter !== "all" ? url.searchParams.set("confidence", state.confidenceFilter) : url.searchParams.delete("confidence");
+      state.showInferred ? url.searchParams.delete("inferred") : url.searchParams.set("inferred", "0");
+      await copyText(url.toString(), "Permalink copied - view shared with city, year, lens, and filters");
     });
 
     // Theme
@@ -1066,12 +966,6 @@
     // Welcome
     els.welcomeStart?.addEventListener("click", () => setWelcomeOpen(false));
     els.welcomeSkip?.addEventListener("click", () => setWelcomeOpen(false));
-
-    // Proposal Lens
-    els.lensFab?.addEventListener("click", () => setLensOpen(true));
-    els.lensClose?.addEventListener("click", () => setLensOpen(false));
-    els.lensExport?.addEventListener("click", () => toast("Export coming soon - verify analogue prompts against logged source rows before citing"));
-    els.lensDiscuss?.addEventListener("click", () => toast("Team workspaces ship in the next OpenCityLog drop"));
 
     // Timeline play
     els.playBtn?.addEventListener("click", togglePlay);
@@ -1104,10 +998,8 @@
       else if (e.key === "ArrowLeft") setYear(Math.max(state.yearRange[0], state.year - 1));
       else if (e.key === " ") { e.preventDefault(); togglePlay(); }
       else if (e.key === "/") { e.preventDefault(); els.searchInput?.focus(); }
-      else if (e.key.toLowerCase() === "p") setLensOpen(true);
       else if (e.key === "Escape") {
-        if (state.lensOpen) setLensOpen(false);
-        else if (state.methodOpen) setMethodOpen(false);
+        if (state.methodOpen) setMethodOpen(false);
         else if (state.compareOpen) setCompareOpen(false);
         else if (state.welcomeOpen) setWelcomeOpen(false);
         else if (state.selectedEventId) clearSelection();
@@ -1136,12 +1028,18 @@
     setAppStatus(`Loading ${shortCityName(state.cityMeta.display_name)}…`);
 
     const paths = state.cityMeta.artifact_paths || {};
-    const [cityDoc, eventsIndex, sourcesDoc, availabilityDoc] = await Promise.all([
+    const [cityDoc, eventsIndex, sourcesDoc, availabilityDoc, lensManifestDoc, lensYearCoverageDoc] = await Promise.all([
       fetchJson(dataPathToUrl(paths.city)),
       fetchJson(dataPathToUrl(paths.events)),
       fetchJson(dataPathToUrl(paths.sources)),
       paths.availability
         ? fetchJson(dataPathToUrl(paths.availability)).catch((error) => ({ __error: error }))
+        : Promise.resolve(null),
+      paths.lens_manifest
+        ? fetchJson(dataPathToUrl(paths.lens_manifest)).catch((error) => ({ __error: error }))
+        : Promise.resolve(null),
+      paths.lens_year_coverage
+        ? fetchJson(dataPathToUrl(paths.lens_year_coverage)).catch((error) => ({ __error: error }))
         : Promise.resolve(null),
     ]);
 
@@ -1149,6 +1047,10 @@
     state.eventsIndex = eventsIndex;
     state.availability = availabilityDoc && !availabilityDoc.__error ? availabilityDoc : null;
     state.availabilityError = availabilityDoc?.__error?.message || null;
+    state.lensManifest = lensManifestDoc && !lensManifestDoc.__error ? lensManifestDoc : null;
+    state.lensYearCoverage = lensYearCoverageDoc && !lensYearCoverageDoc.__error ? lensYearCoverageDoc : null;
+    state.lensYearCoverageError = lensYearCoverageDoc?.__error?.message || null;
+    state.lensYearCoverageByKey = new Map((state.lensYearCoverage?.rows || []).map((row) => [`${row.lens_slug}:${Number(row.year)}`, row]));
     state.chunks = new Map((eventsIndex.chunks || []).map((c) => [Number(c.year), c]));
     state.sources = sourcesDoc.sources || [];
     state.sourceById = new Map(state.sources.map((s) => [s.source_id, s]));
@@ -1182,6 +1084,15 @@
     } else {
       state.year = state.years[state.years.length - 1] || DEFAULT_YEAR;
     }
+    const requestedArea = cleanAreaFilter(params.get("area") || "");
+    const requestedConfidence = String(params.get("confidence") || "all");
+    const requestedSearch = cleanSummary(params.get("q") || "");
+    state.areaFilter = requestedArea;
+    state.confidenceFilter = ["all", "documented", "corroborated", "inferred", "disputed"].includes(requestedConfidence)
+      ? requestedConfidence
+      : "all";
+    state.showInferred = params.get("inferred") !== "0";
+    state.search = requestedSearch;
 
     state.loadedEvents.clear();
     state.loadingYears.clear();
@@ -1193,7 +1104,6 @@
     state.detailCurrentYear = null;
     state.detailRadiusM = null;
     state.pendingCameraFocusEventId = null;
-    state.search = "";
     state.eventListLimit = EVENT_LIST_BATCH_SIZE;
     state.compareOpen = false;
     resetActiveAspectLayers();
@@ -1204,7 +1114,10 @@
     state.lensOverlayError = null;
     state.lensEventFeatureCount = 0;
     state.lensEventSourceKey = "";
-    if (els.searchInput) els.searchInput.value = "";
+    if (els.searchInput) els.searchInput.value = state.search;
+    if (els.areaFilterInput) els.areaFilterInput.value = state.areaFilter;
+    if (els.confidenceFilter) els.confidenceFilter.value = state.confidenceFilter;
+    if (els.showInferredToggle) els.showInferredToggle.checked = state.showInferred;
 
     setText(els.cityNameLabel, shortCityName(state.city.display_name));
     setText(els.welcomeCity, shortCityName(state.city.display_name));
@@ -1305,6 +1218,7 @@
       geometry: geom,
     };
     event.lngLat = geometryToLngLat(geom);
+    event.areaSearchText = areaSearchTextForEvent(event);
     return event;
   }
 
@@ -2075,7 +1989,6 @@
       ".map-lens",
       "#detailPanel",
       ".map-tools",
-      ".lens-fab",
       ".timeline",
     ];
     return selectors
@@ -5806,9 +5719,10 @@
     }
     if (state.lensDetailYearPathLoaded === path) {
       updateLensDetailFeatureCache(path);
+      refreshLensDetailYearSourceFromCache();
       return;
     }
-    source.setData(path);
+    source.setData(state.areaFilter ? emptyFeatureCollection() : path);
     state.lensDetailYearPathLoaded = path;
     state.lensDetailYearLoaded = currentTimelineYear();
     updateLensDetailFeatureCache(path);
@@ -5823,7 +5737,10 @@
       renderLensLegend();
       return;
     }
-    if (state.lensDetailFeaturePathLoaded === path) return;
+    if (state.lensDetailFeaturePathLoaded === path) {
+      refreshLensDetailYearSourceFromCache();
+      return;
+    }
     state.lensDetailFeaturePathLoaded = path;
     state.lensDetailFeatures = [];
     fetch(path, { cache: "no-store" })
@@ -5834,6 +5751,7 @@
       .then((payload) => {
         if (state.lensDetailFeaturePathLoaded !== path) return;
         state.lensDetailFeatures = Array.isArray(payload.features) ? payload.features.filter((feature) => feature.geometry) : [];
+        refreshLensDetailYearSourceFromCache();
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
@@ -5842,11 +5760,45 @@
       .catch((error) => {
         if (state.lensDetailFeaturePathLoaded !== path) return;
         state.lensDetailFeatures = [];
+        refreshLensDetailYearSourceFromCache();
         console.warn("[atlas] lens detail cache unavailable", error);
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
       });
+  }
+
+  function refreshLensDetailYearSourceFromCache() {
+    const source = state.map?.getSource(LENS_DETAIL_SOURCE_ID);
+    if (!source?.setData || !state.lensDetailYearPathLoaded) return false;
+    if (!state.areaFilter) {
+      if (state.lensDetailYearPathLoaded) source.setData(state.lensDetailYearPathLoaded);
+      return true;
+    }
+    const features = (state.lensDetailFeatures || []).filter((feature) => lensDetailFeatureMatchesArea(feature));
+    source.setData({ type: "FeatureCollection", features });
+    return true;
+  }
+
+  function lensDetailFeatureMatchesArea(feature) {
+    if (!state.areaFilter) return true;
+    const props = feature?.properties || {};
+    if (props.coverage_status === "no_same_category_records") return true;
+    const ids = String(props.event_ids_all || props.event_ids || "")
+      .split(",")
+      .map((id) => id.trim())
+      .filter(Boolean);
+    if (ids.some((id) => {
+      const event = state.eventById.get(id);
+      return event && eventMatchesAreaFilter(event);
+    })) return true;
+    return areaTextMatchesQuery([
+      props.area,
+      props.affected_area_label,
+      props.label,
+      props.title,
+      props.representation,
+    ].filter(Boolean).join(" "));
   }
 
   function updateTimeDependentMapState() {
@@ -13972,6 +13924,7 @@
     for (const feature of state.lensDetailFeatures) {
       const props = feature.properties || {};
       if (!detailLayers.includes(props.layer)) continue;
+      if (props.coverage_status === "no_same_category_records") continue;
       if (lens.id === "civic-access-gaps" && civicAccessAdministrativeServiceRecord(null, props)) continue;
       if (Number(props.visible_year || 9999) > currentTimelineYear()) continue;
       const point = geometryToLngLat(feature.geometry);
@@ -14428,6 +14381,7 @@
       activeLayerIds().join(","),
       state.confidenceFilter,
       state.showInferred ? "inferred-on" : "inferred-off",
+      state.areaFilter,
       state.search,
       state.loadedEvents.get(year)?.length || 0,
     ].join(":");
@@ -14940,11 +14894,229 @@
   // Filtering
   // ---------------------------------------------------------------------------
 
+  function cleanAreaFilter(value) {
+    return cleanSummary(value).slice(0, 96);
+  }
+
+  function normalizeAreaText(value) {
+    return String(value || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+  }
+
+  function areaSearchTextForEvent(event) {
+    const label = event?.area || "";
+    return normalizeAreaText([
+      label,
+      ...areaAliasesForLabel(label),
+    ].join(" "));
+  }
+
+  function areaAliasesForLabel(label) {
+    const text = normalizeAreaText(label);
+    const aliases = [];
+    if (!text) return aliases;
+    if (/\bnyc\b|\bnew york city\b/.test(text)) aliases.push("New York City");
+    if (/\bmanhattan\b|\bnew york county\b/.test(text)) aliases.push("Manhattan New York County MN");
+    if (/\bbrooklyn\b|\bkings county\b/.test(text)) aliases.push("Brooklyn Kings County BK K");
+    if (/\bqueens\b|\bqueens county\b/.test(text)) aliases.push("Queens County Q");
+    if (/\bbronx\b|\bthe bronx\b|\bbronx county\b/.test(text)) aliases.push("Bronx County BX X");
+    if (/\bstaten island\b|\brichmond county\b/.test(text)) aliases.push("Staten Island Richmond County SI R");
+    if (/\bcity centre\b|\bcity center\b|\bbt1\b/.test(text)) aliases.push("Belfast city centre");
+    if (/\bnorth belfast\b/.test(text)) aliases.push("North Belfast");
+    if (/\bsouth belfast\b/.test(text)) aliases.push("South Belfast");
+    if (/\beast belfast\b/.test(text)) aliases.push("East Belfast");
+    if (/\bwest belfast\b/.test(text)) aliases.push("West Belfast");
+    return aliases;
+  }
+
+  function areaFilterQuery() {
+    return normalizeAreaText(state.areaFilter);
+  }
+
+  function isWholeCityAreaQuery(query = areaFilterQuery()) {
+    if (!query) return false;
+    const city = normalizeAreaText(shortCityName(state.city?.display_name || state.cityMeta?.display_name || state.cityId));
+    const display = normalizeAreaText(state.city?.display_name || state.cityMeta?.display_name || state.cityId);
+    const aliases = {
+      belfast: ["belfast"],
+      london: ["london", "greater london"],
+      nyc: ["nyc", "new york", "new york city"],
+    }[state.cityId] || [];
+    return query === city || query === display || aliases.includes(query);
+  }
+
+  function areaTextMatchesQuery(searchText, query = areaFilterQuery()) {
+    if (!query || isWholeCityAreaQuery(query)) return true;
+    const text = normalizeAreaText(searchText);
+    if (!text) return false;
+    const tokens = query.split(" ").filter((token) => token.length > 1);
+    return tokens.length ? tokens.every((token) => text.includes(token)) : text.includes(query);
+  }
+
+  function eventMatchesAreaFilter(event) {
+    if (!state.areaFilter) return true;
+    return areaTextMatchesQuery(event.areaSearchText || areaSearchTextForEvent(event));
+  }
+
+  function chunkAreaFacetsForFilter(chunk, query = areaFilterQuery()) {
+    if (!query || isWholeCityAreaQuery(query)) return null;
+    const facets = Array.isArray(chunk?.area_facets) ? chunk.area_facets : [];
+    return facets.filter((facet) => areaTextMatchesQuery(facet.search_text || facet.label, query));
+  }
+
+  function areaFacetCategoryCount(chunk, category) {
+    const facets = chunkAreaFacetsForFilter(chunk);
+    if (!facets) return null;
+    let total = 0;
+    for (const facet of facets) {
+      if (state.confidenceFilter !== "all") {
+        total += Number(facet.counts_by_category_confidence?.[category]?.[state.confidenceFilter] || 0);
+      } else if (!state.showInferred) {
+        const byConfidence = facet.counts_by_category_confidence?.[category] || {};
+        total += Object.entries(byConfidence)
+          .filter(([confidence]) => confidence !== "inferred")
+          .reduce((sum, [, count]) => sum + Number(count || 0), 0);
+      } else {
+        total += Number(facet.counts_by_category?.[category] || 0);
+      }
+    }
+    return total;
+  }
+
+  function areaFacetTotalCount(chunk) {
+    const facets = chunkAreaFacetsForFilter(chunk);
+    if (!facets) return null;
+    return LAYERS.reduce((sum, layer) => {
+      if (!state.activeLayers.has(layer.id)) return sum;
+      return sum + areaFacetCategoryCount(chunk, layer.id);
+    }, 0);
+  }
+
+  function areaFilterLabel() {
+    return cleanAreaFilter(state.areaFilter);
+  }
+
+  function ensureAreaFilterTimelineLoaded() {
+    if (!state.areaFilter || state.areaFilterTimelineLoading) return false;
+    const compareYears = [state.compareBeforeYear, state.compareAfterYear, state.year]
+      .map(Number)
+      .filter((year) => Number.isFinite(year));
+    const targetYears = state.years
+      .filter((year) => {
+        const chunk = state.chunks.get(year);
+        if (!chunk || Array.isArray(chunk.area_facets) || state.loadedEvents.has(year) || state.loadingYears.has(year)) return false;
+        return Math.abs(Number(year) - Number(state.year)) <= 2 || compareYears.includes(Number(year));
+      })
+      .slice(0, 8);
+    if (!targetYears.length) return false;
+    state.areaFilterTimelineLoading = true;
+    Promise.all(targetYears.map((year) => loadYear(year)))
+      .catch((error) => console.warn("[atlas] area filter timeline preload failed", error))
+      .finally(() => {
+        state.areaFilterTimelineLoading = false;
+        renderTimeline();
+        renderComparePanel();
+        syncTopline();
+      });
+    return true;
+  }
+
   function visibleEventsForYear(year) {
     const arr = state.loadedEvents.get(year) || [];
     return arr.filter((e) => state.activeLayers.has(e.category))
+      .filter((e) => eventMatchesActiveLens(e))
+      .filter((e) => eventMatchesAreaFilter(e))
       .filter((e) => state.confidenceFilter === "all" || e.confidence === state.confidenceFilter)
       .filter((e) => state.showInferred || e.confidence !== "inferred");
+  }
+
+  function activeLensContractRow(lens = activeMapLens()) {
+    const slug = lens?.id || state.activeAspect;
+    const rows = Array.isArray(state.lensManifest?.lenses) ? state.lensManifest.lenses : [];
+    return rows.find((row) => row.slug === slug) || null;
+  }
+
+  function activeLensYearCoverageRow(lens = activeMapLens(), year = state.year) {
+    const slug = lens?.id || state.activeAspect;
+    if (!slug) return null;
+    return state.lensYearCoverageByKey.get(`${slug}:${Number(year)}`) || null;
+  }
+
+  function lensYearCoverageIsContext(row) {
+    return row?.status === "source_backed_context_no_year_records";
+  }
+
+  function lensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
+    if (!row) return "";
+    if (!lensYearCoverageIsContext(row)) {
+      const count = Number(row.compatible_event_count || row.event_count || 0);
+      return `${compactNumber(count)} source-backed ${lens?.label || "lens"} record${count === 1 ? "" : "s"} match ${row.year}; confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
+    }
+    const label = row.public_label || lens?.label || ({
+      built_environment: "planning/built",
+      civic_services: "civic service",
+      economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
+      utilities: "utility",
+      transport: "transport",
+    }[category] || "lens");
+    const contextCount = Number(row.coverage_context_feature_count || row.detail_feature_count || 0);
+    const sourceCount = Number(row.source_count || (row.source_ids || []).length || 0);
+    const contextText = contextCount
+      ? `The map shows ${compactNumber(contextCount)} source-backed coverage-context feature${contextCount === 1 ? "" : "s"}`
+      : "The map shows source-backed coverage context";
+    return `No source-backed ${label} event records match ${row.year}. ${contextText} from ${compactNumber(sourceCount)} public source${sourceCount === 1 ? "" : "s"} so the lens remains visible across the city; those features are context only and excluded from headline record counts.`;
+  }
+
+  function compactLensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
+    if (!lensYearCoverageIsContext(row)) return "";
+    const label = row.public_label || lens?.label || String(category || "lens").replace(/_/g, " ");
+    return `No ${row.year} ${label} event records; showing source-backed coverage context only.`;
+  }
+
+  function eventMatchesActiveLens(event, lens = activeMapLens()) {
+    if (!event || !lens) return false;
+    const group = lensGroup(lens);
+    if (!group) return event.category === (lens.category || lens.layerId || state.activeLens);
+    if (event.category === LENS_CATEGORY_BY_GROUP[group]) return true;
+    const eventLens = String(event.lens || "").toLowerCase();
+    if (LENS_GROUP_SIGNALS[group]?.has(eventLens)) return true;
+    const signals = Array.isArray(event.affectedSignals) ? event.affectedSignals : [];
+    if (signals.some((signal) => LENS_GROUP_SIGNALS[group]?.has(String(signal).toLowerCase()))) return true;
+    const haystack = [
+      event.category,
+      event.lens,
+      event.title,
+      event.shortDescription,
+      event.summary,
+      sourceTextForEvent(event),
+    ].filter(Boolean).join(" ");
+    return Boolean(LENS_GROUP_PATTERNS[group]?.test(haystack));
+  }
+
+  function lensGroup(lens = activeMapLens()) {
+    const contract = activeLensContractRow(lens);
+    return contract?.group || LENS_GROUP_BY_CATEGORY[lens?.category || lens?.layerId || state.activeLens] || "";
+  }
+
+  function sourceTextForEvent(event) {
+    return (event.sourceIds || [])
+      .map((sourceId) => {
+        const source = state.sourceById.get(sourceId);
+        return [
+          sourceId,
+          source?.source_family,
+          source?.title,
+          source?.provider,
+          source?.provenance_notes,
+        ].filter(Boolean).join(" ");
+      })
+      .join(" ");
   }
 
   function filteredEvents() {
@@ -14970,6 +15142,7 @@
     renderActiveLensHeader();
     renderLensLegend();
     renderCoverageNote();
+    renderAreaFilterOptions();
     renderTimeline();
     renderDetail();
     renderSearchResults();
@@ -15041,9 +15214,6 @@
     if (els.activeLensCard) {
       els.activeLensCard.style.setProperty("--lens-accent", accent);
     }
-    if (els.lensFab) {
-      els.lensFab.hidden = true;
-    }
     els.layersPanel?.style.setProperty("--lens-accent", accent);
     if (els.layersPanel) els.layersPanel.dataset.lens = lens.id;
     if (els.activeLensIcon && lens.category === "transport") {
@@ -15082,17 +15252,17 @@
 
   function renderLensSwitcher() {
     if (!els.lensSwitcher) return;
-    els.lensSwitcher.innerHTML = MAP_LENSES.map((lens) => {
-      const active = state.activeLens === lens.id;
-      const layerOn = state.activeLayers.has(lens.layerId);
+    els.lensSwitcher.innerHTML = LENS_ASPECTS.map((lens) => {
+      const active = state.activeAspect === lens.id;
+      const layerOn = state.activeLayers.has(lens.category);
       return `
-        <button class="lens-choice" type="button" role="tab" data-lens="${escapeAttr(lens.id)}" data-active="${active}" data-layer-on="${layerOn}" aria-selected="${active}">
+        <button class="lens-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${active}" data-layer-on="${layerOn}" aria-selected="${active}" title="${escapeAttr(lens.label)}">
           ${escapeHtml(lens.shortLabel)}
         </button>
       `;
     }).join("");
     els.lensSwitcher.querySelectorAll(".lens-choice").forEach((button) => {
-      const choose = () => setActiveLens(button.getAttribute("data-lens"));
+      const choose = () => setActiveAspect(button.getAttribute("data-aspect"));
       button.addEventListener("click", choose);
       addPressHandler(button, choose);
     });
@@ -15100,24 +15270,30 @@
 
   function renderAspectSwitcher() {
     if (!els.lensAspectSwitcher) return;
-    const aspects = LENS_ASPECTS_BY_CATEGORY.get(state.activeLens) || [];
-    if (!aspects.length) {
-      els.lensAspectSwitcher.innerHTML = "";
+    const lens = activeMapLens();
+    const contract = activeLensContractRow(lens);
+    if (!contract) {
+      els.lensAspectSwitcher.innerHTML = `<div class="lens-contract-strip" role="status">15-lens contract metadata unavailable for this city.</div>`;
       return;
     }
-    els.lensAspectSwitcher.innerHTML = aspects.map((lens) => {
-      const active = state.activeAspect === lens.id;
-      return `
-        <button class="lens-aspect-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${active}" aria-selected="${active}">
-          ${escapeHtml(lens.shortLabel)}
-        </button>
-      `;
-    }).join("");
-    els.lensAspectSwitcher.querySelectorAll(".lens-aspect-choice").forEach((button) => {
-      const choose = () => setActiveAspect(button.getAttribute("data-aspect"));
-      button.addEventListener("click", choose);
-      addPressHandler(button, choose);
-    });
+    const coverage = contract.coverage || {};
+    const freshness = contract.freshness || {};
+    const yearContract = coverage.year_contract || {};
+    const yearRange = coverage.observed_years
+      ? `${coverage.observed_years.start}-${coverage.observed_years.end}`
+      : (freshness.source_coverage_period || "date range stated in sources");
+    const requiredYears = yearContract.required_years
+      ? `${yearContract.required_years.start}-${yearContract.required_years.end}`
+      : "2007-2026";
+    const visibleYears = Number(yearContract.visible_year_count || 0);
+    els.lensAspectSwitcher.innerHTML = `
+      <div class="lens-contract-strip" role="status">
+        <span><strong>${escapeHtml(compactNumber(coverage.compatible_event_count || coverage.event_count || 0))}</strong> source-backed records</span>
+        <span><strong>${escapeHtml(compactNumber(coverage.compatible_source_count || coverage.source_count || 0))}</strong> compatible sources</span>
+        <span><strong>${escapeHtml(compactNumber(visibleYears || 20))}</strong> visible years ${escapeHtml(requiredYears)}</span>
+        <span>${escapeHtml(yearRange)}</span>
+      </div>
+    `;
   }
 
   function renderLensLegend() {
@@ -15445,8 +15621,15 @@
 
   function categoryCount(category, year = state.year) {
     const events = state.loadedEvents.get(year);
-    if (events) return events.filter((event) => event.category === category).length;
+    if (events) {
+      return events
+        .filter((event) => event.category === category)
+        .filter((event) => eventMatchesAreaFilter(event))
+        .length;
+    }
     const chunk = state.chunks.get(year);
+    const areaCount = areaFacetCategoryCount(chunk, category);
+    if (areaCount != null) return areaCount;
     return Number(chunk?.counts_by_category?.[category] || 0);
   }
 
@@ -15678,6 +15861,14 @@
 
   function lensStatusText(lens) {
     const category = lens.category || lens.layerId || lens.id;
+    const yearCoverage = activeLensYearCoverageRow(lens, state.year);
+    const coverageContextStatus = lensYearCoverageIsContext(yearCoverage)
+      ? {
+        label: "Coverage context",
+        empty: false,
+        note: lensYearCoverageNote(yearCoverage, lens, category),
+      }
+      : null;
     if (!state.activeLayers.has(category)) {
       return {
         label: "Layer off",
@@ -15704,6 +15895,7 @@
       const renderableCount = lensRenderablePointCount("built_environment");
       const hasFootprints = Boolean(detailLayerPath());
       const hasDetailCells = Boolean(renderableCount && lensDetailYearPath(state.year));
+      if (!pointCount && coverageContextStatus) return coverageContextStatus;
       if (!hasFootprints && !pointCount && !hasDetailCells) return { label: "No geometry", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
       if (pointCount && !renderableCount && !hasFootprints) {
         return {
@@ -15737,6 +15929,7 @@
     if (category === "civic_services") {
       const count = lensPointCount(category);
       const renderableCount = lensRenderablePointCount(category);
+      if (!count && coverageContextStatus) return coverageContextStatus;
       if (lens.id === "civic-catchment") {
         const anchorCount = state.civicServiceFeatures.length;
         if (anchorCount && !count) {
@@ -15763,6 +15956,7 @@
       const evidenceEvents = lensEvidenceEventsForYear(lens, category, state.year);
       const count = evidenceEvents.length;
       const renderableCount = evidenceEvents.filter(isLensDetailEligibleEvent).length;
+      if (!count && coverageContextStatus) return coverageContextStatus;
       if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
       if (!renderableCount) {
         const recordLabel = lens.id === "economy-land-use" ? "Land-use-specific economy records" : "Economy records";
@@ -15781,6 +15975,7 @@
     if (category === "utilities") {
       const count = lensPointCount(category);
       const renderableCount = lensRenderablePointCount(category);
+      if (!count && coverageContextStatus) return coverageContextStatus;
       if (lens.id === "utilities-capacity") {
         const flowCounts = utilityCapacityGuideTypeCounts();
         const contextCount = flowCounts.total || (state.utilityNetworkFeatures || [])
@@ -15802,11 +15997,14 @@
       return { label: `Traces + ${renderableCount} assets`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
     const count = lensPointCount(category);
+    if (!count && coverageContextStatus) return coverageContextStatus;
     if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
     return { label: `${count} records`, empty: false, note: lens.caveat };
   }
 
   function missingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
+    const row = activeLensYearCoverageRow(lens, year);
+    if (lensYearCoverageIsContext(row)) return lensYearCoverageNote(row, lens, category);
     const label = {
       built_environment: "planning/built",
       civic_services: "civic service",
@@ -15823,6 +16021,8 @@
   }
 
   function compactMissingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
+    const row = activeLensYearCoverageRow(lens, year);
+    if (lensYearCoverageIsContext(row)) return compactLensYearCoverageNote(row, lens, category);
     const label = {
       built_environment: "planning/built",
       civic_services: "civic service",
@@ -15907,17 +16107,19 @@
     if (status) parts.push(`Coverage: ${status.replace(/_/g, " ")}`);
     if (summary?.summary) parts.push(summary.summary);
     if (state.availabilityError) parts.push(`Availability metadata unavailable: ${state.availabilityError}`);
+    if (state.lensYearCoverageError) parts.push(`Lens-year coverage metadata unavailable: ${state.lensYearCoverageError}`);
     const yearError = state.yearLoadErrors.get(state.year);
     if (yearError) parts.push(`Could not load ${state.year} event chunk: ${yearError}`);
     if (state.detailLayerError) parts.push(`Detail layer unavailable: ${state.detailLayerError}`);
     if (state.lensOverlayError) parts.push(`Map lens unavailable: ${state.lensOverlayError}`);
     els.coverageNote.textContent = parts.join(" ");
-    els.coverageNote.toggleAttribute("data-warning", Boolean(state.availabilityError || yearError || state.detailLayerError || state.lensOverlayError));
+    els.coverageNote.toggleAttribute("data-warning", Boolean(state.availabilityError || state.lensYearCoverageError || yearError || state.detailLayerError || state.lensOverlayError));
     els.coverageNote.toggleAttribute("data-lens-warning", Boolean(missingLensCoverage));
   }
 
   function renderTimeline() {
     if (!els.tlHistogram || !els.tlAxis) return;
+    ensureAreaFilterTimelineLoaded();
     const [yStart, yEnd] = state.yearRange;
     const years = [];
     for (let y = yStart; y <= yEnd; y++) years.push(y);
@@ -15940,7 +16142,7 @@
       </div>
       <div class="tl-density-key" aria-hidden="true">
         <span><i></i> Source tick</span>
-        <span>Rows follow the active lens layers</span>
+        <span>Rows follow the active lens layers${state.areaFilter ? " and area filter" : ""}</span>
       </div>
     `;
 
@@ -15998,16 +16200,20 @@
   }
 
   function timelineYearCellMarkup({ count, maxCount, laneIndex, year, yearIndex, selected, past }) {
-    const density = Math.sqrt(Math.max(0, count)) / Math.sqrt(Math.max(1, maxCount));
-    const tickCount = count > 0 ? Math.max(1, Math.min(10, Math.round(1 + density * 9))) : 0;
+    const coverageRow = activeLensYearCoverageRow(activeMapLens(), year);
+    const contextOnly = count === 0 && lensYearCoverageIsContext(coverageRow);
+    const density = contextOnly ? 0.22 : Math.sqrt(Math.max(0, count)) / Math.sqrt(Math.max(1, maxCount));
+    const tickCount = count > 0 ? Math.max(1, Math.min(10, Math.round(1 + density * 9))) : (contextOnly ? 1 : 0);
     const ticks = [];
     for (let i = 0; i < tickCount; i += 1) {
       const left = timelineTickOffset(year, laneIndex, i, tickCount);
       const height = 5 + Math.round(density * 13) + ((i + laneIndex + yearIndex) % 3);
       const wide = density > 0.72 && i % 3 === 0;
-      ticks.push(`<i class="tl-source-tick${wide ? " wide" : ""}" style="left:${left.toFixed(2)}%;height:${height}px"></i>`);
+      ticks.push(`<i class="tl-source-tick${wide ? " wide" : ""}${contextOnly ? " context" : ""}" style="left:${left.toFixed(2)}%;height:${height}px"></i>`);
     }
-    const label = `${year}: ${compactNumber(count)} source record${Number(count) === 1 ? "" : "s"}`;
+    const label = contextOnly
+      ? `${year}: source-backed coverage context only; 0 event records`
+      : `${year}: ${compactNumber(count)} source record${Number(count) === 1 ? "" : "s"}`;
     return `<div class="tl-year-cell" data-year="${year}" data-selected="${selected}" data-past="${past}" title="${escapeAttr(label)}">${ticks.join("")}</div>`;
   }
 
@@ -16049,11 +16255,14 @@
     if (events) {
       return events
         .filter((event) => event.category === category)
+        .filter((event) => eventMatchesAreaFilter(event))
         .filter((event) => state.confidenceFilter === "all" || event.confidence === state.confidenceFilter)
         .filter((event) => state.showInferred || event.confidence !== "inferred")
         .length;
     }
     const chunk = state.chunks.get(year);
+    const areaCount = areaFacetCategoryCount(chunk, category);
+    if (areaCount != null) return areaCount;
     return Number(chunk?.counts_by_category?.[category] || 0);
   }
 
@@ -16063,6 +16272,7 @@
     const category = lens?.category || lens?.layerId || state.activeLens;
     return events
       .filter((event) => event.category === category)
+      .filter((event) => eventMatchesAreaFilter(event))
       .filter((event) => state.confidenceFilter === "all" || event.confidence === state.confidenceFilter)
       .filter((event) => state.showInferred || event.confidence !== "inferred")
       .filter((event) => lensLayerForEvent(event, lens).id === layer.id)
@@ -16170,6 +16380,9 @@
   function pickEvidenceEvent(events, category) {
     return events
       .filter((event) => event.category === category)
+      .filter((event) => eventMatchesAreaFilter(event))
+      .filter((event) => state.confidenceFilter === "all" || event.confidence === state.confidenceFilter)
+      .filter((event) => state.showInferred || event.confidence !== "inferred")
       .sort((a, b) =>
         confidenceRank(b.confidence) - confidenceRank(a.confidence)
         || eventSourceCount(b) - eventSourceCount(a)
@@ -16316,6 +16529,10 @@
             ${radiusOptions.map((radius) => `<option value="${radius}" ${radius === context.radiusM ? "selected" : ""}>${escapeHtml(formatRadius(radius))}</option>`).join("")}
           </select>
         </label>
+        <div class="lens-export-controls" role="group" aria-label="Export selected evidence">
+          <button class="mini-export-btn" id="detailExportMarkdown" type="button">Brief</button>
+          <button class="mini-export-btn" id="detailExportGeojson" type="button">GeoJSON</button>
+        </div>
       </div>
     `;
   }
@@ -16353,6 +16570,8 @@
       updateTimeDependentMapState();
       renderDetail();
     });
+    root?.querySelector("#detailExportMarkdown")?.addEventListener("click", () => exportSelectedMarkdown());
+    root?.querySelector("#detailExportGeojson")?.addEventListener("click", () => exportSelectedGeojson());
   }
 
   function renderTransportSpeedDetail(event, context, sources, provenanceFacts) {
@@ -19148,9 +19367,9 @@
         ` : ""}
 
         <div class="detail-actions">
-          <button class="btn" id="detailOpenLens" style="flex:1">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><circle cx="10" cy="10" r="5.5"/><path d="M14 14l5 5" stroke-linecap="round"/><path d="M10 7v6M7 10h6"/></svg>
-            Open in Proposal Lens
+          <button class="btn" id="detailExportMarkdownAction" style="flex:1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Export evidence brief
           </button>
           <button class="btn btn-icon" id="detailShare" title="Copy permalink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
@@ -19162,13 +19381,17 @@
     els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
     wireDetailLensControls(els.detailInner);
     wireEvidenceEventButtons(els.detailInner);
-    els.detailInner.querySelector("#detailOpenLens")?.addEventListener("click", () => setLensOpen(true));
+    els.detailInner.querySelector("#detailExportMarkdownAction")?.addEventListener("click", () => exportSelectedMarkdown());
     els.detailInner.querySelector("#detailShare")?.addEventListener("click", async () => {
       const url = new URL(window.location.href);
       url.searchParams.set("city", state.cityId);
       url.searchParams.set("year", String(state.year));
       url.searchParams.set("lens", state.activeAspect || state.activeLens);
       url.searchParams.set("event", state.selectedEventId);
+      state.areaFilter ? url.searchParams.set("area", state.areaFilter) : url.searchParams.delete("area");
+      state.search ? url.searchParams.set("q", state.search) : url.searchParams.delete("q");
+      state.confidenceFilter !== "all" ? url.searchParams.set("confidence", state.confidenceFilter) : url.searchParams.delete("confidence");
+      state.showInferred ? url.searchParams.delete("inferred") : url.searchParams.set("inferred", "0");
       await copyText(url.toString(), "Event permalink copied");
     });
   }
@@ -19243,6 +19466,226 @@
       .replace(/\bwayback\b/gi, "historic")
       .replace(/\bimagery\b/gi, "media");
   }
+
+  function exportSelectedMarkdown() {
+    const event = state.selectedEvent || (state.selectedEventId ? state.eventById.get(state.selectedEventId) : null);
+    if (!event) {
+      toast("Select a source-backed record before exporting a brief");
+      return;
+    }
+    downloadText(
+      `${safeFileToken(state.cityId)}-${safeFileToken(activeMapLens()?.id)}-${safeFileToken(event.id)}-evidence.md`,
+      "text/markdown;charset=utf-8",
+      markdownForEvent(event),
+    );
+    toast("Evidence brief exported");
+  }
+
+  function exportSelectedGeojson() {
+    const event = state.selectedEvent || (state.selectedEventId ? state.eventById.get(state.selectedEventId) : null);
+    if (!event) {
+      toast("Select a source-backed record before exporting GeoJSON");
+      return;
+    }
+    downloadText(
+      `${safeFileToken(state.cityId)}-${safeFileToken(activeMapLens()?.id)}-${safeFileToken(event.id)}.geojson`,
+      "application/geo+json;charset=utf-8",
+      JSON.stringify(featureCollectionForEvents([event]), null, 2),
+    );
+    toast("Selected record GeoJSON exported");
+  }
+
+  function exportFilteredCsv() {
+    const events = filteredEvents();
+    if (!events.length) {
+      toast("No filtered records to export");
+      return;
+    }
+    const areaToken = state.areaFilter ? `-${safeFileToken(state.areaFilter)}` : "";
+    downloadText(
+      `${safeFileToken(state.cityId)}-${safeFileToken(activeMapLens()?.id)}-${state.year}${areaToken}-records.csv`,
+      "text/csv;charset=utf-8",
+      csvForEvents(events),
+    );
+    toast("Filtered CSV exported");
+  }
+
+  function exportFilteredGeojson() {
+    const events = filteredEvents();
+    if (!events.length) {
+      toast("No filtered records to export");
+      return;
+    }
+    const areaToken = state.areaFilter ? `-${safeFileToken(state.areaFilter)}` : "";
+    downloadText(
+      `${safeFileToken(state.cityId)}-${safeFileToken(activeMapLens()?.id)}-${state.year}${areaToken}-records.geojson`,
+      "application/geo+json;charset=utf-8",
+      JSON.stringify(featureCollectionForEvents(events), null, 2),
+    );
+    toast("Filtered GeoJSON exported");
+  }
+
+  function markdownForEvent(event) {
+    const lens = activeMapLens();
+    const contract = activeLensContractRow(lens);
+    const rows = buildSourceRows(event);
+    const facts = buildProvenanceFacts(event);
+    const lines = [
+      `# ${event.title}`,
+      "",
+      `- City: ${state.city?.display_name || state.cityId}`,
+      `- Lens: ${lens?.label || lens?.id || state.activeAspect}`,
+      `- Contract label: ${contract?.public_label || lens?.label || ""}`,
+      `- Effective date: ${event.effectiveDate || String(event.year)}`,
+      `- Date precision: ${event.datePrecision || "not stated"}`,
+      `- Confidence: ${confidenceDescriptor(event.confidence).label}`,
+      `- Area: ${event.area || "not stated"}`,
+      `- Geometry: ${event.lngLat ? `${event.lngLat[1].toFixed(6)}, ${event.lngLat[0].toFixed(6)}` : "not supplied"}`,
+      "",
+      "## Summary",
+      "",
+      event.shortDescription || event.summary || "No plain-language summary supplied.",
+      "",
+      "## Provenance",
+      "",
+      ...facts.map((fact) => `- ${fact.label}: ${fact.value}`),
+      "",
+      "## Sources",
+      "",
+      ...(rows.length ? rows.flatMap((source, index) => [
+        `${index + 1}. ${source.title}`,
+        `   - Publisher: ${source.provider || "not stated"}`,
+        `   - Licence: ${source.licence || "not stated"}`,
+        `   - Accessed/reviewed: ${source.accessed || "not stated"}`,
+        `   - URL: ${source.url || "not supplied"}`,
+        `   - Record/file: ${source.recordId || source.filePath || "not stated"}`,
+        source.attribution ? `   - Attribution: ${source.attribution}` : "",
+      ].filter(Boolean)) : ["No source rows were available in the normalized event."]),
+      "",
+      "## Limitations",
+      "",
+      ...(event.caveats?.length ? event.caveats.map((caveat) => `- ${caveat}`) : ["- No event-specific limitation text supplied; review sources before reuse."]),
+      "",
+      "## Correction Path",
+      "",
+      "Use CONTRIBUTING.md#correction-flow and include the event id, source id, replacement evidence URL, date basis, licence, and geometry note.",
+    ];
+    return lines.join("\n");
+  }
+
+  function csvForEvents(events) {
+    const headers = [
+      "event_id",
+      "title",
+      "city_id",
+      "lens",
+      "filter_area",
+      "year",
+      "effective_date",
+      "date_precision",
+      "confidence",
+      "area",
+      "source_ids",
+      "source_count",
+      "licenses",
+      "source_urls",
+      "accessed_or_reviewed",
+      "limitations",
+      "provenance_transform",
+      "latitude",
+      "longitude",
+    ];
+    const rows = events.map((event) => {
+      const sources = buildSourceRows(event);
+      return [
+        event.id,
+        event.title,
+        state.cityId,
+        activeMapLens()?.id || state.activeAspect,
+        state.areaFilter || "",
+        event.year,
+        event.effectiveDate,
+        event.datePrecision,
+        event.confidence,
+        event.area,
+        event.sourceIds.join(";"),
+        eventSourceCount(event),
+        sources.map((source) => source.licence).filter(Boolean).join(";"),
+        sources.map((source) => source.url).filter(Boolean).join(";"),
+        sources.map((source) => source.accessed).filter(Boolean).join(";"),
+        (event.caveats || []).join(";"),
+        event.provenance?.transform || "",
+        event.lngLat ? event.lngLat[1] : "",
+        event.lngLat ? event.lngLat[0] : "",
+      ];
+    });
+    return [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n");
+  }
+
+  function featureCollectionForEvents(events) {
+    const lens = activeMapLens();
+    return {
+      type: "FeatureCollection",
+      name: `${state.cityId}-${lens?.id || state.activeAspect}-records`,
+      filters: {
+        city_id: state.cityId,
+        lens: lens?.id || state.activeAspect,
+        year: state.year,
+        area: state.areaFilter || "",
+        confidence: state.confidenceFilter,
+        show_inferred: state.showInferred,
+        search: state.search || "",
+      },
+      features: events.map((event) => {
+        const sources = buildSourceRows(event);
+        return {
+          type: "Feature",
+          id: event.id,
+          geometry: event.geometry || null,
+          properties: {
+            event_id: event.id,
+            title: event.title,
+            city_id: state.cityId,
+            lens: lens?.id || state.activeAspect,
+            lens_label: lens?.label || "",
+            year: event.year,
+            effective_date: event.effectiveDate || "",
+            date_precision: event.datePrecision || "",
+            confidence: event.confidence || "",
+            area: event.area || "",
+            source_ids: event.sourceIds || [],
+            source_urls: sources.map((source) => source.url).filter(Boolean),
+            licences: sources.map((source) => source.licence).filter(Boolean),
+            attribution: sources.map((source) => source.attribution).filter(Boolean),
+            caveats: event.caveats || [],
+            provenance: event.provenance || {},
+          },
+        };
+      }),
+    };
+  }
+
+  function downloadText(filename, mimeType, text) {
+    const blob = new Blob([text], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 250);
+  }
+
+  function csvCell(value) {
+    const text = value == null ? "" : String(value);
+    return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+  }
+
+  function safeFileToken(value) {
+    return String(value || "atlas").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 96) || "atlas";
+  }
+
   function renderEventList() {
     if (!els.eventList) return;
     const events = filteredEvents();
@@ -19255,8 +19698,10 @@
 
     setText(els.eventListCount, `${events.length} visible`);
     const city = shortCityName(state.city?.display_name);
+    const lens = activeMapLens();
     const searchNote = state.search ? ` Search: "${state.search}".` : "";
-    setText(els.eventListMeta, `${city} records in ${state.year}. Timeline, layer, confidence, and inferred filters apply.${searchNote}`);
+    const areaNote = state.areaFilter ? ` Area: "${areaFilterLabel()}".` : "";
+    setText(els.eventListMeta, `${city} / ${lens?.label || "active lens"} / ${state.year}. Timeline, layer, area, confidence, and inferred filters apply.${areaNote}${searchNote}`);
 
     if (els.eventListMore) {
       els.eventListMore.hidden = limit >= events.length;
@@ -19305,6 +19750,56 @@
   function resetEventListLimit() {
     state.eventListLimit = EVENT_LIST_BATCH_SIZE;
   }
+
+  function renderAreaFilterOptions() {
+    if (!els.areaFilterOptions) return;
+    const seen = new Set();
+    const options = [];
+    const add = (label) => {
+      const clean = cleanAreaFilter(label);
+      const key = normalizeAreaText(clean);
+      if (!clean || !key || seen.has(key)) return;
+      seen.add(key);
+      options.push(clean);
+    };
+
+    for (const label of presetAreaLabelsForCity(state.cityId)) add(label);
+    for (const chunk of state.chunks.values()) {
+      for (const facet of Array.isArray(chunk.area_facets) ? chunk.area_facets : []) add(facet.label);
+      if (options.length >= 160) break;
+    }
+    for (const events of state.loadedEvents.values()) {
+      for (const event of events) add(event.area);
+      if (options.length >= 220) break;
+    }
+
+    els.areaFilterOptions.innerHTML = options
+      .slice(0, 220)
+      .map((label) => `<option value="${escapeAttr(label)}"></option>`)
+      .join("");
+  }
+
+  function presetAreaLabelsForCity(cityId) {
+    if (cityId === "nyc") return ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"];
+    if (cityId === "london") {
+      return [
+        "Barking and Dagenham", "Barnet", "Bexley", "Brent", "Bromley", "Camden", "City of London",
+        "Croydon", "Ealing", "Enfield", "Greenwich", "Hackney", "Hammersmith and Fulham", "Haringey",
+        "Harrow", "Havering", "Hillingdon", "Hounslow", "Islington", "Kensington and Chelsea",
+        "Kingston upon Thames", "Lambeth", "Lewisham", "Merton", "Newham", "Redbridge",
+        "Richmond upon Thames", "Southwark", "Sutton", "Tower Hamlets", "Waltham Forest",
+        "Wandsworth", "Westminster",
+      ];
+    }
+    if (cityId === "belfast") {
+      return [
+        "Belfast city centre", "North Belfast", "South Belfast", "East Belfast", "West Belfast",
+        "Titanic Quarter", "Cathedral Quarter", "Queen's Quarter", "Gaeltacht Quarter",
+      ];
+    }
+    return [];
+  }
+
   function renderSearchResults() {
     if (!els.searchResults || !els.searchInput) return;
     const q = state.search.trim();
@@ -19383,12 +19878,22 @@
     setText(els.tlVisible, String(events.length));
     setText(els.tlTotal, String(total));
     setText(els.tlCity, state.selectedEvent ? truncate(state.selectedEvent.title, 48) : shortCityName(state.city?.display_name));
-    setText(els.tlLayers, `${lens?.label || "Lens"} / ${state.activeLayers.size}/${LAYERS.length} layers`);
+    const area = state.areaFilter ? ` / ${areaFilterLabel()}` : "";
+    setText(els.tlLayers, `${lens?.label || "Lens"} / ${state.activeLayers.size}/${LAYERS.length} layers${area}`);
   }
 
   function totalEventsForYear(year) {
+    const loaded = state.loadedEvents.get(year);
+    if (loaded) {
+      return loaded
+        .filter((event) => state.activeLayers.has(event.category) && eventMatchesActiveLens(event))
+        .filter((event) => eventMatchesAreaFilter(event))
+        .length;
+    }
     const chunk = state.chunks.get(year);
     if (!chunk) return 0;
+    const areaCount = areaFacetTotalCount(chunk);
+    if (areaCount != null) return areaCount;
     const cats = chunk.counts_by_category || {};
     let total = 0;
     for (const l of LAYERS) {
@@ -19724,13 +20229,17 @@
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     ensureSelectionFitsActiveLens();
+    resetEventListLimit();
     renderLensSwitcher();
     renderAspectSwitcher();
     renderActiveLensHeader();
     renderLayers();
     renderLensLegend();
     renderDetail();
+    renderEventList();
+    renderSearchResults();
     updateTimeDependentMapState();
+    renderMarkers();
     focusActiveLensCamera();
     syncTopline();
   }
@@ -19757,21 +20266,30 @@
     resetActiveAspectLayers();
     state.lensEventSourceKey = "";
     ensureSelectionFitsActiveLens();
+    resetEventListLimit();
     renderLensSwitcher();
     renderAspectSwitcher();
     renderActiveLensHeader();
     renderLayers();
     renderLensLegend();
     renderDetail();
+    renderEventList();
+    renderSearchResults();
     updateTimeDependentMapState();
+    renderMarkers();
     focusActiveLensCamera();
     syncTopline();
   }
 
-  function setLensOpen(open) {
-    state.lensOpen = open;
-    els.lensOverlay?.setAttribute("data-open", String(open));
-    if (open) updateLensHead();
+  async function setAreaFilter(value) {
+    state.areaFilter = cleanAreaFilter(value);
+    if (els.areaFilterInput) els.areaFilterInput.value = state.areaFilter;
+    resetEventListLimit();
+    ensureAreaFilterTimelineLoaded();
+    renderAll();
+    updateTimeDependentMapState();
+    renderMarkers();
+    await reconcileSelectionWithFilters({ keepCamera: true });
   }
 
   function setMethodOpen(open) {
@@ -19832,9 +20350,10 @@
     }
     const evidenceRows = evidenceRowsForYears(beforeYear, afterYear)
       .filter((row) => state.activeLayers.has(row.layer.id));
+    const areaNote = state.areaFilter ? ` Area filter: ${escapeHtml(areaFilterLabel())}.` : "";
     return `
       <div class="compare-evidence">
-        <div class="lens-evidence-note">Before/after rows show one inspectable source-backed record per active lens. Count differences are descriptive, not causal.</div>
+        <div class="lens-evidence-note">Before/after rows show one inspectable source-backed record per active lens.${areaNote} Count differences are descriptive, not causal.</div>
         ${evidenceRows.map((row) => `
           <div class="lens-evidence-row" style="--accent:${row.layer.color}">
             <div class="lens-evidence-label"><span></span>${escapeHtml(row.layer.label)}</div>
@@ -19882,7 +20401,7 @@
         ${renderCompareEvidence(rows, beforeYear, afterYear, evidenceReady)}`;
       wireEvidenceEventButtons(els.compareStats);
     }
-    setText(els.compareNote, "Layer filters apply to this count comparison. OpenStreetMap remains the current orientation basemap; record deltas are not proof of construction volume, congestion, value change, or causation.");
+    setText(els.compareNote, "Layer, area, confidence, and inferred-record filters apply to this count comparison. OpenStreetMap remains the current orientation basemap; record deltas are not proof of construction volume, congestion, value change, or causation.");
   }
 
   function compareDefaultBeforeYear() {
@@ -19898,6 +20417,8 @@
 
   function compareCountForYear(year) {
     const chunk = state.chunks.get(Number(year));
+    const areaCount = areaFacetTotalCount(chunk);
+    if (areaCount != null) return areaCount;
     const counts = chunk?.counts_by_category || {};
     return LAYERS.reduce((sum, layer) => sum + (state.activeLayers.has(layer.id) ? Number(counts[layer.id] || 0) : 0), 0);
   }
@@ -19905,14 +20426,22 @@
   function compareCategoryRows(beforeYear, afterYear) {
     const before = state.chunks.get(Number(beforeYear))?.counts_by_category || {};
     const after = state.chunks.get(Number(afterYear))?.counts_by_category || {};
+    const beforeChunk = state.chunks.get(Number(beforeYear));
+    const afterChunk = state.chunks.get(Number(afterYear));
     return LAYERS
       .filter((layer) => state.activeLayers.has(layer.id))
-      .map((layer) => ({
-        layer,
-        before: Number(before[layer.id] || 0),
-        after: Number(after[layer.id] || 0),
-        delta: Number(after[layer.id] || 0) - Number(before[layer.id] || 0),
-      }))
+      .map((layer) => {
+        const beforeArea = areaFacetCategoryCount(beforeChunk, layer.id);
+        const afterArea = areaFacetCategoryCount(afterChunk, layer.id);
+        const beforeCount = beforeArea != null ? beforeArea : Number(before[layer.id] || 0);
+        const afterCount = afterArea != null ? afterArea : Number(after[layer.id] || 0);
+        return {
+          layer,
+          before: beforeCount,
+          after: afterCount,
+          delta: afterCount - beforeCount,
+        };
+      })
       .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
   }
 
@@ -19937,84 +20466,6 @@
   function updateMapToolState() {
     els.tiltBtn?.setAttribute("aria-pressed", String(state.mapTilted));
   }
-  function currentProposal() {
-    return PROPOSALS.find((p) => p.id === state.currentProposalId) || PROPOSALS[0];
-  }
-
-  function renderProposalLensList() {
-    if (!els.lensProposals) return;
-    const cityProposals = PROPOSALS.filter((p) => p.city === state.cityId);
-    const proposals = cityProposals.length ? cityProposals : PROPOSALS;
-    if (!proposals.find((p) => p.id === state.currentProposalId)) {
-      state.currentProposalId = proposals[0].id;
-    }
-    els.lensProposals.innerHTML = proposals.map((p) => {
-      const layer = LAYER_BY_ID.get(p.analogs?.[0]?.layer || "transport") || LAYERS[0];
-      return `
-        <div class="proposal-card" data-active="${p.id === state.currentProposalId}" data-proposal-id="${escapeAttr(p.id)}" role="button" tabindex="0" aria-pressed="${p.id === state.currentProposalId}">
-          <div class="ptag" style="color:${layer.color}">● ${escapeHtml(p.type)}</div>
-          <div class="ptitle">${escapeHtml(p.title)}</div>
-          <div class="pmeta">
-            <span>${escapeHtml(p.decision)}</span>
-            <span>·</span>
-            <span>${p.analogs.length} analogs</span>
-          </div>
-        </div>`;
-    }).join("");
-    els.lensProposals.querySelectorAll(".proposal-card").forEach((card) => {
-      const selectProposal = () => {
-        state.currentProposalId = card.getAttribute("data-proposal-id");
-        renderProposalLensList();
-        renderLensAnalogs(currentProposal());
-        renderLensOutcomes(currentProposal());
-        updateLensHead();
-      };
-      card.addEventListener("click", selectProposal);
-      addPressHandler(card, selectProposal);
-    });
-  }
-
-  function renderLensAnalogs(proposal) {
-    if (!els.lensAnalogs || !proposal) return;
-    els.lensAnalogs.innerHTML = proposal.analogs.map((a) => `
-      <div class="analog">
-        <div class="head">
-          <span>${escapeHtml(a.place)} · ${escapeHtml((LAYER_BY_ID.get(a.layer) || LAYERS[0]).label)}</span>
-          <span class="yr">${a.year}</span>
-        </div>
-        <div class="t">${escapeHtml(a.title)}</div>
-        <div class="out-list">
-          <div class="out"><span>Evidence status</span><span class="val">Not source-backed in this atlas build</span></div>
-          <div class="out"><span>Use</span><span class="val">Find comparable logged events before citing</span></div>
-        </div>
-      </div>
-    `).join("");
-  }
-
-  function renderLensOutcomes(proposal) {
-    if (!els.lensOutcomes || !proposal) return;
-    const rows = {
-      "Analogue evidence": "Not source-backed in this atlas build",
-      "Use": "Compare against logged events and source rows before citing",
-      "Limit": "No prediction, forecast, or causal effect is claimed",
-    };
-    els.lensOutcomes.innerHTML = Object.entries(rows).map(([k, v]) => `
-      <div class="outcome">
-        <div class="lbl">${escapeHtml(k)}</div>
-        <div class="v">${escapeHtml(v)}</div>
-        <div class="range">proposal prompt only</div>
-      </div>
-    `).join("");
-  }
-
-  function updateLensHead() {
-    const p = currentProposal();
-    setText(els.lensTitle, p.title);
-    setText(els.lensType, p.type);
-    setText(els.lensDecision, p.decision);
-    setText(els.lensSummary, p.summary);
-  }
-
   function renderMethodology() {
     if (!els.methodDatasetTable) return;
     const families = (state.city?.source_families || []).slice();
@@ -20203,6 +20654,7 @@
     clearSelection,
     setActiveLens,
     setActiveAspect,
+    setAreaFilter,
     setChangelogOpen,
     setCompareOpen,
     updateTimeDependentMapState,

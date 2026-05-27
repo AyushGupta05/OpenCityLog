@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/lens_manifest.schema.json",
+  "title": "Bims 15-Lens City Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_kind",
+    "generated_at",
+    "contract_source",
+    "visual_reference_set",
+    "lens_count",
+    "lenses"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"type": "string"},
+    "artifact_kind": {
+      "type": "string",
+      "enum": ["bims_15_lens_city_manifest", "bims_15_lens_manifest_index"]
+    },
+    "generated_at": {"type": "string"},
+    "city_id": {"type": "string"},
+    "display_name": {"type": "string"},
+    "contract_source": {"type": "string"},
+    "visual_reference_set": {"type": "string"},
+    "launched_city": {"type": "boolean"},
+    "lens_year_coverage_path": {"type": "string"},
+    "lens_count": {"type": "integer", "minimum": 15, "maximum": 15},
+    "official_scope": {"$ref": "#/$defs/official_scope"},
+    "lenses": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {"$ref": "#/$defs/lens"}
+    }
+  },
+  "$defs": {
+    "official_scope": {
+      "type": "object",
+      "required": ["official_boundary", "scope_note"],
+      "properties": {
+        "official_boundary": {"$ref": "#/$defs/source_brief"},
+        "admin_overlays": {"type": "array", "items": {"type": "string"}},
+        "scope_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "source_brief": {
+      "type": "object",
+      "required": [
+        "label",
+        "source_name",
+        "publisher",
+        "source_url",
+        "source_type",
+        "licence",
+        "licence_url",
+        "attribution_text",
+        "accessed_at"
+      ],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "source_name": {"type": "string", "minLength": 1},
+        "publisher": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "minLength": 1},
+        "source_type": {"type": "string", "minLength": 1},
+        "licence": {"type": "string", "minLength": 1},
+        "licence_url": {"type": "string", "minLength": 1},
+        "attribution_text": {"type": "string", "minLength": 1},
+        "accessed_at": {"type": "string", "minLength": 1},
+        "source_ids": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "lens": {
+      "type": "object",
+      "required": [
+        "slug",
+        "public_label",
+        "group",
+        "primary_selectable_object_type",
+        "visual_metaphor",
+        "color_role",
+        "coverage",
+        "freshness",
+        "provenance",
+        "exports"
+      ],
+      "properties": {
+        "slug": {"type": "string", "minLength": 1},
+        "public_label": {"type": "string", "minLength": 1},
+        "group": {"type": "string", "enum": ["planning", "transport", "civic", "economy", "utilities"]},
+        "category": {"type": "string"},
+        "primary_selectable_object_type": {"type": "string", "minLength": 1},
+        "visual_metaphor": {"type": "string", "minLength": 1},
+        "color_role": {"type": "string", "minLength": 1},
+        "coverage": {"$ref": "#/$defs/coverage"},
+        "freshness": {"$ref": "#/$defs/freshness"},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "exports": {"$ref": "#/$defs/exports"}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "event_count",
+        "compatible_event_count",
+        "source_count",
+        "compatible_source_count",
+        "confidence_counts",
+        "caveats"
+      ],
+      "properties": {
+        "event_count": {"type": "integer", "minimum": 0},
+        "compatible_event_count": {"type": "integer", "minimum": 0},
+        "review_required_event_count": {"type": "integer", "minimum": 0, "maximum": 0},
+        "source_count": {"type": "integer", "minimum": 0},
+        "compatible_source_count": {"type": "integer", "minimum": 0},
+        "review_required_source_count": {"type": "integer", "minimum": 0, "maximum": 0},
+        "observed_years": {
+          "type": ["object", "null"],
+          "properties": {
+            "start": {"type": "integer", "minimum": 1700},
+            "end": {"type": "integer", "minimum": 1700}
+          }
+        },
+        "confidence_counts": {"type": "object"},
+        "caveats": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "year_contract": {"$ref": "#/$defs/year_contract"}
+      }
+    },
+    "year_contract": {
+      "type": "object",
+      "required": [
+        "required_years",
+        "required_year_count",
+        "visible_year_count",
+        "missing_visible_years",
+        "source_backed_record_year_count",
+        "source_backed_context_year_count",
+        "lens_year_coverage_path"
+      ],
+      "properties": {
+        "required_years": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": {"type": "integer", "minimum": 2007, "maximum": 2007},
+            "end": {"type": "integer", "minimum": 2026, "maximum": 2026}
+          }
+        },
+        "required_year_count": {"type": "integer", "minimum": 20, "maximum": 20},
+        "visible_year_count": {"type": "integer", "minimum": 20, "maximum": 20},
+        "missing_visible_years": {"type": "array", "maxItems": 0, "items": {"type": "integer"}},
+        "source_backed_record_year_count": {"type": "integer", "minimum": 0},
+        "source_backed_context_year_count": {"type": "integer", "minimum": 0},
+        "lens_year_coverage_path": {"type": "string", "minLength": 1}
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["last_retrieved_or_reviewed", "source_coverage_period", "update_cadence"],
+      "properties": {
+        "last_retrieved_or_reviewed": {"type": "string", "minLength": 1},
+        "source_coverage_period": {"type": "string", "minLength": 1},
+        "update_cadence": {"type": "string", "minLength": 1}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source_ids",
+        "compatible_source_ids",
+        "source_samples",
+        "transformation_method",
+        "methodology_path",
+        "correction_path"
+      ],
+      "properties": {
+        "source_ids": {"type": "array", "items": {"type": "string"}},
+        "compatible_source_ids": {"type": "array", "items": {"type": "string"}},
+        "review_required_source_ids": {"type": "array", "maxItems": 0, "items": {"type": "string"}},
+        "source_samples": {"type": "array", "items": {"type": "object"}},
+        "transformation_method": {"type": "string", "minLength": 1},
+        "methodology_path": {"type": "string", "minLength": 1},
+        "correction_path": {"type": "string", "minLength": 1}
+      }
+    },
+    "exports": {
+      "type": "object",
+      "required": [
+        "selected_object_markdown",
+        "filtered_view_csv",
+        "filtered_view_geojson",
+        "includes_citations_licenses_dates_confidence_limitations"
+      ],
+      "properties": {
+        "selected_object_markdown": {"type": "boolean"},
+        "filtered_view_csv": {"type": "boolean"},
+        "filtered_view_geojson": {"type": "boolean"},
+        "includes_citations_licenses_dates_confidence_limitations": {"type": "boolean"}
+      }
+    }
+  }
+}

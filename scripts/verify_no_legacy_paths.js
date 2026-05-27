@@ -57,10 +57,22 @@ const scriptText = Object.values(packageJson.scripts || {}).join("\n");
 if (/build_mode_a_replay|build_ui_manifest|replay-manifest/i.test(scriptText)) {
   failures.push("Package scripts still invoke retired replay/Mode A builders.");
 }
+if (packageJson.scripts && Object.prototype.hasOwnProperty.call(packageJson.scripts, "verify:proposal")) {
+  failures.push("Package scripts still expose the retired Proposal Lens verifier.");
+}
+if (/\bverify:proposal\b/i.test(scriptText)) {
+  failures.push("Default package scripts still invoke the retired Proposal Lens verifier.");
+}
 
 const serverText = fs.readFileSync(path.join(rootDir, "server.js"), "utf8");
 if (!serverText.includes('decodedPathname.startsWith("/data/mode-a/")') || !serverText.includes("Retired Mode A replay data") || !serverText.includes('replace(/\\\\/g, "/")') || !serverText.includes("path.posix.normalize")) {
   failures.push("Server does not quarantine retired /data/mode-a public data path.");
+}
+if (/require\(["']\.\/lib\/proposal-impact["']\)/i.test(serverText) || /proposalResponseCache|proposalCacheKey|setProposalCache|handleProposalImpact|assessProposal/i.test(serverText)) {
+  failures.push("Server still has an active Proposal Lens/proposal-impact runtime path.");
+}
+if (!serverText.includes("/api/proposal-impact/schema") || !serverText.includes("/api/proposal-impact") || !serverText.includes("Retired endpoint") || !serverText.includes("Proposal/future analogue paths are quarantined")) {
+  failures.push("Server does not quarantine retired proposal-impact endpoints with a clear 410 response.");
 }
 
 const retiredModeADir = path.join(rootDir, "web", "data", "mode-a");

@@ -59,6 +59,20 @@ Do not add:
 5. Prefer append-only correction records or documented source updates over
    silently overwriting raw source data.
 
+For 15-lens atlas corrections, also include:
+
+- the city id and lens slug, for example `belfast` and `planning-pressure`
+- whether the issue affects full-city scope, source compatibility, export
+  fields, or visual classification only
+- the official boundary, source licence, or source-row URL when the correction
+  challenges coverage
+- a note if the event should remain visible in other lenses because the same
+  source-backed record supports multiple views
+
+Do not submit placeholder records to fill a lens. A launched city must keep all
+15 lenses available, but sparse areas should remain sparse until compatible
+public evidence is added.
+
 ## Pull Request Checklist
 
 - The change supports the city changelog and evidence-atlas mission.
@@ -69,4 +83,6 @@ Do not add:
 - Relevant commands from `AGENTS.md` were run and named in the PR.
 - UI changes preserve keyboard access, focus states, evidence inspection, and
   non-map paths.
+- 15-lens changes keep Belfast, Greater London, and NYC on the complete lens
+  contract and pass `npm run verify:lens-contract`.
 - Docs were updated when behavior, data coverage, or public workflow changed.

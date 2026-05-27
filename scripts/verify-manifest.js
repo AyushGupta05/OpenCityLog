@@ -54,6 +54,7 @@ function lensDetailSiteText(feature) {
 }
 
 function hasNonSiteLensDetail(feature) {
+  if (feature.properties?.coverage_status === "no_same_category_records") return false;
   const siteText = lensDetailSiteText(feature);
   return LENS_DETAIL_SITE_LAYERS.has(feature.properties?.layer)
     && (LENS_DETAIL_BAD_SOURCE_PATTERN.test(siteText.source) || LENS_DETAIL_BAD_PRECISION_PATTERN.test(siteText.precision));

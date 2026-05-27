@@ -87,6 +87,10 @@ async function assertGapWarningForAspect(page, { year, aspect, patterns = [] }) 
   );
   const state = await atlasState(page);
   const legendText = state.lensLegendText.replace(/\s+/g, " ");
+  assert(state.lensYearCoverageLoaded && !state.lensYearCoverageError, `Lens-year coverage metadata did not load: ${state.lensYearCoverageError}`);
+  assert(state.lensYearCoverageStatus === "source_backed_context_no_year_records", `${aspect} ${year} should be represented by source-backed coverage context, got ${state.lensYearCoverageStatus || "missing"}.`);
+  assert(state.lensYearCoverageVisible, `${aspect} ${year} should remain visible under the 2007-2026 lens contract.`);
+  assert(state.lensYearCoverageContextCount > 0, `${aspect} ${year} did not expose coverage-context features.`);
   assert(/No source-backed/i.test(legendText), `${aspect} ${year} did not expose a no-source-backed warning in the lens legend.`);
   assert(new RegExp(String(year)).test(legendText), `${aspect} warning did not name the selected year ${year}: ${legendText}`);
   for (const pattern of patterns) {
@@ -107,6 +111,7 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
     { timeout: 20000 }
   );
   const state = await atlasState(page);
+  assert(state.lensYearCoverageStatus === "source_backed_records", `${aspectId} ${year} should have source-backed records, got ${state.lensYearCoverageStatus || "missing"}.`);
   assert(!/No source-backed/i.test(state.lensLegendText), `${aspectId} ${year} retained a stale no-source-backed warning.`);
 }
 
@@ -138,6 +143,30 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
   assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
   assert(initial.activeLens === "transport", "Transport should be the default active map lens.");
+  assert(initial.activeAspect === "transport-speed", "Journey Speed should be the default 15-lens view.");
+  assert(initial.lensChoiceCount === 15, "The desktop lens switcher should expose all 15 atlas lenses.");
+  assert(initial.lensYearCoverageLoaded && !initial.lensYearCoverageError, `Lens-year coverage metadata did not load: ${initial.lensYearCoverageError}`);
+  assert(initial.lensYearCoverageVisible, "The active 15-lens/year contract row is not marked visible.");
+  const lensYearAudit = await page.evaluate(() => {
+    const state = window.BimsAtlas?.state;
+    const aspects = [...document.querySelectorAll(".lens-choice")].map((button) => button.getAttribute("data-aspect")).filter(Boolean);
+    const years = Array.from({ length: 20 }, (_, index) => 2007 + index);
+    const missing = [];
+    for (const aspect of aspects) {
+      for (const year of years) {
+        const row = state?.lensYearCoverageByKey?.get?.(`${aspect}:${year}`);
+        if (!row?.visible_map_contract) missing.push(`${aspect}:${year}`);
+      }
+    }
+    return {
+      aspectCount: aspects.length,
+      rowCount: state?.lensYearCoverage?.row_count || state?.lensYearCoverage?.rows?.length || 0,
+      missing,
+    };
+  });
+  assert(lensYearAudit.aspectCount === 15, "Lens switcher did not expose the 15 mandatory lens aspects.");
+  assert(lensYearAudit.rowCount === 300, `Lens-year coverage should expose 300 city rows, got ${lensYearAudit.rowCount}.`);
+  assert(!lensYearAudit.missing.length, `Missing visible lens-year contract rows: ${lensYearAudit.missing.slice(0, 8).join(", ")}`);
   assert(/Flow-proxy|Road flow proxy/i.test(initial.lensLegendText), "Transport lens legend did not render the flow-proxy copy.");
   assert(initial.transportRoadVisible, "Transport road lens should be visible while the transport layer is enabled.");
   assert(initial.transportRoadYearLoaded === Number(initial.year), "Transport road lens did not load the current timeline year.");
@@ -178,6 +207,42 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(afterListClick.activePin?.text.includes("Belfast Grand Central"), "Changelog selection did not sync to the map pin.");
   await page.locator("#searchInput").fill("");
   await page.waitForFunction(() => !window.BimsAtlas?.state?.search, null, { timeout: 10000 });
+
+  const areaCandidate = await page.evaluate(() => {
+    const wholeCity = new Set(["belfast", "london", "new york", "new york city", "nyc"]);
+    return (window.BimsAtlas?.filteredEvents?.() || [])
+      .map((event) => event.area || "")
+      .find((area) => area.length > 3 && !wholeCity.has(area.toLowerCase().trim())) || "";
+  });
+  assert(areaCandidate, "Could not find a source-backed area label to exercise the area filter.");
+  const beforeAreaFilter = await atlasState(page);
+  assert(beforeAreaFilter.areaFilterOptionCount > 0, "Area filter suggestions did not render.");
+  await page.evaluate((area) => window.BimsAtlas?.setAreaFilter?.(area), areaCandidate);
+  await page.waitForFunction(
+    (area) => window.BimsAtlas?.state?.areaFilter === area
+      && document.querySelector("#areaFilterInput")?.value === area
+      && Number(document.querySelector("#tlVisible")?.textContent || 0) > 0,
+    areaCandidate,
+    { timeout: 10000 }
+  );
+  const afterAreaFilter = await atlasState(page);
+  assert(afterAreaFilter.areaFilterValue === areaCandidate, "Area filter input did not stay synced with atlas state.");
+  assert(/Area:/i.test(afterAreaFilter.eventListMeta), "Changelog metadata does not expose the active area filter.");
+  assert(Number(afterAreaFilter.visibleText) <= Number(beforeAreaFilter.visibleText), "Area filter increased the visible record count.");
+  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("transport-access"));
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "transport-access", null, { timeout: 10000 });
+  const afterAreaLensSwitch = await atlasState(page);
+  assert(afterAreaLensSwitch.areaFilterValue === areaCandidate, "Lens switching should preserve the active area filter.");
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setActiveAspect?.("transport-speed");
+    await window.BimsAtlas?.setAreaFilter?.("");
+  });
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.activeAspect === "transport-speed" && !window.BimsAtlas?.state?.areaFilter,
+    null,
+    { timeout: 10000 }
+  );
+
   const beforeLensSwitch = await atlasState(page);
   assert(beforeLensSwitch.activeLens === "transport", "Atlas should start on the transport map lens.");
   assert(beforeLensSwitch.lensDetailYearLoaded === null, "Transport lens should not eagerly load non-transport lens detail overlays.");
@@ -236,10 +301,10 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   }
 
   const gapWarningChecks = [
-    { year: 2007, aspect: "planning-delta", patterns: [/planning\/built/i, /mapped context only|not year-specific change evidence/i] },
-    { year: 2007, aspect: "civic-demand", patterns: [/civic/i, /current anchors are context|may post-date/i] },
-    { year: 2026, aspect: "economy-gravity", patterns: [/economy/i, /current anchors are context|may post-date/i] },
-    { year: 2020, aspect: "utilities-capacity", patterns: [/utility/i, /current context may post-date|may post-date/i] },
+    { year: 2007, aspect: "planning-delta", patterns: [/Built Change/i, /coverage-context|context only/i] },
+    { year: 2007, aspect: "civic-demand", patterns: [/Service Demand/i, /coverage-context|context only/i] },
+    { year: 2015, aspect: "economy-gravity", patterns: [/Economic Pull/i, /coverage-context|context only/i] },
+    { year: 2013, aspect: "utilities-capacity", patterns: [/Utility Capacity/i, /coverage-context|context only/i] },
   ];
   for (const check of gapWarningChecks) {
     await assertGapWarningForAspect(page, check);
@@ -428,7 +493,7 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Browser page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Browser console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
-  console.log("OpenCityLog paper-atlas browser smoke OK: load, pins, changelog, lenses, compare, map tools, filter, zoom, scroll, timeline, camera, and screenshot checks passed.");
+  console.log("OpenCityLog paper-atlas browser smoke OK: load, pins, changelog, area filter, lenses, compare, map tools, filter, zoom, scroll, timeline, camera, and screenshot checks passed.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

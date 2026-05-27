@@ -61,6 +61,7 @@ async function atlasState(page) {
       }
     };
     const markerStats = { transportPinCount: 0, visibleTransportPinCount: 0 };
+    const activeCoverageRow = atlas?.state?.lensYearCoverageByKey?.get?.(`${atlas?.state?.activeAspect}:${Number(atlas?.state?.year)}`) || null;
     for (const [id, marker] of atlas?.state?.markers || []) {
       const event = atlas?.state?.eventById?.get(id);
       if (event?.category !== "transport") continue;
@@ -89,9 +90,20 @@ async function atlasState(page) {
       visibleText: document.querySelector("#tlVisible")?.textContent.trim() || "",
       totalText: document.querySelector("#tlTotal")?.textContent.trim() || "",
       layersCount: document.querySelector("#layersCount")?.textContent.trim() || "",
-      activeLens: document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-lens") || "",
+      activeLens: atlas?.state?.activeLens || document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-lens") || "",
+      activeAspect: atlas?.state?.activeAspect || document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-aspect") || "",
+      lensChoiceCount: document.querySelectorAll(".lens-choice").length,
       lensDataState: document.querySelector("#lensDataState")?.textContent.trim() || "",
       lensLegendText: document.querySelector("#lensLegend")?.textContent.trim() || "",
+      lensYearCoverageLoaded: Boolean(atlas?.state?.lensYearCoverage?.rows?.length),
+      lensYearCoverageError: atlas?.state?.lensYearCoverageError || "",
+      lensYearCoverageStatus: activeCoverageRow?.status || "",
+      lensYearCoverageEventCount: Number(activeCoverageRow?.event_count || 0),
+      lensYearCoverageContextCount: Number(activeCoverageRow?.coverage_context_feature_count || 0),
+      lensYearCoverageVisible: Boolean(activeCoverageRow?.visible_map_contract),
+      areaFilterValue: document.querySelector("#areaFilterInput")?.value || "",
+      areaFilterOptionCount: document.querySelectorAll("#areaFilterOptions option").length,
+      eventListMeta: document.querySelector("#eventListMeta")?.textContent.trim() || "",
       transportOn: document.querySelector(".layer-row[data-layer='transport']")?.getAttribute("data-on") || "",
       detailTitle: document.querySelector(".detail-title")?.textContent.trim() || "",
       detailOpen: !document.querySelector("#detailInner")?.hasAttribute("hidden"),

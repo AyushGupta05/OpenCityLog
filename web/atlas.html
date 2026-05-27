@@ -90,8 +90,8 @@
         <span id="mapLensLabel">Map lens</span>
         <span id="lensDataState">Loading</span>
       </div>
-      <div class="map-lens-switcher" id="lensSwitcher" role="tablist" aria-label="Map lens"></div>
-      <div class="lens-aspect-switcher" id="lensAspectSwitcher" role="tablist" aria-label="Lens treatment"></div>
+      <div class="map-lens-switcher" id="lensSwitcher" role="tablist" aria-label="15 city atlas lenses"></div>
+      <div class="lens-aspect-switcher" id="lensAspectSwitcher" aria-label="Active lens coverage"></div>
       <div class="lens-legend" id="lensLegend" aria-live="polite"></div>
     </div>
     <div class="layers-list" id="layersList"></div>
@@ -106,6 +106,11 @@
           <option value="inferred">Inferred only</option>
           <option value="disputed">Disputed</option>
         </select>
+      </label>
+      <label class="area-row">
+        <span>Area</span>
+        <input id="areaFilterInput" list="areaFilterOptions" type="search" autocomplete="off" placeholder="Borough, ward, street">
+        <datalist id="areaFilterOptions"></datalist>
       </label>
       <label class="inferred-row">
         <input type="checkbox" id="showInferredToggle" checked>
@@ -122,7 +127,15 @@
         <div class="panel-kicker">Changelog</div>
         <h3 id="changelogTitle">Source-backed records</h3>
       </div>
-      <span class="count" id="eventListCount">0 visible</span>
+      <div class="changelog-actions" aria-label="Export filtered records">
+        <span class="count" id="eventListCount">0 visible</span>
+        <button class="btn btn-icon" id="exportCsvBtn" type="button" title="Export filtered records as CSV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn btn-icon" id="exportGeojsonBtn" type="button" title="Export filtered records as GeoJSON">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M12 3l8 4v10l-8 4-8-4V7z"/><path d="M12 3v18M4 7l8 4 8-4" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </div>
     <div class="changelog-meta" id="eventListMeta">Timeline and layer filters apply.</div>
     <div class="event-list" id="eventList" role="list" tabindex="-1" aria-live="polite"></div>
@@ -182,13 +195,6 @@
     <div class="detail-inner" id="detailInner" hidden></div>
   </div>
 
-  <!-- Proposal Lens FAB -->
-  <button class="lens-fab" id="lensFab" title="Open the Proposal Lens">
-    <span class="dot"></span>
-    Proposal Lens
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="10" height="10"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-
   <!-- Bottom timeline -->
   <div class="timeline panel">
     <div class="tl-head">
@@ -210,65 +216,6 @@
       <div class="tl-axis" id="tlAxis"></div>
       <div class="tl-cursor" id="tlCursor"></div>
       <div class="tl-scrub" id="tlScrub"></div>
-    </div>
-  </div>
-
-  <!-- Proposal Lens overlay -->
-  <div class="lens-overlay" id="lensOverlay" data-open="false">
-    <div class="lens-card">
-      <div class="lens-head">
-        <div>
-          <div class="label">Proposal Lens</div>
-          <h2 id="lensTitle">Historical analogue lens</h2>
-        </div>
-        <div class="sub">
-          <strong id="lensType">Not a forecast</strong>
-          <span class="sep">·</span>
-          <span id="lensDecision">Past projects with similar scale, type, and context</span>
-          <div class="sub-body" id="lensSummary">
-            The Lens surfaces past projects with similar scale, type, and context. It surfaces patterns; it does not predict.
-          </div>
-        </div>
-        <button class="lens-close" id="lensClose" type="button" aria-label="Close Proposal Lens">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
-        </button>
-      </div>
-
-      <div class="lens-body">
-        <div class="lens-pick">
-          <h3>Pick a proposal to compare</h3>
-          <div id="lensProposals"></div>
-          <div class="lens-note">
-            The Lens shows <strong>past projects with similar scale, type, and context</strong>. It surfaces patterns; it does not predict.
-          </div>
-        </div>
-        <div class="lens-analogs">
-          <h3>Historical analogues</h3>
-          <p class="lead">
-            These are the closest matches from the OpenCityLog index — past projects of similar
-            type, scale, and urban context. Each preserves observed indicators from its
-            own evidence context.
-          </p>
-          <div class="analog-grid" id="lensAnalogs"></div>
-
-          <div class="outcomes-strip">
-            <h3>Observed analogue ranges</h3>
-            <div class="outcomes-grid" id="lensOutcomes"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="lens-foot">
-        <strong>Note.</strong>
-        <span class="disclaimer">
-          Historical association, not causation. Past projects had different contexts, policies,
-          and economic conditions. Use the Lens to ask better questions, not to forecast.
-        </span>
-        <div class="lens-foot-actions">
-          <button class="btn" id="lensExport">Export comparison</button>
-          <button class="btn primary" id="lensDiscuss">Discuss with team</button>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -301,8 +248,8 @@
           <p>We do not forecast. We do not claim causation. Co-occurrence in space and time is descriptive only. OSM edit dates are mapped-visibility dates, not change-effective dates.</p>
         </div>
         <div class="method-block">
-          <h3>The Proposal Lens</h3>
-          <p>Matches a proposed project to historical analogues by type, scale, and urban context. The shown indicators are observations from those analogues — not predictions for the proposal in question.</p>
+          <h3>Evidence exports</h3>
+          <p>Filtered CSV, GeoJSON, and selected-record briefs include dates, confidence, source rows, licences, caveats, and correction-path metadata.</p>
         </div>
       </div>
 
@@ -340,7 +287,7 @@
       <div><kbd>←</kbd><kbd>→</kbd> Scrub timeline</div>
       <div><kbd>Space</kbd> Play / pause</div>
       <div><kbd>/</kbd> Search</div>
-      <div><kbd>P</kbd> Proposal Lens</div>
+      <div><kbd>Tab</kbd> Move through controls</div>
     </div>
     <div class="welcome-actions">
       <button class="btn primary" id="welcomeStart">Start exploring →</button>
@@ -358,6 +305,6 @@
 </div>
 
 <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="/atlas.js?v=paper-atlas-30"></script>
+<script src="/atlas.js?v=15-lens-contract-1"></script>
 </body>
 </html>

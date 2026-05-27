@@ -17,7 +17,10 @@ Before reusing data from this repo, inspect:
 
 - `config/source_registry.json`
 - `web/data/city-atlas/cities/<city_id>/sources.json`
+- `web/data/city-atlas/cities/<city_id>/lens_manifest.json`
+- `web/data/city-atlas/lens-manifest.json`
 - `docs/data_sources_uk_us.md`
+- `docs/15_lens_source_audit.md`
 - event-level `evidence`, `provenance`, `source_ids`, `caveats`, and source
   licence fields
 
@@ -54,3 +57,16 @@ Every new source must include:
 
 If a source licence is unclear, mark the source as review-required and exclude
 it from headline data packs until the licence is resolved.
+
+## 15-Lens Data Packs
+
+The lens manifest records compatible and review-required event/source counts for
+each launched city and lens. A nonzero compatible count means the repo has
+source-backed records that can support that lens under the recorded source
+terms. It does not mean the source family is complete, current everywhere, or
+safe for bulk redistribution without reviewing the upstream terms.
+
+CSV, GeoJSON, and Markdown exports must carry licence, attribution, source URL,
+confidence, date basis, and caveat fields. If an export consumer cannot preserve
+those fields, they should cite the upstream source rows directly instead of
+redistributing the atlas artifact.

@@ -10,7 +10,9 @@ The project should show observed historical changes with evidence and caveats. I
 
 ```powershell
 npm run build:data
+npm run build:lens-contract
 npm run verify:data
+npm run verify:lens-contract
 ```
 
 Generated artifacts are written to:
@@ -19,7 +21,7 @@ Generated artifacts are written to:
 web/data/city-atlas/
 ```
 
-Belfast is the default atlas pilot, with London and New York City available through the same city selector. London and NYC currently combine broad official/open-source discovery catalogs with a partial set of row-level generated events; they are not complete histories of every urban change.
+Belfast is the default atlas pilot, with London and New York City available through the same city selector. Belfast, Greater London, and NYC all expose the shared 15-lens atlas contract across their full official city scopes. The generated records are source-backed coverage available in this repository; they are not complete histories of every urban change.
 
 ## Run The Local Product
 
@@ -51,6 +53,21 @@ adds green-to-red OSM road coloring based on mapped road-change activity and
 nearby documented transport records; it is a hotspot/context overlay, not a
 measured traffic-volume or congestion model.
 
+The 15-lens contract is generated into:
+
+```text
+web/data/city-atlas/lens-manifest.json
+web/data/city-atlas/cities/<city_id>/lens_manifest.json
+web/data/city-atlas/cities/<city_id>/lens_year_coverage.json
+```
+
+Each launched city must expose all 15 lenses with compatible source-backed
+records or explicit source-backed no-record coverage context for every year
+from 2007 through 2026. Source licences, official boundary scope, freshness
+notes, export flags, and reference-screen coverage are validated. Filtered
+CSV/GeoJSON and selected-record Markdown briefs include source rows, confidence,
+dates, licences, caveats, and correction-path metadata.
+
 Browser smoke coverage checks the core user path:
 
 ```powershell
@@ -59,19 +76,6 @@ npm run verify:browser
 
 The smoke scripts default to `http://127.0.0.1:5173` and also honor `URL=...`
 for alternate local ports.
-
-## Proposal Lens
-
-The secondary workflow is now Proposal Lens. It validates proposal inputs, retrieves similar historical events, extracts current local context, and returns affected signals with confidence, evidence, caveats, and a proposal pathway. For building/development ideas, the pathway shows site checks, evidence gaps, and review years for source collection. It does not confirm buildability, permission, or causal outcomes.
-
-```powershell
-npm run verify:proposal
-```
-
-API:
-
-- `GET /api/proposal-impact/schema`
-- `POST /api/proposal-impact`
 
 ## Test
 
@@ -95,6 +99,8 @@ npm test
 - `docs/data_model.md`
 - `docs/city_adapters.md`
 - `docs/data_sources_uk_us.md`
+- `docs/15_lens_city_design_contract.md`
+- `docs/15_lens_source_audit.md`
 - `docs/provenance.md`
 - `docs/data_acquisition.md`
 - `docs/lightweight_impact.md`

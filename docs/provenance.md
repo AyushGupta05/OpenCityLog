@@ -12,6 +12,16 @@ Each normalized event carries:
 - `provenance`: transformation method, legacy/source ids, and source-specific metadata.
 - `caveats`: limitations that must be visible in UI/source briefs.
 
+For 15-lens atlas views, the event also needs enough normalized fields for the
+lens manifest and frontend exports to preserve:
+
+- city id and lens slug
+- source-backed date or date range
+- geometry or geometry limitation
+- source licence URL and attribution
+- transformation script or method
+- correction path and limitation text
+
 ## Minimum Provenance Per Source
 
 Each source registry entry carries:
@@ -70,6 +80,22 @@ npm run verify:data
 - Data availability matrix references.
 - Basic overclaiming phrases.
 
+`verify:lens-contract` adds the 15-lens gates:
+
+- all launched cities expose the same 15 lens slugs
+- official full-city boundary source, URL, licence, and attribution exist
+- each lens has compatible event and source counts
+- each lens has freshness, caveats, source samples, and export flags
+- generated manifests match `schemas/lens_manifest.schema.json`
+- `tmp/reference-screens/` contains the visual reference set for every lens
+
+## Exports
+
+Selected-record Markdown briefs and filtered CSV/GeoJSON exports are provenance
+artifacts. They must include source rows, licence/attribution, confidence,
+effective date, date precision, limitations, and transformation metadata. An
+export is not valid evidence if those fields are stripped.
+
 ## Correction Flow
 
 For public corrections:
@@ -78,5 +104,6 @@ For public corrections:
 2. Link the source row, URL, file path, or changeset being challenged.
 3. Explain whether the correction affects date, geometry, category, confidence, caveat, or attribution.
 4. Add an append-only correction record or source update. Do not silently overwrite raw source files.
-5. Rebuild and rerun `npm run verify:data`.
-
+5. Rebuild and rerun `npm run verify:data` and `npm run verify:lens-contract`
+   when the correction touches a launched city, lens classification, source
+   licence, boundary scope, or export field.

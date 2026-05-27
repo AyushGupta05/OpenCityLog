@@ -1,5 +1,7 @@
 # Final MVP product spec: **CivicReplay**
 
+Status note: this file is retained as an earlier product-shaping memo. The active implementation contract is `docs/15_lens_city_design_contract.md`: 15 mandatory historical/current lenses, no live proposal/future runtime, no forecasts, no simulations, and no single impact scores. Proposal Lens material below is not active scope unless a later accepted spec restores it.
+
 My honest recommendation: **do not build a simulation engine**. Build a **city-change atlas**: a beautiful, evidence-backed public website showing how real events, decisions, infrastructure, policies, developments, and environmental signals changed places over time.
 
 The product should feel like:

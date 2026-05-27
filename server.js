@@ -1,12 +1,10 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
-const proposalImpact = require("./lib/proposal-impact");
 
 const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
 const port = Number(process.env.PORT || 5173);
-const proposalResponseCache = new Map();
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
 
@@ -50,54 +48,12 @@ function sendJson(res, status, payload) {
   res.end(JSON.stringify(payload, null, 2));
 }
 
-function stableJson(value) {
-  if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
-  if (value && typeof value === "object") {
-    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`).join(",")}}`;
-  }
-  return JSON.stringify(value);
-}
-
-function proposalCacheKey(payload) {
-  return stableJson({
-    proposal: payload.proposal || payload,
-    radius_m: Number(payload.radius_m || payload.radiusM || proposalImpact.DEFAULT_RADIUS_M)
-  });
-}
-
-function setProposalCache(key, value) {
-  proposalResponseCache.set(key, value);
-  while (proposalResponseCache.size > 96) {
-    proposalResponseCache.delete(proposalResponseCache.keys().next().value);
-  }
-}
-
 function sendText(res, status, message) {
   res.writeHead(status, {
     "content-type": "text/plain; charset=utf-8",
     "cache-control": "no-store"
   });
   res.end(message);
-}
-
-function readRequestBody(req, limitBytes = 64_000) {
-  return new Promise((resolve, reject) => {
-    let body = "";
-    req.on("data", (chunk) => {
-      body += chunk;
-      if (Buffer.byteLength(body) > limitBytes) {
-        reject(new Error("Request body too large"));
-        req.destroy();
-      }
-    });
-    req.on("end", () => resolve(body));
-    req.on("error", reject);
-  });
-}
-
-async function readJsonRequest(req, limitBytes = 512_000) {
-  const raw = await readRequestBody(req, limitBytes);
-  return raw ? JSON.parse(raw) : {};
 }
 
 function normalizeUrlPath(pathname) {
@@ -136,45 +92,6 @@ function serveFile(res, filePath) {
   fs.createReadStream(filePath).pipe(res);
 }
 
-function handleProposalImpactSchema(_req, res) {
-  try {
-    const schema = JSON.parse(fs.readFileSync(path.join(rootDir, "schemas", "proposal.schema.json"), "utf8"));
-    sendJson(res, 200, {
-      ok: true,
-      schema,
-      categories: Array.from(proposalImpact.VALID_CATEGORIES),
-      endpoint: "/api/proposal-impact"
-    });
-  } catch (error) {
-    sendJson(res, 500, { ok: false, error: "Could not load proposal schema", detail: error.message });
-  }
-}
-
-async function handleProposalImpactPost(req, res) {
-  try {
-    const payload = await readJsonRequest(req, 700_000);
-    const cacheKey = proposalCacheKey(payload);
-    const cached = proposalResponseCache.get(cacheKey);
-    if (cached) {
-      sendJson(res, 200, cached);
-      return;
-    }
-    const result = proposalImpact.assessProposal(payload.proposal || payload, {
-      rootDir,
-      radius_m: Number(payload.radius_m || payload.radiusM || proposalImpact.DEFAULT_RADIUS_M)
-    });
-    setProposalCache(cacheKey, result);
-    sendJson(res, 200, result);
-  } catch (error) {
-    sendJson(res, error.statusCode || 500, {
-      ok: false,
-      error: "Could not assess proposal analogues",
-      detail: error.message,
-      validation: error.validation || null
-    });
-  }
-}
-
 const server = http.createServer((req, res) => {
   const requestUrl = new URL(req.url, `http://${req.headers.host || `localhost:${port}`}`);
   const pathname = requestUrl.pathname;
@@ -195,12 +112,20 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET" && pathname === "/api/proposal-impact/schema") {
-    handleProposalImpactSchema(req, res);
+    sendJson(res, 410, {
+      ok: false,
+      error: "Retired endpoint",
+      detail: "Proposal/future analogue paths are quarantined by the current city-change atlas contract. Use the 15 historical/current lens manifests and evidence exports instead."
+    });
     return;
   }
 
   if (req.method === "POST" && pathname === "/api/proposal-impact") {
-    handleProposalImpactPost(req, res);
+    sendJson(res, 410, {
+      ok: false,
+      error: "Retired endpoint",
+      detail: "Proposal/future analogue paths are quarantined by the current city-change atlas contract. Use the 15 historical/current lens manifests and evidence exports instead."
+    });
     return;
   }
 

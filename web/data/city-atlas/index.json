@@ -19,7 +19,9 @@
         "lens_overlays": "web/data/city-atlas/cities/belfast/lens_overlays.geojson",
         "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/belfast/transport_roads_{year}.geojson",
-        "lens_detail_template": "web/data/city-atlas/cities/belfast/lens_detail_{year}.geojson"
+        "lens_detail_template": "web/data/city-atlas/cities/belfast/lens_detail_{year}.geojson",
+        "lens_manifest": "web/data/city-atlas/cities/belfast/lens_manifest.json",
+        "lens_year_coverage": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
       }
     },
     {
@@ -37,7 +39,9 @@
         "lens_overlays": "web/data/city-atlas/cities/london/lens_overlays.geojson",
         "transport_roads_base": "web/data/city-atlas/cities/london/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/london/transport_roads_{year}.geojson",
-        "lens_detail_template": "web/data/city-atlas/cities/london/lens_detail_{year}.geojson"
+        "lens_detail_template": "web/data/city-atlas/cities/london/lens_detail_{year}.geojson",
+        "lens_manifest": "web/data/city-atlas/cities/london/lens_manifest.json",
+        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json"
       }
     },
     {
@@ -55,7 +59,9 @@
         "lens_overlays": "web/data/city-atlas/cities/nyc/lens_overlays.geojson",
         "transport_roads_base": "web/data/city-atlas/cities/nyc/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/nyc/transport_roads_{year}.geojson",
-        "lens_detail_template": "web/data/city-atlas/cities/nyc/lens_detail_{year}.geojson"
+        "lens_detail_template": "web/data/city-atlas/cities/nyc/lens_detail_{year}.geojson",
+        "lens_manifest": "web/data/city-atlas/cities/nyc/lens_manifest.json",
+        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
       }
     }
   ],
@@ -63,7 +69,9 @@
     "city_schema": "schemas/city.schema.json",
     "source_schema": "schemas/source.schema.json",
     "event_schema": "schemas/event.schema.json",
-    "availability_schema": "schemas/availability.schema.json"
+    "availability_schema": "schemas/availability.schema.json",
+    "lens_manifest_schema": "schemas/lens_manifest.schema.json",
+    "lens_year_coverage_schema": "schemas/lens_year_coverage.schema.json"
   },
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
   "coverage_report_generated_at": "2026-05-23T18:38:00Z",
@@ -80,5 +88,6 @@
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
       "No unsupported causal, predictive, or synthetic coverage claims are added by this report."
     ]
-  }
+  },
+  "lens_manifest_path": "web/data/city-atlas/lens-manifest.json"
 }
