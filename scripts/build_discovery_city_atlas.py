@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DISCOVERY = ROOT / "data-discovery"
 OUT = ROOT / "web/data/city-atlas"
 ARCHITECTURE_MILESTONES = ROOT / "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"
+SUPPLEMENTAL_LENS_GAP_EVENTS = ROOT / "data/manual_drops/lens_gap_events/lens_gap_events_2007_2015.json"
 GENERATED_AT = os.environ.get("BIMS_DATA_GENERATED_AT") or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 SCHEMA = "1.0.0"
 
@@ -154,6 +155,30 @@ def architecture_events_for_city(city: str) -> list[dict[str, Any]]:
     return events
 
 
+def supplemental_lens_gap_package() -> dict[str, Any]:
+    if not SUPPLEMENTAL_LENS_GAP_EVENTS.exists():
+        return {"sources": [], "events": []}
+    return read_json(SUPPLEMENTAL_LENS_GAP_EVENTS)
+
+
+def supplemental_sources_for_city(city: str) -> list[dict[str, Any]]:
+    package = supplemental_lens_gap_package()
+    return [source for source in package.get("sources", []) if city in (source.get("city_ids") or [])]
+
+
+def supplemental_events_for_city(city: str) -> list[dict[str, Any]]:
+    package = supplemental_lens_gap_package()
+    source_path = str(SUPPLEMENTAL_LENS_GAP_EVENTS.relative_to(ROOT)).replace("\\", "/")
+    events = []
+    for event in package.get("events", []):
+        if event.get("city_id") != city:
+            continue
+        annotated = dict(event)
+        annotated["_source_path"] = source_path
+        events.append(annotated)
+    return events
+
+
 def generated_artifact_paths(city: str, city_dir: Path) -> dict[str, str]:
     artifacts: dict[str, str] = {}
     known_files = {
@@ -256,6 +281,11 @@ def date_precision(value: Any) -> str:
     if "-" in raw and re.search(r"\d{4}.*\d{4}", raw):
         return "range"
     return "year"
+
+
+def normalized_date_precision(value: Any, fallback: str = "year") -> str:
+    precision = str(value or fallback or "year").strip().lower()
+    return precision if precision in {"day", "month", "year", "range", "unknown"} else fallback
 
 
 SOURCE_DATE_FIELD_HINTS = {
@@ -394,12 +424,17 @@ def evidence_for_source(source: dict[str, Any], item: dict[str, Any] | None = No
 
 def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
     title = item.get("title") or item.get("event_seed") or "City change milestone"
-    date = item.get("date") or item.get("date_start") or item.get("year")
+    date = item.get("date") or item.get("date_start") or item.get("effective_date") or item.get("year")
     if not date:
         raise ValueError(f"Seed event lacks a source date: {city} #{idx} {title!r}")
     year = year_from_date(date)
     bucket = item.get("bucket") or item.get("category") or " ".join(str(item.get(k, "")) for k in ["source_hint", "event_seed"])
     category, lens, signals = category_and_lens(bucket, title)
+    if item.get("atlas_category") and item.get("atlas_lens"):
+        category = str(item.get("atlas_category"))
+        lens = str(item.get("atlas_lens"))
+    if isinstance(item.get("affected_signals"), list):
+        signals = sorted(set(signals) | {str(signal) for signal in item.get("affected_signals", []) if str(signal).strip()})
 
     provided_geometry = item.get("geometry") if isinstance(item.get("geometry"), dict) else None
     geometry_source = item.get("geometry_source")
@@ -451,6 +486,11 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     ]
     if used_atlas_reference_point:
         caveats.append("Map marker is an atlas reference point because the source record did not provide row-level coordinates.")
+    explicit_range = item.get("effective_date_range") if isinstance(item.get("effective_date_range"), dict) else {}
+    range_start = item.get("date_start") or explicit_range.get("start")
+    range_end = item.get("date_end") or explicit_range.get("end")
+    effective_date_range = {"start": str(range_start), "end": str(range_end)} if range_start and range_end else None
+    precision = normalized_date_precision(item.get("date_precision"), "range" if effective_date_range else date_precision(date))
     return {
         "schema_version": SCHEMA,
         "city_id": city,
@@ -459,9 +499,9 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "title": title,
         "short_description": concise,
         "year": year,
-        "effective_date": str(date).split("-")[0] if date_precision(date) == "range" else str(date),
-        "effective_date_range": str(date) if date_precision(date) == "range" else None,
-        "date_precision": date_precision(date),
+        "effective_date": str(range_start or date).split("-")[0] if precision == "range" and not effective_date_range else str(range_start or date),
+        "effective_date_range": effective_date_range,
+        "date_precision": precision,
         "source_date_field": source_date_field,
         "category": category,
         "lens": lens,
@@ -525,9 +565,10 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
 def load_seeds(city: str) -> list[dict[str, Any]]:
     payload = read_json(CITY_META[city]["seed_file"])
     curated = architecture_events_for_city(city)
+    supplemental = supplemental_events_for_city(city)
     if city == "london":
-        return payload.get("events", []) + curated
-    return payload.get("chronology_milestones", []) + payload.get("ongoing_event_patterns", []) + curated
+        return payload.get("events", []) + curated + supplemental
+    return payload.get("chronology_milestones", []) + payload.get("ongoing_event_patterns", []) + curated + supplemental
 
 
 def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
@@ -631,7 +672,7 @@ def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]])
 def build_city(city: str) -> dict[str, Any]:
     meta = CITY_META[city]
     catalog_payload = read_json(meta["catalog_file"])
-    source_raw = dedupe_sources(catalog_payload.get("sources", []) + architecture_sources_for_city(city))
+    source_raw = dedupe_sources(catalog_payload.get("sources", []) + architecture_sources_for_city(city) + supplemental_sources_for_city(city))
     sources = [source_to_registry(city, s) for s in source_raw]
     source_by_id = {s["source_id"]: raw for s, raw in zip(sources, source_raw)}
     city_dir = OUT / "cities" / city
@@ -721,7 +762,7 @@ def build_city(city: str) -> dict[str, Any]:
         "event_years": sorted(by_year),
         "chunks": chunks,
         "migration": {
-            "source_kind": "data-discovery civic source catalog + event seeds + curated architecture milestones",
+            "source_kind": "data-discovery civic source catalog + event seeds + curated architecture milestones + supplemental lens-gap events",
             "source_schema_version": None,
             "source_path": str(meta["catalog_file"].relative_to(ROOT)).replace("\\", "/"),
             "source_event_count": len(source_raw) + len(load_seeds(city)),
@@ -730,10 +771,12 @@ def build_city(city: str) -> dict[str, Any]:
                 "source_catalog.json",
                 "events_seed.json",
                 str(ARCHITECTURE_MILESTONES.relative_to(ROOT)).replace("\\", "/"),
+                str(SUPPLEMENTAL_LENS_GAP_EVENTS.relative_to(ROOT)).replace("\\", "/"),
             ],
             "notes": [
                 "Current-state source-layer records are dataset/layer markers, not physical single-site events.",
                 "Curated architecture milestones are named public-source records, not a complete planning or building-control register.",
+                "Supplemental lens-gap events are source-backed administrative, facility, utility, or regeneration milestones for years that previously had only coverage context.",
                 "Before/after outcome metrics are not generated unless a source adapter supplies observed measurements.",
             ],
         },

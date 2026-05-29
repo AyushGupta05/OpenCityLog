@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-05-27T02:12:17Z",
+  "generated_at": "2026-05-27T18:21:37Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -45,18 +45,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52964,
-        "compatible_event_count": 52964,
+        "event_count": 52965,
+        "compatible_event_count": 52965,
         "review_required_event_count": 0,
-        "source_count": 67,
-        "compatible_source_count": 67,
+        "source_count": 68,
+        "compatible_source_count": 68,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52954,
+          "documented": 52955,
           "inferred": 2,
           "corroborated": 8
         },
@@ -81,7 +81,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1951-2026",
         "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
       },
@@ -153,6 +153,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
         "compatible_source_ids": [
@@ -222,6 +223,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
         "review_required_source_ids": [],
@@ -408,18 +410,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52964,
-        "compatible_event_count": 52964,
+        "event_count": 52965,
+        "compatible_event_count": 52965,
         "review_required_event_count": 0,
-        "source_count": 67,
-        "compatible_source_count": 67,
+        "source_count": 68,
+        "compatible_source_count": 68,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52954,
+          "documented": 52955,
           "inferred": 2,
           "corroborated": 8
         },
@@ -444,7 +446,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1951-2026",
         "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
       },
@@ -516,6 +518,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
         "compatible_source_ids": [
@@ -585,6 +588,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
         "review_required_source_ids": [],
@@ -771,18 +775,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52964,
-        "compatible_event_count": 52964,
+        "event_count": 52965,
+        "compatible_event_count": 52965,
         "review_required_event_count": 0,
-        "source_count": 67,
-        "compatible_source_count": 67,
+        "source_count": 68,
+        "compatible_source_count": 68,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52954,
+          "documented": 52955,
           "inferred": 2,
           "corroborated": 8
         },
@@ -807,7 +811,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1951-2026",
         "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
       },
@@ -879,6 +883,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
         "compatible_source_ids": [
@@ -948,6 +953,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
         "review_required_source_ids": [],
@@ -1965,18 +1971,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93638,
-        "compatible_event_count": 93638,
+        "event_count": 93639,
+        "compatible_event_count": 93639,
         "review_required_event_count": 0,
-        "source_count": 44,
-        "compatible_source_count": 44,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1981,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93635,
+          "documented": 93636,
           "inferred": 2,
           "corroborated": 1
         },
@@ -1995,15 +2001,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly."
       },
       "provenance": {
         "source_ids": [
@@ -2050,7 +2056,8 @@
           "src_uclh_grafton_way_fully_open",
           "src_uclh_grafton_way_royal_opening",
           "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open"
+          "src_young_va_open",
+          "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
@@ -2096,7 +2103,8 @@
           "src_uclh_grafton_way_fully_open",
           "src_uclh_grafton_way_royal_opening",
           "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open"
+          "src_young_va_open",
+          "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -2282,18 +2290,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93638,
-        "compatible_event_count": 93638,
+        "event_count": 93639,
+        "compatible_event_count": 93639,
         "review_required_event_count": 0,
-        "source_count": 44,
-        "compatible_source_count": 44,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1981,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93635,
+          "documented": 93636,
           "inferred": 2,
           "corroborated": 1
         },
@@ -2312,15 +2320,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly."
       },
       "provenance": {
         "source_ids": [
@@ -2367,7 +2375,8 @@
           "src_uclh_grafton_way_fully_open",
           "src_uclh_grafton_way_royal_opening",
           "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open"
+          "src_young_va_open",
+          "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
@@ -2413,7 +2422,8 @@
           "src_uclh_grafton_way_fully_open",
           "src_uclh_grafton_way_royal_opening",
           "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open"
+          "src_young_va_open",
+          "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -2599,18 +2609,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93638,
-        "compatible_event_count": 93638,
+        "event_count": 93639,
+        "compatible_event_count": 93639,
         "review_required_event_count": 0,
-        "source_count": 44,
-        "compatible_source_count": 44,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1981,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93635,
+          "documented": 93636,
           "inferred": 2,
           "corroborated": 1
         },
@@ -2629,15 +2639,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly."
       },
       "provenance": {
         "source_ids": [
@@ -2684,7 +2694,8 @@
           "src_uclh_grafton_way_fully_open",
           "src_uclh_grafton_way_royal_opening",
           "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open"
+          "src_young_va_open",
+          "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
@@ -2730,7 +2741,8 @@
           "src_uclh_grafton_way_fully_open",
           "src_uclh_grafton_way_royal_opening",
           "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open"
+          "src_young_va_open",
+          "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -3699,18 +3711,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 248,
-        "compatible_event_count": 248,
+        "event_count": 249,
+        "compatible_event_count": 249,
         "review_required_event_count": 0,
-        "source_count": 16,
-        "compatible_source_count": 16,
+        "source_count": 17,
+        "compatible_source_count": 17,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 248
+          "documented": 249
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3727,14 +3739,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
-        "source_coverage_period": "2008-2026",
+        "last_retrieved_or_reviewed": "2026-05-27",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Source-specific publication/update cadence"
       },
       "provenance": {
@@ -3754,7 +3766,8 @@
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure"
+          "src_southwark_canada_water_leisure",
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
           "gla-planning-application-decisions",
@@ -3772,7 +3785,8 @@
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure"
+          "src_southwark_canada_water_leisure",
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -3958,18 +3972,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 248,
-        "compatible_event_count": 248,
+        "event_count": 249,
+        "compatible_event_count": 249,
         "review_required_event_count": 0,
-        "source_count": 16,
-        "compatible_source_count": 16,
+        "source_count": 17,
+        "compatible_source_count": 17,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 248
+          "documented": 249
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3986,14 +4000,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
-        "source_coverage_period": "2008-2026",
+        "last_retrieved_or_reviewed": "2026-05-27",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Source-specific publication/update cadence"
       },
       "provenance": {
@@ -4013,7 +4027,8 @@
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure"
+          "src_southwark_canada_water_leisure",
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
           "gla-planning-application-decisions",
@@ -4031,7 +4046,8 @@
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure"
+          "src_southwark_canada_water_leisure",
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -4217,18 +4233,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 248,
-        "compatible_event_count": 248,
+        "event_count": 249,
+        "compatible_event_count": 249,
         "review_required_event_count": 0,
-        "source_count": 16,
-        "compatible_source_count": 16,
+        "source_count": 17,
+        "compatible_source_count": 17,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 248
+          "documented": 249
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4245,14 +4261,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
-        "source_coverage_period": "2008-2026",
+        "last_retrieved_or_reviewed": "2026-05-27",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Source-specific publication/update cadence"
       },
       "provenance": {
@@ -4272,7 +4288,8 @@
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure"
+          "src_southwark_canada_water_leisure",
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
           "gla-planning-application-decisions",
@@ -4290,7 +4307,8 @@
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure"
+          "src_southwark_canada_water_leisure",
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [

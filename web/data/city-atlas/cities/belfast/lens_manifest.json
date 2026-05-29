@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-05-27T02:12:17Z",
+  "generated_at": "2026-05-27T18:21:37Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -44,18 +44,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 14901,
-        "compatible_event_count": 14901,
+        "event_count": 14910,
+        "compatible_event_count": 14910,
         "review_required_event_count": 0,
-        "source_count": 187,
-        "compatible_source_count": 187,
+        "source_count": 190,
+        "compatible_source_count": 190,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 14898,
+          "documented": 14907,
           "disputed": 1,
           "corroborated": 2
         },
@@ -74,14 +74,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2008-2026",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Consultation/project page, status-specific; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED GIS service is monthly; DfC notes the Industrial Heritage Record is largely a record of industry-related sites compiled from historic maps and survey sources."
       },
       "provenance": {
@@ -188,6 +188,7 @@
           "belfast-harbour-mobile-crane-arrival-round214",
           "belfast-trust-annual-quality-report-2019-20",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
           "brcd-project-pages-round124",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
@@ -216,6 +217,7 @@
           "dfc-initial-budget-allocations-2025-2026-round207",
           "dfc-mag-living-high-streets-round195",
           "dfc-public-realm-regeneration-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-bedford-street-pilot-round124",
@@ -260,6 +262,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "pacni-appeals-search-round124",
           "qub-estates-completed-projects",
           "qub-estates-construction-stage-projects",
@@ -377,6 +380,7 @@
           "belfast-harbour-mobile-crane-arrival-round214",
           "belfast-trust-annual-quality-report-2019-20",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
           "brcd-project-pages-round124",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
@@ -405,6 +409,7 @@
           "dfc-initial-budget-allocations-2025-2026-round207",
           "dfc-mag-living-high-streets-round195",
           "dfc-public-realm-regeneration-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-bedford-street-pilot-round124",
@@ -449,6 +454,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "pacni-appeals-search-round124",
           "qub-estates-completed-projects",
           "qub-estates-construction-stage-projects",
@@ -473,7 +479,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -486,7 +492,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -499,7 +505,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -512,7 +518,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -525,7 +531,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -538,7 +544,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -551,7 +557,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -564,7 +570,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -577,7 +583,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -590,7 +596,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -603,7 +609,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -616,7 +622,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -647,18 +653,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 14901,
-        "compatible_event_count": 14901,
+        "event_count": 14910,
+        "compatible_event_count": 14910,
         "review_required_event_count": 0,
-        "source_count": 187,
-        "compatible_source_count": 187,
+        "source_count": 190,
+        "compatible_source_count": 190,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 14898,
+          "documented": 14907,
           "disputed": 1,
           "corroborated": 2
         },
@@ -677,14 +683,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2008-2026",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Consultation/project page, status-specific; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED GIS service is monthly; DfC notes the Industrial Heritage Record is largely a record of industry-related sites compiled from historic maps and survey sources."
       },
       "provenance": {
@@ -791,6 +797,7 @@
           "belfast-harbour-mobile-crane-arrival-round214",
           "belfast-trust-annual-quality-report-2019-20",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
           "brcd-project-pages-round124",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
@@ -819,6 +826,7 @@
           "dfc-initial-budget-allocations-2025-2026-round207",
           "dfc-mag-living-high-streets-round195",
           "dfc-public-realm-regeneration-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-bedford-street-pilot-round124",
@@ -863,6 +871,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "pacni-appeals-search-round124",
           "qub-estates-completed-projects",
           "qub-estates-construction-stage-projects",
@@ -980,6 +989,7 @@
           "belfast-harbour-mobile-crane-arrival-round214",
           "belfast-trust-annual-quality-report-2019-20",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
           "brcd-project-pages-round124",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
@@ -1008,6 +1018,7 @@
           "dfc-initial-budget-allocations-2025-2026-round207",
           "dfc-mag-living-high-streets-round195",
           "dfc-public-realm-regeneration-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-bedford-street-pilot-round124",
@@ -1052,6 +1063,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "pacni-appeals-search-round124",
           "qub-estates-completed-projects",
           "qub-estates-construction-stage-projects",
@@ -1076,7 +1088,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1089,7 +1101,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1102,7 +1114,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1115,7 +1127,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1128,7 +1140,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1141,7 +1153,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1154,7 +1166,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1167,7 +1179,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1180,7 +1192,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1193,7 +1205,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1206,7 +1218,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1219,7 +1231,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1250,18 +1262,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 14901,
-        "compatible_event_count": 14901,
+        "event_count": 14910,
+        "compatible_event_count": 14910,
         "review_required_event_count": 0,
-        "source_count": 187,
-        "compatible_source_count": 187,
+        "source_count": 190,
+        "compatible_source_count": 190,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 14898,
+          "documented": 14907,
           "disputed": 1,
           "corroborated": 2
         },
@@ -1280,14 +1292,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 19,
-          "source_backed_context_year_count": 1,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2008-2026",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Consultation/project page, status-specific; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED GIS service is monthly; DfC notes the Industrial Heritage Record is largely a record of industry-related sites compiled from historic maps and survey sources."
       },
       "provenance": {
@@ -1394,6 +1406,7 @@
           "belfast-harbour-mobile-crane-arrival-round214",
           "belfast-trust-annual-quality-report-2019-20",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
           "brcd-project-pages-round124",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
@@ -1422,6 +1435,7 @@
           "dfc-initial-budget-allocations-2025-2026-round207",
           "dfc-mag-living-high-streets-round195",
           "dfc-public-realm-regeneration-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-bedford-street-pilot-round124",
@@ -1466,6 +1480,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "pacni-appeals-search-round124",
           "qub-estates-completed-projects",
           "qub-estates-construction-stage-projects",
@@ -1583,6 +1598,7 @@
           "belfast-harbour-mobile-crane-arrival-round214",
           "belfast-trust-annual-quality-report-2019-20",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
           "brcd-project-pages-round124",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
@@ -1611,6 +1627,7 @@
           "dfc-initial-budget-allocations-2025-2026-round207",
           "dfc-mag-living-high-streets-round195",
           "dfc-public-realm-regeneration-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-bedford-street-pilot-round124",
@@ -1655,6 +1672,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "pacni-appeals-search-round124",
           "qub-estates-completed-projects",
           "qub-estates-construction-stage-projects",
@@ -1679,7 +1697,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1692,7 +1710,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1705,7 +1723,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1718,7 +1736,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1731,7 +1749,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1744,7 +1762,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1757,7 +1775,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1770,7 +1788,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1783,7 +1801,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1796,7 +1814,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1809,7 +1827,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1822,7 +1840,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1853,11 +1871,11 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 21155,
-        "compatible_event_count": 21155,
+        "event_count": 21157,
+        "compatible_event_count": 21157,
         "review_required_event_count": 0,
-        "source_count": 81,
-        "compatible_source_count": 81,
+        "source_count": 83,
+        "compatible_source_count": 83,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
@@ -1865,7 +1883,7 @@
         },
         "confidence_counts": {
           "inferred": 17120,
-          "documented": 4032,
+          "documented": 4034,
           "disputed": 1,
           "corroborated": 2
         },
@@ -1890,7 +1908,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
         "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release."
       },
@@ -1921,6 +1939,7 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-current-planning-applications-2026-05-22",
           "belfast-harbour-d3-works-commence-round214",
+          "belfast_city_council_minutes_2008_2015",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-schools-progress-construction-stage-2026-round402",
           "dfc-antrim-road-public-realm-investment-round228",
@@ -1967,6 +1986,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub-weavers-hall-topping-out-2026-round361",
@@ -2004,6 +2024,7 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-current-planning-applications-2026-05-22",
           "belfast-harbour-d3-works-commence-round214",
+          "belfast_city_council_minutes_2008_2015",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-schools-progress-construction-stage-2026-round402",
           "dfc-antrim-road-public-realm-investment-round228",
@@ -2050,6 +2071,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub-weavers-hall-topping-out-2026-round361",
@@ -2071,7 +2093,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2084,7 +2106,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2097,7 +2119,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2110,7 +2132,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2123,7 +2145,7 @@
             "licence": "Belfast City Council website terms; factual project metadata and source URLs retained for audit.",
             "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2136,7 +2158,7 @@
             "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council for committee papers and DfC Historic Environment Division for underlying listing information where applicable.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2149,7 +2171,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2162,7 +2184,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2175,7 +2197,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2188,7 +2210,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2201,7 +2223,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2214,7 +2236,7 @@
             "licence": "Belfast City Council public committee-document terms; factual planning metadata and source URLs retained for audit.",
             "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2245,11 +2267,11 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 21155,
-        "compatible_event_count": 21155,
+        "event_count": 21157,
+        "compatible_event_count": 21157,
         "review_required_event_count": 0,
-        "source_count": 81,
-        "compatible_source_count": 81,
+        "source_count": 83,
+        "compatible_source_count": 83,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
@@ -2257,7 +2279,7 @@
         },
         "confidence_counts": {
           "inferred": 17120,
-          "documented": 4032,
+          "documented": 4034,
           "disputed": 1,
           "corroborated": 2
         },
@@ -2282,7 +2304,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
         "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release."
       },
@@ -2313,6 +2335,7 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-current-planning-applications-2026-05-22",
           "belfast-harbour-d3-works-commence-round214",
+          "belfast_city_council_minutes_2008_2015",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-schools-progress-construction-stage-2026-round402",
           "dfc-antrim-road-public-realm-investment-round228",
@@ -2359,6 +2382,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub-weavers-hall-topping-out-2026-round361",
@@ -2396,6 +2420,7 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-current-planning-applications-2026-05-22",
           "belfast-harbour-d3-works-commence-round214",
+          "belfast_city_council_minutes_2008_2015",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-schools-progress-construction-stage-2026-round402",
           "dfc-antrim-road-public-realm-investment-round228",
@@ -2442,6 +2467,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub-weavers-hall-topping-out-2026-round361",
@@ -2463,7 +2489,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2476,7 +2502,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2489,7 +2515,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2502,7 +2528,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2515,7 +2541,7 @@
             "licence": "Belfast City Council website terms; factual project metadata and source URLs retained for audit.",
             "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2528,7 +2554,7 @@
             "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council for committee papers and DfC Historic Environment Division for underlying listing information where applicable.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2541,7 +2567,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2554,7 +2580,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2567,7 +2593,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2580,7 +2606,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2593,7 +2619,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2606,7 +2632,7 @@
             "licence": "Belfast City Council public committee-document terms; factual planning metadata and source URLs retained for audit.",
             "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2637,11 +2663,11 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 21155,
-        "compatible_event_count": 21155,
+        "event_count": 21157,
+        "compatible_event_count": 21157,
         "review_required_event_count": 0,
-        "source_count": 81,
-        "compatible_source_count": 81,
+        "source_count": 83,
+        "compatible_source_count": 83,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
@@ -2649,7 +2675,7 @@
         },
         "confidence_counts": {
           "inferred": 17120,
-          "documented": 4032,
+          "documented": 4034,
           "disputed": 1,
           "corroborated": 2
         },
@@ -2674,7 +2700,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
         "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release."
       },
@@ -2705,6 +2731,7 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-current-planning-applications-2026-05-22",
           "belfast-harbour-d3-works-commence-round214",
+          "belfast_city_council_minutes_2008_2015",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-schools-progress-construction-stage-2026-round402",
           "dfc-antrim-road-public-realm-investment-round228",
@@ -2751,6 +2778,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub-weavers-hall-topping-out-2026-round361",
@@ -2788,6 +2816,7 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-current-planning-applications-2026-05-22",
           "belfast-harbour-d3-works-commence-round214",
+          "belfast_city_council_minutes_2008_2015",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-schools-progress-construction-stage-2026-round402",
           "dfc-antrim-road-public-realm-investment-round228",
@@ -2834,6 +2863,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub-weavers-hall-topping-out-2026-round361",
@@ -2855,7 +2885,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2868,7 +2898,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2881,7 +2911,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2894,7 +2924,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2907,7 +2937,7 @@
             "licence": "Belfast City Council website terms; factual project metadata and source URLs retained for audit.",
             "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2920,7 +2950,7 @@
             "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council for committee papers and DfC Historic Environment Division for underlying listing information where applicable.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2933,7 +2963,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2946,7 +2976,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2959,7 +2989,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2972,7 +3002,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2985,7 +3015,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2998,7 +3028,7 @@
             "licence": "Belfast City Council public committee-document terms; factual planning metadata and source URLs retained for audit.",
             "licence_url": "https://www.belfastcity.gov.uk/terms-conditions",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3029,18 +3059,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 1520,
-        "compatible_event_count": 1520,
+        "event_count": 1529,
+        "compatible_event_count": 1529,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2009,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 1493,
+          "documented": 1502,
           "inferred": 27
         },
         "caveats": [
@@ -3058,15 +3088,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 18,
-          "source_backed_context_year_count": 2,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2009-2026",
-        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Meeting/report-specific publication.; Monthly decision-list publication."
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
+        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release.; Institutional history page; cadence set by publisher.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Meeting/report-specific publication."
       },
       "provenance": {
         "source_ids": [
@@ -3080,6 +3110,8 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-public-pages",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_met_history_2007",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
           "de-elmgrove-primary-first-sod-2021-round402",
@@ -3107,6 +3139,7 @@
           "libraries-ni-equality-progress-report-2023-24",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "qub_estates_completed",
           "round118-dfc-lisburn-road-library-upgrade-2016",
@@ -3124,6 +3157,8 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-public-pages",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_met_history_2007",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
           "de-elmgrove-primary-first-sod-2021-round402",
@@ -3151,6 +3186,7 @@
           "libraries-ni-equality-progress-report-2023-24",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "qub_estates_completed",
           "round118-dfc-lisburn-road-library-upgrade-2016",
@@ -3167,7 +3203,7 @@
             "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council for committee papers and DfC Historic Environment Division for underlying listing information where applicable.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3180,7 +3216,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3193,7 +3229,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3206,7 +3242,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3219,7 +3255,7 @@
             "licence": "Belfast City Council public PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3232,7 +3268,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council planning decisions list. Use URL, decision month, and application reference for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3245,7 +3281,7 @@
             "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3271,7 +3307,7 @@
             "licence": "Web page terms; cite as evidence URL, do not redistribute page text as open data without review",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Source page: Belfast City Council. Use URL and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3284,33 +3320,33 @@
             "licence": "Belfast Health and Social Care Trust public document terms apply; factual metadata and URL only.",
             "licence_url": "https://belfasttrust.hscni.net/download/27/annual-reports/19895/belfast-trust-annual-report-23-24.pdf",
             "attribution_text": "Attribute Belfast Health and Social Care Trust.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
-            "title": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
-            "publisher": "Department of Education, Northern Ireland",
-            "source_family": "education building ",
-            "licence": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department of Education, Northern Ireland.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_city_council_minutes_2008_2015",
+            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+            "publisher": "Belfast City Council",
+            "source_family": "civic_planning_economy_utilities",
+            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastcity.gov.uk/copyright",
+            "attribution_text": "Attribute Belfast City Council.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "de-colaiste-feirste-work-progress-2016",
-            "title": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
-            "publisher": "Department of Education, Northern Ireland",
-            "source_family": "planning",
-            "licence": "Northern Ireland government page footer references Crown copyright and terms; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department of Education, Northern Ireland.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_met_history_2007",
+            "title": "Belfast Metropolitan College history page",
+            "publisher": "Belfast Metropolitan College",
+            "source_family": "civic_services",
+            "licence": "Belfast Metropolitan College copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastmet.ac.uk/about-us/history-of-the-college",
+            "attribution_text": "Attribute Belfast Metropolitan College.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3341,18 +3377,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 1520,
-        "compatible_event_count": 1520,
+        "event_count": 1529,
+        "compatible_event_count": 1529,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2009,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 1493,
+          "documented": 1502,
           "inferred": 27
         },
         "caveats": [
@@ -3370,15 +3406,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 18,
-          "source_backed_context_year_count": 2,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2009-2026",
-        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Meeting/report-specific publication.; Monthly decision-list publication."
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
+        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release.; Institutional history page; cadence set by publisher.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Meeting/report-specific publication."
       },
       "provenance": {
         "source_ids": [
@@ -3392,6 +3428,8 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-public-pages",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_met_history_2007",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
           "de-elmgrove-primary-first-sod-2021-round402",
@@ -3419,6 +3457,7 @@
           "libraries-ni-equality-progress-report-2023-24",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "qub_estates_completed",
           "round118-dfc-lisburn-road-library-upgrade-2016",
@@ -3436,6 +3475,8 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-public-pages",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_met_history_2007",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
           "de-elmgrove-primary-first-sod-2021-round402",
@@ -3463,6 +3504,7 @@
           "libraries-ni-equality-progress-report-2023-24",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "qub_estates_completed",
           "round118-dfc-lisburn-road-library-upgrade-2016",
@@ -3479,7 +3521,7 @@
             "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council for committee papers and DfC Historic Environment Division for underlying listing information where applicable.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3492,7 +3534,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3505,7 +3547,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3518,7 +3560,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3531,7 +3573,7 @@
             "licence": "Belfast City Council public PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3544,7 +3586,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council planning decisions list. Use URL, decision month, and application reference for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3557,7 +3599,7 @@
             "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3583,7 +3625,7 @@
             "licence": "Web page terms; cite as evidence URL, do not redistribute page text as open data without review",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Source page: Belfast City Council. Use URL and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3596,33 +3638,33 @@
             "licence": "Belfast Health and Social Care Trust public document terms apply; factual metadata and URL only.",
             "licence_url": "https://belfasttrust.hscni.net/download/27/annual-reports/19895/belfast-trust-annual-report-23-24.pdf",
             "attribution_text": "Attribute Belfast Health and Social Care Trust.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
-            "title": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
-            "publisher": "Department of Education, Northern Ireland",
-            "source_family": "education building ",
-            "licence": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department of Education, Northern Ireland.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_city_council_minutes_2008_2015",
+            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+            "publisher": "Belfast City Council",
+            "source_family": "civic_planning_economy_utilities",
+            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastcity.gov.uk/copyright",
+            "attribution_text": "Attribute Belfast City Council.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "de-colaiste-feirste-work-progress-2016",
-            "title": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
-            "publisher": "Department of Education, Northern Ireland",
-            "source_family": "planning",
-            "licence": "Northern Ireland government page footer references Crown copyright and terms; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department of Education, Northern Ireland.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_met_history_2007",
+            "title": "Belfast Metropolitan College history page",
+            "publisher": "Belfast Metropolitan College",
+            "source_family": "civic_services",
+            "licence": "Belfast Metropolitan College copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastmet.ac.uk/about-us/history-of-the-college",
+            "attribution_text": "Attribute Belfast Metropolitan College.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3653,18 +3695,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 1520,
-        "compatible_event_count": 1520,
+        "event_count": 1529,
+        "compatible_event_count": 1529,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2009,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 1493,
+          "documented": 1502,
           "inferred": 27
         },
         "caveats": [
@@ -3682,15 +3724,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 18,
-          "source_backed_context_year_count": 2,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2009-2026",
-        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Meeting/report-specific publication.; Monthly decision-list publication."
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
+        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release.; Institutional history page; cadence set by publisher.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Meeting/report-specific publication."
       },
       "provenance": {
         "source_ids": [
@@ -3704,6 +3746,8 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-public-pages",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_met_history_2007",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
           "de-elmgrove-primary-first-sod-2021-round402",
@@ -3731,6 +3775,7 @@
           "libraries-ni-equality-progress-report-2023-24",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "qub_estates_completed",
           "round118-dfc-lisburn-road-library-upgrade-2016",
@@ -3748,6 +3793,8 @@
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-city-council-public-pages",
           "belfast-trust-annual-report-2023-24",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_met_history_2007",
           "de-belfast-royal-academy-sep-site-contract-2015-round409",
           "de-colaiste-feirste-work-progress-2016",
           "de-elmgrove-primary-first-sod-2021-round402",
@@ -3775,6 +3822,7 @@
           "libraries-ni-equality-progress-report-2023-24",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "qub_estates_completed",
           "round118-dfc-lisburn-road-library-upgrade-2016",
@@ -3791,7 +3839,7 @@
             "licence": "Belfast City Council copyright for committee papers; underlying DfC/HED statutory factual information may be Crown copyright / OGL where applicable",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council for committee papers and DfC Historic Environment Division for underlying listing information where applicable.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3804,7 +3852,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3817,7 +3865,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3830,7 +3878,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3843,7 +3891,7 @@
             "licence": "Belfast City Council public PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3856,7 +3904,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council planning decisions list. Use URL, decision month, and application reference for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3869,7 +3917,7 @@
             "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3895,7 +3943,7 @@
             "licence": "Web page terms; cite as evidence URL, do not redistribute page text as open data without review",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Source page: Belfast City Council. Use URL and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3908,33 +3956,33 @@
             "licence": "Belfast Health and Social Care Trust public document terms apply; factual metadata and URL only.",
             "licence_url": "https://belfasttrust.hscni.net/download/27/annual-reports/19895/belfast-trust-annual-report-23-24.pdf",
             "attribution_text": "Attribute Belfast Health and Social Care Trust.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "de-belfast-royal-academy-sep-site-contract-2015-round409",
-            "title": "O'Dowd visits the site of GBP4.2million project at Belfast Royal Academy",
-            "publisher": "Department of Education, Northern Ireland",
-            "source_family": "education building ",
-            "licence": "Crown copyright / Open Government Licence v3.0 unless otherwise stated",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department of Education, Northern Ireland.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_city_council_minutes_2008_2015",
+            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+            "publisher": "Belfast City Council",
+            "source_family": "civic_planning_economy_utilities",
+            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastcity.gov.uk/copyright",
+            "attribution_text": "Attribute Belfast City Council.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "de-colaiste-feirste-work-progress-2016",
-            "title": "Minister Weir views GBP15.5million work at Colaiste Feirste, Belfast",
-            "publisher": "Department of Education, Northern Ireland",
-            "source_family": "planning",
-            "licence": "Northern Ireland government page footer references Crown copyright and terms; this artifact records factual metadata, attribution, and source URL only, with no images or long text reproduced.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department of Education, Northern Ireland.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_met_history_2007",
+            "title": "Belfast Metropolitan College history page",
+            "publisher": "Belfast Metropolitan College",
+            "source_family": "civic_services",
+            "licence": "Belfast Metropolitan College copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastmet.ac.uk/about-us/history-of-the-college",
+            "attribution_text": "Attribute Belfast Metropolitan College.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3965,18 +4013,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2038,
-        "compatible_event_count": 2038,
+        "event_count": 2049,
+        "compatible_event_count": 2049,
         "review_required_event_count": 0,
-        "source_count": 33,
-        "compatible_source_count": 33,
+        "source_count": 38,
+        "compatible_source_count": 38,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2029,
+          "documented": 2040,
           "inferred": 9
         },
         "caveats": [
@@ -3994,15 +4042,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 13,
-          "source_backed_context_year_count": 7,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2008-2026",
-        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Live/current application list.; Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.; News page / announcement-specific; Not stated; appears maintained as an estates portfolio page."
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
+        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Institutional history page; cadence set by publisher.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Live/current application list.; Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.; News page / announcement-specific"
       },
       "provenance": {
         "source_ids": [
@@ -4017,7 +4065,11 @@
           "belfast-architecture-public-pages",
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-harbour-clarendon-wharf-masterplan-round214",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
+          "belfast_met_history_2007",
           "brcd-project-pages-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-planning-statistics-2024-25-round477",
@@ -4035,6 +4087,7 @@
           "dfi-planning-statistics-2024-25-round587",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4052,7 +4105,11 @@
           "belfast-architecture-public-pages",
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-harbour-clarendon-wharf-masterplan-round214",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
+          "belfast_met_history_2007",
           "brcd-project-pages-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-planning-statistics-2024-25-round477",
@@ -4070,6 +4127,7 @@
           "dfi-planning-statistics-2024-25-round587",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4085,7 +4143,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4098,7 +4156,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4111,7 +4169,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4124,7 +4182,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; map viewers include OSNI/LPS restrictions and must not be redistributed without separate review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4137,7 +4195,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4150,7 +4208,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4163,7 +4221,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4176,7 +4234,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4189,7 +4247,7 @@
             "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4215,20 +4273,20 @@
             "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
             "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
             "attribution_text": "Attribute Belfast Harbour Commissioners.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "brcd-project-pages-round124",
-            "title": "Belfast Region City Deal official project and news pages",
-            "publisher": "Belfast Region City Deal",
-            "source_family": "planning",
-            "licence": "BRCD website reuse terms were not fully audited in this pass. Store factual metadata and links only until licensing is confirmed.",
-            "licence_url": "https://belfastregioncitydeal.co.uk/",
-            "attribution_text": "Attribute Belfast Region City Deal.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_city_council_minutes_2008_2015",
+            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+            "publisher": "Belfast City Council",
+            "source_family": "civic_planning_economy_utilities",
+            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastcity.gov.uk/copyright",
+            "attribution_text": "Attribute Belfast City Council.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4259,18 +4317,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2038,
-        "compatible_event_count": 2038,
+        "event_count": 2049,
+        "compatible_event_count": 2049,
         "review_required_event_count": 0,
-        "source_count": 33,
-        "compatible_source_count": 33,
+        "source_count": 38,
+        "compatible_source_count": 38,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2029,
+          "documented": 2040,
           "inferred": 9
         },
         "caveats": [
@@ -4288,15 +4346,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 13,
-          "source_backed_context_year_count": 7,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2008-2026",
-        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Live/current application list.; Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.; News page / announcement-specific; Not stated; appears maintained as an estates portfolio page."
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
+        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Institutional history page; cadence set by publisher.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Live/current application list.; Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.; News page / announcement-specific"
       },
       "provenance": {
         "source_ids": [
@@ -4311,7 +4369,11 @@
           "belfast-architecture-public-pages",
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-harbour-clarendon-wharf-masterplan-round214",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
+          "belfast_met_history_2007",
           "brcd-project-pages-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-planning-statistics-2024-25-round477",
@@ -4329,6 +4391,7 @@
           "dfi-planning-statistics-2024-25-round587",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4346,7 +4409,11 @@
           "belfast-architecture-public-pages",
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-harbour-clarendon-wharf-masterplan-round214",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
+          "belfast_met_history_2007",
           "brcd-project-pages-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-planning-statistics-2024-25-round477",
@@ -4364,6 +4431,7 @@
           "dfi-planning-statistics-2024-25-round587",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4379,7 +4447,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4392,7 +4460,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4405,7 +4473,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4418,7 +4486,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; map viewers include OSNI/LPS restrictions and must not be redistributed without separate review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4431,7 +4499,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4444,7 +4512,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4457,7 +4525,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4470,7 +4538,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4483,7 +4551,7 @@
             "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4509,20 +4577,20 @@
             "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
             "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
             "attribution_text": "Attribute Belfast Harbour Commissioners.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "brcd-project-pages-round124",
-            "title": "Belfast Region City Deal official project and news pages",
-            "publisher": "Belfast Region City Deal",
-            "source_family": "planning",
-            "licence": "BRCD website reuse terms were not fully audited in this pass. Store factual metadata and links only until licensing is confirmed.",
-            "licence_url": "https://belfastregioncitydeal.co.uk/",
-            "attribution_text": "Attribute Belfast Region City Deal.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_city_council_minutes_2008_2015",
+            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+            "publisher": "Belfast City Council",
+            "source_family": "civic_planning_economy_utilities",
+            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastcity.gov.uk/copyright",
+            "attribution_text": "Attribute Belfast City Council.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4553,18 +4621,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2038,
-        "compatible_event_count": 2038,
+        "event_count": 2049,
+        "compatible_event_count": 2049,
         "review_required_event_count": 0,
-        "source_count": 33,
-        "compatible_source_count": 33,
+        "source_count": 38,
+        "compatible_source_count": 38,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2008,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2029,
+          "documented": 2040,
           "inferred": 9
         },
         "caveats": [
@@ -4582,15 +4650,15 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 13,
-          "source_backed_context_year_count": 7,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2008-2026",
-        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Live/current application list.; Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.; News page / announcement-specific; Not stated; appears maintained as an estates portfolio page."
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
+        "update_cadence": "Committee briefing/list publication; Continuous community edits; extract currency depends on retrieval timestamp.; Council current-applications page; content changes as applications open and close for comment.; Institutional history page; cadence set by publisher.; Live public register; records can change as applications move from consultation to decision, appeal, amendment or expiry.; Live/current application list.; Meeting-by-meeting publication; historical pages can be amended or republished by Democratic Services.; News page / announcement-specific"
       },
       "provenance": {
         "source_ids": [
@@ -4605,7 +4673,11 @@
           "belfast-architecture-public-pages",
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-harbour-clarendon-wharf-masterplan-round214",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
+          "belfast_met_history_2007",
           "brcd-project-pages-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-planning-statistics-2024-25-round477",
@@ -4623,6 +4695,7 @@
           "dfi-planning-statistics-2024-25-round587",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4640,7 +4713,11 @@
           "belfast-architecture-public-pages",
           "belfast-city-council-current-planning-applications-2026-05-15-22",
           "belfast-harbour-clarendon-wharf-masterplan-round214",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
+          "belfast_met_history_2007",
           "brcd-project-pages-round124",
+          "dfc_westside_masterplan_2009",
           "dfe-north-belfast-business-centre-investment-2026-round368",
           "dfe-ulster-virtual-production-studio-launch-2022",
           "dfi-planning-statistics-2024-25-round477",
@@ -4658,6 +4735,7 @@
           "dfi-planning-statistics-2024-25-round587",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_laganside_dissolution_2007",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4673,7 +4751,7 @@
             "licence": "Belfast City Council copyright; factual metadata and source URLs only until fuller reuse terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Source page: Belfast City Council current planning applications. Use URL, application reference, and access date for citation.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4686,7 +4764,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4699,7 +4777,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4712,7 +4790,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; map viewers include OSNI/LPS restrictions and must not be redistributed without separate review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4725,7 +4803,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4738,7 +4816,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4751,7 +4829,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4764,7 +4842,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4777,7 +4855,7 @@
             "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
             "licence_url": "https://www.belfastcity.gov.uk/",
             "attribution_text": "Attribute the named publisher in each milestone event and preserve the evidence URL.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4803,20 +4881,20 @@
             "licence": "Belfast Harbour website copyright/terms apply; factual metadata and source URLs are retained for review, while images, maps, logos and third-party content must not be redistributed without rights review.",
             "licence_url": "https://www.belfast-harbour.co.uk/news/belfast-harbour-announces-residential-masterplan-for-clarendon-wharf/",
             "attribution_text": "Attribute Belfast Harbour Commissioners.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "brcd-project-pages-round124",
-            "title": "Belfast Region City Deal official project and news pages",
-            "publisher": "Belfast Region City Deal",
-            "source_family": "planning",
-            "licence": "BRCD website reuse terms were not fully audited in this pass. Store factual metadata and links only until licensing is confirmed.",
-            "licence_url": "https://belfastregioncitydeal.co.uk/",
-            "attribution_text": "Attribute Belfast Region City Deal.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "source_id": "belfast_city_council_minutes_2008_2015",
+            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+            "publisher": "Belfast City Council",
+            "source_family": "civic_planning_economy_utilities",
+            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.belfastcity.gov.uk/copyright",
+            "attribution_text": "Attribute Belfast City Council.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4847,18 +4925,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 14478,
-        "compatible_event_count": 14478,
+        "event_count": 14487,
+        "compatible_event_count": 14487,
         "review_required_event_count": 0,
-        "source_count": 70,
-        "compatible_source_count": 70,
+        "source_count": 73,
+        "compatible_source_count": 73,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2009,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 13570,
+          "documented": 13579,
           "inferred": 908
         },
         "caveats": [
@@ -4876,14 +4954,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 16,
-          "source_backed_context_year_count": 4,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2009-2026",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Consultation/project page, status-specific; Continuous community edits; extract currency depends on retrieval timestamp.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release."
       },
       "provenance": {
@@ -4911,6 +4989,8 @@
           "belfast-harbour-d3-works-commence-round214",
           "belfast-harbour-draft-masterplan-consultation-round214",
           "belfast-harbour-marina-expansion-notice-2025-round402",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
           "dfc-belfast-regeneration-news-round201",
           "dfc-harni-belfast",
           "dfc-hed-buildings",
@@ -4954,6 +5034,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -4983,6 +5064,8 @@
           "belfast-harbour-d3-works-commence-round214",
           "belfast-harbour-draft-masterplan-consultation-round214",
           "belfast-harbour-marina-expansion-notice-2025-round402",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
           "dfc-belfast-regeneration-news-round201",
           "dfc-harni-belfast",
           "dfc-hed-buildings",
@@ -5026,6 +5109,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -5041,7 +5125,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5054,7 +5138,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5067,7 +5151,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5080,7 +5164,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5093,7 +5177,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5106,7 +5190,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5119,7 +5203,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5132,7 +5216,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5145,7 +5229,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5158,7 +5242,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5171,7 +5255,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5184,7 +5268,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5215,18 +5299,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 14478,
-        "compatible_event_count": 14478,
+        "event_count": 14487,
+        "compatible_event_count": 14487,
         "review_required_event_count": 0,
-        "source_count": 70,
-        "compatible_source_count": 70,
+        "source_count": 73,
+        "compatible_source_count": 73,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2009,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 13570,
+          "documented": 13579,
           "inferred": 908
         },
         "caveats": [
@@ -5244,14 +5328,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 16,
-          "source_backed_context_year_count": 4,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2009-2026",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Consultation/project page, status-specific; Continuous community edits; extract currency depends on retrieval timestamp.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release."
       },
       "provenance": {
@@ -5279,6 +5363,8 @@
           "belfast-harbour-d3-works-commence-round214",
           "belfast-harbour-draft-masterplan-consultation-round214",
           "belfast-harbour-marina-expansion-notice-2025-round402",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
           "dfc-belfast-regeneration-news-round201",
           "dfc-harni-belfast",
           "dfc-hed-buildings",
@@ -5322,6 +5408,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -5351,6 +5438,8 @@
           "belfast-harbour-d3-works-commence-round214",
           "belfast-harbour-draft-masterplan-consultation-round214",
           "belfast-harbour-marina-expansion-notice-2025-round402",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
           "dfc-belfast-regeneration-news-round201",
           "dfc-harni-belfast",
           "dfc-hed-buildings",
@@ -5394,6 +5483,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -5409,7 +5499,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5422,7 +5512,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5435,7 +5525,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5448,7 +5538,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5461,7 +5551,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5474,7 +5564,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5487,7 +5577,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5500,7 +5590,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5513,7 +5603,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5526,7 +5616,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5539,7 +5629,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5552,7 +5642,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5583,18 +5673,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 14478,
-        "compatible_event_count": 14478,
+        "event_count": 14487,
+        "compatible_event_count": 14487,
         "review_required_event_count": 0,
-        "source_count": 70,
-        "compatible_source_count": 70,
+        "source_count": 73,
+        "compatible_source_count": 73,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 2009,
+          "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 13570,
+          "documented": 13579,
           "inferred": 908
         },
         "caveats": [
@@ -5612,14 +5702,14 @@
           "required_year_count": 20,
           "visible_year_count": 20,
           "missing_visible_years": [],
-          "source_backed_record_year_count": 16,
-          "source_backed_context_year_count": 4,
+          "source_backed_record_year_count": 20,
+          "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23T18:33:15Z",
-        "source_coverage_period": "2009-2026",
+        "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+        "source_coverage_period": "2007-2026",
         "update_cadence": "Application-specific publication; Application-specific publication.; Committee briefing/list publication; Consultation page, status-specific; Consultation/project page, status-specific; Continuous community edits; extract currency depends on retrieval timestamp.; Departmental news page publication; HED spatial service update cadence; verify current service metadata before each release."
       },
       "provenance": {
@@ -5647,6 +5737,8 @@
           "belfast-harbour-d3-works-commence-round214",
           "belfast-harbour-draft-masterplan-consultation-round214",
           "belfast-harbour-marina-expansion-notice-2025-round402",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
           "dfc-belfast-regeneration-news-round201",
           "dfc-harni-belfast",
           "dfc-hed-buildings",
@@ -5690,6 +5782,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -5719,6 +5812,8 @@
           "belfast-harbour-d3-works-commence-round214",
           "belfast-harbour-draft-masterplan-consultation-round214",
           "belfast-harbour-marina-expansion-notice-2025-round402",
+          "belfast_city_council_minutes_2008_2015",
+          "belfast_harbour_offshore_wind_terminal_2013",
           "dfc-belfast-regeneration-news-round201",
           "dfc-harni-belfast",
           "dfc-hed-buildings",
@@ -5762,6 +5857,7 @@
           "ni-executive-dfi-casement-round124",
           "ni-planning-portal-public-register",
           "ni-planning-statistics",
+          "ni_water_news_2012_belfast_hydrant_abuse",
           "osm-overpass",
           "pacni-appeals-search-round124",
           "qub_estates_completed",
@@ -5777,7 +5873,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5790,7 +5886,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5803,7 +5899,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5816,7 +5912,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5829,7 +5925,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and embedded third-party material before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5842,7 +5938,7 @@
             "licence": "Belfast City Council copyright; factual planning metadata and source URLs only until fuller reuse terms are reviewed.",
             "licence_url": "https://www.belfastcity.gov.uk/Copyright",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5855,7 +5951,7 @@
             "licence": "Belfast City Council public committee PDF; council website copyright and terms apply. This scratch pack stores factual row metadata, short paraphrases and source links only.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5868,7 +5964,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5881,7 +5977,7 @@
             "licence": "UK Open Government Licence (OGL) where applicable to public-sector information; verify page-specific copyright and third-party media before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5894,7 +5990,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; verify page-specific copyright and third-party attachments before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5907,7 +6003,7 @@
             "licence": "Belfast City Council public committee pages and PDFs are subject to Belfast City Council website copyright/terms. This pack stores factual metadata, short paraphrases and source URLs only; do not republish report/PDF text without reuse review.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -5920,7 +6016,7 @@
             "licence": "UK Open Government Licence v3.0 where applicable to public-sector information; Belfast City Council website terms, images, maps, logos and embedded third-party material require source-level rights review before production import.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Belfast City Council.",
-            "accessed_at": "2026-05-23T18:33:15Z",
+            "accessed_at": "2026-05-27T18:19:04Z",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false

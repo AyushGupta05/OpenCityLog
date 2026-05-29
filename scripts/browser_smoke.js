@@ -300,16 +300,11 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
     await assertAspectCopy(page, check.id, check);
   }
 
-  const gapWarningChecks = [
-    { year: 2007, aspect: "planning-delta", patterns: [/Built Change/i, /coverage-context|context only/i] },
-    { year: 2007, aspect: "civic-demand", patterns: [/Service Demand/i, /coverage-context|context only/i] },
-    { year: 2015, aspect: "economy-gravity", patterns: [/Economic Pull/i, /coverage-context|context only/i] },
-    { year: 2013, aspect: "utilities-capacity", patterns: [/Utility Capacity/i, /coverage-context|context only/i] },
-  ];
-  for (const check of gapWarningChecks) {
-    await assertGapWarningForAspect(page, check);
-  }
   const coveredWarningChecks = [
+    { year: 2007, aspect: "planning-delta" },
+    { year: 2007, aspect: "civic-demand" },
+    { year: 2015, aspect: "economy-gravity" },
+    { year: 2013, aspect: "utilities-capacity" },
     { year: 2024, aspect: "planning-delta" },
     { year: 2024, aspect: "civic-demand" },
     { year: 2024, aspect: "economy-gravity" },

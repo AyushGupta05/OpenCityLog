@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-23T18:33:34Z",
+  "generated_at": "2026-05-27T18:19:06Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 33147,
-      "source_count": 236,
+      "event_count": 33159,
+      "source_count": 242,
       "availability_status": "mvp_partial",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/belfast/city.json",
@@ -27,8 +27,8 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 224001,
-      "source_count": 292,
+      "event_count": 224003,
+      "source_count": 294,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/london/city.json",
@@ -73,21 +73,21 @@
     "lens_manifest_schema": "schemas/lens_manifest.schema.json",
     "lens_year_coverage_schema": "schemas/lens_year_coverage.schema.json"
   },
+  "lens_manifest_path": "web/data/city-atlas/lens-manifest.json",
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-23T18:38:00Z",
+  "coverage_report_generated_at": "2026-05-27T18:21:59Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 352009,
-    "total_unique_events": 352009,
+    "total_events": 352023,
+    "total_unique_events": 352023,
     "duplicate_event_id_count": 0,
-    "active_source_count": 477,
+    "active_source_count": 485,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2467,
+    "source_year_layer_row_count": 2481,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
       "No unsupported causal, predictive, or synthetic coverage claims are added by this report."
     ]
-  },
-  "lens_manifest_path": "web/data/city-atlas/lens-manifest.json"
+  }
 }

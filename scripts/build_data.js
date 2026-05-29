@@ -6,6 +6,7 @@ const EVENT_SCHEMA_VERSION = "1.0.0";
 const ATLAS_SCHEMA_VERSION = "1.0.0";
 const BELFAST_AIR_QUALITY_SOURCE_ID = "ni-air-belfast-centre-hourly-2021-2024";
 const BELFAST_AIR_QUALITY_CSV = "belfast_air_quality.csv";
+const SUPPLEMENTAL_LENS_GAP_PACKAGE = "data/manual_drops/lens_gap_events/lens_gap_events_2007_2015.json";
 const BELFAST_CENTRE_STATION = {
   code: "BEL2",
   name: "Belfast Centre",
@@ -270,11 +271,40 @@ function normalizeSourceForArtifact(source, generatedAt) {
   };
 }
 
-function sourceRegistryForCity(registry, cityId, generatedAt) {
-  return registry.sources
+function loadSupplementalLensGapPackage(root) {
+  const absolutePath = resolve(root, SUPPLEMENTAL_LENS_GAP_PACKAGE);
+  if (!fs.existsSync(absolutePath)) return { sources: [], events: [] };
+  return readJson(absolutePath);
+}
+
+function supplementalSourcesForCity(root, cityId, generatedAt) {
+  return (loadSupplementalLensGapPackage(root).sources || [])
     .filter((source) => sourceAppliesToCity(source, cityId))
-    .map((source) => normalizeSourceForArtifact(source, generatedAt))
-    .sort((a, b) => a.source_id.localeCompare(b.source_id));
+    .map((source) => normalizeSourceForArtifact({
+      ...source,
+      caveats: Array.isArray(source.caveats)
+        ? source.caveats
+        : [source.limitations || "Supplemental source entry; inspect the cited publisher record before analytical reuse."],
+    }, generatedAt));
+}
+
+function dedupeSourcesById(sources) {
+  const byId = new Map();
+  for (const source of sources) {
+    if (!source?.source_id || byId.has(source.source_id)) continue;
+    byId.set(source.source_id, source);
+  }
+  return [...byId.values()].sort((a, b) => a.source_id.localeCompare(b.source_id));
+}
+
+function sourceRegistryForCity(registry, cityId, generatedAt, root = path.resolve(__dirname, "..")) {
+  const registrySources = registry.sources
+    .filter((source) => sourceAppliesToCity(source, cityId))
+    .map((source) => normalizeSourceForArtifact(source, generatedAt));
+  return dedupeSourcesById([
+    ...registrySources,
+    ...supplementalSourcesForCity(root, cityId, generatedAt),
+  ]);
 }
 
 function yearRange(start, end) {
@@ -536,6 +566,120 @@ function loadBelfastAirQualityEvents(root, csvRelativePath = BELFAST_AIR_QUALITY
   return summarizeBelfastAirQualityRows(rows).map((summary) =>
     eventForBelfastAirQualitySummary(summary, toPosix(csvRelativePath)),
   );
+}
+
+function yearFromSupplementalDate(value, fallback = null) {
+  const match = String(value || "").match(/(16|17|18|19|20)\d{2}/);
+  if (match) return Number(match[0]);
+  return Number.isInteger(fallback) ? fallback : null;
+}
+
+function datePrecisionForSupplementalEvent(item, effectiveDate, effectiveDateRange) {
+  if (item.date_precision) return String(item.date_precision);
+  if (effectiveDateRange) return "range";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(String(effectiveDate || ""))) return "day";
+  if (/^\d{4}-\d{2}$/.test(String(effectiveDate || ""))) return "month";
+  return "year";
+}
+
+function dateFieldsForSupplementalEvent(item) {
+  const start = item.date_start || item.date || item.effective_date || item.year;
+  const end = item.date_end || null;
+  const effectiveDate = start === undefined || start === null ? null : String(start);
+  const effectiveDateRange = end
+    ? { start: effectiveDate, end: String(end) }
+    : (item.effective_date_range && typeof item.effective_date_range === "object" ? item.effective_date_range : null);
+  return {
+    effective_date: effectiveDate,
+    effective_date_range: effectiveDateRange,
+    date_precision: datePrecisionForSupplementalEvent(item, effectiveDate, effectiveDateRange),
+    source_date_field: item.source_date_field || "source supplied date",
+    year: Number(item.year) || yearFromSupplementalDate(effectiveDate, yearFromSupplementalDate(effectiveDateRange?.start)),
+  };
+}
+
+function geometryForSupplementalEvent(item) {
+  const coordinates = Array.isArray(item.coordinates)
+    ? item.coordinates
+    : [Number(item.longitude ?? item.lng), Number(item.latitude ?? item.lat)];
+  return validPoint(coordinates)
+    ? {
+        type: "Point",
+        coordinates: [Number(coordinates[0].toFixed(6)), Number(coordinates[1].toFixed(6))],
+      }
+    : null;
+}
+
+function evidenceForSupplementalEvent(item, sourceIds) {
+  const url = item.source_url || null;
+  return sourceIds.map((sourceId) => ({
+    source_id: sourceId,
+    label: item.source_name || sourceId,
+    kind: url ? "source_url" : "source_record",
+    url,
+    file_path: null,
+    record_id: item.source_record_id || item.event_id || null,
+    accessed_at: item.source_retrieved_at || null,
+  }));
+}
+
+function normalizeSupplementalLensGapEvent(item, sourcePath) {
+  const dates = dateFieldsForSupplementalEvent(item);
+  const sourceIds = Array.isArray(item.source_ids) ? item.source_ids.map(String).filter(Boolean) : [];
+  if (!Number.isInteger(dates.year)) {
+    throw new Error(`Supplemental lens-gap event ${item.event_id || item.title || "unknown"} is missing a usable year.`);
+  }
+  if (!sourceIds.length) {
+    throw new Error(`Supplemental lens-gap event ${item.event_id || item.title || "unknown"} is missing source_ids.`);
+  }
+  const geometry = geometryForSupplementalEvent(item);
+  const title = String(item.title || "Source-backed city change record");
+  const area = String(item.area || item.location || item.affected_area || "Belfast");
+  return {
+    schema_version: EVENT_SCHEMA_VERSION,
+    city_id: "belfast",
+    record_kind: "event",
+    event_id: String(item.event_id),
+    title,
+    short_description: sentenceLimit(item.short_description || item.summary || item.observed_change || title),
+    year: dates.year,
+    effective_date: dates.effective_date,
+    effective_date_range: dates.effective_date_range,
+    date_precision: dates.date_precision,
+    source_date_field: dates.source_date_field,
+    category: item.atlas_category || item.category || "observed_change",
+    lens: item.atlas_lens || item.lens || "city_change",
+    geometry,
+    affected_area: { label: area },
+    source_ids: sourceIds,
+    evidence: evidenceForSupplementalEvent(item, sourceIds),
+    confidence: item.confidence || "documented",
+    affected_signals: Array.isArray(item.affected_signals) ? item.affected_signals.map(String).sort() : [],
+    explanation: String(item.observed_change || item.summary || title),
+    caveats: [
+      String(item.limitations || "Source-backed supplemental event; inspect cited source before reuse."),
+      "No before/after outcome metric is inferred unless a source adapter supplies observed measurements.",
+    ],
+    provenance: {
+      transform: "scripts/build_data.js#normalizeSupplementalLensGapEvent",
+      source_path: sourcePath,
+      source_record_id: item.source_record_id || item.event_id || null,
+      source_url: item.source_url || null,
+      source_retrieved_at: item.source_retrieved_at || null,
+      source_dataset_id: item.source_dataset_id || sourceIds[0],
+      source_basis: item.source_name || null,
+      source_date_field: dates.source_date_field,
+      geometry_source: item.geometry_source || "Curated supplemental point geometry.",
+      geometry_precision: item.geometry_precision || "Approximate point for atlas navigation; inspect source for spatial details.",
+    },
+  };
+}
+
+function loadSupplementalLensGapEvents(root, cityId) {
+  const sourcePath = toPosix(SUPPLEMENTAL_LENS_GAP_PACKAGE);
+  return (loadSupplementalLensGapPackage(root).events || [])
+    .filter((event) => event.city_id === cityId)
+    .map((event) => normalizeSupplementalLensGapEvent(event, sourcePath));
 }
 
 function geometryForLegacyEvent(event) {
@@ -856,21 +1000,31 @@ function loadBelfastLegacyEvents(root, legacyCatalogPath) {
 function loadBelfastEvents(root, legacyCatalogPath) {
   const legacy = loadBelfastLegacyEvents(root, legacyCatalogPath);
   const airQualityEvents = loadBelfastAirQualityEvents(root);
-  const events = [...legacy.events, ...airQualityEvents].sort(
+  const supplementalEvents = loadSupplementalLensGapEvents(root, "belfast");
+  const events = [...legacy.events, ...airQualityEvents, ...supplementalEvents].sort(
     (a, b) => a.year - b.year || a.event_id.localeCompare(b.event_id),
   );
   const migration = legacy.migration
     ? {
         ...legacy.migration,
-        source_event_count: (legacy.migration.source_event_count || legacy.events.length) + airQualityEvents.length,
+        source_event_count: (legacy.migration.source_event_count || legacy.events.length) + airQualityEvents.length + supplementalEvents.length,
         normalized_event_count: events.length,
-        additional_source_paths: airQualityEvents.length ? [BELFAST_AIR_QUALITY_CSV] : [],
+        additional_source_paths: [
+          ...(airQualityEvents.length ? [BELFAST_AIR_QUALITY_CSV] : []),
+          ...(supplementalEvents.length ? [SUPPLEMENTAL_LENS_GAP_PACKAGE] : []),
+        ],
         notes: [
           ...(legacy.migration.notes || []),
           ...(airQualityEvents.length
             ? [
                 "Local Belfast Centre hourly air-quality CSV rows are annualized into station-level environment monitoring events.",
                 "Air-quality observations are monitoring context from one station, not citywide exposure or outcome evidence.",
+              ]
+            : []),
+          ...(supplementalEvents.length
+            ? [
+                "Supplemental lens-gap events are curated source-backed milestones for 2007-2026 lens-year rows that previously had only coverage context.",
+                "Supplemental events are administrative, facility, utility, or regeneration records; they are not completeness, capacity, causation, or outcome claims.",
               ]
             : []),
         ],
@@ -1102,7 +1256,7 @@ function buildAtlas(args) {
       root,
       outputDir,
       city,
-      sourceRegistryForCity(registry, city.city_id, args.generatedAt),
+      sourceRegistryForCity(registry, city.city_id, args.generatedAt, root),
       args.legacyCatalog,
       args.generatedAt,
     ),

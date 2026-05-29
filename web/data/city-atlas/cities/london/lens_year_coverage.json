@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-27T02:12:17Z",
+  "generated_at": "2026-05-27T18:21:37Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -14,8 +14,7 @@
   "required_row_count": 300,
   "row_count": 300,
   "status_counts": {
-    "source_backed_records": 294,
-    "source_backed_context_no_year_records": 6
+    "source_backed_records": 300
   },
   "rows": [
     {
@@ -29,25 +28,27 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1206,
-      "compatible_event_count": 1206,
+      "event_count": 1207,
+      "compatible_event_count": 1207,
       "detail_feature_count": 846,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1206,
+      "headline_count_included": 1207,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1206
+        "documented": 1207
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-planning-data-tree-preservation-zones",
-        "lon-extra-uk-house-price-index"
+        "lon-extra-uk-house-price-index",
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "compatible_source_ids": [
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-planning-data-tree-preservation-zones",
-        "lon-extra-uk-house-price-index"
+        "lon-extra-uk-house-price-index",
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "evidence_basis": "Source-backed Planning Activity event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -1462,25 +1463,27 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1206,
-      "compatible_event_count": 1206,
+      "event_count": 1207,
+      "compatible_event_count": 1207,
       "detail_feature_count": 846,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1206,
+      "headline_count_included": 1207,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1206
+        "documented": 1207
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-planning-data-tree-preservation-zones",
-        "lon-extra-uk-house-price-index"
+        "lon-extra-uk-house-price-index",
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "compatible_source_ids": [
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-planning-data-tree-preservation-zones",
-        "lon-extra-uk-house-price-index"
+        "lon-extra-uk-house-price-index",
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "evidence_basis": "Source-backed Development Sites event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -2895,25 +2898,27 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1206,
-      "compatible_event_count": 1206,
+      "event_count": 1207,
+      "compatible_event_count": 1207,
       "detail_feature_count": 846,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1206,
+      "headline_count_included": 1207,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1206
+        "documented": 1207
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-planning-data-tree-preservation-zones",
-        "lon-extra-uk-house-price-index"
+        "lon-extra-uk-house-price-index",
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "compatible_source_ids": [
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-planning-data-tree-preservation-zones",
-        "lon-extra-uk-house-price-index"
+        "lon-extra-uk-house-price-index",
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "evidence_basis": "Source-backed Built Change event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -7807,26 +7812,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 3,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
+      "source_count": 1,
       "source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "wembley_stadium_history_2007"
       ],
       "compatible_source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "wembley_stadium_history_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -7835,9 +7838,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Public Service Gaps records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -8976,26 +8977,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 3,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
+      "source_count": 1,
       "source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "wembley_stadium_history_2007"
       ],
       "compatible_source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "wembley_stadium_history_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -9004,9 +9003,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Service Catchments records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -10145,26 +10142,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 3,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
+      "source_count": 1,
       "source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "wembley_stadium_history_2007"
       ],
       "compatible_source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "wembley_stadium_history_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -10173,9 +10168,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Service Demand records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -14524,26 +14517,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
-      "source_count": 3,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
+      "source_count": 1,
       "source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "compatible_source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -14552,9 +14543,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Capacity records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -15502,26 +15491,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
-      "source_count": 3,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
+      "source_count": 1,
       "source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "compatible_source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -15530,9 +15517,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Network Resilience records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -16480,26 +16465,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
-      "source_count": 3,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
+      "source_count": 1,
       "source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
       "compatible_source_ids": [
-        "dft-road-safety-collisions",
-        "police-data-api",
-        "police-data-stop-search"
+        "uk_parliament_hansard_thames_tideway_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -16508,9 +16491,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Works records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,

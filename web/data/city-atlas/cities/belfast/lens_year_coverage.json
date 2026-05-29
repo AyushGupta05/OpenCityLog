@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-27T02:12:17Z",
+  "generated_at": "2026-05-27T18:21:37Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -14,8 +14,7 @@
   "required_row_count": 300,
   "row_count": 300,
   "status_counts": {
-    "source_backed_context_no_year_records": 42,
-    "source_backed_records": 258
+    "source_backed_records": 300
   },
   "rows": [
     {
@@ -28,22 +27,26 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 1,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_laganside_dissolution_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Planning Activity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -52,9 +55,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Planning Activity records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -74,23 +75,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 9,
-      "compatible_event_count": 9,
+      "event_count": 11,
+      "compatible_event_count": 11,
       "detail_feature_count": 9,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 9,
+      "headline_count_included": 11,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 9
+        "documented": 11
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings-database-round296"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings-database-round296"
       ],
@@ -123,26 +126,28 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 23,
-      "compatible_event_count": 23,
-      "detail_feature_count": 21,
+      "event_count": 24,
+      "compatible_event_count": 24,
+      "detail_feature_count": 22,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 23,
+      "headline_count_included": 24,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 23
+        "documented": 24
       },
-      "source_count": 4,
+      "source_count": 5,
       "source_ids": [
         "belfast-architecture-public-pages",
         "dfc-belfast-urban-regeneration-frameworks-round201",
         "dfc-harni-belfast",
+        "dfc_westside_masterplan_2009",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
         "dfc-belfast-urban-regeneration-frameworks-round201",
         "dfc-harni-belfast",
+        "dfc_westside_masterplan_2009",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Planning Activity event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -174,22 +179,24 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 12,
-      "compatible_event_count": 12,
+      "event_count": 13,
+      "compatible_event_count": 13,
       "detail_feature_count": 12,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 12,
+      "headline_count_included": 13,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 12
+        "documented": 13
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Planning Activity event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -268,21 +275,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 8,
-      "compatible_event_count": 8,
+      "event_count": 9,
+      "compatible_event_count": 9,
       "detail_feature_count": 8,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 8,
+      "headline_count_included": 9,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 8
+        "documented": 9
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Planning Activity event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -364,25 +373,27 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 14,
-      "compatible_event_count": 14,
-      "detail_feature_count": 14,
+      "event_count": 15,
+      "compatible_event_count": 15,
+      "detail_feature_count": 15,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 14,
+      "headline_count_included": 15,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 14
+        "documented": 15
       },
-      "source_count": 4,
+      "source_count": 5,
       "source_ids": [
         "bcc-minutes-pip-2014-2015-round183",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings"
       ],
       "compatible_source_ids": [
         "bcc-minutes-pip-2014-2015-round183",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings"
       ],
@@ -415,19 +426,20 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 23,
-      "compatible_event_count": 23,
+      "event_count": 24,
+      "compatible_event_count": 24,
       "detail_feature_count": 32,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 23,
+      "headline_count_included": 24,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 23
+        "documented": 24
       },
-      "source_count": 7,
+      "source_count": 8,
       "source_ids": [
         "bcc-democratic-services-minutes-round177",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "dfc-belfast-streets-ahead-phase-3-news-round183",
         "dfc-belfast-streets-ahead-phase-3-round183",
@@ -437,6 +449,7 @@
       "compatible_source_ids": [
         "bcc-democratic-services-minutes-round177",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "dfc-belfast-streets-ahead-phase-3-news-round183",
         "dfc-belfast-streets-ahead-phase-3-round183",
@@ -1521,22 +1534,26 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 1,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_laganside_dissolution_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Development Sites event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -1545,9 +1562,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Development Sites records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -1567,23 +1582,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 9,
-      "compatible_event_count": 9,
+      "event_count": 11,
+      "compatible_event_count": 11,
       "detail_feature_count": 9,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 9,
+      "headline_count_included": 11,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 9
+        "documented": 11
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings-database-round296"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings-database-round296"
       ],
@@ -1616,26 +1633,28 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 23,
-      "compatible_event_count": 23,
-      "detail_feature_count": 21,
+      "event_count": 24,
+      "compatible_event_count": 24,
+      "detail_feature_count": 22,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 23,
+      "headline_count_included": 24,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 23
+        "documented": 24
       },
-      "source_count": 4,
+      "source_count": 5,
       "source_ids": [
         "belfast-architecture-public-pages",
         "dfc-belfast-urban-regeneration-frameworks-round201",
         "dfc-harni-belfast",
+        "dfc_westside_masterplan_2009",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
         "dfc-belfast-urban-regeneration-frameworks-round201",
         "dfc-harni-belfast",
+        "dfc_westside_masterplan_2009",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Development Sites event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -1667,22 +1686,24 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 12,
-      "compatible_event_count": 12,
+      "event_count": 13,
+      "compatible_event_count": 13,
       "detail_feature_count": 12,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 12,
+      "headline_count_included": 13,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 12
+        "documented": 13
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Development Sites event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -1761,21 +1782,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 8,
-      "compatible_event_count": 8,
+      "event_count": 9,
+      "compatible_event_count": 9,
       "detail_feature_count": 8,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 8,
+      "headline_count_included": 9,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 8
+        "documented": 9
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Development Sites event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -1857,25 +1880,27 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 14,
-      "compatible_event_count": 14,
-      "detail_feature_count": 14,
+      "event_count": 15,
+      "compatible_event_count": 15,
+      "detail_feature_count": 15,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 14,
+      "headline_count_included": 15,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 14
+        "documented": 15
       },
-      "source_count": 4,
+      "source_count": 5,
       "source_ids": [
         "bcc-minutes-pip-2014-2015-round183",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings"
       ],
       "compatible_source_ids": [
         "bcc-minutes-pip-2014-2015-round183",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings"
       ],
@@ -1908,19 +1933,20 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 23,
-      "compatible_event_count": 23,
+      "event_count": 24,
+      "compatible_event_count": 24,
       "detail_feature_count": 32,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 23,
+      "headline_count_included": 24,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 23
+        "documented": 24
       },
-      "source_count": 7,
+      "source_count": 8,
       "source_ids": [
         "bcc-democratic-services-minutes-round177",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "dfc-belfast-streets-ahead-phase-3-news-round183",
         "dfc-belfast-streets-ahead-phase-3-round183",
@@ -1930,6 +1956,7 @@
       "compatible_source_ids": [
         "bcc-democratic-services-minutes-round177",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "dfc-belfast-streets-ahead-phase-3-news-round183",
         "dfc-belfast-streets-ahead-phase-3-round183",
@@ -3014,22 +3041,26 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 1,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_laganside_dissolution_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Built Change event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -3038,9 +3069,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Built Change records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -3060,23 +3089,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 9,
-      "compatible_event_count": 9,
+      "event_count": 11,
+      "compatible_event_count": 11,
       "detail_feature_count": 9,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 9,
+      "headline_count_included": 11,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 9
+        "documented": 11
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings-database-round296"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings-database-round296"
       ],
@@ -3109,26 +3140,28 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 23,
-      "compatible_event_count": 23,
-      "detail_feature_count": 21,
+      "event_count": 24,
+      "compatible_event_count": 24,
+      "detail_feature_count": 22,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 23,
+      "headline_count_included": 24,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 23
+        "documented": 24
       },
-      "source_count": 4,
+      "source_count": 5,
       "source_ids": [
         "belfast-architecture-public-pages",
         "dfc-belfast-urban-regeneration-frameworks-round201",
         "dfc-harni-belfast",
+        "dfc_westside_masterplan_2009",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
         "dfc-belfast-urban-regeneration-frameworks-round201",
         "dfc-harni-belfast",
+        "dfc_westside_masterplan_2009",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Built Change event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -3160,22 +3193,24 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 12,
-      "compatible_event_count": 12,
+      "event_count": 13,
+      "compatible_event_count": 13,
       "detail_feature_count": 12,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 12,
+      "headline_count_included": 13,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 12
+        "documented": 13
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Built Change event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -3254,21 +3289,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 8,
-      "compatible_event_count": 8,
+      "event_count": 9,
+      "compatible_event_count": 9,
       "detail_feature_count": 8,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 8,
+      "headline_count_included": 9,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 8
+        "documented": 9
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Built Change event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -3350,25 +3387,27 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 14,
-      "compatible_event_count": 14,
-      "detail_feature_count": 14,
+      "event_count": 15,
+      "compatible_event_count": 15,
+      "detail_feature_count": 15,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 14,
+      "headline_count_included": 15,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 14
+        "documented": 15
       },
-      "source_count": 4,
+      "source_count": 5,
       "source_ids": [
         "bcc-minutes-pip-2014-2015-round183",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings"
       ],
       "compatible_source_ids": [
         "bcc-minutes-pip-2014-2015-round183",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "dfc-harni-belfast",
         "dfc-hed-buildings"
       ],
@@ -3401,19 +3440,20 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 23,
-      "compatible_event_count": 23,
+      "event_count": 24,
+      "compatible_event_count": 24,
       "detail_feature_count": 32,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 23,
+      "headline_count_included": 24,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 23
+        "documented": 24
       },
-      "source_count": 7,
+      "source_count": 8,
       "source_ids": [
         "bcc-democratic-services-minutes-round177",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "dfc-belfast-streets-ahead-phase-3-news-round183",
         "dfc-belfast-streets-ahead-phase-3-round183",
@@ -3423,6 +3463,7 @@
       "compatible_source_ids": [
         "bcc-democratic-services-minutes-round177",
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "dfc-belfast-streets-ahead-phase-3-news-round183",
         "dfc-belfast-streets-ahead-phase-3-round183",
@@ -4749,23 +4790,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 231,
-      "compatible_event_count": 231,
+      "event_count": 232,
+      "compatible_event_count": 232,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 231,
+      "headline_count_included": 232,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2,
+        "documented": 3,
         "inferred": 229
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
       "evidence_basis": "Source-backed Access to Transport event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -4895,24 +4938,26 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 218,
-      "compatible_event_count": 218,
+      "event_count": 219,
+      "compatible_event_count": 219,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 218,
+      "headline_count_included": 219,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 6,
+        "documented": 7,
         "inferred": 212
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
@@ -5975,23 +6020,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 231,
-      "compatible_event_count": 231,
+      "event_count": 232,
+      "compatible_event_count": 232,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 231,
+      "headline_count_included": 232,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2,
+        "documented": 3,
         "inferred": 229
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
       "evidence_basis": "Source-backed Service Reliability event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -6121,24 +6168,26 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 218,
-      "compatible_event_count": 218,
+      "event_count": 219,
+      "compatible_event_count": 219,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 218,
+      "headline_count_included": 219,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 6,
+        "documented": 7,
         "inferred": 212
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
@@ -7201,23 +7250,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 231,
-      "compatible_event_count": 231,
+      "event_count": 232,
+      "compatible_event_count": 232,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 231,
+      "headline_count_included": 232,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2,
+        "documented": 3,
         "inferred": 229
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
       "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -7347,24 +7398,26 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 218,
-      "compatible_event_count": 218,
+      "event_count": 219,
+      "compatible_event_count": 219,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 218,
+      "headline_count_included": 219,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 6,
+        "documented": 7,
         "inferred": 212
       },
-      "source_count": 3,
+      "source_count": 4,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
@@ -8185,22 +8238,26 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -8209,9 +8266,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Public Service Gaps records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -8230,22 +8285,24 @@
       "year": 2008,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2008; source-backed coverage-context features in lens_detail_2008.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -8254,9 +8311,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Public Service Gaps records are currently ingested for 2008.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -8321,21 +8376,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 4,
-      "compatible_event_count": 4,
+      "event_count": 5,
+      "compatible_event_count": 5,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 4,
+      "headline_count_included": 5,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 4
+        "documented": 5
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -8411,21 +8468,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 3,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -8501,21 +8562,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
+      "event_count": 2,
+      "compatible_event_count": 2,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1,
+      "headline_count_included": 2,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 2
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -8546,22 +8609,24 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 7,
-      "compatible_event_count": 7,
+      "event_count": 8,
+      "compatible_event_count": 8,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 7,
+      "headline_count_included": 8,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 7
+        "documented": 8
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
       "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -9255,22 +9320,26 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -9279,9 +9348,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Service Catchments records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -9300,22 +9367,24 @@
       "year": 2008,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2008; source-backed coverage-context features in lens_detail_2008.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -9324,9 +9393,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Service Catchments records are currently ingested for 2008.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -9391,21 +9458,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 4,
-      "compatible_event_count": 4,
+      "event_count": 5,
+      "compatible_event_count": 5,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 4,
+      "headline_count_included": 5,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 4
+        "documented": 5
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -9481,21 +9550,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 3,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -9571,21 +9644,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
+      "event_count": 2,
+      "compatible_event_count": 2,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1,
+      "headline_count_included": 2,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 2
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -9616,22 +9691,24 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 7,
-      "compatible_event_count": 7,
+      "event_count": 8,
+      "compatible_event_count": 8,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 7,
+      "headline_count_included": 8,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 7
+        "documented": 8
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
       "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -10325,22 +10402,26 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -10349,9 +10430,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Service Demand records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -10370,22 +10449,24 @@
       "year": 2008,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2008; source-backed coverage-context features in lens_detail_2008.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -10394,9 +10475,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Service Demand records are currently ingested for 2008.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -10461,21 +10540,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 4,
-      "compatible_event_count": 4,
+      "event_count": 5,
+      "compatible_event_count": 5,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 4,
+      "headline_count_included": 5,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 4
+        "documented": 5
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -10551,21 +10632,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 3,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -10641,21 +10726,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
+      "event_count": 2,
+      "compatible_event_count": 2,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1,
+      "headline_count_included": 2,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 2
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -10686,22 +10773,24 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 7,
-      "compatible_event_count": 7,
+      "event_count": 8,
+      "compatible_event_count": 8,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 7,
+      "headline_count_included": 8,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 7
+        "documented": 8
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
       "compatible_source_ids": [
         "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
       "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -11395,22 +11484,28 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 3
+      },
+      "source_count": 3,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007",
+        "ni_laganside_dissolution_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007",
+        "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -11419,9 +11514,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -11441,21 +11534,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -11485,22 +11580,24 @@
       "year": 2009,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
       "detail_feature_count": 25,
       "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
+      "headline_count_included": 1,
       "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "dfc_westside_masterplan_2009"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "dfc_westside_masterplan_2009"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2009; source-backed coverage-context features in lens_detail_2009.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -11509,9 +11606,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2009.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -11530,22 +11625,24 @@
       "year": 2010,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2010; source-backed coverage-context features in lens_detail_2010.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -11554,9 +11651,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2010.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -11620,22 +11715,24 @@
       "year": 2012,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2012; source-backed coverage-context features in lens_detail_2012.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -11644,9 +11741,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2012.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -11665,22 +11760,24 @@
       "year": 2013,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2013; source-backed coverage-context features in lens_detail_2013.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -11689,9 +11786,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2013.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -11710,22 +11805,24 @@
       "year": 2014,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2014; source-backed coverage-context features in lens_detail_2014.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -11734,9 +11831,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2014.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -11755,22 +11850,24 @@
       "year": 2015,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2015; source-backed coverage-context features in lens_detail_2015.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Land Use event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -11779,9 +11876,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Land Use records are currently ingested for 2015.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12401,22 +12496,28 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 3
+      },
+      "source_count": 3,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007",
+        "ni_laganside_dissolution_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007",
+        "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -12425,9 +12526,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12447,21 +12546,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -12491,22 +12592,24 @@
       "year": 2009,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
       "detail_feature_count": 25,
       "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
+      "headline_count_included": 1,
       "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "dfc_westside_masterplan_2009"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "dfc_westside_masterplan_2009"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2009; source-backed coverage-context features in lens_detail_2009.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -12515,9 +12618,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2009.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12536,22 +12637,24 @@
       "year": 2010,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2010; source-backed coverage-context features in lens_detail_2010.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -12560,9 +12663,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2010.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12626,22 +12727,24 @@
       "year": 2012,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2012; source-backed coverage-context features in lens_detail_2012.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -12650,9 +12753,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2012.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12671,22 +12772,24 @@
       "year": 2013,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2013; source-backed coverage-context features in lens_detail_2013.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -12695,9 +12798,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2013.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12716,22 +12817,24 @@
       "year": 2014,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2014; source-backed coverage-context features in lens_detail_2014.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -12740,9 +12843,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2014.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -12761,22 +12862,24 @@
       "year": 2015,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2015; source-backed coverage-context features in lens_detail_2015.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed High Street Activity event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -12785,9 +12888,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible High Street Activity records are currently ingested for 2015.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13407,22 +13508,28 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 3
+      },
+      "source_count": 3,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007",
+        "ni_laganside_dissolution_2007"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "belfast_met_history_2007",
+        "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -13431,9 +13538,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13453,21 +13558,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "event_count": 3,
+      "compatible_event_count": 3,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 3,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -13497,22 +13604,24 @@
       "year": 2009,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
       "detail_feature_count": 25,
       "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
+      "headline_count_included": 1,
       "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "dfc_westside_masterplan_2009"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "dfc_westside_masterplan_2009"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2009; source-backed coverage-context features in lens_detail_2009.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -13521,9 +13630,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2009.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13542,22 +13649,24 @@
       "year": 2010,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2010; source-backed coverage-context features in lens_detail_2010.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -13566,9 +13675,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2010.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13632,22 +13739,24 @@
       "year": 2012,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2012; source-backed coverage-context features in lens_detail_2012.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -13656,9 +13765,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2012.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13677,22 +13784,24 @@
       "year": 2013,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2013; source-backed coverage-context features in lens_detail_2013.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -13701,9 +13810,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2013.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13722,22 +13829,24 @@
       "year": 2014,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2014; source-backed coverage-context features in lens_detail_2014.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -13746,9 +13855,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2014.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -13767,22 +13874,24 @@
       "year": 2015,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 25,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2015; source-backed coverage-context features in lens_detail_2015.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -13791,9 +13900,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Economic Pull records are currently ingested for 2015.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -14413,22 +14520,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -14437,9 +14546,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Capacity records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -14458,22 +14565,24 @@
       "year": 2008,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2008; source-backed coverage-context features in lens_detail_2008.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -14482,9 +14591,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Capacity records are currently ingested for 2008.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -14549,20 +14656,22 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
+      "event_count": 3,
+      "compatible_event_count": 3,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 2,
+      "headline_count_included": 3,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -14638,22 +14747,26 @@
       "year": 2012,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2012; source-backed coverage-context features in lens_detail_2012.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -14662,9 +14775,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Capacity records are currently ingested for 2012.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -14683,22 +14794,24 @@
       "year": 2013,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2013; source-backed coverage-context features in lens_detail_2013.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -14707,9 +14820,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Capacity records are currently ingested for 2013.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -14729,21 +14840,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 2
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -14774,23 +14887,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
+      "event_count": 3,
+      "compatible_event_count": 3,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 2,
+      "headline_count_included": 3,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 3
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "bcc-democratic-services-minutes-round177",
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
         "bcc-democratic-services-minutes-round177",
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -15557,22 +15672,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -15581,9 +15698,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Network Resilience records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -15602,22 +15717,24 @@
       "year": 2008,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2008; source-backed coverage-context features in lens_detail_2008.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -15626,9 +15743,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Network Resilience records are currently ingested for 2008.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -15693,20 +15808,22 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
+      "event_count": 3,
+      "compatible_event_count": 3,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 2,
+      "headline_count_included": 3,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -15782,22 +15899,26 @@
       "year": 2012,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2012; source-backed coverage-context features in lens_detail_2012.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -15806,9 +15927,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Network Resilience records are currently ingested for 2012.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -15827,22 +15946,24 @@
       "year": 2013,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2013; source-backed coverage-context features in lens_detail_2013.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -15851,9 +15972,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Network Resilience records are currently ingested for 2013.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -15873,21 +15992,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 2
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -15918,23 +16039,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
+      "event_count": 3,
+      "compatible_event_count": 3,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 2,
+      "headline_count_included": 3,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 3
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "bcc-democratic-services-minutes-round177",
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
         "bcc-democratic-services-minutes-round177",
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -16701,22 +16824,24 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -16725,9 +16850,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Works records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -16746,22 +16869,24 @@
       "year": 2008,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2008; source-backed coverage-context features in lens_detail_2008.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -16770,9 +16895,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Works records are currently ingested for 2008.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -16837,20 +16960,22 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
+      "event_count": 3,
+      "compatible_event_count": 3,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 2,
+      "headline_count_included": 3,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 3
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "compatible_source_ids": [
+        "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
       "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
@@ -16926,22 +17051,26 @@
       "year": 2012,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
-      "source_count": 1,
+      "status": "source_backed_records",
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 2
+      },
+      "source_count": 2,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_city_council_minutes_2008_2015",
+        "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2012; source-backed coverage-context features in lens_detail_2012.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -16950,9 +17079,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Works records are currently ingested for 2012.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -16971,22 +17098,24 @@
       "year": 2013,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
-      "event_count": 0,
-      "compatible_event_count": 0,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 0,
-      "headline_count_excluded_context_features": 12,
-      "confidence_counts": {},
+      "status": "source_backed_records",
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "detail_feature_count": 2,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 1,
+      "headline_count_excluded_context_features": 0,
+      "confidence_counts": {
+        "documented": 1
+      },
       "source_count": 1,
       "source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
       "compatible_source_ids": [
-        "opendatani-spatial-ni"
+        "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "No same-lens event rows matched for 2013; source-backed coverage-context features in lens_detail_2013.geojson keep the lens visible without adding event records.",
+      "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -16995,9 +17124,7 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "No license-compatible Utility Works records are currently ingested for 2013.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
       ],
       "exports": {
         "markdown": true,
@@ -17017,21 +17144,23 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
-      "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "event_count": 2,
+      "compatible_event_count": 2,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
+      "headline_count_included": 2,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 1
+        "documented": 2
       },
-      "source_count": 1,
+      "source_count": 2,
       "source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -17062,23 +17191,25 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
+      "event_count": 3,
+      "compatible_event_count": 3,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 2,
+      "headline_count_included": 3,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 3
       },
-      "source_count": 2,
+      "source_count": 3,
       "source_ids": [
         "bcc-democratic-services-minutes-round177",
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
         "bcc-democratic-services-minutes-round177",
-        "belfast-architecture-public-pages"
+        "belfast-architecture-public-pages",
+        "belfast_city_council_minutes_2008_2015"
       ],
       "evidence_basis": "Source-backed Utility Works event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {

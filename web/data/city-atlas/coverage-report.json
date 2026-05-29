@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-23T18:38:00Z",
+  "generated_at": "2026-05-27T18:21:59Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 352009,
-    "total_unique_events": 352009,
+    "total_events": 352023,
+    "total_unique_events": 352023,
     "duplicate_event_id_count": 0,
-    "active_source_count": 477,
+    "active_source_count": 485,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2467,
+    "source_year_layer_row_count": 2481,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -1020,6 +1020,78 @@
     },
     {
       "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2007,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2008,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2008,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2010,
+      "layer": "economy",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2012,
+      "layer": "economy",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2014,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_city_council_minutes_2008_2015",
+      "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+      "year": 2015,
+      "layer": "economy",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_harbour_offshore_wind_terminal_2013",
+      "source_title": "Belfast Harbour offshore wind terminal hand-over news record",
+      "year": 2013,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "belfast_met_history_2007",
+      "source_title": "Belfast Metropolitan College history page",
+      "year": 2007,
+      "layer": "civic_services",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
       "source_id": "belfast-architecture-public-pages",
       "source_title": "Belfast architecture and major project public pages",
       "year": 2008,
@@ -1407,6 +1479,14 @@
       "source_id": "de-st-patricks-primary-north-belfast-works-begin-2020-round409",
       "source_title": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
       "year": 2020,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "dfc_westside_masterplan_2009",
+      "source_title": "Belfast city centre Westside regeneration masterplan",
+      "year": 2009,
       "layer": "built_environment",
       "event_count": 1
     },
@@ -2400,6 +2480,22 @@
       "source_title": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
       "year": 2023,
       "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni_laganside_dissolution_2007",
+      "source_title": "Laganside Corporation dissolution legislative record",
+      "year": 2007,
+      "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
+      "source_title": "NI Water Belfast hydrant-abuse supply disruption news record",
+      "year": 2012,
+      "layer": "utilities",
       "event_count": 1
     },
     {
@@ -10344,6 +10440,22 @@
       "source_title": "Tower Hamlets Town Hall / Our New Town Hall story",
       "year": 2023,
       "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "uk_parliament_hansard_thames_tideway_2013",
+      "source_title": "Hansard Thames Tideway Tunnel debate record",
+      "year": 2007,
+      "layer": "utilities",
+      "event_count": 1
+    },
+    {
+      "city_id": "london",
+      "source_id": "wembley_stadium_history_2007",
+      "source_title": "Wembley Stadium official history timeline",
+      "year": 2007,
+      "layer": "civic_services",
       "event_count": 1
     },
     {
@@ -19759,17 +19871,17 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 33147,
-      "unique_event_count": 33147,
+      "event_count": 33159,
+      "unique_event_count": 33159,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 236,
-      "active_source_count": 205,
+      "source_count": 242,
+      "active_source_count": 211,
       "source_catalog_only_count": 31,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 33147,
-        "gap_events": 66853,
+        "backed_event_count": 33159,
+        "gap_events": 66841,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
       "year_range": {
@@ -19777,15 +19889,15 @@
         "last_event_year": 2026
       },
       "event_counts_by_year": {
-        "2007": 13,
-        "2008": 63,
-        "2009": 197,
-        "2010": 32,
+        "2007": 16,
+        "2008": 65,
+        "2009": 198,
+        "2010": 33,
         "2011": 152,
-        "2012": 237,
-        "2013": 144,
-        "2014": 257,
-        "2015": 248,
+        "2012": 239,
+        "2013": 145,
+        "2014": 258,
+        "2015": 249,
         "2016": 2379,
         "2017": 2444,
         "2018": 2203,
@@ -19799,24 +19911,39 @@
         "2026": 2416
       },
       "event_counts_by_layer": {
-        "built_environment": 13824,
-        "civic_services": 678,
-        "economy": 672,
+        "built_environment": 13827,
+        "civic_services": 680,
+        "economy": 675,
         "environment": 4,
         "transport": 17118,
-        "utilities": 851
+        "utilities": 855
       },
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 15179,
+        "documented": 15191,
         "inferred": 17965
       },
       "event_counts_by_year_layer": [
         {
           "year": 2007,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "year": 2007,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "year": 2007,
           "layer": "transport",
           "event_count": 13
+        },
+        {
+          "year": 2007,
+          "layer": "utilities",
+          "event_count": 1
         },
         {
           "year": 2008,
@@ -19825,13 +19952,23 @@
         },
         {
           "year": 2008,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "year": 2008,
           "layer": "transport",
           "event_count": 54
         },
         {
+          "year": 2008,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 24
+          "event_count": 25
         },
         {
           "year": 2009,
@@ -19842,6 +19979,11 @@
           "year": 2010,
           "layer": "built_environment",
           "event_count": 12
+        },
+        {
+          "year": 2010,
+          "layer": "economy",
+          "event_count": 1
         },
         {
           "year": 2010,
@@ -19865,8 +20007,18 @@
         },
         {
           "year": 2012,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "year": 2012,
           "layer": "transport",
           "event_count": 229
+        },
+        {
+          "year": 2012,
+          "layer": "utilities",
+          "event_count": 1
         },
         {
           "year": 2013,
@@ -19879,9 +20031,14 @@
           "event_count": 127
         },
         {
+          "year": 2013,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 15
+          "event_count": 16
         },
         {
           "year": 2014,
@@ -19892,6 +20049,11 @@
           "year": 2015,
           "layer": "built_environment",
           "event_count": 36
+        },
+        {
+          "year": 2015,
+          "layer": "economy",
+          "event_count": 1
         },
         {
           "year": 2015,
@@ -21167,6 +21329,78 @@
         },
         {
           "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2007,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2008,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2008,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2010,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2012,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2014,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "source_title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "year": 2015,
+          "layer": "economy",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_harbour_offshore_wind_terminal_2013",
+          "source_title": "Belfast Harbour offshore wind terminal hand-over news record",
+          "year": 2013,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "belfast_met_history_2007",
+          "source_title": "Belfast Metropolitan College history page",
+          "year": 2007,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
           "source_id": "belfast-architecture-public-pages",
           "source_title": "Belfast architecture and major project public pages",
           "year": 2008,
@@ -21554,6 +21788,14 @@
           "source_id": "de-st-patricks-primary-north-belfast-works-begin-2020-round409",
           "source_title": "GBP11.4 million works begin on St Patrick's Primary School, North Belfast",
           "year": 2020,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "dfc_westside_masterplan_2009",
+          "source_title": "Belfast city centre Westside regeneration masterplan",
+          "year": 2009,
           "layer": "built_environment",
           "event_count": 1
         },
@@ -22547,6 +22789,22 @@
           "source_title": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
           "year": 2023,
           "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni_laganside_dissolution_2007",
+          "source_title": "Laganside Corporation dissolution legislative record",
+          "year": 2007,
+          "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
+          "source_title": "NI Water Belfast hydrant-abuse supply disruption news record",
+          "year": 2012,
+          "layer": "utilities",
           "event_count": 1
         },
         {
@@ -24322,6 +24580,34 @@
           "last_year": 2025,
           "layer_counts": {
             "built_environment": 7
+          },
+          "confidence_counts": {
+            "documented": 7
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "belfast_city_council_minutes_2008_2015",
+          "title": "Belfast City Council public agenda and minutes records, 2008-2015",
+          "provider": "Belfast City Council",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
+          "event_count": 7,
+          "years": [
+            2007,
+            2008,
+            2010,
+            2012,
+            2014,
+            2015
+          ],
+          "first_year": 2007,
+          "last_year": 2015,
+          "layer_counts": {
+            "built_environment": 1,
+            "civic_services": 1,
+            "economy": 3,
+            "utilities": 2
           },
           "confidence_counts": {
             "documented": 7
@@ -26422,6 +26708,46 @@
           "coverage_status": "events_emitted"
         },
         {
+          "source_id": "belfast_harbour_offshore_wind_terminal_2013",
+          "title": "Belfast Harbour offshore wind terminal hand-over news record",
+          "provider": "Belfast Harbour",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast Harbour copyright; this atlas stores factual citation metadata and no reproduced page text.",
+          "event_count": 1,
+          "years": [
+            2013
+          ],
+          "first_year": 2013,
+          "last_year": 2013,
+          "layer_counts": {
+            "utilities": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "belfast_met_history_2007",
+          "title": "Belfast Metropolitan College history page",
+          "provider": "Belfast Metropolitan College",
+          "reliability": "usable_with_caveats",
+          "licence": "Belfast Metropolitan College copyright; this atlas stores factual citation metadata and no reproduced page text.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "civic_services": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
           "source_id": "belfast-city-council-belfast-stories-pages",
           "title": "Belfast Stories project and consultation pages",
           "provider": "Belfast City Council",
@@ -26833,6 +27159,26 @@
           ],
           "first_year": 2020,
           "last_year": 2020,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "dfc_westside_masterplan_2009",
+          "title": "Belfast city centre Westside regeneration masterplan",
+          "provider": "Department for Communities Northern Ireland",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for public-sector information unless otherwise stated.",
+          "event_count": 1,
+          "years": [
+            2009
+          ],
+          "first_year": 2009,
+          "last_year": 2009,
           "layer_counts": {
             "built_environment": 1
           },
@@ -27375,6 +27721,46 @@
           "last_year": 2023,
           "layer_counts": {
             "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni_laganside_dissolution_2007",
+          "title": "Laganside Corporation dissolution legislative record",
+          "provider": "Northern Ireland Assembly / UK legislation record",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for public-sector information where applicable.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
+          "title": "NI Water Belfast hydrant-abuse supply disruption news record",
+          "provider": "Northern Ireland Water",
+          "reliability": "usable_with_caveats",
+          "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
+          "event_count": 1,
+          "years": [
+            2012
+          ],
+          "first_year": 2012,
+          "last_year": 2012,
+          "layer_counts": {
+            "utilities": 1
           },
           "confidence_counts": {
             "documented": 1
@@ -28297,16 +28683,16 @@
     {
       "city_id": "london",
       "display_name": "London, England",
-      "event_count": 224001,
-      "unique_event_count": 224001,
+      "event_count": 224003,
+      "unique_event_count": 224003,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 292,
-      "active_source_count": 191,
+      "source_count": 294,
+      "active_source_count": 193,
       "source_catalog_only_count": 101,
       "target_coverage_gap": {
         "target_events": 100000,
-        "backed_event_count": 224001,
+        "backed_event_count": 224003,
         "gap_events": 0,
         "note": "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records."
       },
@@ -28382,7 +28768,7 @@
         "2004": 1256,
         "2005": 1234,
         "2006": 1254,
-        "2007": 1289,
+        "2007": 1291,
         "2008": 3355,
         "2009": 4498,
         "2010": 4426,
@@ -28405,14 +28791,14 @@
       },
       "event_counts_by_layer": {
         "built_environment": 104718,
-        "civic_services": 53367,
+        "civic_services": 53368,
         "environment": 28071,
         "transport": 37842,
-        "utilities": 3
+        "utilities": 4
       },
       "event_counts_by_confidence": {
         "corroborated": 8,
-        "documented": 223991,
+        "documented": 223993,
         "inferred": 2
       },
       "event_counts_by_year_layer": [
@@ -28798,7 +29184,17 @@
         },
         {
           "year": 2007,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "year": 2007,
           "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "year": 2007,
+          "layer": "utilities",
           "event_count": 1
         },
         {
@@ -36307,6 +36703,22 @@
         },
         {
           "city_id": "london",
+          "source_id": "uk_parliament_hansard_thames_tideway_2013",
+          "source_title": "Hansard Thames Tideway Tunnel debate record",
+          "year": 2007,
+          "layer": "utilities",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
+          "source_id": "wembley_stadium_history_2007",
+          "source_title": "Wembley Stadium official history timeline",
+          "year": 2007,
+          "layer": "civic_services",
+          "event_count": 1
+        },
+        {
+          "city_id": "london",
           "source_id": "westminster-300-harrow-road-project-page",
           "source_title": "300 Harrow Road",
           "year": 2020,
@@ -40727,6 +41139,46 @@
           "last_year": 2023,
           "layer_counts": {
             "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "uk_parliament_hansard_thames_tideway_2013",
+          "title": "Hansard Thames Tideway Tunnel debate record",
+          "provider": "UK Parliament",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Parliament Licence.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "utilities": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "wembley_stadium_history_2007",
+          "title": "Wembley Stadium official history timeline",
+          "provider": "Wembley Stadium",
+          "reliability": "usable_with_caveats",
+          "licence": "Wembley Stadium copyright; this atlas stores factual citation metadata and no reproduced page text.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "civic_services": 1
           },
           "confidence_counts": {
             "documented": 1

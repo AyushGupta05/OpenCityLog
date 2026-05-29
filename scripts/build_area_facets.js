@@ -9,7 +9,31 @@ function readJson(filePath) {
 }
 
 function writeJson(filePath, payload) {
-  fs.writeFileSync(filePath, `${JSON.stringify(payload)}\n`);
+  const text = `${JSON.stringify(payload)}\n`;
+  const tmpPath = `${filePath}.tmp`;
+  let lastError = null;
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    try {
+      fs.writeFileSync(tmpPath, text, "utf8");
+      try {
+        fs.renameSync(tmpPath, filePath);
+      } catch (renameError) {
+        if (!["EPERM", "EACCES", "EEXIST", "UNKNOWN"].includes(renameError.code)) throw renameError;
+        fs.copyFileSync(tmpPath, filePath);
+        fs.unlinkSync(tmpPath);
+      }
+      return;
+    } catch (error) {
+      lastError = error;
+      try {
+        if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
+      } catch (_) {
+        // Best-effort cleanup before retrying a generated artifact write.
+      }
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 150 * (attempt + 1));
+    }
+  }
+  throw lastError;
 }
 
 function resolveArtifact(value) {
