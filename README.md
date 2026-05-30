@@ -103,6 +103,11 @@ npm test
 - `docs/15_lens_source_audit.md`
 - `docs/provenance.md`
 - `docs/data_acquisition.md`
+- `docs/release_notes.md`
+
+## Historical Research Notes
+
+These notes are retained for context only and are not active runtime scope:
+
 - `docs/lightweight_impact.md`
 - `docs/city_architect_research.md`
-- `docs/release_notes.md`

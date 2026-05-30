@@ -6,7 +6,7 @@ This branch keeps the atlas data-source layer inspectable and deterministic. The
 
 The source catalogue is `config/source_inventory.json`. Each source entry records:
 
-- coverage years for the 2016-2026 replay window
+- coverage years for the 2016-2026 atlas coverage window
 - access pattern, such as local repo, manual drop, API query, portal download, or feed
 - licence and attribution notes
 - ingestion status
@@ -143,4 +143,4 @@ The current indexer is deliberately conservative. It flags evidence; it does not
 - `folder_filename_year_mismatch` means the year in the folder and the year in the filename disagree.
 - `metadata_skipped` means the file was too large for lightweight GeoJSON parsing under the configured size limit.
 
-Review these flags before using a layer in replay analysis.
+Review these flags before using a layer in atlas coverage analysis.

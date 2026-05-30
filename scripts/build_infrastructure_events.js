@@ -58,8 +58,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official project/service launch",
     sourceName: "Department for Infrastructure / Translink public information",
-    sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/belfast-rapid-transit",
-    impactNote: "Use the traffic lens to inspect where bus-priority corridors and city-centre access changes overlap the replay grid."
+    sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/belfast-rapid-transit"
   },
   {
     id: "official-2023-templemore-baths",
@@ -74,8 +73,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official council project opening",
     sourceName: "Belfast City Council",
-    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/templemore-baths",
-    impactNote: "Use the services lens to inspect public-service access around East Belfast and the Lagan corridor."
+    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/templemore-baths"
   },
   {
     id: "official-2024-grand-central",
@@ -90,8 +88,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official station opening",
     sourceName: "Translink",
-    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/belfastgrandcentral",
-    impactNote: "Use the traffic and jobs lenses to inspect city-centre accessibility and interchange pressure."
+    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/belfastgrandcentral"
   },
   {
     id: "official-2024-york-street-station",
@@ -106,8 +103,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official station opening",
     sourceName: "Translink",
-    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/yorkstreet",
-    impactNote: "Use the traffic and jobs lenses to inspect access changes between York Street, Cathedral Quarter and north Belfast."
+    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/yorkstreet"
   },
   {
     id: "official-2022-ulster-belfast-campus",
@@ -122,8 +118,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official institutional opening",
     sourceName: "Ulster University",
-    sourceUrl: "https://www.ulster.ac.uk/campuses/belfast",
-    impactNote: "Use the jobs and buildings lenses to inspect education, employment and development pressure around Cathedral Quarter."
+    sourceUrl: "https://www.ulster.ac.uk/campuses/belfast"
   },
   {
     id: "official-2020-andersonstown-leisure",
@@ -138,8 +133,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official council leisure programme",
     sourceName: "Belfast City Council",
-    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/andersonstown-leisure-centre",
-    impactNote: "Use the services lens to inspect civic-service access in west Belfast."
+    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/andersonstown-leisure-centre"
   },
   {
     id: "official-2017-olympia-leisure",
@@ -154,8 +148,7 @@ const officialEvents = [
     confidence: "high",
     sourceBasis: "official council leisure programme",
     sourceName: "Belfast City Council",
-    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/olympia-leisure-centre",
-    impactNote: "Use the services lens to inspect leisure and community access around south Belfast."
+    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/olympia-leisure-centre"
   },
   {
     id: "official-2021-transport-hub-works",
@@ -164,14 +157,13 @@ const officialEvents = [
     signal: "traffic",
     category: "traffic",
     title: "Belfast Transport Hub works advanced at Weavers Cross",
-    subtitle: "Construction activity around the transport hub reshaped city-centre access and development pressure.",
+    subtitle: "Construction activity around the transport hub is retained as a source-backed city-centre transport and development-area milestone.",
     area: "City Centre",
     coordinates: [-5.9391, 54.5943],
     confidence: "medium-high",
     sourceBasis: "official transport-hub project record",
     sourceName: "Translink Weavers Cross",
-    sourceUrl: "https://www.weaverscross.co.uk/",
-    impactNote: "Use the traffic and buildings lenses to inspect the station district and nearby development cells."
+    sourceUrl: "https://www.weaverscross.co.uk/"
   }
 ];
 
@@ -345,7 +337,6 @@ function planningEvents() {
           classification: row[index.Classification],
           status: row[index["Status@31Mar"]],
         },
-        impactNote: "Use the buildings, jobs, services or electricity lens to inspect replay-impact cells around this approved planning record."
       });
     }
   }
@@ -406,7 +397,6 @@ function architectureMilestoneEvents() {
           architect: event.architect,
           project_type: event.project_type,
         },
-        impactNote: "Use the buildings lens to inspect nearby source-backed city-change records without treating this milestone as causal evidence.",
       };
     })
     .filter((event) => Number.isInteger(event.year) && years.includes(event.year));
@@ -500,8 +490,7 @@ function eventForFeature(config, feature, meta) {
     osmVersion: meta.version,
     osmChangeset: meta.changeset,
     osmUser: meta.user,
-    tags: Object.fromEntries(config.tagKeys.map((key) => [key, tags[key] || props[key]]).filter((entry) => entry[1])),
-    impactNote: `Use the ${config.signal} lens to inspect cells around this mapped ${config.assetLabel} record.`
+    tags: Object.fromEntries(config.tagKeys.map((key) => [key, tags[key] || props[key]]).filter((entry) => entry[1]))
   };
 }
 
@@ -519,8 +508,7 @@ function jobsEventFrom(event) {
     signal: "jobs",
     category: "jobs",
     title: event.title.replace(/ mapped in OSM$/, " employment/service anchor mapped in OSM"),
-    subtitle: "Public OSM mapped-event record for a commercial, education, health or service anchor used by the jobs/opportunity lens.",
-    impactNote: "Use the jobs lens to inspect employment and opportunity access around this mapped public-source record."
+    subtitle: "Public OSM mapped-event record for a commercial, education, health or service anchor used by the jobs/opportunity lens."
   };
 }
 

@@ -1,6 +1,6 @@
 # City Architect Research Notes
 
-These notes informed the Proposal Lens and city-architect workbench. They are intentionally product-facing: the goal is to make Bims-5 more useful to a city architect, urban designer, planner, or public-interest reviewer without turning the atlas into an outcome model.
+These historical research notes informed earlier city-architect and proposal-analogue experiments. They are retained only as background for future product thinking. They are not active runtime scope, and any future feature drawn from them must stay inside the source-backed city-change atlas model rather than becoming an outcome model.
 
 ## Persona
 
@@ -25,8 +25,8 @@ A city architect is trying to judge whether a proposed change has a defensible r
 
 ## Product Translation
 
-- Add a city-architect design review basis: context/character, connectivity/access, public realm/inclusion, healthy environment/resilience, and everyday use value.
-- Show analogue match factors for category, distance, recency, confidence, and source quality.
-- Use nearby historical event density as a labelled context fallback when measured grid cells are unavailable.
-- Keep every output framed as a screening prompt with caveats. Similar events are leads for review; they do not establish causation.
-- Make copied reports useful for design review: selected precedent, before/after date basis, evidence matrix, design review basis, public-life measurement plan, data gaps, and linked sources.
+- Future design-review features can group atlas evidence by context/character, connectivity/access, public realm/inclusion, healthy environment/resilience, and everyday use.
+- Any historical analogue or precedent lookup must show match factors for category, distance, recency, confidence, and source quality.
+- Nearby historical event density can be used only as labelled context when measured grid cells are unavailable.
+- Outputs should stay framed as screening prompts with caveats. Similar events are leads for review; they do not establish causation.
+- Copied reports should stay evidence-first: selected precedent, before/after date basis, evidence matrix, review basis, fieldwork plan, data gaps, and linked sources.
