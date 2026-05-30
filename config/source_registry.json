@@ -13152,7 +13152,7 @@
       "update_frequency": "Quarterly and annual statistical releases",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
       "local_paths": [
-        "planning_statistics/",
+        "data/raw/planning_statistics/",
         "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
         "web/data/city-atlas/cities/belfast/events.json"
       ],
@@ -13204,7 +13204,7 @@
           "planning_decision"
         ],
         "current_artifacts": {
-          "raw_snapshot_path": "planning_statistics/",
+          "raw_snapshot_path": "data/raw/planning_statistics/",
           "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
           "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
         },

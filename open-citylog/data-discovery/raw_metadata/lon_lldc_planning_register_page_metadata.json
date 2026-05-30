@@ -1,8 +1,0 @@
-{
-  "source_id": "lon_lldc_planning_register",
-  "title": "LLDC planning register",
-  "requested_url": "https://planningregister.londonlegacy.co.uk/swift/apas/run/wphappcriteria.display",
-  "fetched_url": "https://planningregister.londonlegacy.co.uk/swift/apas/run/wphappcriteria.display",
-  "retrieved_at": "2026-04-28T11:05:09.590051+00:00",
-  "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))"
-}
